@@ -1,0 +1,6 @@
+---
+Name: googlesitemaproutes
+---
+SilverStripe\Control\Director:
+  rules:
+    'sitemap.xml': 'GoogleSitemapController'

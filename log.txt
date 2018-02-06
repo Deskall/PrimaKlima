@@ -1,0 +1,13 @@
+SilverStripe\View\SSViewer Object
+(
+    [rewriteHashlinks:protected] => 
+    [templates:protected] => Page
+    [chosen:protected] => C:\Users\guillaume\Desktop\Deskall/themes/simple/templates/Page.ss
+    [subTemplates:protected] => Array
+        (
+        )
+
+    [includeRequirements:protected] => 1
+    [parser:protected] => 
+    [partialCacheStore:protected] => 
+)

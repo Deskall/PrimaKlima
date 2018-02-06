@@ -1,0 +1,9 @@
+---
+Name: mytheme
+---
+SilverStripe\View\SSViewer:
+  themes:
+    - 'foundation'
+    - '$default'
+SilverStripe\i18n\i18n:
+  default_locale: 'de_DE'

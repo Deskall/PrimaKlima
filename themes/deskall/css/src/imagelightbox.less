@@ -1,0 +1,162 @@
+/* IMAGE LIGHTBOX SELECTOR */
+
+#imagelightbox
+{
+	cursor: pointer;
+	position: fixed;
+    left: 50%;
+  	top: 50%;
+	max-width: 100%;
+	height: auto;
+	max-height: 100%;
+	z-index: 9999999;
+	-ms-touch-action: none;
+	touch-action: none;
+	-webkit-transform: translate( -50%, -50%);
+	-ms-transform: translate( -50%, -50%);
+	transform: translate( -50%, -50%);
+	-webkit-box-shadow: 0 0 3.125em rgba( 0, 0, 0, .75 ); /* 50 */
+	box-shadow: 0 0 3.125em rgba( 0, 0, 0, .75 ); /* 50 */
+
+	@media only screen and (min-width:@tabletscreen){
+		max-width: 80%;
+		max-height: 90%;
+	}
+}
+
+/* ACTIVITY INDICATION */
+
+#imagelightbox-loading
+{
+	width: 2.5em; /* 40 */
+	height: 2.5em; /* 40 */
+	color: #999999;
+	position: fixed;
+	z-index: 99999999;
+	top: 50%;
+	left: 50%;
+	padding: 0.625em; /* 10 */
+	margin: -1.25em 0 0 -1.25em; /* 20 */
+	font-size: 32px;
+
+	* {
+		color: fade(@white, 80);
+	}	
+
+	&:hover *{
+		color: @white;
+	}
+}
+
+
+
+/* OVERLAY */
+
+#imagelightbox-overlay
+{
+	background-color: #000;
+	background-color: rgba( 0, 0, 0, .8 );
+	position: fixed;
+	z-index: 9999998;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+
+	/* "CLOSE" BUTTON */
+
+#imagelightbox-close
+{
+	text-align: left;
+	position: fixed;
+	z-index: 9999999;
+	top: 30px; /*2.5em*/
+	right: 10px; /*2.5em*/
+	color: #999999;
+	font-size: 32px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	font-weight: lighter;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+
+	* {
+		color: fade(@white, 80);
+	}	
+
+	&:hover *{
+		color: @white;
+	}
+}
+
+#imagelightbox-close:hover{
+	color: #ffffff;
+}
+
+
+
+/* CAPTION */
+
+#imagelightbox-caption
+{
+	text-align: center;
+	background-color: #cccccc;
+	color: #666666;
+	position: fixed;
+	z-index: 9999999;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	line-height: 200%;
+}
+
+
+
+/* ARROWS */
+
+.imagelightbox-arrow
+{
+	vertical-align: middle;
+	display: none;
+	position: fixed;
+	z-index: 99999999;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	font-size: 30px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	color: #999999;
+
+	* {
+		color: fade(@white, 80);
+	}	
+
+	&:hover *{
+		color: @white;
+	}
+}
+
+.imagelightbox-arrow-left
+{
+	left: 0px; /* 2.5em */
+}
+
+.imagelightbox-arrow-right
+{
+	right: 0px; /* 2.5em */
+}
+
+
+

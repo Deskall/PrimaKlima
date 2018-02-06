@@ -1,0 +1,197 @@
+	/* STD Form */
+	.form-std {
+		text-align: right;
+	}
+	.form-std input[type="text"], .form-std input[type="email"], .form-std select, .form-std textarea{
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		display: block;
+		width: 100%;
+		padding-left: 8px;
+		padding-right: 8px;
+		font-size: 20px;
+		line-height: 40px;
+		height: 40px;
+		background-color: @form-std_field-bg_c;
+		color: @form-std_text_c;
+		margin-bottom: 8px;
+		border: none;
+		border-radius: 0;
+	}
+
+	.form-std select{
+		padding-top: 8px;
+		padding-bottom: 8px;
+	}
+
+	.form-std textarea{
+		padding-top: 8px;
+		line-height: 120%;
+		padding-bottom: 8px;
+		height: 110px;
+		overflow-y: auto;
+	}
+	.form-std button{
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		padding: 8px;
+		font-size: 20px;
+		line-height: 20px;
+		background-color: @form-std_button_c;
+		color: @form-std_button-text_c;
+		border: none;
+		cursor: pointer;
+	}
+
+	.form-std button i{
+		color: #ffffff;
+		margin-left: 10px;
+	}
+
+	.form-std {
+		.with-icons(true,@form-std_icons_c);
+	}
+
+
+::-webkit-input-placeholder { color: lighten(@form-std_text_c, 20%); }
+::-moz-placeholder { color: lighten(@form-std_text_c, 20%); } /* firefox 19+ */
+:-ms-input-placeholder { color: lighten(@form-std_text_c, 20%); } /* ie */
+input:-moz-placeholder { color: lighten(@form-std_text_c, 20%); }
+
+	/* FORM HOME */
+	.form-home {
+		text-align: right;
+	}
+	.form-home input[type="text"], .form-home select, .form-home textarea{
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		display: block;
+		width: 100%;
+		padding-left: 8px;
+		padding-right: 8px;
+		font-size: 20px;
+		@media only screen and (min-width:@tabletscreen){
+			font-size: 16px;
+		}
+		@media only screen and (min-width:@smallscreen){
+			font-size: 20px;
+		}
+		line-height: 40px;
+		height: 40px;
+		background-color: @form-home_field-bg_c;
+		color: @form-home_text_c;
+		margin-bottom: 8px;
+		border: none;
+		border-radius: 0;
+	}
+
+	.form-home select{
+		padding-top: 8px;
+		padding-bottom: 8px;
+	}
+
+	.form-home textarea{
+		padding-top: 8px;
+		line-height: 120%;
+		padding-bottom: 8px;
+		height: 110px;
+		overflow-y: auto;
+	}
+	.form-home button{
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		padding: 8px;
+		padding-right: 0px;
+		padding-top: 20px;
+		font-size: 20px;
+		@media only screen and (min-width:@tabletscreen){
+			font-size: 16px;
+		}
+		@media only screen and (min-width:@smallscreen){
+			font-size: 20px;
+		}
+
+		line-height: 20px;
+		background-color: @form-home_button_c;
+		color: @form-home_button-text_c;
+		border: none;
+		cursor: pointer;
+	}
+
+	.form-home button i{
+		color: @form-home_button-text_c;
+		margin-left: 10px;
+	}
+	.form-home {
+		.with-icons(true,@form-home_icons_c);
+	}
+
+
+
+
+
+// if icons
+.with-icons(@has-icons,@icon-color) when (@has-icons = true) {
+
+	input[type="text"],  textarea{
+		padding-right: 30px;
+	}
+
+	span{
+		position: relative;
+		float: left;
+		width: 100%;
+	}
+
+	span:after{
+ 		content: attr(data-icon);
+ 		position: absolute;
+ 		color: @icon-color;
+ 		font-size: 16px;
+ 		top: 12px;
+ 		right: 10px;
+ 		display: inline-block;
+ 		font-family: 'icomoon'!important;
+ 		font-style:normal;
+ 		font-weight:normal;
+ 		line-height: 1;
+ 		-webkit-font-smoothing:antialiased;
+ 		-moz-osx-font-smoothing:grayscale;
+	}
+}
+
+
+
+// LOGIN FORM
+
+
+	#MemberLoginForm_LoginForm input[type="text"], #MemberLoginForm_LoginForm input[type="password"], {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		display: block;
+		width: 100%;
+		padding-left: 8px;
+		padding-right: 8px;
+		font-size: 20px;
+		line-height: 40px;
+		background-color: @form-std_field-bg_c;
+		color: @form-std_text_c;
+		margin-bottom: 8px;
+		border: none;
+		border-radius: 0;
+	}
+
+	#MemberLoginForm_LoginForm  .action{
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		padding: 8px;
+		font-size: 20px;
+		line-height: 20px;
+		margin-bottom: 20px;
+		background-color: @form-std_button_c;
+		color: @form-std_button-text_c;
+		border: none;
+		cursor: pointer;
+	}
+
+

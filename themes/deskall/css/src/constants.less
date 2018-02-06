@@ -1,0 +1,281 @@
+//SCREEN SIZES
+@tabletscreen: 768px;
+@smallscreen: 1010px;
+@standardscreen: 1200px;
+
+//SCREEN SCALE FACTORS
+@smallscreen-scalefactor: @smallscreen / @standardscreen;
+@tabletscreen-scalefactor: @tabletscreen / @standardscreen;
+@mobile-scalefactor: 0.5;
+
+
+//COLORS
+@black: #000000;
+@darkgray: #333;
+@gray: #666;
+@lightgray: #999;
+@ultralightgray: #eee;
+@white: #fff;
+@color1: #c35419;
+
+
+
+//main
+@body-bg_c: @white;
+@stdtextcolor: @black;
+@stdlinkcolor: @black;
+
+
+//content
+@box-bg_c: transparent;
+
+// table
+@table1_c: fade(@lightgray, 20);
+@table2_c: fade(@lightgray, 10);
+
+@gallery-nav-bg_c: transparent;
+
+//footer
+@footertextcolor: @stdtextcolor;
+@footer-bg_c: @ultralightgray;
+
+
+//HEIGHTS
+@slider-height_n: 600px;
+@slider-height-page_n: 300px;
+@navi-height_n: 100px;
+@address-height_n: 18px;
+
+
+//FORM
+@form-std_field-bg_c: fade(@lightgray, 20);
+@form-std_text_c: @gray;
+@form-std_button_c: @gray;
+@form-std_button-text_c: @white;
+@form-std_icons_c: @gray;
+
+@form-home_field-bg_c: @form-std_field-bg_c;
+@form-home_text_c: @form-std_text_c;
+@form-home_button_c: @form-std_button_c;
+@form-home_button-text_c: @form-std_button-text_c;
+@form-home_icons_c: @form-std_icons_c;
+
+
+//FONT STYLES
+.standard-font{
+	font-family:'Lato', sans-serif;
+	color: @stdtextcolor;
+	font-weight: 300;
+	font-size: 16px;
+	@media only screen and (min-width:@tabletscreen){
+		font-size: 17px;
+	}
+	@media only screen and (min-width:@smallscreen){
+		font-size: 18px;
+	}
+	@media only screen and (min-width:@standardscreen){
+		font-size: 20px;
+	}
+	line-height: 150%;
+}
+
+.light-font{
+	font-weight: 100;
+}
+
+.small-font{
+	color: @stdtextcolor;
+	font-size: 14px;
+}
+
+.lead-font{
+	.standard-font;
+	font-weight: 700;
+}
+
+.heading-font{
+	.standard-font;
+
+}
+
+
+
+.h1-font{
+	.heading-font;
+	.light-font;
+	font-size: 48px;
+	color: @gray;
+	margin-bottom: 10px;
+	@media only screen and (min-width:@tabletscreen){
+		font-size: 72px;
+		margin-bottom: 15px;
+	}
+	@media only screen and (min-width:@smallscreen){
+		font-size: 80px;
+		margin-bottom: 20px;
+	}
+	@media only screen and (min-width:@standardscreen){
+		font-size: 96px;
+		margin-bottom: 25px;
+	}
+}
+
+.h2-font{
+	.heading-font;
+	color: @gray;
+	font-size: 24px;
+	margin-bottom: 10px;
+
+	@media only screen and (min-width:@tabletscreen){
+		font-size: 28px;
+	}
+	@media only screen and (min-width:@smallscreen){
+		font-size: 34px;
+		margin-bottom: 15px;
+	}
+	@media only screen and (min-width:@standardscreen){
+		font-size: 40px;
+	}
+}
+
+.h3-font{
+	.heading-font;
+	color: @gray;
+	margin-bottom: 10px;
+	font-size: 24px;
+	@media only screen and (min-width:@smallscreen){
+		font-size: 28px;
+	}
+}
+
+.strong-font{
+	font-family:'Lato', sans-serif;
+	font-weight: 700;
+}
+
+.link-font{
+	color: @stdlinkcolor;
+	text-decoration: underline;
+}
+
+.link-hover-font{
+	text-decoration: underline;
+}
+
+.read-more-font{
+	color: @stdlinkcolor;
+	font-weight: 700;
+	text-decoration: none;
+	&:hover{
+		text-decoration: none;
+	}
+}
+
+.nav-font{
+	.standard-font;
+	text-decoration: none;
+	color: @white;
+}
+
+.subnav-font{
+	.standard-font;
+	text-decoration: none;
+	color: @black;
+}
+
+.address-font{
+	font-style: normal;
+	.standard-font;
+	color: @stdtextcolor;
+	font-size: 14px;
+	@media only screen and (min-width:@smallscreen){
+		font-size: 16px;
+	}
+}
+
+.box-font{
+	.standard-font;
+}
+
+.footer-font{
+	font-size: 14px;
+	@media only screen and (min-width:@smallscreen){
+		font-size: 16px;
+	}
+}
+
+.hidden{display: none;}
+
+
+.spin{
+	display: block;
+	line-height: 32px;
+	height: 32px;
+	width: 32px;
+	text-align: center;
+
+	-moz-animation-name: spin;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+    -ms-animation-name: spin;
+    -ms-animation-duration: 0.5s;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+
+    -o-animation-name: spin;
+    -o-animation-duration: 0.5s;
+    -o-animation-iteration-count: infinite;
+    -o-animation-timing-function: linear;
+
+    animation-name: spin;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    } to {
+    	-moz-transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    } to {
+    	-webkit-transform: rotate(360deg);
+	}
+}
+
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(0deg);
+    } to {
+    	-ms-transform: rotate(360deg);
+	}
+}
+
+@-o-keyframes spin {
+    from {
+        -o-transform: rotate(0deg);
+    } to {
+    	-o-transform: rotate(360deg);
+	}
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+    	transform: rotate(360deg);
+	}
+}

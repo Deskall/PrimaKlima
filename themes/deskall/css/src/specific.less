@@ -1,0 +1,83 @@
+/* IMPRESSIONEN */	
+
+.impressionen{
+	padding-top: 20px;
+	background-color: #ffffff;
+	@media only screen and (min-width:@smallscreen){
+		padding-top: 50px;
+	}
+}
+
+.impressionen img{
+	margin: 0;
+}
+
+.impressionen a{
+	position: absolute;
+	bottom: 40px;
+	right: 20px;
+	font-weight: 700;
+
+}
+
+.impressionen  a i{
+	font-weight: 700;
+	padding-left: 10px;
+}
+
+
+.gallery-container{
+	position: relative;
+	padding-bottom: 40px;
+	margin-bottom: 40px;
+	width: 100%;
+}
+
+.gallery div{
+	width: 100%;
+}
+
+.gallery div img{
+	margin-right: 0;
+	float: left;
+	width: 48%;
+}
+
+.gallery div a:first-child img{
+	margin-right: 4%;
+}
+
+.prev, .next{
+	position: absolute;
+	height: 30px;
+	line-height: 30px;
+	@media only screen and (min-width:@smallscreen){
+		height: 40px;
+		line-height: 40px;
+	}
+
+	text-align: center;
+	bottom: 0;
+	background-color: @gallery-nav-bg_c;
+	color: @stdlinkcolor;
+}
+
+.prev{
+	left: 0px;
+	padding-right: 30px;
+}
+
+.next{
+	right: 0px;
+	padding-left: 30px;
+}
+
+
+
+
+
+
+
+
+
+
