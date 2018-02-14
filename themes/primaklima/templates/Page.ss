@@ -11,7 +11,6 @@
     <div class="uk-offcanvas-content">
       <% include Header %>
       $Layout
-      $Form
       <% include Footer %>
 
       <% include NavMobile %>
