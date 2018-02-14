@@ -1,4 +1,4 @@
-<header class="dk-background-header">
+<header class="dk-background-header uk-position-top">
 	<div class="uk-container uk-container-medium">
 		<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
 			<div class="uk-navbar-right uk-visible@m">
