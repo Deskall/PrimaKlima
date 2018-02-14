@@ -7,3 +7,8 @@ SilverStripe\Core\Manifest\ModuleManifest:
 Page:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - LayoutSiteConfigExtension
+

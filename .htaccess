@@ -8,9 +8,8 @@
   RewriteCond %{REQUEST_URI} !cms
   RewriteCond %{REQUEST_URI} !focuspoint
   RewriteCond %{REQUEST_URI} !framework
-  RewriteCond %{REQUEST_URI} !kickassets
+  RewriteCond %{REQUEST_URI} !assets
   RewriteCond %{REQUEST_URI} !mysite
-  RewriteCond %{REQUEST_URI} !assets/Uploads/senderliste
 
 
   # don't apply the AI behaviour to images inside AI's cache folder:

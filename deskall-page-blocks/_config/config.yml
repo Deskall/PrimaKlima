@@ -1,0 +1,31 @@
+---
+Name: deskall-page-blocks
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: deskall-page-blocks
+
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - BaseBlockExtension
+    - Activable
+
+DNADesign\Elemental\ElementalEditor:
+  extensions:
+    - ElementalEditorExtension
+
+Page:
+  extensions:
+    - PageBlocksExtension
+
+Slide:
+  extensions:
+    - Activable
+
+SilverStripe\UserForms\Form\UserForm:
+  extensions:
+    - UserDefinedFormExtension
+
+
+DNADesign\ElementalUserForms\Model\ElementForm:
+  extensions:
+    - UserFormExtension

@@ -1,0 +1,25 @@
+---
+Name: deskall-images
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: deskall-images
+
+SilverStripe\AssetAdmin\Forms\ImageFormFactory:
+  extensions:
+    - DeskallImageAssetFormFactoryExtension
+
+SilverStripe\Assets\Image:
+  max_x: 2500
+  max_y: 2500
+  memory: 256M
+  extensions:
+    - DeskallImageExtension
+
+SilverStripe\Filesystem\Storage\DBFile:
+  extensions:
+    - DeskallImageExtension
+
+SilverStripe\Core\Injector\Injector:
+ SilverStripe\Assets\Image_Backend:
+   properties:
+     Quality: 95

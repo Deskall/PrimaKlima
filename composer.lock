@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7f8c3ee5b788a20cfc227551021ac56c",
-    "content-hash": "5334f0c12e6dafdeda20adef02e33983",
+    "hash": "f808a0021dd4d4496712fa91b37495ef",
+    "content-hash": "5f8af1c3516c784097b59492ae730572",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -597,6 +597,63 @@
                 "watermark"
             ],
             "time": "2017-09-21 16:29:17"
+        },
+        {
+            "name": "jonom/focuspoint",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jonom/silverstripe-focuspoint.git",
+                "reference": "16dedb9549e719bf5d1030eb84f664f7b7a69e8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jonom/silverstripe-focuspoint/zipball/16dedb9549e719bf5d1030eb84f664f7b7a69e8f",
+                "reference": "16dedb9549e719bf5d1030eb84f664f7b7a69e8f",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/asset-admin": "^1.0",
+                "silverstripe/vendor-plugin": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client"
+                ],
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JonoM\\FocusPoint\\": "src/",
+                    "JonoM\\FocusPoint\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathon Menz",
+                    "homepage": "http://jonathonmenz.com"
+                }
+            ],
+            "description": "Smarter automatic image cropping for SilverStripe",
+            "keywords": [
+                "crop",
+                "cropping",
+                "focus",
+                "focuspoint",
+                "image",
+                "silverstripe"
+            ],
+            "time": "2018-01-30 20:03:17"
         },
         {
             "name": "kinglozzer/metatitle",
@@ -4461,7 +4518,8 @@
         "dnadesign/silverstripe-elemental-userforms": 20,
         "dnadesign/silverstripe-elemental-list": 20,
         "dnadesign/silverstripe-elemental-virtual": 20,
-        "silverstripe/multiuser-editing-alert": 20
+        "silverstripe/multiuser-editing-alert": 20,
+        "jonom/focuspoint": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
