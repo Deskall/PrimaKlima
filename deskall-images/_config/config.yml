@@ -9,9 +9,6 @@ SilverStripe\AssetAdmin\Forms\ImageFormFactory:
     - DeskallImageAssetFormFactoryExtension
 
 SilverStripe\Assets\Image:
-  max_x: 2500
-  max_y: 2500
-  memory: 512M
   extensions:
     - DeskallImageExtension
 
