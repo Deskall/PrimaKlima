@@ -1,4 +1,4 @@
-<header class="dk-background-header uk-position-top">
+<header class="dk-background-header uk-position-top uk-position-z-index uk-position-relative">
 	<div class="uk-container uk-container-medium">
 		<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
 			<div class="uk-navbar-right uk-visible@m">
@@ -20,7 +20,7 @@
 			</div>
 		</nav>
 		<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
-			<div class="uk-navbar-left">
+			<div class="uk-navbar-left uk-position-center-left">
 				<a href="" class="uk-navbar-item uk-logo"><img src="$ThemeDir/img/logo.png" alt="$SiteConfig.Title Logo" title="Home" /></a>
 			</div>
 			<div class="uk-navbar-right uk-visible@m">
