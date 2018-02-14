@@ -22,4 +22,4 @@ SilverStripe\Filesystem\Storage\DBFile:
 SilverStripe\Core\Injector\Injector:
  SilverStripe\Assets\Image_Backend:
    properties:
-     Quality: 95
+     Quality: 75
