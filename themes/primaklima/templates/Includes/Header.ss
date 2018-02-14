@@ -1,5 +1,8 @@
 <header class="dk-background-header uk-position-top uk-position-z-index">
-	<div class="uk-container uk-container-medium">
+	<div class="uk-container uk-container-medium uk-position-relative">
+		<div class="uk-position-center-left">
+			<a href="" class="uk-logo"><img src="$ThemeDir/img/logo.png" alt="$SiteConfig.Title Logo" title="Home" /></a>
+		</div>
 		<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
 			<div class="uk-navbar-right uk-visible@m">
 			    <ul class="uk-subnav uk-padding-small uk-margin-remove">
@@ -19,10 +22,8 @@
 			    </ul>
 			</div>
 		</nav>
-		<nav class="uk-navbar-container uk-navbar-transparent uk-position-relative" uk-navbar>
-			<div class="uk-navbar-left uk-position-top-left">
-				<a href="" class="uk-navbar-item uk-logo"><img src="$ThemeDir/img/logo.png" alt="$SiteConfig.Title Logo" title="Home" /></a>
-			</div>
+		<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+			
 			<div class="uk-navbar-right uk-visible@m">
 			    <ul class="uk-navbar-nav">
 			    	<% loop Menu(1).filter('ShowInMainMenu',1) %>
