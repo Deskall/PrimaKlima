@@ -57,4 +57,12 @@ class Page extends SiteTree
     	}
     	parent::onBeforeWrite();
     }
+
+    public function requireDefaultRecords()
+    {
+        parent::requireDefaultRecords();
+
+       // TO DO  : other Page
+    }
+
 }
