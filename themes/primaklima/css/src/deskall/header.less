@@ -2,7 +2,13 @@ header{
 	&.dk-background-header{
 		background:@dk-background-header;
 	}
-	.uk-navbar-nav a{
+	.uk-navbar-nav > li > a{
 		.nav-font;
+		&.active, &:hover{
+			border-bottom:2px solid @global-primary-background;
+		}
+		.uk-navbar-dropdown{
+			background:@dk-background-header;
+		}
 	}
 }
