@@ -1,4 +1,4 @@
-<section class="uk-section uk-section-muted main">
+<section class="uk-section $Background main">
 	<div class="uk-container uk-container-medium">
 		<div class="<% if $Style %>$CssStyle<% end_if %> uk-text-center">
 			<% if $ShowTitle %>
