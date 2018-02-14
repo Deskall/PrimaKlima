@@ -76,21 +76,7 @@ class SliderBlock extends BaseElement
             $fields->removeByName('TitleAndDisplayed');
             $fields->removeByName('RelatedPageID');
             $fields->removeByName('Slides');
-            // $config = GridFieldConfig::create();
-            // $config->addComponent(new GridFieldButtonRow('before'))
-            //     ->addComponent(new GridFieldOrderableRows('Sort'))
-            //     ->addComponent(new GridFieldDeleteAction(false))
-            //     ->addComponent(new GridFieldEditableColumns())
-            //     ->addComponent(new GridFieldAddNewInlineButton());
-            // $displayFields = [
-            //     'Title'  => function($record, $column, $grid) {
-            //         return new TextField($column);
-            //     },
-            //     'Image' => function($record, $column, $grid) {
-            //         return new UploadField($column);
-            //     },
-            // ];
-            // $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields($displayFields);
+
             if ($this->ID > 0){
                 $config = GridFieldConfig_RecordEditor::create();
                 $config->addComponent(new GridFieldOrderableRows('Sort'));

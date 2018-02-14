@@ -81,12 +81,12 @@ class DeskallImageExtension extends Extension
 
     public function onAfterUpload(){
     	//$this->owner->resampleImage();
-        $this->owner->renderWith('ImageThumbnails');
+        //$this->owner->renderWith('ImageThumbnails');
     }
 
     public function onAfterWrite(){
     	//$this->owner->resampleImage();
-        $this->owner->renderWith('ImageThumbnails');
+        //$this->owner->renderWith('ImageThumbnails');
     }
 
 

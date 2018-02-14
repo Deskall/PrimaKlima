@@ -12,3 +12,6 @@ SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - LayoutSiteConfigExtension
 
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css:
+    - mysite/css/custom_admin.css
