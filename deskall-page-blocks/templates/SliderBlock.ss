@@ -1,4 +1,4 @@
-<div uk-slideshow="<% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};min-height: 300; max-height: 500" class="uk-position-relative uk-visible-toggle">
+<div uk-slideshow="<% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};" class="uk-position-relative uk-visible-toggle $Height">
     <ul class="uk-slideshow-items">
         <% loop ActiveSlides %>
         <li>
