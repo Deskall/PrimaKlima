@@ -43,6 +43,11 @@ class SliderBlock extends BaseElement
         'Slides',
     ];
 
+    private static $cascade_delete = [
+        'Slides',
+    ];
+
+
     private static $defaults = [
         'Layout' => 'slideshow',
         'FullWidth' => 1

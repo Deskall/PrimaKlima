@@ -16,7 +16,6 @@ class BaseBlockExtension extends DataExtension
         'FullWidth' => 'Boolean(1)',
         'Background' => 'Varchar(255)',
         'Layout' => 'Varchar(255)'
-        
     ];
 
     private static $has_one = [
