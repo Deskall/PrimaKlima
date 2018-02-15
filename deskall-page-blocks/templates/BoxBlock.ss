@@ -9,9 +9,15 @@
 			<h3 class="uk-margin-small">$Title</h3>
 			<div class="uk-margin-top dk-box-content uk-height-small">
 		    	$Content
-		    	<% if CallToAction %>
-		    		<div><a class="uk-button uk-button-secondary uk-align-center" href="$RelatedPage.URL">$CallToAction</a></div>
-		    	<% end_if %>
+		    	<% if $CallToActionLink.Page.Link %>
+		                      <% with $CallToActionLink %>
+		                          <a href="{$Page.Link}" class="uk-button uk-button-secondary uk-align-center"
+		                              <% if $TargetBlank %>target="_blank"<% end_if %>
+		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
+		                              {$Text.XML}
+		                          </a>
+		                      <% end_with %>
+		                  <% end_if %>
 		    </div>
 		    <a href="$Image.URL"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" alt=""></a>
 		    <% else_if Top.Layout == "mixed" %>
@@ -19,18 +25,30 @@
 		    <h3 class="uk-margin-small">$Title</h3>
 		    <div class="uk-margin-top dk-box-content uk-height-small">
 		    	$Content
-		    	<% if CallToAction %>
-		    		<div><a class="uk-button uk-button-secondary uk-align-center" href="$RelatedPage.URL">$CallToAction</a></div>
-		    	<% end_if %>
+		    	<% if $CallToActionLink.Page.Link %>
+		                      <% with $CallToActionLink %>
+		                          <a href="{$Page.Link}" class="uk-button uk-button-secondary uk-align-center"
+		                              <% if $TargetBlank %>target="_blank"<% end_if %>
+		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
+		                              {$Text.XML}
+		                          </a>
+		                      <% end_with %>
+		                  <% end_if %>
 		    </div>
 		    <% else %>
 		    <h3 class="uk-margin-small">$Title</h3>
 		    <a href="$Image.URL"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" $Image.ImageTags($Title) ></a>
 		    <div class="uk-margin-top dk-box-content uk-height-small">
 		    	$Content
-		    	<% if CallToAction %>
-		    		<div><a class="uk-button uk-button-secondary uk-align-center" href="$RelatedPage.URL">$CallToAction</a></div>
-		    	<% end_if %>
+		    	<% if $CallToActionLink.Page.Link %>
+		                      <% with $CallToActionLink %>
+		                          <a href="{$Page.Link}" class="uk-button uk-button-secondary uk-align-center"
+		                              <% if $TargetBlank %>target="_blank"<% end_if %>
+		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
+		                              {$Text.XML}
+		                          </a>
+		                      <% end_with %>
+		                  <% end_if %>
 		    </div>
 		    <% end_if %>
 		</div>
