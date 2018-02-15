@@ -15,7 +15,7 @@
 <% if activeFeatures %>
 	<ul class="uk-list uk-list-large uk-text-large dk-list dk-text-white">
 	<% loop activeFeatures %> 
-	    <li><span uk-icon="icon: $Icon; ratio:2" class="uk-position-top-center"></span>$Text</li>
+	    <li><span uk-icon="icon: $Top.IconItem; ratio:2" class="uk-position-top-center"></span>$Text</li>
 	<% end_loop %>
 	</ul>
 <% end_if %>
@@ -27,4 +27,4 @@
 		{$Text.XML}
 		</a>
 		<% end_with %>
-	<% end_if %>
+<% end_if %>

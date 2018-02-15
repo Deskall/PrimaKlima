@@ -20,7 +20,8 @@ class FeaturesBlock extends BaseElement
 
     private static $db = [
         'HTML' => 'HTMLText',
-        'IconItem' => 'Varchar(255)'
+        'IconItem' => 'Varchar(255)',
+        'FeaturesTitle' => 'Varchar(255)'
     ];
 
     private static $has_one = [
@@ -71,6 +72,9 @@ class FeaturesBlock extends BaseElement
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
+            $fields
+                ->fieldByName('Root.Main.FeaturesTitle')
+                ->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'List Titel'));
             $fields->removeByName('Features');
       
             if ($this->ID > 0){
