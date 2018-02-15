@@ -2,7 +2,7 @@
 	<div class="uk-container <% if FullWidth %>uk-container-expand<% else %>$Background uk-container-medium<% end_if %> uk-padding">
 		<h2>$Title</h2>
 		$HTML
-		<div class="uk-child-width-1-3@s uk-grid-match uk-grid-small" uk-grid uk-lightbox uk-height-match="target:h3;row:false;">
+		<div class="$BoxPerLine uk-grid-match uk-grid-small" uk-grid uk-lightbox uk-height-match="target:h3;row:false;">
 		<% loop ActiveBoxes %>
 		<div class="uk-transition-toggle" tabindex="0">
 			<% if Top.Layout == "inversed" %>
