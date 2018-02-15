@@ -27,11 +27,6 @@ class BaseBlockExtension extends DataExtension
         'ShowTitle' => 1
     ];
 
-    private static $extensions = [
-        'Activable',
-        'Linkable'
-    ];
-
     private static $block_layouts = [];
 
     public function updateCMSFields(FieldList $fields){
@@ -47,11 +42,4 @@ class BaseBlockExtension extends DataExtension
         return $this->owner->Parent()->getOwnerPage()->generateFolderName();
     }
 
-    public function onAfterWrite(){
-        ob_start();
-        print_r('after');
-        $result = ob_get_clean();
-        file_put_contents('log.txt', $result);
-        parent::onAfterWrite();
-    }
 }
