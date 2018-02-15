@@ -105,7 +105,6 @@ class SliderBlock extends BaseElement
             $fields->addFieldToTab('Root.Settings',LayoutField::create('Height','Höhe',self::$block_heights));
             $fields->addFieldToTab('Root.Settings',NumericField::create('MinHeight','min. Höhe'));
             $fields->addFieldToTab('Root.Settings',NumericField::create('MaxHeight','max. Höhe'));
-            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
         });
         $fields = parent::getCMSFields();
         $fields->removeByName('Background');

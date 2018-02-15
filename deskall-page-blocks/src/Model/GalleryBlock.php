@@ -67,7 +67,6 @@ class GalleryBlock extends BaseElement
             /*** NOT WORKING SINCE SORTABLE IS NOT YET ACTIVE */
            // $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname')),'HTML');
 
-            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
           
         });
         return parent::getCMSFields();
