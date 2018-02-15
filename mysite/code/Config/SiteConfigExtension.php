@@ -39,7 +39,7 @@ class SiteConfigExtension extends DataExtension
         ->addComponent(new GridFieldShowHideAction())
     );
     $fields->addFieldToTab("Root.Footer", $FooterLinksField);
-    $fields->addFieldToTab("Root.Default", $fields->fieldByName('DefaultSlide'));
+    $fields->addFieldToTab("Root.Default", $fields->fieldByName('Root.Main.DefaultSlide'));
   }
 
   public function activeFooterBlocks(){
