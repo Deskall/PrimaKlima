@@ -11,7 +11,9 @@
 	<% else %>
 	$HTML
 	<% end_if %>
-	<% if $CallToActionLink.Page.Link %>
+	
+</div>
+<% if $CallToActionLink.Page.Link %>
 		<% with $CallToActionLink %>
 		<a href="{$Page.Link}" class="uk-button uk-button-secondary uk-align-right"
 		<% if $TargetBlank %>target="_blank"<% end_if %>
@@ -20,5 +22,3 @@
 		</a>
 		<% end_with %>
 	<% end_if %>
-</div>
-
