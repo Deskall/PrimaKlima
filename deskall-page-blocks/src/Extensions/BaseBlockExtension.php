@@ -6,7 +6,6 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
-use SilverStripe\Forms\TreeDropdownField;
 
 
 
@@ -37,7 +36,6 @@ class BaseBlockExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields){
     	$fields->removeByName('Background');
-        $fields->removeByName('isVisible');
         $fields->removeByName('FullWidth');
     	$fields->addFieldToTab('Root.Settings',CheckboxField::create('FullWidth','volle Breite'));
     	$fields->addFieldToTab('Root.Settings',DropdownField::create('Background','Hintergrundfarbe',array('uk-background-default' => 'kein Hintergrundfarbe', 'uk-background-primary' => 'primäre Farbe', 'uk-background-secondary' => 'sekundäre Farbe', 'uk-background-muted' => 'grau' ))->setDescription('wird als overlay anzeigen falls es ein Hintergrundbild gibt.'));
@@ -47,5 +45,13 @@ class BaseBlockExtension extends DataExtension
 
     public function getFolderName(){
         return $this->owner->Parent()->getOwnerPage()->generateFolderName();
+    }
+
+    public function onAfterWrite(){
+        ob_start();
+        print_r('after');
+        $result = ob_get_clean();
+        file_put_contents('log.txt', $result);
+        parent::onAfterWrite();
     }
 }

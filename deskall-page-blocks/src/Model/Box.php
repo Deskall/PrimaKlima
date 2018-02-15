@@ -17,7 +17,6 @@ class Box extends DataObject
         'Sort' => 'Int',
         'Effect' => 'Varchar(255)',
         'EffectOptions' => 'Varchar(255)',
-        'CallToAction' => 'Text'
     ];
 
     private static $has_one = [

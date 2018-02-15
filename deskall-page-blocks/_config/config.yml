@@ -7,8 +7,6 @@ SilverStripe\Core\Manifest\ModuleManifest:
 DNADesign\Elemental\Models\BaseElement:
   extensions:
     - BaseBlockExtension
-    - Activable
-    - Linkable
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
