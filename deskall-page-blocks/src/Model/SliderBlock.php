@@ -45,6 +45,7 @@ class SliderBlock extends BaseElement
 
     private static $defaults = [
         'Layout' => 'slideshow',
+        'FullWidth' => 1
     ];
 
     private static $block_layouts = [
@@ -53,9 +54,9 @@ class SliderBlock extends BaseElement
 
 
     private static $block_heights = [
-        'small' => 'klein',
-        'medium' => 'medium',
-        'large' => 'gross',
+        'uk-height-small' => 'klein',
+        'uk-height-medium' => 'medium',
+        'uk-height-large' => 'gross',
         'viewport' => 'ganz Bildschirm'
     ];
 

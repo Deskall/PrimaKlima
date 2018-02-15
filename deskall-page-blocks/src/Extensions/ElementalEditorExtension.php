@@ -14,6 +14,7 @@ class ElementalEditorExtension extends DataExtension
      	$types = $this->owner->getTypes();
      	//unset non needed by deskall
     	unset($types['SilverStripe\ElementalBlocks\Block\BannerBlock']);
+    	unset($types['DNADesign\Elemental\Models\ElementContent']);
     	$gridfield->getConfig()->getComponentByType(GridFieldAddNewMultiClass::class)->setClasses($types);
         $gridfield->getConfig()->addComponent(new GridFieldShowHideAction());
     }
