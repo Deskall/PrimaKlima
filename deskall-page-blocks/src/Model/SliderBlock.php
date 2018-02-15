@@ -4,6 +4,7 @@ use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
@@ -29,7 +30,9 @@ class SliderBlock extends BaseElement
         'Animation' => 'Varchar(255)',
         'Autoplay' => 'Boolean(1)',
         'Nav' => 'Varchar(255)',
-        'Height' => 'Varchar(255)'
+        'Height' => 'Varchar(255)',
+        'MinHeight' => 'Int',
+        'MaxHeight' => 'Int'
     ];
 
     private static $has_many = [
@@ -50,9 +53,9 @@ class SliderBlock extends BaseElement
 
 
     private static $block_heights = [
-        'uk-height-small' => 'klein',
-        'uk-height-medium' => 'medium',
-        'uk-height-large' => 'gross',
+        'small' => 'klein',
+        'medium' => 'medium',
+        'large' => 'gross',
         'viewport' => 'ganz Bildschirm'
     ];
 
@@ -100,6 +103,8 @@ class SliderBlock extends BaseElement
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Animation','Animation', self::$animations));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Nav','Kontrols', self::$controls));
             $fields->addFieldToTab('Root.Settings',LayoutField::create('Height','Höhe',self::$block_heights));
+            $fields->addFieldToTab('Root.Settings',NumericField::create('MinHeight','min. Höhe'));
+            $fields->addFieldToTab('Root.Settings',NumericField::create('MaxHeight','max. Höhe'));
             $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
         });
         $fields = parent::getCMSFields();

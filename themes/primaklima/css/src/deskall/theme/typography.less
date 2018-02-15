@@ -1,0 +1,61 @@
+//Typography
+
+h1,h2,h3,h4,h5,h6{
+	font-family:@light-font-family;
+	color: @global-color;
+}
+em,strong{
+	font-family:@strong-font-family;
+}
+.nav-font{
+	font-family:@strong-font-family;
+	color:@global-color;
+	font-size: @main-nav-font-size;
+	text-transform: none;
+}
+.subnav-font{
+	color:@global-color;
+}
+
+.slide-font{
+	*{
+		text-shadow: 0 0 20px @black;
+	}
+	h2{
+		font-family:@global-font-family;
+		font-size:@global-large-font-size;
+		@media (min-width:@breakpoint-small){
+			font-size: @global-xlarge-font-size;
+		}
+		@media (min-width:@breakpoint-medium){
+			font-size: @global-xxlarge-font-size;
+		}
+		@media (min-width:@breakpoint-large){
+			font-size: @heading-primary-font-size;
+		}
+	}
+	.uk-text-lead {
+		font-size: @global-font-size;
+		@media (min-width:@breakpoint-small){
+			font-size: @global-medium-font-size;
+		}
+		@media (min-width:@breakpoint-medium){
+			font-size: @global-large-font-size;
+		}
+	}
+}
+.uk-heading-primary(){
+	color: @global-color;
+}
+@media (min-width:@breakpoint-large){
+	.uk-heading-primary(){
+		font-size:@heading-primary-font-size;
+	}
+}
+
+
+
+//Text colors //
+.dk-text-white{
+	color:@white;
+}

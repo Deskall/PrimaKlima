@@ -1,0 +1,34 @@
+header{
+	.uk-logo{
+		height:50px;
+		img,svg{
+			max-height: 100%;
+			width: auto;
+		}
+		@media (min-width:@breakpoint-medium){
+			height:60px;
+		}
+		@media (min-width:@breakpoint-large){
+			height:70px;
+		}
+	}
+	&.dk-background-header{
+		background:@dk-background-header;
+	}
+	.uk-navbar-nav > li > a{
+		.nav-font;
+		&.active, &:hover{
+			border-bottom:2px solid @global-primary-background;
+		}
+		
+	}
+	.uk-navbar-dropdown{
+		background:@dk-background-header;
+	}
+}
+.dk-nav-mobile{
+		.uk-nav-header,
+		li.current > a {
+			color: @global-emphasis-inverse-color;
+		}
+	}

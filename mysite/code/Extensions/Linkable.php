@@ -1,5 +1,6 @@
 <?php
 
+use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\FieldType\DBHTMLText;
@@ -34,7 +35,7 @@ class Linkable extends DataExtension
      */
     public function CallToActionLink()
     {
-        return $this->owner->decodeLinkData($this->getField('CallToActionLink'));
+        return $this->decodeLinkData($this->owner->getField('CallToActionLink'));
     }
 
      /**
@@ -53,14 +54,14 @@ class Linkable extends DataExtension
 
         // Link page, if selected
         if ($data->PageID) {
-            $data->setField('Page', self::get_by_id(SiteTree::class, $data->PageID));
+            $data->setField('Page', DataObject::get_by_id(SiteTree::class, $data->PageID));
         }
         return $data;
     }
 
     public function DisplayLink(){
         $output = new DBHTMLText();
-        $data = $this->owner->CallToActionLink();
+        $data = $this->CallToActionLink();
         if ($data){
             $html = '<strong>'.$data->Text.'</strong>';
                     if($data->Page){

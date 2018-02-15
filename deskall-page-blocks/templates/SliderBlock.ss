@@ -1,18 +1,26 @@
-<div uk-slideshow="<% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};" class="uk-position-relative uk-visible-toggle $Height">
-    <ul class="uk-slideshow-items">
+<div uk-slideshow="<% if Height != "viewport" %><% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %><% end_if %> <% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};" class="dk-slider uk-position-relative uk-visible-toggle">
+    <ul class="uk-slideshow-items" <% if Height == "viewport" %>uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
         <% loop ActiveSlides %>
         <li>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
                 <img src="$Image.URL" alt="" uk-cover>
             <% if Effect == "kenburns" %></div><% end_if %>
-            <div class="uk-position-center dk-text-white uk-light uk-text-center">
+            <div class="uk-position-center dk-text-white uk-light uk-text-center uk-width-3-5">
                 <% if Effect == "parallax" %> <div uk-slideshow-parallax="$EffectOptions"><% end_if %>
-                <h2 class="dk-text-white">$Title</h2>
-                <div class="uk-text-lead dk-text-white">$Content</div>
+                <h2 class="dk-text-white uk-heading-primary">$Title</h2>
+                <div class="uk-text-lead dk-text-white uk-padding-medium">$Content</div>
                 <% if Effect == "parallax" %></div><% end_if %>
-
+                
             </div>
-            <% if RelatedPage %><a class="uk-position-bottom-center uk-button uk-button-secondary uk-align-center" href="$RelatedPage.URL">Hier klicken</a><% end_if %>
+            <% if $CallToActionLink.Page.Link %>
+                    <% with $CallToActionLink %>
+                        <a href="{$Page.Link}" class="uk-button uk-button-secondary uk-position-large uk-position-bottom-center"
+                            <% if $TargetBlank %>target="_blank"<% end_if %>
+                            <% if $Description %>title="{$Description.ATT}"<% end_if %>>
+                            {$Text.XML}
+                        </a>
+                    <% end_with %>
+                <% end_if %>
         </li>
         <% end_loop %>
     </ul>
