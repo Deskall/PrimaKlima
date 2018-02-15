@@ -22,12 +22,13 @@ class Box extends DataObject
 
     private static $has_one = [
         'Parent' => BoxBlock::class,
-        'Image' => Image::class,
-        'RelatedPage' => SiteTree::class
+        'Image' => Image::class
     ];
 
     private static $extensions = [
-        Versioned::class
+        Versioned::class,
+        'Activable',
+        'Linkable'
     ];
 
     private static $effects = [

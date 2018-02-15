@@ -7,7 +7,8 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\TreeDropdownField;
-use SilverStripe\CMS\Model\SiteTree;
+
+
 
 class BaseBlockExtension extends DataExtension
 {
@@ -16,15 +17,20 @@ class BaseBlockExtension extends DataExtension
         'FullWidth' => 'Boolean(1)',
         'Background' => 'Varchar(255)',
         'Layout' => 'Varchar(255)'
+        
     ];
 
     private static $has_one = [
-        'BackgroundImage' => Image::class,
-        'RelatedPage' => SiteTree::class
+        'BackgroundImage' => Image::class
     ];
 
     private static $defaults = [
         'ShowTitle' => 1
+    ];
+
+    private static $extensions = [
+        'Activable',
+        'Linkable'
     ];
 
     private static $block_layouts = [];
@@ -42,5 +48,4 @@ class BaseBlockExtension extends DataExtension
     public function getFolderName(){
         return $this->owner->Parent()->getOwnerPage()->generateFolderName();
     }
-
 }

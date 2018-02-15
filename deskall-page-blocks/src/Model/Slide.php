@@ -21,12 +21,14 @@ class Slide extends DataObject
 
     private static $has_one = [
         'Slider' => SliderBlock::class,
-        'Image' => Image::class,
-        'RelatedPage' => SiteTree::class
+        'Image' => Image::class
     ];
+        
 
     private static $extensions = [
-        Versioned::class
+        Versioned::class,
+        'Activable',
+        'Linkable'
     ];
 
     private static $effects = [
