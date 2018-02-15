@@ -1,6 +1,6 @@
 <% if Element.isVisible %>
 <div class="element $SimpleClassName.LowerCase<% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="$Anchor">
-	<section class="uk-section $Element.Background <% if $Element.BackgroundImage %> uk-section-xlarge uk-background-cover" style="background-image:url($Element.BackgroundImage.URL);"<% end_if %>">
+	<section class="uk-section $Element.Background <% if $Element.BackgroundImage %> dk-overlay uk-section-xlarge uk-background-cover" style="background-image:url($Element.BackgroundImage.URL);"<% end_if %>">
 		<div class="uk-container <% if FullWidth %>uk-container-expand<% end_if %>">
 			<% if $Element.ShowTitle %>
 				<% if $SimpleClassName.LowerCase == "leadblock" %>

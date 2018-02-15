@@ -12,7 +12,7 @@
 	}
 }
 
-.dk-bg{
+.dk-overlay{
 	position: relative;
 	.uk-container{position: relative;z-index: 2}
 	&:after{
@@ -26,16 +26,16 @@
 		bottom: 0;
 		z-index: 1;
 	}
-	&.dk-bg-primary:after{
+	&.uk-background-primary:after{
 		background-color:fade(@global-primary-background,50%);
 	}
-	&.dk-bg-secondary:after{
+	&.uk-background-secondary:after{
 		background-color:fade(@global-secondary-background,50%);
 	}
-	&.dk-bg-muted:after{
+	&.uk-background-muted:after{
 		background-color:fade(@global-muted-background,50%);
 	}
-	&.dk-bg-white:after{
+	&.dk-background-white:after{
 		background-color:fade(@white,50%);
 	}
 }
