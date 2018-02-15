@@ -1,6 +1,4 @@
-<section class="uk-section $Background">
-	<div class="uk-container <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
-		<h2>$Title</h2>
+
 		$HTML
 
 		<% if Layout == "carousel" %>
@@ -41,5 +39,3 @@
 			<% end_loop %>
 		</div>
 		<% end_if %>
-	</div>
-</section>

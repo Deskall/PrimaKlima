@@ -17,7 +17,7 @@ class LargeImageBlock extends BannerBlock{
 
     private static $plural_name = 'banners';
 
-    private static $controller_template = 'BlockHolder';
+    private static $controller_template = 'DefaultHolder';
 
     private static $controller_class = BlockController::class;
 

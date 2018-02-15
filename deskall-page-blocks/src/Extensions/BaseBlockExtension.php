@@ -29,12 +29,22 @@ class BaseBlockExtension extends DataExtension
 
     private static $block_layouts = [];
 
+    private static $block_backgrounds = [
+        'no-bg' => 'keine Hintergrundfarbe',
+        'dk-bg dk-bg-primary uk-background-primary' => 'primäre Farbe',
+        'dk-bg dk-bg-secondary uk-background-secondary' => 'sekondäre Farbe',
+        'dk-bg dk-bg-muted uk-background-muted' => 'grau',
+        'dk-bg dk-bg-white uk-background' => 'weiss',
+    ];
+
+    
+
     public function updateCMSFields(FieldList $fields){
     	$fields->removeByName('Background');
         $fields->removeByName('FullWidth');
     	$fields->addFieldToTab('Root.Settings',CheckboxField::create('FullWidth','volle Breite'));
         $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
-    	$fields->addFieldToTab('Root.Settings',DropdownField::create('Background','Hintergrundfarbe',array('uk-background-default' => 'kein Hintergrundfarbe', 'uk-background-primary' => 'primäre Farbe', 'uk-background-secondary' => 'sekundäre Farbe', 'uk-background-muted' => 'grau', 'dk-background-white' => 'weiss' ))->setDescription('wird als overlay anzeigen falls es ein Hintergrundbild gibt.'));
+    	$fields->addFieldToTab('Root.Settings',DropdownField::create('Background','Hintergrundfarbe',self::$block_backgrounds)->setDescription('wird als overlay anzeigen falls es ein Hintergrundbild gibt.'));
         $fields->addFieldToTab('Root.Settings',UploadField::create('BackgroundImage','Hintergrundbild')->setFolderName($this->owner->getFolderName()));
 
     }

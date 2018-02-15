@@ -1,6 +1,4 @@
-<section class="uk-section  <% if FullWidth %>$Background<% end_if %>">
-	<div class="uk-container <% if FullWidth %>uk-container-expand<% else %>$Background uk-container-medium<% end_if %> uk-padding">
-		<h2>$Title</h2>
+
 		$HTML
 		<div class="$BoxPerLine uk-grid-match uk-grid-small" uk-grid uk-lightbox uk-height-match="target:h3;row:false;">
 		<% loop ActiveBoxes %>
@@ -53,5 +51,3 @@
 		    <% end_if %>
 		</div>
 		<% end_loop %>
-	</div>
-</section>

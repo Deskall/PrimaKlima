@@ -22,7 +22,7 @@ class SliderBlock extends BaseElement
 {
     private static $icon = 'font-icon-block-banner';
     
-    private static $controller_template = 'BlockHolder';
+    private static $controller_template = 'DefaultHolder';
 
     private static $controller_class = BlockController::class;
 
