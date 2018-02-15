@@ -13,6 +13,7 @@
 	<% end_if %>
 </div>
 <% if activeFeatures %>
+	<% if FeaturesTitle %><h3>$FeaturesTitle</h3><% end_if %>
 	<ul class="uk-list uk-list-large uk-text-large dk-list dk-text-white">
 	<% loop activeFeatures %> 
 	    <li><span uk-icon="icon: $Top.IconItem; ratio:2" class="uk-position-top-center"></span>$Text</li>

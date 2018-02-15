@@ -86,6 +86,7 @@ class FeaturesBlock extends BaseElement
                 $featuresField = new GridField('Features','Features',$this->Features(),$config);
                 $fields->insertAfter(new Tab('Features','Features'),'Main');
                 $fields->addFieldToTab('Root.Features',$featuresField);
+                $fields->addFieldToTab('Root.Features',$fields->fieldByName('Root.Main.FeaturesTitle'),'Features');
             } 
         });
         return parent::getCMSFields();
