@@ -1,5 +1,5 @@
-<section class="uk-section $Background">
-	<div class="uk-container <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
+<section class="uk-section  <% if FullWidth %>$Background<% end_if %>">
+	<div class="uk-container <% if FullWidth %>uk-container-expand<% else %>$Background uk-container-medium<% end_if %>">
 		<h2>$Title</h2>
 		$HTML
 		<div class="uk-child-width-1-3@s uk-grid-match uk-grid-small" uk-grid uk-lightbox uk-height-match="target:h3;row:false;">
