@@ -29,6 +29,7 @@ class SliderBlock extends BaseElement
         'Animation' => 'Varchar(255)',
         'Autoplay' => 'Boolean(1)',
         'Nav' => 'Varchar(255)',
+        'Height' => 'Varchar(255)'
     ];
 
     private static $has_many = [
@@ -45,6 +46,14 @@ class SliderBlock extends BaseElement
 
     private static $block_layouts = [
         'slideshow' => 'Slideshow'
+    ];
+
+
+    private static $block_heights = [
+        'uk-height-small' => 'klein',
+        'uk-height-medium' => 'medium',
+        'uk-height-large' => 'gross',
+        'viewport' => 'ganz Bildschirm'
     ];
 
     private static $animations = [
@@ -90,6 +99,7 @@ class SliderBlock extends BaseElement
             $fields->addFieldToTab('Root.Settings',CheckboxField::create('Autoplay','Autoplay'));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Animation','Animation', self::$animations));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Nav','Kontrols', self::$controls));
+            $fields->addFieldToTab('Root.Settings',LayoutField::create('Height','Höhe',self::$block_heights));
             $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
         });
         $fields = parent::getCMSFields();
