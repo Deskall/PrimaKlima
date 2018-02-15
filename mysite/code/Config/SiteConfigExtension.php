@@ -19,10 +19,14 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 
-class LayoutSiteConfigExtension extends DataExtension 
+class SiteConfigExtension extends DataExtension 
 {
   private static $has_many = [
     'Blocks' => FooterBlock::class
+  ];
+
+  private static $has_one = [
+    'DefaultSlide' => Image::class
   ];
 
   public function updateCMSFields(FieldList $fields) {
@@ -35,6 +39,7 @@ class LayoutSiteConfigExtension extends DataExtension
         ->addComponent(new GridFieldShowHideAction())
     );
     $fields->addFieldToTab("Root.Footer", $FooterLinksField);
+    $fields->addFieldToTab("Root.Default", $fields->fieldByName('DefaultSlide'));
   }
 
   public function activeFooterBlocks(){
