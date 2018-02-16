@@ -51,6 +51,7 @@ class FooterBlock extends DataObject{
 		'uk-width-expand' => 'verbleibende Breite'
 	];
 
+
 	public function displayWidth(){
 		$widths = self::$widths;
 		return $widths[$this->Width];
@@ -66,6 +67,7 @@ class FooterBlock extends DataObject{
 		$fields = parent::getCMSFields();
 		$fields->replaceField('Width',DropdownField::create('Width','Breite',self::$widths)->setEmptyString('Breite auswählen')->setDescription('Relative Breite im Vergleich zur Fußzeile'));
 		$fields->replaceField('Class',TextField::create('Class','Extra CSS Class')->setDescription('Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt'));
+
 		$fields->removeByName('Links');
 		$fields->removeByName('SortOrder');
 		$fields->removeByName('SiteConfigID');

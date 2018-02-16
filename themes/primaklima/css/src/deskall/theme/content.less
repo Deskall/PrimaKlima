@@ -1,13 +1,22 @@
 
 // LIST
 .dk-list{
-	margin-left:30px;
-	li{
-		padding-left: 50px;
+	li[uk-icon]{
+		padding-left: 30px;
 		position: relative;
-	 	span{
+		display: block;
+		line-height: 1.2;
+	 	svg{
 			position: absolute;
 			left:0;
+			top:2px;
+		}
+		a{
+			color:@global-color;
+			text-decoration: none;
+		}
+		&.dk-large-icon{
+			padding-left: 50px;
 		}
 	}
 }
