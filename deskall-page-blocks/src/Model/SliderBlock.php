@@ -104,7 +104,7 @@ class SliderBlock extends BaseElement
             $fields->addFieldToTab('Root.Main',$referent);
 
 
-            if ($this->ID > 0){
+            if ($this->ID > 0 && $this->ReferentID == 0){
                 $config = GridFieldConfig_RecordEditor::create();
                 $config->addComponent(new GridFieldOrderableRows('Sort'));
                 if (singleton('Slide')->hasExtension('Activable')){
@@ -139,10 +139,11 @@ class SliderBlock extends BaseElement
     }
 
     public function activeSlides(){
+        $slides = ($this->ReferentID > 0) ? $this->Referent()->Slides() : $this->Slides();
         if (singleton('Slide')->hasExtension('Activable')){
-            return $this->Slides()->filter('isVisible',1);
+            return $slides->filter('isVisible',1);
         }
-        return $this->Slides();
+        return $slides();
     }
 
     public function NiceTitle(){
