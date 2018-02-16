@@ -108,6 +108,7 @@ class SliderBlock extends BaseElement
             $fields->addFieldToTab('Root.Settings',CheckboxField::create('Autoplay','Autoplay'));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Animation','Animation', self::$animations));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Nav','Kontrols', self::$controls));
+            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
             $fields->addFieldToTab('Root.Settings',LayoutField::create('Height','Höhe',self::$block_heights));
             $fields->addFieldToTab('Root.Settings',NumericField::create('MinHeight','min. Höhe'));
             $fields->addFieldToTab('Root.Settings',NumericField::create('MaxHeight','max. Höhe'));

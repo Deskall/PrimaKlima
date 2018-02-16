@@ -47,13 +47,6 @@ class FeaturesBlock extends BaseElement
     ];
 
 
-    private static $block_layouts = [
-        'left' => 'Links',
-        'right' => 'Rechts',
-        'hover' => 'Oben', 
-        'above' => 'Unten'
-    ];
-
    
     private static $table_name = 'FeaturesBlock';
 

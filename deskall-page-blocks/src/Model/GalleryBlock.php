@@ -63,6 +63,8 @@ class GalleryBlock extends BaseElement
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
 
             $fields->addFieldToTab('Root.Main',UploadField::create('Images','Bilder')->setIsMultiUpload(true),'HTML');
+            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
+
 
             /*** NOT WORKING SINCE SORTABLE IS NOT YET ACTIVE */
            // $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname')),'HTML');

@@ -41,7 +41,6 @@ class BaseBlockExtension extends DataExtension
     	$fields->removeByName('Background');
         $fields->removeByName('FullWidth');
     	$fields->addFieldToTab('Root.Settings',CheckboxField::create('FullWidth','volle Breite'));
-        $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
     	$fields->addFieldToTab('Root.Settings',DropdownField::create('Background','Hintergrundfarbe',self::$block_backgrounds)->setDescription('wird als overlay anzeigen falls es ein Hintergrundbild gibt.'));
         $fields->addFieldToTab('Root.Settings',UploadField::create('BackgroundImage','Hintergrundbild')->setFolderName($this->owner->getFolderName()));
 

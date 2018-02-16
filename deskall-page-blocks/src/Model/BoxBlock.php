@@ -81,6 +81,7 @@ class BoxBlock extends BaseElement
         $this->beforeUpdateCMSFields(function ($fields) {
           
             $fields->removeByName('Boxes');
+            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Effect','Effect', self::$effects));
 
