@@ -75,7 +75,7 @@ class SiteConfigExtension extends DataExtension
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('SortOrder'))
         ->addComponent(new GridFieldShowHideAction())
     );
-    //$fields->addFieldToTab("Root.Footer", $FooterLinksField);
+    $fields->addFieldToTab("Root.Footer", $FooterLinksField);
     $fields->addFieldToTab("Root.Default", UploadField::create('DefaultSlide','Slide'));
   }
 
