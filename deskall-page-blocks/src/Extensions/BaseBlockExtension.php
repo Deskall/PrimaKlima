@@ -26,7 +26,6 @@ class BaseBlockExtension extends DataExtension
         'ShowTitle' => 1
     ];
 
-    private static $block_layouts = [];
 
     private static $block_backgrounds = [
         'no-bg' => 'keine Hintergrundfarbe',
