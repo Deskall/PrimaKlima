@@ -12,6 +12,7 @@ use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldButtonRow;
 use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
+use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\Tab;
 
