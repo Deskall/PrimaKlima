@@ -16,6 +16,7 @@
 		                <% if $TargetBlank %>target="_blank"<% end_if %>
 		                <% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		                {$Text.XML}
+		                <% include DefaultLinkIcon c=w %>
 		            </a>
 		        <% end_with %>
 		        
