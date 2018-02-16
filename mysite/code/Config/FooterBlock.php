@@ -95,6 +95,6 @@ class FooterBlock extends DataObject{
 	}
 
 	public function activeLinks(){
-		return $this->Links()->filter('isVisible',1);
+		return $this->Links()->filter('isVisible',1)->sort('Sort');
 	}
 }

@@ -12,12 +12,21 @@
 			 			$SiteConfig.CodeCity<br/>
 			 			$SiteConfig.Country
 			 		</li>
+			 		<% if SiteConfig.Email %>
 			 		<li uk-icon="icon: mail;">
 			 			$SiteConfig.Email
 			 		</li>
-			 		<li uk-icon="icon: phone;">
+			 		<% end_if %>
+			 		<% if SiteConfig.Phone %>
+			 		<li uk-icon="icon: receiver;">
 			 			$SiteConfig.Phone
 			 		</li>
+			 		<% end_if %>
+			 		<% if SiteConfig.Mobile %>
+			 		<li uk-icon="icon: receiver;">
+			 			$SiteConfig.Mobile
+			 		</li>
+			 		<% end_if %>
 		        </ul>
 		    </div>
 			<% loop $SiteConfig.activeFooterBlocks %>

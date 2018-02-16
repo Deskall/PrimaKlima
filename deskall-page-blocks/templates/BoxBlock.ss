@@ -9,7 +9,7 @@
 		    	$Content
 		    	<% if $CallToActionLink.Page.Link %>
 		                      <% with $CallToActionLink %>
-		                          <a href="{$Page.Link}" class="uk-button uk-align-center uk-text-bold"
+		                          <a href="{$Page.Link}" class="uk-button uk-align-center strong-font"
 		                              <% if $TargetBlank %>target="_blank"<% end_if %>
 		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		                              {$Text.XML}
@@ -38,7 +38,7 @@
 		    	$Content
 		    	<% if $CallToActionLink.Page.Link %>
 		                      <% with $CallToActionLink %>
-		                          <a href="{$Page.Link}" class="uk-button uk-align-center uk-text-bold"
+		                          <a href="{$Page.Link}" class="uk-button uk-align-center strong-font"
 		                              <% if $TargetBlank %>target="_blank"<% end_if %>
 		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		                              {$Text.XML}
@@ -60,7 +60,7 @@
 		    	$Content
 		    	<% if $CallToActionLink.Page.Link %>
 		                      <% with $CallToActionLink %>
-		                          <a href="{$Page.Link}" class="uk-button uk-align-center uk-text-bold"
+		                          <a href="{$Page.Link}" class="uk-button uk-align-center strong-font"
 		                              <% if $TargetBlank %>target="_blank"<% end_if %>
 		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		                              {$Text.XML}
