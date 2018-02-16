@@ -4,7 +4,7 @@
 		<img src="$ThemeDir/img/logo.png" />
 	</div>
 		<div class="uk-panel uk-flex uk-flex-left@s uk-flex-around@m uk-margin-small-top" uk-grid>
-			<div class="uk-width-1-3">
+			<div class="uk-width-1-1@s uk-width-1-3@m">
 			 	<h3>$SiteConfig.AddressTitle</h3>
 			 	<ul class="uk-list uk-list-large dk-list">
 			 		<li uk-icon="icon: location;">

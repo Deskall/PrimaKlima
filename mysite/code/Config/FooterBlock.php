@@ -42,10 +42,10 @@ class FooterBlock extends DataObject{
 	'Preview' => 'HTMLText'];
 
 	private static $widths = [
-		'uk-width-1-5' => '20%',
-		'uk-width-1-4' => '25%', 
-		'uk-width-1-3' => '33.33%', 
-		'uk-width-1-2' => '50%',
+		'uk-width-1-1@s uk-width-1-5@m' => '20%',
+		'uk-width-1-1@s uk-width-1-4@m' => '25%', 
+		'uk-width-1-1@s uk-width-1-3@m' => '33.33%', 
+		'uk-width-1-1@s uk-width-1-2@m' => '50%',
 		'uk-width-1-1' => 'Voll Breite',
 		'uk-width-auto' => 'auto Breite',
 		'uk-width-expand' => 'verbleibende Breite'
