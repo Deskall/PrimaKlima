@@ -6,22 +6,27 @@
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
                 <img src="$Image.URL" alt="" uk-cover>
             <% if Effect == "kenburns" %></div><% end_if %>
-            <div class="uk-position-center dk-text-white uk-light uk-text-center uk-width-3-5">
+            <div class="uk-position-center">
+            <div class="uk-container">
+                <div class="dk-text-white uk-light uk-text-center">
                 <% if Effect == "parallax" %> <div uk-slideshow-parallax="$EffectOptions"><% end_if %>
-                <h2 class="dk-text-white uk-heading-primary">$Title</h2>
-                <div class="uk-text-lead dk-text-white uk-padding-medium">$Content</div>
+                <h2 class="uk-heading-primary">$Title</h2>
+                <div class="uk-text-lead uk-padding-medium">$Content</div>
                 <% if Effect == "parallax" %></div><% end_if %>
-                
-            </div>
-            <% if $CallToActionLink.Page.Link %>
+                <% if $CallToActionLink.Page.Link %>
                     <% with $CallToActionLink %>
-                        <a href="{$Page.Link}" class="uk-button uk-button-secondary uk-position-large uk-position-bottom-center"
+                    <div class="uk-align-center">
+                        <a href="{$Page.Link}" class="uk-button uk-button-secondary"
                             <% if $TargetBlank %>target="_blank"<% end_if %>
                             <% if $Description %>title="{$Description.ATT}"<% end_if %>>
                             {$Text.XML}
                         </a>
+                    </div>
                     <% end_with %>
                 <% end_if %>
+            </div>
+            
+            </div></div>
         </li>
         <% end_loop %>
     </ul>
