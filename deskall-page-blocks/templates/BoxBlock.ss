@@ -9,10 +9,11 @@
 		    	$Content
 		    	<% if $CallToActionLink.Page.Link %>
 		                      <% with $CallToActionLink %>
-		                          <a href="{$Page.Link}" class="uk-button uk-button-secondary uk-align-center"
+		                          <a href="{$Page.Link}" class="uk-button uk-align-center"
 		                              <% if $TargetBlank %>target="_blank"<% end_if %>
 		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		                              {$Text.XML}
+		                              <% include DefaultLinkIcon %>
 		                          </a>
 		                      <% end_with %>
 		                  <% end_if %>
@@ -29,10 +30,11 @@
 		    	$Content
 		    	<% if $CallToActionLink.Page.Link %>
 		                      <% with $CallToActionLink %>
-		                          <a href="{$Page.Link}" class="uk-button uk-button-secondary uk-align-center"
+		                          <a href="{$Page.Link}" class="uk-button uk-align-center"
 		                              <% if $TargetBlank %>target="_blank"<% end_if %>
 		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		                              {$Text.XML}
+		                              <% include DefaultLinkIcon %>
 		                          </a>
 		                      <% end_with %>
 		                  <% end_if %>
@@ -46,10 +48,11 @@
 		    	$Content
 		    	<% if $CallToActionLink.Page.Link %>
 		                      <% with $CallToActionLink %>
-		                          <a href="{$Page.Link}" class="uk-button uk-button-secondary uk-align-center"
+		                          <a href="{$Page.Link}" class="uk-button uk-align-center"
 		                              <% if $TargetBlank %>target="_blank"<% end_if %>
 		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		                              {$Text.XML}
+		                              <% include DefaultLinkIcon %>
 		                          </a>
 		                      <% end_with %>
 		                  <% end_if %>
