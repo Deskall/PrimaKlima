@@ -1,1 +1,1 @@
-<span class="uk-icon uk-icon-image dk-default-icon" style="background-image: url($ThemeDir/img/icon-arrow_w.svg);"></span>
+<span class="uk-icon uk-icon-image dk-default-icon" style="background-image: url($ThemeDir/img/icon-arrow_{$c}.svg);"></span>

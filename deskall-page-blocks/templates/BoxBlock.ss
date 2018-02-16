@@ -13,7 +13,7 @@
 		                              <% if $TargetBlank %>target="_blank"<% end_if %>
 		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		                              {$Text.XML}
-		                              <% include DefaultLinkIcon %>
+		                              <% include DefaultLinkIcon c=r %>
 		                          </a>
 		                      <% end_with %>
 		                  <% end_if %>
@@ -34,7 +34,7 @@
 		                              <% if $TargetBlank %>target="_blank"<% end_if %>
 		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		                              {$Text.XML}
-		                              <% include DefaultLinkIcon %>
+		                              <% include DefaultLinkIcon c=r %>
 		                          </a>
 		                      <% end_with %>
 		                  <% end_if %>
@@ -52,7 +52,7 @@
 		                              <% if $TargetBlank %>target="_blank"<% end_if %>
 		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		                              {$Text.XML}
-		                              <% include DefaultLinkIcon %>
+		                              <% include DefaultLinkIcon c=r %>
 		                          </a>
 		                      <% end_with %>
 		                  <% end_if %>
