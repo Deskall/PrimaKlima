@@ -29,6 +29,7 @@ class BoxBlock extends BaseElement
     private static $db = [
         'HTML' => 'HTMLText',
         'BoxPerLine' => 'Varchar(255)',
+        'ImageType' => 'Varchar(255)'
         'Effect' => 'Varchar(255)'
     ];
 
@@ -49,6 +50,11 @@ class BoxBlock extends BaseElement
         'standard' => 'Titel, Bild, Inhalt',
         'mixed' => 'Bild, Titel, Inhalt',
         'inversed' => 'Titel,Inhalt,Bild'
+    ];
+
+    private static $image_types = [
+        'image' => 'Bild',
+        'icon' => 'Icon'
     ];
 
 
@@ -83,6 +89,7 @@ class BoxBlock extends BaseElement
             $fields->removeByName('Boxes');
             $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
+            $fields->addFieldToTab('Root.Settings',DropdownField::create('ImageType','BildTyp', self::$image_types));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Effect','Effect', self::$effects));
 
             if ($this->ID > 0){

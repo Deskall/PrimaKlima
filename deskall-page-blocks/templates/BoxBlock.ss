@@ -19,11 +19,19 @@
 		                  <% end_if %>
 		    </div>
 		    <% if Image %>
-		    	<a href="$Image.URL"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" alt=""></a>
+		    	<% if $Top.ImageType == "Icon" %>
+		    		<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" $Image.ImageTags($Title) />
+		    	<% else %>
+		    	<a href="$Image.URL"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" $Image.ImageTags($Title)></a>
+		    	<% end_if %>
 		    <% end_if %>
 		    <% else_if Top.Layout == "mixed" %>
 		    <% if Image %>
+		    	<% if $Top.ImageType == "Icon" %>
+		    		<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" $Image.ImageTags($Title) />
+		    	<% else %>
 		    <a href="$Image.URL"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" $Image.ImageTags($Title) ></a>
+		    	<% end_if %>
 		    <% end_if %>
 		    <h3 class="uk-margin-small">$Title</h3>
 		    <div class="uk-margin-top dk-box-content">
@@ -42,7 +50,11 @@
 		    <% else %>
 		    <h3 class="uk-margin-small">$Title</h3>
 		    <% if Image %>
+		    	<% if $Top.ImageType == "Icon" %>
+		    		<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" $Image.ImageTags($Title) />
+		    	<% else %>
 		    <a href="$Image.URL"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" $Image.ImageTags($Title) ></a>
+		    	<% end_if %>
 		    <% end_if %>
 		    <div class="uk-margin-top dk-box-content">
 		    	$Content
