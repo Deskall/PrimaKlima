@@ -1,6 +1,6 @@
 
 		$HTML
-		<div class="$BoxPerLine uk-grid-match uk-grid-small" uk-grid uk-lightbox uk-height-match="target:h3;row:false;">
+		<div class="$BoxPerLine uk-grid-match" uk-grid uk-lightbox uk-height-match="target:h3;row:false;">
 		<% loop ActiveBoxes %>
 		<div class="uk-transition-toggle" tabindex="0">
 			<% if Top.Layout == "inversed" %>
