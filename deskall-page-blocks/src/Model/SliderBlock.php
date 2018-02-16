@@ -35,6 +35,10 @@ class SliderBlock extends BaseElement
         'MaxHeight' => 'Int'
     ];
 
+    private static $has_one = [
+        'Referent' => SliderBlock::class
+    ];
+
     private static $has_many = [
         'Slides' => Slide::class
     ];
@@ -95,6 +99,10 @@ class SliderBlock extends BaseElement
             $fields->removeByName('RelatedPageID');
             $fields->removeByName('Slides');
 
+            $referent = new GroupedDropdownField("ReferentID", "Slides kopieren nach", $source = $this->getReferentSource());
+
+
+
             if ($this->ID > 0){
                 $config = GridFieldConfig_RecordEditor::create();
                 $config->addComponent(new GridFieldOrderableRows('Sort'));
@@ -134,6 +142,17 @@ class SliderBlock extends BaseElement
             return $this->Slides()->filter('isVisible',1);
         }
         return $this->Slides();
+    }
+
+    public function getReferentSource(){
+        $source = [];
+        foreach (Page::get() as $page) {
+            if ($page->Blocks()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->count() > 0){
+                $slides = $page->Blocks()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->map('ID','Title');
+                $source[$page->MenuTitle] = $slides;
+            }
+        } 
+        return $source;
     }
 
 }
