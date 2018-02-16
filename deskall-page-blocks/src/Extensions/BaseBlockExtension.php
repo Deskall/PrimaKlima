@@ -13,7 +13,7 @@ class BaseBlockExtension extends DataExtension
 {
 
     private static $db = [
-        'FullWidth' => 'Boolean(1)',
+        'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
         'Layout' => 'Varchar(255)'
     ];

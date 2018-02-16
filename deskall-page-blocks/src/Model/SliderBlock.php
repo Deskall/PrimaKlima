@@ -154,8 +154,8 @@ class SliderBlock extends BaseElement
     public function getReferentSource(){
         $source = [];
         foreach (Page::get() as $page) {
-            if ($page->ElementalArea()->Elements()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->count() > 0){
-                $slides = $page->ElementalArea()->Elements()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->map('ID','NiceTitle')->toArray();
+            if ($page->ElementalArea()->Elements()->filter(array('ClassName' => 'SliderBlock','ReferentID' => 0))->exclude('ID', $this->ID)->count() > 0){
+                $slides = $page->ElementalArea()->Elements()->filter(array('ClassName' => 'SliderBlock','ReferentID' => 0))->exclude('ID',$this->ID)->map('ID','NiceTitle')->toArray();
                 $source[$page->MenuTitle] = $slides;
             }
         } 
