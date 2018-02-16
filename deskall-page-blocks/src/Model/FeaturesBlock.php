@@ -65,12 +65,11 @@ class FeaturesBlock extends BaseElement
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
-            $fields
-                ->fieldByName('Root.Main.FeaturesTitle')
-                ->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'List Titel'));
+            
             $fields->removeByName('Features');
       
             if ($this->ID > 0){
+
                 $config = GridFieldConfig_RecordEditor::create();
                 $config->addComponent(new GridFieldOrderableRows('Sort'));
                 if (singleton('Features')->hasExtension('Activable')){
@@ -78,6 +77,10 @@ class FeaturesBlock extends BaseElement
                 }
                 $featuresField = new GridField('Features','Features',$this->Features(),$config);
                 $fields->insertAfter(new Tab('Features','Features'),'Main');
+                $title = $fields
+                ->fieldByName('Root.Main.FeaturesTitle');
+                $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'List Titel'));
+                $fields->addFieldToTab('Root.Features',$title);
                 $fields->addFieldToTab('Root.Features',$featuresField);
             } 
         });
