@@ -145,17 +145,15 @@ class SliderBlock extends BaseElement
         return $this->Slides();
     }
 
+    public function NiceTitle(){
+        return ($this->Title) ? $this->Title : '#Slider-'.$this->ID;
+    }
+
     public function getReferentSource(){
         $source = [];
         foreach (Page::get() as $page) {
-            file_put_contents('log.txt', 'Start page: '.$page->MenuTitle."\n", FILE_APPEND);
             if ($page->ElementalArea()->Elements()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->count() > 0){
-                file_put_contents('log.txt', 'has slide'."\n", FILE_APPEND);
-                $slides = $page->ElementalArea()->Elements()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->map('ID','Title')->toArray();
-                ob_start();
-                print_r($slides);
-                $result = ob_get_clean();
-                file_put_contents('log.txt', $result."\n", FILE_APPEND);
+                $slides = $page->ElementalArea()->Elements()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->map('ID','NiceTitle')->toArray();
                 $source[$page->MenuTitle] = $slides;
             }
         } 
