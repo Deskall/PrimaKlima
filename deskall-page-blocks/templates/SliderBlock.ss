@@ -6,12 +6,12 @@
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
                 <img src="$Image.URL" alt="" uk-cover>
             <% if Effect == "kenburns" %></div><% end_if %>
-            <div class="uk-position-center">
+            <div class="uk-position-bottom-center">
             <div class="uk-container">
                 <div class="dk-text-white uk-light uk-text-center">
                 <% if Effect == "parallax" %> <div uk-slideshow-parallax="$EffectOptions"><% end_if %>
-                <h2 class="uk-heading-primary">$Title</h2>
-                <div class="uk-text-lead uk-padding-medium">$Content</div>
+                <h2 class="uk-heading-primary uk-margin-large-bottom">$Title</h2>
+                <div class="uk-text-lead uk-padding">$Content</div>
                 <% if Effect == "parallax" %></div><% end_if %>
                 <% if $CallToActionLink.Page.Link %>
                     <% with $CallToActionLink %>
