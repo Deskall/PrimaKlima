@@ -101,6 +101,7 @@ class SliderBlock extends BaseElement
             $fields->removeByName('Slides');
             $fields->removeByName('CallToActionLink');
             $referent = new GroupedDropdownField("ReferentID", "Slides kopieren nach", $source = $this->getReferentSource());
+            $referent->setEmptyString('Bitte Slidershow auswählen');
             $fields->addFieldToTab('Root.Main',$referent);
 
 
