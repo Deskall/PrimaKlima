@@ -99,7 +99,7 @@ class SliderBlock extends BaseElement
             $fields->removeByName('TitleAndDisplayed');
             $fields->removeByName('RelatedPageID');
             $fields->removeByName('Slides');
-
+            $fields->removeByName('CallToActionLink');
             $referent = new GroupedDropdownField("ReferentID", "Slides kopieren nach", $source = $this->getReferentSource());
             $fields->addFieldToTab('Root.Main',$referent);
 
