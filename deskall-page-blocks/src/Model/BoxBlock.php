@@ -29,7 +29,7 @@ class BoxBlock extends BaseElement
     private static $db = [
         'HTML' => 'HTMLText',
         'BoxPerLine' => 'Varchar(255)',
-        'ImageType' => 'Varchar(255)'
+        'ImageType' => 'Varchar(255)',
         'Effect' => 'Varchar(255)'
     ];
 
