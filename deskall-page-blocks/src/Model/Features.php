@@ -15,9 +15,7 @@ class Features extends DataObject
     ];
 
     private static $extensions = [
-    'Activable',
-     'Sortable',
-    Versioned::class,
+     'Sortable'
     ];
 
     private static $summary_fields = [
