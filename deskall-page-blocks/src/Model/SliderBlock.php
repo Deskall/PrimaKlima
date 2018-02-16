@@ -149,7 +149,7 @@ class SliderBlock extends BaseElement
         $source = [];
         foreach (Page::get() as $page) {
             if ($page->ElementalArea()->Elements()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->count() > 0){
-                $slides = $$page->ElementalArea()->Elements()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->map('ID','Title');
+                $slides = $page->ElementalArea()->Elements()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->map('ID','Title');
                 $source[$page->MenuTitle] = $slides;
             }
         } 
