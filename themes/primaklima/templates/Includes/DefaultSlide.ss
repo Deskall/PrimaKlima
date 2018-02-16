@@ -1,8 +1,5 @@
 
-<div uk-slideshow="min-height:300;max-height:500;" class="dk-slider uk-visible-toggle uk-height-medium">
-    <ul class="uk-slideshow-items">
-        <li>
-            <img src="$SiteConfig.DefaultSlide.URL" $SiteConfig.DefaultSlide.ImageTags uk-cover>
-        </li>
-    </ul>
-</div>
+
+<div class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle" style="background-image: url($SiteConfig.DefaultSlide.URL);">
+           
+        </div>

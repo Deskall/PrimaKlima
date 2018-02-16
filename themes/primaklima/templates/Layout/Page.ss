@@ -5,8 +5,8 @@
 $ElementalArea
 
 <% if Form %>
-<section class="uk-section">
-	<div class="uk-container dk-background-white">
+<section class="uk-section dk-background-white">
+	<div class="uk-container">
 		$Form
 	</div>
 </section>

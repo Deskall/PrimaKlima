@@ -5,7 +5,11 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\DataExtension;
 
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CountryDropdownField;
+use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig;
@@ -21,6 +25,20 @@ use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 
 class SiteConfigExtension extends DataExtension 
 {
+
+  private static $db = [
+    'AddressTitle' => 'Varchar(255)',
+    'CodeCity' => 'Varchar(255)',
+    'Country' +> 'Varchar(255)',
+    'Email' => 'Varchar(255)',
+    'Phone' => 'Varchar(255)',
+    'Mobile' => 'Varchar(255)',
+    'Facebook' => 'Varchar(255)',
+    'Twitter' => 'Varchar(255)',
+    'Linkedin' => 'Varchar(255)',
+    'Xing' => 'Varchar(255)'
+  ];
+
   private static $has_many = [
     'Blocks' => FooterBlock::class
   ];
@@ -30,7 +48,24 @@ class SiteConfigExtension extends DataExtension
   ];
 
   public function updateCMSFields(FieldList $fields) {
-    
+    //ADDRESS
+    $fields->addFieldsToTab('Root.Main',[
+      HeaderField::create('AddressHeading',_t(__CLASS__.'.Adresse','Adresse'),3),
+      TextField::create('AddressTitle',_t(__CLASS__.'.AdresseTitle','Adresse Titel')),
+      TextField::create('CodeCity',_t(__CLASS__.'.CodeCity','PLZ / Ort')),
+      CountryDropdownField::create('Country',_t(__CLASS__.'.Country','Land')),
+      TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon')),
+      TextField::create('Mobile',_t(__CLASS__.'.Mobile','Mobile')),
+      EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail Adresse'))
+    ]);
+    //SOCIAL
+    $fields->addFieldsToTab('Root.Main',[
+      HeaderField::create('SocialHeading',_t(__CLASS__.'.SocialTitle','Netwerk'),3),
+      TextField::create('Facebook',_t(__CLASS__.'.Facebook','Facebook')),
+      TextField::create('Twitter',_t(__CLASS__.'.Twitter','Twitter')),
+      TextField::create('Linkedin',_t(__CLASS__.'.Linkedin','Linkedin')),
+      TextField::create('Xing',_t(__CLASS__.'.Xing','Xing'))
+    ]);
     $FooterLinksField = new GridField(
         'Blocks',
         'Blocks',
@@ -39,7 +74,7 @@ class SiteConfigExtension extends DataExtension
         ->addComponent(new GridFieldShowHideAction())
     );
     $fields->addFieldToTab("Root.Footer", $FooterLinksField);
-   // $fields->addFieldToTab("Root.Default", $fields->fieldByName('Root.Main.DefaultSlide'));
+    $fields->addFieldToTab("Root.Default", UploadField::create('DefaultSlide','Slide'));
   }
 
   public function activeFooterBlocks(){
