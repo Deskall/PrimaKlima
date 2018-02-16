@@ -1,4 +1,4 @@
-<footer class="uk-section">
+<footer class="uk-section" uk-height-match="target:h3;row:false;">
 	<div class="uk-container">
 		<div class="uk-padding-small uk-padding-remove-left uk-padding-remove-top">
 		<img src="$ThemeDir/img/logo.png" />
