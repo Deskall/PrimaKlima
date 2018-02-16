@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\GroupedDropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\NumericField;
@@ -100,7 +101,7 @@ class SliderBlock extends BaseElement
             $fields->removeByName('Slides');
 
             $referent = new GroupedDropdownField("ReferentID", "Slides kopieren nach", $source = $this->getReferentSource());
-
+            $fields->addFieldToTab('Root.Main',$referent);
 
 
             if ($this->ID > 0){
