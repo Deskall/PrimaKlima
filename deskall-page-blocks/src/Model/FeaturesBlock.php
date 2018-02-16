@@ -45,7 +45,6 @@ class FeaturesBlock extends BaseElement
 
     private static $owns = [
         'ContentImage',
-        'Features'
     ];
 
     private static $defaults = [
