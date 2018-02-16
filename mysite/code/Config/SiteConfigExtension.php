@@ -8,6 +8,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\GridField\GridField;
@@ -26,7 +27,7 @@ class SiteConfigExtension extends DataExtension
 {
 
   private static $db = [
-    'AddressTitle' => 'Varchar(255)',
+    'AddressTitle' => 'Text',
     'Address' => 'Varchar(255)',
     'CodeCity' => 'Varchar(255)',
     'Country' => 'Varchar(255)',
@@ -51,7 +52,7 @@ class SiteConfigExtension extends DataExtension
     //ADDRESS
     $fields->addFieldsToTab('Root.Main',[
       HeaderField::create('AddressHeading',_t(__CLASS__.'.Address','Adresse'),3),
-      TextField::create('AddressTitle',_t(__CLASS__.'.AdresseTitle','Adresse Titel')),
+      TextareaField::create('AddressTitle',_t(__CLASS__.'.AdresseTitle','Adresse Titel')),
       TextField::create('Address',_t(__CLASS__.'.AddressStreet','Adresse')),
       TextField::create('CodeCity',_t(__CLASS__.'.CodeCity','PLZ / Ort')),
       TextField::create('Country',_t(__CLASS__.'.Country','Land')),
