@@ -6,7 +6,7 @@
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
                 <img src="$Image.URL" alt="" uk-cover>
             <% if Effect == "kenburns" %></div><% end_if %>
-            <div class="uk-position-bottom-center">
+            <div class="uk-position-bottom-center@s uk-position-center@l">
             <div class="uk-container">
                 <div class="dk-text-white uk-light uk-text-center">
                 <% if Effect == "parallax" %> <div uk-slideshow-parallax="$EffectOptions"><% end_if %>
