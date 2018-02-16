@@ -1,0 +1,1 @@
+<span class="uk-icon uk-icon-image" style="background-image: url($ThemeDir/img/icon-arrow_w.svg);"></span>
