@@ -151,7 +151,11 @@ class SliderBlock extends BaseElement
             file_put_contents('log.txt', 'Start page: '.$page->MenuTitle."\n", FILE_APPEND);
             if ($page->ElementalArea()->Elements()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->count() > 0){
                 file_put_contents('log.txt', 'has slide'."\n", FILE_APPEND);
-                $slides = $page->ElementalArea()->Elements()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->map('ID','Title');
+                $slides = $page->ElementalArea()->Elements()->filter('ClassName','SliderBlock')->exclude('ID',$this->ID)->map('ID','Title')->toArray();
+                ob_start();
+                print_r($slides);
+                $result = ob_get_clean();
+                file_put_contents('log.txt', $result."\n", FILE_APPEND);
                 $source[$page->MenuTitle] = $slides;
             }
         } 
