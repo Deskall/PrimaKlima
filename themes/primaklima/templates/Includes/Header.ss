@@ -20,7 +20,7 @@
 			    </ul>
 			</div>
 		</nav>
-		<nav class="uk-navbar-container uk-position-bottom uk-padding uk-padding-remove-vertical uk-navbar-transparent uk-navbar" uk-navbar>
+		<nav class="uk-navbar-container uk-navbar-transparent uk-navbar" uk-navbar>
 			
 			<div class="uk-navbar-right uk-visible@m">
 			    <ul class="uk-navbar-nav">
