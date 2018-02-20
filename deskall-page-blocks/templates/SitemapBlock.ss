@@ -1,4 +1,4 @@
-<ul class="uk-nav uk-nav-parent-icon">
+<ul class="uk-nav-default uk-nav-parent-icon">
 	<% loop $SitemapItems  %>
         <% if $Children %>
 	    <li class="uk-parent <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>" >
