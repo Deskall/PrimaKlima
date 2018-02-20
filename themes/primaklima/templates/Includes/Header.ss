@@ -17,6 +17,18 @@
 		                <% end_if %>
 		            </li>
 			    	<% end_loop %>
+			    	<% if SiteConfig.Facebook %>
+				    <li><a href="$SiteConfig.Facebook" data-uk-icon="facebook"></a></li>
+				    <% end_if %>
+				    <% if SiteConfig.Twitter %>
+				    <li><a href="$SiteConfig.Twitter" data-uk-icon="twitter"></a></li>
+				    <% end_if %>
+				     <% if SiteConfig.Linkedin %>
+				    <li><a href="$SiteConfig.Linkedin" data-uk-icon="linkedin"></a></li>
+				    <% end_if %>
+				    <% if SiteConfig.Xing %>
+				    <li><a href="$SiteConfig.Xing" data-uk-icon="xing"></a></li>
+				    <% end_if %>
 			    </ul>
 			</div>
 		</nav>
