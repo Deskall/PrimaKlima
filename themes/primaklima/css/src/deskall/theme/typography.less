@@ -68,3 +68,63 @@ em,strong,.strong-font{
 		color:@white;
 	}
 }
+
+
+//Font size media queries
+h1{
+	font-size: @h1-size*@font-ratio-small;
+}
+h2{
+	font-size: @h2-size*@font-ratio-small;
+}
+h3,h4,h5,h6{
+	font-size: @h3-size*@font-ratio-small;
+}
+@media (min-width:@breakpoint-small){
+
+	.slide-font{
+		font-size: @global-xlarge-font-size;
+	}
+}
+@media (min-width:@breakpoint-medium){
+	h1{
+		font-size: @h1-size*@font-ratio-medium;
+	}
+	h2{
+		font-size: @h2-size*@font-ratio-medium;
+	}
+	h3,h4,h5,h6{
+		font-size: @h3-size*@font-ratio-medium;
+	}
+	.slide-font{
+		font-size: @global-xxlarge-font-size;
+	}
+}
+@media (min-width:@breakpoint-large){
+	h1{
+		font-size: @h1-size*@font-ratio-large;
+	}
+	h2{
+		font-size: @h2-size*@font-ratio-large;
+	}
+	h3,h4,h5,h6{
+		font-size: @h3-size*@font-ratio-large;
+	}
+	.slide-font{
+		font-size: @global-xxlarge-font-size;
+	}
+}
+@media (min-width:@breakpoint-xlarge){
+	h1{
+		font-size: @h1-size;
+	}
+	h2{
+		font-size: @h2-size;
+	}
+	h3,h4,h5,h6{
+		font-size: @h3-size;
+	}
+	.slide-font{
+		font-size: @heading-primary-font-size;
+	}
+}
