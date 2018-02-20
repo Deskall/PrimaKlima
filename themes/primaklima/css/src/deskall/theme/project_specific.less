@@ -1,0 +1,25 @@
+h1{
+	text-align: center;
+}
+
+.hook-text-lead(){
+	text-align:center;
+	color: @global-color;
+}
+
+
+.slide-font{
+	*{
+		text-shadow: 0 0 20px @black;
+	}
+
+	.uk-text-lead {
+		font-size: @global-font-size;
+		@media (min-width:@breakpoint-small){
+			font-size: @global-medium-font-size;
+		}
+		@media (min-width:@breakpoint-xlarge){
+			font-size: @global-large-font-size;
+		}
+	}
+}
