@@ -21,16 +21,16 @@
 			    <% end_loop %>
 			    <li class="uk-nav-divider"></li>
 			    <% if SiteConfig.Facebook %>
-			    <li><a href="$SiteConfig.Facebook" class="uk-icon-button" data-uk-icon="facebook"></a></li>
+			    <li><a href="$SiteConfig.Facebook" data-uk-icon="facebook"></a></li>
 			    <% end_if %>
 			    <% if SiteConfig.Twitter %>
-			    <li><a href="$SiteConfig.Twitter" class="uk-icon-button" data-uk-icon="twitter"></a></li>
+			    <li><a href="$SiteConfig.Twitter" data-uk-icon="twitter"></a></li>
 			    <% end_if %>
 			     <% if SiteConfig.Linkedin %>
-			    <li><a href="$SiteConfig.Linkedin" class="uk-icon-button" data-uk-icon="linkedin"></a></li>
+			    <li><a href="$SiteConfig.Linkedin" data-uk-icon="linkedin"></a></li>
 			    <% end_if %>
 			    <% if SiteConfig.Xing %>
-			    <li><a href="$SiteConfig.Xing" class="uk-icon-button" data-uk-icon="xing"></a></li>
+			    <li><a href="$SiteConfig.Xing" data-uk-icon="xing"></a></li>
 			    <% end_if %>
 			</ul>
 
