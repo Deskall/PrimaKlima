@@ -28,7 +28,7 @@ em,strong,.strong-font{
 
 
 //Font size media queries
-h1{
+h1, .slide-font .title{
 	font-size: @h1-size*@font-ratio-small;
 }
 h2{
@@ -37,8 +37,11 @@ h2{
 h3,h4,h5,h6{
 	font-size: @h3-size*@font-ratio-small;
 }
+.hook-text-lead(){
+	font-size: @text-lead-font-size;
+}
 @media (min-width:@breakpoint-small){
-	h1{
+	h1, .slide-font .title{
 		font-size: @h1-size*@font-ratio-medium;
 	}
 	h2{
@@ -50,7 +53,7 @@ h3,h4,h5,h6{
 	
 }
 @media (min-width:@breakpoint-medium){
-	h1{
+	h1, .slide-font .title{
 		font-size: @h1-size*@font-ratio-large;
 	}
 	h2{
@@ -62,7 +65,7 @@ h3,h4,h5,h6{
 	
 }
 @media (min-width:@breakpoint-large){
-	h1{
+	h1, .slide-font .title{
 		font-size: @h1-size;
 	}
 	h2{
