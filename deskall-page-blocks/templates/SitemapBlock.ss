@@ -1,7 +1,7 @@
-<ul class="uk-nav">
+<ul class="uk-nav dk-list">
 	<% loop $SitemapItems  %>
         <% if $Children %>
-	    <li class="uk-parent <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>" >
+	    <li data-uk-icon="icon: chevron-right;" class="uk-parent <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>" >
 	        <a href="$Link" title="$Title.XML"><strong>$MenuTitle.XML</strong></a>
 	        <% with $Level(1) %>
 	         <% if $Children %>
@@ -21,7 +21,7 @@
 	        <% end_with %>
 	    </li>
 	    <% else %>
-	    <li class="<% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>">
+	    <li data-uk-icon="icon: chevron-right;" class="<% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>">
 	        <a href="$Link" title="$Title.XML"><strong>$MenuTitle.XML</strong></a>
 	    </li>
 	   <% end_if %>
