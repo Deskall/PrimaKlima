@@ -13,7 +13,7 @@ class BaseBlockExtension extends DataExtension
 {
 
     private static $db = [
-        'FullWidth' => 'Boolean(1)',
+        'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
         'Layout' => 'Varchar(255)'
     ];
@@ -26,7 +26,6 @@ class BaseBlockExtension extends DataExtension
         'ShowTitle' => 1
     ];
 
-    private static $block_layouts = [];
 
     private static $block_backgrounds = [
         'no-bg' => 'keine Hintergrundfarbe',
@@ -42,7 +41,6 @@ class BaseBlockExtension extends DataExtension
     	$fields->removeByName('Background');
         $fields->removeByName('FullWidth');
     	$fields->addFieldToTab('Root.Settings',CheckboxField::create('FullWidth','volle Breite'));
-        $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
     	$fields->addFieldToTab('Root.Settings',DropdownField::create('Background','Hintergrundfarbe',self::$block_backgrounds)->setDescription('wird als overlay anzeigen falls es ein Hintergrundbild gibt.'));
         $fields->addFieldToTab('Root.Settings',UploadField::create('BackgroundImage','Hintergrundbild')->setFolderName($this->owner->getFolderName()));
 

@@ -69,6 +69,7 @@ class LargeImageBlock extends BannerBlock{
     	$fields->removeByName('Background');
         $fields->removeByName('Overlay');
     	$fields->removeByName('BackgroundImage');
+        $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
         $fields->addFieldToTab('Root.Settings',LayoutField::create('Height','Höhe',self::$block_heights));
         $fields->addFieldToTab('Root.Settings',LayoutField::create('Effect','Effect',self::$effects));
         $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions','Effect Optionen'));

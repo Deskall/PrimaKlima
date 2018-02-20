@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\GroupedDropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\NumericField;
@@ -33,6 +34,10 @@ class SliderBlock extends BaseElement
         'Height' => 'Varchar(255)',
         'MinHeight' => 'Int',
         'MaxHeight' => 'Int'
+    ];
+
+    private static $has_one = [
+        'Referent' => SliderBlock::class
     ];
 
     private static $has_many = [
@@ -94,8 +99,13 @@ class SliderBlock extends BaseElement
             $fields->removeByName('TitleAndDisplayed');
             $fields->removeByName('RelatedPageID');
             $fields->removeByName('Slides');
+            $fields->removeByName('CallToActionLink');
+            $referent = new GroupedDropdownField("ReferentID", "Slides kopieren nach", $source = $this->getReferentSource());
+            $referent->setEmptyString('Bitte Slidershow auswählen');
+            $fields->addFieldToTab('Root.Main',$referent);
 
-            if ($this->ID > 0){
+
+            if ($this->ID > 0 && $this->ReferentID == 0){
                 $config = GridFieldConfig_RecordEditor::create();
                 $config->addComponent(new GridFieldOrderableRows('Sort'));
                 if (singleton('Slide')->hasExtension('Activable')){
@@ -108,6 +118,7 @@ class SliderBlock extends BaseElement
             $fields->addFieldToTab('Root.Settings',CheckboxField::create('Autoplay','Autoplay'));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Animation','Animation', self::$animations));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Nav','Kontrols', self::$controls));
+            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
             $fields->addFieldToTab('Root.Settings',LayoutField::create('Height','Höhe',self::$block_heights));
             $fields->addFieldToTab('Root.Settings',NumericField::create('MinHeight','min. Höhe'));
             $fields->addFieldToTab('Root.Settings',NumericField::create('MaxHeight','max. Höhe'));
@@ -129,10 +140,26 @@ class SliderBlock extends BaseElement
     }
 
     public function activeSlides(){
+        $slides = ($this->ReferentID > 0) ? $this->Referent()->Slides() : $this->Slides();
         if (singleton('Slide')->hasExtension('Activable')){
-            return $this->Slides()->filter('isVisible',1);
+            return $slides->filter('isVisible',1);
         }
-        return $this->Slides();
+        return $slides();
+    }
+
+    public function NiceTitle(){
+        return ($this->Title) ? $this->Title : '#Slider-'.$this->ID;
+    }
+
+    public function getReferentSource(){
+        $source = [];
+        foreach (Page::get() as $page) {
+            if (SliderBlock::get()->filter(array('ParentID' => $page->ElementalAreaID, 'ReferentID' => 0))->exclude('ID',$this->ID)->count() > 0){
+                $slides = SliderBlock::get()->filter(array('ParentID' => $page->ElementalAreaID, 'ReferentID' => 0))->exclude('ID',$this->ID)->map('ID','NiceTitle')->toArray();
+                $source[$page->MenuTitle] = $slides;
+            }
+        } 
+        return $source;
     }
 
 }

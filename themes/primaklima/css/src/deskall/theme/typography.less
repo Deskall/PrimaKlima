@@ -4,7 +4,7 @@ h1,h2,h3,h4,h5,h6{
 	font-family:@light-font-family;
 	color: @global-color;
 }
-em,strong{
+em,strong,.strong-font{
 	font-family:@strong-font-family;
 }
 .nav-font{
@@ -30,7 +30,7 @@ em,strong{
 		@media (min-width:@breakpoint-medium){
 			font-size: @global-xxlarge-font-size;
 		}
-		@media (min-width:@breakpoint-large){
+		@media (min-width:@breakpoint-xlarge){
 			font-size: @heading-primary-font-size;
 		}
 	}
@@ -39,7 +39,7 @@ em,strong{
 		@media (min-width:@breakpoint-small){
 			font-size: @global-medium-font-size;
 		}
-		@media (min-width:@breakpoint-medium){
+		@media (min-width:@breakpoint-xlarge){
 			font-size: @global-large-font-size;
 		}
 	}
@@ -48,7 +48,7 @@ em,strong{
 	color: @global-color;
 	text-align:center;
 }
-@media (min-width:@breakpoint-large){
+@media (min-width:@breakpoint-xlarge){
 	.hook-heading-primary(){
 		font-size:@heading-primary-font-size;
 	}
@@ -64,4 +64,7 @@ em,strong{
 //Text colors //
 .dk-text-white{
 	color:@white;
+	*{
+		color:@white;
+	}
 }

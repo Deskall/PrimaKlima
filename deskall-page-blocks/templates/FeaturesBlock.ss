@@ -13,10 +13,12 @@
 	<% end_if %>
 </div>
 <% if activeFeatures %>
-	<% if FeaturesTitle %><h3>$FeaturesTitle</h3><% end_if %>
-	<ul class="uk-list uk-list-large uk-text-large dk-list dk-text-white">
+	<% if $FeaturesTitle %>
+		<h3>$FeaturesTitle</h3>
+	<% end_if %>
+	<ul class="uk-list uk-list-large uk-text-large dk-list">
 	<% loop activeFeatures %> 
-	    <li><span uk-icon="icon: $Top.IconItem; ratio:2" class="uk-position-top-center"></span>$Text</li>
+	    <li uk-icon="icon: $Top.IconItem; ratio:2" class="dk-large-icon">$Text</li>
 	<% end_loop %>
 	</ul>
 <% end_if %>
@@ -26,6 +28,7 @@
 		<% if $TargetBlank %>target="_blank"<% end_if %>
 		<% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		{$Text.XML}
+		<% include DefaultLinkIcon c=w %>
 		</a>
 		<% end_with %>
 <% end_if %>

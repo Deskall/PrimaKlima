@@ -5,8 +5,14 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridFieldConfig;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use SilverStripe\Forms\GridField\GridFieldButtonRow;
+use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
+use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
+use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\Tab;
 
@@ -39,20 +45,12 @@ class FeaturesBlock extends BaseElement
 
     private static $owns = [
         'ContentImage',
-        'Features'
     ];
 
     private static $defaults = [
         'Layout' => 'left'
     ];
 
-
-    private static $block_layouts = [
-        'left' => 'Links',
-        'right' => 'Rechts',
-        'hover' => 'Oben', 
-        'above' => 'Unten'
-    ];
 
    
     private static $table_name = 'FeaturesBlock';
@@ -72,19 +70,29 @@ class FeaturesBlock extends BaseElement
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
-            $fields
-                ->fieldByName('Root.Main.FeaturesTitle')
-                ->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'List Titel'));
+            
             $fields->removeByName('Features');
       
             if ($this->ID > 0){
-                $config = GridFieldConfig_RecordEditor::create();
-                $config->addComponent(new GridFieldOrderableRows('Sort'));
+
+                $config = 
+                GridFieldConfig::create()
+                ->addComponent(new GridFieldButtonRow('before'))
+                ->addComponent(new GridFieldToolbarHeader())
+                ->addComponent(new GridFieldTitleHeader())
+                ->addComponent(new GridFieldEditableColumns())
+                ->addComponent(new GridFieldDeleteAction())
+                ->addComponent(new GridFieldAddNewInlineButton())
+                ->addComponent(new GridFieldOrderableRows('Sort'));
                 if (singleton('Features')->hasExtension('Activable')){
                      $config->addComponent(new GridFieldShowHideAction());
                 }
                 $featuresField = new GridField('Features','Features',$this->Features(),$config);
                 $fields->insertAfter(new Tab('Features','Features'),'Main');
+                $title = $fields
+                ->fieldByName('Root.Main.FeaturesTitle');
+                $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'List Titel'));
+                $fields->addFieldToTab('Root.Features',$title);
                 $fields->addFieldToTab('Root.Features',$featuresField);
                 $fields->addFieldToTab('Root.Features',$fields->fieldByName('Root.Main.FeaturesTitle'),'Features');
             } 

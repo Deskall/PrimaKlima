@@ -90,8 +90,8 @@ class DeskallImageExtension extends Extension
     }
 
 
-    public function ImageTags($fallback){
-        $text = ($this->owner->Description) ? $this->owner->Description : $fallback;
+    public function ImageTags($fallback = null){
+        $text = ($this->owner->Description) ? $this->owner->Description : (($fallback) ? $fallback : $this->owner->Name);
         $text = strip_tags(preg_replace( "/\r|\n/", "", $text ));
         return  'alt="'.$text.'" title="'.$this->owner->Name.'"' ;
     }

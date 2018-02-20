@@ -1,15 +1,27 @@
 
 // LIST
 .dk-list{
-	margin-left:30px;
-	li{
-		padding-left: 50px;
+	li[uk-icon]{
+		padding-left: 30px;
 		position: relative;
-	 	span{
+		display: block;
+		line-height: @global-line-height;
+	 	svg{
 			position: absolute;
 			left:0;
+			top:(@global-font-size*@global-line-height - @global-font-size)/2;
+		}
+		a{
+			color:@global-color;
+			text-decoration: none;
+		}
+		&.dk-large-icon{
+			padding-left: 50px;
 		}
 	}
+}
+.uk-grid ul:not(.dk-list){
+	margin-left:30px;
 }
 
 .dk-overlay{
@@ -42,4 +54,10 @@
 
 .dk-background-white{
 	background: @white;
+}
+
+
+.dk-default-icon{
+	vertical-align: text-bottom;
+	margin-left:10px;
 }
