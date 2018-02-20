@@ -1,4 +1,4 @@
-<% if ID < 0 %>
+<% if ID < 0 || $noSlide %>
 	<% include DefaultSlide %>
 <% end_if %>
 
