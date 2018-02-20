@@ -4,7 +4,7 @@ use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
-
+use SilverStripe\CMS\Model\SiteTree;
 
 class SitemapBlock extends BaseElement
 {
@@ -33,6 +33,8 @@ class SitemapBlock extends BaseElement
     {
 
         $this->beforeUpdateCMSFields(function ($fields) {
+            $fields->removeByName('CallToActionLink');
+            $fields->removeByName('Layout');
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
@@ -49,6 +51,15 @@ class SitemapBlock extends BaseElement
     public function getType()
     {
         return _t(__CLASS__ . '.BlockType', 'Sitemap');
+    }
+
+
+    public function SitemapItems() {
+        $Pages = SiteTree::get()->filter(array(
+            'ShowInMenus' => true,
+            'ParentID' => 0
+        ));
+        return $Pages;
     }
 
 }
