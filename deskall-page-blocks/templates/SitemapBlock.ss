@@ -1,7 +1,7 @@
-<ul data-uk-nav>
+<ul>
 	<% loop $SitemapItems  %>
         <% if $Children %>
-	    <li class="uk-parent <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>" >
+	    <li class="<% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>" >
 	        <a href="$Link" title="$Title.XML"><strong>$MenuTitle.XML</strong></a>
 	        <% with $Level(1) %>
 	         <% if $Children %>
