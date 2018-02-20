@@ -24,7 +24,7 @@
 <% end_if %>
 <% if $CallToActionLink.Page.Link %>
 		<% with $CallToActionLink %>
-		<a href="{$Page.Link}" class="uk-button uk-button-secondary uk-position-bottom-right"
+		<a href="{$Page.Link}" class="uk-button uk-button-secondary uk-align-right uk-margin-top"
 		<% if $TargetBlank %>target="_blank"<% end_if %>
 		<% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		{$Text.XML}
