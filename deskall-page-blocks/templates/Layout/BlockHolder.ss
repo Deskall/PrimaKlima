@@ -4,7 +4,7 @@
 		<div class="uk-container <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
 			<% if $Element.ShowTitle %>
 				<% if $SimpleClassName.LowerCase == "leadblock" %>
-				<h1 class="uk-heading-primary">$Element.Parent.getOwnerPage.Title</h1>
+				<h1>$Element.Parent.getOwnerPage.Title</h1>
 				<% else %>
 				<h2>$Element.Title</h2>
 				<% end_if %>
