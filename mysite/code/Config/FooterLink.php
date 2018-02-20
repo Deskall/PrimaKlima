@@ -44,6 +44,8 @@ class FooterLink extends DataObject{
 		'tag' => 'Tag',
 		'calendar' => 'Kalender',
 		'search' => 'Suche',
+		'list' => 'Liste',
+		'lock' => 'Private',
 		'facebook' => 'facebook',
 		'twitter' => 'twitter',
 		'google-plus' => 'google-plus',
