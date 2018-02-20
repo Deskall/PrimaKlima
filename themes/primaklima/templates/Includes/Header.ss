@@ -3,7 +3,7 @@
 		<a href="" class="uk-logo uk-align-left uk-padding uk-padding-remove-horizontal uk-padding-remove-bottom"><img src="$ThemeDir/img/logo.png" alt="$SiteConfig.Title Logo" title="Home" /></a>
 		<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
 			<div class="uk-navbar-right uk-visible@m">
-			    <ul class="uk-subnav uk-margin-remove">
+			    <ul class="uk-subnav uk-subnav-pill uk-margin-remove">
 			    	<% loop Menu(1).filter('ShowInMainMenu',0) %>
 			    	<li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" title="$Title.XML">$MenuTitle.XML</a>
 			    		<% if Children %>
