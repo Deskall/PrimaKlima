@@ -24,7 +24,5 @@
 	<% include SilverStripe\\UserForms\\Form\\UserFormStepNav %>
 <% else %>
 	<% include UserFormActionNav %>
-    yo
 <% end_if %>
-
 </form>
