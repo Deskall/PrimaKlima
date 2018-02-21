@@ -15,7 +15,7 @@
                             <div class="uk-text-lead uk-padding">$Content</div>
                             <% if Effect == "parallax" %></div><% end_if %>
                            <% if $CallToActionLink.Page.Link %>
-                                <% include CallToActionLink c=w,pos=center %>
+                                <% include CallToActionLink c=w,pos=center,b=secondary %>
                             <% end_if %>
                         </div>
                     </div>
