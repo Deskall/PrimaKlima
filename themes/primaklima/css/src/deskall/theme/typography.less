@@ -48,7 +48,11 @@ h3,h4,h5,h6{
 .hook-text-lead(){
 	font-size: @text-lead-font-size;
 }
-
+@media (max-width:@breakpoint-small){
+	.hook-text-large(){
+		font-size: @global-font-size;
+	}
+}
 @media (min-width:@breakpoint-small){
 	h1, .slide-font .title{
 		font-size: @h1-size*@font-ratio-medium;
