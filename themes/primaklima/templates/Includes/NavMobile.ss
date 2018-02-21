@@ -34,5 +34,34 @@
 			    <% end_if %>
 			</ul>
 
+			<div class="uk-width-1-1">
+			 	<div class="title-container">
+			 		<h3>$SiteConfig.AddressTitle</h3>
+			 	</div>
+			 	<ul class="uk-list uk-list-large dk-list">
+			 		<li data-uk-icon="icon: location;">
+			 			$SiteConfig.Address<br/>
+			 			$SiteConfig.CodeCity<br/>
+			 			$SiteConfig.Country
+			 		</li>
+			 		<% if SiteConfig.Email %>
+			 		<li data-uk-icon="icon: mail;">
+			 			$SiteConfig.Email
+			 		</li>
+			 		<% end_if %>
+			 		<% if SiteConfig.Phone %>
+			 		<li data-uk-icon="icon: receiver;">
+			 			$SiteConfig.Phone
+			 		</li>
+			 		<% end_if %>
+			 		<% if SiteConfig.Mobile %>
+			 		<li data-uk-icon="icon: receiver;">
+			 			$SiteConfig.Mobile
+			 		</li>
+			 		<% end_if %>
+		        </ul>
+		    </div>
+
         </div>
+
     </div>
