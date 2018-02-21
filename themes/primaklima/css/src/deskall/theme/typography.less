@@ -43,7 +43,7 @@ h2{
 	font-size: @h2-size*@font-ratio-small;
 }
 h3{
-	font-size: @h3-size;
+	font-size: @h3-size*@font-ratio-small;
 }
 h4,h5,h6{
 	font-size: @global-font-size;
@@ -63,6 +63,9 @@ h4,h5,h6{
 	h2{
 		font-size: @h2-size*@font-ratio-medium;
 	}
+	h3{
+		font-size: @h3-size*@font-ratio-medium;
+	}
 
 }
 @media (min-width:@breakpoint-medium){
@@ -72,7 +75,9 @@ h4,h5,h6{
 	h2{
 		font-size: @h2-size*@font-ratio-large;
 	}
-	
+	h3{
+		font-size: @h3-size*@font-ratio-large;
+	}
 	h4,h5,h6{
 		font-size: @global-large-font-size;
 	}
@@ -88,7 +93,7 @@ h4,h5,h6{
 	h3{
 		font-size: @h3-size;
 	}
-	h3,h4,h5,h6{
+	h4,h5,h6{
 		font-size: @global-xlarge-font-size;
 	}
 
