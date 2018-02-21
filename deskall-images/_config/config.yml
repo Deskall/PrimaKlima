@@ -10,14 +10,14 @@ SilverStripe\AssetAdmin\Forms\ImageFormFactory:
 
 SilverStripe\Assets\Image:
   extensions:
-    - DeskallImageExtension
+   # - DeskallImageExtension
 
 SilverStripe\Assets\File:
   force_resample: false
 
 SilverStripe\Filesystem\Storage\DBFile:
   extensions:
-    - DeskallImageExtension
+  #  - DeskallImageExtension
 
 SilverStripe\Core\Injector\Injector:
  SilverStripe\Assets\Image_Backend:
