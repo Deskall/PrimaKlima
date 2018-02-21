@@ -33,8 +33,7 @@ class GalleryBlock extends BaseElement
     ];
 
     private static $defaults = [
-        'Layout' => 'carousel',
-        'SortAttribute' => 'SortOrder'
+        'Layout' => 'carousel'
     ];
 
 
@@ -58,6 +57,7 @@ class GalleryBlock extends BaseElement
 
         $this->beforeUpdateCMSFields(function ($fields) {
             $fields->removeByName('Images');
+            $fields->removeByName('SortAttribute');
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));

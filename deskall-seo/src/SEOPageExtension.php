@@ -9,6 +9,13 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\View\Requirements;
 use SilverStripe\Core\Manifest\ModuleLoader;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\i18n\i18n;
+use SilverStripe\Control\Director;
+use SilverStripe\View\SSViewer;
+use SilverStripe\Assets\File;
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class SEOPageExtension extends DataExtension
 {
@@ -18,7 +25,7 @@ class SEOPageExtension extends DataExtension
     'ExtraScript' => 'HTMLText'
     ];
 
-    private static $has_one = [];
+    private static $has_one = ['SharableImage' => Image::class];
 
 
 	public function updateFieldLabels(&$labels) {
@@ -78,6 +85,67 @@ class SEOPageExtension extends DataExtension
 				)
 				->addExtraClass('help')
 			)
+			//,UploadField::create("SharableImage",'Vorschau Bild für Shares')->setFolderName($this->owner->generateFolderName())
 		);
     }
+
+    /* MetaTags
+	*  Hooks into MetaTags SiteTree method and adds MetaTags for
+	*  Sharing of this page on Social Media (Facebook / Google+)
+	*/
+	public function MetaTags(&$tags) {
+
+		$siteConfig = SiteConfig::current_site_config();
+		
+		// facebook OpenGraph
+		
+		$tags .= '<meta property="og:locale" content="' . i18n::get_locale() . '" />' . "\n";
+		$tags .= '<meta property="og:title" content="' . $this->owner->Title . '" />' . "\n";
+		$tags .= '<meta property="og:description" content="' . $this->owner->MetaDescription . '" />' . "\n";
+		$tags .= '<meta property="og:url" content=" ' . rtrim(Director::AbsoluteUrl($this->owner->Link()),'/'). ' " />' . "\n";
+		$tags .= '<meta property="og:site_name" content="' . $siteConfig->Title . '" />' . "\n";
+		$tags .= '<meta property="og:type" content="website" />' . "\n";
+		if ($this->owner->OpenGraphImage()){
+			$tags .= '<meta property="og:image:width" content="600" />' . "\n";
+			$tags .= '<meta property="og:image:height" content="300" />' . "\n";
+			$tags .= '<meta property="og:image" content="'.Director::absoluteBaseURL().ltrim($this->owner->OpenGraphImage(),"/").'" />' . "\n";
+		}
+        $tags .= $siteConfig->GoogleWebmasterMetaTag . "\n";
+	}
+
+	/* Google Structured data
+	*  provide json-d formated data for google sharing and snippet
+	* @return json-d
+	*/
+	public function StructuredData() {
+
+		$siteConfig = SiteConfig::current_site_config();
+		$sd = '<script type="application/ld+json">';
+		$sd .= '{"@context": "http://schema.org",' . "\n";
+		$sd .= '"@type": "WebPage",' . "\n";
+		$sd .= '"url": "'.rtrim(Director::AbsoluteUrl($this->owner->Link()),'/').'",' . "\n";
+		$sd .= '"description": "'.$this->owner->MetaDescription.'",' . "\n";
+		if ($this->owner->OpenGraphImage()){
+			$sd .= '"image": "'.Director::absoluteBaseURL().ltrim($this->owner->OpenGraphImage(),"/").'"'. "\n";
+		}
+		
+		$sd .= '}'. "\n";
+		$sd .= '</script>';
+
+		return $sd;
+	}
+
+
+	/**
+	* Return page image url to display on Facebook or Google +
+	* @return string
+	* By default Page Open Graph > Site Default Open graph
+	*/
+	public function OpenGraphImage(){
+		if ($this->owner->SharableImageID > 0){
+			return $this->owner->SharableImage()->FocusFill(600,315)->URL;
+		}
+		$siteConfig = SiteConfig::current_site_config();
+		return ($siteConfig->OpenGraphDefaultImageID > 0) ? $siteConfig->OpenGraphDefaultImage()->FocusFill(600,315)->URL : null;
+	}
 }

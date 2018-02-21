@@ -94,7 +94,7 @@ class FeaturesBlock extends BaseElement
                 $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'List Titel'));
                 $fields->addFieldToTab('Root.Features',$title);
                 $fields->addFieldToTab('Root.Features',$featuresField);
-                $fields->addFieldToTab('Root.Features',$fields->fieldByName('Root.Main.FeaturesTitle'),'Features');
+                $fields->addFieldToTab('Root.Features',$fields->fieldByName('Root.Features.FeaturesTitle'),'Features');
             } 
         });
         return parent::getCMSFields();
