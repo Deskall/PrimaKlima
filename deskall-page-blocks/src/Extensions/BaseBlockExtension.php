@@ -51,7 +51,20 @@ class BaseBlockExtension extends DataExtension
     }
 
     public function getFolderName(){
-        return $this->owner->Parent()->getOwnerPage()->generateFolderName();
+        $parent = $this->owner->Parent()->getOwnerPage();
+       
+        if (!$parent->hasMethod('generateFolderName')){
+            $parent = $parent->Parent()->getOwnerPage();
+        }
+        return $parent->generateFolderName();
+    }
+
+    public function onBeforeWrite(){
+        if (!$this->owner->Sort){
+            $last = $this->owner->Parent()->Elements()->sort('Sort','DESC')->first();
+            $this->owner->Sort = ($last) ? $last->Sort + 1 : 1;
+        }
+        parent::onBeforeWrite();
     }
 
 }

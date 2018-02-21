@@ -1,5 +1,5 @@
 
-<div class="uk-flex" data-uk-grid data-uk-lightbox>
+<div class="uk-panel" data-uk-lightbox>
 	<% if ContentImage %>
 	<div class="<% if Layout == right || Layout == left %>uk-width-1-3@m<% else %>uk-width-1-1<% end_if%>">
 		<a href="$ContentImage.URL">
