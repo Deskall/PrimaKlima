@@ -9,6 +9,8 @@ SilverStripe\AssetAdmin\Forms\ImageFormFactory:
     - DeskallImageAssetFormFactoryExtension
 
 SilverStripe\Assets\Image:
+  allowed_extensions:
+    - svg
   extensions:
    # - DeskallImageExtension
 
