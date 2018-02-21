@@ -27,8 +27,7 @@
 .dk-overlay{
 	position: relative;
 	.uk-container{position: relative;z-index: 2}
-	&:after{
-		background-color: rgba(0,0,0,0.7);
+	&:not(.no-bg)::after{
 		content: "";
 		display: block;
 		position: absolute;
@@ -49,6 +48,9 @@
 	}
 	&.dk-background-white:after{
 		background-color:fade(@white,50%);
+	}
+	&.uk-background-black:after{
+		background-color:fade(@black,50%);
 	}
 }
 
