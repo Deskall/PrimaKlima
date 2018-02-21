@@ -8,7 +8,7 @@
 			<div class="uk-margin-top dk-box-content">
 		    	$Content
 		    <% if $CallToActionLink.Page.Link %>
-				<% include CallToActionLink c=r %>
+				<% include CallToActionLink c=r,pos=center %>
 			<% end_if %>
 		    </div>
 		    <% if Image %>
@@ -30,7 +30,7 @@
 		    <div class="uk-margin-top dk-box-content">
 		    	$Content
 		    	<% if $CallToActionLink.Page.Link %>
-					<% include CallToActionLink c=r %>
+					<% include CallToActionLink c=r,pos=center %>
 				<% end_if %>
 		    </div>
 		    <% else %>
@@ -45,7 +45,7 @@
 		    <div class="uk-margin-top dk-box-content">
 		    	$Content
 		    <% if $CallToActionLink.Page.Link %>
-				<% include CallToActionLink c=r %>
+				<% include CallToActionLink c=r,pos=center %>
 			<% end_if %>
 		    </div>
 		    <% end_if %>
