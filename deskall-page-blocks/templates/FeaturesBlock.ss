@@ -16,9 +16,9 @@
 	<% if $FeaturesTitle %>
 		<h3>$FeaturesTitle</h3>
 	<% end_if %>
-	<ul class="uk-list uk-list-large uk-text-large dk-list">
+	<ul class="uk-list uk-list-large dk-list">
 	<% loop activeFeatures %> 
-	    <li data-uk-icon="icon: $Top.IconItem; ratio:1.5" class="dk-large-icon">$Text</li>
+	    <li data-uk-icon="icon: $Top.IconItem; ratio:1.5" class="dk-large-icon"><span class="uk-text-large">$Text</span></li>
 	<% end_loop %>
 	</ul>
 <% end_if %>

@@ -34,13 +34,16 @@ class UserDefinedFormExtension extends DataExtension
 	    			$this->setUiKitAttributes($child);
 	    		}
 	    	break;
+            default:
+                $field->setAttribute('class','uk-input');
+            break;
 	    }
 
     }
 
     public function updateFormActions($actions){
     	foreach ($actions as $action){
-    		$action->addExtraClass('uk-button uk-button-primary');
+    		$action->addExtraClass('uk-button uk-button-secondary uk-flex-right');
             if ($this->owner->controller->record['hasCaptcha']){
                 $action->addExtraClass('g-recaptcha')->setAttribute('data-sitekey','123456')->setAttribute('data-callback','onSubmit');
             }
