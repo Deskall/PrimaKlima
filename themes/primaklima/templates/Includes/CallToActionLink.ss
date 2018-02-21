@@ -4,7 +4,7 @@
 		<% if $TargetBlank %>target="_blank"<% end_if %>
 		<% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		{$Text.XML}
-		<% include DefaultLinkIcon c=c %>
+		<% include DefaultLinkIcon c=$c %>
 		</a>
 	<% end_with %>
 </div>
