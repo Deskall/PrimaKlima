@@ -48,8 +48,8 @@ h3,h4,h5,h6{
 .hook-text-lead(){
 	font-size: @text-lead-font-size;
 }
-@media (max-width:@breakpoint-small){
-	.hook-text-large(){
+.hook-text-large(){
+	@media (max-width:@breakpoint-small){
 		font-size: @global-font-size;
 	}
 }
