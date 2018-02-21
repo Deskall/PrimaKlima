@@ -34,11 +34,11 @@
 			    <% end_if %>
 			</ul>
 
-			<div class="uk-width-1-1">
+			<div class="uk-width-1-1 uk-margin-small">
 			 	<div class="title-container">
 			 		<strong>$SiteConfig.AddressTitle</strong>
 			 	</div>
-			 	<ul class="uk-list uk-navbar-default dk-list">
+			 	<ul class="uk-list uk-nav-default dk-list">
 			 		<li data-uk-icon="icon: location;">
 			 			$SiteConfig.Address<br/>
 			 			$SiteConfig.CodeCity<br/>
