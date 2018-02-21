@@ -14,5 +14,5 @@
 	
 </div>
 <% if $CallToActionLink.Page.Link %>
-	<% include CallToActionLink c=w %>
+	<% include CallToActionLink c=w,b=secondary %>
 <% end_if %>
