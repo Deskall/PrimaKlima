@@ -43,7 +43,7 @@ class UserDefinedFormExtension extends DataExtension
 
     public function updateFormActions($actions){
     	foreach ($actions as $action){
-    		$action->addExtraClass('uk-button uk-button-secondary uk-flex-right');
+    		$action->addExtraClass('uk-button uk-button-secondary');
             if ($this->owner->controller->record['hasCaptcha']){
                 $action->addExtraClass('g-recaptcha')->setAttribute('data-sitekey','123456')->setAttribute('data-callback','onSubmit');
             }
