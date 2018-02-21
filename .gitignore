@@ -8,3 +8,4 @@
 /themes/simple/
 /resources/
 composer.lock
+*.log

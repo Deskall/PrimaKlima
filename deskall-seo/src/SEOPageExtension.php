@@ -27,6 +27,8 @@ class SEOPageExtension extends DataExtension
 
     private static $has_one = ['SharableImage' => Image::class];
 
+    private static $owns = ['SharableImage'];
+
 
 	public function updateFieldLabels(&$labels) {
 		$labels['MetaTitle'] = _t('SiteTree.METATITLE', "MetaTitel");
@@ -37,6 +39,8 @@ class SEOPageExtension extends DataExtension
 		if (is_array($toExclude) && in_array($this->owner->getClassName(), $toExclude)) {
 			return;
 		}
+
+		$fields->addFieldToTab('Root.SEO',UploadField::create("SharableImage",'Vorschau Bild für Shares')->setFolderName($this->owner->generateFolderName()));
 
 		Requirements::css('deskall-seo/css/seo.css');
 		Requirements::javascript('deskall-seo/javascript/seo.js');
@@ -85,7 +89,6 @@ class SEOPageExtension extends DataExtension
 				)
 				->addExtraClass('help')
 			)
-			//,UploadField::create("SharableImage",'Vorschau Bild für Shares')->setFolderName($this->owner->generateFolderName())
 		);
     }
 
