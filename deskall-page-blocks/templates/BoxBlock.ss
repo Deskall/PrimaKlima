@@ -4,7 +4,7 @@
 		<% loop ActiveBoxes %>
 		<div class="uk-transition-toggle" tabindex="0">
 			<% if Top.Layout == "inversed" %>
-			<h3 class="uk-margin-small">$Title</h3>
+			<h3 class="uk-margin">$Title</h3>
 			<div class="uk-margin-top dk-box-content">
 		    	$Content
 		    <% if $CallToActionLink.Page.Link %>
@@ -26,7 +26,7 @@
 		    <a href="$Image.URL" class="dk-lightbox"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" $Image.ImageTags($Title) ></a>
 		    	<% end_if %>
 		    <% end_if %>
-		    <h3 class="uk-margin-small">$Title</h3>
+		    <h3 class="uk-margin">$Title</h3>
 		    <div class="uk-margin-top dk-box-content">
 		    	$Content
 		    	<% if $CallToActionLink.Page.Link %>
@@ -34,7 +34,7 @@
 				<% end_if %>
 		    </div>
 		    <% else %>
-		    <h3 class="uk-margin-small">$Title</h3>
+		    <h3 class="uk-margin">$Title</h3>
 		    <% if Image %>
 		    	<% if $Top.ImageType == "icon" %>
 		    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" $Image.ImageTags($Title) />
