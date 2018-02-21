@@ -1,6 +1,10 @@
 
 		$HTML
 
+		<% if $CallToActionLink.Page.Link %>
+			<% include CallToActionLink c=w %>
+		<% end_if %>
+
 		<% if Layout == "carousel" %>
 		<div uk-slider>
 

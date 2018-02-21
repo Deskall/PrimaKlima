@@ -18,16 +18,16 @@
 		            </li>
 			    	<% end_loop %>
 			    	<% if SiteConfig.Facebook %>
-				    <li><a href="$SiteConfig.Facebook" data-uk-icon="icon: facebook;ratio: 0.875"></a></li>
+				    <li><a href="$SiteConfig.Facebook" data-uk-icon="icon: facebook;ratio: 0.875" target="_blank"></a></li>
 				    <% end_if %>
 				    <% if SiteConfig.Twitter %>
-				    <li><a href="$SiteConfig.Twitter" data-uk-icon="icon: twitter;ratio: 0.875"></a></li>
+				    <li><a href="$SiteConfig.Twitter" data-uk-icon="icon: twitter;ratio: 0.875" target="_blank"></a></li>
 				    <% end_if %>
 				     <% if SiteConfig.Linkedin %>
-				    <li><a href="$SiteConfig.Linkedin" data-uk-icon="icon: linkedin;ratio: 0.875"></a></li>
+				    <li><a href="$SiteConfig.Linkedin" data-uk-icon="icon: linkedin;ratio: 0.875" target="_blank"></a></li>
 				    <% end_if %>
 				    <% if SiteConfig.Xing %>
-				    <li><a href="$SiteConfig.Xing" data-uk-icon="icon: xing;ratio: 0.875"></a></li>
+				    <li><a href="$SiteConfig.Xing" data-uk-icon="icon: xing;ratio: 0.875" target="_blank"></a></li>
 				    <% end_if %>
 			    </ul>
 			</div>
