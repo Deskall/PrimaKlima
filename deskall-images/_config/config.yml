@@ -11,11 +11,23 @@ SilverStripe\AssetAdmin\Forms\ImageFormFactory:
 SilverStripe\Assets\Image:
   allowed_extensions:
     - svg
+  app_categories:
+    image:
+      - svg
+    image_supported:
+      -svg
   extensions:
    # - DeskallImageExtension
 
 SilverStripe\Assets\File:
   force_resample: false
+  allowed_extensions:
+    - svg
+  app_categories:
+    image:
+      - svg
+    image_supported:
+      -svg
 
 SilverStripe\Filesystem\Storage\DBFile:
   extensions:
