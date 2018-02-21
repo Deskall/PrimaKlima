@@ -1,6 +1,11 @@
 header{
+	height:@header-menu-collapsed-height;
+	@media (min-width:@breakpoint-medium){
+		height:@header-menu-height;
+	}
 	.uk-logo{
 		height:50px;
+		padding-top:10px;
 		img,svg{
 			max-height: 100%;
 			width: auto;
