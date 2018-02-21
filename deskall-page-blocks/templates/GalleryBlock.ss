@@ -14,7 +14,7 @@
 		            <ul class="uk-slider-items uk-child-width-1-3@s uk-child-width-1-4@ uk-grid" uk-lightbox>
 		            	<% loop OrderedImages %>
 		                <li>
-				            <a href="$URL"><img src="$FocusFill(350,250).URL" alt=""></a>
+				            <a href="$URL"><img src="$FocusFill(350,250).URL" alt="" class="uk-width-1-1"></a>
 				        </li>
 				     	<% end_loop %>
 		            </ul>
@@ -38,7 +38,7 @@
 		<div class="uk-flex-center uk-child-width-1-2@s uk-child-width-1-3@m  uk-child-width-1-4@l uk-grid-small" uk-grid uk-lightbox>
 		    <% loop OrderedImages %>
 		    	<div>
-					<a href="$URL"><img src="$FocusFill(350,250).URL" alt=""></a>
+					<a href="$URL"><img src="$FocusFill(350,250).URL" alt="" class="uk-width-1-1"></a>
 				</div>
 			<% end_loop %>
 		</div>
