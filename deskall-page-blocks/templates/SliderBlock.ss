@@ -1,10 +1,10 @@
 
 <div data-uk-slideshow="<% if Height != "viewport" %><% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %><% end_if %> <% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};" class="dk-slider uk-visible-toggle">
-    <ul class="uk-slideshow-items" <% if Height == "viewport" %>uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
+    <ul class="uk-slideshow-items" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
         <% loop ActiveSlides %>
         <li>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
-                <img src="$Image.URL" alt="" uk-cover>
+                <img src="$Image.URL" alt="" data-uk-cover>
             <% if Effect == "kenburns" %></div><% end_if %>
             <div class="dk-slide-text-container uk-position-relative">
                 <div class="uk-position-center">
@@ -14,17 +14,8 @@
                             <h2>$Title</h2>
                             <div class="uk-text-lead uk-padding">$Content</div>
                             <% if Effect == "parallax" %></div><% end_if %>
-                            <% if $CallToActionLink.Page.Link %>
-                                <% with $CallToActionLink %>
-                                <div class="uk-align-center">
-                                    <a href="{$Page.Link}" class="uk-button uk-button-secondary"
-                                        <% if $TargetBlank %>target="_blank"<% end_if %>
-                                        <% if $Description %>title="{$Description.ATT}"<% end_if %>>
-                                        {$Text.XML}
-                                        <% include DefaultLinkIcon c=w %>
-                                    </a>
-                                </div>
-                                <% end_with %>
+                           <% if $CallToActionLink.Page.Link %>
+                                <% include CallToActionLink c=w %>
                             <% end_if %>
                         </div>
                     </div>

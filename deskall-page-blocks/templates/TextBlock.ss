@@ -1,5 +1,5 @@
 
-<div class="uk-flex" uk-grid uk-lightbox>
+<div class="uk-flex" data-uk-grid data-uk-lightbox>
 	<% if ContentImage %>
 	<div class="<% if Layout == right || Layout == left %>uk-width-1-3@m<% else %>uk-width-1-1<% end_if%>">
 		<a href="$ContentImage.URL">
@@ -14,12 +14,5 @@
 	
 </div>
 <% if $CallToActionLink.Page.Link %>
-		<% with $CallToActionLink %>
-		<a href="{$Page.Link}" class="uk-button uk-button-secondary uk-align-right"
-		<% if $TargetBlank %>target="_blank"<% end_if %>
-		<% if $Description %>title="{$Description.ATT}"<% end_if %>>
-		{$Text.XML}
-		<% include DefaultLinkIcon c=w %>
-		</a>
-		<% end_with %>
-	<% end_if %>
+	<% include CallToActionLink c=w %>
+<% end_if %>

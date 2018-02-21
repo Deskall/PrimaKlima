@@ -1,9 +1,9 @@
-<div id="offcanvas-flip" uk-offcanvas="mode: reveal; overlay: true">
+<div id="offcanvas-flip" data-uk-offcanvas="mode: reveal; overlay: true">
         <div class="uk-offcanvas-bar uk-width-1-1">
 
-            <button class="uk-offcanvas-close" type="button" uk-close></button>
+            <button class="uk-offcanvas-close" type="button" data-uk-close></button>
 
-            <ul class="uk-nav-default dk-nav-mobile uk-nav-parent-icon" uk-nav>
+            <ul class="uk-nav-default dk-nav-mobile uk-nav-parent-icon" data-uk-nav>
             	<li class="uk-nav-header">$SiteConfig.Title</li>
             	<% loop Menu(1) %>
 			        <li class="$LinkingMode <% if $Children %>uk-parent<% end_if %> <% if LinkingMode == "current" %>uk-active<% end_if %>">

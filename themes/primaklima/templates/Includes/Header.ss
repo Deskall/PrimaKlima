@@ -1,7 +1,7 @@
 <header class="dk-background-header uk-position-top uk-position-z-index">
 	<div class="uk-container uk-container-medium uk-position-relative">
-		<a href="" class="uk-logo uk-align-left"><img src="$ThemeDir/img/logo.png" alt="$SiteConfig.Title Logo" title="Home" /></a>
-		<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+		<a href="" class="uk-logo uk-align-left" title="$SiteConfig.Title Home"><img src="$ThemeDir/img/logo.png" alt="$SiteConfig.Title Logo" title="Home" /></a>
+		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 			<div class="uk-navbar-right uk-visible@m">
 			    <ul class="uk-subnav uk-subnav-pill uk-margin-remove">
 			    	<% loop Menu(1).filter('ShowInMainMenu',0) %>
@@ -32,7 +32,7 @@
 			    </ul>
 			</div>
 		</nav>
-		<nav class="uk-navbar-container uk-margin-small-top uk-navbar-transparent uk-navbar" uk-navbar>
+		<nav class="uk-navbar-container uk-margin-small-top uk-navbar-transparent uk-navbar" data-uk-navbar>
 			
 			<div class="uk-navbar-right uk-visible@m">
 			    <ul class="uk-navbar-nav">
@@ -52,7 +52,7 @@
 			    </ul>
 			</div>
 			<div class="uk-navbar-right uk-hidden@m">
-	            <button class="uk-button uk-padding" type="button" uk-navbar-toggle-icon uk-toggle="target: #offcanvas-flip"></button>
+	            <button class="uk-button uk-padding" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
 	        </div>
 		</nav>
 		

@@ -1,22 +1,15 @@
 
 		$HTML
-		<div class="$BoxPerLine uk-grid-match" uk-grid uk-lightbox="toggle:.dk-lightbox" uk-height-match="target:h3;row:false;">
+		<div class="$BoxPerLine uk-grid-match" data-uk-grid data-uk-lightbox="toggle:.dk-lightbox" data-uk-height-match="target:h3;row:false;">
 		<% loop ActiveBoxes %>
 		<div class="uk-transition-toggle" tabindex="0">
 			<% if Top.Layout == "inversed" %>
 			<h3 class="uk-margin-small">$Title</h3>
 			<div class="uk-margin-top dk-box-content">
 		    	$Content
-		    	<% if $CallToActionLink.Page.Link %>
-		                      <% with $CallToActionLink %>
-		                          <a href="{$Page.Link}" class="uk-button uk-align-center strong-font"
-		                              <% if $TargetBlank %>target="_blank"<% end_if %>
-		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
-		                              {$Text.XML}
-		                              <% include DefaultLinkIcon c=r %>
-		                          </a>
-		                      <% end_with %>
-		                  <% end_if %>
+		    <% if $CallToActionLink.Page.Link %>
+				<% include CallToActionLink c=r %>
+			<% end_if %>
 		    </div>
 		    <% if Image %>
 		    	<% if $Top.ImageType == "icon" %>
@@ -37,15 +30,8 @@
 		    <div class="uk-margin-top dk-box-content">
 		    	$Content
 		    	<% if $CallToActionLink.Page.Link %>
-		                      <% with $CallToActionLink %>
-		                          <a href="{$Page.Link}" class="uk-button uk-align-center strong-font"
-		                              <% if $TargetBlank %>target="_blank"<% end_if %>
-		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
-		                              {$Text.XML}
-		                              <% include DefaultLinkIcon c=r %>
-		                          </a>
-		                      <% end_with %>
-		                  <% end_if %>
+					<% include CallToActionLink c=r %>
+				<% end_if %>
 		    </div>
 		    <% else %>
 		    <h3 class="uk-margin-small">$Title</h3>
@@ -58,16 +44,9 @@
 		    <% end_if %>
 		    <div class="uk-margin-top dk-box-content">
 		    	$Content
-		    	<% if $CallToActionLink.Page.Link %>
-		                      <% with $CallToActionLink %>
-		                          <a href="{$Page.Link}" class="uk-button uk-align-center strong-font"
-		                              <% if $TargetBlank %>target="_blank"<% end_if %>
-		                              <% if $Description %>title="{$Description.ATT}"<% end_if %>>
-		                              {$Text.XML}
-		                              <% include DefaultLinkIcon c=r %>
-		                          </a>
-		                      <% end_with %>
-		                  <% end_if %>
+		    <% if $CallToActionLink.Page.Link %>
+				<% include CallToActionLink c=r %>
+			<% end_if %>
 		    </div>
 		    <% end_if %>
 		</div>
