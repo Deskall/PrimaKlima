@@ -32,7 +32,7 @@
 			    </ul>
 			</div>
 		</nav>
-		<nav class="uk-navbar-container uk-margin-small-top uk-navbar-transparent uk-navbar" data-uk-navbar>
+		<nav class="uk-navbar-container uk-navbar-transparent uk-navbar" data-uk-navbar>
 			
 			<div class="uk-navbar-right uk-visible@m">
 			    <ul class="uk-navbar-nav">
@@ -52,7 +52,7 @@
 			    </ul>
 			</div>
 			<div class="uk-navbar-right uk-hidden@m">
-	            <button class="uk-button uk-padding" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
+	            <button class="uk-button" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
 	        </div>
 		</nav>
 		
