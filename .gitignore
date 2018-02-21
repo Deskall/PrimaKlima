@@ -7,3 +7,4 @@
 /vendor/
 /themes/simple/
 /resources/
+*.log
