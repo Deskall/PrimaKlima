@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="$ContentLocale" dir="ltr">
+<html lang="$ContentLocale" dir="ltr" class="uk-text-break">
   <head>
      <% include Meta %>
   </head>
