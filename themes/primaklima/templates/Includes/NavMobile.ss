@@ -34,7 +34,7 @@
 			    <% end_if %>
 			</ul>
 
-			<div class="uk-width-1-1 uk-margin-small uk-text-muted uk-text-small">
+			<div class="uk-width-1-1 uk-margin-small uk-text-muted dk-mobile-address">
 			 	<div class="title-container">
 			 		<strong>$SiteConfig.AddressTitle</strong>
 			 	</div>
