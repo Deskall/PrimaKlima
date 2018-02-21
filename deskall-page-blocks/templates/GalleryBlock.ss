@@ -2,7 +2,7 @@
 		$HTML
 
 		<% if $CallToActionLink.Page.Link %>
-			<% include CallToActionLink c=w,b=secondary %>
+			<% include CallToActionLink c=w,b=secondary,pos=right %>
 		<% end_if %>
 
 		<% if Layout == "carousel" %>
