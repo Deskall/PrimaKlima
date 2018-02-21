@@ -4,7 +4,7 @@
             <button class="uk-offcanvas-close" type="button" data-uk-close></button>
 
             <ul class="uk-nav-default dk-nav-mobile uk-nav-parent-icon" data-uk-nav>
-            	<li class="uk-nav-header">$SiteConfig.Title</li>
+        
             	<% loop Menu(1) %>
 			        <li class="$LinkingMode <% if $Children %>uk-parent<% end_if %> <% if LinkingMode == "current" %>uk-active<% end_if %>">
 			            <a href="$Link" title="$Title.XML">$MenuTitle.XML</a>
@@ -34,7 +34,7 @@
 			    <% end_if %>
 			</ul>
 
-			<div class="uk-width-1-1 uk-margin-small uk-text-muted dk-mobile-address">
+			<div class="uk-width-1-1 uk-margin uk-text-muted dk-mobile-address">
 			 	<div class="title-container">
 			 		<strong>$SiteConfig.AddressTitle</strong>
 			 	</div>
