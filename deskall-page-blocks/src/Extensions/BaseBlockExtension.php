@@ -22,6 +22,10 @@ class BaseBlockExtension extends DataExtension
         'BackgroundImage' => Image::class
     ];
 
+    private static $owns =[
+        'BackgroundImage'
+    ];
+
     private static $defaults = [
         'ShowTitle' => 1
     ];
