@@ -1,7 +1,7 @@
 
 // LIST
 .dk-list{
-	li[uk-icon]{
+	li[data-uk-icon]{
 		padding-left: 30px;
 		position: relative;
 		display: block;
@@ -27,8 +27,7 @@
 .dk-overlay{
 	position: relative;
 	.uk-container{position: relative;z-index: 2}
-	&:after{
-		background-color: rgba(0,0,0,0.7);
+	&:not(.no-bg)::after{
 		content: "";
 		display: block;
 		position: absolute;
@@ -50,6 +49,9 @@
 	&.dk-background-white:after{
 		background-color:fade(@white,50%);
 	}
+	&.uk-background-black:after{
+		background-color:fade(@black,50%);
+	}
 }
 
 .dk-background-white{
@@ -61,3 +63,4 @@
 	vertical-align: text-bottom;
 	margin-left:10px;
 }
+

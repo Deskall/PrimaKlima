@@ -8,19 +8,9 @@
 
 		    $Content
 
-		    <%-- Add a CallToActionLink if available --%>
-		    <% if $CallToActionLink.Page.Link %>
-		       
-		        <% with $CallToActionLink %>
-		            <a href="{$Page.Link}" class="uk-button uk-button-secondary"
-		                <% if $TargetBlank %>target="_blank"<% end_if %>
-		                <% if $Description %>title="{$Description.ATT}"<% end_if %>>
-		                {$Text.XML}
-		                <% include DefaultLinkIcon c=w %>
-		            </a>
-		        <% end_with %>
-		        
-		    <% end_if %>
+		 	<% if $CallToActionLink.Page.Link %>
+				<% include CallToActionLink c=w,b=secondary,pos=right %>
+			<% end_if %>
 	    </div>
 	</div>
 </div>

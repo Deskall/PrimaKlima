@@ -1,4 +1,4 @@
-		<li uk-icon="icon:  <% if $Icon %>$Icon;<% else %>chevron-right<% end_if %>">
+		<li data-uk-icon="icon:  <% if $Icon %>$Icon;<% else %>chevron-right<% end_if %>">
 		    <% if $CallToActionLink.Page.Link %>
 		        <% with $CallToActionLink %>
 		            <a href="{$Page.Link}"

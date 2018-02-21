@@ -26,4 +26,8 @@ class PageBlocksExtension extends DataExtension {
 		parent::onBeforeWrite();
 		$this->owner->checkLead();
 	}
+
+	public function noSlide(){
+		return (SliderBlock::get()->filter('ParentID',$this->owner->ElementalAreaID)->count() == 0);
+	}
 }

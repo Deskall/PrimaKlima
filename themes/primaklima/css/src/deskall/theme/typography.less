@@ -1,9 +1,12 @@
 //Typography
-
+*{
+	.standard-font;
+}
 h1,h2,h3,h4,h5,h6{
 	font-family:@light-font-family;
 	color: @global-color;
 }
+
 em,strong,.strong-font{
 	font-family:@strong-font-family;
 }
@@ -17,49 +20,14 @@ em,strong,.strong-font{
 	color:@global-color;
 }
 
-.slide-font{
-	*{
-		text-shadow: 0 0 20px @black;
-	}
-	h2{
-		font-family:@global-font-family;
-		font-size:@global-large-font-size;
-		@media (min-width:@breakpoint-small){
-			font-size: @global-xlarge-font-size;
-		}
-		@media (min-width:@breakpoint-medium){
-			font-size: @global-xxlarge-font-size;
-		}
-		@media (min-width:@breakpoint-xlarge){
-			font-size: @heading-primary-font-size;
-		}
-	}
-	.uk-text-lead {
-		font-size: @global-font-size;
-		@media (min-width:@breakpoint-small){
-			font-size: @global-medium-font-size;
-		}
-		@media (min-width:@breakpoint-xlarge){
-			font-size: @global-large-font-size;
-		}
-	}
-}
-.hook-heading-primary(){
-	color: @global-color;
-	text-align:center;
-}
-@media (min-width:@breakpoint-xlarge){
-	.hook-heading-primary(){
-		font-size:@heading-primary-font-size;
-	}
-}
-
-.hook-text-lead(){
-	text-align:center;
-	color: @global-color;
-}
 
 
+
+
+// BUTTONS ///
+.hook-button(){
+	text-transform: none!important;
+}
 
 //Text colors //
 .dk-text-white{
@@ -67,4 +35,72 @@ em,strong,.strong-font{
 	*{
 		color:@white;
 	}
+}
+
+
+//Font size media queries
+.standard-font{
+	font-size:@global-small-font-size;
+	@media (min-width:@breakpoint-medium){
+		font-size:@global-font-size;
+	}
+}
+h1, .slide-font .title{
+	font-size: @h1-mobile-size;
+}
+h2{
+	font-size: @h2-size*@font-ratio-small;
+}
+h3{
+	font-size: @h3-size*@font-ratio-large;
+}
+h4,h5,h6{
+	font-size: @global-font-size;
+}
+.hook-text-lead(){
+	font-size: @text-lead-font-size;
+}
+.hook-text-large(){
+	@media (max-width:@breakpoint-small){
+		font-size: @global-font-size;
+	}
+}
+@media (min-width:@breakpoint-small){
+	h1, .slide-font .title{
+		font-size: @h1-size*@font-ratio-medium;
+	}
+	h2{
+		font-size: @h2-size*@font-ratio-medium;
+	}
+	
+
+}
+@media (min-width:@breakpoint-medium){
+	h1, .slide-font .title{
+		font-size: @h1-size*@font-ratio-large;
+	}
+	h2{
+		font-size: @h2-size*@font-ratio-large;
+	}
+
+	h4,h5,h6{
+		font-size: @global-large-font-size;
+	}
+	
+}
+@media (min-width:@breakpoint-large){
+	h1, .slide-font .title{
+		font-size: @h1-size;
+	}
+	h2{
+		font-size: @h2-size;
+	}
+	h3{
+		font-size: @h3-size;
+	}
+	h4,h5,h6{
+		font-size: @global-xlarge-font-size;
+	}
+
+	
 }

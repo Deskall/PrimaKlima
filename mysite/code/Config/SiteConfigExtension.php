@@ -28,7 +28,7 @@ class SiteConfigExtension extends DataExtension
 
   private static $db = [
     'AddressTitle' => 'Text',
-    'Address' => 'Varchar(255)',
+    'Address' => 'Text',
     'CodeCity' => 'Varchar(255)',
     'Country' => 'Varchar(255)',
     'Email' => 'Varchar(255)',
@@ -53,7 +53,7 @@ class SiteConfigExtension extends DataExtension
     $fields->addFieldsToTab('Root.Main',[
       HeaderField::create('AddressHeading',_t(__CLASS__.'.Address','Adresse'),3),
       TextareaField::create('AddressTitle',_t(__CLASS__.'.AdresseTitle','Adresse Titel')),
-      TextField::create('Address',_t(__CLASS__.'.AddressStreet','Adresse')),
+      TextareaField::create('Address',_t(__CLASS__.'.AddressStreet','Adresse')),
       TextField::create('CodeCity',_t(__CLASS__.'.CodeCity','PLZ / Ort')),
       TextField::create('Country',_t(__CLASS__.'.Country','Land')),
       TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon')),

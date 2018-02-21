@@ -1,13 +1,25 @@
 header{
+	height:@header-menu-collapsed-height;
+	@media (min-width:@breakpoint-medium){
+		height:@header-menu-height;
+	}
 	.uk-logo{
 		height:50px;
+		padding-top:10px;
 		img,svg{
 			max-height: 100%;
 			width: auto;
 		}
 
-		@media (min-width:@breakpoint-large){
+		@media (min-width:@breakpoint-medium){
 			height:60px;
+			padding-top:50px;
+			margin:0;
+		}
+		@media (min-width:@breakpoint-large){
+			height:70px;
+			padding-top:40px;
+			margin:0;
 		}
 	}
 	&.dk-background-header{
@@ -17,11 +29,17 @@ header{
 		.nav-font;
 		border-bottom:2px solid transparent;
 	}
-	.uk-navbar-nav > li.uk-active > a, .uk-navbar-nav > li > a:hover{
+	.uk-navbar-nav > li > a:hover{
 		border-bottom-color:@global-primary-background;
+	}
+	.uk-navbar-nav > li.uk-active > a{
+		border-bottom-color:@global-secondary-background;
 	}
 	.uk-navbar-dropdown{
 		background:@dk-background-header;
+	}
+	.uk-navbar-toggle-icon{
+		line-height: @header-menu-collapsed-height;
 	}
 }
 .dk-nav-mobile{
@@ -30,3 +48,9 @@ header{
 			color: @global-emphasis-inverse-color;
 		}
 	}
+
+.hook-subnav-item(){
+	text-transform: none;
+	height:@navbar-nav-item-height;
+	line-height: @navbar-nav-item-height;
+}

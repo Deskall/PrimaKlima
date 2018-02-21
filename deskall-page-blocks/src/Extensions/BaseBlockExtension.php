@@ -22,6 +22,10 @@ class BaseBlockExtension extends DataExtension
         'BackgroundImage' => Image::class
     ];
 
+    private static $owns =[
+        'BackgroundImage'
+    ];
+
     private static $defaults = [
         'ShowTitle' => 1
     ];
@@ -30,7 +34,7 @@ class BaseBlockExtension extends DataExtension
     private static $block_backgrounds = [
         'no-bg' => 'keine Hintergrundfarbe',
         'uk-background-primary' => 'primäre Farbe',
-        'uk-background-secondary' => 'sekondäre Farbe',
+        'uk-background-secondary' => 'sekundäre Farbe',
         'uk-background-muted' => 'grau',
         'dk-background-white uk-background' => 'weiss',
     ];
@@ -47,7 +51,20 @@ class BaseBlockExtension extends DataExtension
     }
 
     public function getFolderName(){
-        return $this->owner->Parent()->getOwnerPage()->generateFolderName();
+        $parent = $this->owner->Parent()->getOwnerPage();
+       
+        if (!$parent->hasMethod('generateFolderName')){
+            $parent = $parent->Parent()->getOwnerPage();
+        }
+        return $parent->generateFolderName();
+    }
+
+    public function onBeforeWrite(){
+        if (!$this->owner->Sort){
+            $last = $this->owner->Parent()->Elements()->sort('Sort','DESC')->first();
+            $this->owner->Sort = ($last) ? $last->Sort + 1 : 1;
+        }
+        parent::onBeforeWrite();
     }
 
 }
