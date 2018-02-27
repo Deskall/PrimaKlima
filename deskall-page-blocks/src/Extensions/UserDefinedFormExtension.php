@@ -34,6 +34,10 @@ class UserDefinedFormExtension extends DataExtension
 	    			$this->setUiKitAttributes($child);
 	    		}
 	    	break;
+            case "date-alt text":
+                $field->setAttribute('class','uk-input');
+                $field->setInputType('text');
+            break;
             default:
                 $field->setAttribute('class','uk-input');
             break;
