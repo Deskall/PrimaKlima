@@ -3,7 +3,7 @@
 	<% if ContentImage %>
 	<div class="<% if Layout == right || Layout == left %>uk-width-1-3@m<% else %>uk-width-1-1<% end_if%>">
 		<a href="$ContentImage.URL">
-			<img class="<% if Layout == right || Layout == left %>uk-align-left<% else %>uk-align-center<% end_if %>" src="$ContentImage.URL" alt="">
+			<img src="$ContentImage.URL" alt="">
 		</a>
 	</div>
 	<div class="<% if Layout == right || Layout == left %>uk-width-2-3@m<% else %>uk-width-1-1<% end_if%> <% if Layout == "right" || Layout == "hover" %>uk-flex-first<% end_if %>">$HTML

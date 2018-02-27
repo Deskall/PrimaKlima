@@ -15,7 +15,8 @@
         "littlegiant/silverstripe-seo-editor": "^2.1",
         "silverstripe/multiuser-editing-alert": "^2.0@dev",
         "leafo/scssphp": "^0.7.4",
-        "jonom/focuspoint": "dev-master"
+        "jonom/focuspoint": "dev-master",
+        "unclecheese/display-logic": "2.0.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7"
