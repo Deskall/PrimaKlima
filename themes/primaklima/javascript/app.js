@@ -4,12 +4,9 @@ $('.dk-responsive-icon').each(function(){
 	var svg = $(this).find('svg')[0];
 	console.log(svg);
 
-	  svg.attr({
-	    width: size,
-	    height: size,
-	    viewBox: [0, 0, size, size].join(' ')
-	  });
-	
+	svg.setAttribute('width',size);
+	svg.setAttribute('height',size);
+	svg.setAttribute('viewBox',[0, 0, size, size].join(' '));
 });
 
 ['viewBox'].forEach(function(k) {
