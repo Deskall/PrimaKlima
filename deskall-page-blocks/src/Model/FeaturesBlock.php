@@ -70,6 +70,7 @@ class FeaturesBlock extends BaseElement
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
+            $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
             
             $fields->removeByName('Features');
       

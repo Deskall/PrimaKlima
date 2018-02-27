@@ -62,7 +62,7 @@ class GalleryBlock extends BaseElement
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
 
-            $fields->addFieldToTab('Root.Main',UploadField::create('Images','Bilder')->setIsMultiUpload(true),'HTML');
+            $fields->addFieldToTab('Root.Main',UploadField::create('Images','Bilder')->setIsMultiUpload(true),'HTML')->setFolderName($this->getFolderName());;
             $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
 
 
