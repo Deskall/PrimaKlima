@@ -4,8 +4,8 @@ $('.dk-responsive-icon').each(function(){
 	var svg = $(this).find('svg')[0];
 	console.log(svg);
 	if (svg){
-		$(svg).setAttribute('height',size);
-		$(svg).setAttribute('width',size);
+		svg.setAttribute('height',size);
+		svg.setAttribute('width',size);
 	}
 	
 });
