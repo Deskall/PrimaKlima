@@ -18,7 +18,7 @@
 	<% end_if %>
 	<ul class="uk-list uk-list-large dk-list">
 	<% loop activeFeatures %> 
-	    <li data-uk-icon="icon: $Top.IconItem; ratio:1.2" class="dk-large-icon"><span class="uk-text-large">$Text</span></li>
+	    <li data-uk-icon="icon: $Top.IconItem;" class="dk-large-icon uk-text-large">$Text</li>
 	<% end_loop %>
 	</ul>
 <% end_if %>
