@@ -1,4 +1,4 @@
-<div class="calltoaction-container uk-flex dk-responsive-margin uk-flex-{$pos}">
+<div class="calltoaction-container uk-flex dk-margin-responsive uk-flex-{$pos}">
 	<% with $CallToActionLink %>
 		<a href="{$Page.Link}" class="uk-button uk-button-{$Top.b}"
 		<% if $TargetBlank %>target="_blank"<% end_if %>
