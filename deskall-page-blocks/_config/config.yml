@@ -31,3 +31,6 @@ SilverStripe\UserForms\Form\UserForm:
 DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
     - UserFormExtension
+
+SilverStripe\UserForms\Model\Recipient\EmailRecipient:
+  allow_unbound_recipient_fields: true
