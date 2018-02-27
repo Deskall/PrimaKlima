@@ -38,7 +38,7 @@
 			 	<div class="title-container">
 			 		<strong>$SiteConfig.AddressTitle</strong>
 			 	</div>
-			 	<ul class="uk-list uk-nav-default dk-list">
+			 	<ul class="uk-list uk-nav-default dk-list uk-margin-small-top">
 			 		<li data-uk-icon="icon: location;ratio: 0.75;">
 			 			$SiteConfig.Address<br/>
 			 			$SiteConfig.CodeCity<br/>
