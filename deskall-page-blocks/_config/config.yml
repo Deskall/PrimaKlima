@@ -34,3 +34,11 @@ DNADesign\ElementalUserForms\Model\ElementForm:
 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   allow_unbound_recipient_fields: true
+
+SilverStripe\UserForms\Model\UserDefinedForm:
+  email_template_directory: mysite/templates/emails/
+
+
+SilverStripe\UserForms\Control\UserDefinedFormController:
+  extensions:
+    - UserDefinedFormControllerExtension
