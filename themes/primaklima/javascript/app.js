@@ -6,6 +6,7 @@ $('.dk-responsive-icon').each(function(){
 
 	svg.setAttribute('width',size);
 	svg.setAttribute('height',size);
+	size = size.replace('px', '');
 	svg.setAttribute('viewBox',[0, 0, size, size].join(' '));
 });
 
