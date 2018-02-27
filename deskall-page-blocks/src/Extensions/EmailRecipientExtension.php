@@ -1,8 +1,9 @@
 <?php
 
 use SilverStripe\ORM\DataExtension;
-
-
+use DNADesign\ElementalUserForms\Model\ElementForm;
+use SilverStripe\Control\Controller;
+use SilverStripe\Admin\LeftAndMain;
 
 class EmailRecipientExtension extends DataExtension
 {
