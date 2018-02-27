@@ -6,6 +6,8 @@ use SilverStripe\Assets\File;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\View\ThemeResourceLoader;
+
 
 class Page extends SiteTree
 {
