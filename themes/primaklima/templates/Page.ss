@@ -15,6 +15,7 @@
     <% require javascript("/themes/primaklima/javascript/vendor/jquery.js") %>
     <% require javascript("/themes/primaklima/javascript/vendor/uikit.min.js") %>
     <% require javascript("/themes/primaklima/javascript/vendor/uikit-icons.min.js") %>
+    <% require javascript("/themes/primaklima/javascript/vendor/flatpicker.min.js") %>
     <% require javascript("/themes/primaklima/javascript/app.js") %>
   </body>
 </html>

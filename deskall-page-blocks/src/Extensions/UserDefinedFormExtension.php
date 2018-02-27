@@ -35,7 +35,7 @@ class UserDefinedFormExtension extends DataExtension
 	    		}
 	    	break;
             case "date-alt text":
-                $field->setAttribute('class','uk-input');
+                $field->setAttribute('class','uk-input flatpickr');
                 $field->setInputType('text');
             break;
             default:
