@@ -19,7 +19,7 @@
 			            <% end_if %>
 			        </li>
 			    <% end_loop %>
-			    <li class="uk-nav-divider uk-margin-small"></li>
+			    <li class="uk-nav-divider uk-margin"></li>
 			    <% if SiteConfig.Facebook %>
 			    <li><a href="$SiteConfig.Facebook" data-uk-icon="facebook" target="_blank"></a></li>
 			    <% end_if %>

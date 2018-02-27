@@ -6,7 +6,7 @@
 		<div class="uk-panel uk-flex uk-flex-left@s uk-flex-around@m uk-margin-small-top" data-uk-grid>
 			<div class="uk-width-1-1@s uk-width-1-3@m">
 			 	<div class="title-container">
-			 		<h3>$SiteConfig.AddressTitle</h3>
+			 		<h3 class="uk-margin-small-top uk-margin-medium-bottom">$SiteConfig.AddressTitle</h3>
 			 	</div>
 			 	<ul class="uk-list uk-list-large dk-list">
 			 		<li data-uk-icon="icon: location;">
@@ -34,7 +34,7 @@
 			<% loop $SiteConfig.activeFooterBlocks %>
 		    <div class="$Width">
 		    	<div class="title-container">
-		    		<h3>$Title</h3>
+		    		<h3 class="uk-margin-small-top uk-margin-medium-bottom">$Title</h3>
 		    	</div>
 		    	<ul class="uk-list uk-list-large dk-list">
 				    <% loop $activeLinks %>
