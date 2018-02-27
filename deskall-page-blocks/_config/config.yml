@@ -29,15 +29,12 @@ SilverStripe\UserForms\Form\UserForm:
 
 
 DNADesign\ElementalUserForms\Model\ElementForm:
+  email_template_directory: mysite/templates/emails/
   extensions:
     - UserFormExtension
 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   allow_unbound_recipient_fields: true
-
-UserDefinedForm:
-  email_template_directory: mysite/templates/emails/
-
 
 SilverStripe\UserForms\Control\UserDefinedFormController:
   extensions:
