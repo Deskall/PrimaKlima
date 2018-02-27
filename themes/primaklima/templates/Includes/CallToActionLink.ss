@@ -1,6 +1,6 @@
 <div class="calltoaction-container uk-flex dk-responsive-margin uk-flex-{$pos}">
 	<% with $CallToActionLink %>
-		<a href="{$Page.Link}" class="uk-button uk-button-{$Top.b}"
+		<a href="{$Page.Link}" class="uk-button uk-button-{$Top.b} uk-text-large"
 		<% if $TargetBlank %>target="_blank"<% end_if %>
 		<% if $Description %>title="{$Description.ATT}"<% end_if %>>
 		{$Text.XML}
