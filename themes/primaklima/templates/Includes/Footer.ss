@@ -8,7 +8,7 @@
 			 	<div class="title-container">
 			 		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$SiteConfig.AddressTitle</h3>
 			 	</div>
-			 	<ul class="uk-list uk-list-large dk-list">
+			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
 			 		<li data-uk-icon="icon: location;">
 			 			$SiteConfig.Address<br/>
 			 			$SiteConfig.CodeCity<br/>
@@ -36,7 +36,7 @@
 		    	<div class="title-container">
 		    		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$Title</h3>
 		    	</div>
-		    	<ul class="uk-list uk-list-large dk-list">
+		    	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
 				    <% loop $activeLinks %>
 						<% include FooterLink %>
 					<% end_loop %>
