@@ -25,11 +25,8 @@ Slide:
 
 SilverStripe\UserForms\Form\UserForm:
   extensions:
-    - UserDefinedFormExtension
+   - UserDefinedFormExtension
 
-SilverStripe\UserForms\Model\Recipient\EmailRecipient:
-  extensions:
-    - EmailRecipientExtension
 
 DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
