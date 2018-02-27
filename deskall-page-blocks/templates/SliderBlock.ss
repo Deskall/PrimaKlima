@@ -22,8 +22,8 @@
                 </div>
                 <% if Top.Parent.getOwnerPage.URLSegment == "home" %>
                     <div class="uk-position-large uk-position-top-right">
-                        <button class="uk-button uk-button-secondary" data-uk-icon="receiver; ratio: 2;">Notfälle & storungen<br/>
-                            <span class="uk-text-large">$SiteConfig.Notfall</span>
+                        <button class="uk-button uk-button-secondary" data-uk-icon="icon:receiver; ratio: 2;">Notfälle & Störungen<br/>
+                            <span class="uk-text-large uk-text-bold">$SiteConfig.Notfall</span>
                         </button>
                     </div>
                 <% end_if %>
