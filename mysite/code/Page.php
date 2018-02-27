@@ -7,7 +7,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\View\ThemeResourceLoader;
-
+use SilverStripe\View\SSViewer;
 
 class Page extends SiteTree
 {
