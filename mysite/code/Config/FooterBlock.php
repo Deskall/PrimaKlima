@@ -12,7 +12,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 
 class FooterBlock extends DataObject{
 	private static $db = [
-		'Title' => 'Varchar(255)',
+		'Title' => 'Text',
 		'Width' => 'Varchar(255)',
 		'Class' => 'Varchar(255)',
 		'SortOrder' => 'Int'
