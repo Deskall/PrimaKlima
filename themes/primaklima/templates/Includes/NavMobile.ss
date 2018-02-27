@@ -3,7 +3,7 @@
 
             <button class="uk-offcanvas-close" type="button" data-uk-close></button>
 
-            <ul class="uk-nav-default dk-nav-mobile uk-nav-parent-icon" data-uk-nav>
+            <ul class="uk-nav-default dk-nav-mobile uk-nav-parent-icon uk-margin-top" data-uk-nav>
         
             	<% loop Menu(1) %>
 			        <li class="$LinkingMode <% if $Children %>uk-parent<% end_if %> <% if LinkingMode == "current" %>uk-active<% end_if %>">
@@ -19,7 +19,7 @@
 			            <% end_if %>
 			        </li>
 			    <% end_loop %>
-			    <li class="uk-nav-divider"></li>
+			    <li class="uk-nav-divider uk-margin-small"></li>
 			    <% if SiteConfig.Facebook %>
 			    <li><a href="$SiteConfig.Facebook" data-uk-icon="facebook" target="_blank"></a></li>
 			    <% end_if %>
