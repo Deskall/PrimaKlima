@@ -39,23 +39,23 @@
 			 		<strong>$SiteConfig.AddressTitle</strong>
 			 	</div>
 			 	<ul class="uk-list uk-nav-default dk-list">
-			 		<li data-uk-icon="icon: location;ratio: 1;" class="dk-responsive-icon">
+			 		<li data-uk-icon="icon: location;" class="dk-responsive-icon">
 			 			$SiteConfig.Address<br/>
 			 			$SiteConfig.CodeCity<br/>
 			 			$SiteConfig.Country
 			 		</li>
 			 		<% if SiteConfig.Email %>
-			 		<li data-uk-icon="icon: mail;">
+			 		<li data-uk-icon="icon: mail;" class="dk-responsive-icon">
 			 			$SiteConfig.Email
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Phone %>
-			 		<li data-uk-icon="icon: receiver;">
+			 		<li data-uk-icon="icon: receiver;" class="dk-responsive-icon">
 			 			$SiteConfig.Phone
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Mobile %>
-			 		<li data-uk-icon="icon: receiver;">
+			 		<li data-uk-icon="icon: receiver;" class="dk-responsive-icon">
 			 			$SiteConfig.Mobile
 			 		</li>
 			 		<% end_if %>
