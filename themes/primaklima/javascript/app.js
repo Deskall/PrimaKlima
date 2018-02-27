@@ -1,3 +1,5 @@
 $(document).ready(function(){
-	$(".flatpickr").flatpickr();
+	$(".flatpickr").flatpickr({
+		dateFormat: "d.m.Y"
+	});
 });
