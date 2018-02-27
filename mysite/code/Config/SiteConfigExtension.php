@@ -34,6 +34,7 @@ class SiteConfigExtension extends DataExtension
     'Email' => 'Varchar(255)',
     'Phone' => 'Varchar(255)',
     'Mobile' => 'Varchar(255)',
+    'Notfall' => 'Varchar(255)',
     'Facebook' => 'Varchar(255)',
     'Twitter' => 'Varchar(255)',
     'Linkedin' => 'Varchar(255)',
@@ -58,6 +59,7 @@ class SiteConfigExtension extends DataExtension
       TextField::create('Country',_t(__CLASS__.'.Country','Land')),
       TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon')),
       TextField::create('Mobile',_t(__CLASS__.'.Mobile','Mobile')),
+      TextField::create('Notfall',_t(__CLASS__.'.Notfall','Notfall Nummer')),
       EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail Adresse'))
     ]);
     //SOCIAL
