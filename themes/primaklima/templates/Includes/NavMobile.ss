@@ -39,7 +39,7 @@
 			 		<strong>$SiteConfig.AddressTitle</strong>
 			 	</div>
 			 	<ul class="uk-list uk-nav-default dk-list">
-			 		<li data-uk-icon="icon: location;" class="dk-responsive-icon">
+			 		<li data-uk-icon="icon: location;ratio: 1;" class="dk-responsive-icon">
 			 			$SiteConfig.Address<br/>
 			 			$SiteConfig.CodeCity<br/>
 			 			$SiteConfig.Country
