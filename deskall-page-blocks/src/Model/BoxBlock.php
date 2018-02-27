@@ -68,8 +68,8 @@ class BoxBlock extends BaseElement
     private static $boxes_per_line = [
         'uk-child-width-1-2@s' => '2',
         'uk-child-width-1-3@s' => '3',
-        'uk-child-width-1-4@s' => '4',
-        'uk-child-width-1-4@s uk-child-width-1-5@m' => '5'
+        'uk-child-width-1-2@s uk-child-width-1-4@m' => '4',
+        'uk-child-width-1-2@s uk-child-width-1-5@m' => '5'
     ];
 
 
