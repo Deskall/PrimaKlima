@@ -9,7 +9,7 @@ h1{
 
 
 .slide-font{
-	*{
+	h1,h2,.uk-text-lead{
 		text-shadow: 0 0 20px @black;
 	}
 
@@ -21,5 +21,17 @@ h1{
 		@media (min-width:@breakpoint-xlarge){
 			font-size: @global-large-font-size;
 		}
+	}
+}
+
+.emergency-button{
+	padding-left:60px;
+	position: relative;
+	&:before{
+		content: '\eaf0';
+		font-family: 'icomoon';
+		position: absolute;
+		top:5px;
+		left:5px;
 	}
 }

@@ -22,7 +22,7 @@
                 </div>
                 <% if Top.Parent.getOwnerPage.URLSegment == "home" %>
                     <div class="uk-position-large uk-position-top-right">
-                        <button class="uk-button uk-button-secondary" data-uk-icon="icon:receiver; ratio: 2;">Notfälle & Störungen<br/>
+                        <button class="uk-button uk-button-secondary emergency-button">Notfälle & Störungen<br/>
                             <span class="uk-text-large uk-text-bold">$SiteConfig.Notfall</span>
                         </button>
                     </div>
