@@ -1,14 +1,13 @@
 $('.dk-responsive-icon').each(function(){
 	var size = $(this).css("font-size"); 
-	console.log(size);
 	var svg = $(this).find('svg')[0];
-	console.log(svg);
-
+	
 	svg.setAttribute('width',size);
 	svg.setAttribute('height',size);
 	size = size.replace('px', '');
 	svg.setAttribute('viewBox',[0, 0, size, size].join(' '));
-	
+	console.log(svg);
+
 });
 
 ['viewBox'].forEach(function(k) {
