@@ -12,5 +12,10 @@ $MetaTags(false)
 <link rel="mask-icon" href="$ThemeDir/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" type="text/css" href="$ThemeDir/css/main.min.css" />
 <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
+
+<% if isLive %>
+<style>$Css</style>
+<% else %>
+<link rel="stylesheet" type="text/css" href="$ThemeDir/css/main.min.css" />
+<% end_if %>

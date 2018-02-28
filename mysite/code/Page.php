@@ -81,4 +81,12 @@ class Page extends SiteTree
        // TO DO  : other Page
     }
 
+    public function IsLive() {
+        return Director::isLive();
+    }
+
+    public function Css(){
+        return file_get_contents(Director::baseFolder().'/'.$this->ThemeDir().'/css/main.min.css');
+    }
+
 }

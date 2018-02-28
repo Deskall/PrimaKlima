@@ -12,11 +12,11 @@
       <% include NavMobile %>
     </div>
 
-    <% require javascript("/themes/primaklima/javascript/vendor/jquery.js") %>
-    <% require javascript("/themes/primaklima/javascript/vendor/uikit.min.js") %>
-    <% require javascript("/themes/primaklima/javascript/vendor/uikit-icons.min.js") %>
-    <% require javascript("/themes/primaklima/javascript/vendor/flatpicker.min.js") %>
-    <% require javascript("/themes/primaklima/javascript/app.js") %>
+    <% if isLive %>
+    <% require javascript("/themes/primaklima/javascript/main.min.js") %>
+    <% else %>
+    <% require javascript("/themes/primaklima/javascript/main.js") %>
+    <% end_if %>
 
   </body>
 </html>
