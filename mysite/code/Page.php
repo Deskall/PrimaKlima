@@ -8,6 +8,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\View\ThemeResourceLoader;
 use SilverStripe\View\SSViewer;
+use SilverStripe\Control\Director;
 
 class Page extends SiteTree
 {
