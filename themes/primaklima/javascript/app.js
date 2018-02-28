@@ -5,19 +5,19 @@ $(document).ready(function(){
 });
 
 //Recaptcha validation
-// $(document).ready(function(){
-// 	if ($(".g-recaptcha").length > 0){
-// 		$('<script src="https://www.google.com/recaptcha/api.js" async defer></script>').appendTo($("head"));
-// 	}
-// 	$(".g-recaptcha").on("click",function(event){
-// 		event.preventDefault();
-// 		grecaptcha.execute();
-// 	});
+$(document).ready(function(){
+	if ($(".g-recaptcha").length > 0){
+		$('<script src="https://www.google.com/recaptcha/api.js" defer></script>').appendTo($("head"));
+	}
+	$(".g-recaptcha").on("click",function(event){
+		event.preventDefault();
+		grecaptcha.execute();
+	});
 
-// 	function onSubmit(token) {
-// 	    alert('thanks ');
-// 	}
-// });
+	function onSubmit(token) {
+	    alert('thanks ');
+	}
+});
 
 //Google Maps
 	function loadmap() {
