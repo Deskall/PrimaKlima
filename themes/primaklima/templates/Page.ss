@@ -2,6 +2,7 @@
 <html lang="$ContentLocale" dir="ltr" class="uk-text-break">
   <head>
      <% include Meta %>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
     <div class="uk-offcanvas-content">
@@ -17,6 +18,6 @@
     <% require javascript("/themes/primaklima/javascript/vendor/uikit-icons.min.js") %>
     <% require javascript("/themes/primaklima/javascript/vendor/flatpicker.min.js") %>
     <% require javascript("/themes/primaklima/javascript/app.js") %>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+
   </body>
 </html>
