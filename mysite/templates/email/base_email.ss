@@ -80,7 +80,7 @@
 
 </head>
 
-<body bgcolor="#e3e4e4" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background:#e3e4e4;margin-bottom:50px!important">
+<body bgcolor="#e3e4e4" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background:#e3e4e4;">
 	<!-- HEADER -->
 	<table class="head-wrap">
 		<tbody>
@@ -112,7 +112,7 @@
 		<tbody>
 			<tr>
 				<td><br /></td>
-				<td class="container" bgcolor="#FFFFFF" maxwidth="600"><!-- content -->
+				<td class="container" bgcolor="#FFFFFF" maxwidth="600" style="margin-bottom:50px;"><!-- content -->
 
 					<div class="content">
 						<table>
