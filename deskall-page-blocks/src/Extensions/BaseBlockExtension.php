@@ -67,4 +67,8 @@ class BaseBlockExtension extends DataExtension
         parent::onBeforeWrite();
     }
 
+    public function isChildren(){
+        return $this->owner->Parent()->OwnerClassName == "ParentBlock";
+    }
+
 }
