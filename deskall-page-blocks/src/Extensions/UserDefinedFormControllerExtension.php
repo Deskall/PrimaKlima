@@ -12,7 +12,7 @@ class UserDefinedFormControllerExtension extends Extension
 		//to do plain template
 
                   
-		$AbsoluteThemeDir = Director::protocolAndHost().singleton('Page')->ThemeDir();
+		$AbsoluteThemeDir = Director::protocolAndHost()."/".singleton('Page')->ThemeDir();
 		$emailData['AbsoluteThemeDir'] = $AbsoluteThemeDir;
 		$emailData['AbsoluteBaseUrl'] = Director::AbsoluteBaseUrl();
   			

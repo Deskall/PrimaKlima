@@ -108,11 +108,11 @@
 		</tbody>
 	</table>
 	<!-- /HEADER --> <!-- BODY -->
-	<table class="body-wrap" bgcolor="FFFFFF">
+	<table class="body-wrap">
 		<tbody>
 			<tr>
 				<td><br /></td>
-				<td class="container" bgcolor="#FFFFFF" align=""><!-- content -->
+				<td class="container" bgcolor="#FFFFFF" align="center" maxwidth="600"><!-- content -->
 
 					<div class="content">
 						<table>
