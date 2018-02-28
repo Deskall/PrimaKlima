@@ -13,7 +13,7 @@
     </div>
 
     <% if isLive %>
-    <% require javascript("/themes/primaklima/javascript/main.min.js") %>
+    <script src="$ThemeDir/javascript/main.min.js"></script>
     <% else %>
     <% require javascript("/themes/primaklima/javascript/main.js") %>
     <% end_if %>
