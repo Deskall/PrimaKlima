@@ -3,6 +3,7 @@
 use DNADesign\ElementalUserForms\Control\ElementFormController;
 use SilverStripe\Control\Director;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\CMS\Model\SiteTree;
 
 class ElementFormControllerExtension extends ElementFormController
 {
