@@ -11,7 +11,5 @@
 
 composer.lock
 *.log
-
-*.log
 *.cache
 *.css
