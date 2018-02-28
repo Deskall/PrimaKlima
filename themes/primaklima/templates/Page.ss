@@ -2,7 +2,7 @@
 <html lang="$ContentLocale" dir="ltr" class="uk-text-break">
   <head>
      <% include Meta %>
-      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <script src="https://www.google.com/recaptcha/api.js?sitekey=6LchV0kUAAAAAO933jAsFfyjanFlxT2nbRd1s5Tc" async defer></script>
   </head>
   <body>
     <div class="uk-offcanvas-content">
