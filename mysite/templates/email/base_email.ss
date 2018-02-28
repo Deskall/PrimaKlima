@@ -39,7 +39,7 @@
 	h1,h2{font-weight:200}
 	h1,h2,h3,h4,h5,h6{font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;line-height:1.1;margin-bottom:15px;color:#666}
 	h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{font-size:60%;color:#6f6f6f;line-height:0;text-transform:none}
-	h1{margin-top:30px;font-size:44px; color: #dc002e;margin-bottom:20px;}
+	h1{margin-top:30px;font-size:44px; color: #10206b;margin-bottom:20px;}
 	h2{font-size:37px}
 	h3,h4{font-weight:500}
 	h3{font-size:27px}
@@ -112,7 +112,7 @@
 		<tbody>
 			<tr>
 				<td><br /></td>
-				<td class="container" bgcolor="#FFFFFF" maxwidth="600" style="margin-bottom:50px;"><!-- content -->
+				<td class="container" bgcolor="#FFFFFF" maxwidth="600" style="margin-bottom:50px!important;"><!-- content -->
 
 					<div class="content">
 						<table>
