@@ -29,7 +29,7 @@ SilverStripe\UserForms\Form\UserForm:
 
 
 DNADesign\ElementalUserForms\Model\ElementForm:
-  email_template_directory: emails/
+  email_template_directory: /themes/primaklima/templates/emails/
   extensions:
     - UserFormExtension
 
