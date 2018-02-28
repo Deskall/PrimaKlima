@@ -12,7 +12,15 @@ class ElementFormControllerExtension extends ElementFormController
 
 	public function finished()
     {
-        return $this->redirect('/');
+    	if ($this->element->RedirectPageID > 0){
+    		$redirectPage = DataObject::get_by_id('SiteTree',$this->element->RedirectPageID);
+    		if ($redirectPage){
+    			return $this->redirect($redirectPage->Link());
+    		}
+    	}
+    	
+    	parent::finished();
+        
     }
 
 }
