@@ -120,7 +120,7 @@
 								<tr>
 									<td>
 										<h1>$Subject</h1>
-										$AbsoluteThemeDir
+										$ThemeDir
 										$AbsoluteBaseURL
 										<% if $Lead %>
 											$Lead

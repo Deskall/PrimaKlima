@@ -14,6 +14,10 @@ class UserDefinedFormControllerExtension extends Extension
 	}
 
 	public function updateEmail($email, $recipient, $emailData){
+		ob_start();
+                    print_r($emailData);
+                    $result = ob_get_clean();
+                    file_put_contents('log.txt',$result);
 		$email->setHTMLTemplate('email/base_email');
 	}
 }
