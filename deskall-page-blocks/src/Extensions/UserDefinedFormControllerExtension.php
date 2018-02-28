@@ -13,4 +13,9 @@ class UserDefinedFormControllerExtension extends Extension
 		$emailData['AbsoluteThemeDir'] = $AbsoluteThemeDir;
 
 	}
+
+	public function finished()
+    {
+        return $this->redirect('/');
+    }
 }

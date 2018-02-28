@@ -129,6 +129,7 @@
 						</table>
 					</div>
 					<div class="content">
+						ici
 						<%-- Note: content is already escaped in UserDefinedFormController::process --%>
 						$Body.RAW
 
