@@ -8,7 +8,7 @@ class UserDefinedFormControllerExtension extends Extension
 	private static $finished_anchor = '';
 
 	public function updateEmail($email, $recipient, $emailData){
-		$email->setHTMLTemplate('mysite/templates/emails/base_email')
+		$email->setHTMLTemplate('email/base_email')
                     ->setPlainTemplate('email/SubmittedFormEmail');
                     ob_start();
                     print_r($email);
