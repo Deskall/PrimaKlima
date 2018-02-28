@@ -17,5 +17,6 @@
     <% require javascript("/themes/primaklima/javascript/vendor/uikit-icons.min.js") %>
     <% require javascript("/themes/primaklima/javascript/vendor/flatpicker.min.js") %>
     <% require javascript("/themes/primaklima/javascript/app.js") %>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </body>
 </html>
