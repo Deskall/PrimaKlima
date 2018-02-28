@@ -1,6 +1,6 @@
 <% if $Controller.data.hasCaptcha %>
  <div id='recaptcha' class="g-recaptcha"
-          data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+          data-sitekey="6LchV0kUAAAAAO933jAsFfyjanFlxT2nbRd1s5Tc"
           data-callback="onSubmit"
           data-size="invisible"></div>
 <% end_if %>
