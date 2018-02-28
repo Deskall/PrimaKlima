@@ -80,7 +80,7 @@
 
 </head>
 
-<body bgcolor="#e3e4e4" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<body bgcolor="#e3e4e4" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background:#e3e4e4;">
 	<!-- HEADER -->
 	<table class="head-wrap">
 		<tbody>
@@ -112,7 +112,7 @@
 		<tbody>
 			<tr>
 				<td><br /></td>
-				<td class="container" bgcolor="#FFFFFF" align="center" maxwidth="600"><!-- content -->
+				<td class="container" bgcolor="#FFFFFF" maxwidth="600"><!-- content -->
 
 					<div class="content">
 						<table>
@@ -120,6 +120,7 @@
 								<tr>
 									<td>
 										<h1>$Subject</h1>
+										{$AbsoluteThemeDir}/img/logo.png
 										<% if $Lead %>
 											$Lead
 										<% end_if %>
@@ -156,7 +157,7 @@
 															<table cellpadding="" bgcolor="" align="left">
 																<tbody>
 																	<tr>
-																		<td>
+																		<td style="padding:0;">
 																			<h5 class="">Kontakt:</h5>
 																			<% if SiteConfig.AddressTitle %>
 																			<p><strong>$SiteConfig.AddressTitle</strong></p>
