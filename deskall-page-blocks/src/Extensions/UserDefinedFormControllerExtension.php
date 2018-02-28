@@ -5,6 +5,7 @@ use SilverStripe\Control\Director;
 
 class UserDefinedFormControllerExtension extends Extension
 {
+	private static $finished_anchor = '';
 
 	public function updateEmail($email, $recipient, $emailData){
 
