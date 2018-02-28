@@ -80,7 +80,7 @@
 
 </head>
 
-<body bgcolor="#e3e4e4" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background:#e3e4e4;">
+<body bgcolor="#e3e4e4" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background:#e3e4e4;margin-bottom:50px!important">
 	<!-- HEADER -->
 	<table class="head-wrap">
 		<tbody>
@@ -120,7 +120,8 @@
 								<tr>
 									<td>
 										<h1>$Subject</h1>
-										{$AbsoluteThemeDir}/img/logo.png
+										$AbsoluteThemeDir
+										$AbsoluteBaseURL
 										<% if $Lead %>
 											$Lead
 										<% end_if %>
