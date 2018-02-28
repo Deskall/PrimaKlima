@@ -2,6 +2,7 @@
 
 use DNADesign\ElementalUserForms\Control\ElementFormController;
 use SilverStripe\Control\Director;
+use SilverStripe\ORM\DataObject;
 
 class ElementFormControllerExtension extends ElementFormController
 {
