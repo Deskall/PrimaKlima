@@ -8,6 +8,7 @@ class PageBlocksExtension extends DataExtension {
 		parent::requireDefaultRecords();
 		foreach (Page::get() as $page){
 			$page->checkLead();
+			$page->publishRecursive();
 		}
 	}
 
@@ -17,7 +18,9 @@ class PageBlocksExtension extends DataExtension {
 		if (!$hasLead){
 			$lead = new LeadBlock();
 			$lead->ParentID = $ElementalArea->ID;
+			$lead->HTML = $this->owner->Content;
 			$lead->isPrimary = 1;
+			$lead->Sort = 1;
 			$lead->write();
 		}
 	}

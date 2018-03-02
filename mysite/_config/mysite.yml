@@ -15,3 +15,7 @@ SilverStripe\SiteConfig\SiteConfig:
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - mysite/css/custom_admin.css
+
+SilverStripe\Security\Member:
+  extensions:
+    - MemberExtension
