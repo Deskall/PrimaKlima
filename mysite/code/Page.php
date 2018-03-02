@@ -10,6 +10,7 @@ use SilverStripe\View\ThemeResourceLoader;
 use SilverStripe\View\SSViewer;
 use SilverStripe\Control\Director;
 
+
 class Page extends SiteTree
 {
     private static $db = [
@@ -75,12 +76,6 @@ class Page extends SiteTree
     	parent::onBeforeWrite();
     }
 
-    public function requireDefaultRecords()
-    {
-        parent::requireDefaultRecords();
-
-       // TO DO  : other Page
-    }
 
     public function IsLive() {
         return Director::isLive();

@@ -7,6 +7,7 @@ use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\ORM\FieldType\DBField;
 
 class Box extends DataObject
 {
@@ -43,7 +44,8 @@ class Box extends DataObject
 
     private static $summary_fields = [
         'BoxTitle' => 'Titel',
-        'ImageThumbnail' => 'Bild'
+        'ImageThumbnail' => 'Bild',
+        'getSummary' => 'Inhalt'
     ];
 
 
@@ -74,4 +76,10 @@ class Box extends DataObject
     public function getFolderName(){
         return $this->Parent()->getFolderName();
     }
+
+    public function getSummary()
+    {
+        return DBField::create_field('HTMLText', $this->Content)->Summary(20);
+    }
+
 }

@@ -11,7 +11,7 @@
                     <div class="uk-container">
                         <div class="dk-text-white uk-light uk-text-center">
                             <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
-                            <% if Title && ShowTitle %><h2>$Title</h2><% end_if %>
+                            <% if Title %><h2>$Title</h2><% end_if %>
                             <div class="uk-text-lead">$Content</div>
                             <% if Effect == "parallax" %></div><% end_if %>
                            <% if $CallToActionLink.Page.Link %>
@@ -20,13 +20,7 @@
                         </div>
                     </div>
                 </div>
-                <% if Top.Parent.getOwnerPage.URLSegment == "home" %>
-                    <div class="uk-position-large uk-position-top-right uk-visible@l">
-                        <a href="wartungreparaturen/#e53" title="Notfälle & Störungen" class="uk-button uk-button-secondary emergency-button uk-text-right">Notfälle & Störungen<br/>
-                            <span class="uk-text-bold">$SiteConfig.Notfall</span>
-                        </a>
-                    </div>
-                <% end_if %>
+               
             </div>
         </li>
         <% end_loop %>
