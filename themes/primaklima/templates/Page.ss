@@ -1,25 +1,22 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="$ContentLocale" dir="ltr" class="uk-text-break">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$Title</title>
-    <link rel="stylesheet" href="/themes/primaklima/css/main.css">
+     <% include Meta %>
   </head>
   <body>
     <div class="uk-offcanvas-content">
       <% include Header %>
       $Layout
-      $Form
       <% include Footer %>
 
       <% include NavMobile %>
     </div>
 
-    <% require javascript("/themes/primaklima/javascript/vendor/jquery.js") %>
-    <% require javascript("/themes/primaklima/javascript/vendor/uikit.min.js") %>
-    <% require javascript("/themes/primaklima/javascript/vendor/uikit-icons.min.js") %>
-    <% require javascript("/themes/primaklima/javascript/app.js") %>
+    <% if isLive %>
+    <script src="$ThemeDir/javascript/main.min.js"></script>
+    <% else %>
+    <% require javascript("/themes/primaklima/javascript/main.js") %>
+    <% end_if %>
+
   </body>
 </html>

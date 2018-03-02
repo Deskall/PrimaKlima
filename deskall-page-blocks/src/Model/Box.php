@@ -17,17 +17,17 @@ class Box extends DataObject
         'Sort' => 'Int',
         'Effect' => 'Varchar(255)',
         'EffectOptions' => 'Varchar(255)',
-        'CallToAction' => 'Text'
     ];
 
     private static $has_one = [
         'Parent' => BoxBlock::class,
-        'Image' => Image::class,
-        'RelatedPage' => SiteTree::class
+        'Image' => Image::class
     ];
 
     private static $extensions = [
-        Versioned::class
+        Versioned::class,
+        'Activable',
+        'Linkable'
     ];
 
     private static $effects = [

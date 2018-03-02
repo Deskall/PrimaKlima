@@ -8,6 +8,7 @@ DNADesign\Elemental\Models\BaseElement:
   extensions:
     - BaseBlockExtension
     - Activable
+    - Linkable
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
@@ -20,12 +21,21 @@ Page:
 Slide:
   extensions:
     - Activable
+    - Linkable
 
 SilverStripe\UserForms\Form\UserForm:
   extensions:
-    - UserDefinedFormExtension
+   - UserDefinedFormExtension
 
 
 DNADesign\ElementalUserForms\Model\ElementForm:
+  email_template_directory: mysite/templates/email/
   extensions:
     - UserFormExtension
+
+SilverStripe\UserForms\Model\Recipient\EmailRecipient:
+  allow_unbound_recipient_fields: true
+
+SilverStripe\UserForms\Control\UserDefinedFormController:
+  extensions:
+    - UserDefinedFormControllerExtension

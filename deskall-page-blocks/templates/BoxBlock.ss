@@ -1,39 +1,54 @@
-<section class="uk-section $Background">
-	<div class="uk-container <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
-		<h2>$Title</h2>
+
 		$HTML
-		<div class="uk-child-width-1-3@s uk-grid-match uk-grid-small" uk-grid uk-lightbox uk-height-match="target:h3;row:false;">
+		<div class="$BoxPerLine uk-grid-match" data-uk-grid data-uk-lightbox="toggle:.dk-lightbox" data-uk-height-match="target:h3;row:false;">
 		<% loop ActiveBoxes %>
 		<div class="uk-transition-toggle" tabindex="0">
 			<% if Top.Layout == "inversed" %>
-			<h3 class="uk-margin-small">$Title</h3>
-			<div class="uk-margin-top dk-box-content uk-height-small">
+			<h3 class="uk-margin">$Title</h3>
+			<div class="uk-margin-top dk-box-content">
 		    	$Content
-		    	<% if CallToAction %>
-		    		<div><a class="uk-button uk-button-secondary uk-align-center" href="$RelatedPage.URL">$CallToAction</a></div>
-		    	<% end_if %>
+		    <% if $CallToActionLink.Page.Link %>
+				<% include CallToActionLink c=r,pos=center %>
+			<% end_if %>
 		    </div>
-		    <a href="$Image.URL"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" alt=""></a>
-		    <% else_if Top.Layout == "mixed" %>
-		    <a href="$Image.URL"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" $Image.ImageTags($Title) ></a>
-		    <h3 class="uk-margin-small">$Title</h3>
-		    <div class="uk-margin-top dk-box-content uk-height-small">
-		    	$Content
-		    	<% if CallToAction %>
-		    		<div><a class="uk-button uk-button-secondary uk-align-center" href="$RelatedPage.URL">$CallToAction</a></div>
+		    <% if Image %>
+		    	<% if $Top.ImageType == "icon" %>
+		    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" $Image.ImageTags($Title) />
+		    	<% else %>
+		    	<a href="$Image.URL" class="dk-lightbox"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" $Image.ImageTags($Title)></a>
 		    	<% end_if %>
+		    <% end_if %>
+		    <% else_if Top.Layout == "mixed" %>
+		    <% if Image %>
+		    	<% if $Top.ImageType == "icon" %>
+		    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" $Image.ImageTags($Title) />
+		    	<% else %>
+		    <a href="$Image.URL" class="dk-lightbox"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" $Image.ImageTags($Title) ></a>
+		    	<% end_if %>
+		    <% end_if %>
+		    <h3 class="uk-margin">$Title</h3>
+		    <div class="uk-margin-top dk-box-content">
+		    	$Content
+		    	<% if $CallToActionLink.Page.Link %>
+					<% include CallToActionLink c=r,pos=center %>
+				<% end_if %>
 		    </div>
 		    <% else %>
-		    <h3 class="uk-margin-small">$Title</h3>
-		    <a href="$Image.URL"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" $Image.ImageTags($Title) ></a>
-		    <div class="uk-margin-top dk-box-content uk-height-small">
-		    	$Content
-		    	<% if CallToAction %>
-		    		<div><a class="uk-button uk-button-secondary uk-align-center" href="$RelatedPage.URL">$CallToAction</a></div>
+		    <h3 class="uk-margin">$Title</h3>
+		    <% if Image %>
+		    	<% if $Top.ImageType == "icon" %>
+		    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" $Image.ImageTags($Title) />
+		    	<% else %>
+		    <a href="$Image.URL" class="dk-lightbox"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill(350,250).URL" $Image.ImageTags($Title) ></a>
 		    	<% end_if %>
+		    <% end_if %>
+		    <div class="uk-margin-top dk-box-content">
+		    	$Content
+		    <% if $CallToActionLink.Page.Link %>
+				<% include CallToActionLink c=r,pos=center %>
+			<% end_if %>
 		    </div>
 		    <% end_if %>
 		</div>
 		<% end_loop %>
-	</div>
-</section>
+</div>

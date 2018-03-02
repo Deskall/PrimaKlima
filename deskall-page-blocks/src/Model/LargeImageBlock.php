@@ -17,7 +17,7 @@ class LargeImageBlock extends BannerBlock{
 
     private static $plural_name = 'banners';
 
-    private static $controller_template = 'BlockHolder';
+    private static $controller_template = 'DefaultHolder';
 
     private static $controller_class = BlockController::class;
 
@@ -69,8 +69,9 @@ class LargeImageBlock extends BannerBlock{
     	$fields->removeByName('Background');
         $fields->removeByName('Overlay');
     	$fields->removeByName('BackgroundImage');
+        $fields->fieldByName('Root.Main.File')->setFolderName($this->getFolderName());
+        $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
         $fields->addFieldToTab('Root.Settings',LayoutField::create('Height','Höhe',self::$block_heights));
-        $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format',self::$block_layouts));
         $fields->addFieldToTab('Root.Settings',LayoutField::create('Effect','Effect',self::$effects));
         $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions','Effect Optionen'));
         

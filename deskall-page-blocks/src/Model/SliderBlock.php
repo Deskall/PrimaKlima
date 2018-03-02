@@ -2,8 +2,10 @@
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\GroupedDropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
@@ -21,7 +23,7 @@ class SliderBlock extends BaseElement
 {
     private static $icon = 'font-icon-block-banner';
     
-    private static $controller_template = 'BlockHolder';
+    private static $controller_template = 'DefaultHolder';
 
     private static $controller_class = BlockController::class;
 
@@ -29,6 +31,13 @@ class SliderBlock extends BaseElement
         'Animation' => 'Varchar(255)',
         'Autoplay' => 'Boolean(1)',
         'Nav' => 'Varchar(255)',
+        'Height' => 'Varchar(255)',
+        'MinHeight' => 'Int',
+        'MaxHeight' => 'Int'
+    ];
+
+    private static $has_one = [
+        'Referent' => SliderBlock::class
     ];
 
     private static $has_many = [
@@ -39,12 +48,28 @@ class SliderBlock extends BaseElement
         'Slides',
     ];
 
+    private static $cascade_delete = [
+        'Slides',
+    ];
+
+
     private static $defaults = [
         'Layout' => 'slideshow',
+        'FullWidth' => 1,
+        'MinHeight' => '250',
+        'Height' => '4:1'
     ];
 
     private static $block_layouts = [
         'slideshow' => 'Slideshow'
+    ];
+
+
+    private static $block_heights = [
+        '5:1' => 'klein',
+        '4:1' => 'medium',
+        '3:1' => 'gross',
+        'viewport' => 'ganz Bildschirm'
     ];
 
     private static $animations = [
@@ -76,22 +101,13 @@ class SliderBlock extends BaseElement
             $fields->removeByName('TitleAndDisplayed');
             $fields->removeByName('RelatedPageID');
             $fields->removeByName('Slides');
-            // $config = GridFieldConfig::create();
-            // $config->addComponent(new GridFieldButtonRow('before'))
-            //     ->addComponent(new GridFieldOrderableRows('Sort'))
-            //     ->addComponent(new GridFieldDeleteAction(false))
-            //     ->addComponent(new GridFieldEditableColumns())
-            //     ->addComponent(new GridFieldAddNewInlineButton());
-            // $displayFields = [
-            //     'Title'  => function($record, $column, $grid) {
-            //         return new TextField($column);
-            //     },
-            //     'Image' => function($record, $column, $grid) {
-            //         return new UploadField($column);
-            //     },
-            // ];
-            // $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields($displayFields);
-            if ($this->ID > 0){
+            $fields->removeByName('CallToActionLink');
+            $referent = new GroupedDropdownField("ReferentID", "Slides kopieren nach", $source = $this->getReferentSource());
+            $referent->setEmptyString('Bitte Slidershow auswählen');
+            $fields->addFieldToTab('Root.Main',$referent);
+
+
+            if ($this->ID > 0 && $this->ReferentID == 0){
                 $config = GridFieldConfig_RecordEditor::create();
                 $config->addComponent(new GridFieldOrderableRows('Sort'));
                 if (singleton('Slide')->hasExtension('Activable')){
@@ -105,6 +121,9 @@ class SliderBlock extends BaseElement
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Animation','Animation', self::$animations));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Nav','Kontrols', self::$controls));
             $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
+            $fields->addFieldToTab('Root.Settings',LayoutField::create('Height','Höhe',self::$block_heights));
+            $fields->addFieldToTab('Root.Settings',NumericField::create('MinHeight','min. Höhe'));
+            $fields->addFieldToTab('Root.Settings',NumericField::create('MaxHeight','max. Höhe'));
         });
         $fields = parent::getCMSFields();
         $fields->removeByName('Background');
@@ -123,10 +142,26 @@ class SliderBlock extends BaseElement
     }
 
     public function activeSlides(){
+        $slides = ($this->ReferentID > 0) ? $this->Referent()->Slides() : $this->Slides();
         if (singleton('Slide')->hasExtension('Activable')){
-            return $this->Slides()->filter('isVisible',1);
+            return $slides->filter('isVisible',1);
         }
-        return $this->Slides();
+        return $slides();
+    }
+
+    public function NiceTitle(){
+        return ($this->Title) ? $this->Title : '#Slider-'.$this->ID;
+    }
+
+    public function getReferentSource(){
+        $source = [];
+        foreach (Page::get() as $page) {
+            if (SliderBlock::get()->filter(array('ParentID' => $page->ElementalAreaID, 'ReferentID' => 0))->exclude('ID',$this->ID)->count() > 0){
+                $slides = SliderBlock::get()->filter(array('ParentID' => $page->ElementalAreaID, 'ReferentID' => 0))->exclude('ID',$this->ID)->map('ID','NiceTitle')->toArray();
+                $source[$page->MenuTitle] = $slides;
+            }
+        } 
+        return $source;
     }
 
 }

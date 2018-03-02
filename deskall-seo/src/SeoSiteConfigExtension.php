@@ -5,6 +5,8 @@ namespace Deskall\SEO;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 
 /**
  * SeoSiteConfig
@@ -16,6 +18,8 @@ class SeoSiteConfigExtension extends DataExtension {
 		'GoogleWebmasterMetaTag' => 'Varchar(512)',
         'GoogleAnalyticsCode' => 'HTMLText',
 	);
+
+     private static $has_one = ['OpenGraphDefaultImage' => Image::class];
 
 
 	/**
@@ -41,7 +45,8 @@ class SeoSiteConfigExtension extends DataExtension {
                         'SEO.SEOGoogleWebmasterMetaTagRightTitle',
                         "Google webmaster meta tag Zum Beispiel <meta name=\"google-site-verification\" content=\"hjhjhJHG12736JHGdfsdf\" />"
                     )
-                )
+                ),
+                UploadField::create("OpenGraphDefaultImage",'Vorschau Bild für Shares')->setFolderName('Uploads/Default')
             )
         );
 

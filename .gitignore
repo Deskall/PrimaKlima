@@ -7,3 +7,9 @@
 /vendor/
 /themes/simple/
 /resources/
+/cache/
+
+composer.lock
+*.log
+*.cache
+*.css

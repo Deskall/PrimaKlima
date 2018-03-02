@@ -12,7 +12,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 
 class FooterBlock extends DataObject{
 	private static $db = [
-		'Title' => 'Varchar(255)',
+		'Title' => 'Text',
 		'Width' => 'Varchar(255)',
 		'Class' => 'Varchar(255)',
 		'SortOrder' => 'Int'
@@ -42,14 +42,15 @@ class FooterBlock extends DataObject{
 	'Preview' => 'HTMLText'];
 
 	private static $widths = [
-		'uk-width-1-5' => '20%',
-		'uk-width-1-4' => '25%', 
-		'uk-width-1-3' => '33.33%', 
-		'uk-width-1-2' => '50%',
+		'uk-width-1-1@s uk-width-1-5@m' => '20%',
+		'uk-width-1-1@s uk-width-1-4@m' => '25%', 
+		'uk-width-1-1@s uk-width-1-3@m' => '33.33%', 
+		'uk-width-1-1@s uk-width-1-2@m' => '50%',
 		'uk-width-1-1' => 'Voll Breite',
 		'uk-width-auto' => 'auto Breite',
 		'uk-width-expand' => 'verbleibende Breite'
 	];
+
 
 	public function displayWidth(){
 		$widths = self::$widths;
@@ -66,6 +67,7 @@ class FooterBlock extends DataObject{
 		$fields = parent::getCMSFields();
 		$fields->replaceField('Width',DropdownField::create('Width','Breite',self::$widths)->setEmptyString('Breite auswählen')->setDescription('Relative Breite im Vergleich zur Fußzeile'));
 		$fields->replaceField('Class',TextField::create('Class','Extra CSS Class')->setDescription('Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt'));
+
 		$fields->removeByName('Links');
 		$fields->removeByName('SortOrder');
 		$fields->removeByName('SiteConfigID');
@@ -93,6 +95,6 @@ class FooterBlock extends DataObject{
 	}
 
 	public function activeLinks(){
-		return $this->Links()->filter('isVisible',1);
+		return $this->Links()->filter('isVisible',1)->sort('SortOrder');
 	}
 }

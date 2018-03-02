@@ -34,16 +34,22 @@ class UserDefinedFormExtension extends DataExtension
 	    			$this->setUiKitAttributes($child);
 	    		}
 	    	break;
+            case "date-alt text":
+                $field->setAttribute('class','uk-input flatpickr');
+                $field->setInputType('text');
+            break;
+            default:
+                $field->setAttribute('class','uk-input');
+            break;
 	    }
 
     }
 
     public function updateFormActions($actions){
     	foreach ($actions as $action){
-    		$action->addExtraClass('uk-button uk-button-primary');
-            if ($this->owner->controller->record['hasCaptcha']){
-                $action->addExtraClass('g-recaptcha')->setAttribute('data-sitekey','123456')->setAttribute('data-callback','onSubmit');
-            }
+    		$action->addExtraClass('uk-button uk-button-secondary');
+            $action->addExtraClass('dk-button-icon')->setUseButtonTag(true)
+            ->setAttribute('data-uk-icon','chevron-right');
     	}
     }
 

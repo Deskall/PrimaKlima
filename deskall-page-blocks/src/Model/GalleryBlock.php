@@ -33,8 +33,7 @@ class GalleryBlock extends BaseElement
     ];
 
     private static $defaults = [
-        'Layout' => 'carousel',
-        'SortAttribute' => 'SortOrder'
+        'Layout' => 'carousel'
     ];
 
 
@@ -58,16 +57,18 @@ class GalleryBlock extends BaseElement
 
         $this->beforeUpdateCMSFields(function ($fields) {
             $fields->removeByName('Images');
+            $fields->removeByName('SortAttribute');
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
 
-            $fields->addFieldToTab('Root.Main',UploadField::create('Images','Bilder')->setIsMultiUpload(true),'HTML');
+            $fields->addFieldToTab('Root.Main',UploadField::create('Images','Bilder')->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
+            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
+
 
             /*** NOT WORKING SINCE SORTABLE IS NOT YET ACTIVE */
            // $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname')),'HTML');
 
-            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
           
         });
         return parent::getCMSFields();

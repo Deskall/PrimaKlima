@@ -27,6 +27,12 @@ class BlockController extends ElementController
                 Requirements::css($stylePath);
             }
         }
+        $defaultScripts = $this->config()->get('default_scripts');
+         if (!empty($defaultScripts)) {
+            foreach ($defaultScripts as $jsPath) {
+                Requirements::javascript($jsPath);
+            }
+        }
 
         $template = $this->element->config()->get('controller_template');
 
