@@ -10,7 +10,7 @@ class UserFormExtension extends DataExtension
 
     private static $controller_template = 'DefaultHolder';
 
-    private static $controller_class = BlockController::class;
+   
     
    private static $db = [
     'hasCaptcha' => 'Boolean(1)'
