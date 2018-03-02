@@ -51,9 +51,10 @@ class BaseBlockExtension extends DataExtension
     }
 
     public function getFolderName(){
+
         $parent = $this->owner->Parent()->getOwnerPage();
        
-        if (!$parent->hasMethod('generateFolderName')){
+        while(!$parent->hasMethod('generateFolderName')){
             $parent = $parent->Parent()->getOwnerPage();
         }
         return $parent->generateFolderName();
@@ -70,5 +71,24 @@ class BaseBlockExtension extends DataExtension
     public function isChildren(){
         return $this->owner->Parent()->OwnerClassName == "ParentBlock";
     }
+
+    public function isFirst(){
+        if ($this->owner->isChildren()){
+            return $this->owner->ID == $this->owner->Parent()->getOwnerPage()->Elements()->Elements()->first()->ID;
+        }
+        return false;
+    }
+
+   
+
+    public function isFirstMobile(){
+        if ($this->owner->isChildren()){
+            return $this->owner->ID == $this->owner->Parent()->getOwnerPage()->FirstBlockID;
+        }
+        return false;
+    }
+
+   
+
 
 }

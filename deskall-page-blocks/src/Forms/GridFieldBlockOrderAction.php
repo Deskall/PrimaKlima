@@ -5,7 +5,7 @@ use SilverStripe\Forms\GridField\GridField_ActionProvider;
 use SilverStripe\Forms\GridField\GridField_FormAction;
 use SilverStripe\Control\Controller;
 
-class GridFieldShowHideAction implements GridField_ColumnProvider, GridField_ActionProvider 
+class GridFieldBlockOrderAction implements GridField_ColumnProvider, GridField_ActionProvider 
 {
 
     public function augmentColumns($gridField, &$columns) 
@@ -36,29 +36,20 @@ class GridFieldShowHideAction implements GridField_ColumnProvider, GridField_Act
     {
         if(!$record->canEdit()) return;
 
-        if ($record->isVisible){
-            $field = GridField_FormAction::create(
+        
+        $field = GridField_FormAction::create(
                 $gridField,
-                'hide'.$record->ID,
+                'makefirst'.$record->ID,
                 '',
-                "hide",
+                "makefirst",
                 ['RecordID' => $record->ID]
-            )->addExtraClass('grid-field__icon-action font-icon-check-mark-circle icon-primary btn--icon-large action action-detail')
-                ->setAttribute('title', _t('SiteTree.BUTTONINACTIVE', 'Deaktivieren'))
-                ->setDescription(_t('Global.BUTTONINACTIVEDESC', 'Deaktivieren'));
+            )->addExtraClass('grid-field__icon-action font-icon-mobile btn--icon-large action action-detail')
+                ->setAttribute('title', _t('SiteTree.FirstBlock', 'Erst Block'))
+                ->setDescription(_t('ParentBlock.BUTTONFIRST', 'Erst block im mobile'));
+       
+        if ($record->ID == $record->Parent()->getOwnerPage()->FirstBlockID){
+            $field->addExtraClass('icon-primary');
         }
-        else{
-          $field = GridField_FormAction::create(
-            $gridField,
-            'show'.$record->ID,
-            '',
-            "show",
-            ['RecordID' => $record->ID]
-        )->addExtraClass('grid-field__icon-action font-icon-check-mark-circle btn--icon-large action action-detail')
-                ->setAttribute('title', _t('SiteTree.BUTTONACTIVE', 'Aktivieren'))
-                ->setDescription(_t('Global.BUTTONACTIVEDESC', 'Aktivieren'));  
-        }
-
         
 
         return $field->Field();
@@ -66,29 +57,21 @@ class GridFieldShowHideAction implements GridField_ColumnProvider, GridField_Act
 
     public function getActions($gridField) 
     {
-        return ['show','hide'];
+        return ['makefirst'];
     }
 
     public function handleAction(GridField $gridField, $actionName, $arguments, $data) 
     {
         $item = $gridField->getList()->byID($arguments['RecordID']);
-        if($actionName == 'show') {
+        if($actionName == 'makefirst') {
             // perform your action here
-            $item->show();
+            $block = $item->Parent()->getOwnerPage();
+            $block->FirstBlockID = $item->ID;
+            $block->write();
             // output a success message to the user
             Controller::curr()->getResponse()->setStatusCode(
                 200,
-                'aktiviert.'
-            );
-        }
-
-        if($actionName == 'hide') {
-            // perform your action here
-            $item->hide();
-            // output a success message to the user
-            Controller::curr()->getResponse()->setStatusCode(
-                200,
-                'deaktiviert.'
+                'gespeichert.'
             );
         }
     }
