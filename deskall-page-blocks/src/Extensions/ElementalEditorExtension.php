@@ -17,6 +17,9 @@ class ElementalEditorExtension extends DataExtension
     	unset($types['DNADesign\Elemental\Models\ElementContent']);
     	$gridfield->getConfig()->getComponentByType(GridFieldAddNewMultiClass::class)->setClasses($types);
         $gridfield->getConfig()->addComponent(new GridFieldShowHideAction());
+        if ($gridfield->name == "Elements"){
+            $gridfield->getConfig()->addComponent(new GridFieldBlockOrderAction());
+        }
     }
    
 

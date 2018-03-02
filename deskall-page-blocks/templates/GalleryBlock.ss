@@ -11,7 +11,7 @@
 		    <div class="uk-position-relative">
 
 		        <div class="uk-slider-container uk-light">
-		            <ul class="uk-slider-items uk-child-width-1-3@s uk-child-width-1-4@ uk-grid" data-uk-lightbox>
+		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>uk-child-width-1-3@s uk-child-width-1-4@m<% end_if %> uk-grid" data-uk-lightbox>
 		            	<% loop OrderedImages %>
 		                <li>
 				            <a href="$URL"><img src="$FocusFill(350,250).URL" alt="" class="uk-width-1-1"></a>
@@ -19,7 +19,7 @@
 				     	<% end_loop %>
 		            </ul>
 		        </div>
-
+		        <% if not isChildren %>
 		        <div class="uk-hidden@s uk-light">
 		            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 		            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
@@ -29,7 +29,7 @@
 		            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 		            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 		        </div>
-
+		        <% end_if %>
 		    </div>
 
 		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
