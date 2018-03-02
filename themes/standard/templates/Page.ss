@@ -15,7 +15,7 @@
     <% if isLive %>
     <script src="$ThemeDir/javascript/main.min.js"></script>
     <% else %>
-    <% require javascript("/themes/primaklima/javascript/main.js") %>
+    <script src="$ThemeDir/javascript/main.js"></script>
     <% end_if %>
 
   </body>

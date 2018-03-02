@@ -18,8 +18,7 @@ class ParentBlock extends ElementList
         'BlocksPerLine' => 'Varchar(255)',
         'Border' => 'Boolean(0)',
         'matchHeight' => 'Boolean(1)',
-        'FirstBlockID' => 'Int',
-        'LastBlockID' => 'Int'
+        'FirstBlockID' => 'Int'
     ];
 
     private static $table_name = 'ParentBlock';
@@ -48,12 +47,20 @@ class ParentBlock extends ElementList
         'uk-child-width-1-1@s uk-child-width-1-4@m' => '4',
     ];
 
+    private static $block_layouts = [
+        'default' => 'default'
+    ];
+
     private static $defaults = [
         'BlocksPerLine' => 'uk-child-width-1-1@s uk-child-width-1-2@m' 
     ];
 
     public function getCMSFields(){
         $fields = parent::getCMSFields();
+        $fields->removeByName('FirstBlockID');
+        $fields->addFieldToTab('Root.Layout',
+            LayoutField::create('Layout','Layout',static::$block_layouts)
+        );
         $fields->addFieldsToTab('Root.Settings',[
             DropdownField::create('BlocksPerLine','Blöcke per Linie',self::$blocks_per_line)->setEmptyString('Blöcke per Linie auswählen'),
             CheckboxField::create('Border','Border zwischen Blöcke ?'),

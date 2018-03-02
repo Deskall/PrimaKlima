@@ -1,4 +1,4 @@
-<div $AttributesHTML>
+<div $AttributesHTML data-ici="true">
 	<% loop $Options %>
 	<div class="$Class">
 		<label for="$ID"><i class="font-icon-block-content"></i>
