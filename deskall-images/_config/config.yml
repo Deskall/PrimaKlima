@@ -7,17 +7,19 @@ SilverStripe\Core\Manifest\ModuleManifest:
 SilverStripe\AssetAdmin\Forms\ImageFormFactory:
   extensions:
     - DeskallImageAssetFormFactoryExtension
-
-SilverStripe\Assets\Image:
-  extensions:
-   # - DeskallImageExtension
-
-SilverStripe\Assets\File:
-  force_resample: false
   
+SilverStripe\Assets\Image:
+  MaxWidth: 2500
+  MaxHeight: 2500
+  memory: 256M
+  extensions:
+    - ImageExtension
 SilverStripe\Filesystem\Storage\DBFile:
   extensions:
-  #  - DeskallImageExtension
+    - ImageExtension
+
+SilverStripe\Assets\Storage\DBFile:
+  force_resample: true
 
 SilverStripe\Core\Injector\Injector:
  SilverStripe\Assets\Image_Backend:

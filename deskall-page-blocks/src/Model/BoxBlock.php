@@ -65,13 +65,27 @@ class BoxBlock extends BaseElement
         'cta' => 'CallToAction anzeigen',
     ];
 
-    private static $boxes_per_line = [
-        'uk-child-width-1-2@s' => '2',
-        'uk-child-width-1-3@s' => '3',
-        'uk-child-width-1-2@s uk-child-width-1-4@m' => '4',
-        'uk-child-width-1-2@s uk-child-width-1-5@m' => '5'
-    ];
+    // private static $boxes_per_line = [
+    //     'uk-child-width-1-2@s' => '2',
+    //     'uk-child-width-1-3@s' => '3',
+    //     'uk-child-width-1-2@s uk-child-width-1-4@m' => '4',
+    //     'uk-child-width-1-2@s uk-child-width-1-5@m' => '5'
+    // ];
 
+    private static $boxes_per_line = array(
+    'value1' => array(
+        'Title' => 'Option 1',
+        'Attributes' => array(
+            'data-myattribute' => 'This is an attribute value'
+        )
+    ),
+    'value2' => array(
+        'Title' => 'Option 2',
+        'Attributes' => array(
+            'data-myattribute' => 'This is an attribute value',
+            'data-myattribute2' => 'This is a second attribute value'
+        )
+    ));
 
     private static $table_name = 'BoxBlock';
 

@@ -13,5 +13,3 @@ composer.lock
 *.log
 *.cache
 *.css
-*.log
-themes/primaklima/css/cache/main.less.cache
