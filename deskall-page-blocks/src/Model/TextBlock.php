@@ -57,10 +57,10 @@ class TextBlock extends BaseElement
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
             $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
-            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
-
         });
-        return parent::getCMSFields();
+        $fields = parent::getCMSFields();
+        $fields->addFieldToTab('Root.Layout',LayoutField::create('Layout','Format', self::$block_layouts));
+        return $fields;
     }
 
     public function getSummary()

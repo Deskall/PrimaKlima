@@ -1,15 +1,31 @@
 
 <div class="uk-panel" <% if ContentImage %>data-uk-grid<% end_if %> data-uk-lightbox>
 	<% if ContentImage %>
-	<div class="<% if Layout == right || Layout == left %>uk-width-1-3@m<% else %>uk-width-1-1<% end_if%>">
-		<a href="$ContentImage.URL">
-			<img src="$ContentImage.URL" alt="">
-		</a>
-	</div>
-	<div class="<% if Layout == right || Layout == left %>uk-width-2-3@m<% else %>uk-width-1-1<% end_if%> <% if Layout == "right" || Layout == "hover" %>uk-flex-first<% end_if %>">$HTML
-	</div>
+		<% if Layout == right || Layout == left %>
+			<div class="uk-width-1-3@m">
+				<a href="$ContentImage.getSourceURL">
+					<img src="$ContentImage.Fit(350,250).URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="350" height="250" >
+				</a>
+			</div>
+			<div class="uk-width-2-3@m <% if Layout == "right" || Layout == "hover" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
+			</div>
+		<% else %>
+			<div class="uk-width-1-1">
+				<a href="$ContentImage.getSourceURL">
+					<% if $FullWidth %>
+					<img src="$ContentImage.URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="$ContentImage.Resampled().Width" height="$ContentImage.Resampled().height" >
+					<% else %>
+					<img src="$ContentImage.ScaleWidth(1200).URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="$ContentImage.ScaleWidth(1200).Width" height="$ContentImage.ScaleWidth(1200).Height" >
+					<% end_if %>
+				</a>
+			</div>
+			<div class="uk-width-1-1 <% if Layout == "hover" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
+			</div>
+		<% end_if %>
 	<% else %>
-	$HTML
+	<div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+		$HTML
+	</div>
 	<% end_if %>
 	
 </div>

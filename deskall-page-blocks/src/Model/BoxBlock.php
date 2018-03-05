@@ -16,6 +16,7 @@ use SilverStripe\Assets\Image;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
+use SilverStripe\Forms\Tab;
 
 class BoxBlock extends BaseElement
 {
@@ -30,7 +31,8 @@ class BoxBlock extends BaseElement
         'HTML' => 'HTMLText',
         'BoxPerLine' => 'Varchar(255)',
         'ImageType' => 'Varchar(255)',
-        'Effect' => 'Varchar(255)'
+        'Effect' => 'Varchar(255)',
+        'BoxTextAlign' => 'Varchar(255)'
     ];
 
     private static $has_many = [
@@ -65,27 +67,34 @@ class BoxBlock extends BaseElement
         'cta' => 'CallToAction anzeigen',
     ];
 
-    // private static $boxes_per_line = [
-    //     'uk-child-width-1-2@s' => '2',
-    //     'uk-child-width-1-3@s' => '3',
-    //     'uk-child-width-1-2@s uk-child-width-1-4@m' => '4',
-    //     'uk-child-width-1-2@s uk-child-width-1-5@m' => '5'
-    // ];
+    private static $boxes_per_line = [
+        'uk-child-width-1-2@s' => '2',
+        'uk-child-width-1-3@s' => '3',
+        'uk-child-width-1-2@s uk-child-width-1-4@m' => '4',
+        'uk-child-width-1-2@s uk-child-width-1-5@m' => '5'
+    ];
 
-    private static $boxes_per_line = array(
-    'value1' => array(
-        'Title' => 'Option 1',
-        'Attributes' => array(
-            'data-myattribute' => 'This is an attribute value'
-        )
-    ),
-    'value2' => array(
-        'Title' => 'Option 2',
-        'Attributes' => array(
-            'data-myattribute' => 'This is an attribute value',
-            'data-myattribute2' => 'This is a second attribute value'
-        )
-    ));
+     private static $boxes_text_alignments = [
+        'uk-text-justify uk-text-left@s' =>  'Aligns text to the left.',
+        'uk-text-justify uk-text-righ@st' =>  'Aligns text to the right',
+        'uk-text-justify uk-text-center@s' => 'Centers text horizontally',
+        'uk-text-justify' => 'Justifies text'
+    ];
+
+    // private static $boxes_per_line = array(
+    // 'value1' => array(
+    //     'Title' => 'Option 1',
+    //     'Attributes' => array(
+    //         'data-myattribute' => 'This is an attribute value'
+    //     )
+    // ),
+    // 'value2' => array(
+    //     'Title' => 'Option 2',
+    //     'Attributes' => array(
+    //         'data-myattribute' => 'This is an attribute value',
+    //         'data-myattribute2' => 'This is a second attribute value'
+    //     )
+    // ));
 
     private static $table_name = 'BoxBlock';
 
@@ -102,18 +111,22 @@ class BoxBlock extends BaseElement
           
             $fields->removeByName('Boxes');
             $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
-            $fields->addFieldToTab('Root.Settings',IconDropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
-            $fields->addFieldToTab('Root.Settings',DropdownField::create('ImageType','BildTyp', self::$image_types));
-            $fields->addFieldToTab('Root.Settings',DropdownField::create('Effect','Effect', self::$effects));
+           // $fields->addFieldToTab('Root.Settings',IconDropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
+           
 
             if ($this->ID > 0){
+                $fields->addFieldToTab('Root',new Tab('Boxes',_t('BOXBLOCK.BOXTAB','Boxen')),'Settings');
+                $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxTextAlign','Boxen Textausrichtung',self::$boxes_text_alignments));
+                $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
+                $fields->addFieldToTab('Root.Boxes',DropdownField::create('ImageType','BildTyp', self::$image_types));
+                $fields->addFieldToTab('Root.Boxes',DropdownField::create('Effect','Effect', self::$effects));
                 $config = GridFieldConfig_RecordEditor::create();
                 $config->addComponent(new GridFieldOrderableRows('Sort'));
                 if (singleton('Box')->hasExtension('Activable')){
                      $config->addComponent(new GridFieldShowHideAction());
                 }
                 $boxesField = new GridField('Boxes','Boxes',$this->Boxes(),$config);
-                $fields->addFieldToTab('Root.Boxen',$boxesField);
+                $fields->addFieldToTab('Root.Boxes',$boxesField);
             }
         });
         $fields = parent::getCMSFields();

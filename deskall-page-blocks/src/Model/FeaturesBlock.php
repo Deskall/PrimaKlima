@@ -27,7 +27,8 @@ class FeaturesBlock extends BaseElement
     private static $db = [
         'HTML' => 'HTMLText',
         'IconItem' => 'Varchar(255)',
-        'FeaturesTitle' => 'Varchar(255)'
+        'FeaturesTitle' => 'Varchar(255)',
+        'FeaturesColumns' => 'Varchar(255)'
     ];
 
     private static $has_one = [
@@ -50,6 +51,16 @@ class FeaturesBlock extends BaseElement
     private static $defaults = [
         'Layout' => 'left'
     ];
+
+    private static $features_columns = [
+        ' ' => 'Keine Spalten',
+        'uk-column-1-2@s' => 'Display the content in two columns',
+        'uk-column-1-2@s uk-column-1-3@m' => 'Display the content in three columns',
+        'uk-column-1-2@s uk-column-1-4@m' => 'Display the content in four columns',
+        'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' => 'Display the content in five columns',
+        'uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l' => 'Display the content in six columns'
+    ];
+    
 
 
    
@@ -94,8 +105,11 @@ class FeaturesBlock extends BaseElement
                 ->fieldByName('Root.Main.FeaturesTitle');
                 $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'List Titel'));
                 $fields->addFieldToTab('Root.Features',$title);
+                $fields->addFieldToTab('Root.Features',DropdownField::create('FeaturesColumns','Features in mehreren Spalten',static::$features_columns));
+                $fields->addFieldToTab('Root.Features',$fields->fieldByName('Root.Main.IconItem'));
                 $fields->addFieldToTab('Root.Features',$featuresField);
-                $fields->addFieldToTab('Root.Features',$fields->fieldByName('Root.Features.FeaturesTitle'),'Features');
+
+
             } 
         });
         return parent::getCMSFields();

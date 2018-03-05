@@ -9,10 +9,18 @@ class ImageExtension extends Extension
         'Description' => 'Text'
     ];
 
-    public function ImageTags($fallback = null){
+    public function AltTag($fallback = null){
         $text = ($this->owner->Description) ? $this->owner->Description : (($fallback) ? $fallback : $this->owner->Name);
         $text = strip_tags(preg_replace( "/\r|\n/", "", $text ));
-        return  'alt="'.$text.'" title="'.$this->owner->Name.'" width="'.$this->owner->getWidth().'" height="'.$this->owner->getHeight().'"' ;
+        $title = ($fallback) ? $fallback : $this->owner->Name;
+       
+        return $text;
+    }
+
+    public function TitleTag($fallback = null){
+        $title = ($fallback) ? $fallback : $this->owner->Name;
+        
+        return $title;
     }
 
     public function onAfterUpload(){

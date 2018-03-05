@@ -6,7 +6,9 @@
 		        <h2>$Title</h2>
 		    <% end_if %>
 
-		    $Content
+		    <div class="uk-text-lead $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+			    $Content
+			</div>
 
 		 	<% if $CallToActionLink.Page.Link %>
 				<% include CallToActionLink c=w,b=secondary,pos=right %>

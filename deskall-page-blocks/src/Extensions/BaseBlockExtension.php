@@ -6,7 +6,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
-
+use SilverStripe\Forms\Tab;
 
 
 class BaseBlockExtension extends DataExtension
@@ -15,7 +15,10 @@ class BaseBlockExtension extends DataExtension
     private static $db = [
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
-        'Layout' => 'Varchar(255)'
+        'Layout' => 'Varchar(255)',
+        'TextAlign' => 'Varchar(255)',
+        'TextColumns' => 'Varchar(255)',
+        'TextColumnsDivider' => 'Boolean(0)'
     ];
 
     private static $has_one = [
@@ -27,7 +30,9 @@ class BaseBlockExtension extends DataExtension
     ];
 
     private static $defaults = [
-        'ShowTitle' => 1
+        'ShowTitle' => 1,
+        'Background' => 'no-bg',
+        'Align' => 'uk-text-left'
     ];
 
 
@@ -39,15 +44,42 @@ class BaseBlockExtension extends DataExtension
         'dk-background-white uk-background' => 'weiss',
     ];
 
+    private static $block_text_alignments = [
+        'uk-text-justify uk-text-left@s' =>  'Aligns text to the left.',
+        'uk-text-justify uk-text-righ@st' =>  'Aligns text to the right',
+        'uk-text-justify uk-text-center@s' => 'Centers text horizontally',
+        'uk-text-justify' => 'Justifies text'
+    ];
+
+    private static $block_text_columns = [
+        ' ' => 'Keine Spalten',
+        'uk-column-1-2@s' => 'Display the content in two columns',
+        'uk-column-1-2@s uk-column-1-3@m' => 'Display the content in three columns',
+        'uk-column-1-2@s uk-column-1-4@m' => 'Display the content in four columns',
+        'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' => 'Display the content in five columns',
+        'uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l' => 'Display the content in six columns'
+    ];
     
 
     public function updateCMSFields(FieldList $fields){
     	$fields->removeByName('Background');
+        $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
-    	$fields->addFieldToTab('Root.Settings',CheckboxField::create('FullWidth','volle Breite'));
-    	$fields->addFieldToTab('Root.Settings',DropdownField::create('Background','Hintergrundfarbe',self::$block_backgrounds)->setDescription('wird als overlay anzeigen falls es ein Hintergrundbild gibt.'));
-        $fields->addFieldToTab('Root.Settings',UploadField::create('BackgroundImage','Hintergrundbild')->setFolderName($this->owner->getFolderName()));
-
+      
+        $fields->removeByName('TextAlign');
+        $fields->removeByName('TextColumns');
+        $fields->removeByName('TextColumnsDivider');
+        $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
+        $fields->removeByName('ExtraClass');
+        $fields->addFieldToTab('Root',new Tab('Layout',_t('BLOCKS.LAYOUTTAB','Layout')),'Settings');
+    	$fields->addFieldToTab('Root.Layout',CheckboxField::create('FullWidth','volle Breite'));
+        $fields->addFieldToTab('Root.Layout',$extracss);
+    	$fields->addFieldToTab('Root.Layout',DropdownField::create('Background','Hintergrundfarbe',self::$block_backgrounds)->setDescription('wird als overlay anzeigen falls es ein Hintergrundbild gibt.'));
+        $fields->addFieldToTab('Root.Layout',UploadField::create('BackgroundImage','Hintergrundbild')->setFolderName($this->owner->getFolderName()));
+        $fields->addFieldToTab('Root.Layout',DropdownField::create('TextAlign','Textausrichtung',self::$block_text_alignments));
+        $fields->addFieldToTab('Root.Layout',DropdownField::create('TextColumns','Text in mehreren Spalten',self::$block_text_columns));
+        $fields->addFieldToTab('Root.Layout',$columnDivider = CheckboxField::create('TextColumnsDivider','Border zwischen Spalten anzeigen'));
+    
     }
 
     public function getFolderName(){

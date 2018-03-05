@@ -17,7 +17,8 @@ class GalleryBlock extends BaseElement
 
     private static $db = [
         'HTML' => 'HTMLText',
-        'SortAttribute' => 'Varchar(255)'
+        'SortAttribute' => 'Varchar(255)',
+        'PicturesPerLine' => 'Int'
     ];
 
     private static $many_many = [
@@ -41,7 +42,15 @@ class GalleryBlock extends BaseElement
         'carousel' => 'Carousel',
         'grid' => 'Grid'
     ];
-   
+    
+    private static $pictures_per_line = [
+        'uk-child-width-1-1' => '1',
+        'uk-child-width-1-2@s' => '2',
+        'uk-child-width-1-3@s' => '3',
+        'uk-child-width-1-2@s uk-child-width-1-4@m' => '4',
+        'uk-child-width-1-2@s uk-child-width-1-5@m' => '5'
+    ];
+
     private static $table_name = 'GalleryBlock';
 
     private static $singular_name = 'Bildergalerie';
@@ -63,7 +72,9 @@ class GalleryBlock extends BaseElement
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
 
             $fields->addFieldToTab('Root.Main',UploadField::create('Images','Bilder')->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
-            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
+            $fields->addFieldToTab('Root.Layout',DropdownField::create('PicturesPerLine','Bilder per Linie', self::$pictures_per_line));
+
+            
 
 
             /*** NOT WORKING SINCE SORTABLE IS NOT YET ACTIVE */
@@ -71,7 +82,9 @@ class GalleryBlock extends BaseElement
 
           
         });
-        return parent::getCMSFields();
+        $fields = parent::getCMSFields();
+        $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
+        return $fields;
     }
 
     public function getSummary()
