@@ -11,6 +11,7 @@ SilverStripe\AssetAdmin\Forms\ImageFormFactory:
 SilverStripe\Assets\Image:
   MaxWidth: 2500
   MaxHeight: 2500
+  memory: 512M
   extensions:
     - ImageExtension
 SilverStripe\Filesystem\Storage\DBFile:
