@@ -13,7 +13,7 @@
                 <tr>
                 <% loop $OrderedImages.limit(3) %>
                 <td>
-                    $Thumbnail
+                    $Thumbnail(100,100)
                 </td>
                 <% end_loop %>
                 <td>...</td>
