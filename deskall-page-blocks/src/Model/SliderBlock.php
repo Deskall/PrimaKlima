@@ -171,7 +171,7 @@ class SliderBlock extends BaseElement
         if ($this->isChanged('Height')){
             switch($this->Height){
                 case "small":
-                    $this->MinHeight = 200;
+                    $this->MinHeight = 250;
                     $this->MaxHeight = 350;
                 break;
                 case "medium":
@@ -179,7 +179,7 @@ class SliderBlock extends BaseElement
                     $this->MaxHeight = 500;
                 break;
                 case "large":
-                    $this->MinHeight = 350;
+                    $this->MinHeight = 450;
                     $this->MaxHeight = 700;
                 break;
                 default:
