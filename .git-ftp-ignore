@@ -4,6 +4,7 @@
 /themes/simple/
 /resources/
 /cache/
+/assets/
 
 composer.lock
 *.log
