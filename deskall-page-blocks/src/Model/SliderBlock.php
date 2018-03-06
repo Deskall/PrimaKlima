@@ -167,7 +167,13 @@ class SliderBlock extends BaseElement
     }
 
     public function onBeforeWrite(){
-
+        parent::onBeforeWrite();
+        // if ($this->isChanged('Height')){
+        //     switch($this->Height){
+        //         case ""
+        //     }
+        // }
+        
     }
 
 }
