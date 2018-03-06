@@ -101,6 +101,8 @@ class SliderBlock extends BaseElement
             $fields->removeByName('TitleAndDisplayed');
             $fields->removeByName('RelatedPageID');
             $fields->removeByName('Slides');
+            $fields->removeByName('MinHeight');
+            $fields->removeByName('MaxHeight');
             $fields->removeByName('CallToActionLink');
             $referent = new GroupedDropdownField("ReferentID", "Slides kopieren nach", $source = $this->getReferentSource());
             $referent->setEmptyString('Bitte Slidershow auswählen');
@@ -162,6 +164,10 @@ class SliderBlock extends BaseElement
             }
         } 
         return $source;
+    }
+
+    public function onBeforeWrite(){
+
     }
 
 }
