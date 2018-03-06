@@ -10,3 +10,4 @@ composer.lock
 *.log
 *.cache
 *.css
+.htaccess

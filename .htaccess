@@ -8,7 +8,6 @@
   RewriteCond %{REQUEST_URI} !cms
   RewriteCond %{REQUEST_URI} !focuspoint
   RewriteCond %{REQUEST_URI} !framework
-  RewriteCond %{REQUEST_URI} !assets
   RewriteCond %{REQUEST_URI} !mysite
 
 
