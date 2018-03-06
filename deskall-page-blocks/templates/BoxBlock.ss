@@ -1,4 +1,4 @@
-
+<%-- 
 		<div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 			$HTML
 		</div>
@@ -17,7 +17,7 @@
 		    	<% if $Top.ImageType == "icon" %>
 		    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Image.Width" height="$Image.Height" />
 		    	<% else %>
-		    	<a href="$Image.getSourceURL" class="dk-lightbox"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.Fill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" /></a>
+		    	<a href="$Image.getSourceURL" class="dk-lightbox"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" /></a>
 		    	<% end_if %>
 		    <% end_if %>
 		    <% else_if Top.Layout == "mixed" %>
@@ -25,7 +25,7 @@
 		    	<% if $Top.ImageType == "icon" %>
 		    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Image.Width" height="$Image.Height" />
 		    	<% else %>
-		    	<a href="$Image.getSourceURL" class="dk-lightbox"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.Fill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" /></a>
+		    	<a href="$Image.getSourceURL" class="dk-lightbox"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" /></a>
 		    	<% end_if %>
 		    <% end_if %>
 		    <h3 class="uk-margin">$Title</h3>
@@ -41,7 +41,7 @@
 		    	<% if $Top.ImageType == "icon" %>
 		    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Image.Width" height="$Image.Height" />
 		    	<% else %>
-		    	<a href="$Image.getSourceURL" class="dk-lightbox"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.Fill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" /></a>
+		    	<a href="$Image.getSourceURL" class="dk-lightbox"><img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" /></a>
 		    	<% end_if %>
 		    <% end_if %>
 		    <div class="uk-margin-top dk-box-content">
@@ -53,4 +53,4 @@
 		    <% end_if %>
 		</div>
 		<% end_loop %>
-</div>
+</div> --%>
