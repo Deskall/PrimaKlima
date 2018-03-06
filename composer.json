@@ -15,7 +15,8 @@
         "silverstripe/multiuser-editing-alert": "^2.0@dev",
         "leafo/scssphp": "^0.7.4",
         "jonom/focuspoint": "dev-master",
-        "sheadawson/silverstripe-linkable": "dev-master"
+        "sheadawson/silverstripe-linkable": "dev-master",
+        "heyday/silverstripe-responsive-images": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7"

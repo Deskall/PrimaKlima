@@ -1,1 +1,1 @@
-s
+s[2018-03-06 14:31:57] error-log.ALERT: Fatal Error (E_ERROR): Class 'Sheadawson\Linkable\Forms\LinkField' not found {"code":1,"message":"Class 'Sheadawson\\Linkable\\Forms\\LinkField' not found","file":"/Users/guillaumepacilly/Documents/GitHub/PrimaKlima/deskall-page-blocks/src/Extensions/BaseBlockExtension.php","line":85} []

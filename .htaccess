@@ -1,26 +1,3 @@
-# Adaptive-Images -----------------------------------------------------------------------------------
-<IfModule mod_rewrite.c>
-  # Add any directories you wish to omit from the Adaptive-Images process on a new line, as follows:
-  # RewriteCond %{REQUEST_URI} !ignore-this-directory
-  # RewriteCond %{REQUEST_URI} !and-ignore-this-directory-too
-
-  RewriteCond %{REQUEST_URI} !themes
-  RewriteCond %{REQUEST_URI} !cms
-  RewriteCond %{REQUEST_URI} !focuspoint
-  RewriteCond %{REQUEST_URI} !framework
-  RewriteCond %{REQUEST_URI} !mysite
-
-
-  # don't apply the AI behaviour to images inside AI's cache folder:
-  RewriteCond %{REQUEST_URI} !ai-cache
-
-  # Send any GIF, JPG, or PNG request that IS NOT stored inside one of the above directories
-  # to adaptive-images.php so we can select appropriately sized versions
-
-  RewriteRule \.(?:jpe?g|JPE?G|gif|GIF|png|PNG)$ adaptive-images/adaptive-images.php
-</IfModule>
-# END Adaptive-Images -------------------------------------------------------------------------------
-
 ### SILVERSTRIPE START ###
 # Deny access to templates (but allow from localhost)
 <Files *.ss>
