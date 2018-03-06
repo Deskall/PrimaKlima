@@ -120,17 +120,17 @@ class BoxBlock extends BaseElement
 
             if ($this->ID > 0){
                 $fields->addFieldToTab('Root',new Tab('Boxes',_t('BOXBLOCK.BOXTAB','Boxen')),'Settings');
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxTextAlign','Boxen Textausrichtung',self::$boxes_text_alignments));
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('ImageType','BildTyp', self::$image_types));
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('Effect','Effect', self::$effects));
-                $config = GridFieldConfig_RecordEditor::create();
-                $config->addComponent(new GridFieldOrderableRows('Sort'));
-                if (singleton('Box')->hasExtension('Activable')){
-                     $config->addComponent(new GridFieldShowHideAction());
-                }
-                $boxesField = new GridField('Boxes','Boxes',$this->Boxes(),$config);
-                $fields->addFieldToTab('Root.Boxes',$boxesField);
+                // $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxTextAlign','Boxen Textausrichtung',self::$boxes_text_alignments));
+                // $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
+                // $fields->addFieldToTab('Root.Boxes',DropdownField::create('ImageType','BildTyp', self::$image_types));
+                // $fields->addFieldToTab('Root.Boxes',DropdownField::create('Effect','Effect', self::$effects));
+                // $config = GridFieldConfig_RecordEditor::create();
+                // $config->addComponent(new GridFieldOrderableRows('Sort'));
+                // if (singleton('Box')->hasExtension('Activable')){
+                //      $config->addComponent(new GridFieldShowHideAction());
+                // }
+                // $boxesField = new GridField('Boxes','Boxes',$this->Boxes(),$config);
+                // $fields->addFieldToTab('Root.Boxes',$boxesField);
             }
        
         
