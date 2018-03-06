@@ -1,4 +1,4 @@
-<%-- 
+
 <div class="elemental-preview">
     <a href="$CMSEditLink" class="elemental-edit">
         <div class="elemental-preview__icon">$Icon</div>
@@ -23,4 +23,3 @@
         </div>
     </a>
 </div>
- --%>
