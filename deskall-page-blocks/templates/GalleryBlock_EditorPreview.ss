@@ -1,4 +1,4 @@
-<%-- 
+
 <div class="elemental-preview">
     <a href="$CMSEditLink" class="elemental-edit">
         <div class="elemental-preview__icon">$Icon</div>
@@ -13,7 +13,7 @@
                 <tr>
                 <% loop $OrderedImages.limit(3) %>
                 <td>
-                    $Thumbnail(100,100)
+                    $Me
                 </td>
                 <% end_loop %>
                 <td>...</td>
@@ -23,4 +23,3 @@
         </div>
     </a>
 </div>
- --%>
