@@ -18,8 +18,8 @@ SilverStripe\Filesystem\Storage\DBFile:
   extensions:
     - ImageExtension
 
-SilverStripe\Assets\Storage\DBFile:
-  force_resample: true
+# SilverStripe\Assets\Storage\DBFile:
+#   force_resample: true
 
 SilverStripe\Core\Injector\Injector:
  SilverStripe\Assets\Image_Backend:
