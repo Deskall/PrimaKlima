@@ -112,7 +112,7 @@ class BoxBlock extends BaseElement
        
           
             $fields->removeByName('Boxes');
-            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
+            $fields->addFieldToTab('Root.Layout',LayoutField::create('Layout','Format', self::$block_layouts));
             $fields->removeByName('PictureHeight');
             $fields->removeByName('PictureWidth');
            // $fields->addFieldToTab('Root.Settings',IconDropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
