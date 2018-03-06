@@ -33,6 +33,11 @@ class VideoBlock extends BaseElement
         'VideoPerLine' => 'Varchar(255)'
 	];
 
+	private static $defaults = [
+		'Layout' => 'carousel',
+		'VideoPerLine' => 'uk-child-width-1-2@s'
+	];
+
 	private static $block_layouts = [
         'carousel' => 'Carousel',
         'grid' => 'Grid'
@@ -106,11 +111,18 @@ class VideoBlock extends BaseElement
 		return $html;
 	}
 
-	function countVideos(){
-		return count(explode("\n",$this->VideoList));
-	}
-
 	public function Media($url) {
 		return Embed::create($url);
 	}
+
+	 public function getSummary()
+    {
+        return DBField::create_field('HTMLText', $this->HTML)->Summary(20);
+    }
+
+    public function getType()
+    {
+        return _t(__CLASS__ . '.BlockType', 'Videogalerie');
+    }
+
 }

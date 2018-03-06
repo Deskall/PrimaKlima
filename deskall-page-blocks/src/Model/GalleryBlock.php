@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\Tab;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
@@ -18,7 +19,9 @@ class GalleryBlock extends BaseElement
     private static $db = [
         'HTML' => 'HTMLText',
         'SortAttribute' => 'Varchar(255)',
-        'PicturesPerLine' => 'Int'
+        'PicturesPerLine' => 'Varchar(255)',
+        'PictureWidth' => 'Int',
+        'PictureHeight' => 'Int'
     ];
 
     private static $many_many = [
@@ -66,13 +69,15 @@ class GalleryBlock extends BaseElement
 
         $this->beforeUpdateCMSFields(function ($fields) {
             $fields->removeByName('Images');
+            $fields->removeByName('PictureHeight');
+            $fields->removeByName('PictureWidth');
             $fields->removeByName('SortAttribute');
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
-
-            $fields->addFieldToTab('Root.Main',UploadField::create('Images','Bilder')->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
-            $fields->addFieldToTab('Root.Layout',DropdownField::create('PicturesPerLine','Bilder per Linie', self::$pictures_per_line));
+            $fields->addFieldToTab('Root',new Tab('Pictures',_t(__CLASS__.'PicturesTab', 'Bilder')),'Settings');
+            $fields->addFieldToTab('Root.Pictures',UploadField::create('Images','Bilder')->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
+            $fields->addFieldToTab('Root.Pictures',DropdownField::create('PicturesPerLine','Bilder per Linie', self::$pictures_per_line), 'Images');
 
             
 
@@ -83,7 +88,7 @@ class GalleryBlock extends BaseElement
           
         });
         $fields = parent::getCMSFields();
-        $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
+        $fields->addFieldToTab('Root.Pictures',LayoutField::create('Layout','Format', self::$block_layouts));
         return $fields;
     }
 
@@ -99,6 +104,18 @@ class GalleryBlock extends BaseElement
 
     public function OrderedImages(){
         return $this->Images()->sort($this->SortAttribute);
+    }
+
+    public function onBeforeWrite(){
+        parent::onBeforeWrite();
+        $widthF = 2500;
+        $widthN = 1200;
+        $ratio = 1.4; 
+        $width = ($this->FullWidth) ? $widthF / static::$pictures_per_line[$this->PicturesPerLine] : $widthN /  static::$pictures_per_line[$this->PicturesPerLine];
+        $height = $width / $ratio;
+
+        $this->PictureWidth = $width;
+        $this->PictureHeight = $height;
     }
 
 }

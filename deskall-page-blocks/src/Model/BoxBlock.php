@@ -32,7 +32,9 @@ class BoxBlock extends BaseElement
         'BoxPerLine' => 'Varchar(255)',
         'ImageType' => 'Varchar(255)',
         'Effect' => 'Varchar(255)',
-        'BoxTextAlign' => 'Varchar(255)'
+        'BoxTextAlign' => 'Varchar(255)',
+        'PictureWidth' => 'Int',
+        'PictureHeight' => 'Int'
     ];
 
     private static $has_many = [
@@ -149,6 +151,19 @@ class BoxBlock extends BaseElement
             return $this->Boxes()->filter('isVisible',1);
         }
         return $this->Boxes();
+    }
+
+
+    public function onBeforeWrite(){
+        parent::onBeforeWrite();
+        $widthF = 2500;
+        $widthN = 1200;
+        $ratio = 1.4; 
+        $width = ($this->FullWidth) ? $widthF / static::$boxes_per_line[$this->BoxPerLine] : $widthN /  static::$boxes_per_line[$this->BoxPerLine];
+        $height = $width / $ratio;
+
+        $this->PictureWidth = $width;
+        $this->PictureHeight = $height;
     }
 
 }
