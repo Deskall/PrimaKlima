@@ -47,7 +47,8 @@ class BoxBlock extends BaseElement
 
     private static $defaults = [
         'Layout' => 'standard',
-        'Effect' => 'none'
+        'Effect' => 'none',
+        'BoxPerLine' => 'uk-child-width-1-3@s'
     ];
 
     private static $block_layouts = [
