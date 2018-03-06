@@ -108,12 +108,12 @@ class BoxBlock extends BaseElement
 
     public function getCMSFields()
     {
-
-        $this->beforeUpdateCMSFields(function ($fields) {
+        $fields = parent::getCMSFields();
+       
           
             $fields->removeByName('Boxes');
             $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
-              $fields->removeByName('PictureHeight');
+            $fields->removeByName('PictureHeight');
             $fields->removeByName('PictureWidth');
            // $fields->addFieldToTab('Root.Settings',IconDropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
            
@@ -132,8 +132,8 @@ class BoxBlock extends BaseElement
                 $boxesField = new GridField('Boxes','Boxes',$this->Boxes(),$config);
                 $fields->addFieldToTab('Root.Boxes',$boxesField);
             }
-        });
-        $fields = parent::getCMSFields();
+       
+        
 
         return $fields;
     }
