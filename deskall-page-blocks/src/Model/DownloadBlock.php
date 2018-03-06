@@ -63,6 +63,7 @@ class DownloadBlock extends BaseElement
         $this->beforeUpdateCMSFields(function ($fields) {
             $fields->removeByName('Files');
             $fields->removeByName('DownloadsTitle');
+            $fields->removeByName('FilesColumns');
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
