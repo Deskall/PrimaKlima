@@ -33,4 +33,8 @@ class PageBlocksExtension extends DataExtension {
 	public function noSlide(){
 		return (SliderBlock::get()->filter('ParentID',$this->owner->ElementalAreaID)->count() == 0);
 	}
+
+	public function ParentSlide(){
+		return (SliderBlock::get()->filter('ParentID',$this->owner->Parent()->ElementalAreaID)->first());
+	}
 }

@@ -70,6 +70,7 @@ class GalleryBlock extends BaseElement
         $this->beforeUpdateCMSFields(function ($fields) {
             $fields->removeByName('Images');
             $fields->removeByName('PictureHeight');
+            $fields->removeByName('PicturesPerLine');
             $fields->removeByName('PictureWidth');
             $fields->removeByName('SortAttribute');
             $fields
