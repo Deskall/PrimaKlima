@@ -15,7 +15,7 @@ $MetaTags(false)
 <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
 
 <% if isLive %>
-$Css
+<style>$Css</style>
 <% else %>
 <link rel="stylesheet" type="text/css" href="$ThemeDir/css/main.min.css" />
 <% end_if %>

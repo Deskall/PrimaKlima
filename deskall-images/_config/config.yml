@@ -32,7 +32,12 @@ ImageExtension:
       arguments:
         '(min-width: 1400px) and (min-device-pixel-ratio: 2.0)': [5000]
         '(min-width: 1400px)': [2500]
-        '(min-resolution: 2dppx)  and (min-width: 1200px)': [2800]
+        '(-webkit-min-device-pixel-ratio: 2)      and (min-width: 1200px),
+        (   min--moz-device-pixel-ratio: 2)      and (min-width: 1200px),
+         (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 1200px),
+         (        min-device-pixel-ratio: 2)      and (min-width: 1200px),
+ (                min-resolution: 192dpi) and (min-width: 1200px),
+ (                min-resolution: 2dppx)  and (min-width: 1200px)': [2800]
         '(min-width: 1200px)': [1400]
         '(min-width: 1000px) and (min-device-pixel-ratio: 2.0)': [2400]
         '(min-width: 1000px)': [1200]
