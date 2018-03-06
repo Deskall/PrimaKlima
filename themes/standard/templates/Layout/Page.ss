@@ -1,5 +1,4 @@
 <% if ID < 0 || $noSlide %>
-ici
 	<% include DefaultSlide %>
 <% end_if %>
 
