@@ -13,7 +13,7 @@
                 <tr>
                 <% loop $ActiveBoxes %>
                 <td>
-                    $Image.Fill(100,100)<br/>
+                    $Image.FitMax(100,100)<br/>
                     $Title
                 </td>
                 <% end_loop %>
