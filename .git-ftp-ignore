@@ -7,7 +7,7 @@
 /assets/
 /.htaccess
 /composer.lock
-/.silverstripe.log
+/silverstripe.log
 
 *.log
 *.cache
