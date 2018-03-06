@@ -5,9 +5,10 @@
 /resources/
 /cache/
 /assets/
+/.htaccess
+/composer.lock
+/.silverstripe.log
 
-composer.lock
 *.log
 *.cache
 *.css
-.htaccess
