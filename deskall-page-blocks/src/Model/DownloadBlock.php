@@ -65,12 +65,13 @@ class DownloadBlock extends BaseElement
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
-            $fields->addFieldToTab('Root',new Tab('Files',_t(__CLASS__.'FilesTab', 'Dateien')),'Settings');
-            $fields->addFieldToTab('Root.Files',TextField::create('DownloadsTitle','Downloads Area Titel'));
-            $fields->addFieldToTab('Root.Files',UploadField::create('Files','Dateien')->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
-            $fields->addFieldToTab('Root.Files',DropdownField::create('FilesColumns','Dateien in mehreren Spalten',static::$files_columns));
+            
         });
         $fields = parent::getCMSFields();
+        $fields->addFieldToTab('Root',new Tab('Files',_t(__CLASS__.'FilesTab', 'Dateien')),'Settings');
+        $fields->addFieldToTab('Root.Files',TextField::create('DownloadsTitle','Downloads Area Titel'));
+        $fields->addFieldToTab('Root.Files',UploadField::create('Files','Dateien')->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
+        $fields->addFieldToTab('Root.Files',DropdownField::create('FilesColumns','Dateien in mehreren Spalten',static::$files_columns));
         return $fields;
     }
 
