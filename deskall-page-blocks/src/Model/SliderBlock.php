@@ -66,9 +66,9 @@ class SliderBlock extends BaseElement
 
 
     private static $block_heights = [
-        '5:1' => 'klein',
-        '4:1' => 'medium',
-        '3:1' => 'gross',
+        'small' => 'klein',
+        'medium' => 'medium',
+        'large' => 'gross',
         'viewport' => 'ganz Bildschirm'
     ];
 
@@ -168,11 +168,25 @@ class SliderBlock extends BaseElement
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        // if ($this->isChanged('Height')){
-        //     switch($this->Height){
-        //         case ""
-        //     }
-        // }
+        if ($this->isChanged('Height')){
+            switch($this->Height){
+                case "small":
+                    $this->MinHeight: 200;
+                    $this->MaxHeight: 350;
+                break;
+                case "medium":
+                    $this->MinHeight: 350;
+                    $this->MaxHeight: 500;
+                break;
+                case "large":
+                    $this->MinHeight: 350;
+                    $this->MaxHeight: 700;
+                break;
+                default:
+                    $this->MinHeight:250;
+                break;
+            }
+        }
         
     }
 
