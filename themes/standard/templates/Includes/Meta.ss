@@ -14,5 +14,8 @@ $MetaTags(false)
 <meta name="theme-color" content="#ffffff">
 <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
 
+<% if isLive %>
+$Css
+<% else %>
 <link rel="stylesheet" type="text/css" href="$ThemeDir/css/main.min.css" />
-
+<% end_if %>
