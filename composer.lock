@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4982506edc455a1b5424ff4383ba6a79",
-    "content-hash": "3d771603182b646641a978900fa9f349",
+    "hash": "a63e3b28fc25358dd839473f0cae1591",
+    "content-hash": "32a86f09cb27618a48a3c5f23c6868e5",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1405,6 +1405,71 @@
                 "simple-cache"
             ],
             "time": "2017-01-02 13:31:39"
+        },
+        {
+            "name": "sheadawson/silverstripe-linkable",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sheadawson/silverstripe-linkable.git",
+                "reference": "7db045c562e363118b8243c0bd63ee65a6119439"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sheadawson/silverstripe-linkable/zipball/7db045c562e363118b8243c0bd63ee65a6119439",
+                "reference": "7db045c562e363118b8243c0bd63ee65a6119439",
+                "shasum": ""
+            },
+            "require": {
+                "embed/embed": "^3.0",
+                "silverstripe/framework": "^4.0",
+                "silverstripe/vendor-plugin": "^1.0",
+                "unclecheese/display-logic": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "suggest": {
+                "silverstripe/cms": "To allow for a linking of the SiteTree data object."
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "installer-name": "linkable",
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                },
+                "expose": [
+                    "client"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sheadawson\\Linkable\\": "src/",
+                    "Sheadawson\\Linkable\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Marcus Nyeholt",
+                    "email": "marcus@silverstripe.com.au"
+                },
+                {
+                    "name": "Shea Dawson",
+                    "email": "shea@silverstripe.com.au"
+                }
+            ],
+            "description": "A couple of handy form fields and objects for managing external and internal links on DataObjects",
+            "homepage": "http://github.com/sheadawson/silverstripe-linkable",
+            "keywords": [
+                "cms",
+                "link",
+                "silverstripe"
+            ],
+            "time": "2018-02-22 02:41:49"
         },
         {
             "name": "silverstripe/admin",
@@ -4526,7 +4591,8 @@
         "dnadesign/silverstripe-elemental-list": 20,
         "dnadesign/silverstripe-elemental-virtual": 20,
         "silverstripe/multiuser-editing-alert": 20,
-        "jonom/focuspoint": 20
+        "jonom/focuspoint": 20,
+        "sheadawson/silverstripe-linkable": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

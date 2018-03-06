@@ -7,7 +7,8 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\Tab;
-
+use Sheadawson\Linkable\Forms\LinkField;
+use Sheadawson\Linkable\Models\Link;
 
 class BaseBlockExtension extends DataExtension
 {
@@ -22,7 +23,8 @@ class BaseBlockExtension extends DataExtension
     ];
 
     private static $has_one = [
-        'BackgroundImage' => Image::class
+        'BackgroundImage' => Image::class,
+        'ExampleLink' => Link::class
     ];
 
     private static $owns =[
@@ -79,7 +81,8 @@ class BaseBlockExtension extends DataExtension
         $fields->addFieldToTab('Root.Layout',DropdownField::create('TextAlign','Textausrichtung',self::$block_text_alignments));
         $fields->addFieldToTab('Root.Layout',DropdownField::create('TextColumns','Text in mehreren Spalten',self::$block_text_columns));
         $fields->addFieldToTab('Root.Layout',$columnDivider = CheckboxField::create('TextColumnsDivider','Border zwischen Spalten anzeigen'));
-    
+        
+        $fields->addFieldToTab('Root.Link', LinkField::create('ExampleLinkID', 'Link to page or file'));
     }
 
     public function getFolderName(){
