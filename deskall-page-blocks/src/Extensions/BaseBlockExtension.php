@@ -44,6 +44,7 @@ class BaseBlockExtension extends DataExtension
         'uk-section-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
         'uk-section-muted dk-text-hover-muted' => 'grau',
         'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
+        'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
     ];
 
     private static $block_text_alignments = [
