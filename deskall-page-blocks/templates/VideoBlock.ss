@@ -13,7 +13,7 @@
 		    <div class="uk-position-relative">
 
 		        <div class="uk-slider-container uk-light">
-		            <ul class="uk-slider-items uk-height-medium <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-lightbox>
+		            <ul class="uk-slider-items uk-height-large <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-lightbox>
 		            	$GetVideos
 		            </ul>
 		        </div>

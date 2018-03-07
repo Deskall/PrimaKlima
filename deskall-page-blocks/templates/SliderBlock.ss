@@ -1,10 +1,10 @@
 
-<div data-uk-slideshow="<% if Height != "viewport" %><% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %><% else %>ratio: $Height;<% end_if %> <% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};" class="dk-slider uk-visible-toggle">
+<div data-uk-slideshow="<% if Height != "viewport" %><% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %><% end_if %> <% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};" class="dk-slider uk-visible-toggle">
     <ul class="uk-slideshow-items" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
         <% loop ActiveSlides %>
         <li>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
-                <img src="$Image.URL" alt="" data-uk-cover>
+                $Image.Slides(2500,$Title)
             <% if Effect == "kenburns" %></div><% end_if %>
             <div class="dk-slide-text-container uk-position-relative">
                 <div class="uk-position-center">
@@ -15,7 +15,7 @@
                             <div class="uk-text-lead">$Content</div>
                             <% if Effect == "parallax" %></div><% end_if %>
                            <% if $CallToActionLink.Page.Link %>
-                                <% include CallToActionLink c=w,pos=center,b=secondary %>
+                                <% include CallToActionLink c=w,pos=center,b=secondary,noMargin=true %>
                             <% end_if %>
                         </div>
                     </div>

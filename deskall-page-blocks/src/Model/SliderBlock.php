@@ -66,9 +66,9 @@ class SliderBlock extends BaseElement
 
 
     private static $block_heights = [
-        '5:1' => 'klein',
-        '4:1' => 'medium',
-        '3:1' => 'gross',
+        'small' => 'klein',
+        'medium' => 'medium',
+        'large' => 'gross',
         'viewport' => 'ganz Bildschirm'
     ];
 
@@ -101,6 +101,7 @@ class SliderBlock extends BaseElement
             $fields->removeByName('TitleAndDisplayed');
             $fields->removeByName('RelatedPageID');
             $fields->removeByName('Slides');
+            
             $fields->removeByName('CallToActionLink');
             $referent = new GroupedDropdownField("ReferentID", "Slides kopieren nach", $source = $this->getReferentSource());
             $referent->setEmptyString('Bitte Slidershow auswählen');
@@ -128,6 +129,8 @@ class SliderBlock extends BaseElement
         $fields = parent::getCMSFields();
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
+        $fields->removeByName('MinHeight');
+            $fields->removeByName('MaxHeight');
         return $fields;
     }
 
@@ -162,6 +165,30 @@ class SliderBlock extends BaseElement
             }
         } 
         return $source;
+    }
+
+    public function onBeforeWrite(){
+        parent::onBeforeWrite();
+        if ($this->isChanged('Height')){
+            switch($this->Height){
+                case "small":
+                    $this->MinHeight = 250;
+                    $this->MaxHeight = 350;
+                break;
+                case "medium":
+                    $this->MinHeight = 350;
+                    $this->MaxHeight = 500;
+                break;
+                case "large":
+                    $this->MinHeight = 450;
+                    $this->MaxHeight = 700;
+                break;
+                default:
+                    $this->MinHeight =250;
+                break;
+            }
+        }
+        
     }
 
 }
