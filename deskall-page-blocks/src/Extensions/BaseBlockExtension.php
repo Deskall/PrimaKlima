@@ -40,7 +40,7 @@ class BaseBlockExtension extends DataExtension
 
     private static $block_backgrounds = [
         'uk-section-default' => 'keine Hintergrundfarbe',
-        'uk-section-primary uk-light' => 'primäre Farbe',
+        'uk-section-primary' => 'primäre Farbe',
         'uk-section-secondary' => 'sekundäre Farbe',
         'uk-section-muted' => 'grau',
         'dk-background-white uk-section-default' => 'weiss',
