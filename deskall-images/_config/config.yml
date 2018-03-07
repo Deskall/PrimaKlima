@@ -25,6 +25,3 @@ SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:
     properties:
       Quality: 75
-  Intervention\Image\ImageManager:
-    constructor:
-      - { driver: imagick }
