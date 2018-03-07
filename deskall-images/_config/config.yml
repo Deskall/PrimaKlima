@@ -22,6 +22,9 @@ SilverStripe\Assets\Storage\DBFile:
   force_resample: true
 
 SilverStripe\Core\Injector\Injector:
- SilverStripe\Assets\Image_Backend:
-   properties:
-     Quality: 75
+  SilverStripe\Assets\Image_Backend:
+    properties:
+      Quality: 75
+  Intervention\Image\ImageManager:
+    constructor:
+      - { driver: imagick }
