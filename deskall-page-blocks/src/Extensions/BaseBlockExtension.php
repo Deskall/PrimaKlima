@@ -39,11 +39,11 @@ class BaseBlockExtension extends DataExtension
 
 
     private static $block_backgrounds = [
-        'no-bg' => 'keine Hintergrundfarbe',
-        'uk-background-primary' => 'primäre Farbe',
-        'uk-background-secondary' => 'sekundäre Farbe',
-        'uk-background-muted' => 'grau',
-        'dk-background-white uk-background' => 'weiss',
+        'uk-section-default' => 'keine Hintergrundfarbe',
+        'uk-section-primary' => 'primäre Farbe',
+        'uk-section-secondary' => 'sekundäre Farbe',
+        'uk-section-muted' => 'grau',
+        'dk-background-white uk-section-default' => 'weiss',
     ];
 
     private static $block_text_alignments = [
