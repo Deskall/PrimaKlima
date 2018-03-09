@@ -4,6 +4,10 @@
  *
  *
  */
+
+use SilverStripe\Forms\GridField\GridField_HTMLProvider;
+use SilverStripe\Forms\GridField\GridField_URLHandler;
+
 class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHandler {
 
 	private static $allowed_actions = array(
