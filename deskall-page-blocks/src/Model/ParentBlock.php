@@ -25,6 +25,8 @@ class ParentBlock extends ElementList
 
     private static $title = 'Group';
 
+    private static $icon = 'font-icon-block-layout';
+
     private static $description = 'Orderable list of blocks';
     
     private static $singular_name = 'Parent Block';

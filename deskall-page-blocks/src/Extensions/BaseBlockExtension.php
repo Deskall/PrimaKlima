@@ -37,6 +37,27 @@ class BaseBlockExtension extends DataExtension
         'Align' => 'uk-text-left'
     ];
 
+    private static $blocks = [
+        'TextBlock',
+        'SliderBlock',
+        'GalleryBlock',
+        'BoxBlock',
+        'FeaturesBlock',
+        'DNADesign-ElementalUserForms-Model-ElementForm',
+        'DownloadBlock',
+        'LargeImageBlock',
+        'ParentBlock',
+        'LeadBlock',
+        'MapBlock',
+        'VideoBlock',
+        'ShareBlock',
+        'SitemapBlock',
+    ];
+
+    private static $icon;
+
+    private static $help_text = "Vestibulum elit lorem, porttitor sed cursus in, sodales sit amet odio. Duis fringilla euismod leo quis pellentesque.";
+
 
     private static $block_backgrounds = [
         'uk-section-default' => 'keine Hintergrundfarbe',
@@ -122,6 +143,16 @@ class BaseBlockExtension extends DataExtension
             return $this->owner->ID == $this->owner->Parent()->getOwnerPage()->FirstBlockID;
         }
         return false;
+    }
+
+
+    public function getHTMLOption(){
+        $html = '<div class="option-html">
+        <i class="'.$this->owner->config()->get('icon').'"></i>
+        <strong>'.$this->owner->getType().'</strong>
+        <p>'.$this->owner->config()->get('help_text').'</p>
+      </div>';
+        return $html;
     }
 
    

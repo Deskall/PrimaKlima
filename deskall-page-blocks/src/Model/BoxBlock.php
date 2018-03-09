@@ -76,19 +76,12 @@ class BoxBlock extends BaseElement
         'uk-child-width-1-2@s uk-child-width-1-4@m' => '4',
         'uk-child-width-1-2@s uk-child-width-1-5@m' => '5'
     ];
-
-     private static $boxes_text_alignments = [
-        'uk-text-justify uk-text-left@s' =>  'Aligns text to the left.',
-        'uk-text-justify uk-text-righ@st' =>  'Aligns text to the right',
-        'uk-text-justify uk-text-center@s' => 'Centers text horizontally',
-        'uk-text-justify' => 'Justifies text'
-    ];
-
     // private static $boxes_per_line = array(
-    // 'value1' => array(
-    //     'Title' => 'Option 1',
+    // 'uk-child-width-1-2@s' => array(
+    //     'Title' => 'Option 0',
     //     'Attributes' => array(
-    //         'data-myattribute' => 'This is an attribute value'
+    //         'data-html' => 'font-icon-block-layout',
+            
     //     )
     // ),
     // 'value2' => array(
@@ -98,6 +91,15 @@ class BoxBlock extends BaseElement
     //         'data-myattribute2' => 'This is a second attribute value'
     //     )
     // ));
+
+     private static $boxes_text_alignments = [
+        'uk-text-justify uk-text-left@s' =>  'Aligns text to the left.',
+        'uk-text-justify uk-text-righ@st' =>  'Aligns text to the right',
+        'uk-text-justify uk-text-center@s' => 'Centers text horizontally',
+        'uk-text-justify' => 'Justifies text'
+    ];
+
+
 
     private static $table_name = 'BoxBlock';
 
@@ -117,12 +119,13 @@ class BoxBlock extends BaseElement
             $fields->removeByName('PictureHeight');
             $fields->removeByName('PictureWidth');
            
-           // $fields->addFieldToTab('Root.Settings',IconDropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
+            
            
 
             if ($this->ID > 0){
                 $fields->addFieldToTab('Root',new Tab('Boxes',_t('BOXBLOCK.BOXTAB','Boxen')),'Settings');
                 $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxTextAlign','Boxen Textausrichtung',self::$boxes_text_alignments));
+                //$fields->addFieldToTab('Root.Boxes',IconDropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
                 $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
                 $fields->addFieldToTab('Root.Boxes',DropdownField::create('ImageType','BildTyp', self::$image_types));
                 $fields->addFieldToTab('Root.Boxes',DropdownField::create('Effect','Effect', self::$effects));

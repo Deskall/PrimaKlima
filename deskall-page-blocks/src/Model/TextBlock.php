@@ -14,6 +14,8 @@ class TextBlock extends BaseElement
 
     private static $controller_class = BlockController::class;
 
+    private static $help_text = "Text und Bild";
+
     private static $db = [
         'HTML' => 'HTMLText'
     ];

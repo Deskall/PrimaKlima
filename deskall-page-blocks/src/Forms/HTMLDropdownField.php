@@ -5,16 +5,17 @@ use SilverStripe\View\Requirements;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Forms\FormField;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
-class IconDropdownField extends DropdownField{
-	protected $template = 'Forms/IconDropdownField';
+class HTMLDropdownField extends DropdownField{
+	protected $template = 'Forms/HTMLDropdownField';
 
-	private static $default_classes = ['dropdown'];
+	protected $extraClasses = [];
 
 	public function __construct($name, $title = null, $value = null)
     {
-    	Requirements::javascript("mysite/js/icondropdown.js");
-        Requirements::css("mysite/css/icondropdown.css");
+    	Requirements::javascript("mysite/js/htmldropdown.js");
+        Requirements::css("mysite/css/htmldropdown.css");
 
         parent::__construct($name, $title, $value);
     }
@@ -28,11 +29,14 @@ class IconDropdownField extends DropdownField{
 			$selected = ($this->value === '' || $this->value === null);
 			$disabled = (in_array('', $this->disabledItems, true)) ? 'disabled' : false;
 			$empty = $this->getEmptyString();
+			$html = new DBHTMLText();
+			$html->setValue('<p>Bitte Blocktyp auswählen</p>');
 			$options[] = new ArrayData(array(
 				'Value' => '',
 				'Title' => $empty,
 				'Selected' => $selected,
 				'Disabled' => $disabled,
+				'HTML' => $empty,
 				'Attributes' => $this->createOptionAttributes($empty)
 			));
 		}
@@ -56,12 +60,14 @@ class IconDropdownField extends DropdownField{
 				if(in_array($value, $this->disabledItems) && $params['Title'] != $this->emptyString ){
 					$disabled = 'disabled';
 				}
-				
+				$html = new DBHTMLText();
+				$html->setValue($params['HTML']);
 				$options[] = new ArrayData(array(
 					'Title' => $params['Title'],
 					'Value' => $value,
 					'Selected' => $selected,
 					'Disabled' => $disabled,
+					'HTML' => $html ,
 					'Attributes' => $this->createOptionAttributes($params)
 				));
 			}
