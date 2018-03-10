@@ -49,6 +49,8 @@ class VideoBlock extends BaseElement
         'uk-child-width-1-3@s' => '3'
     ];
 
+    private static $cascade_duplicates = [];
+
 	/**
 	 * Color to customize the vimeo player.
 	 * Can be set via config.yml

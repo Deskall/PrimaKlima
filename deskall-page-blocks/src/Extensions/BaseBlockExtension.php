@@ -9,6 +9,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\Tab;
 use Sheadawson\Linkable\Forms\LinkField;
 use Sheadawson\Linkable\Models\Link;
+use SilverStripe\Core\Config\Config;
 
 class BaseBlockExtension extends DataExtension
 {
@@ -136,6 +137,10 @@ class BaseBlockExtension extends DataExtension
         return false;
     }
 
+    public function NiceTitle(){
+        return ($this->owner->Title) ? $this->owner->Title : $this->owner->ID;
+    }
+
    
 
     public function isFirstMobile(){
@@ -155,7 +160,16 @@ class BaseBlockExtension extends DataExtension
         return $html;
     }
 
-   
-
+    /*** Duplicate block with correct elements */
+    public function DuplicateChildrens($original){
+        foreach (Config::inst()->get($original->ClassName,'cascade_duplicates') as $class) {
+            file_put_contents('log.txt',$class);
+            foreach($original->{$class}() as $object){
+                $newObject = $object->duplicate(false);
+                $newObject->ParentID = $this->owner->ID;
+                $newObject->write();
+            }
+        }
+    }
 
 }

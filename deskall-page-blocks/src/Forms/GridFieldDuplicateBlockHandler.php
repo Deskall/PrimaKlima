@@ -4,6 +4,7 @@
  */
 
 use SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest;
+use SilverStripe\Control\Controller;
 
 class GridFieldDuplicateBlockHandler extends GridFieldDetailForm_ItemRequest {
 

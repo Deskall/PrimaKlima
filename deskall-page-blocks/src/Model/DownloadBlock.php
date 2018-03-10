@@ -36,6 +36,8 @@ class DownloadBlock extends BaseElement
         'Files',
     ];
 
+    private static $cascade_duplicates = [];
+
     private static $files_columns = [
         ' ' => 'Keine Spalten',
         'uk-column-1-2@s' => 'Display the content in two columns',

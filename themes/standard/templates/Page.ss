@@ -13,10 +13,15 @@
     </div>
 
     <% if isLive %>
-    <script src="$ThemeDir/javascript/main.min.js"></script>
+    <script async defer src="$ThemeDir/javascript/main.min.js"></script>
     <% else %>
     <script src="$ThemeDir/javascript/main.js"></script>
     <% end_if %>
 
+    <% if headScripts %>
+      <% loop headScripts %>
+      <script>$Script</script>
+      <% end_loop %>
+    <% end_if %>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<%-- 
+
 		<div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 			$HTML
 		</div>
@@ -45,4 +45,3 @@
 			<% end_loop %>
 		</div>
 		<% end_if %>
- --%>

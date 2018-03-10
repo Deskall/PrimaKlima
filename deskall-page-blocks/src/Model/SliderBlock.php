@@ -48,7 +48,11 @@ class SliderBlock extends BaseElement
         'Slides',
     ];
 
-    private static $cascade_delete = [
+    private static $cascade_deletes = [
+        'Slides',
+    ];
+
+    private static $cascade_duplicates = [
         'Slides',
     ];
 
@@ -188,7 +192,5 @@ class SliderBlock extends BaseElement
                 break;
             }
         }
-        
     }
-
 }

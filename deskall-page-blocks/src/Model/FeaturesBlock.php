@@ -43,6 +43,8 @@ class FeaturesBlock extends BaseElement
         'Features',
     ];
 
+    private static $cascade_duplicates = ['Features'];
+
 
     private static $owns = [
         'ContentImage',

@@ -16,6 +16,8 @@ class UserFormExtension extends DataExtension
     'hasCaptcha' => 'Boolean(1)'
    ];
 
+   private static $cascade_duplicates = [];
+
    private static $has_one = [
    	'RedirectPage' => SiteTree::class
    ];

@@ -29,8 +29,7 @@ class HTMLDropdownField extends DropdownField{
 			$selected = ($this->value === '' || $this->value === null);
 			$disabled = (in_array('', $this->disabledItems, true)) ? 'disabled' : false;
 			$empty = $this->getEmptyString();
-			$html = new DBHTMLText();
-			$html->setValue('<p>Bitte Blocktyp auswählen</p>');
+			
 			$options[] = new ArrayData(array(
 				'Value' => '',
 				'Title' => $empty,

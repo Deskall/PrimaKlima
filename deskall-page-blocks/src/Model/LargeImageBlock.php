@@ -35,6 +35,8 @@ class LargeImageBlock extends BannerBlock{
         'Overlay' => 'none'
     ];
 
+    private static $cascade_duplicates = [];
+
 
     private static $block_layouts = [
         "uk-position-top-left" => "Positions the element at the top left.",

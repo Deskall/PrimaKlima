@@ -1,7 +1,8 @@
 <?php
 
 use SilverStripe\ORM\DataExtension;
-
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\HeaderField;
 
 class PageBlocksExtension extends DataExtension {
 	public function requireDefaultRecords(){
@@ -10,6 +11,10 @@ class PageBlocksExtension extends DataExtension {
 			$page->checkLead();
 			$page->publishRecursive();
 		}
+	}
+
+	public function updateCMSFields(FieldList $fields){
+		$fields->insertAfter(HeaderField::create('BlockTitle',_t('PAGEBLOCKS.BLOCKSTITLE','Inhaltblöcke'), 3),'MenuTitle');
 	}
 
 	public function checkLead(){
@@ -36,5 +41,13 @@ class PageBlocksExtension extends DataExtension {
 
 	public function ParentSlide(){
 		return (SliderBlock::get()->filter('ParentID',$this->owner->getParent()->ElementalAreaID)->first());
+	}
+
+	public function headScripts(){
+		return (CodeBlock::get()->filter(['ParentID' => $this->owner->ElementalAreaID, 'Position' => 'head']));
+	}
+
+	public function BodyScripts(){
+		return (CodeBlock::get()->filter(['ParentID' => $this->owner->ElementalAreaID, 'Position' => 'body']));
 	}
 }

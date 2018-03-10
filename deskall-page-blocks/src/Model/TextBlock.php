@@ -32,6 +32,8 @@ class TextBlock extends BaseElement
         'Layout' => 'left'
     ];
 
+    private static $cascade_duplicates = [];
+
 
     private static $block_layouts = [
         'left' => 'Links',

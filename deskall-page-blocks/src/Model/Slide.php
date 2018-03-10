@@ -20,7 +20,7 @@ class Slide extends DataObject
     ];
 
     private static $has_one = [
-        'Slider' => SliderBlock::class,
+        'Parent' => SliderBlock::class,
         'Image' => Image::class
     ];
         
@@ -73,7 +73,7 @@ class Slide extends DataObject
     }
 
      public function getFolderName(){
-        return $this->Slider()->getFolderName();
+        return $this->Parent()->getFolderName();
     }
 
 }

@@ -31,6 +31,8 @@ class LeadBlock extends BaseElement
         'TextAlign' => 'uk-text-center'
     ];
 
+    private static $cascade_duplicates = [];
+
     public function populateDefaults(){
         parent::populateDefaults();
         if ($this->isPrimary){

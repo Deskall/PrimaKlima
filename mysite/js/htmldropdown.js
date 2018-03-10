@@ -9,7 +9,7 @@
       		},
       		writeValue: function(){
       			var option = this.find('.html-dropdown-option.selected');
-      			var html = (option.length) ? option.html() : 'Bitte Option auswählen';
+      			var html = (option.length) ? option.html() : 'Neu Block hinzufügen';
       			var value = (option.length) ? option.attr('data-value') : '';
       			this.find('.chosen-single').html(html+'<div><b></b></div>');
       			//this.find('select option[value="'+value+'"]').attr('selected','selected');

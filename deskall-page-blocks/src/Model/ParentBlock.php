@@ -37,6 +37,8 @@ class ParentBlock extends ElementList
 
     private static $controller_class = BlockController::class;
 
+    private static $cascade_duplicates = ['Elements'];
+
     public function getType()
     {
         return _t(__CLASS__ . '.BlockType', 'Parent Block');
@@ -70,5 +72,17 @@ class ParentBlock extends ElementList
         ]);
 
         return $fields;
+    }
+
+     /*** Duplicate block with correct elements */
+    public function DuplicateChildrens($original){
+        foreach (Config::inst()->get($original->ClassName,'owns') as $class) {
+            file_put_contents('log.txt',$class);
+            foreach($original->{$class}() as $object){
+                $newObject = $object->duplicate(false);
+                $newObject->ParentID = $this->ID;
+                $newObject->write();
+            }
+        }
     }
 }

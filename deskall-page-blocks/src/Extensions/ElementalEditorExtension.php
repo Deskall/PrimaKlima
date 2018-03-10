@@ -22,6 +22,7 @@ class ElementalEditorExtension extends DataExtension
         ->addComponent(new DeskallGridFieldAddNewMultiClass());
         $gridfield->getConfig()->getComponentByType(DeskallGridFieldAddNewMultiClass::class)->setClasses($types);
         $gridfield->getConfig()->addComponent(new GridFieldShowHideAction());
+        $gridfield->getConfig()->addComponent(new GridFieldDuplicateBlock('toolbar-header-left'));
         if ($gridfield->name == "Elements"){
             $gridfield->getConfig()->addComponent(new GridFieldBlockOrderAction());
         }

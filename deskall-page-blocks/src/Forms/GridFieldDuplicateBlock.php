@@ -7,6 +7,13 @@
 
 use SilverStripe\Forms\GridField\GridField_HTMLProvider;
 use SilverStripe\Forms\GridField\GridField_URLHandler;
+use Symbiote\GridFieldExtensions\GridFieldExtensions;
+use SilverStripe\Forms\GroupedDropdownField;
+use SilverStripe\View\ArrayData;
+use SilverStripe\Control\Controller;
+use SilverStripe\View\Requirements;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\CMS\Model\SiteTree;
 
 class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHandler {
 
@@ -81,32 +88,27 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 		$id   = $request->param('ID');
 		$pageid = $request->param('PAGEID');
 		if($id){
-			$block = DataObject::get_by_id('Block',$id);
+			$block = DataObject::get_by_id('DNADesign\Elemental\Models\BaseElement',$id);
 			if (!$block){
 				throw new Exception('Diese Block war nicht gefunden');
 			}
 			if (!$pageid){
 				throw new Exception('Diese Seite war nicht gefunden');
 			}
-
+			$page = DataObject::get_by_id(SiteTree::class,$pageid);
+			if (!$page){
+				throw new Exception('Diese Seite war nicht gefunden');
+				
+			}
+			
 			$newBlock = $block->duplicate();
 
-			$newBlock->ParentID = $pageid;
+
+			$newBlock->ParentID = $page->ElementalAreaID;
 			$newBlock->write();
 
-			//Copy also linked objects
-			switch($newBlock->ClassName){
-				case "LinkListBlock":
-					if ($block->LinkList()){
-						foreach($block->LinkList() as $linkitem){
-							$newLink = $linkitem->duplicate();
-							$newLink->ListeID = $newBlock->ID;
-							$newLink->write();
-						}
-					}
-				break;
-				//@to do: other block with linked objects (news,..)
-			}
+			$newBlock->DuplicateChildrens($block);
+
 			return $grid->getForm()->getController()->redirectBack('admin/pages/edit/show/'.$pageid);
 		}
 	}
@@ -118,7 +120,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 	public function getHTMLFragments($grid) {
 
 		GridFieldExtensions::include_requirements();
-
+		Requirements::javascript('mysite/js/gridfieldduplicateblock.js');
 
 		$blockfield = GroupedDropdownField::create('Block', '', $this->getBlockTree());
 		$blockfield->addExtraClass('no-change-track');
@@ -130,18 +132,18 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 		));
 
 		return array(
-			$this->getFragment() => $data->renderWith(__CLASS__)
+			$this->getFragment() => $data->renderWith('Forms/'.__CLASS__)
 		);
 	}
 
 	protected function getBlockTree(){
-		$blockstree = array(0 => 'Bitte Block auswählen');
+		$blockstree = array(0 => 'bestehende Block kopieren');
 		$Pages = Page::get()->sort('ParentID ASC, Sort ASC');
 		foreach ($Pages as $page) {
-			if ($page->Blocks()){
+			if ($page->ElementalAreaID > 0){
 				$blocks = array();
-				foreach ($page->Blocks() as $block) {
-					$blocks[$block->ID] = $block->singleton($block->ClassName)->i18n_singular_name(). " > ".$block->printURLSegment();
+				foreach ($page->ElementalArea()->Elements() as $block) {
+					$blocks[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
 				}
 				//build the page unique sitetree strucuture
 				$pageTree = $page->Title;

@@ -36,8 +36,11 @@ class GalleryBlock extends BaseElement
         'Images',
     ];
 
+    private static $cascade_duplicates = [];
+
     private static $defaults = [
-        'Layout' => 'carousel'
+        'Layout' => 'carousel',
+        'PicturesPerLine' => 'uk-child-width-1-3@s'
     ];
 
 

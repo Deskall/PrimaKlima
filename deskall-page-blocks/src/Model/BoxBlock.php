@@ -45,6 +45,12 @@ class BoxBlock extends BaseElement
         'Boxes',
     ];
 
+    private static $cascade_deletes = [
+        'Boxes',
+    ];
+
+    private static $cascade_duplicates = ['Boxes'];
+
     private static $defaults = [
         'Layout' => 'standard',
         'Effect' => 'none',
