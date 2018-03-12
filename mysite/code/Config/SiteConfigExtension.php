@@ -38,7 +38,8 @@ class SiteConfigExtension extends DataExtension
     'Facebook' => 'Varchar(255)',
     'Twitter' => 'Varchar(255)',
     'Linkedin' => 'Varchar(255)',
-    'Xing' => 'Varchar(255)'
+    'Xing' => 'Varchar(255)',
+    'FooterBackground' => 'Varchar(255)'
   ];
 
   private static $has_many = [
@@ -48,6 +49,15 @@ class SiteConfigExtension extends DataExtension
   private static $has_one = [
     'DefaultSlide' => Image::class
   ];
+
+      private static $backgrounds = [
+        'uk-section-default' => 'keine Hintergrundfarbe',
+        'uk-section-primary dk-text-hover-primary' => 'primäre Farbe',
+        'uk-section-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
+        'uk-section-muted dk-text-hover-muted' => 'grau',
+        'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
+        'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
+    ];
 
   public function updateCMSFields(FieldList $fields) {
     //ADDRESS
@@ -74,9 +84,10 @@ class SiteConfigExtension extends DataExtension
         'Blocks',
         'Blocks',
         $this->owner->Blocks(),
-        GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('SortOrder'))
+        GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
+    $fields->addFieldToTab("Root.Footer", DropdownField::create('FooterBackground',_t(__CLASS__.'.Background','Hintergrundfarbe'),self::$backgrounds)->setEmptyString(_t(__CLASS__.'.BackgroundHelp','Wählen Sie aus eine Hintergrundfarbe')));
     $fields->addFieldToTab("Root.Footer", $FooterLinksField);
     $fields->addFieldToTab("Root.Default", UploadField::create('DefaultSlide','Slide'));
   }

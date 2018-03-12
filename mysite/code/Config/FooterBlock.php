@@ -15,11 +15,12 @@ class FooterBlock extends DataObject{
 		'Title' => 'Text',
 		'Width' => 'Varchar(255)',
 		'Class' => 'Varchar(255)',
-		'SortOrder' => 'Int'
+		'Type' => 'Varchar(255)'
 	];
 
 	private static $extensions = [
-		'Activable'
+		'Activable',
+		'Sortable'
 	];
 
 	private static $has_one = [
@@ -31,12 +32,12 @@ class FooterBlock extends DataObject{
 	];
 
 	private static $summary_fields = [
-	    'Title' => 'Titel',
+	    'NiceTitle' => 'Titel',
 	    'Preview' => 'Vorschau',
 	    'displayWidth' => 'Breite'
 	];
 
-	private static $default_sort = ['SortOrder'];
+	private static $default_sort = ['Sort'];
 
 	private static $castings = [
 	'Preview' => 'HTMLText'];
@@ -51,10 +52,19 @@ class FooterBlock extends DataObject{
 		'uk-width-expand' => 'verbleibende Breite'
 	];
 
+	private static $block_types = [
+		'adresse' => 'Adresse',
+		'links' => 'Links'
+	];
+
 
 	public function displayWidth(){
 		$widths = self::$widths;
 		return $widths[$this->Width];
+	}
+
+	public function NiceTitle(){
+		return ($this->Type == "adresse") ? $this->SiteConfig()->Title : $this->Title;
 	}
 
     public function Preview(){
@@ -64,27 +74,32 @@ class FooterBlock extends DataObject{
     }
 
 	public function getCMSFields(){
-		$fields = parent::getCMSFields();
-		$fields->replaceField('Width',DropdownField::create('Width','Breite',self::$widths)->setEmptyString('Breite auswählen')->setDescription('Relative Breite im Vergleich zur Fußzeile'));
-		$fields->replaceField('Class',TextField::create('Class','Extra CSS Class')->setDescription('Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt'));
+		$this->beforeUpdateCMSFields(function ($fields) {
 
-		$fields->removeByName('Links');
-		$fields->removeByName('SortOrder');
-		$fields->removeByName('SiteConfigID');
-		if ($this->ID > 0){
-			$LinksField = new GridField(
-		        'Links',
-		        'Links',
-		        $this->Links(),
-		        GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('SortOrder'))
-		    );
-		}
-		else {
-			$LinksField = LabelField::create('Links', 'Links können erst nach dem Speichern erstellt werden');
-		}
+			$fields->addFieldToTab('Root.Main', $w = DropdownField::create('Width',_t(__CLASS__.'Width','Breite'),self::$widths)->setEmptyString(_t(__CLASS__.'WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
+			$fields->addFieldToTab('Root.Main', $cs = TextField::create('Class','Extra CSS Class')->setDescription(_t(__CLASS__.'ClassDescription','Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt')));
+			$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'Type','BlockTyp'),self::$block_types)->setEmptyString(_t(__CLASS__.'TypeLabel','Wählen Sie den Typ aus')),'Title');
+			$title = $fields->fieldByName('Root.Main.Title');
+			$fields->removeByName('Links');
+			$fields->removeByName('SiteConfigID');
+			$title->displayIf('Type')->isEqualTo('links');
+			if ($this->Type == "links"){
+				if ($this->ID > 0){
+							$LinksField = new GridField(
+						        'Links',
+						        _t(__CLASS__.'Links','Links'),
+						        $this->Links(),
+						        GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))
+						    );
+						}
+						else {
+							$LinksField = LabelField::create('Links', 'Links können erst nach dem Speichern erstellt werden');
+						}
 
-		$fields->addFieldToTab('Root.Main',$LinksField);
-		return $fields;
+						$fields->addFieldToTab('Root.Main',$LinksField);
+			}
+		});
+		return parent::getCMSFields();
 	}
 
 	public function onBeforeWrite(){
@@ -95,6 +110,6 @@ class FooterBlock extends DataObject{
 	}
 
 	public function activeLinks(){
-		return $this->Links()->filter('isVisible',1)->sort('SortOrder');
+		return $this->Links()->filter('isVisible',1);
 	}
 }
