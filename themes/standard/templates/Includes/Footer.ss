@@ -1,11 +1,13 @@
-<footer class="uk-section" data-uk-height-match="target:.title-container;row:false;">
+<footer class="uk-section $SiteConfig.FooterBackground" data-uk-height-match="target:.title-container;row:false;">
 	<div class="uk-container">
 		<div class="uk-padding-small uk-padding-remove-left uk-padding-remove-top">
 		<img src="$ThemeDir/img/logo.svg" alt="$SiteConfig.Title Logo" title="$SiteConfig.Title Logo" data-uk-svg />
 	</div>
-		<div class="uk-panel uk-flex uk-flex-left@s uk-flex-around@m uk-margin-small-top" data-uk-grid>
-			<div class="uk-width-1-1@s uk-width-1-3@m">
-			 	<div class="title-container">
+		<div class="uk-panel uk-flex uk-flex-left@s uk-margin-small-top" data-uk-grid>
+			<% loop $SiteConfig.activeFooterBlocks %>
+		    <div class="$Width">
+		    	<% if Type == "adresse" %>
+		    	<div class="title-container">
 			 		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$SiteConfig.AddressTitle</h3>
 			 	</div>
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
@@ -30,9 +32,7 @@
 			 		</li>
 			 		<% end_if %>
 		        </ul>
-		    </div>
-			<% loop $SiteConfig.activeFooterBlocks %>
-		    <div class="$Width">
+		        <% else %>
 		    	<div class="title-container">
 		    		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$Title</h3>
 		    	</div>
@@ -41,6 +41,7 @@
 						<% include FooterLink %>
 					<% end_loop %>
 				</ul>
+				<% end_if %>
 		    </div>
 		   <% end_loop %>
 		</div>

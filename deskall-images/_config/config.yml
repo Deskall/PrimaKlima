@@ -9,6 +9,8 @@ SilverStripe\AssetAdmin\Forms\ImageFormFactory:
     - DeskallImageAssetFormFactoryExtension
   
 SilverStripe\Assets\Image:
+  allowed_extensions:
+    - svg
   MaxWidth: 2500
   MaxHeight: 2500
   memory: 512M
@@ -20,6 +22,14 @@ SilverStripe\Filesystem\Storage\DBFile:
 
 SilverStripe\Assets\Storage\DBFile:
   force_resample: true
+  
+SilverStripe\Assets\File:
+  allowed_extensions:
+    - svg
+  app_categories:
+    image:
+      - svg
+
 
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:

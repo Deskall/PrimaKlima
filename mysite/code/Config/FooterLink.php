@@ -7,7 +7,6 @@ use SilverStripe\Forms\DropdownField;
 class FooterLink extends DataObject{
 
 	private static $db = [
-		'SortOrder' => 'Int',
 		'Content' => 'HTMLText',
 		'Icon' => 'Varchar(255)',
 		'Type' => 'Varchar(255)'
@@ -19,7 +18,8 @@ class FooterLink extends DataObject{
 
 	private static $extensions = [
 		'Activable',
-        'Linkable'
+        'Linkable',
+        'Sortable'
 	];
 
 	private static $summary_fields = [
@@ -56,7 +56,6 @@ class FooterLink extends DataObject{
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 
-        $fields->removeByName('SortOrder');
         $fields->removeByName('ParentID');
         $fields->removeByName('Type');
         //$fields->addFieldToTab('Root.Main',DropdownField::create('Type', 'LinkTyp',self::$block_types)->setEmptyString('Bitte Typ auswählen'),'Content');
