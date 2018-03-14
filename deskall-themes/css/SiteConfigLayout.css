@@ -1,0 +1,6 @@
+.SiteConfigLayout{
+	height: 100%;
+}
+.SiteConfigLayout .ui-tabs-nav {
+    float: none;
+}

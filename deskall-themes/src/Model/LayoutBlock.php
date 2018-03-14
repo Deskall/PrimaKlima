@@ -10,7 +10,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\SiteConfig\SiteConfig;
 
-class FooterBlock extends DataObject{
+class LayoutBlock extends DataObject{
 	private static $db = [
 		'Title' => 'Text',
 		'Width' => 'Varchar(255)',
