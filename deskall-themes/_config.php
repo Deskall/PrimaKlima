@@ -1,4 +1,0 @@
-<?php
-/*
-* Deskall Theme Module
-*/
