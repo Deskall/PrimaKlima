@@ -24,8 +24,8 @@ class DeskallImageAssetFormFactoryExtension extends Extension
         if ($image && $image->appCategory() === 'image') {
             $fields->insertAfter(
                 'Title',
-                TextareaField::create('Description','Beschreibung')
-                    ->setDescription(_t('Image.Description','wird im Front End als alt Tag angezeigt.'))
+                TextareaField::create('Description',_t('Image.Description','Beschreibung'))
+                    ->setDescription(_t('Image.DescriptionLabel','wird im Front End als alt Tag angezeigt.'))
             );
         }
     }

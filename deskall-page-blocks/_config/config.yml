@@ -28,6 +28,10 @@ SilverStripe\UserForms\Form\UserForm:
    - UserDefinedFormExtension
 
 
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css:
+    - deskall-page-blocks/css/block_editor.css
+
 DNADesign\ElementalUserForms\Model\ElementForm:
   email_template_directory: mysite/templates/email/
   extensions:

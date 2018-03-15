@@ -9,20 +9,11 @@
         </div>
 
         <div class="elemental-preview__detail">
+           
+            $File.Fit(300,200)
+            
             <% if $Summary %>
                 <p>$Summary.RAW</p>
-            <% end_if %>
-            <% if $OrderedImages %>
-            <table>
-                <tr>
-                <% loop $OrderedImages.limit(3) %>
-                <td>
-                    $FitMax(60,60)
-                </td>
-                <% end_loop %>
-                <td>...</td>
-                </tr>
-            </table>
             <% end_if %>
         </div>
     </a>

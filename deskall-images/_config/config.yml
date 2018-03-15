@@ -22,7 +22,7 @@ SilverStripe\Filesystem\Storage\DBFile:
 
 SilverStripe\Assets\Storage\DBFile:
   force_resample: true
-  
+
 SilverStripe\Assets\File:
   allowed_extensions:
     - svg
@@ -34,7 +34,7 @@ SilverStripe\Assets\File:
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:
     properties:
-      Quality: 75
+      Quality: 90
   Intervention\Image\ImageManager:
     constructor:
       - { driver: imagick }
@@ -56,3 +56,16 @@ ImageExtension:
         '(min-width: 400px)': [600]
       default_arguments: [2500]
       uikit: 'data-uk-cover'
+    Content:
+      arguments:
+        '(min-width: 1400px) and (min-device-pixel-ratio: 2.0)': [5000]
+        '(min-width: 1400px)': [2500]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px),(min--moz-device-pixel-ratio: 2) and (min-width: 1200px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1200px),(min-device-pixel-ratio: 2) and (min-width: 1200px),( min-resolution: 192dpi) and (min-width: 1200px),(min-resolution: 2dppx) and (min-width: 1200px)': [2400]
+        '(min-width: 1200px)': [1200]
+        '(min-width: 1000px) and (min-device-pixel-ratio: 2.0)': [2000]
+        '(min-width: 1000px)': [1000]
+        '(min-width: 800px) and (min-device-pixel-ratio: 2.0)': [1600]
+        '(min-width: 800px)': [800]
+        '(min-width: 400px) and (min-device-pixel-ratio: 2.0)': [800]
+        '(min-width: 400px)': [400]
+      default_arguments: [2500]

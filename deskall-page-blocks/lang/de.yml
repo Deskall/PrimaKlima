@@ -1,0 +1,151 @@
+de:
+  BLOCKS:
+    LAYOUTTAB: Layout
+  BOXBLOCK:
+    BOXTAB: Boxen
+  Box:
+    PLURALNAME: Boxs
+    PLURALS:
+      one: 'A Box'
+      other: '{count} Boxs'
+    SINGULARNAME: Box
+  BoxBlock:
+    BlockType: Boxen
+    PLURALNAME: 'Boxen Blöcke'
+    PLURALS:
+      one: 'A Boxen Block'
+      other: '{count} Boxen Blöcke'
+    SINGULARNAME: 'Boxen Block'
+  CodeBlock:
+    BlockType: 'Code - Plugin'
+    PLURALNAME: 'Code blocks'
+    PLURALS:
+      one: 'A Code block'
+      other: '{count} Code blocks'
+    SINGULARNAME: 'Code block'
+  DownloadBlock:
+    BlockType: 'Download Area'
+    ContentLabel: Content
+    PLURALNAME: 'Dateien Downloads'
+    PLURALS:
+      one: 'A Dateien Downloads'
+      other: '{count} Dateien Downloads'
+    SINGULARNAME: 'Dateien Downloads'
+    php.DownloadBlockFilesTab: Dateien
+  Features:
+    PLURALNAME: Featuress
+    PLURALS:
+      one: 'A Features'
+      other: '{count} Featuress'
+    SINGULARNAME: Features
+  FeaturesBlock:
+    BlockType: 'Features List'
+    ContentLabel: Content
+    FeaturesTitle: 'List Titel'
+    PLURALNAME: 'Features blocks'
+    PLURALS:
+      one: 'A Features block'
+      other: '{count} Features blocks'
+    SINGULARNAME: 'Features block'
+  GalleryBlock:
+    BlockType: Bildergalerie
+    ContentLabel: Content
+    PLURALNAME: Bildergalerien
+    PLURALS:
+      one: 'A Bildergalerie'
+      other: '{count} Bildergalerien'
+    SINGULARNAME: Bildergalerie
+    php.GalleryBlockPicturesTab: Bilder
+  GridFieldExtensions:
+    Duplicate: Duplizieren
+  LargeImageBlock:
+    PLURALNAME: banners
+    PLURALS:
+      one: 'A banner'
+      other: '{count} banners'
+    SINGULARNAME: banner
+  LeadBlock:
+    BlockType: Lead
+    ContentLabel: Content
+    PLURALNAME: 'lead blocks'
+    PLURALS:
+      one: 'A lead block'
+      other: '{count} lead blocks'
+    SINGULARNAME: 'lead block'
+  MapBlock:
+    BlockType: Map
+    ContentLabel: Content
+    PLURALNAME: 'Google Map blocks'
+    PLURALS:
+      one: 'A Google Map block'
+      other: '{count} Google Map blocks'
+    SINGULARNAME: 'Google Map block'
+    php.MapBlockLinkToStyle: 'Styles generieren'
+    php.MapBlockdisableControls: 'Kontrol deaktivieren'
+    php.MapBlockfullscreenControls: 'Fullscreen Kontrol'
+    php.MapBlockmapControlOptions: 'Map Kontrol Optionen'
+    php.MapBlockmapControls: 'Map Kontrol'
+    php.MapBlockscaleControls: 'Scale Kontrol'
+    php.MapBlockstreetViewControlOptions: 'StreetView Kontrol Optionen'
+    php.MapBlockstreetViewControls: 'StreetView Kontrol'
+    php.MapBlockzoomControlOptions: 'Zoom Kontrol Optionen'
+    php.MapBlockzoomControls: 'Zoom Kontrol'
+  PAGEBLOCKS:
+    BLOCKSTITLE: Inhaltblöcke
+  ParentBlock:
+    BUTTONFIRST: 'Erst block im mobile'
+    BlockType: 'Parent Block'
+    PLURALNAME: 'Parent Blocks'
+    PLURALS:
+      one: 'A Parent Block'
+      other: '{count} Parent Blocks'
+    SINGULARNAME: 'Parent Block'
+  ShareBlock:
+    BlockType: 'Share Block'
+    ContentLabel: Content
+    PLURALNAME: 'Share Blöcke'
+    PLURALS:
+      one: 'A Share Block'
+      other: '{count} Share Blöcke'
+    SINGULARNAME: 'Share Block'
+  SiteTree:
+    FirstBlock: 'Erst Block'
+  SitemapBlock:
+    BlockType: Sitemap
+    ContentLabel: Content
+    PLURALNAME: 'Sitemap blocks'
+    PLURALS:
+      one: 'A Sitemap block'
+      other: '{count} Sitemap blocks'
+    SINGULARNAME: 'Sitemap block'
+  Slide:
+    PLURALNAME: Slides
+    PLURALS:
+      one: 'A Slide'
+      other: '{count} Slides'
+    SINGULARNAME: Slide
+  SliderBlock:
+    BlockType: Slideshow
+    PLURALNAME: Slideshow
+    PLURALS:
+      one: 'A Slideshow'
+      other: '{count} Slideshow'
+    SINGULARNAME: Slideshow
+  TextBlock:
+    BlockType: 'Text - Bild'
+    ContentLabel: Content
+    PLURALNAME: 'Content blocks'
+    PLURALS:
+      one: 'A Content block'
+      other: '{count} Content blocks'
+    SINGULARNAME: 'Content block'
+  UserFormExtension:
+    WITHCAPTCHA: 'mit Google recaptcha Prüfung?'
+    php.UserFormExtensionRedirectPage: 'erfolgreiche Einreichungsseite'
+  VideoBlock:
+    BlockType: Videogalerie
+    PLURALNAME: Videogalerien
+    PLURALS:
+      one: 'A Videogalerie'
+      other: '{count} Videogalerien'
+    SINGULARNAME: Videogalerie

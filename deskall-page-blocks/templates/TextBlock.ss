@@ -11,11 +11,18 @@
 			</div>
 		<% else %>
 			<div class="uk-width-1-1">
-				<a href="$ContentImage.getSourceURL">
+				<%-- <a href="$ContentImage.getSourceURL">
 					<% if $FullWidth %>
 					<img src="$ContentImage.URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="$ContentImage.Resampled().Width" height="$ContentImage.Resampled().height" >
 					<% else %>
 					<img src="$ContentImage.ScaleWidth(1200).URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="$ContentImage.ScaleWidth(1200).Width" height="$ContentImage.ScaleWidth(1200).Height" >
+					<% end_if %>
+				</a> --%>
+				<a href="$ContentImage.getSourceURL">
+					<% if $FullWidth %>
+					$ContentImage.Content(2500,$Title)
+					<% else %>
+					$ContentImage.Content(1200,$Title)
 					<% end_if %>
 				</a>
 			</div>

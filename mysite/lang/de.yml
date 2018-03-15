@@ -1,0 +1,52 @@
+de:
+  CreateWebsiteTask:
+    SITEMAPTITLE: Sitemap
+  FooterBlock:
+    PLURALNAME: 'Footer Blocks'
+    PLURALS:
+      one: 'A Footer Block'
+      other: '{count} Footer Blocks'
+    SINGULARNAME: 'Footer Block'
+    php.FooterBlockClassDescription: 'Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt'
+    php.FooterBlockLinks: Links
+    php.FooterBlockType: BlockTyp
+    php.FooterBlockTypeLabel: 'Wählen Sie den Typ aus'
+    php.FooterBlockWidth: Breite
+    php.FooterBlockWidthDescription: 'Relative Breite im Vergleich zur Fußzeile'
+    php.FooterBlockWidthLabel: 'Breite auswählen'
+  FooterLink:
+    PLURALNAME: 'Footer Links'
+    PLURALS:
+      one: 'A Footer Link'
+      other: '{count} Footer Links'
+    SINGULARNAME: 'Footer Link'
+  Global:
+    BUTTONACTIVEDESC: Aktivieren
+    BUTTONINACTIVEDESC: Deaktivieren
+  Page:
+    DESCRIPTION: 'Generic content page'
+    PLURALNAME: Pages
+    PLURALS:
+      one: 'A Page'
+      other: '{count} Pages'
+    SINGULARNAME: Page
+  SiteConfigExtension:
+    Address: Adresse
+    AddressStreet: Adresse
+    AdresseTitle: 'Adresse Titel'
+    Background: Hintergrundfarbe
+    BackgroundHelp: 'Wählen Sie aus eine Hintergrundfarbe'
+    CodeCity: 'PLZ / Ort'
+    Country: Land
+    Email: 'E-Mail Adresse'
+    Facebook: Facebook
+    Linkedin: Linkedin
+    Mobile: Mobile
+    Notfall: 'Notfall Nummer'
+    Phone: Telefon
+    SocialTitle: Netwerk
+    Twitter: Twitter
+    Xing: Xing
+  SiteTree:
+    BUTTONACTIVE: Aktivieren
+    BUTTONINACTIVE: Deaktivieren

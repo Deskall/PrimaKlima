@@ -156,12 +156,13 @@ class ImageExtension extends Extension
 
         //fallbakc for title and alt tags
         $fallback = (empty($defaultArgs)) ? null : end($defaultArgs);
+        $uikit = (isset($config['uikit'])) ? $config['uikit'] : null;
 
         return $this->owner->customise([
             'Sizes' => $sizes,
 
             'DefaultImage' => $this->getResampledImage($methodName, $defaultArgs)
-        ])->renderWith('Includes/ResponsiveImageSet', ['uikitAttr' => $config['uikit'],'altTag' => $this->AltTag($fallback), 'titleTag' => $this->TitleTag($fallback) ]);
+        ])->renderWith('Includes/ResponsiveImageSet', ['uikitAttr' => $uikit,'altTag' => $this->AltTag($fallback), 'titleTag' => $this->TitleTag($fallback) ]);
     }
 
     /**

@@ -9,6 +9,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\ElementalBlocks\Block\BannerBlock;
+use SilverStripe\ORM\FieldType\DBField;
 
 class LargeImageBlock extends BannerBlock{
 	private static $icon = 'font-icon-image';
@@ -78,6 +79,11 @@ class LargeImageBlock extends BannerBlock{
         $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions','Effect Optionen'));
         
     	return $fields;
+    }
+
+    public function getSummary()
+    {
+        return DBField::create_field('HTMLText', $this->Content)->Summary(20);
     }
 
 }
