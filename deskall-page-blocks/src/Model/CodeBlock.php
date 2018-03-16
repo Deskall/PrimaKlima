@@ -44,8 +44,8 @@ class CodeBlock extends BaseElement
             $fields->removeByName('CallToActionLink');
             $fields->removeByName('Layout');
             $fields->removeByName('TitleAndDisplayed');
-            $fields->FieldByName('Root.Main.Script')->setDescription('Bitte Kopieren Sie hier die Scripts ohne "<></>" tags');
-            $fields->addFieldToTab('Root.Main',DropdownField::create('Position','Script Position', self::$block_positions));
+            $fields->FieldByName('Root.Main.Script')->setDescription(_t(__CLASS__.'ScriptLabel','Bitte Kopieren Sie hier die Scripts ohne "<></>" tags'));
+            $fields->addFieldToTab('Root.Main',DropdownField::create('Position',_t(__CLASS__.'ScriptPosition','Script Position'), $this->getTranslatedSourceFor(__CLASS__,'block_positions')));
 
         });
         return parent::getCMSFields();
@@ -65,4 +65,14 @@ class CodeBlock extends BaseElement
         return _t(__CLASS__ . '.BlockType', 'Code - Plugin');
     }
 
+/************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('block_positions') as $key => $value) {
+          $entities[__CLASS__.".block_positions_{$key}"] = $value;
+        }       
+        return $entities;
+    }
+
+/************* END TRANLSATIONS *******************/
 }

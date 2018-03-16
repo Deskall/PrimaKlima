@@ -2,35 +2,69 @@ de:
   CreateWebsiteTask:
     SITEMAPTITLE: Sitemap
   FooterBlock:
-    PLURALNAME: 'Footer Blocks'
+    ClassDescription: 'Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt'
+    Links: Links
+    PLURALNAME: 'Footer Blöcke'
     PLURALS:
-      one: 'A Footer Block'
-      other: '{count} Footer Blocks'
+      one: 'ein Footer Block'
+      other: '{count} Footer Blöcke'
+    Preview: Vorschau
     SINGULARNAME: 'Footer Block'
-    php.FooterBlockClassDescription: 'Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt'
-    php.FooterBlockLinks: Links
-    php.FooterBlockType: BlockTyp
-    php.FooterBlockTypeLabel: 'Wählen Sie den Typ aus'
-    php.FooterBlockWidth: Breite
-    php.FooterBlockWidthDescription: 'Relative Breite im Vergleich zur Fußzeile'
-    php.FooterBlockWidthLabel: 'Breite auswählen'
+    TitleLabel: Titel
+    Type: BlockTyp
+    TypeLabel: 'Wählen Sie den Typ aus'
+    Width: Breite
+    WidthDescription: 'Relative Breite im Vergleich zur Fußzeile'
+    WidthLabel: 'Breite auswählen'
+    block_types_adresse: Adresse
+    block_types_links: Links
+    php.FooterBlockExtraClass: 'Extra CSS Class'
+    php.FooterBlockLinksLabel: 'Links können erst nach dem Speichern erstellt werden'
+    widths_uk-width-1-1: 'Voll Breite'
+    'widths_uk-width-1-1@s uk-width-1-2@m': 50%
+    'widths_uk-width-1-1@s uk-width-1-3@m': 33.33%
+    'widths_uk-width-1-1@s uk-width-1-4@m': 25%
+    'widths_uk-width-1-1@s uk-width-1-5@m': 20%
+    widths_uk-width-auto: 'auto Breite'
+    widths_uk-width-expand: 'verbleibende Breite'
   FooterLink:
+    Icon: Icon
+    IconLabel: 'Icon hinzufügen'
+    Link: Link
     PLURALNAME: 'Footer Links'
     PLURALS:
       one: 'A Footer Link'
       other: '{count} Footer Links'
     SINGULARNAME: 'Footer Link'
+    icons_calendar: Kalender
+    icons_chevron-right: chevron-right
+    icons_facebook: facebook
+    icons_google-plus: google-plus
+    icons_home: home
+    icons_linkedin: linkedin
+    icons_list: Liste
+    icons_location: Marker
+    icons_lock: Private
+    icons_mail: Email
+    icons_receiver: Telefon
+    icons_search: Suche
+    icons_tag: Tag
+    icons_twitter: twitter
+    icons_user: Person
+    icons_users: Personen
+    icons_xing: xing
   Global:
     BUTTONACTIVEDESC: Aktivieren
     BUTTONINACTIVEDESC: Deaktivieren
   Page:
-    DESCRIPTION: 'Generic content page'
-    PLURALNAME: Pages
+    DESCRIPTION: 'Standard Seite'
+    PLURALNAME: Seiten
     PLURALS:
-      one: 'A Page'
-      other: '{count} Pages'
-    SINGULARNAME: Page
+      one: 'eine Seite'
+      other: '{count} Seiten'
+    SINGULARNAME: Seite
   SiteConfigExtension:
+    AccessTab: 'Zugang'
     Address: Adresse
     AddressStreet: Adresse
     AdresseTitle: 'Adresse Titel'
@@ -38,9 +72,11 @@ de:
     BackgroundHelp: 'Wählen Sie aus eine Hintergrundfarbe'
     CodeCity: 'PLZ / Ort'
     Country: Land
+    Default: Standard
     Email: 'E-Mail Adresse'
     Facebook: Facebook
     Linkedin: Linkedin
+    MainTab: 'Hauptteil'
     Mobile: Mobile
     Notfall: 'Notfall Nummer'
     Phone: Telefon
@@ -50,3 +86,103 @@ de:
   SiteTree:
     BUTTONACTIVE: Aktivieren
     BUTTONINACTIVE: Deaktivieren
+
+
+##NATIVE NOT TRANSLATED
+  SilverStripe\Admin\CMSProfileController:
+    CANTEDIT: 'Kein Erlaubnis'
+    MENUTITLE: 'Mein Profil'
+  SilverStripe\Admin\Forms\EditorEmailLinkFormFactory:
+    EMAIL: 'E-Mail Adresse'
+    INSERT_LINK: 'Link hinzufügen'
+    LINKDESCR: 'Link Beschreibung'
+    SUBJECT: Subjekt
+  SilverStripe\Admin\Forms\EditorExternalLinkFormFactory:
+    ANCHORVALUE: Anker
+    INSERT_LINK: 'Link hinzufügen'
+    LINKDESCR: 'Link Beschreibung'
+    LINKOPENNEWWIN: 'In einem neuen Fenster / Tab öffnen'
+    URL: URL
+  SilverStripe\Admin\GroupImportForm:
+    Help1: '<p> Importieren Sie eine oder mehrere Gruppen im Format <em> CSV </ em> (durch Kommas getrennte Werte). <small> <a href="#" class="toggle-advanced"> Erweiterte Verwendung anzeigen </a> </ small> </ p>'
+    Help2: '<div class = "advanced"> <h4> Erweiterte Verwendung </ h4> <ul> <li> Erlaubte Spalten: <em> {Spalten} </ em> </ li> <li> Vorhandene Gruppen werden durch ihre eindeutigen verglichen <em> Code </ em> -Wert und aktualisiert mit neuen Werten aus der importierten Datei </ li> <li> Gruppenhierarchien können mithilfe einer <em> ParentCode </ em> -Spalte erstellt werden. </ li> < li> Berechtigungscodes können über die Spalte <em> PermissionCode </ em> zugewiesen werden. Bestehende Berechtigungscodes sind nicht gelöscht. </ Li> </ ul> </ div>'
+    ResultCreated: '{count} Gruppen erstellt'
+    ResultDeleted: '{count} Gruppen gelöscht'
+    ResultUpdated: '{count} Gruppen  aktualisiert'
+  SilverStripe\Admin\LeftAndMain:
+    ACCESSALLINTERFACES: 'Zugriff auf alle CMS-Bereiche'
+    ACCESSALLINTERFACESHELP: 'Überschreibt spezifischere Zugriffseinstellungen.'
+    CollapsePanel: 'Bedienfeld ausblenden'
+    DELETED: Gelöscht.
+    DropdownBatchActionsDefault: 'Wählen Sie eine Aktion...'
+    ExpandPanel: 'Erweitern'
+    HELP: Hilfe
+    Hello: Hallo
+    LOADING: Wird geladen...
+    LOGOUT: 'Abmelden'
+    MenuToggleAuto: Auto
+    MenuToggleStickyNav: 'Sticky nav'
+    NavigateUp: 'Navigieren Sie einen Ordner nach oben'
+    PERMAGAIN: 'Sie wurden vom CMS ausgeloggt. Wenn Sie sich erneut anmelden möchten, geben Sie unten einen Benutzernamen und ein Passwort ein.'
+    PERMALREADY: 'Es tut mir leid, aber Sie können nicht auf diesen Teil des CMS zugreifen. Wenn Sie sich als jemand anderen anmelden möchten, tun Sie dies unten.'
+    PERMDEFAULT: 'Sie müssen angemeldet sein, um auf den Administrationsbereich zugreifen zu können. Bitte geben Sie unten Ihre Zugangsdaten ein.'
+    PreviewButton: Vorschau
+    REQUIREJS: 'Für das CMS muss JavaScript aktiviert sein.'
+    SAVEDUP: Gespeichert.
+    SUBMIT_BUTTON_LABEL: Los
+    ValidationError: 'Validierungsfehler'
+    VersionUnknown: Unbekannt
+    BROWSER_WARNING_HEADING: 'Nicht unterstützter Browser'
+    BROWSER_WARNING_TEXT: 'Sie verwenden einen Webbrowser, der nicht von SilverStripe unterstützt wird. <br /> Bitte aktualisieren Sie auf eine der folgenden Optionen.'
+  SilverStripe\Admin\LeftAndMain_ViewModeSelector:
+    Auto: Auto
+    ChangeViewMode: 'Ändern Sie den Ansichtsmodus'
+    Desktop: Desktop
+    DualWindowView: 'Dual Window'
+    EditView: 'Bearbeitung Modus'
+    Mobile: Mobile
+    PreviewState: 'Vorschaustatus'
+    PreviewView: 'Vorschaumodus'
+    Responsive: Responsive
+    SplitView: 'gezeichnet'
+    Tablet: Tablet
+    ViewDeviceWidth: 'Wählen Sie eine Vorschaubreite'
+    Width: Breite
+  SilverStripe\Admin\MemberImportForm:
+    BtnImport: 'von CSV importieren'
+    FileFieldLabel: 'CSV-Datei <small> (Erlaubte Erweiterungen: * .csv) </ small>'
+    Help1: '<p> Importieren Sie Benutzer im <em> CSV-Format </ em> (durch Kommas getrennte Werte). <small> <a href="#" class="toggle-advanced"> Erweiterte Verwendung anzeigen </a> </ small> </ p>'
+    Help2: '<div class = "advanced"> <h4> Erweiterte Verwendung </ h4> <ul> <li> Erlaubte Spalten: <em> {Spalten} </ em> </ li> <li> Vorhandene Benutzer werden mit ihren eindeutigen verglichen <em> Code </ em> -Eigenschaft und aktualisiert mit neuen Werten aus der importierten Datei. </ li> <li> Gruppen können über die Spalte <em> Gruppen </ em> zugewiesen werden. Gruppen werden anhand ihrer Eigenschaft <em> Code </ em> identifiziert, mehrere Gruppen können durch Kommas getrennt werden. Bestehende Gruppenmitgliedschaften werden nicht gelöscht. </ Li> </ ul> </ div>'
+    ResultCreated: '{count} Mitglieder erstellt'
+    ResultDeleted: '{count} Mitglieder gelöscht'
+    ResultUpdated: '{count} Mitglieder  aktualisiert'
+    ResultNone: 'Keine Änderungen'
+  SilverStripe\Admin\ModelAdmin:
+    APPLY_FILTER: 'Filter anwenden'
+    DELETE: Löschen
+    DELETEDRECORDS: '{count} Datensatz gelöscht.'
+    EMPTYBEFOREIMPORT: 'Daten ersetzen'
+    FILTER: Filtern
+    IMPORT: 'von CSV importieren'
+    IMPORTEDRECORDS: '{count} Datensatzen imporiert.'
+    IMPORTSPECFIELDS: 'Datenbankspalten'
+    IMPORTSPECLINK: 'Spezifikation für {model} anzeigen'
+    IMPORTSPECRELATIONS: Beziehungen
+    IMPORTSPECTITLE: 'Spezifikation für {model}'
+    NOCSVFILE: 'Suchen Sie nach einer CSV-Datei zu importieren.'
+    NOIMPORT: 'Nichts zu importieren'
+    RESET: Zurücksetzen
+    Title: 'Daten Modells'
+    UPDATEDRECORDS: '{count} Datensatzen aktualisiert.'
+  SilverStripe\Admin\SecurityAdmin:
+    ACCESS_HELP: 'Ermöglicht das Anzeigen, Hinzufügen und Bearbeiten von Benutzern sowie das Zuweisen von Berechtigungen und Rollen.'
+    APPLY_ROLES: 'Übernehmen Sie Rollen für Gruppen'
+    APPLY_ROLES_HELP: 'Möglichkeit, die einer Gruppe zugewiesenen Rollen zu bearbeiten. Erfordert die Berechtigung "Zugriff auf '' Benutzer ''" ".'
+    EDITPERMISSIONS: 'Berechtigungen für Gruppen verwalten'
+    EDITPERMISSIONS_HELP: 'Möglichkeit zum Bearbeiten von Berechtigungen und IP-Adressen für eine Gruppe. Erfordert die Berechtigung "Zugriff auf '' Sicherheit ''.'
+    IMPORTGROUPS: 'Gruppen importieren'
+    IMPORTUSERS: 'Benutzern importieren'
+    MENUTITLE: Sicherheit
+    MemberListCaution: 'Vorsicht: Wenn Sie Mitglieder aus dieser Liste entfernen, werden sie aus allen Gruppen und der Datenbank entfernt'
+    TABROLES: Rollen
+    Users: Benutzern

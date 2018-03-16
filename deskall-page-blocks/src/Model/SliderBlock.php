@@ -107,8 +107,8 @@ class SliderBlock extends BaseElement
             $fields->removeByName('Slides');
             
             $fields->removeByName('CallToActionLink');
-            $referent = new GroupedDropdownField("ReferentID", "Slides kopieren nach", $source = $this->getReferentSource());
-            $referent->setEmptyString('Bitte Slidershow auswählen');
+            $referent = new GroupedDropdownField("ReferentID", _t(__CLASS__.'.CopySlides',"Slides kopieren nach"), $source = $this->getReferentSource());
+            $referent->setEmptyString(_t(__CLASS__.'.CopySlidesHelpText','Bitte Slidershow auswählen'));
             $fields->addFieldToTab('Root.Main',$referent);
 
 
@@ -118,17 +118,17 @@ class SliderBlock extends BaseElement
                 if (singleton('Slide')->hasExtension('Activable')){
                      $config->addComponent(new GridFieldShowHideAction());
                 }
-                $slidesField = new GridField('Slides','Slides',$this->Slides(),$config);
+                $slidesField = new GridField('Slides',_t(__CLASS__.'.Slides','Slides'),$this->Slides(),$config);
                 $fields->addFieldToTab('Root.Main',$slidesField);
             }
 
-            $fields->addFieldToTab('Root.Settings',CheckboxField::create('Autoplay','Autoplay'));
-            $fields->addFieldToTab('Root.Settings',DropdownField::create('Animation','Animation', self::$animations));
-            $fields->addFieldToTab('Root.Settings',DropdownField::create('Nav','Kontrols', self::$controls));
-            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
-            $fields->addFieldToTab('Root.Settings',LayoutField::create('Height','Höhe',self::$block_heights));
-            $fields->addFieldToTab('Root.Settings',NumericField::create('MinHeight','min. Höhe'));
-            $fields->addFieldToTab('Root.Settings',NumericField::create('MaxHeight','max. Höhe'));
+            $fields->addFieldToTab('Root.Settings',CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','Autoplay')));
+            $fields->addFieldToTab('Root.Settings',DropdownField::create('Animation',_t(__CLASS__.'.Animation','Animation'), $this->getTranslatedSourceFor(__CLASS__,'animations')));
+            $fields->addFieldToTab('Root.Settings',DropdownField::create('Nav',_t(__CLASS__.'.Controls','Kontrols'), $this->getTranslatedSourceFor(__CLASS__,'controls')));
+            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
+            $fields->addFieldToTab('Root.Settings',LayoutField::create('Height',_t(__CLASS__.'.Heights','Höhe'),$this->getTranslatedSourceFor(__CLASS__,'block_heights')));
+            $fields->addFieldToTab('Root.Settings',NumericField::create('MinHeight',_t(__CLASS__.'.MinHeight','min. Höhe')));
+            $fields->addFieldToTab('Root.Settings',NumericField::create('MaxHeight',_t(__CLASS__.'.MaxHeight','max. Höhe')));
         });
         $fields = parent::getCMSFields();
         $fields->removeByName('Background');
@@ -193,4 +193,24 @@ class SliderBlock extends BaseElement
             }
         }
     }
+
+    /************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('block_layouts') as $key => $value) {
+          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
+        }
+        foreach($this->stat('block_heights') as $key => $value) {
+          $entities[__CLASS__.".block_heights_{$key}"] = $value;
+        }
+        foreach($this->stat('animations') as $key => $value) {
+          $entities[__CLASS__.".animations_{$key}"] = $value;
+        }
+        foreach($this->stat('controls') as $key => $value) {
+          $entities[__CLASS__.".controls_{$key}"] = $value;
+        }
+        return $entities;
+    }
+
+/************* END TRANLSATIONS *******************/
 }

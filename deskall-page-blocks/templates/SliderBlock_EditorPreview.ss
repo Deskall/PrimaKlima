@@ -10,10 +10,15 @@
 
         <div class="elemental-preview__detail">
             <% if $ActiveSlides %>
-                <% loop ActiveSlides %>
-                    $Image.Fit(100,100)
+            <div class="slide-container">
+                <% loop ActiveSlides.limit(2) %>
+                    $Image.FocusFill(200,100)
                 <% end_loop %>
+                <% if $ActiveSlides.count > 2 %>
+                ...
+                <% end_if %>
             <% end_if %>
+            </div>
             <% if $Summary %>
                 <p>$Summary.RAW</p>
             <% end_if %>

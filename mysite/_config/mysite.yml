@@ -19,3 +19,7 @@ SilverStripe\Admin\LeftAndMain:
 SilverStripe\Security\Member:
   extensions:
     - MemberExtension
+
+SilverStripe\ORM\DataObject:
+  extensions:
+    - DeskallTranslatable

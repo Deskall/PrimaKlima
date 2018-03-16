@@ -63,12 +63,12 @@ class ParentBlock extends ElementList
         $fields = parent::getCMSFields();
         $fields->removeByName('FirstBlockID');
         $fields->addFieldToTab('Root.Layout',
-            LayoutField::create('Layout','Layout',static::$block_layouts)
+            LayoutField::create('Layout','Layout',$this->getTranslatedSourceFor(__CLASS__,'block_layouts'))
         );
         $fields->addFieldsToTab('Root.Settings',[
-            DropdownField::create('BlocksPerLine','Blöcke per Linie',self::$blocks_per_line)->setEmptyString('Blöcke per Linie auswählen'),
-            CheckboxField::create('Border','Border zwischen Blöcke ?'),
-            CheckboxField::create('matchHeight','gleich Höhe für alle Blöcke ?')
+            DropdownField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->getTranslatedSourceFor(__CLASS__,'blocks_per_line'))->setEmptyString(_t(__CLASS__.'.BlocksPerLineHelpText','Blöcke per Linie auswählen')),
+            CheckboxField::create('Border',_t(__CLASS__.'.Border','Border zwischen Blöcke ?')),
+            CheckboxField::create('matchHeight',_t(__CLASS__.'.SameHeight','gleich Höhe für alle Blöcke ?'))
         ]);
 
         return $fields;
@@ -77,7 +77,6 @@ class ParentBlock extends ElementList
      /*** Duplicate block with correct elements */
     public function DuplicateChildrens($original){
         foreach (Config::inst()->get($original->ClassName,'owns') as $class) {
-            file_put_contents('log.txt',$class);
             foreach($original->{$class}() as $object){
                 $newObject = $object->duplicate(false);
                 $newObject->ParentID = $this->ID;
@@ -85,4 +84,19 @@ class ParentBlock extends ElementList
             }
         }
     }
+
+/************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('blocks_per_line') as $key => $value) {
+          $entities[__CLASS__.".blocks_per_line_{$key}"] = $value;
+        }
+        foreach($this->stat('block_layouts') as $key => $value) {
+          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
+        }
+       
+        return $entities;
+    }
+
+/************* END TRANLSATIONS *******************/
 }

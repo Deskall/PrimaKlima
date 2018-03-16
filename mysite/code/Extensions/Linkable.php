@@ -18,6 +18,12 @@ class Linkable extends DataExtension
         'CallToActionLink' => 'Link'
     ];
 
+
+    function updateFieldLabels(&$labels) {
+        $labels['CallToActionLink'] = _t(__CLASS__.'.CTA', 'Link');
+    }
+
+
     public function updateCMSFields(FieldList $fields){
     	$fields->removeByName('CallToActionLinkID');
          // Ensure TinyMCE's javascript is loaded before the blocks overrides

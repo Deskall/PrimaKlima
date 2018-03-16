@@ -11,6 +11,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\SiteConfig\SiteConfig;
 
 class FooterBlock extends DataObject{
+
 	private static $db = [
 		'Title' => 'Text',
 		'Width' => 'Varchar(255)',
@@ -32,9 +33,9 @@ class FooterBlock extends DataObject{
 	];
 
 	private static $summary_fields = [
-	    'NiceTitle' => 'Titel',
-	    'Preview' => 'Vorschau',
-	    'displayWidth' => 'Breite'
+	    'NiceTitle' ,
+	    'Preview',
+	    'displayWidth'
 	];
 
 	private static $default_sort = ['Sort'];
@@ -73,12 +74,22 @@ class FooterBlock extends DataObject{
      return $Preview;
     }
 
+    function fieldLabels($includerelations = true) {
+	    $labels = parent::fieldLabels($includerelations);
+	 
+	    $labels['NiceTitle'] = _t(__CLASS__.'.TitleLabel','Titel');
+	    $labels['Preview'] = _t(__CLASS__.'.Preview', 'Vorschau');
+	    $labels['displayWidth'] = _t(__CLASS__.'.Width',  'Breite');
+	 
+	    return $labels;
+	}
+
 	public function getCMSFields(){
 		$this->beforeUpdateCMSFields(function ($fields) {
 
-			$fields->addFieldToTab('Root.Main', $w = DropdownField::create('Width',_t(__CLASS__.'Width','Breite'),self::$widths)->setEmptyString(_t(__CLASS__.'WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
-			$fields->addFieldToTab('Root.Main', $cs = TextField::create('Class','Extra CSS Class')->setDescription(_t(__CLASS__.'ClassDescription','Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt')));
-			$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'Type','BlockTyp'),self::$block_types)->setEmptyString(_t(__CLASS__.'TypeLabel','Wählen Sie den Typ aus')),'Title');
+			$fields->addFieldToTab('Root.Main', $w = DropdownField::create('Width',_t(__CLASS__.'.Width','Breite'),$this->getTranslatedSourceFor(__CLASS__,'widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
+			$fields->addFieldToTab('Root.Main', $cs = TextField::create('Class',_t(__CLASS__.'ExtraClass','Extra CSS Class'))->setDescription(_t(__CLASS__.'.ClassDescription','Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt')));
+			$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')),'Title');
 			$title = $fields->fieldByName('Root.Main.Title');
 			$fields->removeByName('Links');
 			$fields->removeByName('SiteConfigID');
@@ -87,13 +98,13 @@ class FooterBlock extends DataObject{
 				if ($this->ID > 0){
 							$LinksField = new GridField(
 						        'Links',
-						        _t(__CLASS__.'Links','Links'),
+						        _t(__CLASS__.'.Links','Links'),
 						        $this->Links(),
 						        GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))
 						    );
 						}
 						else {
-							$LinksField = LabelField::create('Links', 'Links können erst nach dem Speichern erstellt werden');
+							$LinksField = LabelField::create('Links', _t(__CLASS__.'LinksLabel','Links können erst nach dem Speichern erstellt werden'));
 						}
 
 						$fields->addFieldToTab('Root.Main',$LinksField);
@@ -112,4 +123,18 @@ class FooterBlock extends DataObject{
 	public function activeLinks(){
 		return $this->Links()->filter('isVisible',1);
 	}
+
+	/************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('widths') as $key => $value) {
+          $entities[__CLASS__.".widths_{$key}"] = $value;
+        }
+        foreach($this->stat('block_types') as $key => $value) {
+          $entities[__CLASS__.".block_types_{$key}"] = $value;
+        }         
+        return $entities;
+    }
+
+/************* END TRANLSATIONS *******************/
 }

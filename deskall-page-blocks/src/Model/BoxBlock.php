@@ -121,7 +121,7 @@ class BoxBlock extends BaseElement
        
           
             $fields->removeByName('Boxes');
-            $fields->addFieldToTab('Root.Layout',LayoutField::create('Layout','Format', self::$block_layouts));
+            $fields->addFieldToTab('Root.Layout',LayoutField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
             $fields->removeByName('PictureHeight');
             $fields->removeByName('PictureWidth');
            
@@ -130,17 +130,17 @@ class BoxBlock extends BaseElement
 
             if ($this->ID > 0){
                 $fields->addFieldToTab('Root',new Tab('Boxes',_t('BOXBLOCK.BOXTAB','Boxen')),'Settings');
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxTextAlign','Boxen Textausrichtung',self::$boxes_text_alignments));
+                $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxTextAlign',_t(__CLASS__.'.BoxTextAlignment','Boxen Textausrichtung'),$this->getTranslatedSourceFor(__CLASS__,'boxes_text_alignments')));
                 //$fields->addFieldToTab('Root.Boxes',IconDropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('ImageType','BildTyp', self::$image_types));
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('Effect','Effect', self::$effects));
+                $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxPerLine',_t(__CLASS__.'.BoxPerLine','Boxen per Linie'), self::$boxes_per_line));
+                $fields->addFieldToTab('Root.Boxes',DropdownField::create('ImageType',_t(__CLASS__.'.ImageType','BildTyp'), $this->getTranslatedSourceFor(__CLASS__,'image_types')));
+                $fields->addFieldToTab('Root.Boxes',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
                 $config = GridFieldConfig_RecordEditor::create();
                 $config->addComponent(new GridFieldOrderableRows('Sort'));
                 if (singleton('Box')->hasExtension('Activable')){
                      $config->addComponent(new GridFieldShowHideAction());
                 }
-                $boxesField = new GridField('Boxes','Boxes',$this->Boxes(),$config);
+                $boxesField = new GridField('Boxes',_t(__CLASS__.'.Boxes','Boxen'),$this->Boxes(),$config);
                 $fields->addFieldToTab('Root.Boxes',$boxesField);
             }
        
@@ -179,4 +179,24 @@ class BoxBlock extends BaseElement
         $this->PictureHeight = $height;
     }
 
+/************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('block_layouts') as $key => $value) {
+          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
+        }
+        foreach($this->stat('image_types') as $key => $value) {
+          $entities[__CLASS__.".image_types_{$key}"] = $value;
+        }
+        foreach($this->stat('effects') as $key => $value) {
+          $entities[__CLASS__.".effects_{$key}"] = $value;
+        }
+       
+        foreach($this->stat('boxes_text_alignments') as $key => $value) {
+          $entities[__CLASS__.".boxes_text_alignments_{$key}"] = $value;
+        }
+       
+        return $entities;
+    }
+/************* END TRANLSATIONS *******************/
 }

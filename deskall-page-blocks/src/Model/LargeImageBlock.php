@@ -61,8 +61,8 @@ class LargeImageBlock extends BannerBlock{
     private static $effects = [
         'none' => 'kein',
         'fixed' => 'fixed',
-      // 'ken-burns' => 'Ken Burns',
-        'parallax' => 'parallax'
+        'ken-burns' => 'Ken Burns',
+        'parallax' => 'parallax' 
     ];
 
 
@@ -73,10 +73,10 @@ class LargeImageBlock extends BannerBlock{
         $fields->removeByName('Overlay');
     	$fields->removeByName('BackgroundImage');
         $fields->fieldByName('Root.Main.File')->setFolderName($this->getFolderName());
-        $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout','Format', self::$block_layouts));
-        $fields->addFieldToTab('Root.Settings',LayoutField::create('Height','Höhe',self::$block_heights));
-        $fields->addFieldToTab('Root.Settings',LayoutField::create('Effect','Effect',self::$effects));
-        $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions','Effect Optionen'));
+        $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout',_t(__CLASS__. '.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
+        $fields->addFieldToTab('Root.Settings',LayoutField::create('Height',_t(__CLASS__. '.Height','Höhe'),$this->getTranslatedSourceFor(__CLASS__,'block_heights')));
+        $fields->addFieldToTab('Root.Settings',LayoutField::create('Effect',_t(__CLASS__. '.Effect','Effekt'),$this->getTranslatedSourceFor(__CLASS__,'effects')));
+        $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions',_t(__CLASS__. '.EffectOptions','Effekt Optionen')));
         
     	return $fields;
     }
@@ -85,5 +85,25 @@ class LargeImageBlock extends BannerBlock{
     {
         return DBField::create_field('HTMLText', $this->Content)->Summary(20);
     }
+
+    
+
+/************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('block_layouts') as $key => $value) {
+          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
+        }
+        foreach($this->stat('block_heights') as $key => $value) {
+          $entities[__CLASS__.".block_heights_{$key}"] = $value;
+        }
+        foreach($this->stat('effects') as $key => $value) {
+          $entities[__CLASS__.".effects_{$key}"] = $value;
+        }
+       
+        return $entities;
+    }
+
+/************* END TRANLSATIONS *******************/
 
 }

@@ -15,12 +15,15 @@
             <% if $ActiveBoxes %>
             <table>
                 <tr>
-                <% loop $ActiveBoxes %>
+                <% loop $ActiveBoxes.limit(3) %>
                 <td>
-                    $Image.FitMax(100,100)<br/>
+                    $Image.FocusFill(100,100)<br/>
                     $Title
                 </td>
                 <% end_loop %>
+                <% if $ActiveBoxes.count > 2 %>
+                <td>...</td>
+                <% end_if %>
                 </tr>
             </table>
             <% end_if %>

@@ -23,15 +23,17 @@ class FooterLink extends DataObject{
 	];
 
 	private static $summary_fields = [
-		'DisplayLink' => 'Link'
+		'DisplayLink'
 	];
 
-
-	private static $block_types = [
-		'adresse' => 'Adresse',
-		'links' => 'Links', 
-		'text' => 'Text'
-	];
+    function fieldLabels($includerelations = true) {
+	    $labels = parent::fieldLabels($includerelations);
+	 
+	    $labels['DisplayLink'] = _t(__CLASS__.'.Link','Link');
+	   
+	 
+	    return $labels;
+	}
 
 	private static $icons = [
 		'chevron-right' => 'chevron-right',
@@ -60,8 +62,20 @@ class FooterLink extends DataObject{
         $fields->removeByName('Type');
         //$fields->addFieldToTab('Root.Main',DropdownField::create('Type', 'LinkTyp',self::$block_types)->setEmptyString('Bitte Typ auswählen'),'Content');
         $fields->FieldByName('Root.Main.Content')->setRows(3);
-        $fields->addFieldToTab('Root.Main',DropdownField::create('Icon','Icon',self::$icons)->setEmptyString('Icon hinzufügen'), 'Content');
+        $fields->addFieldToTab('Root.Main',DropdownField::create('Icon',_t(__CLASS__. '.Icon','Icon'),$this->getTranslatedSourceFor(__CLASS__,'icons'))->setEmptyString(_t(__CLASS__. '.IconLabel','Icon hinzufügen')), 'Content');
         $fields->insertAfter($fields->FieldByName('Root.Main.Content'),'CallToActionLink');
         return $fields;
     }
+
+    /************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('icons') as $key => $value) {
+          $entities[__CLASS__.".icons_{$key}"] = $value;
+        }
+       
+        return $entities;
+    }
+
+/************* END TRANLSATIONS *******************/
 }

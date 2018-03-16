@@ -59,11 +59,11 @@ class TextBlock extends BaseElement
         $this->beforeUpdateCMSFields(function ($fields) {
             $fields
                 ->fieldByName('Root.Main.HTML')
-                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
+                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Inhalt'));
             $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
         });
         $fields = parent::getCMSFields();
-        $fields->addFieldToTab('Root.Layout',LayoutField::create('Layout','Format', self::$block_layouts));
+        $fields->addFieldToTab('Root.Layout',LayoutField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
         return $fields;
     }
 
@@ -77,4 +77,15 @@ class TextBlock extends BaseElement
         return _t(__CLASS__ . '.BlockType', 'Text - Bild');
     }
 
+    /************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('block_layouts') as $key => $value) {
+          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
+        }
+       
+        return $entities;
+    }
+
+/************* END TRANLSATIONS *******************/
 }

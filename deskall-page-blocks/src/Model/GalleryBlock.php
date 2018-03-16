@@ -79,9 +79,9 @@ class GalleryBlock extends BaseElement
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
-            $fields->addFieldToTab('Root',new Tab('Pictures',_t(__CLASS__.'PicturesTab', 'Bilder')),'Settings');
-            $fields->addFieldToTab('Root.Pictures',UploadField::create('Images','Bilder')->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
-            $fields->addFieldToTab('Root.Pictures',DropdownField::create('PicturesPerLine','Bilder per Linie', self::$pictures_per_line), 'Images');
+            $fields->addFieldToTab('Root',new Tab('Pictures',_t(__CLASS__.'.PicturesTab', 'Bilder')),'Settings');
+            $fields->addFieldToTab('Root.Pictures',UploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
+            $fields->addFieldToTab('Root.Pictures',DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Bilder per Linie'), self::$pictures_per_line), 'Images');
 
             
 
@@ -92,7 +92,7 @@ class GalleryBlock extends BaseElement
           
         });
         $fields = parent::getCMSFields();
-        $fields->addFieldToTab('Root.Pictures',LayoutField::create('Layout','Format', self::$block_layouts));
+        $fields->addFieldToTab('Root.Pictures',LayoutField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
         return $fields;
     }
 
@@ -122,4 +122,15 @@ class GalleryBlock extends BaseElement
         $this->PictureHeight = $height;
     }
 
+/************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('block_layouts') as $key => $value) {
+          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
+        }
+       
+        return $entities;
+    }
+
+/************* END TRANLSATIONS *******************/
 }

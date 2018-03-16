@@ -61,12 +61,12 @@ class VideoBlock extends BaseElement
 	public function getCMSFields() {
 		$this->beforeUpdateCMSFields(function ($fields) {
             // field to enter the video URL
-			$fields->addFieldToTab('Root.Main', new TextareaField('VideoList', 'Videos (1 URL pro Zeile) '));
-			$fields->addFieldToTab('Root.Layout',DropdownField::create('VideoPerLine','Videos per Linie', self::$videos_per_line));
+			$fields->addFieldToTab('Root.Main', new TextareaField('VideoList', _t(__CLASS__.'.VideosURL','Videos (1 URL pro Zeile) ')));
+			$fields->addFieldToTab('Root.Layout',DropdownField::create('VideoPerLine',_t(__CLASS__.'.VideoPerLine','Videos per Linie'), $this->getTranslatedSourceFor(__CLASS__,'videos_per_line')));
         });
         
         $fields = parent::getCMSFields();
-        $fields->addFieldToTab('Root.Layout',LayoutField::create('Layout','Format', static::$block_layouts));
+        $fields->addFieldToTab('Root.Layout',LayoutField::create('Layout','Format', $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
         return $fields;
 	}
 
@@ -126,5 +126,18 @@ class VideoBlock extends BaseElement
     {
         return _t(__CLASS__ . '.BlockType', 'Videogalerie');
     }
+    /************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('block_layouts') as $key => $value) {
+          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
+        }
+         foreach($this->stat('videos_per_line') as $key => $value) {
+          $entities[__CLASS__.".videos_per_line_{$key}"] = $value;
+        }
+       
+        return $entities;
+    }
 
+/************* END TRANLSATIONS *******************/
 }

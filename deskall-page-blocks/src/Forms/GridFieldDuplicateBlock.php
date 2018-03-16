@@ -137,7 +137,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 	}
 
 	protected function getBlockTree(){
-		$blockstree = array(0 => 'bestehende Block kopieren');
+		$blockstree = array(0 => _t(__CLASS__.'.Label','bestehende Block kopieren'));
 		$Pages = Page::get()->sort('ParentID ASC, Sort ASC');
 		foreach ($Pages as $page) {
 			if ($page->ElementalAreaID > 0){

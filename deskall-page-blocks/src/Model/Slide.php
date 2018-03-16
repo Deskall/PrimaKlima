@@ -43,19 +43,37 @@ class Slide extends DataObject
     ];
 
     private static $summary_fields = [
-        'SlideTitle' => 'Titel',
-        'ImageThumbnail' => 'Bild'
+        'SlideTitle',
+        'ImageThumbnail' 
     ];
+
+    function fieldLabels($includerelations = true) {
+        $labels = parent::fieldLabels($includerelations);
+     
+        $labels['SlideTitle'] = _t(__CLASS__.'.TitleLabel','Titel');
+        $labels['ImageThumbnail'] = _t(__CLASS__.'.Image', 'Bild');
+        $labels['Title'] = _t(__CLASS__.'.TitleLabel','Titel');
+        $labels['Content'] = _t(__CLASS__.'.ContentLabel','Inhalt');
+        $labels['Image'] = _t(__CLASS__.'.Image', 'Bild');
+        $labels['CallToActionLink'] = _t(__CLASS__.'.CTA', 'Link');
+     
+        return $labels;
+    }
 
 
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+
         $fields->removeByName('SliderID');
+        $fields->removeByName('ParentID');
         $fields->removeByName('Sort');
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
-        $fields->addFieldToTab('Root.Settings',DropdownField::create('Effect','Effect', self::$effects));
-        $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions','Effect Optionen'));
+        $fields->addFieldToTab('Root.Main',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
+        $fields->addFieldToTab('Root.Main',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
+
+        $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
+
         return $fields;
     }
 
@@ -67,7 +85,7 @@ class Slide extends DataObject
 
     public function ImageThumbnail(){
         $o = new DBHTMLText();
-        $html = ($this->Image() && $this->Image()->exists()) ? '<img src="'.$this->Image()->Fill(400,200)->URL.'" />' : '(keine)';
+        $html = ($this->Image() && $this->Image()->exists()) ? '<img src="'.$this->Image()->Fill(400,200)->URL.'" />' : _t(__CLASS__.'.NoBild','(keine)');
         $o->setValue($html);
         return $o;
     }
@@ -75,5 +93,17 @@ class Slide extends DataObject
      public function getFolderName(){
         return $this->Parent()->getFolderName();
     }
+
+    /************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('effects') as $key => $value) {
+          $entities[__CLASS__.".effects_{$key}"] = $value;
+        }
+       
+        return $entities;
+    }
+
+/************* END TRANLSATIONS *******************/
 
 }

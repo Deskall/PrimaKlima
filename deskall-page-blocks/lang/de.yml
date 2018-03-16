@@ -1,21 +1,77 @@
 de:
-  BLOCKS:
-    LAYOUTTAB: Layout
   BOXBLOCK:
     BOXTAB: Boxen
+  BaseBlockExtension:
+    BackgroundColor: Hintergrundfarbe
+    BackgroundColorHelpText: 'wird als overlay anzeigen falls es ein Hintergrundbild gibt.'
+    BackgroundImage: Hintergrundbild
+    FullWidth: 'volle Breite'
+    HELPTEXT: test
+    LAYOUTTAB: Layout
+    ShowColumnsBorder: 'Border zwischen Spalten anzeigen'
+    TextAlignment: Textausrichtung
+    TextColumns: 'Text in mehreren Spalten'
+    'block_backgrounds_dk-background-black uk-section-default dk-text-hover-black': schwarz
+    'block_backgrounds_dk-background-white uk-section-default dk-text-hover-white': weiss
+    block_backgrounds_uk-section-default: 'keine Hintergrundfarbe'
+    'block_backgrounds_uk-section-muted dk-text-hover-muted': grau
+    'block_backgrounds_uk-section-primary dk-text-hover-primary': 'primäre Farbe'
+    'block_backgrounds_uk-section-secondary dk-text-hover-secondary': 'sekundäre Farbe'
+    block_text_alignments_uk-text-justify: 'Justifies text'
+    'block_text_alignments_uk-text-justify uk-text-center@s': 'Centers text horizontally'
+    'block_text_alignments_uk-text-justify uk-text-left@s': 'Aligns text to the left.'
+    'block_text_alignments_uk-text-justify uk-text-righ@st': 'Aligns text to the right'
+    'block_text_columns_ ': 'Keine Spalten'
+    block_text_columns_uk-column-1-2@s: 'Display the content in two columns'
+    'block_text_columns_uk-column-1-2@s uk-column-1-3@m': 'Display the content in three columns'
+    'block_text_columns_uk-column-1-2@s uk-column-1-4@m': 'Display the content in four columns'
+    'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Display the content in five columns'
+    'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Display the content in six columns'
   Box:
+    Effect: Effekt
+    EffectOptions: 'Effekt Optionen'
+    Image: Bild
+    NoBild: (keine)
     PLURALNAME: Boxs
     PLURALS:
       one: 'A Box'
       other: '{count} Boxs'
     SINGULARNAME: Box
+    Summary: Inhalt
+    TitleLabel: Titel
+    effects_kenburns: 'ken burns'
+    effects_none: kein
+    effects_parallax: parallax
   BoxBlock:
     BlockType: Boxen
+    BoxPerLine: 'Boxen per Linie'
+    BoxTextAlignment: 'Boxen Textausrichtung'
+    Boxes: Boxen
+    Effect: Effekt
+    Format: Format
+    ImageType: BildTyp
     PLURALNAME: 'Boxen Blöcke'
     PLURALS:
       one: 'A Boxen Block'
       other: '{count} Boxen Blöcke'
     SINGULARNAME: 'Boxen Block'
+    block_layouts_inversed: 'Titel,Inhalt,Bild'
+    block_layouts_mixed: 'Bild, Titel, Inhalt'
+    block_layouts_standard: 'Titel, Bild, Inhalt'
+    boxes_text_alignments_uk-text-justify: 'Justifies text'
+    'boxes_text_alignments_uk-text-justify uk-text-center@s': 'Centers text horizontally'
+    'boxes_text_alignments_uk-text-justify uk-text-left@s': 'Aligns text to the left.'
+    'boxes_text_alignments_uk-text-justify uk-text-righ@st': 'Aligns text to the right'
+    effects_cta: 'CallToAction anzeigen'
+    effects_double: 'Zweiten Bild anzeigen'
+    effects_none: kein
+    effects_scale: 'Bild grossieren'
+    image_types_icon: Icon
+    image_types_image: Bild
+    php.BoxBlockBoxPerLine: 'Boxen per Linie'
+    php.BoxBlockBoxTextAlignment: 'Boxen Textausrichtung'
+    php.BoxBlockEffect: Effekt
+    php.BoxBlockImageType: BildTyp
   CodeBlock:
     BlockType: 'Code - Plugin'
     PLURALNAME: 'Code blocks'
@@ -23,14 +79,29 @@ de:
       one: 'A Code block'
       other: '{count} Code blocks'
     SINGULARNAME: 'Code block'
+    block_positions_body: 'Vor dem </body> Tag'
+    block_positions_head: 'Im <head>'
+    block_positions_normal: 'Block Position'
+    php.CodeBlockScriptLabel: 'Bitte Kopieren Sie hier die Scripts ohne "<></>" tags'
+    php.CodeBlockScriptPosition: 'Script Position'
   DownloadBlock:
     BlockType: 'Download Area'
     ContentLabel: Content
+    DownloadsTitle: 'Downloads Area Titel'
+    Files: Dateien
+    FilesInColumns: 'Dateien in mehreren Spalten'
+    FilesTab: Dateien
     PLURALNAME: 'Dateien Downloads'
     PLURALS:
       one: 'A Dateien Downloads'
       other: '{count} Dateien Downloads'
     SINGULARNAME: 'Dateien Downloads'
+    'files_columns_ ': 'Keine Spalten'
+    files_columns_uk-column-1-2@s: 'Display the content in two columns'
+    'files_columns_uk-column-1-2@s uk-column-1-3@m': 'Display the content in three columns'
+    'files_columns_uk-column-1-2@s uk-column-1-4@m': 'Display the content in four columns'
+    'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Display the content in five columns'
+    'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Display the content in six columns'
     php.DownloadBlockFilesTab: Dateien
   Features:
     PLURALNAME: Featuress
@@ -41,29 +112,65 @@ de:
   FeaturesBlock:
     BlockType: 'Features List'
     ContentLabel: Content
+    Features: Features
+    FeaturesInColumns: 'Features in mehreren Spalten'
     FeaturesTitle: 'List Titel'
     PLURALNAME: 'Features blocks'
     PLURALS:
       one: 'A Features block'
       other: '{count} Features blocks'
     SINGULARNAME: 'Features block'
+    'features_columns_ ': 'Keine Spalten'
+    features_columns_uk-column-1-2@s: 'Display the content in two columns'
+    'features_columns_uk-column-1-2@s uk-column-1-3@m': 'Display the content in three columns'
+    'features_columns_uk-column-1-2@s uk-column-1-4@m': 'Display the content in four columns'
+    'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Display the content in five columns'
+    'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Display the content in six columns'
   GalleryBlock:
     BlockType: Bildergalerie
     ContentLabel: Content
+    Format: Format
+    Images: Bilder
     PLURALNAME: Bildergalerien
     PLURALS:
       one: 'A Bildergalerie'
       other: '{count} Bildergalerien'
+    PicturesPerLine: 'Bilder per Linie'
+    PicturesTab: Bilder
     SINGULARNAME: Bildergalerie
+    block_layouts_carousel: Carousel
+    block_layouts_grid: Grid
     php.GalleryBlockPicturesTab: Bilder
+  GridFieldDuplicateBlock:
+    Label: 'bestehende Block kopieren'
   GridFieldExtensions:
     Duplicate: Duplizieren
   LargeImageBlock:
+    Effect: Effekt
+    EffectOptions: 'Effekt Optionen'
+    Format: Format
+    Height: Höhe
     PLURALNAME: banners
     PLURALS:
       one: 'A banner'
       other: '{count} banners'
     SINGULARNAME: banner
+    block_heights_uk-height-large: gross
+    block_heights_uk-height-medium: medium
+    block_heights_uk-height-small: klein
+    block_heights_viewport: 'ganz Bildschirm'
+    block_layouts_uk-position-bottom-center: 'Positions the element at the bottom center.'
+    block_layouts_uk-position-bottom-left: 'Positions the element at the bottom left.'
+    block_layouts_uk-position-bottom-right: 'Positions the element at the bottom right.'
+    block_layouts_uk-position-center: 'Positions the element vertically centered in the middle.'
+    block_layouts_uk-position-center-left: 'Positions the element vertically centered on the left.'
+    block_layouts_uk-position-center-right: 'Positions the element vertically centered on the right.'
+    block_layouts_uk-position-top-center: 'Positions the element at the top center.'
+    block_layouts_uk-position-top-left: 'Positions the element at the top left.'
+    block_layouts_uk-position-top-right: 'Positions the element at the top right.'
+    effects_fixed: fixed
+    effects_none: kein
+    effects_parallax: parallax
   LeadBlock:
     BlockType: Lead
     ContentLabel: Content
@@ -73,33 +180,45 @@ de:
       other: '{count} lead blocks'
     SINGULARNAME: 'lead block'
   MapBlock:
+    Adresse: Adresse
     BlockType: Map
     ContentLabel: Content
+    Height: Height
+    LinkToStyle: 'Styles generieren'
     PLURALNAME: 'Google Map blocks'
     PLURALS:
       one: 'A Google Map block'
       other: '{count} Google Map blocks'
     SINGULARNAME: 'Google Map block'
-    php.MapBlockLinkToStyle: 'Styles generieren'
-    php.MapBlockdisableControls: 'Kontrol deaktivieren'
-    php.MapBlockfullscreenControls: 'Fullscreen Kontrol'
-    php.MapBlockmapControlOptions: 'Map Kontrol Optionen'
-    php.MapBlockmapControls: 'Map Kontrol'
-    php.MapBlockscaleControls: 'Scale Kontrol'
-    php.MapBlockstreetViewControlOptions: 'StreetView Kontrol Optionen'
-    php.MapBlockstreetViewControls: 'StreetView Kontrol'
-    php.MapBlockzoomControlOptions: 'Zoom Kontrol Optionen'
-    php.MapBlockzoomControls: 'Zoom Kontrol'
+    Styles: 'Google Map Styles'
+    disableControls: 'Kontrol deaktivieren'
+    fullscreenControls: 'Fullscreen Kontrol'
+    mapControlOptions: 'Map Kontrol Optionen'
+    mapControls: 'Map Kontrol'
+    scaleControls: 'Scale Kontrol'
+    streetViewControlOptions: 'StreetView Kontrol Optionen'
+    streetViewControls: 'StreetView Kontrol'
+    zoomControlOptions: 'Zoom Kontrol Optionen'
+    zoomControls: 'Zoom Kontrol'
   PAGEBLOCKS:
     BLOCKSTITLE: Inhaltblöcke
   ParentBlock:
     BUTTONFIRST: 'Erst block im mobile'
     BlockType: 'Parent Block'
+    BlocksPerLine: 'Blöcke per Linie'
+    BlocksPerLineHelpText: 'Blöcke per Linie auswählen'
+    Border: 'Border zwischen Blöcke ?'
     PLURALNAME: 'Parent Blocks'
     PLURALS:
       one: 'A Parent Block'
       other: '{count} Parent Blocks'
     SINGULARNAME: 'Parent Block'
+    SameHeight: 'gleich Höhe für alle Blöcke ?'
+    block_layouts_default: default
+    blocks_per_line_uk-child-width-1-1@s: '1'
+    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-2@m': '2'
+    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-3@m': '3'
+    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-4@m': '4'
   ShareBlock:
     BlockType: 'Share Block'
     ContentLabel: Content
@@ -119,26 +238,61 @@ de:
       other: '{count} Sitemap blocks'
     SINGULARNAME: 'Sitemap block'
   Slide:
+    Effect: Effekt
+    EffectOptions: 'Effekt Optionen'
+    Image: Bild
+    NoBild: (keine)
     PLURALNAME: Slides
     PLURALS:
       one: 'A Slide'
       other: '{count} Slides'
     SINGULARNAME: Slide
+    TitleLabel: Titel
+    effects_kenburns: 'ken burns'
+    effects_none: kein
+    effects_parallax: parallax
   SliderBlock:
+    Animation: Animation
+    Autoplay: Autoplay
     BlockType: Slideshow
+    Controls: Kontrols
+    CopySlides: 'Slides kopieren nach'
+    CopySlidesHelpText: 'Bitte Slidershow auswählen'
+    Format: Format
+    Heights: Höhe
+    MaxHeight: 'max. Höhe'
+    MinHeight: 'min. Höhe'
     PLURALNAME: Slideshow
     PLURALS:
       one: 'A Slideshow'
       other: '{count} Slideshow'
     SINGULARNAME: Slideshow
+    Slides: Slides
+    animations_fade: fade
+    animations_pull: pull
+    animations_push: push
+    animations_scale: scale
+    animations_slide: slide
+    block_heights_large: gross
+    block_heights_medium: medium
+    block_heights_small: klein
+    block_heights_viewport: 'ganz Bildschirm'
+    block_layouts_slideshow: Slideshow
+    controls_controls: arrows
+    controls_dots: dots
+    controls_none: kein
   TextBlock:
     BlockType: 'Text - Bild'
-    ContentLabel: Content
-    PLURALNAME: 'Content blocks'
+    ContentLabel: Inhalt
+    PLURALNAME: 'Inhaltblöcke'
     PLURALS:
-      one: 'A Content block'
-      other: '{count} Content blocks'
-    SINGULARNAME: 'Content block'
+      one: 'ein Inhaltblock'
+      other: '{count} Inhaltblöcke'
+    SINGULARNAME: 'Inhaltblock'
+    block_layouts_above: Unten
+    block_layouts_hover: Oben
+    block_layouts_left: Links
+    block_layouts_right: Rechts
   UserFormExtension:
     WITHCAPTCHA: 'mit Google recaptcha Prüfung?'
     php.UserFormExtensionRedirectPage: 'erfolgreiche Einreichungsseite'
@@ -149,3 +303,61 @@ de:
       one: 'A Videogalerie'
       other: '{count} Videogalerien'
     SINGULARNAME: Videogalerie
+    VideoPerLine: 'Videos per Linie'
+    VideosURL: 'Videos (1 URL pro Zeile) '
+    block_layouts_carousel: Carousel
+    block_layouts_grid: Grid
+    videos_per_line_uk-child-width-1-1: '1'
+    videos_per_line_uk-child-width-1-2@s: '2'
+    videos_per_line_uk-child-width-1-3@s: '3'
+
+    ##NATIVE NOT TRANSLATED
+  DNADesign\Elemental\Forms\HistoricalVersionedGridFieldItemRequest:
+    BUTTONREVERTDESC: 'diesen Datensatz auf der Entwurfs-Website veröffentlichen'
+    InvalidVersion: 'ungültige Version'
+    Position: Position
+    REVERT: 'Zurück zu dieser Version'
+  DNADesign\Elemental\Models\BaseElement:
+    Author: Autor
+    BlockType: Block
+    CUSTOM_STYLES: 'Wählen Sie ein Stil'
+    ExtraCssClassesLabel: 'Custom CSS classes'
+    ExtraCssClassesPlaceholder: 'meine_andere_class'
+    MainTabLabel: Inhalt
+    Modified: geändert
+    PLURALNAME: Blöcke
+    PLURALS:
+      one: 'ein Block'
+      other: '{count} Blöcke'
+    Published: Veröffentlicht
+    Record: Datensatz
+    SINGULARNAME: Block
+    STYLE: 'Stil Variation'
+    ShowTitleLabel: Angezeigt
+    TitleLabel: 'Titel (wird angezeigt, wenn markiert)'
+  DNADesign\Elemental\Models\ElementContent:
+    BlockType: Inhalt
+    ContentLabel: Inhalt
+    PLURALNAME: 'Inhaltblöcke'
+    PLURALS:
+      one: 'ein Inhaltblock'
+      other: '{count} Inhaltblöcke'
+    SINGULARNAME: 'Inhaltblock'
+  DNADesign\Elemental\Models\ElementalArea:
+    PLURALNAME: 'Elemental Areas'
+    PLURALS:
+      one: 'An Elemental Area'
+      other: '{count} Elemental Areas'
+    SINGULARNAME: 'Elemental Area'
+  DNADesign\Elemental\Reports\ElementTypeReport:
+    Title: 'Content block types'
+    Total: Total
+    Type: 'Content Type'
+  DNADesign\Elemental\Reports\ElementsInUseReport:
+    None: None
+    Page: Page
+    ReportTitle: 'Content blocks in use'
+    Summary: Summary
+    Title: Title
+    Type: Type
+

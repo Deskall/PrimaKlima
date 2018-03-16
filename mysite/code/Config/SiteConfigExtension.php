@@ -60,6 +60,8 @@ class SiteConfigExtension extends DataExtension
     ];
 
   public function updateCMSFields(FieldList $fields) {
+     
+
     //ADDRESS
     $fields->addFieldsToTab('Root.Main',[
       HeaderField::create('AddressHeading',_t(__CLASS__.'.Address','Adresse'),3),
@@ -90,6 +92,10 @@ class SiteConfigExtension extends DataExtension
     $fields->addFieldToTab("Root.Footer", DropdownField::create('FooterBackground',_t(__CLASS__.'.Background','Hintergrundfarbe'),self::$backgrounds)->setEmptyString(_t(__CLASS__.'.BackgroundHelp','Wählen Sie aus eine Hintergrundfarbe')));
     $fields->addFieldToTab("Root.Footer", $FooterLinksField);
     $fields->addFieldToTab("Root.Default", UploadField::create('DefaultSlide','Slide'));
+    
+    $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.MainTab','Hauptteil'));
+    $fields->FieldByName('Root.Access')->setTitle(_t(__CLASS__.'.AccessTab','Zugang'));
+    $fields->FieldByName('Root.Default')->setTitle(_t(__CLASS__.'.DefaultTab','Standard'));
   }
 
   public function activeFooterBlocks(){

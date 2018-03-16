@@ -101,13 +101,13 @@ class FeaturesBlock extends BaseElement
                 if (singleton('Features')->hasExtension('Activable')){
                      $config->addComponent(new GridFieldShowHideAction());
                 }
-                $featuresField = new GridField('Features','Features',$this->Features(),$config);
-                $fields->insertAfter(new Tab('Features','Features'),'Main');
+                $featuresField = new GridField('Features',_t(__CLASS__.'.Features','Features'),$this->Features(),$config);
+                $fields->insertAfter(new Tab('Features',_t(__CLASS__.'.Features','Features')),'Main');
                 $title = $fields
                 ->fieldByName('Root.Main.FeaturesTitle');
                 $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'List Titel'));
                 $fields->addFieldToTab('Root.Features',$title);
-                $fields->addFieldToTab('Root.Features',DropdownField::create('FeaturesColumns','Features in mehreren Spalten',static::$features_columns));
+                $fields->addFieldToTab('Root.Features',DropdownField::create('FeaturesColumns',_t(__CLASS__.'.FeaturesInColumns','Features in mehreren Spalten'),$this->getTranslatedSourceFor(__CLASS__,'features_columns')));
                 $fields->addFieldToTab('Root.Features',$fields->fieldByName('Root.Main.IconItem'));
                 $fields->addFieldToTab('Root.Features',$featuresField);
 
@@ -133,5 +133,14 @@ class FeaturesBlock extends BaseElement
         }
         return $this->Features();
     }
+/************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('features_columns') as $key => $value) {
+          $entities[__CLASS__.".features_columns_{$key}"] = $value;
+        }       
+        return $entities;
+    }
 
+/************* END TRANLSATIONS *******************/
 }
