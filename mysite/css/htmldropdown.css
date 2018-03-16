@@ -1,5 +1,6 @@
-.htmldropdown{
+.cms-edit-form:not(.AssetAdmin) .ss-gridfield-add-new-multi-class .form-group.htmldropdown{
     width:calc(100% - 120px);
+    max-width:850px;
 }
 .htmldropdown select{
     display: none;
@@ -20,7 +21,7 @@
 .html-dropdown-option{
 	display: inline-flex;
 	padding:10px;
-    width:32%;
+    width:33%;
 }
 .html-dropdown-option:hover{
 	background-color: #3875d7;

@@ -89,6 +89,8 @@ de:
 
 
 ##NATIVE NOT TRANSLATED
+
+##SILVERSTRIPE ADMIN
   SilverStripe\Admin\CMSProfileController:
     CANTEDIT: 'Kein Erlaubnis'
     MENUTITLE: 'Mein Profil'
@@ -186,3 +188,105 @@ de:
     MemberListCaution: 'Vorsicht: Wenn Sie Mitglieder aus dieser Liste entfernen, werden sie aus allen Gruppen und der Datenbank entfernt'
     TABROLES: Rollen
     Users: Benutzern
+
+## ASSETS ADMIN
+  AssetFormFactory:
+    php.SilverStripe\AssetAdmin\Forms\AssetFormFactorySAVE: Speichern
+    php.SilverStripe\AssetAdmin\Forms\AssetFormFactorySAVED: Gespeichert
+  FileFormFactory:
+    php.SilverStripe\AssetAdmin\Forms\FileFormFactoryPUBLISH: Veröffentlichen
+    php.SilverStripe\AssetAdmin\Forms\FileFormFactoryPUBLISHED: Veröffentlicht
+  MoveFormFactory:
+    php.SilverStripe\AssetAdmin\Forms\MoveFormFactoryCHOOSEFOLDER: 'Ordner auswählen'
+    php.SilverStripe\AssetAdmin\Forms\MoveFormFactoryMOVE: Bewegen
+  SilverStripe\AssetAdmin\BatchAction\DeleteAssets:
+    TITLE: 'Ordner löschen'
+  SilverStripe\AssetAdmin\Controller\AssetAdmin:
+    ADDTOCAMPAIGN: 'zur Kampagnen hinzufügen'
+    Alignment: Ausrichtung
+    AlignmentCenter: Mittel
+    AlignmentLeft: 'Links'
+    AlignmentLeftAlone: Links
+    AlignmentRight: 'Rechts'
+    AlignmentRightAlone: Rechts
+    AltText: 'Alternativtext (alt)'
+    AltTextDescription: 'Bildschirmleser angezeigt oder wenn Bild nicht angezeigt werden kann'
+    AppCategoryArchive: Archiv
+    AppCategoryAudio: Audio
+    AppCategoryDocument: Dokument
+    AppCategoryImage: Bild
+    AppCategoryVideo: Video
+    AttributesDescription: "Diese Änderungen wirken sich nur auf diese bestimmte Platzierung der Datei aus."
+    CREATED: "Erst hochgeladen"
+    Caption: Caption
+    CreatePermissionDenied: "Sie sind nicht berechtigt, Dateien hinzuzufügen"
+    CurrentFolderOnly: 'Auf den aktuellen Ordner und seine Unterordner beschränken?'
+    DELETE_BUTTON: Löschen
+    EditLink: 'Originaldatei bearbeiten'
+    ErrorItemPermissionDenied: "Sie verfügen nicht über die erforderlichen Berechtigungen zum Ändern von {ObjectTitle}"
+    ErrorNotFound: 'Diese {Type} konnte nicht gefunden werden'
+    FILE_NOT_FOUND: 'Datei nicht gefunden'
+    Filetype: 'Dateityp'
+    FILES: 'Dateien'
+    INVALID_REQUEST: 'Ungültige Anfrage'
+    ImageHeight: Höhe
+    ImageSpecs: Maße
+    ImageWidth: Breite
+    LASTEDIT: 'Zuletzt geändert'
+    LoadIntoFileFailed: 'Datei konnte nicht geladen werden'
+    MENUTITLE: Dateien
+    NOSUMMARY: 'Keine Zusammenfassung verfügbar'
+    NewFile: 'Neu {file}'
+    PATH: Pfad
+    PUBLISHED: Veröffentlicht
+    PUBLISH_BUTTON: Veröffentlichen
+    Placement: Platzierung
+    SAVEDFILE: 'Gespeicherte Datei'
+    TitleTooltip: 'Titeltext (Tooltip)'
+    TitleTooltipDescription: 'Für zusätzliche Informationen über das Bild'
+    UNKNOWN: Unbekannt
+    UNPUBLISH_BUTTON: Veröffentlichung rückgängig machen
+    UPLOADEDFILE: 'Hochgeladene Datei'
+  SilverStripe\AssetAdmin\Controller\AssetAdminFile:
+    MOVEDFOLDER: 'Datei verschoben'
+    RENAMEDFILE: 'Datei ersetzt'
+    RENAMEDTITLE: 'Aktualisierter Titel auf'
+  SilverStripe\AssetAdmin\Forms\AssetFormFactory:
+    ACCESSHEADER: "Wer kann diese Datei anzeigen?"
+    ANYONE: Jemand
+    EDITHEADER: "Wer kann diese Datei bearbeiten?"
+    EDITORGROUPS: 'Redakteursgruppen'
+    FILENAME: Dateiname
+    FOLDERLOCATION: Ort
+    INHERIT: 'Vom übergeordneten Ordner übernehmen'
+    LOGGED_IN: 'Angemeldete Benutzer'
+    ONLY_GROUPS: 'Nur diese Gruppen (wählen Sie aus der Liste)'
+    ROOTNAME: '(Höchststufe)'
+    SAVE: Speichern
+    VIEWERGROUPS: "Betrachtergruppen"
+  SilverStripe\AssetAdmin\Forms\FileFormFactory:
+    INSERT_FILE: 'Datei einfügen'
+    INSERT_LINK: 'Link zur Datei'
+    LINKDESCR: 'Link Beschreibung'
+    LINKOPENNEWWIN: 'In neuem Fenster / Tab öffnen'
+    LINKOPTIONS: 'Link Optionen'
+    LINKTEXT: 'Link Text'
+    OTHER_ACTIONS: 'Andere Aktionen'
+    UNEMEDABLE_MESSAGE: '<p class = "alert alarm-info Warnung - No-border editor__top-message"> Dieser Dateityp kann nur als Link eingefügt werden. Sie können den Link nach dem Einfügen bearbeiten. </ p> '
+  SilverStripe\AssetAdmin\Forms\FileHistoryFormFactory:
+    PUBLISHED: Veröffentlicht
+    SAVED: Gespeichert
+  SilverStripe\AssetAdmin\Forms\FolderCreateFormFactory:
+    CREATE: Erstellen
+  SilverStripe\AssetAdmin\Forms\FolderFormFactory:
+    FOLDERNAME: 'Ordner Name'
+  SilverStripe\AssetAdmin\Forms\RemoteFileFormFactory:
+    AddMedia: 'Media hinzufügen'
+    Cancel: Abbrechen
+    ERROR_ABSOLUTE: 'Nur absolute URLs können eingebettet werden'
+    ERROR_HOSTNAME: 'Dieser Datei-Hostname ist nicht in der Whitelist enthalten'
+    ERROR_SCHEME: 'Dieses Dateischema ist nicht in der Whitelist enthalten'
+    InsertMedia: 'Media einfügen'
+    UrlDescription: 'Integriere Youtube und Vimeo Videos, Bilder und andere Medien direkt aus dem Internet.'
+  SilverStripe\AssetAdmin\GraphQL\FileFilterInputTypeCreator:
+    FileNotFound: 'Datei oder Ordner konnte nicht gefunden werden'

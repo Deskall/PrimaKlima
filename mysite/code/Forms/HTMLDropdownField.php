@@ -14,7 +14,7 @@ class HTMLDropdownField extends DropdownField{
 
 	public function __construct($name, $title = null, $value = null)
     {
-    	Requirements::javascript("mysite/js/htmldropdown.js");
+    	Requirements::javascript("mysite/javascript/htmldropdown.js");
         Requirements::css("mysite/css/htmldropdown.css");
 
         parent::__construct($name, $title, $value);

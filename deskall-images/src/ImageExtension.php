@@ -13,7 +13,7 @@ class ImageExtension extends Extension
      * @var array
      * @config
      */
-    private static $default_arguments = [800, 600];
+    private static $default_arguments = [600];
 
     /**
      * @var string
@@ -155,8 +155,10 @@ class ImageExtension extends Extension
         }
 
         //fallbakc for title and alt tags
+      
         $fallback = (empty($defaultArgs)) ? null : end($defaultArgs);
         $uikit = (isset($config['uikit'])) ? $config['uikit'] : null;
+
 
         return $this->owner->customise([
             'Sizes' => $sizes,

@@ -5,6 +5,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\GroupedDropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\LabelField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig;
@@ -105,12 +106,18 @@ class SliderBlock extends BaseElement
             $fields->removeByName('TitleAndDisplayed');
             $fields->removeByName('RelatedPageID');
             $fields->removeByName('Slides');
-            
             $fields->removeByName('CallToActionLink');
-            $referent = new GroupedDropdownField("ReferentID", _t(__CLASS__.'.CopySlides',"Slides kopieren nach"), $source = $this->getReferentSource());
-            $referent->setEmptyString(_t(__CLASS__.'.CopySlidesHelpText','Bitte Slidershow auswählen'));
-            $fields->addFieldToTab('Root.Main',$referent);
+            $fields->removeByName('ReferentID');
+            if ($this->ID == 0){
+                $fields->addFieldToTab('Root.Main',LabelField::create('LabelField','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider'));
 
+            }
+            if ($this->Slides()->count() == 0){
+                $referent = new GroupedDropdownField("ReferentID", _t(__CLASS__.'.CopySlides',"Slides kopieren nach"), $source = $this->getReferentSource());
+                $referent->setEmptyString(_t(__CLASS__.'.CopySlidesHelpText','Bitte Slidershow auswählen'));
+                $fields->addFieldToTab('Root.Main',$referent);
+            }
+            
 
             if ($this->ID > 0 && $this->ReferentID == 0){
                 $config = GridFieldConfig_RecordEditor::create();
@@ -193,6 +200,9 @@ class SliderBlock extends BaseElement
             }
         }
     }
+
+
+
 
     /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){

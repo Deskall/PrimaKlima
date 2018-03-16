@@ -21,7 +21,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'Layout' => 'Varchar(255)',
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
-        'TextColumnsDivider' => 'Boolean(0)'
+        'TextColumnsDivider' => 'Boolean(0)',
+        'LinkPosition' => 'Varchar(255)'
     ];
 
     private static $has_one = [
@@ -71,10 +72,16 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     ];
 
     private static $block_text_alignments = [
-        'uk-text-justify uk-text-left@s' =>  'Aligns text to the left.',
-        'uk-text-justify uk-text-righ@st' =>  'Aligns text to the right',
-        'uk-text-justify uk-text-center@s' => 'Centers text horizontally',
+        'uk-text-left' =>  'Aligns text to the left.',
+        'uk-text-right' =>  'Aligns text to the right',
+        'uk-text-center' => 'Centers text horizontally',
         'uk-text-justify' => 'Justifies text'
+    ];
+
+    private static $block_link_alignments = [
+        'left' =>  'Links',
+        'center' =>  'Mittel',
+        'right' => 'Rechts'
     ];
 
     private static $block_text_columns = [
@@ -89,10 +96,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
 
     public function updateCMSFields(FieldList $fields){
-        $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
-        $fields->FieldByName('Root.Settings')->setTitle(_t(__CLASS__.'.SettingsTab','Einstellungen'));
-        $fields->FieldByName('Root.History')->setTitle(_t(__CLASS__.'.HistoryTab','Geschichte'));
-    	
+       
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
@@ -108,9 +112,15 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     	$fields->addFieldToTab('Root.Layout',DropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_backgrounds'))->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.')));
         $fields->addFieldToTab('Root.Layout',UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()));
         $fields->addFieldToTab('Root.Layout',DropdownField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_text_alignments')));
+        $fields->addFieldToTab('Root.Layout',DropdownField::create('LinkPosition',_t(__CLASS__.'.LinkAlignment','Linkausrichtung'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_link_alignments')));
         $fields->addFieldToTab('Root.Layout',DropdownField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_text_columns')));
         $fields->addFieldToTab('Root.Layout',$columnDivider = CheckboxField::create('TextColumnsDivider',_t(__CLASS__.'.ShowColumnsBorder','Border zwischen Spalten anzeigen')));
         
+        $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
+        $fields->FieldByName('Root.Settings')->setTitle(_t(__CLASS__.'.SettingsTab','Einstellungen'));
+        if ($this->owner->ID > 0){
+            $fields->FieldByName('Root.History')->setTitle(_t(__CLASS__.'.HistoryTab','Geschichte'));
+        }
        // $fields->addFieldToTab('Root.Link', LinkField::create('ExampleLinkID', 'Link to page or file'));
     }
 

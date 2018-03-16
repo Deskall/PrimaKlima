@@ -86,6 +86,20 @@ class LargeImageBlock extends BannerBlock{
         return DBField::create_field('HTMLText', $this->Content)->Summary(20);
     }
 
+
+    public function ImageHeight(){
+        switch($this->Height){
+            case "uk-height-small":
+            return 150;
+            break;
+            case "uk-height-medium":
+            return 350;
+            break;
+            case "uk-height-large":
+            return 450;
+            break;
+        }
+    }
     
 
 /************* TRANLSATIONS *******************/

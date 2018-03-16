@@ -4,7 +4,7 @@
         <% loop ActiveSlides %>
         <li>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
-                $Image.Slides(2500,$Title)
+                $Image.Banners(2500,450,$Title)
             <% if Effect == "kenburns" %></div><% end_if %>
             <div class="dk-slide-text-container uk-position-relative">
                 <div class="uk-position-center">
