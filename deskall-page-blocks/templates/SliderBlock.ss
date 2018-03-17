@@ -1,6 +1,6 @@
 
-<div data-uk-slideshow="<% if Height != "viewport" %><% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %><% end_if %> <% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};" class="dk-slider uk-visible-toggle">
-    <ul class="uk-slideshow-items uk-position-relative" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
+<div data-uk-slideshow="<% if Height != "viewport" %><% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %><% end_if %> <% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};" class="dk-slider uk-visible-toggle uk-position-relative">
+    <ul class="uk-slideshow-items" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
         <% loop ActiveSlides %>
         <li>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
@@ -23,17 +23,16 @@
                
             </div>
         </li>
-        <% end_loop %> 
-        <% if Nav == "dots" %>
-        <div class="uk-position-bottom-center uk-position-small">
-            <ul class="uk-slideshow-nav uk-dotnav"></ul>
-        </div>
-        <% else_if Nav == "controls" %>
-            <a class="uk-slidenav-large uk-position-center-left uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
-            <a class="uk-slidenav-large uk-position-center-right uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
-        <% end_if %>
+        <% end_loop %>
     </ul>
-   
+    <% if Nav == "dots" %>
+    <div class="uk-position-bottom-center uk-position-small">
+        <ul class="uk-slideshow-nav uk-dotnav"></ul>
+    </div>
+    <% else_if Nav == "controls" %>
+        <a class="uk-slidenav-large uk-position-center-left uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
+        <a class="uk-slidenav-large uk-position-center-right uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
+    <% end_if %>
 
 
     
