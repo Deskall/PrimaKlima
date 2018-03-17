@@ -47,7 +47,7 @@ class UserDefinedFormExtension extends DataExtension
 
     public function updateFormActions($actions){
     	foreach ($actions as $action){
-    		$action->addExtraClass('uk-button uk-button-primary');
+    		$action->addExtraClass('uk-button uk-button-primary dk-text-white');
             $action->addExtraClass('dk-button-icon')->setUseButtonTag(true)
             ->setAttribute('data-uk-icon','chevron-right');
     	}
