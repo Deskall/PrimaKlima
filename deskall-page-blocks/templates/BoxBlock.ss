@@ -4,7 +4,7 @@
 		</div>
 		<div data-uk-height-match="target:h3;row:false;" class="uk-margin">
 			<div data-uk-height-match="target:.dk-box-content p;row:false;">
-				<div class="$BoxPerLine $BoxTextAlign uk-grid-small" data-uk-grid data-uk-lightbox="toggle:.dk-lightbox" data-uk-height-match="target:img;row:false;">
+				<div class="$BoxPerLine $BoxTextAlign uk-grid-medium" data-uk-grid data-uk-lightbox="toggle:.dk-lightbox" data-uk-height-match="target:img;row:false;">
 					<% loop ActiveBoxes %>
 					<div class="uk-transition-toggle uk-height-1-1" tabindex="0">
 						<% if Top.Layout == "inversed" %>

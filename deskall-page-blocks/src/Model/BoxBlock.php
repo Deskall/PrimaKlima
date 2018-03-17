@@ -163,7 +163,7 @@ class BoxBlock extends BaseElement
         parent::onBeforeWrite();
         $widthF = 2500;
         $widthN = 1200;
-        $padding = 15;
+        $padding = 30; //must be the same as less global-gutter variable
         $ratio = 1.4; 
         $width = ($this->FullWidth) ? $widthF / static::$boxes_per_line[$this->BoxPerLine] : $widthN /  static::$boxes_per_line[$this->BoxPerLine];
         $height = $width / $ratio;
