@@ -1,7 +1,7 @@
 <% if Element.isVisible %>
 
 <div class="element <% if $Element.isChildren %>children <% if $Element.isFirstMobile %>uk-flex-first@s<% end_if %> <% if $Element.isFirst %>uk-flex-first@m<% end_if %><% end_if %> $SimpleClassName.LowerCase<% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="$Anchor">
-	<section class="uk-section $Element.Background <% if $Element.BackgroundImage %> uk-cover-container dk-overlay uk-section-large"<% end_if %>">
+	<section class="uk-section $Element.Background <% if $Element.BackgroundImage %> uk-cover-container dk-overlay uk-section-large<% else %>uk-sektion-small<% end_if %>">
 		<% if $Element.BackgroundImage %>
 			<% if $Element.BackgroundImage.getExtension == "svg" %><img src="$Element.BackgroundImage.URL" alt="$Element.BackgroundImage.AltTag($Title)" title="$Element.BackgroundImage.TitleTag($Title)" width="$Element.BackgroundImage.Width" height="$Element.BackgroundImage.Height" data-uk-cover /><% else %>$Element.BackgroundImage.Slides(2500,$Element.Title)<% end_if %>
 		<% end_if %>
