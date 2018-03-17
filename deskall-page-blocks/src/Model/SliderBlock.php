@@ -109,7 +109,7 @@ class SliderBlock extends BaseElement
             $fields->removeByName('CallToActionLink');
             $fields->removeByName('ReferentID');
             if ($this->ID == 0){
-                $fields->addFieldToTab('Root.Main',LabelField::create('LabelField','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider'));
+                $fields->addFieldToTab('Root.Main',LabelField::create('LabelField',_t(__CLASS__.'.SlideCopyHelpText','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider')));
 
             }
             if ($this->Slides()->count() == 0){
