@@ -5,7 +5,9 @@ fr:
     BackgroundColor: "Couleur d'arrière-plan"
     BackgroundColorHelpText: "sera superposée en calque opaque si le bloc a une image d'arrière-plan"
     BackgroundImage: "Image d'arrière-plan"
+    ContentTab: 'Contenu'
     FullWidth: "étendre le bloc à la largeur de la page"
+    HistoryTab: 'Historique'
     LAYOUTTAB: Affichage
     ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
     TextAlignment: "Alignement du texte"
@@ -26,6 +28,7 @@ fr:
     'block_text_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
     'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
     'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
+    SettingsTab: 'Paramètres'
   Box:
     Effect: Effet
     EffectOptions: "Options pour l'effet Optionen"
