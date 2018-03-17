@@ -89,7 +89,7 @@ class SiteConfigExtension extends DataExtension
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
-    $fields->addFieldToTab("Root.Footer", DropdownField::create('FooterBackground',_t(__CLASS__.'.Background','Hintergrundfarbe'),$this->getTranslatedSourceFor(__CLASS__,'backgrounds'))->setEmptyString(_t(__CLASS__.'.BackgroundHelp','Wählen Sie aus eine Hintergrundfarbe')));
+    $fields->addFieldToTab("Root.Footer", DropdownField::create('FooterBackground',_t(__CLASS__.'.Background','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'backgrounds'))->setEmptyString(_t(__CLASS__.'.BackgroundHelp','Wählen Sie aus eine Hintergrundfarbe')));
     $fields->addFieldToTab("Root.Footer", $FooterLinksField);
     $fields->addFieldToTab("Root.Default", UploadField::create('DefaultSlide','Slide'));
     
