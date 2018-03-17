@@ -84,8 +84,7 @@ class FeaturesBlock extends BaseElement
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
             $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
-            
-            $fields->removeByName('Features');
+          
       
             if ($this->ID > 0){
 
@@ -111,8 +110,13 @@ class FeaturesBlock extends BaseElement
                 $fields->addFieldToTab('Root.Features',$fields->fieldByName('Root.Main.IconItem'));
                 $fields->addFieldToTab('Root.Features',$featuresField);
 
-
             } 
+            else {
+                $fields->removeByName('Features');
+                $fields->removeByName('IconItem');
+                $fields->removeByName('FeaturesTitle');
+                $fields->removeByName('FeaturesColumns');
+            }
         });
         return parent::getCMSFields();
     }

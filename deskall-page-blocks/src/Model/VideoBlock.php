@@ -102,12 +102,15 @@ class VideoBlock extends BaseElement
 
 	function GetVideos(){
 		$videos = '';
-		foreach (explode("\n",$this->VideoList) as $url){
-			$videoObject = $this->Media(trim($url));
-		    if( $videoObject ){
-			    $videos .= '<li class="uk-height-1-1">'.$videoObject->code.'</li>';
+		if ($this->VideoList != ""){
+			foreach (explode("\n",$this->VideoList) as $url){
+				$videoObject = $this->Media(trim($url));
+			    if( $videoObject ){
+				    $videos .= '<li class="uk-height-1-1">'.$videoObject->code.'</li>';
+				}
 			}
 		}
+		
 		$html = DBHTMLText::create();
 		$html->setValue($videos);
 		return $html;

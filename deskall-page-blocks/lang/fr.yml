@@ -2,6 +2,9 @@ fr:
   BOXBLOCK:
     BOXTAB: Boîtes
   BaseBlockExtension:
+    block_link_alignments_left: 'gauche'
+    block_link_alignments_center: 'centré'
+    block_link_alignments_right: 'droit'
     BackgroundColor: "Couleur d'arrière-plan"
     BackgroundColorHelpText: "sera superposée en calque opaque si le bloc a une image d'arrière-plan"
     BackgroundImage: "Image d'arrière-plan"
@@ -9,6 +12,7 @@ fr:
     FullWidth: "étendre le bloc à la largeur de la page"
     HistoryTab: 'Historique'
     LAYOUTTAB: Affichage
+    LinkAlignment: "Alignement du lien"
     ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
     TextAlignment: "Alignement du texte"
     TextColumns: "Afficher le texte en plusieurs colonnes"
@@ -19,9 +23,9 @@ fr:
     'block_backgrounds_uk-section-primary dk-text-hover-primary': 'Couleur principale'
     'block_backgrounds_uk-section-secondary dk-text-hover-secondary': 'Couleur secondaire'
     block_text_alignments_uk-text-justify: 'Justifier le texte'
-    'block_text_alignments_uk-text-justify uk-text-center@s': 'Centrer le texte horizontalement'
-    'block_text_alignments_uk-text-justify uk-text-left@s': 'Aligner le texte à gauche'
-    'block_text_alignments_uk-text-justify uk-text-righ@st': 'Aligner le texte à droite'
+    'block_text_alignments_uk-text-center': 'Centrer le texte horizontalement'
+    'block_text_alignments_uuk-text-left': 'Aligner le texte à gauche'
+    'block_text_alignments_uk-text-right': 'Aligner le texte à droite'
     'block_text_columns_ ': 'Pas de colonnes'
     block_text_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
     'block_text_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
