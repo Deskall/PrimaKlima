@@ -7,12 +7,16 @@ use SilverStripe\Dev\BuildTask;
 use SilverStripe\ORM\Connect\TempDatabase;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
+use SilverStripe\Security\Member;
+use SilverStripe\Security\Group;
 
 use SilverStripe\CMS\Controllers\RootURLController;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\CMS\Model\RedirectorPage;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\ErrorPage\ErrorPage;
+
+
 
 /**
  * 
@@ -23,12 +27,62 @@ class CreateWebsiteTask extends BuildTask
 
     private static $segment = 'CreateWebsiteTask';
 
+    private static $default_members = [
+        '0' => [
+            'FirstName' => 'Guillaume',
+            'Surname' => 'Pacilly',
+            'Email' => 'guillaume.pacilly@deskall.ch',
+            'Password' => 'deskall24$'
+        ],
+        '1' => [
+            'FirstName' => 'Daniel',
+            'Surname' => 'Wirz',
+            'Email' => 'daniel.wirz@deskall.ch',
+            'Password' => 'deskall24$'
+        ],
+        '2' => [
+            'FirstName' => 'Rasmus',
+            'Surname' => 'Frei',
+            'Email' => 'rasmus.frei@deskall.ch',
+            'Password' => 'deskall24$'
+        ],
+        '3' => [
+            'FirstName' => 'Ulla',
+            'Surname' => 'Frei',
+            'Email' => 'ulla.frei@deskall.ch',
+            'Password' => 'deskall24$'
+        ],
+    ];
+
     protected $title = 'Create Website';
 
     protected $description = 'Creates simple sitetree structure with standard blocks';
 
     public function run($request)
     {
+
+        //CREATE THE USERS
+        $adminGroup = Group::get()->filter('Code','administrators')->first();
+        foreach (static::$default_members as $key => $entry) {
+         
+            // Find member
+            $member = Member::get()
+                ->filter('Email', $entry['Email'])
+                ->first();
+
+            if (!$member){
+                $member = new Member();
+                $member->FirstName = $entry['FirstName'];
+                $member->Surname = $entry['Surname'];
+                $member->Email = $entry['Email'];
+                $member->Password = $entry['Password'];
+                $member->write();
+
+                $adminGroup
+                ->DirectMembers()
+                ->add($member);
+            }
+        }
         singleton(ErrorPage::class)->requireDefaultRecords();
         //Create the Pages
         if (!SiteTree::get_by_link(RootURLController::config()->default_homepage_link)) {

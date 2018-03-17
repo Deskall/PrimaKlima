@@ -11,3 +11,5 @@
 
 *.log
 *.cache
+
+/mysite/_config.php
