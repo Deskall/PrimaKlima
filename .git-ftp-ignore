@@ -13,3 +13,5 @@
 *.cache
 
 /mysite/_config.php
+
+constants.less
