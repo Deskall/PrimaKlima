@@ -273,6 +273,7 @@ fr:
       other: '{count} carousel de slides'
     SINGULARNAME: carousel de slides
     Slides: Slides
+    SlideCopyHelpText: "Enregistrez le carousel pour pouvoir ajouter des images, ou copiez les images d'un carousel existant."
     animations_fade: fade
     animations_pull: pull
     animations_push: push
