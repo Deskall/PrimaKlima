@@ -24,7 +24,7 @@ fr:
     'block_backgrounds_uk-section-secondary dk-text-hover-secondary': 'Couleur secondaire'
     block_text_alignments_uk-text-justify: 'Justifier le texte'
     'block_text_alignments_uk-text-center': 'Centrer le texte horizontalement'
-    'block_text_alignments_uuk-text-left': 'Aligner le texte à gauche'
+    'block_text_alignments_uk-text-left': 'Aligner le texte à gauche'
     'block_text_alignments_uk-text-right': 'Aligner le texte à droite'
     'block_text_columns_ ': 'Pas de colonnes'
     block_text_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'

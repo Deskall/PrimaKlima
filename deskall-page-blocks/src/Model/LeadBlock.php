@@ -27,10 +27,6 @@ class LeadBlock extends BaseElement
 
     private static $description = 'Highlight on HTML text';
 
-    private static $defaults = [
-        'TextAlign' => 'uk-text-center'
-    ];
-
     private static $cascade_duplicates = [];
 
     public function populateDefaults(){
