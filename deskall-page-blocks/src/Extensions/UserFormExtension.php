@@ -29,7 +29,7 @@ class UserFormExtension extends DataExtension
    public function updateCMSFields(FieldList $fields){
 
      $fields->addFieldToTab('Root.FormOptions',CheckboxField::create('hasCaptcha', _t(__CLASS__.'.WITHCAPTCHA', 'mit Google recaptcha Prüfung?')));
-     $fields->fieldByName('Root.Main.RedirectPageID')->setTitle(_t(__CLASS__.'RedirectPage', 'erfolgreiche Einreichungsseite'));
+     $fields->fieldByName('Root.Main.RedirectPageID')->setTitle(_t(__CLASS__.'.RedirectPage', 'erfolgreiche Einreichungsseite'));
    
    }
 

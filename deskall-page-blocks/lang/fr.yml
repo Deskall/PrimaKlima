@@ -309,7 +309,7 @@ fr:
     block_layouts_right: "à droite"
   UserFormExtension:
     WITHCAPTCHA: 'protéger par un recaptcha Google ?'
-    php.UserFormExtensionRedirectPage: 'Page de redirection en cas de soumission avec succès'
+    UserFormExtensionRedirectPage: 'Page de redirection en cas de soumission avec succès'
   VideoBlock:
     BlockType: Galerie de vidéos
     Description: "Galerie de vidéos issues d'URL externe (Youtube, vimeo,...)"

@@ -53,6 +53,8 @@ fr:
     icons_user: personne
     icons_users: personnes
     icons_xing: xing
+  Linkable:
+    CTA: "Appel à l'action"
   Global:
     BUTTONACTIVEDESC: Activer
     BUTTONINACTIVEDESC: Désactiver
