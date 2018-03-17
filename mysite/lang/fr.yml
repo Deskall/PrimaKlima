@@ -70,6 +70,12 @@ fr:
     AdresseTitle: "Titre de l'adresse"
     Background: "Couleur d'arrière-plan"
     BackgroundHelp: "Choisissez une couleur d'arrière-plan"
+    'backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
+    'backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
+    backgrounds_uk-section-default: "Pas de couleur d'arrière-plan"
+    'backgrounds_uk-section-muted dk-text-hover-muted': gris
+    'backgrounds_uk-section-primary dk-text-hover-primary': 'Couleur principale'
+    'backgrounds_uk-section-secondary dk-text-hover-secondary': 'Couleur secondaire'
     CodeCity: 'CP / Lieu'
     Country: Pays
     Default: Défaults
