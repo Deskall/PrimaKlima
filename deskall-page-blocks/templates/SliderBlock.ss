@@ -32,8 +32,8 @@
     
      <% else_if Nav == "controls" %>
             <div class="uk-light">
-                <a class="uk-slidenav-large uk-position-center-left uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-                <a class="uk-slidenav-large uk-position-center-right uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+                <a class="uk-slidenav-large uk-position-center-left uk-position-large uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+                <a class="uk-slidenav-large uk-position-center-right uk-position-large uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
             </div>
 
     <% end_if %>
