@@ -21,9 +21,8 @@ class SEOPageExtension extends DataExtension
 {
     private static $db = [
     'MetaTitle' => 'Varchar(255)',
-    'ExtraMeta' => 'HTMLText',
-    'ExtraScript' => 'HTMLText'
-    ];
+    'ExtraMeta' => 'HTMLText'   
+	];
 
     private static $has_one = ['SharableImage' => Image::class];
 
@@ -40,7 +39,7 @@ class SEOPageExtension extends DataExtension
 			return;
 		}
 
-		$fields->addFieldToTab('Root.SEO',UploadField::create("SharableImage",'Vorschau Bild für Shares')->setFolderName($this->owner->generateFolderName()));
+		$fields->addFieldToTab('Root.SEO',UploadField::create("SharableImage",_t('SEO.PREVIEWImage','Vorschau Bild für Share'))->setFolderName($this->owner->generateFolderName()));
 
 		Requirements::css('deskall-seo/css/seo.css');
 		Requirements::javascript('deskall-seo/javascript/seo.js');
@@ -79,15 +78,8 @@ class SEOPageExtension extends DataExtension
 						"HTML tags für weitere MetaInformation. Zum Beispiel &lt;meta name=\"customName\" content=\"Ihr custom Inhalt hier\" /&gt;"
 					)
 				)
-				->addExtraClass('help'),
-			TextareaField::create("ExtraScript","Extra Script für diese Seite")
-				->setDescription(
-					_t(
-						'SiteTree.METAEXTRASCRIPTHELP', 
-						"Füngen Sie spezialle Script-Tags hier ein, zb Facebook oder Google Tracking Scripts."
-					)
-				)
 				->addExtraClass('help')
+			
 			)
 		);
     }

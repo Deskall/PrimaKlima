@@ -91,6 +91,11 @@ class LargeImageBlock extends BannerBlock{
         return DBField::create_field('HTMLText', $this->Content)->Summary(20);
     }
 
+    public function getType()
+    {
+        return _t(__CLASS__ . '.BlockType', 'Banner');
+    }
+
 
     public function ImageHeight(){
         switch($this->Height){

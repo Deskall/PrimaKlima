@@ -172,7 +172,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $html = '<div class="option-html">
         <i class="'.$this->owner->config()->get('icon').'"></i>
         <strong>'.$this->owner->getType().'</strong>
-        <p>'._t(__CLASS__.'.Description',$this->owner->config()->get('description')).'</p>
+        <p>'._t($this->owner->ClassName.'.Description',$this->owner->config()->get('description')).'</p>
       </div>';
         return $html;
     }

@@ -44,8 +44,8 @@ class CodeBlock extends BaseElement
             $fields->removeByName('CallToActionLink');
             $fields->removeByName('Layout');
             $fields->removeByName('TitleAndDisplayed');
-            $fields->FieldByName('Root.Main.Script')->setDescription(_t(__CLASS__.'ScriptLabel','Bitte Kopieren Sie hier die Scripts ohne "<></>" tags'));
-            $fields->addFieldToTab('Root.Main',DropdownField::create('Position',_t(__CLASS__.'ScriptPosition','Script Position'), $this->getTranslatedSourceFor(__CLASS__,'block_positions')));
+            $fields->FieldByName('Root.Main.Script')->setDescription(_t(__CLASS__.'.ScriptLabel','Bitte Kopieren Sie hier die Scripts ohne "<></>" tags'));
+            $fields->addFieldToTab('Root.Main',DropdownField::create('Position',_t(__CLASS__.'.ScriptPosition','Script Position'), $this->getTranslatedSourceFor(__CLASS__,'block_positions')));
 
         });
         return parent::getCMSFields();

@@ -1,4 +1,4 @@
-<div class="html-dropdown chosen-container chosen-container-single chosen-container-single-nosearch">
+<div class="html-dropdown chosen-container chosen-container-single chosen-container-single-nosearch" data-empty-string="$EmptyString">
     <a class="chosen-single" tabindex="0"></a>  
   <div class="chosen-drop"  tabindex="-1">
    <% loop $Options %>

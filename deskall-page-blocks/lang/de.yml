@@ -6,7 +6,6 @@ de:
     BackgroundColorHelpText: 'wird als overlay anzeigen falls es ein Hintergrundbild gibt.'
     BackgroundImage: Hintergrundbild
     FullWidth: 'volle Breite'
-    HELPTEXT: test
     LAYOUTTAB: Layout
     ShowColumnsBorder: 'Border zwischen Spalten anzeigen'
     TextAlignment: Textausrichtung
@@ -49,7 +48,6 @@ de:
     Boxes: Boxen
     Effect: Effekt
     Format: Format
-    ImageType: BildTyp
     PLURALNAME: 'Boxen Blöcke'
     PLURALS:
       one: 'A Boxen Block'
@@ -66,12 +64,6 @@ de:
     effects_double: 'Zweiten Bild anzeigen'
     effects_none: kein
     effects_scale: 'Bild grossieren'
-    image_types_icon: Icon
-    image_types_image: Bild
-    php.BoxBlockBoxPerLine: 'Boxen per Linie'
-    php.BoxBlockBoxTextAlignment: 'Boxen Textausrichtung'
-    php.BoxBlockEffect: Effekt
-    php.BoxBlockImageType: BildTyp
   CodeBlock:
     BlockType: 'Code - Plugin'
     PLURALNAME: 'Code blocks'
@@ -82,8 +74,8 @@ de:
     block_positions_body: 'Vor dem </body> Tag'
     block_positions_head: 'Im <head>'
     block_positions_normal: 'Block Position'
-    php.CodeBlockScriptLabel: 'Bitte Kopieren Sie hier die Scripts ohne "<></>" tags'
-    php.CodeBlockScriptPosition: 'Script Position'
+    CodeBlockScriptLabel: 'Bitte Kopieren Sie hier die Scripts ohne "<></>" tags'
+    CodeBlockScriptPosition: 'Script Position'
   DownloadBlock:
     BlockType: 'Download Area'
     ContentLabel: Content

@@ -10,6 +10,8 @@ class UserFormExtension extends DataExtension
 
     private static $controller_template = 'DefaultHolder';
 
+    private static $description = 'Formular';
+
    
     
    private static $db = [
@@ -30,5 +32,10 @@ class UserFormExtension extends DataExtension
      $fields->fieldByName('Root.Main.RedirectPageID')->setTitle(_t(__CLASS__.'RedirectPage', 'erfolgreiche Einreichungsseite'));
    
    }
+
+  public function getType()
+  {
+    return _t(__CLASS__ . '.BlockType', 'Formular');
+  }
 
 }
