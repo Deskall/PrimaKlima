@@ -15,8 +15,8 @@
 		        <div class="uk-slider-container uk-light">
 		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid" data-uk-lightbox>
 		            	<% loop OrderedImages %>
-		                <li>
-				            <a href="$getSourceURL"><img src="$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$AltTag($Up.Title)" title="$TitleTag($Up.Title)" width="$Up.PictureWidth" height="$Up.PictureHeight"  class="uk-width-1-1"></a>
+		                <li class="uk-flex uk-flex-middle uk-flex-center">
+				            <a href="$getSourceURL"><img src="<% if $getExtension == "svg" %>$URL<% else %>$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$AltTag($Up.Title)" title="$TitleTag($Up.Title)" width="$Up.PictureWidth" height="$Up.PictureHeight"  class="uk-width-1-1"></a>
 				        </li>
 				     	<% end_loop %>
 		            </ul>
@@ -39,8 +39,8 @@
 		<% else %>
 		<div class="uk-flex-center <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid-small" data-uk-grid data-uk-lightbox>
 		    <% loop OrderedImages %>
-		    	<div>
-					<a href="$getSourceURL"><img src="$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$AltTag($Up.Title)" title="$TitleTag($Up.Title)" width="$Up.PictureWidth" height="$Up.PictureHeight"  class="uk-width-1-1"></a>
+		    	<div class="uk-flex uk-flex-middle uk-flex-center">
+					 <a href="$getSourceURL"><img src="<% if $getExtension == "svg" %>$URL<% else %>$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$AltTag($Up.Title)" title="$TitleTag($Up.Title)" width="$Up.PictureWidth" height="$Up.PictureHeight"  class="uk-width-1-1"></a>
 				</div>
 			<% end_loop %>
 		</div>

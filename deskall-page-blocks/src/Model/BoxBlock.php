@@ -30,7 +30,6 @@ class BoxBlock extends BaseElement
     private static $db = [
         'HTML' => 'HTMLText',
         'BoxPerLine' => 'Varchar(255)',
-        'ImageType' => 'Varchar(255)',
         'Effect' => 'Varchar(255)',
         'BoxTextAlign' => 'Varchar(255)',
         'PictureWidth' => 'Int',
@@ -62,12 +61,6 @@ class BoxBlock extends BaseElement
         'mixed' => 'Bild, Titel, Inhalt',
         'inversed' => 'Titel,Inhalt,Bild'
     ];
-
-    private static $image_types = [
-        'image' => 'Bild',
-        'icon' => 'Icon'
-    ];
-
 
     private static $effects = [
         'none' => 'kein',
@@ -133,7 +126,6 @@ class BoxBlock extends BaseElement
                 $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxTextAlign',_t(__CLASS__.'.BoxTextAlignment','Boxen Textausrichtung'),$this->getTranslatedSourceFor(__CLASS__,'boxes_text_alignments')));
                 //$fields->addFieldToTab('Root.Boxes',IconDropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
                 $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxPerLine',_t(__CLASS__.'.BoxPerLine','Boxen per Linie'), self::$boxes_per_line));
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('ImageType',_t(__CLASS__.'.ImageType','BildTyp'), $this->getTranslatedSourceFor(__CLASS__,'image_types')));
                 $fields->addFieldToTab('Root.Boxes',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
                 $config = GridFieldConfig_RecordEditor::create();
                 $config->addComponent(new GridFieldOrderableRows('Sort'));
@@ -171,11 +163,12 @@ class BoxBlock extends BaseElement
         parent::onBeforeWrite();
         $widthF = 2500;
         $widthN = 1200;
+        $padding = 15;
         $ratio = 1.4; 
         $width = ($this->FullWidth) ? $widthF / static::$boxes_per_line[$this->BoxPerLine] : $widthN /  static::$boxes_per_line[$this->BoxPerLine];
         $height = $width / $ratio;
 
-        $this->PictureWidth = $width;
+        $this->PictureWidth = $width - $padding;
         $this->PictureHeight = $height;
     }
 
@@ -184,9 +177,6 @@ class BoxBlock extends BaseElement
         $entities = [];
         foreach($this->stat('block_layouts') as $key => $value) {
           $entities[__CLASS__.".block_layouts_{$key}"] = $value;
-        }
-        foreach($this->stat('image_types') as $key => $value) {
-          $entities[__CLASS__.".image_types_{$key}"] = $value;
         }
         foreach($this->stat('effects') as $key => $value) {
           $entities[__CLASS__.".effects_{$key}"] = $value;

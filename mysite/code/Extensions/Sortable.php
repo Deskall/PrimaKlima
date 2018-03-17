@@ -10,6 +10,8 @@ class Sortable extends DataExtension
         'Sort' => 'Int'
     ];
 
+    private static $default_sort = ['Sort'];
+
     public function updateCMSFields(FieldList $fields){
     	$fields->removeByName('Sort');
     }

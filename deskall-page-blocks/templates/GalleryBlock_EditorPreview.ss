@@ -17,7 +17,7 @@
                 <tr>
                 <% loop $OrderedImages.limit(3) %>
                 <td>
-                    $FitMax(60,60)
+                    <% if File.getExtension == "svg" %><img src="$URL" class="svg-gallery-thumbnail" width="60" height="60" /><% else %>$FitMax(60,60)<% end_if %>
                 </td>
                 <% end_loop %>
                 <td>...</td>

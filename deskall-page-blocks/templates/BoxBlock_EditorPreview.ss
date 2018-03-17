@@ -17,7 +17,7 @@
                 <tr>
                 <% loop $ActiveBoxes.limit(3) %>
                 <td>
-                    $Image.FocusFill(100,100)<br/>
+                    <% if Image.getExtension == "svg" %><img src="$Image.URL" width="100" height="100" /><% else %>$Image.FocusFill(100,100)<% end_if %><br/>
                     $Title
                 </td>
                 <% end_loop %>

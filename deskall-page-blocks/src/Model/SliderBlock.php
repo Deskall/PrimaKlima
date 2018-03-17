@@ -201,6 +201,20 @@ class SliderBlock extends BaseElement
         }
     }
 
+    public function ImageHeight(){
+        switch($this->Height){
+            case "small":
+            return 350;
+            break;
+            case "medium":
+            return 500;
+            break;
+            case "large":
+            return 700;
+            break;
+        }
+    }
+
 
 
 

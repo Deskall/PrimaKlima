@@ -81,9 +81,9 @@ h4,h5,h6{
 	font-size: @global-font-size;
 }
 .hook-text-lead(){
-	font-size: @text-lead-font-size;
+	font-size: @global-medium-font-size;
 	*{
-		font-size: @text-lead-font-size;
+		font-size: @global-medium-font-size;
 	}
 }
 .hook-text-large(){
@@ -98,8 +98,12 @@ h4,h5,h6{
 	h2{
 		font-size: @h2-size*@font-ratio-medium;
 	}
-	
-
+	.hook-text-lead(){
+		font-size: @text-lead-font-size*@font-ratio-medium;
+		*{
+			font-size: @text-lead-font-size*@font-ratio-medium;
+		}
+	}
 }
 @media (min-width:@breakpoint-medium){
 	h1, .slide-font .title{
@@ -111,6 +115,12 @@ h4,h5,h6{
 
 	h4,h5,h6{
 		font-size: @global-large-font-size;
+	}
+	.hook-text-lead(){
+		font-size: @text-lead-font-size*@font-ratio-large;
+		*{
+			font-size: @text-lead-font-size*@font-ratio-large;
+		}
 	}
 	
 }
@@ -127,6 +137,11 @@ h4,h5,h6{
 	h4,h5,h6{
 		font-size: @global-xlarge-font-size;
 	}
-
+	.hook-text-lead(){
+		font-size: @text-lead-font-size;
+		*{
+			font-size: @text-lead-font-size;
+		}
+	}
 	
 }

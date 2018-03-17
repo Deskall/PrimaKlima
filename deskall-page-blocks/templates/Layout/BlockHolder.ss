@@ -3,7 +3,7 @@
 <div class="element <% if $Element.isChildren %>children <% if $Element.isFirstMobile %>uk-flex-first@s<% end_if %> <% if $Element.isFirst %>uk-flex-first@m<% end_if %><% end_if %> $SimpleClassName.LowerCase<% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="$Anchor">
 	<section class="uk-section $Element.Background <% if $Element.BackgroundImage %> uk-cover-container dk-overlay uk-section-large"<% end_if %>">
 		<% if $Element.BackgroundImage %>
-		$Element.BackgroundImage.Slides(2500,$Element.Title)
+			<% if $Element.BackgroundImage.getExtension == "svg" %><img src="$Element.BackgroundImage.URL" alt="$Element.BackgroundImage.AltTag($Title)" title="$Element.BackgroundImage.TitleTag($Title)" width="$Element.BackgroundImage.Width" height="$Element.BackgroundImage.Height" data-uk-cover /><% else %>$Element.BackgroundImage.Slides(2500,$Element.Title)<% end_if %>
 		<% end_if %>
 		<div class="uk-container $TextAlign <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
 			<% if $SimpleClassName.LowerCase == "leadblock" %>

@@ -10,7 +10,7 @@
 
         <div class="elemental-preview__detail">
            
-            $File.Fit(300,200)
+            <% if Image.getExtension == "svg" %><img src="$Image.URL" class="svg-banner-thumbnail" width="300" height="200" /><% else %>$Image.Fit(300,200)<% end_if %>
             
             <% if $Summary %>
                 <p>$Summary.RAW</p>

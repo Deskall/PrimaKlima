@@ -14,7 +14,6 @@ class Slide extends DataObject
     private static $db = [
         'Title' => 'Text',
         'Content' => 'HTMLText',
-        'Sort' => 'Int',
         'Effect' => 'Varchar(255)',
         'EffectOptions' => 'Varchar(255)'
     ];
@@ -28,7 +27,8 @@ class Slide extends DataObject
     private static $extensions = [
         Versioned::class,
         'Activable',
-        'Linkable'
+        'Linkable',
+        'Sortable'
     ];
 
     private static $effects = [
@@ -67,7 +67,6 @@ class Slide extends DataObject
 
         $fields->removeByName('SliderID');
         $fields->removeByName('ParentID');
-        $fields->removeByName('Sort');
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.Main',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
         $fields->addFieldToTab('Root.Main',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
@@ -85,7 +84,7 @@ class Slide extends DataObject
 
     public function ImageThumbnail(){
         $o = new DBHTMLText();
-        $html = ($this->Image() && $this->Image()->exists()) ? '<img src="'.$this->Image()->Fill(400,200)->URL.'" />' : _t(__CLASS__.'.NoBild','(keine)');
+        $html = ($this->Image() && $this->Image()->exists()) ? (($this->Image()->getExtension() == "svg" ) ? '<img src="'.$this->Image()->URL.'" class="svg-slide-thumbnail" />' : '<img src="'.$this->Image()->Fill(400,200)->URL.'" />') : _t(__CLASS__.'.NoBild','(keine)');
         $o->setValue($html);
         return $o;
     }

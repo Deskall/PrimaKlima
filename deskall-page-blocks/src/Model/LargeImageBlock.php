@@ -29,6 +29,10 @@ class LargeImageBlock extends BannerBlock{
         'Height' => 'Varchar(255)'
     ];
 
+    private static $has_one = [
+        'Image' => Image::class
+    ];
+
     private static $defaults = [
         'FullWidth' => 1,
         'Layout' => 'left',
@@ -72,7 +76,8 @@ class LargeImageBlock extends BannerBlock{
     	$fields->removeByName('Background');
         $fields->removeByName('Overlay');
     	$fields->removeByName('BackgroundImage');
-        $fields->fieldByName('Root.Main.File')->setFolderName($this->getFolderName());
+        $fields->removeByName('File');
+        $fields->fieldByName('Root.Main.Image')->setTitle(_t(__CLASS__ . '.Image','Bild'))->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout',_t(__CLASS__. '.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
         $fields->addFieldToTab('Root.Settings',LayoutField::create('Height',_t(__CLASS__. '.Height','Höhe'),$this->getTranslatedSourceFor(__CLASS__,'block_heights')));
         $fields->addFieldToTab('Root.Settings',LayoutField::create('Effect',_t(__CLASS__. '.Effect','Effekt'),$this->getTranslatedSourceFor(__CLASS__,'effects')));

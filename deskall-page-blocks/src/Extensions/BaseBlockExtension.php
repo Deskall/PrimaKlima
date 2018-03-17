@@ -102,6 +102,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('FullWidth');
         $fields->removeByName('TextAlign');
         $fields->removeByName('TextColumns');
+         $fields->removeByName('LinkPosition');
         $fields->removeByName('TextColumnsDivider');
 
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
@@ -118,7 +119,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         
         $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
         $fields->FieldByName('Root.Settings')->setTitle(_t(__CLASS__.'.SettingsTab','Einstellungen'));
-        if ($this->owner->ID > 0){
+        if ($this->owner->ID > 0 && $fields->FieldByName('Root.History') ){
             $fields->FieldByName('Root.History')->setTitle(_t(__CLASS__.'.HistoryTab','Geschichte'));
         }
        // $fields->addFieldToTab('Root.Link', LinkField::create('ExampleLinkID', 'Link to page or file'));

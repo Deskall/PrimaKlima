@@ -9,7 +9,7 @@
 
         <div class="elemental-preview__detail">
             <% if $ContentImage %>
-            	$ContentImage.Fit(100,100)
+            	<% if ContentImage.getExtension == "svg" %><img src="$ContentImage.URL" width="100" height="100" /><% else %> $ContentImage.Fit(100,100)<% end_if %>
             <% end_if %>
             <% if $Summary %>
                 <p>$Summary.RAW</p>

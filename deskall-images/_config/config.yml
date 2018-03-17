@@ -29,6 +29,8 @@ SilverStripe\Assets\File:
   app_categories:
     image:
       - svg
+    image/supported:
+      - svg
 
 
 SilverStripe\Core\Injector\Injector:
