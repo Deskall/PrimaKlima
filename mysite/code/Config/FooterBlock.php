@@ -111,9 +111,9 @@ class FooterBlock extends DataObject{
 
 						$fields->addFieldToTab('Root.Main',$LinksField);
 			}
-			if ($this->Type == "Content"){
-				$fields->addFieldToTab('Root.Main', TextareaField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Title');
-			}
+			
+				$fields->addFieldToTab('Root.Main', $content = TextareaField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Title');
+			$content->displayIf('Type')->isEqualTo('content');
 		});
 		return parent::getCMSFields();
 	}
