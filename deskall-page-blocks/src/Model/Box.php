@@ -15,7 +15,6 @@ class Box extends DataObject
     private static $db = [
         'Title' => 'Text',
         'Content' => 'HTMLText',
-        'Sort' => 'Int',
         'Effect' => 'Varchar(255)',
         'EffectOptions' => 'Varchar(255)',
     ];
@@ -28,7 +27,8 @@ class Box extends DataObject
     private static $extensions = [
         Versioned::class,
         'Activable',
-        'Linkable'
+        'Linkable',
+        'Sortable'
     ];
 
     private static $effects = [
@@ -63,7 +63,6 @@ class Box extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('ParentID');
-        $fields->removeByName('Sort');
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.Settings',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
         $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
@@ -90,6 +89,10 @@ class Box extends DataObject
     public function getSummary()
     {
         return DBField::create_field('HTMLText', $this->Content)->Summary(20);
+    }
+
+    public function getPage(){
+        return $this->Parent()->getPage();
     }
 
 

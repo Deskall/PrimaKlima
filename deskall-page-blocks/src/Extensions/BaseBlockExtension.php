@@ -211,5 +211,4 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
 /************* END TRANLSATIONS *******************/
-
 }

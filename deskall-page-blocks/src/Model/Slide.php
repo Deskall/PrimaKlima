@@ -89,8 +89,12 @@ class Slide extends DataObject
         return $o;
     }
 
-     public function getFolderName(){
+    public function getFolderName(){
         return $this->Parent()->getFolderName();
+    }
+
+    public function getPage(){
+        return $this->Parent()->getPage();
     }
 
     /************* TRANLSATIONS *******************/

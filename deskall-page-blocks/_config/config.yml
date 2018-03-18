@@ -22,6 +22,11 @@ Slide:
   extensions:
     - Activable
     - Linkable
+    - SubObjectPermission
+
+Box:
+  extensions:
+    - SubObjectPermission
 
 SilverStripe\UserForms\Form\UserForm:
   extensions:
