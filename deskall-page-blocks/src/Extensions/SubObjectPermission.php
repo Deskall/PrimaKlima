@@ -8,7 +8,7 @@ use SilverStripe\Security\Permission;
 class SubObjectPermission extends DataExtension {
 
 /************** PERMISSIONS *********************/
-/**
+    /**
      * Basic permissions, defaults to page perms where possible.
      *
      * @param Member $member
@@ -16,10 +16,7 @@ class SubObjectPermission extends DataExtension {
      */
     public function canView($member = null)
     {
-        $extended = $this->owner->extendedCan(__FUNCTION__, $member);
-        if ($extended !== null) {
-            return $extended;
-        }
+
 
         if ($this->owner->hasMethod('getPage')) {
             if ($page = $this->owner->getPage()) {
@@ -39,10 +36,7 @@ class SubObjectPermission extends DataExtension {
      */
     public function canEdit($member = null)
     {
-        $extended = $this->owner->extendedCan(__FUNCTION__, $member);
-        if ($extended !== null) {
-            return $extended;
-        }
+
 
         if ($this->owner->hasMethod('getPage')) {
             if ($page = $this->owner->getPage()) {
@@ -66,10 +60,6 @@ class SubObjectPermission extends DataExtension {
      */
     public function canDelete($member = null)
     {
-        $extended = $this->owner->extendedCan(__FUNCTION__, $member);
-        if ($extended !== null) {
-            return $extended;
-        }
 
         if ($this->owner->hasMethod('getPage')) {
             if ($page = $this->owner->getPage()) {
@@ -90,10 +80,7 @@ class SubObjectPermission extends DataExtension {
      */
     public function canCreate($member = null, $context = array())
     {
-        $extended = $this->owner->extendedCan(__FUNCTION__, $member);
-        if ($extended !== null) {
-            return $extended;
-        }
+
 
         return (Permission::check('CMS_ACCESS', 'any', $member)) ? true : null;
     }
