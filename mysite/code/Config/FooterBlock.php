@@ -16,7 +16,8 @@ class FooterBlock extends DataObject{
 		'Title' => 'Text',
 		'Width' => 'Varchar(255)',
 		'Class' => 'Varchar(255)',
-		'Type' => 'Varchar(255)'
+		'Type' => 'Varchar(255)',
+		'Content' => 'HTMLText'
 	];
 
 	private static $extensions = [
@@ -55,7 +56,8 @@ class FooterBlock extends DataObject{
 
 	private static $block_types = [
 		'adresse' => 'Adresse',
-		'links' => 'Links'
+		'links' => 'Links',
+		'Content' => 'Inhalt'
 	];
 
 
@@ -108,6 +110,9 @@ class FooterBlock extends DataObject{
 						}
 
 						$fields->addFieldToTab('Root.Main',$LinksField);
+			}
+			if ($this->Type == "Content"){
+				$fields->addFieldToTab('Root.Main', TextareaField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Title');
 			}
 		});
 		return parent::getCMSFields();

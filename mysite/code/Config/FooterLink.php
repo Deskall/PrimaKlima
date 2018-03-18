@@ -7,7 +7,6 @@ use SilverStripe\Forms\DropdownField;
 class FooterLink extends DataObject{
 
 	private static $db = [
-		'Content' => 'HTMLText',
 		'Icon' => 'Varchar(255)',
 		'Type' => 'Varchar(255)'
 	];
@@ -61,9 +60,7 @@ class FooterLink extends DataObject{
         $fields->removeByName('ParentID');
         $fields->removeByName('Type');
         //$fields->addFieldToTab('Root.Main',DropdownField::create('Type', 'LinkTyp',self::$block_types)->setEmptyString('Bitte Typ auswählen'),'Content');
-        $fields->FieldByName('Root.Main.Content')->setRows(3);
-        $fields->addFieldToTab('Root.Main',DropdownField::create('Icon',_t(__CLASS__. '.Icon','Icon'),$this->getTranslatedSourceFor(__CLASS__,'icons'))->setEmptyString(_t(__CLASS__. '.IconLabel','Icon hinzufügen')), 'Content');
-        $fields->insertAfter($fields->FieldByName('Root.Main.Content'),'CallToActionLink');
+        $fields->addFieldToTab('Root.Main',DropdownField::create('Icon',_t(__CLASS__. '.Icon','Icon'),$this->getTranslatedSourceFor(__CLASS__,'icons'))->setEmptyString(_t(__CLASS__. '.IconLabel','Icon hinzufügen')));
         return $fields;
     }
 
