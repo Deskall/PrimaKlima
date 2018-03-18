@@ -57,7 +57,7 @@ class FooterBlock extends DataObject{
 	private static $block_types = [
 		'adresse' => 'Adresse',
 		'links' => 'Links',
-		'Content' => 'Inhalt'
+		'content' => 'Inhalt'
 	];
 
 
@@ -90,7 +90,7 @@ class FooterBlock extends DataObject{
 		$this->beforeUpdateCMSFields(function ($fields) {
 
 			$fields->addFieldToTab('Root.Main', $w = DropdownField::create('Width',_t(__CLASS__.'.Width','Breite'),$this->getTranslatedSourceFor(__CLASS__,'widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
-			$fields->addFieldToTab('Root.Main', $cs = TextField::create('Class',_t(__CLASS__.'ExtraClass','Extra CSS Class'))->setDescription(_t(__CLASS__.'.ClassDescription','Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt')));
+			$fields->addFieldToTab('Root.Main', $cs = TextField::create('Class',_t(__CLASS__.'.ExtraClass','Extra CSS Class'))->setDescription(_t(__CLASS__.'.ClassDescription','Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt')));
 			$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')),'Title');
 			$title = $fields->fieldByName('Root.Main.Title');
 			$fields->removeByName('Links');
@@ -106,7 +106,7 @@ class FooterBlock extends DataObject{
 						    );
 						}
 						else {
-							$LinksField = LabelField::create('Links', _t(__CLASS__.'LinksLabel','Links können erst nach dem Speichern erstellt werden'));
+							$LinksField = LabelField::create('Links', _t(__CLASS__.'.LinksLabel','Links können erst nach dem Speichern erstellt werden'));
 						}
 
 						$fields->addFieldToTab('Root.Main',$LinksField);
