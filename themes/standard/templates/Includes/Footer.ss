@@ -32,7 +32,7 @@
 			 		</li>
 			 		<% end_if %>
 		        </ul>
-		        <% else_if %>
+		        <% else_if Type == "content" %>
 		        <div class="title-container">
 		    		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$Title</h3>
 		    	</div>
