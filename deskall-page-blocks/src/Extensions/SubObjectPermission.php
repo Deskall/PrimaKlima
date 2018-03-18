@@ -99,3 +99,4 @@ class SubObjectPermission extends DataExtension {
     }
 
 /************** END PERMISSIONS *****************/
+}
