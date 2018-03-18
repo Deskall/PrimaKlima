@@ -3,6 +3,7 @@ fr:
     SITEMAPTITLE: Plan de site
   FooterBlock:
     ClassDescription: 'Ajouter les classes nécessaires séparées par une virgule'
+    Content: Contenu
     Links: Liens
     PLURALNAME: 'Bloc de bas de page'
     PLURALS:

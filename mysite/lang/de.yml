@@ -3,6 +3,7 @@ de:
     SITEMAPTITLE: Sitemap
   FooterBlock:
     ClassDescription: 'Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt'
+    Content: Inhalt
     Links: Links
     PLURALNAME: 'Footer Blöcke'
     PLURALS:
