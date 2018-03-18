@@ -38,5 +38,5 @@
 	
 </div>
 <% if $CallToActionLink.Page.Link %>
-	<% include CallToActionLink c=w,b=secondary,pos=right %>
+	<% include CallToActionLink c=w,b=primary,pos=right %>
 <% end_if %>
