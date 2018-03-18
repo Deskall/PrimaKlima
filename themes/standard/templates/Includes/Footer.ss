@@ -32,6 +32,11 @@
 			 		</li>
 			 		<% end_if %>
 		        </ul>
+		        <% else_if %>
+		        <div class="title-container">
+		    		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$Title</h3>
+		    	</div>
+		    	$Content
 		        <% else %>
 		    	<div class="title-container">
 		    		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$Title</h3>
