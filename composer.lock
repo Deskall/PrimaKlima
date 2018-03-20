@@ -184,16 +184,16 @@
         },
         {
             "name": "dnadesign/silverstripe-elemental",
-            "version": "dev-master",
+            "version": "2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dnadesign/silverstripe-elemental.git",
-                "reference": "6049d50fda4283960999f4769cdf60dc731030d7"
+                "reference": "0bbe2357573805384a2708c7f7560e1635d87c09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dnadesign/silverstripe-elemental/zipball/6049d50fda4283960999f4769cdf60dc731030d7",
-                "reference": "6049d50fda4283960999f4769cdf60dc731030d7",
+                "url": "https://api.github.com/repos/dnadesign/silverstripe-elemental/zipball/0bbe2357573805384a2708c7f7560e1635d87c09",
+                "reference": "0bbe2357573805384a2708c7f7560e1635d87c09",
                 "shasum": ""
             },
             "require": {
@@ -210,13 +210,12 @@
                 "dnadesign/silverstripe-elemental-userforms": "Adds userform support to elemental",
                 "dnadesign/silverstripe-elemental-virtual": "Adds support to share blocks between pages",
                 "silverstripe/elemental-blocks": "Adds a set of common SilverStripe content block types",
-                "silverstripe/fulltextsearch": "Adds fulltext search capability for elements usin Solr"
+                "silverstripe/fulltextsearch": "Adds fulltext search capability for elements using Solr"
             },
             "type": "silverstripe-vendormodule",
             "extra": {
-                "installer-name": "elemental",
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "2.x-dev": "2.1.x-dev"
                 },
                 "expose": [
                     "client/dist"
@@ -245,7 +244,7 @@
                 "elemental",
                 "silverstripe"
             ],
-            "time": "2018-03-05T20:10:01+00:00"
+            "time": "2018-03-18T21:47:12+00:00"
         },
         {
             "name": "dnadesign/silverstripe-elemental-list",
@@ -302,16 +301,16 @@
         },
         {
             "name": "dnadesign/silverstripe-elemental-userforms",
-            "version": "dev-master",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dnadesign/silverstripe-elemental-userforms.git",
-                "reference": "f1c59f99e6e975fd7d54361bababa80b0a0692c5"
+                "reference": "99c5715403496a2c6cce459c640c0d58ec785f2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dnadesign/silverstripe-elemental-userforms/zipball/f1c59f99e6e975fd7d54361bababa80b0a0692c5",
-                "reference": "f1c59f99e6e975fd7d54361bababa80b0a0692c5",
+                "url": "https://api.github.com/repos/dnadesign/silverstripe-elemental-userforms/zipball/99c5715403496a2c6cce459c640c0d58ec785f2c",
+                "reference": "99c5715403496a2c6cce459c640c0d58ec785f2c",
                 "shasum": ""
             },
             "require": {
@@ -326,7 +325,7 @@
             "type": "silverstripe-vendormodule",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "1.x-dev": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -353,7 +352,7 @@
                 "silverstripe",
                 "userforms"
             ],
-            "time": "2018-02-22T05:43:06+00:00"
+            "time": "2018-03-18T21:52:39+00:00"
         },
         {
             "name": "dnadesign/silverstripe-elemental-virtual",
@@ -1810,12 +1809,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-elemental-blocks.git",
-                "reference": "cbfa21b7c5550eb94dc68062a86d83fd15baa19e"
+                "reference": "e91721b0d217e0da64932c0e91c9c01dc915cbdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-elemental-blocks/zipball/cbfa21b7c5550eb94dc68062a86d83fd15baa19e",
-                "reference": "cbfa21b7c5550eb94dc68062a86d83fd15baa19e",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-elemental-blocks/zipball/e91721b0d217e0da64932c0e91c9c01dc915cbdc",
+                "reference": "e91721b0d217e0da64932c0e91c9c01dc915cbdc",
                 "shasum": ""
             },
             "require": {
@@ -1853,7 +1852,7 @@
                 "elemental",
                 "silverstripe"
             ],
-            "time": "2018-01-14T20:55:28+00:00"
+            "time": "2018-03-19T21:40:52+00:00"
         },
         {
             "name": "silverstripe/errorpage",
