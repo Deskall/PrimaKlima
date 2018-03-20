@@ -292,3 +292,45 @@ de:
     UrlDescription: 'Integriere Youtube und Vimeo Videos, Bilder und andere Medien direkt aus dem Internet.'
   SilverStripe\AssetAdmin\GraphQL\FileFilterInputTypeCreator:
     FileNotFound: 'Datei oder Ordner konnte nicht gefunden werden'
+
+### SHEADOWSON LINKABLE
+  Linkable:
+    ADDLINK: 'Link hinzufügen'
+    ANCHOR: Anker/Querystring
+    ANCHORINFO: '# Am Anfang des Ankernamens einfügen oder,? am Anfang der Querystring '
+    CSSCLASS: 'CSS class'
+    DELETEDWARNING: 'Warnung: Die ausgewählte Seite scheint gelöscht oder nicht veröffentlicht worden zu sein. Dieser Link wird möglicherweise nicht angezeigt oder kann im Frontend beschädigt werden'
+    DESCRIPTION: Beschreibung
+    EDIT: Bearbeiten
+    EDITLINK: 'Link bearbeiten'
+    EMAILADDRESS: 'E-Mail-Adresse'
+    FILE: Datei
+    HEIGHT: Höhe
+    INSPECT: Prüfen
+    LINKTYPE: 'Linktyp'
+    OPENINNEWWINDOW: 'Link in einem neuen Fenster öffnen'
+    OPTIONALTITLE: 'Wahlweise. Wird automatisch aus dem Link generiert, wenn es leer gelassen wird'
+    PAGE: Seite
+    PHONENUMBER: 'Telefonnummer'
+    REMOVE: Löschen
+    SAVE: Speichern
+    SOURCEURL: 'Quell URL'
+    STYLE: Stil
+    TITLE: Titel
+    VALIDATIONERROR_OBJECT: 'Bitte wählen Sie ein {value} -Objekt, auf das verlinkt werden soll'
+    VALIDATIONERROR_VALIDEMAIL: 'Bitte geben Sie eine gültige E-Mail-Adresse ein'
+    VALIDATIONERROR_VALIDPHONE: 'Bitte geben Sie eine gültige Telefonnummer ein'
+    VALIDATIONERROR_VALIDURL: 'Bitte geben Sie eine gültige URL ein. Achten Sie darauf, http: // für eine externe URL anzugeben. Oder starte deine interne URL / den Anker mit einem "/" Zeichen'
+    WIDTH: Breite
+  Sheadawson\Linkable\Models\EmbeddedObject:
+    PLURALNAME: "Eingebettete Objekte"
+    PLURALS:
+      one: 'Ein eingebettetes Objekt'
+      other: '{count} Eingebettete Objekte'
+    SINGULARNAME: 'eingebettetes Objekt'
+  Sheadawson\Linkable\Models\Link:
+    PLURALNAME: Links
+    PLURALS:
+      one: 'ein Link'
+      other: '{count} Links'
+    SINGULARNAME: Link

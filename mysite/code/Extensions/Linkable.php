@@ -10,12 +10,18 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\View\Requirements;
 use SilverStripe\Core\Convert;
 use SilverStripe\CMS\Model\SiteTree;
+use Sheadawson\Linkable\Forms\LinkField;
+use Sheadawson\Linkable\Models\Link;
 
 class Linkable extends DataExtension
 {
 
     private static $db = [
         'CallToActionLink' => 'Link'
+    ];
+
+    private static $has_one = [
+        'Link' => Link::class
     ];
 
 
@@ -25,12 +31,13 @@ class Linkable extends DataExtension
 
 
     public function updateCMSFields(FieldList $fields){
-    	$fields->removeByName('CallToActionLinkID');
+    	$fields->removeByName('CallToActionLink');
+        $fields->removeByName('LinkID');
          // Ensure TinyMCE's javascript is loaded before the blocks overrides
-        Requirements::javascript(TinyMCEConfig::get()->getScriptURL());
-        Requirements::javascript('silverstripe/elemental-blocks:client/dist/js/bundle.js');
-        Requirements::css('silverstripe/elemental-blocks:client/dist/styles/bundle.css');
-
+        // Requirements::javascript(TinyMCEConfig::get()->getScriptURL());
+        // Requirements::javascript('silverstripe/elemental-blocks:client/dist/js/bundle.js');
+        // Requirements::css('silverstripe/elemental-blocks:client/dist/styles/bundle.css');
+         $fields->addFieldToTab('Root.Main', LinkField::create('LinkID', _t(__CLASS__.'.CTA', 'Link')));
     }
 
 
