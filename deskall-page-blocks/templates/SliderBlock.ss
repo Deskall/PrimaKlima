@@ -14,8 +14,8 @@
                             <% if Title %><h2>$Title</h2><% end_if %>
                             <div class="uk-text-lead">$Content</div>
                             <% if Effect == "parallax" %></div><% end_if %>
-                           <% if $CallToActionLink.Page.Link %>
-                                <% include CallToActionLink c=w,pos=center,b=primary,noMargin=true %>
+                            <% if LinkableLinkID > 0 %>
+                                <% include CallToActionLink c=w,b=primary,pos=$LinkPosition,noMargin=true %>
                             <% end_if %>
                         </div>
                     </div>

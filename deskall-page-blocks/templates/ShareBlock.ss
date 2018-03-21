@@ -3,6 +3,10 @@
 	<div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 		$HTML
 	</div>
+	
+	<% if LinkableLinkID > 0 %>
+		<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+	<% end_if %>
 	<div class="social-container">
 		<% if $ShowFacebook %>
 		<a class="uk-icon-button uk-margin-right" data-uk-icon="facebook" href="https://www.facebook.com/sharer/sharer.php?u={$Parent.getOwnerPage.Link.URLATT}" target="_blank"></a>

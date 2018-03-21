@@ -16,12 +16,12 @@ use Sheadawson\Linkable\Models\Link;
 class Linkable extends DataExtension
 {
 
-    private static $db = [
-        'CallToActionLink' => 'Link'
-    ];
+    // private static $db = [
+    //     'CallToActionLink' => 'Link'
+    // ];
 
     private static $has_one = [
-        'Link' => Link::class
+        'LinkableLink' => Link::class
     ];
 
 
@@ -31,13 +31,13 @@ class Linkable extends DataExtension
 
 
     public function updateCMSFields(FieldList $fields){
-    	$fields->removeByName('CallToActionLink');
-        $fields->removeByName('LinkID');
+    	// $fields->removeByName('CallToActionLink');
+        $fields->removeByName('LinkableLinkID');
          // Ensure TinyMCE's javascript is loaded before the blocks overrides
         // Requirements::javascript(TinyMCEConfig::get()->getScriptURL());
         // Requirements::javascript('silverstripe/elemental-blocks:client/dist/js/bundle.js');
         // Requirements::css('silverstripe/elemental-blocks:client/dist/styles/bundle.css');
-         $fields->addFieldToTab('Root.Main', LinkField::create('LinkID', _t(__CLASS__.'.CTA', 'Link')));
+         $fields->addFieldToTab('Root.Main', LinkField::create('LinkableLinkID', _t(__CLASS__.'.CTA', 'Link')));
     }
 
 

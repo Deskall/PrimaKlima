@@ -3,8 +3,9 @@
 			$HTML
 		</div>
 
-		<% if $CallToActionLink.Page.Link %>
-			<% include CallToActionLink c=w,b=secondary,pos=right %>
+	
+		<% if LinkableLinkID > 0 %>
+			<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 		<% end_if %>
 
 		<% if Layout == "carousel" %>
