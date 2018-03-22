@@ -87,29 +87,48 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 	public function handleDuplicate($grid, $request) {
 		$id   = $request->param('ID');
 		$pageid = $request->param('PAGEID');
+		$recordClass = $grid->getForm()->record->ClassName;
 		if($id){
 			$block = DataObject::get_by_id('DNADesign\Elemental\Models\BaseElement',$id);
 			if (!$block){
 				throw new Exception('Diese Block war nicht gefunden');
 			}
-			if (!$pageid){
-				throw new Exception('Diese Seite war nicht gefunden');
-			}
-			$page = DataObject::get_by_id(SiteTree::class,$pageid);
-			if (!$page){
-				throw new Exception('Diese Seite war nicht gefunden');
+			if ($recordClass == "ParentBlock"){
+
+				$parent = DataObject::get_by_id($recordClass,$grid->getForm()->record->ID);
+				if (!$parent){
+					throw new Exception('Diese Block war nicht gefunden');
+				}
 				
+				$newBlock = $block->duplicate();
+				$newBlock->ParentID = $parent->ElementsID;
+				$newBlock->write();
+
+				$newBlock->DuplicateChildrens($block);
+
+
+				return Controller::curr()->redirectBack();
 			}
+			else{
+				if (!$pageid){
+					throw new Exception('Diese Seite war nicht gefunden');
+				}
+				$page = DataObject::get_by_id(SiteTree::class,$pageid);
+				if (!$page){
+					throw new Exception('Diese Seite war nicht gefunden');
+					
+				}
+				
+				$newBlock = $block->duplicate();
+				$newBlock->ParentID = $page->ElementalAreaID;
 			
-			$newBlock = $block->duplicate();
+			
+				$newBlock->write();
 
+				$newBlock->DuplicateChildrens($block);
 
-			$newBlock->ParentID = $page->ElementalAreaID;
-			$newBlock->write();
-
-			$newBlock->DuplicateChildrens($block);
-
-			return $grid->getForm()->getController()->redirectBack('admin/pages/edit/show/'.$pageid);
+				return $grid->getForm()->getController()->redirectBack('admin/pages/edit/show/'.$pageid);
+			}
 		}
 	}
 

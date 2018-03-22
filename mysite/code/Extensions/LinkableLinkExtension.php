@@ -32,9 +32,9 @@ class LinkableLinkExtension extends DataExtension implements i18nEntityProvider
 
     private static $link_backgrounds = [
         'uk-button-default' => 'keine Hintergrundfarbe',
-        'uk-section-primary dk-text-hover-primary' => 'primäre Farbe',
-        'uk-section-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
-        'uk-section-muted dk-text-hover-muted' => 'grau',
+        'uk-button-primary dk-text-hover-primary' => 'primäre Farbe',
+        'uk-button-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
+        'uk-button-muted dk-text-hover-muted' => 'grau',
         'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
         'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
     ];
@@ -48,8 +48,6 @@ class LinkableLinkExtension extends DataExtension implements i18nEntityProvider
 
 
     public function updateCMSFields(FieldList $fields){
-
-        $fields->addFieldToTab('Root.Main', DropdownField::create('Action',_t(__CLASS__.'.ActionType','AktionTyp'),$this->owner->getTranslatedSourceFor(__CLASS__,'link_actions') )->setEmptyString(_t(__CLASS__.'ActionLabel','Bitte Aktiontyp auswählen'))->displayIf('Type')->isEqualTo('ActionType')->end());
 
         $fields->addFieldToTab('Root',new Tab('Layout',_t(__CLASS__.'.LAYOUTTAB','Layout')));
         $fields->addFieldToTab('Root.Layout',DropdownField::create('LinkPosition',_t(__CLASS__.'.LinkAlignment','Linkausrichtung'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_link_alignments')));

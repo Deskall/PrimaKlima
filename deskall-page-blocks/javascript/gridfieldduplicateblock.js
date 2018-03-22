@@ -37,7 +37,14 @@
                  if(block && block > 0) {
                     btn.removeClass("disabled");
                     var path = window.location.pathname;
-                    var page = path.substr(path.indexOf("/edit/show/") + 11);
+                    //if not in page but in parent block
+                    if (path.indexOf("/edit/show/") == - 1){
+                        var page = path.substr(path.indexOf("/edit/EditForm/") + 15);
+                    }
+                    else{
+                        var page = path.substr(path.indexOf("/edit/show/") + 11);
+                    }
+                    
                     var finallink = link.replace("{id}", block).replace("{pageid}",page);
                     btn.getGridField().showDetailView(finallink);
                 }
