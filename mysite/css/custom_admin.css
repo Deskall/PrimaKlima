@@ -9,3 +9,8 @@
 
 
 
+.linkfield-dialog ul.nav-tabs{
+	display:block;
+	width:100%;
+	float:none;
+}

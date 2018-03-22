@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\View\Requirements;
+use SilverStripe\Core\Config\Config;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Forms\FormField;
@@ -12,10 +13,31 @@ class HTMLDropdownField extends DropdownField{
 
 	protected $extraClasses = [];
 
+	private static $iconsList = [
+		'chevron-right' => 'chevron-right',
+		'home' => 'home',
+		'mail' => 'Email',
+		'receiver' => 'Telefon',
+		'location' => 'Marker',
+		'user' => 'Person',
+		'users' => 'Personen',
+		'tag' => 'Tag',
+		'calendar' => 'Kalender',
+		'search' => 'Suche',
+		'list' => 'Liste',
+		'lock' => 'Private',
+		'facebook' => 'facebook',
+		'twitter' => 'twitter',
+		'google-plus' => 'google-plus',
+		'linkedin' => 'linkedin',
+		'xing' => 'xing'
+	];
+
 	public function __construct($name, $title = null, $value = null)
     {
     	Requirements::javascript("mysite/javascript/htmldropdown.js");
         Requirements::css("mysite/css/htmldropdown.css");
+        Requirements::css("mysite/javascript/uikit-icons.js");
 
         parent::__construct($name, $title, $value);
     }
@@ -89,5 +111,25 @@ class HTMLDropdownField extends DropdownField{
 			}
 		}
 		return $attributes;
+	}
+
+	public static function getSourceIcones(){
+		$source = [];
+		$iconsList = Config::inst()->get(__CLASS__,'iconsList');
+      
+
+        foreach($iconsList as $icon => $name){
+            $html = '<div class="option-html">
+        			<span uk-icon="icon: '.$icon.'"></span>'.$name.'
+      			</div>';
+       
+            $source[$icon] = [
+                'Title' => $name,
+                'HTML' => $html
+                
+            ];
+        }
+
+		return $source;
 	}
 }

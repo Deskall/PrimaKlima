@@ -7,8 +7,6 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\Tab;
-use Sheadawson\Linkable\Forms\LinkField;
-use Sheadawson\Linkable\Models\Link;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\i18n\i18nEntityProvider;
 
@@ -22,12 +20,11 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
-        'LinkPosition' => 'Varchar(255)'
+       
     ];
 
     private static $has_one = [
         'BackgroundImage' => Image::class,
-       // 'ExampleLink' => Link::class
     ];
 
     private static $owns =[
@@ -78,11 +75,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'uk-text-justify' => 'Justifies text'
     ];
 
-    private static $block_link_alignments = [
-        'left' =>  'Links',
-        'center' =>  'Mittel',
-        'right' => 'Rechts'
-    ];
+
 
     private static $block_text_columns = [
         ' ' => 'Keine Spalten',
@@ -102,7 +95,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('FullWidth');
         $fields->removeByName('TextAlign');
         $fields->removeByName('TextColumns');
-         $fields->removeByName('LinkPosition');
         $fields->removeByName('TextColumnsDivider');
 
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
@@ -113,7 +105,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     	$fields->addFieldToTab('Root.Layout',DropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_backgrounds'))->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.')));
         $fields->addFieldToTab('Root.Layout',UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()));
         $fields->addFieldToTab('Root.Layout',DropdownField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_text_alignments')));
-        $fields->addFieldToTab('Root.Layout',DropdownField::create('LinkPosition',_t(__CLASS__.'.LinkAlignment','Linkausrichtung'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_link_alignments')));
+        
         $fields->addFieldToTab('Root.Layout',DropdownField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_text_columns')));
         $fields->addFieldToTab('Root.Layout',$columnDivider = CheckboxField::create('TextColumnsDivider',_t(__CLASS__.'.ShowColumnsBorder','Border zwischen Spalten anzeigen')));
         

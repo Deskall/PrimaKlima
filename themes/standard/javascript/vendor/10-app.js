@@ -58,3 +58,15 @@ $(document).ready(function(){
 	 		$('<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbrDquBmMxiRMZz6itPir8xKX7HLa7xZE&callback=loadmap"></script>').appendTo($("body"));
 	 	}
 	});
+
+
+//Table
+
+$(".element table").each(function(){
+    $(this).addClass("uk-table uk-table-striped uk-table-small uk-table-responsive");
+    if ($(this).width() > $(window).width()){
+        divContainer = $("<div></div>");
+        divContainer.addClass("uk-overflow-auto");
+        $(this).detach().appendTo(divContainer);
+    }
+});

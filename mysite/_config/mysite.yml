@@ -25,3 +25,7 @@ SilverStripe\Security\Member:
 SilverStripe\ORM\DataObject:
   extensions:
     - DeskallTranslatable
+
+Sheadawson\Linkable\Models\Link:
+  extensions:
+    - LinkableLinkExtension
