@@ -8,6 +8,12 @@
 				 <% include TextBlock %>
 			</div>
 		</div>
+		<% else_if InteractionType == "offcanvas" %>
+		    <button class="uk-button $ButtonBackground $ButtonPositiont" type="button" data-uk-toggle="target: #offcanvas-container-{$ID}">$Trigger</button>
+		<% else_if InteractionType == "scroll" %>
+		 <a class="uk-button $ButtonBackground $ButtonPosition" href="#e{$ScrollTarget}" data-uk-scroll type="button" data-uk-icon="icon: $Icone">$Trigger</a>
+		<% else_if InteractionType == "toggle" %>
+		 <a class="uk-button $ButtonBackground $ButtonPosition" data-uk-toggle="#toggle-container-{$ID}"  type="button" data-uk-icon="icon: $Icone">$Trigger</a>
 		<% else %>
 			<% if $Trigger %>
 			    <button class="uk-button $ButtonBackground $ButtonPosition" data-uk-toggle="target: #content-container-{$ID}" type="button" data-uk-icon="icon: $Icone">$Trigger</button>
@@ -51,4 +57,21 @@
     </div>
 </div>
 <% end_if %>
-				
+
+<% if InteractionType == "offcanvas" %>
+<div id="offcanvas-container-{$ID}" data-uk-offcanvas="mode: $Effect;<% if OffcanvasPosition == "right" %>flip: true;<% end_if %><% if OffcanvasOverlay %>overlay: true;<% end_if %>">
+        <div class="uk-offcanvas-bar">
+            <button class="uk-offcanvas-close" type="button" data-uk-close></button>
+	         	<% if Title and ShowTitle %><h3 class="uk-modal-title">$Title</h3><% end_if %>
+	          	<% include TextBlock %>
+            <button class="uk-button dk-margin-responsive" type="button" data-uk-toggle="target: #offcanvas-container-{$ID}">$CloseText</button>
+        </div>
+    </div>
+<% end_if %>
+
+<% if InteractionType == "toggle" %>
+<div id="toggle-container-{$ID}">
+	<% if Title and ShowTitle %><h3>$Title</h3><% end_if %>
+	<% include TextBlock %>      
+</div>
+<% end_if %>

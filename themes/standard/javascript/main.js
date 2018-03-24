@@ -10328,3 +10328,22 @@ $(".element table").each(function(){
         $(this).detach().appendTo(divContainer);
     }
 });
+
+
+//Parent Block
+
+    $(".parentblock .uk-accordion").each(function(){
+        $(this).find("h3").each(function(){
+            var html = $(this).html();
+            var a = $('<a></a>');
+            a.addClass("uk-accordion-title uk-width-1-1").html(html);
+            $(this).html(a);
+        });
+        var expandedBlocks = $(this).attr('data-element-expanded');
+        expandedBlocks = $.parseJSON(expandedBlocks);
+        $.each(expandedBlocks, function(index, value){
+            console.log(value);
+            $("#e"+value).addClass("uk-open");
+        });
+    });
+ 

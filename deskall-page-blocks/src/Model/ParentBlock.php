@@ -10,6 +10,7 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\View\Requirements;
 
 class ParentBlock extends ElementList
 {
@@ -18,7 +19,10 @@ class ParentBlock extends ElementList
         'BlocksPerLine' => 'Varchar(255)',
         'Border' => 'Boolean(0)',
         'matchHeight' => 'Boolean(1)',
-        'FirstBlockID' => 'Int'
+        'FirstBlockID' => 'Int',
+        'CollapsableChildren' => 'Boolean(0)',
+        'CollapseMultipe' => 'Boolean(1)',
+        'CanCollapse' => 'Boolean(1)'
     ];
 
     private static $table_name = 'ParentBlock';
@@ -59,16 +63,22 @@ class ParentBlock extends ElementList
         'BlocksPerLine' => 'uk-child-width-1-1@s uk-child-width-1-2@m' 
     ];
 
+    private static $allowed_collapsed_blocks = ['TextBlock','GalleryBlock'];
+
     public function getCMSFields(){
         $fields = parent::getCMSFields();
         $fields->removeByName('FirstBlockID');
+        $fields->removeByName('LinkableLinkID');
         $fields->addFieldToTab('Root.Layout',
             LayoutField::create('Layout','Layout',$this->getTranslatedSourceFor(__CLASS__,'block_layouts'))
         );
         $fields->addFieldsToTab('Root.Settings',[
             DropdownField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->getTranslatedSourceFor(__CLASS__,'blocks_per_line'))->setEmptyString(_t(__CLASS__.'.BlocksPerLineHelpText','Blöcke per Linie auswählen')),
             CheckboxField::create('Border',_t(__CLASS__.'.Border','Border zwischen Blöcke ?')),
-            CheckboxField::create('matchHeight',_t(__CLASS__.'.SameHeight','gleich Höhe für alle Blöcke ?'))
+            CheckboxField::create('matchHeight',_t(__CLASS__.'.SameHeight','gleich Höhe für alle Blöcke ?')),
+            CheckboxField::create('CollapsableChildren',_t(__CLASS__.'.CollapsableChildren','zusammenklappbar Blöcke')),
+            CheckboxField::create('CollapseMultipe',_t(__CLASS__.'.CollapseMultipe','Mehrere erweiterten Blöcke erlaubt.')),
+            CheckboxField::create('CanCollapse',_t(__CLASS__.'.CanCollapse','Blöcke dürfen zusammenbrochen sein.'))
         ]);
 
         return $fields;
@@ -83,6 +93,10 @@ class ParentBlock extends ElementList
                 $newObject->write();
             }
         }
+    }
+
+    public function ExpandedBlocks(){
+        return json_encode($this->Elements()->Elements()->filter('collapsed',0)->column('ID'));
     }
 
 /************* TRANLSATIONS *******************/

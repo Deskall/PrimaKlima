@@ -9,6 +9,7 @@ DNADesign\Elemental\Models\BaseElement:
     - BaseBlockExtension
     - Activable
     - Linkable
+    - Collapsable
 
 DNADesign\Elemental\ElementalEditor:
   extensions:

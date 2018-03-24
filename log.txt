@@ -1,1 +1,22 @@
-Boxes
+not collapsed
+collapsed
+area :2
+not collapsed
+area :8
+collapsed
+area :2
+not collapsed
+area :8
+collapsed
+area :2
+not collapsed
+area :8
+collapsed
+area :2
+not collapsed
+area :8
+collapsed
+area :2
+not collapsed
+area :8
+collapsed

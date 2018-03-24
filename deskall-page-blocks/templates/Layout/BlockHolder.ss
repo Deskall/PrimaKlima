@@ -17,7 +17,9 @@
 					<% end_if %>
 				<% end_if %>
 			<% end_if %>
-			$Element
+			<div class="uk-panel">
+				$Element
+			</div>
 		</div>
 	</section>
 </div>

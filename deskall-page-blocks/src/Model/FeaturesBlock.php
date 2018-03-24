@@ -101,7 +101,7 @@ class FeaturesBlock extends BaseElement
                      $config->addComponent(new GridFieldShowHideAction());
                 }
                 $featuresField = new GridField('Features',_t(__CLASS__.'.Features','Features'),$this->Features(),$config);
-                $fields->insertAfter(new Tab('Features',_t(__CLASS__.'.Features','Features')),'Main');
+               // $fields->insertAfter(new Tab('Features',_t(__CLASS__.'.Features','Features')),'Main');
                 $title = $fields
                 ->fieldByName('Root.Main.FeaturesTitle');
                 $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'List Titel'));

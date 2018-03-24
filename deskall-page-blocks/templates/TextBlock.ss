@@ -1,5 +1,5 @@
 
-<div class="uk-panel" <% if ContentImage %>data-uk-grid<% end_if %> data-uk-lightbox>
+<div <% if ContentImage %>data-uk-grid<% end_if %> data-uk-lightbox>
 	<% if ContentImage %>
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
