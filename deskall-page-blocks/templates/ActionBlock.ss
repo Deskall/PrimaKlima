@@ -13,7 +13,7 @@
 		<% else_if InteractionType == "scroll" %>
 		 <a class="uk-button $ButtonBackground $ButtonPosition" href="#e{$ScrollTarget}" data-uk-scroll type="button" data-uk-icon="icon: $Icone">$Trigger</a>
 		<% else_if InteractionType == "toggle" %>
-		 <a class="uk-button $ButtonBackground $ButtonPosition" data-uk-toggle="#toggle-container-{$ID}"  type="button" data-uk-icon="icon: $Icone">$Trigger</a>
+		 <a class="uk-button $ButtonBackground $ButtonPosition" data-uk-toggle="target: #toggle-container-{$ID};<% if ToggleClass %>cls: $ToggleClass;<% end_if %>"  type="button" data-uk-icon="icon: $Icone">$Trigger</a>
 		<% else %>
 			<% if $Trigger %>
 			    <button class="uk-button $ButtonBackground $ButtonPosition" data-uk-toggle="target: #content-container-{$ID}" type="button" data-uk-icon="icon: $Icone">$Trigger</button>

@@ -35,12 +35,36 @@ class TextBlock extends BaseElement
     private static $cascade_duplicates = [];
 
 
-    private static $block_layouts = [
-        'left' => 'Links',
-        'right' => 'Rechts',
-        'hover' => 'Oben', 
-        'above' => 'Unten'
+    // private static $block_layouts = [
+    //     'left' => 'Links',
+    //     'right' => 'Rechts',
+    //     'hover' => 'Oben', 
+    //     'above' => 'Unten'
+    // ];
+
+     private static $block_layouts = [
+        'left' => [
+            'value' => 'left',
+            'title' => 'Links',
+            'icon' => '/deskall-page-blocks/images/icon-text-left.svg'
+        ],
+        'right' => [
+            'value' => 'right',
+            'title' => 'Rechts',
+            'icon' => '/deskall-page-blocks/images/icon-text-right.svg'
+        ],
+        'under' => [
+            'value' => 'under',
+            'title' => 'Unten',
+            'icon' => '/deskall-page-blocks/images/icon-text-under.svg'
+        ],
+        'above' => [
+            'value' => 'above',
+            'title' => 'Oben',
+            'icon' => '/deskall-page-blocks/images/icon-text-above.svg'
+        ],
     ];
+
 
    
     private static $table_name = 'TextBlock';
@@ -63,7 +87,7 @@ class TextBlock extends BaseElement
             $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
         });
         $fields = parent::getCMSFields();
-        $fields->addFieldToTab('Root.Layout',LayoutField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
+        $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
         return $fields;
     }
 
@@ -76,16 +100,4 @@ class TextBlock extends BaseElement
     {
         return _t(__CLASS__ . '.BlockType', 'Text - Bild');
     }
-
-    /************* TRANLSATIONS *******************/
-    public function provideI18nEntities(){
-        $entities = [];
-        foreach($this->stat('block_layouts') as $key => $value) {
-          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
-        }
-       
-        return $entities;
-    }
-
-/************* END TRANLSATIONS *******************/
 }

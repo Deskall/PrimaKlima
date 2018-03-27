@@ -6,6 +6,8 @@ use SilverStripe\Forms\GroupedDropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\LabelField;
+use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig;
@@ -62,19 +64,44 @@ class SliderBlock extends BaseElement
         'Layout' => 'slideshow',
         'FullWidth' => 1,
         'MinHeight' => '250',
-        'Height' => '4:1'
+        'Height' => 'viewport'
     ];
 
     private static $block_layouts = [
-        'slideshow' => 'Slideshow'
+        'slideshow' => [
+            'value' => 'slideshow',
+            'title' => 'Slideshow',
+            'icon' => '/deskall-page-blocks/images/icon-slide-fullwidth.svg'
+        ],
+        'slider' => [
+            'value' => 'slider',
+            'title' => 'Slider',
+            'icon' => '/deskall-page-blocks/images/icon-slide-contained.svg'
+        ],
     ];
 
 
     private static $block_heights = [
-        'small' => 'klein',
-        'medium' => 'medium',
-        'large' => 'gross',
-        'viewport' => 'ganz Bildschirm'
+        'small' => [
+            'value' => 'small',
+            'title' => 'klein',
+            'icon' => '/deskall-page-blocks/images/icon-slide-fullwidth.svg'
+        ],
+        'medium' => [
+            'value' => 'medium',
+            'title' => 'mittel',
+            'icon' => '/deskall-page-blocks/images/icon-slide-medium.svg'
+        ],
+        'large' => [
+            'value' => 'large',
+            'title' => 'gross',
+            'icon' => '/deskall-page-blocks/images/icon-slide-large.svg'
+        ],
+        'viewport' => [
+            'value' => 'viewport',
+            'title' => 'Vollbild',
+            'icon' => '/deskall-page-blocks/images/icon-slide-fullscreen.svg'
+        ],
     ];
 
     private static $animations = [
@@ -86,9 +113,21 @@ class SliderBlock extends BaseElement
     ];
    
     private static $controls = [
-        'none' => 'kein',
-        'dots' => 'dots',
-        'controls' => 'arrows'
+        'none' => [
+            'value' => 'none',
+            'title' => 'klein',
+            'icon' => '/deskall-page-blocks/images/icon-slide-fullscreen.svg'
+        ],
+        'dots' => [
+            'value' => 'dots',
+            'title' => 'Dots',
+            'icon' => '/deskall-page-blocks/images/icon-slide-dots.svg'
+        ],
+        'controls' => [
+            'value' => 'controls',
+            'title' => 'Kontrol',
+            'icon' => '/deskall-page-blocks/images/icon-slide-arrows.svg'
+        ],
     ];
 
     private static $table_name = 'SliderBlock';
@@ -106,8 +145,10 @@ class SliderBlock extends BaseElement
             $fields->removeByName('TitleAndDisplayed');
             $fields->removeByName('RelatedPageID');
             $fields->removeByName('Slides');
-            $fields->removeByName('CallToActionLink');
             $fields->removeByName('ReferentID');
+            $fields->removeByName('Height');
+           
+            $fields->removeByName('Nav');
             if ($this->ID == 0){
                 $fields->addFieldToTab('Root.Main',LabelField::create('LabelField',_t(__CLASS__.'.SlideCopyHelpText','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider')));
 
@@ -131,17 +172,21 @@ class SliderBlock extends BaseElement
 
             $fields->addFieldToTab('Root.Settings',CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','Autoplay')));
             $fields->addFieldToTab('Root.Settings',DropdownField::create('Animation',_t(__CLASS__.'.Animation','Animation'), $this->getTranslatedSourceFor(__CLASS__,'animations')));
-            $fields->addFieldToTab('Root.Settings',DropdownField::create('Nav',_t(__CLASS__.'.Controls','Kontrols'), $this->getTranslatedSourceFor(__CLASS__,'controls')));
-            $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
-            $fields->addFieldToTab('Root.Settings',LayoutField::create('Height',_t(__CLASS__.'.Heights','Höhe'),$this->getTranslatedSourceFor(__CLASS__,'block_heights')));
+           
+            $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
+          //      HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->stat('block_layouts')),
+                HTMLOptionsetField::create('Height',_t(__CLASS__.'.Heights','Höhe'),$this->stat('block_heights')),
+                HTMLOptionsetField::create('Nav',_t(__CLASS__.'.Controls','Kontrols'), $this->stat('controls'))
+                )->setTitle(_t(__CLASS__.'.SlideLayout','Slide Format'))->setName('SlideLayout')
+            );
             $fields->addFieldToTab('Root.Settings',NumericField::create('MinHeight',_t(__CLASS__.'.MinHeight','min. Höhe')));
             $fields->addFieldToTab('Root.Settings',NumericField::create('MaxHeight',_t(__CLASS__.'.MaxHeight','max. Höhe')));
         });
         $fields = parent::getCMSFields();
-        $fields->removeByName('Background');
-        $fields->removeByName('BackgroundImage');
+        $fields->removeByName('LinkableLinkID');
+        $fields->removeByName('Layout');
         $fields->removeByName('MinHeight');
-            $fields->removeByName('MaxHeight');
+        $fields->removeByName('MaxHeight');
         return $fields;
     }
 
@@ -221,18 +266,10 @@ class SliderBlock extends BaseElement
     /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach($this->stat('block_layouts') as $key => $value) {
-          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
-        }
-        foreach($this->stat('block_heights') as $key => $value) {
-          $entities[__CLASS__.".block_heights_{$key}"] = $value;
-        }
         foreach($this->stat('animations') as $key => $value) {
           $entities[__CLASS__.".animations_{$key}"] = $value;
         }
-        foreach($this->stat('controls') as $key => $value) {
-          $entities[__CLASS__.".controls_{$key}"] = $value;
-        }
+
         return $entities;
     }
 

@@ -37,7 +37,7 @@ class HTMLDropdownField extends DropdownField{
     {
     	Requirements::javascript("mysite/javascript/htmldropdown.js");
         Requirements::css("mysite/css/htmldropdown.css");
-        Requirements::css("mysite/javascript/uikit-icons.js");
+      // Requirements::css("mysite/javascript/uikit-icons.js");
 
         parent::__construct($name, $title, $value);
     }
