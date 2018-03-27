@@ -44,8 +44,8 @@ class GridFieldCollapseUncollapseAction implements GridField_ColumnProvider, Gri
                 "collapse",
                 ['RecordID' => $record->ID]
             )->addExtraClass('grid-field__icon-action font-icon-book-open icon-primary btn--icon-large action action-detail')
-                ->setAttribute('title', _t('SiteTree.BUTTONINACTIVE', 'Zusammenbrechen'))
-                ->setDescription(_t('Global.BUTTONINACTIVEDESC', 'zusammenbrechen'));
+                ->setAttribute('title', _t('SiteTree.BUTTONCOLLAPSE', 'Zusammenbrechen'))
+                ->setDescription(_t('Global.BUTTONCOLLAPSE', 'zusammenbrechen'));
         }
         else{
           $field = GridField_FormAction::create(
@@ -55,8 +55,8 @@ class GridFieldCollapseUncollapseAction implements GridField_ColumnProvider, Gri
             "expand",
             ['RecordID' => $record->ID]
         )->addExtraClass('grid-field__icon-action font-icon-book btn--icon-large action action-detail')
-                ->setAttribute('title', _t('SiteTree.BUTTONACTIVE', 'Erweitern'))
-                ->setDescription(_t('Global.BUTTONACTIVEDESC', 'Erweitern'));  
+                ->setAttribute('title', _t('SiteTree.BUTTONEXPAND', 'Erweitern'))
+                ->setDescription(_t('Global.BUTTONEXPAND', 'Erweitern'));  
         }
 
         

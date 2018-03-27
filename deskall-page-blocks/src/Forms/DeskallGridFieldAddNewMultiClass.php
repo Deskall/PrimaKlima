@@ -242,7 +242,7 @@ class DeskallGridFieldAddNewMultiClass implements GridField_HTMLProvider, GridFi
 
         GridFieldExtensions::include_requirements();
 
-        $field = new HTMLDropdownField(sprintf('%s[ClassName]', self::POST_KEY), '', $this->getSource($classes), $this->defaultClass);
+        $field = new HTMLDropdownField(sprintf('%s[ClassName]', self::POST_KEY), '', $this->getSource($classes, $grid), $this->defaultClass);
         if (Config::inst()->get(__CLASS__, 'showEmptyString')) {
             $field->setEmptyString(_t('GridFieldExtensions.SELECTTYPETOCREATE', '(Select type to create)'));
         }
@@ -259,10 +259,11 @@ class DeskallGridFieldAddNewMultiClass implements GridField_HTMLProvider, GridFi
         );
     }
 
-    public function getSource($classes){
+    public function getSource($classes,$grid){
         $source = [];
-        $configClasses = Config::inst()->get('BaseBlockExtension','blocks');
-        $properOrderedClasses = array_merge(array_flip($configClasses), $classes);
+        $configClasses = ($grid->getForm()->record->ClassName == "ParentBlock") ? (($grid->getForm()->record->CollapsableChildren) ? Config::inst()->get('BaseBlockExtension','collapsable_blocks') : Config::inst()->get('BaseBlockExtension','children_blocks')) : Config::inst()->get('BaseBlockExtension','blocks');
+
+        $properOrderedClasses = array_intersect_key(array_flip($configClasses), $classes);
 
         foreach($properOrderedClasses as $class => $name){
             $unsanitisedClass = $this->unsanitiseClassName($class);

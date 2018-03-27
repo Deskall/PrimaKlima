@@ -50,8 +50,31 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'LeadBlock',
         'MapBlock',
         'VideoBlock',
+        'ActionBlock',
         'ShareBlock',
         'SitemapBlock',
+    ];
+
+    private static $children_blocks = [
+        'TextBlock',
+        'SliderBlock',
+        'GalleryBlock',
+        'BoxBlock',
+        'FeaturesBlock',
+        'DNADesign-ElementalUserForms-Model-ElementForm',
+        'DownloadBlock',
+        'MapBlock',
+        'VideoBlock',
+        'ActionBlock',
+        'ShareBlock',
+        'SitemapBlock',
+    ];
+
+    private static $collapsable_blocks = [
+        'TextBlock',  
+        'GalleryBlock',
+        'BoxBlock',
+        'DownloadBlock',
     ];
 
     private static $icon;
