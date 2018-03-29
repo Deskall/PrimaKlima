@@ -51,3 +51,8 @@
 .option-html i:before{
     vertical-align: middle;
 }
+
+.option-html svg{
+    vertical-align: middle;
+    margin-right:10px;
+}
