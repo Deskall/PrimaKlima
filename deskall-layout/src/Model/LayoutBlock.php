@@ -11,7 +11,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\SiteConfig\SiteConfig;
 
-class FooterBlock extends DataObject{
+class LayoutBlock extends DataObject{
 
 	private static $db = [
 		'Title' => 'Text',
@@ -31,7 +31,7 @@ class FooterBlock extends DataObject{
 	];
 
 	private static $has_many = [
-		'Links' => FooterLink::class
+		'Links' => LayoutLink::class
 	];
 
 	private static $summary_fields = [
@@ -55,10 +55,17 @@ class FooterBlock extends DataObject{
 		'uk-width-expand' => 'verbleibende Breite'
 	];
 
+	private static $backgrounds = [
+        'uk-section-default' => 'keine Hintergrundfarbe',
+        'uk-section-primary dk-text-hover-primary' => 'primäre Farbe',
+        'uk-section-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
+        'uk-section-muted dk-text-hover-muted' => 'grau',
+        'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
+        'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
+    ];
+
 	private static $block_types = [
-		'adresse' => 'Adresse',
-		'links' => 'Links',
-		'content' => 'Inhalt'
+		
 	];
 
 
@@ -73,7 +80,7 @@ class FooterBlock extends DataObject{
 
     public function Preview(){
      $Preview = new DBHTMLText();
-     $Preview->setValue($this->renderWith('FooterBlock_preview'));
+     $Preview->setValue($this->renderWith(__CLASS__.'_preview'));
      return $Preview;
     }
 

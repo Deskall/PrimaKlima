@@ -4,7 +4,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\DropdownField;
 
 
-class FooterLink extends DataObject{
+class LayoutLink extends DataObject{
 
 	private static $db = [
 		'Icon' => 'Varchar(255)',
@@ -12,7 +12,7 @@ class FooterLink extends DataObject{
 	];
 
 	private static $has_one = [
-		'Parent' => 'FooterBlock'
+		'Parent' => 'LayoutBlock'
 	];
 
 	private static $extensions = [

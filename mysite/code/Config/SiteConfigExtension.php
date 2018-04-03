@@ -38,26 +38,13 @@ class SiteConfigExtension extends DataExtension
     'Facebook' => 'Varchar(255)',
     'Twitter' => 'Varchar(255)',
     'Linkedin' => 'Varchar(255)',
-    'Xing' => 'Varchar(255)',
-    'FooterBackground' => 'Varchar(255)'
-  ];
-
-  private static $has_many = [
-    'Blocks' => FooterBlock::class
+    'Xing' => 'Varchar(255)'  
   ];
 
   private static $has_one = [
     'DefaultSlide' => Image::class
   ];
 
-      private static $backgrounds = [
-        'uk-section-default' => 'keine Hintergrundfarbe',
-        'uk-section-primary dk-text-hover-primary' => 'primäre Farbe',
-        'uk-section-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
-        'uk-section-muted dk-text-hover-muted' => 'grau',
-        'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
-        'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
-    ];
 
   public function updateCMSFields(FieldList $fields) {
      
@@ -82,34 +69,11 @@ class SiteConfigExtension extends DataExtension
       TextField::create('Linkedin',_t(__CLASS__.'.Linkedin','Linkedin')),
       TextField::create('Xing',_t(__CLASS__.'.Xing','Xing'))
     ]);
-    $FooterLinksField = new GridField(
-        'Blocks',
-        'Blocks',
-        $this->owner->Blocks(),
-        GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
-        ->addComponent(new GridFieldShowHideAction())
-    );
-    $fields->addFieldToTab("Root.Footer", DropdownField::create('FooterBackground',_t(__CLASS__.'.Background','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'backgrounds'))->setEmptyString(_t(__CLASS__.'.BackgroundHelp','Wählen Sie aus eine Hintergrundfarbe')));
-    $fields->addFieldToTab("Root.Footer", $FooterLinksField);
+    
     $fields->addFieldToTab("Root.Default", UploadField::create('DefaultSlide','Slide'));
     
     $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.MainTab','Hauptteil'));
     $fields->FieldByName('Root.Access')->setTitle(_t(__CLASS__.'.AccessTab','Zugang'));
     $fields->FieldByName('Root.Default')->setTitle(_t(__CLASS__.'.DefaultTab','Standard'));
   }
-
-  public function activeFooterBlocks(){
-    return $this->owner->Blocks()->filter('isVisible',1);
-  }
-
-/************* TRANLSATIONS *******************/
-    public function provideI18nEntities(){
-        $entities = [];
-        foreach($this->owner->stat('backgrounds') as $key => $value) {
-          $entities[__CLASS__.".backgrounds_{$key}"] = $value;
-        }
-        return $entities;
-    }
-
-/************* END TRANLSATIONS *******************/
 }
