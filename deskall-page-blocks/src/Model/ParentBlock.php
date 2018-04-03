@@ -56,7 +56,7 @@ class ParentBlock extends ElementList
             'icon' => '/deskall-page-blocks/images/icon-parent-1-columns.svg'
         ],
         'uk-child-width-1-1@s uk-child-width-1-2@m' => [
-            'value' => 'uk-child-width-1-1@s',
+            'value' => 'uk-child-width-1-1@s uk-child-width-1-2@m',
             'title' => '2 Spalten',
             'icon' => '/deskall-page-blocks/images/icon-parent-2-columns.svg'
         ],
@@ -86,7 +86,10 @@ class ParentBlock extends ElementList
         $fields->removeByName('Layout');
         $fields->removeByName('BlocksPerLine');
         $fields->removeByName('Border');
-        $fields->removeByName('matchHeight'); 
+        $fields->removeByName('matchHeight');
+        $fields->removeByName('CollapsableChildren'); 
+        $fields->removeByName('CollapseMultipe'); 
+        $fields->removeByName('CanCollapse');  
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
@@ -94,11 +97,15 @@ class ParentBlock extends ElementList
             CheckboxField::create('matchHeight',_t(__CLASS__.'.SameHeight','gleiche Höhe für alle Blöcke benutzen'))
         )->setTitle(_t(__CLASS__.'.Layout','Layout'))->setName('Layout'));
         
-        $fields->addFieldsToTab('Root.Settings',[
-            CheckboxField::create('CollapsableChildren',_t(__CLASS__.'.CollapsableChildren','zusammenklappbar Blöcke')),
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            $collapse = CheckboxField::create('CollapsableChildren',_t(__CLASS__.'.CollapsableChildren','zusammenklappbar Blöcke')),
             CheckboxField::create('CollapseMultipe',_t(__CLASS__.'.CollapseMultipe','Mehrere erweiterten Blöcke erlaubt.'))->displayIf('CollapsableChildren')->isChecked()->end(),
             CheckboxField::create('CanCollapse',_t(__CLASS__.'.CanCollapse','Blöcke dürfen zusammenbrochen sein.'))->displayIf('CollapsableChildren')->isChecked()->end()
-        ]);
+        )->setTitle(_t(__CLASS__.'.Settings','Einstellungen'))->setName('BlocksLayout'));
+
+        if ($this->ID > 0){
+           $collapse->setDisabled(true)->setDescription(_t(__CLASS__.'CollapsableChildrenHelpText','Diese Option kann nicht nach dem Erstellung geändert sein.'));
+        }
 
         return $fields;
     }

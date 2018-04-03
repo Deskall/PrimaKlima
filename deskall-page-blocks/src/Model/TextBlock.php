@@ -87,6 +87,7 @@ class TextBlock extends BaseElement
             $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
         });
         $fields = parent::getCMSFields();
+        $fields->RemoveByName('Layout');
         $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
         return $fields;
     }

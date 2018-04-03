@@ -32,9 +32,9 @@
 	<% if $FeaturesTitle %>
 		<h3>$FeaturesTitle</h3>
 	<% end_if %>
-	<ul class="uk-list uk-list-large dk-list $FeaturesColumns">
+	<ul class="uk-list uk-list-large dk-list $FeaturesColumns $FeaturesTextAlign">
 	<% loop activeFeatures %> 
-	    <li data-uk-icon="icon: $Top.IconItem;" class="dk-large-icon uk-text-large">$Text</li>
+	    <li data-uk-icon="icon: $Top.IconItem;" class="dk-large-icon uk-text-large uk-width-1-1">$Text</li>
 	<% end_loop %>
 	</ul>
 <% end_if %>

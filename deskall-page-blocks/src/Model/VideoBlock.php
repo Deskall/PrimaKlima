@@ -3,6 +3,7 @@
 
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\ArrayList;
@@ -66,7 +67,7 @@ class VideoBlock extends BaseElement
         });
         
         $fields = parent::getCMSFields();
-        $fields->addFieldToTab('Root.Layout',LayoutField::create('Layout','Format', $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
+        $fields->addFieldToTab('Root.Layout',OptionsetField::create('Layout','Format', $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
         return $fields;
 	}
 

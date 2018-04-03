@@ -4,6 +4,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\TreeDropdownField;
@@ -78,9 +79,9 @@ class LargeImageBlock extends BannerBlock{
     	$fields->removeByName('BackgroundImage');
         $fields->removeByName('File');
         $fields->fieldByName('Root.Main.Image')->setTitle(_t(__CLASS__ . '.Image','Bild'))->setFolderName($this->getFolderName());
-        $fields->addFieldToTab('Root.Settings',LayoutField::create('Layout',_t(__CLASS__. '.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
-        $fields->addFieldToTab('Root.Settings',LayoutField::create('Height',_t(__CLASS__. '.Height','Höhe'),$this->getTranslatedSourceFor(__CLASS__,'block_heights')));
-        $fields->addFieldToTab('Root.Settings',LayoutField::create('Effect',_t(__CLASS__. '.Effect','Effekt'),$this->getTranslatedSourceFor(__CLASS__,'effects')));
+        $fields->addFieldToTab('Root.Settings',OptionsetField::create('Layout',_t(__CLASS__. '.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
+        $fields->addFieldToTab('Root.Settings',OptionsetField::create('Height',_t(__CLASS__. '.Height','Höhe'),$this->getTranslatedSourceFor(__CLASS__,'block_heights')));
+        $fields->addFieldToTab('Root.Settings',OptionsetField::create('Effect',_t(__CLASS__. '.Effect','Effekt'),$this->getTranslatedSourceFor(__CLASS__,'effects')));
         $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions',_t(__CLASS__. '.EffectOptions','Effekt Optionen')));
         
     	return $fields;

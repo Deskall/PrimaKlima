@@ -5,6 +5,7 @@ SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-page-blocks
 
 DNADesign\Elemental\Models\BaseElement:
+  default_global_elements: true
   extensions:
     - BaseBlockExtension
     - Activable

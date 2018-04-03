@@ -11,7 +11,7 @@
 		<% else_if InteractionType == "offcanvas" %>
 		    <button class="uk-button $ButtonBackground $ButtonPositiont" type="button" data-uk-toggle="target: #offcanvas-container-{$ID}">$Trigger</button>
 		<% else_if InteractionType == "scroll" %>
-		 <a class="uk-button $ButtonBackground $ButtonPosition" href="#e{$ScrollTarget}" data-uk-scroll type="button" data-uk-icon="icon: $Icone">$Trigger</a>
+		 <a class="uk-button $ButtonBackground $ButtonPosition" href="#e{$Target}" data-uk-scroll type="button" data-uk-icon="icon: $Icone">$Trigger</a>
 		<% else_if InteractionType == "toggle" %>
 		 <a class="uk-button $ButtonBackground $ButtonPosition" data-uk-toggle="target: #toggle-container-{$ID};<% if ToggleClass %>cls: $ToggleClass;<% end_if %>"  type="button" data-uk-icon="icon: $Icone">$Trigger</a>
 		<% else %>

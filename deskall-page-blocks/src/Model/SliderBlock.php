@@ -128,6 +128,11 @@ class SliderBlock extends BaseElement
             'title' => 'Kontrol',
             'icon' => '/deskall-page-blocks/images/icon-slide-arrows.svg'
         ],
+        'both' => [
+            'value' => 'both',
+            'title' => 'Beides',
+            'icon' => '/deskall-page-blocks/images/icon-slide-both.svg'
+        ],
     ];
 
     private static $table_name = 'SliderBlock';
@@ -140,15 +145,20 @@ class SliderBlock extends BaseElement
 
     public function getCMSFields()
     {
-
-        $this->beforeUpdateCMSFields(function ($fields) {
+        $fields = parent::getCMSFields();
+      
             $fields->removeByName('TitleAndDisplayed');
             $fields->removeByName('RelatedPageID');
             $fields->removeByName('Slides');
             $fields->removeByName('ReferentID');
             $fields->removeByName('Height');
-           
+            $fields->removeByName('Layout');
             $fields->removeByName('Nav');
+            $fields->removeByName('Autoplay');
+            $fields->removeByName('Animation');
+            $fields->removeByName('MinHeight');
+            $fields->removeByName('MaxHeight');
+
             if ($this->ID == 0){
                 $fields->addFieldToTab('Root.Main',LabelField::create('LabelField',_t(__CLASS__.'.SlideCopyHelpText','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider')));
 
@@ -170,8 +180,7 @@ class SliderBlock extends BaseElement
                 $fields->addFieldToTab('Root.Main',$slidesField);
             }
 
-            $fields->addFieldToTab('Root.Settings',CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','Autoplay')));
-            $fields->addFieldToTab('Root.Settings',DropdownField::create('Animation',_t(__CLASS__.'.Animation','Animation'), $this->getTranslatedSourceFor(__CLASS__,'animations')));
+
            
             $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
           //      HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->stat('block_layouts')),
@@ -179,14 +188,17 @@ class SliderBlock extends BaseElement
                 HTMLOptionsetField::create('Nav',_t(__CLASS__.'.Controls','Kontrols'), $this->stat('controls'))
                 )->setTitle(_t(__CLASS__.'.SlideLayout','Slide Format'))->setName('SlideLayout')
             );
-            $fields->addFieldToTab('Root.Settings',NumericField::create('MinHeight',_t(__CLASS__.'.MinHeight','min. Höhe')));
-            $fields->addFieldToTab('Root.Settings',NumericField::create('MaxHeight',_t(__CLASS__.'.MaxHeight','max. Höhe')));
-        });
-        $fields = parent::getCMSFields();
+
+            $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
+                CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','Autoplay')),
+                DropdownField::create('Animation',_t(__CLASS__.'.Animation','Animation'), $this->getTranslatedSourceFor(__CLASS__,'animations')),
+                NumericField::create('MinHeight',_t(__CLASS__.'.MinHeight','min. Höhe')),
+                NumericField::create('MaxHeight',_t(__CLASS__.'.MaxHeight','max. Höhe'))
+                )->setTitle(_t(__CLASS__.'.SlideSettings','Slide Einstellungen'))->setName('SlideSettings')
+            );
+       
+       
         $fields->removeByName('LinkableLinkID');
-        $fields->removeByName('Layout');
-        $fields->removeByName('MinHeight');
-        $fields->removeByName('MaxHeight');
         return $fields;
     }
 

@@ -9,7 +9,9 @@ use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
-use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\Tab;
+use SilverStripe\Forms\Tabset;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig;
@@ -31,7 +33,8 @@ class SiteConfigLayoutExtension extends DataExtension
   ];
 
   private static $has_many = [
-    'FooterBlocks' => FooterBlock::class
+    'FooterBlocks' => FooterBlock::class,
+    'MenuBlocks' => MenuBlock::class
   ];
 
       private static $backgrounds = [
@@ -44,20 +47,23 @@ class SiteConfigLayoutExtension extends DataExtension
     ];
 
   public function updateCMSFields(FieldList $fields) {
-     
+    $fields->addFieldToTab("Root.Layout.Global",new HiddenField('ID'));
     $FooterLinksField = new GridField(
         'FooterBlocks',
         'FooterBlocks',
-        $this->owner->Blocks(),
+        $this->owner->FooterBlocks(),
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
-    $fields->addFieldToTab("Root.Footer", DropdownField::create('FooterBackground',_t(__CLASS__.'.Background','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'backgrounds'))->setEmptyString(_t(__CLASS__.'.BackgroundHelp','Wählen Sie aus eine Hintergrundfarbe')));
-    $fields->addFieldToTab("Root.Footer", $FooterLinksField);
+    $fields->addFieldToTab("Root.Layout.Footer", DropdownField::create('FooterBackground',_t(__CLASS__.'.Background','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'backgrounds'))->setEmptyString(_t(__CLASS__.'.BackgroundHelp','Wählen Sie aus eine Hintergrundfarbe')));
+    $fields->addFieldToTab("Root.Layout.Footer", $FooterLinksField);
+    
+    return $fields;
   }
 
+
   public function activeFooterBlocks(){
-    return $this->owner->Blocks()->filter('isVisible',1);
+    return $this->owner->FooterBlocks()->filter('isVisible',1);
   }
 
 /************* TRANLSATIONS *******************/

@@ -11,6 +11,7 @@ use SilverStripe\Forms\Tab;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\i18n\i18nEntityProvider;
 use SilverStripe\Security\Permission;
+use SilverStripe\CMS\Model\SiteTree;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -36,7 +37,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     private static $defaults = [
         'ShowTitle' => 1,
         'Background' => 'no-bg',
-        'Align' => 'uk-text-left'
+        'Align' => 'uk-text-left',
+        'AvailableGlobally' => 1
     ];
 
     private static $blocks = [
@@ -65,6 +67,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'FeaturesBlock',
         'DNADesign-ElementalUserForms-Model-ElementForm',
         'DownloadBlock',
+        'ParentBlock',
         'MapBlock',
         'VideoBlock',
         'ActionBlock',
@@ -156,10 +159,15 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('TextAlign');
         $fields->removeByName('TextColumns');
         $fields->removeByName('TextColumnsDivider');
-
+        $fields->removeByName('AvailableGlobally');
+        
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
+        $fields->removeByName('Settings');
         $fields->removeByName('ExtraClass');
-        $fields->addFieldToTab('Root',new Tab('LayoutTab',_t(__CLASS__.'.LAYOUTTAB','Layout')),'Settings');
+      
+        $fields->addFieldToTab('Root',new Tab('LayoutTab',_t(__CLASS__.'.LAYOUTTAB','Layout')));
+     
+
     	$fields->addFieldToTab('Root.LayoutTab',CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')));
         if (Permission::check('ADMIN')){
             $fields->addFieldToTab('Root.LayoutTab',$extracss);
@@ -175,9 +183,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         )->setTitle(_t(__CLASS__.'.TextLayout','Text Optionen'))->setName('TextLayout'));
         
         $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
-        $fields->FieldByName('Root.Settings')->setTitle(_t(__CLASS__.'.SettingsTab','Einstellungen'));
-        if ($this->owner->ID > 0 && $fields->FieldByName('Root.History') ){
-            $fields->FieldByName('Root.History')->setTitle(_t(__CLASS__.'.HistoryTab','Geschichte'));
+        if ($this->owner->ID > 0 && $history = $fields->FieldByName('Root.History') ){
+            $fields->removeByName('History');
+            $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
+            $fields->addFieldToTab('Root',$history);
         }
        // $fields->addFieldToTab('Root.Link', LinkField::create('ExampleLinkID', 'Link to page or file'));
     }
@@ -190,6 +199,16 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $parent = $parent->Parent()->getOwnerPage();
         }
         return $parent->generateFolderName();
+    }
+
+    public function getPage(){
+        file_put_contents('log.txt', 'da');
+        $page = $this->owner->Parent()->getOwnerPage();
+       
+        while(!$page->hasMethod('generateFolderName')){
+            $page = $page->Parent()->getOwnerPage();
+        }
+        return $page;
     }
 
     public function onBeforeWrite(){
@@ -214,6 +233,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     public function NiceTitle(){
         return ($this->owner->Title) ? $this->owner->Title : $this->owner->ID;
     }
+
 
    
 

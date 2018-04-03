@@ -25,12 +25,12 @@
         </li>
         <% end_loop %>
     </ul>
-    <% if Nav == "dots" %>
+    <% if Nav == "dots" || Nav == "both" %>
     <div class="uk-position-bottom-center uk-position-large">
         <ul class="uk-slideshow-nav uk-dotnav"></ul>
     </div>
-    
-     <% else_if Nav == "controls" %>
+    <% end_if %>
+    <% if Nav == "controls" || Nav == "both" %>
             <div class="uk-light">
                 <a class="uk-slidenav-large uk-position-center-left uk-position-large uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
                 <a class="uk-slidenav-large uk-position-center-right uk-position-large uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>

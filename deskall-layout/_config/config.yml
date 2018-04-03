@@ -1,0 +1,6 @@
+---
+Name: siteconfiglayout
+---
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SiteConfigLayoutExtension

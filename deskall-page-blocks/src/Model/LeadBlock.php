@@ -45,6 +45,7 @@ class LeadBlock extends BaseElement
     public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function ($fields) {
+            $fields->removeByName('Layout');
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));

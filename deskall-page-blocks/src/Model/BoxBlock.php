@@ -144,10 +144,10 @@ class BoxBlock extends BaseElement
             $fields->removeByName('BoxTextAlign');
             $fields->removeByName('BoxPerLine');
             $fields->removeByName('Effect');
+            $fields->removeByName('Layout');
                 
             if ($this->ID > 0){
-                $fields->addFieldToTab('Root',new Tab('Boxes',_t('BOXBLOCK.BOXTAB','Boxen')),'Settings');
-                $fields->addFieldToTab('Root.Boxes',CompositeField::create(
+                $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
                 HTMLOptionsetField::create('Layout',_t(__CLASS__.'.BoxTemplate','Box Inhalt Position'), $this->stat('block_layouts')),
                 HTMLOptionsetField::create('BoxTextAlign',_t(__CLASS__.'.BoxTextAlignment','Boxen Textausrichtung'),$this->stat('boxes_text_alignments')),
                 HTMLOptionsetField::create('BoxPerLine',_t(__CLASS__.'.BoxPerLine','Boxen per Linie'), $this->stat('boxes_per_line')),
@@ -160,7 +160,7 @@ class BoxBlock extends BaseElement
                      $config->addComponent(new GridFieldShowHideAction());
                 }
                 $boxesField = new GridField('Boxes',_t(__CLASS__.'.Boxes','Boxen'),$this->Boxes(),$config);
-                $fields->insertBefore('BoxLayout',$boxesField);
+                $fields->addFieldToTab('Root.Main',$boxesField);
             }
        
         

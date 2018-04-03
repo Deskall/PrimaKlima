@@ -3,6 +3,7 @@
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
@@ -173,7 +174,7 @@ class ActionBlock extends BaseElement
         $fields->insertAfter('Trigger',$fields->fieldByName('Root.Main.CloseText'));
         $fields->addFieldToTab('Root.Main',DropdownField::create('Target',_t(__CLASS__.'.Target','Zielelement'), $this->getPageElements())->setEmptyString(_t(__CLASS__.'.TargetHelp','Bitte Element auswählen')));
         $fields->addFieldToTab('Root.Layout',
-            LayoutField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
+            OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
 
         //MODALS LAYOUT
         $fields->addFieldToTab('Root.Layout',Wrapper::create(CompositeField::create(

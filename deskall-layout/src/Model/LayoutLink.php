@@ -2,7 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\DropdownField;
-
+use SilverStripe\ORM\FieldType\DBField;
 
 class LayoutLink extends DataObject{
 
@@ -22,7 +22,9 @@ class LayoutLink extends DataObject{
 	];
 
 	private static $summary_fields = [
-		'DisplayLink'
+		'LinkableLink.LinkType' => 'Typ',
+		'LinkableLink.Title' => 'Titel',
+		'LinkableLink.LinkURL' => 'URL',
 	];
 
     function fieldLabels($includerelations = true) {
@@ -47,5 +49,10 @@ class LayoutLink extends DataObject{
     public function getSourceIcons(){
         //To do : filter relevant icons
         return HTMLDropdownField::getSourceIcones();
+    }
+
+    public function DisplayLink(){
+    	$html = '<div><span>'.$this->LinkableLink()->getLinkType().'</span><span>'.$this->LinkableLink()->Title.'</span><span>'.$this->LinkableLink()->LinkURL.'</span></div>';
+    	return DBField::create_field('HTMLText', $html)->Summary(20);
     }
 }

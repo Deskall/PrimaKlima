@@ -30,7 +30,8 @@ class FeaturesBlock extends BaseElement
         'HTML' => 'HTMLText',
         'IconItem' => 'Varchar(255)',
         'FeaturesTitle' => 'Varchar(255)',
-        'FeaturesColumns' => 'Varchar(255)'
+        'FeaturesColumns' => 'Varchar(255)',
+        'FeaturesTextAlign' => 'Varchar(255)'
     ];
 
     private static $has_one = [
@@ -82,7 +83,31 @@ class FeaturesBlock extends BaseElement
             'title' => '5 Spalten',
             'icon' => '/deskall-page-blocks/images/icon-text-5-columns.svg'
         ]
-    ];    
+    ];
+
+
+    private static $features_text_alignments = [
+        'uk-text-justify uk-text-left@s' =>  [
+            'value' => 'uk-text-justify uk-text-left@s',
+            'title' => 'Links Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+        ],
+        'uk-text-justify uk-text-right@s' =>  [
+            'value' => 'uk-text-justify uk-text-right@s',
+            'title' => 'Rechts Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+        ],
+        'uk-text-justify uk-text-center@s' => [
+            'value' => 'uk-text-justify uk-text-center@s',
+            'title' => 'Mittel Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+        ],
+        'uk-text-justify' => [
+            'value' => 'uk-text-justify',
+            'title' => 'Justify Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
+        ]
+    ];
 
 
     private static $table_name = 'FeaturesBlock';
@@ -102,6 +127,8 @@ class FeaturesBlock extends BaseElement
             $fields->removeByName('FeaturesColumns');
             $fields->removeByName('IconItem');
             $fields->removeByName('Layout');
+            $fields->removeByName('FeaturesTextAlign');
+            $fields->removeByName('Features');
 
             $fields
                 ->fieldByName('Root.Main.HTML')
@@ -109,6 +136,7 @@ class FeaturesBlock extends BaseElement
             $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
             
             $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+                HTMLOptionsetField::create('FeaturesTextAlign',_t(__CLASS__.'.FeaturesTextAlignment','Features Textausrichtung'),$this->stat('features_text_alignments')),
                 HTMLOptionsetField::create('FeaturesColumns',_t(__CLASS__.'.FeaturesInColumns','Features in mehreren Spalten'),$this->stat('features_columns')),
                 HTMLDropdownField::create('IconItem',_t(__CLASS__.'.FeaturesIcons','Icon'),$this->getSourceIcons())
             )->setTitle(_t(__CLASS__.'FeaturesLayout','Features Layout'))->setName('FeaturesLayout'));
@@ -129,9 +157,9 @@ class FeaturesBlock extends BaseElement
                 }
                 $featuresField = new GridField('Features',_t(__CLASS__.'.Features','Features'),$this->Features(),$config);
                 $title = $fields->fieldByName('Root.Main.FeaturesTitle');
-                $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'List Titel'));
-                $fields->addFieldToTab('Root.Features',$title);
-                $fields->addFieldToTab('Root.Features',$featuresField);
+                $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'Features List Titel'));
+                $fields->addFieldToTab('Root.Main',$title);
+                $fields->addFieldToTab('Root.Main',$featuresField);
             } 
             else {
                 $fields->removeByName('Features');

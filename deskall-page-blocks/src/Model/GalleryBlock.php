@@ -4,6 +4,7 @@ use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
@@ -76,6 +77,7 @@ class GalleryBlock extends BaseElement
             $fields->removeByName('PicturesPerLine');
             $fields->removeByName('PictureWidth');
             $fields->removeByName('SortAttribute');
+             $fields->removeByName('Layout');
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
@@ -92,7 +94,8 @@ class GalleryBlock extends BaseElement
           
         });
         $fields = parent::getCMSFields();
-        $fields->addFieldToTab('Root.Pictures',LayoutField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
+
+        $fields->addFieldToTab('Root.Pictures',OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
         return $fields;
     }
 

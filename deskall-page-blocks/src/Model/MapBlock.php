@@ -4,6 +4,7 @@ use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\ORM\FieldType\DBField;
@@ -64,7 +65,7 @@ class MapBlock extends BaseElement
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
                 
             $fields->addFieldToTab('Root.Main',TextField::create('Adresse',_t(__CLASS__.'.Adresse','Adresse')),'HTML');
-            $fields->addFieldToTab('Root.Settings',LayoutField::create('Height',_t(__CLASS__.'.Height','Height'), $this->getTranslatedSourceFor(__CLASS__,'block_heights')));
+            $fields->addFieldToTab('Root.Settings',OptionsetField::create('Height',_t(__CLASS__.'.Height','Height'), $this->getTranslatedSourceFor(__CLASS__,'block_heights')));
 
             $fields->addFieldToTab('Root.MapOptions', CheckboxField::create('disableDefaultUI',_t(__CLASS__.'.disableControls','Kontrol deaktivieren')));
             $fields->addFieldToTab('Root.MapOptions', CheckboxField::create('mapTypeControl',_t(__CLASS__.'.mapControls','Map Kontrol'))->displayIf('disableDefaultUI')->isNotChecked()->end());
