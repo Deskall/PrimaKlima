@@ -2,8 +2,10 @@
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\Core\Config\Config;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\GridField\GridFieldConfig;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
@@ -55,17 +57,34 @@ class FeaturesBlock extends BaseElement
     ];
 
     private static $features_columns = [
-        ' ' => 'Keine Spalten',
-        'uk-column-1-2@s' => 'Display the content in two columns',
-        'uk-column-1-2@s uk-column-1-3@m' => 'Display the content in three columns',
-        'uk-column-1-2@s uk-column-1-4@m' => 'Display the content in four columns',
-        'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' => 'Display the content in five columns',
-        'uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l' => 'Display the content in six columns'
-    ];
-    
+        '1' =>  [
+            'value' => '1',
+            'title' => '1 Spalte',
+            'icon' => '/deskall-page-blocks/images/icon-text.svg'
+        ],
+        'uk-column-1-2@s' =>  [
+            'value' => 'uk-column-1-2@s',
+            'title' => '2 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-2-columns.svg'
+        ],
+        'uk-column-1-2@s uk-column-1-3@m' =>  [
+            'value' => 'uk-column-1-2@s uk-column-1-3@m',
+            'title' => '3 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-3-columns.svg'
+        ],
+        'uk-column-1-2@s uk-column-1-4@m' =>  [
+            'value' => 'uk-column-1-2@s uk-column-1-4@m',
+            'title' => '4 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-4-columns.svg'
+        ],
+        'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' =>  [
+            'value' => 'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l',
+            'title' => '5 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-5-columns.svg'
+        ]
+    ];    
 
 
-   
     private static $table_name = 'FeaturesBlock';
 
     private static $singular_name = 'Features block';
@@ -78,14 +97,22 @@ class FeaturesBlock extends BaseElement
 
     public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
 
-        $this->beforeUpdateCMSFields(function ($fields) {
+            $fields->removeByName('FeaturesColumns');
+            $fields->removeByName('IconItem');
+            $fields->removeByName('Layout');
+
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
             $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
-          
-      
+            
+            $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+                HTMLOptionsetField::create('FeaturesColumns',_t(__CLASS__.'.FeaturesInColumns','Features in mehreren Spalten'),$this->stat('features_columns')),
+                HTMLDropdownField::create('IconItem',_t(__CLASS__.'.FeaturesIcons','Icon'),$this->getSourceIcons())
+            )->setTitle(_t(__CLASS__.'FeaturesLayout','Features Layout'))->setName('FeaturesLayout'));
+
             if ($this->ID > 0){
 
                 $config = 
@@ -101,24 +128,17 @@ class FeaturesBlock extends BaseElement
                      $config->addComponent(new GridFieldShowHideAction());
                 }
                 $featuresField = new GridField('Features',_t(__CLASS__.'.Features','Features'),$this->Features(),$config);
-               // $fields->insertAfter(new Tab('Features',_t(__CLASS__.'.Features','Features')),'Main');
-                $title = $fields
-                ->fieldByName('Root.Main.FeaturesTitle');
+                $title = $fields->fieldByName('Root.Main.FeaturesTitle');
                 $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'List Titel'));
                 $fields->addFieldToTab('Root.Features',$title);
-                $fields->addFieldToTab('Root.Features',DropdownField::create('FeaturesColumns',_t(__CLASS__.'.FeaturesInColumns','Features in mehreren Spalten'),$this->getTranslatedSourceFor(__CLASS__,'features_columns')));
-                $fields->addFieldToTab('Root.Features',$fields->fieldByName('Root.Main.IconItem'));
                 $fields->addFieldToTab('Root.Features',$featuresField);
-
             } 
             else {
                 $fields->removeByName('Features');
-                $fields->removeByName('IconItem');
                 $fields->removeByName('FeaturesTitle');
-                $fields->removeByName('FeaturesColumns');
             }
-        });
-        return parent::getCMSFields();
+     
+       return $fields;
     }
 
     public function getSummary()
@@ -137,14 +157,10 @@ class FeaturesBlock extends BaseElement
         }
         return $this->Features();
     }
-/************* TRANLSATIONS *******************/
-    public function provideI18nEntities(){
-        $entities = [];
-        foreach($this->stat('features_columns') as $key => $value) {
-          $entities[__CLASS__.".features_columns_{$key}"] = $value;
-        }       
-        return $entities;
+
+    public function getSourceIcons(){
+        //To do : filter relevant icons
+        return HTMLDropdownField::getSourceIcones();
     }
 
-/************* END TRANLSATIONS *******************/
 }

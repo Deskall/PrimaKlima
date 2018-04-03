@@ -1,0 +1,16 @@
+.htmloptionset{
+	padding-left:0;
+}
+.htmloptionset li{
+	list-style-type: none;
+	display: inline-block;
+	margin-right:25px;
+}
+.htmloptionset .dk-icon{
+	width:75px;
+	height:auto;
+}
+.htmloptionset li label, .htmloptionset li input{
+	display: block;
+	margin:auto;
+}

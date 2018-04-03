@@ -4,15 +4,17 @@ use SilverStripe\ORM\DataExtension;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\i18n\i18nEntityProvider;
+use SilverStripe\Security\Permission;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
-  
+
     private static $db = [
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
@@ -92,21 +94,56 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     ];
 
     private static $block_text_alignments = [
-        'uk-text-left' =>  'Aligns text to the left.',
-        'uk-text-right' =>  'Aligns text to the right',
-        'uk-text-center' => 'Centers text horizontally',
-        'uk-text-justify' => 'Justifies text'
+        'uk-text-left' =>  [
+            'value' => 'uk-text-left',
+            'title' => 'Links Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+        ],
+        'uk-text-right' => [
+            'value' => 'uk-text-right',
+            'title' => 'Rechts Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+        ],
+        'uk-text-center' =>  [
+            'value' => 'uk-text-center',
+            'title' => 'Mittel Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+        ],
+        'uk-text-justify' =>  [
+            'value' => 'uk-text-justify',
+            'title' => 'Justify Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
+        ]
     ];
 
 
 
     private static $block_text_columns = [
-        ' ' => 'Keine Spalten',
-        'uk-column-1-2@s' => 'Display the content in two columns',
-        'uk-column-1-2@s uk-column-1-3@m' => 'Display the content in three columns',
-        'uk-column-1-2@s uk-column-1-4@m' => 'Display the content in four columns',
-        'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' => 'Display the content in five columns',
-        'uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l' => 'Display the content in six columns'
+        '1' =>  [
+            'value' => '1',
+            'title' => '1 Spalte',
+            'icon' => '/deskall-page-blocks/images/icon-text.svg'
+        ],
+        'uk-column-1-2@s' =>  [
+            'value' => 'uk-column-1-2@s',
+            'title' => '2 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-2-columns.svg'
+        ],
+        'uk-column-1-2@s uk-column-1-3@m' =>  [
+            'value' => 'uk-column-1-2@s uk-column-1-3@m',
+            'title' => '3 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-3-columns.svg'
+        ],
+        'uk-column-1-2@s uk-column-1-4@m' =>  [
+            'value' => 'uk-column-1-2@s uk-column-1-4@m',
+            'title' => '4 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-4-columns.svg'
+        ],
+        'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' =>  [
+            'value' => 'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l',
+            'title' => '5 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-5-columns.svg'
+        ]
     ];
 
 
@@ -122,15 +159,20 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('ExtraClass');
-        $fields->addFieldToTab('Root',new Tab('Layout',_t(__CLASS__.'.LAYOUTTAB','Layout')),'Settings');
-    	$fields->addFieldToTab('Root.Layout',CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')));
-        $fields->addFieldToTab('Root.Layout',$extracss);
-    	$fields->addFieldToTab('Root.Layout',DropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_backgrounds'))->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.')));
-        $fields->addFieldToTab('Root.Layout',UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()));
-        $fields->addFieldToTab('Root.Layout',DropdownField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_text_alignments')));
-        
-        $fields->addFieldToTab('Root.Layout',DropdownField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_text_columns')));
-        $fields->addFieldToTab('Root.Layout',$columnDivider = CheckboxField::create('TextColumnsDivider',_t(__CLASS__.'.ShowColumnsBorder','Border zwischen Spalten anzeigen')));
+        $fields->addFieldToTab('Root',new Tab('LayoutTab',_t(__CLASS__.'.LAYOUTTAB','Layout')),'Settings');
+    	$fields->addFieldToTab('Root.LayoutTab',CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')));
+        if (Permission::check('ADMIN')){
+            $fields->addFieldToTab('Root.LayoutTab',$extracss);
+        } 
+    	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            DropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_backgrounds'))->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.')),
+            UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName())
+        )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            HTMLOptionsetField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->stat('block_text_alignments')),
+            HTMLOptionsetField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->stat('block_text_columns')),
+            $columnDivider = CheckboxField::create('TextColumnsDivider',_t(__CLASS__.'.ShowColumnsBorder','Border zwischen Spalten anzeigen'))
+        )->setTitle(_t(__CLASS__.'.TextLayout','Text Optionen'))->setName('TextLayout'));
         
         $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
         $fields->FieldByName('Root.Settings')->setTitle(_t(__CLASS__.'.SettingsTab','Einstellungen'));
@@ -214,13 +256,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         foreach(Config::inst()->get(__CLASS__,'block_backgrounds') as $key => $value) {
           $entities[__CLASS__.".block_backgrounds_{$key}"] = $value;
         }
-        foreach(Config::inst()->get(__CLASS__,'block_text_alignments') as $key => $value) {
-          $entities[__CLASS__.".block_text_alignments_{$key}"] = $value;
-        }
-        foreach(Config::inst()->get(__CLASS__,'block_text_columns') as $key => $value) {
-          $entities[__CLASS__.".block_text_columns_{$key}"] = $value;
-        }
-       
         return $entities;
     }
 

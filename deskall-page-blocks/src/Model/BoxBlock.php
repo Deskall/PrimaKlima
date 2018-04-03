@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\GridField\GridField;
@@ -57,9 +58,21 @@ class BoxBlock extends BaseElement
     ];
 
     private static $block_layouts = [
-        'standard' => 'Titel, Bild, Inhalt',
-        'mixed' => 'Bild, Titel, Inhalt',
-        'inversed' => 'Titel,Inhalt,Bild'
+        'standard' => [
+            'value' => 'standard',
+            'title' => 'Titel, Bild, Inhalt',
+            'icon' => '/deskall-page-blocks/images/icon-box-standard.svg'
+        ],
+        'mixed' => [
+            'value' => 'mixed',
+            'title' => 'Bild, Titel, Inhalt',
+            'icon' => '/deskall-page-blocks/images/icon-box-mixed.svg'
+        ],
+        'inversed' => [
+            'value' => 'inversed',
+            'title' => 'Titel,Inhalt,Bild',
+            'icon' => '/deskall-page-blocks/images/icon-box-inversed.svg'
+        ]
     ];
 
     private static $effects = [
@@ -70,32 +83,44 @@ class BoxBlock extends BaseElement
     ];
 
     private static $boxes_per_line = [
-        'uk-child-width-1-2@s' => '2',
-        'uk-child-width-1-3@s' => '3',
-        'uk-child-width-1-2@s uk-child-width-1-4@m' => '4',
-        'uk-child-width-1-2@s uk-child-width-1-5@m' => '5'
+        'uk-child-width-1-2@s' => [
+            'value' => '2',
+            'title' => '2',
+            'icon' => '/deskall-page-blocks/images/icon-box-2.svg'
+        ],
+        'uk-child-width-1-3@s' => [
+            'value' => '3',
+            'title' => '3',
+            'icon' => '/deskall-page-blocks/images/icon-box-3.svg'
+        ],
+        'uk-child-width-1-2@s uk-child-width-1-4@m' => [
+            'value' => '4',
+            'title' => '4',
+            'icon' => '/deskall-page-blocks/images/icon-box-4.svg'
+        ]
     ];
-    // private static $boxes_per_line = array(
-    // 'uk-child-width-1-2@s' => array(
-    //     'Title' => 'Option 0',
-    //     'Attributes' => array(
-    //         'data-html' => 'font-icon-block-layout',
-            
-    //     )
-    // ),
-    // 'value2' => array(
-    //     'Title' => 'Option 2',
-    //     'Attributes' => array(
-    //         'data-myattribute' => 'This is an attribute value',
-    //         'data-myattribute2' => 'This is a second attribute value'
-    //     )
-    // ));
 
      private static $boxes_text_alignments = [
-        'uk-text-justify uk-text-left@s' =>  'Aligns text to the left.',
-        'uk-text-justify uk-text-righ@st' =>  'Aligns text to the right',
-        'uk-text-justify uk-text-center@s' => 'Centers text horizontally',
-        'uk-text-justify' => 'Justifies text'
+        'uk-text-justify uk-text-left@s' =>  [
+            'value' => 'uk-text-justify uk-text-left@s',
+            'title' => 'Links Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+        ],
+        'uk-text-justify uk-text-righ@st' =>  [
+            'value' => 'uk-text-justify uk-text-righ@s',
+            'title' => 'Rechts Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+        ],
+        'uk-text-justify uk-text-center@s' => [
+            'value' => 'uk-text-center',
+            'title' => 'Mittel Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+        ],
+        'uk-text-justify' => [
+            'value' => 'uk-text-justify',
+            'title' => 'Justify Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
+        ]
     ];
 
 
@@ -114,26 +139,28 @@ class BoxBlock extends BaseElement
        
           
             $fields->removeByName('Boxes');
-            $fields->addFieldToTab('Root.Layout',LayoutField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
             $fields->removeByName('PictureHeight');
             $fields->removeByName('PictureWidth');
-           
-            
-           
-
+            $fields->removeByName('BoxTextAlign');
+            $fields->removeByName('BoxPerLine');
+            $fields->removeByName('Effect');
+                
             if ($this->ID > 0){
                 $fields->addFieldToTab('Root',new Tab('Boxes',_t('BOXBLOCK.BOXTAB','Boxen')),'Settings');
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxTextAlign',_t(__CLASS__.'.BoxTextAlignment','Boxen Textausrichtung'),$this->getTranslatedSourceFor(__CLASS__,'boxes_text_alignments')));
-                //$fields->addFieldToTab('Root.Boxes',IconDropdownField::create('BoxPerLine','Boxen per Linie', self::$boxes_per_line));
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('BoxPerLine',_t(__CLASS__.'.BoxPerLine','Boxen per Linie'), self::$boxes_per_line));
-                $fields->addFieldToTab('Root.Boxes',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
+                $fields->addFieldToTab('Root.Boxes',CompositeField::create(
+                HTMLOptionsetField::create('Layout',_t(__CLASS__.'.BoxTemplate','Box Inhalt Position'), $this->stat('block_layouts')),
+                HTMLOptionsetField::create('BoxTextAlign',_t(__CLASS__.'.BoxTextAlignment','Boxen Textausrichtung'),$this->stat('boxes_text_alignments')),
+                HTMLOptionsetField::create('BoxPerLine',_t(__CLASS__.'.BoxPerLine','Boxen per Linie'), $this->stat('boxes_per_line')),
+                DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt auf Mouseover'), $this->getTranslatedSourceFor(__CLASS__,'effects'))
+                )->setTitle(_t(__CLASS__.'.BoxFormat','Boxen Format'))->setName('BoxLayout'));
+                
                 $config = GridFieldConfig_RecordEditor::create();
                 $config->addComponent(new GridFieldOrderableRows('Sort'));
                 if (singleton('Box')->hasExtension('Activable')){
                      $config->addComponent(new GridFieldShowHideAction());
                 }
                 $boxesField = new GridField('Boxes',_t(__CLASS__.'.Boxes','Boxen'),$this->Boxes(),$config);
-                $fields->addFieldToTab('Root.Boxes',$boxesField);
+                $fields->insertBefore('BoxLayout',$boxesField);
             }
        
         
@@ -175,16 +202,12 @@ class BoxBlock extends BaseElement
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach($this->stat('block_layouts') as $key => $value) {
-          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
-        }
+
         foreach($this->stat('effects') as $key => $value) {
           $entities[__CLASS__.".effects_{$key}"] = $value;
         }
        
-        foreach($this->stat('boxes_text_alignments') as $key => $value) {
-          $entities[__CLASS__.".boxes_text_alignments_{$key}"] = $value;
-        }
+
        
         return $entities;
     }

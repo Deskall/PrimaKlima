@@ -11,6 +11,7 @@ use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\View\Requirements;
+use SilverStripe\Forms\CompositeField;
 
 class ParentBlock extends ElementList
 {
@@ -49,15 +50,28 @@ class ParentBlock extends ElementList
     }
 
     private static $blocks_per_line = [
-        'uk-child-width-1-1@s' => '1',
-        'uk-child-width-1-1@s uk-child-width-1-2@m' => '2',
-        'uk-child-width-1-1@s uk-child-width-1-3@m' => '3',
-        'uk-child-width-1-1@s uk-child-width-1-4@m' => '4',
+        'uk-child-width-1-1@s' => [
+            'value' => 'uk-child-width-1-1@s',
+            'title' => '1 Spalte',
+            'icon' => '/deskall-page-blocks/images/icon-parent-1-columns.svg'
+        ],
+        'uk-child-width-1-1@s uk-child-width-1-2@m' => [
+            'value' => 'uk-child-width-1-1@s',
+            'title' => '2 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-parent-2-columns.svg'
+        ],
+        'uk-child-width-1-1@s uk-child-width-1-3@m' => [
+            'value' => 'uk-child-width-1-1@s uk-child-width-1-3@m',
+            'title' => '3 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-parent-3-columns.svg'
+        ],
+        'uk-child-width-1-1@s uk-child-width-1-4@m' => [
+            'value' => 'uk-child-width-1-1@s uk-child-width-1-4@m',
+            'title' => '4 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-parent-4-columns.svg'
+        ]
     ];
 
-    private static $block_layouts = [
-        'default' => 'default'
-    ];
 
     private static $defaults = [
         'BlocksPerLine' => 'uk-child-width-1-1@s uk-child-width-1-2@m' 
@@ -69,16 +83,21 @@ class ParentBlock extends ElementList
         $fields = parent::getCMSFields();
         $fields->removeByName('FirstBlockID');
         $fields->removeByName('LinkableLinkID');
-        $fields->addFieldToTab('Root.Layout',
-            LayoutField::create('Layout','Layout',$this->getTranslatedSourceFor(__CLASS__,'block_layouts'))
-        );
+        $fields->removeByName('Layout');
+        $fields->removeByName('BlocksPerLine');
+        $fields->removeByName('Border');
+        $fields->removeByName('matchHeight'); 
+
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
+            CheckboxField::create('Border',_t(__CLASS__.'.Border','Border zwischen Blöcke anzeigen')),
+            CheckboxField::create('matchHeight',_t(__CLASS__.'.SameHeight','gleiche Höhe für alle Blöcke benutzen'))
+        )->setTitle(_t(__CLASS__.'.Layout','Layout'))->setName('Layout'));
+        
         $fields->addFieldsToTab('Root.Settings',[
-            DropdownField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->getTranslatedSourceFor(__CLASS__,'blocks_per_line'))->setEmptyString(_t(__CLASS__.'.BlocksPerLineHelpText','Blöcke per Linie auswählen')),
-            CheckboxField::create('Border',_t(__CLASS__.'.Border','Border zwischen Blöcke ?')),
-            CheckboxField::create('matchHeight',_t(__CLASS__.'.SameHeight','gleich Höhe für alle Blöcke ?')),
             CheckboxField::create('CollapsableChildren',_t(__CLASS__.'.CollapsableChildren','zusammenklappbar Blöcke')),
-            CheckboxField::create('CollapseMultipe',_t(__CLASS__.'.CollapseMultipe','Mehrere erweiterten Blöcke erlaubt.')),
-            CheckboxField::create('CanCollapse',_t(__CLASS__.'.CanCollapse','Blöcke dürfen zusammenbrochen sein.'))
+            CheckboxField::create('CollapseMultipe',_t(__CLASS__.'.CollapseMultipe','Mehrere erweiterten Blöcke erlaubt.'))->displayIf('CollapsableChildren')->isChecked()->end(),
+            CheckboxField::create('CanCollapse',_t(__CLASS__.'.CanCollapse','Blöcke dürfen zusammenbrochen sein.'))->displayIf('CollapsableChildren')->isChecked()->end()
         ]);
 
         return $fields;
@@ -104,9 +123,6 @@ class ParentBlock extends ElementList
         $entities = [];
         foreach($this->stat('blocks_per_line') as $key => $value) {
           $entities[__CLASS__.".blocks_per_line_{$key}"] = $value;
-        }
-        foreach($this->stat('block_layouts') as $key => $value) {
-          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
         }
        
         return $entities;

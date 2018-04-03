@@ -34,45 +34,18 @@ class FooterLink extends DataObject{
 	    return $labels;
 	}
 
-	private static $icons = [
-		'chevron-right' => 'chevron-right',
-		'home' => 'home',
-		'mail' => 'Email',
-		'receiver' => 'Telefon',
-		'location' => 'Marker',
-		'user' => 'Person',
-		'users' => 'Personen',
-		'tag' => 'Tag',
-		'calendar' => 'Kalender',
-		'search' => 'Suche',
-		'list' => 'Liste',
-		'lock' => 'Private',
-		'facebook' => 'facebook',
-		'twitter' => 'twitter',
-		'google-plus' => 'google-plus',
-		'linkedin' => 'linkedin',
-		'xing' => 'xing'
-	];
-
+	
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 
         $fields->removeByName('ParentID');
         $fields->removeByName('Type');
-        //$fields->addFieldToTab('Root.Main',DropdownField::create('Type', 'LinkTyp',self::$block_types)->setEmptyString('Bitte Typ auswählen'),'Content');
-        $fields->addFieldToTab('Root.Main',DropdownField::create('Icon',_t(__CLASS__. '.Icon','Icon'),$this->getTranslatedSourceFor(__CLASS__,'icons'))->setEmptyString(_t(__CLASS__. '.IconLabel','Icon hinzufügen')));
+        $fields->addFieldToTab('Root.Main',HTMLDropdownField::create('Icon',_t(__CLASS__. '.Icon','Icon'),$this->getSourceIcons())->setEmptyString(_t(__CLASS__. '.IconLabel','Icon hinzufügen')));
         return $fields;
     }
 
-    /************* TRANLSATIONS *******************/
-    public function provideI18nEntities(){
-        $entities = [];
-        foreach($this->stat('icons') as $key => $value) {
-          $entities[__CLASS__.".icons_{$key}"] = $value;
-        }
-       
-        return $entities;
+    public function getSourceIcons(){
+        //To do : filter relevant icons
+        return HTMLDropdownField::getSourceIcones();
     }
-
-/************* END TRANLSATIONS *******************/
 }

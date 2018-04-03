@@ -36,7 +36,8 @@ class ActionBlock extends BaseElement
         'ButtonBackground' => 'Varchar(255)',
         'ButtonPosition' => 'Varchar(255)',
         'DropdownTrigger' => 'Varchar(255)',
-        'ScrollTarget' => 'Varchar(255)',
+        'Target' => 'Varchar(255)',
+        'ToggleClass' => 'Varchar(255)',
         'DropdownPosition' => 'Varchar(255)',
         'Effect' => 'Varchar(255)',
         'OffcanvasOverlay' => 'Boolean(0)',
@@ -160,17 +161,17 @@ class ActionBlock extends BaseElement
         $fields->removeByName('OffcanvasPosition');
         $fields->removeByName('Effect');
         $fields->removeByName('ModalScroll');
-        $fields->removeByName('ScrollTarget');
+        $fields->removeByName('Target');
         //$title = $fields->fieldByName('Root.Main.TitleAndDisplayed');
       //  $fields->removeByName('TitleAndDisplayed');
 
         $fields->fieldByName('Root.Main.HTML')->setTitle(_t(__CLASS__ . '.ContentLabel', 'Inhalt'));
         $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
        // $fields->addFieldToTab('Root.Main',Wrapper::create($title)->displayIf('InteractionType')->isEqualTo('modal')->orIf('InteractionType')->isEqualTo('offcanvas')->orIf('InteractionType')->isEqualTo('dropdown')->end());
-        $fields->addFieldToTab('Root.Main',DropdownField::create('InteractionType','Typ', $this->getTranslatedSourceFor(__CLASS__,'block_actions'))->setEmptyString('Bitte Typ auswählen'),'TitleAndDisplayed');
+        $fields->addFieldToTab('Root.Main',DropdownField::create('InteractionType',_t(__CLASS__.'.InteractionType','Typ'), $this->getTranslatedSourceFor(__CLASS__,'block_actions'))->setEmptyString(_t(__CLASS__.'.InteractionTypeHelp','Bitte Typ auswählen')),'TitleAndDisplayed');
         $fields->insertAfter('InteractionType',$fields->fieldByName('Root.Main.Trigger'));
         $fields->insertAfter('Trigger',$fields->fieldByName('Root.Main.CloseText'));
-        $fields->addFieldToTab('Root.Main',DropdownField::create('ScrollTarget','Scroll zu', $this->getPageElements())->setEmptyString('Bitte Element auswählen'));
+        $fields->addFieldToTab('Root.Main',DropdownField::create('Target',_t(__CLASS__.'.Target','Zielelement'), $this->getPageElements())->setEmptyString(_t(__CLASS__.'.TargetHelp','Bitte Element auswählen')));
         $fields->addFieldToTab('Root.Layout',
             LayoutField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
 
@@ -197,7 +198,10 @@ class ActionBlock extends BaseElement
         )->setTitle(_t(__CLASS__.'.OffcanvasLayout','Offcanvas Format'))->setName('OffcanvasLayout'))->displayIf('InteractionType')->isEqualTo('offcanvas')->end());
 
         //Scroll et Toogle
-        $fields->fieldByName('Root.Main.ScrollTarget')->displayIf('InteractionType')->isEqualTo('scroll');
+        $fields->fieldByName('Root.Main.Target')->displayIf('InteractionType')->isEqualTo('scroll')->orIf('InteractionType')->isEqualTo('toggle');
+
+        //Toggle
+        $fields->fieldByName('Root.Main.ToggleClass')->displayIf('InteractionType')->isEqualTo('toggle');
 
         //Content Display Rules
         $fields->fieldByName('Root.Main.HTML')->hideIf('InteractionType')->isEqualTo('scroll');
