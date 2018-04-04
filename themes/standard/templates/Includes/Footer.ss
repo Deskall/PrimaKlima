@@ -43,7 +43,7 @@
 		    	</div>
 		    	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
 				    <% loop $activeLinks %>
-						<% include FooterLink %>
+						$forTemplate
 					<% end_loop %>
 				</ul>
 				<% end_if %>

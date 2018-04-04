@@ -55,4 +55,8 @@ class LayoutLink extends DataObject{
     	$html = '<div><span>'.$this->LinkableLink()->getLinkType().'</span><span>'.$this->LinkableLink()->Title.'</span><span>'.$this->LinkableLink()->LinkURL.'</span></div>';
     	return DBField::create_field('HTMLText', $html)->Summary(20);
     }
+
+    public function forTemplate(){
+    	return $this->renderWith('Includes/'.__CLASS__);
+    }
 }

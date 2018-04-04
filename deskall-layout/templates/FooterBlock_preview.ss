@@ -25,6 +25,8 @@
 			 		</li>
 			 		<% end_if %>
 		        </ul>
+		    <% else_if Type == "content" %>
+		    $Content
         	<% else %>
             <h3><% if Title %>$Title <% end_if %></h3>
                  <% loop $activeLinks %>

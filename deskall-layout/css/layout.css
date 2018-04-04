@@ -1,0 +1,6 @@
+.elemental-preview li[data-uk-icon]{
+	display:block;
+}
+.elemental-preview .dk-list{
+	padding-left:0;
+}
