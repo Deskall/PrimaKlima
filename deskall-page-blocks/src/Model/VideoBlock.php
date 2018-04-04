@@ -4,6 +4,7 @@
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\OptionsetField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\ArrayList;
@@ -60,14 +61,23 @@ class VideoBlock extends BaseElement
 	private static $player_color = '44BBFF';
 
 	public function getCMSFields() {
-		$this->beforeUpdateCMSFields(function ($fields) {
+		$fields = parent::getCMSFields();
+		$fields->removeByName('VideoPerLine');
+		$fields->removeByName('Layout');
+		  
+            $fields
+                ->fieldByName('Root.Main.HTML')
+                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
+                ->setRows(5);
             // field to enter the video URL
 			$fields->addFieldToTab('Root.Main', new TextareaField('VideoList', _t(__CLASS__.'.VideosURL','Videos (1 URL pro Zeile) ')));
-			$fields->addFieldToTab('Root.Layout',DropdownField::create('VideoPerLine',_t(__CLASS__.'.VideoPerLine','Videos per Linie'), $this->getTranslatedSourceFor(__CLASS__,'videos_per_line')));
-        });
+			$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+				DropdownField::create('VideoPerLine',_t(__CLASS__.'.VideoPerLine','Videos per Linie'), $this->getTranslatedSourceFor(__CLASS__,'videos_per_line')),
+				OptionsetField::create('Layout','Format', $this->getTranslatedSourceFor(__CLASS__,'block_layouts'))
+			)->setTitle(_t(__CLASS__.'.BlockLayout','Layout'))->setName('BlockLayout'));
+       
         
-        $fields = parent::getCMSFields();
-        $fields->addFieldToTab('Root.Layout',OptionsetField::create('Layout','Format', $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
+        
         return $fields;
 	}
 

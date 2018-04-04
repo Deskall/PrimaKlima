@@ -70,13 +70,6 @@ class ActionBlock extends BaseElement
     private static $cascade_duplicates = [];
 
 
-    private static $block_layouts = [
-        'left' => 'Links',
-        'right' => 'Rechts',
-        'hover' => 'Oben', 
-        'above' => 'Unten'
-    ];
-
     private static $modal_sizes = [
        'auto' => 'Breite des Inhalt',
        'uk-modal-container' => 'Breite der Seite',
@@ -166,18 +159,16 @@ class ActionBlock extends BaseElement
         //$title = $fields->fieldByName('Root.Main.TitleAndDisplayed');
       //  $fields->removeByName('TitleAndDisplayed');
 
-        $fields->fieldByName('Root.Main.HTML')->setTitle(_t(__CLASS__ . '.ContentLabel', 'Inhalt'));
+        $fields->fieldByName('Root.Main.HTML')->setTitle(_t(__CLASS__ . '.ContentLabel', 'Inhalt'))->setRows(5);
         $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
        // $fields->addFieldToTab('Root.Main',Wrapper::create($title)->displayIf('InteractionType')->isEqualTo('modal')->orIf('InteractionType')->isEqualTo('offcanvas')->orIf('InteractionType')->isEqualTo('dropdown')->end());
         $fields->addFieldToTab('Root.Main',DropdownField::create('InteractionType',_t(__CLASS__.'.InteractionType','Typ'), $this->getTranslatedSourceFor(__CLASS__,'block_actions'))->setEmptyString(_t(__CLASS__.'.InteractionTypeHelp','Bitte Typ auswählen')),'TitleAndDisplayed');
         $fields->insertAfter('InteractionType',$fields->fieldByName('Root.Main.Trigger'));
         $fields->insertAfter('Trigger',$fields->fieldByName('Root.Main.CloseText'));
         $fields->addFieldToTab('Root.Main',DropdownField::create('Target',_t(__CLASS__.'.Target','Zielelement'), $this->getPageElements())->setEmptyString(_t(__CLASS__.'.TargetHelp','Bitte Element auswählen')));
-        $fields->addFieldToTab('Root.Layout',
-            OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
-
+            
         //MODALS LAYOUT
-        $fields->addFieldToTab('Root.Layout',Wrapper::create(CompositeField::create(
+        $fields->addFieldToTab('Root.LayoutTab',Wrapper::create(CompositeField::create(
             DropdownField::create('ButtonBackground',_t(__CLASS__.'.ButtonBackground','Button Farbe'), $this->getTranslatedSourceFor(__CLASS__,'button_backgrounds')),
             DropdownField::create('ButtonPosition',_t(__CLASS__.'.ButtonPosition','Button Ausrichtung'), $this->getTranslatedSourceFor(__CLASS__,'button_alignments')),
             DropdownField::create('ModalSize',_t(__CLASS__.'.ModalSize','Fenster Breite'), $this->getTranslatedSourceFor(__CLASS__,'modal_sizes')),
@@ -185,14 +176,14 @@ class ActionBlock extends BaseElement
         )->setTitle(_t(__CLASS__.'.ModalLayout','Modal Format'))->setName('ModalLayout'))->displayIf('InteractionType')->isEqualTo('modal')->end());
 
         //DROPDOWNS LAYOUT
-        $fields->addFieldToTab('Root.Layout',Wrapper::create(CompositeField::create(
+        $fields->addFieldToTab('Root.LayoutTab',Wrapper::create(CompositeField::create(
             DropdownField::create('DropdownPosition',_t(__CLASS__.'.DropdownPosition','Dropdown Ausrichtung'), $this->getTranslatedSourceFor(__CLASS__,'dropdown_positions')),
             DropdownField::create('DropdownTrigger',_t(__CLASS__.'.DropdownTrigger','Ereignis auslöst an'), $this->getTranslatedSourceFor(__CLASS__,'dropdown_triggers')),
             CheckboxField::create('DropdownBoundary',_t(__CLASS__.'.DropdownBoundary','Inhalt auf Elternteil beschränken'))
         )->setTitle(_t(__CLASS__.'.DropdownLayout','Dropdown Format'))->setName('DropdownLayout'))->displayIf('InteractionType')->isEqualTo('dropdown')->end());
 
         //OFFCANVAS LAYOUT
-        $fields->addFieldToTab('Root.Layout',Wrapper::create(CompositeField::create(
+        $fields->addFieldToTab('Root.LayoutTab',Wrapper::create(CompositeField::create(
             DropdownField::create('OffcanvasPosition',_t(__CLASS__.'.OffcanvasPosition','Offcanvas Position'), $this->getTranslatedSourceFor(__CLASS__,'offcanvas_position')),
             CheckboxField::create('OffcanvasOverlay',_t(__CLASS__.'.OffcanvasOverlay','Offcanvas Overlay')),
             DropdownField::create('Effect',_t(__CLASS__.'.OffcanvasEffect','Offcanvas Effekt'), $this->getTranslatedSourceFor(__CLASS__,'block_effects'))

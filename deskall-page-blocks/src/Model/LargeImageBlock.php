@@ -4,6 +4,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
@@ -34,11 +35,15 @@ class LargeImageBlock extends BannerBlock{
         'Image' => Image::class
     ];
 
+    private static $owns = [
+        'Image'
+    ];
+
     private static $defaults = [
-        'FullWidth' => 1,
-        'Layout' => 'left',
+        'Layout' => 'uk-position-top-left',
         'Effect' => 'none',
-        'Overlay' => 'none'
+        'Overlay' => 'none',
+        'Height' => 'uk-height-medium'
     ];
 
     private static $cascade_duplicates = [];
@@ -78,11 +83,18 @@ class LargeImageBlock extends BannerBlock{
         $fields->removeByName('Overlay');
     	$fields->removeByName('BackgroundImage');
         $fields->removeByName('File');
+        $fields->removeByName('Layout');
+        $fields->removeByName('Height');
+        $fields->removeByName('Effect');
+        $fields->removeByName('EffectOptions');
         $fields->fieldByName('Root.Main.Image')->setTitle(_t(__CLASS__ . '.Image','Bild'))->setFolderName($this->getFolderName());
-        $fields->addFieldToTab('Root.Settings',OptionsetField::create('Layout',_t(__CLASS__. '.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
-        $fields->addFieldToTab('Root.Settings',OptionsetField::create('Height',_t(__CLASS__. '.Height','Höhe'),$this->getTranslatedSourceFor(__CLASS__,'block_heights')));
-        $fields->addFieldToTab('Root.Settings',OptionsetField::create('Effect',_t(__CLASS__. '.Effect','Effekt'),$this->getTranslatedSourceFor(__CLASS__,'effects')));
-        $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions',_t(__CLASS__. '.EffectOptions','Effekt Optionen')));
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            OptionsetField::create('Layout',_t(__CLASS__. '.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
+            OptionsetField::create('Height',_t(__CLASS__. '.Height','Höhe'),$this->getTranslatedSourceFor(__CLASS__,'block_heights')),
+            OptionsetField::create('Effect',_t(__CLASS__. '.Effect','Effekt'),$this->getTranslatedSourceFor(__CLASS__,'effects')),
+            TextField::create('EffectOptions',_t(__CLASS__. '.EffectOptions','Effekt Optionen'))
+          )->setTitle(_t(__CLASS__.'BlockLayout','Layout'))->setName('BlockLayout')
+        );
         
     	return $fields;
     }

@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\AssetAdmin\Forms\UploadField;
@@ -38,14 +39,62 @@ class DownloadBlock extends BaseElement
 
     private static $cascade_duplicates = [];
 
-    private static $files_columns = [
-        ' ' => 'Keine Spalten',
-        'uk-column-1-2@s' => 'Display the content in two columns',
-        'uk-column-1-2@s uk-column-1-3@m' => 'Display the content in three columns',
-        'uk-column-1-2@s uk-column-1-4@m' => 'Display the content in four columns',
-        'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' => 'Display the content in five columns',
-        'uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l' => 'Display the content in six columns'
+    private static $defaults = [
+        'FilesColumns' => 'uk-child-width-1-1',
+        'FilesTextAlign' => 'uk-text-justify uk-text-left@s'
     ];
+
+    private static $files_columns = [
+        'uk-child-width-1-1' =>  [
+            'value' => 'uk-child-width-1-1',
+            'title' => '1 Spalte',
+            'icon' => '/deskall-page-blocks/images/icon-text.svg'
+        ],
+        'uk-child-width-1-2@s' =>  [
+            'value' => 'uk-child-width-1-2@s',
+            'title' => '2 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-2-columns.svg'
+        ],
+        'uk-child-width-1-2@s uk-child-width-1-3@m' =>  [
+            'value' => 'uk-child-width-1-2@s uk-child-width-1-3@m',
+            'title' => '3 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-3-columns.svg'
+        ],
+        'uk-child-width-1-1@s uk-child-width-1-4@m' =>  [
+            'value' => 'uk-child-width-1-1@s uk-child-width-1-4@m',
+            'title' => '4 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-4-columns.svg'
+        ],
+        'uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l' =>  [
+            'value' => 'uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l',
+            'title' => '5 Spalten',
+            'icon' => '/deskall-page-blocks/images/icon-text-5-columns.svg'
+        ]
+    ];
+
+    private static $files_text_alignments = [
+        'uk-text-justify uk-text-left@s' =>  [
+            'value' => 'uk-text-justify uk-text-left@s',
+            'title' => 'Links Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+        ],
+        'uk-text-justify uk-text-right@s' =>  [
+            'value' => 'uk-text-justify uk-text-right@s',
+            'title' => 'Rechts Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+        ],
+        'uk-text-justify uk-text-center@s' => [
+            'value' => 'uk-text-justify uk-text-center@s',
+            'title' => 'Mittel Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+        ],
+        'uk-text-justify' => [
+            'value' => 'uk-text-justify',
+            'title' => 'Justify Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
+        ]
+    ];
+
     
 
 
@@ -61,21 +110,24 @@ class DownloadBlock extends BaseElement
 
     public function getCMSFields()
     {
-
-        $this->beforeUpdateCMSFields(function ($fields) {
-            $fields->removeByName('Files');
-            $fields->removeByName('DownloadsTitle');
-            $fields->removeByName('FilesColumns');
-            $fields
-                ->fieldByName('Root.Main.HTML')
-                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
-            
-        });
         $fields = parent::getCMSFields();
-        $fields->addFieldToTab('Root',new Tab('FilesTab',_t(__CLASS__.'.FilesTab', 'Dateien')),'Settings');
-        $fields->addFieldToTab('Root.FilesTab',TextField::create('DownloadsTitle',_t(__CLASS__.'.DownloadsTitle','Downloads Area Titel')));
-        $fields->addFieldToTab('Root.FilesTab',UploadField::create('Files',_t(__CLASS__.'.Files','Dateien'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()));
-        $fields->addFieldToTab('Root.FilesTab',DropdownField::create('FilesColumns',_t(__CLASS__.'.FilesInColumns','Dateien in mehreren Spalten'),$this->getTranslatedSourceFor(__CLASS__,'files_columns')));
+        $fields->removeByName('Files');
+        $fields->removeByName('DownloadsTitle');
+        $fields->removeByName('FilesColumns');
+        $fields->removeByName('FilesTextAlign');
+        $fields->removeByName('Layout');
+        
+        $fields->fieldByName('Root.Main.HTML')->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))->setRows(5);
+
+        $fields->addFieldToTab('Root.Main',CompositeField::create(
+            TextField::create('DownloadsTitle',_t(__CLASS__.'.DownloadsTitle','Downloads Area Titel')),
+            UploadField::create('Files',_t(__CLASS__.'.Files','Dateien'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())
+        )->setTitle(_t(__CLASS__.'.Files','Dateien'))->setName('FilesFields'));
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            HTMLOptionsetField::create('FilesColumns',_t(__CLASS__.'.FilesInColumns','Dateien in mehreren Spalten'),$this->stat('files_columns')),
+            HTMLOptionsetField::create('FilesTextAlign',_t(__CLASS__.'.FilesTextAlign','Dateien Textausrichtung'),$this->stat('files_text_alignments'))
+        )->setTitle(_t(__CLASS__.'.FilesLayout','Dateien Layout'))->setName('FilesLayout'));
+        
         return $fields;
     }
 

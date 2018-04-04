@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\OptionsetField;
@@ -43,6 +44,10 @@ class MapBlock extends BaseElement
         'uk-height-large' => 'gross'
     ];
 
+    private static $defaults = [
+        'Height' => 'uk-height-medium'
+    ];
+
 
    
     private static $table_name = 'MapBlock';
@@ -57,34 +62,47 @@ class MapBlock extends BaseElement
 
     public function getCMSFields()
     {
-
-        $this->beforeUpdateCMSFields(function ($fields) {
+        $fields = parent::getCMSFields();
+        $fields->removeByName('Layout');
+        $fields->removeByName('GlobalLayout');
+        $fields->removeByName('Height');
+        $fields->removeByName('disableDefaultUI');
+        $fields->removeByName('mapTypeControl');
+        $fields->removeByName('mapTypeControlOptions');
+        $fields->removeByName('ZoomControl');
+        $fields->removeByName('ZoomControlOptions');
+        $fields->removeByName('streetViewControl');
+        $fields->removeByName('streetViewControlOptions');
+        $fields->removeByName('scaleControl');
+        $fields->removeByName('fullscreenControl');
+        $fields->removeByName('Styles');
             
             $fields
                 ->fieldByName('Root.Main.HTML')
-                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
+                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
+                ->setRows(5);
                 
             $fields->addFieldToTab('Root.Main',TextField::create('Adresse',_t(__CLASS__.'.Adresse','Adresse')),'HTML');
-            $fields->addFieldToTab('Root.Settings',OptionsetField::create('Height',_t(__CLASS__.'.Height','Height'), $this->getTranslatedSourceFor(__CLASS__,'block_heights')));
 
-            $fields->addFieldToTab('Root.MapOptions', CheckboxField::create('disableDefaultUI',_t(__CLASS__.'.disableControls','Kontrol deaktivieren')));
-            $fields->addFieldToTab('Root.MapOptions', CheckboxField::create('mapTypeControl',_t(__CLASS__.'.mapControls','Map Kontrol'))->displayIf('disableDefaultUI')->isNotChecked()->end());
-            $fields->addFieldToTab('Root.MapOptions', TextareaField::create('mapTypeControlOptions',_t(__CLASS__.'.mapControlOptions','Map Kontrol Optionen'))->displayIf('mapTypeControl')->isChecked()->andIf('disableDefaultUI')->isNotChecked()->end());
-            $fields->addFieldToTab('Root.MapOptions', CheckboxField::create('ZoomControl',_t(__CLASS__.'.zoomControls','Zoom Kontrol'))->displayIf('disableDefaultUI')->isNotChecked()->end());
-            $fields->addFieldToTab('Root.MapOptions', TextareaField::create('ZoomControlOptions',_t(__CLASS__.'.zoomControlOptions','Zoom Kontrol Optionen'))->displayIf('ZoomControl')->isChecked()->andIf('disableDefaultUI')->isNotChecked()->end());
-            $fields->addFieldToTab('Root.MapOptions', CheckboxField::create('streetViewControl',_t(__CLASS__.'.streetViewControls','StreetView Kontrol'))->displayIf('disableDefaultUI')->isNotChecked()->end());
-            $fields->addFieldToTab('Root.MapOptions', TextareaField::create('streetViewControlOptions',_t(__CLASS__.'.streetViewControlOptions','StreetView Kontrol Optionen'))->displayIf('streetViewControl')->isChecked()->andIf('disableDefaultUI')->isNotChecked()->end());
-            $fields->addFieldToTab('Root.MapOptions', CheckboxField::create('scaleControl',_t(__CLASS__.'.scaleControls','Scale Kontrol'))->displayIf('disableDefaultUI')->isNotChecked()->end());
-            $fields->addFieldToTab('Root.MapOptions', CheckboxField::create('fullscreenControl',_t(__CLASS__.'.fullscreenControls','Fullscreen Kontrol'))->displayIf('disableDefaultUI')->isNotChecked()->end());
-            
+            $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+                OptionsetField::create('Height',_t(__CLASS__.'.Height','Height'), $this->getTranslatedSourceFor(__CLASS__,'block_heights'))
+                )->setTitle(_t(__CLASS__.'.BlockLayout','Layout'))->setName('BlockLayout')
+            );
+            $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+                CheckboxField::create('disableDefaultUI',_t(__CLASS__.'.disableControls','Kontrol deaktivieren')),
+                CheckboxField::create('mapTypeControl',_t(__CLASS__.'.mapControls','Map Kontrol'))->displayIf('disableDefaultUI')->isNotChecked()->end(),
+                TextareaField::create('mapTypeControlOptions',_t(__CLASS__.'.mapControlOptions','Map Kontrol Optionen'))->displayIf('mapTypeControl')->isChecked()->andIf('disableDefaultUI')->isNotChecked()->end(),
+                CheckboxField::create('ZoomControl',_t(__CLASS__.'.zoomControls','Zoom Kontrol'))->displayIf('disableDefaultUI')->isNotChecked()->end(),
+                TextareaField::create('ZoomControlOptions',_t(__CLASS__.'.zoomControlOptions','Zoom Kontrol Optionen'))->displayIf('ZoomControl')->isChecked()->andIf('disableDefaultUI')->isNotChecked()->end(),
+                CheckboxField::create('streetViewControl',_t(__CLASS__.'.streetViewControls','StreetView Kontrol'))->displayIf('disableDefaultUI')->isNotChecked()->end(),
+                TextareaField::create('streetViewControlOptions',_t(__CLASS__.'.streetViewControlOptions','StreetView Kontrol Optionen'))->displayIf('streetViewControl')->isChecked()->andIf('disableDefaultUI')->isNotChecked()->end(),
+                CheckboxField::create('scaleControl',_t(__CLASS__.'.scaleControls','Scale Kontrol'))->displayIf('disableDefaultUI')->isNotChecked()->end(),
+                CheckboxField::create('fullscreenControl',_t(__CLASS__.'.fullscreenControls','Fullscreen Kontrol'))->displayIf('disableDefaultUI')->isNotChecked()->end(),
+                LiteralField::create('Styles generieren','<a href="https://mapstyle.withgoogle.com/" target="_blank">'._t(__CLASS__.'.LinkToStyle','Styles generieren').'</a>'),
+                TextareaField::create('Styles',_t(__CLASS__.'.Styles','Google Map Styles'))
+            )->setTitle(_t(__CLASS__.'.Settings','Einstellungen'))->setName('Settings'));
+               
 
-            $fields->addFieldToTab('Root.MapOptions',LiteralField::create('Styles generieren','<a href="https://mapstyle.withgoogle.com/" target="_blank">'._t(__CLASS__.'.LinkToStyle','Styles generieren').'</a>'));
-            $fields->addFieldToTab('Root.MapOptions',TextareaField::create('Styles',_t(__CLASS__.'.Styles','Google Map Styles')));
-        });
-        $fields = parent::getCMSFields();
-        $fields->removeByName('Layout');
-        $fields->removeByName('Background');
-        $fields->removeByName('BackgroundImage');
         return $fields;
     }
 

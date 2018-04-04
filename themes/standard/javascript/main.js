@@ -10290,7 +10290,6 @@ $(document).ready(function(){
         var geocoder = new google.maps.Geocoder();
         var latlng = new google.maps.LatLng(0,0);
         options = $.parseJSON(options);
-        console.log(options);
         var map = new google.maps.Map(
             document.getElementById(id),
             options
@@ -10342,7 +10341,6 @@ $(".element table").each(function(){
         var expandedBlocks = $(this).attr('data-element-expanded');
         expandedBlocks = $.parseJSON(expandedBlocks);
         $.each(expandedBlocks, function(index, value){
-            console.log(value);
             $("#e"+value).addClass("uk-open");
         });
     });

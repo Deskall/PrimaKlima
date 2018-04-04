@@ -43,7 +43,8 @@ class ShareBlock extends BaseElement
         $this->beforeUpdateCMSFields(function ($fields) {
             $fields
                 ->fieldByName('Root.Main.HTML')
-                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
+                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
+                ->setRows(5);
         });
         $fields = parent::getCMSFields();
         return $fields;

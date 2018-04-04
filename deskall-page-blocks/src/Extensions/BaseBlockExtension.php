@@ -36,9 +36,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     private static $defaults = [
         'ShowTitle' => 1,
-        'Background' => 'no-bg',
-        'Align' => 'uk-text-left',
-        'AvailableGlobally' => 1
+        'Background' => 'uk-section-default',
+        'TextAlign' => 'uk-text-left',
+        'TextColumns' => '1',
+        'AvailableGlobally' => 1,
     ];
 
     private static $blocks = [
@@ -83,9 +84,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     ];
 
     private static $icon;
-
-    private static $help_text = "Vestibulum elit lorem, porttitor sed cursus in, sodales sit amet odio. Duis fringilla euismod leo quis pellentesque.";
-
 
     private static $block_backgrounds = [
         'uk-section-default' => 'keine Hintergrundfarbe',
@@ -167,12 +165,11 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
       
         $fields->addFieldToTab('Root',new Tab('LayoutTab',_t(__CLASS__.'.LAYOUTTAB','Layout')));
      
-
-    	$fields->addFieldToTab('Root.LayoutTab',CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')));
         if (Permission::check('ADMIN')){
             $fields->addFieldToTab('Root.LayoutTab',$extracss);
         } 
     	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
             DropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_backgrounds'))->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.')),
             UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName())
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
@@ -183,12 +180,11 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         )->setTitle(_t(__CLASS__.'.TextLayout','Text Optionen'))->setName('TextLayout'));
         
         $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
-        if ($this->owner->ID > 0 && $history = $fields->FieldByName('Root.History') ){
+        if ($history = $fields->FieldByName('Root.History') ){
             $fields->removeByName('History');
             $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
             $fields->addFieldToTab('Root',$history);
         }
-       // $fields->addFieldToTab('Root.Link', LinkField::create('ExampleLinkID', 'Link to page or file'));
     }
 
     public function getFolderName(){
@@ -199,16 +195,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $parent = $parent->Parent()->getOwnerPage();
         }
         return $parent->generateFolderName();
-    }
-
-    public function getPage(){
-        file_put_contents('log.txt', 'da');
-        $page = $this->owner->Parent()->getOwnerPage();
-       
-        while(!$page->hasMethod('generateFolderName')){
-            $page = $page->Parent()->getOwnerPage();
-        }
-        return $page;
     }
 
     public function onBeforeWrite(){

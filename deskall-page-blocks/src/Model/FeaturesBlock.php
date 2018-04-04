@@ -54,32 +54,33 @@ class FeaturesBlock extends BaseElement
     ];
 
     private static $defaults = [
-        'Layout' => 'left'
+        'FeaturesColumns' => 'uk-child-width-1-1',
+        'FeaturesTextAlign' => 'uk-text-justify uk-text-left@s'
     ];
 
     private static $features_columns = [
-        '1' =>  [
-            'value' => '1',
+        'uk-child-width-1-1' =>  [
+            'value' => 'uk-child-width-1-1',
             'title' => '1 Spalte',
             'icon' => '/deskall-page-blocks/images/icon-text.svg'
         ],
-        'uk-column-1-2@s' =>  [
-            'value' => 'uk-column-1-2@s',
+        'uk-child-width-1-2@s' =>  [
+            'value' => 'uk-child-width-1-2@s',
             'title' => '2 Spalten',
             'icon' => '/deskall-page-blocks/images/icon-text-2-columns.svg'
         ],
-        'uk-column-1-2@s uk-column-1-3@m' =>  [
-            'value' => 'uk-column-1-2@s uk-column-1-3@m',
+        'uk-child-width-1-2@s uk-child-width-1-3@m' =>  [
+            'value' => 'uk-child-width-1-2@s uk-child-width-1-3@m',
             'title' => '3 Spalten',
             'icon' => '/deskall-page-blocks/images/icon-text-3-columns.svg'
         ],
-        'uk-column-1-2@s uk-column-1-4@m' =>  [
-            'value' => 'uk-column-1-2@s uk-column-1-4@m',
+        'uk-child-width-1-1@s uk-child-width-1-4@m' =>  [
+            'value' => 'uk-child-width-1-1@s uk-child-width-1-4@m',
             'title' => '4 Spalten',
             'icon' => '/deskall-page-blocks/images/icon-text-4-columns.svg'
         ],
-        'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' =>  [
-            'value' => 'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l',
+        'uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l' =>  [
+            'value' => 'uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l',
             'title' => '5 Spalten',
             'icon' => '/deskall-page-blocks/images/icon-text-5-columns.svg'
         ]
@@ -132,7 +133,8 @@ class FeaturesBlock extends BaseElement
 
             $fields
                 ->fieldByName('Root.Main.HTML')
-                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
+                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
+                ->setRows(5);
             $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
             
             $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(

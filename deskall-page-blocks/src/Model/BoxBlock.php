@@ -84,17 +84,17 @@ class BoxBlock extends BaseElement
 
     private static $boxes_per_line = [
         'uk-child-width-1-2@s' => [
-            'value' => '2',
+            'value' => 'uk-child-width-1-2@s',
             'title' => '2',
             'icon' => '/deskall-page-blocks/images/icon-box-2.svg'
         ],
         'uk-child-width-1-3@s' => [
-            'value' => '3',
+            'value' => 'uk-child-width-1-3@s',
             'title' => '3',
             'icon' => '/deskall-page-blocks/images/icon-box-3.svg'
         ],
         'uk-child-width-1-2@s uk-child-width-1-4@m' => [
-            'value' => '4',
+            'value' => 'uk-child-width-1-2@s uk-child-width-1-4@m',
             'title' => '4',
             'icon' => '/deskall-page-blocks/images/icon-box-4.svg'
         ]
@@ -192,7 +192,7 @@ class BoxBlock extends BaseElement
         $widthN = 1200;
         $padding = 30; //must be the same as less global-gutter variable
         $ratio = 1.4; 
-        $width = ($this->FullWidth) ? $widthF / static::$boxes_per_line[$this->BoxPerLine] : $widthN /  static::$boxes_per_line[$this->BoxPerLine];
+        $width = ($this->FullWidth) ? $widthF / static::$boxes_per_line[$this->BoxPerLine]['title'] : $widthN /  static::$boxes_per_line[$this->BoxPerLine]['title'];
         $height = $width / $ratio;
 
         $this->PictureWidth = $width - $padding;

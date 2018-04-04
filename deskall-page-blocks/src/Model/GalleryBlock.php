@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\OptionsetField;
@@ -70,21 +71,28 @@ class GalleryBlock extends BaseElement
 
     public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
 
-        $this->beforeUpdateCMSFields(function ($fields) {
+       
             $fields->removeByName('Images');
             $fields->removeByName('PictureHeight');
             $fields->removeByName('PicturesPerLine');
             $fields->removeByName('PictureWidth');
             $fields->removeByName('SortAttribute');
-             $fields->removeByName('Layout');
+            $fields->removeByName('Layout');
+           
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
-            $fields->addFieldToTab('Root',new Tab('Pictures',_t(__CLASS__.'.PicturesTab', 'Bilder')),'Settings');
-            $fields->addFieldToTab('Root.Pictures',UploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
-            $fields->addFieldToTab('Root.Pictures',DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Bilder per Linie'), self::$pictures_per_line), 'Images');
+          
+            $fields->addFieldToTab('Root.Main',UploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
 
+            $fields->addFieldToTab('Root.LayoutTab',
+                CompositeField::create(
+                    DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Bilder per Linie'), self::$pictures_per_line),
+                    OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')
+                ))->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
+            );
             
 
 
@@ -92,10 +100,9 @@ class GalleryBlock extends BaseElement
            // $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname')),'HTML');
 
           
-        });
-        $fields = parent::getCMSFields();
+    
+      
 
-        $fields->addFieldToTab('Root.Pictures',OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')));
         return $fields;
     }
 

@@ -1,15 +1,16 @@
 .featuresblock{
-	.dk-list{
-		li[data-uk-icon]{
-		 	svg{
-				position: absolute;
-				left:0;
-				top:@global-large-font-size*@global-line-height/2;
-				transform: translateY(-(@global-large-font-size*@global-line-height/2 - (@global-large-font-size*@global-line-height - @global-large-font-size)/2));
-				height:@global-large-font-size;
-				width:@global-large-font-size;
-			}
+	[data-uk-icon]{
+		position: relative;
+		padding-left: 50px;
+	 	svg{
+			position: absolute;
+			left:0;
+			top:@global-large-font-size*@global-line-height/2;
+			transform: translateY(-(@global-large-font-size*@global-line-height/2 - (@global-large-font-size*@global-line-height - @global-large-font-size)/2));
+			height:@global-large-font-size;
+			width:@global-large-font-size;
 		}
 	}
+	
 }
 	

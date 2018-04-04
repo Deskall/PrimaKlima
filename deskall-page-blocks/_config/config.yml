@@ -11,6 +11,7 @@ DNADesign\Elemental\Models\BaseElement:
     - Activable
     - Linkable
     - Collapsable
+    - PublishParent
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
