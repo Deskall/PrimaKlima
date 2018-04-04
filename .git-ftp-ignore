@@ -15,5 +15,5 @@
 
 /mysite/_config.php
 
-constants.less
-project_specific.less
+/themes/standard/css/src/deskall/theme/constants.less
+/themes/standard/css/src/deskall/theme/project_specific.less
