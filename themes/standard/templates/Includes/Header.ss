@@ -1,8 +1,11 @@
-<header class="dk-background-header uk-position-top uk-position-z-index">
+<header <% if $SiteConfig.StickyHeader %>class="dk-background-header" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header uk-position-top uk-position-z-index"<% end_if %>>
 	<div class="uk-container uk-container-medium uk-position-relative">
 		<%-- <a href="" class="uk-logo uk-align-left" title="$SiteConfig.Title Home"><img src="$ThemeDir/img/logo.svg" alt="$SiteConfig.Title Logo" title="Home" data-uk-svg /></a> --%>
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-			<div class="uk-navbar-right uk-visible@m">
+			<% loop SiteConfig.activeMenuBlocks %>
+				$forTemplate
+			<% end_loop %>
+			<%-- <div class="uk-navbar-right uk-visible@m">
 			    <ul class="uk-subnav uk-subnav-pill uk-margin-remove">
 			    	<% loop Menu(1).filter('ShowInMainMenu',0) %>
 			    	<li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" title="$Title.XML">$MenuTitle.XML</a>
@@ -30,9 +33,9 @@
 				    <li><a href="$SiteConfig.Xing" data-uk-icon="icon: xing;ratio: 0.875" target="_blank"></a></li>
 				    <% end_if %>
 			    </ul>
-			</div>
+			</div> --%>
 		</nav>
-		<nav class="uk-navbar-container uk-navbar-transparent uk-navbar" data-uk-navbar>
+		<%-- <nav class="uk-navbar-container uk-navbar-transparent uk-navbar" data-uk-navbar>
 			
 			<div class="uk-navbar-right uk-visible@m">
 			    <ul class="uk-navbar-nav">
@@ -54,7 +57,7 @@
 			<div class="uk-navbar-right uk-hidden@m">
 	            <button class="uk-button uk-padding-remove" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
 	        </div>
-		</nav>
+		</nav> --%>
 		
 	</div>
 </header>

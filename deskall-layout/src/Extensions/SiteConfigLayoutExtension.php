@@ -10,6 +10,7 @@ use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\HiddenField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\Tabset;
@@ -48,6 +49,11 @@ class SiteConfigLayoutExtension extends DataExtension
     'GlobalFontColor' => 'Varchar(7)',
 
     'HeaderBackground' => 'Varchar(255)',
+    'HeaderHeight' => 'Varchar(255)',
+    'HeaderCollapsedHeight' => 'Varchar(255)',
+    'HeaderOpacity' => 'Varchar(255)',
+    'HeaderFormat' => 'Varchar(255)',
+    'StickyHeader' => 'Boolean(0)',
 
     'FooterBackground' => 'Varchar(255)',
 
@@ -67,6 +73,8 @@ class SiteConfigLayoutExtension extends DataExtension
     'H3FontSize' => '@h3-size',
     'LeadFontSize' => '@text-lead-font-size',
     'GlobalFontColor' => '@global-color',
+    'HeaderHeight' => '@header-menu-height',
+    'HeaderCollapsedHeight' => '@header-menu-collapsed-height'
   ];
 
   private static $has_many = [
@@ -114,7 +122,6 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
     //Header
-
     $MenusField = new GridField(
         'MenuBlocks',
         'MenuBlocks',
@@ -122,8 +129,20 @@ class SiteConfigLayoutExtension extends DataExtension
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
-    $fields->addFieldToTab("Root.Layout.Header", DropdownField::create('HeaderBackground',_t(__CLASS__.'.Background','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'backgrounds'))->setEmptyString(_t(__CLASS__.'.BackgroundHelp','Wählen Sie aus eine Hintergrundfarbe')));
-    $fields->addFieldToTab("Root.Layout.Header", $MenusField);
+    $fields->addFieldToTab("Root.Layout.Header.Content", $MenusField);
+
+    $fields->addFieldToTab("Root.Layout.Header.Layout", CompositeField::create(
+      FieldGroup::create(
+        TextField::create('HeaderBackground',_t(__CLASS__.'.HeaderBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
+        TextField::create('HeaderOpacity',_t(__CLASS__.'.HeaderOpacity','Opazität'))),
+      FieldGroup::create(
+        TextField::create('HeaderHeight',_t(__CLASS__.'.HeaderHeight','Höhe')),
+        TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Höhe'))
+      ),
+      CheckboxField::create('StickyHeader','Sticky Header')
+    )->setTitle(_t(__CLASS__.'.HeaderLayout','Header Layout'))->setName('HeaderBackgroundFields'));
+
+    
 
 
 
@@ -147,6 +166,10 @@ class SiteConfigLayoutExtension extends DataExtension
     return $this->owner->FooterBlocks()->filter('isVisible',1);
   }
 
+  public function activeMenuBlocks(){
+    return $this->owner->MenuBlocks()->filter('isVisible',1);
+  }
+
   public function onBeforeWrite(){
     parent::onBeforeWrite();
     $this->owner->PrimaryBackground = "#".$this->owner->PrimaryBackground;
@@ -156,6 +179,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->BlackBackground = "#".$this->owner->BlackBackground;
     $this->owner->BodyBackground = "#".$this->owner->BodyBackground;
     $this->owner->GlobalFontColor = "#".$this->owner->GlobalFontColor;
+    $this->owner->HeaderBackground = "#".$this->owner->HeaderBackground;
 
   }
 
@@ -169,7 +193,14 @@ class SiteConfigLayoutExtension extends DataExtension
     $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->user_defined_file;
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach ($this->owner->stat('constants_less') as $key => $value){
-      file_put_contents($fullpath, "\n".$value.':'.$this->owner->{$key}.';',FILE_APPEND);
+      if ($this->owner->{$key}){
+        file_put_contents($fullpath, "\n".$value.':'.$this->owner->{$key}.';',FILE_APPEND);
+      }
+    }
+    if ($this->owner->HeaderBackground){
+      if ($this->owner->HeaderOpacity){
+        file_put_contents($fullpath, "\n".'@dk-background-header: fade('.$this->owner->HeaderBackground.','.$this->owner->HeaderOpacity.');',FILE_APPEND);
+      }
     }
   }
 

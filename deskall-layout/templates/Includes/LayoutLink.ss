@@ -1,4 +1,4 @@
-		<li data-uk-icon="icon:  <% if $Icon %>$Icon;<% else %>chevron-right<% end_if %>">
+		<li data-uk-icon="icon:  <% if $Icon %>$Icon;<% end_if %>">
 			<% with LinkableLink %>
 		    <% if $LinkURL %>
 		     	<a href="$LinkURL" {$TargetAttr}>

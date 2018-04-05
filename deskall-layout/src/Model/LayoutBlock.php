@@ -10,6 +10,7 @@ use SilverStripe\Forms\GridField\GridField;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\SiteConfig\SiteConfig;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 
 class LayoutBlock extends DataObject{
@@ -36,7 +37,7 @@ class LayoutBlock extends DataObject{
 	];
 
 	private static $summary_fields = [
-	    'NiceTitle' ,
+	    'NiceType' ,
 	    'Preview',
 	    'displayWidth'
 	];
@@ -76,6 +77,9 @@ class LayoutBlock extends DataObject{
 		return ($this->Type == "adresse") ? $this->SiteConfig()->Title : $this->Title;
 	}
 
+	public function NiceType(){
+		return $this->stat('block_types')[$this->Type];
+	}
 
     function fieldLabels($includerelations = true) {
 	    $labels = parent::fieldLabels($includerelations);
@@ -99,12 +103,12 @@ class LayoutBlock extends DataObject{
 			$title->displayIf('Type')->isEqualTo('links');
 			if ($this->Type == "links"){
 				if ($this->ID > 0){
-							$LinksField = new GridField(
+							$LinksField = Wrapper::create(new GridField(
 						        'Links',
 						        _t(__CLASS__.'.Links','Links'),
 						        $this->Links(),
 						        GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))
-						    );
+						    ))->setName('LinksField');
 						}
 						else {
 							$LinksField = LabelField::create('Links', _t(__CLASS__.'.LinksLabel','Links können erst nach dem Speichern erstellt werden'));
