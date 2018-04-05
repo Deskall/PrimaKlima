@@ -32,9 +32,7 @@ class LayoutBlock extends DataObject{
 		'SiteConfig' => SiteConfig::class
 	];
 
-	private static $has_many = [
-		'Links' => LayoutLink::class
-	];
+	
 
 	private static $summary_fields = [
 	    'NiceType' ,
@@ -111,14 +109,15 @@ class LayoutBlock extends DataObject{
 						    ))->setName('LinksField');
 						}
 						else {
-							$LinksField = LabelField::create('Links', _t(__CLASS__.'.LinksLabel','Links können erst nach dem Speichern erstellt werden'));
+							$LinksField = Wrapper::create(
+								LabelField::create('Links', _t(__CLASS__.'.LinksLabel','Links können erst nach dem Speichern erstellt werden')))->setName('LinksField');
 						}
 
 						$fields->addFieldToTab('Root.Main',$LinksField);
 						$LinksField->displayIf('Type')->isEqualTo('Links');
 			}
 			
-				$fields->addFieldToTab('Root.Main', $content = TextareaField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Title');
+			$fields->addFieldToTab('Root.Main', $content = TextareaField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Title');
 			$content->displayIf('Type')->isEqualTo('content');
 
 		});

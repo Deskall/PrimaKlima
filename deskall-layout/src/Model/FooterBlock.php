@@ -16,6 +16,10 @@ class FooterBlock extends LayoutBlock{
 		'content' => 'Inhalt'
 	];
 
+    private static $has_many = [
+        'Links' => LayoutLink::class
+    ];
+
 
 
 	public function NiceTitle(){

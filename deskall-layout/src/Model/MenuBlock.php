@@ -1,17 +1,28 @@
 <?php
 
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TextField;
 use SilverStripe\Assets\Image;
+use SilverStripe\CMS\Controllers\ContentController;
 
 class MenuBlock extends LayoutBlock{
 
 	private static $db = [
-		'Layout' => 'Varchar(255)'
+		'Layout' => 'Varchar(255)',
+		'UseMenu' => 'Boolean(0)',
+		'ShowSubLevels' => 'Boolean(0)',
+		'ShowSubLevelsBis' => 'Int',
+		'SubLevelLayout' => 'Varchar(255)'
 	];
 
 	private static $has_one = [
 		'Logo' => Image::class
+	];
+
+	private static $has_many = [
+		'Links' => MenuLink::class
 	];
 
 	private static $block_types = [
@@ -32,6 +43,14 @@ class MenuBlock extends LayoutBlock{
 		return parent::NiceTitle();
 	}
 
+	public function onAfterWrite(){
+		if ($this->Logo()->ID > 0){
+			$this->Logo()->publishSingle();
+		}
+		
+		parent::onAfterWrite();
+	}
+
 
     function fieldLabels($includerelations = true) {
 	    $labels = parent::fieldLabels($includerelations);
@@ -46,16 +65,26 @@ class MenuBlock extends LayoutBlock{
 		$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')),'Width');
 		$fields->addFieldToTab('Root.Main',DropdownField::create('Layout',_t(__CLASS__.'.Layout','Ausrichtung'),$this->stat('block_layouts')),'Width');
 
-		$fields->insertAfter(CheckboxField::create('UseMenu',_t(__CLASS__.'.UseMenu','Site Struktur benutzen')),'Width');
+		$fields->insertAfter(CheckboxField::create('UseMenu',_t(__CLASS__.'.UseMenu','Site Struktur benutzen'))->displayIf('Type')->isEqualTo('links')->end(),'Width');
+		$fields->insertAfter(CheckboxField::create('ShowSubLevels',_t(__CLASS__.'.ShowSubLevels','Untenmenu anzeigen'))->displayIf('UseMenu')->isChecked()->end(),'UseMenu');
+		$fields->insertAfter(NumericField::create('ShowSubLevelsBis',_t(__CLASS__.'.ShowSubLevelsBis','Navigation Stufen'))->displayIf('ShowSubLevels')->isChecked()->end(),'ShowSubLevels');
+		$fields->insertAfter(TextField::create('SubLevelLayout',_t(__CLASS__.'.SubLevelLayout','Unten Navigation Layout'))->displayIf('ShowSubLevels')->isChecked()->end(),'ShowSubLevelsBis');
 
-		$fields->fieldByName('Root.Main.LinksField')->hideIf('UseMenu')->isChecked();
+
+		if ($linksfield = $fields->fieldByName('Root.Main.LinksField')){
+			$linksfield->hideIf('UseMenu')->isChecked();
+		}
 		$fields->fieldByName('Root.Main.Logo')->displayIf('Type')->isEqualTo('logo');
 
 		return $fields;
 	}
 
 	public function forTemplate(){
-		return $this->renderWith('Includes/MenuBlock');
+		$menu = ContentController::create()->getMenu(1);
+		//print_r($menu);
+		return $this->renderWith('Includes/MenuBlock', [
+			'Menu' =>$menu,
+			'Test' => 'test']);
 	}
 
 }
