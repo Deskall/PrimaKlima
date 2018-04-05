@@ -26,19 +26,15 @@ use SilverStripe\Assets\Image;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
+use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
+use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 
 class SiteConfigLayoutExtension extends DataExtension 
 {
   protected $user_defined_file = '/themes/standard/css/src/deskall/theme/user_defined.less';
 
   private static $db = [
-    'PrimaryBackground' => 'Varchar(7)',
-    'SecondaryBackground' => 'Varchar(7)',
-    'MutedBackground' => 'Varchar(7)',
-    'BodyBackground' => 'Varchar(7)',
-    'WhiteBackground' => 'Varchar(7)',
-    'BlackBackground' => 'Varchar(7)',
-    'GrayBackground' => 'Varchar(7)',
+   
     'HeaderBackground' => 'Varchar(7)',
     'GlobalFontSize' => 'Varchar(25)',
     'H1FontSize' => 'Varchar(25)',
@@ -46,9 +42,10 @@ class SiteConfigLayoutExtension extends DataExtension
     'H2FontSize' => 'Varchar(25)',
     'H3FontSize' => 'Varchar(25)',
     'LeadFontSize' => 'Varchar(25)',
-    'GlobalFontColor' => 'Varchar(7)',
 
     'HeaderBackground' => 'Varchar(255)',
+    'HeaderFontColor' => 'Varchar(7)',
+    'HeaderHoverFontColor' => 'Varchar(7)',
     'HeaderHeight' => 'Varchar(255)',
     'HeaderCollapsedHeight' => 'Varchar(255)',
     'HeaderOpacity' => 'Varchar(255)',
@@ -60,36 +57,59 @@ class SiteConfigLayoutExtension extends DataExtension
   ];
 
   private static $constants_less = [
-    'MutedBackground' => '@global-muted-background',
-    'PrimaryBackground' => '@global-primary-background',
-    'SecondaryBackground' => '@global-secondary-background',
+    'GrayBackground' => '@global-muted',
+    'PrimaryBackground' => '@global-primary',
+    'SecondaryBackground' => '@global-secondary',
     'WhiteBackground' => '@white',
     'BlackBackground' => '@black',
-    'BodyBackground' => '@global-background',
+    'BodyBackground' => '@global',
     'GlobalFontSize' => '@global-font-size',
     'H1FontSize' => '@h1-size',
     'H1MobileFontSize' => '@h1-mobile-size',
     'H2FontSize' => '@h2-size',
     'H3FontSize' => '@h3-size',
     'LeadFontSize' => '@text-lead-font-size',
-    'GlobalFontColor' => '@global-color',
+    
+    'HeaderFontColor' => '@navbar-nav-item-color',
+    'HeaderHoverFontColor' => [
+      '@navbar-nav-item-hover-color',
+      '@navbar-nav-item-active-color',
+      '@nav-active-border-color'],
     'HeaderHeight' => '@header-menu-height',
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height'
   ];
 
   private static $has_many = [
     'FooterBlocks' => FooterBlock::class,
-    'MenuBlocks' => MenuBlock::class
+    'MenuBlocks' => MenuBlock::class,
+    'Colors' => Color::class
   ];
 
-      private static $backgrounds = [
+  private static $backgrounds = [
         'uk-section-default' => 'keine Hintergrundfarbe',
         'uk-section-primary dk-text-hover-primary' => 'primäre Farbe',
         'uk-section-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
         'uk-section-muted dk-text-hover-muted' => 'grau',
         'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
         'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
-    ];
+  ];
+
+  private static $default_colors = [
+    'BodyBackground' => ['Code' => 'BodyBackground', 'Title' => 'Body Hintergrundfarbe','Color' => 'e4e4e4','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 0],
+    'PrimaryBackground' => ['Code' => 'PrimaryBackground', 'Title' => 'Hauptfarbe','Color' => '10206B','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
+    'SecondaryBackground' => ['Code' => 'SecondaryBackground', 'Title' => 'Sekondäre Farbe','Color' => 'DC002E','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
+    'WhiteBackground' => ['Code' => 'WhiteBackground', 'Title' => 'Weiss','Color' => 'ffffff','FontColor' => '666666','isReadonly' => 1, 'canChangeTitle' => 1],
+    'BlackBackground' => ['Code' => 'BlackBackground', 'Title' => 'Schwarzfarbe','Color' => '000000','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
+    'GrayBackground' => ['Code' => 'GrayBackground', 'Title' => 'Graufarbe','Color' => 'cccccc','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 1]
+  ];
+
+  public function populateDefaults(){
+    foreach($this->owner->stat('default_colors') as $code => $array)
+    if ($this->owner->Colors()->filter('Code',$code)->count() == 0){
+      $c = new Color($array);
+      $this->owner->Colors()->add($c);
+    }
+  }
 
   public function updateCMSFields(FieldList $fields) {
     Requirements::javascript('deskall-layout/javascript/jscolor.min.js');
@@ -97,28 +117,59 @@ class SiteConfigLayoutExtension extends DataExtension
     Requirements::css('deskall-layout/css/layout.css');
 
     //GLOBAL
+    //COLORS
     $fields->addFieldToTab("Root.Layout.Global",new HiddenField('ID'));
+    $config = GridFieldConfig::create()
+                ->addComponent(new GridFieldButtonRow('before'))
+                ->addComponent(new GridFieldTitleHeader())
+                ->addComponent(new GridFieldEditableColumns())
+                ->addComponent(new GridFieldDeleteAction())
+                ->addComponent(new GridFieldAddNewInlineButton())
+               ;
+    $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields([
+        'Title'  => [
+            'title' => 'Titel und Vorschau',
+            'callback' => function($record, $column, $grid) {
+              $field = TextField::create($column);
+              if (!$record->canChangeTitle && $record->ID > 0){
+                $field->setReadonly(true);
+              }
+              return $field;
+            }
+        ],
+        'Color'  => [
+            'title' => 'Farbe',
+            'callback' => function($record, $column, $grid) {
+              return TextField::create($column)->addExtraClass('jscolor');
+            }
+        ],
+       'FontColor'  => [
+            'title' => 'Schriftfarbe',
+            'callback' => function($record, $column, $grid) {
+              return TextField::create($column)->addExtraClass('jscolor');
+            }
+        ],
+    ]);
+                
+    $colorsField = new GridField('Colors',_t(__CLASS__.'.Colors','Farben'),$this->owner->Colors(),$config);
+    $fields->addFieldsToTab("Root.Layout.Global",[
+      HeaderField::create('ColorTitle',_t(__CLASS__.'.ColorsTitle','Farben'),2),
+      $colorsField]);
 
-    $fields->addFieldToTab("Root.Layout.Global",CompositeField::create(
-      TextField::create('BodyBackground',_t(__CLASS__.'.BodyBackground','Body Hintergrundfarbe'))->addExtraClass('jscolor'),
-      TextField::create('PrimaryBackground',_t(__CLASS__.'.PrimaryBackground','Primäre Farbe'))->addExtraClass('jscolor'),
-      TextField::create('SecondaryBackground',_t(__CLASS__.'.SecondaryBackground','Sekondäre Farbe'))->addExtraClass('jscolor'),
-      TextField::create('MutedBackground',_t(__CLASS__.'.MutedBackground','gedämpfte Farbe'))->addExtraClass('jscolor'),
-      TextField::create('WhiteBackground',_t(__CLASS__.'.WhiteBackground','Weiss Farbe'))->addExtraClass('jscolor'),
-      TextField::create('BlackBackground',_t(__CLASS__.'.BlackBackground','Schwarz Farbe'))->addExtraClass('jscolor'),
-      TextField::create('GrayBackground',_t(__CLASS__.'.GrayBackground','Grau Farbe'))->addExtraClass('jscolor')
-    )->setName('ColorFields')->setTitle(_t(__CLASS__.'.Colors','Farben')));
 
 
-    $fields->addFieldToTab("Root.Layout.Global",CompositeField::create(
-      TextField::create('GlobalFontSize',_t(__CLASS__.'.GlobalFontSize','Standard Schriftgrösse')),
-      TextField::create('H1FontSize',_t(__CLASS__.'.H1FontSize','H1 Schriftgrösse')),
-      TextField::create('H1MobileFontSize',_t(__CLASS__.'.H1MobileFontSize','H1 Mobile Schriftgrösse')),
-      TextField::create('H2FontSize',_t(__CLASS__.'.H2FontSize','H2 Schriftgrösse')),
-      TextField::create('H3FontSize',_t(__CLASS__.'.H3FontSize','H3 Schriftgrösse')),
-      TextField::create('LeadFontSize',_t(__CLASS__.'.LeadFontSize','LeadText Schriftgrösse')),
-      TextField::create('GlobalFontColor',_t(__CLASS__.'.GlobalFontColor','Schriftfarbe'))->addExtraClass('jscolor')
-    )->setName('FontFields')->setTitle(_t(__CLASS__.'.Fonts','Schriften')));
+
+    $fields->addFieldsToTab("Root.Layout.Global", 
+      [
+        HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
+        TextField::create('GlobalFontSize',_t(__CLASS__.'.GlobalFontSize','Standard Schriftgrösse')),
+        TextField::create('H1FontSize',_t(__CLASS__.'.H1FontSize','H1 Schriftgrösse')),
+        TextField::create('H1MobileFontSize',_t(__CLASS__.'.H1MobileFontSize','H1 Mobile Schriftgrösse')),
+        TextField::create('H2FontSize',_t(__CLASS__.'.H2FontSize','H2 Schriftgrösse')),
+        TextField::create('H3FontSize',_t(__CLASS__.'.H3FontSize','H3 Schriftgrösse')),
+        TextField::create('LeadFontSize',_t(__CLASS__.'.LeadFontSize','LeadText Schriftgrösse'))
+      ]
+    );
 
 
     //Header
@@ -134,7 +185,10 @@ class SiteConfigLayoutExtension extends DataExtension
     $fields->addFieldToTab("Root.Layout.Header.Layout", CompositeField::create(
       FieldGroup::create(
         TextField::create('HeaderBackground',_t(__CLASS__.'.HeaderBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
-        TextField::create('HeaderOpacity',_t(__CLASS__.'.HeaderOpacity','Opazität'))),
+        TextField::create('HeaderOpacity',_t(__CLASS__.'.HeaderOpacity','Opazität')),
+        TextField::create('HeaderFontColor',_t(__CLASS__.'.HeaderFontColor','Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('HeaderHoverFontColor',_t(__CLASS__.'.HeaderHoverFontColor','Aktive und Hover Schriftfarbe'))->addExtraClass('jscolor')
+      ),
       FieldGroup::create(
         TextField::create('HeaderHeight',_t(__CLASS__.'.HeaderHeight','Höhe')),
         TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Höhe'))
@@ -172,14 +226,11 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function onBeforeWrite(){
     parent::onBeforeWrite();
-    $this->owner->PrimaryBackground = "#".$this->owner->PrimaryBackground;
-    $this->owner->SecondaryBackground = "#".$this->owner->SecondaryBackground;
-    $this->owner->MutedBackground = "#".$this->owner->MutedBackground;
-    $this->owner->WhiteBackground = "#".$this->owner->WhiteBackground;
-    $this->owner->BlackBackground = "#".$this->owner->BlackBackground;
-    $this->owner->BodyBackground = "#".$this->owner->BodyBackground;
-    $this->owner->GlobalFontColor = "#".$this->owner->GlobalFontColor;
+    $this->owner->populateDefaults();
+   
     $this->owner->HeaderBackground = "#".$this->owner->HeaderBackground;
+    $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
+    $this->owner->HeaderHoverFontColor = "#".$this->owner->HeaderHoverFontColor;
 
   }
 
@@ -192,9 +243,23 @@ class SiteConfigLayoutExtension extends DataExtension
   public function WriteUserDefinedConstants(){
     $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->user_defined_file;
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
+    foreach($this->owner->Colors() as $c){
+      if ($code = $this->owner->stat('constants_less')[$c->Code]){
+        file_put_contents($fullpath, "\n".$code.'-background:#'.$c->Color.';',FILE_APPEND);
+        file_put_contents($fullpath, "\n".$code.'-color:#'.$c->FontColor.';',FILE_APPEND);
+      }
+    }
     foreach ($this->owner->stat('constants_less') as $key => $value){
       if ($this->owner->{$key}){
-        file_put_contents($fullpath, "\n".$value.':'.$this->owner->{$key}.';',FILE_APPEND);
+        if (is_array($value)){
+          foreach ($value as $item) {
+            file_put_contents($fullpath, "\n".$item.':'.$this->owner->{$key}.';',FILE_APPEND);
+          }
+        }
+        else{
+          file_put_contents($fullpath, "\n".$value.':'.$this->owner->{$key}.';',FILE_APPEND);
+        }
+        
       }
     }
     if ($this->owner->HeaderBackground){
