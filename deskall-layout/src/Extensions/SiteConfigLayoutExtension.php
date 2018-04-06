@@ -45,6 +45,8 @@ class SiteConfigLayoutExtension extends DataExtension
 
     'HeaderBackground' => 'Varchar(255)',
     'HeaderFontColor' => 'Varchar(7)',
+    'HeaderFontSize' => 'Varchar(255)',
+    'HeaderMenuItemSize' => 'Varchar(255)',
     'HeaderHoverFontColor' => 'Varchar(7)',
     'HeaderHeight' => 'Varchar(255)',
     'HeaderCollapsedHeight' => 'Varchar(255)',
@@ -63,8 +65,12 @@ class SiteConfigLayoutExtension extends DataExtension
     'WhiteBackground' => '@white',
     'BlackBackground' => '@black',
     'BodyBackground' => '@global',
+    'ActiveColor' => '@global-emphasis',
     'GlobalFontSize' => '@global-font-size',
-    'H1FontSize' => '@h1-size',
+    'H1FontSize' => [
+      '@h1-size',
+      '@heading-primary-font-size'
+    ],
     'H1MobileFontSize' => '@h1-mobile-size',
     'H2FontSize' => '@h2-size',
     'H3FontSize' => '@h3-size',
@@ -76,6 +82,8 @@ class SiteConfigLayoutExtension extends DataExtension
       '@navbar-nav-item-active-color',
       '@nav-active-border-color'],
     'HeaderHeight' => '@header-menu-height',
+    'HeaderFontSize' => '@main-nav-font-size',
+    'HeaderMenuItemSize' => '@navbar-nav-item-height',
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height'
   ];
 
@@ -87,11 +95,11 @@ class SiteConfigLayoutExtension extends DataExtension
 
   private static $backgrounds = [
         'uk-section-default' => 'keine Hintergrundfarbe',
-        'uk-section-primary dk-text-hover-primary' => 'primäre Farbe',
-        'uk-section-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
-        'uk-section-muted dk-text-hover-muted' => 'grau',
-        'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
-        'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
+        'uk-section-primary' => 'primäre Farbe',
+        'uk-section-secondary' => 'sekundäre Farbe',
+        'uk-section-muted' => 'grau',
+        'dk-background-white uk-section-default' => 'weiss',
+        'dk-background-black uk-section-default' => 'schwarz'
   ];
 
   private static $default_colors = [
@@ -100,7 +108,8 @@ class SiteConfigLayoutExtension extends DataExtension
     'SecondaryBackground' => ['Code' => 'SecondaryBackground', 'Title' => 'Sekondäre Farbe','Color' => 'DC002E','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
     'WhiteBackground' => ['Code' => 'WhiteBackground', 'Title' => 'Weiss','Color' => 'ffffff','FontColor' => '666666','isReadonly' => 1, 'canChangeTitle' => 1],
     'BlackBackground' => ['Code' => 'BlackBackground', 'Title' => 'Schwarzfarbe','Color' => '000000','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
-    'GrayBackground' => ['Code' => 'GrayBackground', 'Title' => 'Graufarbe','Color' => 'cccccc','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 1]
+    'GrayBackground' => ['Code' => 'GrayBackground', 'Title' => 'Graufarbe','Color' => 'cccccc','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 1],
+    'ActiveColor' => ['Code' => 'ActiveColor', 'Title' => 'Aktiv farbe','Color' => '10206B','FontColor' => 'FFFFFF','isReadonly' => 1, 'canChangeTitle' => 1]
   ];
 
   public function populateDefaults(){
@@ -191,7 +200,9 @@ class SiteConfigLayoutExtension extends DataExtension
       ),
       FieldGroup::create(
         TextField::create('HeaderHeight',_t(__CLASS__.'.HeaderHeight','Höhe')),
-        TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Höhe'))
+        TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Höhe')),
+        TextField::create('HeaderMenuItemSize',_t(__CLASS__.'.HeaderItemHeight','Menu Item Höhe')),
+        TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse'))
       ),
       CheckboxField::create('StickyHeader','Sticky Header')
     )->setTitle(_t(__CLASS__.'.HeaderLayout','Header Layout'))->setName('HeaderBackgroundFields'));
