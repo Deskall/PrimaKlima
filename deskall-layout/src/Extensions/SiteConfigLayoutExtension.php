@@ -113,7 +113,7 @@ class SiteConfigLayoutExtension extends DataExtension
   ];
 
   public function populateDefaults(){
-    file_put_contents('log.txt', 'Total Colors: '.$this->owner->Colors()->count()."\n", FILE_APPEND );
+    file_put_contents('log.txt', 'Total Colors: '.$this->Colors()->count()."\n", FILE_APPEND );
     foreach($this->owner->stat('default_colors') as $code => $array){
 
       if ($this->owner->Colors()->filter('Code',$code)->count() == 0){
