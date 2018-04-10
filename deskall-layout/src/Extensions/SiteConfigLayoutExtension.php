@@ -148,6 +148,7 @@ class SiteConfigLayoutExtension extends DataExtension
             'title' => 'Titel und Vorschau',
             'callback' => function($record, $column, $grid) {
               $field = TextField::create($column);
+              print_r($record->ClassName);
               // if (!$record->canChangeTitle && $record->ID > 0){
               //   $field->setReadonly(true);
               // }
