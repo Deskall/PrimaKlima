@@ -113,7 +113,6 @@ class SiteConfigLayoutExtension extends DataExtension
   ];
 
   public function populateDefaults(){
-    parent::populateDefaults();
     if ($this->owner->ID > 0){
 
       foreach($this->owner->stat('default_colors') as $code => $array){
@@ -246,7 +245,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function onBeforeWrite(){
     parent::onBeforeWrite();
-   
+    $this->owner->populateDefaults();
     $this->owner->HeaderBackground = "#".$this->owner->HeaderBackground;
     $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
     $this->owner->HeaderHoverFontColor = "#".$this->owner->HeaderHoverFontColor;
@@ -255,7 +254,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
   public function onAfterWrite(){
-    $this->owner->populateDefaults();
+    
     $this->owner->WriteUserDefinedConstants();
     parent::onAfterWrite();
   }
