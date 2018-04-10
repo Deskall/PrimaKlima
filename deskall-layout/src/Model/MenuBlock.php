@@ -97,6 +97,14 @@ class MenuBlock extends LayoutBlock{
 
 	public function forTemplate(){
 		$menu = ContentController::create()->getMenu(1);
+		if ($this->UseMenu){
+			if ($this->UseMenuOption == "main"){
+				$menu = $menu->filter('ShowInMainMenu',1);
+			}
+			else{
+				$menu = $menu->filter('ShowInMainMenu',0);
+			}
+		}
 		//print_r($menu);
 		return $this->renderWith('Includes/MenuBlock', [
 			'Menu' =>$menu,

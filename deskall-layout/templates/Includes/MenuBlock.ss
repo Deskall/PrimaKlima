@@ -2,11 +2,7 @@
 	<% if Type == "links" %>
 	<ul class="uk-navbar-nav">
 		<% if UseMenu %>
-			<% if UseMenuOption == "sub" %>
-			<% loop Menu.filter('ShowInMainMenu',0) %>
-			<% else %>
-			<% loop Menu.filter('ShowInMainMenu',1) %>
-			<% end_if %>
+			<% loop Menu %>
 		    	<li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" title="$Title.XML">$MenuTitle.XML</a>
 		    		<% if Children %>
 		    		<div class="uk-navbar-dropdown uk-margin-remove">
