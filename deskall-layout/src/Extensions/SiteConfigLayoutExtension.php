@@ -122,7 +122,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function updateCMSFields(FieldList $fields) {
-
+    print_r($this->owner->Colors()->filter('Code','BodyBackground')->count());
     Requirements::javascript('deskall-layout/javascript/jscolor.min.js');
     Requirements::javascript('deskall-layout/javascript/layout.js');
     Requirements::css('deskall-layout/css/layout.css');
