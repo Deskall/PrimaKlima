@@ -48,8 +48,8 @@
 .chosen-drop .option-html {
     padding:10px;
 }
-.option-html.background{
-    padding:10px;
+.option-html.background p{
+    padding:5px;
 }
 .option-html i{
     font-size: 20px;
