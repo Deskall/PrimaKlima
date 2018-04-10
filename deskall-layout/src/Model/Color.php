@@ -26,6 +26,10 @@ class Color extends DataObject{
          
     }
 
+    private static $extensions = [
+        'Sortable'
+    ];
+
     private static $summary_fields = [
        
     ];

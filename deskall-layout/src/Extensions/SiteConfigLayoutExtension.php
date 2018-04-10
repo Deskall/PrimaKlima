@@ -134,6 +134,7 @@ class SiteConfigLayoutExtension extends DataExtension
                 ->addComponent(new GridFieldEditableColumns())
                 ->addComponent(new GridFieldDeleteAction())
                 ->addComponent(new GridFieldAddNewInlineButton())
+                ->addComponent(new GridFieldOrderableRows('Sort'))
                ;
     $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields([
         'Title'  => [
