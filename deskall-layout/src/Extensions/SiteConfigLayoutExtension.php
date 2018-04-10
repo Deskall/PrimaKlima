@@ -113,15 +113,19 @@ class SiteConfigLayoutExtension extends DataExtension
   ];
 
   public function populateDefaults(){
-    file_put_contents('log.txt', 'Total Colors: '.$this->Colors()->count()."\n", FILE_APPEND );
-    foreach($this->owner->stat('default_colors') as $code => $array){
+    parent::populateDefaults();
+    if ($this->owner->ID > 0){
 
-      if ($this->owner->Colors()->filter('Code',$code)->count() == 0){
-        file_put_contents('log.txt', $code.' : '.$this->owner->Colors()->filter('Code',$code)->count()."\n", FILE_APPEND );
-        $c = new Color($array);
-        $this->owner->Colors()->add($c);
+      foreach($this->owner->stat('default_colors') as $code => $array){
+
+        if ($this->owner->Colors()->filter('Code',$code)->count() == 0){
+          file_put_contents('log.txt', $code.' : '.$this->owner->Colors()->filter('Code',$code)->count()."\n", FILE_APPEND );
+          $c = new Color($array);
+          $this->owner->Colors()->add($c);
+        }
       }
     }
+      
   }
 
   public function updateCMSFields(FieldList $fields) {
@@ -242,7 +246,6 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function onBeforeWrite(){
     parent::onBeforeWrite();
-    $this->owner->populateDefaults();
    
     $this->owner->HeaderBackground = "#".$this->owner->HeaderBackground;
     $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
@@ -252,6 +255,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
   public function onAfterWrite(){
+    $this->owner->populateDefaults();
     $this->owner->WriteUserDefinedConstants();
     parent::onAfterWrite();
   }
