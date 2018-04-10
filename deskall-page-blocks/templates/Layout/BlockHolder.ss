@@ -11,9 +11,9 @@
 			<% else %>
 				<% if Title && $Element.ShowTitle %>
 					<% if $Element.isChildren %>
-						<h3>$Element.Title</h3>
+						<h3 class="$Element.TitleAlign">$Element.Title</h3>
 					<% else %>
-						<h2>$Element.Title</h2>
+						<h2 class="$Element.TitleAlign">$Element.Title</h2>
 					<% end_if %>
 				<% end_if %>
 			<% end_if %>

@@ -40,6 +40,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'ShowTitle' => 1,
         'Background' => 'uk-section-default',
         'TextAlign' => 'uk-text-left',
+        'TitleAlign' => 'uk-text-left',
         'TextColumns' => '1',
         'AvailableGlobally' => 1,
     ];
