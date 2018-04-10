@@ -114,7 +114,7 @@ class LayoutBlock extends DataObject{
 						}
 
 						$fields->addFieldToTab('Root.Main',$LinksField);
-						$LinksField->displayIf('Type')->isEqualTo('Links');
+						$LinksField->displayIf('Type')->isEqualTo('links');
 			}
 			
 			$fields->addFieldToTab('Root.Main', $content = TextareaField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Title');
