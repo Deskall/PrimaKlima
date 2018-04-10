@@ -14,7 +14,7 @@ class HTMLOptionsetField extends OptionsetField{
 	public function __construct($name, $title = null, $value = null)
     {
     	//Requirements::javascript("mysite/javascript/htmloptionset.js");
-        Requirements::css("mysite/css/htmloptionset.css");
+        Requirements::css("deskall-divers/css/htmloptionset.css");
 
         parent::__construct($name, $title, $value);
     }

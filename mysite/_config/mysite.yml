@@ -3,29 +3,3 @@ Name: myproject
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: mysite
-
-Page:
-  extensions:
-    - DNADesign\Elemental\Extensions\ElementalPageExtension
-
-SilverStripe\SiteConfig\SiteConfig:
-  extensions:
-    - SiteConfigExtension
-
-SilverStripe\Admin\LeftAndMain:
-  extra_requirements_css:
-    - mysite/css/custom_admin.css
-  extra_requirements_javascript:
-    - mysite/javascript/lang/de.js
-
-SilverStripe\Security\Member:
-  extensions:
-    - MemberExtension
-
-SilverStripe\ORM\DataObject:
-  extensions:
-    - DeskallTranslatable
-
-Sheadawson\Linkable\Models\Link:
-  extensions:
-    - LinkableLinkExtension
