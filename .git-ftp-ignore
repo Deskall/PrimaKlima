@@ -6,7 +6,7 @@
 /cache/
 /assets/
 /.htaccess
-/composer.lock
+composer.lock
 /silverstripe.log
 /googlesitemaps
 
