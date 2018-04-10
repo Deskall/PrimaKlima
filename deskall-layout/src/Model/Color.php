@@ -51,7 +51,7 @@ class Color extends DataObject{
     public function onBeforeWrite(){
         parent::onBeforeWrite();
         if (!$this->Code){
-            $this->Code = "color-".singleton('Page')->generateURLSegment($this->Title);
+         //   $this->Code = "color-".singleton('Page')->generateURLSegment($this->Title);
         }
     }
 
