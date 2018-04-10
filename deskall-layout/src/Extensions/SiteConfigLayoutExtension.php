@@ -291,6 +291,20 @@ class SiteConfigLayoutExtension extends DataExtension
     }
   }
 
+
+  public function getBackgroundColors(){
+        $colors = $this->owner->Colors();
+        $source = [];
+        foreach($colors as $c){
+            $html = $c->getHTMLOption();
+            $source[$c->Code] = [
+                'Title' => $c->Title,
+                'HTML' => $html
+            ];
+        }
+        return $source;
+    }
+
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];

@@ -88,15 +88,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     private static $icon;
 
-    private static $block_backgrounds = [
-        'uk-section-default' => 'keine Hintergrundfarbe',
-        'uk-section-primary dk-text-hover-primary' => 'primäre Farbe',
-        'uk-section-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
-        'uk-section-muted dk-text-hover-muted' => 'grau',
-        'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
-        'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
-    ];
-
     private static $block_text_alignments = [
         'uk-text-left' =>  [
             'value' => 'uk-text-left',
@@ -174,7 +165,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         } 
     	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
-            HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.')),
+            HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.')),
             UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName())
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
@@ -245,20 +236,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         return $html;
     }
 
-    public function getBackgroundColors(){
-        $colors = SiteConfig::current_site_config()->Colors();
-        $source = [];
-        foreach($colors as $c){
-            $html = $c->getHTMLOption();
-            $source[$c->Code] = [
-                'Title' => $c->Title,
-                'HTML' => $html
-            ];
-        }
-        return $source;
-    }
-
-
 
 //Duplicate block with correct elem
     public function DuplicateChildrens($original){
@@ -277,9 +254,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach(Config::inst()->get(__CLASS__,'block_backgrounds') as $key => $value) {
-          $entities[__CLASS__.".block_backgrounds_{$key}"] = $value;
-        }
+
         return $entities;
     }
 
