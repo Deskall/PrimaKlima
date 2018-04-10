@@ -3,6 +3,7 @@
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Assets\Image;
 use SilverStripe\CMS\Controllers\ContentController;
@@ -12,8 +13,7 @@ class MenuBlock extends LayoutBlock{
 	private static $db = [
 		'Layout' => 'Varchar(255)',
 		'UseMenu' => 'Boolean(0)',
-		'UseMenu1' => 'Boolean(0)',
-		'UseMenu2' => 'Boolean(0)',
+		'UseMenuOption' => 'Varchar(255)',
 		'ShowSubLevels' => 'Boolean(0)',
 		'ShowSubLevelsBis' => 'Int',
 		'SubLevelLayout' => 'Varchar(255)'
@@ -31,6 +31,11 @@ class MenuBlock extends LayoutBlock{
 		'links' => 'Links',
 		'logo' => 'Logo',
 		'form' => 'Formular'
+	];
+
+	private static $menu_options = [
+		'main' => 'Hauptmenu',
+		'sub' => 'Untenmenu'
 	];
 
 	private static $block_layouts = [
@@ -69,6 +74,7 @@ class MenuBlock extends LayoutBlock{
 
 		$fields->insertAfter(CompositeField::create(
 			CheckboxField::create('UseMenu',_t(__CLASS__.'.UseMenu','Site Struktur benutzen'))->displayIf('Type')->isEqualTo('links')->end(),
+			DropdownField::create('UseMenuOption',_t(__CLASS__.'.UseMenu','Welche Menu benutzen'),$this->getTranslatedSourceFor(__CLASS__,'menu_options'))->displayIf('UseMenu')->isChecked()->end(),
 			CheckboxField::create('ShowSubLevels',_t(__CLASS__.'.ShowSubLevels','Untenmenu anzeigen'))->displayIf('UseMenu')->isChecked()->end(),
 			NumericField::create('ShowSubLevelsBis',_t(__CLASS__.'.ShowSubLevelsBis','Navigation Stufen'))->displayIf('ShowSubLevels')->isChecked()->end()
 		),'Width');
@@ -92,4 +98,18 @@ class MenuBlock extends LayoutBlock{
 			'Test' => 'test']);
 	}
 
+
+/************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('block_types') as $key => $value) {
+          $entities[__CLASS__.".block_types_{$key}"] = $value;
+        }
+        foreach($this->stat('menu_options') as $key => $value) {
+          $entities[__CLASS__.".menu_options_{$key}"] = $value;
+        }
+        return $entities;
+    }
+
+/************* END TRANLSATIONS *******************/
 }
