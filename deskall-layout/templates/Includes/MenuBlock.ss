@@ -1,3 +1,6 @@
+<% if Width == "uk-width-1-1" %>
+<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+<% end_if %>
 <div class="$Layout $Width uk-visible@m">
 	<% if Type == "links" %>
 	<ul class="uk-navbar-nav">
@@ -25,3 +28,6 @@
 	  <a href="/" class="uk-navbar-item uk-logo"><img src="$Logo.URL" alt="$SiteConfig.Title Logo" title="Home" /></a>
 	<% end_if %>
 </div>
+<% if Width == "uk-width-1-1" %>
+</nav>
+<% end_if %>
