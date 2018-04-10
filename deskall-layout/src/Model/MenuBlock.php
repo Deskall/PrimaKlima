@@ -74,7 +74,7 @@ class MenuBlock extends LayoutBlock{
 		$fields->removeByName('ShowSubLevels');
 		$fields->removeByName('ShowSubLevelsBis');
 
-		$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')),'Width');
+		$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')));
 		$fields->addFieldToTab('Root.LayoutTab',DropdownField::create('Layout',_t(__CLASS__.'.Layout','Ausrichtung'),$this->stat('block_layouts')),'Width');
 
 		$fields->insertAfter(CompositeField::create(
@@ -82,7 +82,7 @@ class MenuBlock extends LayoutBlock{
 			DropdownField::create('UseMenuOption',_t(__CLASS__.'.UseMenu','Welche Menu benutzen'),$this->getTranslatedSourceFor(__CLASS__,'menu_options'))->displayIf('UseMenu')->isChecked()->end(),
 			CheckboxField::create('ShowSubLevels',_t(__CLASS__.'.ShowSubLevels','Untenmenu anzeigen'))->displayIf('UseMenu')->isChecked()->andIf('UseMenuOption')->isEqualTo('main')->end(),
 			NumericField::create('ShowSubLevelsBis',_t(__CLASS__.'.ShowSubLevelsBis','Navigation Stufen'))->displayIf('ShowSubLevels')->isChecked()->end()
-		)->setTitle(_t(__CLASS__.'.MenuSettings','Menu Einstellungen'))->setName('MenuSettings'),'Width');
+		)->setTitle(_t(__CLASS__.'.MenuSettings','Menu Einstellungen'))->setName('MenuSettings'));
 
 		$fields->insertAfter(TextField::create('SubLevelLayout',_t(__CLASS__.'.SubLevelLayout','Unten Navigation Layout'))->displayIf('ShowSubLevels')->isChecked()->end(),'Layout');
 
