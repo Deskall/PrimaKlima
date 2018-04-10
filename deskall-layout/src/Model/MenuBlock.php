@@ -12,6 +12,8 @@ class MenuBlock extends LayoutBlock{
 	private static $db = [
 		'Layout' => 'Varchar(255)',
 		'UseMenu' => 'Boolean(0)',
+		'UseMenu1' => 'Boolean(0)',
+		'UseMenu2' => 'Boolean(0)',
 		'ShowSubLevels' => 'Boolean(0)',
 		'ShowSubLevelsBis' => 'Int',
 		'SubLevelLayout' => 'Varchar(255)'
@@ -63,12 +65,15 @@ class MenuBlock extends LayoutBlock{
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Title');
 		$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')),'Width');
-		$fields->addFieldToTab('Root.Main',DropdownField::create('Layout',_t(__CLASS__.'.Layout','Ausrichtung'),$this->stat('block_layouts')),'Width');
+		$fields->addFieldToTab('Root.LayoutTab',DropdownField::create('Layout',_t(__CLASS__.'.Layout','Ausrichtung'),$this->stat('block_layouts')),'Width');
 
-		$fields->insertAfter(CheckboxField::create('UseMenu',_t(__CLASS__.'.UseMenu','Site Struktur benutzen'))->displayIf('Type')->isEqualTo('links')->end(),'Width');
-		$fields->insertAfter(CheckboxField::create('ShowSubLevels',_t(__CLASS__.'.ShowSubLevels','Untenmenu anzeigen'))->displayIf('UseMenu')->isChecked()->end(),'UseMenu');
-		$fields->insertAfter(NumericField::create('ShowSubLevelsBis',_t(__CLASS__.'.ShowSubLevelsBis','Navigation Stufen'))->displayIf('ShowSubLevels')->isChecked()->end(),'ShowSubLevels');
-		$fields->insertAfter(TextField::create('SubLevelLayout',_t(__CLASS__.'.SubLevelLayout','Unten Navigation Layout'))->displayIf('ShowSubLevels')->isChecked()->end(),'ShowSubLevelsBis');
+		$fields->insertAfter(CompositeField::create(
+			CheckboxField::create('UseMenu',_t(__CLASS__.'.UseMenu','Site Struktur benutzen'))->displayIf('Type')->isEqualTo('links')->end(),
+			CheckboxField::create('ShowSubLevels',_t(__CLASS__.'.ShowSubLevels','Untenmenu anzeigen'))->displayIf('UseMenu')->isChecked()->end()
+			NumericField::create('ShowSubLevelsBis',_t(__CLASS__.'.ShowSubLevelsBis','Navigation Stufen'))->displayIf('ShowSubLevels')->isChecked()->end()
+		),'Width');
+
+		$fields->insertAfter(TextField::create('SubLevelLayout',_t(__CLASS__.'.SubLevelLayout','Unten Navigation Layout'))->displayIf('ShowSubLevels')->isChecked()->end(),'Layout');
 
 
 		if ($linksfield = $fields->fieldByName('Root.Main.LinksField')){
