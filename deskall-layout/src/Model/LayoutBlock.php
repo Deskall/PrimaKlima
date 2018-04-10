@@ -92,8 +92,8 @@ class LayoutBlock extends DataObject{
 	public function getCMSFields(){
 		$this->beforeUpdateCMSFields(function ($fields) {
 
-			$fields->addFieldToTab('Root.Main', $w = DropdownField::create('Width',_t(__CLASS__.'.Width','Breite'),$this->getTranslatedSourceFor(__CLASS__,'widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
-			$fields->addFieldToTab('Root.Main', $cs = TextField::create('Class',_t(__CLASS__.'.ExtraClass','Extra CSS Class'))->setDescription(_t(__CLASS__.'.ClassDescription','Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt')));
+			$fields->addFieldToTab('Root.LayoutTab', $w = DropdownField::create('Width',_t(__CLASS__.'.Width','Breite'),$this->getTranslatedSourceFor(__CLASS__,'widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
+			$fields->addFieldToTab('Root.LayoutTab', $cs = TextField::create('Class',_t(__CLASS__.'.ExtraClass','Extra CSS Class'))->setDescription(_t(__CLASS__.'.ClassDescription','Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt')));
 			
 			$title = $fields->fieldByName('Root.Main.Title');
 			$fields->removeByName('Links');
