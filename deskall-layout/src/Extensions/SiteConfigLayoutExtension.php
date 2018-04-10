@@ -115,14 +115,13 @@ class SiteConfigLayoutExtension extends DataExtension
   public function populateDefaults(){
     foreach($this->owner->stat('default_colors') as $code => $array)
     if ($this->owner->Colors()->filter('Code',$code)->count() == 0){
-      file_put_contents('log.txt', $code."\n", FILE_APPEND );
+      file_put_contents('log.txt', $code.' : '.$this->owner->Colors()->filter('Code',$code)->count()."\n", FILE_APPEND );
       $c = new Color($array);
       $this->owner->Colors()->add($c);
     }
   }
 
   public function updateCMSFields(FieldList $fields) {
-    print_r($this->owner->Colors()->filter('Code','BodyBackground')->count());
     Requirements::javascript('deskall-layout/javascript/jscolor.min.js');
     Requirements::javascript('deskall-layout/javascript/layout.js');
     Requirements::css('deskall-layout/css/layout.css');
