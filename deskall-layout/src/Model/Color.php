@@ -11,7 +11,7 @@ class Color extends DataObject{
 
 	private static $db = [
         'Code' => 'Varchar(255)',
-        'Title' => 'Varchar(255)',
+        'FontTitle' => 'Varchar(255)',
         'Color' => 'Varchar(7)',
         'FontColor' => 'Varchar(7)',
         'isReadonly' => 'Boolean(0)',
@@ -51,7 +51,7 @@ class Color extends DataObject{
     public function onBeforeWrite(){
         parent::onBeforeWrite();
         if (!$this->Code){
-            $this->Code = "color-".singleton('Page')->generateURLSegment($this->Title);
+            $this->Code = "color-".singleton('Page')->generateURLSegment($this->FontTitle);
         }
     }
 
