@@ -144,8 +144,9 @@ class SiteConfigLayoutExtension extends DataExtension
             'title' => 'Titel und Vorschau',
             'callback' => function($record, $column, $grid) {
               $field = TextField::create($column);
-              print_r($record->FontTitle. " ".$record->canChangeTitle);
+
               if (!$record->canChangeTitle){
+                 print_r($record->FontTitle. " ".$record->canChangeTitle);
                 $field->setReadonly(true);
               }
               return $field;
