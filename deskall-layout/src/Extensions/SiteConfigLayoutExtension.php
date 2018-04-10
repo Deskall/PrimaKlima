@@ -114,17 +114,13 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function populateDefaults(){
     if ($this->owner->ID > 0){
-
       foreach($this->owner->stat('default_colors') as $code => $array){
-
         if ($this->owner->Colors()->filter('Code',$code)->count() == 0){
-          file_put_contents('log.txt', $code.' : '.$this->owner->Colors()->filter('Code',$code)->count()."\n", FILE_APPEND );
           $c = new Color($array);
           $this->owner->Colors()->add($c);
         }
       }
     }
-      
   }
 
   public function updateCMSFields(FieldList $fields) {
@@ -148,10 +144,9 @@ class SiteConfigLayoutExtension extends DataExtension
             'title' => 'Titel und Vorschau',
             'callback' => function($record, $column, $grid) {
               $field = TextField::create($column);
-              print_r($record->ClassName);
-              // if (!$record->canChangeTitle && $record->ID > 0){
-              //   $field->setReadonly(true);
-              // }
+              if (!$record->canChangeTitle){
+                $field->setReadonly(true);
+              }
               return $field;
             }
         ],
@@ -246,7 +241,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function onBeforeWrite(){
     parent::onBeforeWrite();
-   // $this->owner->populateDefaults();
+    $this->owner->populateDefaults();
     $this->owner->HeaderBackground = "#".$this->owner->HeaderBackground;
     $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
     $this->owner->HeaderHoverFontColor = "#".$this->owner->HeaderHoverFontColor;
