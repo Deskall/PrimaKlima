@@ -283,7 +283,7 @@ class SiteConfigLayoutExtension extends DataExtension
     }
   }
 
-  public function >WriteBackgroundClasses(){
+  public function WriteBackgroundClasses(){
     $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->background_colors;
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
