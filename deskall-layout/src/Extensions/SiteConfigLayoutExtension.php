@@ -145,9 +145,9 @@ class SiteConfigLayoutExtension extends DataExtension
             'callback' => function($record, $column, $grid) {
               $field = TextField::create($column);
 
-              // if (!$record->canChangeTitle){
-              //   $field->setReadonly(true);
-              // }
+              if ($record->canChangeTitle == 0){
+                 $field->setReadonly(true);
+              }
               return $field;
             }
         ],
