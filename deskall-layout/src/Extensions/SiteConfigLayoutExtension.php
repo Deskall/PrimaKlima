@@ -32,6 +32,7 @@ use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 class SiteConfigLayoutExtension extends DataExtension 
 {
   protected $user_defined_file = '/themes/standard/css/src/deskall/theme/user_defined.less';
+  protected $background_colors = '/themes/standard/css/src/deskall/theme/colors.less';
 
   private static $db = [
    
@@ -247,8 +248,8 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
   public function onAfterWrite(){
-    
     $this->owner->WriteUserDefinedConstants();
+    $this->owner->WriteBackgroundClasses();
     parent::onAfterWrite();
   }
 
@@ -279,6 +280,14 @@ class SiteConfigLayoutExtension extends DataExtension
       if ($this->owner->HeaderOpacity){
         file_put_contents($fullpath, "\n".'@dk-background-header: fade('.$this->owner->HeaderBackground.','.$this->owner->HeaderOpacity.');',FILE_APPEND);
       }
+    }
+  }
+
+  public function >WriteBackgroundClasses(){
+    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->background_colors;
+    file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
+    foreach($this->owner->Colors() as $c){
+      file_put_contents($fullpath, "\n".".".$code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';}',FILE_APPEND);
     }
   }
 

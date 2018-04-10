@@ -18,3 +18,4 @@ log.txt
 
 themes/standard/css/src/deskall/theme/project_specific.less
 themes/standard/css/src/deskall/theme/user_defined.less
+themes/standard/css/src/deskall/theme/colors.less
