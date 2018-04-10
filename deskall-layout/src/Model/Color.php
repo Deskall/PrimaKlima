@@ -74,8 +74,8 @@ class Color extends DataObject{
 
 
     public function getHTMLOption(){
-        $html = '<div class="option-html">
-            <p style="padding:5px;background-color:#'.$this->Color.';color:#'.$this->FontColor.';">'.$this->FontTitle.'</p>
+        $html = '<div class="option-html background">
+            <p style="background-color:#'.$this->Color.';color:#'.$this->FontColor.';">'.$this->FontTitle.'</p>
           </div>';
         return $html;
     }

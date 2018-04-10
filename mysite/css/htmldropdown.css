@@ -2,6 +2,10 @@
     width:calc(100% - 120px);
     max-width:850px;
 }
+
+.chosen-container-single .chosen-single {
+    padding:0;
+}
 .htmldropdown select{
     display: none;
 }
@@ -42,6 +46,9 @@
     position: relative;
 }
 .chosen-drop .option-html {
+    padding:10px;
+}
+.option-html.background{
     padding:10px;
 }
 .option-html i{
