@@ -23,22 +23,7 @@ header{
 	&.dk-background-header{
 		background:@dk-background-header;
 	}
-	.uk-navbar-nav > li > a{
-		.nav-font;
-		border-bottom:2px solid transparent;
-	}
-	.uk-navbar-nav > li > a:hover{
-		border-bottom-color:@nav-active-border-color;
-	}
-	.uk-navbar-nav > li.uk-active > a{
-		border-bottom-color:@nav-active-border-color;
-	}
-	.uk-navbar-dropdown{
-		background:@white-background;
-	}
-	.uk-navbar-toggle-icon{
-		line-height: @header-menu-collapsed-height;
-	}
+	
 	li[data-uk-icon]{
 		padding-left: 10px;
 		display: block;
@@ -60,9 +45,25 @@ header{
 	}
 	.dk-main-menu{
 		padding-top: @navbar-nav-item-height;
+		.uk-navbar-nav > li > a{
+			.nav-font;
+			border-bottom:2px solid transparent;
+		}
+		.uk-navbar-nav > li > a:hover{
+			border-bottom-color:@nav-active-border-color;
+		}
+		.uk-navbar-nav > li.uk-active > a{
+			border-bottom-color:@nav-active-border-color;
+		}
+		.uk-navbar-dropdown{
+			background:@white-background;
+		}
+		.uk-navbar-toggle-icon{
+			line-height: @header-menu-collapsed-height;
+		}
 	}
 	.dk-submenu{
-		> li > a{
+		.uk-navbar-nav > li > a{
 			.subnav-font;
 		}
 	}
