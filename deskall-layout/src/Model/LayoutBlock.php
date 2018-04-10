@@ -120,6 +120,8 @@ class LayoutBlock extends DataObject{
 			$fields->addFieldToTab('Root.Main', $content = TextareaField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Title');
 			$content->displayIf('Type')->isEqualTo('content');
 
+			$fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
+			$fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LayoutTab','Layout'));
 		});
 		return parent::getCMSFields();
 	}
