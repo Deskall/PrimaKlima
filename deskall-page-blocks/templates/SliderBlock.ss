@@ -15,7 +15,7 @@
                             <div class="uk-text-lead">$Content</div>
                             <% if Effect == "parallax" %></div><% end_if %>
                             <% if LinkableLinkID > 0 %>
-                                <% include CallToActionLink c=w,b=primary,pos=$LinkPosition,noMargin=true %>
+                                <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
                             <% end_if %>
                         </div>
                     </div>
