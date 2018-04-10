@@ -121,11 +121,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function updateCMSFields(FieldList $fields) {
-     foreach($this->owner->Colors() as $c){
-      if ($this->owner->stat('constants_less')[$c->Code]){
-      print_r('ok');
-      }
-    }
+
     Requirements::javascript('deskall-layout/javascript/jscolor.min.js');
     Requirements::javascript('deskall-layout/javascript/layout.js');
     Requirements::css('deskall-layout/css/layout.css');
@@ -261,7 +257,8 @@ class SiteConfigLayoutExtension extends DataExtension
     $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->user_defined_file;
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
-      if ($this->owner->stat('constants_less')[$c->Code]){
+      if (isset($this->owner->stat('constants_less')[$c->Code])){
+        $code = $this->owner->stat('constants_less')[$c->Code];
         file_put_contents($fullpath, "\n".$code.'-background:#'.$c->Color.';',FILE_APPEND);
         file_put_contents($fullpath, "\n".$code.'-color:#'.$c->FontColor.';',FILE_APPEND);
       }
