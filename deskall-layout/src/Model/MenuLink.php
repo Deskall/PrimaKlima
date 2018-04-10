@@ -20,4 +20,14 @@ class MenuLink extends LayoutLink{
 		return $fields;
 	}
 
+	public function getLevel(){
+		$i = 1;
+		$parent = $this;
+		while ($parent->ParentID > 0){
+			$parent = $parent->Parent();
+			$i++;
+		}
+		return $i;
+	}
+
 }

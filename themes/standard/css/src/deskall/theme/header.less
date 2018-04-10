@@ -39,6 +39,25 @@ header{
 	.uk-navbar-toggle-icon{
 		line-height: @header-menu-collapsed-height;
 	}
+	li[data-uk-icon]{
+		padding-left: 10px;
+		display: block;
+		position: relative;
+		line-height: @global-line-height;
+		margin-top:0;
+	 	svg{
+			position: absolute;
+			left:0;
+			top:50%;
+		}
+		a{
+			color:inherit;
+			text-decoration: none;
+		}
+		&.dk-large-icon{
+			padding-left: 50px;
+		}
+	}
 }
 .dk-nav-mobile{
 		.uk-nav-header,
