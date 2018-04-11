@@ -4,6 +4,7 @@ use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\Security\Permission;
 
 class LeadBlock extends BaseElement
 {
@@ -68,7 +69,7 @@ class LeadBlock extends BaseElement
     }
 
     public function canDelete($member = null){
-        if ($this->isPrimary){
+        if ($this->isPrimary && !Permission::check('ADMIN')){
             return false;
         }
         return parent::canDelete();
