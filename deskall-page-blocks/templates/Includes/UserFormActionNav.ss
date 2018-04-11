@@ -6,7 +6,7 @@
 <% end_if %>
 <% if $Actions %>
 <nav class="Actions uk-navbar uk-margin">
-	<div class="uk-navbar-right $ButtonBackground">
+	<div class="uk-navbar-right $Controller.data.ButtonBackground">
 		<% loop $Actions %>
 			$Field
 		<% end_loop %>
