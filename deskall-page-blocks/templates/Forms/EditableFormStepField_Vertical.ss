@@ -1,4 +1,4 @@
-<div id="$Name" class="form-step $extraClass" data-title="$Title">
+<div id="$Name" class="dk-form-step $extraClass" data-title="$Title">
 	<% if $Form.DisplayErrorMessagesAtTop %>
 		<div class="error-container" aria-hidden="true" style="display: none;">
 			<div>
