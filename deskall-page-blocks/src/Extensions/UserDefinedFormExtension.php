@@ -13,6 +13,7 @@ class UserDefinedFormExtension extends DataExtension
     public function updateFormFields($fields){
     	
     	foreach ($fields as $fieldset) {
+            print_r($fieldset_>Type());
     		foreach ($fieldset->getChildren() as $field) {
     			$this->setUiKitAttributes($field);
     		}
@@ -20,7 +21,6 @@ class UserDefinedFormExtension extends DataExtension
     }
 
     public function setUiKitAttributes($field){
-        print_r($field->Type());
     	switch($field->Type()){
     		case "text":
     		case "email text":
