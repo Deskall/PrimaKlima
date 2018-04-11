@@ -22,7 +22,7 @@
 <% end_if %>
 
 <% if $Steps.Count > 1 %>
-	<% include SilverStripe\\UserForms\\Form\\UserFormStepNav %>
+	<% include MultiStepsFormNav_Vertical %>
 <% else %>
 	<% include UserFormActionNav %>
 <% end_if %>
