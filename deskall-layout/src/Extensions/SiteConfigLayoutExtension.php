@@ -217,7 +217,7 @@ class SiteConfigLayoutExtension extends DataExtension
      $fields->addFieldToTab("Root.Layout.Footer.Layout", CompositeField::create(
       FieldGroup::create(
         TextField::create('FooterBackground',_t(__CLASS__.'.FooterBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
-        TextField::create('FooterFontColor',_t(__CLASS__.'.FooterFontColor','Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('FooterFontColor',_t(__CLASS__.'.FooterFontColor','Schriftfarbe'))->addExtraClass('jscolor')
       ),
       FieldGroup::create(
         TextField::create('FooterLogoWidth',_t(__CLASS__.'.Footerlogowidtht','Logo Breite')),
