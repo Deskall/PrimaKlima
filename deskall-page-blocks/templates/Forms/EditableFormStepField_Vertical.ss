@@ -8,7 +8,7 @@
 		</div>
 	<% end_if %>
 
-	<h4 class="uk-accordion-title">$Title</h4>
+	<a class="uk-accordion-title"><h4>$Title</h4></a>
 	<div class="uk-accordion-content">
 		<% loop $Children %>
 			$FieldHolder
