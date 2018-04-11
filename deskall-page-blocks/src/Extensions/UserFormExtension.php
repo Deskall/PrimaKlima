@@ -31,6 +31,7 @@ class UserFormExtension extends DataExtension
 
    public function updateCMSFields(FieldList $fields){
     $fields->removeByName('Layout');
+    $fields->removeByName('TextLayout');
 
      $fields->addFieldToTab('Root.FormOptions',CheckboxField::create('hasCaptcha', _t(__CLASS__.'.WITHCAPTCHA', 'mit Google recaptcha Prüfung?')));
      $fields->addFieldToTab('Root.FormOptions',CheckboxField::create('ShowLabels', _t(__CLASS__.'.ShowLabels', 'Feld Titel anzeigen?')));
