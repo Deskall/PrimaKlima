@@ -20,6 +20,7 @@ class UserDefinedFormExtension extends DataExtension
     }
 
     public function setUiKitAttributes($field){
+        print_r($field->Type());
     	switch($field->Type()){
     		case "text":
     		case "email text":
