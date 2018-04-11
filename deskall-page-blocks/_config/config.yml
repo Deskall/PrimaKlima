@@ -55,7 +55,3 @@ SilverStripe\UserForms\Control\UserDefinedFormController:
 SilverStripe\Forms\FormField:
   extensions:
     - 'DeskallFormFieldExtension'
-
-SilverStripe\UserForms\Model\EditableFormField\EditableFormStep:
-  extensions:
-    - 'DeskallFormStepExtension'
