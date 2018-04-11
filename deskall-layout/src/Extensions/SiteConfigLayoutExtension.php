@@ -300,7 +300,8 @@ class SiteConfigLayoutExtension extends DataExtension
     foreach($this->owner->Colors() as $c){
       file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       file_put_contents($fullpath, "\n".".item-title-".$c->Code.'{color:#'.$c->Color.'!important;*{color:#'.$c->Color.'!important;}}',FILE_APPEND);
-      file_put_contents($fullpath, "\n".".menu-title-".$c->Code.'{color:#'.$c->Color.'!important;&:hover{border-color:#'.$c->Color.'!important;}*{color:#'.$c->Color.'!important;&:hover{border-color:#'.$c->Color.'!important;}}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".menu-title-".$c->Code.'{color:#'.$c->Color.'!important;&:hover{border-color:#'.$c->Color.'!important;}*{color:#'.$c->Color.'!important;}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".uk-active .menu-title-".$c->Code.'{border-color:#'.$c->Color.'!important;}',FILE_APPEND);
     }
   }
 
