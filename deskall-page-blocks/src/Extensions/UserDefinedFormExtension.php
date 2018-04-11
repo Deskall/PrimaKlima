@@ -13,7 +13,7 @@ class UserDefinedFormExtension extends DataExtension
     public function updateFormFields($fields){
     	
     	foreach ($fields as $fieldset) {
-            print_r($fieldset_>Type());
+            print_r($fieldset->Type());
     		foreach ($fieldset->getChildren() as $field) {
     			$this->setUiKitAttributes($field);
     		}
