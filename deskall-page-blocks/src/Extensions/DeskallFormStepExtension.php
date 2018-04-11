@@ -9,5 +9,9 @@ class DeskallFormStepExtension extends DataExtension{
 	public function updateCMSFields(FieldList $fields){
 		$fields->addFieldToTab('Root.Main',new HTMLDropdownField('Icon', _t(__CLASS__.'.Icone','Icon'), HTMLDropdownField::getSourceIcones(), 'check'));
 	}
+
+	public function getIcon(){
+		return $this->owner->Icon;
+	}
 	
 }
