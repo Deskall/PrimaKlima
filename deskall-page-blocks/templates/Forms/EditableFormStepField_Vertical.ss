@@ -10,5 +10,8 @@
 					</div>
 				</div>
 			<% end_if %>
+			<% loop $Children %>
+				$FieldHolder
+			<% end_loop %>
 		</div>
  	</li>
