@@ -1,4 +1,4 @@
-<form $AttributesHTML data-uk-accordion>
+<form $AttributesHTML>
 
 <% include SilverStripe\\UserForms\\Form\\UserFormStepErrors %>
 
@@ -15,7 +15,9 @@
     </fieldset>
 <% else %>
     <div class="userform-fields">
+        <ul uk-accordion>
         <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
+        </ul>
     </div>
 <% end_if %>
 
