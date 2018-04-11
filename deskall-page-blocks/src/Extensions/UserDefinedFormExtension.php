@@ -63,6 +63,6 @@ class UserDefinedFormExtension extends DataExtension
 
     public function getStepTitleColor()
     {
-        return $this->controller->recordStepTitleBackground;
+        return $this->owner->controller->StepTitleBackground;
     }
 }
