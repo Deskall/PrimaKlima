@@ -309,7 +309,7 @@ class SiteConfigLayoutExtension extends DataExtension
   public function getBackgroundColors(){
         $colors = $this->owner->Colors();
         $source = [];
-        $source['none'] = [
+        $source['uk-section-default'] = [
                 'Title' => _t(__CLASS__.'.noColor','Keine Farbe'),
                 'HTML' => '<div class="option-html background">
             <p>'._t(__CLASS__.'.noColor','Keine Farbe').'</p>
