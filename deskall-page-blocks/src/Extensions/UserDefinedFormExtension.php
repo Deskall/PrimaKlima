@@ -5,6 +5,11 @@ use SilverStripe\ORM\DataExtension;
 
 class UserDefinedFormExtension extends DataExtension 
 {
+
+    public function updateForm(){
+        $this->owner->setTemplate('Forms/MultiStepsForm_Vertical');
+    }
+
     public function updateFormFields($fields){
     	
     	foreach ($fields as $fieldset) {
