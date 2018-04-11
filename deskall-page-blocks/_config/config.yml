@@ -51,3 +51,7 @@ SilverStripe\UserForms\Model\Recipient\EmailRecipient:
 SilverStripe\UserForms\Control\UserDefinedFormController:
   extensions:
     - UserDefinedFormControllerExtension
+
+SilverStripe\Forms\FormField:
+  extensions:
+    - 'DeskallFormFieldExtension'
