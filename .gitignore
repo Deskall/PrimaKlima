@@ -14,6 +14,7 @@ log.txt
 *.log
 *.cache
 
+/cache/!.gitkeep
 /mysite/
 mysite/
 
