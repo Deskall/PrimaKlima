@@ -7,7 +7,7 @@ class DeskallFormStepExtension extends DataExtension{
 	private static $db = ['Icon' => 'Varchar(255)'];
 
 	public function updateCMSFields(FieldList $fields){
-		$fields->addFieldToTab('Root.Main',new HTMLDropdownField('Icon', _t(__CLASS__.'.Icone','Icon'), HTMLDropdownField::getSourceIcones(), 'check'));
+		$fields->push(new HTMLDropdownField('Icon', _t(__CLASS__.'.Icone','Icon'), HTMLDropdownField::getSourceIcones(), 'check'));
 	}
 	
 }
