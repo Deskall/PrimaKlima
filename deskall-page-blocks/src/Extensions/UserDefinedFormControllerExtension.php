@@ -11,9 +11,4 @@ class UserDefinedFormControllerExtension extends Extension
 		$email->setHTMLTemplate('email/base_email');
 	}
 
-    public function getStepTitleColor()
-    {
-        return $this->controller->StepTitleBackground;
-    }
-
 }
