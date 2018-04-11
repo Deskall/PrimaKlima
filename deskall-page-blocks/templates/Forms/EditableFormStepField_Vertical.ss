@@ -1,6 +1,6 @@
 
     <li>
-        <a class="uk-accordion-title" href="#"><h4 class="dk-form-step-title">$Title</h4></a>
+        <a class="uk-accordion-title" href="#"><h4 class="dk-form-step-title $Form.StepTitleBackground">$Title</h4></a>
 		<div id="$Name" class="dk-form-step $extraClass uk-accordion-content" data-title="$Title">
 			<% if $Form.DisplayErrorMessagesAtTop %>
 				<div class="error-container" aria-hidden="true" style="display: none;">
