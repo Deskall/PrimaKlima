@@ -39,6 +39,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderBackground' => 'Varchar(7)',
     'GlobalFontSize' => 'Varchar(25)',
     'H1FontSize' => 'Varchar(25)',
+    'H1FontColor' => 'Varchar(7)',
     'H1MobileFontSize' => 'Varchar(25)',
     'H2FontSize' => 'Varchar(25)',
     'H3FontSize' => 'Varchar(25)',
@@ -75,6 +76,7 @@ class SiteConfigLayoutExtension extends DataExtension
       '@h1-size',
       '@heading-primary-font-size'
     ],
+    'H1FontColor' => '@h1-font-color',
     'H1MobileFontSize' => '@h1-mobile-size',
     'H2FontSize' => '@h2-size',
     'H3FontSize' => '@h3-size',
@@ -174,6 +176,7 @@ class SiteConfigLayoutExtension extends DataExtension
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
         TextField::create('GlobalFontSize',_t(__CLASS__.'.GlobalFontSize','Standard Schriftgrösse')),
         TextField::create('H1FontSize',_t(__CLASS__.'.H1FontSize','H1 Schriftgrösse')),
+        HTMLDropdownField::create('H1FontColor',_t(__CLASS__.'.H1FontColor','H1 Titel Farbe'),$this->owner->getBackgroundColors()),
         TextField::create('H1MobileFontSize',_t(__CLASS__.'.H1MobileFontSize','H1 Mobile Schriftgrösse')),
         TextField::create('H2FontSize',_t(__CLASS__.'.H2FontSize','H2 Schriftgrösse')),
         TextField::create('H3FontSize',_t(__CLASS__.'.H3FontSize','H3 Schriftgrösse')),
