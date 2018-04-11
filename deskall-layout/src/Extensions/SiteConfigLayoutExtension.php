@@ -56,6 +56,9 @@ class SiteConfigLayoutExtension extends DataExtension
     'StickyHeader' => 'Boolean(0)',
 
     'FooterBackground' => 'Varchar(255)',
+    'FooterLogoWidth' => 'Varchar(255)',
+    'FooterFontSize' => 'Varchar(255)',
+    'FooterFontColor' => 'Varchar(7)'
 
   ];
 
@@ -85,22 +88,18 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderHeight' => '@header-menu-height',
     'HeaderFontSize' => '@main-nav-font-size',
     'HeaderMenuItemSize' => '@navbar-nav-item-height',
-    'HeaderCollapsedHeight' => '@header-menu-collapsed-height'
+    'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
+
+    'FooterLogoWidth' => '@footer-logo-width',
+    'FooterFontColor' => '@footer-font-color',
+    'FooterFontSize' => '@footer-font-size'
+
   ];
 
   private static $has_many = [
     'FooterBlocks' => FooterBlock::class,
     'MenuBlocks' => MenuBlock::class,
     'Colors' => Color::class
-  ];
-
-  private static $backgrounds = [
-        'uk-section-default' => 'keine Hintergrundfarbe',
-        'uk-section-primary' => 'primäre Farbe',
-        'uk-section-secondary' => 'sekundäre Farbe',
-        'uk-section-muted' => 'grau',
-        'dk-background-white uk-section-default' => 'weiss',
-        'dk-background-black uk-section-default' => 'schwarz'
   ];
 
   private static $default_colors = [
@@ -215,6 +214,18 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
     //FOOTER
+     $fields->addFieldToTab("Root.Layout.Footer.Layout", CompositeField::create(
+      FieldGroup::create(
+        TextField::create('FooterBackground',_t(__CLASS__.'.FooterBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
+        TextField::create('FooterFontColor',_t(__CLASS__.'.FooterFontColor','Schriftfarbe'))->addExtraClass('jscolor'),
+      ),
+      FieldGroup::create(
+        TextField::create('FooterLogoWidth',_t(__CLASS__.'.Footerlogowidtht','Logo Breite')),
+        TextField::create('FooterFontSize',_t(__CLASS__.'.FooterFontSize','Footer Schriftgrösse'))
+      )
+     
+    )->setTitle(_t(__CLASS__.'.FooterLayout','Footer Layout'))->setName('FooterLayoutFields'));
+
     $FooterLinksField = new GridField(
         'FooterBlocks',
         'FooterBlocks',
@@ -222,7 +233,6 @@ class SiteConfigLayoutExtension extends DataExtension
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
-    $fields->addFieldToTab("Root.Layout.Footer", DropdownField::create('FooterBackground',_t(__CLASS__.'.Background','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'backgrounds'))->setEmptyString(_t(__CLASS__.'.BackgroundHelp','Wählen Sie aus eine Hintergrundfarbe')));
     $fields->addFieldToTab("Root.Layout.Footer", $FooterLinksField);
     
     return $fields;
@@ -316,9 +326,6 @@ class SiteConfigLayoutExtension extends DataExtension
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach($this->owner->stat('backgrounds') as $key => $value) {
-          $entities[__CLASS__.".backgrounds_{$key}"] = $value;
-        }
         return $entities;
     }
 
