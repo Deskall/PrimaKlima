@@ -302,7 +302,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->background_colors;
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
-      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';*{color:#'.$c->FontColor.';}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       file_put_contents($fullpath, "\n".".button-".$c->Code.'{background-color:#'.$c->Color.';*{color:#'.$c->FontColor.'!important;}}',FILE_APPEND);
       file_put_contents($fullpath, "\n".".item-title-".$c->Code.'{color:#'.$c->Color.'!important;*{color:#'.$c->Color.'!important;}}',FILE_APPEND);
       file_put_contents($fullpath, "\n".".menu-title-".$c->Code.'{color:#'.$c->Color.'!important;&:hover{border-color:#'.$c->Color.'!important;}*{color:#'.$c->Color.'!important;}}',FILE_APPEND);
