@@ -1,6 +1,5 @@
-<form $AttributesHTML>
-yOOOOOOOOOOOO
-<% include SilverStripe\\UserForms\\Form\\UserFormProgress %>
+<form $AttributesHTML data-uk-accordion>
+
 <% include SilverStripe\\UserForms\\Form\\UserFormStepErrors %>
 
 <% if $Message %>
@@ -11,11 +10,13 @@ yOOOOOOOOOOOO
 
 <% if $Legend %>
     <fieldset class="uk-fieldset">
-        <legend class="uk-legend">$Legend</legend>
-        <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
+        <legend class="uk-legend uk-accordion-title">$Legend</legend>
+        <div class="uk-accordion-content">
+            <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
+        </div>
     </fieldset>
 <% else %>
-    <div class="userform-fields">
+    <div class="userform-fields uk-accordion-content">
         <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
     </div>
 <% end_if %>
