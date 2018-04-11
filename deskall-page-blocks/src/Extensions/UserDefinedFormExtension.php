@@ -14,7 +14,7 @@ class UserDefinedFormExtension extends DataExtension
     	
     	foreach ($fields as $fieldset) {
             if ($fieldset->Type() == "userformstep"){
-                $fieldset->setTemplate('EditableFormStepField_Vertical');
+                $fieldset->setTemplate('Forms/EditableFormStepField_Vertical');
             }
     		foreach ($fieldset->getChildren() as $field) {
     			$this->setUiKitAttributes($field);
