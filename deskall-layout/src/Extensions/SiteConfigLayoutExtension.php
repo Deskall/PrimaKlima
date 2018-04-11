@@ -176,7 +176,7 @@ class SiteConfigLayoutExtension extends DataExtension
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
         TextField::create('GlobalFontSize',_t(__CLASS__.'.GlobalFontSize','Standard Schriftgrösse')),
         TextField::create('H1FontSize',_t(__CLASS__.'.H1FontSize','H1 Schriftgrösse')),
-        HTMLDropdownField::create('H1FontColor',_t(__CLASS__.'.H1FontColor','H1 Titel Farbe'),$this->owner->getBackgroundColors()),
+         TextField::create('H1FontColor',_t(__CLASS__.'.H1FontColor','H1 Titel Farbe'))->addExtraClass('jscolor'),
         TextField::create('H1MobileFontSize',_t(__CLASS__.'.H1MobileFontSize','H1 Mobile Schriftgrösse')),
         TextField::create('H2FontSize',_t(__CLASS__.'.H2FontSize','H2 Schriftgrösse')),
         TextField::create('H3FontSize',_t(__CLASS__.'.H3FontSize','H3 Schriftgrösse')),
@@ -257,6 +257,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
     $this->owner->HeaderHoverFontColor = "#".$this->owner->HeaderHoverFontColor;
     $this->owner->FooterFontColor = "#".$this->owner->FooterFontColor;
+    $this->owner->H1FontColor = "#".$this->owner->H1FontColor;
 
   }
 
