@@ -13,6 +13,7 @@ class UserDefinedFormExtension extends DataExtension
     public function updateFormFields($fields){
     	
     	foreach ($fields as $fieldset) {
+            print_r($fieldset->Type());
             if ($fieldset->Type() == "userformstep"){
                 $fieldset->setTemplate('Forms/EditableFormStepField_Vertical');
             }
