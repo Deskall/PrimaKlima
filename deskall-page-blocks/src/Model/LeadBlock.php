@@ -52,7 +52,7 @@ class LeadBlock extends BaseElement
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
                 $fields->removeByName('isPrimary');
                 if ($this->isPrimary){
-                    $fields->removeByName('Title');
+                    $fields->removeByName('TitleAndDisplayed');
                 }
         });
         return parent::getCMSFields();
