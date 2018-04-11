@@ -10,13 +10,11 @@
 
 <% if $Legend %>
     <fieldset class="uk-fieldset">
-        <legend class="uk-legend uk-accordion-title">$Legend</legend>
-        <div class="uk-accordion-content">
-            <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
-        </div>
+        <legend class="uk-legend">$Legend</legend>
+        <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
     </fieldset>
 <% else %>
-    <div class="userform-fields uk-accordion-content">
+    <div class="userform-fields">
         <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
     </div>
 <% end_if %>

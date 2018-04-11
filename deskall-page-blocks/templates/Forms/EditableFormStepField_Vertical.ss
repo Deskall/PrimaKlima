@@ -1,4 +1,4 @@
-<div id="$Name" class="form-step $extraClass" data-title="$Title">yooooooo
+<div id="$Name" class="form-step $extraClass" data-title="$Title">
 	<% if $Form.DisplayErrorMessagesAtTop %>
 		<div class="error-container" aria-hidden="true" style="display: none;">
 			<div>
@@ -8,8 +8,10 @@
 		</div>
 	<% end_if %>
 
-	<% loop $Children %>
-		$FieldHolder
-	<% end_loop %>
-
+	<h4 class="uk-accordion-title">$Title</h4>
+	<div class="uk-accordion-content">
+		<% loop $Children %>
+			$FieldHolder
+		<% end_loop %>
+	</div>
 </div>
