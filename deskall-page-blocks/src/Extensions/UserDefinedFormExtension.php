@@ -7,13 +7,15 @@ class UserDefinedFormExtension extends DataExtension
 {
 
     public function updateForm(){
-        $this->owner->setTemplate('Forms/MultiStepsForm_Vertical');
+        if ($this->owner->Controller->record['Layout'] == 'vertical'){
+            $this->owner->setTemplate('Forms/MultiStepsForm_Vertical');
+        }
     }
 
     public function updateFormFields($fields){
     	
     	foreach ($fields as $fieldset) {
-            if ($fieldset->Type() == "userformsstep"){
+            if ($fieldset->Type() == "userformsstep" && $this->owner->Controller->record['Layout'] == 'vertical'){
                 $fieldset->setTemplate('Forms/EditableFormStepField_Vertical');
             }
     		foreach ($fieldset->getChildren() as $field) {
