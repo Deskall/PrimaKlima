@@ -14,7 +14,7 @@
 		    <div class="uk-position-relative">
 
 		        <div class="uk-slider-container uk-light">
-		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid" data-uk-lightbox>
+		            <ul class="uk-slider-items $PicturesPerLine" data-uk-grid data-uk-lightbox>
 		            	<% loop OrderedImages %>
 		                <li class="uk-flex uk-flex-middle uk-flex-center">
 				            <a href="$getSourceURL" data-caption="$Description"><img src="<% if $getExtension == "svg" %>$URL<% else %>$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$AltTag($Up.Title)" title="$TitleTag($Up.Title)" width="$Up.PictureWidth" height="$Up.PictureHeight"  class="uk-width-1-1"></a>
