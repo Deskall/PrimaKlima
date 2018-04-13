@@ -31,7 +31,7 @@ class GalleryBlock extends BaseElement
         'Images' => Image::class
     ];
 
-    private static $many_many_extra_fields = [
+    private static $many_many_extraFields = [
         'Images' => ['SortOrder' => 'Int']
     ];
 
