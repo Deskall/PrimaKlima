@@ -9,9 +9,6 @@
 			</div>
 			<div class="uk-width-2-3@m <% if Layout == "right" || Layout == "above" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
-			<% if LinkableLinkID > 0 %>
-				<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-			<% end_if %>
 		<% else %>
 			<div class="uk-width-1-1">
 				<a href="$ContentImage.getSourceURL" data-caption="$ContentImage.Description">
@@ -32,18 +29,15 @@
 			</div>
 			<div class="uk-width-1-1 <% if Layout == "above" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
-			<% if LinkableLinkID > 0 %>
-				<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-			<% end_if %>
 		<% end_if %>
 	<% else %>
 	<div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 		$HTML
 	</div>
-		<% if LinkableLinkID > 0 %>
-			<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-		<% end_if %>
 	<% end_if %>
+	
 </div>
 
-
+<% if LinkableLinkID > 0 %>
+	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+<% end_if %>
