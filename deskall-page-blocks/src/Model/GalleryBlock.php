@@ -9,6 +9,7 @@ use SilverStripe\Forms\OptionsetField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
+use Bummzack\SortableFile\Forms\SortableUploadField;
 
 class GalleryBlock extends BaseElement
 {
@@ -85,7 +86,7 @@ class GalleryBlock extends BaseElement
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
           
-            $fields->addFieldToTab('Root.Main',UploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
+            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
 
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(
