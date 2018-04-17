@@ -6,7 +6,7 @@
 }
 
 .dk-hidden{
-	display: none;
+	display: none!important;
 }
 
 /*** CMS Design corrections **/

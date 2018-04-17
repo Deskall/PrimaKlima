@@ -1,4 +1,4 @@
-//Duplicate Block
+//Custom Javascript Function Block
 (function($) {
     $.entwine("ss", function($) {
         // $(".ss-gridfield-add-new-multi-class select[name='BlockType']").entwine({
@@ -23,6 +23,17 @@
         //          }
         //      }
         // });
+
+        
+        $(".ss-gridfield-add-new-multi-class select[name='GridFieldAddNewMultiClass[ClassName]']").entwine({
+            onchange: function(){
+                this._super();
+                if (this.val() == "DuplicateBlock"){
+                    this.parents('.ss-gridfield-add-new-multi-class').find('[data-add-multiclass]').hide();
+                }
+            }
+        });
+        //Duplicate Block
         $(".ss-gridfield-duplicate-block select[name='Block']").entwine({
              onadd: function() {
                  this.update();
@@ -53,5 +64,7 @@
                 }
             }
         });
+
+        //Virtual Block
     });
 })(jQuery);
