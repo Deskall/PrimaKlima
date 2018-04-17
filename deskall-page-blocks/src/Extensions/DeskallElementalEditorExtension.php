@@ -2,6 +2,8 @@
 
 use SilverStripe\ORM\DataExtension;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
+use DNADesign\ElementalVirtual\Forms\ElementalGridFieldAddExistingAutocompleter;
+use DNADesign\ElementalVirtual\Forms\ElementalGridFieldDeleteAction;
 
 class DeskallElementalEditorExtension extends DataExtension 
 {
