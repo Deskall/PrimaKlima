@@ -12,7 +12,7 @@ use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class ActionBlock extends BaseElement
 {
-    private static $icon = 'font-icon-link';
+    private static $icon = 'font-icon-plus-circled';
     
     private static $controller_template = 'BlockHolder';
 
