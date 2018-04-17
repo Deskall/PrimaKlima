@@ -2,7 +2,10 @@
     width:calc(100% - 120px);
     max-width:850px;
 }
-
+.cms-edit-form:not(.AssetAdmin) .ss-gridfield-duplicate-block .form-group{
+    width:calc(100% - 150px);
+    max-width:850px;
+}
 
 .htmldropdown select{
     display: none;
