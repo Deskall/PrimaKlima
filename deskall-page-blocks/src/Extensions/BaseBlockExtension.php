@@ -45,6 +45,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'AvailableGlobally' => 1,
     ];
 
+    private static $searchable_fields = ['Title'];
+
     private static $blocks = [
         'TextBlock',
         'SliderBlock',
@@ -144,7 +146,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             'icon' => '/deskall-page-blocks/images/icon-text-5-columns.svg'
         ]
     ];
-
 
 
     public function updateCMSFields(FieldList $fields){
