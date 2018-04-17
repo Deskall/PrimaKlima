@@ -246,7 +246,7 @@ class DeskallGridFieldAddNewMultiClass implements GridField_HTMLProvider, GridFi
         if (Config::inst()->get(__CLASS__, 'showEmptyString')) {
             $field->setEmptyString(_t('GridFieldExtensions.SELECTTYPETOCREATE', '(Select type to create)'));
         }
-        $field->addExtraClass('no-change-track');
+        $field->addExtraClass('no-change-track columns');
 
         $data = new ArrayData(array(
             'Title'      => $this->getTitle(),
