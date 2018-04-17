@@ -264,7 +264,8 @@
       			var value = (option.length) ? option.attr('data-value') : '';
       			this.find('.chosen-single').html(html+'<div><b></b></div>');
                         this.find('select').val(value).trigger('change');
-                        $("html,body").animate({ScrollTop: this.offset().top},500);
+                        var field = this;
+                        $("html,body").animate({ScrollTop: field.offset().top},500);
 
       		}
       	});
