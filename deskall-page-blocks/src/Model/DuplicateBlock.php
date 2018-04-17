@@ -4,7 +4,7 @@ use DNADesign\Elemental\Models\BaseElement;
 class DuplicateBlock extends BaseElement{
 	private static $icon = 'font-icon-page-multiple';
 
-    private static $description = 'Kopieren Sie einen bestehenden Block.'
+    private static $description = 'Kopieren Sie einen bestehenden Block.';
 
     public function getType()
     {
