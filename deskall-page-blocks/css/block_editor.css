@@ -30,3 +30,7 @@
     width:calc(100% - 120px);
     max-width:850px;
 }
+
+.cms-edit-form .elemental-add-existing-autocompleter {
+	max-width: 100%;
+}
