@@ -265,7 +265,7 @@
       			this.find('.chosen-single').html(html+'<div><b></b></div>');
 
                         var scrollablePanel = this.parents('.panel--scrollable');
-                        scrollablePanelanimate({scrollTop: this.offset().top},500);
+                        scrollablePanel.animate({scrollTop: this.offset().top},500);
                         this.find('select').val(value).trigger('change');
       		}
       	});
