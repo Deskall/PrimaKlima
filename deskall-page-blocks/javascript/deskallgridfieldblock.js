@@ -37,12 +37,11 @@
                     }
                 }
                 if (this.val() == "VirtualBlock"){
-                    this.parents('form').find('.ss-gridfield-link-block').removeClass('dk-hidden');
-                    this.parents('.ss-gridfield-add-new-multi-class').find('[data-add-multiclass]').hide();
+                    this.parents('form').find('.elemental-add-existing-autocompleter').removeClass('dk-hidden');
                 }
                 else {
-                    if (!this.parents('form').find('.ss-gridfield-link-block').hasClass('dk-hidden')){
-                        this.parents('form').find('.ss-gridfield-link-block').addClass('dk-hidden');
+                    if (!this.parents('form').find('.elemental-add-existing-autocompleter').hasClass('dk-hidden')){
+                        this.parents('form').find('.elemental-add-existing-autocompleter').addClass('dk-hidden');
                     }
                 }
             }
