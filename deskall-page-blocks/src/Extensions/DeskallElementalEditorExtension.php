@@ -2,7 +2,6 @@
 
 use SilverStripe\ORM\DataExtension;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
-use DNADesign\ElementalVirtual\Forms\ElementalGridFieldAddExistingAutocompleter;
 
 class DeskallElementalEditorExtension extends DataExtension 
 {
@@ -31,8 +30,6 @@ class DeskallElementalEditorExtension extends DataExtension
     	$gridfield->getConfig()->removeComponentsByType(GridFieldAddNewMultiClass::class)
         ->addComponent(new DeskallGridFieldAddNewMultiClass());
         $gridfield->getConfig()->getComponentByType(DeskallGridFieldAddNewMultiClass::class)->setClasses($types);
-        $gridfield->getConfig()->removeComponentsByType(ElementalGridFieldAddExistingAutocompleter::class);
-        print_r( $gridfield->getConfig());
         $gridfield->getConfig()->addComponent(new GridFieldShowHideAction());
         if ($this->owner->getArea()->getOwnerPage()->ClassName == "ParentBlock" && $this->owner->getArea()->getOwnerPage()->CollapsableChildren){
             $gridfield->getConfig()->addComponent(new GridFieldCollapseUncollapseAction());
