@@ -62,7 +62,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'ShareBlock',
         'SitemapBlock',
         'DuplicateBlock',
-        'VirtualBlock'
+        'DNADesign-ElementalVirtual-Model-ElementVirtual'
     ];
 
     private static $children_blocks = [
@@ -80,7 +80,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'ShareBlock',
         'SitemapBlock',
         'DuplicateBlock',
-        'VirtualBlock'
+        'DNADesign-ElementalVirtual-Model-ElementVirtual'
     ];
 
     private static $collapsable_blocks = [
