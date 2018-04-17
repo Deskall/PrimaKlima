@@ -14,7 +14,6 @@ use SilverStripe\Forms\GridField\GridField_URLHandler;
 use SilverStripe\Forms\GridField\GridFieldDetailForm;
 use SilverStripe\View\ArrayData;
 use Symbiote\GridFieldExtensions\GridFieldExtensions;
-use DNADesign\ElementalVirtual\Forms\ElementalGridFieldAddExistingAutocompleter;
 
 /**
  * A component which lets the user select from a list of classes to create a new record form.
@@ -207,9 +206,6 @@ class DeskallGridFieldAddNewMultiClass implements GridField_HTMLProvider, GridFi
         $classes   = $this->getClasses($grid);
         /** @var GridFieldDetailForm $component */
         $component = $grid->getConfig()->getComponentByType(GridFieldDetailForm::class);
-
-        /*** Remove virtual block existing search field **/
-        $grid->getConfig()->removeComponentsByType(ElementalGridFieldAddExistingAutocompleter::class);
 
         if (!$component) {
             throw new Exception('The add new multi class component requires the detail form component.');
