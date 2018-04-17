@@ -142,7 +142,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 		
 
 		$blockfield = GroupedDropdownField::create('Block', '', $this->getBlockTree());
-		$blockfield->addExtraClass('no-change-track dk-hidden');
+		$blockfield->addExtraClass('no-change-track');
 
 		$data = new ArrayData(array(
 			'Title'      => $this->getTitle(),

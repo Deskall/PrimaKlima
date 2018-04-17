@@ -28,7 +28,7 @@
         $(".ss-gridfield-add-new-multi-class select[name='GridFieldAddNewMultiClass[ClassName]']").entwine({
             onchange: function(){
                 if (this.val() == "DuplicateBlock"){
-                    this.parents('form').find('.ss-gridfield-duplicate-block .dk-hidden').show();
+                    this.parents('form').find('.ss-gridfield-duplicate-block.dk-hidden').show();
                     this.parents('.ss-gridfield-add-new-multi-class').find('[data-add-multiclass]').hide();
                 }
             }
