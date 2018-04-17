@@ -38,7 +38,7 @@ class DeskallElementalEditorExtension extends DataExtension
         }
         $gridfield->getConfig()->addComponent(new GridFieldDuplicateBlock('before'));
         $gridfield->getConfig()->removeComponentsByType(GridFieldDeleteAction::class)
-            ->addComponent($autocomplete = new DeskallGridFieldAddExistingBlockAutocompleter('before'))
+            ->addComponent(new GridFieldLinkBlock('before'))
             ->addComponent(new ElementalGridFieldDeleteAction());
 
         if ($gridfield->name == "Elements"){

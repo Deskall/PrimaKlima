@@ -84,7 +84,7 @@ class GridFieldLinkBlock implements GridField_HTMLProvider, GridField_URLHandler
 	/**
 	 *
 	 */
-	public function handleDuplicate($grid, $request) {
+	public function handleLink($grid, $request) {
 		$id   = $request->param('ID');
 		$pageid = $request->param('PAGEID');
 		$recordClass = $grid->getForm()->record->ClassName;
@@ -93,42 +93,21 @@ class GridFieldLinkBlock implements GridField_HTMLProvider, GridField_URLHandler
 			if (!$block){
 				throw new Exception('Diese Block war nicht gefunden');
 			}
-			if ($recordClass == "ParentBlock"){
-
-				$parent = DataObject::get_by_id($recordClass,$grid->getForm()->record->ID);
-				if (!$parent){
-					throw new Exception('Diese Block war nicht gefunden');
-				}
-				
-				$newBlock = $block->duplicate();
-				$newBlock->ParentID = $parent->ElementsID;
-				$newBlock->write();
-
-				$newBlock->DuplicateChildrens($block);
-
-
-				return Controller::curr()->redirectBack();
-			}
-			else{
-				if (!$pageid){
-					throw new Exception('Diese Seite war nicht gefunden');
-				}
-				$page = DataObject::get_by_id(SiteTree::class,$pageid);
-				if (!$page){
-					throw new Exception('Diese Seite war nicht gefunden');
-					
-				}
-				
-				$newBlock = $block->duplicate();
-				$newBlock->ParentID = $page->ElementalAreaID;
 			
-			
-				$newBlock->write();
-
-				$newBlock->DuplicateChildrens($block);
-
-				return $grid->getForm()->getController()->redirectBack('admin/pages/edit/show/'.$pageid);
+			if (!$pageid){
+				throw new Exception('Diese Seite war nicht gefunden');
 			}
+			$page = DataObject::get_by_id(SiteTree::class,$pageid);
+			if (!$page){
+				throw new Exception('Diese Seite war nicht gefunden');
+			}
+				
+			$virtual = ElementVirtual::create();
+            $virtual->LinkedElementID = $block->ID;
+			$virtual->ParentID = $page->ElementalAreaID;
+			$virtual->write();
+
+			return $grid->getForm()->getController()->redirectBack('admin/pages/edit/show/'.$pageid);
 		}
 	}
 

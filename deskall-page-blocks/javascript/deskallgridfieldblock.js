@@ -39,6 +39,7 @@
                 }
                 if (this.val() == "VirtualBlock"){
                     this.parents('form').find('.elemental-add-existing-autocompleter').removeClass('dk-hidden');
+                    this.parents('.ss-gridfield-add-new-multi-class').find('[data-add-multiclass]').hide();
                 }
                 else {
                     if (!this.parents('form').find('.elemental-add-existing-autocompleter').hasClass('dk-hidden')){
