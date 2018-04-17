@@ -264,10 +264,8 @@
       			var value = (option.length) ? option.attr('data-value') : '';
       			this.find('.chosen-single').html(html+'<div><b></b></div>');
 
-                        var form = this.parents('form');
-                        console.log(this.offset().top);
-                        $(form).animate({ScrollTop: 200},500);
-
+                        var scrollablePanel = this.parents('.panel--scrollable');
+                        scrollablePanelanimate({scrollTop: this.offset().top},500);
                         this.find('select').val(value).trigger('change');
       		}
       	});
