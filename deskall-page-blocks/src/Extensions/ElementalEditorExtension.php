@@ -30,7 +30,8 @@ class ElementalEditorExtension extends DataExtension
         }
     	$gridfield->getConfig()->removeComponentsByType(GridFieldAddNewMultiClass::class)
         ->addComponent(new DeskallGridFieldAddNewMultiClass());
-        $gridfield->getConfig()->getComponentByType(DeskallGridFieldAddNewMultiClass::class)->setClasses($types)->removeComponentsByType(ElementalGridFieldAddExistingAutocompleter::class);;
+        $gridfield->getConfig()->getComponentByType(DeskallGridFieldAddNewMultiClass::class)->setClasses($types);
+        $gridfield->getConfig()->removeComponentsByType(ElementalGridFieldAddExistingAutocompleter::class);
         $gridfield->getConfig()->addComponent(new GridFieldShowHideAction());
         if ($this->owner->getArea()->getOwnerPage()->ClassName == "ParentBlock" && $this->owner->getArea()->getOwnerPage()->CollapsableChildren){
             $gridfield->getConfig()->addComponent(new GridFieldCollapseUncollapseAction());
