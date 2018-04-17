@@ -2,7 +2,7 @@
 
 use SilverStripe\ORM\DataExtension;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
-use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use DNADesign\ElementalVirtual\Forms\ElementalGridFieldAddExistingAutocompleter;
 
 class ElementalEditorExtension extends DataExtension 
 {
@@ -28,7 +28,7 @@ class ElementalEditorExtension extends DataExtension
             unset($types['SilverStripe\ElementalBlocks\Block\FileBlock']);
             unset($types['DNADesign\ElementalList\Model\ElementList']);
         }
-    	$gridfield->getConfig()->removeComponentsByType(GridFieldAddNewMultiClass::class)->removeComponentsByType(GridFieldAddExistingAutocompleter::class)
+    	$gridfield->getConfig()->removeComponentsByType(GridFieldAddNewMultiClass::class)->removeComponentsByType(ElementalGridFieldAddExistingAutocompleter::class)
         ->addComponent(new DeskallGridFieldAddNewMultiClass());
         $gridfield->getConfig()->getComponentByType(DeskallGridFieldAddNewMultiClass::class)->setClasses($types);
         $gridfield->getConfig()->addComponent(new GridFieldShowHideAction());
