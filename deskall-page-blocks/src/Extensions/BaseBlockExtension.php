@@ -45,8 +45,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'AvailableGlobally' => 1,
     ];
 
-    private static $searchable_fields = ['Title'];
-
     private static $blocks = [
         'TextBlock',
         'SliderBlock',
