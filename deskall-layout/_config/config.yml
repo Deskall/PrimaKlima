@@ -4,3 +4,7 @@ Name: siteconfiglayout
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - SiteConfigLayoutExtension
+
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css:
+    - deskall-layout/css/layout.css
