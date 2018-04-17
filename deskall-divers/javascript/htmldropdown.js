@@ -263,8 +263,8 @@
       			var html = (option.length) ? option.html() : this.attr('data-empty-string');
       			var value = (option.length) ? option.attr('data-value') : '';
       			this.find('.chosen-single').html(html+'<div><b></b></div>');
-      			//this.find('select option[value="'+value+'"]').attr('selected','selected');
                         this.find('select').val(value).trigger('change');
+                        $("html,body").animation({ScrollTo: this.offset().top},500);
 
       		}
       	});

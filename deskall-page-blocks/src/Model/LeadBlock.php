@@ -49,7 +49,8 @@ class LeadBlock extends BaseElement
             $fields->removeByName('Layout');
             $fields
                 ->fieldByName('Root.Main.HTML')
-                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
+                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
+                ->setRows(8);
                 $fields->removeByName('isPrimary');
                 if ($this->isPrimary){
                     $fields->removeByName('TitleAndDisplayed');

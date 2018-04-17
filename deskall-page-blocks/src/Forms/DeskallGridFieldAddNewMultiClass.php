@@ -14,7 +14,6 @@ use SilverStripe\Forms\GridField\GridField_URLHandler;
 use SilverStripe\Forms\GridField\GridFieldDetailForm;
 use SilverStripe\View\ArrayData;
 use Symbiote\GridFieldExtensions\GridFieldExtensions;
-use SilverStripe\View\Requirements;
 
 /**
  * A component which lets the user select from a list of classes to create a new record form.
@@ -235,7 +234,6 @@ class DeskallGridFieldAddNewMultiClass implements GridField_HTMLProvider, GridFi
      */
     public function getHTMLFragments($grid)
     {
-        Requirements::javascript('deskall-page-blocks/javascript/deskallgridfieldblock.js');
         $classes = $this->getClasses($grid);
 
         if (!count($classes)) {
@@ -246,7 +244,7 @@ class DeskallGridFieldAddNewMultiClass implements GridField_HTMLProvider, GridFi
 
         $field = new HTMLDropdownField(sprintf('%s[ClassName]', self::POST_KEY), '', $this->getSource($classes, $grid), $this->defaultClass);
         if (Config::inst()->get(__CLASS__, 'showEmptyString')) {
-            $field->setEmptyString(_t('Block.CreateNewBlock', 'neu Block erstellen'));
+            $field->setEmptyString(_t('Block.SELECTTYPETOCREATE', '(Select type to create)'));
         }
         $field->addExtraClass('no-change-track columns');
 
