@@ -265,7 +265,8 @@
       			this.find('.chosen-single').html(html+'<div><b></b></div>');
                         this.find('select').val(value).trigger('change');
                         var field = this;
-                        $("html,body").animate({ScrollTop: field.offset().top},500);
+                        var form = field.parents('form');
+                        $(form).animate({ScrollTop: field.offset().top},500);
 
       		}
       	});
