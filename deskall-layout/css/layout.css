@@ -6,7 +6,7 @@
 }
 
 /*** CMS Design corrections **/
-@media (min-width: 1400px){
+@media only screen and (min-width: 1200px){
 	.cms-edit-form .form-group:not(.stacked) .form__field-holder, 
 	.form--inline .form-group:not(.stacked) .form__field-holder, 
 	.ss-insert-link .form__fieldgroup .form-group:not(.stacked) .form__field-holder{
