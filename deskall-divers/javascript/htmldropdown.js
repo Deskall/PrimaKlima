@@ -263,9 +263,10 @@
       			var html = (option.length) ? option.html() : this.attr('data-empty-string');
       			var value = (option.length) ? option.attr('data-value') : '';
       			this.find('.chosen-single').html(html+'<div><b></b></div>');
-
-                        var scrollablePanel = this.parents('.panel--scrollable');
-                        scrollablePanel.animate({scrollTop: this.offset().top},500);
+                        if (value != ""){
+                              var scrollablePanel = this.parents('.panel--scrollable');
+                              scrollablePanel.animate({scrollTop: this.offset().top},500);
+                        }
                         this.find('select').val(value).trigger('change');
       		}
       	});
