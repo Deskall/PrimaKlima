@@ -35,6 +35,7 @@ class DeskallElementalEditorExtension extends DataExtension
             $gridfield->getConfig()->addComponent(new GridFieldCollapseUncollapseAction());
         }
         $gridfield->getConfig()->addComponent(new GridFieldDuplicateBlock('before'));
+        $gridfield->getConfig()->addComponent(new GridFieldLinkBlock('before'));
         if ($gridfield->name == "Elements"){
             $gridfield->getConfig()->addComponent(new GridFieldBlockOrderAction());
         }
