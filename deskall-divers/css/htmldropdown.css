@@ -34,6 +34,9 @@
     .htmldropdown.columns .html-dropdown-option{
         width:32.5%;
     }
+    .cms-container--split-mode .htmldropdown.columns .html-dropdown-option{
+        width:49%;
+    }
 }
 .html-dropdown-option:hover{
 	background-color: #3875d7;
