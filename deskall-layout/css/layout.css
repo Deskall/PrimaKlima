@@ -5,6 +5,10 @@
 	padding-left:0;
 }
 
+.dk-hidden{
+	display: none;
+}
+
 /*** CMS Design corrections **/
 @media only screen and (min-width: 1200px){
 	.cms-edit-form .form-group:not(.stacked) .form__field-holder, 
