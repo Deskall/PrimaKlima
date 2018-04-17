@@ -1,1 +1,1 @@
-<% include Layout/BlockHolder ELement=$LinkedElement %>
+<% include Layout/BlockHolder Element=$LinkedElement %>
