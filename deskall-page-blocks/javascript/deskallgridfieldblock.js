@@ -37,7 +37,7 @@
                         this.parents('form').find('.ss-gridfield-duplicate-block').addClass('dk-hidden');
                     }
                 }
-                if (this.val() == "VirtualBlock"){
+                if (this.val() == "DNADesign-ElementalVirtual-Model-ElementVirtual"){
                     this.parents('form').find('.elemental-add-existing-autocompleter').removeClass('dk-hidden');
                 }
                 else {
