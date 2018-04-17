@@ -14,6 +14,7 @@ use SilverStripe\Control\Controller;
 use SilverStripe\View\Requirements;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\CMS\Model\SiteTree;
+use DNADesign\ElementalVirtual\Model\ElementVirtual;
 
 class GridFieldLinkBlock implements GridField_HTMLProvider, GridField_URLHandler {
 
