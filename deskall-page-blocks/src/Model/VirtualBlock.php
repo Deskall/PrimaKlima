@@ -9,6 +9,6 @@ class VirtualBlock extends ElementVirtual{
 
     public function getType()
     {
-        return _t(__CLASS__ . '.BlockType', 'bestehende Block');
+        return _t(__CLASS__ . '.BlockType', 'Block verknüpfen');
     }
 }
