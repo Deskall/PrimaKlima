@@ -266,7 +266,7 @@
 
                         var form = this.parents('form');
                         console.log(this.offset().top);
-                        $(form).animate({ScrollTop: this.offset().top},500);
+                        $(form).animate({ScrollTop: 200},500);
 
                         this.find('select').val(value).trigger('change');
       		}
