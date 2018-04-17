@@ -34,7 +34,7 @@ class DeskallElementalEditorExtension extends DataExtension
         if ($this->owner->getArea()->getOwnerPage()->ClassName == "ParentBlock" && $this->owner->getArea()->getOwnerPage()->CollapsableChildren){
             $gridfield->getConfig()->addComponent(new GridFieldCollapseUncollapseAction());
         }
-        $gridfield->getConfig()->addComponent(new GridFieldDuplicateBlock('toolbar-header-left'));
+        $gridfield->getConfig()->addComponent(new GridFieldDuplicateBlock('before'));
         if ($gridfield->name == "Elements"){
             $gridfield->getConfig()->addComponent(new GridFieldBlockOrderAction());
         }
