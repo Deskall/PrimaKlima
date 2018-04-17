@@ -40,7 +40,7 @@ class DeskallElementalEditorExtension extends DataExtension
         $gridfield->getConfig()->removeComponentsByType(GridFieldDeleteAction::class)
             ->addComponent($autocomplete = new DeskallGridFieldAddExistingBlockAutocompleter('before'))
             ->addComponent(new ElementalGridFieldDeleteAction());
-        $autocomplete->setSearchFields(['NiceTitle']);
+        $autocomplete->setSearchFields(['Title','Parent.Title']);
         if ($gridfield->name == "Elements"){
             $gridfield->getConfig()->addComponent(new GridFieldBlockOrderAction());
         }
