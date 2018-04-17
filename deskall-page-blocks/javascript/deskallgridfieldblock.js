@@ -81,5 +81,36 @@
         });
 
         //Virtual Block
+        //Duplicate Block
+        $(".ss-gridfield-link-block select[name='Block']").entwine({
+             onadd: function() {
+                 this.update();
+             },
+             onchange: function() {
+                 this.update();
+             },
+             update: function() {
+                 var btn = this.parents(".ss-gridfield-link-block").find(".btn-link-block");
+                 var link = btn.data("href");
+                 var block = btn.parents(".ss-gridfield-link-block").find("select[name='Block']").val();
+                 if(block && block > 0) {
+                    btn.removeClass("disabled");
+                    var path = window.location.pathname;
+                    //if not in page but in parent block
+                    if (path.indexOf("/edit/show/") == - 1){
+                        var page = path.substr(path.indexOf("/edit/EditForm/") + 15);
+                    }
+                    else{
+                        var page = path.substr(path.indexOf("/edit/show/") + 11);
+                    }
+                    
+                    var finallink = link.replace("{id}", block).replace("{pageid}",page);
+                    btn.getGridField().showDetailView(finallink);
+                }
+                else{
+                   btn.addClass("disabled");
+                }
+            }
+        });
     });
 })(jQuery);
