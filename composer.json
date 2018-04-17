@@ -45,6 +45,13 @@
             "install-frameworkmissing.html",
             "install.php",
             "web.config"
+        ],
+        "project-files-installed": [
+            "app/.htaccess",
+            "app/_config.php",
+            "app/_config/mysite.yml",
+            "app/src/Page.php",
+            "app/src/PageController.php"
         ]
     },
     "config": {

@@ -3,8 +3,8 @@
     max-width:850px;
 }
 
-.chosen-container-single .chosen-single {
-  /*  padding:0; */
+.html-dropdown.colors .chosen-container-single .chosen-single {
+   padding:0;
 }
 .htmldropdown select{
     display: none;
@@ -25,7 +25,7 @@
     display: block;
     width: 100%;
 }
-.html-dropdown-option.columns{
+.html-dropdown.columns .html-dropdown-option{
 	display: inline-flex;
 	margin:0.333333%;
     width:32.33333333%;
