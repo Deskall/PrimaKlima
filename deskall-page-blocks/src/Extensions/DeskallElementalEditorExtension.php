@@ -2,7 +2,6 @@
 
 use SilverStripe\ORM\DataExtension;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
-use DNADesign\ElementalVirtual\Forms\ElementalGridFieldAddExistingAutocompleter;
 use DNADesign\ElementalVirtual\Forms\ElementalGridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 
