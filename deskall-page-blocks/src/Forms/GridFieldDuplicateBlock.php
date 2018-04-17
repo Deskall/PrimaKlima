@@ -139,7 +139,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 	public function getHTMLFragments($grid) {
 
 		GridFieldExtensions::include_requirements();
-		Requirements::javascript('deskall-page-blocks/javascript/gridfieldduplicateblock.js');
+		
 
 		$blockfield = GroupedDropdownField::create('Block', '', $this->getBlockTree());
 		$blockfield->addExtraClass('no-change-track dk-hidden');
