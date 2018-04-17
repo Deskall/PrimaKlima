@@ -6,7 +6,7 @@ use DNADesign\ElementalVirtual\Control\ElementVirtualLinkedController;
 class VirtualBlock extends ElementVirtual{
 	private static $icon = 'font-icon-link';
 
-	private static $controller_class = ElementVirtualLinkedController::class;
+	private static $controller_class = BlockController::class;
 
     private static $table_name = 'VirtualBlock';
 
