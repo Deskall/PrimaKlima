@@ -203,7 +203,7 @@ class ImageExtension extends Extension
             $defaultArgs = [];
             $defaultArgs[0] = $config['default_arguments'][0];
             $defaultArgs[1] = $defaultArgs[0] / $ratio;
-        })
+        }
         else{
             
             foreach ($config['arguments'] as $query => $args) {
