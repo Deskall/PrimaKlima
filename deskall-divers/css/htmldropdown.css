@@ -17,9 +17,18 @@
 .htmldropdown.columns .html-dropdown-option{
 	display: inline-flex;
     width:48%;
-    margin:auto;
-   
-       
+    margin:auto;       
+}
+.htmldropdown.colors .html-dropdown-option{
+    display: block;
+    width: 100%;
+}
+.htmldropdown.colors .chosen-container-single .chosen-single {
+   padding:0;
+}
+.htmldropdown.colors .html-dropdown-option .option-html.background p{
+    padding: 5px 10px;
+    margin:0;
 }
 @media only screen and (min-width:780px){ 
     .htmldropdown.columns .html-dropdown-option{
