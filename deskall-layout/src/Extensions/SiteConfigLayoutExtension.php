@@ -314,7 +314,7 @@ class SiteConfigLayoutExtension extends DataExtension
     }
 
     //Provide extension for project specific stuff
-    $this->owner->extend('updateWriteBackgroundClasses', $fullpath,$this->owner->Colors());
+    $this->owner->extend('updateWriteBackgroundClasses', $fullpath);
   }
 
 
