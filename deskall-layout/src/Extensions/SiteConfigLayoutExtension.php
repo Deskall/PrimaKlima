@@ -307,7 +307,7 @@ class SiteConfigLayoutExtension extends DataExtension
       file_put_contents($fullpath, "\n".".item-title-".$c->Code.'{color:#'.$c->Color.'!important;*{color:#'.$c->Color.'!important;}}',FILE_APPEND);
       file_put_contents($fullpath, "\n".".menu-title-".$c->Code.'{color:#'.$c->Color.'!important;&:hover{border-color:#'.$c->Color.'!important;}*{color:#'.$c->Color.'!important;}}',FILE_APPEND);
       file_put_contents($fullpath, "\n".'.'.$c->Code.' .uk-dotnav > .uk-active > *{background-color:#'.$c->Color.'!important;}'
-        ."\n".'.'.$c->Code.' .uk-dotnav > * > :hover, '.$c->Code.' .uk-dotnav > * > :focus {background-color:#'.$c->Color.'!important;}',FILE_APPEND);
+        ."\n".'.'.$c->Code.' .uk-dotnav > * > :hover, .'.$c->Code.' .uk-dotnav > * > :focus {background-color:#'.$c->Color.'!important;}',FILE_APPEND);
       file_put_contents($fullpath, "\n".".uk-active .menu-title-".$c->Code.'{border-color:#'.$c->Color.'!important;}',FILE_APPEND);
     }
   }
