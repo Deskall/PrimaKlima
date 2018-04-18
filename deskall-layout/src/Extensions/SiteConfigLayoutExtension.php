@@ -269,7 +269,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function WriteUserDefinedConstants(){
-    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->owner->user_defined_file;
+    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->user_defined_file;
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
       if (isset($this->owner->stat('constants_less')[$c->Code])){
@@ -299,7 +299,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function WriteBackgroundClasses(){
-    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->owner->background_colors;
+    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->background_colors;
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
       file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';}}',FILE_APPEND);
@@ -314,7 +314,7 @@ class SiteConfigLayoutExtension extends DataExtension
     }
 
     //Provide extension for project specific stuff
-    $this->owner->extend('updateWriteBackgroundClasses', $fullpath,$this->owner->background_colors);
+    $this->owner->extend('updateWriteBackgroundClasses', $fullpath,$this->owner->Colors());
   }
 
 
