@@ -172,9 +172,14 @@ class ImageExtension extends Extension
             }
           
             //reset default
-            $defaultArgs = [];
-            $defaultArgs[0] = $config['default_arguments'][0];
-            $defaultArgs[1] = $defaultArgs[0] / $ratio;
+            $slideDefaultArgs = [];
+            $slideDefaultArg[0] = $config['default_arguments'][0];
+            $slideDefaultArg[1] = $slideDefaultArg[0] / $ratio;
+            return $this->owner->customise([
+                'Sizes' => $sizes,
+                'DefaultImage' => $this->getResampledImage($methodName, $slideDefaultArg)
+            ])->renderWith('Includes/ResponsiveImageSet', ['uikitAttr' => $uikit,'altTag' => $this->AltTag($fallback), 'titleTag' => $this->TitleTag($fallback) ]);
+        
         }
         else{
             
@@ -193,11 +198,12 @@ class ImageExtension extends Extension
                     'Query' => $query
                 ]));
             }
+        
+            return $this->owner->customise([
+                'Sizes' => $sizes,
+                'DefaultImage' => $this->getResampledImage($methodName, $defaultArgs)
+            ])->renderWith('Includes/ResponsiveImageSet', ['uikitAttr' => $uikit,'altTag' => $this->AltTag($fallback), 'titleTag' => $this->TitleTag($fallback) ]);
         }
-        return $this->owner->customise([
-            'Sizes' => $sizes,
-            'DefaultImage' => $this->getResampledImage($methodName, $defaultArgs)
-        ])->renderWith('Includes/ResponsiveImageSet', ['uikitAttr' => $uikit,'altTag' => $this->AltTag($fallback), 'titleTag' => $this->TitleTag($fallback) ]);
     }
 
     /**
