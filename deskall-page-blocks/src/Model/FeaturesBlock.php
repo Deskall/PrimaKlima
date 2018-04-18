@@ -55,7 +55,8 @@ class FeaturesBlock extends BaseElement
 
     private static $defaults = [
         'FeaturesColumns' => 'uk-child-width-1-1',
-        'FeaturesTextAlign' => 'uk-text-justify uk-text-left@s'
+        'FeaturesTextAlign' => 'uk-text-justify uk-text-left@s',
+        'IconItem' => 'check'
     ];
 
     private static $features_columns = [
@@ -140,7 +141,7 @@ class FeaturesBlock extends BaseElement
             $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
                 HTMLOptionsetField::create('FeaturesTextAlign',_t(__CLASS__.'.FeaturesTextAlignment','Features Textausrichtung'),$this->stat('features_text_alignments')),
                 HTMLOptionsetField::create('FeaturesColumns',_t(__CLASS__.'.FeaturesInColumns','Features in mehreren Spalten'),$this->stat('features_columns')),
-                HTMLDropdownField::create('IconItem',_t(__CLASS__.'.FeaturesIcons','Icon'),$this->getSourceIcons())
+                HTMLDropdownField::create('IconItem',_t(__CLASS__.'.FeaturesIcons','Icon'),$this->getSourceIcons(),'check')
             )->setTitle(_t(__CLASS__.'FeaturesLayout','Features Layout'))->setName('FeaturesLayout'));
 
             if ($this->ID > 0){
