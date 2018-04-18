@@ -138,8 +138,11 @@ class ImageExtension extends Extension
             throw new RuntimeException(get_class($this->owner) . ' has no method ' . $methodName);
         }
 
+        //fallbakc for title and alt tags
+        $fallback = (empty($defaultArgs)) ? null : end($defaultArgs);
+        $uikit = (isset($config['uikit'])) ? $config['uikit'] : null;
+
         // Create the resampled images for each query in the set
-        // If methode slide we create custom query
         $sizes = ArrayList::create();
        
        foreach ($config['arguments'] as $query => $args) {
@@ -150,7 +153,7 @@ class ImageExtension extends Extension
             if (!is_array($args) || empty($args)) {
                 throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
             }
-
+            // If methode slide we calculate the height
             if ($set == "slides"){
                 $slide = DataObject::get_by_id('Slide',reset($defaultArgs));
                 if (!$slide){
@@ -159,6 +162,10 @@ class ImageExtension extends Extension
                 $ratio = $slide->Image()->getWidth() / $slide->Image()->getHeight();
                 $height = $args[0] / $ratio;
                 $args[1] = $height;
+                //reset default
+                $defaultArgs = [];
+                $defaultArgs[0] = $config['default_arguments'][0];
+                $defaultArgs[1] = $defaultArgs[0] / $ratio;
             }
            
             $sizes->push(ArrayData::create([
@@ -168,14 +175,6 @@ class ImageExtension extends Extension
         } 
         
         
-
-        //fallbakc for title and alt tags
-      
-        $fallback = (empty($defaultArgs)) ? null : end($defaultArgs);
-        $uikit = (isset($config['uikit'])) ? $config['uikit'] : null;
-
-        print_r($defaultArgs);
-
         return $this->owner->customise([
             'Sizes' => $sizes,
 
