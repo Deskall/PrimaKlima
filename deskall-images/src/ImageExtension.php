@@ -138,21 +138,28 @@ class ImageExtension extends Extension
         }
 
         // Create the resampled images for each query in the set
+        // If methode slide we create custom query
         $sizes = ArrayList::create();
-        foreach ($config['arguments'] as $query => $args) {
-            if (is_numeric($query) || !$query) {
-                throw new Exception("Responsive set $set has an empty media query. Please check your config format");
-            }
+        if ($set == "Slides"){
 
-            if (!is_array($args) || empty($args)) {
-                throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
-            }
-
-            $sizes->push(ArrayData::create([
-                'Image' => $this->getResampledImage($methodName, $args),
-                'Query' => $query
-            ]));
         }
+        else{
+           foreach ($config['arguments'] as $query => $args) {
+                if (is_numeric($query) || !$query) {
+                    throw new Exception("Responsive set $set has an empty media query. Please check your config format");
+                }
+
+                if (!is_array($args) || empty($args)) {
+                    throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
+                }
+
+                $sizes->push(ArrayData::create([
+                    'Image' => $this->getResampledImage($methodName, $args),
+                    'Query' => $query
+                ]));
+            } 
+        }
+        
 
         //fallbakc for title and alt tags
       
