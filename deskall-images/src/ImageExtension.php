@@ -160,7 +160,7 @@ class ImageExtension extends Extension
                 $height = $args[0] / $ratio;
                 $args[1] = $height;
             }
-            print_r($args);
+           
             $sizes->push(ArrayData::create([
                 'Image' => $this->getResampledImage($methodName, $args),
                 'Query' => $query
@@ -174,6 +174,7 @@ class ImageExtension extends Extension
         $fallback = (empty($defaultArgs)) ? null : end($defaultArgs);
         $uikit = (isset($config['uikit'])) ? $config['uikit'] : null;
 
+        print_r($defaultArgs);
 
         return $this->owner->customise([
             'Sizes' => $sizes,
