@@ -154,6 +154,8 @@ class ImageExtension extends Extension
 
             // If methode slide we calculate the ration
             $ratio = $slide->Image()->getWidth() / $slide->Image()->getHeight();
+            $MaxHeight = $slide->Parent()->MaxHeight;
+            $MinHeight = $slide->Parent()->MinHeight;
 
             foreach ($config['arguments'] as $query => $args) {
                 if (is_numeric($query) || !$query) {
@@ -164,6 +166,8 @@ class ImageExtension extends Extension
                     throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
                 }
                 $height = $args[0] / $ratio;
+                $height = ($height > $MaxHeight) ? $MaxHeight : $height;
+                $height = ($height < $MinHeight) ? $MinHeight : $height;
                 $args[1] = $height;
                 $sizes->push(ArrayData::create([
                     'Image' => $this->getResampledImage($methodName, $args),
@@ -172,14 +176,9 @@ class ImageExtension extends Extension
             }
           
             //reset default
-            $slideDefaultArgs = [];
-            $slideDefaultArg[0] = $config['default_arguments'][0];
-            $slideDefaultArg[1] = $slideDefaultArg[0] / $ratio;
-            return $this->owner->customise([
-                'Sizes' => $sizes,
-                'DefaultImage' => $this->getResampledImage($methodName, $slideDefaultArg)
-            ])->renderWith('Includes/ResponsiveImageSet', ['uikitAttr' => $uikit,'altTag' => $this->AltTag($fallback), 'titleTag' => $this->TitleTag($fallback) ]);
-        
+            $defaultArgs = [];
+            $defaultArgs[0] = $config['default_arguments'][0];
+            $defaultArgs[1] = $defaultArgs[0] / $ratio;
         }
         else{
             
@@ -198,12 +197,11 @@ class ImageExtension extends Extension
                     'Query' => $query
                 ]));
             }
-        
-            return $this->owner->customise([
-                'Sizes' => $sizes,
-                'DefaultImage' => $this->getResampledImage($methodName, $defaultArgs)
-            ])->renderWith('Includes/ResponsiveImageSet', ['uikitAttr' => $uikit,'altTag' => $this->AltTag($fallback), 'titleTag' => $this->TitleTag($fallback) ]);
         }
+        return $this->owner->customise([
+            'Sizes' => $sizes,
+            'DefaultImage' => $this->getResampledImage($methodName, $defaultArgs)
+        ])->renderWith('Includes/ResponsiveImageSet', ['uikitAttr' => $uikit,'altTag' => $this->AltTag($fallback), 'titleTag' => $this->TitleTag($fallback) ]);
     }
 
     /**
