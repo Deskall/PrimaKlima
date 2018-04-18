@@ -263,10 +263,6 @@
       			var html = (option.length) ? option.html() : this.attr('data-empty-string');
       			var value = (option.length) ? option.attr('data-value') : '';
       			this.find('.chosen-single').html(html+'<div><b></b></div>');
-                        if (value != ""){
-                              var scrollablePanel = this.parents('.panel--scrollable');
-                              scrollablePanel.animate({scrollTop: this.offset().top - 100},500);
-                        }
                         this.find('select').val(value).trigger('change');
       		}
       	});
@@ -297,6 +293,8 @@
                         this.find("[fill='#ffffff']").attr("fill", "#566b8d");
                         this.find("[stroke='#ffffff']").attr("stroke", "#566b8d");
 				this.parents('.html-dropdown').writeValue();
+                        var scrollablePanel = this.parents('.panel--scrollable');
+                        scrollablePanel.animate({scrollTop: this.parents('.form-group').offset().top - 100},500);
 				this.parents('.chosen-drop').removeClass('active');
       		},
                   onmouseenter: function() {
