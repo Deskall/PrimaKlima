@@ -140,8 +140,7 @@ class ImageExtension extends Extension
         // Create the resampled images for each query in the set
         // If methode slide we create custom query
         $sizes = ArrayList::create();
-        print_r($set);
-        if ($set == "Slides"){
+        if ($set == "slides"){
 
         }
         else{
