@@ -3,7 +3,7 @@
 	<% if ContentImage %>
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
-				<a href="$ContentImage.getSourceURL" data-caption="$ContentImage.Description">
+				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description">
 					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.Fit(350,250).URL<% end_if %>" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="350" height="250" >
 				</a>
 			</div>
@@ -11,7 +11,7 @@
 			</div>
 		<% else %>
 			<div class="uk-width-1-1">
-				<a href="$ContentImage.getSourceURL" data-caption="$ContentImage.Description">
+				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description">
 					<% if $FullWidth %>
 						<% if ContentImage.getExtension == "svg" %>
 							<img src="$ContentImage.URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="2500" height="2500">
