@@ -176,6 +176,8 @@ class ImageExtension extends Extension
      */
     protected function getResampledImage($methodName, $args)
     {
+       print_r($args);
+       print_r("\n");
         return call_user_func_array([$this->owner, $methodName], $args);
     }
 
