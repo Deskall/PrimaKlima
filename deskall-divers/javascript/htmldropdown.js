@@ -294,7 +294,13 @@
                         this.find("[stroke='#ffffff']").attr("stroke", "#566b8d");
 				this.parents('.html-dropdown').writeValue();
                         var scrollablePanel = this.parents('.panel--scrollable');
-                        scrollablePanel.animate({scrollTop: this.parents('.form-group').offset().top - 100},500);
+                        if (scrollablePanel){
+                              scrollablePanel.animate({scrollTop: this.parents('.form-group').offset().top - 100},500);
+                        }
+                        var linkDialog = this.parents('.linkfield-dialog');
+                        if (linkDialog){
+                              linkDialog.animate({scrollTop: this.parents('.form-group').offset().top - 100},500);
+                        }
 				this.parents('.chosen-drop').removeClass('active');
       		},
                   onmouseenter: function() {
