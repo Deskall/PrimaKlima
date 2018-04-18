@@ -75,6 +75,7 @@ ImageExtension:
       default_arguments: [600,450]
       uikit: 'data-uk-cover'
     Content:
+      method: FocusFillMax
       arguments:
         '(min-width: 1400px) and (min-device-pixel-ratio: 2.0)': [5000]
         '(min-width: 1400px)': [2500]
