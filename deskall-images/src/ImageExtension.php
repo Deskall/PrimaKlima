@@ -156,7 +156,7 @@ class ImageExtension extends Extension
                 if (!$slide){
                     throw new Exception("Responsive set $set doesn't have the correct arguments provided for the slide ID");
                 }
-                $ratio = $slide->Image()->Width() / $slide->Image()->Height();
+                $ratio = $slide->Image()->getWidth() / $slide->Image()->getHeight();
                 $height = $args[0] / $ratio;
                 $args[1] = $height;
             }
