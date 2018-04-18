@@ -160,6 +160,7 @@ class ImageExtension extends Extension
                 $height = $args[0] / $ratio;
                 $args[1] = $height;
             }
+            print_r($args);
             $sizes->push(ArrayData::create([
                 'Image' => $this->getResampledImage($methodName, $args),
                 'Query' => $query
