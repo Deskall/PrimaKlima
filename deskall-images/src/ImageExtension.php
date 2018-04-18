@@ -144,6 +144,7 @@ class ImageExtension extends Extension
 
 
         // Create the resampled images for each query in the set
+        $sizes = ArrayList::create();
         //Specific for slide
         if ($set == "slides"){
             $slide = DataObject::get_by_id('Slide',reset($defaultArgs));
@@ -164,6 +165,10 @@ class ImageExtension extends Extension
                 }
                 $height = $args[0] / $ratio;
                 $args[1] = $height;
+                $sizes->push(ArrayData::create([
+                    'Image' => $this->getResampledImage($methodName, $args),
+                    'Query' => $query
+                ]));
             }
           
             //reset default
@@ -172,7 +177,7 @@ class ImageExtension extends Extension
             $defaultArgs[1] = $defaultArgs[0] / $ratio;
         }
         else{
-            $sizes = ArrayList::create();
+            
             foreach ($config['arguments'] as $query => $args) {
                 if (is_numeric($query) || !$query) {
                     throw new Exception("Responsive set $set has an empty media query. Please check your config format");
