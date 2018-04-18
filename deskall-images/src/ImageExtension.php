@@ -141,7 +141,9 @@ class ImageExtension extends Extension
         // If methode slide we create custom query
         $sizes = ArrayList::create();
         if ($set == "slides"){
-
+            foreach ($config['arguments'] as $query => $args) {
+                print_r($args);
+            }
         }
         else{
            foreach ($config['arguments'] as $query => $args) {
