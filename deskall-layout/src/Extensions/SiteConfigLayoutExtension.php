@@ -313,7 +313,7 @@ class SiteConfigLayoutExtension extends DataExtension
         ."\n".'.'.$c->Code.' .uk-dotnav > * > :hover, .'.$c->Code.' .uk-dotnav > * > :focus {background-color:#'.$c->FontColor.'!important;}',FILE_APPEND);
       file_put_contents($fullpath, "\n".".uk-active .menu-title-".$c->Code.'{border-color:#'.$c->Color.'!important;}',FILE_APPEND);
       /*** Css class for Background Overlays **/
-      file_put_contents($fullpath,"\n".'.'.$c->Code.'.dk-overlay :after{background-color:fade(#'.$c->Color.',50%);}',FILE_APPEND);
+      file_put_contents($fullpath,"\n".'.'.$c->Code.'.dk-overlay:after{background-color:fade(#'.$c->Color.',50%);}',FILE_APPEND);
     }
 
     //Provide extension for project specific stuff
