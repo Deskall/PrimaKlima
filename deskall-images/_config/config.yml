@@ -78,6 +78,21 @@ ImageExtension:
         '(min-width: 10px)': [600,450]
       default_arguments: [600,450]
       uikit: 'data-uk-cover'
+    Overlays:
+      method: FocusFill
+      arguments:
+        '(min-width: 1400px) and (min-device-pixel-ratio: 2.0)': [5000]
+        '(min-width: 1400px)': [2500]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px),(min--moz-device-pixel-ratio: 2) and (min-width: 1200px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1200px),(min-device-pixel-ratio: 2) and (min-width: 1200px),( min-resolution: 192dpi) and (min-width: 1200px),(min-resolution: 2dppx) and (min-width: 1200px)': [2800,900]
+        '(min-width: 1200px)': [1400]
+        '(min-width: 1000px) and (min-device-pixel-ratio: 2.0)': [2400]
+        '(min-width: 1000px)': [1200]
+        '(min-width: 800px) and (min-device-pixel-ratio: 2.0)': [2000]
+        '(min-width: 800px)': [1000]
+        '(min-width: 400px) and (min-device-pixel-ratio: 2.0)': [1200]
+        '(min-width: 10px)': [600]
+      default_arguments: [600]
+      uikit: 'data-uk-cover'
     Content:
       arguments:
         '(min-width: 1400px) and (min-device-pixel-ratio: 2.0)': [5000]

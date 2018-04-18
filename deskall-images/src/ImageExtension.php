@@ -180,6 +180,30 @@ class ImageExtension extends Extension
             $defaultArgs[0] = $config['default_arguments'][0];
             $defaultArgs[1] = $defaultArgs[0] / $ratio;
         }
+        elseif ($set == "overlays"){
+            $ratio = $defaultArgs[0] / $defaultArgs[1];
+
+            foreach ($config['arguments'] as $query => $args) {
+                if (is_numeric($query) || !$query) {
+                    throw new Exception("Responsive set $set has an empty media query. Please check your config format");
+                }
+
+                if (!is_array($args) || empty($args)) {
+                    throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
+                }
+                $height = $args[0] / $ratio;
+                $args[1] = $height;
+                $sizes->push(ArrayData::create([
+                    'Image' => $this->getResampledImage($methodName, $args),
+                    'Query' => $query
+                ]));
+            }
+          
+            //reset default
+            $defaultArgs = [];
+            $defaultArgs[0] = $config['default_arguments'][0];
+            $defaultArgs[1] = $defaultArgs[0] / $ratio;
+        })
         else{
             
             foreach ($config['arguments'] as $query => $args) {
