@@ -5,6 +5,7 @@ use SilverStripe\Core\Config\Config;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
+use SilverStripe\ORM\DataObject;
 
 class ImageExtension extends Extension
 {
@@ -140,27 +141,31 @@ class ImageExtension extends Extension
         // Create the resampled images for each query in the set
         // If methode slide we create custom query
         $sizes = ArrayList::create();
-        if ($set == "slides"){
-            foreach ($config['arguments'] as $query => $args) {
-                print_r($args);
+       
+       foreach ($config['arguments'] as $query => $args) {
+            if (is_numeric($query) || !$query) {
+                throw new Exception("Responsive set $set has an empty media query. Please check your config format");
             }
-        }
-        else{
-           foreach ($config['arguments'] as $query => $args) {
-                if (is_numeric($query) || !$query) {
-                    throw new Exception("Responsive set $set has an empty media query. Please check your config format");
-                }
 
-                if (!is_array($args) || empty($args)) {
-                    throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
-                }
+            if (!is_array($args) || empty($args)) {
+                throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
+            }
 
-                $sizes->push(ArrayData::create([
-                    'Image' => $this->getResampledImage($methodName, $args),
-                    'Query' => $query
-                ]));
-            } 
-        }
+            if ($set == "slides"){
+                $slide = DataObject::get_by_id('Slide',reset($defaultArgs));
+                if (!$slide){
+                    throw new Exception("Responsive set $set doesn't have the correct arguments provided for the slide ID");
+                }
+                $ratio = $slide->Image()->Width() / $slide->Image()->Height();
+                $height = $args[0] / $ratio;
+                $args[1] = $height;
+            }
+            $sizes->push(ArrayData::create([
+                'Image' => $this->getResampledImage($methodName, $args),
+                'Query' => $query
+            ]));
+        } 
+        
         
 
         //fallbakc for title and alt tags
