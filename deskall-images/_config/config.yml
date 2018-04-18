@@ -45,7 +45,7 @@ SilverStripe\Core\Injector\Injector:
 ImageExtension:
   sets:
     Slides:
-      method: FocusFill
+      method: FocusCropHeight
       arguments:
         '(min-width: 1400px) and (min-device-pixel-ratio: 2.0)': [5000,2500]
         '(min-width: 1400px)': [2500,1250]
