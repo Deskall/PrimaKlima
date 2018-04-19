@@ -168,13 +168,14 @@ class ImageExtension extends Extension
                 $height = $args[0] / $ratio;
                 //Special dimension for retina screen
                 if (strpos($query,'min-device-pixel-ratio: 2') > 0){
-                    $height = ($height > $MaxHeight) ? $MaxHeight : $height;
-                    $height = ($height < $MinHeight) ? $MinHeight : $height;
+                    print_r($height);
+                    $height = ($height > $MaxHeight * 2) ? $MaxHeight * 2 : $height;
+                    $height = ($height < $MinHeight * 2) ? $MinHeight * 2 : $height;
                 }
                 else
                 {
-                    $height = ($height > $MaxHeight * 2) ? $MaxHeight * 2 : $height;
-                    $height = ($height < $MinHeight * 2) ? $MinHeight * 2 : $height;
+                    $height = ($height > $MaxHeight ) ? $MaxHeight : $height;
+                    $height = ($height < $MinHeight ) ? $MinHeight : $height;
                 }
                
                 $args[1] = $height;
