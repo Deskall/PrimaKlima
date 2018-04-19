@@ -93,7 +93,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
 
     'FooterLogoWidth' => '@footer-logo-width',
-    'FooterBackgroundColor' => '@footer-background-color',
+    'FooterBackground' => '@footer-background-color',
     'FooterFontColor' => '@footer-font-color',
     'FooterFontSize' => '@footer-font-size'
 
