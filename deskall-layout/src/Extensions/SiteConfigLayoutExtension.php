@@ -258,6 +258,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
     $this->owner->HeaderHoverFontColor = "#".$this->owner->HeaderHoverFontColor;
     $this->owner->FooterFontColor = "#".$this->owner->FooterFontColor;
+    $this->owner->FooterBackground = "#".$this->owner->FooterBackground;
     $this->owner->H1FontColor = "#".$this->owner->H1FontColor;
 
   }
