@@ -25,6 +25,7 @@ class DeskallPageExtension extends DataExtension
     }
 
     public function getSettingsFields(){
+        print_r('ici');
         $fields = parent::getSettingsFields();
         $field = CheckboxField::create('ShowInMainMenu','Diese Seite im Hauptmenu anzeigen?');
         $fields->insertAfter($field,'ShowInMenus');
