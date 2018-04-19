@@ -6,7 +6,7 @@
 			<% if $Element.BackgroundImage.getExtension == "svg" %><img src="$Element.BackgroundImage.URL" alt="$Element.BackgroundImage.AltTag($Title)" title="$Element.BackgroundImage.TitleTag($Title)" width="$Element.BackgroundImage.Width" height="$Element.BackgroundImage.Height" data-uk-cover /><% else %>$Element.BackgroundImage.Overlays($Element.BackgroundImage.Width, $Element.BackgroundImage.Height,$Element.Title)<% end_if %>
 		<% end_if %>
 		<div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
-			<% if $Element.SimpleClassName.LowerCase == "leadblock" %>
+			<% if $Element.SimpleClassName.LowerCase == "leadblock" && Element.isPrimary %>
 				<% if Element.Parent.getOwnerPage.Title && Element.ShowTitle %><h1>$Element.Parent.getOwnerPage.Title</h1><% end_if %>
 			<% else %>
 				<% if Element.Title && $Element.ShowTitle %>
