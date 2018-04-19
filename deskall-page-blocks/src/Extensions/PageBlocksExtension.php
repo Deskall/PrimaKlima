@@ -14,7 +14,7 @@ class PageBlocksExtension extends DataExtension {
 	}
 
 	public function updateCMSFields(FieldList $fields){
-		$fields->insertAfter(HeaderField::create('BlockTitle',_t('PAGEBLOCKS.BLOCKSTITLE','Inhaltblöcke'), 3),'ShowInMainMenu');
+		$fields->insertBefore('ElementalArea',HeaderField::create('BlockTitle',_t('PAGEBLOCKS.BLOCKSTITLE','Inhaltblöcke'), 3));
 	}
 
 	public function checkLead(){
