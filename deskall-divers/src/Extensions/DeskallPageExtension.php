@@ -5,7 +5,7 @@ use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Assets\Folder;
 use SilverStripe\Assets\File;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\View\ThemeResourceLoader;
 use SilverStripe\View\SSViewer;
@@ -20,17 +20,22 @@ class DeskallPageExtension extends DataExtension
 
     private static $has_one = [];
 
+    private static $menu_level = [
+        '1' => 'Hauptnavigation',
+        '0' => 'Untennavigation'
+    ];
+
     public function ThemeDir(){
     	return ThemeResourceLoader::inst()->getThemePaths(SSViewer::get_themes())[0];
     }
 
-    public function getSettingsFields(){
+    public function updateCMSFields(FieldList $fields){
         print_r('ici');
-        $fields = parent::getSettingsFields();
-        $field = CheckboxField::create('ShowInMainMenu','Diese Seite im Hauptmenu anzeigen?');
-        $fields->insertAfter($field,'ShowInMenus');
+        if ($this->owner->ShowInMenus){
+            $field = OptionsetField::create('ShowInMainMenu','In welchem Menu sollt diese Seite anzeigen ?', $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
+            $fields->insertAfter($field,'MenuTitle');
 
-        return $fields;
+        }
     }
 
 
@@ -86,4 +91,16 @@ class DeskallPageExtension extends DataExtension
     public function Css(){
         return file_get_contents(Director::baseFolder().'/'.$this->owner->ThemeDir().'/css/main.min.css');
     }
+
+      /************* TRANLSATIONS *******************/
+    public function provideI18nEntities(){
+        $entities = [];
+        foreach($this->stat('menu_level') as $key => $value) {
+          $entities[__CLASS__.".menu_level_{$key}"] = $value;
+        }
+
+        return $entities;
+    }
+
+    /************* END TRANLSATIONS *******************/
 }
