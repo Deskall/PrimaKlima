@@ -42,7 +42,7 @@ class LayoutLink extends DataObject{
 
         $fields->removeByName('ParentID');
         $fields->removeByName('Type');
-        $fields->addFieldToTab('Root.Main',HTMLDropdownField::create('Icon',_t(__CLASS__. '.Icon','Icon'),$this->getSourceIcons()->addExtraClass('columns'))->setEmptyString(_t(__CLASS__. '.IconLabel','Icon hinzufügen')));
+        $fields->addFieldToTab('Root.Main',HTMLDropdownField::create('Icon',_t(__CLASS__. '.Icon','Icon'),$this->getSourceIcons())->setEmptyString(_t(__CLASS__. '.IconLabel','Icon hinzufügen')->addExtraClass('columns'));
         return $fields;
     }
 
