@@ -236,7 +236,7 @@ class SiteConfigLayoutExtension extends DataExtension
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
-    $fields->addFieldToTab("Root.Layout.Footer", $FooterLinksField);
+    $fields->addFieldToTab("Root.Layout.Footer.Content", $FooterLinksField);
     
     return $fields;
   }
