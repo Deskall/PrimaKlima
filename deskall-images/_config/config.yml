@@ -11,8 +11,8 @@ SilverStripe\AssetAdmin\Forms\ImageFormFactory:
 SilverStripe\Assets\Image:
   allowed_extensions:
     - svg
-  MaxWidth: 2500
-  MaxHeight: 2500
+  MaxWidth: 5000
+  MaxHeight: 5000
   memory: 512M
   extensions:
     - ImageExtension
@@ -47,6 +47,8 @@ ImageExtension:
     Slides:
       method: FocusFill
       arguments:
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 2000px),(min--moz-device-pixel-ratio: 2) and (min-width: 2000px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 2000px),(min-device-pixel-ratio: 2) and (min-width: 2000px),( min-resolution: 192dpi) and (min-width: 2000px),(min-resolution: 2dppx) and (min-width: 2000px)': [5000]
+        '(min-width: 2000px)': [2500]
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1800px),(min--moz-device-pixel-ratio: 2) and (min-width: 1800px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1800px),(min-device-pixel-ratio: 2) and (min-width: 1800px),( min-resolution: 192dpi) and (min-width: 1800px),(min-resolution: 2dppx) and (min-width: 1800px)': [4000]
         '(min-width: 1800px)': [2000]
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1600px),(min--moz-device-pixel-ratio: 2) and (min-width: 1600px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1600px),(min-device-pixel-ratio: 2) and (min-width: 1600px),( min-resolution: 192dpi) and (min-width: 1600px),(min-resolution: 2dppx) and (min-width: 1600px)': [3600]
@@ -57,7 +59,7 @@ ImageExtension:
         '(min-width: 1200px)': [1400]
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1000px),(min--moz-device-pixel-ratio: 2) and (min-width: 1000px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1000px),(min-device-pixel-ratio: 2) and (min-width: 1000px),( min-resolution: 192dpi) and (min-width: 1000px),(min-resolution: 2dppx) and (min-width: 1000px)': [2400]
         '(min-width: 1000px)': [1200]
-        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 800px),(min--moz-device-pixel-ratio: 2) and (min-width: 800px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 800px),(min-device-pixel-ratio: 2) and (min-width: 800px),( min-resolution: 192dpi) and (min-width: 1800px),(min-resolution: 2dppx) and (min-width: 1800px)': [2000]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 800px),(min--moz-device-pixel-ratio: 2) and (min-width: 800px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 800px),(min-device-pixel-ratio: 2) and (min-width: 800px),( min-resolution: 192dpi) and (min-width: 800px),(min-resolution: 2dppx) and (min-width: 800px)': [2000]
         '(min-width: 800px)': [1000]
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 400px),(min--moz-device-pixel-ratio: 2) and (min-width: 400px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 400px),(min-device-pixel-ratio: 2) and (min-width: 400px),( min-resolution: 192dpi) and (min-width: 400px),(min-resolution: 2dppx) and (min-width: 400px)': [1200]
         '(min-width: 10px)': [600]
@@ -66,43 +68,52 @@ ImageExtension:
     Banners:
       method: FocusFill
       arguments:
-        '(min-width: 1400px) and (min-device-pixel-ratio: 2.0)': [5000,900]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1400px),(min--moz-device-pixel-ratio: 2) and (min-width: 1400px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1400px),(min-device-pixel-ratio: 2) and (min-width: 1400px),( min-resolution: 192dpi) and (min-width: 1400px),(min-resolution: 2dppx) and (min-width: 1400px)': [5000,900]
         '(min-width: 1400px)': [2500,450]
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px),(min--moz-device-pixel-ratio: 2) and (min-width: 1200px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1200px),(min-device-pixel-ratio: 2) and (min-width: 1200px),( min-resolution: 192dpi) and (min-width: 1200px),(min-resolution: 2dppx) and (min-width: 1200px)': [2800,900]
         '(min-width: 1200px)': [1400,450]
-        '(min-width: 1000px) and (min-device-pixel-ratio: 2.0)': [2400,900]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1000px),(min--moz-device-pixel-ratio: 2) and (min-width: 1000px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1000px),(min-device-pixel-ratio: 2) and (min-width: 1000px),( min-resolution: 192dpi) and (min-width: 1000px),(min-resolution: 2dppx) and (min-width: 1000px)': [2400,900]
         '(min-width: 1000px)': [1200,450]
-        '(min-width: 800px) and (min-device-pixel-ratio: 2.0)': [2000,900]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 800px),(min--moz-device-pixel-ratio: 2) and (min-width: 800px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 800px),(min-device-pixel-ratio: 2) and (min-width: 800px),( min-resolution: 192dpi) and (min-width: 800px),(min-resolution: 2dppx) and (min-width: 800px)': [2000,900]
         '(min-width: 800px)': [1000,450]
-        '(min-width: 400px) and (min-device-pixel-ratio: 2.0)': [1200,900]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 400px),(min--moz-device-pixel-ratio: 2) and (min-width: 400px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 400px),(min-device-pixel-ratio: 2) and (min-width: 400px),( min-resolution: 192dpi) and (min-width: 400px),(min-resolution: 2dppx) and (min-width: 400px)': [1200,900]
         '(min-width: 10px)': [600,450]
       default_arguments: [600,450]
       uikit: 'data-uk-cover'
     Overlays:
       method: FocusFill
       arguments:
-        '(min-width: 1400px) and (min-device-pixel-ratio: 2.0)': [5000]
-        '(min-width: 1400px)': [2500]
-        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px),(min--moz-device-pixel-ratio: 2) and (min-width: 1200px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1200px),(min-device-pixel-ratio: 2) and (min-width: 1200px),( min-resolution: 192dpi) and (min-width: 1200px),(min-resolution: 2dppx) and (min-width: 1200px)': [2800,900]
-        '(min-width: 1200px)': [1400]
-        '(min-width: 1000px) and (min-device-pixel-ratio: 2.0)': [2400]
-        '(min-width: 1000px)': [1200]
-        '(min-width: 800px) and (min-device-pixel-ratio: 2.0)': [2000]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1800px),(min--moz-device-pixel-ratio: 2) and (min-width: 1800px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1800px),(min-device-pixel-ratio: 2) and (min-width: 1800px),( min-resolution: 192dpi) and (min-width: 1800px),(min-resolution: 2dppx) and (min-width: 1800px)': [5000]
+        '(min-width: 1800px)': [2500]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1400px),(min--moz-device-pixel-ratio: 2) and (min-width: 1400px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1400px),(min-device-pixel-ratio: 2) and (min-width: 1400px),( min-resolution: 192dpi) and (min-width: 1400px),(min-resolution: 2dppx) and (min-width: 1400px)': [4000]
+        '(min-width: 1400px)': [2000]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px),(min--moz-device-pixel-ratio: 2) and (min-width: 1200px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1200px),(min-device-pixel-ratio: 2) and (min-width: 1200px),( min-resolution: 192dpi) and (min-width: 1200px),(min-resolution: 2dppx) and (min-width: 1200px)': [3000]
+        '(min-width: 1200px)': [1500]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1000px),(min--moz-device-pixel-ratio: 2) and (min-width: 1000px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1000px),(min-device-pixel-ratio: 2) and (min-width: 1000px),( min-resolution: 192dpi) and (min-width: 1000px),(min-resolution: 2dppx) and (min-width: 1000px)': [2500]
+        '(min-width: 1000px)': [1250]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 800px),(min--moz-device-pixel-ratio: 2) and (min-width: 800px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 800px),(min-device-pixel-ratio: 2) and (min-width: 800px),( min-resolution: 192dpi) and (min-width: 800px),(min-resolution: 2dppx) and (min-width: 800px)': [2000]
         '(min-width: 800px)': [1000]
-        '(min-width: 400px) and (min-device-pixel-ratio: 2.0)': [1200]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 400px),(min--moz-device-pixel-ratio: 2) and (min-width: 400px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 400px),(min-device-pixel-ratio: 2) and (min-width: 400px),( min-resolution: 192dpi) and (min-width: 400px),(min-resolution: 2dppx) and (min-width: 400px)': [1200]
         '(min-width: 10px)': [600]
       default_arguments: [600]
       uikit: 'data-uk-cover'
     Content:
+      method: FocusFill
       arguments:
-        '(min-width: 1400px) and (min-device-pixel-ratio: 2.0)': [5000]
-        '(min-width: 1400px)': [2500]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 2000px),(min--moz-device-pixel-ratio: 2) and (min-width: 2000px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 2000px),(min-device-pixel-ratio: 2) and (min-width: 2000px),( min-resolution: 192dpi) and (min-width: 2000px),(min-resolution: 2dppx) and (min-width: 2000px)': [5000]
+        '(min-width: 2000px)': [2500]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1800px),(min--moz-device-pixel-ratio: 2) and (min-width: 1800px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1800px),(min-device-pixel-ratio: 2) and (min-width: 1800px),( min-resolution: 192dpi) and (min-width: 1800px),(min-resolution: 2dppx) and (min-width: 1800px)': [3600]
+        '(min-width: 1800px)': [1800]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1600px),(min--moz-device-pixel-ratio: 2) and (min-width: 1600px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1600px),(min-device-pixel-ratio: 2) and (min-width: 1600px),( min-resolution: 192dpi) and (min-width: 1600px),(min-resolution: 2dppx) and (min-width: 1600px)': [3200]
+        '(min-width: 1600px)': [1600]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1400px),(min--moz-device-pixel-ratio: 2) and (min-width: 1400px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1400px),(min-device-pixel-ratio: 2) and (min-width: 1400px),( min-resolution: 192dpi) and (min-width: 1400px),(min-resolution: 2dppx) and (min-width: 1400px)': [2800]
+        '(min-width: 1400px)': [1400]
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px),(min--moz-device-pixel-ratio: 2) and (min-width: 1200px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1200px),(min-device-pixel-ratio: 2) and (min-width: 1200px),( min-resolution: 192dpi) and (min-width: 1200px),(min-resolution: 2dppx) and (min-width: 1200px)': [2400]
         '(min-width: 1200px)': [1200]
-        '(min-width: 1000px) and (min-device-pixel-ratio: 2.0)': [2000]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1000px),(min--moz-device-pixel-ratio: 2) and (min-width: 1000px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1000px),(min-device-pixel-ratio: 2) and (min-width: 1000px),( min-resolution: 192dpi) and (min-width: 1000px),(min-resolution: 2dppx) and (min-width: 1000px)': [2000]
         '(min-width: 1000px)': [1000]
-        '(min-width: 800px) and (min-device-pixel-ratio: 2.0)': [1600]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 800px),(min--moz-device-pixel-ratio: 2) and (min-width: 800px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 800px),(min-device-pixel-ratio: 2) and (min-width: 800px),( min-resolution: 192dpi) and (min-width: 800px),(min-resolution: 2dppx) and (min-width: 800px)': [1600]
         '(min-width: 800px)': [800]
-        '(min-width: 400px) and (min-device-pixel-ratio: 2.0)': [800]
-        '(min-width: 10px)': [400]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 400px),(min--moz-device-pixel-ratio: 2) and (min-width: 400px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 400px),(min-device-pixel-ratio: 2) and (min-width: 400px),( min-resolution: 192dpi) and (min-width: 400px),(min-resolution: 2dppx) and (min-width: 400px)': [800]
+        '(min-width: 10px)': [600]
       default_arguments: [400]
