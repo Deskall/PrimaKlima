@@ -166,10 +166,19 @@ class ImageExtension extends Extension
                     throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
                 }
                 $height = $args[0] / $ratio;
-                $height = ($height > $MaxHeight) ? $MaxHeight : $height;
-                $height = ($height < $MinHeight) ? $MinHeight : $height;
+                //Special dimension for retina screen
+                if (strpos($query,'min-device-pixel-ratio: 2') > 0){
+                    $height = ($height > $MaxHeight) ? $MaxHeight : $height;
+                    $height = ($height < $MinHeight) ? $MinHeight : $height;
+                }
+                else
+                {
+                    $height = ($height > $MaxHeight * 2) ? $MaxHeight * 2 : $height;
+                    $height = ($height < $MinHeight * 2) ? $MinHeight * 2 : $height;
+                }
+               
                 $args[1] = $height;
-                print_r(strpos($query,'min-device-pixel-ratio: 2'));
+               
                 $sizes->push(ArrayData::create([
                     'Image' => $this->getResampledImage($methodName, $args),
                     'Query' => $query
