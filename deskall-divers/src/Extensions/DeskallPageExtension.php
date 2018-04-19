@@ -30,7 +30,6 @@ class DeskallPageExtension extends DataExtension
     }
 
     public function updateCMSFields(FieldList $fields){
-        print_r('ici');
         if ($this->owner->ShowInMenus){
             $field = OptionsetField::create('ShowInMainMenu','In welchem Menu sollt diese Seite anzeigen ?', $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
             $fields->insertAfter($field,'MenuTitle');
