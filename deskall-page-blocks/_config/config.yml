@@ -1,5 +1,7 @@
 ---
 Name: deskall-page-blocks
+After:
+    - '#deskall-divers'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-page-blocks
