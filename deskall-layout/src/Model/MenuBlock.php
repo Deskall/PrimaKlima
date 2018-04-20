@@ -16,7 +16,8 @@ class MenuBlock extends LayoutBlock{
 		'UseMenuOption' => 'Varchar(255)',
 		'ShowSubLevels' => 'Boolean(0)',
 		'ShowSubLevelsBis' => 'Int',
-		'SubLevelLayout' => 'Varchar(255)'
+		'SubLevelLayout' => 'Varchar(255)',
+		'isMobile' => 'Boolean(0)'
 	];
 
 	private static $has_one = [
@@ -76,6 +77,7 @@ class MenuBlock extends LayoutBlock{
 
 		$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')));
 		$fields->addFieldToTab('Root.LayoutTab',DropdownField::create('Layout',_t(__CLASS__.'.Layout','Ausrichtung'),$this->stat('block_layouts')),'Width');
+		$fields->addFieldToTab('Root.LayoutTab',CheckboxField::create('isMobile',_t(__CLASS__.'.MobileNav','Menu für Mobile ?')),'Width');
 
 		$fields->addFieldToTab('Root.Main',CompositeField::create(
 			CheckboxField::create('UseMenu',_t(__CLASS__.'.UseMenu','Site Struktur benutzen'))->displayIf('Type')->isEqualTo('links')->end(),

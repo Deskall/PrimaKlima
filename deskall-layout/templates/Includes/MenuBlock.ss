@@ -1,4 +1,4 @@
-<div class="$Layout $Width uk-visible@m $Class">
+<div class="$Layout $Width <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
 	<% if Type == "links" %>
 	<ul class="uk-navbar-nav">
 		<% if UseMenu %>

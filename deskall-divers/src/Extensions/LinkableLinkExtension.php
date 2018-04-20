@@ -25,19 +25,14 @@ class LinkableLinkExtension extends DataExtension implements i18nEntityProvider
     private static $types = [
     ];
 
+    private static $defaults = [
+        'Icone' => 'chevron-right'
+    ];
+
     private static $block_link_alignments = [
         'left' =>  'Links',
         'center' =>  'Mittel',
         'right' => 'Rechts'
-    ];
-
-    private static $link_backgrounds = [
-        'uk-button-default' => 'keine Hintergrundfarbe',
-        'uk-button-primary dk-text-hover-primary' => 'primäre Farbe',
-        'uk-button-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
-        'uk-button-muted dk-text-hover-muted' => 'grau',
-        'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
-        'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
     ];
 
 
@@ -63,9 +58,7 @@ class LinkableLinkExtension extends DataExtension implements i18nEntityProvider
         foreach(Config::inst()->get(__CLASS__,'block_link_alignments') as $key => $value) {
           $entities[__CLASS__.".block_link_alignments_{$key}"] = $value;
         }
-        foreach(Config::inst()->get(__CLASS__,'link_backgrounds') as $key => $value) {
-          $entities[__CLASS__.".link_backgrounds_{$key}"] = $value;
-        }
+
        
         return $entities;
     }

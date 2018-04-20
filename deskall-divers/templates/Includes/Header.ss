@@ -2,6 +2,7 @@
 	<div class="uk-container uk-container-medium uk-position-relative">
 		<%-- <a href="" class="uk-logo uk-align-left" title="$SiteConfig.Title Home"><img src="$ThemeDir/img/logo.svg" alt="$SiteConfig.Title Logo" title="Home" data-uk-svg /></a> --%>
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+			
 			<% loop SiteConfig.activeMenuBlocks %>
 				$forTemplate
 			<% end_loop %>
@@ -34,6 +35,9 @@
 				    <% end_if %>
 			    </ul>
 			</div> --%>
+			<div class="uk-navbar-right uk-hidden@m">
+	            <button class="uk-button uk-padding-remove" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
+	        </div>
 		</nav>
 		<%-- <nav class="uk-navbar-container uk-navbar-transparent uk-navbar" data-uk-navbar>
 			
@@ -53,11 +57,9 @@
 		            </li>
 			    	<% end_loop %>
 			    </ul>
-			</div>
-			<div class="uk-navbar-right uk-hidden@m">
-	            <button class="uk-button uk-padding-remove" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
-	        </div>
-		</nav> --%>
+			</div>	</nav> --%>
+			
+	
 		
 	</div>
 </header>
