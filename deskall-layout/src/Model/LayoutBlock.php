@@ -113,7 +113,7 @@ class LayoutBlock extends DataObject{
 								LabelField::create('Links', _t(__CLASS__.'.LinksLabel','Links können erst nach dem Speichern erstellt werden')))->setName('LinksField');
 						}
 
-						$fields->push($LinksField);
+						$fields->addFieldToTab('Root.Main',$LinksField);
 						$LinksField->displayIf('Type')->isEqualTo('links');
 			}
 			
