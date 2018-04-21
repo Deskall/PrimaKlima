@@ -197,7 +197,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $MenusField = new GridField(
         'MenuBlocks',
         'MenuBlocks',
-        $this->owner->MenuBlocks(),
+        $this->owner->MenuBlocks()->filter('ClassName','MenuBlock'),
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
