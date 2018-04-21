@@ -1,4 +1,4 @@
-<li data-uk-icon="icon:  <% if $Icon %>$Icon;<% end_if %>" data-level="$Level">
+<li data-uk-icon="icon:  <% if $LinkableLink.Icone %>$LinkableLink.Icone;<% end_if %>" data-level="$Level">
 	<% with LinkableLink %>
 	    <% if $LinkURL %>
 	     	<a href="$LinkURL" {$TargetAttr}>

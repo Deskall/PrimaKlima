@@ -7,7 +7,6 @@ use SilverStripe\ORM\FieldType\DBField;
 class LayoutLink extends DataObject{
 
 	private static $db = [
-		'Icon' => 'Varchar(255)',
 		'Type' => 'Varchar(255)'
 	];
 
@@ -42,14 +41,11 @@ class LayoutLink extends DataObject{
 
         $fields->removeByName('ParentID');
         $fields->removeByName('Type');
-        $fields->addFieldToTab('Root.Main',HTMLDropdownField::create('Icon',_t(__CLASS__. '.Icon','Icon'),$this->getSourceIcons())->setEmptyString(_t(__CLASS__. '.IconLabel','Icon hinzufügen'))->addExtraClass('columns'));
+      
         return $fields;
     }
 
-    public function getSourceIcons(){
-        //To do : filter relevant icons
-        return HTMLDropdownField::getSourceIcones();
-    }
+   
 
     public function DisplayLink(){
     	$html = '<div><span>'.$this->LinkableLink()->getLinkType().'</span><span>'.$this->LinkableLink()->Title.'</span><span>'.$this->LinkableLink()->LinkURL.'</span></div>';

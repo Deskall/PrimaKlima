@@ -113,7 +113,7 @@ class LayoutBlock extends DataObject{
 								LabelField::create('Links', _t(__CLASS__.'.LinksLabel','Links können erst nach dem Speichern erstellt werden')))->setName('LinksField');
 						}
 
-						$fields->addFieldToTab('Root.Main',$LinksField);
+						$fields->push($LinksField);
 						$LinksField->displayIf('Type')->isEqualTo('links');
 			}
 			
@@ -129,6 +129,9 @@ class LayoutBlock extends DataObject{
 	public function onBeforeWrite(){
 		if (!$this->SiteConfigID){
 			$this->SiteConfigID = SiteConfig::current_site_config()->ID;
+		}
+		if ($this->Width == ""){
+			$this->Width = "uk-width-auto";
 		}
 		parent::onBeforeWrite();
 	}

@@ -3,6 +3,7 @@
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Assets\Image;
@@ -45,6 +46,8 @@ class MenuBlock extends LayoutBlock{
 		'uk-navbar-right' => 'uk-navbar-right'
 	];
 
+	private static $defaults = ['isMobile' => 0];
+
 
 
 	public function NiceTitle(){
@@ -72,12 +75,12 @@ class MenuBlock extends LayoutBlock{
 		$fields->removeByName('Title');
 		$fields->removeByName('UseMenu');
 		$fields->removeByName('UseMenuOption');
+		$fields->removeByName('isMobile');
 		$fields->removeByName('ShowSubLevels');
 		$fields->removeByName('ShowSubLevelsBis');
 
 		$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')));
 		$fields->addFieldToTab('Root.LayoutTab',DropdownField::create('Layout',_t(__CLASS__.'.Layout','Ausrichtung'),$this->stat('block_layouts')),'Width');
-		$fields->addFieldToTab('Root.LayoutTab',CheckboxField::create('isMobile',_t(__CLASS__.'.MobileNav','Menu für Mobile ?')),'Width');
 
 		$fields->addFieldToTab('Root.Main',CompositeField::create(
 			CheckboxField::create('UseMenu',_t(__CLASS__.'.UseMenu','Site Struktur benutzen'))->displayIf('Type')->isEqualTo('links')->end(),
@@ -109,8 +112,7 @@ class MenuBlock extends LayoutBlock{
 		}
 		//print_r($menu);
 		return $this->renderWith('Includes/MenuBlock', [
-			'Menu' =>$menu,
-			'Test' => 'test']);
+			'Menu' =>$menu]);
 	}
 
 

@@ -59,7 +59,10 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterBackground' => 'Varchar(255)',
     'FooterLogoWidth' => 'Varchar(255)',
     'FooterFontSize' => 'Varchar(255)',
-    'FooterFontColor' => 'Varchar(7)'
+    'FooterFontColor' => 'Varchar(7)',
+
+    'MobileNaviBackground' => 'Varchar(255)',
+    'MobileNaviHoverFontColor' => 'Varchar(7)'
 
   ];
 
@@ -95,13 +98,17 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterLogoWidth' => '@footer-logo-width',
     'FooterBackground' => '@footer-background-color',
     'FooterFontColor' => '@footer-font-color',
-    'FooterFontSize' => '@footer-font-size'
+    'FooterFontSize' => '@footer-font-size',
+
+    'MobileNaviHoverFontColor' => '@mobile-navigation-active-color',
+
 
   ];
 
   private static $has_many = [
     'FooterBlocks' => FooterBlock::class,
     'MenuBlocks' => MenuBlock::class,
+    'MobileMenuBlocks' => MobileMenuBlock::class,
     'Colors' => Color::class
   ];
 
@@ -213,7 +220,24 @@ class SiteConfigLayoutExtension extends DataExtension
     )->setTitle(_t(__CLASS__.'.HeaderLayout','Header Layout'))->setName('HeaderBackgroundFields'));
 
     
+    //MOBILE NAVI
+    $MobileMenusField = new GridField(
+        'MobileMenuBlocks',
+        'MenuBlocks',
+        $this->owner->MobileMenuBlocks(),
+        GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
+        ->addComponent(new GridFieldShowHideAction())
+    );
+    $fields->addFieldToTab("Root.Layout.MobileNavigation.Content", $MobileMenusField);
 
+    $fields->addFieldToTab("Root.Layout.MobileNavigation.Layout", CompositeField::create(
+      FieldGroup::create(
+        HTMLDropdownField::create('MobileNaviBackground',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getBackgroundColors())->addExtraClass('colors'),
+        TextField::create('MobileNaviHoverFontColor',_t(__CLASS__.'.HeaderHoverFontColor','Aktive und Hover Schriftfarbe'))->addExtraClass('jscolor')
+      )
+    )->setTitle(_t(__CLASS__.'.MobileNaviLayout','MobileNavigation Layout'))->setName('MobileNaviFields'));
+
+    
 
 
 
@@ -238,6 +262,9 @@ class SiteConfigLayoutExtension extends DataExtension
         ->addComponent(new GridFieldShowHideAction())
     );
     $fields->addFieldToTab("Root.Layout.Footer.Content", $FooterLinksField);
+
+
+
     
     return $fields;
   }
@@ -248,7 +275,11 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function activeMenuBlocks(){
-    return $this->owner->MenuBlocks()->filter('isVisible',1);
+    return $this->owner->MenuBlocks()->filter(['isVisible' => 1, 'isMobile' => 0]);
+  }
+
+  public function activeMobileMenuBlocks(){
+    return $this->owner->MobileMenuBlocks()->filter(['isVisible' => 1, 'isMobile' => 1]);
   }
 
   public function onBeforeWrite(){
@@ -260,6 +291,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->FooterFontColor = "#".$this->owner->FooterFontColor;
     $this->owner->FooterBackground = "#".$this->owner->FooterBackground;
     $this->owner->H1FontColor = "#".$this->owner->H1FontColor;
+    $this->owner->MobileNaviHoverFontColor = "#".$this->owner->MobileNaviHoverFontColor;
 
   }
 
