@@ -6,6 +6,7 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Assets\Image;
 
 class ImageExtension extends Extension
 {
@@ -185,6 +186,36 @@ class ImageExtension extends Extension
                 ]));
             }
           
+            //reset default
+            $defaultArgs = [];
+            $defaultArgs[0] = $config['default_arguments'][0];
+            $defaultArgs[1] = $defaultArgs[0] / $ratio;
+        }
+        elseif ($set == "content"){
+            $image = DataObject::get_by_id(Image::class,reset($defaultArgs));
+            if (!$image){
+                throw new Exception("Responsive set $set doesn't have the correct arguments provided for the image ID");
+            }
+
+            // If methode slide we calculate the ration
+            $ratio = $image->getWidth() / $image->getHeight();
+
+            foreach ($config['arguments'] as $query => $args) {
+                if (is_numeric($query) || !$query) {
+                    throw new Exception("Responsive set $set has an empty media query. Please check your config format");
+                }
+
+                if (!is_array($args) || empty($args)) {
+                    throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
+                }
+                $height = $args[0] / $ratio;
+                $args[1] = $height;
+                $sizes->push(ArrayData::create([
+                    'Image' => $this->getResampledImage($methodName, $args),
+                    'Query' => $query
+                ]));
+            }
+            
             //reset default
             $defaultArgs = [];
             $defaultArgs[0] = $config['default_arguments'][0];

@@ -1,12 +1,13 @@
-<li data-uk-icon="icon:  <% if $LinkableLink.Icone %>$LinkableLink.Icone;<% end_if %>" data-level="$Level">
+<li data-level="$Level">
 	<% with LinkableLink %>
 	    <% if $LinkURL %>
-	     	<a href="$LinkURL" {$TargetAttr}>
+	     	<a  href="$LinkURL" {$TargetAttr}>
+                <% if $Icone %><span class="uk-margin-small-right" data-uk-icon="icon:  $Icone;"></span><% end_if %> 
 	            $Title
 	        </a>
 	    <% end_if %>
 	<% end_with %>
-    <% if Children %>
+    <% if ShowSubLevels && Children %>
     		<div class="uk-navbar-dropdown uk-margin-remove $DropdownType">
                 <ul class="uk-nav uk-navbar-dropdown-nav">
                 	<% loop Children %>

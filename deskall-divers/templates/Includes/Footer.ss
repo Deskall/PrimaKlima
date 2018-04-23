@@ -1,8 +1,5 @@
 <footer class="uk-section $SiteConfig.FooterBackground" data-uk-height-match="target:.title-container;row:false;">
 	<div class="uk-container">
-		<div class="uk-padding-small uk-padding-remove-left uk-padding-remove-top logo-container">
-		<img src="$ThemeDir/img/logo.svg" alt="$SiteConfig.Title Logo" title="$SiteConfig.Title Logo" data-uk-svg class="uk-logo" />
-		</div>
 		<div class="uk-panel uk-flex uk-flex-left@s uk-margin-small-top" data-uk-grid>
 			<% loop $SiteConfig.activeFooterBlocks %>
 		    <div class="$Width $Class">
@@ -37,6 +34,8 @@
 		    		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$Title</h3>
 		    	</div>
 		    	$Content
+		    	<% else_if Type == "logo" %>
+		    	<img src="$Logo.ScaleWidth($Top.SiteConfig.FooterLogoWidth).URL" />
 		        <% else %>
 		    	<div class="title-container">
 		    		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$Title</h3>

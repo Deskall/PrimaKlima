@@ -4,9 +4,13 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\OptionsetField;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\TextField;
-use SilverStripe\Assets\Image;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
+use SilverStripe\Control\Controller;
+use SilverStripe\SiteConfig\SiteConfigLeftAndMain;
+
 use SilverStripe\CMS\Controllers\ContentController;
 
 class MenuBlock extends LayoutBlock{
@@ -19,10 +23,6 @@ class MenuBlock extends LayoutBlock{
 		'ShowSubLevelsBis' => 'Int',
 		'SubLevelLayout' => 'Varchar(255)',
 		'isMobile' => 'Boolean(0)'
-	];
-
-	private static $has_one = [
-		'Logo' => Image::class
 	];
 
 	private static $has_many = [
@@ -70,6 +70,12 @@ class MenuBlock extends LayoutBlock{
 	    return $labels;
 	}
 
+	public function Preview(){
+     $Preview = new DBHTMLText();
+     $Preview->setValue($this->renderWith(__CLASS__.'_preview'));
+     return $Preview;
+    }
+
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Title');
@@ -79,28 +85,32 @@ class MenuBlock extends LayoutBlock{
 		$fields->removeByName('ShowSubLevels');
 		$fields->removeByName('ShowSubLevelsBis');
 
-		$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')));
-		$fields->addFieldToTab('Root.LayoutTab',DropdownField::create('Layout',_t(__CLASS__.'.Layout','Ausrichtung'),$this->stat('block_layouts')),'Width');
+	//	$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')));
+		
 
-		$fields->addFieldToTab('Root.Main',CompositeField::create(
+		$fields->addFieldToTab('Root.Main',Wrapper::create(CompositeField::create(
 			CheckboxField::create('UseMenu',_t(__CLASS__.'.UseMenu','Site Struktur benutzen'))->displayIf('Type')->isEqualTo('links')->end(),
 			DropdownField::create('UseMenuOption',_t(__CLASS__.'.UseMenu','Welche Menu benutzen'),$this->getTranslatedSourceFor(__CLASS__,'menu_options'))->displayIf('UseMenu')->isChecked()->end(),
 			CheckboxField::create('ShowSubLevels',_t(__CLASS__.'.ShowSubLevels','Untenmenu anzeigen'))->displayIf('UseMenu')->isChecked()->andIf('UseMenuOption')->isEqualTo('main')->end(),
 			NumericField::create('ShowSubLevelsBis',_t(__CLASS__.'.ShowSubLevelsBis','Navigation Stufen'))->displayIf('ShowSubLevels')->isChecked()->end()
-		)->setTitle(_t(__CLASS__.'.MenuSettings','Menu Einstellungen'))->setName('MenuSettings'));
+		))->setTitle(_t(__CLASS__.'.MenuSettings','Menu Einstellungen'))->setName('MenuSettings'));
 
 		$fields->insertAfter(TextField::create('SubLevelLayout',_t(__CLASS__.'.SubLevelLayout','Unten Navigation Layout'))->displayIf('ShowSubLevels')->isChecked()->end(),'Layout');
 
 
 		if ($linksfield = $fields->fieldByName('Root.Main.LinksField')){
-			$linksfield->hideIf('UseMenu')->isChecked();
+			$linksfield->displayIf('Type')->isEqualTo('links')->andIf('UseMenu')->isNotChecked();
 		}
-		$fields->fieldByName('Root.Main.Logo')->displayIf('Type')->isEqualTo('logo');
+
+		$fields->fieldByName('Root.Main.MenuSettings')->displayIf('Type')->isEqualTo('links');
+
+		$fields->addFieldToTab('Root.LayoutTab', $l = DropdownField::create('Layout',_t(__CLASS__.'.Layout','Layout'),$this->getTranslatedSourceFor(__CLASS__,'block_layouts'))->setEmptyString(_t(__CLASS__.'.LayoutLabel','Layout auswählen')),'Width');
+		
 
 		return $fields;
 	}
 
-	public function forTemplate(){
+	public function getMenu(){
 		$menu = ContentController::create()->getMenu(1);
 		if ($this->UseMenu){
 			if ($this->UseMenuOption == "main"){
@@ -110,11 +120,35 @@ class MenuBlock extends LayoutBlock{
 				$menu = $menu->filter('ShowInMainMenu',0);
 			}
 		}
-		//print_r($menu);
-		return $this->renderWith('Includes/MenuBlock', [
-			'Menu' =>$menu]);
+		return $menu;
 	}
 
+	public function forTemplate(){
+		return $this->renderWith('Includes/MenuBlock');
+	}
+
+	/**
+     * @return null|string
+     * @throws \Psr\Container\NotFoundExceptionInterface
+     * @throws \SilverStripe\ORM\ValidationException
+     */
+    public function CMSEditLink()
+    {
+        $editLinkPrefix = Controller::join_links(SiteConfigLeftAndMain::singleton()->Link('EditForm'));
+        
+        $link = Controller::join_links(
+            $editLinkPrefix,
+            'field/MenuBlocks/item/',
+            $this->ID
+        );
+
+        $link = Controller::join_links(
+            $link,
+            'edit'
+        );
+       
+        return $link;
+    }
 
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){

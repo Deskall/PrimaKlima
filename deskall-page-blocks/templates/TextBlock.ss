@@ -16,13 +16,13 @@
 						<% if ContentImage.getExtension == "svg" %>
 							<img src="$ContentImage.URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="2500" height="2500">
 						<% else %>
-							$ContentImage.Content(2500,$Title)
+							$ContentImage.Content($ContentImage.ID,2500,$Title)
 						<% end_if %>
 					<% else %>
 						<% if ContentImage.getExtension == "svg" %>
 							<img src="$ContentImage.URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="1200" height="1200" >
 						<% else %>
-							$ContentImage.Content(1200,$Title)
+							$ContentImage.Content($ContentImage.ID,1200,$Title)
 						<% end_if %>
 					<% end_if %>
 				</a>

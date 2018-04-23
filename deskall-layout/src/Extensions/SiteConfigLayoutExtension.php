@@ -242,7 +242,16 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
     //FOOTER
-     $fields->addFieldToTab("Root.Layout.Footer.Layout", CompositeField::create(
+    $FooterLinksField = new GridField(
+        'FooterBlocks',
+        'FooterBlocks',
+        $this->owner->FooterBlocks(),
+        GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
+        ->addComponent(new GridFieldShowHideAction())
+    );
+    $fields->addFieldToTab("Root.Layout.Footer.Content", $FooterLinksField);
+
+    $fields->addFieldToTab("Root.Layout.Footer.Layout", CompositeField::create(
       FieldGroup::create(
         TextField::create('FooterBackground',_t(__CLASS__.'.FooterBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
         TextField::create('FooterFontColor',_t(__CLASS__.'.FooterFontColor','Schriftfarbe'))->addExtraClass('jscolor')
@@ -254,14 +263,7 @@ class SiteConfigLayoutExtension extends DataExtension
      
     )->setTitle(_t(__CLASS__.'.FooterLayout','Footer Layout'))->setName('FooterLayoutFields'));
 
-    $FooterLinksField = new GridField(
-        'FooterBlocks',
-        'FooterBlocks',
-        $this->owner->FooterBlocks(),
-        GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
-        ->addComponent(new GridFieldShowHideAction())
-    );
-    $fields->addFieldToTab("Root.Layout.Footer.Content", $FooterLinksField);
+  
 
 
 

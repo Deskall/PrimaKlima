@@ -3,15 +3,17 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Assets\Image;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\LabelField;
 use SilverStripe\Forms\GridField\GridField;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
-
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 class LayoutBlock extends DataObject{
 
@@ -29,13 +31,22 @@ class LayoutBlock extends DataObject{
 	];
 
 	private static $has_one = [
-		'SiteConfig' => SiteConfig::class
+		'SiteConfig' => SiteConfig::class,
+		'Logo' => Image::class
 	];
 
-	
+	private static $owns = ['Logo'];
+
+	private static $block_types = [
+		'adresse' => 'Adresse',
+		'links' => 'Links',
+		'content' => 'Inhalt',
+        'logo' => 'Logo',
+        'form' => 'Formular'
+	];
 
 	private static $summary_fields = [
-	    'NiceType' ,
+	    'NiceType' => 'Blocktyp' ,
 	    'Preview',
 	    'displayWidth'
 	];
@@ -75,6 +86,9 @@ class LayoutBlock extends DataObject{
 		return ($this->Type == "adresse") ? $this->SiteConfig()->Title : $this->Title;
 	}
 
+
+	
+
 	public function NiceType(){
 		return $this->stat('block_types')[$this->Type];
 	}
@@ -91,7 +105,9 @@ class LayoutBlock extends DataObject{
 
 	public function getCMSFields(){
 		$this->beforeUpdateCMSFields(function ($fields) {
-
+			$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')));
+			$fields->addFieldToTab('Root.Main',UploadField::create('Logo',_t(__CLASS__.'.Logo','Logo'))->setFolderName('Uploads/Einstellungen'));
+			$fields->addFieldToTab('Root.Main',TextareaField::create('Title',_t(__CLASS__.'.Title','Titel'))->setRows(2));
 			$fields->addFieldToTab('Root.LayoutTab', $w = DropdownField::create('Width',_t(__CLASS__.'.Width','Breite'),$this->getTranslatedSourceFor(__CLASS__,'widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
 			$fields->addFieldToTab('Root.LayoutTab', $cs = TextField::create('Class',_t(__CLASS__.'.ExtraClass','Extra CSS Class'))->setDescription(_t(__CLASS__.'.ClassDescription','Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt')));
 			
@@ -99,14 +115,15 @@ class LayoutBlock extends DataObject{
 			$fields->removeByName('Links');
 			$fields->removeByName('SiteConfigID');
 			$title->displayIf('Type')->isEqualTo('links');
-			if ($this->Type == "links"){
-				if ($this->ID > 0){
+			
+			if ($this->ID > 0){
+				$fields->fieldByName('Root.Main.Type')->setDisabled(true);
 							$LinksField = Wrapper::create(new GridField(
 						        'Links',
 						        _t(__CLASS__.'.Links','Links'),
 						        $this->Links(),
 						        GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))
-						    ))->setName('LinksField');
+						    ))->setName('LinksField')->displayIf('Type')->isEqualTo('links')->end();
 						}
 						else {
 							$LinksField = Wrapper::create(
@@ -114,11 +131,12 @@ class LayoutBlock extends DataObject{
 						}
 
 						$fields->addFieldToTab('Root.Main',$LinksField);
-						$LinksField->displayIf('Type')->isEqualTo('links');
-			}
 			
-			$fields->addFieldToTab('Root.Main', $content = TextareaField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Title');
+			
+			$fields->addFieldToTab('Root.Main', $content = HTMLEditorField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Type');
 			$content->displayIf('Type')->isEqualTo('content');
+
+			$fields->fieldByName('Root.Main.Logo')->displayIf('Type')->isEqualTo('logo');
 
 			$fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
 			$fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LayoutTab','Layout'));
@@ -150,6 +168,10 @@ class LayoutBlock extends DataObject{
         foreach($this->stat('backgrounds') as $key => $value) {
           $entities[__CLASS__.".backgrounds_{$key}"] = $value;
         }             
+
+        foreach($this->stat('block_types') as $key => $value) {
+          $entities[__CLASS__.".block_types_{$key}"] = $value;
+        }
         return $entities;
     }
 

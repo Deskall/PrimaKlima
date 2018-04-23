@@ -4,7 +4,7 @@
 		<% if UseMenu %>
 			<% loop Menu %>
 		    	<li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" title="$Title.XML">$MenuTitle.XML</a>
-		    		<% if Children %>
+		    		<% if ShowSubLevels && Children %>
 		    		<div class="uk-navbar-dropdown uk-margin-remove">
 	                    <ul class="uk-nav uk-navbar-dropdown-nav">
 	                    	<% loop Children %>

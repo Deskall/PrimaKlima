@@ -98,7 +98,7 @@ ImageExtension:
       default_arguments: [600]
       uikit: 'data-uk-cover'
     Content:
-      method: FocusFill
+      method: FocusFillMax
       arguments:
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 2000px),(min--moz-device-pixel-ratio: 2) and (min-width: 2000px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 2000px),(min-device-pixel-ratio: 2) and (min-width: 2000px),( min-resolution: 192dpi) and (min-width: 2000px),(min-resolution: 2dppx) and (min-width: 2000px)': [5000]
         '(min-width: 2000px)': [2500]

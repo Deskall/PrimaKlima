@@ -2,9 +2,11 @@
 @mobile-nav-item-height:40px;
 
 header{
-	min-height:@header-menu-collapsed-height;
-	@media (min-width:@breakpoint-medium){
-		min-height:@header-menu-height;
+	.uk-navbar-container {
+		min-height:@header-menu-collapsed-height;
+		@media (min-width:@breakpoint-medium){
+			min-height:@header-menu-height;
+		}
 	}
 	.uk-logo{
 		height:@navbar-nav-item-height;
@@ -12,84 +14,32 @@ header{
 			height:100%;
 			width:auto;
 		}
-
-		@media (min-width:@breakpoint-medium){
-			height:60px;
-			margin:0;
-		}
-		@media (min-width:@breakpoint-large){
-			margin-top:~"calc(@{navbar-nav-item-height} - 10px)";
-			
-		}
 	}
 	&.dk-background-header{
 		background:@dk-background-header;
 	}
-	
-	.uk-navbar-nav.main{
-		padding-top: @navbar-nav-item-height;
-		.uk-navbar-nav > li > a{
-			.nav-font;
-			border-bottom:2px solid transparent;
-		}
-		.uk-navbar-nav > li > a:hover{
-			border-bottom-color:@nav-active-border-color;
-		}
-		.uk-navbar-nav > li.uk-active > a{
-			border-bottom-color:@nav-active-border-color;
-		}
-		.uk-navbar-dropdown{
-			background:@white-background;
-		}
-		.uk-navbar-toggle-icon{
-			line-height: @header-menu-collapsed-height;
-		}
-	}
+
 	.dk-submenu{
 		.uk-navbar-nav > li > a{
 			.subnav-font;
 		}
 	}
 }
-header li[data-uk-icon], .dk-nav-mobile-container li[data-uk-icon]{
-		padding-left: 10px;
-		display: block;
-		position: relative;
-		line-height: @global-line-height;
-		margin-top:0;
-		
-	 	svg{
-			position: absolute;
-			left:0;
-		}
-		a{
-			color:inherit;
-			text-decoration: none;
-			margin-bottom:5px;
-		}
-		&.dk-large-icon{
-			padding-left: 50px;
-		}
+header li > a[data-uk-icon], .dk-nav-mobile-container li > a[data-uk-icon]{
+	text-decoration: none;
+	&.dk-large-icon{
+		padding-left: 50px;
 	}
-header li[data-uk-icon]{
+}
+header li > a{
 	height: @navbar-nav-item-height;
-	svg{
-		top:50%;
-	}
+	line-height: @navbar-nav-item-height;
+	color:@navbar-nav-item-color;
 }
-.dk-nav-mobile-container li[data-uk-icon]{
-	a{
-		padding-top: 0;
-		padding-bottom: 0;
-	}
-	svg{
-		top:@mobile-nav-item-height/2;
-		transform: translateY(-(@mobile-nav-item-height/2 - (@mobile-nav-font-size*@global-line-height - @mobile-nav-font-size)/2));
-	}
-}
+
 //MOBILE NAVIGATION
 .dk-toggle-mobile-menu{
-	line-height: @navbar-nav-item-height;
+	line-height: @header-menu-collapsed-height;
 }
 .dk-nav-mobile-container .uk-navbar-nav > li{
 	display: block;
