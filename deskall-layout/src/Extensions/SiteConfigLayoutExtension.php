@@ -60,6 +60,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterBackground' => 'Varchar(255)',
     'FooterLogoWidth' => 'Varchar(255)',
     'FooterFontSize' => 'Varchar(255)',
+    'FooterTitleFontSize' => 'Varchar(255)',
     'FooterFontColor' => 'Varchar(7)',
 
     'MobileNaviBackground' => 'Varchar(255)',
@@ -100,6 +101,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterBackground' => '@footer-background-color',
     'FooterFontColor' => '@footer-font-color',
     'FooterFontSize' => '@footer-font-size',
+    'FooterTitleFontSize' => '@footer-title-font-size',
 
     'MobileNaviHoverFontColor' => '@mobile-navigation-active-color',
 
@@ -263,6 +265,7 @@ class SiteConfigLayoutExtension extends DataExtension
       ),
       FieldGroup::create(
         TextField::create('FooterLogoWidth',_t(__CLASS__.'.Footerlogowidtht','Logo Breite')),
+        TextField::create('FooterTitleFontSize',_t(__CLASS__.'.FooterTitleFontSize','Footer Titel Schriftgrösse')),
         TextField::create('FooterFontSize',_t(__CLASS__.'.FooterFontSize','Footer Schriftgrösse'))
       )
      
