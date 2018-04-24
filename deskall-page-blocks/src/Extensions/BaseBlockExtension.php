@@ -93,17 +93,17 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     private static $icon;
 
     private static $block_text_alignments = [
-        'uk-text-left' =>  [
+        'uk-text-justify uk-text-left@s' =>  [
             'value' => 'uk-text-justify uk-text-left@s',
             'title' => 'Links Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
-        'uk-text-right' => [
+        'uk-text-justify uk-text-right@s' => [
             'value' => 'uk-text-justify uk-text-right@s',
             'title' => 'Rechts Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
-        'uk-text-center' =>  [
+        'uk-text-justify uk-text-center@s' =>  [
             'value' => 'uk-text-justify uk-text-center@s',
             'title' => 'Mittel Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
