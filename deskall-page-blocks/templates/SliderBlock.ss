@@ -12,7 +12,7 @@
                         <div class=" uk-light uk-text-center">
                             <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
                             <% if Title %><h2>$Title</h2><% end_if %>
-                            <div class="uk-text-lead">$Content</div>
+                            <div class="uk-text-lead uk-visible@s">$Content</div>
                             <% if Effect == "parallax" %></div><% end_if %>
                             <% if LinkableLinkID > 0 %>
                                 <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
