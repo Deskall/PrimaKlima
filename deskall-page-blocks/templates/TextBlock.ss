@@ -4,7 +4,7 @@
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
 				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description"  data-uk-lightbox>
-					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="350" height="$getHeightForWidth(350)" >
+					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="350" height="$ContentImage.getHeightForWidth(350)" >
 				</a>
 			</div>
 			<div class="uk-width-2-3@m <% if Layout == "right" || Layout == "above" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
