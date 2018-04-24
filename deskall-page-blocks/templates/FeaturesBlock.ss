@@ -1,9 +1,9 @@
 
-<div class="uk-flex" data-uk-grid data-uk-lightbox>
+<div class="uk-flex" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;">
 	<% if ContentImage %>
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
-				<a href="$ContentImage.getSourceURL">
+				<a href="$ContentImage.getSourceURL" class="dk-lightbox">
 					<img src="$ContentImage.Fit(350,250).URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="350" height="250" >
 				</a>
 			</div>
@@ -11,7 +11,7 @@
 			</div>
 		<% else %>
 			<div class="uk-width-1-1">
-				<a href="$ContentImage.getSourceURL">
+				<a href="$ContentImage.getSourceURL" class="dk-lightbox">
 					<% if $FullWidth %>
 					<img src="$ContentImage.URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="$ContentImage.Resampled().Width" height="$ContentImage.Resampled().height" >
 					<% else %>

@@ -1,9 +1,9 @@
 
-<div <% if ContentImage %>data-uk-grid<% end_if %>>
+<div <% if ContentImage %>data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %>>
 	<% if ContentImage %>
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
-				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description"  data-uk-lightbox>
+				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" >
 					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="350" height="$ContentImage.HeightForWidth(350)" >
 				</a>
 			</div>
@@ -11,7 +11,7 @@
 			</div>
 		<% else %>
 			<div class="uk-width-1-1">
-				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" data-uk-lightbox>
+				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description">
 					<% if $FullWidth %>
 						<% if ContentImage.getExtension == "svg" %>
 							<img src="$ContentImage.URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="2500" height="2500">
