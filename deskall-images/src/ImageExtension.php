@@ -86,6 +86,10 @@ class ImageExtension extends Extension
     
     }
 
+    public function getHeightForWidth($width){
+        return round($width / ($this->owner->getWidth() / $this->owner->getHeight()) , 0);
+    }
+
 
     /**
      * A wildcard method for handling responsive sets as template functions,
