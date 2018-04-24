@@ -57,13 +57,9 @@ ImageExtension:
         '(min-width: 1400px)': [1500]
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px),(min--moz-device-pixel-ratio: 2) and (min-width: 1200px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1200px),(min-device-pixel-ratio: 2) and (min-width: 1200px),( min-resolution: 192dpi) and (min-width: 1200px),(min-resolution: 2dppx) and (min-width: 1200px)': [2800]
         '(min-width: 1200px)': [1400]
-        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1000px),(min--moz-device-pixel-ratio: 2) and (min-width: 1000px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1000px),(min-device-pixel-ratio: 2) and (min-width: 1000px),( min-resolution: 192dpi) and (min-width: 1000px),(min-resolution: 2dppx) and (min-width: 1000px)': [2400]
-        '(min-width: 1000px)': [1200]
-        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 800px),(min--moz-device-pixel-ratio: 2) and (min-width: 800px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 800px),(min-device-pixel-ratio: 2) and (min-width: 800px),( min-resolution: 192dpi) and (min-width: 800px),(min-resolution: 2dppx) and (min-width: 800px)': [2000]
-        '(min-width: 800px)': [1000]
-        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 400px),(min--moz-device-pixel-ratio: 2) and (min-width: 400px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 400px),(min-device-pixel-ratio: 2) and (min-width: 400px),( min-resolution: 192dpi) and (min-width: 400px),(min-resolution: 2dppx) and (min-width: 400px)': [1200]
-        '(min-width: 10px)': [600]
-      default_arguments: [600]
+        '(-webkit-min-device-pixel-ratio: 2) and (min-width: 400px),(min--moz-device-pixel-ratio: 2) and (min-width: 400px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 400px),(min-device-pixel-ratio: 2) and (min-width: 400px),( min-resolution: 192dpi) and (min-width: 400px),(min-resolution: 2dppx) and (min-width: 400px)': [2400]
+        '(min-width: 10px)': [1200]
+      default_arguments: [1200]
       uikit: 'data-uk-cover'
     Banners:
       method: FocusFill
