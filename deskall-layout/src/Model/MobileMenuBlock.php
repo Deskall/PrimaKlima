@@ -20,7 +20,6 @@ class MobileMenuBlock extends MenuBlock{
 
 	private static $block_types = [
 		'content' => 'Inhalt',
-		'address' => 'Adresse',
 		'social' => 'Sozial Netwerke',
 		'divider' => 'Teiler'
 	];

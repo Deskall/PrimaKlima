@@ -39,7 +39,7 @@ class LayoutBlock extends DataObject{
 	private static $owns = ['Logo'];
 
 	private static $block_types = [
-		'adresse' => 'Adresse',
+		'address' => 'Adresse',
 		'links' => 'Links',
 		'content' => 'Inhalt',
         'logo' => 'Logo',

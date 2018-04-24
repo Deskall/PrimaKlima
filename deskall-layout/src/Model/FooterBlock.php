@@ -14,6 +14,14 @@ class FooterBlock extends LayoutBlock{
         'Links' => LayoutLink::class
     ];
 
+    private static $block_types = [
+        'adresse' => 'Adresse',
+        'links' => 'Links',
+        'content' => 'Inhalt',
+        'logo' => 'Logo',
+        'form' => 'Formular'
+    ];
+
     public function Preview(){
      $Preview = new DBHTMLText();
      $Preview->setValue($this->renderWith(__CLASS__.'_preview'));
