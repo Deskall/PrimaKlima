@@ -22,7 +22,8 @@ class LayoutBlock extends DataObject{
 		'Width' => 'Varchar(255)',
 		'Class' => 'Varchar(255)',
 		'Type' => 'Varchar(255)',
-		'Content' => 'HTMLText'
+		'Content' => 'HTMLText',
+		'Layout' => 'Varchar(255)'
 	];
 
 	private static $extensions = [
@@ -66,14 +67,11 @@ class LayoutBlock extends DataObject{
 		'uk-width-expand' => 'verbleibende Breite'
 	];
 
-	private static $backgrounds = [
-        'uk-section-default' => 'keine Hintergrundfarbe',
-        'uk-section-primary dk-text-hover-primary' => 'primäre Farbe',
-        'uk-section-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
-        'uk-section-muted dk-text-hover-muted' => 'grau',
-        'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
-        'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
-    ];
+    private static $block_layouts = [
+		'uk-navbar-left' => 'uk-navbar-left',
+		'uk-navbar-center' => 'uk-navbar-center',
+		'uk-navbar-right' => 'uk-navbar-right'
+	];
 
 
 	public function displayWidth(){
@@ -136,6 +134,8 @@ class LayoutBlock extends DataObject{
 			$fields->addFieldToTab('Root.Main', $content = HTMLEditorField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Type');
 			$content->displayIf('Type')->isEqualTo('content');
 
+			$fields->addFieldToTab('Root.LayoutTab', $l = DropdownField::create('Layout',_t(__CLASS__.'.Layout','Layout'),$this->getTranslatedSourceFor(__CLASS__,'block_layouts'))->setEmptyString(_t(__CLASS__.'.LayoutLabel','Layout auswählen')),'Width');
+
 			$fields->fieldByName('Root.Main.Logo')->displayIf('Type')->isEqualTo('logo');
 			$fields->insertAfter($fields->FieldByName('Root.Main.Content'),'Type');
 			$fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
@@ -163,11 +163,7 @@ class LayoutBlock extends DataObject{
         $entities = [];
         foreach($this->stat('widths') as $key => $value) {
           $entities[__CLASS__.".widths_{$key}"] = $value;
-        }
-
-        foreach($this->stat('backgrounds') as $key => $value) {
-          $entities[__CLASS__.".backgrounds_{$key}"] = $value;
-        }             
+        }       
 
         foreach($this->stat('block_types') as $key => $value) {
           $entities[__CLASS__.".block_types_{$key}"] = $value;

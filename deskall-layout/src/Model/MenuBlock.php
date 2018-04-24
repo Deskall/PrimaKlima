@@ -16,7 +16,6 @@ use SilverStripe\CMS\Controllers\ContentController;
 class MenuBlock extends LayoutBlock{
 
 	private static $db = [
-		'Layout' => 'Varchar(255)',
 		'UseMenu' => 'Boolean(0)',
 		'UseMenuOption' => 'Varchar(255)',
 		'ShowSubLevels' => 'Boolean(0)',
@@ -37,12 +36,6 @@ class MenuBlock extends LayoutBlock{
 	private static $menu_options = [
 		'main' => 'Hauptmenu',
 		'sub' => 'Untenmenu'
-	];
-
-	private static $block_layouts = [
-		'uk-navbar-left' => 'uk-navbar-left',
-		'uk-navbar-center' => 'uk-navbar-center',
-		'uk-navbar-right' => 'uk-navbar-right'
 	];
 
 	private static $defaults = ['isMobile' => 0];
@@ -101,7 +94,7 @@ class MenuBlock extends LayoutBlock{
 
 		$fields->fieldByName('Root.Main.MenuSettings')->displayIf('Type')->isEqualTo('links');
 
-		$fields->addFieldToTab('Root.LayoutTab', $l = DropdownField::create('Layout',_t(__CLASS__.'.Layout','Layout'),$this->getTranslatedSourceFor(__CLASS__,'block_layouts'))->setEmptyString(_t(__CLASS__.'.LayoutLabel','Layout auswählen')),'Width');
+		
 		
 
 		return $fields;
