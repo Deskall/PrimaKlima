@@ -39,8 +39,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     private static $defaults = [
         'ShowTitle' => 1,
         'Background' => 'uk-section-default',
-        'TextAlign' => 'uk-text-left',
-        'TitleAlign' => 'uk-text-left',
+        'TextAlign' => 'uk-text-justify uk-text-left@s',
+        'TitleAlign' => 'uk-text-justify uk-text-left@s',
         'TextColumns' => '1',
         'AvailableGlobally' => 1,
     ];
@@ -94,17 +94,17 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     private static $block_text_alignments = [
         'uk-text-left' =>  [
-            'value' => 'uk-text-left',
+            'value' => 'uk-text-justify uk-text-left@s',
             'title' => 'Links Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
         'uk-text-right' => [
-            'value' => 'uk-text-right',
+            'value' => 'uk-text-justify uk-text-right@s',
             'title' => 'Rechts Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
         'uk-text-center' =>  [
-            'value' => 'uk-text-center',
+            'value' => 'uk-text-justify uk-text-center@s',
             'title' => 'Mittel Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
         ],
