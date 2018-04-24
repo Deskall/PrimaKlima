@@ -3,7 +3,7 @@
 	    <% if $LinkURL %>
 	     	<a  href="$LinkURL" {$TargetAttr}>
                 <% if $Icone %><span class="uk-margin-small-right" data-uk-icon="icon:  $Icone;"></span><% end_if %> 
-	            <span>$Title</span>
+	            <span class="dk-link-with-icon">$Title</span>
 	        </a>
 	    <% end_if %>
 	<% end_with %>
