@@ -1,5 +1,7 @@
 ---
 Name: siteconfiglayout
+After:
+    - '#deskall-divers'
 ---
 SilverStripe\SiteConfig\SiteConfig:
   extensions:

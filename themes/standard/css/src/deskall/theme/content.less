@@ -2,7 +2,7 @@
 // LIST
 
 	li[data-uk-icon]{
-		padding-left: 30px;
+		padding-left: 15px;
 		display: block;
 		position: relative;
 		line-height: @global-line-height;
@@ -15,9 +15,17 @@
 		}
 		a{
 			text-decoration: none;
+			padding: 0 15px;
+			display: block;
 		}
 		&.dk-large-icon{
 			padding-left: 50px;
+		}
+	}
+	.uk-nav li[data-uk-icon]{
+		padding-left: 30px;
+		svg{
+			left:@global-gutter/2;
 		}
 	}
 
@@ -40,6 +48,9 @@
 	}
 	&.uk-section-default{
 		color: @white-background;
+		h2,h3{
+			color:@white-background;
+		}
 	}
 }
 .dk-background-white{
@@ -85,7 +96,7 @@ picture img{
 	height:auto;
 }
 
-.element .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav){
+.dk-text-content a{
 	display: inline-block;
 	position: relative;
 	text-decoration: none;
@@ -107,3 +118,8 @@ picture img{
 	    }
 	}
 } 
+
+a.dk-with-icon span{
+	display: inline-block;
+	vertical-align: top;
+}

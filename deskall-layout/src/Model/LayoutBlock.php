@@ -137,7 +137,7 @@ class LayoutBlock extends DataObject{
 			$content->displayIf('Type')->isEqualTo('content');
 
 			$fields->fieldByName('Root.Main.Logo')->displayIf('Type')->isEqualTo('logo');
-
+			$fields->insertAfter($fields->FieldByName('Root.Main.Content'),'Type');
 			$fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
 			$fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LayoutTab','Layout'));
 		});

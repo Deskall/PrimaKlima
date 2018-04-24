@@ -4,7 +4,7 @@
         <div class="elemental-preview__detail">
         	<% if Type == "adresse" %>
         	<h3>$SiteConfig.AddressTitle</h3>
-        	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
+        	<ul>
         		
 			 		<li>
 			 			$SiteConfig.Address<br/>

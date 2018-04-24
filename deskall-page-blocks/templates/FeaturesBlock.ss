@@ -7,7 +7,7 @@
 					<img src="$ContentImage.Fit(350,250).URL" alt="$ContentImage.AltTag($Title)" title="$ContentImage.TitleTag($Title)" width="350" height="250" >
 				</a>
 			</div>
-			<div class="uk-width-2-3@m <% if Layout == "right" || Layout == "hover" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
+			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" || Layout == "hover" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
 		<% else %>
 			<div class="uk-width-1-1">
@@ -19,11 +19,11 @@
 					<% end_if %>
 				</a>
 			</div>
-			<div class="uk-width-1-1 <% if Layout == "hover" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
+			<div class="dk-text-content uk-width-1-1 <% if Layout == "hover" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
 		<% end_if %>
 	<% else %>
-	<div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+	<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 		$HTML
 	</div>
 	<% end_if %>

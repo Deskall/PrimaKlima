@@ -20,6 +20,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldButtonRow;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\Assets\Image;
@@ -122,7 +123,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'ActiveColor' => ['Code' => 'ActiveColor', 'FontTitle' => 'Aktiv farbe','Color' => '10206B','FontColor' => 'FFFFFF','isReadonly' => 1, 'canChangeTitle' => 1]
   ];
 
-  public function populateDefaults(){
+  public function populateDefaultsColors(){
     if ($this->owner->ID > 0){
       foreach($this->owner->stat('default_colors') as $code => $array){
         if ($this->owner->Colors()->filter('Code',$code)->count() == 0){
@@ -201,6 +202,10 @@ class SiteConfigLayoutExtension extends DataExtension
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
+    //TO DO : rebuild it with multi class option
+    // $MenusField->getConfig()->removeComponentsByType(GridFieldAddNewButton::class)
+    //     ->addComponent(new DeskallGridFieldAddNewMultiClass());
+    // $MenusField->getConfig()->getComponentByType(DeskallGridFieldAddNewMultiClass::class)->setClasses(['MenuBlock' => 'Menu']);
     $fields->addFieldToTab("Root.Layout.Header.Content", $MenusField);
 
     $fields->addFieldToTab("Root.Layout.Header.Layout", CompositeField::create(
@@ -286,7 +291,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function onBeforeWrite(){
     parent::onBeforeWrite();
-    $this->owner->populateDefaults();
+    $this->owner->populateDefaultsColors();
     $this->owner->HeaderBackground = "#".$this->owner->HeaderBackground;
     $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
     $this->owner->HeaderHoverFontColor = "#".$this->owner->HeaderHoverFontColor;

@@ -8,24 +8,24 @@
 			 		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$SiteConfig.AddressTitle</h3>
 			 	</div>
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
-			 		<li data-uk-icon="icon: location;">
+			 		<li data-uk-icon="icon: location;"><a>
 			 			$SiteConfig.Address<br/>
 			 			$SiteConfig.CodeCity<br/>
-			 			$SiteConfig.Country
+			 			$SiteConfig.Country</a>
 			 		</li>
 			 		<% if SiteConfig.Email %>
 			 		<li data-uk-icon="icon: mail;">
-			 			$SiteConfig.Email
+			 			<a>$SiteConfig.Email</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Phone %>
 			 		<li data-uk-icon="icon: receiver;">
-			 			$SiteConfig.Phone
+			 			<a>$SiteConfig.Phone</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Mobile %>
 			 		<li data-uk-icon="icon: phone;">
-			 			$SiteConfig.Mobile
+			 			<a>$SiteConfig.Mobile</a>
 			 		</li>
 			 		<% end_if %>
 		        </ul>

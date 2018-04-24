@@ -1,13 +1,13 @@
 <div class="$Layout $Width $Class">
 	<% if Type == "links" %>
 		<% if UseMenu %>
-		<ul class="dk-nav-mobile uk-nav uk-nav-parent-icon uk-margin-top" data-uk-nav>
+		<ul class="dk-nav-mobile uk-nav uk-nav-parent-icon" data-uk-nav>
 			<% if Title %>
 			<li class="uk-nav-header">$Title</li>
 			<% end_if %>
 			<% loop Menu(1) %>
-			        <li data-uk-icon="icon: chevron-right;" class="$LinkingMode <% if $Children %>uk-parent<% end_if %> <% if LinkingMode == "current" %>uk-active<% end_if %>">
-			            <a href="$Link" title="$Title.XML">$MenuTitle.XML</a>
+			        <li class="$LinkingMode <% if $Children %>uk-parent<% end_if %> <% if LinkingMode == "current" %>uk-active<% end_if %>">
+			            <a href="$Link" title="$Title.XML"><span class="uk-margin-small-right" data-uk-icon="icon: chevron-right;"></span>$MenuTitle.XML</a>
 			            <% if $Children %>
 			            <ul class="uk-nav-sub">
 			            	<% loop $Children %>
@@ -72,17 +72,21 @@
 	<% if Type == "social" %>
 		<ul class="dk-nav-mobile uk-nav">
 			<% if SiteConfig.Facebook %>
-			<li><a href="$SiteConfig.Facebook" data-uk-icon="facebook" target="_blank"></a></li>
+			<li class="uk-display-inline-block"><a href="$SiteConfig.Facebook" data-uk-icon="facebook" target="_blank"></a></li>
 			<% end_if %>
 			<% if SiteConfig.Twitter %>
-			<li><a href="$SiteConfig.Twitter" data-uk-icon="twitter" target="_blank"></a></li>
+			<li class="uk-display-inline-block"><a href="$SiteConfig.Twitter" data-uk-icon="twitter" target="_blank"></a></li>
 			<% end_if %>
 			 <% if SiteConfig.Linkedin %>
-			<li><a href="$SiteConfig.Linkedin" data-uk-icon="linkedin" target="_blank"></a></li>
+			<li class="uk-display-inline-block"><a href="$SiteConfig.Linkedin" data-uk-icon="linkedin" target="_blank"></a></li>
 			<% end_if %>
 			<% if SiteConfig.Xing %>
-			<li><a href="$SiteConfig.Xing" data-uk-icon="xing" target="_blank"></a></li>
+			<li class="uk-display-inline-block"><a href="$SiteConfig.Xing" data-uk-icon="xing" target="_blank"></a></li>
 			<% end_if %>
 		</ul>
+	<% end_if %>
+	<% if Type == "content" %>
+	<h5>$Title</h5>
+	<div class="dk-text-content">$Content</div>
 	<% end_if %>
 </div>

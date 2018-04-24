@@ -53,7 +53,10 @@ class MobileMenuBlock extends MenuBlock{
 		$fields->fieldByName('Root.Main.Type')->setSource($this->getTranslatedSourceFor(__CLASS__,'block_types'));
 		$fields->removeByName('UseMenuOption');
 		$fields->removeByName('LayoutTab');
-		$fields->insertAfter(TextField::create('Title',_t(__CLASS__.'.Title','Titel')),'Type');
+		$fields->insertAfter(TextField::create('Title',_t(__CLASS__.'.Title','Titel'))
+			->displayIf('Type')->isEqualTo('content')
+			->andIf('Type')->isEqualTo('address')
+			->end(),'Type');
 		return $fields;
 	}
 
