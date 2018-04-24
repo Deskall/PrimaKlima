@@ -64,6 +64,11 @@ class ImageExtension extends Extension
         return $title;
     }
 
+    public function HeightForWidth($width){
+        file_put_contents('log.txt', $width);
+        return round($width / ($this->owner->getWidth() / $this->owner->getHeight()) , 0);
+    }
+
     public function onAfterUpload(){
 
         //Resize image to fit max Width and Height before resampling
@@ -84,11 +89,6 @@ class ImageExtension extends Extension
         
         $backend->setImageResource($resource);
     
-    }
-
-    public function getHeightForWidth($width){
-        file_put_contents('log.txt', $width);
-        return round($width / ($this->owner->getWidth() / $this->owner->getHeight()) , 0);
     }
 
 
