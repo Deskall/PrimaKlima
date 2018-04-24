@@ -87,7 +87,7 @@ class ImageExtension extends Extension
     }
 
     public function getHeightForWidth($width){
-        print_r('ici');
+        file_put_contents('log.txt', $width);
         return round($width / ($this->owner->getWidth() / $this->owner->getHeight()) , 0);
     }
 
