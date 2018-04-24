@@ -70,7 +70,7 @@ class Slide extends DataObject
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.Main',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
         $fields->addFieldToTab('Root.Main',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
-
+        $fields->FieldByName('Root.Main.Content')->setRows(3);
         $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
 
         return $fields;
