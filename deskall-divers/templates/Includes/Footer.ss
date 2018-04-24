@@ -2,7 +2,7 @@
 	<div class="uk-container">
 		<div class="uk-panel uk-flex uk-flex-left@s uk-margin-small-top" data-uk-grid>
 			<% loop $SiteConfig.activeFooterBlocks %>
-		    <div class="$Width $Class">
+		    <div class="$Width $Layout $Class">
 		    	<% if Type == "adresse" %>
 		    	<div class="title-container">
 			 		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$SiteConfig.AddressTitle</h3>
