@@ -6,16 +6,16 @@
     overflow: hidden;
 
     &::after {
-        content: "";
+        content: '';
         width: (@accordion-title-line-height * 1em);
         height: (@accordion-title-line-height * 1em);
         float: right;
         display: inherit;
-        .svg-fill( '/src/images/backgrounds/accordion-open.svg', "#000", @accordion-icon-color);
+        .svg-fill( '/src/images/backgrounds/accordion-open.svg', '#000', @accordion-icon-color);
         background-repeat: no-repeat;
         background-position: 50% 50%;
     }
 
-    .uk-open > &::after { .svg-fill('/src/images/backgrounds/accordion-close.svg', "#000", @accordion-icon-color); }
+    .uk-open > &::after { .svg-fill('/src/images/backgrounds/accordion-close.svg', '#000', @accordion-icon-color); }
 
 }
