@@ -1,5 +1,5 @@
-@internal-accordion-open-image:                '/src/images/backgrounds/accordion-open.svg';
-@internal-accordion-close-image:               '/src/images/backgrounds/accordion-close.svg';
+@internal-accordion-open-image:                'themes/standard/css/src/images/backgrounds/accordion-open.svg';
+@internal-accordion-close-image:               'themes/standard/css/src/images/backgrounds/accordion-close.svg';
 
 .hook-accordion-title() {
 
@@ -11,11 +11,11 @@
         height: (@accordion-title-line-height * 1em);
         float: right;
         display: inherit;
-        .deskall-svg-fill( '/src/images/backgrounds/accordion-open.svg', '#000', @accordion-icon-color);
+        .svg-fill( @internal-accordion-open-image, '#000', @accordion-icon-color);
         background-repeat: no-repeat;
         background-position: 50% 50%;
     }
 
-    .uk-open > &::after { .deskall-svg-fill('/src/images/backgrounds/accordion-close.svg', '#000', @accordion-icon-color); }
+    .uk-open > &::after { .svg-fill(@internal-accordion-close-image, '#000', @accordion-icon-color); }
 
 }
