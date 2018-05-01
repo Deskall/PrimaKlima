@@ -1,5 +1,4 @@
 <% if ID < 0 || $noSlide %>
-$SiteConfig.ID
 	<% include DefaultSlide %>
 <% end_if %>
 
