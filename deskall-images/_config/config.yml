@@ -11,8 +11,8 @@ SilverStripe\AssetAdmin\Forms\ImageFormFactory:
 SilverStripe\Assets\Image:
   allowed_extensions:
     - svg
-  MaxWidth: 5000
-  MaxHeight: 5000
+  MaxWidth: 2500
+  MaxHeight: 2500
   memory: 512M
   extensions:
     - ImageExtension
