@@ -6,6 +6,9 @@ After:
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-page-blocks
 
+DNADesign\Elemental\Controllers\ElementController:
+  include_default_styles: false
+
 DNADesign\Elemental\Models\BaseElement:
   default_global_elements: true
   extensions:
