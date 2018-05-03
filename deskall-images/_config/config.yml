@@ -24,6 +24,7 @@ SilverStripe\Assets\Storage\DBFile:
   force_resample: true
 
 SilverStripe\Assets\File:
+  force_resample: true
   allowed_extensions:
     - svg
   app_categories:
@@ -36,7 +37,7 @@ SilverStripe\Assets\File:
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:
     properties:
-      Quality: 90
+      Quality: 75
   Intervention\Image\ImageManager:
     constructor:
       - { driver: imagick }
