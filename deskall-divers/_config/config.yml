@@ -9,6 +9,10 @@ Page:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
     - DeskallPageExtension
 
+PageController:
+  extensions:
+    - DeskallPageControllerExtension
+
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - SiteConfigExtension

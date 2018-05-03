@@ -82,15 +82,6 @@ class DeskallPageExtension extends DataExtension
     	parent::onBeforeWrite();
     }
 
-
-    public function IsLive() {
-        return Director::isLive();
-    }
-
-    public function Css(){
-        return file_get_contents(Director::baseFolder().'/'.$this->owner->ThemeDir().'/css/main.min.css');
-    }
-
       /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
