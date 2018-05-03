@@ -51,3 +51,59 @@ ErrorDocument 500 /assets/error-500.html
     RewriteRule .* index.php
 </IfModule>
 ### SILVERSTRIPE END ###
+
+<IfModule mod_deflate.c>
+  SetOutputFilter DEFLATE
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  # Don't compress images, movies or zip files
+  SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+  SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+  SetEnvIfNoCase Request_URI \.(?:avi|mov|mp3|mp4|rm|flv|swf|mp?g)$ no-gzip dont-vary
+  <IfModule mod_headers.c>
+    # properly handle requests coming from behind proxies
+    Header append Vary User-Agent
+  </IfModule>
+</IfModule>
+
+
+<IfModule mod_expires.c>
+AddType  application/font-woff2  .woff2
+
+ExpiresActive On
+ExpiresByType text/html "access plus 5 minutes"
+ExpiresByType image/jpg "access plus 60 days"
+ExpiresByType image/png "access plus 60 days"
+ExpiresByType image/gif "access plus 60 days"
+ExpiresByType image/jpeg "access plus 60 days"
+ExpiresByType image/ico "access plus 60 days"
+ExpiresByType text/css "access plus 1 week"
+ExpiresByType image/x-icon "access plus 1 month"
+ExpiresByType application/pdf "access plus 1 month"
+ExpiresByType audio/x-wav "access plus 1 month"
+ExpiresByType audio/mpeg "access plus 1 month"
+ExpiresByType video/mpeg "access plus 1 month"
+ExpiresByType video/mp4 "access plus 1 month"
+ExpiresByType video/quicktime "access plus 1 month"
+ExpiresByType video/x-ms-wmv "access plus 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType text/javascript "access plus 1 week"
+ExpiresByType application/x-javascript "access plus 1 week"
+ExpiresByType application/javascript "access plus 1 week"
+ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+ExpiresByType application/x-font-ttf "access plus 1 year"
+ExpiresByType application/x-font-opentype "access plus 1 year"
+ExpiresByType application/x-font-woff "access plus 1 year"
+ExpiresByType application/x-font-woff2 "access plus 1 year"
+ExpiresByType application/font-woff "access plus 1 year"
+ExpiresByType application/font-woff2 "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+ Header unset ETag
+ RequestHeader unset If-Modified-Since
+ RequestHeader unset If-None-Match
+ FileETag None
+</IfModule>

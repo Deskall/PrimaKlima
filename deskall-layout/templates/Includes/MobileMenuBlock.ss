@@ -1,7 +1,7 @@
 <div class="$Layout $Width $Class">
 	<% if Type == "links" %>
 		<% if UseMenu %>
-		<ul class="dk-nav-mobile uk-nav uk-nav-parent-icon" data-uk-nav>
+		<ul class="dk-nav-mobile uk-nav" data-uk-nav>
 			<% if Title %>
 			<li class="uk-nav-header">$Title</li>
 			<% end_if %>
