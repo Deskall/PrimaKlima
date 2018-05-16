@@ -159,7 +159,7 @@ class ImageExtension extends Extension
             }
 
             // If methode slide we calculate the ration
-            $ratio = $slide->Image()->getWidth() / $slide->Image()->getHeight();
+            $ratio = ($slide->Image()->ID > 0) ? $slide->Image()->getWidth() / $slide->Image()->getHeight() : 1;
             $MaxHeight = $slide->Parent()->MaxHeight;
             $MinHeight = $slide->Parent()->MinHeight;
 
