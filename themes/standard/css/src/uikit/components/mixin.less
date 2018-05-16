@@ -16,5 +16,6 @@
     @data-uri: data-uri('image/svg+xml;charset=UTF-8', "@{src}");
     @replace-src: replace("@{data-uri}", "@{escape-color-default}", "@{escape-color-new}", "g");
 
-    background-image: e(@replace-src);
+   // background-image: e(@replace-src);
+   background-image:@replace-src;
 }
