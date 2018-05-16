@@ -12,7 +12,7 @@ if($css_compiled){
 	// set correct paths
 	$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
 	$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
-
+	//$css_compiled = str_replace('replace("url("\'', 'filter:url(\'', $css_minified);
 
 	// // optimize file
 	// $url = 'http://optimizer-deskall.rhcloud.com/css';
