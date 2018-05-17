@@ -20,12 +20,12 @@
 			 		<% end_if %>
 			 		<% if SiteConfig.Phone %>
 			 		<li data-uk-icon="icon: receiver;">
-			 			<a href="TelTo:$SiteConfig.Phone" title="$SiteConfig.Title anrufen">$SiteConfig.Phone</a>
+			 			<a href="tel:$SiteConfig.Phone" title="$SiteConfig.Title anrufen">$SiteConfig.Phone</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Mobile %>
 			 		<li data-uk-icon="icon: phone;">
-			 			<a href="TelTo:$SiteConfig.Mobile" title="$SiteConfig.Title anrufen">$SiteConfig.Mobile</a>
+			 			<a href="tel:$SiteConfig.Mobile" title="$SiteConfig.Title anrufen">$SiteConfig.Mobile</a>
 			 		</li>
 			 		<% end_if %>
 		        </ul>
