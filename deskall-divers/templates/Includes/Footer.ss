@@ -8,24 +8,24 @@
 			 		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$SiteConfig.AddressTitle</h3>
 			 	</div>
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
-			 		<li data-uk-icon="icon: location;"><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT},{$SiteConfig.Country}/">
+			 		<li data-uk-icon="icon: location;"><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT},{$SiteConfig.Country}/" title="$SiteConfig.Title Adresse" target="_blank">
 			 			$SiteConfig.Address<br/>
 			 			$SiteConfig.CodeCity<br/>
 			 			$SiteConfig.Country</a>
 			 		</li>
 			 		<% if SiteConfig.Email %>
 			 		<li data-uk-icon="icon: mail;">
-			 			<a>$SiteConfig.Email</a>
+			 			<a href="mailTo:$SiteConfig.Email" title="$SiteConfig.Title Kontaktieren">$SiteConfig.Email</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Phone %>
 			 		<li data-uk-icon="icon: receiver;">
-			 			<a>$SiteConfig.Phone</a>
+			 			<a href="TelTo:$SiteConfig.Phone" title="$SiteConfig.Title anrufen">$SiteConfig.Phone</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Mobile %>
 			 		<li data-uk-icon="icon: phone;">
-			 			<a>$SiteConfig.Mobile</a>
+			 			<a href="TelTo:$SiteConfig.Mobile" title="$SiteConfig.Title anrufen">$SiteConfig.Mobile</a>
 			 		</li>
 			 		<% end_if %>
 		        </ul>
