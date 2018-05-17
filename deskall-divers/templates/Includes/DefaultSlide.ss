@@ -12,19 +12,19 @@
 				<!--[if IE 9]><video style="display: none;"><![endif]-->
 				<% if noSlide && ParentID > 0 && ParentSlide.Slides.First.ID %>
 					<% with $ParentSlide.Slides.First.Image %>
-					<source media="(min-width: 2000px)" srcset="$FocusFill(2000,300).URL">
-					<source media="(min-width: 1400px)" srcset="$FocusFill(1400,300).URL">
-					<source media="(min-width: 1000px)" srcset="$FocusFill(1000,300).URL">
-					<source media="(min-width: 800px)" srcset="$FocusFill(800,300).URL">
+					<source media="(min-width: 2000px)" srcset="$FocusFill(2500,300).URL">
+					<source media="(min-width: 1400px)" srcset="$FocusFill(1600,300).URL">
+					<source media="(min-width: 1000px)" srcset="$FocusFill(1200,300).URL">
+					<source media="(min-width: 600px)" srcset="$FocusFill(1000,300).URL">
 					<!--[if IE 9]></video><![endif]-->
 					<img src="$FocusFill(600,300).URL" <% if $ExtraClasses %> class="$ExtraClasses"<% end_if %>  alt="$altTag" title="$titleTag">
 					<% end_with %>
 				<% else %>
 					<% with $SiteConfig.DefaultSlide %>
-					<source media="(min-width: 2000px)" srcset="$FocusFill(2000,300).URL">
-					<source media="(min-width: 1400px)" srcset="$FocusFill(1400,300).URL">
-					<source media="(min-width: 1000px)" srcset="$FocusFill(1000,300).URL">
-					<source media="(min-width: 800px)" srcset="$FocusFill(800,300).URL">
+					<source media="(min-width: 2000px)" srcset="$FocusFill(2500,300).URL">
+					<source media="(min-width: 1400px)" srcset="$FocusFill(1600,300).URL">
+					<source media="(min-width: 1000px)" srcset="$FocusFill(1200,300).URL">
+					<source media="(min-width: 600px)" srcset="$FocusFill(1000,300).URL">
 					<!--[if IE 9]></video><![endif]-->
 					<img src="$FocusFill(600,300).URL" <% if $ExtraClasses %> class="$ExtraClasses"<% end_if %>  alt="$altTag" title="$titleTag">
 					<% end_with %>
