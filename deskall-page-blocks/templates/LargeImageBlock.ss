@@ -20,7 +20,7 @@
 <% else %>
 	<div class="uk-cover-container uk-width-1-1  <% if Height == "viewport" %>uk-height-viewport<% end_if %> ">
 		<% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Image.Width" height="$ImageHeight" data-uk-cover /><% else %>$Image.Banners(600,450,$ImageHeight)<% end_if %>
-		<div class="uk-container  <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %> $Height">
+		<div class="uk-container  <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
 		  
 		    	<% if $Title && $ShowTitle %>
 			        <h2>$Title</h2>
