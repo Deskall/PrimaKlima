@@ -9,7 +9,7 @@
 			 	</div>
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
 			 		<li><a>
-			 			<span data-uk-icon="icon: location;"></span>
+			 			<span class="uk-margin-small-right" data-uk-icon="icon: location;"></span>
 			 			<span class="dk-link-with-icon">
 				 			$SiteConfig.Address<br/>
 				 			$SiteConfig.CodeCity<br/>
