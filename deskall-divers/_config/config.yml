@@ -30,6 +30,7 @@ SilverStripe\Security\Member:
 SilverStripe\ORM\DataObject:
   extensions:
     - DeskallTranslatable
+    - RestrictedOption
 
 Sheadawson\Linkable\Models\Link:
   extensions:
