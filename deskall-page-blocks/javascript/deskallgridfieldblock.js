@@ -29,7 +29,6 @@
             onchange: function(){
                 this._super();
                 if (this.val() == "DuplicateBlock"){
-                    console.log('ici');
                     this.parents('form').find('.ss-gridfield-duplicate-block').removeClass('dk-hidden');
                     this.parents('.ss-gridfield-add-new-multi-class').find('[data-add-multiclass]').hide();
                 }
@@ -43,8 +42,8 @@
                     this.parents('.ss-gridfield-add-new-multi-class').find('[data-add-multiclass]').hide();
                 }
                 else {
-                    if (!this.parents('form').find('.ss-gridfield-duplicate-block').hasClass('dk-hidden')){
-                        this.parents('form').find('.ss-gridfield-duplicate-block').addClass('dk-hidden');
+                    if (!this.parents('form').find('.ss-gridfield-link-block').hasClass('dk-hidden')){
+                        this.parents('form').find('.ss-gridfield-link-block').addClass('dk-hidden');
                     }
                 }
             }
