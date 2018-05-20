@@ -8,7 +8,7 @@
 			 		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$SiteConfig.AddressTitle</h3>
 			 	</div>
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
-			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT}, {$SiteConfig.Country.URLATT}/">
+			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT}, {$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
 			 			<span class="uk-margin-small-right" data-uk-icon="icon: location;"></span>
 			 			<span class="dk-link-with-icon">
 				 			$SiteConfig.Address<br/>
@@ -19,7 +19,7 @@
 			 		</li>
 			 		<% if SiteConfig.Email %>
 			 		<li>
-			 			<a>
+			 			<a href="mailTo:{$SiteConfig.Email}" target="_blank" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
 			 				<span class="uk-margin-small-right" data-uk-icon="icon: mail;"></span>
 			 				<span class="dk-link-with-icon">$SiteConfig.Email</span>
 			 			</a>
@@ -27,18 +27,18 @@
 			 		<% end_if %>
 			 		<% if SiteConfig.Phone %>
 			 		<li>
-			 			<a>
+			 			
 			 				<span class="uk-margin-small-right" data-uk-icon="icon: receiver;"></span>
 			 				<span class="dk-link-with-icon">$SiteConfig.Phone</span>
-			 			</a>
+			 			
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Mobile %>
 			 		<li>
-			 			<a>
+			 			
 			 				<span class="uk-margin-small-right"  data-uk-icon="icon: phone;"></span>
 				 			<span class="dk-link-with-icon">$SiteConfig.Mobile</span>
-				 		</a>
+				 		
 			 		</li>
 			 		<% end_if %>
 		        </ul>
