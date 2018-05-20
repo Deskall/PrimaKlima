@@ -8,7 +8,7 @@
 			 		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$SiteConfig.AddressTitle</h3>
 			 	</div>
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
-			 		<li><a>
+			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Adresse.URLATT},{$SiteConfig.CodeCity.URLATT}, {$SiteConfig.Country.URLATT}/">
 			 			<span class="uk-margin-small-right" data-uk-icon="icon: location;"></span>
 			 			<span class="dk-link-with-icon">
 				 			$SiteConfig.Address<br/>
