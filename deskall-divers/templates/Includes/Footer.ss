@@ -19,7 +19,7 @@
 			 		</li>
 			 		<% if SiteConfig.Email %>
 			 		<li>
-			 			<a href="mailTo:{$SiteConfig.Email}" target="_blank" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
+			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
 			 				<span class="uk-margin-small-right" data-uk-icon="icon: mail;"></span>
 			 				<span class="dk-link-with-icon">$SiteConfig.Email</span>
 			 			</a>
