@@ -8,7 +8,7 @@
 			 		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$SiteConfig.AddressTitle</h3>
 			 	</div>
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
-			 		<li><a>
+			 		<li><a class="uk-flex-middle">
 			 			<div class="uk-display-inline-block"><span data-uk-icon="icon: location;"></span></div>
 			 			<div class="uk-display-inline-block">
 				 			$SiteConfig.Address<br/>
