@@ -18,18 +18,27 @@
 				 		</a>
 			 		</li>
 			 		<% if SiteConfig.Email %>
-			 		<li data-uk-icon="icon: mail;">
-			 			<a>$SiteConfig.Email</a>
+			 		<li>
+			 			<a>
+			 				<span class="uk-margin-small-right" data-uk-icon="icon: mail;"></span>
+			 				<span class="dk-link-with-icon">$SiteConfig.Email</span>
+			 			</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Phone %>
-			 		<li data-uk-icon="icon: receiver;">
-			 			<a>$SiteConfig.Phone</a>
+			 		<li>
+			 			<a>
+			 				<span class="uk-margin-small-right" data-uk-icon="icon: receiver;"></span>
+			 				<span class="dk-link-with-icon">$SiteConfig.Phone</span>
+			 			</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Mobile %>
-			 		<li data-uk-icon="icon: phone;">
-			 			<a>$SiteConfig.Mobile</a>
+			 		<li>
+			 			<a>
+			 				<span class="uk-margin-small-right"  data-uk-icon="icon: phone;"></span>
+				 			<span class="dk-link-with-icon">$SiteConfig.Mobile</span>
+				 		</a>
 			 		</li>
 			 		<% end_if %>
 		        </ul>
