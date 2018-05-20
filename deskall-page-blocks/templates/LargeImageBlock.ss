@@ -4,7 +4,7 @@
     <div class="uk-container uk-position-relative <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %> $Height">
 	    <div class="$Layout">
 	    	<% if $Title && $ShowTitle %>
-		        <h2>$Title</h2>
+		        <h2 class="$TitleAlign">$Title</h2>
 		    <% end_if %>
 
 		    <div class="uk-text-lead $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
@@ -23,7 +23,7 @@
 		<div class="uk-container uk-position-relative <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %> $Height">
 		    <div class="$Layout">
 		    	<% if $Title && $ShowTitle %>
-			        <h2>$Title</h2>
+			        <h2 class="$TitleAlign">$Title</h2>
 			    <% end_if %>
 
 			    <div class="uk-text-lead $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
