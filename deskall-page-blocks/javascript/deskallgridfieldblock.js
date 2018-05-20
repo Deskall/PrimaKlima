@@ -29,6 +29,7 @@
             onchange: function(){
                 this._super();
                 if (this.val() == "DuplicateBlock"){
+                    console.log('ici');
                     this.parents('form').find('.ss-gridfield-duplicate-block').removeClass('dk-hidden');
                     this.parents('.ss-gridfield-add-new-multi-class').find('[data-add-multiclass]').hide();
                 }
