@@ -9,9 +9,7 @@ class UserDefinedFormExtension extends DataExtension
     public function updateFormFields($fields){
     	
     	foreach ($fields as $fieldset) {
-            if ($fieldset->Type() == "userformsstep" && $this->owner->Controller->record['Layout'] == 'vertical'){
-                $fieldset->setTemplate('Forms/EditableFormStepField_Vertical');
-            }
+
     		foreach ($fieldset->getChildren() as $field) {
     			$this->setUiKitAttributes($field);
     		}
