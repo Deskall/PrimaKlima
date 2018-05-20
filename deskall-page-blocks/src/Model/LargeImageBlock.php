@@ -65,7 +65,7 @@ class LargeImageBlock extends BannerBlock{
     private static $effects = [
         'none' => 'kein',
         'fixed' => 'fixed',
-        'ken-burns' => 'Ken Burns',
+        'kenburns' => 'Ken Burns',
         'parallax' => 'parallax' 
     ];
 
