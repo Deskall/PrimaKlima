@@ -1,4 +1,4 @@
-<% if Effect == "fixed" %>
+<% if Effect == "fixed" or Effect =="parallax" %>
 <div class="uk-background-cover uk-background-norepeat uk-padding-small $Height uk-width-1-1 <% if Effect == "fixed" %>uk-background-fixed<% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" style="background-image: url($Image.URL);" <% if Effect == "parallax" %>uk-parallax="$EffectOptions"<% end_if %> >
 
     <div class="uk-container uk-position-relative <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %> $Height">
