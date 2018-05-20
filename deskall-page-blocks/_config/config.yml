@@ -46,7 +46,6 @@ SilverStripe\Admin\LeftAndMain:
     - deskall-page-blocks/css/block_editor.css
 
 DNADesign\ElementalUserForms\Model\ElementForm:
-  email_template_directory: mysite/templates/email/
   extensions:
     - UserFormExtension
 

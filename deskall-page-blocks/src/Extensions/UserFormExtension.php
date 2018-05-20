@@ -24,6 +24,11 @@ class UserFormExtension extends DataExtension
 
    private static $cascade_duplicates = [];
 
+   private static $defaults = [
+    'ShowLabels' => 1,
+    'Layout' => 'standard'
+  ];
+
    private static $has_one = [
    	'RedirectPage' => SiteTree::class
    ];
