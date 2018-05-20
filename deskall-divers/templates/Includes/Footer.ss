@@ -9,8 +9,8 @@
 			 	</div>
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
 			 		<li><a>
-			 			<div><span data-uk-icon="icon: location;"></span></div>
-			 			<div>
+			 			<div class="uk-display-inline-block"><span data-uk-icon="icon: location;"></span></div>
+			 			<div class="uk-display-inline-block">
 				 			$SiteConfig.Address<br/>
 				 			$SiteConfig.CodeCity<br/>
 				 			$SiteConfig.Country</a>
