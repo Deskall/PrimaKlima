@@ -55,7 +55,7 @@ ImageExtension:
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1600px),(min--moz-device-pixel-ratio: 2) and (min-width: 1600px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1600px),(min-device-pixel-ratio: 2) and (min-width: 1600px),( min-resolution: 192dpi) and (min-width: 1600px),(min-resolution: 2dppx) and (min-width: 1600px)': [3600]
         '(min-width: 1600px)': [1800]
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1400px),(min--moz-device-pixel-ratio: 2) and (min-width: 1400px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1400px),(min-device-pixel-ratio: 2) and (min-width: 1400px),( min-resolution: 192dpi) and (min-width: 1400px),(min-resolution: 2dppx) and (min-width: 1400px)': [3000]
-        '(min-width: 1400px)': [1500]
+        '(min-width: 1400px)': [1600]
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px),(min--moz-device-pixel-ratio: 2) and (min-width: 1200px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 1200px),(min-device-pixel-ratio: 2) and (min-width: 1200px),( min-resolution: 192dpi) and (min-width: 1200px),(min-resolution: 2dppx) and (min-width: 1200px)': [2800]
         '(min-width: 1200px)': [1400]
         '(-webkit-min-device-pixel-ratio: 2) and (min-width: 400px),(min--moz-device-pixel-ratio: 2) and (min-width: 400px),( -o-min-device-pixel-ratio: 2/1) and (min-width: 400px),(min-device-pixel-ratio: 2) and (min-width: 400px),( min-resolution: 192dpi) and (min-width: 400px),(min-resolution: 2dppx) and (min-width: 400px)': [2400]
