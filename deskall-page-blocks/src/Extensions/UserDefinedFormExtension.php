@@ -6,12 +6,6 @@ use SilverStripe\ORM\DataExtension;
 class UserDefinedFormExtension extends DataExtension 
 {
 
-    public function updateForm(){
-        if ($this->owner->Controller->record['Layout'] == 'vertical'){
-            $this->owner->setTemplate('Forms/MultiStepsForm_Vertical');
-        }
-    }
-
     public function updateFormFields($fields){
     	
     	foreach ($fields as $fieldset) {
