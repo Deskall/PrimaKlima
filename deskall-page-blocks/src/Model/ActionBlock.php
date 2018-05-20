@@ -133,8 +133,8 @@ class ActionBlock extends BaseElement
     
     public function fieldLabels($includerelations = true ){
         $labels = parent::fieldLabels($includerelations );
-        $labels['Trigger'] = _t(__CLASS__.'.TriggeringText', 'Text für das Button');
-        $labels['CloseText'] = _t(__CLASS__.'.CloseText', 'Close button text');
+        $labels['Trigger'] = _t(__CLASS__.'.TriggeringText', 'Text der Öffnen-Button');
+        $labels['CloseText'] = _t(__CLASS__.'.CloseText', 'Text der Schließen-Button');
 
         return $labels;
     }
