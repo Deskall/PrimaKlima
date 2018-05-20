@@ -200,7 +200,7 @@ class ActionBlock extends BaseElement
         $fields->fieldByName('Root.Main.LinkableLinkID')->hideIf('InteractionType')->isEqualTo('scroll');
         $fields->fieldByName('Root.Main.ContentImage')->hideIf('InteractionType')->isEqualTo('scroll');
         
-        $fields->fieldByName('Root.Main.CloseText')->displayIf('InteractionType')->isEqualTo('modal')->orIf('InteractionType')->isEqualTo('offcanvas')->orIf('InteractionType')->isEqualTo('dropdown');
+      //  $fields->fieldByName('Root.Main.CloseText')->displayIf('InteractionType')->isEqualTo('modal')->orIf('InteractionType')->isEqualTo('offcanvas')->orIf('InteractionType')->isEqualTo('dropdown');
 
         return $fields;
     }
