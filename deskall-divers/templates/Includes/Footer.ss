@@ -13,8 +13,9 @@
 			 			<div class="uk-display-inline-block">
 				 			$SiteConfig.Address<br/>
 				 			$SiteConfig.CodeCity<br/>
-				 			$SiteConfig.Country</a>
+				 			$SiteConfig.Country
 				 		</div>
+				 		</a>
 			 		</li>
 			 		<% if SiteConfig.Email %>
 			 		<li data-uk-icon="icon: mail;">
