@@ -5,6 +5,7 @@ use SilverStripe\Core\Config\Config;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\i18n\i18nEntityProvider;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
