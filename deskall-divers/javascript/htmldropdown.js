@@ -245,7 +245,6 @@
                         if (field_holder.find('span[data-uk-icon]')){
                               field_holder.find('span[data-uk-icon]').each(function(){
                                     icon = $(this).attr('data-uk-icon');
-                                    console.log(icon);
                                     if (Icons[icon]){
                                           $(this).replaceWith(Icons[icon]);
                                     }
