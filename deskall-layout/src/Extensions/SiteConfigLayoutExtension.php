@@ -144,7 +144,7 @@ class SiteConfigLayoutExtension extends DataExtension
     //GLOBAL
     //COLORS
     $fields->addFieldToTab("Root.Layout.Global",new HiddenField('ID'));
-    $fields->FieldByName('Root.Layout')->setTitle(_t(__CLASS__.'LayoutTabTitle','Format'));
+    $fields->FieldByName('Root.Layout')->setTitle(_t(__CLASS__.'LayoutTabTitle','Theme'));
     $config = GridFieldConfig::create()
                 ->addComponent(new GridFieldButtonRow('before'))
                 ->addComponent(new GridFieldTitleHeader())
@@ -155,20 +155,20 @@ class SiteConfigLayoutExtension extends DataExtension
                ;
     $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields([
         'FontTitle'  => [
-            'title' => 'Titel und Vorschau',
+            'title' => _t(__CLASS__.'.FontTitle','Titel und Vorschau'),
             'callback' => function($record, $column, $grid) {
               $field = TextField::create($column);
               return $field;
             }
         ],
         'Color'  => [
-            'title' => 'Farbe',
+            'title' => t(__CLASS__.'.ColorLabel','Farbe'),
             'callback' => function($record, $column, $grid) {
               return TextField::create($column)->addExtraClass('jscolor');
             }
         ],
        'FontColor'  => [
-            'title' => 'Schriftfarbe',
+            'title' => t(__CLASS__.'.FontColorLabel','Schriftfarbe'),
             'callback' => function($record, $column, $grid) {
               return TextField::create($column)->addExtraClass('jscolor');
             }
@@ -182,7 +182,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
 
-
+    $fields->addFieldToTab('Root.Layout',new Tab('Global',_t(__CLASS__.'GlobalTab','Global')));
     $fields->addFieldsToTab("Root.Layout.Global", 
       [
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),

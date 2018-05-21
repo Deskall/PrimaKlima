@@ -1,0 +1,6 @@
+fr:
+  SiteConfigLayoutExtension:
+    ColorLabel: 'Couleur'
+    FontColorLabel: 'Couleur de la police'
+    FontTitle: 'Titre et aperçu'
+    GlobalTab: 'Général'
