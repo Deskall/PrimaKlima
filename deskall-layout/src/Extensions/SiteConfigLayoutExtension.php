@@ -162,13 +162,13 @@ class SiteConfigLayoutExtension extends DataExtension
             }
         ],
         'Color'  => [
-            'title' => t(__CLASS__.'.ColorLabel','Farbe'),
+            'title' => _t(__CLASS__.'.ColorLabel','Farbe'),
             'callback' => function($record, $column, $grid) {
               return TextField::create($column)->addExtraClass('jscolor');
             }
         ],
        'FontColor'  => [
-            'title' => t(__CLASS__.'.FontColorLabel','Schriftfarbe'),
+            'title' => _t(__CLASS__.'.FontColorLabel','Schriftfarbe'),
             'callback' => function($record, $column, $grid) {
               return TextField::create($column)->addExtraClass('jscolor');
             }
