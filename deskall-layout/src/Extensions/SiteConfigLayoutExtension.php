@@ -144,7 +144,7 @@ class SiteConfigLayoutExtension extends DataExtension
     //GLOBAL
     //COLORS
     $fields->addFieldToTab("Root.Layout.Global",new HiddenField('ID'));
-    $fields->FieldByName('Root.Layout')->setTitle(_t(__CLASS__.'LayoutTabTitle','Theme'));
+    $fields->FieldByName('Root.Layout')->setTitle(_t(__CLASS__.'LayoutTabTitle','Layout'));
     $config = GridFieldConfig::create()
                 ->addComponent(new GridFieldButtonRow('before'))
                 ->addComponent(new GridFieldTitleHeader())
@@ -182,7 +182,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
 
-    $fields->addFieldToTab('Root.Layout',new Tab('Global',_t(__CLASS__.'GlobalTab','Global')));
+   
     $fields->addFieldsToTab("Root.Layout.Global", 
       [
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
@@ -195,6 +195,8 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('LeadFontSize',_t(__CLASS__.'.LeadFontSize','LeadText Schriftgrösse'))
       ]
     );
+    $fields->FieldByName('Root.Layout.Global')->setTitle(_t(__CLASS__.'GlobalTabTitle','Global'));
+
 
 
     //Header
