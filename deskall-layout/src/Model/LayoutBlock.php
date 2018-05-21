@@ -131,7 +131,7 @@ class LayoutBlock extends DataObject{
 						$fields->addFieldToTab('Root.Main',$LinksField);
 			
 			
-			$fields->addFieldToTab('Root.Main', $content = HTMLEditorField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Type');
+			$fields->addFieldToTab('Root.Main', $content = HTMLEditorField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Title');
 			$content->displayIf('Type')->isEqualTo('content');
 
 			$fields->addFieldToTab('Root.LayoutTab', $l = DropdownField::create('Layout',_t(__CLASS__.'.Layout','Layout'),$this->getTranslatedSourceFor(__CLASS__,'block_layouts'))->setEmptyString(_t(__CLASS__.'.LayoutLabel','Layout auswählen')),'Width');
