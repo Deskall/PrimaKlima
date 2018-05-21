@@ -144,7 +144,7 @@ class SiteConfigLayoutExtension extends DataExtension
     //GLOBAL
     //COLORS
     $fields->addFieldToTab("Root.Layout.Global",new HiddenField('ID'));
-    $fields->FieldByName('Root.Layout')->setTitle(_t(__CLASS__.'LayoutTabTitle','Layout'));
+    $fields->FieldByName('Root.Layout')->setTitle(_t(__CLASS__.'.LayoutTabTitle','Layout'));
     $config = GridFieldConfig::create()
                 ->addComponent(new GridFieldButtonRow('before'))
                 ->addComponent(new GridFieldTitleHeader())

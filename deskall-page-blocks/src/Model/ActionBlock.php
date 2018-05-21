@@ -227,9 +227,6 @@ class ActionBlock extends BaseElement
     /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach($this->stat('block_layouts') as $key => $value) {
-          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
-        }
         foreach($this->stat('block_actions') as $key => $value) {
           $entities[__CLASS__.".block_actions_{$key}"] = $value;
         }
