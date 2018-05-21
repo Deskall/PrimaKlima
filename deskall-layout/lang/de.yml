@@ -1,0 +1,94 @@
+de:
+  LayoutBlock:
+    ClassDescription: 'Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt'
+    Content: Inhalt
+    ContentTab: Inhalt
+    ExtraClass: 'Extra CSS Class'
+    Layout: Layout
+    LayoutLabel: 'Layout auswählen'
+    LayoutTab: Layout
+    Links: Links
+    LinksLabel: 'Links können erst nach dem Speichern erstellt werden'
+    Logo: Logo
+    Preview: Vorschau
+    Title: Titel
+    TitleLabel: Titel
+    Type: BlockTyp
+    TypeLabel: 'Wählen Sie den Typ aus'
+    Width: Breite
+    WidthDescription: 'Relative Breite im Vergleich zur Fußzeile'
+    WidthLabel: 'Breite auswählen'
+    block_types_address: Adresse
+    block_types_content: Inhalt
+    block_types_form: Formular
+    block_types_links: Links
+    block_types_logo: Logo
+    widths_uk-width-1-1: 'Voll Breite'
+    'widths_uk-width-1-1@s uk-width-1-2@m': 50%
+    'widths_uk-width-1-1@s uk-width-1-3@m': 33.33%
+    'widths_uk-width-1-1@s uk-width-1-4@m': 25%
+    'widths_uk-width-1-1@s uk-width-1-5@m': 20%
+    widths_uk-width-auto: 'auto Breite'
+    widths_uk-width-expand: 'verbleibende Breite'
+  LayoutLink:
+    Link: Link
+    PLURALNAME: 'Layout Links'
+    PLURALS:
+      one: 'A Layout Link'
+      other: '{count} Layout Links'
+    SINGULARNAME: 'Layout Link'
+  MenuBlock:
+    MenuSettings: 'Menu Einstellungen'
+    ShowSubLevels: 'Navigation anzeigen'
+    SubLevelLayout: 'Unten Navigation Layout'
+    UseMenu: 'Welche Menu benutzen'
+    block_types_address: Adresse
+    block_types_content: Inhalt
+    block_types_divider: Teiler
+    block_types_form: Formular
+    block_types_links: Links
+    block_types_logo: Logo
+    block_types_social: 'Sozial Netwerke'
+    menu_options_main: Hauptmenu
+    menu_options_sub: Untenmenu
+  MenuLink:
+    PLURALNAME: 'Menu Links'
+    PLURALS:
+      one: 'A Menu Link'
+      other: '{count} Menu Links'
+    SINGULARNAME: 'Menu Link'
+  MobileMenuBlock:
+    Title: Titel
+  SiteConfigLayoutExtension:
+    BackgroundColor: Hintergrundfarbe
+    ColorLabel: Farbe
+    Colors: Farben
+    ColorsTitle: Farben
+    FontColorLabel: Schriftfarbe
+    FontTitle: 'Titel und Vorschau'
+    FontsTitle: Schriften
+    FooterBackground: Hintergrundfarbe
+    FooterFontColor: Schriftfarbe
+    FooterFontSize: 'Footer Schriftgrösse'
+    FooterLayout: 'Footer Layout'
+    FooterTitleFontSize: 'Footer Titel Schriftgrösse'
+    Footerlogowidtht: 'Logo Breite'
+    GlobalFontSize: 'Standard Schriftgrösse'
+    H1FontColor: 'H1 Titel Farbe'
+    H1FontSize: 'H1 Schriftgrösse'
+    H1MobileFontSize: 'H1 Mobile Schriftgrösse'
+    H2FontSize: 'H2 Schriftgrösse'
+    H3FontSize: 'H3 Schriftgrösse'
+    HeaderBackground: Hintergrundfarbe
+    HeaderCollapsedHeight: 'Mobile Höhe'
+    HeaderFontColor: Schriftfarbe
+    HeaderFontSize: 'Navigation Schriftgrösse'
+    HeaderHeight: Höhe
+    HeaderHoverFontColor: 'Aktive und Hover Schriftfarbe'
+    HeaderItemHeight: 'Menu Item Höhe'
+    HeaderLayout: 'Header Layout'
+    HeaderOpacity: Opazität
+    LayoutTabTitle: Layout
+    LeadFontSize: 'LeadText Schriftgrösse'
+    MobileNaviLayout: 'MobileNavigation Layout'
+    noColor: 'Keine Farbe'

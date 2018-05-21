@@ -1,0 +1,42 @@
+de:
+  CreateWebsiteTask:
+    SITEMAPTITLE: Sitemap
+  Global:
+    BUTTONACTIVEDESC: Aktivieren
+    BUTTONINACTIVEDESC: Deaktivieren
+  Linkable:
+    CTA: Link
+  LinkableLinkExtension:
+    Background: 'Link Hintergrundfarbe'
+    BackgroundColor: Hintergrundfarbe
+    HasIcone: 'mit Icon'
+    Icone: Icon
+    LAYOUTTAB: Layout
+    LinkAlignment: Linkausrichtung
+    LinkPosition: Linkausrichtung
+    block_link_alignments_center: Mittel
+    block_link_alignments_left: Links
+    block_link_alignments_right: Rechts
+  SiteConfig:
+    EmailTitleTag: 'Email zu'
+  SiteConfigExtension:
+    AccessTab: Zugang
+    Address: Adresse
+    AddressStreet: Adresse
+    AdresseTitle: 'Adresse Titel'
+    CodeCity: 'PLZ / Ort'
+    Country: Land
+    DefaultTab: Standard
+    Email: 'E-Mail Adresse'
+    Facebook: Facebook
+    Linkedin: Linkedin
+    MainTab: Hauptteil
+    Mobile: Mobile
+    Notfall: 'Notfall Nummer'
+    Phone: Telefon
+    SocialTitle: Netwerk
+    Twitter: Twitter
+    Xing: Xing
+  SiteTree:
+    BUTTONACTIVE: Aktivieren
+    BUTTONINACTIVE: Deaktivieren

@@ -195,7 +195,7 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('LeadFontSize',_t(__CLASS__.'.LeadFontSize','LeadText Schriftgrösse'))
       ]
     );
-    $fields->FieldByName('Root.Layout.Global')->setTitle(_t(__CLASS__.'GlobalTabTitle','Global'));
+    $fields->FieldByName('Root.Layout.Global')->setTitle(_t(__CLASS__.'.GlobalTabTitle','Global'));
 
 
 
