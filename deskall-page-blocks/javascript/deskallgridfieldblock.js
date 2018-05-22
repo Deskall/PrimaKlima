@@ -28,6 +28,12 @@
         $(".ss-gridfield-add-new-multi-class select[name='GridFieldAddNewMultiClass[ClassName]']").entwine({
             onchange: function(){
                 this._super();
+                if (!this.parents('form').find('.ss-gridfield-duplicate-block').hasClass("dk-hidden")){
+                    this.parents('form').find('.ss-gridfield-duplicate-block').addClass("dk-hidden");
+                }
+                if (!this.parents('form').find('.ss-gridfield-link-block').hasClass("dk-hidden")){
+                    this.parents('form').find('.ss-gridfield-link-block').addClass("dk-hidden");
+                }
                 if (this.val() == "DuplicateBlock"){
                     this.parents('form').find('.ss-gridfield-duplicate-block').removeClass('dk-hidden');
                     this.parents('.ss-gridfield-add-new-multi-class').find('[data-add-multiclass]').hide();
