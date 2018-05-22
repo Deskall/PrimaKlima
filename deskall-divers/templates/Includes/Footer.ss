@@ -48,7 +48,7 @@
 		    	</div>
 		    	$Content
 		    	<% else_if Type == "logo" %>
-		    	<div class=">
+		    	<div>
 		    		<a href="/" class="uk-navbar-item uk-logo"><img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="Home" /></a>
 		    	</div>
 		        <% else %>
