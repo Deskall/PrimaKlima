@@ -28,9 +28,7 @@ class LayoutLink extends DataObject{
 
     function fieldLabels($includerelations = true) {
 	    $labels = parent::fieldLabels($includerelations);
-	 	$labels['LinkType'] = _t(__CLASS__.'.LinkTyp','Typ');
-	 	$labels['Title'] = _t(__CLASS__.'.Title','Titel');
-	 	$labels['LinkURL'] = _t(__CLASS__.'.LinkURL','URL');
+	 	
 	    $labels['DisplayLink'] = _t(__CLASS__.'.Link','Link');
 	   
 	 
