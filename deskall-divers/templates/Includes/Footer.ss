@@ -5,7 +5,7 @@
 		    <div class="$Width $Layout $Class">
 		    	<% if Type == "address" %>
 		    	<div class="title-container">
-			 		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$SiteConfig.AddressTitle</h3>
+			 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
 			 	</div>
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
 			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT}, {$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
@@ -44,16 +44,16 @@
 		        </ul>
 		        <% else_if Type == "content" %>
 		        <div class="title-container">
-		    		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$Title</h3>
+		    		<h3 class="uk-margin-small-bottom">$Title</h3>
 		    	</div>
 		    	$Content
 		    	<% else_if Type == "logo" %>
-		    	<div class="uk-margin-medium-top">
+		    	<div class=">
 		    		<a href="/" class="uk-navbar-item uk-logo"><img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="Home" /></a>
 		    	</div>
 		        <% else %>
 		    	<div class="title-container">
-		    		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$Title</h3>
+		    		<h3 class="uk-margin-small-bottom">$Title</h3>
 		    	</div>
 		    	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
 				    <% loop $activeLinks %>
