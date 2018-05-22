@@ -3,8 +3,8 @@ fr:
     SITEMAPTITLE: "Plan de site"
   DeskallPageExtension:
     ShowInMainMenuLabel: "Dans quel menu s'affiche cette page ?"
-    menu_level_0: "Menu principal"
-    menu_level_1: "Menu secondaire"
+    menu_level_0: "Menu secondaire"
+    menu_level_1: "Menu principal"
   Global:
     BUTTONACTIVEDESC: Activer
     BUTTONINACTIVEDESC: Désactiver
