@@ -48,7 +48,9 @@
 		    	</div>
 		    	$Content
 		    	<% else_if Type == "logo" %>
-		    	<a href="/" class="uk-navbar-item uk-logo"><img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="Home" /></a>
+		    	<div class="uk-margin-medium-top">
+		    		<a href="/" class="uk-navbar-item uk-logo"><img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="Home" /></a>
+		    	</div>
 		        <% else %>
 		    	<div class="title-container">
 		    		<h3 class="uk-margin-small-bottom uk-margin-medium-top">$Title</h3>
