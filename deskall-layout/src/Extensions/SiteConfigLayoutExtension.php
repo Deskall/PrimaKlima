@@ -45,6 +45,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'H2FontSize' => 'Varchar(25)',
     'H3FontSize' => 'Varchar(25)',
     'LeadFontSize' => 'Varchar(25)',
+
     'HeaderBackground' => 'Varchar(255)',
     'HeaderFontColor' => 'Varchar(7)',
     'HeaderFontSize' => 'Varchar(255)',
@@ -312,6 +313,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->FooterBackground = "#".$this->owner->FooterBackground;
     $this->owner->H1FontColor = "#".$this->owner->H1FontColor;
     $this->owner->MobileNaviHoverFontColor = "#".$this->owner->MobileNaviHoverFontColor;
+
   }
 
 
