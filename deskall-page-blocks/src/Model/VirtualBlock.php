@@ -18,4 +18,9 @@ class VirtualBlock extends ElementVirtual{
     {
         return _t(__CLASS__ . '.BlockType', 'Block verknüpfen');
     }
+
+    public function renderPreview(){
+    	$class = $this->LinkedElement()->ClassName;
+    	return $this->renderWith($class.'_preview');
+    }
 }
