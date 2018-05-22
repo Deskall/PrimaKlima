@@ -33,7 +33,9 @@ de:
     widths_uk-width-expand: 'verbleibende Breite'
   LayoutLink:
     Link: Link
+    LinkTitle: Titel
     LinkTyp: Typ
+    LinkType: Typ
     LinkURL: URL
     PLURALNAME: 'Layout Links'
     PLURALS:
@@ -45,7 +47,8 @@ de:
     MenuSettings: 'Menu Einstellungen'
     ShowSubLevels: 'Navigation anzeigen'
     SubLevelLayout: 'Unten Navigation Layout'
-    UseMenu: 'Welche Menu benutzen'
+    UseMenu: 'Site Struktur benutzen'
+    UseWhichMenu: 'Welche Menu benutzen?'
     block_types_address: Adresse
     block_types_content: Inhalt
     block_types_divider: Teiler

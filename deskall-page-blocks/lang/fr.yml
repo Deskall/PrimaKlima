@@ -1,4 +1,65 @@
 fr:
+  ActionBlock:
+    BlockType: Action
+    ButtonBackground: 'Couleur du bouton'
+    ButtonPosition: 'Alignement du bouton'
+    CloseText: 'Texte du bouton de fermeture'
+    ContentLabel: Contenu
+    DropdownBoundary: 'Adapter le contenu à la largeur du bloc parent'
+    DropdownLayout: 'Format du menu déroulant'
+    DropdownPosition: 'Alignement du menu déroulant'
+    DropdownTrigger: 'Déclenché par'
+    InteractionType: Type
+    InteractionTypeHelp: 'Choisissez un type'
+    ModalLayout: 'Format du modal'
+    ModalSize: 'Largeur de la fenêtre'
+    OffcanvasEffect: 'Effet du hors-champ'
+    OffcanvasLayout: 'Format du hors-champ'
+    OffcanvasOverlay: "Surcouche d'arrière-plan"
+    OffcanvasPosition: 'Position'
+    Target: "élément cible"
+    TargetHelp: 'Choisissez un élément'
+    TriggeringText: "Texte du bouton d'ouverture"
+    block_actions_dropdown: "Menu déroulant"
+    block_actions_modal: Modal
+    block_actions_offcanvas: Hors-champ
+    block_actions_scroll: Défilement
+    block_actions_toggle: Changement au clic
+    block_effects_none: Aucun
+    block_effects_push: Poucée
+    block_effects_reveal: Apparition
+    block_effects_slide: Glissement
+    button_alignments_center: Centré
+    button_alignments_left: Gauche
+    button_alignments_right: Droite
+    'button_backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
+    'button_backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
+    button_backgrounds_uk-button-default: "pas de couleur d'arrière-plan"
+    'button_backgrounds_uk-button-muted dk-text-hover-muted': gris
+    'button_backgrounds_uk-button-primary dk-text-hover-primary': 'couleur primaire'
+    'button_backgrounds_uk-button-secondary dk-text-hover-secondary': 'couleur secondaire'
+    dropdown_positions_bottom-center: 'Aligné en bas et centré'
+    dropdown_positions_bottom-justify: 'Aligné en bas et justifié'
+    dropdown_positions_bottom-left: 'Aligné en bas à gauche'
+    dropdown_positions_bottom-right: 'Aligné en bas à droite'
+    dropdown_positions_left-bottom: 'Aligns the dropdown to the left bottom'
+    dropdown_positions_left-center: 'Aligns the dropdown to the left center'
+    dropdown_positions_left-top: 'Aligns the dropdown to the left top'
+    dropdown_positions_right-bottom: 'Aligns the dropdown to the right bottom'
+    dropdown_positions_right-center: 'Aligns the dropdown to the right center'
+    dropdown_positions_right-top: 'Aligns the dropdown to the right top'
+    dropdown_positions_top-center: 'Aligns the dropdown to the top center'
+    dropdown_positions_top-justify: 'Aligns the dropdown to the top and justifies its width to the related element'
+    dropdown_positions_top-left: 'Aligns the dropdown to the top left'
+    dropdown_positions_top-right: 'Aligns the dropdown to the top right'
+    dropdown_triggers_click: Clic
+    dropdown_triggers_hover: Survol
+    'dropdown_triggers_hover,click': 'Survol et clic'
+    modal_sizes_auto: 'Largeur du contenu'
+    modal_sizes_uk-modal-container: 'Largeur de la page'
+    modal_sizes_uk-modal-full: "Largeur de l'écran"
+    offcanvas_position_left: Liens
+    offcanvas_position_right: Droits
   BOXBLOCK:
     BOXTAB: Boîtes
   BaseBlockExtension:
