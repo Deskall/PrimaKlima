@@ -10,6 +10,7 @@ de:
     Links: Links
     LinksLabel: 'Links können erst nach dem Speichern erstellt werden'
     Logo: Logo
+    NiceTypeLabel: Typ
     Preview: Vorschau
     Title: Titel
     TitleLabel: Titel
@@ -32,11 +33,14 @@ de:
     widths_uk-width-expand: 'verbleibende Breite'
   LayoutLink:
     Link: Link
+    LinkTyp: Typ
+    LinkURL: URL
     PLURALNAME: 'Layout Links'
     PLURALS:
       one: 'A Layout Link'
       other: '{count} Layout Links'
     SINGULARNAME: 'Layout Link'
+    Title: Titel
   MenuBlock:
     MenuSettings: 'Menu Einstellungen'
     ShowSubLevels: 'Navigation anzeigen'
@@ -68,12 +72,17 @@ de:
     FontTitle: 'Titel und Vorschau'
     FontsTitle: Schriften
     FooterBackground: Hintergrundfarbe
+    FooterBlocksLabel: 'Footer Blöcke'
+    FooterContentTab: 'Inhalt der Footer'
     FooterFontColor: Schriftfarbe
     FooterFontSize: 'Footer Schriftgrösse'
     FooterLayout: 'Footer Layout'
+    FooterLayoutTab: 'Layout der Footer'
+    FooterTab: Footer
     FooterTitleFontSize: 'Footer Titel Schriftgrösse'
     Footerlogowidtht: 'Logo Breite'
     GlobalFontSize: 'Standard Schriftgrösse'
+    GlobalTabTitle: Global
     H1FontColor: 'H1 Titel Farbe'
     H1FontSize: 'H1 Schriftgrösse'
     H1MobileFontSize: 'H1 Mobile Schriftgrösse'
@@ -88,7 +97,15 @@ de:
     HeaderItemHeight: 'Menu Item Höhe'
     HeaderLayout: 'Header Layout'
     HeaderOpacity: Opazität
+    LayoutGlobalTab: Allgemein
+    LayoutHeaderContentTab: 'Inhalt der Header'
+    LayoutHeaderLayoutTab: 'Layout der Header'
+    LayoutHeaderTab: Header
+    LayoutMobileContentTab: 'Inhalt der mobile Navigation'
+    LayoutMobileLayoutTab: 'Layout der mobile Navigation'
     LayoutTabTitle: Layout
     LeadFontSize: 'LeadText Schriftgrösse'
+    MenuBlocksLabel: 'Menu Blöcke'
+    MobilNavigationTab: 'mobile Navigation'
     MobileNaviLayout: 'MobileNavigation Layout'
     noColor: 'Keine Farbe'
