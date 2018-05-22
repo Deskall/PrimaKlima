@@ -202,11 +202,11 @@ class SiteConfigLayoutExtension extends DataExtension
     //Header
     $MenusField = new GridField(
         'MenuBlocks',
-        'MenuBlocks',
+        _t(__CLASS__.'.MenuBlocksLabel','Menu Blöcke'),
         $this->owner->MenuBlocks()->filter('ClassName','MenuBlock'),
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
-    );
+    );  
     //TO DO : rebuild it with multi class option
     // $MenusField->getConfig()->removeComponentsByType(GridFieldAddNewButton::class)
     //     ->addComponent(new DeskallGridFieldAddNewMultiClass());
@@ -236,7 +236,7 @@ class SiteConfigLayoutExtension extends DataExtension
     //MOBILE NAVI
     $MobileMenusField = new GridField(
         'MobileMenuBlocks',
-        'MenuBlocks',
+        _t(__CLASS__.'.MenuBlocksLabel','Menu Blöcke'),
         $this->owner->MobileMenuBlocks(),
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
@@ -258,7 +258,7 @@ class SiteConfigLayoutExtension extends DataExtension
     //FOOTER
     $FooterLinksField = new GridField(
         'FooterBlocks',
-        'FooterBlocks',
+       _t(__CLASS__.'.FooterBlocksLabel','Footer Blöcke'),
         $this->owner->FooterBlocks(),
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())

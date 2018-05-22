@@ -10,6 +10,7 @@ fr:
     Links: Liens
     LinksLabel: Les liens pourront être ajoutés après la création.'
     Logo: Logo
+    NiceTypeLabel: 'Type'
     Preview: Aperçu
     Title: Titre
     TitleLabel: Titre
@@ -99,6 +100,7 @@ fr:
     LayoutMobileLayoutTab: "Format du menu mobile"
     LayoutMobileContentTab: "Contenu du menu mobile"
     LeadFontSize: 'Taille de police des textes principaux'
+    MenuBlocksLabel: "Bloc Menus"
     MobileNaviLayout: 'Format du menu mobile'
     MobilNavigationTab: "Menu mobile"
     noColor: 'Transparent'

@@ -47,7 +47,7 @@ class LayoutBlock extends DataObject{
 	];
 
 	private static $summary_fields = [
-	    'NiceType' => 'Blocktyp' ,
+	    'NiceType',
 	    'Preview',
 	    'displayWidth'
 	];
@@ -76,7 +76,7 @@ class LayoutBlock extends DataObject{
 
 	public function displayWidth(){
 		$widths = self::$widths;
-		return $widths[$this->Width];
+		return $this->getTranslatedSourceFor(__CLASS__,$widths[$this->Width]);
 	}
 
 
@@ -93,7 +93,7 @@ class LayoutBlock extends DataObject{
 
     function fieldLabels($includerelations = true) {
 	    $labels = parent::fieldLabels($includerelations);
-	 
+	 	$labels['NiceType'] = _t(__CLASS__.'.NiceTypeLabel','Typ');
 	    $labels['NiceTitle'] = _t(__CLASS__.'.TitleLabel','Titel');
 	    $labels['Preview'] = _t(__CLASS__.'.Preview', 'Vorschau');
 	    $labels['displayWidth'] = _t(__CLASS__.'.Width',  'Breite');
