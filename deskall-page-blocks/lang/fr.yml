@@ -49,10 +49,10 @@ fr:
     dropdown_positions_right-bottom: 'Aligns the dropdown to the right bottom'
     dropdown_positions_right-center: 'Aligns the dropdown to the right center'
     dropdown_positions_right-top: 'Aligns the dropdown to the right top'
-    dropdown_positions_top-center: 'Aligns the dropdown to the top center'
-    dropdown_positions_top-justify: 'Aligns the dropdown to the top and justifies its width to the related element'
-    dropdown_positions_top-left: 'Aligns the dropdown to the top left'
-    dropdown_positions_top-right: 'Aligns the dropdown to the top right'
+    dropdown_positions_top-center: 'Aligné en haut et centré'
+    dropdown_positions_top-justify: 'Aligné en haut et justifié'
+    dropdown_positions_top-left: 'Aligné en haut à gauche'
+    dropdown_positions_top-right: 'Aligné en haut à droite'
     dropdown_triggers_click: Clic
     dropdown_triggers_hover: Survol
     'dropdown_triggers_hover,click': 'Survol et clic'
@@ -149,6 +149,54 @@ fr:
     block_positions_normal: 'à la position du bloc sur la page'
     CodeBlockScriptLabel: 'Copier ici le code sans les balises "<script></script>"'
     CodeBlockScriptPosition: 'Inserer le code...'
+  DNADesign\Elemental\Forms\HistoricalVersionedGridFieldItemRequest:
+    BUTTONREVERTDESC: 'Publier cette ligne sur le site brouillon'
+    InvalidVersion: 'Version invalide'
+    Position: Position
+    REVERT: 'Retour à cette version'
+  DNADesign\Elemental\Models\BaseElement:
+    Author: Auteur
+    BlockType: Bloc
+    CUSTOM_STYLES: 'Choisissez un style'
+    ExtraCssClassesLabel: 'Classes css personalisées'
+    ExtraCssClassesPlaceholder: autre_class
+    MainTabLabel: Contenu
+    Modified: modifié
+    PLURALNAME: Blocs
+    PLURALS:
+      one: 'un bloc'
+      other: '{count} blocs'
+    Published: Publié
+    Record: Entrée
+    SINGULARNAME: Bloc
+    STYLE: 'Variations de style'
+    ShowTitleLabel: Affiché
+    TitleLabel: 'Titre (sera affiché si coché)'
+  DNADesign\Elemental\Models\ElementContent:
+    BlockType: Contenu
+    ContentLabel: Contenu
+    PLURALNAME: Blocs de contenu
+    PLURALS:
+      one: 'un bloc de contenu'
+      other: '{count} Blocs de contenu'
+    SINGULARNAME: Bloc de contenu
+  DNADesign\Elemental\Models\ElementalArea:
+    PLURALNAME: 'Zones de contenu'
+    PLURALS:
+      one: 'une zone de contenu'
+      other: '{count} zones de contenu'
+    SINGULARNAME: 'Zone de contenu'
+  DNADesign\Elemental\Reports\ElementTypeReport:
+    Title: 'Type de bloc'
+    Total: Total
+    Type: 'Type de contenu'
+  DNADesign\Elemental\Reports\ElementsInUseReport:
+    None: Aucun
+    Page: Page
+    ReportTitle: 'Utilisé par '
+    Summary: Résumé
+    Title: Titre
+    Type: Type
   DownloadBlock:
     BlockType: 'Zone de téléchargement'
     ContentLabel: Contenu
@@ -169,6 +217,13 @@ fr:
     'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
     'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
     php.DownloadBlockFilesTab: Fichiers
+  DuplicateBlock:
+    BlockType: 'Dupliquer un bloc'
+    PLURALNAME: blocs
+    PLURALS:
+      one: 'un bloc'
+      other: '{count} blocs'
+    SINGULARNAME: bloc
   Features:
     PLURALNAME: Features
     PLURALS:
@@ -180,7 +235,9 @@ fr:
     ContentLabel: Contenu
     Description: "Bloc permettant d'insérer une liste de features"
     Features: Features
+    FeaturesLayout: "Format des features"
     FeaturesInColumns: 'Afficher les features sur plusieurs colonnes'
+    FeaturesTextAlignment: "Alignement des features"
     FeaturesTitle: 'Titre de la liste'
     PLURALNAME: 'Listes de features'
     PLURALS:
@@ -209,10 +266,16 @@ fr:
     block_layouts_carousel: "Carousel"
     block_layouts_grid: "Grille"
     php.GalleryBlockPicturesTab: Images
+  Global:
+    BUTTONCOLLAPSE: Rassembler
+    BUTTONEXPAND: Agrandir
   GridFieldDuplicateBlock:
     Label: 'Copier un bloc existant'
   GridFieldExtensions:
     Duplicate: Copier
+    Link: Lier
+  GridFieldLinkBlock:
+    Label: 'Lier un bloc existant'
   LargeImageBlock:
     BlockType: 'Bannière'
     Description: "Bannière avec une image en arrière plan"
@@ -229,15 +292,9 @@ fr:
     block_heights_uk-height-medium: moyenne
     block_heights_uk-height-small: petite
     block_heights_viewport: "tout l'écran"
-    block_layouts_uk-position-bottom-center: "Positionner l'élément en bas et au centre"
-    block_layouts_uk-position-bottom-left: "Positionner l'élément en bas et à gauche"
-    block_layouts_uk-position-bottom-right: "Positionner l'élément en bas et à droite"
+    block_layouts_uk-position-bottom: "Positionner l'élément en bas"
     block_layouts_uk-position-center: "Positionner l'élément au centre"
-    block_layouts_uk-position-center-left: "Positionner l'élément au centre et à gauche"
-    block_layouts_uk-position-center-right: "Positionner l'élément au centre et à droite"
-    block_layouts_uk-position-top-center: "Positionner l'élément en haut et au centre"
-    block_layouts_uk-position-top-left: "Positionner l'élément en haut et à gauche"
-    block_layouts_uk-position-top-right: "Positionner l'élément en haut et à droite"
+    block_layouts_uk-position-top: "Positionner l'élément en haut"
     effects_fixed: fixe
     effects_none: aucun
     effects_parallax: parallax
@@ -281,6 +338,11 @@ fr:
     BlocksPerLineHelpText: 'Sélection un nombre de blocs par ligne'
     Border: 'Afficher une bordure entre les blocs ?'
     Description: "Bloc permettant de combiner plusieurs blocs en un seul."
+    CanCollapse: 'Blocs peuvent être rassemblés'
+    CollapsableChildren: 'Blocs rassemblables'
+    CollapsableChildrenHelpText: 'Cette option ne peut pas être modifiée après la création du bloc.
+    CollapseMultipe: "Permettre l'ouverture de plusieurs blocs en même temps"
+    Layout: Format
     PLURALNAME: 'Blocs multiples'
     PLURALS:
       one: 'un bloc multiple'
@@ -302,6 +364,8 @@ fr:
       other: '{count} blocs de partage'
     SINGULARNAME: 'Bloc de partage'
   SiteTree:
+    BUTTONCOLLAPSE: Rassembler
+    BUTTONEXPAND: Agrandir
     FirstBlock: 'Premier bloc'
   SitemapBlock:
     BlockType: Plan du site
@@ -313,6 +377,9 @@ fr:
       other: '{count} blocs plan de site'
     SINGULARNAME: 'Bloc plan de site'
   Slide:
+    CTA: Lien
+    ContentLabel: Contenu
+    ContentTab: Contenu
     Effect: Effet
     EffectOptions: "Options d'effet"
     Image: Image
@@ -323,7 +390,7 @@ fr:
       other: '{count} Slides'
     SINGULARNAME: Slide
     TitleLabel: Titre
-    effects_kenburns: 'ken burns'
+    effects_kenburns: 'dérive'
     effects_none: aucun
     effects_parallax: parallax
   SliderBlock:
@@ -345,11 +412,11 @@ fr:
     SINGULARNAME: carousel de slides
     Slides: Slides
     SlideCopyHelpText: "Enregistrez le carousel pour pouvoir ajouter des images, ou copiez les images d'un carousel existant."
-    animations_fade: fade
-    animations_pull: pull
-    animations_push: push
-    animations_scale: scale
-    animations_slide: slide
+    animations_fade: Apparition
+    animations_pull: Tire
+    animations_push: Pousse
+    animations_scale: "Changement d'échelle"
+    animations_slide: Glissement
     block_heights_large: grande
     block_heights_medium: moyenne
     block_heights_small: petite
@@ -372,6 +439,11 @@ fr:
     block_layouts_left: "à gauche"
     block_layouts_right: "à droite"
   UserFormExtension:
+    BlockType: Formulaire
+    ButtonBackground: 'Couleur du bouton'
+    RedirectPage: 'page de redirection après une soumission réussie'
+    ShowLabels: 'Afficher les labels de champ ?'
+    StepTitleBackground: "Couleur d'arrière-plan du titre de section"
     WITHCAPTCHA: 'protéger par un recaptcha Google ?'
     UserFormExtensionRedirectPage: 'Page de redirection en cas de soumission avec succès'
   VideoBlock:
@@ -389,7 +461,13 @@ fr:
     videos_per_line_uk-child-width-1-1: '1'
     videos_per_line_uk-child-width-1-2@s: '2'
     videos_per_line_uk-child-width-1-3@s: '3'
-
+  VirtualBlock:
+    BlockType: 'Lier un bloc'
+    PLURALNAME: 'Blocs liés'
+    PLURALS:
+      one: 'un bloc lié'
+      other: '{count} blocs liés'
+    SINGULARNAME: 'bloc lié'
 
   DNADesign\ElementalUserForms\Model\ElementForm:
     BlockType: 'Formulaire'

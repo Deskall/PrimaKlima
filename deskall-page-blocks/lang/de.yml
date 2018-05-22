@@ -252,7 +252,7 @@ de:
     'features_columns_uk-column-1-2@s uk-column-1-4@m': 'Display the content in four columns'
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Display the content in five columns'
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Display the content in six columns'
-    php.FeaturesBlockFeaturesLayout: 'Features Layout'
+    FeaturesLayout: 'Features Layout'
   GalleryBlock:
     BlockType: Bildergalerie
     ContentLabel: Content
@@ -369,7 +369,7 @@ de:
     'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-2@m': null
     'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-3@m': null
     'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-4@m': null
-    php.ParentBlockCollapsableChildrenHelpText: 'Diese Option kann nicht nach dem Erstellung geändert sein.'
+    CollapsableChildrenHelpText: 'Diese Option kann nicht nach dem Erstellung geändert sein.'
   ShareBlock:
     BlockType: 'Share Block'
     ContentLabel: Content

@@ -104,7 +104,7 @@ class ParentBlock extends ElementList
         )->setTitle(_t(__CLASS__.'.Settings','Einstellungen'))->setName('BlocksLayout'));
 
         if ($this->ID > 0){
-           $collapse->setDisabled(true)->setDescription(_t(__CLASS__.'CollapsableChildrenHelpText','Diese Option kann nicht nach dem Erstellung geändert sein.'));
+           $collapse->setDisabled(true)->setDescription(_t(__CLASS__.'.CollapsableChildrenHelpText','Diese Option kann nicht nach dem Erstellung geändert sein.'));
         }
 
         return $fields;
