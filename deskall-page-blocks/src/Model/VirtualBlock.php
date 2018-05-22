@@ -21,6 +21,6 @@ class VirtualBlock extends ElementVirtual{
 
     public function renderPreview(){
     	$class = $this->LinkedElement()->ClassName;
-    	return $this->renderWith($class.'_preview');
+    	return $this->renderWith($class.'_EditorPreview');
     }
 }
