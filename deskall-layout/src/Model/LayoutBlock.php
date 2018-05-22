@@ -163,7 +163,7 @@ class LayoutBlock extends DataObject{
 	/************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach($this->stat('widths') as $key => $value) {
+        foreach(self::$widths as $key => $value) {
           $entities[__CLASS__.".widths_{$key}"] = $value;
         }       
 
