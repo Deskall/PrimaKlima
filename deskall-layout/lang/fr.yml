@@ -45,7 +45,7 @@ fr:
     MenuSettings: 'Paramètre des menus'
     ShowSubLevels: 'Afficher les sous-menus'
     SubLevelLayout: 'Format des sous-menus'
-    UseMenu: 'Quel menu utiliser'
+    UseMenu: 'Utiliser la structure du site comme menu'
     block_types_address: Adresse
     block_types_content: Contenu
     block_types_divider: Ligne
