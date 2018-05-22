@@ -17,6 +17,9 @@ fr:
     block_link_alignments_center: Centré
     block_link_alignments_left: Gauche
     block_link_alignments_right: Droite
+    LinkTyp: Type
+    Title: Titre
+    LinkURL: URL
   SiteConfig:
     EmailTitleTag: 'Email à'
   SiteConfigExtension:
