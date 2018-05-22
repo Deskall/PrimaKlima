@@ -20,7 +20,17 @@ class VirtualBlock extends ElementVirtual{
     }
 
     public function RenderPreview(){
-    	$class = $this->LinkedElement()->ClassName;
-    	return $this->renderWith($class.'_EditorPreview');
+    	return $this->LinkedElement()->getEditorPreview();
+    }
+
+     /**
+     * @return \SilverStripe\ORM\FieldType\DBHTMLText
+     */
+    public function getEditorPreview()
+    {
+        $templates = [];
+        $templates[] = __CLASS__ . '_EditorPreview';
+
+        return $this->renderWith($templates);
     }
 }
