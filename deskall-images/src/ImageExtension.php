@@ -183,8 +183,8 @@ class ImageExtension extends Extension
                     $height = ($height < $MinHeight ) ? $MinHeight : $height;
                 }
                
-                $args[1] = $height;
-               
+                $args[1] = $height + 50;
+
                 $sizes->push(ArrayData::create([
                     'Image' => $this->getResampledImage($methodName, $args),
                     'Query' => $query
