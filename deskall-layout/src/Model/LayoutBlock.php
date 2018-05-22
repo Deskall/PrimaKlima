@@ -75,10 +75,8 @@ class LayoutBlock extends DataObject{
 
 
 	public function displayWidth(){
-		$widths = self::$widths;
-		$translations = $this->provideI18nEntities();
-		print_r($translations);
-		return $translations[__CLASS__.'.widths_'.$this->Width];
+		$translations = singleton('LayoutBlock')->provideI18nEntities();
+		return $translations['LayoutBlock.widths_'.$this->Width];
 	}
 
 
@@ -163,7 +161,7 @@ class LayoutBlock extends DataObject{
 	/************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach(self::$widths as $key => $value) {
+        foreach($this->stat('widths') as $key => $value) {
           $entities[__CLASS__.".widths_{$key}"] = $value;
         }       
 
