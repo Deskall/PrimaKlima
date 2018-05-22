@@ -37,6 +37,18 @@ class LayoutLink extends DataObject{
 	    return $labels;
 	}
 
+	public function NiceLinkType(){
+		return $this->LinkableLink()->Type;
+	}
+
+	public function NiceLinkTitle(){
+		return $this->LinkableLink()->Title;
+	}
+
+	public function NiceURL(){
+		return $this->LinkableLink()->URL;
+	}
+
 	
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
