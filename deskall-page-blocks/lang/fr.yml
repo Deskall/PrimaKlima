@@ -5,6 +5,7 @@ fr:
     ButtonPosition: 'Alignement du bouton'
     CloseText: 'Texte du bouton de fermeture'
     ContentLabel: Contenu
+    Description: Action déclenchant un évènement (Modal, Menu déroulant,...)
     DropdownBoundary: 'Adapter le contenu à la largeur du bloc parent'
     DropdownLayout: 'Format du menu déroulant'
     DropdownPosition: 'Alignement du menu déroulant'
@@ -70,6 +71,7 @@ fr:
     BackgroundColorHelpText: "sera superposée en calque opaque si le bloc a une image d'arrière-plan"
     BackgroundImage: "Image d'arrière-plan"
     ContentTab: 'Contenu'
+    GlobalLayout: 'Options globales de format'
     FullWidth: "étendre le bloc à la largeur de la page"
     HistoryTab: 'Historique'
     LAYOUTTAB: Affichage
@@ -77,6 +79,7 @@ fr:
     ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
     TextAlignment: "Alignement du texte"
     TextColumns: "Afficher le texte en plusieurs colonnes"
+    TextLayout: "Option de format du text"
     'block_backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
     'block_backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
     block_backgrounds_uk-section-default: "Pas de couleur d'arrière-plan"
@@ -96,7 +99,7 @@ fr:
     SettingsTab: 'Paramètres'
   Box:
     Effect: Effet
-    EffectOptions: "Options pour l'effet Optionen"
+    EffectOptions: "Options pour l'effet"
     Image: Image
     NoBild: (aucune)
     PLURALNAME: Boîtes
