@@ -45,6 +45,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'H2FontSize' => 'Varchar(25)',
     'H3FontSize' => 'Varchar(25)',
     'LeadFontSize' => 'Varchar(25)',
+    'LinkColor' => 'Varchar(5)',
 
     'HeaderBackground' => 'Varchar(255)',
     'HeaderFontColor' => 'Varchar(7)',
@@ -77,6 +78,10 @@ class SiteConfigLayoutExtension extends DataExtension
     'BodyBackground' => '@global',
     'ActiveColor' => '@global-emphasis',
     'GlobalFontSize' => '@global-font-size',
+    'LinkColor' => [
+      '@global-link-color',
+      '@global-link-hover-color'
+    ],
     'H1FontSize' => [
       '@h1-size',
       '@heading-primary-font-size'
