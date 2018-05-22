@@ -14,9 +14,9 @@ header{
 			height:100%;
 			width:auto;
 		}
-		margin-top:~"calc(@{header-menu-collapsed-height} - @{navbar-nav-item-height})";
+		margin-top:~"calc((@{header-menu-collapsed-height} - @{navbar-nav-item-height})/2)";
 		@media only screen and (min-width: @breakpoint-medium){
-			margin-top:~"calc(@{header-menu-height} - @{navbar-nav-item-height})";
+			margin-top:~"calc((@{header-menu-height} - @{navbar-nav-item-height})/2)";
 		}
 	}
 	&.dk-background-header{
