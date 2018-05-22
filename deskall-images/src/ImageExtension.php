@@ -65,7 +65,6 @@ class ImageExtension extends Extension
     }
 
     public function HeightForWidth($width){
-        file_put_contents('log.txt', $width);
         return round($width / ($this->owner->getWidth() / $this->owner->getHeight()) , 0);
     }
 
@@ -185,6 +184,7 @@ class ImageExtension extends Extension
                 }
                
                 $args[1] = $height;
+                file_put_contents('log.txt', $height);
                
                 $sizes->push(ArrayData::create([
                     'Image' => $this->getResampledImage($methodName, $args),
