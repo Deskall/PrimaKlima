@@ -72,6 +72,8 @@ fr:
     FooterFontSize: 'Taille de la police'
     FooterLayout: 'Format du pied de page'
     FooterTab: "Pied de page"
+    FooterContentTab: "Contenu du pied de page"
+    FooterLayoutTab: "Format du pied de page"
     FooterTitleFontSize: 'Taille de la police de titre'
     Footerlogowidtht: 'Largeur du logo'
     GlobalFontSize: 'Taille de police de base'
@@ -92,6 +94,10 @@ fr:
     LayoutTabTitle: "Thème"
     LayoutGlobalTab: "Général"
     LayoutHeaderTab: "Haut de page"
+    LayoutHeaderContentTab: "Contenu du haut de page"
+    LayoutHeaderLayoutTab: "Format du haut de page"
+    LayoutMobileLayoutTab: "Format du menu mobile"
+    LayoutMobileContentTab: "Contenu du menu mobile"
     LeadFontSize: 'Taille de police des textes principaux'
     MobileNaviLayout: 'Format du menu mobile'
     MobilNavigationTab: "Menu mobile"

@@ -229,6 +229,9 @@ class SiteConfigLayoutExtension extends DataExtension
       CheckboxField::create('StickyHeader','Sticky Header')
     )->setTitle(_t(__CLASS__.'.HeaderLayout','Header Layout'))->setName('HeaderBackgroundFields'));
 
+    $fields->FieldByName('Root.Layout.Header.Content')->setTitle(_t(__CLASS__.'.LayoutHeaderContentTab','Inhalt der Header'));
+    $fields->FieldByName('Root.Layout.Header.Layout')->setTitle(_t(__CLASS__.'.LayoutHeaderLayoutTab','Layout der Header'));
+
     
     //MOBILE NAVI
     $MobileMenusField = new GridField(
@@ -247,7 +250,8 @@ class SiteConfigLayoutExtension extends DataExtension
       )
     )->setTitle(_t(__CLASS__.'.MobileNaviLayout','MobileNavigation Layout'))->setName('MobileNaviFields'));
 
-    
+    $fields->FieldByName('Root.Layout.MobileNavigation.Content')->setTitle(_t(__CLASS__.'.LayoutMobileContentTab','Inhalt der mobile Navigation'));
+    $fields->FieldByName('Root.Layout.MobileNavigation.Layout')->setTitle(_t(__CLASS__.'.LayoutMobileLayoutTab','Layout der mobile Navigation'));
 
 
 
@@ -273,6 +277,8 @@ class SiteConfigLayoutExtension extends DataExtension
       )
      
     )->setTitle(_t(__CLASS__.'.FooterLayout','Footer Layout'))->setName('FooterLayoutFields'));
+    $fields->FieldByName('Root.Layout.Footer.Content')->setTitle(_t(__CLASS__.'.FooterContentTab','Inhalt der Footer'));
+    $fields->FieldByName('Root.Layout.Footer.Layout')->setTitle(_t(__CLASS__.'.FooterLayoutTab','Layout der Footer'));
 
   
 
