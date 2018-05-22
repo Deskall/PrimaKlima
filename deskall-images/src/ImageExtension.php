@@ -184,7 +184,6 @@ class ImageExtension extends Extension
                 }
                
                 $args[1] = $height;
-                file_put_contents('log.txt', $height);
                
                 $sizes->push(ArrayData::create([
                     'Image' => $this->getResampledImage($methodName, $args),
