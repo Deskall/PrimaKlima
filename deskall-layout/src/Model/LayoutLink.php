@@ -21,29 +21,18 @@ class LayoutLink extends DataObject{
 	];
 
 	private static $summary_fields = [
-		'NiceLinkType',
-		'NiceTitle',
-		'NiceURL'
+		'DisplayLink'
 	];
 
     function fieldLabels($includerelations = true) {
 	    $labels = parent::fieldLabels($includerelations);
-	 	$labels['NiceLinkType'] = _t(__CLASS__.'.LinkType','Typ');
-	 	$labels['NiceTitle'] = _t(__CLASS__.'.LinkTitle','Titel');
-	 	$labels['NiceURL'] = _t(__CLASS__.'.LinkURL','URL');
 	    $labels['DisplayLink'] = _t(__CLASS__.'.Link','Link');
 	   
 	 
 	    return $labels;
 	}
 
-	public function NiceLinkType(){
-		return $this->LinkableLink()->Type;
-	}
-
-	public function NiceLinkTitle(){
-		return $this->LinkableLink()->Title;
-	}
+--
 
 	public function NiceURL(){
 		return $this->DisplayLink();
