@@ -71,6 +71,7 @@ fr:
     FooterFontColor: "Couleur de police"
     FooterFontSize: 'Taille de la police'
     FooterLayout: 'Format du pied de page'
+    FooterTab: "Pied de page"
     FooterTitleFontSize: 'Taille de la police de titre'
     Footerlogowidtht: 'Largeur du logo'
     GlobalFontSize: 'Taille de police de base'
@@ -88,7 +89,10 @@ fr:
     HeaderItemHeight: 'Hauteur des éléments du menu'
     HeaderLayout: 'Format du haut de page'
     HeaderOpacity: Opacité
-    LayoutTabTitle: Format
+    LayoutTabTitle: "Thème"
+    LayoutGlobalTab: "Général"
+    LayoutHeaderTab: "Haut de page"
     LeadFontSize: 'Taille de police des textes principaux'
     MobileNaviLayout: 'Format du menu mobile'
+    MobilNavigationTab: "Menu mobile"
     noColor: 'Transparent'

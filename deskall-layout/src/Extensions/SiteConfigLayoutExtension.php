@@ -276,8 +276,10 @@ class SiteConfigLayoutExtension extends DataExtension
 
   
 
-
-
+    $fields->FieldByName('Root.Layout.Global')->setTitle(_t(__CLASS__.'.LayoutGlobalTab','Allgemein'));
+    $fields->FieldByName('Root.Layout.Header')->setTitle(_t(__CLASS__.'.LayoutHeaderTab','Header'));
+    $fields->FieldByName('Root.Layout.MobileNavigation')->setTitle(_t(__CLASS__.'.MobilNavigationTab','mobile Navigation'));
+    $fields->FieldByName('Root.Layout.Footer')->setTitle(_t(__CLASS__.'.FooterTab','Footer'));
     
     return $fields;
   }
