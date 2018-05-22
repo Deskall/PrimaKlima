@@ -28,6 +28,7 @@ class VirtualBlock extends ElementVirtual{
      */
     public function getEditorPreview()
     {
+    	print_r('ici');
         $templates = [];
         $templates[] = __CLASS__ . '_EditorPreview';
 
