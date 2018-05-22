@@ -77,6 +77,7 @@ class LayoutBlock extends DataObject{
 	public function displayWidth(){
 		$widths = self::$widths;
 		$translations = $this->provideI18nEntities();
+		print_r($translations);
 		return $translations[__CLASS__.'.widths_'.$this->Width];
 	}
 
