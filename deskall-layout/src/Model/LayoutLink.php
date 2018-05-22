@@ -32,8 +32,6 @@ class LayoutLink extends DataObject{
 	    return $labels;
 	}
 
---
-
 	public function NiceURL(){
 		return $this->DisplayLink();
 	}
