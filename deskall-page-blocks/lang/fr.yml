@@ -340,7 +340,7 @@ fr:
     Description: "Bloc permettant de combiner plusieurs blocs en un seul."
     CanCollapse: 'Blocs peuvent être rassemblés'
     CollapsableChildren: 'Blocs rassemblables'
-    CollapsableChildrenHelpText: 'Cette option ne peut pas être modifiée après la création du bloc.
+    CollapsableChildrenHelpText: "Cette option ne peut pas être modifiée après la création du bloc."
     CollapseMultipe: "Permettre l'ouverture de plusieurs blocs en même temps"
     Layout: Format
     PLURALNAME: 'Blocs multiples'
