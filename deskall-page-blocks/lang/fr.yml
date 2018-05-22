@@ -219,6 +219,7 @@ fr:
     php.DownloadBlockFilesTab: Fichiers
   DuplicateBlock:
     BlockType: 'Dupliquer un bloc'
+    Description: "Dupliquer un bloc existant"
     PLURALNAME: blocs
     PLURALS:
       one: 'un bloc'
@@ -463,6 +464,7 @@ fr:
     videos_per_line_uk-child-width-1-3@s: '3'
   VirtualBlock:
     BlockType: 'Lier un bloc'
+    Description: "Lier un bloc existant"
     PLURALNAME: 'Blocs liés'
     PLURALS:
       one: 'un bloc lié'
