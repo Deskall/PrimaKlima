@@ -41,7 +41,7 @@ class LayoutLink extends DataObject{
 		return $this->LinkableLink()->getLinkType();
 	}
 
-	public function NiceLinkTitle(){
+	public function NiceTitle(){
 		return $this->LinkableLink()->Title;
 	}
 
