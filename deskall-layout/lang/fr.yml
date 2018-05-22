@@ -33,6 +33,9 @@ fr:
     widths_uk-width-expand: 'Prendre la largeur de page restante'
   LayoutLink:
     Link: Lien
+    LinkTyp: Type
+    Title: Titre
+    LinkURL: URL
     PLURALNAME: 'Liens'
     PLURALS:
       one: 'un lien'
@@ -69,6 +72,7 @@ fr:
     FontTitle: 'Titre et aperçu'
     FontsTitle: Polices
     FooterBackground: "Couleur d'arrière-plan"
+    FooterBlocksLabel: "Bloc de pied de page"
     FooterFontColor: "Couleur de police"
     FooterFontSize: 'Taille de la police'
     FooterLayout: 'Format du pied de page'
