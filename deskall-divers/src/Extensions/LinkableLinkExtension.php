@@ -42,9 +42,6 @@ class LinkableLinkExtension extends DataExtension implements i18nEntityProvider
     function updateFieldLabels(&$labels) {
         $labels['LinkPosition'] = _t(__CLASS__.'.LinkPosition', 'Linkausrichtung');
         $labels['Background'] = _t(__CLASS__.'.Background', 'Link Hintergrundfarbe');
-        $labels['LinkType'] = _t(__CLASS__.'.LinkTyp','Typ');
-        $labels['Title'] = _t(__CLASS__.'.Title','Titel');
-        $labels['LinkURL'] = _t(__CLASS__.'.LinkURL','URL');
     }
 
 

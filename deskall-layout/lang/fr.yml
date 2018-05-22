@@ -33,8 +33,8 @@ fr:
     widths_uk-width-expand: 'Prendre la largeur de page restante'
   LayoutLink:
     Link: Lien
-    LinkableLink.LinkTyp: Type
-    Title: Titre
+    LinkTitle: Titre
+    LinkType: Type
     LinkURL: URL
     PLURALNAME: 'Liens'
     PLURALS:
