@@ -89,7 +89,7 @@ class SliderBlock extends BaseElement
         'MinHeight' => '250',
         'Height' => 'viewport',
         'TextAlign' => 'uk-text-left',
-        'TitleAlign' => 'uk-text-left',
+        'TitleAlign' => 'uk-text-left'
     ];
 
     private static $block_layouts = [
