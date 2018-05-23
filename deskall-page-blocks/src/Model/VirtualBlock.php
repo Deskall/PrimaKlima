@@ -10,6 +10,10 @@ class VirtualBlock extends ElementVirtual{
 
     private static $singular_name = 'Virtual block';
 
+    private static $controller_template = 'BlockHolder';
+
+    private static $controller_class = BlockController::class;
+
     private static $plural_name = 'Virtual blocks';
 
     private static $description = 'Verknüpfen Sie einen bestehenden Block.';
