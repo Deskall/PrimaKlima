@@ -1,2 +1,2 @@
 
-<% include Layout/{$LinkedElement.getControllerTemplate} Element=$LinkedElement %>
+<% include Layout/{$LinkedElement.controller_template} Element=$LinkedElement %>
