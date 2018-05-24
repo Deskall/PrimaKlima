@@ -127,6 +127,7 @@ class ListItem extends DataObject
         $labels['ImageThumbnail'] = _t(__CLASS__.'.Image', 'Bild');
         $labels['getSummary'] = _t(__CLASS__.'.Summary',  'Inhalt');
         $labels['Content'] = _t(__CLASS__.'.Summary',  'Inhalt');
+        $labels['Layout'] = _t(__CLASS__.'.Layout',  'Format');
 
         return $labels;
     }
@@ -144,7 +145,7 @@ class ListItem extends DataObject
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->FieldByName('Root.Main.Content')->setRows(5);
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-            HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Layout','Layout'),$this->stat('layouts'))
+            HTMLOptionsetField::create('Layout',_t(__CLASS__.'.GlobalLayout','Layout'),$this->stat('layouts'))
         )->setTitle(_t(__CLASS__.'.LayoutOption','Layout Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->stat('text_alignments')),
