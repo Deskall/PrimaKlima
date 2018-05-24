@@ -90,6 +90,7 @@ class ListBlock extends BaseElement
         $fields->removeByName('ShowBottomBorder');
         $fields->removeByName('ItemAlign');
         $fields->removeByName('LinkableLinkID');
+        $fields->FieldByName('Root.Main.Content')->setRows(5);
         if ($this->ID > 0){
 
             $config = 
