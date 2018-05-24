@@ -138,6 +138,10 @@ class ListItem extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('ParentID');
+        $fields->removeByName('TitleAlign');
+        $fields->removeByName('TextAlign');
+        $fields->removeByName('TextColumns');
+        $fields->removeByName('TextColumnsDivider');
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->FieldByName('Root.Main.Content')->setRows(5);
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
