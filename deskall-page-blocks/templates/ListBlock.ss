@@ -1,4 +1,4 @@
-<div class="uk-grid-small" data-uk-grid>
+<div class="uk-grid-small uk-flex" data-uk-grid>
     <% loop Items %>
     <div class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l">
     	<% if Image.getExtension == "svg" %>
