@@ -79,7 +79,7 @@ fr:
     ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
     TextAlignment: "Alignement du texte"
     TextColumns: "Afficher le texte en plusieurs colonnes"
-    TextLayout: "Option de format du text"
+    TextLayout: "Option de format du texte"
     'block_backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
     'block_backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
     block_backgrounds_uk-section-default: "Pas de couleur d'arrière-plan"

@@ -70,6 +70,7 @@ class ListBlock extends BaseElement
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        $fields->removeByName('Layout');
         if ($this->ID > 0){
 
             $config = 
