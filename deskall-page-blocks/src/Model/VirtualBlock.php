@@ -14,24 +14,19 @@ class VirtualBlock extends ElementVirtual{
 
     private static $description = 'Verknüpfen Sie einen bestehenden Block.';
 
+
+    private static $summary_fields = [
+        'VirtualEditorPreview' => 'Summary'
+    ];
+
     public function getType()
     {
         return _t(__CLASS__ . '.BlockType', 'Block verknüpfen');
     }
 
-    public function RenderPreview(){
-    	return $this->LinkedElement()->getEditorPreview();
+    public function VirtualEditorPreview(){
+        return 'yo';
     }
 
-     /**
-     * @return \SilverStripe\ORM\FieldType\DBHTMLText
-     */
-    public function getEditorPreview()
-    {
-    	print_r('ici');
-        $templates = [];
-        $templates[] = __CLASS__ . '_EditorPreview';
 
-        return $this->renderWith($templates);
-    }
 }
