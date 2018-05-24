@@ -6,7 +6,7 @@
 <% end_if %>
 
 <% loop Items %>
-    <div class="uk-grid-small uk-flex <% if ItemAlign == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid>
+    <div class="uk-grid-small uk-flex <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid>
     <% if Image %>
     <div class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l">
     	<% if Image.getExtension == "svg" %>
@@ -17,7 +17,7 @@
     </div>
     <% end_if %>
     <div class="<% if Image %>uk-width-1-2 uk-width-2-3@s uk-width-3-4@m uk-width-4-5@l<% else %>uk-width-1-1<% end_if %>">
-	    <strong class="$Top.ItemTitleAlign">$Title</strong>
+	    <strong class="$TitleAlign">$Title</strong>
 	    <div class="dk-text-content $TextAlign  $TextColumns <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	    	$Content
 	    </div>
