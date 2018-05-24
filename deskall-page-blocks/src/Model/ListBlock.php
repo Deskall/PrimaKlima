@@ -29,23 +29,10 @@ class ListBlock extends BaseElement
 
     private static $description = 'Itemlist schaffen (Links, Referenz,...)';
 
-     private static $block_layouts = [
-        'left' => [
-            'value' => 'left',
-            'title' => 'Links',
-            'icon' => '/deskall-page-blocks/images/icon-text-left.svg'
-        ],
-        'right' => [
-            'value' => 'right',
-            'title' => 'Rechts',
-            'icon' => '/deskall-page-blocks/images/icon-text-right.svg'
-        ]
-    ];
+
 
     private static $db = [
-        'ItemAlign' => 'Varchar(255)',
-        'Divider' => 'Boolean(1)',
-         'HTML' => 'HTMLText'
+        'HTML' => 'HTMLText'
     ];
 
     private static $has_one = [
@@ -60,10 +47,7 @@ class ListBlock extends BaseElement
        'Items'
     ];
 
-    private static $defaults = [
-       'ItemAlign' => 'left',
-       'ShowBottomBorder' => 1
-    ];
+    
 
 
     private static $cascade_duplicates = [
@@ -88,9 +72,6 @@ class ListBlock extends BaseElement
         $fields = parent::getCMSFields();
         $fields->removeByName('Layout');
         $fields->removeByName('Items');
-        $fields->removeByName('Divider');
-        $fields->removeByName('ShowBottomBorder');
-        $fields->removeByName('ItemAlign');
         $fields->FieldByName('Root.Main.HTML')->setRows(5);
 
         if ($this->ID > 0){
