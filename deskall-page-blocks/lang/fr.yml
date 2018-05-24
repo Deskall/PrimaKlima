@@ -308,6 +308,13 @@ fr:
       one: 'un contenu principal'
       other: '{count} contenus principaux'
     SINGULARNAME: 'contenu principal'
+  ListBlock:
+    BlockType: 'Liste'
+    Description: "Créer une liste d'item (liens, références,...)"
+    PLURALS:
+      one: 'une liste'
+      other: '{count} listes'
+    SINGULARNAME: 'Liste'
   MapBlock:
     Adresse: Adresse
     BlockType: Carte
