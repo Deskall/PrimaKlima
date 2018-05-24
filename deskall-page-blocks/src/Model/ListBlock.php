@@ -106,7 +106,7 @@ class ListBlock extends BaseElement
         }
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-            HTMLOptionsetField::create('ItemAlignment',_t(__CLASS__.'.ItemAlignment','Item Layout'),$this->owner->stat('block_text_alignments')),
+            HTMLOptionsetField::create('ItemAlignment',_t(__CLASS__.'.ItemAlignment','Item Layout'),$this->owner->stat('block_layouts')),
             CheckboxField::create('Divider',_t(__CLASS__.'.ShowBottomBorder','Border zwischen Item anzeigen'))
         )->setTitle(_t(__CLASS__.'.ItemLayout','List Format Optionen'))->setName('ItemLayout'));
         
