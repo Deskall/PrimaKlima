@@ -36,9 +36,9 @@ class ListItem extends DataObject
     ];
 
     private static $summary_fields = [
-        'Title' ,
-        'Image' ,
-        'Content'
+        'ItemTitle' ,
+        'ImageThumbnail' ,
+        'getSummary'
     ];
 
     function fieldLabels($includerelations = true) {

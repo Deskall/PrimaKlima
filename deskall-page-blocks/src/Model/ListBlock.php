@@ -9,15 +9,8 @@ use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
-use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
-use SilverStripe\Forms\GridField\GridFieldDeleteAction;
-use SilverStripe\Forms\GridField\GridFieldButtonRow;
-use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
-use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
-use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
-use SilverStripe\Forms\GridField\GridField;
 
 class ListBlock extends BaseElement
 {
@@ -79,13 +72,7 @@ class ListBlock extends BaseElement
         if ($this->ID > 0){
 
             $config = 
-            GridFieldConfig::create()
-            ->addComponent(new GridFieldButtonRow('before'))
-            ->addComponent(new GridFieldToolbarHeader())
-            ->addComponent(new GridFieldTitleHeader())
-            ->addComponent(new GridFieldEditableColumns())
-            ->addComponent(new GridFieldDeleteAction())
-            ->addComponent(new GridFieldAddNewInlineButton())
+            GridFieldConfig_RecordEditor::create()
             ->addComponent(new GridFieldOrderableRows('Sort'));
             if (singleton('ListItem')->hasExtension('Activable')){
                  $config->addComponent(new GridFieldShowHideAction());
