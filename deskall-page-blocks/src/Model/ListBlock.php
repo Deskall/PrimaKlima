@@ -88,11 +88,6 @@ class ListBlock extends BaseElement
         else {
             $fields->removeByName('Items');
         }
-
-        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-            HTMLOptionsetField::create('ItemAlign',_t(__CLASS__.'.ItemAlignment','Item Layout'),$this->owner->stat('block_layouts')),
-            CheckboxField::create('Divider',_t(__CLASS__.'.ShowBottomBorder','Border zwischen Item anzeigen'))
-        )->setTitle(_t(__CLASS__.'.ItemLayout','List Format Optionen'))->setName('ItemLayout'));
         
  
         return $fields;
