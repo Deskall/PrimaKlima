@@ -315,6 +315,10 @@ fr:
       one: 'une liste'
       other: '{count} listes'
     SINGULARNAME: 'Liste'
+  ListItem:
+    TitleLabel: Titre
+    Image: Image
+    Summary: Contenu
   MapBlock:
     Adresse: Adresse
     BlockType: Carte
