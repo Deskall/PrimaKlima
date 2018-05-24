@@ -35,8 +35,12 @@ class ListBlock extends BaseElement
         
     ];
 
+    private static $has_many = [
+        'Items' => ListItem::class
+    ];
+
     private static $owns = [
-       
+       'Items'
     ];
 
     private static $defaults = [
@@ -44,7 +48,9 @@ class ListBlock extends BaseElement
     ];
 
 
-    private static $cascade_duplicates = [];
+    private static $cascade_duplicates = [
+        'Items'
+    ];
  
 
 
@@ -52,7 +58,7 @@ class ListBlock extends BaseElement
     
     public function fieldLabels($includerelations = true ){
         $labels = parent::fieldLabels($includerelations );
-        $labels['Trigger'] = _t(__CLASS__.'.TriggeringText', 'Text der Öffnen-Button');
+        $labels['Items'] = _t(__CLASS__.'.ItemsLabel', 'Items');
 
         return $labels;
     }
@@ -61,6 +67,26 @@ class ListBlock extends BaseElement
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        if ($this->ID > 0){
+
+            $config = 
+            GridFieldConfig::create()
+            ->addComponent(new GridFieldButtonRow('before'))
+            ->addComponent(new GridFieldToolbarHeader())
+            ->addComponent(new GridFieldTitleHeader())
+            ->addComponent(new GridFieldEditableColumns())
+            ->addComponent(new GridFieldDeleteAction())
+            ->addComponent(new GridFieldAddNewInlineButton())
+            ->addComponent(new GridFieldOrderableRows('Sort'));
+            if (singleton('ListItem')->hasExtension('Activable')){
+                 $config->addComponent(new GridFieldShowHideAction());
+            }
+            $itemsField = new GridField('Items',_t(__CLASS__.'.Items','Items'),$this->Items(),$config);
+            $fields->addFieldToTab('Root.Main',$itemsField);
+        } 
+        else {
+            $fields->removeByName('Items');
+        }
  
         return $fields;
     }
