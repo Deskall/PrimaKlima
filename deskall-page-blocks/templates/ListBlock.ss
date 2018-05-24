@@ -11,10 +11,10 @@
 	    <strong class="$Top.TitleAlign">$Title</strong>
 	    <div class="dk-text-content $Top.TextAlign  $Top.TextColumns">
 	    	$Content
-	    	<% if LinkableLinkID > 0 %>
-	    		<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-	    	<% end_if %>
 	    </div>
+	    <% if LinkableLinkID > 0 %>
+	    	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+	    <% end_if %>
 	 </div>
 	 <% if Top.Divider %>
 	 <hr class="uk-width-1-1">
