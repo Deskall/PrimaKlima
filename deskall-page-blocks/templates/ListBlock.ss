@@ -9,7 +9,8 @@
     </div>
     <div class="uk-width-1-2 uk-width-2-3@s uk-width-3-4@m uk-width-4-5@l">
 	    <strong>$Title</strong>
-	    <div>$Content<br/>
+	    <div class="dk-text-content">
+	    	$Content
 	    	<% if LinkableLinkID > 0 %>
 	    		<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 	    	<% end_if %>

@@ -75,6 +75,8 @@ class ListBlock extends BaseElement
         $fields->removeByName('Items');
         $fields->removeByName('Divider');
         $fields->removeByName('ShowBottomBorder');
+        $fields->removeByName('ItemAlignment');
+        $fields->removeByName('CallToActionLinkID');
         if ($this->ID > 0){
 
             $config = 
@@ -91,7 +93,7 @@ class ListBlock extends BaseElement
         }
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-            HTMLOptionsetField::create('Item',_t(__CLASS__.'.ItemAlignment','Item Ausrichtung'),$this->owner->stat('block_text_alignments')),
+            HTMLOptionsetField::create('ItemAlignment',_t(__CLASS__.'.ItemAlignment','Item Ausrichtung'),$this->owner->stat('block_text_alignments')),
             CheckboxField::create('Divider',_t(__CLASS__.'.ShowBottomBorder','Border zwischen Item anzeigen'))
         )->setTitle(_t(__CLASS__.'.ItemLayout','List Format Optionen'))->setName('ItemLayout'));
         
