@@ -148,8 +148,8 @@ class ListItem extends DataObject
         $fields->addFieldToTab('Root',new Tab('LayoutTab',_t(__CLASS__.'.LAYOUTTAB','Layout')));
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-            HTMLOptionsetField::create('Layout',_t(__CLASS__.'.GlobalLayout','Layout'),$this->stat('layouts'))
-        )->setTitle(_t(__CLASS__.'.LayoutOption','Layout Optionen'))->setName('GlobalLayout'));
+            HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Layout','Layout'),$this->stat('layouts'))
+        )->setTitle(_t(__CLASS__.'.GlobalLayout','Layout Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->stat('text_alignments')),
             HTMLOptionsetField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->stat('text_alignments')),
