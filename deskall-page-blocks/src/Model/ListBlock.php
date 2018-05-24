@@ -88,7 +88,7 @@ class ListBlock extends BaseElement
         $fields->removeByName('Items');
         $fields->removeByName('Divider');
         $fields->removeByName('ShowBottomBorder');
-        $fields->removeByName('ItemAlignment');
+        $fields->removeByName('ItemAlign');
         $fields->removeByName('LinkableLinkID');
         if ($this->ID > 0){
 
