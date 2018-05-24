@@ -138,6 +138,7 @@ class ListItem extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('ParentID');
+        $fields->removeByName('Layout');
         $fields->removeByName('TitleAlign');
         $fields->removeByName('TextAlign');
         $fields->removeByName('TextColumns');
