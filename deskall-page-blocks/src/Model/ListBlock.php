@@ -10,6 +10,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridField;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class ListBlock extends BaseElement
