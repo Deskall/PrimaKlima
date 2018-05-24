@@ -73,6 +73,8 @@ class ListBlock extends BaseElement
         $fields = parent::getCMSFields();
         $fields->removeByName('Layout');
         $fields->removeByName('Items');
+        $fields->removeByName('Divider');
+        $fields->removeByName('ShowBottomBorder');
         if ($this->ID > 0){
 
             $config = 
