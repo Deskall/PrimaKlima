@@ -77,6 +77,7 @@ fr:
     LAYOUTTAB: Affichage
     LinkAlignment: "Alignement du lien"
     ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
+    TitleAlignment: "Alignement du titre"
     TextAlignment: "Alignement du texte"
     TextColumns: "Afficher le texte en plusieurs colonnes"
     TextLayout: "Option de format du texte"
