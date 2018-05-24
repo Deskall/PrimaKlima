@@ -238,7 +238,7 @@ class ImageExtension extends Extension
                     throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
                 }
                 $height = $args[0] / $ratio;
-                $args[1] = $height;
+                $args[1] = $height + 50;
                 $sizes->push(ArrayData::create([
                     'Image' => $this->getResampledImage($methodName, $args),
                     'Query' => $query
