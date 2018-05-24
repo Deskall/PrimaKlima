@@ -16,5 +16,8 @@
 	    	<% end_if %>
 	    </div>
 	 </div>
+	 <% if Top.ShowBottomBorder %>
+	 <hr>
+	 <% end_if %>
     <% end_loop %>
    </div>
