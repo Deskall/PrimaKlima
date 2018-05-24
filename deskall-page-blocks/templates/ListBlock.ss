@@ -16,7 +16,7 @@
 	    	<% end_if %>
 	    </div>
 	 </div>
-	 <% if Top.ShowBottomBorder %>
+	 <% if Top.Divider %>
 	 <hr>
 	 <% end_if %>
     <% end_loop %>
