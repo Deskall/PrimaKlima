@@ -145,6 +145,8 @@ class ListItem extends DataObject
         $fields->removeByName('TextColumnsDivider');
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->FieldByName('Root.Main.Content')->setRows(5);
+        $fields->addFieldToTab('Root',new Tab('LayoutTab',_t(__CLASS__.'.LAYOUTTAB','Layout')));
+
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('Layout',_t(__CLASS__.'.GlobalLayout','Layout'),$this->stat('layouts'))
         )->setTitle(_t(__CLASS__.'.LayoutOption','Layout Optionen'))->setName('GlobalLayout'));

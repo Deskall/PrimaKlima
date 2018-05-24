@@ -75,7 +75,6 @@ class ListBlock extends BaseElement
         $fields->removeByName('Items');
         $fields->removeByName('Divider');
         $fields->FieldByName('Root.Main.HTML')->setRows(5);
-        $fields->addFieldToTab('Root',new Tab('LayoutTab',_t(__CLASS__.'.LAYOUTTAB','Layout')));
         
         if ($this->ID > 0){
 
