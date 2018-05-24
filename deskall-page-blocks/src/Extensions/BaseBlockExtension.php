@@ -39,8 +39,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     private static $defaults = [
         'ShowTitle' => 1,
         'Background' => 'uk-section-default',
-        'TextAlign' => 'uk-text-justify uk-text-left@s',
-        'TitleAlign' => 'uk-text-justify uk-text-left@s',
+        'TextAlign' => 'uk-text-left',
+        'TitleAlign' => 'uk-text-left',
         'TextColumns' => '1',
         'AvailableGlobally' => 1,
     ];
