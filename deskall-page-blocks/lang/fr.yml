@@ -316,7 +316,7 @@ fr:
       one: 'une liste'
       other: '{count} listes'
     SINGULARNAME: 'Liste'
-    ItemAlignment: 'Alignement des items'
+    ItemAlignment: 'Format des items'
     ShowBottomBorder: 'Afficher une bordure entre les items'
     ItemLayout: 'Format de la liste'
   ListItem:

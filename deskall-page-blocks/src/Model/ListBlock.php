@@ -29,6 +29,18 @@ class ListBlock extends BaseElement
 
     private static $description = 'Itemlist schaffen (Links, Referenz,...)';
 
+     private static $block_layouts = [
+        'left' => [
+            'value' => 'left',
+            'title' => 'Links',
+            'icon' => '/deskall-page-blocks/images/icon-text-left.svg'
+        ],
+        'right' => [
+            'value' => 'right',
+            'title' => 'Rechts',
+            'icon' => '/deskall-page-blocks/images/icon-text-right.svg'
+        ]
+    ];
 
     private static $db = [
         'ItemAlign' => 'Varchar(255)',
@@ -48,7 +60,8 @@ class ListBlock extends BaseElement
     ];
 
     private static $defaults = [
-       
+       'ItemAlign' => 'left',
+       'ShowBottomBorder' => 1
     ];
 
 
@@ -76,7 +89,7 @@ class ListBlock extends BaseElement
         $fields->removeByName('Divider');
         $fields->removeByName('ShowBottomBorder');
         $fields->removeByName('ItemAlignment');
-        $fields->removeByName('CallToActionLinkID');
+        $fields->removeByName('LinkableLinkID');
         if ($this->ID > 0){
 
             $config = 
@@ -93,7 +106,7 @@ class ListBlock extends BaseElement
         }
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-            HTMLOptionsetField::create('ItemAlignment',_t(__CLASS__.'.ItemAlignment','Item Ausrichtung'),$this->owner->stat('block_text_alignments')),
+            HTMLOptionsetField::create('ItemAlignment',_t(__CLASS__.'.ItemAlignment','Item Layout'),$this->owner->stat('block_text_alignments')),
             CheckboxField::create('Divider',_t(__CLASS__.'.ShowBottomBorder','Border zwischen Item anzeigen'))
         )->setTitle(_t(__CLASS__.'.ItemLayout','List Format Optionen'))->setName('ItemLayout'));
         
