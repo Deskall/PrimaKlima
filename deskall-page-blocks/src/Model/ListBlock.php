@@ -9,6 +9,8 @@ use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
+use SilverStripe\Forms\GridField\GridFieldConfig;
+
 
 class ListBlock extends BaseElement
 {
