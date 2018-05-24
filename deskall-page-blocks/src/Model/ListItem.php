@@ -175,6 +175,15 @@ class ListItem extends DataObject
         return $this->Parent()->getPage();
     }
 
+    public function getHTMLOption(){
+        $html = '<div class="option-html">
+        <i class="'.$this->owner->config()->get('icon').'"></i>
+        <strong>'.$this->owner->getType().'</strong>
+        <p>'._t($this->owner->ClassName.'.Description',$this->owner->config()->get('description')).'</p>
+      </div>';
+        return $html;
+    }
+
 
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
