@@ -1,4 +1,4 @@
-<div class="dk-text-content $TextAlign  $TextColumns">
+<div class="dk-text-content $TextAlign  $TextColumns <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	 $HTML
 </div>
 <% if LinkableLinkID > 0 %>
@@ -18,7 +18,7 @@
     <% end_if %>
     <div class="<% if Image %>uk-width-1-2 uk-width-2-3@s uk-width-3-4@m uk-width-4-5@l<% else %>uk-width-1-1<% end_if %>">
 	    <strong class="$Top.ItemTitleAlign">$Title</strong>
-	    <div class="dk-text-content $TextAlign  $TextColumns">
+	    <div class="dk-text-content $TextAlign  $TextColumns <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	    	$Content
 	    </div>
 	    <% if LinkableLinkID > 0 %>
