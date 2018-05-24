@@ -51,6 +51,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'GalleryBlock',
         'BoxBlock',
         'FeaturesBlock',
+        'ListBlock',
         'DNADesign-ElementalUserForms-Model-ElementForm',
         'DownloadBlock',
         'LargeImageBlock',
@@ -71,6 +72,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'GalleryBlock',
         'BoxBlock',
         'FeaturesBlock',
+        'ListBlock',
         'DNADesign-ElementalUserForms-Model-ElementForm',
         'DownloadBlock',
         'ParentBlock',
@@ -87,6 +89,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextBlock',  
         'GalleryBlock',
         'BoxBlock',
+        'ListBlock',
         'DownloadBlock',
     ];
 

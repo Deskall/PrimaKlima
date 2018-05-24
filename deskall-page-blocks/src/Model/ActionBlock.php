@@ -156,6 +156,7 @@ class ActionBlock extends BaseElement
         $fields->removeByName('Effect');
         $fields->removeByName('ModalScroll');
         $fields->removeByName('Target');
+        $fields->removeByName('Layout');
         //$title = $fields->fieldByName('Root.Main.TitleAndDisplayed');
       //  $fields->removeByName('TitleAndDisplayed');
 
