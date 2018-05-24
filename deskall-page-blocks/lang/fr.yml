@@ -319,6 +319,10 @@ fr:
     TitleLabel: Titre
     Image: Image
     Summary: Contenu
+    PLURALS:
+      one: 'un item'
+      other: '{count} items'
+    SINGULARNAME: 'Liste'
   MapBlock:
     Adresse: Adresse
     BlockType: Carte
