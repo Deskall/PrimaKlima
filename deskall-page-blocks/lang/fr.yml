@@ -340,7 +340,7 @@ fr:
     'text_alignments_uk-text-left': 'Aligner le texte à gauche'
     'text_alignments_uk-text-right': 'Aligner le texte à droite'
     'text_columns_ ': 'Pas de colonnes'
-     text_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
+    text_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
     'text_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
     'text_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
     'text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
