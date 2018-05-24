@@ -1,5 +1,5 @@
 <div class="dk-text-content $TextAlign  $TextColumns">
-	 $Content
+	 $HTML
 </div>
 <% if LinkableLinkID > 0 %>
 	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
