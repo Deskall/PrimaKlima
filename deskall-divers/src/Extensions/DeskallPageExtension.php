@@ -31,6 +31,7 @@ class DeskallPageExtension extends DataExtension
 
     public static function page_type_classes(){
         $types = self::page_type_classes();
+        print_r($types);
         unset($types['SilverStripe\UserForms\Model\UserDefinedForm']);
         return $types;
     }
