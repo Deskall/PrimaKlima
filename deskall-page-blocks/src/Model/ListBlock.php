@@ -31,7 +31,8 @@ class ListBlock extends BaseElement
 
 
     private static $db = [
-        
+        'ItemAlign' => 'Varchar(255)',
+        'Divider' => 'Boolean(1)'
     ];
 
     private static $has_one = [
@@ -71,6 +72,7 @@ class ListBlock extends BaseElement
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('Layout');
+        $fields->removeByName('Items');
         if ($this->ID > 0){
 
             $config = 
@@ -85,6 +87,12 @@ class ListBlock extends BaseElement
         else {
             $fields->removeByName('Items');
         }
+
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            HTMLOptionsetField::create('Item',_t(__CLASS__.'.ItemAlignment','Item Ausrichtung'),$this->owner->stat('block_text_alignments')),
+            CheckboxField::create('Divider',_t(__CLASS__.'.ShowBottomBorder','Border zwischen Item anzeigen'))
+        )->setTitle(_t(__CLASS__.'.ItemLayout','List Format Optionen'))->setName('ItemLayout'));
+        
  
         return $fields;
     }

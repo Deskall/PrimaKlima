@@ -315,6 +315,9 @@ fr:
       one: 'une liste'
       other: '{count} listes'
     SINGULARNAME: 'Liste'
+    ItemAlignment: 'Alignement des items'
+    ShowBottomBorder: 'Afficher une bordure entre les items'
+    ItemLayout: 'Format de la liste'
   ListItem:
     TitleLabel: Titre
     Image: Image
@@ -322,7 +325,7 @@ fr:
     PLURALS:
       one: 'un item'
       other: '{count} items'
-    SINGULARNAME: 'Liste'
+    SINGULARNAME: 'Item'
   MapBlock:
     Adresse: Adresse
     BlockType: Carte
