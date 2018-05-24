@@ -72,7 +72,7 @@ class ListBlock extends BaseElement
 
     public function getType()
     {
-        return _t(__CLASS__ . '.BlockType', 'Aktion');
+        return _t(__CLASS__ . '.BlockType', 'List');
     }
 
 
