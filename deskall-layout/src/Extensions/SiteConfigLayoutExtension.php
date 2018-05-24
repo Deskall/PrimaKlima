@@ -226,7 +226,7 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('HeaderMenuItemSize',_t(__CLASS__.'.HeaderItemHeight','Menu Item Höhe')),
         TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse'))
       ),
-      CheckboxField::create('StickyHeader','Sticky Header')
+      CheckboxField::create('StickyHeader',_t(__CLASS__.'.StickyHeader','Sticky Header'))
     )->setTitle(_t(__CLASS__.'.HeaderLayout','Header Layout'))->setName('HeaderBackgroundFields'));
 
     $fields->FieldByName('Root.Layout.Header.Content')->setTitle(_t(__CLASS__.'.LayoutHeaderContentTab','Inhalt der Header'));

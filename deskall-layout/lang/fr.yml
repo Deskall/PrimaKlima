@@ -109,3 +109,4 @@ fr:
     MobileNaviLayout: 'Format du menu mobile'
     MobilNavigationTab: "Menu mobile"
     noColor: 'Transparent'
+    StickyHeader: 'fixer le menu en haut de la page'
