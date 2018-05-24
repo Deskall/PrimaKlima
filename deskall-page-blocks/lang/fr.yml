@@ -328,6 +328,23 @@ fr:
       one: 'un item'
       other: '{count} items'
     SINGULARNAME: 'Item'
+    GlobalLayout: 'Options globales de format'
+    LAYOUTTAB: Affichage
+    ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
+    TitleAlignment: "Alignement du titre"
+    TextAlignment: "Alignement du texte"
+    TextColumns: "Afficher le texte en plusieurs colonnes"
+    TextLayout: "Option de format du texte"
+    text_alignments_uk-text-justify: 'Justifier le texte'
+    'text_alignments_uk-text-center': 'Centrer le texte horizontalement'
+    'text_alignments_uk-text-left': 'Aligner le texte à gauche'
+    'text_alignments_uk-text-right': 'Aligner le texte à droite'
+    'text_columns_ ': 'Pas de colonnes'
+     text_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
   MapBlock:
     Adresse: Adresse
     BlockType: Carte
