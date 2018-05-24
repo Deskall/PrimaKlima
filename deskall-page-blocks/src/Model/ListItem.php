@@ -14,8 +14,7 @@ class ListItem extends DataObject
 
     private static $db = [
         'Title' => 'Text',
-        'Content' => 'HTMLText',
-        'URL' => 'Varchar(255)'
+        'Content' => 'HTMLText'
     ];
 
     private static $has_one = [
@@ -45,9 +44,11 @@ class ListItem extends DataObject
         $labels = parent::fieldLabels($includerelations);
      
         $labels['ItemTitle'] = _t(__CLASS__.'.TitleLabel','Titel');
+        $labels['Title'] = _t(__CLASS__.'.TitleLabel','Titel');
         $labels['ImageThumbnail'] = _t(__CLASS__.'.Image', 'Bild');
         $labels['getSummary'] = _t(__CLASS__.'.Summary',  'Inhalt');
-     
+        $labels['Content'] = _t(__CLASS__.'.Summary',  'Inhalt');
+
         return $labels;
     }
 
