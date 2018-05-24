@@ -44,7 +44,8 @@ class ListBlock extends BaseElement
 
     private static $db = [
         'ItemAlign' => 'Varchar(255)',
-        'Divider' => 'Boolean(1)'
+        'Divider' => 'Boolean(1)',
+         'HTML' => 'HTMLText'
     ];
 
     private static $has_one = [
@@ -89,7 +90,8 @@ class ListBlock extends BaseElement
         $fields->removeByName('Divider');
         $fields->removeByName('ShowBottomBorder');
         $fields->removeByName('ItemAlign');
-        $fields->removeByName('LinkableLinkID');
+        $fields->FieldByName('Root.Main.HTML')->setRows(5);
+
         if ($this->ID > 0){
 
             $config = 

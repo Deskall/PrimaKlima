@@ -1,3 +1,9 @@
+<div class="dk-text-content $TextAlign  $TextColumns">
+	 $Content
+</div>
+<% if LinkableLinkID > 0 %>
+	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+<% end_if %>
 <div class="uk-grid-small uk-flex <% if ItemAlign == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid>
     <% loop Items %>
     <% if Image %>
