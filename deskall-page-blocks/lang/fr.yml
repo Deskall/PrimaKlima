@@ -311,6 +311,7 @@ fr:
     SINGULARNAME: 'contenu principal'
   ListBlock:
     BlockType: 'Liste'
+    Content: "Contenu"
     Description: "Créer une liste d'item (liens, références,...)"
     PLURALS:
       one: 'une liste'

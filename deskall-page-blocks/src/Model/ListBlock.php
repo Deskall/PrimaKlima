@@ -77,6 +77,7 @@ class ListBlock extends BaseElement
     public function fieldLabels($includerelations = true ){
         $labels = parent::fieldLabels($includerelations );
         $labels['Items'] = _t(__CLASS__.'.ItemsLabel', 'Items');
+        $labels['HTML'] = _t(__CLASS__.'.Content', 'Inhalt');
 
         return $labels;
     }
