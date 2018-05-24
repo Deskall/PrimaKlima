@@ -18,7 +18,6 @@ class ListItem extends DataObject
         'Title' => 'Text',
         'Content' => 'HTMLText',
         'Layout' => 'Varchar(255)',
-        'Divider' => 'Boolean(1)',
         'TitleAlign' => 'Varchar(255)',
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
@@ -44,7 +43,6 @@ class ListItem extends DataObject
 
     private static $defaults = [
        'Layout' => 'left',
-       'Divider' => 1,
        'TextAlign' => 'uk-text-left',
        'TitleAlign' => 'uk-text-left',
        'TextColumns' => '1',
