@@ -29,9 +29,8 @@ class ListBlock extends BaseElement
 
     private static $description = 'Itemlist schaffen (Links, Referenz,...)';
 
-
-
     private static $db = [
+        'Divider' => 'Boolean(1)',
         'HTML' => 'HTMLText'
     ];
 
@@ -47,7 +46,9 @@ class ListBlock extends BaseElement
        'Items'
     ];
 
-    
+    private static $defaults = [
+       'Divider' => 1
+    ];
 
 
     private static $cascade_duplicates = [
@@ -72,6 +73,7 @@ class ListBlock extends BaseElement
         $fields = parent::getCMSFields();
         $fields->removeByName('Layout');
         $fields->removeByName('Items');
+        $fields->removeByName('Divider');
         $fields->FieldByName('Root.Main.HTML')->setRows(5);
 
         if ($this->ID > 0){
@@ -88,6 +90,10 @@ class ListBlock extends BaseElement
         else {
             $fields->removeByName('Items');
         }
+
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            CheckboxField::create('Divider',_t(__CLASS__.'.ShowBottomBorder','Border zwischen Item anzeigen'))
+        )->setTitle(_t(__CLASS__.'.ItemLayout','List Format Optionen'))->setName('ItemLayout'));
         
  
         return $fields;

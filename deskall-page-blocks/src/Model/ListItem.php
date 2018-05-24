@@ -145,6 +145,9 @@ class ListItem extends DataObject
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->FieldByName('Root.Main.Content')->setRows(5);
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Layout','Layout'),$this->stat('layouts'))
+        )->setTitle(_t(__CLASS__.'.LayoutOption','Layout Optionen'))->setName('GlobalLayout'));
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->stat('text_alignments')),
             HTMLOptionsetField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->stat('text_alignments')),
             HTMLOptionsetField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->stat('text_columns')),
