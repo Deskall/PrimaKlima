@@ -85,6 +85,9 @@ class ListBlock extends BaseElement
             $config = 
             GridFieldConfig_RecordEditor::create()
             ->addComponent(new GridFieldOrderableRows('Sort'));
+            if ($this->Collapsible){
+                $config->addComponent(new GridFieldCollapseUncollapseAction());
+            }
             if (singleton('ListItem')->hasExtension('Activable')){
                  $config->addComponent(new GridFieldShowHideAction());
             }

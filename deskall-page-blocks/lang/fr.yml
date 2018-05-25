@@ -331,6 +331,7 @@ fr:
     GlobalLayout: 'Options globales de format'
     LAYOUTTAB: Affichage
     Layout: Format
+    NoBild: "(pas d'image)"
     ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
     TitleAlignment: "Alignement du titre"
     TextAlignment: "Alignement du texte"
