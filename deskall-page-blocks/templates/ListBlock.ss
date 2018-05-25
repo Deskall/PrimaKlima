@@ -32,6 +32,9 @@
 	            	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 	            <% end_if %>
 	        </div>
+	        <% if Top.Divider %>
+	        <hr class="uk-width-1-1">
+	        <% end_if %>
         </div>
     </li>
     <% end_loop %>
