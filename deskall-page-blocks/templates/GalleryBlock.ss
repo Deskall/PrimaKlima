@@ -9,7 +9,7 @@
 		<% end_if %>
 
 		<% if Layout == "carousel" %>
-		<div data-uk-slider>
+		<div data-uk-slider="<% if Autoplay %>Autoplay: true;<% end_if %>">
 
 		    <div class="uk-position-relative">
 
