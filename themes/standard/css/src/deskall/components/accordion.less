@@ -1,17 +1,4 @@
 .hook-accordion-title() {
 
-    overflow: hidden;
-
-    &::after {
-        content: "";
-        width: (@accordion-title-line-height * 1em);
-        height: (@accordion-title-line-height * 1em);
-        float: right;
-        .svg-fill(@internal-accordion-close-image, "#000", @accordion-icon-color);
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-    }
-
-    .uk-open > &::after { .svg-fill(@internal-accordion-open-image, "#000", @accordion-icon-color); }
 
 }
