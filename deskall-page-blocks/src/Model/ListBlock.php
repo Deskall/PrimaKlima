@@ -76,6 +76,8 @@ class ListBlock extends BaseElement
         $fields->removeByName('Layout');
         $fields->removeByName('Items');
         $fields->removeByName('Divider');
+        $fields->removeByName('Collapsible'); 
+        $fields->removeByName('MultipleCollapse'); 
         $fields->FieldByName('Root.Main.HTML')->setRows(5);
 
         if ($this->ID > 0){
@@ -94,7 +96,9 @@ class ListBlock extends BaseElement
         }
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-            CheckboxField::create('Divider',_t(__CLASS__.'.ShowBottomBorder','Border zwischen Item anzeigen'))
+            CheckboxField::create('Divider',_t(__CLASS__.'.ShowBottomBorder','Border zwischen Item anzeigen')),
+            $collapse = CheckboxField::create('Collapsible',_t('ParentBlock.CollapsableChildren','zusammenklappbar Blöcke')),
+            CheckboxField::create('MultipleCollapse',_t('ParentBlock.CollapseMultipe','Mehrere erweiterten Blöcke erlaubt.'))->displayIf('Collapsible')->isChecked()->end(),
         )->setTitle(_t(__CLASS__.'.ItemLayout','List Format Optionen'))->setName('ItemLayout'));
         
  
