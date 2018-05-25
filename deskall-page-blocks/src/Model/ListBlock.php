@@ -98,7 +98,7 @@ class ListBlock extends BaseElement
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             CheckboxField::create('Divider',_t(__CLASS__.'.ShowBottomBorder','Border zwischen Item anzeigen')),
             $collapse = CheckboxField::create('Collapsible',_t('ParentBlock.CollapsableChildren','zusammenklappbar Blöcke')),
-            CheckboxField::create('MultipleCollapse',_t('ParentBlock.CollapseMultipe','Mehrere erweiterten Blöcke erlaubt.'))->displayIf('Collapsible')->isChecked()->end(),
+            CheckboxField::create('MultipleCollapse',_t('ParentBlock.CollapseMultipe','Mehrere erweiterten Blöcke erlaubt.'))->displayIf('Collapsible')->isChecked()->end()
         )->setTitle(_t(__CLASS__.'.ItemLayout','List Format Optionen'))->setName('ItemLayout'));
         
  
