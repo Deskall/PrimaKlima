@@ -23,6 +23,7 @@ class ListItem extends DataObject
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
+        'Collapsed' => 'Boolean(0)'
     ];
 
     private static $has_one = [

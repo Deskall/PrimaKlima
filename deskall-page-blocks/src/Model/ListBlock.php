@@ -31,7 +31,9 @@ class ListBlock extends BaseElement
 
     private static $db = [
         'Divider' => 'Boolean(1)',
-        'HTML' => 'HTMLText'
+        'HTML' => 'HTMLText',
+        'Collapsible' => 'Boolean(0)',
+        'MultipleCollapse' => 'Boolean(0)'
     ];
 
     private static $has_one = [
@@ -75,7 +77,7 @@ class ListBlock extends BaseElement
         $fields->removeByName('Items');
         $fields->removeByName('Divider');
         $fields->FieldByName('Root.Main.HTML')->setRows(5);
-        
+
         if ($this->ID > 0){
 
             $config = 

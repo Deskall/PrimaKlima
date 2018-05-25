@@ -29,13 +29,6 @@ class DeskallPageExtension extends DataExtension
     	return ThemeResourceLoader::inst()->getThemePaths(SSViewer::get_themes())[0];
     }
 
-    public static function page_type_classes(){
-        $types = self::page_type_classes();
-        print_r($types);
-        unset($types['SilverStripe\UserForms\Model\UserDefinedForm']);
-        return $types;
-    }
-
     public function updateCMSFields(FieldList $fields){
         if ($this->owner->ShowInMenus){
             $field = OptionsetField::create('ShowInMainMenu',_t(__CLASS__.'.ShowInMainMenuLabel','In welchem Menu sollt diese Seite anzeigen ?'), $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
