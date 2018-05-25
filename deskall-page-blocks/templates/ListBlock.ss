@@ -5,7 +5,7 @@
 	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 <% end_if %>
 <% if Collapsible %>
-<ul uk-accordion>
+<ul uk-accordion="<% if MultipleCollapse %>multiple: true<% end_if %>">
 	<% loop Items %>
     <li <% if not collapsed %>class="uk-open"<% end_if %>>
         <a class="uk-accordion-title $TitleAlign" href="#">$Title</a>
