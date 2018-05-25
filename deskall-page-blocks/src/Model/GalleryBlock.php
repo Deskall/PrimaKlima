@@ -6,6 +6,7 @@ use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\OptionsetField;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
@@ -24,7 +25,8 @@ class GalleryBlock extends BaseElement
         'SortAttribute' => 'Varchar(255)',
         'PicturesPerLine' => 'Varchar(255)',
         'PictureWidth' => 'Int',
-        'PictureHeight' => 'Int'
+        'PictureHeight' => 'Int',
+        'Autoplay' => 'Boolean(0)'
     ];
 
     private static $many_many = [
@@ -91,7 +93,8 @@ class GalleryBlock extends BaseElement
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(
                     DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Bilder per Linie'), self::$pictures_per_line),
-                    OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')
+                    OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts'),
+                    CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches Abspielen?'))
                 ))->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             
