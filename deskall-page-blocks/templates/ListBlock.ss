@@ -7,7 +7,7 @@
 <% if Collapsible %>
 <ul uk-accordion>
 	<% loop Items %>
-    <li class="uk-open">
+    <li <% if not collapsed %>class="uk-open"<% end_if %>>
         <a class="uk-accordion-title $TitleAlign" href="#">$Title</a>
         <div class="uk-accordion-content">
         	<div class="uk-grid-small uk-flex <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >

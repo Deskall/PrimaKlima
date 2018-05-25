@@ -22,8 +22,7 @@ class ListItem extends DataObject
         'TitleAlign' => 'Varchar(255)',
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
-        'TextColumnsDivider' => 'Boolean(0)',
-        'Collapsed' => 'Boolean(0)'
+        'TextColumnsDivider' => 'Boolean(0)'
     ];
 
     private static $has_one = [
@@ -35,7 +34,8 @@ class ListItem extends DataObject
         Versioned::class,
         'Activable',
         'Linkable',
-        'Sortable'
+        'Sortable',
+        'Collapsable'
     ];
 
 
