@@ -9,7 +9,7 @@
             <div class="dk-slide-text-container uk-position-relative">
                 <div class="uk-position-center">
                     <div class="uk-container">
-                        <div class=" uk-light uk-text-center">
+                        <div class="uk-text-center">
                             <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
                             <% if Title %><h2 class="$Top.TitleAlign">$Title</h2><% end_if %>
                             <div class="uk-text-lead uk-visible@s $Top.TextAlign  $Top.TextColumns">$Content</div>
