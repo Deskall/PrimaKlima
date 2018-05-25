@@ -253,6 +253,7 @@ fr:
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
   GalleryBlock:
+    Autoplay: "Lecture automatique"
     BlockType: "Galerie d'images"
     ContentLabel: Contenu
     Description: "Affiche un carousel d'image ou une grille au choix"

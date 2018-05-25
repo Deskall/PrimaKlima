@@ -83,6 +83,7 @@ class GalleryBlock extends BaseElement
             $fields->removeByName('PictureWidth');
             $fields->removeByName('SortAttribute');
             $fields->removeByName('Layout');
+            $fields->removeByName('Autoplay');
            
             $fields
                 ->fieldByName('Root.Main.HTML')
