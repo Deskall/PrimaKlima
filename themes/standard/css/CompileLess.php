@@ -52,6 +52,8 @@ function autoCompileLess($inputFile, $outputFile) {
   }
 
   $less = new lessc;
+
+
   $less->setFormatter("compressed");
   $newCache = $less->cachedCompile($cache);
 
