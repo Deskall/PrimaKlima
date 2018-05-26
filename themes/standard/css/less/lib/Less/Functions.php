@@ -899,6 +899,7 @@ class Less_Functions{
 		}
 
 		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."use 64 :".$useBase64, FILE_APPEND);
+		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."file path :".$filePath, FILE_APPEND);
 		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."file exists ? :".file_exists($filePath), FILE_APPEND);
 
 		if( file_exists($filePath) ){
