@@ -1,7 +1,7 @@
 .svg-fill(@src, @color-default, @color-new) {
     @escape-color-default: escape(@color-default);
     @escape-color-new: escape("@{color-new}");
-    @data-uri: datauri("@{src}");
+    @data-uri: data-uri("@{src}");
     @replace-src: replace("@{data-uri}", "@{escape-color-default}", "@{escape-color-new}", "g");
     background-image: e(@replace-src);
 }

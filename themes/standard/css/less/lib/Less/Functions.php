@@ -849,9 +849,15 @@ class Less_Functions{
 	}
 
 	public function datauri($mimetypeNode, $filePathNode = null ) {
+		ob_start();
+		print_r($mimetypeNode);
+		print_r($filePathNode);
+		$result = ob_get_clean();
+		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "args :".$result);
+
 		$filePath = ( $filePathNode ? $filePathNode->value : null );
 		$mimetype = $mimetypeNode->value;
-		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "mimetype :".$mimetype);
+		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "mimetype :".$mimetype, FILE_APPEND);
 
 		$args = 2;
 		if( !$filePath ){
