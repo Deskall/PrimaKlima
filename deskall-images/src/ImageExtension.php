@@ -70,6 +70,8 @@ class ImageExtension extends Extension
 
     public function onAfterUpload(){
 
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","before: ".$this->owner->getAbsoluteURL());
+            
         //Resize image to fit max Width and Height before resampling
         $width = $this->owner->config()->get('MaxWidth');
         $height = $this->owner->config()->get('MaxHeight');
@@ -87,10 +89,11 @@ class ImageExtension extends Extension
         }
         
         $backend->setImageResource($resource);
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","after: ".$this->owner->getAbsoluteURL(), FILE_APPEND);
         //Publish
         $this->owner->publishSingle();
         //Optimise via TinyPNG API
-        $this->OptimiseImage($this->owner->getAbsoluteURL(), $_SERVER['DOCUMENT_ROOT'].$this->owner->getURL());
+       // $this->OptimiseImage($this->owner->getAbsoluteURL(), $_SERVER['DOCUMENT_ROOT'].$this->owner->getURL());
     
     }
 
