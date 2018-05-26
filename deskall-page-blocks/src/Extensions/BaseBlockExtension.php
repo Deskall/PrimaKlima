@@ -14,7 +14,7 @@ use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
 
-class BaseBlockExtension extends DataExtension implements i18nEntityProvider
+class BaseBlockExtension extends DataExtension implements i18nEntityProvider, StaticPublishingTrigger
 {
 
     private static $db = [
@@ -265,4 +265,34 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
 /************* END TRANLSATIONS *******************/
+
+
+
+
+/************** STATIC PUBLISHING ***************/
+     /**
+     * Provides an SS_List of StaticallyPublishable objects which need to be regenerated.
+     *
+     * @param array $context An associative array with extra engine-specific information.
+     *
+     * @return SS_List
+     */
+    public function objectsToUpdate($context){
+        $list = new SS_list();
+        $list->add($this->owner->Page());
+        return $list;
+    }
+
+    /**
+     * Provides a SS_list of objects that need to be deleted.
+     *
+     * @param array $context An associative array with extra engine-specific information.
+     *
+     * @return SS_List
+     */
+    public function objectsToDelete($context){
+        $list = new SS_list();
+        return $list;
+    }
+/****************** END STATIC ***********/
 }
