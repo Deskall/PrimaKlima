@@ -15,26 +15,27 @@ class DeskallImageOptimiser {
 			//if not published check protected
 			$path = str_replace("assets","assets/.protected",$path);
 		}
+		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n".$path);
 		if (file_exists($path)){
 			try {
 	    		\Tinify\setKey($this->api_key);
 				$source = \Tinify\fromUrl($path);
 				$source->toFile($path);
 			} catch(\Tinify\AccountException $e) {
-			    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","account: " . $e->getMessage(), FILE_APPEND);
+			    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n"."account: " . $e->getMessage(), FILE_APPEND);
 			    // Verify your API key and account limit.
 			} catch(\Tinify\ClientException $e) {
 			    // Check your source image and request options.
-			    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","client: " . $e->getMessage(), FILE_APPEND);
+			    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n"."client: " . $e->getMessage(), FILE_APPEND);
 			} catch(\Tinify\ServerException $e) {
 			    // Temporary issue with the Tinify API.
-			     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","tiny server: " . $e->getMessage(), FILE_APPEND);
+			     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n"."tiny server: " . $e->getMessage(), FILE_APPEND);
 			} catch(\Tinify\ConnectionException $e) {
 			    // A network connection error occurred.
-			     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","connection: " . $e->getMessage(), FILE_APPEND);
+			     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n"."connection: " . $e->getMessage(), FILE_APPEND);
 			} catch(Exception $e) {
 			    // Something else went wrong, unrelated to the Tinify API.
-			     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","other: " . $e->getMessage(), FILE_APPEND);
+			     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n"."other: " . $e->getMessage(), FILE_APPEND);
 			}
 		}
 	}
