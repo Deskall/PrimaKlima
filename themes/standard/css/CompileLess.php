@@ -38,7 +38,7 @@ if($css_compiled){
 	// save files
 	file_put_contents($filename_full,$css_compiled);
 	file_put_contents($filename_min,$css_compiled);
-	file_put_contents($_SERVER['DOCUMENT_ROOT']."/deskall-layout/templates/Includes/Css.ss",$css_compiled);
+	file_put_contents($_SERVER['DOCUMENT_ROOT']."/deskall-layout/templates/Includes/Css.ss","<style>".$css_compiled."</style>");
 }
 header("Content-type: text/css");
 echo file_get_contents( $filename );
