@@ -1,13 +1,11 @@
 <?php
 
 class DeskallImageOptimiser {
-	private static $api_key = 'gG1Tujhnd39tTlK5Wg8fKwbN6a3HVDA4';
+	protected $api_key = 'gG1Tujhnd39tTlK5Wg8fKwbN6a3HVDA4';
 
-	public function Optimise($image){
+	public function Optimise($path){
 		\Tinify\setKey($this->api_key);
-		$source = \Tinify\fromFile("unoptimized.jpg");
-		$source->toFile("optimized.jpg");
-
-		return file_get_contents("optimized.jpg");
+		$source = \Tinify\fromFile($path);
+		$source->toFile($path);
 	}
 } 
