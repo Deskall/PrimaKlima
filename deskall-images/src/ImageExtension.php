@@ -85,6 +85,8 @@ class ImageExtension extends Extension
                 $constraint->upsize();
             });
         }
+
+        $resource = $this->owner->OptimiseImage($resource);
         
         $backend->setImageResource($resource);
     
@@ -321,5 +323,15 @@ class ImageExtension extends Extension
     {
         return $this->getResponsiveSets();
     }
+
+
+
+    //Optimise with tynigPNG
+
+    public function OptimiseImage($resource){
+        $optimiser = new DeskallImageOptimiser();
+        return $optimiser->Optimise($resource);
+    }
+
 
 }
