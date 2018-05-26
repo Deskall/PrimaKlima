@@ -19,7 +19,7 @@ use Symbiote\QueuedJobs\Services\QueuedJobService;
  *
  * @see PublishableSiteTree
  */
-class BlockPublishingEngine extends BaseBlockExtension
+class BlockPublishingEngine extends BaseElement
 {
     /**
      * Queues the urls to be flushed into the queue.
