@@ -1,4 +1,5 @@
 <?php
+use SilverStripe\Control\Director;
 
 require_once "less/lessc.inc.php";
 $filecore = str_replace(".min","",basename($_SERVER['REQUEST_URI'],".css"));
