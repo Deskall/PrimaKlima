@@ -1,0 +1,9 @@
+---
+Name: mystaticpublishqueue
+After: '#staticpublishqueue'
+---
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\StaticPublishQueue\Publisher:
+    class: SilverStripe\StaticPublishQueue\Publisher\FilesystemPublisher
+    properties:
+      fileExtension: html
