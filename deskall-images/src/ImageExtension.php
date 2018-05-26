@@ -73,7 +73,7 @@ class ImageExtension extends Extension
 
         //Publish
         $this->owner->publishSingle();
-        if ($this->owner->config->get('optimise_tiny')){
+        if ($this->owner->config()->get('optimise_tiny')){
             //Optimise via TinyPNG API
             $this->OptimiseImage(Director::absoluteURL($this->owner->getSourceURL()), $_SERVER['DOCUMENT_ROOT'].$this->owner->getSourceURL());
         }
