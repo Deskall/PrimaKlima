@@ -871,7 +871,7 @@ class Less_Functions{
 
 		$filePath = str_replace('\\','/',$filePath);
 		
-		if( ! preg_match('/^(?:[a-z-]+:|\/)/',$path) ){
+		if( Less_Environment::isPathRelative($filePath) ){
 			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."relative path", FILE_APPEND);
 			if( Less_Parser::$options['relativeUrls'] ){
 				$temp = $this->currentFileInfo['currentDirectory'];
@@ -906,7 +906,8 @@ class Less_Functions{
 			if( $useBase64 ){ $mimetype .= ';base64'; }
 
 		}else{
-			$useBase64 = preg_match('/;base64$/',$mimetype);
+			//$useBase64 = preg_match('/;base64$/',$mimetype);
+			$useBase64 = 1;
 		}
 
 		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."use 64 :".$useBase64, FILE_APPEND);
