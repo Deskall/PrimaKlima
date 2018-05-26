@@ -865,6 +865,8 @@ class Less_Functions{
 			$args = 1;
 		}
 
+		$filePath = str_replace("../../","src/",$filePath);
+
 		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."args :".$args, FILE_APPEND);
 
 		$filePath = str_replace('\\','/',$filePath);
