@@ -70,7 +70,7 @@ class ImageExtension extends Extension
 
     public function onAfterUpload(){
 
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","before: ".$this->owner->getAbsoluteURL());
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","before: ".$this->owner->getSourceURL());
             
         //Resize image to fit max Width and Height before resampling
         $width = $this->owner->config()->get('MaxWidth');
