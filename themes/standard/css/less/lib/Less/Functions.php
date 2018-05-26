@@ -503,6 +503,8 @@ class Less_Functions{
 
 		$result = preg_replace($expr,$replacement->value,$result);
 
+		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", "\n".$result, FILE_APPEND);
+
 
 		if( property_exists($string,'quote') ){
 			return new Less_Tree_Quoted( $string->quote, $result, $string->escaped);
