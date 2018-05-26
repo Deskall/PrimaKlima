@@ -13,9 +13,8 @@ if($css_compiled){
 	$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
 	$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
 	$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/themes/standard/css/src/images/backgrounds/",$css_compiled);
-	if (\SilverStripe\Control\Director::isLive()){
-		$css_compiled = str_replace("url('../fonts","url('/themes/standard/fonts",$css_compiled);
-	}
+	$css_live = str_replace("url('../fonts","url('/themes/standard/fonts",$css_compiled);
+	
 
 	// // optimize file
 	// $url = 'http://optimizer-deskall.rhcloud.com/css';
@@ -40,7 +39,7 @@ if($css_compiled){
 	// save files
 	file_put_contents($filename_full,$css_compiled);
 	file_put_contents($filename_min,$css_compiled);
-	file_put_contents($_SERVER['DOCUMENT_ROOT']."/deskall-layout/templates/Includes/Css.ss","<style>".$css_compiled."</style>");
+	file_put_contents($_SERVER['DOCUMENT_ROOT']."/deskall-layout/templates/Includes/Css.ss","<style>".$css_live."</style>");
 }
 header("Content-type: text/css");
 echo file_get_contents( $filename );
