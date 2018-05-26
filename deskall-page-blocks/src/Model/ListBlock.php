@@ -97,7 +97,7 @@ class ListBlock extends BaseElement
         } 
         else {
             $fields->removeByName('Items');
-            $fields->addFieldToTab("Root.Main",LabelField::create('LabelField',_t(__CLASS__.'.AfterCreation','Sie können Artikeln nach dem Erstellen der Liste hinzufügen')));)
+            $fields->addFieldToTab("Root.Main",LabelField::create('LabelField',_t(__CLASS__.'.AfterCreation','Sie können Artikeln nach dem Erstellen der Liste hinzufügen')));
         }
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
