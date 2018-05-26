@@ -86,7 +86,7 @@ class ImageExtension extends Extension
             });
         }
 
-        $resource = $this->owner->OptimiseImage($resource);
+        $resource = $this->OptimiseImage($resource);
         
         $backend->setImageResource($resource);
     
