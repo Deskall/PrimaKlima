@@ -859,6 +859,8 @@ class Less_Functions{
 			$args = 1;
 		}
 
+		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."args :".$args, FILE_APPEND);
+
 		$filePath = str_replace('\\','/',$filePath);
 		
 		if( ! preg_match('/^(?:[a-z-]+:|\/)/',$path) ){
