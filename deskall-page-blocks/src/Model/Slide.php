@@ -121,7 +121,7 @@ class Slide extends DataObject implements StaticPublishingTrigger
      */
     public function objectsToUpdate($context){
         $list = new SS_list();
-        $list->add($this->owner->Parent());
+        $list->add($this->Parent());
         return $list;
     }
 
