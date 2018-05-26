@@ -861,7 +861,7 @@ class Less_Functions{
 
 		$filePath = str_replace('\\','/',$filePath);
 		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."filepath before :".$filePath, FILE_APPEND);
-		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."filepath relative ? :".preg_match('/^(?:[a-z-]+:|\/)/',$path),FILE_APPEND);
+		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."filepath relative ? :".!preg_match('/^(?:[a-z-]+:|\/)/',$path),FILE_APPEND);
 		if( Less_Environment::isPathRelative($filePath) ){
 			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."relative path", FILE_APPEND);
 			if( Less_Parser::$options['relativeUrls'] ){
