@@ -11,7 +11,7 @@ class HomePage extends Page {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->replaceField('Root.Main.URLSegment',$fields->FieldByName('Root.Main.URLSegment')->performReadonlyTransformation());
+		$fields->FieldByName('Root.Main.URLSegment')->setReadonly(true);
 
 		return $fields;
 	}
