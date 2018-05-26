@@ -8,4 +8,11 @@ class HomePage extends Page {
 	public function canCreate($member = null, $context = null){
 		return HomePage::get()->count() == 0;
 	}
+
+	public function getCMSFields(){
+		$fields = parent::getCMSFields();
+		$fields->performReadonlyTransformation($fields->FieldByName('Root.Main.URLSegment'));
+
+		return $fields;
+	}
 }

@@ -9,7 +9,7 @@ fr:
     BUTTONACTIVEDESC: Activer
     BUTTONINACTIVEDESC: Désactiver
   HomePage:
-    Description: "Page d'accueil"
+    description: "Page d'accueil"
   Linkable:
     CTA: Lien
   LinkableLinkExtension:
