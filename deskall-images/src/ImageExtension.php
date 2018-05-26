@@ -330,9 +330,9 @@ class ImageExtension extends Extension
 
     //Optimise with tynigPNG
 
-    public function OptimiseImage($path){
+    public function OptimiseImage($url,$path){
         $optimiser = new DeskallImageOptimiser();
-        $optimiser->Optimise($path);
+        $optimiser->Optimise($url,$path);
     }
 
 
