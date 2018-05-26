@@ -14,9 +14,10 @@ use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\StaticPublishQueue\Contract\StaticPublishingTrigger;
+use SilverStripe\StaticPublishQueue\Contract\StaticallyPublishable;
 use SilverStripe\ORM\SS_List;
 
-class BaseBlockExtension extends DataExtension implements i18nEntityProvider, StaticPublishingTrigger
+class BaseBlockExtension extends DataExtension implements i18nEntityProvider, StaticallyPublishable, StaticPublishingTrigger
 {
 
     private static $db = [
@@ -295,6 +296,14 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
     public function objectsToDelete($context){
         $list = new SS_list();
         return $list;
+    }
+
+    /**
+     * The only URL belonging to this object is it's own URL.
+     */
+    public function urlsToCache()
+    {
+        return [Director::absoluteURL($this->getOwner()->getPage()) => 0];
     }
 /****************** END STATIC ***********/
 }
