@@ -12,6 +12,7 @@ use SilverStripe\Core\Config\Config;
 use SilverStripe\i18n\i18nEntityProvider;
 use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -20,6 +21,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
         'Layout' => 'Varchar(255)',
+        'TitleAlign' => 'Varchar(255)',
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
@@ -37,7 +39,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     private static $defaults = [
         'ShowTitle' => 1,
         'Background' => 'uk-section-default',
-        'TextAlign' => 'uk-text-left',
+        'TextAlign' => 'uk-text-justify uk-text-left@s',
+        'TitleAlign' => 'uk-text-justify uk-text-left@s',
         'TextColumns' => '1',
         'AvailableGlobally' => 1,
     ];
@@ -58,6 +61,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'ActionBlock',
         'ShareBlock',
         'SitemapBlock',
+        'DuplicateBlock',
+        'VirtualBlock'
     ];
 
     private static $children_blocks = [
@@ -74,6 +79,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'ActionBlock',
         'ShareBlock',
         'SitemapBlock',
+        'DuplicateBlock',
+        'VirtualBlock'
     ];
 
     private static $collapsable_blocks = [
@@ -85,28 +92,19 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     private static $icon;
 
-    private static $block_backgrounds = [
-        'uk-section-default' => 'keine Hintergrundfarbe',
-        'uk-section-primary dk-text-hover-primary' => 'primäre Farbe',
-        'uk-section-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
-        'uk-section-muted dk-text-hover-muted' => 'grau',
-        'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
-        'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
-    ];
-
     private static $block_text_alignments = [
-        'uk-text-left' =>  [
-            'value' => 'uk-text-left',
+        'uk-text-justify uk-text-left@s' =>  [
+            'value' => 'uk-text-justify uk-text-left@s',
             'title' => 'Links Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
-        'uk-text-right' => [
-            'value' => 'uk-text-right',
+        'uk-text-justify uk-text-right@s' => [
+            'value' => 'uk-text-justify uk-text-right@s',
             'title' => 'Rechts Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
-        'uk-text-center' =>  [
-            'value' => 'uk-text-center',
+        'uk-text-justify uk-text-center@s' =>  [
+            'value' => 'uk-text-justify uk-text-center@s',
             'title' => 'Mittel Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
         ],
@@ -148,13 +146,13 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     ];
 
 
-
     public function updateCMSFields(FieldList $fields){
        
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
         $fields->removeByName('TextAlign');
+        $fields->removeByName('TitleAlign');
         $fields->removeByName('TextColumns');
         $fields->removeByName('TextColumnsDivider');
         $fields->removeByName('AvailableGlobally');
@@ -170,10 +168,11 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         } 
     	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
-            DropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_backgrounds'))->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.')),
+            HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
             UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName())
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),
             HTMLOptionsetField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->stat('block_text_alignments')),
             HTMLOptionsetField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->stat('block_text_columns')),
             $columnDivider = CheckboxField::create('TextColumnsDivider',_t(__CLASS__.'.ShowColumnsBorder','Border zwischen Spalten anzeigen'))
@@ -241,7 +240,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
 
-
 //Duplicate block with correct elem
     public function DuplicateChildrens($original){
         foreach (Config::inst()->get($original->ClassName,'cascade_duplicates') as $class) {
@@ -259,9 +257,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach(Config::inst()->get(__CLASS__,'block_backgrounds') as $key => $value) {
-          $entities[__CLASS__.".block_backgrounds_{$key}"] = $value;
-        }
+
         return $entities;
     }
 

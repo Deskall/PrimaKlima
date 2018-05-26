@@ -5,6 +5,8 @@ use SilverStripe\Core\Config\Config;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Assets\Image;
 
 class ImageExtension extends Extension
 {
@@ -60,6 +62,11 @@ class ImageExtension extends Extension
         $title = ($fallback) ? $fallback : $this->owner->Name;
         
         return $title;
+    }
+
+    public function HeightForWidth($width){
+        file_put_contents('log.txt', $width);
+        return round($width / ($this->owner->getWidth() / $this->owner->getHeight()) , 0);
     }
 
     public function onAfterUpload(){
@@ -137,32 +144,133 @@ class ImageExtension extends Extension
             throw new RuntimeException(get_class($this->owner) . ' has no method ' . $methodName);
         }
 
-        // Create the resampled images for each query in the set
-        $sizes = ArrayList::create();
-        foreach ($config['arguments'] as $query => $args) {
-            if (is_numeric($query) || !$query) {
-                throw new Exception("Responsive set $set has an empty media query. Please check your config format");
-            }
-
-            if (!is_array($args) || empty($args)) {
-                throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
-            }
-
-            $sizes->push(ArrayData::create([
-                'Image' => $this->getResampledImage($methodName, $args),
-                'Query' => $query
-            ]));
-        }
-
         //fallbakc for title and alt tags
-      
         $fallback = (empty($defaultArgs)) ? null : end($defaultArgs);
         $uikit = (isset($config['uikit'])) ? $config['uikit'] : null;
 
 
+        // Create the resampled images for each query in the set
+        $sizes = ArrayList::create();
+        //Specific for slide
+        if ($set == "slides"){
+            $slide = DataObject::get_by_id('Slide',reset($defaultArgs));
+            if (!$slide){
+                throw new Exception("Responsive set $set doesn't have the correct arguments provided for the slide ID");
+            }
+
+            // If methode slide we calculate the ration
+
+            $ratio = ($slide->ImageID > 0) ? $slide->Image()->getWidth() / $slide->Image()->getHeight() : 1;
+            $MaxHeight = $slide->Parent()->MaxHeight;
+            $MinHeight = $slide->Parent()->MinHeight;
+
+            foreach ($config['arguments'] as $query => $args) {
+                if (is_numeric($query) || !$query) {
+                    throw new Exception("Responsive set $set has an empty media query. Please check your config format");
+                }
+
+                if (!is_array($args) || empty($args)) {
+                    throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
+                }
+                $height = $args[0] / $ratio;
+                //Special dimension for retina screen
+                if (strpos($query,'min-device-pixel-ratio: 2') > 0){
+                    $height = ($height > $MaxHeight * 2) ? $MaxHeight * 2 : $height;
+                    $height = ($height < $MinHeight * 2) ? $MinHeight * 2 : $height;
+                }
+                else
+                {
+                    $height = ($height > $MaxHeight ) ? $MaxHeight : $height;
+                    $height = ($height < $MinHeight ) ? $MinHeight : $height;
+                }
+               
+                $args[1] = $height;
+               
+                $sizes->push(ArrayData::create([
+                    'Image' => $this->getResampledImage($methodName, $args),
+                    'Query' => $query
+                ]));
+            }
+          
+            //reset default
+            $defaultArgs = [];
+            $defaultArgs[0] = $config['default_arguments'][0];
+            $defaultArgs[1] = $defaultArgs[0] / $ratio;
+        }
+        elseif ($set == "content"){
+            $image = DataObject::get_by_id(Image::class,reset($defaultArgs));
+            if (!$image){
+                throw new Exception("Responsive set $set doesn't have the correct arguments provided for the image ID");
+            }
+
+            // If methode slide we calculate the ration
+            $ratio = $image->getWidth() / $image->getHeight();
+
+            foreach ($config['arguments'] as $query => $args) {
+                if (is_numeric($query) || !$query) {
+                    throw new Exception("Responsive set $set has an empty media query. Please check your config format");
+                }
+
+                if (!is_array($args) || empty($args)) {
+                    throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
+                }
+                $height = $args[0] / $ratio;
+                $args[1] = $height;
+                $sizes->push(ArrayData::create([
+                    'Image' => $this->getResampledImage($methodName, $args),
+                    'Query' => $query
+                ]));
+            }
+            
+            //reset default
+            $defaultArgs = [];
+            $defaultArgs[0] = $config['default_arguments'][0];
+            $defaultArgs[1] = $defaultArgs[0] / $ratio;
+        }
+        elseif ($set == "overlays"){
+            $ratio = $defaultArgs[0] / $defaultArgs[1];
+
+            foreach ($config['arguments'] as $query => $args) {
+                if (is_numeric($query) || !$query) {
+                    throw new Exception("Responsive set $set has an empty media query. Please check your config format");
+                }
+
+                if (!is_array($args) || empty($args)) {
+                    throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
+                }
+                $height = $args[0] / $ratio;
+                $args[1] = $height;
+                $sizes->push(ArrayData::create([
+                    'Image' => $this->getResampledImage($methodName, $args),
+                    'Query' => $query
+                ]));
+            }
+          
+            //reset default
+            $defaultArgs = [];
+            $defaultArgs[0] = $config['default_arguments'][0];
+            $defaultArgs[1] = $defaultArgs[0] / $ratio;
+        }
+        else{
+            
+            foreach ($config['arguments'] as $query => $args) {
+                if (is_numeric($query) || !$query) {
+                    throw new Exception("Responsive set $set has an empty media query. Please check your config format");
+                }
+
+                if (!is_array($args) || empty($args)) {
+                    throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
+                }
+              
+               
+                $sizes->push(ArrayData::create([
+                    'Image' => $this->getResampledImage($methodName, $args),
+                    'Query' => $query
+                ]));
+            }
+        }
         return $this->owner->customise([
             'Sizes' => $sizes,
-
             'DefaultImage' => $this->getResampledImage($methodName, $defaultArgs)
         ])->renderWith('Includes/ResponsiveImageSet', ['uikitAttr' => $uikit,'altTag' => $this->AltTag($fallback), 'titleTag' => $this->TitleTag($fallback) ]);
     }

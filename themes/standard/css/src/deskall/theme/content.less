@@ -1,8 +1,13 @@
 
+//LINK
+a:hover{
+	text-decoration: none;
+}
+
 // LIST
 
 	li[data-uk-icon]{
-		padding-left: 30px;
+		padding-left: 15px;
 		display: block;
 		position: relative;
 		line-height: @global-line-height;
@@ -12,14 +17,20 @@
 			left:0;
 			top:@global-font-size*@global-line-height/2;
 			transform: translateY(-(@global-font-size*@global-line-height/2 - (@global-font-size*@global-line-height - @global-font-size)/2));
-			//top:(@global-font-size*@global-line-height - @global-font-size)/2;
 		}
 		a{
-			color:inherit;
 			text-decoration: none;
+			padding: 0 15px;
+			display: block;
 		}
 		&.dk-large-icon{
 			padding-left: 50px;
+		}
+	}
+	.uk-nav li[data-uk-icon]{
+		padding-left: 30px;
+		svg{
+			left:@global-gutter/2;
 		}
 	}
 
@@ -30,7 +41,7 @@
 .dk-overlay{
 	position: relative;
 	.uk-container{position: relative;z-index: 2}
-	&:not(.no-bg)::after{
+	&:not(.uk-section-default)::after{
 		content: "";
 		display: block;
 		position: absolute;
@@ -40,27 +51,13 @@
 		bottom: 0;
 		z-index: 1;
 	}
-	&.uk-section-primary:after{
-		background-color:fade(@global-primary-background,50%);
-		color:@global-primary-color;
-	}
-	&.uk-section-secondary:after{
-		background-color:fade(@global-secondary-background,50%);
-		color:@global-secondary-color;
-	}
-	&.uk-section-muted:after{
-		background-color:fade(@global-muted-background,50%);
-	}
-	&.dk-background-white:after{
-		background-color:fade(@white-background,50%);
-		color:@white-color;
-	}
-	&.dk-background-black:after{
-		background-color:fade(@black-background,50%);
-		color:@black-color;
+	&.uk-section-default{
+		color: @white-background;
+		h2,h3{
+			color:@white-background;
+		}
 	}
 }
-
 .dk-background-white{
 	background-color: @white-background;
 	color:@white-color;
@@ -78,7 +75,21 @@
 
 .calltoaction-container{
 	.uk-button{
+		.read-more-font;
 		font-size: @global-font-size;
+		svg{
+			padding-left:5px;
+		}
+	}
+	&.uk-flex-left{
+		.button-uk-section-default{
+			padding-left:0;
+		}
+	}
+	&.uk-flex-right{
+		.button-uk-section-default{
+			padding-right:0;
+		}
 	}
 }
 .dk-hidden{
@@ -86,6 +97,34 @@
 }
 
 picture img{
-	width:100%;
 	height:auto;
+}
+
+.dk-text-content a{
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+
+	&:after {
+	    background-color: @global-link-color;
+	    content: '';
+	    height: 1px;
+	    position: absolute;
+	    bottom: 2px;
+	    left: 0;
+	    transition: width 0.3s ease-in-out;
+	    width: 0;
+	}
+	&:hover {
+	    &:after {
+	    background-color: @global-link-hover-color;
+		width: 100%;
+	    }
+	}
+} 
+
+span.dk-link-with-icon{
+	display: inline-block;
+	vertical-align: top;
+	width:~"calc(100% - 35px)";
 }

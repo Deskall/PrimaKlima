@@ -1,6 +1,6 @@
 
 <div class="uk-panel">
-	<div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+	<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 		$HTML
 	</div>
 	

@@ -1,1 +1,2 @@
-/Users/guillaumepacilly/Desktop/PrimaKlima/themes/standard/css/src/deskall/theme/user_defined.less
+ID: 1
+Total Colors: 7

@@ -1,5 +1,5 @@
 
-		<div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+		<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 			$HTML
 		</div>
 		<% if LinkableLinkID > 0 %>
@@ -25,7 +25,7 @@
 					    	</div>
 					    	<% else %>
 					    	
-					    		<a href="$Image.getSourceURL" class="dk-lightbox">
+					    		<a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description">
 					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" />
 						    	</a>
 						    
@@ -39,7 +39,7 @@
 					    	</div>
 					    	<% else %>
 					    	
-					    		<a href="$Image.getSourceURL" class="dk-lightbox">
+					    		<a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description">
 					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" />
 						    	</a>
 						    
@@ -61,7 +61,7 @@
 					    	</div>
 					    	<% else %>
 					    	
-					    		<a href="$Image.getSourceURL" class="dk-lightbox">
+					    		<a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description">
 					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" />
 						    	</a>
 						    

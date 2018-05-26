@@ -11,24 +11,25 @@
 	.container,table.footer-wrap{clear:both!important}
 	*{margin:0;font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;color: #666;}
 	img{max-width:100%}
-	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%; }
+	.logo img{max-width: 150px;height:auto;}
+	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%}
 	.content table,table.body-wrap,table.footer-wrap,table.head-wrap{width:100%}
 	a{color:#666}
 	.btn,.social .soc-btn{color:#FFF;text-align:center;font-weight:700;text-decoration:none}
-	.btn{background-color:#dc002e;padding:10px 16px;margin-right:10px;cursor:pointer;display:inline-block;float:right;margin-top:20px}
+	.btn{background-color:#007327;padding:10px 16px;margin-right:10px;cursor:pointer;display:inline-block;float:right;margin-top:20px}
 	.btn a{color: #fff; text-decoration: none;}
 	.callout{padding:15px;background-color:#eee;border:1px solid #eee;margin-bottom:15px; max-width: 528px;}
 	.callout p{color: #666;}
 	.callout a{font-weight:700;color: #666;}
 
 	.button-holder{text-align: right;}
-	.button-holder a{text-decoration: none;color: #fff;background-color: #dc002e!important; font-weight: bold; font-size: 20px; padding: 5px 10px}
+	.button-holder a{text-decoration: none;color: #fff;background-color: #007327!important; font-weight: bold; font-size: 20px; padding: 5px 10px}
 
 
 	.social .soc-btn{padding:3px 7px;font-size:12px;margin-bottom:10px;display:block}
 	a.fb{background-color:#3B5998!important}
 	a.tw{background-color:#1daced!important}
-	a.web{background-color:#dc002e!important}
+	a.web{background-color:#007327!important}
 	a.gp{background-color:#DB4A39!important}
 	a.ms{background-color:#000!important}
 	.sidebar .soc-btn{display:block;width:100%}
@@ -39,14 +40,15 @@
 	h1,h2{font-weight:200}
 	h1,h2,h3,h4,h5,h6{font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;line-height:1.1;margin-bottom:15px;color:#666}
 	h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{font-size:60%;color:#6f6f6f;line-height:0;text-transform:none}
-	h1{margin-top:30px;font-size:44px; color: #10206b;margin-bottom:20px;}
+	h1{margin-top:30px;font-size:44px; color: #007327;margin-bottom:20px;}
 	h2{font-size:37px}
 	h3,h4{font-weight:500}
 	h3{font-size:27px}
 	h4{font-size:23px}
 	h5,h6{font-weight:900}
 	h5{font-size:17px}
-	h6,p,ul{font-size:14px}
+	h6,p,ul,div,span
+	{font-size:14px}
 	h6{text-transform:uppercase;color:#444}
 	.collapse{margin:0!important}
 	p,ul{margin-bottom:10px;font-weight:400;line-height:1.6}
@@ -66,21 +68,20 @@
 	.column table{width:100%}
 	.social .column{width:280px;min-width:279px;float:left}
 	.clear{display:block;clear:both}
-	.order-table table{margin-bottom:15px;margin-top:15px;}
-	.order-table table tr{background: #fefefe;}
-	.order-table table thead td{font-size:100%;background:#eee;border-bottom:1px solid #333;padding-top:5px;padding-bottom:5px;}
-	.order-table table tfoot td{font-weight:bold;font-size:120%;padding-top:5px;padding-bottom:5px;}
-	.order-table td.price{text-align:right!important;}
-
 	@media only screen and (max-width:600px){a[class=btn]{display:block!important;margin-bottom:10px!important;background-image:none!important;margin-right:0!important}
 		div[class=column]{width:auto!important;float:none!important}
 		table.social div[class=column]{width:auto!important}
 	}
+	.uk-clearfix:before{content:""; display: table-cell; }
+	.uk-clearfix:after{content: ""; display: table; clear: both; }
+	[class*='uk-float-']{max-width:100%;}
+	.uk-float-right{float:right;}
+	.uk-float-left{float:left;}
 	</style>
 
 </head>
 
-<body bgcolor="#e3e4e4" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background:#e3e4e4;">
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 	<!-- HEADER -->
 	<table class="head-wrap">
 		<tbody>
@@ -91,7 +92,7 @@
 						<table>
 							<tbody>
 								<tr>
-									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="{$AbsoluteBaseURL}{$ThemeDir}/img/logo.png" style="max-width:200px;height:auto;" border="0" alt="$SiteConfig.Title"/></a></a></td>
+									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="{$AbsoluteThemeDir}/img/logo.png" style="max-width:200px;height:auto;" border="0" alt="$SiteConfig.Title"/></a></a></td>
 								</tr>
 								<% if $Header %>
 								<tr><td class="header-text">
@@ -108,11 +109,11 @@
 		</tbody>
 	</table>
 	<!-- /HEADER --> <!-- BODY -->
-	<table class="body-wrap">
+	<table class="body-wrap" bgcolor="">
 		<tbody>
 			<tr>
 				<td><br /></td>
-				<td class="container" bgcolor="#FFFFFF" maxwidth="600" style="margin-bottom:50px!important;"><!-- content -->
+				<td class="container" bgcolor="#FFFFFF" align=""><!-- content -->
 
 					<div class="content">
 						<table>
@@ -120,7 +121,6 @@
 								<tr>
 									<td>
 										<h1>$Subject</h1>
-										
 										<% if $Lead %>
 											$Lead
 										<% end_if %>
@@ -130,19 +130,7 @@
 						</table>
 					</div>
 					<div class="content">
-						<%-- Note: content is already escaped in UserDefinedFormController::process --%>
-						$Body.RAW
-
-						<% if not $HideFormData %>
-							<dl>
-								<% loop $Fields %>
-									<% if $FormattedValue != "" %>
-										<dt><strong><% if $Title %>$Title<% else %>$Name<% end_if %></strong></dt>
-										<dd style="margin: 4px 0 14px 0">$FormattedValue</dd>
-									<% end_if %>
-								<% end_loop %>
-							</dl>
-						<% end_if %>
+						$Body
 					</div>
 
 
@@ -159,20 +147,11 @@
 															<table cellpadding="" bgcolor="" align="left">
 																<tbody>
 																	<tr>
-																		<td style="padding:0;">
+																		<td>
 																			<h5 class="">Kontakt:</h5>
-																			<% if SiteConfig.AddressTitle %>
 																			<p><strong>$SiteConfig.AddressTitle</strong></p>
-																			<% end_if %>
-																			<% if SiteConfig.Address %>
-																			<p>$SiteConfig.Address<br/>$SiteConfig.CodeCity $SiteConfig.Country</p>
-																			<% end_if %>
-																			<% if SiteConfig.Email %>
-																			<p><a href="mailto:$SiteConfig.Email">$SiteConfig.Email</a></p>
-																			<% end_if %>
-																			<% if SiteConfig.Phone %>
-																			<p>$SiteConfig.Phone</a></p>
-																			<% end_if %>
+																			<p>$SiteConfig.Address<br/>$SiteConfig.CodeCity<br/> Switzerland</p>
+																			<p>$SiteConfig.PhoneDisplay<br /><a href="mailto:$SiteConfig.Email">$SiteConfig.Email</a></p>
 																		</td>
 																	</tr>
 																</tbody>

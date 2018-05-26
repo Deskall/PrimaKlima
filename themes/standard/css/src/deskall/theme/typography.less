@@ -6,6 +6,9 @@ h1,h2,h3,h4,h5,h6{
 	font-family:@title-font-family;
 	color: @global-color;
 }
+h1{
+	color: @h1-font-color;
+}
 
 em,strong,.strong-font{
 	font-family:@strong-font-family;
@@ -15,9 +18,29 @@ em,strong,.strong-font{
 	font-size: @main-nav-font-size;
 	text-transform: none;
 }
+.subnav-font{
+	.nav-font;
+	font-family:@global-font-family;
+	font-size: @sub-nav-font-size;
+	text-transform: none;
+	text-decoration: none;
+	&:hover{
+		border:none;
+	}
+}
+.footer-font{
+	color:@footer-font-color;
+	font-size: @footer-font-size;
+}
 
+.read-more-font{
+	font-family:@read-more-font-family;
+}
 
-
+.hook-text-lead(){
+	
+	color: @global-color;
+}
 
 
 
@@ -28,6 +51,7 @@ em,strong,.strong-font{
 
 //Font size media queries
 .standard-font{
+	font-family: @global-font-family;
 	font-size:@global-small-font-size;
 	@media (min-width:@breakpoint-medium){
 		font-size:@global-font-size;

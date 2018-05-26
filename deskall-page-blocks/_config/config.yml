@@ -1,8 +1,13 @@
 ---
 Name: deskall-page-blocks
+After:
+    - '#deskall-divers'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-page-blocks
+
+DNADesign\Elemental\Controllers\ElementController:
+  include_default_styles: false
 
 DNADesign\Elemental\Models\BaseElement:
   default_global_elements: true
@@ -15,7 +20,7 @@ DNADesign\Elemental\Models\BaseElement:
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
-    - ElementalEditorExtension
+    - DeskallElementalEditorExtension
 
 Page:
   extensions:
@@ -51,3 +56,7 @@ SilverStripe\UserForms\Model\Recipient\EmailRecipient:
 SilverStripe\UserForms\Control\UserDefinedFormController:
   extensions:
     - UserDefinedFormControllerExtension
+
+SilverStripe\Forms\FormField:
+  extensions:
+    - 'DeskallFormFieldExtension'

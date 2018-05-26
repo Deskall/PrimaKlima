@@ -11,7 +11,7 @@ class Color extends DataObject{
 
 	private static $db = [
         'Code' => 'Varchar(255)',
-        'Title' => 'Varchar(255)',
+        'FontTitle' => 'Varchar(255)',
         'Color' => 'Varchar(7)',
         'FontColor' => 'Varchar(7)',
         'isReadonly' => 'Boolean(0)',
@@ -25,6 +25,10 @@ class Color extends DataObject{
     public function populateDefaults(){
          
     }
+
+    private static $extensions = [
+        'Sortable'
+    ];
 
     private static $summary_fields = [
        
@@ -47,7 +51,7 @@ class Color extends DataObject{
     public function onBeforeWrite(){
         parent::onBeforeWrite();
         if (!$this->Code){
-            $this->Code = "color-".singleton('Page')->generateURLSegment($this->Title);
+            $this->Code = "color-".singleton('Page')->generateURLSegment($this->FontTitle);
         }
     }
 
@@ -66,6 +70,15 @@ class Color extends DataObject{
 
 		return $fields;
 	}
+
+
+
+    public function getHTMLOption(){
+        $html = '<div class="option-html background">
+            <p style="background-color:#'.$this->Color.';color:#'.$this->FontColor.';">'.$this->FontTitle.'</p>
+          </div>';
+        return $html;
+    }
 
 
 

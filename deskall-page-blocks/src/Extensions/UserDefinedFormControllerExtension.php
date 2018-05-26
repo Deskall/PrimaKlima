@@ -10,4 +10,5 @@ class UserDefinedFormControllerExtension extends Extension
 	public function updateEmail($email, $recipient, $emailData){
 		$email->setHTMLTemplate('email/base_email');
 	}
+
 }

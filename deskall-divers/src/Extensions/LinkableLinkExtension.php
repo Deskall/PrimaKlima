@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\i18n\i18nEntityProvider;
@@ -24,19 +25,14 @@ class LinkableLinkExtension extends DataExtension implements i18nEntityProvider
     private static $types = [
     ];
 
+    private static $defaults = [
+        'Icone' => 'chevron-right'
+    ];
+
     private static $block_link_alignments = [
         'left' =>  'Links',
         'center' =>  'Mittel',
         'right' => 'Rechts'
-    ];
-
-    private static $link_backgrounds = [
-        'uk-button-default' => 'keine Hintergrundfarbe',
-        'uk-button-primary dk-text-hover-primary' => 'primäre Farbe',
-        'uk-button-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
-        'uk-button-muted dk-text-hover-muted' => 'grau',
-        'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
-        'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
     ];
 
 
@@ -51,8 +47,8 @@ class LinkableLinkExtension extends DataExtension implements i18nEntityProvider
 
         $fields->addFieldToTab('Root',new Tab('Layout',_t(__CLASS__.'.LAYOUTTAB','Layout')));
         $fields->addFieldToTab('Root.Layout',DropdownField::create('LinkPosition',_t(__CLASS__.'.LinkAlignment','Linkausrichtung'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_link_alignments')));
-        $fields->addFieldToTab('Root.Layout',DropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'link_backgrounds')));
-        $fields->addFieldToTab('Root.Layout',new HTMLDropdownField('Icone', _t(__CLASS__.'.Icone','Icon'), HTMLDropdownField::getSourceIcones(), 'check'));
+        $fields->addFieldToTab('Root.Layout',HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'));
+        $fields->addFieldToTab('Root.Layout', HTMLDropdownField::create('Icone', _t(__CLASS__.'.Icone','Icon'), HTMLDropdownField::getSourceIcones(), 'check')->addExtraClass('columns'));
     }
 
 /************* TRANLSATIONS *******************/
@@ -62,9 +58,7 @@ class LinkableLinkExtension extends DataExtension implements i18nEntityProvider
         foreach(Config::inst()->get(__CLASS__,'block_link_alignments') as $key => $value) {
           $entities[__CLASS__.".block_link_alignments_{$key}"] = $value;
         }
-        foreach(Config::inst()->get(__CLASS__,'link_backgrounds') as $key => $value) {
-          $entities[__CLASS__.".link_backgrounds_{$key}"] = $value;
-        }
+
        
         return $entities;
     }

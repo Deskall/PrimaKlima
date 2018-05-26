@@ -6,15 +6,20 @@
 /cache/
 /assets/
 /.htaccess
-/composer.lock
-/silverstripe.log
+composer.lock
+silverstripe.log
+log.txt
 /googlesitemaps
 
 *.log
 *.cache
 
-/mysite/_config.php
+/mysite/
+mysite/
 
-themes/standard/css/src/deskall/theme/constants.less
 themes/standard/css/src/deskall/theme/project_specific.less
 themes/standard/css/src/deskall/theme/user_defined.less
+themes/standard/css/src/deskall/theme/colors.less
+themes/standard/css/main.min.css
+themes/standard/css/main.css
+themes/standard/css/src/deskall/theme/fonts.less

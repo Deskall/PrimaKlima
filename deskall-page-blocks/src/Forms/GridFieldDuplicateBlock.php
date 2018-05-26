@@ -139,7 +139,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 	public function getHTMLFragments($grid) {
 
 		GridFieldExtensions::include_requirements();
-		Requirements::javascript('deskall-page-blocks/javascript/gridfieldduplicateblock.js');
+		
 
 		$blockfield = GroupedDropdownField::create('Block', '', $this->getBlockTree());
 		$blockfield->addExtraClass('no-change-track');
@@ -165,12 +165,8 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 					$blocks[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
 				}
 				//build the page unique sitetree strucuture
-				$pageTree = $page->Title;
-				$pointerToParent = $page->Parent();
-				while ($pointerToParent->Title){
-					$pageTree = $pointerToParent->Title. " > ".$pageTree;
-					$pointerToParent = $pointerToParent->Parent();
-				}
+				$pageTree = $page->NestedTitle(4," > ");
+			
 				$blockstree[$pageTree] = $blocks;
 			}
 		}

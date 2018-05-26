@@ -18,8 +18,8 @@
     <script src="$ThemeDir/javascript/main.js"></script>
     <% end_if %>
 
-    <% if headScripts %>
-      <% loop headScripts %>
+    <% if BodyScripts %>
+      <% loop BodyScripts %>
       <script>$Script</script>
       <% end_loop %>
     <% end_if %>

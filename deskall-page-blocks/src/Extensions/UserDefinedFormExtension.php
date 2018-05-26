@@ -5,9 +5,19 @@ use SilverStripe\ORM\DataExtension;
 
 class UserDefinedFormExtension extends DataExtension 
 {
+
+    public function updateForm(){
+        if ($this->owner->Controller->record['Layout'] == 'vertical'){
+            $this->owner->setTemplate('Forms/MultiStepsForm_Vertical');
+        }
+    }
+
     public function updateFormFields($fields){
     	
     	foreach ($fields as $fieldset) {
+            if ($fieldset->Type() == "userformsstep" && $this->owner->Controller->record['Layout'] == 'vertical'){
+                $fieldset->setTemplate('Forms/EditableFormStepField_Vertical');
+            }
     		foreach ($fieldset->getChildren() as $field) {
     			$this->setUiKitAttributes($field);
     		}
@@ -47,10 +57,14 @@ class UserDefinedFormExtension extends DataExtension
 
     public function updateFormActions($actions){
     	foreach ($actions as $action){
-    		$action->addExtraClass('uk-button uk-button-primary');
+    		$action->addExtraClass('uk-button');
             $action->addExtraClass('dk-button-icon')->setUseButtonTag(true)
             ->setAttribute('data-uk-icon','chevron-right');
     	}
     }
 
+    public function getStepTitleColor()
+    {
+        return $this->owner->controller->StepTitleBackground;
+    }
 }

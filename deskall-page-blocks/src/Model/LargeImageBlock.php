@@ -80,8 +80,6 @@ class LargeImageBlock extends BannerBlock{
     	$fields = parent::getCMSFields();
     	$fields->removeByName('RelatedPageID');
         $fields->removeByName('CallToActionLink');
-    	$fields->removeByName('Background');
-        $fields->removeByName('Overlay');
     	$fields->removeByName('BackgroundImage');
         $fields->removeByName('File');
         $fields->removeByName('Layout');

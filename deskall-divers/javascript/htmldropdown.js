@@ -263,9 +263,7 @@
       			var html = (option.length) ? option.html() : this.attr('data-empty-string');
       			var value = (option.length) ? option.attr('data-value') : '';
       			this.find('.chosen-single').html(html+'<div><b></b></div>');
-      			//this.find('select option[value="'+value+'"]').attr('selected','selected');
                         this.find('select').val(value).trigger('change');
-
       		}
       	});
       	$('.html-dropdown a.chosen-single').entwine({
@@ -295,6 +293,14 @@
                         this.find("[fill='#ffffff']").attr("fill", "#566b8d");
                         this.find("[stroke='#ffffff']").attr("stroke", "#566b8d");
 				this.parents('.html-dropdown').writeValue();
+                        var scrollablePanel = this.parents('.panel--scrollable');
+                        if (scrollablePanel){
+                              scrollablePanel.animate({scrollTop: this.parents('.form-group').offset().top - 100},500);
+                        }
+                        var linkDialog = this.parents('.linkfield-dialog');
+                        if (linkDialog){
+                              linkDialog.animate({scrollTop: this.parents('.form-group').offset().top - 100},500);
+                        }
 				this.parents('.chosen-drop').removeClass('active');
       		},
                   onmouseenter: function() {

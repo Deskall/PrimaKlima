@@ -2,16 +2,12 @@
 
 use SilverStripe\ORM\DataExtension;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
+use DNADesign\ElementalVirtual\Forms\ElementalGridFieldDeleteAction;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 
-class ElementalEditorExtension extends DataExtension 
+class DeskallElementalEditorExtension extends DataExtension 
 {
-    public function updateGetTypes($types){
-        
-
-    }
-
-     public function updateField($gridfield){
-     	$types = $this->owner->getTypes();
+    public function updateGetTypes(&$types){
         if ($this->owner->getArea()->getOwnerPage()->ClassName == "ParentBlock" && $this->owner->getArea()->getOwnerPage()->CollapsableChildren){
             $allowed = $this->owner->getArea()->getOwnerPage()->stat('allowed_collapsed_blocks');
             foreach ($types as $key => $value) {
@@ -27,6 +23,12 @@ class ElementalEditorExtension extends DataExtension
             unset($types['SilverStripe\ElementalBlocks\Block\FileBlock']);
             unset($types['DNADesign\ElementalList\Model\ElementList']);
         }
+
+    }
+
+     public function updateField($gridfield){
+     	$types = $this->owner->getTypes();
+        
     	$gridfield->getConfig()->removeComponentsByType(GridFieldAddNewMultiClass::class)
         ->addComponent(new DeskallGridFieldAddNewMultiClass());
         $gridfield->getConfig()->getComponentByType(DeskallGridFieldAddNewMultiClass::class)->setClasses($types);
@@ -34,7 +36,11 @@ class ElementalEditorExtension extends DataExtension
         if ($this->owner->getArea()->getOwnerPage()->ClassName == "ParentBlock" && $this->owner->getArea()->getOwnerPage()->CollapsableChildren){
             $gridfield->getConfig()->addComponent(new GridFieldCollapseUncollapseAction());
         }
-        $gridfield->getConfig()->addComponent(new GridFieldDuplicateBlock('toolbar-header-left'));
+        $gridfield->getConfig()->addComponent(new GridFieldDuplicateBlock('before'));
+        $gridfield->getConfig()->removeComponentsByType(GridFieldDeleteAction::class)
+            ->addComponent(new GridFieldLinkBlock('before'))
+            ->addComponent(new ElementalGridFieldDeleteAction());
+
         if ($gridfield->name == "Elements"){
             $gridfield->getConfig()->addComponent(new GridFieldBlockOrderAction());
         }

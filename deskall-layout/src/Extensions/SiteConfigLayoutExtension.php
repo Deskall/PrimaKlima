@@ -20,6 +20,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldButtonRow;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\Assets\Image;
@@ -32,12 +33,14 @@ use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 class SiteConfigLayoutExtension extends DataExtension 
 {
   protected $user_defined_file = '/themes/standard/css/src/deskall/theme/user_defined.less';
+  protected $background_colors = '/themes/standard/css/src/deskall/theme/colors.less';
 
   private static $db = [
    
     'HeaderBackground' => 'Varchar(7)',
     'GlobalFontSize' => 'Varchar(25)',
     'H1FontSize' => 'Varchar(25)',
+    'H1FontColor' => 'Varchar(7)',
     'H1MobileFontSize' => 'Varchar(25)',
     'H2FontSize' => 'Varchar(25)',
     'H3FontSize' => 'Varchar(25)',
@@ -55,6 +58,13 @@ class SiteConfigLayoutExtension extends DataExtension
     'StickyHeader' => 'Boolean(0)',
 
     'FooterBackground' => 'Varchar(255)',
+    'FooterLogoWidth' => 'Varchar(255)',
+    'FooterFontSize' => 'Varchar(255)',
+    'FooterTitleFontSize' => 'Varchar(255)',
+    'FooterFontColor' => 'Varchar(7)',
+
+    'MobileNaviBackground' => 'Varchar(255)',
+    'MobileNaviHoverFontColor' => 'Varchar(7)'
 
   ];
 
@@ -71,6 +81,7 @@ class SiteConfigLayoutExtension extends DataExtension
       '@h1-size',
       '@heading-primary-font-size'
     ],
+    'H1FontColor' => '@h1-font-color',
     'H1MobileFontSize' => '@h1-mobile-size',
     'H2FontSize' => '@h2-size',
     'H3FontSize' => '@h3-size',
@@ -84,39 +95,44 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderHeight' => '@header-menu-height',
     'HeaderFontSize' => '@main-nav-font-size',
     'HeaderMenuItemSize' => '@navbar-nav-item-height',
-    'HeaderCollapsedHeight' => '@header-menu-collapsed-height'
+    'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
+
+    'FooterLogoWidth' => '@footer-logo-width',
+    'FooterBackground' => '@footer-background-color',
+    'FooterFontColor' => '@footer-font-color',
+    'FooterFontSize' => '@footer-font-size',
+    'FooterTitleFontSize' => '@footer-title-font-size',
+
+    'MobileNaviHoverFontColor' => '@mobile-navigation-active-color',
+
+
   ];
 
   private static $has_many = [
     'FooterBlocks' => FooterBlock::class,
     'MenuBlocks' => MenuBlock::class,
+    'MobileMenuBlocks' => MobileMenuBlock::class,
     'Colors' => Color::class
   ];
 
-  private static $backgrounds = [
-        'uk-section-default' => 'keine Hintergrundfarbe',
-        'uk-section-primary' => 'primäre Farbe',
-        'uk-section-secondary' => 'sekundäre Farbe',
-        'uk-section-muted' => 'grau',
-        'dk-background-white uk-section-default' => 'weiss',
-        'dk-background-black uk-section-default' => 'schwarz'
-  ];
-
   private static $default_colors = [
-    'BodyBackground' => ['Code' => 'BodyBackground', 'Title' => 'Body Hintergrundfarbe','Color' => 'e4e4e4','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 0],
-    'PrimaryBackground' => ['Code' => 'PrimaryBackground', 'Title' => 'Hauptfarbe','Color' => '10206B','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
-    'SecondaryBackground' => ['Code' => 'SecondaryBackground', 'Title' => 'Sekondäre Farbe','Color' => 'DC002E','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
-    'WhiteBackground' => ['Code' => 'WhiteBackground', 'Title' => 'Weiss','Color' => 'ffffff','FontColor' => '666666','isReadonly' => 1, 'canChangeTitle' => 1],
-    'BlackBackground' => ['Code' => 'BlackBackground', 'Title' => 'Schwarzfarbe','Color' => '000000','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
-    'GrayBackground' => ['Code' => 'GrayBackground', 'Title' => 'Graufarbe','Color' => 'cccccc','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 1],
-    'ActiveColor' => ['Code' => 'ActiveColor', 'Title' => 'Aktiv farbe','Color' => '10206B','FontColor' => 'FFFFFF','isReadonly' => 1, 'canChangeTitle' => 1]
+    'BodyBackground' => ['Code' => 'BodyBackground', 'FontTitle' => 'Body Hintergrundfarbe','Color' => 'e4e4e4','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 0],
+    'PrimaryBackground' => ['Code' => 'PrimaryBackground', 'FontTitle' => 'Hauptfarbe','Color' => '10206B','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
+    'SecondaryBackground' => ['Code' => 'SecondaryBackground', 'FontTitle' => 'Sekondäre Farbe','Color' => 'DC002E','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
+    'WhiteBackground' => ['Code' => 'WhiteBackground', 'FontTitle' => 'Weiss','Color' => 'ffffff','FontColor' => '666666','isReadonly' => 1, 'canChangeTitle' => 1],
+    'BlackBackground' => ['Code' => 'BlackBackground', 'FontTitle' => 'Schwarzfarbe','Color' => '000000','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
+    'GrayBackground' => ['Code' => 'GrayBackground', 'FontTitle' => 'Graufarbe','Color' => 'cccccc','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 1],
+    'ActiveColor' => ['Code' => 'ActiveColor', 'FontTitle' => 'Aktiv farbe','Color' => '10206B','FontColor' => 'FFFFFF','isReadonly' => 1, 'canChangeTitle' => 1]
   ];
 
-  public function populateDefaults(){
-    foreach($this->owner->stat('default_colors') as $code => $array)
-    if ($this->owner->Colors()->filter('Code',$code)->count() == 0){
-      $c = new Color($array);
-      $this->owner->Colors()->add($c);
+  public function populateDefaultsColors(){
+    if ($this->owner->ID > 0){
+      foreach($this->owner->stat('default_colors') as $code => $array){
+        if ($this->owner->Colors()->filter('Code',$code)->count() == 0){
+          $c = new Color($array);
+          $this->owner->Colors()->add($c);
+        }
+      }
     }
   }
 
@@ -134,15 +150,13 @@ class SiteConfigLayoutExtension extends DataExtension
                 ->addComponent(new GridFieldEditableColumns())
                 ->addComponent(new GridFieldDeleteAction())
                 ->addComponent(new GridFieldAddNewInlineButton())
+                ->addComponent(new GridFieldOrderableRows('Sort'))
                ;
     $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields([
-        'Title'  => [
+        'FontTitle'  => [
             'title' => 'Titel und Vorschau',
             'callback' => function($record, $column, $grid) {
               $field = TextField::create($column);
-              if (!$record->canChangeTitle && $record->ID > 0){
-                $field->setReadonly(true);
-              }
               return $field;
             }
         ],
@@ -173,6 +187,7 @@ class SiteConfigLayoutExtension extends DataExtension
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
         TextField::create('GlobalFontSize',_t(__CLASS__.'.GlobalFontSize','Standard Schriftgrösse')),
         TextField::create('H1FontSize',_t(__CLASS__.'.H1FontSize','H1 Schriftgrösse')),
+         TextField::create('H1FontColor',_t(__CLASS__.'.H1FontColor','H1 Titel Farbe'))->addExtraClass('jscolor'),
         TextField::create('H1MobileFontSize',_t(__CLASS__.'.H1MobileFontSize','H1 Mobile Schriftgrösse')),
         TextField::create('H2FontSize',_t(__CLASS__.'.H2FontSize','H2 Schriftgrösse')),
         TextField::create('H3FontSize',_t(__CLASS__.'.H3FontSize','H3 Schriftgrösse')),
@@ -185,10 +200,14 @@ class SiteConfigLayoutExtension extends DataExtension
     $MenusField = new GridField(
         'MenuBlocks',
         'MenuBlocks',
-        $this->owner->MenuBlocks(),
+        $this->owner->MenuBlocks()->filter('ClassName','MenuBlock'),
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
+    //TO DO : rebuild it with multi class option
+    // $MenusField->getConfig()->removeComponentsByType(GridFieldAddNewButton::class)
+    //     ->addComponent(new DeskallGridFieldAddNewMultiClass());
+    // $MenusField->getConfig()->getComponentByType(DeskallGridFieldAddNewMultiClass::class)->setClasses(['MenuBlock' => 'Menu']);
     $fields->addFieldToTab("Root.Layout.Header.Content", $MenusField);
 
     $fields->addFieldToTab("Root.Layout.Header.Layout", CompositeField::create(
@@ -208,7 +227,24 @@ class SiteConfigLayoutExtension extends DataExtension
     )->setTitle(_t(__CLASS__.'.HeaderLayout','Header Layout'))->setName('HeaderBackgroundFields'));
 
     
+    //MOBILE NAVI
+    $MobileMenusField = new GridField(
+        'MobileMenuBlocks',
+        'MenuBlocks',
+        $this->owner->MobileMenuBlocks(),
+        GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
+        ->addComponent(new GridFieldShowHideAction())
+    );
+    $fields->addFieldToTab("Root.Layout.MobileNavigation.Content", $MobileMenusField);
 
+    $fields->addFieldToTab("Root.Layout.MobileNavigation.Layout", CompositeField::create(
+      FieldGroup::create(
+        HTMLDropdownField::create('MobileNaviBackground',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getBackgroundColors())->addExtraClass('colors'),
+        TextField::create('MobileNaviHoverFontColor',_t(__CLASS__.'.HeaderHoverFontColor','Aktive und Hover Schriftfarbe'))->addExtraClass('jscolor')
+      )
+    )->setTitle(_t(__CLASS__.'.MobileNaviLayout','MobileNavigation Layout'))->setName('MobileNaviFields'));
+
+    
 
 
 
@@ -220,8 +256,25 @@ class SiteConfigLayoutExtension extends DataExtension
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
-    $fields->addFieldToTab("Root.Layout.Footer", DropdownField::create('FooterBackground',_t(__CLASS__.'.Background','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'backgrounds'))->setEmptyString(_t(__CLASS__.'.BackgroundHelp','Wählen Sie aus eine Hintergrundfarbe')));
-    $fields->addFieldToTab("Root.Layout.Footer", $FooterLinksField);
+    $fields->addFieldToTab("Root.Layout.Footer.Content", $FooterLinksField);
+
+    $fields->addFieldToTab("Root.Layout.Footer.Layout", CompositeField::create(
+      FieldGroup::create(
+        TextField::create('FooterBackground',_t(__CLASS__.'.FooterBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
+        TextField::create('FooterFontColor',_t(__CLASS__.'.FooterFontColor','Schriftfarbe'))->addExtraClass('jscolor')
+      ),
+      FieldGroup::create(
+        TextField::create('FooterLogoWidth',_t(__CLASS__.'.Footerlogowidtht','Logo Breite')),
+        TextField::create('FooterTitleFontSize',_t(__CLASS__.'.FooterTitleFontSize','Footer Titel Schriftgrösse')),
+        TextField::create('FooterFontSize',_t(__CLASS__.'.FooterFontSize','Footer Schriftgrösse'))
+      )
+     
+    )->setTitle(_t(__CLASS__.'.FooterLayout','Footer Layout'))->setName('FooterLayoutFields'));
+
+  
+
+
+
     
     return $fields;
   }
@@ -232,22 +285,30 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function activeMenuBlocks(){
-    return $this->owner->MenuBlocks()->filter('isVisible',1);
+    return $this->owner->MenuBlocks()->filter(['isVisible' => 1, 'isMobile' => 0]);
+  }
+
+  public function activeMobileMenuBlocks(){
+    return $this->owner->MobileMenuBlocks()->filter(['isVisible' => 1, 'isMobile' => 1]);
   }
 
   public function onBeforeWrite(){
     parent::onBeforeWrite();
-    $this->owner->populateDefaults();
-   
+    $this->owner->populateDefaultsColors();
     $this->owner->HeaderBackground = "#".$this->owner->HeaderBackground;
     $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
     $this->owner->HeaderHoverFontColor = "#".$this->owner->HeaderHoverFontColor;
+    $this->owner->FooterFontColor = "#".$this->owner->FooterFontColor;
+    $this->owner->FooterBackground = "#".$this->owner->FooterBackground;
+    $this->owner->H1FontColor = "#".$this->owner->H1FontColor;
+    $this->owner->MobileNaviHoverFontColor = "#".$this->owner->MobileNaviHoverFontColor;
 
   }
 
 
   public function onAfterWrite(){
     $this->owner->WriteUserDefinedConstants();
+    $this->owner->WriteBackgroundClasses();
     parent::onAfterWrite();
   }
 
@@ -255,7 +316,8 @@ class SiteConfigLayoutExtension extends DataExtension
     $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->user_defined_file;
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
-      if ($code = $this->owner->stat('constants_less')[$c->Code]){
+      if (isset($this->owner->stat('constants_less')[$c->Code])){
+        $code = $this->owner->stat('constants_less')[$c->Code];
         file_put_contents($fullpath, "\n".$code.'-background:#'.$c->Color.';',FILE_APPEND);
         file_put_contents($fullpath, "\n".$code.'-color:#'.$c->FontColor.';',FILE_APPEND);
       }
@@ -280,12 +342,53 @@ class SiteConfigLayoutExtension extends DataExtension
     }
   }
 
+  public function WriteBackgroundClasses(){
+    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->background_colors;
+    file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
+    foreach($this->owner->Colors() as $c){
+      /** global background element and font color **/
+      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';&:hover,&:focus,&:active{color:#'.$c->FontColor.';}}}',FILE_APPEND);
+      /** CSS Class for Call To Action Link **/
+      file_put_contents($fullpath, "\n".".button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.'!important;*, &:hover,&:focus,&:active{color:#'.$c->FontColor.'!important;}}',FILE_APPEND);
+      /*** Css class for Slideshow controls **/
+      file_put_contents($fullpath,
+        "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:transparent!important;border-color:#'.$c->FontColor.'!important;}' 
+        ."\n".'.'.$c->Code.' .uk-dotnav > .uk-active > *{background-color:#'.$c->FontColor.'!important;}'
+        ."\n".'.'.$c->Code.' .uk-dotnav > * > :hover, .'.$c->Code.' .uk-dotnav > * > :focus {background-color:#'.$c->FontColor.'!important;}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".uk-active .menu-title-".$c->Code.'{border-color:#'.$c->Color.'!important;}',FILE_APPEND);
+      /*** Css class for Background Overlays **/
+      file_put_contents($fullpath,"\n".'.'.$c->Code.'.dk-overlay:after{background-color:fade(#'.$c->Color.',50%);}'
+        ."\n".'.'.$c->Code.'.dk-overlay .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->FontColor.'!important;}'
+        ."\n".'.'.$c->Code.'.dk-overlay *{color:#'.$c->FontColor.'!important;}',FILE_APPEND);
+    }
+
+    //Provide extension for project specific stuff
+    $this->owner->extend('updateWriteBackgroundClasses', $fullpath);
+  }
+
+
+  public function getBackgroundColors(){
+        $colors = $this->owner->Colors();
+        $source = [];
+        $source['uk-section-default'] = [
+                'Title' => _t(__CLASS__.'.noColor','Keine Farbe'),
+                'HTML' => '<div class="option-html background">
+            <p>'._t(__CLASS__.'.noColor','Keine Farbe').'</p>
+          </div>'
+            ];
+        foreach($colors as $c){
+            $html = $c->getHTMLOption();
+            $source[$c->Code] = [
+                'Title' => $c->Title,
+                'HTML' => $html
+            ];
+        }
+        return $source;
+    }
+
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach($this->owner->stat('backgrounds') as $key => $value) {
-          $entities[__CLASS__.".backgrounds_{$key}"] = $value;
-        }
         return $entities;
     }
 
