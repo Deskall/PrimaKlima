@@ -16,6 +16,7 @@ $.entwine('ss', function($){
 		 * (String) title
 		 */
 		updateURLSegment: function(title) {
+			console.log('ici');
 
 			var urlSegmentField = urlSegmentInput.closest('.field.urlsegment');
 			if (!urlSegmentField.hasClass("no-edit")){
