@@ -16,7 +16,7 @@ $MetaTags(false)
 
 <% if isLive %>
 	<%-- <% include Css %> --%>
-	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/main.min.css" />
+	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/live.min.css" />
 	<%-- $Css --%>
 <% else %>
 <link rel="stylesheet" type="text/css" href="$ThemeDir/css/main.min.css" />
