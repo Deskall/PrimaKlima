@@ -2,8 +2,8 @@
  * File: Deskall-divers.EditForm.js
  */
 
-(function($){
-	$.entwine('ss', function($){
+(function($) {
+	$.entwine(function($) {
 
 		$('.cms-edit-form input[name=Title]').entwine({
 			
