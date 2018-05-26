@@ -6,7 +6,7 @@ use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 
-class TextBlock extends BaseElement
+class TextBlock extends BaseElement implements StaticallyPublishable, StaticPublishingTrigger
 {
     private static $icon = 'font-icon-block-content';
     
@@ -101,4 +101,39 @@ class TextBlock extends BaseElement
     {
         return _t(__CLASS__ . '.BlockType', 'Text - Bild');
     }
+
+    /************** STATIC PUBLISHING ***************/
+         /**
+         * Provides an SS_List of StaticallyPublishable objects which need to be regenerated.
+         *
+         * @param array $context An associative array with extra engine-specific information.
+         *
+         * @return SS_List
+         */
+        public function objectsToUpdate($context){
+            $list = new SS_list();
+            $list->add($this->getPage());
+            return $list;
+        }
+
+        /**
+         * Provides a SS_list of objects that need to be deleted.
+         *
+         * @param array $context An associative array with extra engine-specific information.
+         *
+         * @return SS_List
+         */
+        public function objectsToDelete($context){
+            $list = new SS_list();
+            return $list;
+        }
+
+        /**
+         * The only URL belonging to this object is it's own URL.
+         */
+        public function urlsToCache()
+        {
+            return [Director::absoluteURL($this->getPage()->getLink()) => 0];
+        }
+    /****************** END STATIC ***********/
 }
