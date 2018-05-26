@@ -282,7 +282,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
      */
     public function objectsToUpdate($context){
         $list = new SS_list();
-        $list->add($this->owner->Page());
+        $list->add($this->getOwner()->getPage());
         return $list;
     }
 
