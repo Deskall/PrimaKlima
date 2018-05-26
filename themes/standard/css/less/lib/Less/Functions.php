@@ -905,6 +905,7 @@ class Less_Functions{
 		if( file_exists($filePath) ){
 			$buf = @file_get_contents($filePath);
 		}elseif( file_exists($_SERVER['DOCUMENT_ROOT'].$filePath) ){
+			$filePath = $_SERVER['DOCUMENT_ROOT'].$filePath;
 			$buf = @file_get_contents($filePath);
 		}
 		else{
