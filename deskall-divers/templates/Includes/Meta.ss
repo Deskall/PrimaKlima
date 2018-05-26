@@ -15,7 +15,7 @@ $MetaTags(false)
 <meta name="msapplication-config" content="$ThemeDir/browserconfig.xml">
 
 <% if isLive %>
-	$Css
+	<%-- $Css --%>
 <% else %>
 <link rel="stylesheet" type="text/css" href="$ThemeDir/css/main.min.css" />
 <% end_if %>
