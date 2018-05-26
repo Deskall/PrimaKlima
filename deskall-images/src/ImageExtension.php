@@ -7,6 +7,7 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
+use SilverStripe\Control\Director;
 
 class ImageExtension extends Extension
 {
@@ -70,7 +71,11 @@ class ImageExtension extends Extension
 
     public function onAfterUpload(){
 
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","before: ".$this->owner->getSourceURL());
+        //Publish
+        $this->owner->publishSingle();
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt",Director::absoluteURL($this->owner->getSourceURL()));
+        //Optimise via TinyPNG API
+        //$this->OptimiseImage(Director::absoluteURL($this->owner->getSourceURL()), $_SERVER['DOCUMENT_ROOT'].$this->owner->getSourceURL());
             
         //Resize image to fit max Width and Height before resampling
         $width = $this->owner->config()->get('MaxWidth');
@@ -87,14 +92,7 @@ class ImageExtension extends Extension
                 $constraint->upsize();
             });
         }
-        
         $backend->setImageResource($resource);
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","after: ".$this->owner->getAbsoluteURL(), FILE_APPEND);
-        //Publish
-        $this->owner->publishSingle();
-        //Optimise via TinyPNG API
-       // $this->OptimiseImage($this->owner->getAbsoluteURL(), $_SERVER['DOCUMENT_ROOT'].$this->owner->getURL());
-    
     }
 
 
