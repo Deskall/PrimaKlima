@@ -35,8 +35,8 @@ class SliderBlock extends BaseElement
         'Autoplay' => 'Boolean(1)',
         'Nav' => 'Varchar(255)',
         'Height' => 'Varchar(255)',
-        'MinHeight' => 'Int',
-        'MaxHeight' => 'Int'
+        'MinHeight' => 'Varchar(255)',
+        'MaxHeight' => 'Varchar(255)'
     ];
 
     private static $has_one = [
