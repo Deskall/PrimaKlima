@@ -14,20 +14,20 @@ class DeskallImageOptimiser {
 			$source = \Tinify\fromUrl($path);
 			$source->toFile($path);
 		} catch(\Tinify\AccountException $e) {
-		    print("account: " . $e->getMessage());
+		    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","account: " . $e->getMessage());
 		    // Verify your API key and account limit.
 		} catch(\Tinify\ClientException $e) {
 		    // Check your source image and request options.
-		    print("client: " . $e->getMessage());
+		    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","client: " . $e->getMessage());
 		} catch(\Tinify\ServerException $e) {
 		    // Temporary issue with the Tinify API.
-		     print("tiny server: " . $e->getMessage());
+		     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","tiny server: " . $e->getMessage());
 		} catch(\Tinify\ConnectionException $e) {
 		    // A network connection error occurred.
-		     print("connection: " . $e->getMessage());
+		     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","connection: " . $e->getMessage());
 		} catch(Exception $e) {
 		    // Something else went wrong, unrelated to the Tinify API.
-		     print("other: " . $e->getMessage());
+		     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","other: " . $e->getMessage());
 		}
 	}
 } 
