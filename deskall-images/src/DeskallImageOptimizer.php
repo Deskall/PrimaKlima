@@ -9,15 +9,15 @@ class DeskallImageOptimiser {
 		// $result = ob_get_clean();
 		// file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt",$result);
 
-		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt",$path);
-		//Check if file exist
-		if (!file_exists($path)){
-			//if not published check protected
-			$path = str_replace("assets","assets/.protected",$path);
-		}
-		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n".$path);
-		if (file_exists($path)){
-			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n"."try to optimise",FILE_APPEND);
+		// file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt",$path);
+		// //Check if file exist
+		// if (!file_exists($path)){
+		// 	//if not published check protected
+		// 	$path = str_replace("assets","assets/.protected",$path,FILE_APPEND);
+		// }
+		// file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n".$path);
+		// if (file_exists($path)){
+		// 	file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n"."try to optimise",FILE_APPEND);
 			try {
 	    		\Tinify\setKey($this->api_key);
 				$source = \Tinify\fromUrl($path);
@@ -38,6 +38,6 @@ class DeskallImageOptimiser {
 			    // Something else went wrong, unrelated to the Tinify API.
 			     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n"."other: " . $e->getMessage(), FILE_APPEND);
 			}
-		}
+		//}
 	}
 } 
