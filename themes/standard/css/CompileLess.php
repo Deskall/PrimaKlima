@@ -13,7 +13,9 @@ if($css_compiled){
 	$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
 	$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
 	$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/themes/standard/css/src/images/backgrounds/",$css_compiled);
-	//$css_compiled = str_replace('replace("url("\'', 'filter:url(\'', $css_minified);
+	if (Director::isLive()){
+		$css_compiled = str_replace("url('../fonts","url('".$this->owner->ThemeDir()."/fonts",$css_compiled);
+	}
 
 	// // optimize file
 	// $url = 'http://optimizer-deskall.rhcloud.com/css';
