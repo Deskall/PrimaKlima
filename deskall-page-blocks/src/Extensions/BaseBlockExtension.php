@@ -257,7 +257,13 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
         }
     }
 
-
+   /**
+     * @param \SilverStripe\CMS\Model\SiteTree|null $original
+     */
+    public function onAfterVersionedPublish(&$original)
+    {
+        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','ici');
+    }
 
 
 /************* TRANLSATIONS *******************/
