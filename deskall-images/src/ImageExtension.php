@@ -90,7 +90,7 @@ class ImageExtension extends Extension
         //Publish
         $this->owner->publishSingle();
         //Optimise via TinyPNG API
-        //$this->OptimiseImage($this->owner->getAbsoluteURL(), $_SERVER['DOCUMENT_ROOT'].$this->owner->getURL());
+        $this->OptimiseImage($this->owner->getAbsoluteURL(), $_SERVER['DOCUMENT_ROOT'].$this->owner->getURL());
     
     }
 
