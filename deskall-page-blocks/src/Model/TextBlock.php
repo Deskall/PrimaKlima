@@ -5,6 +5,9 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
+use SilverStripe\StaticPublishQueue\Contract\StaticPublishingTrigger;
+use SilverStripe\StaticPublishQueue\Contract\StaticallyPublishable;
+use SilverStripe\ORM\SS_List;
 
 class TextBlock extends BaseElement implements StaticallyPublishable, StaticPublishingTrigger
 {
