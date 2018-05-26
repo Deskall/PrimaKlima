@@ -919,6 +919,7 @@ class Less_Functions{
 			$buf = @file_get_contents($filePath);
 		}elseif( file_exists($_SERVER['DOCUMENT_ROOT'].$filePath) ){
 			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."la", FILE_APPEND);
+			$filePath = $_SERVER['DOCUMENT_ROOT'].$filePath;
 			$buf = @file_get_contents($filePath);
 		}
 		else{
