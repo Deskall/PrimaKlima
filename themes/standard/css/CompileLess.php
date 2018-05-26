@@ -1,5 +1,4 @@
 <?php
-use SilverStripe\Control\Director;
 
 require_once "less/lessc.inc.php";
 $filecore = str_replace(".min","",basename($_SERVER['REQUEST_URI'],".css"));
@@ -14,7 +13,7 @@ if($css_compiled){
 	$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
 	$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
 	$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/themes/standard/css/src/images/backgrounds/",$css_compiled);
-	if (Director::isLive()){
+	if (\SilverStripe\Control\Director::isLive()){
 		$css_compiled = str_replace("url('../fonts","url('/themes/standard/fonts",$css_compiled);
 	}
 
