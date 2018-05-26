@@ -15,7 +15,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class ListBlock extends BaseElement
 {
-    private static $icon = 'font-icon-plus-circled';
+    private static $icon = 'font-icon-list';
     
     private static $controller_template = 'BlockHolder';
 
