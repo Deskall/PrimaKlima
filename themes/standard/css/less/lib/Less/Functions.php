@@ -900,8 +900,7 @@ class Less_Functions{
 			if( $useBase64 ){ $mimetype .= ';base64'; }
 
 		}else{
-			//$useBase64 = preg_match('/;base64$/',$mimetype);
-			$useBase64 = 1;
+			$useBase64 = preg_match('/;base64$/',$mimetype);
 		}
 
 		if( file_exists($filePath) ){
