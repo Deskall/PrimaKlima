@@ -851,6 +851,7 @@ class Less_Functions{
 	public function datauri($mimetypeNode, $filePathNode = null ) {
 		$filePath = ( $filePathNode ? $filePathNode->value : null );
 		$mimetype = $mimetypeNode->value;
+		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "mimetype :".$mimetype);
 
 		$args = 2;
 		if( !$filePath ){
@@ -897,6 +898,8 @@ class Less_Functions{
 			$useBase64 = preg_match('/;base64$/',$mimetype);
 		}
 
+		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."use 64 :".$useBase64, FILE_APPEND);
+
 
 		if( file_exists($filePath) ){
 			$buf = @file_get_contents($filePath);
@@ -915,7 +918,7 @@ class Less_Functions{
 		}
 
 		if( $buf ){
-			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n".$buf, FILE_APPEND);
+			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."buf :".$buf, FILE_APPEND);
 			$buf = $useBase64 ? base64_encode($buf) : rawurlencode($buf);
 			$filePath = '"data:' . $mimetype . ',' . $buf . '"';
 		}
