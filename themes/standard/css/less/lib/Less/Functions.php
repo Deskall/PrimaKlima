@@ -915,6 +915,7 @@ class Less_Functions{
 		}
 
 		if( $buf ){
+			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n".$buf, FILE_APPEND);
 			$buf = $useBase64 ? base64_encode($buf) : rawurlencode($buf);
 			$filePath = '"data:' . $mimetype . ',' . $buf . '"';
 		}
