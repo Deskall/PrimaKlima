@@ -500,7 +500,8 @@ class Less_Functions{
 		if( $flags && $flags->value){
 			$expr .= self::replace_flags($flags->value);
 		}
-
+		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", "\n".$expr, FILE_APPEND);
+		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", "\n".$replacement->value, FILE_APPEND);
 		$result = preg_replace($expr,$replacement->value,$result);
 
 		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", "\n".$result, FILE_APPEND);
