@@ -877,7 +877,6 @@ class Less_Functions{
 
 		}
 
-
 		// detect the mimetype if not given
 		if( $args < 2 ){
 
