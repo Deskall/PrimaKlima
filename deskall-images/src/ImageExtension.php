@@ -89,8 +89,8 @@ class ImageExtension extends Extension
         $backend->setImageResource($resource);
         //Publish
         $this->owner->publishSingle();
-
-        $this->OptimiseImage($this->owner->getAbsoluteURL(), $_SERVER['DOCUMENT_ROOT'].$this->owner->getURL());
+        //Optimise via TinyPNG API
+        //$this->OptimiseImage($this->owner->getAbsoluteURL(), $_SERVER['DOCUMENT_ROOT'].$this->owner->getURL());
     
     }
 
