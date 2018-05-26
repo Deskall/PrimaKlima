@@ -88,7 +88,7 @@ class ImageExtension extends Extension
         
         $backend->setImageResource($resource);
 
-        $this->OptimiseImage($this->owner->getURL());
+        $this->OptimiseImage($this->owner->getAbsoluteURL());
     
     }
 
