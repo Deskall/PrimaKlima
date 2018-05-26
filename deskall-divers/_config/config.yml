@@ -22,7 +22,6 @@ SilverStripe\Admin\LeftAndMain:
     - deskall-divers/css/custom_admin.css
   extra_requirements_javascript:
     - deskall-divers/javascript/lang/de.js
-    - deskall-divers/javascript/Deskall-divers.EditForm.js
 
 SilverStripe\Security\Member:
   extensions:
