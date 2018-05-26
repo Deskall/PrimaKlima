@@ -4,4 +4,5 @@
     @data-uri: data-uri("@{src}");
     @replace-src: replace("@{data-uri}", "@{escape-color-default}", "@{escape-color-new}", "g");
     background-image: e(@replace-src);
+    content: @data-uri;
 }
