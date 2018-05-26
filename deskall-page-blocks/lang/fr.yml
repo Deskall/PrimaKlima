@@ -311,6 +311,7 @@ fr:
       other: '{count} contenus principaux'
     SINGULARNAME: 'contenu principal'
   ListBlock:
+    AfterCreation: "Vous pourrez ajouter des items après création de la liste"
     BlockType: 'Liste'
     Content: "Contenu"
     Description: "Créer une liste d'item (liens, références,...)"

@@ -5,6 +5,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\LabelField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
@@ -96,6 +97,7 @@ class ListBlock extends BaseElement
         } 
         else {
             $fields->removeByName('Items');
+            $fields->addFieldToTab("Root.Main",LabelField::create('LabelField',_t(__CLASS__.'.AfterCreation','Sie können Artikeln nach dem Erstellen der Liste hinzufügen')));)
         }
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
