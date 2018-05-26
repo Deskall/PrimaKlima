@@ -17,6 +17,7 @@ class DeskallImageOptimiser {
 		}
 		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n".$path);
 		if (file_exists($path)){
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n"."try to optimise",FILE_APPEND);
 			try {
 	    		\Tinify\setKey($this->api_key);
 				$source = \Tinify\fromUrl($path);

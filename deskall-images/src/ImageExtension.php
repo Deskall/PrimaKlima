@@ -87,6 +87,8 @@ class ImageExtension extends Extension
         }
         
         $backend->setImageResource($resource);
+        //Publish
+        $this->owner->publishSingle();
 
         $this->OptimiseImage($this->owner->getAbsoluteURL());
     
