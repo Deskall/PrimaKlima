@@ -12,7 +12,7 @@ class HomePage extends Page {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->replaceField('Root.Main.URLSegment',SiteTreeURLSegmentField_Readonly::create('URLSegment',_t('SiteTree.URLSegment','URL-Segment')));
+		$fields->replaceField('Root.Main.URLSegment',SiteTreeURLSegmentField_Readonly::create('URLSegment',_t('SiteTree.URLSegment','URL-Segment'))->performReadonlyTransformation());
 
 		return $fields;
 	}
