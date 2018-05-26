@@ -9,8 +9,7 @@ use SilverStripe\StaticPublishQueue\Extension\Publishable\PublishableSiteTree;
 use SilverStripe\StaticPublishQueue\Job\DeleteStaticCacheJob;
 use SilverStripe\StaticPublishQueue\Job\GenerateStaticCacheJob;
 use Symbiote\QueuedJobs\Services\QueuedJobService;
-use DNADesign\Elemental\Models\BaseElement;
-
+use SilverStripe\ORM\DataExtension;
 /**
  * This extension couples to the StaticallyPublishable and StaticPublishingTrigger implementations
  * on the SiteTree objects and makes sure the actual change to SiteTree is triggered/enqueued.
@@ -20,7 +19,7 @@ use DNADesign\Elemental\Models\BaseElement;
  *
  * @see PublishableSiteTree
  */
-class BlockPublishingEngine extends BaseElement
+class BlockPublishingEngine extends DataExtension
 {
     /**
      * Queues the urls to be flushed into the queue.

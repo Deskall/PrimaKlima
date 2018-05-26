@@ -17,6 +17,7 @@ DNADesign\Elemental\Models\BaseElement:
     - Linkable
     - Collapsable
     - PublishParent
+    - BlockPublishingEngine
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
