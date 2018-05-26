@@ -915,11 +915,14 @@ class Less_Functions{
 		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."file exists ? :".file_exists($_SERVER['DOCUMENT_ROOT'].$filePath), FILE_APPEND);
 
 		if( file_exists($filePath) ){
+			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."ici", FILE_APPEND);
 			$buf = @file_get_contents($filePath);
 		}elseif( file_exists($_SERVER['DOCUMENT_ROOT'].$filePath) ){
+			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."la", FILE_APPEND);
 			$buf = @file_get_contents($filePath);
 		}
 		else{
+			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."ou la", FILE_APPEND);
 			$buf = false;
 		}
 
