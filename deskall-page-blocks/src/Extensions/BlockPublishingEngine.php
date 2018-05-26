@@ -75,7 +75,7 @@ class BlockPublishingEngine extends BaseElement
     /**
      * @param \SilverStripe\CMS\Model\SiteTree|null $original
      */
-    public function onAfterPublish(&$original)
+    public function onAfterVersionedPublish(&$original)
     {
         file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','ici');
         $context = [
