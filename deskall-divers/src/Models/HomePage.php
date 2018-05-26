@@ -6,6 +6,6 @@ class HomePage extends Page {
 	private static $description = "Startseite";
 
 	public function canCreate($member = null, $context = null){
-		return HomePage::get()->count() > 0;
+		return HomePage::get()->count() == 0;
 	}
 }
