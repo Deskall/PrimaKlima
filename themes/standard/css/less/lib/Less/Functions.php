@@ -923,6 +923,7 @@ class Less_Functions{
 			$buf = false;
 		}
 
+		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."buf : :".$buf, FILE_APPEND);
 
 		// IE8 cannot handle a data-uri larger than 32KB. If this is exceeded
 		// and the --ieCompat flag is enabled, return a normal url() instead.
