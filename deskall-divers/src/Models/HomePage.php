@@ -1,4 +1,5 @@
 <?php
+use SilverStripe\CMS\Forms\SiteTreeURLSegmentField_Readonly;
 
 class HomePage extends Page {
 	private static $icon = "home";
@@ -11,7 +12,7 @@ class HomePage extends Page {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->FieldByName('Root.Main.URLSegment')->setReadonly(true);
+		$fields->replaceField('Root.Main.URLSegment',SiteTreeURLSegmentField_Readonly::create('URLSegment',_t('SiteTree.URLSegment','URL-Segment')));
 
 		return $fields;
 	}
