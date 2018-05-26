@@ -217,8 +217,8 @@ class SliderBlock extends BaseElement
             $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
                 CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','Autoplay')),
                 DropdownField::create('Animation',_t(__CLASS__.'.Animation','Animation'), $this->getTranslatedSourceFor(__CLASS__,'animations')),
-                NumericField::create('MinHeight',_t(__CLASS__.'.MinHeight','min. Höhe')),
-                NumericField::create('MaxHeight',_t(__CLASS__.'.MaxHeight','max. Höhe'))
+                TextField::create('MinHeight',_t(__CLASS__.'.MinHeight','min. Höhe')),
+                TextField::create('MaxHeight',_t(__CLASS__.'.MaxHeight','max. Höhe'))
                 )->setTitle(_t(__CLASS__.'.SlideSettings','Slide Einstellungen'))->setName('SlideSettings')
             );
        
