@@ -2,7 +2,7 @@
     <a href="$CMSEditLink" class="elemental-edit">
      
         <div class="elemental-preview__detail">
-        	<% if Type == "adresse" %>
+        	<% if Type == "address" %>
         	<h3>$SiteConfig.AddressTitle</h3>
         	<ul>
         		

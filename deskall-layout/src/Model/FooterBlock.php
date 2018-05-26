@@ -15,7 +15,7 @@ class FooterBlock extends LayoutBlock{
     ];
 
     private static $block_types = [
-        'adresse' => 'Adresse',
+        'address' => 'Adresse',
         'links' => 'Links',
         'content' => 'Inhalt',
         'logo' => 'Logo',

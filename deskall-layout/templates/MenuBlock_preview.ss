@@ -62,10 +62,16 @@
         	                <% end_if %>
         	            </li>
         		    <% end_loop %>
+                    <% if Menu.count > 2 %>
+                    <li>...</li>
+                    <% end_if %>
         		 <% end_if %>
                 <% loop $activeLinks.limit(2) %>
                         $forTemplate
                 <% end_loop %>
+                <% if activeLinks.count > 2 %>
+                    <li>...</li>
+                <% end_if %>
             <% end_if %>
         </div>
 </div>

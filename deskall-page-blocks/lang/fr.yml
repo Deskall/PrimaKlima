@@ -1,4 +1,66 @@
 fr:
+  ActionBlock:
+    BlockType: Action
+    ButtonBackground: 'Couleur du bouton'
+    ButtonPosition: 'Alignement du bouton'
+    CloseText: 'Texte du bouton de fermeture'
+    ContentLabel: Contenu
+    Description: Action déclenchant un évènement (Modal, Menu déroulant,...)
+    DropdownBoundary: 'Adapter le contenu à la largeur du bloc parent'
+    DropdownLayout: 'Format du menu déroulant'
+    DropdownPosition: 'Alignement du menu déroulant'
+    DropdownTrigger: 'Déclenché par'
+    InteractionType: Type
+    InteractionTypeHelp: 'Choisissez un type'
+    ModalLayout: 'Format du modal'
+    ModalSize: 'Largeur de la fenêtre'
+    OffcanvasEffect: 'Effet du hors-champ'
+    OffcanvasLayout: 'Format du hors-champ'
+    OffcanvasOverlay: "Surcouche d'arrière-plan"
+    OffcanvasPosition: 'Position'
+    Target: "élément cible"
+    TargetHelp: 'Choisissez un élément'
+    TriggeringText: "Texte du bouton d'ouverture"
+    block_actions_dropdown: "Menu déroulant"
+    block_actions_modal: Modal
+    block_actions_offcanvas: Hors-champ
+    block_actions_scroll: Défilement
+    block_actions_toggle: Changement au clic
+    block_effects_none: Aucun
+    block_effects_push: Poucée
+    block_effects_reveal: Apparition
+    block_effects_slide: Glissement
+    button_alignments_center: Centré
+    button_alignments_left: Gauche
+    button_alignments_right: Droite
+    'button_backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
+    'button_backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
+    button_backgrounds_uk-button-default: "pas de couleur d'arrière-plan"
+    'button_backgrounds_uk-button-muted dk-text-hover-muted': gris
+    'button_backgrounds_uk-button-primary dk-text-hover-primary': 'couleur primaire'
+    'button_backgrounds_uk-button-secondary dk-text-hover-secondary': 'couleur secondaire'
+    dropdown_positions_bottom-center: 'Aligné en bas et centré'
+    dropdown_positions_bottom-justify: 'Aligné en bas et justifié'
+    dropdown_positions_bottom-left: 'Aligné en bas à gauche'
+    dropdown_positions_bottom-right: 'Aligné en bas à droite'
+    dropdown_positions_left-bottom: 'Aligns the dropdown to the left bottom'
+    dropdown_positions_left-center: 'Aligns the dropdown to the left center'
+    dropdown_positions_left-top: 'Aligns the dropdown to the left top'
+    dropdown_positions_right-bottom: 'Aligns the dropdown to the right bottom'
+    dropdown_positions_right-center: 'Aligns the dropdown to the right center'
+    dropdown_positions_right-top: 'Aligns the dropdown to the right top'
+    dropdown_positions_top-center: 'Aligné en haut et centré'
+    dropdown_positions_top-justify: 'Aligné en haut et justifié'
+    dropdown_positions_top-left: 'Aligné en haut à gauche'
+    dropdown_positions_top-right: 'Aligné en haut à droite'
+    dropdown_triggers_click: Clic
+    dropdown_triggers_hover: Survol
+    'dropdown_triggers_hover,click': 'Survol et clic'
+    modal_sizes_auto: 'Largeur du contenu'
+    modal_sizes_uk-modal-container: 'Largeur de la page'
+    modal_sizes_uk-modal-full: "Largeur de l'écran"
+    offcanvas_position_left: Liens
+    offcanvas_position_right: Droits
   BOXBLOCK:
     BOXTAB: Boîtes
   BaseBlockExtension:
@@ -9,13 +71,16 @@ fr:
     BackgroundColorHelpText: "sera superposée en calque opaque si le bloc a une image d'arrière-plan"
     BackgroundImage: "Image d'arrière-plan"
     ContentTab: 'Contenu'
+    GlobalLayout: 'Options globales de format'
     FullWidth: "étendre le bloc à la largeur de la page"
     HistoryTab: 'Historique'
     LAYOUTTAB: Affichage
     LinkAlignment: "Alignement du lien"
     ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
+    TitleAlignment: "Alignement du titre"
     TextAlignment: "Alignement du texte"
     TextColumns: "Afficher le texte en plusieurs colonnes"
+    TextLayout: "Option de format du texte"
     'block_backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
     'block_backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
     block_backgrounds_uk-section-default: "Pas de couleur d'arrière-plan"
@@ -35,7 +100,7 @@ fr:
     SettingsTab: 'Paramètres'
   Box:
     Effect: Effet
-    EffectOptions: "Options pour l'effet Optionen"
+    EffectOptions: "Options pour l'effet"
     Image: Image
     NoBild: (aucune)
     PLURALNAME: Boîtes
@@ -85,6 +150,54 @@ fr:
     block_positions_normal: 'à la position du bloc sur la page'
     CodeBlockScriptLabel: 'Copier ici le code sans les balises "<script></script>"'
     CodeBlockScriptPosition: 'Inserer le code...'
+  DNADesign\Elemental\Forms\HistoricalVersionedGridFieldItemRequest:
+    BUTTONREVERTDESC: 'Publier cette ligne sur le site brouillon'
+    InvalidVersion: 'Version invalide'
+    Position: Position
+    REVERT: 'Retour à cette version'
+  DNADesign\Elemental\Models\BaseElement:
+    Author: Auteur
+    BlockType: Bloc
+    CUSTOM_STYLES: 'Choisissez un style'
+    ExtraCssClassesLabel: 'Classes css personalisées'
+    ExtraCssClassesPlaceholder: autre_class
+    MainTabLabel: Contenu
+    Modified: modifié
+    PLURALNAME: Blocs
+    PLURALS:
+      one: 'un bloc'
+      other: '{count} blocs'
+    Published: Publié
+    Record: Entrée
+    SINGULARNAME: Bloc
+    STYLE: 'Variations de style'
+    ShowTitleLabel: Affiché
+    TitleLabel: 'Titre (sera affiché si coché)'
+  DNADesign\Elemental\Models\ElementContent:
+    BlockType: Contenu
+    ContentLabel: Contenu
+    PLURALNAME: Blocs de contenu
+    PLURALS:
+      one: 'un bloc de contenu'
+      other: '{count} Blocs de contenu'
+    SINGULARNAME: Bloc de contenu
+  DNADesign\Elemental\Models\ElementalArea:
+    PLURALNAME: 'Zones de contenu'
+    PLURALS:
+      one: 'une zone de contenu'
+      other: '{count} zones de contenu'
+    SINGULARNAME: 'Zone de contenu'
+  DNADesign\Elemental\Reports\ElementTypeReport:
+    Title: 'Type de bloc'
+    Total: Total
+    Type: 'Type de contenu'
+  DNADesign\Elemental\Reports\ElementsInUseReport:
+    None: Aucun
+    Page: Page
+    ReportTitle: 'Utilisé par '
+    Summary: Résumé
+    Title: Titre
+    Type: Type
   DownloadBlock:
     BlockType: 'Zone de téléchargement'
     ContentLabel: Contenu
@@ -105,6 +218,14 @@ fr:
     'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
     'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
     php.DownloadBlockFilesTab: Fichiers
+  DuplicateBlock:
+    BlockType: 'Dupliquer un bloc'
+    Description: "Dupliquer un bloc existant"
+    PLURALNAME: blocs
+    PLURALS:
+      one: 'un bloc'
+      other: '{count} blocs'
+    SINGULARNAME: bloc
   Features:
     PLURALNAME: Features
     PLURALS:
@@ -116,7 +237,9 @@ fr:
     ContentLabel: Contenu
     Description: "Bloc permettant d'insérer une liste de features"
     Features: Features
+    FeaturesLayout: "Format des features"
     FeaturesInColumns: 'Afficher les features sur plusieurs colonnes'
+    FeaturesTextAlignment: "Alignement des features"
     FeaturesTitle: 'Titre de la liste'
     PLURALNAME: 'Listes de features'
     PLURALS:
@@ -130,6 +253,7 @@ fr:
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
   GalleryBlock:
+    Autoplay: "Lecture automatique"
     BlockType: "Galerie d'images"
     ContentLabel: Contenu
     Description: "Affiche un carousel d'image ou une grille au choix"
@@ -145,10 +269,16 @@ fr:
     block_layouts_carousel: "Carousel"
     block_layouts_grid: "Grille"
     php.GalleryBlockPicturesTab: Images
+  Global:
+    BUTTONCOLLAPSE: Rassembler
+    BUTTONEXPAND: Agrandir
   GridFieldDuplicateBlock:
     Label: 'Copier un bloc existant'
   GridFieldExtensions:
     Duplicate: Copier
+    Link: Lier
+  GridFieldLinkBlock:
+    Label: 'Lier un bloc existant'
   LargeImageBlock:
     BlockType: 'Bannière'
     Description: "Bannière avec une image en arrière plan"
@@ -165,15 +295,9 @@ fr:
     block_heights_uk-height-medium: moyenne
     block_heights_uk-height-small: petite
     block_heights_viewport: "tout l'écran"
-    block_layouts_uk-position-bottom-center: "Positionner l'élément en bas et au centre"
-    block_layouts_uk-position-bottom-left: "Positionner l'élément en bas et à gauche"
-    block_layouts_uk-position-bottom-right: "Positionner l'élément en bas et à droite"
+    block_layouts_uk-position-bottom: "Positionner l'élément en bas"
     block_layouts_uk-position-center: "Positionner l'élément au centre"
-    block_layouts_uk-position-center-left: "Positionner l'élément au centre et à gauche"
-    block_layouts_uk-position-center-right: "Positionner l'élément au centre et à droite"
-    block_layouts_uk-position-top-center: "Positionner l'élément en haut et au centre"
-    block_layouts_uk-position-top-left: "Positionner l'élément en haut et à gauche"
-    block_layouts_uk-position-top-right: "Positionner l'élément en haut et à droite"
+    block_layouts_uk-position-top: "Positionner l'élément en haut"
     effects_fixed: fixe
     effects_none: aucun
     effects_parallax: parallax
@@ -186,6 +310,45 @@ fr:
       one: 'un contenu principal'
       other: '{count} contenus principaux'
     SINGULARNAME: 'contenu principal'
+  ListBlock:
+    AfterCreation: "Vous pourrez ajouter des items après création de la liste"
+    BlockType: 'Liste'
+    Content: "Contenu"
+    Description: "Créer une liste d'item (liens, références,...)"
+    PLURALS:
+      one: 'une liste'
+      other: '{count} listes'
+    SINGULARNAME: 'Liste'
+    ItemAlignment: 'Format des items'
+    ShowBottomBorder: 'Afficher une bordure entre les items'
+    ItemLayout: 'Format de la liste'
+  ListItem:
+    TitleLabel: Titre
+    Image: Image
+    Summary: Contenu
+    PLURALS:
+      one: 'un item'
+      other: '{count} items'
+    SINGULARNAME: 'Item'
+    GlobalLayout: 'Options globales de format'
+    LAYOUTTAB: Affichage
+    Layout: Format
+    NoBild: "(pas d'image)"
+    ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
+    TitleAlignment: "Alignement du titre"
+    TextAlignment: "Alignement du texte"
+    TextColumns: "Afficher le texte en plusieurs colonnes"
+    TextLayout: "Option de format du texte"
+    text_alignments_uk-text-justify: 'Justifier le texte'
+    'text_alignments_uk-text-center': 'Centrer le texte horizontalement'
+    'text_alignments_uk-text-left': 'Aligner le texte à gauche'
+    'text_alignments_uk-text-right': 'Aligner le texte à droite'
+    'text_columns_ ': 'Pas de colonnes'
+    text_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
   MapBlock:
     Adresse: Adresse
     BlockType: Carte
@@ -217,6 +380,11 @@ fr:
     BlocksPerLineHelpText: 'Sélection un nombre de blocs par ligne'
     Border: 'Afficher une bordure entre les blocs ?'
     Description: "Bloc permettant de combiner plusieurs blocs en un seul."
+    CanCollapse: 'Blocs peuvent être rassemblés'
+    CollapsableChildren: 'Blocs rassemblables'
+    CollapsableChildrenHelpText: "Cette option ne peut pas être modifiée après la création du bloc."
+    CollapseMultipe: "Permettre l'ouverture de plusieurs blocs en même temps"
+    Layout: Format
     PLURALNAME: 'Blocs multiples'
     PLURALS:
       one: 'un bloc multiple'
@@ -238,6 +406,8 @@ fr:
       other: '{count} blocs de partage'
     SINGULARNAME: 'Bloc de partage'
   SiteTree:
+    BUTTONCOLLAPSE: Rassembler
+    BUTTONEXPAND: Agrandir
     FirstBlock: 'Premier bloc'
   SitemapBlock:
     BlockType: Plan du site
@@ -249,6 +419,9 @@ fr:
       other: '{count} blocs plan de site'
     SINGULARNAME: 'Bloc plan de site'
   Slide:
+    CTA: Lien
+    ContentLabel: Contenu
+    ContentTab: Contenu
     Effect: Effet
     EffectOptions: "Options d'effet"
     Image: Image
@@ -259,7 +432,7 @@ fr:
       other: '{count} Slides'
     SINGULARNAME: Slide
     TitleLabel: Titre
-    effects_kenburns: 'ken burns'
+    effects_kenburns: 'dérive'
     effects_none: aucun
     effects_parallax: parallax
   SliderBlock:
@@ -281,11 +454,11 @@ fr:
     SINGULARNAME: carousel de slides
     Slides: Slides
     SlideCopyHelpText: "Enregistrez le carousel pour pouvoir ajouter des images, ou copiez les images d'un carousel existant."
-    animations_fade: fade
-    animations_pull: pull
-    animations_push: push
-    animations_scale: scale
-    animations_slide: slide
+    animations_fade: Apparition
+    animations_pull: Tire
+    animations_push: Pousse
+    animations_scale: "Changement d'échelle"
+    animations_slide: Glissement
     block_heights_large: grande
     block_heights_medium: moyenne
     block_heights_small: petite
@@ -308,6 +481,11 @@ fr:
     block_layouts_left: "à gauche"
     block_layouts_right: "à droite"
   UserFormExtension:
+    BlockType: Formulaire
+    ButtonBackground: 'Couleur du bouton'
+    RedirectPage: 'page de redirection après une soumission réussie'
+    ShowLabels: 'Afficher les labels de champ ?'
+    StepTitleBackground: "Couleur d'arrière-plan du titre de section"
     WITHCAPTCHA: 'protéger par un recaptcha Google ?'
     UserFormExtensionRedirectPage: 'Page de redirection en cas de soumission avec succès'
   VideoBlock:
@@ -325,7 +503,14 @@ fr:
     videos_per_line_uk-child-width-1-1: '1'
     videos_per_line_uk-child-width-1-2@s: '2'
     videos_per_line_uk-child-width-1-3@s: '3'
-
+  VirtualBlock:
+    BlockType: 'Lier un bloc'
+    Description: "Lier un bloc existant"
+    PLURALNAME: 'Blocs liés'
+    PLURALS:
+      one: 'un bloc lié'
+      other: '{count} blocs liés'
+    SINGULARNAME: 'bloc lié'
 
   DNADesign\ElementalUserForms\Model\ElementForm:
     BlockType: 'Formulaire'

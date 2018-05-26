@@ -7,6 +7,7 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
+use SilverStripe\Control\Director;
 
 class ImageExtension extends Extension
 {
@@ -65,12 +66,16 @@ class ImageExtension extends Extension
     }
 
     public function HeightForWidth($width){
-        file_put_contents('log.txt', $width);
         return round($width / ($this->owner->getWidth() / $this->owner->getHeight()) , 0);
     }
 
     public function onAfterUpload(){
 
+        //Publish
+        $this->owner->publishSingle();
+        //Optimise via TinyPNG API
+        $this->OptimiseImage(Director::absoluteURL($this->owner->getSourceURL()), $_SERVER['DOCUMENT_ROOT'].$this->owner->getSourceURL());
+            
         //Resize image to fit max Width and Height before resampling
         $width = $this->owner->config()->get('MaxWidth');
         $height = $this->owner->config()->get('MaxHeight');
@@ -86,9 +91,7 @@ class ImageExtension extends Extension
                 $constraint->upsize();
             });
         }
-        
         $backend->setImageResource($resource);
-    
     }
 
 
@@ -160,7 +163,11 @@ class ImageExtension extends Extension
 
             // If methode slide we calculate the ration
 
+<<<<<<< HEAD
             $ratio = ($slide->ImageID > 0) ? $slide->Image()->getWidth() / $slide->Image()->getHeight() : 1;
+=======
+            $ratio = ($slide->Image()->ID > 0) ? $slide->Image()->getWidth() / $slide->Image()->getHeight() : 1;
+>>>>>>> waldenergie
             $MaxHeight = $slide->Parent()->MaxHeight;
             $MinHeight = $slide->Parent()->MinHeight;
 
@@ -183,9 +190,9 @@ class ImageExtension extends Extension
                     $height = ($height > $MaxHeight ) ? $MaxHeight : $height;
                     $height = ($height < $MinHeight ) ? $MinHeight : $height;
                 }
-               
-                $args[1] = $height;
-               
+                //+ 50 To fit all screen pixels
+                $args[1] = $height + 50;
+
                 $sizes->push(ArrayData::create([
                     'Image' => $this->getResampledImage($methodName, $args),
                     'Query' => $query
@@ -239,7 +246,7 @@ class ImageExtension extends Extension
                     throw new Exception("Responsive set $set doesn't have any arguments provided for the query: $query");
                 }
                 $height = $args[0] / $ratio;
-                $args[1] = $height;
+                $args[1] = $height + 50;
                 $sizes->push(ArrayData::create([
                     'Image' => $this->getResampledImage($methodName, $args),
                     'Query' => $query
@@ -322,5 +329,15 @@ class ImageExtension extends Extension
     {
         return $this->getResponsiveSets();
     }
+
+
+
+    //Optimise with tynigPNG
+
+    public function OptimiseImage($url,$path){
+        $optimiser = new DeskallImageOptimiser();
+        $optimiser->Optimise($url,$path);
+    }
+
 
 }

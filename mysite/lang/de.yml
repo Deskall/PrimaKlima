@@ -1,9 +1,17 @@
 de:
+  AssetFormFactory:
+    php.SilverStripe\AssetAdmin\Forms\AssetFormFactorySAVE: Speichern
+    php.SilverStripe\AssetAdmin\Forms\AssetFormFactorySAVED: Gespeichert
   CreateWebsiteTask:
     SITEMAPTITLE: Sitemap
+  FileFormFactory:
+    php.SilverStripe\AssetAdmin\Forms\FileFormFactoryPUBLISH: Veröffentlichen
+    php.SilverStripe\AssetAdmin\Forms\FileFormFactoryPUBLISHED: Veröffentlicht
   FooterBlock:
     ClassDescription: 'Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt'
     Content: Inhalt
+    FooterBlockExtraClass: 'Extra CSS Class'
+    FooterBlockLinksLabel: 'Links können erst nach dem Speichern erstellt werden'
     Links: Links
     PLURALNAME: 'Footer Blöcke'
     PLURALS:
@@ -20,8 +28,6 @@ de:
     block_types_adresse: Adresse
     block_types_content: Inhalt
     block_types_links: Links
-    FooterBlockExtraClass: 'Extra CSS Class'
-    FooterBlockLinksLabel: 'Links können erst nach dem Speichern erstellt werden'
     widths_uk-width-1-1: 'Voll Breite'
     'widths_uk-width-1-1@s uk-width-1-2@m': 50%
     'widths_uk-width-1-1@s uk-width-1-3@m': 33.33%
@@ -58,41 +64,56 @@ de:
   Global:
     BUTTONACTIVEDESC: Aktivieren
     BUTTONINACTIVEDESC: Deaktivieren
+  Linkable:
+    ADDLINK: 'Link hinzufügen'
+    ANCHOR: Anker/Querystring
+    ANCHORINFO: '# Am Anfang des Ankernamens einfügen oder,? am Anfang der Querystring '
+    CSSCLASS: 'CSS class'
+    DELETEDWARNING: 'Warnung: Die ausgewählte Seite scheint gelöscht oder nicht veröffentlicht worden zu sein. Dieser Link wird möglicherweise nicht angezeigt oder kann im Frontend beschädigt werden'
+    DESCRIPTION: Beschreibung
+    EDIT: Bearbeiten
+    EDITLINK: 'Link bearbeiten'
+    EMAILADDRESS: E-Mail-Adresse
+    FILE: Datei
+    HEIGHT: Höhe
+    INSPECT: Prüfen
+    LINKTYPE: Linktyp
+    OPENINNEWWINDOW: 'Link in einem neuen Fenster öffnen'
+    OPTIONALTITLE: 'Wahlweise. Wird automatisch aus dem Link generiert, wenn es leer gelassen wird'
+    PAGE: Seite
+    PHONENUMBER: Telefonnummer
+    REMOVE: Löschen
+    SAVE: Speichern
+    SOURCEURL: 'Quell URL'
+    STYLE: Stil
+    TITLE: Titel
+    VALIDATIONERROR_OBJECT: 'Bitte wählen Sie ein {value} -Objekt, auf das verlinkt werden soll'
+    VALIDATIONERROR_VALIDEMAIL: 'Bitte geben Sie eine gültige E-Mail-Adresse ein'
+    VALIDATIONERROR_VALIDPHONE: 'Bitte geben Sie eine gültige Telefonnummer ein'
+    VALIDATIONERROR_VALIDURL: 'Bitte geben Sie eine gültige URL ein. Achten Sie darauf, http: // für eine externe URL anzugeben. Oder starte deine interne URL / den Anker mit einem "/" Zeichen'
+    WIDTH: Breite
+  MoveFormFactory:
+    php.SilverStripe\AssetAdmin\Forms\MoveFormFactoryCHOOSEFOLDER: 'Ordner auswählen'
+    php.SilverStripe\AssetAdmin\Forms\MoveFormFactoryMOVE: Bewegen
   Page:
-    DESCRIPTION: 'Standard Seite'
-    PLURALNAME: Seiten
+    DESCRIPTION: 'Generic content page'
+    PLURALNAME: Pages
     PLURALS:
-      one: 'eine Seite'
-      other: '{count} Seiten'
-    SINGULARNAME: Seite
-  SiteConfigExtension:
-    AccessTab: 'Zugang'
-    Address: Adresse
-    AddressStreet: Adresse
-    AdresseTitle: 'Adresse Titel'
-    Background: Hintergrundfarbe
-    BackgroundHelp: 'Wählen Sie aus eine Hintergrundfarbe'
-    CodeCity: 'PLZ / Ort'
-    Country: Land
-    Default: Standard
-    Email: 'E-Mail Adresse'
-    Facebook: Facebook
-    Linkedin: Linkedin
-    MainTab: 'Hauptteil'
-    Mobile: Mobile
-    Notfall: 'Notfall Nummer'
-    Phone: Telefon
-    SocialTitle: Netwerk
-    Twitter: Twitter
-    Xing: Xing
-  SiteTree:
-    BUTTONACTIVE: Aktivieren
-    BUTTONINACTIVE: Deaktivieren
-
-
-##NATIVE NOT TRANSLATED
-
-##SILVERSTRIPE ADMIN
+      one: 'A Page'
+      other: '{count} Pages'
+    SINGULARNAME: Page
+  Sheadawson\Linkable\Models\EmbeddedObject:
+    PLURALNAME: 'Eingebettete Objekte'
+    PLURALS:
+      one: 'Ein eingebettetes Objekt'
+      other: '{count} Eingebettete Objekte'
+    SINGULARNAME: 'eingebettetes Objekt'
+  Sheadawson\Linkable\Models\Link:
+    PLURALNAME: Links
+    PLURALS:
+      one: 'ein Link'
+      other: '{count} Links'
+    SINGULARNAME: Link
   SilverStripe\Admin\CMSProfileController:
     CANTEDIT: 'Kein Erlaubnis'
     MENUTITLE: 'Mein Profil'
@@ -116,14 +137,16 @@ de:
   SilverStripe\Admin\LeftAndMain:
     ACCESSALLINTERFACES: 'Zugriff auf alle CMS-Bereiche'
     ACCESSALLINTERFACESHELP: 'Überschreibt spezifischere Zugriffseinstellungen.'
+    BROWSER_WARNING_HEADING: 'Nicht unterstützter Browser'
+    BROWSER_WARNING_TEXT: 'Sie verwenden einen Webbrowser, der nicht von SilverStripe unterstützt wird. <br /> Bitte aktualisieren Sie auf eine der folgenden Optionen.'
     CollapsePanel: 'Bedienfeld ausblenden'
     DELETED: Gelöscht.
     DropdownBatchActionsDefault: 'Wählen Sie eine Aktion...'
-    ExpandPanel: 'Erweitern'
+    ExpandPanel: Erweitern
     HELP: Hilfe
     Hello: Hallo
-    LOADING: Wird geladen...
-    LOGOUT: 'Abmelden'
+    LOADING: 'Wird geladen...'
+    LOGOUT: Abmelden
     MenuToggleAuto: Auto
     MenuToggleStickyNav: 'Sticky nav'
     NavigateUp: 'Navigieren Sie einen Ordner nach oben'
@@ -134,10 +157,8 @@ de:
     REQUIREJS: 'Für das CMS muss JavaScript aktiviert sein.'
     SAVEDUP: Gespeichert.
     SUBMIT_BUTTON_LABEL: Los
-    ValidationError: 'Validierungsfehler'
+    ValidationError: Validierungsfehler
     VersionUnknown: Unbekannt
-    BROWSER_WARNING_HEADING: 'Nicht unterstützter Browser'
-    BROWSER_WARNING_TEXT: 'Sie verwenden einen Webbrowser, der nicht von SilverStripe unterstützt wird. <br /> Bitte aktualisieren Sie auf eine der folgenden Optionen.'
   SilverStripe\Admin\LeftAndMain_ViewModeSelector:
     Auto: Auto
     ChangeViewMode: 'Ändern Sie den Ansichtsmodus'
@@ -145,10 +166,10 @@ de:
     DualWindowView: 'Dual Window'
     EditView: 'Bearbeitung Modus'
     Mobile: Mobile
-    PreviewState: 'Vorschaustatus'
-    PreviewView: 'Vorschaumodus'
+    PreviewState: Vorschaustatus
+    PreviewView: Vorschaumodus
     Responsive: Responsive
-    SplitView: 'gezeichnet'
+    SplitView: gezeichnet
     Tablet: Tablet
     ViewDeviceWidth: 'Wählen Sie eine Vorschaubreite'
     Width: Breite
@@ -159,8 +180,8 @@ de:
     Help2: '<div class = "advanced"> <h4> Erweiterte Verwendung </ h4> <ul> <li> Erlaubte Spalten: <em> {Spalten} </ em> </ li> <li> Vorhandene Benutzer werden mit ihren eindeutigen verglichen <em> Code </ em> -Eigenschaft und aktualisiert mit neuen Werten aus der importierten Datei. </ li> <li> Gruppen können über die Spalte <em> Gruppen </ em> zugewiesen werden. Gruppen werden anhand ihrer Eigenschaft <em> Code </ em> identifiziert, mehrere Gruppen können durch Kommas getrennt werden. Bestehende Gruppenmitgliedschaften werden nicht gelöscht. </ Li> </ ul> </ div>'
     ResultCreated: '{count} Mitglieder erstellt'
     ResultDeleted: '{count} Mitglieder gelöscht'
-    ResultUpdated: '{count} Mitglieder  aktualisiert'
     ResultNone: 'Keine Änderungen'
+    ResultUpdated: '{count} Mitglieder  aktualisiert'
   SilverStripe\Admin\ModelAdmin:
     APPLY_FILTER: 'Filter anwenden'
     DELETE: Löschen
@@ -169,7 +190,7 @@ de:
     FILTER: Filtern
     IMPORT: 'von CSV importieren'
     IMPORTEDRECORDS: '{count} Datensatzen imporiert.'
-    IMPORTSPECFIELDS: 'Datenbankspalten'
+    IMPORTSPECFIELDS: Datenbankspalten
     IMPORTSPECLINK: 'Spezifikation für {model} anzeigen'
     IMPORTSPECRELATIONS: Beziehungen
     IMPORTSPECTITLE: 'Spezifikation für {model}'
@@ -190,26 +211,15 @@ de:
     MemberListCaution: 'Vorsicht: Wenn Sie Mitglieder aus dieser Liste entfernen, werden sie aus allen Gruppen und der Datenbank entfernt'
     TABROLES: Rollen
     Users: Benutzern
-
-## ASSETS ADMIN
-  AssetFormFactory:
-    php.SilverStripe\AssetAdmin\Forms\AssetFormFactorySAVE: Speichern
-    php.SilverStripe\AssetAdmin\Forms\AssetFormFactorySAVED: Gespeichert
-  FileFormFactory:
-    php.SilverStripe\AssetAdmin\Forms\FileFormFactoryPUBLISH: Veröffentlichen
-    php.SilverStripe\AssetAdmin\Forms\FileFormFactoryPUBLISHED: Veröffentlicht
-  MoveFormFactory:
-    php.SilverStripe\AssetAdmin\Forms\MoveFormFactoryCHOOSEFOLDER: 'Ordner auswählen'
-    php.SilverStripe\AssetAdmin\Forms\MoveFormFactoryMOVE: Bewegen
   SilverStripe\AssetAdmin\BatchAction\DeleteAssets:
     TITLE: 'Ordner löschen'
   SilverStripe\AssetAdmin\Controller\AssetAdmin:
     ADDTOCAMPAIGN: 'zur Kampagnen hinzufügen'
     Alignment: Ausrichtung
     AlignmentCenter: Mittel
-    AlignmentLeft: 'Links'
+    AlignmentLeft: Links
     AlignmentLeftAlone: Links
-    AlignmentRight: 'Rechts'
+    AlignmentRight: Rechts
     AlignmentRightAlone: Rechts
     AltText: 'Alternativtext (alt)'
     AltTextDescription: 'Bildschirmleser angezeigt oder wenn Bild nicht angezeigt werden kann'
@@ -218,18 +228,18 @@ de:
     AppCategoryDocument: Dokument
     AppCategoryImage: Bild
     AppCategoryVideo: Video
-    AttributesDescription: "Diese Änderungen wirken sich nur auf diese bestimmte Platzierung der Datei aus."
-    CREATED: "Erst hochgeladen"
+    AttributesDescription: 'Diese Änderungen wirken sich nur auf diese bestimmte Platzierung der Datei aus.'
+    CREATED: 'Erst hochgeladen'
     Caption: Caption
-    CreatePermissionDenied: "Sie sind nicht berechtigt, Dateien hinzuzufügen"
+    CreatePermissionDenied: 'Sie sind nicht berechtigt, Dateien hinzuzufügen'
     CurrentFolderOnly: 'Auf den aktuellen Ordner und seine Unterordner beschränken?'
     DELETE_BUTTON: Löschen
     EditLink: 'Originaldatei bearbeiten'
-    ErrorItemPermissionDenied: "Sie verfügen nicht über die erforderlichen Berechtigungen zum Ändern von {ObjectTitle}"
+    ErrorItemPermissionDenied: 'Sie verfügen nicht über die erforderlichen Berechtigungen zum Ändern von {ObjectTitle}'
     ErrorNotFound: 'Diese {Type} konnte nicht gefunden werden'
+    FILES: Dateien
     FILE_NOT_FOUND: 'Datei nicht gefunden'
-    Filetype: 'Dateityp'
-    FILES: 'Dateien'
+    Filetype: Dateityp
     INVALID_REQUEST: 'Ungültige Anfrage'
     ImageHeight: Höhe
     ImageSpecs: Maße
@@ -247,25 +257,25 @@ de:
     TitleTooltip: 'Titeltext (Tooltip)'
     TitleTooltipDescription: 'Für zusätzliche Informationen über das Bild'
     UNKNOWN: Unbekannt
-    UNPUBLISH_BUTTON: Veröffentlichung rückgängig machen
+    UNPUBLISH_BUTTON: 'Veröffentlichung rückgängig machen'
     UPLOADEDFILE: 'Hochgeladene Datei'
   SilverStripe\AssetAdmin\Controller\AssetAdminFile:
     MOVEDFOLDER: 'Datei verschoben'
     RENAMEDFILE: 'Datei ersetzt'
     RENAMEDTITLE: 'Aktualisierter Titel auf'
   SilverStripe\AssetAdmin\Forms\AssetFormFactory:
-    ACCESSHEADER: "Wer kann diese Datei anzeigen?"
+    ACCESSHEADER: 'Wer kann diese Datei anzeigen?'
     ANYONE: Jemand
-    EDITHEADER: "Wer kann diese Datei bearbeiten?"
-    EDITORGROUPS: 'Redakteursgruppen'
+    EDITHEADER: 'Wer kann diese Datei bearbeiten?'
+    EDITORGROUPS: Redakteursgruppen
     FILENAME: Dateiname
     FOLDERLOCATION: Ort
     INHERIT: 'Vom übergeordneten Ordner übernehmen'
     LOGGED_IN: 'Angemeldete Benutzer'
     ONLY_GROUPS: 'Nur diese Gruppen (wählen Sie aus der Liste)'
-    ROOTNAME: '(Höchststufe)'
+    ROOTNAME: (Höchststufe)
     SAVE: Speichern
-    VIEWERGROUPS: "Betrachtergruppen"
+    VIEWERGROUPS: Betrachtergruppen
   SilverStripe\AssetAdmin\Forms\FileFormFactory:
     INSERT_FILE: 'Datei einfügen'
     INSERT_LINK: 'Link zur Datei'
@@ -292,45 +302,26 @@ de:
     UrlDescription: 'Integriere Youtube und Vimeo Videos, Bilder und andere Medien direkt aus dem Internet.'
   SilverStripe\AssetAdmin\GraphQL\FileFilterInputTypeCreator:
     FileNotFound: 'Datei oder Ordner konnte nicht gefunden werden'
-
-### SHEADOWSON LINKABLE
-  Linkable:
-    ADDLINK: 'Link hinzufügen'
-    ANCHOR: Anker/Querystring
-    ANCHORINFO: '# Am Anfang des Ankernamens einfügen oder,? am Anfang der Querystring '
-    CSSCLASS: 'CSS class'
-    DELETEDWARNING: 'Warnung: Die ausgewählte Seite scheint gelöscht oder nicht veröffentlicht worden zu sein. Dieser Link wird möglicherweise nicht angezeigt oder kann im Frontend beschädigt werden'
-    DESCRIPTION: Beschreibung
-    EDIT: Bearbeiten
-    EDITLINK: 'Link bearbeiten'
-    EMAILADDRESS: 'E-Mail-Adresse'
-    FILE: Datei
-    HEIGHT: Höhe
-    INSPECT: Prüfen
-    LINKTYPE: 'Linktyp'
-    OPENINNEWWINDOW: 'Link in einem neuen Fenster öffnen'
-    OPTIONALTITLE: 'Wahlweise. Wird automatisch aus dem Link generiert, wenn es leer gelassen wird'
-    PAGE: Seite
-    PHONENUMBER: 'Telefonnummer'
-    REMOVE: Löschen
-    SAVE: Speichern
-    SOURCEURL: 'Quell URL'
-    STYLE: Stil
-    TITLE: Titel
-    VALIDATIONERROR_OBJECT: 'Bitte wählen Sie ein {value} -Objekt, auf das verlinkt werden soll'
-    VALIDATIONERROR_VALIDEMAIL: 'Bitte geben Sie eine gültige E-Mail-Adresse ein'
-    VALIDATIONERROR_VALIDPHONE: 'Bitte geben Sie eine gültige Telefonnummer ein'
-    VALIDATIONERROR_VALIDURL: 'Bitte geben Sie eine gültige URL ein. Achten Sie darauf, http: // für eine externe URL anzugeben. Oder starte deine interne URL / den Anker mit einem "/" Zeichen'
-    WIDTH: Breite
-  Sheadawson\Linkable\Models\EmbeddedObject:
-    PLURALNAME: "Eingebettete Objekte"
-    PLURALS:
-      one: 'Ein eingebettetes Objekt'
-      other: '{count} Eingebettete Objekte'
-    SINGULARNAME: 'eingebettetes Objekt'
-  Sheadawson\Linkable\Models\Link:
-    PLURALNAME: Links
-    PLURALS:
-      one: 'ein Link'
-      other: '{count} Links'
-    SINGULARNAME: Link
+  SiteConfigExtension:
+    AccessTab: Zugang
+    Address: Adresse
+    AddressStreet: Adresse
+    AdresseTitle: 'Adresse Titel'
+    Background: Hintergrundfarbe
+    BackgroundHelp: 'Wählen Sie aus eine Hintergrundfarbe'
+    CodeCity: 'PLZ / Ort'
+    Country: Land
+    Default: Standard
+    Email: 'E-Mail Adresse'
+    Facebook: Facebook
+    Linkedin: Linkedin
+    MainTab: Hauptteil
+    Mobile: Mobile
+    Notfall: 'Notfall Nummer'
+    Phone: Telefon
+    SocialTitle: Netwerk
+    Twitter: Twitter
+    Xing: Xing
+  SiteTree:
+    BUTTONACTIVE: Aktivieren
+    BUTTONINACTIVE: Deaktivieren

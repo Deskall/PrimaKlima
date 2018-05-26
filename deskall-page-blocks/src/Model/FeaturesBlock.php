@@ -55,7 +55,7 @@ class FeaturesBlock extends BaseElement
 
     private static $defaults = [
         'FeaturesColumns' => 'uk-child-width-1-1',
-        'FeaturesTextAlign' => 'uk-text-justify uk-text-left@s',
+        'FeaturesTextAlign' => 'uk-text-left',
         'IconItem' => 'check'
     ];
 
@@ -89,18 +89,18 @@ class FeaturesBlock extends BaseElement
 
 
     private static $features_text_alignments = [
-        'uk-text-justify uk-text-left@s' =>  [
-            'value' => 'uk-text-justify uk-text-left@s',
+        'uk-text-left' =>  [
+            'value' => 'uk-text-left',
             'title' => 'Links Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
-        'uk-text-justify uk-text-right@s' =>  [
-            'value' => 'uk-text-justify uk-text-right@s',
+        'uk-text-right' =>  [
+            'value' => 'uk-text-right',
             'title' => 'Rechts Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
-        'uk-text-justify uk-text-center@s' => [
-            'value' => 'uk-text-justify uk-text-center@s',
+        'uk-text-center' => [
+            'value' => 'uk-text-center',
             'title' => 'Mittel Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
         ],
@@ -142,7 +142,7 @@ class FeaturesBlock extends BaseElement
                 HTMLOptionsetField::create('FeaturesTextAlign',_t(__CLASS__.'.FeaturesTextAlignment','Features Textausrichtung'),$this->stat('features_text_alignments')),
                 HTMLOptionsetField::create('FeaturesColumns',_t(__CLASS__.'.FeaturesInColumns','Features in mehreren Spalten'),$this->stat('features_columns')),
                 HTMLDropdownField::create('IconItem',_t(__CLASS__.'.FeaturesIcons','Icon'),$this->getSourceIcons(),'check')
-            )->setTitle(_t(__CLASS__.'FeaturesLayout','Features Layout'))->setName('FeaturesLayout'));
+            )->setTitle(_t(__CLASS__.'.FeaturesLayout','Features Layout'))->setName('FeaturesLayout'));
 
             if ($this->ID > 0){
 

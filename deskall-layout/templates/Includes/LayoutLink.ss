@@ -2,8 +2,12 @@
 	<% with LinkableLink %>
 	    <% if $LinkURL %>
 	     	<a  href="$LinkURL" {$TargetAttr}>
+                <% if hasIcone %>
                 <% if $Icone %><span class="uk-margin-small-right" data-uk-icon="icon:  $Icone;"></span><% end_if %> 
 	            <span class="dk-link-with-icon">$Title</span>
+                <% else %>
+                $Title
+                <% end_if %>
 	        </a>
 	    <% end_if %>
 	<% end_with %>

@@ -1,12 +1,12 @@
 <div class="$Layout $Width $Class">
 	<% if Type == "links" %>
 		<% if UseMenu %>
-		<ul class="dk-nav-mobile uk-nav uk-nav-parent-icon" data-uk-nav>
+		<ul class="dk-nav-mobile uk-nav" data-uk-nav>
 			<% if Title %>
 			<li class="uk-nav-header">$Title</li>
 			<% end_if %>
 			<% loop Menu(1) %>
-			        <li class="$LinkingMode <% if $Children %>uk-parent<% end_if %> <% if LinkingMode == "current" %>uk-active<% end_if %>">
+			        <li class="$LinkingMode  <% if LinkingMode == "current" %>uk-active<% if $Children %> uk-parent<% end_if %><% end_if %>">
 			            <a href="$Link" title="$Title.XML"><span class="uk-margin-small-right" data-uk-icon="icon: chevron-right;"></span>$MenuTitle.XML</a>
 			            <% if $Children %>
 			            <ul class="uk-nav-sub">

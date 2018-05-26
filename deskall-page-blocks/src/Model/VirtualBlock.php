@@ -14,8 +14,19 @@ class VirtualBlock extends ElementVirtual{
 
     private static $description = 'Verknüpfen Sie einen bestehenden Block.';
 
+
+    private static $summary_fields = [
+        'VirtualEditorPreview' => 'Summary'
+    ];
+
     public function getType()
     {
         return _t(__CLASS__ . '.BlockType', 'Block verknüpfen');
     }
+
+    public function VirtualEditorPreview(){
+        return 'yo';
+    }
+
+
 }

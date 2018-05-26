@@ -1,0 +1,48 @@
+fr:
+  CreateWebsiteTask:
+    SITEMAPTITLE: "Plan de site"
+  DeskallPageExtension:
+    ShowInMainMenuLabel: "Dans quel menu s'affiche cette page ?"
+    menu_level_0: "Menu secondaire"
+    menu_level_1: "Menu principal"
+  Global:
+    BUTTONACTIVEDESC: Activer
+    BUTTONINACTIVEDESC: Désactiver
+  HomePage:
+    description: "Page d'accueil"
+  Linkable:
+    CTA: Lien
+  LinkableLinkExtension:
+    Background: "Couleur d'arrière-plan"
+    BackgroundColor: "Couleur d'arrière-plan"
+    HasIcone: 'avec icône'
+    Icone: Icône
+    LAYOUTTAB: Format
+    LinkAlignment: "Alignement du lien"
+    LinkPosition: "Alignement du lien"
+    block_link_alignments_center: Centré
+    block_link_alignments_left: Gauche
+    block_link_alignments_right: Droite
+  SiteConfig:
+    EmailTitleTag: 'Email à'
+  SiteConfigExtension:
+    AccessTab: Accès
+    Address: Adresse
+    AddressStreet: Adresse
+    AdresseTitle: "Titre de l'adresse"
+    CodeCity: "Code postal / Ville"
+    Country: Pays
+    DefaultTab: "Defaut"
+    Email: "Adresse email"
+    Facebook: Facebook
+    Linkedin: Linkedin
+    MainTab: Principal
+    Mobile: Mobile
+    Notfall: "Numéro d'urgence"
+    Phone: Téléphone
+    SocialTitle: Réseaux
+    Twitter: Twitter
+    Xing: Xing
+  SiteTree:
+    BUTTONACTIVE: Activer
+    BUTTONINACTIVE: Désactiver

@@ -14,6 +14,10 @@ header{
 			height:100%;
 			width:auto;
 		}
+		margin-top:~"calc((@{header-menu-collapsed-height} - @{navbar-nav-item-height})/2)";
+		@media only screen and (min-width: @breakpoint-medium){
+			margin-top:~"calc((@{header-menu-height} - @{navbar-nav-item-height})/2)";
+		}
 	}
 	&.dk-background-header{
 		background:@dk-background-header;
@@ -41,6 +45,7 @@ header li > a[data-uk-icon], .dk-nav-mobile-container li > a[data-uk-icon]{
 //MOBILE NAVIGATION
 .dk-toggle-mobile-menu{
 	line-height: @header-menu-collapsed-height;
+	color:@toggle-mobile-menu-button-color;
 }
 .dk-nav-mobile-container .uk-navbar-nav > li{
 	display: block;

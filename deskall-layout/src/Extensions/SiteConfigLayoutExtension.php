@@ -144,6 +144,7 @@ class SiteConfigLayoutExtension extends DataExtension
     //GLOBAL
     //COLORS
     $fields->addFieldToTab("Root.Layout.Global",new HiddenField('ID'));
+    $fields->FieldByName('Root.Layout')->setTitle(_t(__CLASS__.'.LayoutTabTitle','Layout'));
     $config = GridFieldConfig::create()
                 ->addComponent(new GridFieldButtonRow('before'))
                 ->addComponent(new GridFieldTitleHeader())
@@ -154,20 +155,20 @@ class SiteConfigLayoutExtension extends DataExtension
                ;
     $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields([
         'FontTitle'  => [
-            'title' => 'Titel und Vorschau',
+            'title' => _t(__CLASS__.'.FontTitle','Titel und Vorschau'),
             'callback' => function($record, $column, $grid) {
               $field = TextField::create($column);
               return $field;
             }
         ],
         'Color'  => [
-            'title' => 'Farbe',
+            'title' => _t(__CLASS__.'.ColorLabel','Farbe'),
             'callback' => function($record, $column, $grid) {
               return TextField::create($column)->addExtraClass('jscolor');
             }
         ],
        'FontColor'  => [
-            'title' => 'Schriftfarbe',
+            'title' => _t(__CLASS__.'.FontColorLabel','Schriftfarbe'),
             'callback' => function($record, $column, $grid) {
               return TextField::create($column)->addExtraClass('jscolor');
             }
@@ -181,7 +182,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
 
-
+   
     $fields->addFieldsToTab("Root.Layout.Global", 
       [
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
@@ -194,16 +195,18 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('LeadFontSize',_t(__CLASS__.'.LeadFontSize','LeadText Schriftgrösse'))
       ]
     );
+    $fields->FieldByName('Root.Layout.Global')->setTitle(_t(__CLASS__.'.GlobalTabTitle','Global'));
+
 
 
     //Header
     $MenusField = new GridField(
         'MenuBlocks',
-        'MenuBlocks',
+        _t(__CLASS__.'.MenuBlocksLabel','Menu Blöcke'),
         $this->owner->MenuBlocks()->filter('ClassName','MenuBlock'),
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
-    );
+    );  
     //TO DO : rebuild it with multi class option
     // $MenusField->getConfig()->removeComponentsByType(GridFieldAddNewButton::class)
     //     ->addComponent(new DeskallGridFieldAddNewMultiClass());
@@ -223,14 +226,17 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('HeaderMenuItemSize',_t(__CLASS__.'.HeaderItemHeight','Menu Item Höhe')),
         TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse'))
       ),
-      CheckboxField::create('StickyHeader','Sticky Header')
+      CheckboxField::create('StickyHeader',_t(__CLASS__.'.StickyHeader','Sticky Header'))
     )->setTitle(_t(__CLASS__.'.HeaderLayout','Header Layout'))->setName('HeaderBackgroundFields'));
+
+    $fields->FieldByName('Root.Layout.Header.Content')->setTitle(_t(__CLASS__.'.LayoutHeaderContentTab','Inhalt der Header'));
+    $fields->FieldByName('Root.Layout.Header.Layout')->setTitle(_t(__CLASS__.'.LayoutHeaderLayoutTab','Layout der Header'));
 
     
     //MOBILE NAVI
     $MobileMenusField = new GridField(
         'MobileMenuBlocks',
-        'MenuBlocks',
+        _t(__CLASS__.'.MenuBlocksLabel','Menu Blöcke'),
         $this->owner->MobileMenuBlocks(),
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
@@ -244,14 +250,15 @@ class SiteConfigLayoutExtension extends DataExtension
       )
     )->setTitle(_t(__CLASS__.'.MobileNaviLayout','MobileNavigation Layout'))->setName('MobileNaviFields'));
 
-    
+    $fields->FieldByName('Root.Layout.MobileNavigation.Content')->setTitle(_t(__CLASS__.'.LayoutMobileContentTab','Inhalt der mobile Navigation'));
+    $fields->FieldByName('Root.Layout.MobileNavigation.Layout')->setTitle(_t(__CLASS__.'.LayoutMobileLayoutTab','Layout der mobile Navigation'));
 
 
 
     //FOOTER
     $FooterLinksField = new GridField(
         'FooterBlocks',
-        'FooterBlocks',
+       _t(__CLASS__.'.FooterBlocksLabel','Footer Blöcke'),
         $this->owner->FooterBlocks(),
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
@@ -270,11 +277,15 @@ class SiteConfigLayoutExtension extends DataExtension
       )
      
     )->setTitle(_t(__CLASS__.'.FooterLayout','Footer Layout'))->setName('FooterLayoutFields'));
+    $fields->FieldByName('Root.Layout.Footer.Content')->setTitle(_t(__CLASS__.'.FooterContentTab','Inhalt der Footer'));
+    $fields->FieldByName('Root.Layout.Footer.Layout')->setTitle(_t(__CLASS__.'.FooterLayoutTab','Layout der Footer'));
 
   
 
-
-
+    $fields->FieldByName('Root.Layout.Global')->setTitle(_t(__CLASS__.'.LayoutGlobalTab','Allgemein'));
+    $fields->FieldByName('Root.Layout.Header')->setTitle(_t(__CLASS__.'.LayoutHeaderTab','Header'));
+    $fields->FieldByName('Root.Layout.MobileNavigation')->setTitle(_t(__CLASS__.'.MobilNavigationTab','mobile Navigation'));
+    $fields->FieldByName('Root.Layout.Footer')->setTitle(_t(__CLASS__.'.FooterTab','Footer'));
     
     return $fields;
   }

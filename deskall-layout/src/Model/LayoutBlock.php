@@ -47,7 +47,7 @@ class LayoutBlock extends DataObject{
 	];
 
 	private static $summary_fields = [
-	    'NiceType' => 'Blocktyp' ,
+	    'NiceType',
 	    'Preview',
 	    'displayWidth'
 	];
@@ -75,7 +75,7 @@ class LayoutBlock extends DataObject{
 
 
 	public function displayWidth(){
-		$widths = self::$widths;
+		$widths = $this->getTranslatedSourceFor('LayoutBlock','widths');
 		return $widths[$this->Width];
 	}
 
@@ -93,7 +93,7 @@ class LayoutBlock extends DataObject{
 
     function fieldLabels($includerelations = true) {
 	    $labels = parent::fieldLabels($includerelations);
-	 
+	 	$labels['NiceType'] = _t(__CLASS__.'.NiceTypeLabel','Typ');
 	    $labels['NiceTitle'] = _t(__CLASS__.'.TitleLabel','Titel');
 	    $labels['Preview'] = _t(__CLASS__.'.Preview', 'Vorschau');
 	    $labels['displayWidth'] = _t(__CLASS__.'.Width',  'Breite');
@@ -112,7 +112,7 @@ class LayoutBlock extends DataObject{
 			$title = $fields->fieldByName('Root.Main.Title');
 			$fields->removeByName('Links');
 			$fields->removeByName('SiteConfigID');
-			$title->displayIf('Type')->isEqualTo('links');
+			$title->displayIf('Type')->isEqualTo('links')->orIf('Type')->isEqualTo('content');
 			
 			if ($this->ID > 0){
 				$fields->fieldByName('Root.Main.Type')->setDisabled(true);
@@ -131,7 +131,7 @@ class LayoutBlock extends DataObject{
 						$fields->addFieldToTab('Root.Main',$LinksField);
 			
 			
-			$fields->addFieldToTab('Root.Main', $content = HTMLEditorField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Type');
+			$fields->addFieldToTab('Root.Main', $content = HTMLEditorField::create('Content',_t(__CLASS__.'.Content','Inhalt')),'Title');
 			$content->displayIf('Type')->isEqualTo('content');
 
 			$fields->addFieldToTab('Root.LayoutTab', $l = DropdownField::create('Layout',_t(__CLASS__.'.Layout','Layout'),$this->getTranslatedSourceFor(__CLASS__,'block_layouts'))->setEmptyString(_t(__CLASS__.'.LayoutLabel','Layout auswählen')),'Width');

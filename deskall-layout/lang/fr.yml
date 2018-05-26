@@ -1,0 +1,112 @@
+fr:
+  LayoutBlock:
+    ClassDescription: 'Ajouter toutes les classes css nécessaires séparées par un espace.'
+    Content: Contenu
+    ContentTab: Contenu
+    ExtraClass: 'Classe css supplémentaire'
+    Layout: Format
+    LayoutLabel: 'Choisissez le format'
+    LayoutTab: Thème
+    Links: Liens
+    LinksLabel: Les liens pourront être ajoutés après la création.'
+    Logo: Logo
+    NiceTypeLabel: 'Type'
+    Preview: Aperçu
+    Title: Titre
+    TitleLabel: Titre
+    Type: Type de bloc
+    TypeLabel: 'Choisissez un type'
+    Width: Largeur
+    WidthDescription: 'Largeur relative par rapport à la page'
+    WidthLabel: 'Choisissez la largeur'
+    block_types_address: Adresse
+    block_types_content: Contenu
+    block_types_form: Formulaire
+    block_types_links: Liens
+    block_types_logo: Logo
+    widths_uk-width-1-1: 'Largeur entière'
+    'widths_uk-width-1-1@s uk-width-1-2@m': 50%
+    'widths_uk-width-1-1@s uk-width-1-3@m': 33.33%
+    'widths_uk-width-1-1@s uk-width-1-4@m': 25%
+    'widths_uk-width-1-1@s uk-width-1-5@m': 20%
+    widths_uk-width-auto: 'Largeur adaptée au contenu'
+    widths_uk-width-expand: 'Prendre la largeur de page restante'
+  LayoutLink:
+    Link: Lien
+    LinkTitle: Titre
+    LinkType: Type
+    LinkURL: URL
+    PLURALNAME: 'Liens'
+    PLURALS:
+      one: 'un lien'
+      other: '{count} liens'
+    SINGULARNAME: 'Lien'
+  MenuBlock:
+    MenuSettings: 'Paramètre des menus'
+    ShowSubLevels: 'Afficher les sous-menus'
+    SubLevelLayout: 'Format des sous-menus'
+    UseMenu: 'Utiliser la structure du site comme menu'
+    UseWhichMenu: "Quel menu utiliser ?"
+    block_types_address: Adresse
+    block_types_content: Contenu
+    block_types_divider: Ligne
+    block_types_form: Formulaire
+    block_types_links: Liens
+    block_types_logo: Logo
+    block_types_social: 'Réseaux sociaux'
+    menu_options_main: "Menu principal"
+    menu_options_sub: "Menu secondaire"
+  MenuLink:
+    PLURALNAME: 'Liens'
+    PLURALS:
+      one: 'un lien'
+      other: '{count} liens'
+    SINGULARNAME: 'Lien'
+  MobileMenuBlock:
+    Title: Titre
+  SiteConfigLayoutExtension:
+    BackgroundColor: "Couleur d'arrière-plan"
+    ColorLabel: Couleur
+    Colors: Couleurs
+    ColorsTitle: Couleurs
+    FontColorLabel: Couleur de police
+    FontTitle: 'Titre et aperçu'
+    FontsTitle: Polices
+    FooterBackground: "Couleur d'arrière-plan"
+    FooterBlocksLabel: "Bloc de pied de page"
+    FooterFontColor: "Couleur de police"
+    FooterFontSize: 'Taille de la police'
+    FooterLayout: 'Format du pied de page'
+    FooterTab: "Pied de page"
+    FooterContentTab: "Contenu du pied de page"
+    FooterLayoutTab: "Format du pied de page"
+    FooterTitleFontSize: 'Taille de la police de titre'
+    Footerlogowidtht: 'Largeur du logo'
+    GlobalFontSize: 'Taille de police de base'
+    H1FontColor: 'Couleur des titres H1'
+    H1FontSize: 'Taille de police des titres H1'
+    H1MobileFontSize: 'Taille de police des titres H1 en mobile'
+    H2FontSize: 'Taille de police des titres H2'
+    H3FontSize: 'Taille de police des titres H3'
+    HeaderBackground: "Couleur d'arrière-plan"
+    HeaderCollapsedHeight: 'Taille en mobile'
+    HeaderFontColor: "Couleur de police"
+    HeaderFontSize: 'Taille de la police des menus'
+    HeaderHeight: Hauteur
+    HeaderHoverFontColor: 'Couleur de police des éléments actifs'
+    HeaderItemHeight: 'Hauteur des éléments du menu'
+    HeaderLayout: 'Format du haut de page'
+    HeaderOpacity: Opacité
+    LayoutTabTitle: "Thème"
+    LayoutGlobalTab: "Général"
+    LayoutHeaderTab: "Haut de page"
+    LayoutHeaderContentTab: "Contenu du haut de page"
+    LayoutHeaderLayoutTab: "Format du haut de page"
+    LayoutMobileLayoutTab: "Format du menu mobile"
+    LayoutMobileContentTab: "Contenu du menu mobile"
+    LeadFontSize: 'Taille de police des textes principaux'
+    MenuBlocksLabel: "Bloc Menus"
+    MobileNaviLayout: 'Format du menu mobile'
+    MobilNavigationTab: "Menu mobile"
+    noColor: 'Transparent'
+    StickyHeader: 'fixer le menu en haut de la page'

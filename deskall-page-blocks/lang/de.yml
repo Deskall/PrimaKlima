@@ -1,15 +1,81 @@
 de:
+  ActionBlock:
+    BlockType: Aktion
+    ButtonBackground: 'Button Farbe'
+    ButtonPosition: 'Button Ausrichtung'
+    CloseText: 'Text der Schließen-Button'
+    ContentLabel: Inhalt
+    DropdownBoundary: 'Inhalt auf Elternteil beschränken'
+    DropdownLayout: 'Dropdown Format'
+    DropdownPosition: 'Dropdown Ausrichtung'
+    DropdownTrigger: 'Ereignis auslöst an'
+    InteractionType: Typ
+    InteractionTypeHelp: 'Bitte Typ auswählen'
+    ModalLayout: 'Modal Format'
+    ModalSize: 'Fenster Breite'
+    OffcanvasEffect: 'Offcanvas Effekt'
+    OffcanvasLayout: 'Offcanvas Format'
+    OffcanvasOverlay: 'Offcanvas Overlay'
+    OffcanvasPosition: 'Offcanvas Position'
+    Target: Zielelement
+    TargetHelp: 'Bitte Element auswählen'
+    TriggeringText: 'Text der Öffnen-Button'
+    block_actions_dropdown: Dropdown
+    block_actions_modal: Modal
+    block_actions_offcanvas: Offcanvas
+    block_actions_scroll: Scroll
+    block_actions_toggle: Toggle
+    block_effects_none: None
+    block_effects_push: Push
+    block_effects_reveal: Reveal
+    block_effects_slide: Slide
+    button_alignments_center: Mittel
+    button_alignments_left: Links
+    button_alignments_right: Rechts
+    'button_backgrounds_dk-background-black uk-section-default dk-text-hover-black': schwarz
+    'button_backgrounds_dk-background-white uk-section-default dk-text-hover-white': weiss
+    button_backgrounds_uk-button-default: 'keine Hintergrundfarbe'
+    'button_backgrounds_uk-button-muted dk-text-hover-muted': grau
+    'button_backgrounds_uk-button-primary dk-text-hover-primary': 'primäre Farbe'
+    'button_backgrounds_uk-button-secondary dk-text-hover-secondary': 'sekundäre Farbe'
+    dropdown_positions_bottom-center: 'Aligns the dropdown to the bottom center'
+    dropdown_positions_bottom-justify: 'Aligns the dropdown to the bottom and justifies its width to the related element'
+    dropdown_positions_bottom-left: 'Aligns the dropdown to the bottom left'
+    dropdown_positions_bottom-right: 'Aligns the dropdown to the bottom right'
+    dropdown_positions_left-bottom: 'Aligns the dropdown to the left bottom'
+    dropdown_positions_left-center: 'Aligns the dropdown to the left center'
+    dropdown_positions_left-top: 'Aligns the dropdown to the left top'
+    dropdown_positions_right-bottom: 'Aligns the dropdown to the right bottom'
+    dropdown_positions_right-center: 'Aligns the dropdown to the right center'
+    dropdown_positions_right-top: 'Aligns the dropdown to the right top'
+    dropdown_positions_top-center: 'Aligns the dropdown to the top center'
+    dropdown_positions_top-justify: 'Aligns the dropdown to the top and justifies its width to the related element'
+    dropdown_positions_top-left: 'Aligns the dropdown to the top left'
+    dropdown_positions_top-right: 'Aligns the dropdown to the top right'
+    dropdown_triggers_click: Klick
+    dropdown_triggers_hover: Hover
+    'dropdown_triggers_hover,click': 'Hover und Klick'
+    modal_sizes_auto: 'Breite des Inhalt'
+    modal_sizes_uk-modal-container: 'Breite der Seite'
+    modal_sizes_uk-modal-full: 'Voll Breite'
+    offcanvas_position_left: Links
+    offcanvas_position_right: Rechts
   BOXBLOCK:
     BOXTAB: Boxen
   BaseBlockExtension:
     BackgroundColor: Hintergrundfarbe
     BackgroundColorHelpText: 'wird als overlay anzeigen falls es ein Hintergrundbild gibt.'
     BackgroundImage: Hintergrundbild
+    ContentTab: Inhalt
     FullWidth: 'volle Breite'
+    GlobalLayout: 'allgemeine Optionen'
+    HistoryTab: Versionen
     LAYOUTTAB: Layout
     ShowColumnsBorder: 'Border zwischen Spalten anzeigen'
     TextAlignment: Textausrichtung
     TextColumns: 'Text in mehreren Spalten'
+    TextLayout: 'Text Optionen'
+    TitleAlignment: Titelausrichtung
     'block_backgrounds_dk-background-black uk-section-default dk-text-hover-black': schwarz
     'block_backgrounds_dk-background-white uk-section-default dk-text-hover-white': weiss
     block_backgrounds_uk-section-default: 'keine Hintergrundfarbe'
@@ -43,10 +109,12 @@ de:
     effects_parallax: parallax
   BoxBlock:
     BlockType: Boxen
+    BoxFormat: 'Boxen Format'
     BoxPerLine: 'Boxen per Linie'
+    BoxTemplate: 'Box Inhalt Position'
     BoxTextAlignment: 'Boxen Textausrichtung'
     Boxes: Boxen
-    Effect: Effekt
+    Effect: 'Effekt auf Mouseover'
     Format: Format
     PLURALNAME: 'Boxen Blöcke'
     PLURALS:
@@ -66,35 +134,99 @@ de:
     effects_scale: 'Bild grossieren'
   CodeBlock:
     BlockType: 'Code - Plugin'
+    CodeBlockScriptLabel: 'Bitte Kopieren Sie hier die Scripts ohne "<></>" tags'
+    CodeBlockScriptPosition: 'Script Position'
     PLURALNAME: 'Code blocks'
     PLURALS:
       one: 'A Code block'
       other: '{count} Code blocks'
     SINGULARNAME: 'Code block'
+    ScriptLabel: 'Bitte Kopieren Sie hier die Scripts ohne "<></>" tags'
+    ScriptPosition: 'Script Position'
     block_positions_body: 'Vor dem </body> Tag'
     block_positions_head: 'Im <head>'
     block_positions_normal: 'Block Position'
-    CodeBlockScriptLabel: 'Bitte Kopieren Sie hier die Scripts ohne "<></>" tags'
-    CodeBlockScriptPosition: 'Script Position'
+  DNADesign\Elemental\Forms\HistoricalVersionedGridFieldItemRequest:
+    BUTTONREVERTDESC: 'diesen Datensatz auf der Entwurfs-Website veröffentlichen'
+    InvalidVersion: 'ungültige Version'
+    Position: Position
+    REVERT: 'Zurück zu dieser Version'
+  DNADesign\Elemental\Models\BaseElement:
+    Author: Autor
+    BlockType: Block
+    CUSTOM_STYLES: 'Wählen Sie ein Stil'
+    ExtraCssClassesLabel: 'Custom CSS classes'
+    ExtraCssClassesPlaceholder: meine_andere_class
+    MainTabLabel: Inhalt
+    Modified: geändert
+    PLURALNAME: Blöcke
+    PLURALS:
+      one: 'ein Block'
+      other: '{count} Blöcke'
+    Published: Veröffentlicht
+    Record: Datensatz
+    SINGULARNAME: Block
+    STYLE: 'Stil Variation'
+    ShowTitleLabel: Angezeigt
+    TitleLabel: 'Titel (wird angezeigt, wenn markiert)'
+  DNADesign\Elemental\Models\ElementContent:
+    BlockType: Inhalt
+    ContentLabel: Inhalt
+    PLURALNAME: Inhaltblöcke
+    PLURALS:
+      one: 'ein Inhaltblock'
+      other: '{count} Inhaltblöcke'
+    SINGULARNAME: Inhaltblock
+  DNADesign\Elemental\Models\ElementalArea:
+    PLURALNAME: 'Elemental Areas'
+    PLURALS:
+      one: 'An Elemental Area'
+      other: '{count} Elemental Areas'
+    SINGULARNAME: 'Elemental Area'
+  DNADesign\Elemental\Reports\ElementTypeReport:
+    Title: 'Content block types'
+    Total: Total
+    Type: 'Content Type'
+  DNADesign\Elemental\Reports\ElementsInUseReport:
+    None: None
+    Page: Page
+    ReportTitle: 'Content blocks in use'
+    Summary: Summary
+    Title: Title
+    Type: Type
   DownloadBlock:
     BlockType: 'Download Area'
     ContentLabel: Content
     DownloadsTitle: 'Downloads Area Titel'
     Files: Dateien
     FilesInColumns: 'Dateien in mehreren Spalten'
+    FilesLayout: 'Dateien Layout'
     FilesTab: Dateien
+    FilesTextAlign: 'Dateien Textausrichtung'
     PLURALNAME: 'Dateien Downloads'
     PLURALS:
       one: 'A Dateien Downloads'
       other: '{count} Dateien Downloads'
     SINGULARNAME: 'Dateien Downloads'
     'files_columns_ ': 'Keine Spalten'
+    files_columns_uk-child-width-1-1: null
+    'files_columns_uk-child-width-1-1@s uk-child-width-1-4@m': null
+    files_columns_uk-child-width-1-2@s: null
+    'files_columns_uk-child-width-1-2@s uk-child-width-1-3@m': null
+    'files_columns_uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l': null
     files_columns_uk-column-1-2@s: 'Display the content in two columns'
     'files_columns_uk-column-1-2@s uk-column-1-3@m': 'Display the content in three columns'
     'files_columns_uk-column-1-2@s uk-column-1-4@m': 'Display the content in four columns'
     'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Display the content in five columns'
     'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Display the content in six columns'
     php.DownloadBlockFilesTab: Dateien
+  DuplicateBlock:
+    BlockType: 'Block duplizieren'
+    PLURALNAME: blocks
+    PLURALS:
+      one: 'A block'
+      other: '{count} blocks'
+    SINGULARNAME: block
   Features:
     PLURALNAME: Featuress
     PLURALS:
@@ -105,8 +237,10 @@ de:
     BlockType: 'Features List'
     ContentLabel: Content
     Features: Features
+    FeaturesIcons: Icon
     FeaturesInColumns: 'Features in mehreren Spalten'
-    FeaturesTitle: 'List Titel'
+    FeaturesTextAlignment: 'Features Textausrichtung'
+    FeaturesTitle: 'Features List Titel'
     PLURALNAME: 'Features blocks'
     PLURALS:
       one: 'A Features block'
@@ -118,10 +252,12 @@ de:
     'features_columns_uk-column-1-2@s uk-column-1-4@m': 'Display the content in four columns'
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Display the content in five columns'
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Display the content in six columns'
+    FeaturesLayout: 'Features Layout'
   GalleryBlock:
     BlockType: Bildergalerie
     ContentLabel: Content
     Format: Format
+    GalleryBlockLayout: 'Galerie Layout'
     Images: Bilder
     PLURALNAME: Bildergalerien
     PLURALS:
@@ -133,15 +269,26 @@ de:
     block_layouts_carousel: Carousel
     block_layouts_grid: Grid
     php.GalleryBlockPicturesTab: Bilder
+  Global:
+    BUTTONCOLLAPSE: zusammenbrechen
+    BUTTONEXPAND: Erweitern
+  GridFieldCollapseUncollapseAction:
+    Collapsed: zusammengebrochen.
+    Expanded: erweitert.
   GridFieldDuplicateBlock:
     Label: 'bestehende Block kopieren'
   GridFieldExtensions:
     Duplicate: Duplizieren
+    Link: Verknüpfen
+  GridFieldLinkBlock:
+    Label: 'bestehende Block verknüpfen'
   LargeImageBlock:
+    BlockType: Banner
     Effect: Effekt
     EffectOptions: 'Effekt Optionen'
-    Format: Format
+    Format: 'vertikale Ausrichtung'
     Height: Höhe
+    Image: Bild
     PLURALNAME: banners
     PLURALS:
       one: 'A banner'
@@ -151,18 +298,22 @@ de:
     block_heights_uk-height-medium: medium
     block_heights_uk-height-small: klein
     block_heights_viewport: 'ganz Bildschirm'
+    block_layouts_uk-position-bottom: 'Positions the element at the bottom'
     block_layouts_uk-position-bottom-center: 'Positions the element at the bottom center.'
     block_layouts_uk-position-bottom-left: 'Positions the element at the bottom left.'
     block_layouts_uk-position-bottom-right: 'Positions the element at the bottom right.'
     block_layouts_uk-position-center: 'Positions the element vertically centered in the middle.'
     block_layouts_uk-position-center-left: 'Positions the element vertically centered on the left.'
     block_layouts_uk-position-center-right: 'Positions the element vertically centered on the right.'
+    block_layouts_uk-position-top: 'Positions the element at the top'
     block_layouts_uk-position-top-center: 'Positions the element at the top center.'
     block_layouts_uk-position-top-left: 'Positions the element at the top left.'
     block_layouts_uk-position-top-right: 'Positions the element at the top right.'
     effects_fixed: fixed
+    effects_kenburns: 'Ken Burns'
     effects_none: kein
     effects_parallax: parallax
+    php.LargeImageBlockBlockLayout: Layout
   LeadBlock:
     BlockType: Lead
     ContentLabel: Content
@@ -173,6 +324,7 @@ de:
     SINGULARNAME: 'lead block'
   MapBlock:
     Adresse: Adresse
+    BlockLayout: Layout
     BlockType: Map
     ContentLabel: Content
     Height: Height
@@ -182,6 +334,7 @@ de:
       one: 'A Google Map block'
       other: '{count} Google Map blocks'
     SINGULARNAME: 'Google Map block'
+    Settings: Einstellungen
     Styles: 'Google Map Styles'
     disableControls: 'Kontrol deaktivieren'
     fullscreenControls: 'Fullscreen Kontrol'
@@ -199,18 +352,24 @@ de:
     BlockType: 'Parent Block'
     BlocksPerLine: 'Blöcke per Linie'
     BlocksPerLineHelpText: 'Blöcke per Linie auswählen'
-    Border: 'Border zwischen Blöcke ?'
+    Border: 'Border zwischen Blöcke anzeigen'
+    CanCollapse: 'Blöcke dürfen zusammenbrochen sein.'
+    CollapsableChildren: 'zusammenklappbar Blöcke'
+    CollapseMultipe: 'Mehrere erweiterten Blöcke erlaubt.'
+    Layout: Layout
     PLURALNAME: 'Parent Blocks'
     PLURALS:
       one: 'A Parent Block'
       other: '{count} Parent Blocks'
     SINGULARNAME: 'Parent Block'
-    SameHeight: 'gleich Höhe für alle Blöcke ?'
+    SameHeight: 'gleiche Höhe für alle Blöcke benutzen'
+    Settings: Einstellungen
     block_layouts_default: default
-    blocks_per_line_uk-child-width-1-1@s: '1'
-    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-2@m': '2'
-    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-3@m': '3'
-    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-4@m': '4'
+    blocks_per_line_uk-child-width-1-1@s: null
+    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-2@m': null
+    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-3@m': null
+    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-4@m': null
+    CollapsableChildrenHelpText: 'Diese Option kann nicht nach dem Erstellung geändert sein.'
   ShareBlock:
     BlockType: 'Share Block'
     ContentLabel: Content
@@ -220,6 +379,8 @@ de:
       other: '{count} Share Blöcke'
     SINGULARNAME: 'Share Block'
   SiteTree:
+    BUTTONCOLLAPSE: Zusammenbrechen
+    BUTTONEXPAND: Erweitern
     FirstBlock: 'Erst Block'
   SitemapBlock:
     BlockType: Sitemap
@@ -230,6 +391,9 @@ de:
       other: '{count} Sitemap blocks'
     SINGULARNAME: 'Sitemap block'
   Slide:
+    CTA: Link
+    ContentLabel: Inhalt
+    ContentTab: Inhalt
     Effect: Effekt
     EffectOptions: 'Effekt Optionen'
     Image: Bild
@@ -259,6 +423,9 @@ de:
       one: 'A Slideshow'
       other: '{count} Slideshow'
     SINGULARNAME: Slideshow
+    SlideCopyHelpText: 'Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider'
+    SlideLayout: 'Slide Format'
+    SlideSettings: 'Slide Einstellungen'
     Slides: Slides
     animations_fade: fade
     animations_pull: pull
@@ -276,20 +443,28 @@ de:
   TextBlock:
     BlockType: 'Text - Bild'
     ContentLabel: Inhalt
-    PLURALNAME: 'Inhaltblöcke'
+    Format: 'Text und Bild Position'
+    PLURALNAME: 'Content blocks'
     PLURALS:
-      one: 'ein Inhaltblock'
-      other: '{count} Inhaltblöcke'
-    SINGULARNAME: 'Inhaltblock'
+      one: 'A Content block'
+      other: '{count} Content blocks'
+    SINGULARNAME: 'Content block'
     block_layouts_above: Unten
     block_layouts_hover: Oben
     block_layouts_left: Links
     block_layouts_right: Rechts
   UserFormExtension:
+    BlockType: Formular
+    ButtonBackground: 'Button Hintergrundfarbe'
+    RedirectPage: 'erfolgreiche Einreichungsseite'
+    ShowLabels: 'Feld Titel anzeigen?'
+    StepTitleBackground: 'Hintergrundfarbe den Seite Titel'
     WITHCAPTCHA: 'mit Google recaptcha Prüfung?'
     php.UserFormExtensionRedirectPage: 'erfolgreiche Einreichungsseite'
   VideoBlock:
+    BlockLayout: Layout
     BlockType: Videogalerie
+    ContentLabel: Content
     PLURALNAME: Videogalerien
     PLURALS:
       one: 'A Videogalerie'
@@ -302,54 +477,10 @@ de:
     videos_per_line_uk-child-width-1-1: '1'
     videos_per_line_uk-child-width-1-2@s: '2'
     videos_per_line_uk-child-width-1-3@s: '3'
-
-    ##NATIVE NOT TRANSLATED
-  DNADesign\Elemental\Forms\HistoricalVersionedGridFieldItemRequest:
-    BUTTONREVERTDESC: 'diesen Datensatz auf der Entwurfs-Website veröffentlichen'
-    InvalidVersion: 'ungültige Version'
-    Position: Position
-    REVERT: 'Zurück zu dieser Version'
-  DNADesign\Elemental\Models\BaseElement:
-    Author: Autor
-    BlockType: Block
-    CUSTOM_STYLES: 'Wählen Sie ein Stil'
-    ExtraCssClassesLabel: 'Custom CSS classes'
-    ExtraCssClassesPlaceholder: 'meine_andere_class'
-    MainTabLabel: Inhalt
-    Modified: geändert
-    PLURALNAME: Blöcke
+  VirtualBlock:
+    BlockType: 'Block verknüpfen'
+    PLURALNAME: 'Virtual blocks'
     PLURALS:
-      one: 'ein Block'
-      other: '{count} Blöcke'
-    Published: Veröffentlicht
-    Record: Datensatz
-    SINGULARNAME: Block
-    STYLE: 'Stil Variation'
-    ShowTitleLabel: Angezeigt
-    TitleLabel: 'Titel (wird angezeigt, wenn markiert)'
-  DNADesign\Elemental\Models\ElementContent:
-    BlockType: Inhalt
-    ContentLabel: Inhalt
-    PLURALNAME: 'Inhaltblöcke'
-    PLURALS:
-      one: 'ein Inhaltblock'
-      other: '{count} Inhaltblöcke'
-    SINGULARNAME: 'Inhaltblock'
-  DNADesign\Elemental\Models\ElementalArea:
-    PLURALNAME: 'Elemental Areas'
-    PLURALS:
-      one: 'An Elemental Area'
-      other: '{count} Elemental Areas'
-    SINGULARNAME: 'Elemental Area'
-  DNADesign\Elemental\Reports\ElementTypeReport:
-    Title: 'Content block types'
-    Total: Total
-    Type: 'Content Type'
-  DNADesign\Elemental\Reports\ElementsInUseReport:
-    None: None
-    Page: Page
-    ReportTitle: 'Content blocks in use'
-    Summary: Summary
-    Title: Title
-    Type: Type
-
+      one: 'A Virtual block'
+      other: '{count} Virtual blocks'
+    SINGULARNAME: 'Virtual block'
