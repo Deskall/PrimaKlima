@@ -849,15 +849,9 @@ class Less_Functions{
 	}
 
 	public function datauri($mimetypeNode, $filePathNode = null ) {
-		ob_start();
-		print_r($mimetypeNode);
-		print_r($filePathNode);
-		$result = ob_get_clean();
-		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "args :".$result);
 
 		$filePath = ( $filePathNode ? $filePathNode->value : null );
 		$mimetype = $mimetypeNode->value;
-		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "mimetype :".$mimetype, FILE_APPEND);
 
 		$args = 2;
 		if( !$filePath ){
@@ -867,12 +861,10 @@ class Less_Functions{
 
 		$filePath = str_replace("../../","src/",$filePath);
 
-		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."args :".$args, FILE_APPEND);
 
 		$filePath = str_replace('\\','/',$filePath);
 		
 		if( Less_Environment::isPathRelative($filePath) ){
-			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."relative path", FILE_APPEND);
 			if( Less_Parser::$options['relativeUrls'] ){
 				$temp = $this->currentFileInfo['currentDirectory'];
 			} else {
@@ -910,24 +902,15 @@ class Less_Functions{
 			$useBase64 = 1;
 		}
 
-		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."use 64 :".$useBase64, FILE_APPEND);
-		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."file path :".$filePath, FILE_APPEND);
-		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."file exists ? :".file_exists($_SERVER['DOCUMENT_ROOT'].$filePath), FILE_APPEND);
-
 		if( file_exists($filePath) ){
-			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."ici", FILE_APPEND);
 			$buf = @file_get_contents($filePath);
 		}elseif( file_exists($_SERVER['DOCUMENT_ROOT'].$filePath) ){
-			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."la", FILE_APPEND);
-			$filePath = $_SERVER['DOCUMENT_ROOT'].$filePath;
 			$buf = @file_get_contents($filePath);
 		}
 		else{
-			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."ou la", FILE_APPEND);
 			$buf = false;
 		}
 
-		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."buf : :".$buf, FILE_APPEND);
 
 		// IE8 cannot handle a data-uri larger than 32KB. If this is exceeded
 		// and the --ieCompat flag is enabled, return a normal url() instead.
@@ -939,12 +922,10 @@ class Less_Functions{
 		}
 
 		if( $buf ){
-			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n"."buf :".$buf, FILE_APPEND);
 			$buf = $useBase64 ? base64_encode($buf) : rawurlencode($buf);
 			$filePath = '"data:' . $mimetype . ',' . $buf . '"';
 		}
 
-		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n".$filePath, FILE_APPEND);
 
 		return new Less_Tree_Url( new Less_Tree_Anonymous($filePath) );
 	}
