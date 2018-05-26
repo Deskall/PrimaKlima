@@ -90,7 +90,7 @@ class ImageExtension extends Extension
         //Publish
         $this->owner->publishSingle();
 
-        $this->OptimiseImage($this->owner->getAbsoluteURL());
+        $this->OptimiseImage($this->owner->getAbsoluteURL(), $_SERVER['DOCUMENT_ROOT'].$this->owner->getURL());
     
     }
 

@@ -3,7 +3,7 @@
 class DeskallImageOptimiser {
 	protected $api_key = 'gG1Tujhnd39tTlK5Wg8fKwbN6a3HVDA4';
 
-	public function Optimise($path){
+	public function Optimise($url, $path){
 		// ob_start();
 		// var_dump($resource);
 		// $result = ob_get_clean();
@@ -17,10 +17,11 @@ class DeskallImageOptimiser {
 		// }
 		// file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n".$path);
 		// if (file_exists($path)){
-		// 	file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n"."try to optimise",FILE_APPEND);
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","url: ".$url);
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","path: ".$path, FILE_APPEND);
 			try {
 	    		\Tinify\setKey($this->api_key);
-				$source = \Tinify\fromUrl($path);
+				$source = \Tinify\fromUrl($url);
 				$source->toFile($path);
 			} catch(\Tinify\AccountException $e) {
 			    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n"."account: " . $e->getMessage(), FILE_APPEND);
