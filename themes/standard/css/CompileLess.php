@@ -5,6 +5,7 @@ $filecore = str_replace(".min","",basename($_SERVER['REQUEST_URI'],".css"));
 $filename = basename($_SERVER['REQUEST_URI'],".css").".css";
 $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".css", ".min.css", $filename_full);
+$filename_live = str_replace(".main", "live", $filename_min);
 $filename_less = str_replace(".css", ".less", $filename_full);
 $css_compiled = autoCompileLess($filename_less, $filename_full);
 
@@ -39,7 +40,7 @@ if($css_compiled){
 	// save files
 	file_put_contents($filename_full,$css_compiled);
 	file_put_contents($filename_min,$css_compiled);
-	file_put_contents('live.min.css',$css_compiled);
+	file_put_contents($filename_live,$css_live);
 	file_put_contents($_SERVER['DOCUMENT_ROOT']."/deskall-layout/templates/Includes/Css.ss","<style>".$css_live."</style>");
 }
 header("Content-type: text/css");
