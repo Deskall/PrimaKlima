@@ -11,11 +11,10 @@ class DeskallPageControllerExtension extends Extension
         return Director::isLive();
     }
 
-    // public function Css(){
-    // 	$css_compiled = file_get_contents(Director::baseFolder().'/'.$this->owner->ThemeDir().'/css/main.min.css');
-    // 	//$css_compiled = str_replace("url('../fonts","url('".$this->owner->ThemeDir()."/fonts",$css_compiled);
-    //     $css = new DBHTMLText();
-    //     $css->setValue(htmlspecialchars_decode('<style>'.$css_compiled.'</style>'));
-    //     return $css;
-    // }
+    public function Css(){
+    	$css_compiled = file_get_contents(Director::baseFolder().'/deskall-layout/templates/Includes/Css.ss');
+        $css = new DBHTMLText();
+        $css->setValue($css_compiled);
+        return $css;
+    }
 }
