@@ -849,7 +849,7 @@ class Less_Functions{
 	}
 
 	public function datauri($mimetypeNode, $filePathNode = null ) {
-
+		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', 'start'.$filePathNode, FILE_APPEND);
 		$filePath = ( $filePathNode ? $filePathNode->value : null );
 		$mimetype = $mimetypeNode->value;
 
@@ -920,7 +920,7 @@ class Less_Functions{
 			$filePath = '"data:' . $mimetype . ',' . $buf . '"';
 		}
 
-		file_put_contents('log.txt', $filePath);
+		file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', "\n".$filePath, FILE_APPEND);
 
 		return new Less_Tree_Url( new Less_Tree_Anonymous($filePath) );
 	}
