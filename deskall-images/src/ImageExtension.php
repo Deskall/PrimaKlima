@@ -84,11 +84,13 @@ class ImageExtension extends Extension
             $resource->heighten($width,function ($constraint) {
                 $constraint->upsize();
             });
-        }
+        } 
+
+        $this->OptimiseImage($resource);
         
         $backend->setImageResource($resource);
 
-        $this->OptimiseImage($this->owner->getAbsoluteURL());
+
     
     }
 
@@ -328,9 +330,9 @@ class ImageExtension extends Extension
 
     //Optimise with tynigPNG
 
-    public function OptimiseImage($path){
+    public function OptimiseImage($resource){
         $optimiser = new DeskallImageOptimiser();
-        $optimiser->Optimise($path);
+        $optimiser->Optimise($resource);
     }
 
 
