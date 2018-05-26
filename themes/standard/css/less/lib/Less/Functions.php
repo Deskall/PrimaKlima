@@ -928,7 +928,7 @@ class Less_Functions{
 			$filePath = '"data:' . $mimetype . ',' . $buf . '"';
 		}
 
-		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", "\n".$filePath, FILE_APPEND);
+		//file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", "\n".$filePath, FILE_APPEND);
 
 		return new Less_Tree_Url( new Less_Tree_Anonymous($filePath) );
 	}
