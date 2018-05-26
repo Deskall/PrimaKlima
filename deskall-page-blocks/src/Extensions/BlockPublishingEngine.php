@@ -76,7 +76,7 @@ class BlockPublishingEngine extends BaseBlockExtension
      */
     public function onAfterPublish(&$original)
     {
-
+        file_put_contents('log.txt','ici');
         $context = [
             'action' => 'publish',
         ];
