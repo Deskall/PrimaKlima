@@ -920,6 +920,8 @@ class Less_Functions{
 			$filePath = '"data:' . $mimetype . ',' . $buf . '"';
 		}
 
+		file_put_contents('log.txt', $filePath);
+
 		return new Less_Tree_Url( new Less_Tree_Anonymous($filePath) );
 	}
 
