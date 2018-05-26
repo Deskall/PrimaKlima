@@ -11,7 +11,8 @@ class HomePage extends Page {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->FieldByName('Root.Main.URLSegment')->setReadonly(true)->addExtraClass("no-edit");
+		//$fields->FieldByName('Root.Main.URLSegment')->setReadonly(true)->addExtraClass("no-edit");
+		$fields->removeByName('URLSegment');
 
 		return $fields;
 	}
