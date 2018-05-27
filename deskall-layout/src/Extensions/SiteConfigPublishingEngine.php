@@ -43,7 +43,7 @@ class SiteConfigPublishingEngine extends DataExtension
 
     function autoCompileLess($inputFile, $outputFile) {
       // load the cache
-      $cacheFile = "cache/".$inputFile.".cache";
+      $cacheFile = $_SERVER['DOCUMENT_ROOT']."/themes/standard/css/cache/main.less.cache";
 
       if (file_exists($cacheFile)) {
         $cache = unserialize(file_get_contents($cacheFile));
