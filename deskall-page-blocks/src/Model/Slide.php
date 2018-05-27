@@ -7,10 +7,9 @@ use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\StaticPublishQueue\Contract\StaticPublishingTrigger;
-use SilverStripe\ORM\SS_List;
 
-class Slide extends DataObject implements StaticPublishingTrigger
+
+class Slide extends DataObject
 {
 
     private static $db = [
@@ -110,32 +109,5 @@ class Slide extends DataObject implements StaticPublishingTrigger
     }
 
 /************* END TRANLSATIONS *******************/
-
-/************** STATIC PUBLISHING ***************/
-    /**
-     * Provides an SS_List of StaticallyPublishable objects which need to be regenerated.
-     *
-     * @param array $context An associative array with extra engine-specific information.
-     *
-     * @return SS_List
-     */
-    public function objectsToUpdate($context){
-        $list = new SS_list();
-        $list->add($this->Parent());
-        return $list;
-    }
-
-    /**
-     * Provides a SS_list of objects that need to be deleted.
-     *
-     * @param array $context An associative array with extra engine-specific information.
-     *
-     * @return SS_List
-     */
-    public function objectsToDelete($context){
-        $list = new SS_list();
-        return $list;
-    }
-/****************** END STATIC ***********/
 
 }
