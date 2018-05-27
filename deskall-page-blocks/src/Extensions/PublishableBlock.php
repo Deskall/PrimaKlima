@@ -54,8 +54,8 @@ class PublishableBlock extends DataExtension implements StaticallyPublishable, S
 
             case 'unpublish':
                 // Refresh the parent
-                if ($this->getOwner()->ParentID) {
-                    $list[] = $this->getOwner()->Parent();
+                if ($this->getOwner()->getPage()->ParentID) {
+                    $list[] = $this->getOwner()->getPage()->Parent();
                 }
                 break;
         }
