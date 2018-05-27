@@ -17,6 +17,7 @@ class PublishParent extends DataExtension
                         $parent = $parent->getPage();
                     }
                     $parent->publishSingle();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','ici');
                 }
             }
             
