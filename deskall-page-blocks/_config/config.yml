@@ -38,6 +38,14 @@ Slide:
 Box:
   extensions:
     - SubObjectPermission
+    - PublishableBlock
+    - BlockPublishingEngine
+
+ListItem:
+  extensions:
+    - SubObjectPermission
+    - PublishableBlock
+    - BlockPublishingEngine
 
 SilverStripe\UserForms\Form\UserForm:
   extensions:
