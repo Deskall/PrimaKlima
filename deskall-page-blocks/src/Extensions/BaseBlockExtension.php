@@ -303,12 +303,12 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
                 }
 
                 // Refresh related virtual pages.
-                $virtuals = $this->getOwner()->getMyVirtualPages();
-                if ($virtuals->exists()) {
-                    foreach ($virtuals as $virtual) {
-                        $list[] = $virtual;
-                    }
-                }
+                // $virtuals = $this->getOwner()->getMyVirtualPages();
+                // if ($virtuals->exists()) {
+                //     foreach ($virtuals as $virtual) {
+                //         $list[] = $virtual;
+                //     }
+                // }
                 break;
 
             case 'unpublish':
