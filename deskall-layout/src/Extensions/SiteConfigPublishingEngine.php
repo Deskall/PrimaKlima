@@ -42,6 +42,8 @@ class SiteConfigPublishingEngine extends DataExtension
     }
 
     function autoCompileLess($inputFile, $outputFile) {
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt",$inputFile);
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n".$outputFile, FILE_APPEND);
       // load the cache
       $cacheFile = $_SERVER['DOCUMENT_ROOT']."/themes/standard/css/cache/main.less.cache";
 
@@ -56,6 +58,8 @@ class SiteConfigPublishingEngine extends DataExtension
 
       $less->setFormatter("compressed");
       $newCache = $less->cachedCompile($cache);
+              file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n".$outputFile);
+
 
       if (!is_array($cache) || $newCache["updated"] > $cache["updated"]) {
         file_put_contents($cacheFile, serialize($newCache));
