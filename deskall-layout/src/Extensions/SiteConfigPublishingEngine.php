@@ -28,7 +28,7 @@ class SiteConfigPublishingEngine extends DataExtension
 
     public function rebuildCss(){
       
-        $css_compiled = $this->autoCompileLess($_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.less", $_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.min.css");
+        $css_compiled = $this->autoCompileLess("main.less", "main.min.css");
 
         if($css_compiled){
             // set correct paths
