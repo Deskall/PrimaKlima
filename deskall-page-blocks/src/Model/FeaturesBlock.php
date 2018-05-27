@@ -165,6 +165,8 @@ class FeaturesBlock extends BaseElement
                 $fields->addFieldToTab('Root.Main',$featuresField);
             } 
             else {
+                $fields->addFieldToTab("Root.Main",LabelField::create('LabelField',_t(__CLASS__.'.AfterCreation','Sie können Features nach dem Erstellen dem Block hinzufügen')));
+        
                 $fields->removeByName('Features');
                 $fields->removeByName('FeaturesTitle');
             }
