@@ -7,6 +7,7 @@ use SilverStripe\StaticPublishQueue\Extension\Publishable\PublishableSiteTree;
 use SilverStripe\StaticPublishQueue\Job\DeleteStaticCacheJob;
 use SilverStripe\StaticPublishQueue\Job\GenerateStaticCacheJob;
 use Symbiote\QueuedJobs\Services\QueuedJobService;
+use SilverStripe\ORM\DataExtension;
 
 /**
  * This extension couples to the StaticallyPublishable and StaticPublishingTrigger implementations
