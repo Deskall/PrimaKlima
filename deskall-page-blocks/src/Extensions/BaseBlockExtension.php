@@ -13,9 +13,6 @@ use SilverStripe\i18n\i18nEntityProvider;
 use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
-use SilverStripe\StaticPublishQueue\Contract\StaticPublishingTrigger;
-use SilverStripe\StaticPublishQueue\Contract\StaticallyPublishable;
-use SilverStripe\ORM\SS_List;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
