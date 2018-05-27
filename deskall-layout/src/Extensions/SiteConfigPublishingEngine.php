@@ -28,17 +28,24 @@ class SiteConfigPublishingEngine extends DataExtension
 
     public function rebuildCss(){
       
-        $css_compiled = $this->autoCompileLess($_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.less", $_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.min.css");
+        // $css_compiled = $this->autoCompileLess($_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.less", $_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.min.css");
 
-        if($css_compiled){
-            // set correct paths
-            $css_compiled = str_replace("url('/fonts","url('/themes/standard/fonts'");
-            $css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/themes/standard/css/src/images/backgrounds/",$css_compiled);
+        // if($css_compiled){
+        //     // set correct paths
+        //     $css_compiled = str_replace("url('/fonts","url('/themes/standard/fonts'");
+        //     $css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/themes/standard/css/src/images/backgrounds/",$css_compiled);
            
 
-            // save files
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.min.css",$css_compiled);
-        }
+        //     // save files
+        //     file_put_contents($_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.min.css",$css_compiled);
+        // }
+        $url = Director::absoluteBaseUrl()."/themes/standard/css/main.min.css";
+
+        $req = curl_init($url);
+        curl_setopt($req, CURLOPT_POST, true);
+        curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
+        curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+        $data = curl_exec($req);
     }
 
     function autoCompileLess($inputFile, $outputFile) {
