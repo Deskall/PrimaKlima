@@ -51,7 +51,7 @@ class SiteConfigPublishingEngine extends DataExtension
         $cache = $inputFile;
       }
 
-      $less = new lessc;
+      $less = new /themes/standard/css/less/lessc();
 
 
       $less->setFormatter("compressed");
