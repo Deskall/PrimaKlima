@@ -216,14 +216,12 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
         file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','ici');
 
         if (!$this->owner instanceof SiteTree && !$this->owner instanceof ElementalArea ){
-            if ($toStage == "Live"){
-                if ($parent = $this->owner->getPage()){
-                    while(!$parent instanceof SiteTree){
-                        $parent = $parent->getPage();
-                    }
-                    $parent->publishRecursive();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','la',FILE_APPEND);
+            if ($parent = $this->owner->getPage()){
+                while(!$parent instanceof SiteTree){
+                    $parent = $parent->getPage();
                 }
+                $parent->publishRecursive();
+                file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','la',FILE_APPEND);
             }    
         }
     }
