@@ -162,6 +162,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
         $fields->removeByName('TextColumns');
         $fields->removeByName('TextColumnsDivider');
         $fields->removeByName('AvailableGlobally');
+
+        $this->owner->objectsToUpdate('publish');
         
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
@@ -257,13 +259,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
         }
     }
 
-   /**
-     * @param \SilverStripe\CMS\Model\SiteTree|null $original
-     */
-    public function onAfterVersionedPublish(&$original)
-    {
-        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','ici');
-    }
+
 
 
 /************* TRANLSATIONS *******************/
@@ -288,6 +284,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
      */
     public function objectsToUpdate($context){
         $list = new SS_list();
+        print_r($this->getOwner()->getPage());
         $list->add($this->getOwner()->getPage());
         return $list;
     }
