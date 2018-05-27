@@ -17,7 +17,7 @@ use SilverStripe\StaticPublishQueue\Contract\StaticPublishingTrigger;
 use SilverStripe\StaticPublishQueue\Contract\StaticallyPublishable;
 use SilverStripe\ORM\SS_List;
 
-class BaseBlockExtension extends DataExtension implements i18nEntityProvider, StaticallyPublishable, StaticPublishingTrigger
+class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
 
     private static $db = [
