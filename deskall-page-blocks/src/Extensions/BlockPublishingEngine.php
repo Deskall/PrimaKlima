@@ -1,7 +1,5 @@
 <?php
 
-
-
 use SilverStripe\CMS\Model\SiteTreeExtension;
 use SilverStripe\Core\Environment;
 use SilverStripe\StaticPublishQueue\Contract\StaticPublishingTrigger;
@@ -9,7 +7,7 @@ use SilverStripe\StaticPublishQueue\Extension\Publishable\PublishableSiteTree;
 use SilverStripe\StaticPublishQueue\Job\DeleteStaticCacheJob;
 use SilverStripe\StaticPublishQueue\Job\GenerateStaticCacheJob;
 use Symbiote\QueuedJobs\Services\QueuedJobService;
-use SilverStripe\ORM\DataExtension;
+
 /**
  * This extension couples to the StaticallyPublishable and StaticPublishingTrigger implementations
  * on the SiteTree objects and makes sure the actual change to SiteTree is triggered/enqueued.
@@ -74,9 +72,9 @@ class BlockPublishingEngine extends DataExtension
     /**
      * @param \SilverStripe\CMS\Model\SiteTree|null $original
      */
-    public function onAfterVersionedPublish(&$original)
+    public function onAfterPublish()
     {
-        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','ici');
+        
         $context = [
             'action' => 'publish',
         ];
@@ -107,7 +105,7 @@ class BlockPublishingEngine extends DataExtension
         Environment::increaseMemoryLimitTo();
         Environment::increaseTimeLimitTo();
 
-        if ($this->getOwner()->getPage()->hasExtension(PublishableSiteTree::class)
+        if ($this->getOwner()->hasExtension(PublishableBlock::class)
             || $this->getOwner() instanceof StaticPublishingTrigger
         ) {
             $toUpdate = $this->getOwner()->objectsToUpdate($context);

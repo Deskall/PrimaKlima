@@ -211,20 +211,20 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
         parent::onBeforeWrite();
     }
 
-    /*** Loop recursively until we reach first parent page then publish it *****/
-    public function onAfterPublish(){
-        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','ici');
+    // /*** Loop recursively until we reach first parent page then publish it *****/
+    // public function onAfterPublish(){
+    //     file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','ici');
 
-        if (!$this->owner instanceof SiteTree && !$this->owner instanceof ElementalArea ){
-            if ($parent = $this->owner->getPage()){
-                while(!$parent instanceof SiteTree){
-                    $parent = $parent->getPage();
-                }
-                $parent->publishRecursive();
-                file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','la',FILE_APPEND);
-            }    
-        }
-    }
+    //     if (!$this->owner instanceof SiteTree && !$this->owner instanceof ElementalArea ){
+    //         if ($parent = $this->owner->getPage()){
+    //             while(!$parent instanceof SiteTree){
+    //                 $parent = $parent->getPage();
+    //             }
+    //             $parent->publishRecursive();
+    //             file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','la',FILE_APPEND);
+    //         }    
+    //     }
+    // }
 
     public function isChildren(){
         return $this->owner->Parent()->OwnerClassName == "ParentBlock";
@@ -289,70 +289,70 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
 
 
 /************** STATIC PUBLISHING ***************/
-     /**
-     * Provides an SS_List of StaticallyPublishable objects which need to be regenerated.
-     *
-     * @param array $context An associative array with extra engine-specific information.
-     *
-     * @return SS_List
-     */
-    // public function objectsToUpdate($context){
-    //     $list = new SS_list();
-    //     print_r($this->getOwner()->getPage());
-    //     $list->add($this->getOwner()->getPage());
-    //     return $list;
-    // }
+//      /**
+//      * Provides an SS_List of StaticallyPublishable objects which need to be regenerated.
+//      *
+//      * @param array $context An associative array with extra engine-specific information.
+//      *
+//      * @return SS_List
+//      */
+//     // public function objectsToUpdate($context){
+//     //     $list = new SS_list();
+//     //     print_r($this->getOwner()->getPage());
+//     //     $list->add($this->getOwner()->getPage());
+//     //     return $list;
+//     // }
 
-    public function objectsToUpdate($context)
-    {
-        $list = [];
-        switch ($context['action']) {
-            case 'publish':
-                // Trigger refresh of the page itself.
-                $list[] = $this->getOwner();
+//     public function objectsToUpdate($context)
+//     {
+//         $list = [];
+//         switch ($context['action']) {
+//             case 'publish':
+//                 // Trigger refresh of the page itself.
+//                 $list[] = $this->getOwner();
 
-                // Refresh the parent.
-                if ($this->getOwner()->getPage()) {
-                    $list[] = $this->getOwner()->getPage();
-                }
+//                 // Refresh the parent.
+//                 if ($this->getOwner()->getPage()) {
+//                     $list[] = $this->getOwner()->getPage();
+//                 }
 
-                // Refresh related virtual pages.
-                // $virtuals = $this->getOwner()->getMyVirtualPages();
-                // if ($virtuals->exists()) {
-                //     foreach ($virtuals as $virtual) {
-                //         $list[] = $virtual;
-                //     }
-                // }
-                break;
+//                 // Refresh related virtual pages.
+//                 // $virtuals = $this->getOwner()->getMyVirtualPages();
+//                 // if ($virtuals->exists()) {
+//                 //     foreach ($virtuals as $virtual) {
+//                 //         $list[] = $virtual;
+//                 //     }
+//                 // }
+//                 break;
 
-            case 'unpublish':
-                // Refresh the parent
-                if ($this->getOwner()->getPage()) {
-                    $list[] = $this->getOwner()->getPage();
-                }
-                break;
-        }
-        return $list;
-    }
+//             case 'unpublish':
+//                 // Refresh the parent
+//                 if ($this->getOwner()->getPage()) {
+//                     $list[] = $this->getOwner()->getPage();
+//                 }
+//                 break;
+//         }
+//         return $list;
+//     }
 
-    /**
-     * Provides a SS_list of objects that need to be deleted.
-     *
-     * @param array $context An associative array with extra engine-specific information.
-     *
-     * @return SS_List
-     */
-    public function objectsToDelete($context){
-        $list = new SS_list();
-        return $list;
-    }
+//     /**
+//      * Provides a SS_list of objects that need to be deleted.
+//      *
+//      * @param array $context An associative array with extra engine-specific information.
+//      *
+//      * @return SS_List
+//      */
+//     public function objectsToDelete($context){
+//         $list = new SS_list();
+//         return $list;
+//     }
 
-    /**
-     * The only URL belonging to this object is it's own URL.
-     */
-    public function urlsToCache()
-    {
-        return [Director::absoluteURL($this->getOwner()->getPage()) => 0];
-    }
-/****************** END STATIC ***********/
+//     /**
+//      * The only URL belonging to this object is it's own URL.
+//      */
+//     public function urlsToCache()
+//     {
+//         return [Director::absoluteURL($this->getOwner()->getPage()) => 0];
+//     }
+// /****************** END STATIC ***********/
 }
