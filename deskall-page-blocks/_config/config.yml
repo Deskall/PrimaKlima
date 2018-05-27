@@ -32,6 +32,8 @@ Slide:
     - Activable
     - Linkable
     - SubObjectPermission
+    - PublishableBlock
+    - BlockPublishingEngine
 
 Box:
   extensions:
