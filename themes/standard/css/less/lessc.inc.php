@@ -141,6 +141,8 @@ class lessc {
 	}
 
 	public function compileFile( $fname, $outFname = null ) {
+		        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n".$fname,FILE_APPEND);
+
 		if ( !is_readable( $fname ) ) {
 			throw new Exception( 'load error: failed to find '.$fname );
 		}
