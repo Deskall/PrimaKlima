@@ -31,16 +31,8 @@ class SiteConfigPublishingEngine extends DataExtension
     {
         $queue = QueuedJobService::singleton();
         $job = new StaticCacheFullBuildJob();
-
-                // $jobData = new \stdClass();
-                // $urls = $queueItem->urlsToCache();
-                // ksort($urls);
-                // $jobData->URLsToProcess = $urls;
-
-                // $job->setJobData(0, 0, false, $jobData, [
-                //     'Building URLs: ' . var_export(array_keys($jobData->URLsToProcess), true)
-                // ]);
-
-                $queue->queueJob($job);
+        $jobData = new \stdClass();
+        $job->setJobData(0, 0, false, $jobData, []);
+        $queue->queueJob($job);
     }
 }
