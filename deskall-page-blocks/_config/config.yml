@@ -17,10 +17,6 @@ DNADesign\Elemental\Models\BaseElement:
     - Linkable
     - Collapsable
 
-SilverStripe\Versioned\Versioned:
-  extensions:
-    - PublishParent
-
 DNADesign\Elemental\ElementalEditor:
   extensions:
     - DeskallElementalEditorExtension
