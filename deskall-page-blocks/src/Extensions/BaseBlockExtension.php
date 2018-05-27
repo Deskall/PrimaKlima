@@ -162,8 +162,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
         $fields->removeByName('TextColumns');
         $fields->removeByName('TextColumnsDivider');
         $fields->removeByName('AvailableGlobally');
-        $context['action'] ='publish';
-        $this->owner->objectsToUpdate($context);
+     
         
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
@@ -296,7 +295,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
             case 'publish':
                 // Trigger refresh of the page itself.
                 $list[] = $this->getOwner();
-                print_r($this->getOwner()->getPage()->ID);
 
                 // Refresh the parent.
                 if ($this->getOwner()->getPage()) {
