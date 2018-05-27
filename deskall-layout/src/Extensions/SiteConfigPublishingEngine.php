@@ -10,6 +10,7 @@ use SilverStripe\StaticPublishQueue\Job\DeleteStaticCacheJob;
 use SilverStripe\StaticPublishQueue\Job\StaticCacheFullBuildJob;
 use Symbiote\QueuedJobs\Services\QueuedJobService;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\Control\Director;
 
 /**
  * This extension couples to the StaticallyPublishable and StaticPublishingTrigger implementations
