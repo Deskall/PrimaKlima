@@ -282,10 +282,42 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
      *
      * @return SS_List
      */
-    public function objectsToUpdate($context){
-        $list = new SS_list();
-        print_r($this->getOwner()->getPage());
-        $list->add($this->getOwner()->getPage());
+    // public function objectsToUpdate($context){
+    //     $list = new SS_list();
+    //     print_r($this->getOwner()->getPage());
+    //     $list->add($this->getOwner()->getPage());
+    //     return $list;
+    // }
+
+    public function objectsToUpdate($context)
+    {
+        $list = [];
+        switch ($context['action']) {
+            case 'publish':
+                // Trigger refresh of the page itself.
+                $list[] = $this->getOwner();
+
+                // Refresh the parent.
+                if ($this->getOwner()->getPage()) {
+                    $list[] = $this->getOwner()->getPage();
+                }
+
+                // Refresh related virtual pages.
+                $virtuals = $this->getOwner()->getMyVirtualPages();
+                if ($virtuals->exists()) {
+                    foreach ($virtuals as $virtual) {
+                        $list[] = $virtual;
+                    }
+                }
+                break;
+
+            case 'unpublish':
+                // Refresh the parent
+                if ($this->getOwner()->getPage()) {
+                    $list[] = $this->getOwner()->getPage();
+                }
+                break;
+        }
         return $list;
     }
 
