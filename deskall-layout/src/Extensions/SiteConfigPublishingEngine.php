@@ -42,7 +42,7 @@ class SiteConfigPublishingEngine extends DataExtension
     public function flushChanges()
     {
         $queue = QueuedJobService::singleton();
-        $job = new StaticCacheFullBuildJob();
+        $job = new DeskallStaticCacheFullBuildJob();
         $jobData = new \stdClass();
         $job->setJobData(0, 0, false, $jobData, []);
         $queue->queueJob($job);
