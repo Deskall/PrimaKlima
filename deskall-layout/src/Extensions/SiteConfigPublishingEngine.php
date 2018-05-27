@@ -1,7 +1,5 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT']."/themes/standard/css/less/lessc.inc.php";
-
 use SilverStripe\CMS\Model\SiteTreeExtension;
 use SilverStripe\Core\Environment;
 use SilverStripe\StaticPublishQueue\Contract\StaticPublishingTrigger;
@@ -28,18 +26,7 @@ class SiteConfigPublishingEngine extends DataExtension
     }
 
     public function rebuildCss(){
-      
-        // $css_compiled = $this->autoCompileLess($_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.less", $_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.min.css");
 
-        // if($css_compiled){
-        //     // set correct paths
-        //     $css_compiled = str_replace("url('/fonts","url('/themes/standard/fonts'");
-        //     $css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/themes/standard/css/src/images/backgrounds/",$css_compiled);
-           
-
-        //     // save files
-        //     file_put_contents($_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.min.css",$css_compiled);
-        // }
         $url = Director::absoluteBaseUrl()."/themes/standard/css/main.min.css";
 
         $req = curl_init($url);
@@ -47,35 +34,6 @@ class SiteConfigPublishingEngine extends DataExtension
         curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
         curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
         $data = curl_exec($req);
-    }
-
-    function autoCompileLess($inputFile, $outputFile) {
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt",$inputFile);
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n".$outputFile, FILE_APPEND);
-      // load the cache
-      $cacheFile = $_SERVER['DOCUMENT_ROOT']."/themes/standard/css/cache/main.less.cache";
-
-      if (file_exists($cacheFile)) {
-        $cache = unserialize(file_get_contents($cacheFile));
-      } else {
-        $cache = $inputFile;
-      }
-
-      $less = new lessc;
-
-
-      $less->setFormatter("compressed");
-      $newCache = $less->cachedCompile($cache);
-              file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","\n".$outputFile);
-
-
-      if (!is_array($cache) || $newCache["updated"] > $cache["updated"]) {
-        file_put_contents($cacheFile, serialize($newCache));
-        $css_compiled = $newCache['compiled'];
-        return $css_compiled;
-      }
-
-      return false;
     }
 
     /**
