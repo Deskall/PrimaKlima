@@ -296,6 +296,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider, St
             case 'publish':
                 // Trigger refresh of the page itself.
                 $list[] = $this->getOwner();
+                print_r($this->getOwner()->getPage()->ID);
 
                 // Refresh the parent.
                 if ($this->getOwner()->getPage()) {
