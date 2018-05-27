@@ -1,6 +1,6 @@
 <?php
 
-require_once "less/lessc.inc.php";
+require_once "../../../themes/standard/css/less/lessc.inc.php";
 
 use SilverStripe\CMS\Model\SiteTreeExtension;
 use SilverStripe\Core\Environment;
