@@ -1,5 +1,7 @@
 <?php
 
+require_once "less/lessc.inc.php";
+
 use SilverStripe\CMS\Model\SiteTreeExtension;
 use SilverStripe\Core\Environment;
 use SilverStripe\StaticPublishQueue\Contract\StaticPublishingTrigger;
@@ -20,8 +22,48 @@ class SiteConfigPublishingEngine extends DataExtension
 
     public function onAfterWrite()
     {
-        
+        $this->rebuildCss();
         $this->flushChanges();
+    }
+
+    public function rebuildCss(){
+      
+        $css_compiled = autoCompileLess($_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.less", $_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.min.css");
+
+        if($css_compiled){
+            // set correct paths
+            $css_compiled = str_replace("url('/fonts","url('/themes/standard/fonts'");
+            $css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/themes/standard/css/src/images/backgrounds/",$css_compiled);
+           
+
+            // save files
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/themes/standard/css/main.min.css",$css_compiled);
+        }
+    }
+
+    function autoCompileLess($inputFile, $outputFile) {
+      // load the cache
+      $cacheFile = "cache/".$inputFile.".cache";
+
+      if (file_exists($cacheFile)) {
+        $cache = unserialize(file_get_contents($cacheFile));
+      } else {
+        $cache = $inputFile;
+      }
+
+      $less = new lessc;
+
+
+      $less->setFormatter("compressed");
+      $newCache = $less->cachedCompile($cache);
+
+      if (!is_array($cache) || $newCache["updated"] > $cache["updated"]) {
+        file_put_contents($cacheFile, serialize($newCache));
+        $css_compiled = $newCache['compiled'];
+        return $css_compiled;
+      }
+
+      return false;
     }
 
     /**
