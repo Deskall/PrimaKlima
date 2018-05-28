@@ -64,12 +64,14 @@ class DeskallStaticCacheFullBuildJob extends Job
             $this->ProcessedURLs = array_map($trimSlashes, $this->ProcessedURLs);
             $this->URLsToCleanUp = array_diff($this->publishedURLs, $this->ProcessedURLs);
 
-            foreach ($this->URLsToCleanUp as $staleURL) {
-                $purgeMeta = Publisher::singleton()->purgeURL($staleURL);
-                if (!empty($purgeMeta['success'])) {
-                    unset($this->URLsToCleanUp[$staleURL]);
-                }
-            }
+            if ($this->URLsToCleanUp){
+               foreach ($this->URLsToCleanUp as $staleURL) {
+                    $purgeMeta = Publisher::singleton()->purgeURL($staleURL);
+                    if (!empty($purgeMeta['success'])) {
+                        unset($this->URLsToCleanUp[$staleURL]);
+                    }
+                } 
+            } 
         };
         $this->isComplete = empty($this->URLsToProcess) && empty($this->URLsToCleanUp);
     }
