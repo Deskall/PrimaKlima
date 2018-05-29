@@ -318,8 +318,8 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
   public function onAfterWrite(){
-    $this->owner->WriteUserDefinedConstants();
-    $this->owner->WriteBackgroundClasses();
+    //$this->owner->WriteUserDefinedConstants();
+    //$this->owner->WriteBackgroundClasses();
     parent::onAfterWrite();
   }
 
