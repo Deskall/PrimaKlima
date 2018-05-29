@@ -305,7 +305,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function onBeforeWrite(){
     
-    $this->owner->populateDefaultsColors();
+    //$this->owner->populateDefaultsColors();
     $this->owner->HeaderBackground = "#".$this->owner->HeaderBackground;
     $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
     $this->owner->HeaderHoverFontColor = "#".$this->owner->HeaderHoverFontColor;
