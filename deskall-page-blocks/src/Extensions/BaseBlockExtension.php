@@ -271,7 +271,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
     public function onAfterPublish(){
-        parent::onAfterPublish();
         $this->owner->getPage()->publishRecursive();
     }
 
