@@ -6,7 +6,6 @@ After:
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - SiteConfigLayoutExtension
-    - SiteConfigPublishingEngine
 
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
