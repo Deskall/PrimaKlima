@@ -16,7 +16,7 @@ DNADesign\Elemental\Models\BaseElement:
     - Activable
     - Linkable
     - Collapsable
-    - PublishParent
+
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
@@ -33,6 +33,10 @@ Slide:
     - SubObjectPermission
 
 Box:
+  extensions:
+    - SubObjectPermission
+
+ListItem:
   extensions:
     - SubObjectPermission
 

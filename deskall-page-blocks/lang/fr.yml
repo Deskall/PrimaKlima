@@ -233,6 +233,7 @@ fr:
       other: '{count} Features'
     SINGULARNAME: Features
   FeaturesBlock:
+    AfterCreation: "Vous pourrez ajouter des features après la création du bloc."
     BlockType: 'Liste de features'
     ContentLabel: Contenu
     Description: "Bloc permettant d'insérer une liste de features"

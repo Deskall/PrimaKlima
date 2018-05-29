@@ -4,6 +4,7 @@ fr:
     Content: Contenu
     ContentTab: Contenu
     ExtraClass: 'Classe css supplémentaire'
+    FolderName: 'Uploads/Paramètres'
     Layout: Format
     LayoutLabel: 'Choisissez le format'
     LayoutTab: Thème
@@ -69,6 +70,7 @@ fr:
     ColorLabel: Couleur
     Colors: Couleurs
     ColorsTitle: Couleurs
+    FolderName: "Uploads/Paramètres"
     FontColorLabel: Couleur de police
     FontTitle: 'Titre et aperçu'
     FontsTitle: Polices

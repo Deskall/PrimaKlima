@@ -145,6 +145,8 @@ class BoxBlock extends BaseElement
             $fields->removeByName('BoxPerLine');
             $fields->removeByName('Effect');
             $fields->removeByName('Layout');
+
+            $fields->FieldByName('Root.Main.HTML')->setRows(5);
                 
             if ($this->ID > 0){
                 $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(

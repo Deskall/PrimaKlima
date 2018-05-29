@@ -17,11 +17,8 @@
         "jonom/focuspoint": "dev-master",
         "sheadawson/silverstripe-linkable": "dev-master",
         "bummzack/sortablefile": "^2.0",
-<<<<<<< HEAD
+        "tinify/tinify": "^1.5",
         "silverstripe/staticpublishqueue": "dev-master"
-=======
-        "tinify/tinify": "^1.5"
->>>>>>> waldenergie
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7"
