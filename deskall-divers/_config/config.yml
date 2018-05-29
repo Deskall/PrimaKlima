@@ -15,7 +15,7 @@ PageController:
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    - SiteConfigExtension
+    #- SiteConfigExtension
 
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
