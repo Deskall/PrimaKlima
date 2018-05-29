@@ -16,8 +16,7 @@ DNADesign\Elemental\Models\BaseElement:
     - Activable
     - Linkable
     - Collapsable
-    - PublishableBlock
-    - BlockPublishingEngine
+
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
@@ -32,20 +31,14 @@ Slide:
     - Activable
     - Linkable
     - SubObjectPermission
-    - PublishableBlock
-    - BlockPublishingEngine
 
 Box:
   extensions:
     - SubObjectPermission
-    - PublishableBlock
-    - BlockPublishingEngine
 
 ListItem:
   extensions:
     - SubObjectPermission
-    - PublishableBlock
-    - BlockPublishingEngine
 
 SilverStripe\UserForms\Form\UserForm:
   extensions:
