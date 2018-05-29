@@ -30,7 +30,7 @@ class DeskallPageExtension extends DataExtension
     }
 
     public function updateCMSFields(FieldList $fields){
-        if ($this->owner->ShowInMenus){
+        if ($this->owner->ShowInMenus && $this->owner->getPageLevel() == 1){
             $field = OptionsetField::create('ShowInMainMenu',_t(__CLASS__.'.ShowInMainMenuLabel','In welchem Menu sollt diese Seite anzeigen ?'), $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
             $fields->insertAfter($field,'MenuTitle');
 
@@ -82,10 +82,6 @@ class DeskallPageExtension extends DataExtension
     	parent::onBeforeWrite();
     }
 
-    public function onAfterPublish(){
-
-        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','ici');
-    }
 
       /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
