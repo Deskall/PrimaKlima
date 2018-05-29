@@ -304,7 +304,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function onBeforeWrite(){
-    parent::onBeforeWrite();
+    
     $this->owner->populateDefaultsColors();
     $this->owner->HeaderBackground = "#".$this->owner->HeaderBackground;
     $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
@@ -313,7 +313,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->FooterBackground = "#".$this->owner->FooterBackground;
     $this->owner->H1FontColor = "#".$this->owner->H1FontColor;
     $this->owner->MobileNaviHoverFontColor = "#".$this->owner->MobileNaviHoverFontColor;
-
+    parent::onBeforeWrite();
   }
 
 
