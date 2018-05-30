@@ -17,8 +17,8 @@ class DeskallContentControllerExtension extends Extension
 
     public function handleChildren()
     {
-        $parentId = $this->owner->getRequest()->param('ID');
-        $id = $this->owner->getRequest()->param('OTHERID');
+        $parentId = $this->owner->getRequest()->param('OTHERID');
+        $id = $this->owner->getRequest()->param('ID');
 
         if (!$parentId) {
             user_error('No parent ID supplied', E_USER_ERROR);
