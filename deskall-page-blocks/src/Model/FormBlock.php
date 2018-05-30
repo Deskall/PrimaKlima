@@ -1,13 +1,18 @@
 <?php
-
+use DNADesign\ElementalUserForms\Model\ElementForm;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\UserForms\Control\UserDefinedFormController;
+use SilverStripe\UserForms\UserForm;
+use SilverStripe\Control\Controller;
+use DNADesign\ElementalUserForms\Control\ElementFormController;
 
-class UserFormExtension extends DataExtension 
+
+class FormBlock extends ElementForm 
 {
 
     private static $controller_template = 'DefaultHolder';
@@ -75,33 +80,21 @@ class UserFormExtension extends DataExtension
   }
 
 
-
   /**
-   * @return UserForm
-   */
-  public function Form()
-  {
-      $controller = UserDefinedFormController::create($this->owner);
-      $current = Controller::curr();
-      $controller->setRequest($current->getRequest());
+     * @return UserForm
+     */
+    public function Form()
+    {
+        $controller = UserDefinedFormController::create($this);
+        $current = Controller::curr();
+        $controller->setRequest($current->getRequest());
 
-      if ($current && $current->getAction() == 'finished') {
-          return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
-      }
+        if ($current && $current->getAction() == 'finished') {
+            return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
+        }
 
-      $form = $controller->Form();
-      if ($this->owner->isChildren()){
+        $form = $controller->Form();
         $form->setFormAction(
-            Controller::join_links(
-                $current->Link(),
-                'children',
-                $this->owner->ID,
-                'Form'
-            )
-        );
-      }
-      else{
-          $form->setFormAction(
             Controller::join_links(
                 $current->Link(),
                 'element',
@@ -109,12 +102,23 @@ class UserFormExtension extends DataExtension
                 'Form'
             )
         );
-      }
 
-      print_r('yooooooooooooo');
-      
+        print_r('ici');
 
-      return $form;
-  }
+        return $form;
+    }
 
+    public function Link($action = null)
+    {
+        $current = Controller::curr();
+
+        if ($action === 'finished') {
+            return Controller::join_links(
+                $current->Link(),
+                'finished'
+            );
+        }
+
+        return parent::Link($action);
+    }
 }

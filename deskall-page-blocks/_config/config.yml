@@ -48,9 +48,7 @@ SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - deskall-page-blocks/css/block_editor.css
 
-DNADesign\ElementalUserForms\Model\ElementForm:
-  extensions:
-    - UserFormExtension
+DeskallUserForm:
   email_template_directory: deskall-page-blocks/templates/emails/
 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
