@@ -27,6 +27,28 @@ class ElementFormControllerExtension extends ElementFormController
     }
 
     /**
+     * @param string $action
+     *
+     * @return string
+     */
+    public function Link($action = null)
+    {
+        $id = $this->element->ID;
+        $segment = Controller::join_links('element', $id, $action);
+        $page = Director::get_current_page();
+
+        if ($page && !($page instanceof ElementController)) {
+            return $page->Link($segment);
+        }
+
+        if ($controller = $this->getParentController()) {
+            return $controller->Link($segment);
+        }
+
+        return 'yo';
+    }
+
+    /**
      * Renders the managed {@link BaseElement} wrapped with the current
      * {@link ElementController}.
      *
