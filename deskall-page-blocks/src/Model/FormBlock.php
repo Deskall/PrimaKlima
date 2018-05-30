@@ -52,7 +52,7 @@ class FormBlock extends ElementForm
         ]
     ];
 
-   private static $controller_class = ElementFormControllerExtension::class;
+   private static $controller_class = DeskallFormController::class;
 
    public function getCMSFields(){
     $fields = parent::getCMSFields();
