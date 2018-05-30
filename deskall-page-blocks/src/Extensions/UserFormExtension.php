@@ -30,7 +30,7 @@ class UserFormExtension extends DataExtension
   ];
 
    private static $has_one = [
-   	'RedirectPage' => SiteTree::class
+   	'RedirectPage' => Link::class
    ];
 
     private static $block_layouts = [

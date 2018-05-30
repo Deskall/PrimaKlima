@@ -97,7 +97,7 @@
 						<table>
 							<tbody>
 								<tr>
-									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="{$AbsoluteThemeDir}/img/logo.png" style="max-width:200px;height:auto;" border="0" alt="$SiteConfig.Title"/></a></a></td>
+									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="$AbsoluteBaseURL/themes/standard/img/logo.png" style="max-width:200px;height:auto;" border="0" alt="$SiteConfig.Title"/></a></a></td>
 								</tr>
 								<% if $Header %>
 								<tr><td class="header-text">
@@ -162,9 +162,9 @@
 																<tbody>
 																	<tr>
 																		<td>
-																			<h5 class="">Kontakt:</h5>
+																			<h5 class=""><%t Email.Contact 'Kontakt' %>:</h5>
 																			<p><strong>$SiteConfig.AddressTitle</strong></p>
-																			<p>$SiteConfig.Address<br/>$SiteConfig.CodeCity<br/> Switzerland</p>
+																			<p>$SiteConfig.Address<br/>$SiteConfig.CodeCity<br/> $SiteConfig.Country</p>
 																			<p>$SiteConfig.PhoneDisplay<br /><a href="mailto:$SiteConfig.Email">$SiteConfig.Email</a></p>
 																		</td>
 																	</tr>
