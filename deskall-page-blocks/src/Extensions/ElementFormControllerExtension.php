@@ -10,6 +10,7 @@ class ElementFormControllerExtension extends ElementFormController
 {
 
 	 private static $allowed_actions = [
+        'Form',
         'finished'
     ];
 
@@ -26,27 +27,13 @@ class ElementFormControllerExtension extends ElementFormController
         
     }
 
-    /**
-     * @param string $action
-     *
-     * @return string
+     /**
+     * @return UserForm
      */
-    public function Link($action = null)
+    public function Form()
     {
-        $id = $this->element->ID;
-        $segment = Controller::join_links('element', $id, $action);
-        $page = Director::get_current_page();
-        print_r('ici');
-
-        if ($page && !($page instanceof ElementController)) {
-            return $page->Link($segment);
-        }
-
-        if ($controller = $this->getParentController()) {
-            return $controller->Link($segment);
-        }
-
-        return $segment;
+        print_r('yo');
+        return $this->getUserFormController()->Form();
     }
 
     /**
