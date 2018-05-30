@@ -17,12 +17,6 @@ DNADesign\Elemental\Models\BaseElement:
     - Linkable
     - Collapsable
 
-SilverStripe\CMS\Controllers\ContentController:
-  extensions:
-    - ElementContentControllerExtension
-  url_handlers:
-    'element/$ID!': 'handleElement'
-
 DNADesign\Elemental\ElementalEditor:
   extensions:
     - DeskallElementalEditorExtension
@@ -69,3 +63,9 @@ SilverStripe\UserForms\Control\UserDefinedFormController:
 SilverStripe\Forms\FormField:
   extensions:
     - 'DeskallFormFieldExtension'
+
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - ElementContentControllerExtension
+  url_handlers:
+    'element/$ID!': 'handleElement'

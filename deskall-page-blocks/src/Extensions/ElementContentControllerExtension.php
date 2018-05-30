@@ -5,7 +5,7 @@ use DNADesign\Elemental\Models\ElementalArea;
 use DNADesign\Elemental\Extensions\ElementalAreasExtension;
 use SilverStripe\Core\Extension;
 
-class ElementalContentControllerExtension extends Extension
+class ElementContentControllerExtension extends Extension
 {
     /**
      * @var array
@@ -17,7 +17,7 @@ class ElementalContentControllerExtension extends Extension
     public function handleElement()
     {
         $id = $this->owner->getRequest()->param('ID');
-        print_r($id)
+        print_r($id);
 
         if (!$id) {
             user_error('No element ID supplied', E_USER_ERROR);

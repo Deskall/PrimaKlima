@@ -74,4 +74,45 @@ class UserFormExtension extends DataExtension
     return _t(__CLASS__ . '.BlockType', 'Formular');
   }
 
+
+
+  /**
+   * @return UserForm
+   */
+  public function Form()
+  {
+      $controller = UserDefinedFormController::create($this->owner);
+      $current = Controller::curr();
+      $controller->setRequest($current->getRequest());
+
+      if ($current && $current->getAction() == 'finished') {
+          return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
+      }
+
+      $form = $controller->Form();
+      if ($this->owner->isChildren()){
+        $form->setFormAction(
+            Controller::join_links(
+                $current->Link(),
+                'children',
+                $this->owner->ID,
+                'Form'
+            )
+        );
+      }
+      else{
+          $form->setFormAction(
+            Controller::join_links(
+                $current->Link(),
+                'element',
+                $this->owner->ID,
+                'Form'
+            )
+        );
+      }
+      
+
+      return $form;
+  }
+
 }
