@@ -10,7 +10,6 @@ class ElementFormControllerExtension extends ElementFormController
 {
 
 	 private static $allowed_actions = [
-        'Form',
         'finished'
     ];
 
@@ -25,15 +24,6 @@ class ElementFormControllerExtension extends ElementFormController
     	
     	parent::finished();
         
-    }
-
-     /**
-     * @return UserForm
-     */
-    public function Form()
-    {
-        print_r('yo');
-        return $this->getUserFormController()->Form();
     }
 
     /**

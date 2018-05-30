@@ -110,6 +110,8 @@ class UserFormExtension extends DataExtension
             )
         );
       }
+
+      print_r('yooooooooooooo');
       
 
       return $form;
