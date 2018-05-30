@@ -15,7 +15,6 @@ class DeskallFormController extends ElementFormController
 
 	public function finished()
     {
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt",'ci');
     	if ($this->element->RedirectPageID > 0){
     		$redirectPage = DataObject::get_by_id(SiteTree::class,$this->element->RedirectPageID);
     		if ($redirectPage){
