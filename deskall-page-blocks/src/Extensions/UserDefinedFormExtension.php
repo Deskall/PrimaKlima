@@ -56,6 +56,7 @@ class UserDefinedFormExtension extends DataExtension
     }
 
     public function updateFormActions($actions){
+        print_r($actions);
     	foreach ($actions as $action){
     		$action->addExtraClass('uk-button');
             $action->addExtraClass('dk-button-icon')->setUseButtonTag(true)
