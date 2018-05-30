@@ -52,6 +52,7 @@ SilverStripe\Admin\LeftAndMain:
 DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
     - UserFormExtension
+  email_template_directory: deskall-page-blocks/templates/emails/
 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   allow_unbound_recipient_fields: true
