@@ -123,4 +123,30 @@ class FormBlock extends ElementForm
        
         return $form;
     }
+
+    public function Link($action = null)
+    {
+        $current = Controller::curr();
+
+        if ($action === 'finished') {
+            if ($this->isChildren()){
+              return Controller::join_links(
+                  $current->Link(),
+                  'children',
+                  $this->owner->ID,
+                  $this->owner->Parent()->getOwnerPage()->ID,
+                  'finished'
+              );
+            }
+            else{
+              return Controller::join_links(
+                  $current->Link(),
+                  'finished'
+              );
+            }
+            
+        }
+
+        return parent::Link($action);
+    }
 }
