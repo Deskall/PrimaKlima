@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
