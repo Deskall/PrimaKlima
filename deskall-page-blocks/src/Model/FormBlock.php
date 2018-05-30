@@ -54,7 +54,8 @@ class FormBlock extends ElementForm
 
    private static $controller_class = ElementFormControllerExtension::class;
 
-   public function updateCMSFields(FieldList $fields){
+   public function getCMSFields(){
+    $fields = parent::getCMSFields();
     $fields->removeByName('Layout');
     $fields->removeByName('TextLayout');
     $fields->removeByName('RedirectPageID');
@@ -71,6 +72,8 @@ class FormBlock extends ElementForm
       $fields->removeByName('FormOptions');
       $fields->removeByName('Recipients');
      }
+
+     return $fields;
    
    }
 
