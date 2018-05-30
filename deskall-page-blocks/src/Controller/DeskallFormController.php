@@ -6,7 +6,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\View\Requirements;
 
-class ElementFormControllerExtension extends ElementFormController
+class DeskallFormController extends ElementFormController
 {
 
 	 private static $allowed_actions = [
