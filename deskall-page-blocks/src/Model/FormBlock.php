@@ -36,7 +36,7 @@ class FormBlock extends ElementForm
   ];
 
    private static $has_one = [
-   	'RedirectPage' => SiteTree::class
+    'RedirectPage' => SiteTree::class
    ];
 
     private static $block_layouts = [
@@ -97,7 +97,19 @@ class FormBlock extends ElementForm
         }
 
         $form = $controller->Form();
-        $form->setFormAction(
+        if ($this->isChildren()){
+          $form->setFormAction(
+              Controller::join_links(
+                  $current->Link(),
+                  'children',
+                  $this->owner->ID,
+                  $this->owner->ParentID,
+                  'Form'
+              )
+          );
+        }
+        else{
+           $form->setFormAction(
             Controller::join_links(
                 $current->Link(),
                 'element',
@@ -106,21 +118,9 @@ class FormBlock extends ElementForm
             )
         );
 
+        }
+       
        
         return $form;
-    }
-
-    public function Link($action = null)
-    {
-        $current = Controller::curr();
-
-        if ($action === 'finished') {
-            return Controller::join_links(
-                $current->Link(),
-                'finished'
-            );
-        }
-
-        return parent::Link($action);
     }
 }
