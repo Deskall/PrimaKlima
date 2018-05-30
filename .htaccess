@@ -106,4 +106,8 @@ ExpiresByType image/svg+xml "access plus 1 year"
  RequestHeader unset If-Modified-Since
  RequestHeader unset If-None-Match
  FileETag None
+<<<<<<< HEAD
 </IfModule>
+=======
+</IfModule>
+>>>>>>> waldenergie

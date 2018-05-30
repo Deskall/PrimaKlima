@@ -165,7 +165,11 @@ class ImageExtension extends Extension
 
             // If methode slide we calculate the ration
 
+<<<<<<< HEAD
+            $ratio = ($slide->ImageID > 0) ? $slide->Image()->getWidth() / $slide->Image()->getHeight() : 1;
+=======
             $ratio = ($slide->Image()->ID > 0) ? $slide->Image()->getWidth() / $slide->Image()->getHeight() : 1;
+>>>>>>> waldenergie
             $MaxHeight = $slide->Parent()->MaxHeight;
             $MinHeight = $slide->Parent()->MinHeight;
 
