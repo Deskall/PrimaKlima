@@ -66,4 +66,4 @@ SilverStripe\CMS\Controllers\ContentController:
   extensions:
     - DeskallContentControllerExtension
   url_handlers:
-    'element/$ID/$OTHERID!': 'handleChildren'
+    'element/$ID!/$OTHERID!': 'handleChildren'
