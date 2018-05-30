@@ -127,9 +127,10 @@ class FormBlock extends ElementForm
     public function Link($action = null)
     {
         $current = Controller::curr();
-
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","action:".$action."\n",FILE_APPEND);
         if ($action === 'finished') {
             if ($this->isChildren()){
+               file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt","isChildren:"."\n",FILE_APPEND);
               return Controller::join_links(
                   $current->Link(),
                   $this->owner->Parent()->getOwnerPage()->ID,
