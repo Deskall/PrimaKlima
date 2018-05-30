@@ -129,11 +129,20 @@ class FormBlock extends ElementForm
         $current = Controller::curr();
 
         if ($action === 'finished') {
-           
+            if ($this->isChildren()){
+              return Controller::join_links(
+                  $current->Link(),
+                  $this->owner->Parent()->getOwnerPage()->ID,
+                  'finished'
+              );
+            }
+            else{
               return Controller::join_links(
                   $current->Link(),
                   'finished'
               );
+            }
+            
         }
 
         return parent::Link($action);
