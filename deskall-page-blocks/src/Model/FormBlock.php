@@ -101,7 +101,7 @@ class FormBlock extends ElementForm
           $form->setFormAction(
               Controller::join_links(
                   $current->Link(),
-                  'children',
+                  'element',
                   $this->owner->ID,
                   $this->owner->Parent()->getOwnerPage()->ID,
                   'Form'
@@ -127,23 +127,23 @@ class FormBlock extends ElementForm
     public function Link($action = null)
     {
         $current = Controller::curr();
-        //if ($action === 'finished') {
+        if ($action === 'finished') {
             if ($this->isChildren()){
               return Controller::join_links(
-                  $current->Link(),
+                  str_replace('element','children',$current->Link()),
                   $this->owner->Parent()->getOwnerPage()->ID,
-                  $action
+                  'finished'
               );
             }
             else{
               return Controller::join_links(
                   $current->Link(),
-                  $action
+                  'finished'
               );
             }
             
-       // }
+        }
 
-        //return parent::Link($action);
+        return parent::Link($action);
     }
 }
