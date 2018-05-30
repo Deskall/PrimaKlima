@@ -103,7 +103,7 @@ class FormBlock extends ElementForm
                   $current->Link(),
                   'children',
                   $this->owner->ID,
-                  $this->owner->ParentID,
+                  $this->owner->Parent()->getOwnerPage()->ID,
                   'Form'
               )
           );
