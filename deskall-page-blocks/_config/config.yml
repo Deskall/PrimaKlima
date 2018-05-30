@@ -61,9 +61,3 @@ SilverStripe\UserForms\Control\UserDefinedFormController:
 SilverStripe\Forms\FormField:
   extensions:
     - 'DeskallFormFieldExtension'
-
-SilverStripe\CMS\Controllers\ContentController:
-  extensions:
-    - ElementContentControllerExtension
-  url_handlers:
-    'element/$ID!': 'handleElement'
