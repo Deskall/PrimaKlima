@@ -17,6 +17,11 @@ DNADesign\Elemental\Models\BaseElement:
     - Linkable
     - Collapsable
 
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - ElementContentControllerExtension
+  url_handlers:
+    'element/$ID!': 'handleElement'
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
