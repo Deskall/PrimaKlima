@@ -101,7 +101,7 @@ class FormBlock extends ElementForm
           $form->setFormAction(
               Controller::join_links(
                   $current->Link(),
-                  'children',
+                  'element',
                   $this->owner->ID,
                   $this->owner->Parent()->getOwnerPage()->ID,
                   'Form'
@@ -132,8 +132,6 @@ class FormBlock extends ElementForm
             if ($this->isChildren()){
               return Controller::join_links(
                   $current->Link(),
-                  'children',
-                  $this->owner->ID,
                   $this->owner->Parent()->getOwnerPage()->ID,
                   'finished'
               );
