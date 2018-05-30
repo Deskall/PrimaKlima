@@ -48,7 +48,7 @@ SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - deskall-page-blocks/css/block_editor.css
 
-DeskallUserForm:
+FormBlock:
   email_template_directory: deskall-page-blocks/templates/emails/
 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
