@@ -82,11 +82,6 @@ class DeskallPageExtension extends DataExtension
     	parent::onBeforeWrite();
     }
 
-    public function onAfterPublish(){
-
-        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','ici');
-    }
-
       /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
