@@ -10,7 +10,8 @@ Page:
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    #- Deskall\SEO\SEOSiteConfigExtension
+    - Deskall\SEO\SEOSiteConfigExtension
+    
 # Example of how to exclude extra page types from showing the SEO tab:
 Deskall\SEO\SeoObjectExtension:
   excluded_page_types:
