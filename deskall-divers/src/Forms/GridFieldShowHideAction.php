@@ -36,6 +36,8 @@ class GridFieldShowHideAction implements GridField_ColumnProvider, GridField_Act
     {
         if(!$record->canEdit()) return;
 
+        if(!$record->canActivate()) return;
+
         if ($record->isVisible){
             $field = GridField_FormAction::create(
                 $gridField,

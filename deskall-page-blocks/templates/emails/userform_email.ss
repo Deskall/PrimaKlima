@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -14,6 +15,7 @@
 	.logo img{max-width: 150px;height:auto;}
 	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%}
 	.content table,table.body-wrap,table.footer-wrap,table.head-wrap{width:100%}
+	.body-wrap .container{background-color:#FFFFFF;margin-bottom:15px;box-shadow:0 0 15px #666;}
 	a{color:#666}
 	.btn,.social .soc-btn{color:#FFF;text-align:center;font-weight:700;text-decoration:none}
 	.btn{background-color:#007327;padding:10px 16px;margin-right:10px;cursor:pointer;display:inline-block;float:right;margin-top:20px}
@@ -72,16 +74,19 @@
 		div[class=column]{width:auto!important;float:none!important}
 		table.social div[class=column]{width:auto!important}
 	}
-	.uk-clearfix:before{content:""; display: table-cell; }
-	.uk-clearfix:after{content: ""; display: table; clear: both; }
+	.uk-clearfix{clear: both; float: left; width: 100%;}
 	[class*='uk-float-']{max-width:100%;}
 	.uk-float-right{float:right;}
 	.uk-float-left{float:left;}
-	</style>
+	.uk-text-bold{font-weight: bolder; } 
+	.uk-text-small{font-size: 0.875rem; line-height: 1.5; }
+	.uk-heading-divider {margin: 10px 0; border-bottom: 1px solid #ccc; float: left; width: 100%;}
+	.uk-text-large {font-size: 1.5rem; line-height: 1.5; }
 
+	</style>
 </head>
 
-<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<body bgcolor="#EEEEEE" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 	<!-- HEADER -->
 	<table class="head-wrap">
 		<tbody>
@@ -92,7 +97,7 @@
 						<table>
 							<tbody>
 								<tr>
-									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="{$AbsoluteBaseURL}/themes/standard/img/logo.png" style="max-width:200px;height:auto;" border="0" alt="$SiteConfig.Title"/></a></a></td>
+									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="$AbsoluteBaseURL/themes/standard/img/logo.png" style="max-width:200px;height:auto;" border="0" alt="$SiteConfig.Title"/></a></a></td>
 								</tr>
 								<% if $Header %>
 								<tr><td class="header-text">
@@ -130,7 +135,16 @@
 						</table>
 					</div>
 					<div class="content">
-						$Body
+						$Body.RAW
+
+						<% if not $HideFormData %>
+							<dl>
+								<% loop $Fields %>
+									<dt><strong><% if $Title %>$Title<% else %>$Name<% end_if %></strong></dt>
+									<dd style="margin: 4px 0 14px 0">$FormattedValue</dd>
+								<% end_loop %>
+							</dl>
+						<% end_if %>
 					</div>
 
 

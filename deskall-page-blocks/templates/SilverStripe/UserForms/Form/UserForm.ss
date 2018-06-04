@@ -17,6 +17,9 @@
 <% else %>
     <div class="userform-fields">
         <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
+        <!-- TO DO : make a field with template and automatic link to any form -->
+        <div class="dk-text-content uk-width-1-1 uk-margin-small"><label class="acceptance"><input type="checkbox" name="acceptance" required /> Sie erklären sich damit einverstanden, dass ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der <a href="/unternehmen/datenschutzerklaerung" title="Datenschutzerklärung Seite" target="_blank">Datenschutzerklärung</a>. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt. </label>
+        </div>
     </div>
 <% end_if %>
 

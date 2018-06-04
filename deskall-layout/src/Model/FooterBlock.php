@@ -41,6 +41,7 @@ class FooterBlock extends LayoutBlock{
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
+        $fields->removeByName('Layout');
 
 		return $fields;
 	}
