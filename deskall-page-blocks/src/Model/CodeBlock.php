@@ -6,17 +6,18 @@ use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TextareaField;
 
 class CodeBlock extends BaseElement
 {
     private static $icon = 'font-icon-code';
     
-    private static $controller_template = 'BlockHolder';
+    private static $controller_template = 'DefaultHolder';
 
     private static $controller_class = BlockController::class;
 
     private static $db = [
-        'Script' => 'Text',
+        'Script' => 'HTMLText',
         'Position' => 'Varchar(255)'
     ];
 
@@ -44,7 +45,9 @@ class CodeBlock extends BaseElement
             $fields->removeByName('CallToActionLink');
             $fields->removeByName('Layout');
             $fields->removeByName('TitleAndDisplayed');
-            $fields->FieldByName('Root.Main.Script')->setDescription(_t(__CLASS__.'.ScriptLabel','Bitte Kopieren Sie hier die Scripts ohne "<></>" tags'));
+            $fields->removeByName('Script');
+            $fields->addFieldToTab('Root.Main', TextareaField::create('Script','Script')->setDescription(_t(__CLASS__.'.ScriptLabel','Bitte Kopieren Sie hier die Scripts mit "<script></script>" tags')));            
+
             $fields->addFieldToTab('Root.Main',DropdownField::create('Position',_t(__CLASS__.'.ScriptPosition','Script Position'), $this->getTranslatedSourceFor(__CLASS__,'block_positions')));
 
         });
@@ -57,6 +60,10 @@ class CodeBlock extends BaseElement
              $this->isVisible = 0;
         }
        
+    }
+
+    public function canActivate(){
+        return false;
     }
 
 

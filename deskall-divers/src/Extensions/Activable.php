@@ -24,4 +24,8 @@ class Activable extends DataExtension
     	$this->owner->write();
     }
 
+
+    public function canActivate(){
+        return true;
+    }
 }

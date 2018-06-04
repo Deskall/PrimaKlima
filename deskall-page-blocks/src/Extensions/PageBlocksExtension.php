@@ -9,7 +9,6 @@ class PageBlocksExtension extends DataExtension {
 		parent::requireDefaultRecords();
 		foreach (Page::get() as $page){
 			$page->checkLead();
-			$page->publishRecursive();
 		}
 	}
 

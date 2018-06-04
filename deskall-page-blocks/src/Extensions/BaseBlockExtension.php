@@ -62,6 +62,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'ActionBlock',
         'ShareBlock',
         'SitemapBlock',
+        'CodeBlock',
         'DuplicateBlock',
         'VirtualBlock'
     ];

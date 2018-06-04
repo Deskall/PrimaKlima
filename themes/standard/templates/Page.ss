@@ -21,7 +21,7 @@
 
     <% if BodyScripts %>
       <% loop BodyScripts %>
-      <script>$Script</script>
+      $Script
       <% end_loop %>
     <% end_if %>
     $SiteConfig.GoogleAnalyticsCode
