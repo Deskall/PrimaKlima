@@ -30,8 +30,6 @@ class SiteConfigPublishingEngine extends DataExtension
         $url = Director::absoluteBaseUrl()."/themes/standard/css/main.min.css";
 
         $req = curl_init($url);
-        curl_setopt($req, CURLOPT_POST, true);
-        curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
         curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
         $data = curl_exec($req);
     }

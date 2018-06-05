@@ -33,10 +33,6 @@ class DeskallStaticCacheFullBuildJob extends Job
     {
         parent::setup();
         $this->URLsToProcess = $this->getAllLivePageURLs();
-        ob_start():
-        print_r($this->URLsToProcess);
-        $result = ob_get_clean();
-        file_put_contents('log.txt', $result);
         $this->URLsToCleanUp = [];
         $this->totalSteps = ceil(count($this->URLsToProcess) / self::config()->get('chunk_size'));
         $this->addMessage(sprintf('Building %s URLS', count($this->URLsToProcess)));
@@ -50,16 +46,20 @@ class DeskallStaticCacheFullBuildJob extends Job
     {
         $chunkSize = self::config()->get('chunk_size');
         $count = 0;
+        $ProcessedURLs = [];
+        $URLsToProcess = $this->getAllLivePageURLs();
         foreach ($this->URLsToProcess as $url => $priority) {
             if (++$count > $chunkSize) {
                 break;
             }
             $meta = Publisher::singleton()->publishURL($url, true);
             if (!empty($meta['success'])) {
-                $this->ProcessedURLs[$url] = $url;
-                unset($this->URLsToProcess[$url]);
+                $ProcessedURLs[$url] = $url;
+                unset($URLsToProcess[$url]);
             }
         }
+        $this->ProcessedURLs = $ProcessedURLs;
+        $this->URLsToProcess = $URLsToProcess;
         if (empty($this->URLsToProcess)) {
             $trimSlashes = function ($value) {
                 return trim($value, '/');

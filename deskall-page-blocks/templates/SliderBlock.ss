@@ -3,13 +3,15 @@
     <ul class="uk-slideshow-items" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
         <% loop ActiveSlides %>
         <li>
+            <% if VideoID %>
+            <video src="$Video.URL"  autoplay loop muted playslinline data-uk-cover></video>
+            <% else %>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
                 <% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Image.Width" height="$ImageHeight" data-uk-cover /><% else %>$Image.Slides($ID,$Title)<% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
-            <div class="dk-slide-text-container uk-position-relative">
-                <div class="uk-position-center">
+            <% end_if %>
+            <div class="dk-slide-text-container uk-position-relative uk-overlay $Top.Background">
                     <div class="uk-container">
-                        <div class="uk-text-center">
                             <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
                             <% if Title %><h2 class="$Top.TitleAlign">$Title</h2><% end_if %>
                             <div class="uk-text-lead uk-visible@s $Top.TextAlign  $Top.TextColumns">$Content</div>
@@ -17,10 +19,7 @@
                             <% if LinkableLinkID > 0 %>
                                 <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
                             <% end_if %>
-                        </div>
-                    </div>
                 </div>
-               
             </div>
         </li>
         <% end_loop %>

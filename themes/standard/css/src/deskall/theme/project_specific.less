@@ -39,11 +39,8 @@
 //
 // Colors
 //
-
-
 @global-link-color:                             #007327;
 @global-link-hover-color:                       #007327;
-
 @global-inverse-color:                          #fff;
 @global-border:                                 #ccc;
 @global-emphasis-inverse-color:  				@white-background;
@@ -51,41 +48,22 @@
 //
 // NAV
 // 
-
-
 @subnav-item-color:                             @white-background;
 @subnav-pill-item-hover-background:             transparent;
 @subnav-pill-item-hover-color:                  @white-background;
 @subnav-pill-item-active-background:            transparent;
 @subnav-pill-item-active-color:                 @white-background;
 @toggle-mobile-menu-button-color:               @white-background;
+
 //
 //FORMS
 //
 @form-background:                               @white-background;
 @form-background-inverse:                       @global-background;
 
+//SLIDER
+@slider-title-font-size:                        2.5rem;
+@slider-title-margin-bottom:                    50px;
 
 
 //CUSTOM CSS
-
-.slider-font{
-	h2{
-		@media (min-width:@breakpoint-large){
-			font-size: @h1-size;
-		}
-		margin-bottom:50px;
-	}
-	*{
-		color:@white-background;
-	}
-}
-.dk-slide-text-container .uk-text-lead{
-	@media (min-width:@breakpoint-medium){
-		max-width: 75%;
-		margin:auto;
-	}
-}
-.read-more-font{
-	border:none;
-}
