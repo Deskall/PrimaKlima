@@ -10,15 +10,20 @@
                 <% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Image.Width" height="$ImageHeight" data-uk-cover /><% else %>$Image.Slides($ID,$Title)<% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
             <% end_if %>
-            <div class="dk-slide-text-container uk-position-relative uk-overlay $Top.Background">
+            <div class="dk-slide-text-container uk-position-relative uk-overlay uk-height-1-1 uk-padding-remove-horizontal $Top.Background">
                     <div class="uk-container">
-                            <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
-                            <% if Title %><h2 class="$Top.TitleAlign">$Title</h2><% end_if %>
-                            <div class="uk-text-lead uk-visible@s $Top.TextAlign  $Top.TextColumns">$Content</div>
-                            <% if Effect == "parallax" %></div><% end_if %>
-                            <% if LinkableLinkID > 0 %>
-                                <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-                            <% end_if %>
+                        <div class="$Top.TextPosition $Top.TextBackground $Top.TextWidth <% if Top.TextOpacity %>uk-overlay<% end_if %>">
+                            <div class="uk-padding">
+                                <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
+                                <% if Title %><h2 class="$Top.TitleAlign">$Title</h2><% end_if %>
+                                <div class="uk-text-lead uk-visible@s $Top.TextAlign  $Top.TextColumns">$Content</div>
+                                <% if Effect == "parallax" %></div><% end_if %>
+                                <% if LinkableLinkID > 0 %>
+                                    <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+                                <% end_if %>
+                            </div>
+                        </div>
+                        <div></div>
                 </div>
             </div>
         </li>
