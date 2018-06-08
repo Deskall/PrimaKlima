@@ -170,7 +170,7 @@ class ListItem extends DataObject
 
     public function ImageThumbnail(){
         $o = new DBHTMLText();
-        $html = ($this->Image() && $this->Image()->exists()) ? (($this->Image()->getExtension() == "svg" ) ? '<img src="'.$this->Image()->URL.'" width="250" height="200" />' : '<img src="'.$this->Image()->Fill(250,200)->URL.'" />') : _t(__CLASS__.'.NoBild','(keine)');
+        $html = ($this->Image() && $this->Image()->exists()) ? (($this->Image()->getExtension() == "svg" ) ? '<img src="'.$this->Image()->URL.'" width="150" height="100" />' : '<img src="'.$this->Image()->ScaleWidth(150)->URL.'" />') : _t(__CLASS__.'.NoBild','(keine)');
         $o->setValue($html);
         return $o;
     }

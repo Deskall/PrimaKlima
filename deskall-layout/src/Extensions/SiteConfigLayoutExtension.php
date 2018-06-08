@@ -304,7 +304,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function onBeforeWrite(){
-    parent::onBeforeWrite();
+    
     $this->owner->populateDefaultsColors();
     $this->owner->HeaderBackground = "#".$this->owner->HeaderBackground;
     $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
@@ -313,7 +313,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->FooterBackground = "#".$this->owner->FooterBackground;
     $this->owner->H1FontColor = "#".$this->owner->H1FontColor;
     $this->owner->MobileNaviHoverFontColor = "#".$this->owner->MobileNaviHoverFontColor;
-
+    parent::onBeforeWrite();
   }
 
 
@@ -369,6 +369,7 @@ class SiteConfigLayoutExtension extends DataExtension
       file_put_contents($fullpath, "\n".".uk-active .menu-title-".$c->Code.'{border-color:#'.$c->Color.'!important;}',FILE_APPEND);
       /*** Css class for Background Overlays **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.'.dk-overlay:after{background-color:fade(#'.$c->Color.',50%);}'
+        ."\n".'.'.$c->Code.'.uk-overlay{background-color:fade(#'.$c->Color.',50%);}'
         ."\n".'.'.$c->Code.'.dk-overlay .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->FontColor.'!important;}'
         ."\n".'.'.$c->Code.'.dk-overlay *{color:#'.$c->FontColor.'!important;}',FILE_APPEND);
     }
@@ -381,7 +382,7 @@ class SiteConfigLayoutExtension extends DataExtension
   public function getBackgroundColors(){
         $colors = $this->owner->Colors();
         $source = [];
-        $source['uk-section-default'] = [
+        $source['no-bg'] = [
                 'Title' => _t(__CLASS__.'.noColor','Keine Farbe'),
                 'HTML' => '<div class="option-html background">
             <p>'._t(__CLASS__.'.noColor','Keine Farbe').'</p>

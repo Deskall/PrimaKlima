@@ -11,12 +11,8 @@
 
 	.dk-slide-text-container{
 		.slider-font;
-		margin-top:@header-menu-collapsed-height;
-		height:~"calc(100% - @{header-menu-collapsed-height})";
-		@media (min-width:@breakpoint-medium){
-			margin-top:@header-menu-height;
-			height:~"calc(100% - @{header-menu-height})";
-		}
+		height:100%;
+		
 	}
 	.uk-text-lead.with-padding{
 		padding:10px;
@@ -26,6 +22,23 @@
 		@media (min-width:@breakpoint-large){
 			padding: 40px;
 		}
+	}
+	
+	picture img{
+		min-height:100%;
+		min-width:100%;
+		max-width:none;
+	}
+	picture {
+		z-index: -2;
+	}
+	.slider-overlay{
+		height: 100%;
+	    position: absolute;
+	    opacity: 0.5;
+	    width: 100%;
+	    top: 0;
+	    z-index: -1;
 	}
 }
 

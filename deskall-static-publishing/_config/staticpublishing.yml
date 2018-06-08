@@ -27,3 +27,7 @@ ListItem:
   extensions:
     - PublishableBlock
     - BlockPublishingEngine
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SiteConfigPublishingEngine

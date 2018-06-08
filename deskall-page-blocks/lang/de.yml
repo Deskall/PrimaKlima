@@ -134,7 +134,7 @@ de:
     effects_scale: 'Bild grossieren'
   CodeBlock:
     BlockType: 'Code - Plugin'
-    CodeBlockScriptLabel: 'Bitte Kopieren Sie hier die Scripts ohne "<></>" tags'
+    CodeBlockScriptLabel: 'Bitte Kopieren Sie hier die Scripts mit "<script></script>" tags'
     CodeBlockScriptPosition: 'Script Position'
     PLURALNAME: 'Code blocks'
     PLURALS:

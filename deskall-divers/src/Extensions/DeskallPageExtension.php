@@ -30,6 +30,7 @@ class DeskallPageExtension extends DataExtension
     }
 
     public function updateCMSFields(FieldList $fields){
+                  
         if ($this->owner->ShowInMenus){
             $field = OptionsetField::create('ShowInMainMenu',_t(__CLASS__.'.ShowInMainMenuLabel','In welchem Menu sollt diese Seite anzeigen ?'), $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
             $fields->insertAfter($field,'MenuTitle');
@@ -81,6 +82,17 @@ class DeskallPageExtension extends DataExtension
     	
     	parent::onBeforeWrite();
     }
+
+
+    /**
+     * The only URL belonging to this object is it's own URL.
+     */
+    public function urlsToCache()
+    {
+        return [Director::absoluteURL(substr($this->getOwner()->Link(),0,strpos($this->getOwner()->Link(),'?'))) => 0];
+    }
+
+
 
       /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){

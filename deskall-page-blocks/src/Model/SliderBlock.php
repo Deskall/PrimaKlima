@@ -31,6 +31,7 @@ class SliderBlock extends BaseElement
     private static $controller_class = BlockController::class;
 
     private static $db = [
+        'Type' => 'Varchar(255)',
         'Animation' => 'Varchar(255)',
         'Autoplay' => 'Boolean(1)',
         'Nav' => 'Varchar(255)',
@@ -59,7 +60,20 @@ class SliderBlock extends BaseElement
         'Slides',
     ];
 
-     private static $block_text_alignments = [
+    private static $block_types = [
+        'video' =>  [
+            'value' => 'video',
+            'title' => 'Video',
+            'icon' => '/deskall-page-blocks/images/icon-video.svg'
+        ],
+        'image' =>  [
+            'value' => 'Image',
+            'title' => 'Bild',
+            'icon' => '/deskall-page-blocks/images/icon-image.svg'
+        ]
+    ];
+
+    private static $block_text_alignments = [
         'uk-text-left' =>  [
             'value' => 'uk-text-left',
             'title' => 'Links Ausrichtung',
@@ -166,7 +180,7 @@ class SliderBlock extends BaseElement
 
     private static $plural_name = 'Slideshow';
 
-    private static $description = 'Bilder als Slide angezeigen.';
+    private static $description = 'Bilder oder Videos als Slide angezeigen.';
 
     public function getCMSFields()
     {
@@ -183,9 +197,13 @@ class SliderBlock extends BaseElement
             $fields->removeByName('Animation');
             $fields->removeByName('MinHeight');
             $fields->removeByName('MaxHeight');
+            $fields->removeByName('Type');
 
             if ($this->ID == 0){
-                $fields->addFieldToTab('Root.Main',LabelField::create('LabelField',_t(__CLASS__.'.SlideCopyHelpText','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider')));
+                $fields->addFieldsToTab('Root.Main',[
+                     HTMLOptionsetField::create('Type',_t(__CLASS__.'.Type','Typ'), $this->stat('block_types')),
+                     LabelField::create('LabelField',_t(__CLASS__.'.SlideCopyHelpText','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider'))
+                 ]);
 
             }
             if ($this->Slides()->count() == 0){
@@ -208,7 +226,7 @@ class SliderBlock extends BaseElement
 
            
             $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
-          //      HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->stat('block_layouts')),
+               
                 HTMLOptionsetField::create('Height',_t(__CLASS__.'.Heights','Höhe'),$this->stat('block_heights')),
                 HTMLOptionsetField::create('Nav',_t(__CLASS__.'.Controls','Kontrols'), $this->stat('controls'))
                 )->setTitle(_t(__CLASS__.'.SlideLayout','Slide Format'))->setName('SlideLayout')

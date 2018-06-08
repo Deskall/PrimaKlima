@@ -148,7 +148,7 @@ fr:
     block_positions_body: 'Avant la balise </body>'
     block_positions_head: 'Dans la balise <head>'
     block_positions_normal: 'à la position du bloc sur la page'
-    CodeBlockScriptLabel: 'Copier ici le code sans les balises "<script></script>"'
+    CodeBlockScriptLabel: 'Copier ici le code avec les balises "<script></script>"'
     CodeBlockScriptPosition: 'Inserer le code...'
   DNADesign\Elemental\Forms\HistoricalVersionedGridFieldItemRequest:
     BUTTONREVERTDESC: 'Publier cette ligne sur le site brouillon'

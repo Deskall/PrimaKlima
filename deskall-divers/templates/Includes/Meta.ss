@@ -24,6 +24,6 @@ $MetaTags(false)
 
 <% if headScripts %>
 	<% loop headScripts %>
-	<script>$Script</script>
+	$Script
 	<% end_loop %>
 <% end_if %>

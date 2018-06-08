@@ -7,7 +7,7 @@ use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\CMS\Model\SiteTree;
-
+use SilverStripe\Assets\File;
 
 class Slide extends DataObject
 {
@@ -21,7 +21,8 @@ class Slide extends DataObject
 
     private static $has_one = [
         'Parent' => SliderBlock::class,
-        'Image' => Image::class
+        'Image' => Image::class,
+        'Video' => File::class
     ];
         
 
@@ -41,6 +42,7 @@ class Slide extends DataObject
 
     private static $owns = [
         'Image',
+        'Video'
     ];
 
     private static $summary_fields = [
@@ -69,6 +71,7 @@ class Slide extends DataObject
         $fields->removeByName('SliderID');
         $fields->removeByName('ParentID');
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
+        $fields->dataFieldByName('Video')->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.Main',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
         $fields->addFieldToTab('Root.Main',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
         $fields->FieldByName('Root.Main.Content')->setRows(3);
