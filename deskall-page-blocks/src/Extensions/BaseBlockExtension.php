@@ -191,6 +191,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         }
     }
 
+    public function getAnchorTitle(){
+        return $this->owner->Title;
+    }
+
     public function getFolderName(){
 
         $parent = $this->owner->Parent()->getOwnerPage();
