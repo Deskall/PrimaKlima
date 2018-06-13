@@ -17,6 +17,7 @@ DNADesign\Elemental\Models\BaseElement:
     - Linkable
     - Collapsable
 
+
 DNADesign\Elemental\ElementalEditor:
   extensions:
     - DeskallElementalEditorExtension
@@ -48,7 +49,9 @@ SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - deskall-page-blocks/css/block_editor.css
 
-FormBlock:
+DNADesign\ElementalUserForms\Model\ElementForm:
+  extensions:
+    - UserFormExtension
   email_template_directory: deskall-page-blocks/templates/emails/
   block_default_userforms_css: true
   block_default_userforms_js: true
@@ -63,9 +66,3 @@ SilverStripe\UserForms\Control\UserDefinedFormController:
 SilverStripe\Forms\FormField:
   extensions:
     - 'DeskallFormFieldExtension'
-
-SilverStripe\CMS\Controllers\ContentController:
-  extensions:
-    - DeskallContentControllerExtension
-  url_handlers:
-    'children/$ID!/$OTHERID!': 'handleChildren'
