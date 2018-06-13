@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	$(".flatpickr").flatpickr({
 		dateFormat: "d.m.Y",
-        minDate: new Date().fp_incr(2),
         locale: {
           weekdays: {
             shorthand: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
