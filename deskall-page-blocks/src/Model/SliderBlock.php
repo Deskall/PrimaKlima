@@ -9,6 +9,7 @@ use SilverStripe\Forms\LabelField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\NumericField;
+use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
@@ -33,18 +34,14 @@ class SliderBlock extends BaseElement
     private static $controller_class = BlockController::class;
 
     private static $db = [
-        'Type' => 'Varchar(255)',
+        'SlideType' => 'Varchar(255)',
         'Animation' => 'Varchar(255)',
         'Autoplay' => 'Boolean(1)',
         'Nav' => 'Varchar(255)',
         'Height' => 'Varchar(255)',
         'MinHeight' => 'Varchar(255)',
-        'MaxHeight' => 'Varchar(255)',
-        'TextPosition' => 'Varchar(255)',
-        'TextBackground' => 'Varchar(255)',
-        'TextWidth' => 'Varchar(255)',
-        'TextOffset' => 'Varchar(255)',
-        'TextOpacity' => 'Varchar(255)'
+        'MaxHeight' => 'Varchar(255)'
+     
     ];
 
     private static $has_one = [
@@ -74,111 +71,20 @@ class SliderBlock extends BaseElement
             'icon' => '/deskall-page-blocks/images/icon-video.svg'
         ],
         'image' =>  [
-            'value' => 'Image',
+            'value' => 'image',
             'title' => 'Bild',
             'icon' => '/deskall-page-blocks/images/icon-image.svg'
         ]
     ];
 
-    private static $block_text_positions = [
-        'uk-position-bottom-left' =>  [
-            'value' => 'uk-position-bottom-left',
-            'title' => 'Bottom left',
-            'icon' => '/deskall-page-blocks/images/icon-text-bottom-left.svg'
-        ],
-        'uk-position-bottom-center' =>  [
-            'value' => 'uk-position-bottom-center',
-            'title' => 'Bottom center',
-            'icon' => '/deskall-page-blocks/images/icon-text-bottom-center.svg'
-        ],
-        'uk-position-bottom-right' =>  [
-            'value' => 'uk-position-bottom-right',
-            'title' => 'Bottom right',
-            'icon' => '/deskall-page-blocks/images/icon-text-bottom-right.svg'
-        ],
-        'uk-position-center-left' =>  [
-            'value' => 'uk-position-center-left',
-            'title' => 'Center left',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-left.svg'
-        ],
-        'uk-position-center' =>  [
-            'value' => 'uk-position-center',
-            'title' => 'Center',
-            'icon' => '/deskall-page-blocks/images/icon-text-center.svg'
-        ],
-        'uk-position-center-right' =>  [
-            'value' => 'uk-position-center-right',
-            'title' => 'Center right',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-right.svg'
-        ],
-        'uk-position-top-left' =>  [
-            'value' => 'uk-position-top-left',
-            'title' => 'Top left',
-            'icon' => '/deskall-page-blocks/images/icon-text-top-left.svg'
-        ],
-        'uk-position-top-center' =>  [
-            'value' => 'uk-position-top-center',
-            'title' => 'Top center',
-            'icon' => '/deskall-page-blocks/images/icon-text-top-center.svg'
-        ],
-        'uk-position-top-right' =>  [
-            'value' => 'uk-position-top-right',
-            'title' => 'Top right',
-            'icon' => '/deskall-page-blocks/images/icon-text-top-right.svg'
-        ]
-       
-       
-    ];
 
-    private static $block_text_alignments = [
-        'uk-text-left' =>  [
-            'value' => 'uk-text-left',
-            'title' => 'Links Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
-        ],
-        'uk-text-right' => [
-            'value' => 'uk-text-right',
-            'title' => 'Rechts Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
-        ],
-        'uk-text-center' =>  [
-            'value' => 'uk-text-center',
-            'title' => 'Mittel Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
-        ],
-        'uk-text-justify' =>  [
-            'value' => 'uk-text-justify',
-            'title' => 'Justify Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
-        ]
-    ];
-
-    private static $block_text_widths = [
-        'uk-width-1-1 uk-width-1-5@m' => '20%',
-        'uk-width-1-1 uk-width-1-4@m' => '25%', 
-        'uk-width-1-1 uk-width-1-3@m' => '33.33%', 
-        'uk-width-1-1 uk-width-1-2@m' => '50%',
-        'uk-width-1-1' => 'Voll Breite',
-        'uk-width-auto' => 'auto Breite'
-    ];
-
-
-    private static $block_text_offsets = [
-        'no-offset' => 'Keine',
-        'uk-position-small' => 'klein Offset', 
-        'uk-position-medium' => 'medium Offset', 
-        'uk-position-large' => 'gross Offset'
-    ];
 
 
     private static $defaults = [
         'Layout' => 'slideshow',
         'FullWidth' => 1,
         'MinHeight' => '250',
-        'Height' => 'viewport',
-        'TextAlign' => 'uk-text-left',
-        'TitleAlign' => 'uk-text-left',
-        'TextPosition' => 'uk-position-center'
+        'Height' => 'viewport'
     ];
 
     private static $block_layouts = [
@@ -275,14 +181,19 @@ class SliderBlock extends BaseElement
             $fields->removeByName('MinHeight');
             $fields->removeByName('TextBackground');
             $fields->removeByName('MaxHeight');
-            $fields->removeByName('Type');
+            $fields->removeByName('SlideType');
+            $fields->removeByName('BackgroundImage');
+            $fields->removeByName('TextLayout');
+
 
             if ($this->ID == 0){
                 $fields->addFieldsToTab('Root.Main',[
-                     HTMLOptionsetField::create('Type',_t(__CLASS__.'.Type','Typ'), $this->stat('block_types')),
+                     HTMLOptionsetField::create('SlideType',_t(__CLASS__.'.Type','Typ'), $this->stat('block_types')),
                      LabelField::create('LabelField',_t(__CLASS__.'.SlideCopyHelpText','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider'))
                  ]);
-
+            }
+            else{
+                $fields->addFieldToTab('Root.Main', ReadonlyField::create('SlideType',_t(__CLASS__.'.Type','Typ'))); 
             }
             if ($this->Slides()->count() == 0){
                 $referent = new GroupedDropdownField("ReferentID", _t(__CLASS__.'.CopySlides',"Slides kopieren nach"), $source = $this->getReferentSource());
@@ -301,11 +212,7 @@ class SliderBlock extends BaseElement
                 $fields->addFieldToTab('Root.Main',$slidesField);
             }
 
-            $fields->FieldByName('Root.LayoutTab.TextLayout')->push(HTMLDropdownField::create('TextBackground',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'));
-            $fields->FieldByName('Root.LayoutTab.TextLayout')->push(CheckboxField::create('TextOpacity',_t(__CLASS__.'.TextOpacity','Hintergrund leicht transparent ?')));
-           $fields->FieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('TextPosition',_t(__CLASS__.'.TextPosition','Text Position'),$this->stat('block_text_positions')));
-           $fields->FieldByName('Root.LayoutTab.TextLayout')->push(DropdownField::create('TextWidth',_t(__CLASS__.'.TextWidth','TextBreite'),$this->getTranslatedSourceFor(__CLASS__,'block_text_widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
-           $fields->FieldByName('Root.LayoutTab.TextLayout')->push(DropdownField::create('TextOffset',_t(__CLASS__.'.TextOffset','Text Offset'),$this->getTranslatedSourceFor(__CLASS__,'block_text_offset'))->setEmptyString(_t(__CLASS__.'.OffsetLabel','Offset hinzufügen')));
+
 
             $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
                 // HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Layout','Layout'),$this->stat('block_layouts')),
@@ -408,12 +315,6 @@ class SliderBlock extends BaseElement
         $entities = [];
         foreach($this->stat('animations') as $key => $value) {
           $entities[__CLASS__.".animations_{$key}"] = $value;
-        }
-        foreach($this->stat('block_text_widths') as $key => $value) {
-          $entities[__CLASS__.".block_text_widths_{$key}"] = $value;
-        }
-        foreach($this->stat('block_text_offsets') as $key => $value) {
-          $entities[__CLASS__.".block_text_offsets_{$key}"] = $value;
         }
 
         return $entities;

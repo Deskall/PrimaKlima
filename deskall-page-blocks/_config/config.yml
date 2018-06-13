@@ -50,6 +50,8 @@ SilverStripe\Admin\LeftAndMain:
 
 FormBlock:
   email_template_directory: deskall-page-blocks/templates/emails/
+  block_default_userforms_css: true
+  block_default_userforms_js: true
 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   allow_unbound_recipient_fields: true
