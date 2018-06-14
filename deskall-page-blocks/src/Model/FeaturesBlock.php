@@ -112,6 +112,29 @@ class FeaturesBlock extends BaseElement
         ]
     ];
 
+    private static $block_layouts = [
+        'left' => [
+            'value' => 'left',
+            'title' => 'Links',
+            'icon' => '/deskall-page-blocks/images/icon-text-left.svg'
+        ],
+        'right' => [
+            'value' => 'right',
+            'title' => 'Rechts',
+            'icon' => '/deskall-page-blocks/images/icon-text-right.svg'
+        ],
+        'under' => [
+            'value' => 'under',
+            'title' => 'Unten',
+            'icon' => '/deskall-page-blocks/images/icon-text-under.svg'
+        ],
+        'above' => [
+            'value' => 'above',
+            'title' => 'Oben',
+            'icon' => '/deskall-page-blocks/images/icon-text-above.svg'
+        ],
+    ];
+
 
     private static $table_name = 'FeaturesBlock';
 
@@ -138,6 +161,8 @@ class FeaturesBlock extends BaseElement
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
                 ->setRows(5);
             $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
+
+            $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
             
             $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
                 HTMLOptionsetField::create('FeaturesTextAlign',_t(__CLASS__.'.FeaturesTextAlignment','Features Textausrichtung'),$this->stat('features_text_alignments')),
