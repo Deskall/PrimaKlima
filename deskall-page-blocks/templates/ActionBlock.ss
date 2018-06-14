@@ -70,7 +70,7 @@
 <% end_if %>
 
 <% if InteractionType == "toggle" %>
-<div id="toggle-container-{$ID}">
+<div id="toggle-container-{$ID}" hidden>
 	<% if Title and ShowTitle %><h3>$Title</h3><% end_if %>
 	<% include TextBlock %>      
 </div>
