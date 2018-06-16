@@ -98,6 +98,13 @@ class Slide extends DataObject
         return $this->Parent()->getPage();
     }
 
+    public function onAfterPublish(){
+        if ($this->Parent()){
+            $this->Parent()->publishSingle();
+        }
+        $this->getPage()->publishSingle();
+    }
+
     /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
