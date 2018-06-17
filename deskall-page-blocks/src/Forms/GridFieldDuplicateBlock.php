@@ -119,13 +119,13 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 					
 				}
 				
-				$newBlock = $block->duplicate(false);
+				$newBlock = $block->duplicate();
 				$newBlock->ParentID = $page->ElementalAreaID;
 			
 			
 				$newBlock->write();
 
-				$newBlock->DuplicateChildrens($block);
+				// $newBlock->DuplicateChildrens($block);
 
 				return $grid->getForm()->getController()->redirectBack('admin/pages/edit/show/'.$pageid);
 			}
