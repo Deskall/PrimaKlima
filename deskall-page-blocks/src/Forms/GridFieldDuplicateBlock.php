@@ -119,7 +119,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 					
 				}
 				
-				$newBlock = $block->duplicate();
+				$newBlock = $block->duplicate(false);
 				$newBlock->ParentID = $page->ElementalAreaID;
 			
 			
