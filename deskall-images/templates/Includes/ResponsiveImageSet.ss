@@ -1,4 +1,4 @@
-<picture <% if $uikitAttr %> $uikitAttr<% end_if %> class="uk-flex">
+<picture <% if $uikitAttr %> $uikitAttr<% end_if %>>
 	<%-- video tag is needed for IE9 support - see https://scottjehl.github.io/picturefill/ --%>
 	<!--[if IE 9]><video style="display: none;"><![endif]-->
 	<% loop $Sizes %>
