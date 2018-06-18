@@ -20,13 +20,15 @@ class Linkable extends DataExtension
     }
 
     public function onAfterDuplicate($original, $doWrite = true){
-    	$link = $original->LinkableLink();
-        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt',$original->ClassName." ".$original->ID);
-
-    	$newLink = $link->duplicate();
-        file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', $newLink->ID);
-    	$this->owner->LinkableLinkID = $newLink->ID;
-    	$this->owner->write();
+        if ($original->LinkableLinkID > 0){
+            $link = $original->LinkableLink();
+            file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt',$original->ClassName." ".$original->ID);
+            $newLink = $link->duplicate();
+            file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', $newLink->ID);
+            $this->owner->LinkableLinkID = $newLink->ID;
+            $this->owner->write();
+        }
+    	
     }
 
 }
