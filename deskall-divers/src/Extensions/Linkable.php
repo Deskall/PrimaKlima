@@ -21,7 +21,8 @@ class Linkable extends DataExtension
 
     public function onAfterDuplicate($doWrite = true, $relations = false){
     	$link = $this->owner->LinkableLink();
-    	$newLink = $link->duplicate();
+    	$newLink = $link->duplicate(true,true);
+        file_put_contents('log.txt', $newLink->ID);
     	$this->owner->LinkableLinkID = $newLink->ID;
     	$this->owner->write();
     }
