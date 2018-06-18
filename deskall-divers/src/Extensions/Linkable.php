@@ -20,10 +20,10 @@ class Linkable extends DataExtension
     }
 
     public function onAfterDuplicate($doWrite = true, $relations = false){
-    	$link = $this->LinkableLink();
+    	$link = $this->owner->LinkableLink();
     	$newLink = $link->duplicate();
-    	$this->LinkableLinkID = $newLink->ID;
-    	$this->write();
+    	$this->owner->LinkableLinkID = $newLink->ID;
+    	$this->owner->write();
     }
 
 }
