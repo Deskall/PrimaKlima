@@ -19,11 +19,12 @@ class Linkable extends DataExtension
         $fields->addFieldToTab('Root.Main', LinkField::create('LinkableLinkID', _t(__CLASS__.'.CTA', 'Link')));
     }
 
-    public function onAfterDuplicate($origin,$doWrite, $relations){
-    	$link = $origin->LinkableLink();
+    public function duplicate($doWrite = true, $relations = false){
+    	$new = parent::duplicate();
+    	$link = $this->LinkableLink();
     	$newLink = $link->duplicate();
-    	$this->owner->LinkableLinkID = $newLink->ID;
-    	$this->owner->write();
+    	$new->LinkableLinkID = $newLink->ID;
+    	$new->write();
     }
 
 }
