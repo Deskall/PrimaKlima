@@ -12,7 +12,8 @@ silverstripe.log
 log.txt
 /googlesitemaps
 .htaccess
-
+/mysite/
+mysite/
 *.log
 *.cache
 
