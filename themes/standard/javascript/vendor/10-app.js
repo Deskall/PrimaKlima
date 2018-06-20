@@ -52,7 +52,6 @@ $(document).ready(function(){
         }
     });
 });
-
 //Recaptcha validation
 $(document).ready(function(){
 	if ($(".g-recaptcha").length > 0){

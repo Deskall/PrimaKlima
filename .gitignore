@@ -29,4 +29,4 @@ log.txt
 themes/standard/css/main.css
 themes/standard/css/main.min.css
 themes/standard/javascript/vendor/10-app.js
-themes/standard/javascript/vendor/10-app.js
+/themes/standard/javascript/vendor/10-app.js
