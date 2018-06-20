@@ -9,6 +9,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\File;
+use Bummzack\SortableFile\Forms\SortableUploadField;
 
 class DownloadBlock extends BaseElement
 {
@@ -29,7 +30,7 @@ class DownloadBlock extends BaseElement
         'Files' => File::class
     ];
 
-    private static $many_many_extra_fields = [
+    private static $many_many_extraFields = [
         'Files' => ['SortOrder' => 'Int']
     ];
 
@@ -121,7 +122,7 @@ class DownloadBlock extends BaseElement
 
         $fields->addFieldToTab('Root.Main',CompositeField::create(
             TextField::create('DownloadsTitle',_t(__CLASS__.'.DownloadsTitle','Downloads Area Titel')),
-            UploadField::create('Files',_t(__CLASS__.'.Files','Dateien'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())
+            SortableUploadField::create('Files',_t(__CLASS__.'.Files','Dateien'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())
         )->setTitle(_t(__CLASS__.'.Files','Dateien'))->setName('FilesFields'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('FilesColumns',_t(__CLASS__.'.FilesInColumns','Dateien in mehreren Spalten'),$this->stat('files_columns')),

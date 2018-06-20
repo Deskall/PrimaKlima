@@ -85,6 +85,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 	 *
 	 */
 	public function handleDuplicate($grid, $request) {
+
 		$id   = $request->param('ID');
 		$pageid = $request->param('PAGEID');
 		$recordClass = $grid->getForm()->record->ClassName;
@@ -118,6 +119,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 					throw new Exception('Diese Seite war nicht gefunden');
 					
 				}
+				file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', $page->ID);
 				
 				$newBlock = $block->duplicate();
 				$newBlock->ParentID = $page->ElementalAreaID;
@@ -162,7 +164,16 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 			if ($page->ElementalAreaID > 0){
 				$blocks = array();
 				foreach ($page->ElementalArea()->Elements() as $block) {
-					$blocks[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
+					if ($block->ClassName == "ParentBlock"){
+						$underblocks = [];
+						foreach ($block->Elements()->Elements() as $underblock) {
+						$underblocks[$underblock->ID] = $underblock->singleton($underblock->ClassName)->getType(). " > ".$underblock->NiceTitle();
+						}
+						$blocks[$block->ID] = ['title' => $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle(), 'children' => $underblocks];
+					}
+					else{
+						$blocks[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
+					}
 				}
 				//build the page unique sitetree strucuture
 				$pageTree = $page->NestedTitle(4," > ");
