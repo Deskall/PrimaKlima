@@ -142,7 +142,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 
 		GridFieldExtensions::include_requirements();
 		
-
+		NestedGrou
 		$blockfield = GroupedDropdownField::create('Block', '', $this->getBlockTree());
 		$blockfield->addExtraClass('no-change-track');
 
@@ -164,15 +164,11 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 			if ($page->ElementalAreaID > 0){
 				$blocks = array();
 				foreach ($page->ElementalArea()->Elements() as $block) {
+					$blocks[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
 					if ($block->ClassName == "ParentBlock"){
-						$underblocks = [];
 						foreach ($block->Elements()->Elements() as $underblock) {
-						$underblocks[$underblock->ID] = $underblock->singleton($underblock->ClassName)->getType(). " > ".$underblock->NiceTitle();
+						$blocks[$underblock->ID] = "  ".$block->NiceTitle(). " > ".$underblock->singleton($underblock->ClassName)->getType(). " > ".$underblock->NiceTitle();
 						}
-						$blocks[$block->ID] = ['title' => $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle(), 'children' => $underblocks];
-					}
-					else{
-						$blocks[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
 					}
 				}
 				//build the page unique sitetree strucuture
