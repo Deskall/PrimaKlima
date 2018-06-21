@@ -142,7 +142,6 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 
 		GridFieldExtensions::include_requirements();
 		
-		NestedGrou
 		$blockfield = GroupedDropdownField::create('Block', '', $this->getBlockTree());
 		$blockfield->addExtraClass('no-change-track');
 

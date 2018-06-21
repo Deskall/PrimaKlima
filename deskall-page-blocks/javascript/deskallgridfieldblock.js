@@ -104,7 +104,8 @@
                     var path = window.location.pathname;
                     //if not in page but in parent block
                     if (path.indexOf("/edit/show/") == - 1){
-                        var page = path.substr(path.indexOf("/edit/EditForm/") + 15);
+                        var urlsegment = path.substr(path.indexOf("/edit/EditForm/") + 15);
+                        var page = urlsegment.substr(0, urlsegment.indexOf("/"));
                     }
                     else{
                         var page = path.substr(path.indexOf("/edit/show/") + 11);
