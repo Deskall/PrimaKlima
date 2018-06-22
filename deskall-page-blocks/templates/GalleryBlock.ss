@@ -17,7 +17,7 @@
 		            <ul class="uk-slider-items $PicturesPerLine" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;">
 		            	<% loop OrderedImages %>
 		                <li class="uk-flex uk-flex-middle uk-flex-center">
-				            <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img src="<% if $getExtension == "svg" %>$URL<% else %>$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)" width="$Up.PictureWidth" height="$Up.PictureHeight"  class="uk-width-1-1"></a>
+				            <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img src="<% if $getExtension == "svg" %>$URL<% else %>$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1"></a>
 				        </li>
 				     	<% end_loop %>
 		            </ul>
@@ -41,7 +41,7 @@
 		<div class="uk-flex-center <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid-small" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;">
 		    <% loop OrderedImages %>
 		    	<div class="uk-flex uk-flex-middle uk-flex-center">
-					 <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img src="<% if $getExtension == "svg" %>$URL<% else %>$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)" width="$Up.PictureWidth" height="$Up.PictureHeight"  class="uk-width-1-1"></a>
+					 <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img src="<% if $getExtension == "svg" %>$URL<% else %>$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1"></a>
 				</div>
 			<% end_loop %>
 		</div>

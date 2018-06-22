@@ -20,7 +20,7 @@
 <% else %>
 	<div class="uk-cover-container uk-width-1-1 $Height <% if Height == "viewport" %>uk-height-viewport<% end_if %> <% if Background %>$Background dk-overlay <% end_if %>">
 		<% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
-			<% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$AltTag($Image.Description,$Image.Name,$Title)" title="$TitleTag($Image.Name,$Title)" width="$Image.Width" height="$ImageHeight" data-uk-cover /><% else %>$Image.Banners(600,450,$ImageHeight)<% end_if %>
+			<% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$AltTag($Image.Description,$Image.Name,$Title)" title="$TitleTag($Image.Name,$Title)" data-uk-cover /><% else %>$Image.Banners(600,450,$ImageHeight)<% end_if %>
 		<% if Effect == "kenburns" %></div><% end_if %>
 		<div class="uk-container uk-position-relative uk-overflow-auto <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %> $Height">
 		    <div class="$Layout uk-padding-small">

@@ -4,7 +4,7 @@
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
 				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" >
-					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" width="350" height="$HeightForWidth(350,$ContentImage.Width, $ContentImage.Height)" >
+					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)">
 				</a>
 			</div>
 			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" || Layout == "above" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
@@ -14,13 +14,13 @@
 				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description">
 					<% if $FullWidth %>
 						<% if ContentImage.getExtension == "svg" %>
-							<img src="$ContentImage.URL" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" width="2500" height="$HeightForWidth(2500,$ContentImage.Width, $ContentImage.Height)">
+							<img src="$ContentImage.URL" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)">
 						<% else %>
 							$ContentImage.Content($ContentImage.ID,2500,$Title)
 						<% end_if %>
 					<% else %>
 						<% if ContentImage.getExtension == "svg" %>
-							<img src="$ContentImage.URL" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" width="1200" height="$HeightForWidth(1200,$ContentImage.Width, $ContentImage.Height)" >
+							<img src="$ContentImage.URL" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)">
 						<% else %>
 							$ContentImage.Content($ContentImage.ID,1200,$Title)
 						<% end_if %>
