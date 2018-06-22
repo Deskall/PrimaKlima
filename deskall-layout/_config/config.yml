@@ -1,6 +1,24 @@
 ---
 Name: siteconfiglayout
+After:
+    - '#deskall-divers'
 ---
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - SiteConfigLayoutExtension
+
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css:
+    - deskall-layout/css/layout.css
+
+Color:
+  extensions:
+    - SubObjectPermission
+
+LayoutBlock:
+  extensions:
+    - SubObjectPermission
+
+LayoutLink:
+  extensions:
+    - SubObjectPermission

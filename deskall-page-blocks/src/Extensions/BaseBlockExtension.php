@@ -12,6 +12,7 @@ use SilverStripe\Core\Config\Config;
 use SilverStripe\i18n\i18nEntityProvider;
 use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -20,6 +21,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
         'Layout' => 'Varchar(255)',
+        'TitleAlign' => 'Varchar(255)',
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
@@ -38,6 +40,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'ShowTitle' => 1,
         'Background' => 'uk-section-default',
         'TextAlign' => 'uk-text-left',
+        'TitleAlign' => 'uk-text-left',
         'TextColumns' => '1',
         'AvailableGlobally' => 1,
     ];
@@ -48,7 +51,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'GalleryBlock',
         'BoxBlock',
         'FeaturesBlock',
-        'DNADesign-ElementalUserForms-Model-ElementForm',
+        'ListBlock',
+        'FormBlock',
         'DownloadBlock',
         'LargeImageBlock',
         'ParentBlock',
@@ -58,6 +62,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'ActionBlock',
         'ShareBlock',
         'SitemapBlock',
+        'CodeBlock',
+        'DuplicateBlock',
+        'VirtualBlock'
     ];
 
     private static $children_blocks = [
@@ -66,7 +73,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'GalleryBlock',
         'BoxBlock',
         'FeaturesBlock',
-        'DNADesign-ElementalUserForms-Model-ElementForm',
+        'ListBlock',
+        'FormBlock',
         'DownloadBlock',
         'ParentBlock',
         'MapBlock',
@@ -74,25 +82,19 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'ActionBlock',
         'ShareBlock',
         'SitemapBlock',
+        'DuplicateBlock',
+        'VirtualBlock'
     ];
 
     private static $collapsable_blocks = [
         'TextBlock',  
         'GalleryBlock',
         'BoxBlock',
+        'ListBlock',
         'DownloadBlock',
     ];
 
     private static $icon;
-
-    private static $block_backgrounds = [
-        'uk-section-default' => 'keine Hintergrundfarbe',
-        'uk-section-primary dk-text-hover-primary' => 'primäre Farbe',
-        'uk-section-secondary dk-text-hover-secondary' => 'sekundäre Farbe',
-        'uk-section-muted dk-text-hover-muted' => 'grau',
-        'dk-background-white uk-section-default dk-text-hover-white' => 'weiss',
-        'dk-background-black uk-section-default dk-text-hover-black' => 'schwarz'
-    ];
 
     private static $block_text_alignments = [
         'uk-text-left' =>  [
@@ -148,16 +150,17 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     ];
 
 
-
     public function updateCMSFields(FieldList $fields){
        
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
         $fields->removeByName('TextAlign');
+        $fields->removeByName('TitleAlign');
         $fields->removeByName('TextColumns');
         $fields->removeByName('TextColumnsDivider');
         $fields->removeByName('AvailableGlobally');
+     
         
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
@@ -170,10 +173,11 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         } 
     	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
-            DropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_backgrounds'))->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.')),
+            HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
             UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName())
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),
             HTMLOptionsetField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->stat('block_text_alignments')),
             HTMLOptionsetField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->stat('block_text_columns')),
             $columnDivider = CheckboxField::create('TextColumnsDivider',_t(__CLASS__.'.ShowColumnsBorder','Border zwischen Spalten anzeigen'))
@@ -185,6 +189,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
             $fields->addFieldToTab('Root',$history);
         }
+    }
+
+    public function getAnchorTitle(){
+        return $this->owner->Title;
     }
 
     public function getFolderName(){
@@ -240,6 +248,22 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         return $html;
     }
 
+    public function AltTag($description, $name, $fallback = null){
+        $text = ($description) ? $description : (($fallback) ? $fallback : $name);
+        $text = strip_tags(preg_replace( "/\r|\n/", "", $text ));       
+        return $text;
+    }
+
+    public function TitleTag($name,$fallback = null){
+        $title = ($fallback) ? $fallback : $name;
+        
+        return $title;
+    }
+
+    public function HeightForWidth($width, $ImageWidth, $ImageHeight){
+        return round($width / ($ImageWidth / $ImageHeight) , 0);
+    }
+
 
 
 //Duplicate block with correct elem
@@ -253,17 +277,23 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         }
     }
 
+    public function onAfterPublish(){
+        if ($this->owner->hasMethod('Parent')){
+            $this->owner->Parent()->publishSingle();
+        }
+        $this->owner->getPage()->publishSingle();
+    }
+
 
 
 
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach(Config::inst()->get(__CLASS__,'block_backgrounds') as $key => $value) {
-          $entities[__CLASS__.".block_backgrounds_{$key}"] = $value;
-        }
+
         return $entities;
     }
 
 /************* END TRANLSATIONS *******************/
+
 }

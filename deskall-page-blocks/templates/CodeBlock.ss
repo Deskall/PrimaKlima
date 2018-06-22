@@ -1,1 +1,1 @@
-<script>$Script</script>
+$Script

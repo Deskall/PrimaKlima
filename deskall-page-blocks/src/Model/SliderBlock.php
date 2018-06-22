@@ -35,8 +35,8 @@ class SliderBlock extends BaseElement
         'Autoplay' => 'Boolean(1)',
         'Nav' => 'Varchar(255)',
         'Height' => 'Varchar(255)',
-        'MinHeight' => 'Int',
-        'MaxHeight' => 'Int'
+        'MinHeight' => 'Varchar(255)',
+        'MaxHeight' => 'Varchar(255)'
     ];
 
     private static $has_one = [
@@ -59,12 +59,37 @@ class SliderBlock extends BaseElement
         'Slides',
     ];
 
+     private static $block_text_alignments = [
+        'uk-text-left' =>  [
+            'value' => 'uk-text-left',
+            'title' => 'Links Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+        ],
+        'uk-text-right' => [
+            'value' => 'uk-text-right',
+            'title' => 'Rechts Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+        ],
+        'uk-text-center' =>  [
+            'value' => 'uk-text-center',
+            'title' => 'Mittel Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+        ],
+        'uk-text-justify' =>  [
+            'value' => 'uk-text-justify',
+            'title' => 'Justify Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
+        ]
+    ];
+
 
     private static $defaults = [
         'Layout' => 'slideshow',
         'FullWidth' => 1,
         'MinHeight' => '250',
-        'Height' => 'viewport'
+        'Height' => 'viewport',
+        'TextAlign' => 'uk-text-left',
+        'TitleAlign' => 'uk-text-left'
     ];
 
     private static $block_layouts = [
@@ -192,8 +217,8 @@ class SliderBlock extends BaseElement
             $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
                 CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','Autoplay')),
                 DropdownField::create('Animation',_t(__CLASS__.'.Animation','Animation'), $this->getTranslatedSourceFor(__CLASS__,'animations')),
-                NumericField::create('MinHeight',_t(__CLASS__.'.MinHeight','min. Höhe')),
-                NumericField::create('MaxHeight',_t(__CLASS__.'.MaxHeight','max. Höhe'))
+                TextField::create('MinHeight',_t(__CLASS__.'.MinHeight','min. Höhe')),
+                TextField::create('MaxHeight',_t(__CLASS__.'.MaxHeight','max. Höhe'))
                 )->setTitle(_t(__CLASS__.'.SlideSettings','Slide Einstellungen'))->setName('SlideSettings')
             );
        
@@ -252,6 +277,7 @@ class SliderBlock extends BaseElement
                     $this->MaxHeight = 700;
                 break;
                 default:
+                    $this->MaxHeight = 2500;
                     $this->MinHeight =250;
                 break;
             }

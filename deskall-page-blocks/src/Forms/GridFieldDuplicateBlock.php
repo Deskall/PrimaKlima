@@ -85,6 +85,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 	 *
 	 */
 	public function handleDuplicate($grid, $request) {
+
 		$id   = $request->param('ID');
 		$pageid = $request->param('PAGEID');
 		$recordClass = $grid->getForm()->record->ClassName;
@@ -118,6 +119,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 					throw new Exception('Diese Seite war nicht gefunden');
 					
 				}
+				file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt', $page->ID);
 				
 				$newBlock = $block->duplicate();
 				$newBlock->ParentID = $page->ElementalAreaID;
@@ -125,7 +127,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 			
 				$newBlock->write();
 
-				$newBlock->DuplicateChildrens($block);
+				// $newBlock->DuplicateChildrens($block);
 
 				return $grid->getForm()->getController()->redirectBack('admin/pages/edit/show/'.$pageid);
 			}
@@ -139,8 +141,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 	public function getHTMLFragments($grid) {
 
 		GridFieldExtensions::include_requirements();
-		Requirements::javascript('deskall-page-blocks/javascript/gridfieldduplicateblock.js');
-
+		
 		$blockfield = GroupedDropdownField::create('Block', '', $this->getBlockTree());
 		$blockfield->addExtraClass('no-change-track');
 
@@ -163,14 +164,15 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 				$blocks = array();
 				foreach ($page->ElementalArea()->Elements() as $block) {
 					$blocks[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
+					if ($block->ClassName == "ParentBlock"){
+						foreach ($block->Elements()->Elements() as $underblock) {
+						$blocks[$underblock->ID] = "  ".$block->NiceTitle(). " > ".$underblock->singleton($underblock->ClassName)->getType(). " > ".$underblock->NiceTitle();
+						}
+					}
 				}
 				//build the page unique sitetree strucuture
-				$pageTree = $page->Title;
-				$pointerToParent = $page->Parent();
-				while ($pointerToParent->Title){
-					$pageTree = $pointerToParent->Title. " > ".$pageTree;
-					$pointerToParent = $pointerToParent->Parent();
-				}
+				$pageTree = $page->NestedTitle(4," > ");
+			
 				$blockstree[$pageTree] = $blocks;
 			}
 		}

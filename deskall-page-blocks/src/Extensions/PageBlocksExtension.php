@@ -9,12 +9,11 @@ class PageBlocksExtension extends DataExtension {
 		parent::requireDefaultRecords();
 		foreach (Page::get() as $page){
 			$page->checkLead();
-			$page->publishRecursive();
 		}
 	}
 
 	public function updateCMSFields(FieldList $fields){
-		$fields->insertAfter(HeaderField::create('BlockTitle',_t('PAGEBLOCKS.BLOCKSTITLE','Inhaltblöcke'), 3),'MenuTitle');
+		$fields->insertBefore('ElementalArea',HeaderField::create('BlockTitle',_t('PAGEBLOCKS.BLOCKSTITLE','Inhaltblöcke'), 3));
 	}
 
 	public function checkLead(){

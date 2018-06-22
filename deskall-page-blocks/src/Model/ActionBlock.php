@@ -12,7 +12,7 @@ use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class ActionBlock extends BaseElement
 {
-    private static $icon = 'font-icon-link';
+    private static $icon = 'font-icon-plus-circled';
     
     private static $controller_template = 'BlockHolder';
 
@@ -133,8 +133,8 @@ class ActionBlock extends BaseElement
     
     public function fieldLabels($includerelations = true ){
         $labels = parent::fieldLabels($includerelations );
-        $labels['Trigger'] = _t(__CLASS__.'.TriggeringText', 'Text für das Button');
-        $labels['CloseText'] = _t(__CLASS__.'.CloseText', 'Close button text');
+        $labels['Trigger'] = _t(__CLASS__.'.TriggeringText', 'Text der Öffnen-Button');
+        $labels['CloseText'] = _t(__CLASS__.'.CloseText', 'Text der Schließen-Button');
 
         return $labels;
     }
@@ -156,6 +156,7 @@ class ActionBlock extends BaseElement
         $fields->removeByName('Effect');
         $fields->removeByName('ModalScroll');
         $fields->removeByName('Target');
+        $fields->removeByName('Layout');
         //$title = $fields->fieldByName('Root.Main.TitleAndDisplayed');
       //  $fields->removeByName('TitleAndDisplayed');
 
@@ -173,21 +174,21 @@ class ActionBlock extends BaseElement
             DropdownField::create('ButtonPosition',_t(__CLASS__.'.ButtonPosition','Button Ausrichtung'), $this->getTranslatedSourceFor(__CLASS__,'button_alignments')),
             DropdownField::create('ModalSize',_t(__CLASS__.'.ModalSize','Fenster Breite'), $this->getTranslatedSourceFor(__CLASS__,'modal_sizes')),
             $fields->fieldByName('Root.Main.ModalScroll')
-        )->setTitle(_t(__CLASS__.'.ModalLayout','Modal Format'))->setName('ModalLayout'))->displayIf('InteractionType')->isEqualTo('modal')->end());
+        )->setTitle(_t(__CLASS__.'.ModalLayout','Modal Format'))->setName('ModalLayout')));
 
         //DROPDOWNS LAYOUT
         $fields->addFieldToTab('Root.LayoutTab',Wrapper::create(CompositeField::create(
             DropdownField::create('DropdownPosition',_t(__CLASS__.'.DropdownPosition','Dropdown Ausrichtung'), $this->getTranslatedSourceFor(__CLASS__,'dropdown_positions')),
             DropdownField::create('DropdownTrigger',_t(__CLASS__.'.DropdownTrigger','Ereignis auslöst an'), $this->getTranslatedSourceFor(__CLASS__,'dropdown_triggers')),
             CheckboxField::create('DropdownBoundary',_t(__CLASS__.'.DropdownBoundary','Inhalt auf Elternteil beschränken'))
-        )->setTitle(_t(__CLASS__.'.DropdownLayout','Dropdown Format'))->setName('DropdownLayout'))->displayIf('InteractionType')->isEqualTo('dropdown')->end());
+        )->setTitle(_t(__CLASS__.'.DropdownLayout','Dropdown Format'))->setName('DropdownLayout')));
 
         //OFFCANVAS LAYOUT
         $fields->addFieldToTab('Root.LayoutTab',Wrapper::create(CompositeField::create(
             DropdownField::create('OffcanvasPosition',_t(__CLASS__.'.OffcanvasPosition','Offcanvas Position'), $this->getTranslatedSourceFor(__CLASS__,'offcanvas_position')),
             CheckboxField::create('OffcanvasOverlay',_t(__CLASS__.'.OffcanvasOverlay','Offcanvas Overlay')),
             DropdownField::create('Effect',_t(__CLASS__.'.OffcanvasEffect','Offcanvas Effekt'), $this->getTranslatedSourceFor(__CLASS__,'block_effects'))
-        )->setTitle(_t(__CLASS__.'.OffcanvasLayout','Offcanvas Format'))->setName('OffcanvasLayout'))->displayIf('InteractionType')->isEqualTo('offcanvas')->end());
+        )->setTitle(_t(__CLASS__.'.OffcanvasLayout','Offcanvas Format'))->setName('OffcanvasLayout')));
 
         //Scroll et Toogle
         $fields->fieldByName('Root.Main.Target')->displayIf('InteractionType')->isEqualTo('scroll')->orIf('InteractionType')->isEqualTo('toggle');
@@ -200,7 +201,7 @@ class ActionBlock extends BaseElement
         $fields->fieldByName('Root.Main.LinkableLinkID')->hideIf('InteractionType')->isEqualTo('scroll');
         $fields->fieldByName('Root.Main.ContentImage')->hideIf('InteractionType')->isEqualTo('scroll');
         
-        $fields->fieldByName('Root.Main.CloseText')->displayIf('InteractionType')->isEqualTo('modal')->orIf('InteractionType')->isEqualTo('offcanvas')->orIf('InteractionType')->isEqualTo('dropdown');
+      //  $fields->fieldByName('Root.Main.CloseText')->displayIf('InteractionType')->isEqualTo('modal')->orIf('InteractionType')->isEqualTo('offcanvas')->orIf('InteractionType')->isEqualTo('dropdown');
 
         return $fields;
     }
@@ -227,9 +228,6 @@ class ActionBlock extends BaseElement
     /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach($this->stat('block_layouts') as $key => $value) {
-          $entities[__CLASS__.".block_layouts_{$key}"] = $value;
-        }
         foreach($this->stat('block_actions') as $key => $value) {
           $entities[__CLASS__.".block_actions_{$key}"] = $value;
         }

@@ -106,13 +106,13 @@ class BoxBlock extends BaseElement
             'title' => 'Links Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
-        'uk-text-justify uk-text-righ@st' =>  [
+        'uk-text-justify uk-text-right@s' =>  [
             'value' => 'uk-text-justify uk-text-righ@s',
             'title' => 'Rechts Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
         'uk-text-justify uk-text-center@s' => [
-            'value' => 'uk-text-center',
+            'value' => 'uk-text-justify uk-text-center@s',
             'title' => 'Mittel Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
         ],
@@ -145,6 +145,8 @@ class BoxBlock extends BaseElement
             $fields->removeByName('BoxPerLine');
             $fields->removeByName('Effect');
             $fields->removeByName('Layout');
+
+            $fields->FieldByName('Root.Main.HTML')->setRows(5);
                 
             if ($this->ID > 0){
                 $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(

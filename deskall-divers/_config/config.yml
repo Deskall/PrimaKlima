@@ -1,0 +1,37 @@
+---
+Name: deskall-divers
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: deskall-divers
+
+Page:
+  extensions:
+    - DNADesign\Elemental\Extensions\ElementalPageExtension
+    - DeskallPageExtension
+
+PageController:
+  extensions:
+    - DeskallPageControllerExtension
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SiteConfigExtension
+
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css:
+    - deskall-divers/css/custom_admin.css
+  extra_requirements_javascript:
+    - deskall-divers/javascript/lang/de.js
+
+SilverStripe\Security\Member:
+  extensions:
+    - MemberExtension
+
+SilverStripe\ORM\DataObject:
+  extensions:
+    - DeskallTranslatable
+    - RestrictedOption
+
+Sheadawson\Linkable\Models\Link:
+  extensions:
+    - LinkableLinkExtension

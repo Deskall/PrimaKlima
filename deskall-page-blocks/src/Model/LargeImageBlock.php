@@ -20,6 +20,8 @@ class LargeImageBlock extends BannerBlock{
 
     private static $plural_name = 'banners';
 
+    private static $description = 'Banner Bild mit Text und Effekt Möglichkeiten';
+
     private static $controller_template = 'DefaultHolder';
 
     private static $controller_class = BlockController::class;
@@ -40,7 +42,7 @@ class LargeImageBlock extends BannerBlock{
     ];
 
     private static $defaults = [
-        'Layout' => 'uk-position-top-left',
+        'Layout' => 'uk-position-top',
         'Effect' => 'none',
         'Overlay' => 'none',
         'Height' => 'uk-height-medium'
@@ -50,15 +52,9 @@ class LargeImageBlock extends BannerBlock{
 
 
     private static $block_layouts = [
-        "uk-position-top-left" => "Positions the element at the top left.",
-        "uk-position-top-center" => "Positions the element at the top center.",
-        "uk-position-top-right" => "Positions the element at the top right.",
+        "uk-position-top" => "Positions the element at the top",
         "uk-position-center" => "Positions the element vertically centered in the middle.",
-        "uk-position-center-left" => "Positions the element vertically centered on the left.",
-        "uk-position-center-right" => "Positions the element vertically centered on the right.",
-        "uk-position-bottom-left" => "Positions the element at the bottom left.",
-        "uk-position-bottom-center" => "Positions the element at the bottom center.",
-        "uk-position-bottom-right" => "Positions the element at the bottom right."
+        "uk-position-bottom" => "Positions the element at the bottom"
     ];
 
     private static $block_heights = [
@@ -71,7 +67,7 @@ class LargeImageBlock extends BannerBlock{
     private static $effects = [
         'none' => 'kein',
         'fixed' => 'fixed',
-        'ken-burns' => 'Ken Burns',
+        'kenburns' => 'Ken Burns',
         'parallax' => 'parallax' 
     ];
 
@@ -80,8 +76,6 @@ class LargeImageBlock extends BannerBlock{
     	$fields = parent::getCMSFields();
     	$fields->removeByName('RelatedPageID');
         $fields->removeByName('CallToActionLink');
-    	$fields->removeByName('Background');
-        $fields->removeByName('Overlay');
     	$fields->removeByName('BackgroundImage');
         $fields->removeByName('File');
         $fields->removeByName('Layout');
@@ -90,7 +84,7 @@ class LargeImageBlock extends BannerBlock{
         $fields->removeByName('EffectOptions');
         $fields->fieldByName('Root.Main.Image')->setTitle(_t(__CLASS__ . '.Image','Bild'))->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-            OptionsetField::create('Layout',_t(__CLASS__. '.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
+            OptionsetField::create('Layout',_t(__CLASS__. '.Format','vertikale Ausrichtung'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
             OptionsetField::create('Height',_t(__CLASS__. '.Height','Höhe'),$this->getTranslatedSourceFor(__CLASS__,'block_heights')),
             OptionsetField::create('Effect',_t(__CLASS__. '.Effect','Effekt'),$this->getTranslatedSourceFor(__CLASS__,'effects')),
             TextField::create('EffectOptions',_t(__CLASS__. '.EffectOptions','Effekt Optionen'))

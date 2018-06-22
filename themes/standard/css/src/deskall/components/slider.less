@@ -10,14 +10,12 @@
 	min-height:@header-menu-height;
 
 	.dk-slide-text-container{
+		.slider-font;
 		margin-top:@header-menu-collapsed-height;
 		height:~"calc(100% - @{header-menu-collapsed-height})";
 		@media (min-width:@breakpoint-medium){
 			margin-top:@header-menu-height;
 			height:~"calc(100% - @{header-menu-height})";
-		}
-		*{
-			text-shadow:0 0 15px @black-background;
 		}
 	}
 	.uk-text-lead.with-padding{
@@ -29,15 +27,9 @@
 			padding: 40px;
 		}
 	}
-}
-
-.dk-slide-default{
-	height:200px;
-	@media (min-width:@breakpoint-medium){
-		height:250px;
-	}
-	@media (min-width:@breakpoint-large){
-		height:300px;
+	picture img{
+		max-width: none;
+		width:auto;
 	}
 }
 

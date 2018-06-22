@@ -1,8 +1,13 @@
 ---
 Name: deskall-page-blocks
+After:
+    - '#deskall-divers'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-page-blocks
+
+DNADesign\Elemental\Controllers\ElementController:
+  include_default_styles: false
 
 DNADesign\Elemental\Models\BaseElement:
   default_global_elements: true
@@ -11,11 +16,10 @@ DNADesign\Elemental\Models\BaseElement:
     - Activable
     - Linkable
     - Collapsable
-    - PublishParent
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
-    - ElementalEditorExtension
+    - DeskallElementalEditorExtension
 
 Page:
   extensions:
@@ -31,6 +35,14 @@ Box:
   extensions:
     - SubObjectPermission
 
+ListItem:
+  extensions:
+    - SubObjectPermission
+
+Features:
+  extensions:
+    - SubObjectPermission
+
 SilverStripe\UserForms\Form\UserForm:
   extensions:
    - UserDefinedFormExtension
@@ -40,10 +52,8 @@ SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - deskall-page-blocks/css/block_editor.css
 
-DNADesign\ElementalUserForms\Model\ElementForm:
-  email_template_directory: mysite/templates/email/
-  extensions:
-    - UserFormExtension
+FormBlock:
+  email_template_directory: deskall-page-blocks/templates/emails/
 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   allow_unbound_recipient_fields: true
@@ -51,3 +61,13 @@ SilverStripe\UserForms\Model\Recipient\EmailRecipient:
 SilverStripe\UserForms\Control\UserDefinedFormController:
   extensions:
     - UserDefinedFormControllerExtension
+
+SilverStripe\Forms\FormField:
+  extensions:
+    - 'DeskallFormFieldExtension'
+
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - DeskallContentControllerExtension
+  url_handlers:
+    'children/$ID!/$OTHERID!': 'handleChildren'

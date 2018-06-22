@@ -4,18 +4,18 @@
         <% loop ActiveSlides %>
         <li>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
-                <% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Image.Width" height="$ImageHeight" data-uk-cover /><% else %>$Image.Slides(2500,$Title)<% end_if %>
+                <% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)"data-uk-cover /><% else %>$Image.Slides($ID,$Title)<% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
             <div class="dk-slide-text-container uk-position-relative">
                 <div class="uk-position-center">
                     <div class="uk-container">
-                        <div class=" uk-light uk-text-center">
+                        <div class="uk-text-center">
                             <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
-                            <% if Title %><h2>$Title</h2><% end_if %>
-                            <div class="uk-text-lead">$Content</div>
+                            <% if Title %><h2 class="$Top.TitleAlign">$Title</h2><% end_if %>
+                            <div class="uk-text-lead uk-visible@s $Top.TextAlign  $Top.TextColumns">$Content</div>
                             <% if Effect == "parallax" %></div><% end_if %>
                             <% if LinkableLinkID > 0 %>
-                                <% include CallToActionLink c=w,b=primary,pos=$LinkPosition,noMargin=true %>
+                                <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
                             <% end_if %>
                         </div>
                     </div>
@@ -26,12 +26,12 @@
         <% end_loop %>
     </ul>
     <% if Nav == "dots" || Nav == "both" %>
-    <div class="uk-position-bottom-center uk-position-large">
+    <div class="uk-position-bottom-center uk-position-large uk-visible@m">
         <ul class="uk-slideshow-nav uk-dotnav"></ul>
     </div>
     <% end_if %>
     <% if Nav == "controls" || Nav == "both" %>
-            <div class="uk-light">
+            <div class="uk-light uk-visible@m">
                 <a class="uk-slidenav-large uk-position-center-left uk-position-large uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
                 <a class="uk-slidenav-large uk-position-center-right uk-position-large uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
             </div>

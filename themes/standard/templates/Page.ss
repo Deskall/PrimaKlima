@@ -14,14 +14,16 @@
 
     <% if isLive %>
     <script async defer src="$ThemeDir/javascript/main.min.js"></script>
+
     <% else %>
     <script src="$ThemeDir/javascript/main.js"></script>
     <% end_if %>
 
-    <% if headScripts %>
-      <% loop headScripts %>
-      <script>$Script</script>
+    <% if BodyScripts %>
+      <% loop BodyScripts %>
+      $Script
       <% end_loop %>
     <% end_if %>
+    $SiteConfig.GoogleAnalyticsCode
   </body>
 </html>

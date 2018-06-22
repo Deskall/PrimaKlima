@@ -1,10 +1,16 @@
 footer{
-	h3{
-		.strong-font;
-		font-size: @global-font-size;
+	background-color: @footer-background-color;
+	*{
+		.footer-font;
 	}
-	img{
+	h3{
+		font-size: @footer-title-font-size;
+	}
+	.uk-logo{
+		padding:0;
+	}
+	.uk-logo img, .uk-logo svg{
 		height:auto;
-		width:120px;
+		width:@footer-logo-width;
 	}
 }

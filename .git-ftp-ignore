@@ -5,16 +5,21 @@
 /resources/
 /cache/
 /assets/
-/.htaccess
-/composer.lock
-/silverstripe.log
-/googlesitemaps
 
+composer.lock
+silverstripe.log
+/silverstripe.log
+log.txt
+/googlesitemaps
+.htaccess
+/mysite/
+mysite/
 *.log
 *.cache
 
-/mysite/_config.php
-
-themes/standard/css/src/deskall/theme/constants.less
 themes/standard/css/src/deskall/theme/project_specific.less
 themes/standard/css/src/deskall/theme/user_defined.less
+themes/standard/css/src/deskall/theme/colors.less
+themes/standard/css/main.min.css
+themes/standard/css/main.css
+themes/standard/css/src/deskall/theme/fonts.less

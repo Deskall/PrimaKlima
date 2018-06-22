@@ -63,6 +63,7 @@ class Box extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('ParentID');
+        $fields->FieldByName('Root.Main.Content')->setRows(3);
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.Settings',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
         $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
@@ -93,6 +94,13 @@ class Box extends DataObject
 
     public function getPage(){
         return $this->Parent()->getPage();
+    }
+
+    public function onAfterPublish(){
+        if ($this->Parent()){
+            $this->Parent()->publishSingle();
+        }
+        $this->getPage()->publishSingle();
     }
 
 

@@ -8,6 +8,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\CMS\Model\SiteTree;
 
+
 class Slide extends DataObject
 {
 
@@ -70,7 +71,7 @@ class Slide extends DataObject
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.Main',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
         $fields->addFieldToTab('Root.Main',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
-
+        $fields->FieldByName('Root.Main.Content')->setRows(3);
         $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
 
         return $fields;
@@ -95,6 +96,13 @@ class Slide extends DataObject
 
     public function getPage(){
         return $this->Parent()->getPage();
+    }
+
+    public function onAfterPublish(){
+        if ($this->Parent()){
+            $this->Parent()->publishSingle();
+        }
+        $this->getPage()->publishSingle();
     }
 
     /************* TRANLSATIONS *******************/

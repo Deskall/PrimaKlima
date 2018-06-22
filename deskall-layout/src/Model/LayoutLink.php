@@ -7,7 +7,6 @@ use SilverStripe\ORM\FieldType\DBField;
 class LayoutLink extends DataObject{
 
 	private static $db = [
-		'Icon' => 'Varchar(255)',
 		'Type' => 'Varchar(255)'
 	];
 
@@ -22,18 +21,32 @@ class LayoutLink extends DataObject{
 	];
 
 	private static $summary_fields = [
-		'LinkableLink.LinkType' => 'Typ',
-		'LinkableLink.Title' => 'Titel',
-		'LinkableLink.LinkURL' => 'URL',
+		'NiceLinkType',
+		'NiceTitle',
+		'NiceURL'
 	];
 
     function fieldLabels($includerelations = true) {
 	    $labels = parent::fieldLabels($includerelations);
-	 
-	    $labels['DisplayLink'] = _t(__CLASS__.'.Link','Link');
+	 	$labels['NiceLinkType'] = _t(__CLASS__.'.LinkType','Typ');
+	 	$labels['NiceTitle'] = _t(__CLASS__.'.LinkTitle','Titel');
+	 	$labels['NiceURL'] = _t(__CLASS__.'.LinkURL','URL');
+	   // $labels['DisplayLink'] = _t(__CLASS__.'.Link','Link');
 	   
 	 
 	    return $labels;
+	}
+
+	public function NiceLinkType(){
+		return $this->LinkableLink()->getLinkType();
+	}
+
+	public function NiceTitle(){
+		return $this->LinkableLink()->Title;
+	}
+
+	public function NiceURL(){
+		return $this->LinkableLink()->LinkURL;
 	}
 
 	
@@ -42,14 +55,11 @@ class LayoutLink extends DataObject{
 
         $fields->removeByName('ParentID');
         $fields->removeByName('Type');
-        $fields->addFieldToTab('Root.Main',HTMLDropdownField::create('Icon',_t(__CLASS__. '.Icon','Icon'),$this->getSourceIcons())->setEmptyString(_t(__CLASS__. '.IconLabel','Icon hinzufügen')));
+      
         return $fields;
     }
 
-    public function getSourceIcons(){
-        //To do : filter relevant icons
-        return HTMLDropdownField::getSourceIcones();
-    }
+   
 
     public function DisplayLink(){
     	$html = '<div><span>'.$this->LinkableLink()->getLinkType().'</span><span>'.$this->LinkableLink()->Title.'</span><span>'.$this->LinkableLink()->LinkURL.'</span></div>';

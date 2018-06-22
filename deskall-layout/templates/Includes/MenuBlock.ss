@@ -1,10 +1,10 @@
-<div class="$Layout $Width uk-visible@m">
+<div class="$Layout $Width <% if Type != "logo" %><% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %><% end_if %> $Class">
 	<% if Type == "links" %>
-	<ul class="uk-navbar-nav">
+	<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
 		<% if UseMenu %>
-			<% loop Menu.filter('ShowInMainMenu',1) %>
+			<% loop Menu %>
 		    	<li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" title="$Title.XML">$MenuTitle.XML</a>
-		    		<% if Children %>
+		    		<% if Top.ShowSubLevels && Children %>
 		    		<div class="uk-navbar-dropdown uk-margin-remove">
 	                    <ul class="uk-nav uk-navbar-dropdown-nav">
 	                    	<% loop Children %>

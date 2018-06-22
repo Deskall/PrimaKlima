@@ -1,5 +1,5 @@
 
-		<div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+		<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 			$HTML
 		</div>
 		<% if LinkableLinkID > 0 %>
@@ -21,12 +21,12 @@
 					    <% if Image %>
 					    	<% if $Image.getExtension == "svg" %>
 					    	<div class="uk-flex uk-flex-center uk-flex-middle">
-					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" />
+					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"/>
 					    	</div>
 					    	<% else %>
 					    	
-					    		<a href="$Image.getSourceURL" class="dk-lightbox">
-					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" />
+					    		<a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description">
+					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" />
 						    	</a>
 						    
 					    	<% end_if %>
@@ -35,12 +35,12 @@
 					     <% if Image %>
 					    	<% if $Image.getExtension == "svg" %>
 					    	<div class="uk-flex uk-flex-center uk-flex-middle">
-					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" />
+					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" />
 					    	</div>
 					    	<% else %>
 					    	
-					    		<a href="$Image.getSourceURL" class="dk-lightbox">
-					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" />
+					    		<a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description">
+					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" />
 						    	</a>
 						    
 					    	<% end_if %>
@@ -57,12 +57,12 @@
 					     <% if Image %>
 					    	<% if $Image.getExtension == "svg" %>
 					    	<div class="uk-flex uk-flex-center uk-flex-middle">
-					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" />
+					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" />
 					    	</div>
 					    	<% else %>
 					    	
-					    		<a href="$Image.getSourceURL" class="dk-lightbox">
-					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Image.AltTag($Title)" title="$Image.TitleTag($Title)" width="$Up.PictureWidth" height="$Up.PictureHeight" />
+					    		<a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description">
+					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" />
 						    	</a>
 						    
 					    	<% end_if %>

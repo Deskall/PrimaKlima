@@ -10,27 +10,26 @@ class FooterBlock extends LayoutBlock{
 	private static $db = [
 	];
 
-	private static $block_types = [
-		'adresse' => 'Adresse',
-		'links' => 'Links',
-		'content' => 'Inhalt'
-	];
-
     private static $has_many = [
         'Links' => LayoutLink::class
     ];
 
+    private static $block_types = [
+        'address' => 'Adresse',
+        'links' => 'Links',
+        'content' => 'Inhalt',
+        'logo' => 'Logo',
+        'form' => 'Formular'
+    ];
 
-
-	public function NiceTitle(){
-		return parent::NiceTitle();
-	}
-
-	public function Preview(){
+    public function Preview(){
      $Preview = new DBHTMLText();
      $Preview->setValue($this->renderWith(__CLASS__.'_preview'));
      return $Preview;
     }
+
+
+
 
 
     function fieldLabels($includerelations = true) {
@@ -42,8 +41,7 @@ class FooterBlock extends LayoutBlock{
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-
-		$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')),'Title');
+        $fields->removeByName('Layout');
 
 		return $fields;
 	}
@@ -72,17 +70,4 @@ class FooterBlock extends LayoutBlock{
        
         return $link;
     }
-
-/************* TRANLSATIONS *******************/
-    public function provideI18nEntities(){
-        $entities = [];
-
-        foreach($this->stat('block_types') as $key => $value) {
-          $entities[__CLASS__.".block_types_{$key}"] = $value;
-        }
-         
-        return $entities;
-    }
-
-/************* END TRANLSATIONS *******************/
 }

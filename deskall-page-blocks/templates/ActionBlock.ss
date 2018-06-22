@@ -28,10 +28,10 @@
     	<% if ModalSize == "uk-modal-full" %>
     		<% if $ContentImage %>
 	       	<div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" data-uk-grid>
-	            <div class="uk-background-cover uk-first-column" style="background-image: url($ContentImage.URL); box-sizing: border-box; min-height: 100vh; height: 100vh;" data-uk-height-viewport></div>
+	            <div class="uk-background-cover uk-first-column" style="background-image: url($ContentImage.URL);" data-uk-height-viewport></div>
 	            <div class="uk-padding-large" data-uk-overflow-auto data-uk-height-viewport>
 	               <h3 class="uk-modal-title">$Title</h3>
-					<div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>"> 
+					<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>"> 
 						$HTML
 					</div>
 					<button class="uk-button uk-modal-close $ButtonBackground $ButtonPosition dk-margin-responsive" type="button">$CloseText</button>
@@ -40,7 +40,7 @@
 	        <% else %>
 	          	<div class="uk-padding-large" data-uk-overflow-auto data-uk-height-viewport>
 	          		<h3 class="uk-modal-title">$Title</h3>
-	               	<div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>"> 
+	               	<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>"> 
 						
 						$HTML
 					</div>
@@ -70,7 +70,7 @@
 <% end_if %>
 
 <% if InteractionType == "toggle" %>
-<div id="toggle-container-{$ID}">
+<div id="toggle-container-{$ID}" hidden>
 	<% if Title and ShowTitle %><h3>$Title</h3><% end_if %>
 	<% include TextBlock %>      
 </div>
