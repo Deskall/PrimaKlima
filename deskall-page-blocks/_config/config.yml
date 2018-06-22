@@ -39,6 +39,10 @@ ListItem:
   extensions:
     - SubObjectPermission
 
+Features:
+  extensions:
+    - SubObjectPermission
+
 SilverStripe\UserForms\Form\UserForm:
   extensions:
    - UserDefinedFormExtension
