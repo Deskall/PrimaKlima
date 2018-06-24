@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	$(".flatpickr").flatpickr({
-		dateFormat: "d.m.Y",
+    $(".flatpickr").flatpickr({
+        dateFormat: "d.m.Y",
         locale: {
           weekdays: {
             shorthand: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
@@ -50,7 +50,8 @@ $(document).ready(function(){
           scrollTitle: "Zum ƒndern scrollen",
           toggleTitle: "Zum Umschalten klicken",
         }
-	});
+
+    });
 });
 
 //Recaptcha validation

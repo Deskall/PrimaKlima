@@ -10,7 +10,7 @@ use SilverStripe\UserForms\Control\UserDefinedFormController;
 use SilverStripe\UserForms\UserForm;
 use SilverStripe\Control\Controller;
 use DNADesign\ElementalUserForms\Control\ElementFormController;
-
+use SilverStripe\Form\RequiredFields;
 
 class FormBlock extends ElementForm 
 {
@@ -38,6 +38,7 @@ class FormBlock extends ElementForm
    private static $has_one = [
     'RedirectPage' => SiteTree::class
    ];
+
 
     private static $block_layouts = [
         'standard' =>  [
@@ -76,6 +77,13 @@ class FormBlock extends ElementForm
      return $fields;
    
    }
+
+  public function getCMSValidator()
+      {
+          return new RequiredFields([
+              'RedirectPageID'
+          ]);
+      }
 
   public function getType()
   {

@@ -51,23 +51,6 @@ class ImageExtension extends Extension
         'Description' => 'Text'
     ];
 
-    public function AltTag($fallback = null){
-        $text = ($this->owner->Description) ? $this->owner->Description : (($fallback) ? $fallback : $this->owner->Name);
-        $text = strip_tags(preg_replace( "/\r|\n/", "", $text ));
-        $title = ($fallback) ? $fallback : $this->owner->Name;
-       
-        return $text;
-    }
-
-    public function TitleTag($fallback = null){
-        $title = ($fallback) ? $fallback : $this->owner->Name;
-        
-        return $title;
-    }
-
-    public function HeightForWidth($width){
-        return round($width / ($this->owner->getWidth() / $this->owner->getHeight()) , 0);
-    }
 
     public function onAfterUpload(){
 
@@ -112,6 +95,22 @@ class ImageExtension extends Extension
         }
     }
 
+    public function AltTag($fallback = null){
+        $text = ($this->owner->Description) ? $this->owner->Description : (($fallback) ? $fallback : $this->owner->Name);
+        $text = strip_tags(preg_replace( "/\r|\n/", "", $text ));       
+        return $text;
+    }
+
+    public function TitleTag($fallback = null){
+        $title = ($fallback) ? $fallback : $this->owner->Name;
+        
+        return $title;
+    }
+
+    public function HeightForWidth($width){
+        return round($width / ($this->owner->Width / $this->owner->Height) , 0);
+    }
+
     /**
      * Requires the necessary JS and sends the required HTML structure to the
      * template for a responsive image set.
@@ -124,7 +123,7 @@ class ImageExtension extends Extension
      */
     protected function createResponsiveSet($config, $defaultArgs, $set)
     {
-        Requirements::javascript(RESPONSIVE_IMAGES_DIR . '/javascript/picturefill/picturefill.min.js');
+        // Requirements::javascript(RESPONSIVE_IMAGES_DIR . '/javascript/picturefill/picturefill.min.js');
 
         if (!isset($config['arguments']) || !is_array($config['arguments'])) {
             throw new Exception("Responsive set $set does not have any arguments defined in its config.");
@@ -234,7 +233,7 @@ class ImageExtension extends Extension
             $defaultArgs[0] = $config['default_arguments'][0];
             $defaultArgs[1] = $defaultArgs[0] / $ratio;
         }
-        elseif ($set == "overlays"){
+        elseif ($set == "overlays" || $set == "banners"){
             $ratio = $defaultArgs[0] / $defaultArgs[1];
 
             foreach ($config['arguments'] as $query => $args) {

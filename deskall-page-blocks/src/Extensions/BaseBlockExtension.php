@@ -191,6 +191,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         }
     }
 
+    public function getAnchorTitle(){
+        return $this->owner->Title;
+    }
+
     public function getFolderName(){
 
         $parent = $this->owner->Parent()->getOwnerPage();
@@ -208,21 +212,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         }
         parent::onBeforeWrite();
     }
-
-    // /*** Loop recursively until we reach first parent page then publish it *****/
-    // public function onAfterPublish(){
-    //     file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','ici');
-
-    //     if (!$this->owner instanceof SiteTree && !$this->owner instanceof ElementalArea ){
-    //         if ($parent = $this->owner->getPage()){
-    //             while(!$parent instanceof SiteTree){
-    //                 $parent = $parent->getPage();
-    //             }
-    //             $parent->publishRecursive();
-    //             file_put_contents($_SERVER['DOCUMENT_ROOT'].'/log.txt','la',FILE_APPEND);
-    //         }    
-    //     }
-    // }
 
     public function isChildren(){
         return $this->owner->Parent()->OwnerClassName == "ParentBlock";
@@ -259,6 +248,23 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         return $html;
     }
 
+    public function AltTag($description, $name, $fallback = null){
+        $text = ($description) ? $description : (($fallback) ? $fallback : $name);
+        $text = strip_tags(preg_replace( "/\r|\n/", "", $text ));       
+        return $text;
+    }
+
+    public function TitleTag($name,$fallback = null){
+        $title = ($fallback) ? $fallback : $name;
+        
+        return $title;
+    }
+
+    public function HeightForWidth($width, $ImageWidth, $ImageHeight){
+        return round($width / ($ImageWidth / $ImageHeight) , 0);
+    }
+
+
 
 //Duplicate block with correct elem
     public function DuplicateChildrens($original){
@@ -272,7 +278,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
     public function onAfterPublish(){
-        $this->owner->getPage()->publishRecursive();
+        if ($this->owner->hasMethod('Parent')){
+            $this->owner->Parent()->publishSingle();
+        }
+        $this->owner->getPage()->publishSingle();
     }
 
 

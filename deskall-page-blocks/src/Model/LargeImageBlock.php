@@ -20,6 +20,8 @@ class LargeImageBlock extends BannerBlock{
 
     private static $plural_name = 'banners';
 
+    private static $description = 'Banner Bild mit Text und Effekt Möglichkeiten';
+
     private static $controller_template = 'DefaultHolder';
 
     private static $controller_class = BlockController::class;
