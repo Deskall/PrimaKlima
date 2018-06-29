@@ -125,18 +125,18 @@ class BlockPublishingEngine extends DataExtension
         $queue = QueuedJobService::singleton();
         if (!empty($this->toUpdate)) {
             foreach ($this->toUpdate as $queueItem) {
-                $job = new GenerateStaticCacheJob();
+                if ($queueItem){
+                    $job = new GenerateStaticCacheJob();
+                    $jobData = new \stdClass();
+                    $urls = $queueItem->urlsToCache();
+                    ksort($urls);
+                    $jobData->URLsToProcess = $urls;
 
-                $jobData = new \stdClass();
-                $urls = $queueItem->urlsToCache();
-                ksort($urls);
-                $jobData->URLsToProcess = $urls;
-
-                $job->setJobData(0, 0, false, $jobData, [
-                    'Building URLs: ' . var_export(array_keys($jobData->URLsToProcess), true)
-                ]);
-
-                $queue->queueJob($job);
+                    $job->setJobData(0, 0, false, $jobData, [
+                        'Building URLs: ' . var_export(array_keys($jobData->URLsToProcess), true)
+                    ]);
+                    $queue->queueJob($job);
+                }
             }
             $this->toUpdate = array();
         }
