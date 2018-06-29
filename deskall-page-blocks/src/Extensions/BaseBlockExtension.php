@@ -293,7 +293,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         if ($this->owner->hasMethod('Parent')){
             $this->owner->Parent()->publishSingle();
         }
-        $this->owner->getPage()->publishSingle();
+        if ($this->owner->getPage()){
+            $this->owner->getPage()->publishSingle();
+        }
     }
 
 
