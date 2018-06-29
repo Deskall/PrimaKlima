@@ -33,7 +33,7 @@ class PublishableBlock extends DataExtension implements StaticallyPublishable, S
     public function objectsToUpdate($context)
     {
         $list = [];
-        if ($this->getOwner()->isChildren()){
+        if ($this->getOwner() instanceof BaseElement && $this->getOwner()->isChildren()){
             $page = $this->getOwner()->getParentPage();
         }
         else{
