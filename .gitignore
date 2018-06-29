@@ -29,3 +29,9 @@ log.txt
 themes/standard/css/main.css
 themes/standard/css/main.min.css
 silverstripe.log
+
+themes/standard/css/src/deskall/theme/user_defined.less
+
+mysite/_config.php
+
+log.txt
