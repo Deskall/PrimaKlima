@@ -8,7 +8,8 @@ use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 class DeskallElementalEditorExtension extends DataExtension 
 {
     public function updateGetTypes(&$types){
-        if ($this->owner->getArea()->getOwnerPage()->ClassName == "ParentBlock" && $this->owner->getArea()->getOwnerPage()->CollapsableChildren){
+
+        if (is_object($this->owner->getArea()->getOwnerPage()) && $this->owner->getArea()->getOwnerPage()->ClassName == "ParentBlock" && $this->owner->getArea()->getOwnerPage()->CollapsableChildren){
             $allowed = $this->owner->getArea()->getOwnerPage()->stat('allowed_collapsed_blocks');
             foreach ($types as $key => $value) {
                 if (!in_array($key,$allowed)){
@@ -33,7 +34,7 @@ class DeskallElementalEditorExtension extends DataExtension
         ->addComponent(new DeskallGridFieldAddNewMultiClass());
         $gridfield->getConfig()->getComponentByType(DeskallGridFieldAddNewMultiClass::class)->setClasses($types);
         $gridfield->getConfig()->addComponent(new GridFieldShowHideAction());
-        if ($this->owner->getArea()->getOwnerPage()->ClassName == "ParentBlock" && $this->owner->getArea()->getOwnerPage()->CollapsableChildren){
+        if ($this->owner->getArea()->getOwnerPage() && $this->owner->getArea()->getOwnerPage()->ClassName == "ParentBlock" && $this->owner->getArea()->getOwnerPage()->CollapsableChildren){
             $gridfield->getConfig()->addComponent(new GridFieldCollapseUncollapseAction());
         }
         $gridfield->getConfig()->addComponent(new GridFieldDuplicateBlock('before'));

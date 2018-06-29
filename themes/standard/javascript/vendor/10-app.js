@@ -50,7 +50,6 @@ $(document).ready(function(){
           scrollTitle: "Zum ƒndern scrollen",
           toggleTitle: "Zum Umschalten klicken",
         }
-
     });
 });
 

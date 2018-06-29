@@ -217,6 +217,20 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         return $this->owner->Parent()->OwnerClassName == "ParentBlock";
     }
 
+    public function getParentPage(){
+        $parent = $this->owner->Parent();
+        if ($parent->OwnerClassName == "ParentBlock"){
+            $parent = $parent->getOwnerPage()->Elements();
+            if ($parent->OwnerClassName == "ParentBlock"){
+                $parent = $parent->getOwnerPage()->getPage();
+            }
+            else {
+                $parent = $parent->getPage();
+            }
+        }
+        return $parent;
+    }
+
     public function isFirst(){
         if ($this->owner->isChildren()){
             return $this->owner->ID == $this->owner->Parent()->getOwnerPage()->Elements()->Elements()->first()->ID;
@@ -227,8 +241,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     public function NiceTitle(){
         return ($this->owner->Title) ? $this->owner->Title : $this->owner->ID;
     }
-
-
    
 
     public function isFirstMobile(){

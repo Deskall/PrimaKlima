@@ -33,14 +33,19 @@ class PublishableBlock extends DataExtension implements StaticallyPublishable, S
     public function objectsToUpdate($context)
     {
         $list = [];
+        if ($this->getOwner()->isChildren()){
+            $page = $this->getOwner()->getParentPage();
+        }
+        else{
+            $page = $this->getOwner()->getPage();
+        }
         switch ($context['action']) {
             case 'publish':
-                // Trigger refresh of the page itself.
-                $list[] = $this->getOwner()->getPage();
-
-                // Refresh the parent.
-                if ($this->getOwner()->getPage()->ParentID) {
-                    $list[] = $this->getOwner()->getPage()->Parent();
+            // Trigger refresh of the page itself.
+                $list[] = $page;
+            // Refresh the parent.
+                if ($page->ParentID) {
+                    $list[] = $page->Parent();
                 }
 
                 // Refresh related virtual pages.
@@ -54,8 +59,8 @@ class PublishableBlock extends DataExtension implements StaticallyPublishable, S
 
             case 'unpublish':
                 // Refresh the parent
-                if ($this->getOwner()->getPage()->ParentID) {
-                    $list[] = $this->getOwner()->getPage()->Parent();
+                if ($page->ParentID) {
+                    $list[] = $page->Parent();
                 }
                 break;
         }
