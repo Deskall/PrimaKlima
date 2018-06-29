@@ -115,6 +115,13 @@ class SiteConfigLayoutExtension extends DataExtension
     'Colors' => Color::class
   ];
 
+  private static $owns = [
+    'FooterBlocks',
+    'MenuBlocks',
+    'MobileMenuBlocks',
+    'Colors'
+  ];
+
   private static $default_colors = [
     'BodyBackground' => ['Code' => 'BodyBackground', 'FontTitle' => 'Body Hintergrundfarbe','Color' => 'e4e4e4','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 0],
     'PrimaryBackground' => ['Code' => 'PrimaryBackground', 'FontTitle' => 'Hauptfarbe','Color' => '10206B','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
