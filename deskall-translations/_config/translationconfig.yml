@@ -10,3 +10,19 @@ After: '#versionedfiles'
 DNADesign\Elemental\Models\BaseElement:
   extensions:
     - TractorCow\Fluent\Extension\FluentVersionedExtension
+Slide:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentVersionedExtension
+Box:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentVersionedExtension
+Sheadawson\Linkable\Models\Link:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentVersionedExtension
+  translate:
+    - 'Title'
+    - 'URL'
+    - 'Email'
+    - 'Phone'
+
+
