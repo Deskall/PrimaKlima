@@ -74,8 +74,8 @@ class GalleryBlock extends BaseElement
 
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
-
+       
+        $this->beforeUpdateCMSFields(function($fields) {
        
             $fields->removeByName('Images');
             $fields->removeByName('PictureHeight');
@@ -101,8 +101,8 @@ class GalleryBlock extends BaseElement
             
            $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname')),'HTML');
 
-          
-    
+        });
+     $fields = parent::getCMSFields();
       
 
         return $fields;

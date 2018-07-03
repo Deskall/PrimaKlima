@@ -111,24 +111,26 @@ class DownloadBlock extends BaseElement
 
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
-        $fields->removeByName('Files');
-        $fields->removeByName('DownloadsTitle');
-        $fields->removeByName('FilesColumns');
-        $fields->removeByName('FilesTextAlign');
-        $fields->removeByName('Layout');
+        $this->beforeUpdateCMSFields(function($fields) {
         
-        $fields->fieldByName('Root.Main.HTML')->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))->setRows(5);
+            $fields->removeByName('Files');
+            $fields->removeByName('DownloadsTitle');
+            $fields->removeByName('FilesColumns');
+            $fields->removeByName('FilesTextAlign');
+            $fields->removeByName('Layout');
+            
+            $fields->fieldByName('Root.Main.HTML')->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))->setRows(5);
 
-        $fields->addFieldToTab('Root.Main',CompositeField::create(
-            TextField::create('DownloadsTitle',_t(__CLASS__.'.DownloadsTitle','Downloads Area Titel')),
-            SortableUploadField::create('Files',_t(__CLASS__.'.Files','Dateien'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())
-        )->setTitle(_t(__CLASS__.'.Files','Dateien'))->setName('FilesFields'));
-        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-            HTMLOptionsetField::create('FilesColumns',_t(__CLASS__.'.FilesInColumns','Dateien in mehreren Spalten'),$this->stat('files_columns')),
-            HTMLOptionsetField::create('FilesTextAlign',_t(__CLASS__.'.FilesTextAlign','Dateien Textausrichtung'),$this->stat('files_text_alignments'))
-        )->setTitle(_t(__CLASS__.'.FilesLayout','Dateien Layout'))->setName('FilesLayout'));
-        
+            $fields->addFieldToTab('Root.Main',CompositeField::create(
+                TextField::create('DownloadsTitle',_t(__CLASS__.'.DownloadsTitle','Downloads Area Titel')),
+                SortableUploadField::create('Files',_t(__CLASS__.'.Files','Dateien'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())
+            )->setTitle(_t(__CLASS__.'.Files','Dateien'))->setName('FilesFields'));
+            $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+                HTMLOptionsetField::create('FilesColumns',_t(__CLASS__.'.FilesInColumns','Dateien in mehreren Spalten'),$this->stat('files_columns')),
+                HTMLOptionsetField::create('FilesTextAlign',_t(__CLASS__.'.FilesTextAlign','Dateien Textausrichtung'),$this->stat('files_text_alignments'))
+            )->setTitle(_t(__CLASS__.'.FilesLayout','Dateien Layout'))->setName('FilesLayout'));
+        });
+        $fields = parent::getCMSFields();
         return $fields;
     }
 

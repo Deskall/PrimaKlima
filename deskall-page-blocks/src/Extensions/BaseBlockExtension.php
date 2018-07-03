@@ -151,7 +151,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
 
     public function updateCMSFields(FieldList $fields){
-       
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
@@ -166,7 +165,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('Settings');
         $fields->removeByName('ExtraClass');
       
-        $fields->addFieldToTab('Root',new Tab('LayoutTab',_t(__CLASS__.'.LAYOUTTAB','Layout')));
+      
      
         if (Permission::check('ADMIN')){
             $fields->addFieldToTab('Root.LayoutTab',$extracss);
@@ -189,6 +188,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
             $fields->addFieldToTab('Root',$history);
         }
+
+        $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LAYOUTTAB','Layout'));
+    
+       return parent::updateCMSFields($fields);
     }
 
     public function getAnchorTitle(){
