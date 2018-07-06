@@ -183,6 +183,7 @@ class SliderBlock extends BaseElement
             $fields->removeByName('Animation');
             $fields->removeByName('MinHeight');
             $fields->removeByName('MaxHeight');
+            $fields->removeByName('BackgroundImageID');
 
             if ($this->ID == 0){
                 $fields->addFieldToTab('Root.Main',LabelField::create('LabelField',_t(__CLASS__.'.SlideCopyHelpText','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider')));

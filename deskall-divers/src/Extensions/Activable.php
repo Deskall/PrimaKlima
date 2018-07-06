@@ -10,6 +10,10 @@ class Activable extends DataExtension
         'isVisible' => 'Boolean(1)'
     ];
 
+    private static $defaults = [
+        'isVisible' => 1
+    ];
+
     public function updateCMSFields(FieldList $fields){
     	$fields->removeByName('isVisible');
     }
