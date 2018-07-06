@@ -10,7 +10,7 @@ use SilverStripe\UserForms\Control\UserDefinedFormController;
 use SilverStripe\UserForms\UserForm;
 use SilverStripe\Control\Controller;
 use DNADesign\ElementalUserForms\Control\ElementFormController;
-use SilverStripe\Form\RequiredFields;
+use SilverStripe\Forms\RequiredFields;
 
 class FormBlock extends ElementForm 
 {
