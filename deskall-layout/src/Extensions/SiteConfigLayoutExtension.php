@@ -328,6 +328,7 @@ class SiteConfigLayoutExtension extends DataExtension
   public function onAfterWrite(){
     $this->owner->WriteUserDefinedConstants();
     $this->owner->WriteBackgroundClasses();
+    $this->owner->RegenerateCss();
     parent::onAfterWrite();
   }
 
@@ -385,6 +386,14 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->extend('updateWriteBackgroundClasses', $fullpath);
   }
 
+  public function RegenerateCss(){
+    $url = Director::AbsoluteBaseURL('themes/standard/css/main.min.css');
+    $req = curl_init($url);
+    curl_setopt($req, CURLOPT_POST, true);
+    curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
+    curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+    curl_exec($req);
+  }
 
   public function getBackgroundColors(){
         $colors = $this->owner->Colors();
