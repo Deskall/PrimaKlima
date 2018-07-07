@@ -5,8 +5,9 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
+use g4b0\SearchableDataObjects\Searchable;
 
-class TextBlock extends BaseElement
+class TextBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-block-content';
     
@@ -101,4 +102,45 @@ class TextBlock extends BaseElement
     {
         return _t(__CLASS__ . '.BlockType', 'Text - Bild');
     }
+
+    /************* SEARCHABLE FUNCTIONS ******************/
+
+
+        /**
+         * Filter array
+         * eg. array('Disabled' => 0);
+         * @return array
+         */
+        public static function getSearchFilter() {
+            return array();
+        }
+
+        /**
+         * FilterAny array (optional)
+         * eg. array('Disabled' => 0, 'Override' => 1);
+         * @return array
+         */
+        public static function getSearchFilterAny() {
+            return array();
+        }
+
+
+        /**
+         * Fields that compose the Title
+         * eg. array('Title', 'Subtitle');
+         * @return array
+         */
+        public function getTitleFields() {
+            return array('Title');
+        }
+
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array('HTML');
+        }
+    /************ END SEARCHABLE ***************************/
 }

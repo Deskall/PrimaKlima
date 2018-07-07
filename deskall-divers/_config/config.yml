@@ -8,6 +8,7 @@ Page:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
     - DeskallPageExtension
+    - 'g4b0\SearchableDataObjects\SearchableDataObject'
 
 PageController:
   extensions:

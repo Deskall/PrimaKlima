@@ -1,5 +1,6 @@
 <div class="$Layout $Width <% if Type != "logo" %><% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %><% end_if %> $Class">
 	<% if Type == "links" %>
+
 	<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
 		<% if UseMenu %>
 			<% loop Menu %>
@@ -23,5 +24,8 @@
 	<% end_if %>
 	<% if Type == "logo" %>
 	  <a href="/" class="uk-navbar-item uk-logo"><img src="$Logo.URL" alt="$SiteConfig.Title Logo" title="Home" /></a>
+	<% end_if %>
+	<% if Type == "form" %>
+	  
 	<% end_if %>
 </div>
