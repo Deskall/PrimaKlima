@@ -38,7 +38,7 @@ class GridFieldShowHideAction implements GridField_ColumnProvider, GridField_Act
 
         if(!$record->canActivate()) return;
 
-        if ($record->isVisible){
+        if ($record->isVisible && $record->canDesactivate()){
             $field = GridField_FormAction::create(
                 $gridField,
                 'hide'.$record->ID,
@@ -48,8 +48,9 @@ class GridFieldShowHideAction implements GridField_ColumnProvider, GridField_Act
             )->addExtraClass('grid-field__icon-action font-icon-check-mark-circle icon-primary btn--icon-large action action-detail')
                 ->setAttribute('title', _t('SiteTree.BUTTONINACTIVE', 'Deaktivieren'))
                 ->setDescription(_t('Global.BUTTONINACTIVEDESC', 'Deaktivieren'));
+                return $field->Field();
         }
-        else{
+        if (!$record->isVisible && $record->canActivate()){
           $field = GridField_FormAction::create(
             $gridField,
             'show'.$record->ID,
@@ -59,11 +60,12 @@ class GridFieldShowHideAction implements GridField_ColumnProvider, GridField_Act
         )->addExtraClass('grid-field__icon-action font-icon-check-mark-circle btn--icon-large action action-detail')
                 ->setAttribute('title', _t('SiteTree.BUTTONACTIVE', 'Aktivieren'))
                 ->setDescription(_t('Global.BUTTONACTIVEDESC', 'Aktivieren'));  
+                return $field->Field();
         }
 
         
 
-        return $field->Field();
+        return ;
     }
 
     public function getActions($gridField) 

@@ -37,6 +37,13 @@ class LeadBlock extends BaseElement
         }
     }
 
+    public function canDesactivate(){
+        if ($this->isPrimary){
+            return false;
+        }
+        return parent::canDesactivate();
+    }
+
 
     /**
      * Re-title the HTML field to Content

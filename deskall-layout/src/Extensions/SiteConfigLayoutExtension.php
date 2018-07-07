@@ -56,6 +56,8 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderOpacity' => 'Varchar(255)',
     'HeaderFormat' => 'Varchar(255)',
     'StickyHeader' => 'Boolean(0)',
+    'HeaderLogoHeight' => 'Varchar(255)',
+    'DropdownSubMenuWidth' => 'Varchar(255)',
 
     'FooterBackground' => 'Varchar(255)',
     'FooterLogoWidth' => 'Varchar(255)',
@@ -96,6 +98,8 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderFontSize' => '@main-nav-font-size',
     'HeaderMenuItemSize' => '@navbar-nav-item-height',
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
+    'HeaderLogoHeight' => '@header-logo-height',
+    'DropdownSubMenuWidth' => '@navbar-dropdown-width',
 
     'FooterLogoWidth' => '@footer-logo-width',
     'FooterBackground' => '@footer-background-color',
@@ -224,8 +228,12 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('HeaderHeight',_t(__CLASS__.'.HeaderHeight','Höhe')),
         TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Höhe')),
         TextField::create('HeaderMenuItemSize',_t(__CLASS__.'.HeaderItemHeight','Menu Item Höhe')),
-        TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse'))
+        TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse')),
+        TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe'))
       ),
+      // FieldGroup::create(
+      //   TextField::create('DropdownSubMenuWidth',_t(__CLASS__.'.DropdownSubMenuWidth','Breite der Dropdown-Navigation'))
+      // ),
       CheckboxField::create('StickyHeader',_t(__CLASS__.'.StickyHeader','Sticky Header'))
     )->setTitle(_t(__CLASS__.'.HeaderLayout','Header Layout'))->setName('HeaderBackgroundFields'));
 
@@ -320,6 +328,7 @@ class SiteConfigLayoutExtension extends DataExtension
   public function onAfterWrite(){
     $this->owner->WriteUserDefinedConstants();
     $this->owner->WriteBackgroundClasses();
+    $this->owner->RegenerateCss();
     parent::onAfterWrite();
   }
 
@@ -377,6 +386,14 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->extend('updateWriteBackgroundClasses', $fullpath);
   }
 
+  public function RegenerateCss(){
+    $url = Director::AbsoluteURL('themes/standard/css/main.min.css');
+    $req = curl_init($url);
+    curl_setopt($req, CURLOPT_POST, true);
+    curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
+    curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+    curl_exec($req);
+  }
 
   public function getBackgroundColors(){
         $colors = $this->owner->Colors();

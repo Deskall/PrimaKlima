@@ -42,7 +42,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextAlign' => 'uk-text-left',
         'TitleAlign' => 'uk-text-left',
         'TextColumns' => '1',
-        'AvailableGlobally' => 1,
+        'AvailableGlobally' => 1
     ];
 
     private static $blocks = [
