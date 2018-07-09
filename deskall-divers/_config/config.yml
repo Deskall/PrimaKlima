@@ -36,3 +36,8 @@ SilverStripe\ORM\DataObject:
 Sheadawson\Linkable\Models\Link:
   extensions:
     - LinkableLinkExtension
+
+
+g4b0\SearchableDataObjects\CustomSearch:
+  extensions:
+   # - CustomSearchExtension
