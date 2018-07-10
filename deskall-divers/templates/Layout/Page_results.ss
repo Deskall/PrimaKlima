@@ -23,12 +23,12 @@
                 <li>
                         <% if $BaseClass == 'SilverStripe\CMS\Model\SiteTree' %>
                                     <h3><% if $MenuTitle %>$MenuTitle<% else %><% if $Title %>$Title<% else %>$Parent.MenuTitle<% end_if %><% end_if %></h3>
-                                    $Content.LimitWordCount
+                                    <p>$Content.LimitWordCount</p>
                                     <a href="$Link" class="link-more"><% if $MenuTitle %>$MenuTitle<% else %><% if $Parent.MenuTitle %>$Parent.MenuTitle<% else %>$Title<% end_if %><% end_if %> </a>
 
                      <% else_if $BaseClass == 'DNADesign\Elemental\Models\BaseElement' %>
                                     <h3><% if $Title %>$Title<% else %><% if $Parent.MenuTitle %>$Parent.MenuTitle<% else %>$Parent.Title<% end_if %><% end_if %></h3>
-                                    $Content.LimitWordCount
+                                    <p>$Content.LimitWordCount</p>
                                     <a href="$Link" class="link-more"><% if $Title %>$Title<% else %><% if $Parent.MenuTitle %>$Parent.MenuTitle<% else %>$Parent.Title<% end_if %><% end_if %> </a>
                         
                     <% end_if %>
