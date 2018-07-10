@@ -25,5 +25,7 @@
       <% end_loop %>
     <% end_if %>
     $SiteConfig.GoogleAnalyticsCode
+
+    $getEs
   </body>
 </html>
