@@ -297,7 +297,15 @@ class Page extends SiteTree implements Searchable
     $options = $dom->getElementsByTagName('option');
     $optionHtml = '';
     foreach($options as $option){
-      $optionHtml .= '<option value='.$option->getText().'>'.$option->getText().'</option>';
+      $html = '';
+      foreach ($option->childNodes as $node){
+        if ($node->nodeType != XML_TEXT_NODE) {
+            continue;
+        }
+         $html = $node;
+        break;
+      }
+      $optionHtml .= '<option value='. $html.'>'. $html.'</option>';
     }
     print_r($optionHtml);
   }
