@@ -8,10 +8,8 @@
 
 
 
-        <div class="lead-block text-block clearfix">
-            <div class="lead">
-              <p ><%t SearchPage.QUERY 'Sie suchten nach' %> &quot;{$Query.XML}&quot;</p>
-            </div>
+        <div class="dk-text-content uk-text-lead">
+            <p ><%t SearchPage.QUERY 'Sie suchten nach' %> &quot;{$Query.XML}&quot;</p>
         </div>
 
 
@@ -20,60 +18,42 @@
 
 
         <% if $Results %>
+           <ul class="uk-list uk-list-divider">
            <% loop $Results %>
+                <li>
                         <% if $BaseClass == 'SilverStripe\CMS\Model\SiteTree' %>
-                            <div class="blocks clearfix bottom-border">
-                                <div class="text-block clearfix">
                                     <h3><% if $MenuTitle %>$MenuTitle<% else %><% if $Title %>$Title<% else %>$Parent.MenuTitle<% end_if %><% end_if %></h3>
-                                      <p>$Content.LimitWordCount</p>
+                                    $Content.LimitWordCount
                                     <a href="$Link" class="link-more"><% if $MenuTitle %>$MenuTitle<% else %><% if $Parent.MenuTitle %>$Parent.MenuTitle<% else %>$Title<% end_if %><% end_if %> </a>
-                                </div>
-                            </div>
 
                      <% else_if $BaseClass == 'DNADesign\Elemental\Models\BaseElement' %>
-
-                            <div class="blocks clearfix bottom-border">
-                                <div class="text-block clearfix">
                                     <h3><% if $Title %>$Title<% else %><% if $Parent.MenuTitle %>$Parent.MenuTitle<% else %>$Parent.Title<% end_if %><% end_if %></h3>
-                                    <p>$Content.LimitWordCount</p>
+                                    $Content.LimitWordCount
                                     <a href="$Link" class="link-more"><% if $Title %>$Title<% else %><% if $Parent.MenuTitle %>$Parent.MenuTitle<% else %>$Parent.Title<% end_if %><% end_if %> </a>
-                                </div>
-                            </div>
+                        
                     <% end_if %>
-
+                </li>
             <% end_loop %>
+        </ul>
         <% else %>
-            <div class="blocks clearfix">
-                <div class="text-block clearfix">
-                    <p><%t SearchPage.NORESULT 'Ihre Suche ergab keine Treffer' %>.</p>
-                </div>
-
-            </div>
+            
+                    <p><%t SearchPage.NORESULT 'Ihre Suche ergab keine Treffer' %>.</p> 
         <% end_if %>
 
 
-    <% if $Results.MoreThanOnePage %>
-        <div class="blocks clearfix">
-            <div class="text-block pagination-holder clearfix">
-
-
-        <% if $Results.NotLastPage %>
-        <a class="next" href="$Results.NextLink" ><%t SearchPage.NEXT 'Weiter' %> <i class="icon icon-arrow-right-b"></i></a>
-        <% end_if %>
-        <% if $Results.NotFirstPage %>
-        <a class="prev" href="$Results.PrevLink" ><i class="icon icon-arrow-left-b"></i> <%t SearchPage.PREV 'Zurück' %></a>
-        <% end_if %>
-        <p class="pagination-pages">
+    <% if $Results.MoreThanOnePage %>    
+        <ul class="uk-pagination" uk-margin>
+          
+            <li><a href="$Results.PrevLink" title="<%t SearchPage.PREV 'Zurück' %>"><span class="uk-pagination uk-pagination-previous"></span></a></li>
+            
             <% loop $Results.Pages %>
-                <% if $CurrentBool %>
-                $PageNum
-                <% else %>
-                <a href="$Link" title="View page number $PageNum">$PageNum</a>
-                <% end_if %>
+                <li><a href="$Link" title="<%t SearchPage.SEEPAGE 'Seite anzeigen' %>" class="<% if $CurrentBool %>uk-active<% end_if %>">
+                $PageNum</a></li>
             <% end_loop %>
-        </p>
-            </div>
-        </div>
+          
+            <li><a href="$Results.NextLink" title="<%t SearchPage.NEXT 'Weiter' %>"><span class="uk-pagination uk-pagination-next"></span></a></li>
+            
+        </ul>
     <% end_if %>
 
 
