@@ -37,7 +37,10 @@ Sheadawson\Linkable\Models\Link:
   extensions:
     - LinkableLinkExtension
 
-
-g4b0\SearchableDataObjects\CustomSearch:
+---
+Name: deskall-searchable-dataobjects-extensions
+After: '#searchable-dataobjects-extensions'
+---
+SilverStripe\CMS\Controllers\ContentController:
   extensions:
-   # - CustomSearchExtension
+    - CustomSearchExtension

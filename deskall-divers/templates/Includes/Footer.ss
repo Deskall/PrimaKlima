@@ -1,4 +1,4 @@
-<footer class="uk-section $SiteConfig.FooterBackground" data-uk-height-match="target:.title-container;row:false;">
+<footer class="uk-section" data-uk-height-match="target:.title-container;row:false;">
 	<div class="uk-container">
 		<div class="uk-panel uk-flex uk-flex-left@s uk-margin-small-top" data-uk-grid>
 			<% loop $SiteConfig.activeFooterBlocks %>

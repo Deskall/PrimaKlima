@@ -18,8 +18,9 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\Tab;
+use g4b0\SearchableDataObjects\Searchable;
 
-class BoxBlock extends BaseElement
+class BoxBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-block-layout';
 
@@ -214,4 +215,55 @@ class BoxBlock extends BaseElement
         return $entities;
     }
 /************* END TRANLSATIONS *******************/
+
+/************* SEARCHABLE FUNCTIONS ******************/
+
+    public function getBoxesHTML(){
+        $html = '';
+        foreach ($this->Boxes() as $box) {
+            if ($box->Content){
+                $html .= $box->Content;
+            }
+        }
+        return $html;
+    }
+
+
+        /**
+         * Filter array
+         * eg. array('Disabled' => 0);
+         * @return array
+         */
+        public static function getSearchFilter() {
+            return array();
+        }
+
+        /**
+         * FilterAny array (optional)
+         * eg. array('Disabled' => 0, 'Override' => 1);
+         * @return array
+         */
+        public static function getSearchFilterAny() {
+            return array();
+        }
+
+
+        /**
+         * Fields that compose the Title
+         * eg. array('Title', 'Subtitle');
+         * @return array
+         */
+        public function getTitleFields() {
+            return array('Title');
+        }
+
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array('HTML', 'BoxesHTML');
+        }
+    /************ END SEARCHABLE ***************************/
 }
