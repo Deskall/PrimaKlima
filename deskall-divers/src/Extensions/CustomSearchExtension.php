@@ -94,7 +94,7 @@ class CustomSearchExtension extends Extension
              */
             if (is_object($do) && $do->exists() && $this->owner->shouldDisplay($do)) {
                 $do->Title = $row['Title'];
-                $do->Content = $row['Content'];
+                $do->Content = utf8_decode($row['Content']);
 
                 $list->push($do);
             }
