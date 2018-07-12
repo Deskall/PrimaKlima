@@ -57,7 +57,7 @@ class Page extends SiteTree implements Searchable
      //search related
      public function notInListYet( $link ){
       $this->session_start();
-      if( !$_SESSION['searchresults'] ){
+      if( !isset($_SESSION['searchresults'] )){
         $_SESSION['searchresults'] = array();
       }
 
