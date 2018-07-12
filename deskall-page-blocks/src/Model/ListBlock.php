@@ -13,8 +13,9 @@ use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridField;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use g4b0\SearchableDataObjects\Searchable;
 
-class ListBlock extends BaseElement
+class ListBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-list';
     
@@ -131,4 +132,65 @@ class ListBlock extends BaseElement
     }
 
 /************* END TRANLSATIONS *******************/
+
+
+/************* SEARCHABLE FUNCTIONS ******************/
+
+
+    /**
+     * Filter array
+     * eg. array('Disabled' => 0);
+     * @return array
+     */
+    public static function getSearchFilter() {
+        return array();
+    }
+
+    /**
+     * FilterAny array (optional)
+     * eg. array('Disabled' => 0, 'Override' => 1);
+     * @return array
+     */
+    public static function getSearchFilterAny() {
+        return array();
+    }
+
+
+    /**
+     * Fields that compose the Title
+     * eg. array('Title', 'Subtitle');
+     * @return array
+     */
+    public function getTitleFields() {
+        return array('Title');
+    }
+
+    /**
+     * Fields that compose the Content
+     * eg. array('Teaser', 'Content');
+     * @return array
+     */
+    public function getContentFields() {
+        return array('HTML','ItemContent');
+    }
+
+    public function ItemContent(){
+        $html = '';
+        if ($this->Items()->count() > 0){
+            $html .= '<ul>';
+            foreach ($this->Items() as $item) {
+                $html .= '<li>';
+                if ($item->Title){
+                    $html .= $item->Title.'<br/>';
+                }
+                if ($item->Content){
+                    $html .= $item->Content;
+                }
+                $html .= '</li>';
+            }
+            $html .='</ul>';
+        }
+        return $html;
+    }
+/************ END SEARCHABLE ***************************/
 }

@@ -18,8 +18,9 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\Tab;
+use g4b0\SearchableDataObjects\Searchable;
 
-class FeaturesBlock extends BaseElement
+class FeaturesBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-block-file-list';
     
@@ -221,5 +222,60 @@ class FeaturesBlock extends BaseElement
         //To do : filter relevant icons
         return HTMLDropdownField::getSourceIcones();
     }
+
+    /************* SEARCHABLE FUNCTIONS ******************/
+
+
+        /**
+         * Filter array
+         * eg. array('Disabled' => 0);
+         * @return array
+         */
+        public static function getSearchFilter() {
+            return array();
+        }
+
+        /**
+         * FilterAny array (optional)
+         * eg. array('Disabled' => 0, 'Override' => 1);
+         * @return array
+         */
+        public static function getSearchFilterAny() {
+            return array();
+        }
+
+
+        /**
+         * Fields that compose the Title
+         * eg. array('Title', 'Subtitle');
+         * @return array
+         */
+        public function getTitleFields() {
+            return array('Title','FeaturesTitle');
+        }
+
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array('HTML','FeaturesContent');
+        }
+
+        public function FeaturesContent(){
+            $html = '';
+            if ($this->Features()->count() > 0){
+                $html .= '<ul>';
+                foreach ($this->Features() as $feature) {
+                    if ($feature->Text){
+                        $html .= '<li>'.$feature->Text.'</li>';
+                    }
+                }
+                $html .='</ul>';
+            }
+            return $html;
+        }
+    /************ END SEARCHABLE ***************************/
 
 }

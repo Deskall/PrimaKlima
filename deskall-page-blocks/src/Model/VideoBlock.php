@@ -10,10 +10,10 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-
+use g4b0\SearchableDataObjects\Searchable;
 use Embed\Embed;
 
-class VideoBlock extends BaseElement
+class VideoBlock extends BaseElement implements Searchable
 {
 	private static $icon = 'font-icon-block-media';
     
@@ -154,4 +154,45 @@ class VideoBlock extends BaseElement
     }
 
 /************* END TRANLSATIONS *******************/
+
+/************* SEARCHABLE FUNCTIONS ******************/
+
+
+    /**
+     * Filter array
+     * eg. array('Disabled' => 0);
+     * @return array
+     */
+    public static function getSearchFilter() {
+        return array();
+    }
+
+    /**
+     * FilterAny array (optional)
+     * eg. array('Disabled' => 0, 'Override' => 1);
+     * @return array
+     */
+    public static function getSearchFilterAny() {
+        return array();
+    }
+
+
+    /**
+     * Fields that compose the Title
+     * eg. array('Title', 'Subtitle');
+     * @return array
+     */
+    public function getTitleFields() {
+        return array('Title');
+    }
+
+    /**
+     * Fields that compose the Content
+     * eg. array('Teaser', 'Content');
+     * @return array
+     */
+    public function getContentFields() {
+        return array('HTML');
+    }
+/************ END SEARCHABLE ***************************/
 }
