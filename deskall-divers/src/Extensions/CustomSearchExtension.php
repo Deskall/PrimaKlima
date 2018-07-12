@@ -93,7 +93,7 @@ class CustomSearchExtension extends Extension
              * caused when DataObject::get_by_id() returns false
              */
             if (is_object($do) && $do->exists() && $this->owner->shouldDisplay($do)) {
-                $do->Title = $row['Title'];
+                $do->Title = utf8_decode($row['Title']);
                 $do->Content = utf8_decode($row['Content']);
 
                 $list->push($do);
