@@ -92,7 +92,7 @@ class CustomSearchExtension extends Extension
              *
              * caused when DataObject::get_by_id() returns false
              */
-            if (is_object($do) && $do->exists()) {
+            if (is_object($do) && $do->exists() && $this->owner->shouldDisplay($do)) {
                 $do->Title = $row['Title'];
                 $do->Content = $row['Content'];
 
@@ -116,5 +116,25 @@ class CustomSearchExtension extends Extension
         );
 
         return $this->owner->customise($data)->renderWith(array('Page_results', 'Page'));
+    }
+
+    public function shouldDisplay($do){
+        $excludeClasses = Config::inst()->get('g4b0\SearchableDataObjects\CustomSearch', 'exclude_from_search');
+        $page = (in_array('SiteTree',$do->getClassAncestry())) ? $do : $do->getPage();
+        if ($page->ID <= 0 ){
+            return false;
+        }
+        if (is_array($excludeClasses) && in_array($do->ClassName,$excludeClasses)){
+            return false;
+        }
+        //To add if subsite
+        // if ($page->hasExtension('SiteTreeSubsites') && $page->SubsiteID != Subsite::currentSubsiteID()){
+        // }
+
+        //check that not already in the list
+        if (!$page->notInListYet( $do->Link() )){
+            return false;
+        }
+        return true;
     }
 }

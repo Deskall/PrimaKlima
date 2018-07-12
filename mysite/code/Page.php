@@ -13,7 +13,7 @@ class Page extends SiteTree implements Searchable
       * @return array
       */
      public static function getSearchFilter() {
-         return array();
+       return array();
      }
 
      /**
@@ -22,7 +22,7 @@ class Page extends SiteTree implements Searchable
       * @return array
       */
      public static function getSearchFilterAny() {
-         return array();
+       return array();
      }
 
      /**
@@ -33,7 +33,7 @@ class Page extends SiteTree implements Searchable
       * @return array
       */
      public static function getSearchFilterByCallback() {
-         return function($object){ return true; };
+       return function($object){ return true; };
      }
 
      /**
@@ -42,7 +42,7 @@ class Page extends SiteTree implements Searchable
       * @return array
       */
      public function getTitleFields() {
-         return array('Title');
+       return array('Title');
      }
 
      /**
@@ -51,6 +51,32 @@ class Page extends SiteTree implements Searchable
       * @return array
       */
      public function getContentFields() {
-         return array();
+       return array();
      }
-}
+
+     //search related
+     public function notInListYet( $link ){
+      $this->session_start();
+      if( !$_SESSION['searchresults'] ){
+        $_SESSION['searchresults'] = array();
+      }
+
+      if( !in_array($link, $_SESSION['searchresults']) ){
+        array_push($_SESSION['searchresults'], $link);
+        return 1;
+      }else{
+        return 0;
+      }
+    }
+
+    public function clearSearchresultSession(  ){
+      $this->session_start();
+      $_SESSION['searchresults'] = array();
+    }
+
+    function session_start() {
+      if ( ! session_id() ) {
+        @session_start();
+      }
+    }
+  }
