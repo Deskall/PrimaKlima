@@ -187,12 +187,12 @@ class GalleryBlock extends BaseElement implements Searchable
         return array('HTML','ImageContent');
     }
 
-    public function ImageContent(){
+    public function getImageContent(){
         $html = '';
         if ($this->Images()->count() > 0){
             $html .= '<ul>';
             foreach ($this->Images() as $image) {
-                $html .= '<li>'.$image->Title.'<br/>';
+                $html .= '<li>'.$image->Title."\n";
                 if ($image->Description){
                     $html .= $image->Description;
                 }

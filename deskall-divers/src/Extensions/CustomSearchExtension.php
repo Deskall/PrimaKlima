@@ -127,6 +127,9 @@ class CustomSearchExtension extends Extension
         if (is_array($excludeClasses) && in_array($do->ClassName,$excludeClasses)){
             return false;
         }
+        if ($do->hasExtension('Activable') && !$do->isVisible){
+            return false;
+        }
         //To add if subsite
         // if ($page->hasExtension('SiteTreeSubsites') && $page->SubsiteID != Subsite::currentSubsiteID()){
         // }

@@ -356,14 +356,14 @@ class SliderBlock extends BaseElement implements Searchable
         return array('SlideContent');
     }
 
-    public function SlideContent(){
+    public function getSlideContent(){
         $html = '';
         if ($this->Slides()->count() > 0){
             $html .= '<ul>';
             foreach ($this->Slides() as $slide) {
                 $html .= '<li>';
                 if ($slide->Title){
-                    $html .= $slide->Title.'<br/>';
+                    $html .= $slide->Title."\n";
                 }
                 if ($slide->Content){
                     $html .= $slide->Content;

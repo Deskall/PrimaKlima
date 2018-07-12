@@ -174,14 +174,14 @@ class ListBlock extends BaseElement implements Searchable
         return array('HTML','ItemContent');
     }
 
-    public function ItemContent(){
+    public function getItemContent(){
         $html = '';
-        if ($this->Items()->count() > 0){
+        if ($this->Items()->filter('isVisible',1)->count() > 0){
             $html .= '<ul>';
-            foreach ($this->Items() as $item) {
+            foreach ($this->Items()->filter('isVisible',1) as $item) {
                 $html .= '<li>';
                 if ($item->Title){
-                    $html .= $item->Title.'<br/>';
+                    $html .= $item->Title."\n";
                 }
                 if ($item->Content){
                     $html .= $item->Content;

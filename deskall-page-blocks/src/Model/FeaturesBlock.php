@@ -263,11 +263,11 @@ class FeaturesBlock extends BaseElement implements Searchable
             return array('HTML','FeaturesContent');
         }
 
-        public function FeaturesContent(){
+        public function getFeaturesContent(){
             $html = '';
-            if ($this->Features()->count() > 0){
+            if ($this->Features()->filter('isVisible',1)->count() > 0){
                 $html .= '<ul>';
-                foreach ($this->Features() as $feature) {
+                foreach ($this->Features()->filter('isVisible',1) as $feature) {
                     if ($feature->Text){
                         $html .= '<li>'.$feature->Text.'</li>';
                     }

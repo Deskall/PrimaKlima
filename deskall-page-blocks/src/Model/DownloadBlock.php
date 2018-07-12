@@ -193,7 +193,7 @@ class DownloadBlock extends BaseElement implements Searchable
         return array('HTML','FileNames');
     }
 
-    public function FileNames(){
+    public function getFileNames(){
         $html = '';
         if ($this->Files()->count() > 0){
             $html .= '<ul>';
