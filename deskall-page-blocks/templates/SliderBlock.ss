@@ -6,7 +6,7 @@
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
                 <% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)"data-uk-cover /><% else %>$Image.Slides($ID,$Title)<% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
-            <div class="dk-slide-text-container uk-position-relative">
+            <div class="dk-slide-text-container uk-height-1-1 uk-position-relative">
                 <div class="uk-position-center">
                     <div class="uk-container">
                         <div class="uk-text-center">
