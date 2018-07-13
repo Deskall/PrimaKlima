@@ -162,7 +162,6 @@ class SliderBlock extends BaseElement implements Searchable
             $fields->removeByName('MinHeight');
             $fields->removeByName('MaxHeight');
             $fields->removeByName('BackgroundImage');
-            $fields->removeByName('Background');
 
             if ($this->ID == 0){
                 $fields->addFieldToTab('Root.Main',LabelField::create('LabelField',_t(__CLASS__.'.SlideCopyHelpText','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider')));
