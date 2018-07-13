@@ -183,6 +183,8 @@ class Slide extends DataObject
             DropdownField::create('TextOffset',_t(__CLASS__.'.TextOffset','Text Offset'),$this->getTranslatedSourceFor(__CLASS__,'block_text_offsets'))->setEmptyString(_t(__CLASS__.'.OffsetLabel','Offset hinzufügen'))]
         );
 
+        $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LayoutTab','Layout'));
+
         return $fields;
     }
 
