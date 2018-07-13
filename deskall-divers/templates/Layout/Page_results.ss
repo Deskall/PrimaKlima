@@ -27,7 +27,7 @@
                                     <a href="$Link" class="link-more"><% if $MenuTitle %>$MenuTitle<% else %><% if $Parent.MenuTitle %>$Parent.MenuTitle<% else %>$Title<% end_if %><% end_if %> </a>
 
                      <% else_if $BaseClass == 'DNADesign\Elemental\Models\BaseElement' %>
-                                    <h3><% if $Title %>$Title<% else %><% if $Parent.MenuTitle %>$Parent.MenuTitle<% else %>$Parent.Title<% end_if %><% end_if %></h3>
+                                    <% with $getPage %><h3><% if $MenuTitle %>$MenuTitle<% else %><% if $Title %>$Title<% else %>$Parent.MenuTitle<% end_if %><% end_if %></h3><% end_width %>
                                     <p>$Content.LimitWordCount</p>
                                     <a href="$Link" class="link-more"><% if $Title %>$Title<% else %><% if $Parent.MenuTitle %>$Parent.MenuTitle<% else %>$Parent.Title<% end_if %><% end_if %> </a>
                         
@@ -42,18 +42,20 @@
 
 
     <% if $Results.MoreThanOnePage %>    
-        <ul class="uk-pagination" uk-margin>
-          
-            <li><a href="$Results.PrevLink" title="<%t SearchPage.PREV 'Zurück' %>"><span class="uk-pagination uk-pagination-previous"></span></a></li>
-            
-            <% loop $Results.Pages %>
-                <li><a href="$Link" title="<%t SearchPage.SEEPAGE 'Seite anzeigen' %>" class="<% if $CurrentBool %>uk-active<% end_if %>">
-                $PageNum</a></li>
-            <% end_loop %>
-          
-            <li><a href="$Results.NextLink" title="<%t SearchPage.NEXT 'Weiter' %>"><span class="uk-pagination uk-pagination-next"></span></a></li>
-            
-        </ul>
+    <ul class="uk-pagination uk-flex-center" uk-margin>
+
+        <li><a href="$Results.PrevLink" title="<%t SearchPage.PREV 'Zurück' %>"><span data-uk-pagination-previous></span></a></li>
+
+        <% loop $Results.Pages %>
+        <% if $CurrentBool %><li class="uk-active"><span>$PageNum</span></li>
+        <% else %><li><a href="$Link" title="<%t SearchPage.SEEPAGE 'Seite anzeigen' %>">$PageNum</a></li>
+        <% end_if %>
+
+        <% end_loop %>
+
+        <li><a href="$Results.NextLink" title="<%t SearchPage.NEXT 'Weiter' %>"><span data-uk-pagination-next></span></a></li>
+
+    </ul>
     <% end_if %>
 
 
