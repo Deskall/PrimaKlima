@@ -56,6 +56,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderOpacity' => 'Varchar(255)',
     'HeaderFormat' => 'Varchar(255)',
     'StickyHeader' => 'Boolean(0)',
+    'BackContent' => 'Boolean(0)',
     'HeaderLogoHeight' => 'Varchar(255)',
     'DropdownSubMenuWidth' => 'Varchar(255)',
 
@@ -234,6 +235,7 @@ class SiteConfigLayoutExtension extends DataExtension
       // FieldGroup::create(
       //   TextField::create('DropdownSubMenuWidth',_t(__CLASS__.'.DropdownSubMenuWidth','Breite der Dropdown-Navigation'))
       // ),
+      CheckboxField::create('BackContent',_t(__CLASS__.'.BackContent','Header über Inhalt')),
       CheckboxField::create('StickyHeader',_t(__CLASS__.'.StickyHeader','Sticky Header'))
     )->setTitle(_t(__CLASS__.'.HeaderLayout','Header Layout'))->setName('HeaderBackgroundFields'));
 
