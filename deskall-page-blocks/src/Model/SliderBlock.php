@@ -21,8 +21,9 @@ use SilverStripe\Assets\Image;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
+use g4b0\SearchableDataObjects\Searchable;
 
-class SliderBlock extends BaseElement
+class SliderBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-block-banner';
     
@@ -313,4 +314,65 @@ class SliderBlock extends BaseElement
     }
 
 /************* END TRANLSATIONS *******************/
+
+
+/************* SEARCHABLE FUNCTIONS ******************/
+
+
+    /**
+     * Filter array
+     * eg. array('Disabled' => 0);
+     * @return array
+     */
+    public static function getSearchFilter() {
+        return array();
+    }
+
+    /**
+     * FilterAny array (optional)
+     * eg. array('Disabled' => 0, 'Override' => 1);
+     * @return array
+     */
+    public static function getSearchFilterAny() {
+        return array();
+    }
+
+
+    /**
+     * Fields that compose the Title
+     * eg. array('Title', 'Subtitle');
+     * @return array
+     */
+    public function getTitleFields() {
+        return array('Title');
+    }
+
+    /**
+     * Fields that compose the Content
+     * eg. array('Teaser', 'Content');
+     * @return array
+     */
+    public function getContentFields() {
+        return array('SlideContent');
+    }
+
+    public function getSlideContent(){
+        $html = '';
+        if ($this->Slides()->count() > 0){
+            $html .= '<ul>';
+            foreach ($this->Slides() as $slide) {
+                $html .= '<li>';
+                if ($slide->Title){
+                    $html .= $slide->Title."\n";
+                }
+                if ($slide->Content){
+                    $html .= $slide->Content;
+                }
+                $html .= '</li>';
+            }
+            $html .='</ul>';
+        }
+        return $html;
+    }
+/************ END SEARCHABLE ***************************/
 }

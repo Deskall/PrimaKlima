@@ -220,11 +220,15 @@ class BoxBlock extends BaseElement implements Searchable
 
     public function getBoxesHTML(){
         $html = '';
-        foreach ($this->Boxes() as $box) {
-            if ($box->Content){
-                $html .= $box->Content;
+        if ($this->Boxes()->filter('isVisible',1)->count() > 0){
+            $html .= '<ul>';
+            foreach ($this->Boxes()->filter('isVisible',1) as $box) {
+                if ($box->Content){
+                    $html .= '<li>'.$box->Content.'</li>';
+                }
             }
         }
+       
         return $html;
     }
 

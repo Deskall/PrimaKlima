@@ -12,8 +12,9 @@ use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\ElementalBlocks\Block\BannerBlock;
 use SilverStripe\ORM\FieldType\DBField;
+use g4b0\SearchableDataObjects\Searchable;
 
-class LargeImageBlock extends BannerBlock{
+class LargeImageBlock extends BannerBlock implements Searchable{
 	private static $icon = 'font-icon-image';
 
 	private static $singular_name = 'banner';
@@ -137,5 +138,47 @@ class LargeImageBlock extends BannerBlock{
     }
 
 /************* END TRANLSATIONS *******************/
+
+/************* SEARCHABLE FUNCTIONS ******************/
+
+
+    /**
+     * Filter array
+     * eg. array('Disabled' => 0);
+     * @return array
+     */
+    public static function getSearchFilter() {
+        return array();
+    }
+
+    /**
+     * FilterAny array (optional)
+     * eg. array('Disabled' => 0, 'Override' => 1);
+     * @return array
+     */
+    public static function getSearchFilterAny() {
+        return array();
+    }
+
+
+    /**
+     * Fields that compose the Title
+     * eg. array('Title', 'Subtitle');
+     * @return array
+     */
+    public function getTitleFields() {
+        return array('Title');
+    }
+
+    /**
+     * Fields that compose the Content
+     * eg. array('Teaser', 'Content');
+     * @return array
+     */
+    public function getContentFields() {
+        return array('Content');
+    }
+
+/************ END SEARCHABLE ***************************/
 
 }

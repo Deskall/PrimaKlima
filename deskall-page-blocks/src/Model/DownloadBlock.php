@@ -10,8 +10,9 @@ use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\File;
 use Bummzack\SortableFile\Forms\SortableUploadField;
+use g4b0\SearchableDataObjects\Searchable;
 
-class DownloadBlock extends BaseElement
+class DownloadBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-install';
     
@@ -151,4 +152,57 @@ class DownloadBlock extends BaseElement
     }
 
 /************* END TRANLSATIONS *******************/
+
+/************* SEARCHABLE FUNCTIONS ******************/
+
+
+    /**
+     * Filter array
+     * eg. array('Disabled' => 0);
+     * @return array
+     */
+    public static function getSearchFilter() {
+        return array();
+    }
+
+    /**
+     * FilterAny array (optional)
+     * eg. array('Disabled' => 0, 'Override' => 1);
+     * @return array
+     */
+    public static function getSearchFilterAny() {
+        return array();
+    }
+
+
+    /**
+     * Fields that compose the Title
+     * eg. array('Title', 'Subtitle');
+     * @return array
+     */
+    public function getTitleFields() {
+        return array('Title','DownloadsTitle');
+    }
+
+    /**
+     * Fields that compose the Content
+     * eg. array('Teaser', 'Content');
+     * @return array
+     */
+    public function getContentFields() {
+        return array('HTML','FileNames');
+    }
+
+    public function getFileNames(){
+        $html = '';
+        if ($this->Files()->count() > 0){
+            $html .= '<ul>';
+            foreach ($this->Files() as $file) {
+                $html .= '<li>'.$file->Title.'</li>';
+            }
+            $html .='</ul>';
+        }
+        return $html;
+    }
+/************ END SEARCHABLE ***************************/
 }

@@ -32,6 +32,6 @@ silverstripe.log
 
 themes/standard/css/src/deskall/theme/user_defined.less
 
-mysite/_config.php
 
 log.txt
+deskall-divers/src/Extensions/CustomSearchExtension.php
