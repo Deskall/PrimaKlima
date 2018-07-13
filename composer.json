@@ -4,7 +4,7 @@
         "silverstripe/elemental-blocks": "1.0.0",
         "dnadesign/silverstripe-elemental-userforms": "1.x-dev",
         "dnadesign/silverstripe-elemental-list": "1.0.0",
-        "dnadesign/silverstripe-elemental-virtual": "1.x-dev",
+        "dnadesign/silverstripe-elemental-virtual": "1.0.0",
         "wilr/silverstripe-googlesitemaps": "^2.1",
         "silverstripe/multiuser-editing-alert": "2.0.0",
         "jonom/focuspoint": "3.0.0",
