@@ -161,7 +161,7 @@ class SliderBlock extends BaseElement implements Searchable
             $fields->removeByName('Animation');
             $fields->removeByName('MinHeight');
             $fields->removeByName('MaxHeight');
-            $fields->removeByName('BackgroundImageID');
+            $fields->removeByName('BackgroundImage');
             $fields->removeByName('Background');
 
             if ($this->ID == 0){

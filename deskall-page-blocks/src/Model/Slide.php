@@ -7,7 +7,7 @@ use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\CMS\Model\SiteTree;
-
+use SilverStripe\SiteConfig\SiteConfig;
 
 class Slide extends DataObject
 {
