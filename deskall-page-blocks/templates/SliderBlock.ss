@@ -6,21 +6,21 @@
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
                 <% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)"data-uk-cover /><% else %>$Image.Slides($ID,$Title)<% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
-            <div class="dk-slide-text-container uk-height-1-1 uk-position-relative">
-                <div class="uk-position-center">
+           <div class="dk-slide-text-container uk-position-relative uk-overlay uk-height-1-1 uk-padding-remove-horizontal $Background">
                     <div class="uk-container">
-                        <div class="uk-text-center">
-                            <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
-                            <% if Title %><h2 class="$Top.TitleAlign">$Title</h2><% end_if %>
-                            <div class="uk-text-lead uk-visible@s $Top.TextAlign  $Top.TextColumns">$Content</div>
-                            <% if Effect == "parallax" %></div><% end_if %>
-                            <% if LinkableLinkID > 0 %>
-                                <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-                            <% end_if %>
+                        <div class="$TextPosition $TextBackground $TextWidth <% if TextOpacity %>uk-overlay<% end_if %>">
+                            <div class="uk-padding">
+                                <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
+                                <% if Title %><h2 class="$TitleAlign">$Title</h2><% end_if %>
+                                <div class="uk-text-lead uk-visible@s $TextAlign  $TextColumns">$Content</div>
+                                <% if Effect == "parallax" %></div><% end_if %>
+                                <% if LinkableLinkID > 0 %>
+                                    <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+                                <% end_if %>
+                            </div>
                         </div>
-                    </div>
+                        <div></div>
                 </div>
-               
             </div>
         </li>
         <% end_loop %>
