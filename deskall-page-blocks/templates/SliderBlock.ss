@@ -3,10 +3,14 @@
     <ul class="uk-slideshow-items" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
         <% loop ActiveSlides %>
         <li>
+            <% if VideoID %>
+            <video src="$Video.URL"  autoplay loop muted playslinline data-uk-cover></video>
+            <% else %>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
                 <% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)"data-uk-cover /><% else %>$Image.Slides($ID,$Title)<% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
-           <div class="dk-slide-text-container uk-position-relative uk-overlay uk-height-1-1 uk-padding-remove-horizontal $Background">
+            <% end_if %>
+            <div class="dk-slide-text-container uk-position-relative uk-overlay uk-height-1-1 uk-padding-remove-horizontal $Background">
                     <div class="uk-container">
                         <div class="$TextPosition $TextBackground $TextWidth <% if TextOpacity %>uk-overlay<% end_if %>">
                             <div class="uk-padding">
