@@ -60,37 +60,14 @@ class SliderBlock extends BaseElement implements Searchable
         'Slides',
     ];
 
-     private static $block_text_alignments = [
-        'uk-text-left' =>  [
-            'value' => 'uk-text-left',
-            'title' => 'Links Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
-        ],
-        'uk-text-right' => [
-            'value' => 'uk-text-right',
-            'title' => 'Rechts Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
-        ],
-        'uk-text-center' =>  [
-            'value' => 'uk-text-center',
-            'title' => 'Mittel Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
-        ],
-        'uk-text-justify' =>  [
-            'value' => 'uk-text-justify',
-            'title' => 'Justify Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
-        ]
-    ];
-
+    
 
     private static $defaults = [
         'Layout' => 'slideshow',
         'FullWidth' => 1,
         'MinHeight' => '250',
-        'Height' => 'viewport',
-        'TextAlign' => 'uk-text-left',
-        'TitleAlign' => 'uk-text-left'
+        'Height' => 'viewport'
+       
     ];
 
     private static $block_layouts = [
@@ -185,6 +162,7 @@ class SliderBlock extends BaseElement implements Searchable
             $fields->removeByName('MinHeight');
             $fields->removeByName('MaxHeight');
             $fields->removeByName('BackgroundImageID');
+            $fields->removeByName('Background');
 
             if ($this->ID == 0){
                 $fields->addFieldToTab('Root.Main',LabelField::create('LabelField',_t(__CLASS__.'.SlideCopyHelpText','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider')));
