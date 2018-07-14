@@ -13,7 +13,7 @@
                 <div class="dk-slide-text-container dk-overlay $Background uk-height-1-1 ">
                     <div class="uk-container uk-height-1-1 <% if $Top.FullWidth %>uk-container-expand<% end_if %>">
                         <div class="uk-position-relative uk-height-1-1">
-                            <div class="$TextPosition $TextBackground $TextWidth <% if TextOpacity %>uk-overlay<% end_if %>">
+                            <div class="$TextPosition $TextBackground $TextWidth <% if TextOpacity %>uk-overlay<% end_if %> <% if TextBackground %>uk-padding-small<% end_if %>">
                                 <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
                                 <% if Title %><h2 class="$TitleAlign">$Title</h2><% end_if %>
                                 <div class="uk-text-lead uk-visible@s $TextAlign  $TextColumns">$Content</div>

@@ -27,6 +27,18 @@ class CustomSearchExtension extends Extension
 {
 
     /**
+     * Site search form
+     */
+    public function SearchForm()
+    {
+        $form = new SearchForm($this->owner->getControllerForSearchForm(), 'SearchForm', $this->owner->getSearchFields(), $this->owner->getSearchActions());
+        $form->setTemplate("Forms/search_form")->addExtraClass("uk-width-1-1");
+        return $form;
+    }
+
+
+
+    /**
      * generates the fields for the SearchForm
      * @uses updateSearchFields
      * @return FieldList
@@ -34,14 +46,14 @@ class CustomSearchExtension extends Extension
     public function updateSearchFields($fields)
     {
         foreach ($fields as $field) {
-            $field->setAttribute('class','uk-input');
+            $field->setAttribute('class','uk-input uk-width-auto uk-padding-small')->setValue("")->setAttribute("placeholder",_t('Search.PLACEHOLDER','Suche auf dieser Website...'));
         }
     }
 
     public function updateSearchActions($actions){
         foreach ($actions as $action){
-            $action->addExtraClass('uk-button');
-            $action->addExtraClass('dk-button-icon')->setUseButtonTag(true)
+            $action->addExtraClass('uk-button uk-button-primary uk-width-auto uk-padding-small uk-padding-remove');
+            $action->addExtraClass('dk-button-icon')->setUseButtonTag(true)->setTitle('')
             ->setAttribute('data-uk-icon','chevron-right');
         }
     }
