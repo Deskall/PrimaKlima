@@ -10,7 +10,7 @@
                 <% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)"data-uk-cover /><% else %>$Image.Slides($ID,$Title)<% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
             <% end_if %>
-                <div class="dk-slide-text-container dk-overlay $Top.Background uk-height-1-1 ">
+                <div class="dk-slide-text-container dk-overlay $Background uk-height-1-1 ">
                     <div class="uk-container uk-height-1-1 <% if $Top.FullWidth %>uk-container-expand<% end_if %>">
                         <div class="uk-position-relative uk-height-1-1">
                             <div class="$TextPosition $TextBackground $TextWidth <% if TextOpacity %>uk-overlay<% end_if %>">
