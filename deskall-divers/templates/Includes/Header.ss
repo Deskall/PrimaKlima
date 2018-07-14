@@ -1,4 +1,4 @@
-<header <% if $SiteConfig.StickyHeader %>class="dk-background-header" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header <% if $hover %>uk-position-top uk-position-z-index<% end_if %>"<% end_if %>>
+<header <% if $SiteConfig.StickyHeader %>class="dk-background-header" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %>"<% end_if %>>
 	<div class="uk-container uk-container-medium uk-position-relative">
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 			

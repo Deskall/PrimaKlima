@@ -5,6 +5,15 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HeaderField;
 
 class PageBlocksExtension extends DataExtension {
+	
+	private static $db = [
+		'showSlide' => 'Boolean(1)'
+	];
+
+	private static $defaults = [
+		'showSlide' => 1
+	];
+
 	public function requireDefaultRecords(){
 		parent::requireDefaultRecords();
 		foreach (Page::get() as $page){
@@ -34,8 +43,10 @@ class PageBlocksExtension extends DataExtension {
 		$this->owner->checkLead();
 	}
 
-	public function noSlide(){
-		return (SliderBlock::get()->filter('ParentID',$this->owner->ElementalAreaID)->count() == 0);
+	public function firstBlockSlide(){
+		$firstBlock = $this->owner->ElementalArea()->Elements()->first();
+
+		return $firstBlock->ClassName != "SliderBlock";
 	}
 
 	public function ParentSlide(){

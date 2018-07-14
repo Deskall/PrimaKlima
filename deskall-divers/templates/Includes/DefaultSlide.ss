@@ -2,6 +2,7 @@
 <div data-uk-slideshow="min-height:150;max-height:300;" class="dk-slider dk-slide-default uk-visible-toggle uk-position-relative">
     <ul class="uk-slideshow-items">
         <li>
+        	<% if $ID < 0 || $showSlide %>
         	<picture>
 				<%-- video tag is needed for IE9 support - see https://scottjehl.github.io/picturefill/ --%>
 				<!--[if IE 9]><video style="display: none;"><![endif]-->
@@ -26,7 +27,8 @@
 					<img src="$FocusFill(400,300).URL" <% if $ExtraClasses %> class="$ExtraClasses"<% end_if %>  alt="$altTag" title="$titleTag">
 					<% end_with %>
 				<% end_if %>
-			</picture>               
+			</picture> 
+			<% end_if %>              
         </li>
     </ul>
 </div>

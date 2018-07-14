@@ -10,11 +10,10 @@
                 <% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)"data-uk-cover /><% else %>$Image.Slides($ID,$Title)<% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
             <% end_if %>
-            <div class="$Background dk-overlay uk-position-cover"></div>
-            <div class="uk-overlay dk-slide-text-container uk-position-relative uk-height-1-1 uk-padding-remove">
-                    <div class="uk-container">
-                        <div class="$TextPosition $TextBackground $TextWidth <% if TextOpacity %>uk-overlay<% end_if %>">
-                            <div class="uk-padding">
+                <div class="dk-slide-text-container dk-overlay $Top.Background uk-height-1-1 ">
+                    <div class="uk-container uk-height-1-1 <% if $Top.FullWidth %>uk-container-expand<% end_if %>">
+                        <div class="uk-position-relative uk-height-1-1">
+                            <div class="$TextPosition $TextBackground $TextWidth <% if TextOpacity %>uk-overlay<% end_if %>">
                                 <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
                                 <% if Title %><h2 class="$TitleAlign">$Title</h2><% end_if %>
                                 <div class="uk-text-lead uk-visible@s $TextAlign  $TextColumns">$Content</div>
@@ -24,9 +23,9 @@
                                 <% end_if %>
                             </div>
                         </div>
-                        <div></div>
+                    </div>
                 </div>
-            </div>
+            
         </li>
         <% end_loop %>
     </ul>
