@@ -19,7 +19,7 @@
 					    </li>
 					 </ul>
 				</div>
-				<% else_if $SiteConfig.DefaultSlide %>
+				<% else_if $SiteConfig.DefaultSlideID > 0 %>
 				<div data-uk-slideshow="min-height:150;max-height:300;" class="dk-slider dk-slide-default uk-visible-toggle uk-position-relative">
 				    <ul class="uk-slideshow-items">
 				        <li>
