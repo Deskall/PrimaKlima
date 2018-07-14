@@ -22,7 +22,11 @@ class Slide extends DataObject
         'TextBackground' => 'Varchar(255)',
         'TextWidth' => 'Varchar(255)',
         'TextOffset' => 'Varchar(255)',
-        'TextOpacity' => 'Varchar(255)'
+        'TextOpacity' => 'Varchar(255)',
+        'TitleAlign' => 'Varchar(255)',
+        'TextAlign' => 'Varchar(255)',
+        'TextColumns' => 'Varchar(255)',
+        'TextColumnsDivider' => 'Boolean(0)'
     ];
 
     private static $has_one = [
@@ -180,7 +184,12 @@ class Slide extends DataObject
             CheckboxField::create('TextOpacity',_t(__CLASS__.'.TextOpacity','Hintergrund leicht transparent ?')),
             HTMLOptionsetField::create('TextPosition',_t(__CLASS__.'.TextPosition','Text Position'),$this->stat('block_text_positions')),
             DropdownField::create('TextWidth',_t(__CLASS__.'.TextWidth','TextBreite'),$this->getTranslatedSourceFor(__CLASS__,'block_text_widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')),
-            DropdownField::create('TextOffset',_t(__CLASS__.'.TextOffset','Text Offset'),$this->getTranslatedSourceFor(__CLASS__,'block_text_offsets'))->setEmptyString(_t(__CLASS__.'.OffsetLabel','Offset hinzufügen'))]
+            DropdownField::create('TextOffset',_t(__CLASS__.'.TextOffset','Text Offset'),$this->getTranslatedSourceFor(__CLASS__,'block_text_offsets'))->setEmptyString(_t(__CLASS__.'.OffsetLabel','Offset hinzufügen')),
+            HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),
+            HTMLOptionsetField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->stat('block_text_alignments')),
+            HTMLOptionsetField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->stat('block_text_columns')),
+            $columnDivider = CheckboxField::create('TextColumnsDivider',_t(__CLASS__.'.ShowColumnsBorder','Border zwischen Spalten anzeigen'))
+            ]
         );
 
         $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LayoutTab','Layout'));
