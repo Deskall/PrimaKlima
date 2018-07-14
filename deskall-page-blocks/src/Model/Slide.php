@@ -26,7 +26,8 @@ class Slide extends DataObject
         'TitleAlign' => 'Varchar(255)',
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
-        'TextColumnsDivider' => 'Boolean(0)'
+        'TextColumnsDivider' => 'Boolean(0)',
+        'Background' => 'Varchar(255)'
     ];
 
     private static $has_one = [
@@ -180,7 +181,8 @@ class Slide extends DataObject
         $fields->FieldByName('Root.Main.Content')->setRows(3);
         $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
         $fields->addFieldsToTab('Root.LayoutTab',[
-            HTMLDropdownField::create('TextBackground',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'),
+             HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
+            HTMLDropdownField::create('TextBackground',_t(__CLASS__.'.BackgroundColor','Text Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'),
             CheckboxField::create('TextOpacity',_t(__CLASS__.'.TextOpacity','Hintergrund leicht transparent ?')),
             HTMLOptionsetField::create('TextPosition',_t(__CLASS__.'.TextPosition','Text Position'),$this->stat('block_text_positions')),
             DropdownField::create('TextWidth',_t(__CLASS__.'.TextWidth','TextBreite'),$this->getTranslatedSourceFor(__CLASS__,'block_text_widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')),
