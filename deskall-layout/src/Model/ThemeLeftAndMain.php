@@ -72,7 +72,7 @@ class ThemeLeftAndMain extends LeftAndMain
     public function getEditForm($id = null, $fields = null)
     {
         $siteConfig = SiteConfig::current_site_config();
-        $fields = $siteConfig->getCMSFields();
+        $fields = $siteConfig->getLayoutFields();
 
         // Tell the CMS what URL the preview should show
         $home = Director::absoluteBaseURL();

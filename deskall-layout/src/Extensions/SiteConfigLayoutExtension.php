@@ -141,11 +141,11 @@ class SiteConfigLayoutExtension extends DataExtension
     }
   }
 
-  public function updateCMSFields(FieldList $fields) {
+  public function getLayoutFields() {
     Requirements::javascript('deskall-layout/javascript/jscolor.min.js');
     Requirements::javascript('deskall-layout/javascript/layout.js');
     Requirements::css('deskall-layout/css/layout.css');
-
+    $fields = new FieldList();
     //GLOBAL
     //COLORS
     $fields->addFieldToTab("Root.Layout.Global",new HiddenField('ID'));
