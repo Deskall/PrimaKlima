@@ -145,7 +145,7 @@ class SiteConfigLayoutExtension extends DataExtension
     Requirements::javascript('deskall-layout/javascript/jscolor.min.js');
     Requirements::javascript('deskall-layout/javascript/layout.js');
     Requirements::css('deskall-layout/css/layout.css');
-    $fields = new FieldList();
+    $fields = new FieldList(new Tabset('Root',_t('FORMS.MAINTAB','Haupt')));
     //GLOBAL
     //COLORS
     $fields->addFieldToTab("Root.Layout.Global",new HiddenField('ID'));
