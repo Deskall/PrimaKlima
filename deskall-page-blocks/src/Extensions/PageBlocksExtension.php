@@ -48,7 +48,9 @@ class PageBlocksExtension extends DataExtension {
 			return false;
 		}
 		$firstBlock = $this->owner->ElementalArea()->Elements()->first();
-
+		if (!$firstBlock){
+			return false;
+		}
 		return $firstBlock->ClassName != "SliderBlock";
 	}
 
