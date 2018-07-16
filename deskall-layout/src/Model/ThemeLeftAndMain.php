@@ -13,6 +13,7 @@ use SilverStripe\ORM\ValidationResult;
 use SilverStripe\Versioned\RecursivePublishable;
 use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class ThemeLeftAndMain extends LeftAndMain
 {
@@ -39,7 +40,7 @@ class ThemeLeftAndMain extends LeftAndMain
     /**
      * @var string
      */
-    private static $menu_icon_class = 'font-icon-cog';
+    private static $menu_icon_class = 'font-icon-block-banner';
 
     /**
      * @var string
