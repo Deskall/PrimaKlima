@@ -180,14 +180,14 @@ class SiteConfigLayoutExtension extends DataExtension
     ]);
                 
     $colorsField = new GridField('Colors',_t(__CLASS__.'.Colors','Farben'),$this->owner->Colors(),$config);
-    $fields->addFieldsToTab("Root.Global",[
+    $fields->addFieldsToTab("Root.Global.Colors",[
       HeaderField::create('ColorTitle',_t(__CLASS__.'.ColorsTitle','Farben'),2),
       $colorsField]);
 
 
 
    
-    $fields->addFieldsToTab("Root.Global", 
+    $fields->addFieldsToTab("Root.Global.Fonts", 
       [
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
         TextField::create('GlobalFontSize',_t(__CLASS__.'.GlobalFontSize','Standard Schriftgrösse')),
@@ -200,6 +200,8 @@ class SiteConfigLayoutExtension extends DataExtension
       ]
     );
     $fields->FieldByName('Root.Global')->setTitle(_t(__CLASS__.'.GlobalTabTitle','Global'));
+    $fields->FieldByName('Root.Global.Fonts')->setTitle(_t(__CLASS__.'.FontsTabTitle','Schriften'));
+    $fields->FieldByName('Root.Global.Colors')->setTitle(_t(__CLASS__.'.ColorsTabTitle','Farben'));
 
 
 
