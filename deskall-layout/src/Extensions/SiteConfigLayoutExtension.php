@@ -67,7 +67,8 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterFontColor' => 'Varchar(7)',
 
     'MobileNaviBackground' => 'Varchar(255)',
-    'MobileNaviHoverFontColor' => 'Varchar(7)'
+    'MobileNaviHoverFontColor' => 'Varchar(7)',
+    'ToggleMenuButtonColor' => 'Varchar(7)',
 
   ];
 
@@ -109,6 +110,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterTitleFontSize' => '@footer-title-font-size',
 
     'MobileNaviHoverFontColor' => '@mobile-navigation-active-color',
+    'ToggleMenuButtonColor' =>'@toggle-mobile-menu-button-color'
 
 
   ];
@@ -255,7 +257,8 @@ class SiteConfigLayoutExtension extends DataExtension
     $fields->addFieldToTab("Root.MobileNavigation.Layout", CompositeField::create(
       FieldGroup::create(
         HTMLDropdownField::create('MobileNaviBackground',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getBackgroundColors())->addExtraClass('colors'),
-        TextField::create('MobileNaviHoverFontColor',_t(__CLASS__.'.HeaderHoverFontColor','Aktive und Hover Schriftfarbe'))->addExtraClass('jscolor')
+        TextField::create('MobileNaviHoverFontColor',_t(__CLASS__.'.HeaderHoverFontColor','Aktive und Hover Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('ToggleMenuButtonColor',_t(__CLASS__.'.ToggleMenuButtonColor','Mobile-Navi Umschaltknopf Schriftfarbe'))->addExtraClass('jscolor')
       )
     )->setTitle(_t(__CLASS__.'.MobileNaviLayout','MobileNavigation Layout'))->setName('MobileNaviFields'));
 
