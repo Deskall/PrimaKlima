@@ -325,6 +325,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->FooterBackground = "#".$this->owner->FooterBackground;
     $this->owner->H1FontColor = "#".$this->owner->H1FontColor;
     $this->owner->MobileNaviHoverFontColor = "#".$this->owner->MobileNaviHoverFontColor;
+    $this->owner->ToggleMenuButtonColor = "#".$this->owner->ToggleMenuButtonColor;
     parent::onBeforeWrite();
   }
 
