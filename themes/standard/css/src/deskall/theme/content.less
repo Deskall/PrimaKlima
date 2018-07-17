@@ -145,11 +145,27 @@ span.dk-link-with-icon{
 }
 .dk-height-medium{
 	@medium only screen and (min-width:@breakpoint-medium){
-		min-height: 300px;
+		min-height: 350px;
 	}
 }
 .dk-height-large{
 	@medium only screen and (min-width:@breakpoint-medium){
-		min-height: 500px;
+		min-height: 450px;
+	}
+}
+//Position responsive
+.dk-position-top{
+	@medium only screen and (min-width:@breakpoint-medium){
+		.uk-position-top;
+	}
+}
+.dk-position-bottom{
+	@medium only screen and (min-width:@breakpoint-medium){
+		.uk-position-bottom;
+	}
+}
+.dk-position-center{
+	@medium only screen and (min-width:@breakpoint-medium){
+		.uk-position-center;
 	}
 }
