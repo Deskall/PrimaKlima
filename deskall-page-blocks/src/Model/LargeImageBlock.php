@@ -46,7 +46,7 @@ class LargeImageBlock extends BannerBlock implements Searchable{
         'Layout' => 'uk-position-top',
         'Effect' => 'none',
         'Overlay' => 'none',
-        'Height' => 'uk-height-medium'
+        'Height' => 'dk-height-medium'
     ];
 
     private static $cascade_duplicates = [];
@@ -59,9 +59,9 @@ class LargeImageBlock extends BannerBlock implements Searchable{
     ];
 
     private static $block_heights = [
-        'uk-height-small' => 'klein',
-        'uk-height-medium' => 'medium',
-        'uk-height-large' => 'gross',
+        'dk-height-small' => 'klein',
+        'dk-height-medium' => 'medium',
+        'dk-height-large' => 'gross',
         'viewport' => 'ganz Bildschirm'
     ];
 
