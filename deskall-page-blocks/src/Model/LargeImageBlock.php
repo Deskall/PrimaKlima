@@ -43,7 +43,7 @@ class LargeImageBlock extends BannerBlock implements Searchable{
     ];
 
     private static $defaults = [
-        'Layout' => 'uk-position-top',
+        'Layout' => 'dk-position-top',
         'Effect' => 'none',
         'Overlay' => 'none',
         'Height' => 'dk-height-medium'
