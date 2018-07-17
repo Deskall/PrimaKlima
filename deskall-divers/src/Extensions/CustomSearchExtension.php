@@ -32,7 +32,7 @@ class CustomSearchExtension extends Extension
     public function SearchForm()
     {
         $form = new SearchForm($this->owner->getControllerForSearchForm(), 'SearchForm', $this->owner->getSearchFields(), $this->owner->getSearchActions());
-        $form->setTemplate("Forms/search_form")->addExtraClass("uk-width-1-1");
+        $form->setTemplate("Forms/search_form")->addExtraClass("uk-width-1-1 search-form");
         return $form;
     }
 
