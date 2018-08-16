@@ -97,7 +97,7 @@ class SiteConfigLayoutExtension extends DataExtension
       '@navbar-nav-item-active-color',
       '@nav-active-border-color'],
     'HeaderHeight' => '@header-menu-height',
-    'HeaderFontSize' => '@main-nav-font-size',
+    'HeaderFontSize' => '@dk-main-nav-font-size',
     'HeaderMenuItemSize' => '@navbar-nav-item-height',
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
     'HeaderLogoHeight' => '@header-logo-height',
