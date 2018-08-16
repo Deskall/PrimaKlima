@@ -9,7 +9,7 @@ class RenameFileExtension extends DataExtension
        
         $filename = pathinfo($this->owner->Filename);
         $filename = str_replace('.',"-",$filename);
-        $this->Filename = $filename.$this->owner->getExtension();
+        $this->owner->Filename = $filename.$this->owner->getExtension();
 
         parent::onBeforeWrite();
     }
