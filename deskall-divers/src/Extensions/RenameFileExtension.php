@@ -11,6 +11,7 @@ class RenameFileExtension extends DataExtension
         $ext = pathinfo($this->owner->Name,PATHINFO_EXTENSION);
         $name = str_replace('.',"-",$name);
         $this->owner->Name = $name.".".$ext;
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt",$this->owner->File->Filename);
         parent::onBeforeWrite();
         
     }
