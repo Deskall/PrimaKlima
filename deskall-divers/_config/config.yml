@@ -37,6 +37,10 @@ Sheadawson\Linkable\Models\Link:
   extensions:
     - LinkableLinkExtension
 
+SilverStripe\Assets\File:
+  extensions:
+    - RenameFileExtension
+
 ---
 Name: deskall-searchable-dataobjects-extensions
 After: '#searchable-dataobjects-extensions'
