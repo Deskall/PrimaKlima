@@ -2,7 +2,7 @@
 
 use SilverStripe\ORM\DataExtension;
 
-class RenameFileUploadExtension extends DataExtension
+class RenameFileExtension extends DataExtension
 {
 
     public function onAfterUpload(){
