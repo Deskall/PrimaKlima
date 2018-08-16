@@ -15,7 +15,8 @@ class Features extends DataObject
     ];
 
     private static $extensions = [
-     'Sortable'
+     'Sortable',
+     'Activable'
     ];
 
     private static $summary_fields = [
