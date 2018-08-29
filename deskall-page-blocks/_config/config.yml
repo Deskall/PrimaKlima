@@ -65,10 +65,15 @@ SilverStripe\UserForms\Control\UserDefinedFormController:
 
 SilverStripe\Forms\FormField:
   extensions:
-    - 'DeskallFormFieldExtension'
+  - 'DeskallFormFieldExtension'
 
 SilverStripe\CMS\Controllers\ContentController:
   extensions:
     - DeskallContentControllerExtension
   url_handlers:
     'children/$ID!/$OTHERID!': 'handleChildren'
+
+
+DNADesign\ElementalUserForms\Model\ElementForm:
+  extensions:
+    - FormBlockExtension
