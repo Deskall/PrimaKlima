@@ -31,7 +31,7 @@ class FormBlockExtension extends DataExtension implements Searchable
     'StepTitleBackground' => 'Varchar(255)'
    ];
 
-   private static $cascade_duplicates = [];
+   private static $cascade_duplicates = ['EmailRecipients'];
 
    private static $defaults = [
     'ShowLabels' => 1,

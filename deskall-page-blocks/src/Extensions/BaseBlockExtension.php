@@ -266,16 +266,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
 
 
-//Duplicate block with correct elem
-    public function DuplicateChildrens($original){
-        foreach (Config::inst()->get($original->ClassName,'cascade_duplicates') as $class) {
-            foreach($original->{$class}() as $object){
-                $newObject = $object->duplicate(false);
-                $newObject->ParentID = $this->owner->ID;
-                $newObject->write();
-            }
-        }
-    }
+
 
     public function onAfterPublish(){
         if ($this->owner->hasMethod('Parent')){
