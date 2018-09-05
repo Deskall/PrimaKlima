@@ -1,5 +1,6 @@
-<div class="$Width <% if Type != "logo" %><% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %><% end_if %> $Class">
-	<div class="$Layout">
+<div class="$Layout">
+	<div class="$Width <% if Type != "logo" %><% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %><% end_if %> $Class">
+	
 		<% if Type == "links" %>
 
 		<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
