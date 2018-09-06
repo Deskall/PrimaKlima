@@ -48,7 +48,7 @@
     <ul class="uk-slideshow-items">
         <% loop ActiveSlides %>
         <li>
-            <img src="$Image.ScaleWidth(650).URL" data-srcset="$Image.ScaleWidth(650).URL 650w, $Image.ScaleWidth(1200).URL 1200w" alt="" data-uk-cover data-sizes="100vw">
+            <img src="$Image.ScaleWidth(650).URL" data-srcset="$Image.ScaleWidth(650).URL 650w, $Image.ScaleWidth(1200).URL 1200w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
         </li>
         <% end_loop %>
     </ul>
