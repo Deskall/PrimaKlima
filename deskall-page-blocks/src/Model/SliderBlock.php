@@ -257,10 +257,6 @@ class SliderBlock extends BaseElement implements Searchable
                     $this->MinHeight = 450;
                     $this->MaxHeight = 700;
                 break;
-                default:
-                    $this->MaxHeight = 2500;
-                    $this->MinHeight =250;
-                break;
             }
         }
     }
