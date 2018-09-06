@@ -3,38 +3,10 @@
        	<% if $ID < 0 || $showSlide %>
         	
 				<% if firstBlockSlide && ParentID > 0 && ParentSlide.Slides.First.ID %>
-				<div data-uk-slideshow="min-height:150;max-height:300;" class="dk-slider dk-slide-default uk-visible-toggle uk-position-relative">
-				    <ul class="uk-slideshow-items">
-				        <li>
-				        	<picture>
-								<% with $ParentSlide.Slides.First.Image %>
-								<source media="(min-width: 2000px)" srcset="$FocusFill(2500,300).URL">
-								<source media="(min-width: 1400px)" srcset="$FocusFill(2000,300).URL">
-								<source media="(min-width: 1000px)" srcset="$FocusFill(1400,300).URL">
-								<source media="(min-width: 600px)" srcset="$FocusFill(1000,300).URL">
-								<source media="(min-width: 400px)" srcset="$FocusFill(600,300).URL">
-								<img src="$FocusFill(400,300).URL" <% if $ExtraClasses %> class="$ExtraClasses"<% end_if %>  alt="$altTag" title="$titleTag">
-								<% end_with %>
-							</picture> 
-					    </li>
-					 </ul>
+				<div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="$ParentSlide.Slides.First.ScaleWidth(350).URL" data-srcset="$ParentSlide.Slides.First.ScaleWidth(320).URL 320w, $ParentSlide.Slides.First.ScaleWidth(650).URL 650w, $ParentSlide.Slides.First.ScaleWidth(1200).URL 1200w, $ParentSlide.Slides.First.ScaleWidth(2500).URL 2500w" alt="" data-sizes="100vw" data-uk-img>
 				</div>
 				<% else_if $SiteConfig.DefaultSlideID > 0 %>
-				<div data-uk-slideshow="min-height:150;max-height:300;" class="dk-slider dk-slide-default uk-visible-toggle uk-position-relative">
-				    <ul class="uk-slideshow-items">
-				        <li>
-				        	<picture>
-								<% with $SiteConfig.DefaultSlide %>
-								<source media="(min-width: 2000px)" srcset="$FocusFill(2500,300).URL">
-								<source media="(min-width: 1400px)" srcset="$FocusFill(2000,300).URL">
-								<source media="(min-width: 1000px)" srcset="$FocusFill(1400,300).URL">
-								<source media="(min-width: 600px)" srcset="$FocusFill(1000,300).URL">
-								<source media="(min-width: 400px)" srcset="$FocusFill(600,300).URL">
-								<img src="$FocusFill(400,300).URL" <% if $ExtraClasses %> class="$ExtraClasses"<% end_if %>  alt="$altTag" title="$titleTag">
-								<% end_with %>
-							</picture>
-						</li>
-				    </ul>
+				<div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="$SiteConfig.DefaultSlide.ScaleWidth(350).URL" data-srcset="$SiteConfig.DefaultSlide.ScaleWidth(320).URL 320w, $SiteConfig.DefaultSlide.ScaleWidth(650).URL 650w, $SiteConfig.DefaultSlide.ScaleWidth(1200).URL 1200w, $SiteConfig.DefaultSlide.ScaleWidth(2500).URL 2500w" alt="" data-sizes="100vw" data-uk-img>
 				</div>
 				<% end_if %>              
       <% end_if %>  
