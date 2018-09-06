@@ -7,7 +7,11 @@
             <video src="$Video.URL"  autoplay loop muted playslinline data-uk-cover></video>
             <% else %>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
-                <% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)"data-uk-cover /><% else %>$Image.Slides($ID,$Title)<% end_if %>
+                <% if $Image.getExtension == "svg" %>
+                <img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)"data-uk-cover />
+                <% else %>
+                <img src="$Image.ScaleWidth(320).URL" data-srcset="$Image.ScaleWidth(320).URL 320w, $Image.ScaleWidth(650).URL 650w, $Image.ScaleWidth(1200).URL 1200w, $Image.ScaleWidth(2500).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
+                <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
             <% end_if %>
                 <div class="dk-slide-text-container dk-overlay $Background uk-height-1-1 ">
@@ -41,19 +45,4 @@
             </div>
 
     <% end_if %>
-</div>
-
-<div class="uk-position-relative uk-visible-toggle uk-light" data-uk-slideshow>
-
-    <ul class="uk-slideshow-items">
-        <% loop ActiveSlides %>
-        <li>
-            <img src="$Image.ScaleWidth(320).URL" data-srcset="$Image.ScaleWidth(320).URL 320w, $Image.ScaleWidth(650).URL 650w, $Image.ScaleWidth(1200).URL 1200w, $Image.ScaleWidth(2500).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
-        </li>
-        <% end_loop %>
-    </ul>
-
-    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
-    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
-
 </div>
