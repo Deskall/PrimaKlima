@@ -27,7 +27,8 @@ class Slide extends DataObject
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
-        'Background' => 'Varchar(255)'
+        'Background' => 'Varchar(255)',
+        'isMainSlide' => 'Boolean(0)'
     ];
 
     private static $has_one = [
@@ -204,6 +205,7 @@ class Slide extends DataObject
         $fields->removeByName('SliderID');
         $fields->removeByName('ParentID');
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
+        $fields->addFieldToTab('Root.Main',CheckboxField::create('isMainSlide',_t(__CLASS__.'isMainSlide','Slide principale (contient le titre de la page)')));
         $fields->addFieldToTab('Root.Main',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
         $fields->addFieldToTab('Root.Main',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
         $fields->FieldByName('Root.Main.Content')->setRows(3);
