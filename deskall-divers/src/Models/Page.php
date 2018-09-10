@@ -5,6 +5,7 @@ use g4b0\SearchableDataObjects\Searchable;
 
 class Page extends SiteTree implements Searchable
 {
+
 	 /**
 	  * Filter array
 	  * eg. array('Disabled' => 0);
