@@ -37,7 +37,7 @@
 		    </div>
 		</div>
 	</div> --%>
-	<div class="$Height $Layout uk-background-cover uk-light <% if Background %>$Background dk-overlay <% end_if %><% if Effect == "fixed" %>uk-background-fixed<% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" 
+	<div class="$Height uk-background-cover uk-light <% if Background %>$Background dk-overlay <% end_if %><% if Effect == "fixed" %>uk-background-fixed<% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" 
 		<% if Effect == "parallax" %>data-uk-parallax="$EffectOptions"<% end_if %>
 	     data-src="$Image.ScaleWidth(350).URL"
 	     data-srcset="$Image.ScaleWidth(650).URL 650w,
