@@ -6,7 +6,7 @@
 		<li class="uk-nav-header">$Title</li>
 		<% end_if %>
 		<% loop Menu(1) %>
-		<li class="$LinkingMode  <% if LinkingMode == "current" %>uk-active<% end_if %><% if $Children %> uk-parent<% end_if %>">
+		<li class="$LinkingMode  ">
 			<a href="$Link" title="$Title.XML"><span class="uk-margin-small-right" data-uk-icon="icon: chevron-right;"></span>$MenuTitle.XML</a>
 			<% if $Children %>
 			<ul class="uk-nav-sub">
