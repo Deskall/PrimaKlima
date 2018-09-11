@@ -13,7 +13,9 @@ use DNADesign\ElementalUserForms\Control\ElementFormController;
 use SilverStripe\Forms\RequiredFields;
 use g4b0\SearchableDataObjects\Searchable;
 
-class FormBlock extends ElementForm implements Searchable
+
+
+class FormBlockExtension extends DataExtension implements Searchable
 {
 
     private static $controller_template = 'DefaultHolder';
@@ -29,7 +31,7 @@ class FormBlock extends ElementForm implements Searchable
     'StepTitleBackground' => 'Varchar(255)'
    ];
 
-   private static $cascade_duplicates = [];
+   private static $cascade_duplicates = ['EmailRecipients'];
 
    private static $defaults = [
     'ShowLabels' => 1,
@@ -56,8 +58,7 @@ class FormBlock extends ElementForm implements Searchable
 
    private static $controller_class = DeskallFormController::class;
 
-   public function getCMSFields(){
-    $fields = parent::getCMSFields();
+   public function updateCMSFields(FieldList $fields){
     $fields->removeByName('Layout');
     $fields->removeByName('TextLayout');
     $fields->removeByName('RedirectPageID');
@@ -75,7 +76,6 @@ class FormBlock extends ElementForm implements Searchable
       $fields->removeByName('Recipients');
      }
 
-     return $fields;
    
    }
 

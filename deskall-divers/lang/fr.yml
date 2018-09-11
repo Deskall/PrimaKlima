@@ -46,8 +46,6 @@ fr:
   SiteTree:
     BUTTONACTIVE: Activer
     BUTTONINACTIVE: Désactiver
-  CreateWebsiteTask:
-    SITEMAPTITLE: Plan de site
   FooterBlock:
     ClassDescription: 'Ajouter les classes nécessaires séparées par une virgule'
     Content: Contenu

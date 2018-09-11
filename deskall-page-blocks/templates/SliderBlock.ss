@@ -7,7 +7,11 @@
             <video src="$Video.URL"  autoplay loop muted playslinline data-uk-cover></video>
             <% else %>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
-                <% if $Image.getExtension == "svg" %><img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)"data-uk-cover /><% else %>$Image.Slides($ID,$Title)<% end_if %>
+                <% if $Image.getExtension == "svg" %>
+                <img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)"data-uk-cover />
+                <% else %>
+                <img src="$Image.ScaleWidth(320).URL" data-srcset="$Image.ScaleWidth(320).URL 320w, $Image.ScaleWidth(650).URL 650w, $Image.ScaleWidth(1200).URL 1200w, $Image.ScaleWidth(2500).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
+                <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
             <% end_if %>
                 <div class="dk-slide-text-container dk-overlay $Background uk-height-1-1 ">

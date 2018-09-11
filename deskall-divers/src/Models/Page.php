@@ -7,6 +7,7 @@ class Page extends SiteTree implements Searchable
 {
 
 
+
      /**
       * Filter array
       * eg. array('Disabled' => 0);
@@ -79,4 +80,5 @@ class Page extends SiteTree implements Searchable
         @session_start();
       }
     }
-  }
+}
+

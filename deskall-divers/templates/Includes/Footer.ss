@@ -49,7 +49,13 @@
 		    	$Content
 		    	<% else_if Type == "logo" %>
 		    	<div>
-		    		<a href="/" class="uk-navbar-item uk-logo"><img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="Home" /></a>
+		    		<a href="/" class="uk-navbar-item uk-logo">
+		    			<% if $Image.getExtension == "svg" %>
+		    			<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" />
+		    			<% else %>
+		    			<img src="$Logo.ScaleWidth(150).URL" data-srcset="$Logo.ScaleWidth(150).URL 150w, $Logo.ScaleWidth(250).URL 250w, $Logo.ScaleWidth(350).URL 350w" sizes="150w, (min-width:650px) 250w, (min-width:1200px) 350w" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" />
+		    			<% end_if %>
+		    		</a>
 		    	</div>
 		        <% else %>
 		    	<div class="title-container">
