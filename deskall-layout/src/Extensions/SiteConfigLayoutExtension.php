@@ -397,8 +397,9 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function RegenerateCss(){
-    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt",'ici');
+
     $url = Director::AbsoluteURL('themes/standard/css/main.min.css');
+    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt",$url);
     $req = curl_init($url);
     $postdata = [];
     curl_setopt($req, CURLOPT_POST, true);
