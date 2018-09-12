@@ -36,7 +36,6 @@ class VideoObject extends DataObject{
 	}
 
 	public function getSrc(){
-		print_r($this->URL);
 		if ($this->File()->exists()){
 			return $this->File()->getURL();
 		}
