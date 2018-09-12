@@ -38,7 +38,7 @@
 		<% else %>
 		<div class="uk-flex-center $VideoPerLine uk-grid-small" data-uk-grid data-uk-lightbox>
 		   <% loop Videos %>
-			<iframe src="$Src" frameborder="0" allowfullscreen data-uk-responsive data-uk-video="automute: true;autoplay:false;"></iframe>
+			<iframe src="$Src" frameborder="0" width="" height="500" allowfullscreen data-uk-responsive data-uk-video="automute: true;autoplay:false;"></iframe>
 		   <% end_loop %>
 		</div>
 		<% end_if %>
