@@ -34,5 +34,12 @@ class VideoObject extends DataObject{
 
 		return $labels;
 	}
+
+	public function src(){
+		if ($this->File()){
+			return $this->File()->getURL();
+		}
+		return $this->URL;
+	}
 	
 }

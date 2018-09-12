@@ -15,7 +15,9 @@
 
 		        <div class="uk-slider-container uk-light">
 		            <ul class="uk-slider-items uk-height-large <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-lightbox>
-		            	$GetVideos
+		            	<% loop Videos %>
+		            	<li class="uk-height-1-1"><iframe src="$src" width="560" height="315" frameborder="0" allowfullscreen data-uk-responsive data-uk-video="automute: true"></iframe></li>
+		            	<% end_loop %>
 		            </ul>
 		        </div>
 		        <% if not isChildren %>
@@ -35,6 +37,8 @@
 		</div>
 		<% else %>
 		<div class="uk-flex-center $VideoPerLine uk-grid-small" data-uk-grid data-uk-lightbox>
-		   
+		   <% loop Videos %>
+			<iframe src="$src" width="560" height="315" frameborder="0" allowfullscreen data-uk-responsive data-uk-video="automute: true"></iframe>
+		   <% end_loop %>
 		</div>
 		<% end_if %>
