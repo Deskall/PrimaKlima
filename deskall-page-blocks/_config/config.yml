@@ -77,3 +77,7 @@ SilverStripe\CMS\Controllers\ContentController:
 DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
     - FormBlockExtension
+
+SilverStripe\UserForms\Model\EditableFormField:
+  extensions:
+    - DeskallEditableFormFieldExtension
