@@ -35,6 +35,6 @@
 		</div>
 		<% else %>
 		<div class="uk-flex-center $VideoPerLine uk-grid-small" data-uk-grid data-uk-lightbox>
-		    $GetVideos
+		   
 		</div>
 		<% end_if %>
