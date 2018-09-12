@@ -50,7 +50,7 @@
 		    	<% else_if Type == "logo" %>
 		    	<div>
 		    		<a href="/" class="uk-navbar-item uk-logo">
-		    			<% if $Image.getExtension == "svg" %>
+		    			<% if $Logo.getExtension == "svg" %>
 		    			$Logo.URL
 		    			<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo" data-uk-svg />
 		    			<% else %>
