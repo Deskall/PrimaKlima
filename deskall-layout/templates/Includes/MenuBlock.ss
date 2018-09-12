@@ -24,6 +24,7 @@
 	<% end_if %>
 	<% if Type == "logo" %>
 	<a href="/" class="uk-navbar-item uk-logo">
+		$Logo.URL
 		<% if $Logo.getExtension == "svg" %>
 		<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" data-uk-img class="svg-logo" />
 		<% else %>
