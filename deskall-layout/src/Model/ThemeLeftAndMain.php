@@ -20,7 +20,7 @@ class ThemeLeftAndMain extends LeftAndMain
     /**
      * @var string
      */
-    private static $url_segment = 'theme';
+    private static $url_segment = 'design';
 
     /**
      * @var string
@@ -35,7 +35,7 @@ class ThemeLeftAndMain extends LeftAndMain
     /**
      * @var string
      */
-    private static $menu_title = 'Themes';
+    private static $menu_title = 'Design';
 
     /**
      * @var string
