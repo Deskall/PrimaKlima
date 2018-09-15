@@ -34,12 +34,6 @@ class DeskallPageExtension extends DataExtension
             $field = OptionsetField::create('ShowInMainMenu',_t(__CLASS__.'.ShowInMainMenuLabel','In welchem Menu sollt diese Seite anzeigen ?'), $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
             $fields->insertAfter($field,'MenuTitle');
         }
-
-        foreach ($fields as $field) {
-            if ($field->hasMethod('setFolderName')){
-                $field->setFolderName($this->owner->generateFolderName());
-            }
-        }
     }
 
 
