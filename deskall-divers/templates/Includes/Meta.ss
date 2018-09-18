@@ -15,11 +15,11 @@ $MetaTags(false)
 <meta name="msapplication-config" content="$ThemeDir/browserconfig.xml">
 
 <% if isLive %>
-	<%-- <% include Css %> --%>
-	<%-- <link rel="stylesheet" type="text/css" href="$ThemeDir/css/live.min.css" /> --%>
+	<script async defer src="$ThemeDir/javascript/main.min.js"></script>
 	$Css
 <% else %>
-<link rel="stylesheet" type="text/css" href="$ThemeDir/css/main.min.css" />
+    <script src="$ThemeDir/javascript/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/main.min.css" />
 <% end_if %>
 
 <% if headScripts %>
