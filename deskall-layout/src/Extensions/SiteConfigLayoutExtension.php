@@ -79,11 +79,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'WhiteBackground' => '@white',
     'BlackBackground' => '@black',
     'BodyBackground' => '@global',
-    'ActiveColor' => [
-      '@global-emphasis',
-      '@global-emphasis-background',
-      '@global-emphasis-color'
-    ],
+    'ActiveColor' => '@global-emphasis',
     'GlobalFontSize' => '@global-font-size',
     'H1FontSize' => [
       '@h1-size',
