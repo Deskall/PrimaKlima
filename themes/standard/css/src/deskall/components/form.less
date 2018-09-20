@@ -7,9 +7,11 @@ input[type="text"],input[type="email"],input[type="password"],input[type="number
 }
 input[type="checkbox"]{
 	.uk-checkbox;
+	margin-right:15px;
 }
 input[type="radio"]{
 	.uk-radio;
+	margin-right:15px;
 }
 input[type="submit"]{
 	.uk-button;
@@ -57,4 +59,20 @@ fieldset{
 
 .uk-form-horizontal .form-group--no-label > .uk-form-controls{
 	margin-left:0;
+}
+
+//messages
+form .message {
+	padding:5px 10px;
+	border:1px solid #eee;
+	background-color:#ccc;
+	color:#004800;
+	&.good{
+		background-color:#cce8cc;
+		border-color:#b8deb8;
+	}
+	&.bad{
+		background-color:#f59fa5;
+		border-color:#e78291;
+	}
 }
