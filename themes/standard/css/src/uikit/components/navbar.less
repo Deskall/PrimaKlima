@@ -107,7 +107,6 @@
 .uk-navbar-container:not(.uk-navbar-transparent):extend(.uk-light all) when (@navbar-color-mode = light) {}
 .uk-navbar-container:not(.uk-navbar-transparent):extend(.uk-dark all) when (@navbar-color-mode = dark) {}
 
-
 /*
  * Remove pseudo elements created by micro clearfix as precaution (if Container component is used)
  */
@@ -223,7 +222,7 @@
     align-items: center;
     /* 2 */
     box-sizing: border-box;
-    height: @navbar-nav-item-height;
+    min-height: @navbar-nav-item-height;
     padding: 0 @navbar-nav-item-padding-horizontal;
     /* 3 */
     font-size: @navbar-nav-item-font-size;
