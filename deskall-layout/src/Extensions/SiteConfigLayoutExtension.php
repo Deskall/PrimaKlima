@@ -79,7 +79,11 @@ class SiteConfigLayoutExtension extends DataExtension
     'WhiteBackground' => '@white',
     'BlackBackground' => '@black',
     'BodyBackground' => '@global',
-    'ActiveColor' => '@global-emphasis',
+    'ActiveColor' => [
+      '@global-emphasis',
+      '@global-emphasis-background',
+      '@global-emphasis-color'
+    ],
     'GlobalFontSize' => '@global-font-size',
     'H1FontSize' => [
       '@h1-size',
@@ -133,7 +137,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'WhiteBackground' => ['Code' => 'WhiteBackground', 'FontTitle' => 'Weiss','Color' => 'ffffff','FontColor' => '666666','isReadonly' => 1, 'canChangeTitle' => 1],
     'BlackBackground' => ['Code' => 'BlackBackground', 'FontTitle' => 'Schwarzfarbe','Color' => '000000','FontColor' => 'ffffff','isReadonly' => 1, 'canChangeTitle' => 1],
     'GrayBackground' => ['Code' => 'GrayBackground', 'FontTitle' => 'Graufarbe','Color' => 'cccccc','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 1],
-    'ActiveColor' => ['Code' => 'ActiveColor', 'FontTitle' => 'Aktiv farbe','Color' => '10206B','FontColor' => 'FFFFFF','isReadonly' => 1, 'canChangeTitle' => 1]
+    'ActiveColor' => ['Code' => 'ActiveColor', 'FontTitle' => 'Aktiv farbe','Color' => '10206B','FontColor' => '10206B','isReadonly' => 1, 'canChangeTitle' => 1]
   ];
 
   public function populateDefaultsColors(){
