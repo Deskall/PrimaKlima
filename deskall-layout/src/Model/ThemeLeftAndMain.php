@@ -15,7 +15,7 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
 use SilverStripe\SiteConfig\SiteConfig;
 
-class ThemeLeftAndMain extends LeftAndMain
+class ThemeLeftAndMain extends LeftAndMainExtension
 {
     /**
      * @var string
