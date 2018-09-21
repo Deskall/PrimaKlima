@@ -10,6 +10,8 @@ SilverStripe\SiteConfig\SiteConfig:
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - deskall-layout/css/layout.css
+  extensions:
+    - ThemeLeftAndMain
 
 Color:
   extensions:
