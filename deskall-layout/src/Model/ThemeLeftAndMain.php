@@ -1,6 +1,6 @@
 <?php
 
-use SilverStripe\Admin\LeftAndMainExtension;
+use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Director;
 use SilverStripe\Forms\Form;
@@ -15,7 +15,7 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
 use SilverStripe\SiteConfig\SiteConfig;
 
-class ThemeLeftAndMain extends LeftAndMainExtension
+class ThemeLeftAndMain extends LeftAndMain
 {
     /**
      * @var string
