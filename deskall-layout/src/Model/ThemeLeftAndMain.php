@@ -1,6 +1,6 @@
 <?php
 
-use SilverStripe\Admin\LeftAndMain;
+use SilverStripe\Admin\LeftAndMainExtension;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Director;
 use SilverStripe\Forms\Form;
