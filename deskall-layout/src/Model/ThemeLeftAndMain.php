@@ -1,6 +1,6 @@
 <?php
 
-use SilverStripe\Admin\LeftAndMainExtension;
+use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Director;
 use SilverStripe\Forms\Form;
@@ -14,21 +14,8 @@ use SilverStripe\Versioned\RecursivePublishable;
 use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
 use SilverStripe\SiteConfig\SiteConfig;
-use SilverStripe\Admin\AdminRootController;
-use SilverStripe\Admin\CMSMenu;
-use SilverStripe\CMS\Controllers\CMSPagesController;
-use SilverStripe\CMS\Controllers\CMSPageEditController;
-use SilverStripe\Control\Controller;
-use SilverStripe\Core\Config\Config;
-use SilverStripe\Core\Convert;
-use SilverStripe\Security\Member;
-use SilverStripe\Security\Permission;
-use SilverStripe\Security\Security;
-use SilverStripe\Subsites\Controller\SubsiteXHRController;
-use SilverStripe\Subsites\Model\Subsite;
-use SilverStripe\Subsites\State\SubsiteState;
 
-class ThemeLeftAndMain extends LeftAndMainExtension 
+class ThemeLeftAndMain extends LeftAndMainExtension
 {
     /**
      * @var string
@@ -64,122 +51,6 @@ class ThemeLeftAndMain extends LeftAndMainExtension
      * @var array
      */
     private static $required_permission_codes = array('EDIT_SITECONFIG');
-
-    public function onBeforeInit()
-    {
-        $request = Controller::curr()->getRequest();
-        $session = $request->getSession();
-
-        $state = SubsiteState::singleton();
-
-        // FIRST, check if we need to change subsites due to the URL.
-
-        // Catch forced subsite changes that need to cause CMS reloads.
-        if ($request->getVar('SubsiteID') !== null) {
-            // Clear current page when subsite changes (or is set for the first time)
-            if ($state->getSubsiteIdWasChanged()) {
-                // sessionNamespace() is protected - see for info
-                $override = $this->owner->config()->get('session_namespace');
-                $sessionNamespace = $override ? $override : get_class($this->owner);
-                $session->clear($sessionNamespace . '.currentPage');
-            }
-
-            // Context: Subsite ID has already been set to the state via InitStateMiddleware
-
-            // If the user cannot view the current page, redirect to the admin landing section
-            if (!$this->owner->canView()) {
-                return $this->owner->redirect(AdminRootController::config()->get('url_base') . '/');
-            }
-
-            $currentController = Controller::curr();
-            if ($currentController instanceof CMSPageEditController) {
-                /** @var SiteTree $page */
-                $page = $currentController->currentPage();
-
-                // If the page exists but doesn't belong to the requested subsite, redirect to admin/pages which
-                // will show a list of the requested subsite's pages
-                $currentSubsiteId = $request->getVar('SubsiteID');
-                if ($page && (int) $page->SubsiteID !== (int) $currentSubsiteId) {
-                    return $this->owner->redirect(CMSPagesController::singleton()->Link());
-                }
-
-                // Page does belong to the current subsite, so remove the query string parameter and refresh the page
-                // Remove the subsiteID parameter and redirect back to the current URL again
-                $request->offsetSet('SubsiteID', null);
-                return $this->owner->redirect($request->getURL(true));
-            }
-
-            // Redirect back to the default admin URL
-            return $this->owner->redirect($request->getURL());
-        }
-
-        // Automatically redirect the session to appropriate subsite when requesting a record.
-        // This is needed to properly initialise the session in situations where someone opens the CMS via a link.
-        $record = $this->owner->currentPage();
-        if ($record
-            && isset($record->SubsiteID, $this->owner->urlParams['ID'])
-            && is_numeric($record->SubsiteID)
-            && $this->shouldChangeSubsite(
-                get_class($this->owner),
-                $record->SubsiteID,
-                SubsiteState::singleton()->getSubsiteId()
-            )
-        ) {
-            // Update current subsite
-            $canViewElsewhere = SubsiteState::singleton()->withState(function ($newState) use ($record) {
-                $newState->setSubsiteId($record->SubsiteID);
-
-                return (bool) $this->owner->canView(Security::getCurrentUser());
-            });
-
-            if ($canViewElsewhere) {
-                // Redirect to clear the current page
-                return $this->owner->redirect(
-                    Controller::join_links($this->owner->Link('show'), $record->ID, '?SubsiteID=' . $record->SubsiteID)
-                );
-            }
-            // Redirect to the default CMS section
-            return $this->owner->redirect(AdminRootController::config()->get('url_base') . '/');
-        }
-
-        // SECOND, check if we need to change subsites due to lack of permissions.
-
-        if (!$this->owner->canAccess()) {
-            $member = Security::getCurrentUser();
-
-            // Current section is not accessible, try at least to stick to the same subsite.
-            $menu = CMSMenu::get_menu_items();
-            foreach ($menu as $candidate) {
-                if ($candidate->controller && $candidate->controller != get_class($this->owner)) {
-                    $accessibleSites = singleton($candidate->controller)->sectionSites(true, 'Main site', $member);
-                    if ($accessibleSites->count()
-                        && $accessibleSites->find('ID', SubsiteState::singleton()->getSubsiteId())
-                    ) {
-                        // Section is accessible, redirect there.
-                        return $this->owner->redirect(singleton($candidate->controller)->Link());
-                    }
-                }
-            }
-
-            // If no section is available, look for other accessible subsites.
-            foreach ($menu as $candidate) {
-                if ($candidate->controller) {
-                    $accessibleSites = singleton($candidate->controller)->sectionSites(true, 'Main site', $member);
-                    if ($accessibleSites->count()) {
-                        Subsite::changeSubsite($accessibleSites->First()->ID);
-                        return $this->owner->redirect(singleton($candidate->controller)->Link());
-                    }
-                }
-            }
-
-            // We have not found any accessible section or subsite. User should be denied access.
-            return Security::permissionFailure($this->owner);
-        }
-
-        // Current site is accessible. Allow through.
-        return;
-    }
-
 
     /**
      * Initialises the {@link SiteConfig} controller.
