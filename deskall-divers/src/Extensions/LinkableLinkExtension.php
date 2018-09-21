@@ -21,7 +21,8 @@ class LinkableLinkExtension extends DataExtension implements i18nEntityProvider
          'LinkPosition' => 'Varchar(255)',
          'Background' => 'Varchar(255)',
          'hasIcone' => 'Boolean(1)',
-         'Icone' => 'Varchar(255)'
+         'Icone' => 'Varchar(255)',
+         'Embedded' => 'Boolean(0)'
     ];
 
     private static $types = [
@@ -46,7 +47,7 @@ class LinkableLinkExtension extends DataExtension implements i18nEntityProvider
 
 
     public function updateCMSFields(FieldList $fields){
-
+        $fields->addFieldToTab('Root.Main',CheckboxField::create('Embedded',_t(__CLASS__.'.Embedded','soll als pop-ub offnen?')));
         $fields->addFieldToTab('Root',new Tab('Layout',_t(__CLASS__.'.LAYOUTTAB','Layout')));
         $fields->addFieldToTab('Root.Layout',DropdownField::create('LinkPosition',_t(__CLASS__.'.LinkAlignment','Linkausrichtung'),$this->owner->getTranslatedSourceFor(__CLASS__,'block_link_alignments')));
         $fields->addFieldToTab('Root.Layout',HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'));
