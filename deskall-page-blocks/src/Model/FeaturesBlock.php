@@ -36,9 +36,6 @@ class FeaturesBlock extends BaseElement implements Searchable
         'FeaturesTextAlign' => 'Varchar(255)'
     ];
 
-    private static $has_one = [
-        'ContentImage' => Image::class
-    ];
 
     private static $has_many = [
         'Features' => Features::class
@@ -51,9 +48,7 @@ class FeaturesBlock extends BaseElement implements Searchable
     private static $cascade_duplicates = ['Features'];
 
 
-    private static $owns = [
-        'ContentImage',
-    ];
+
 
     private static $defaults = [
         'FeaturesColumns' => 'uk-child-width-1-1',
@@ -161,7 +156,6 @@ class FeaturesBlock extends BaseElement implements Searchable
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
                 ->setRows(5);
-            $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
 
             $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
             
