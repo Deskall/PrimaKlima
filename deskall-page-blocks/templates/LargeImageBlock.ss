@@ -10,15 +10,11 @@
 	     data-sizes="100vw" data-uk-img>
 	    <div class="uk-container uk-overflow-auto uk-position-relative <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %> $Height">
 		    <div class="$Layout uk-padding-small">
-		    	<% if Element.isPrimary %>
-		    		<h1>$Element.Parent.getOwnerPage.Title</h1>
+		    	<% if isPrimary %>
+		    		<h1 class="$TitleAlign">$getOwnerPage.Title</h1>
 		    	<% else %>
-		    		<% if Element.Title && $Element.ShowTitle %>
-		    			<% if $Element.isChildren %>
-		    				<h3 class="$Element.TitleAlign">$Element.Title</h3>
-		    			<% else %>
-		    				<h2 class="$Element.TitleAlign">$Element.Title</h2>
-		    			<% end_if %>
+		    		<% if Title && $ShowTitle %>
+		    			<h2 class="$TitleAlign">$Title</h2>
 		    		<% end_if %>
 		    	<% end_if %>
 

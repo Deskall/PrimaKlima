@@ -7,7 +7,7 @@
 	<% end_if %>				
 			<div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
 				<% if Element.isPrimary %>
-					<h1>$Element.Parent.getOwnerPage.Title</h1>
+					<h1 class="$Element.TitleAlign">$Element.Parent.getOwnerPage.Title</h1>
 				<% else %>
 					<% if Element.Title && $Element.ShowTitle %>
 						<% if $Element.isChildren %>
