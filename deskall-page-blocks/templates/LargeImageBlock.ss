@@ -9,9 +9,9 @@
 	                  $Image.ScaleWidth(5000).URL 5000w"
 	     data-sizes="100vw" data-uk-img>
 	    <div class="uk-container uk-overflow-auto uk-position-relative <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %> $Height">
-		    <div class="$Layout uk-padding-small $isPrimary">
+		    <div class="$Layout uk-padding-small">
 		    	<% if isPrimary %>
-		    		<h1 class="$TitleAlign">$getOwnerPage.Title</h1>
+		    		<h1 class="$TitleAlign">$getPage.Title</h1>
 		    	<% else %>
 		    		<% if Title && $ShowTitle %>
 		    			<h2 class="$TitleAlign">$Title</h2>
