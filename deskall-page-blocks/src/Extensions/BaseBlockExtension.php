@@ -25,6 +25,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
+        'isPrimary' => 'Boolean(0)'
        
     ];
 
@@ -149,6 +150,13 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         ]
     ];
 
+    public function populateDefaults(){
+        parent::populateDefaults();
+        if ($this->isPrimary){
+            $this->ShowTitle = 1;
+        }
+    }
+
 
     public function updateCMSFields(FieldList $fields){
        
@@ -189,6 +197,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
             $fields->addFieldToTab('Root',$history);
         }
+
+        $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Ce bloc contient le titre principale de la page (h1)")),'Title');
+        $fields->FieldbyName('Root.Main.TitleAndDisplayed')->hideIf('isPrimary')->isChecked();
     }
 
     public function getAnchorTitle(){
