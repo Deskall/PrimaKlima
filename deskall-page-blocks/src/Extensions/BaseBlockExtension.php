@@ -177,7 +177,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $title = $fields->FieldbyName('Root.Main.TitleAndDisplayed');
         $fields->removeByName('TitleAndDisplayed');
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Ce bloc contient le titre principale de la page (h1)")));
-        $fields->addFieldToTab('Root.Main',Wrapper::create($field)->hideIf('isPrimary')->isChecked()->end());
+        $fields->addFieldToTab('Root.Main',Wrapper::create($field)->displayIf('isPrimary')->isNotChecked()->end());
       
         $fields->addFieldToTab('Root',new Tab('LayoutTab',_t(__CLASS__.'.LAYOUTTAB','Layout')));
      
