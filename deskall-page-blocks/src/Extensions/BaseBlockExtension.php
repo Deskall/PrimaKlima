@@ -195,7 +195,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
             HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
             UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()),
-            OptionsetField::create('Effect',_t(__CLASS__. '.Effect','Effekt'),$this->getTranslatedSourceFor(__CLASS__,'effects')),
+            OptionsetField::create('Effect',_t(__CLASS__. '.Effect','Effekt'),$this->owner->getTranslatedSourceFor(__CLASS__,'effects')),
             TextField::create('EffectOptions',_t(__CLASS__. '.EffectOptions','Effekt Optionen'))
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
