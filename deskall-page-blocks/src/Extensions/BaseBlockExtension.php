@@ -13,6 +13,7 @@ use SilverStripe\i18n\i18nEntityProvider;
 use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -199,7 +200,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         }
 
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Ce bloc contient le titre principale de la page (h1)")),'TitleAndDisplayed');
-        $fields->FieldbyName('Root.Main.TitleAndDisplayed')->hideIf('isPrimary')->isChecked();
+        $wrapper = Wrapper::create($fields->FieldbyName('Root.Main.TitleAndDisplayed'))->hideIf('isPrimary')->isChecked()->end();
     }
 
     public function getAnchorTitle(){
