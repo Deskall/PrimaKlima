@@ -72,7 +72,7 @@ class LeadBlock extends BaseElement implements Searchable
     }
 
     public function canDelete($member = null){
-        if ($this->isPrimary){
+        if ($this->isPrimary && !Permission::check('ADMIN')){
             return false;
         }
         return parent::canDelete();
