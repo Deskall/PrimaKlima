@@ -6,7 +6,6 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\CheckboxField;
-use SilverStripe\Forms\OptionsetField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Core\Config\Config;
@@ -23,8 +22,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'isPrimary' => 'Boolean(0)',
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
-        'BackgroundEffect' => 'Varchar(255)',
-        'BackgroundEffectOptions' => 'Varchar(255)',
         'Layout' => 'Varchar(255)',
         'TitleAlign' => 'Varchar(255)',
         'TextAlign' => 'Varchar(255)',
@@ -69,14 +66,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'CodeBlock',
         'DuplicateBlock',
         'VirtualBlock'
-    ];
-
-
-    private static $effects = [
-        'none' => 'kein',
-        'fixed' => 'fixed',
-        'kenburns' => 'Ken Burns',
-        'parallax' => 'parallax' 
     ];
 
     private static $children_blocks = [
@@ -194,9 +183,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
             HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
-            UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()),
-            OptionsetField::create('Effect',_t(__CLASS__. '.Effect','Effekt'),$this->owner->getTranslatedSourceFor(__CLASS__,'effects')),
-            TextField::create('EffectOptions',_t(__CLASS__. '.EffectOptions','Effekt Optionen'))
+            UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName())
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),
@@ -308,10 +295,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-
-        foreach($this->stat('effects') as $key => $value) {
-          $entities[__CLASS__.".effects_{$key}"] = $value;
-        }
 
         return $entities;
     }
