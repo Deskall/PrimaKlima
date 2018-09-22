@@ -198,6 +198,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
             $fields->addFieldToTab('Root',$history);
         }
+
+        if ($this->owner->isPrimary){
+            $fields->removeByName('TitleAndDisplayed');
+        }
         
     }
 
