@@ -83,6 +83,7 @@ class LargeImageBlock extends BannerBlock implements Searchable{
         $fields->removeByName('Height');
         $fields->removeByName('Effect');
         $fields->removeByName('EffectOptions');
+         $fields->removeByName('Overlay');
         $fields->fieldByName('Root.Main.Image')->setTitle(_t(__CLASS__ . '.Image','Bild'))->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             OptionsetField::create('Layout',_t(__CLASS__. '.Format','vertikale Ausrichtung'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
