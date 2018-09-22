@@ -198,9 +198,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
             $fields->addFieldToTab('Root',$history);
         }
-
+        $title = $fields->FieldbyName('Root.Main.TitleAndDisplayed');
+        $fields->removeByName('TitleAndDisplayed');
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Ce bloc contient le titre principale de la page (h1)")),'TitleAndDisplayed');
-       $fields->addFieldToTab('Root.Main',Wrapper::create($fields->FieldbyName('Root.Main.TitleAndDisplayed'))->hideIf('isPrimary')->isChecked()->end());
+        $fields->addFieldToTab('Root.Main',Wrapper::create($field)->hideIf('isPrimary')->isChecked()->end());
     }
 
     public function getAnchorTitle(){
