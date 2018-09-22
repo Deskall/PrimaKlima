@@ -19,15 +19,14 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
 
     private static $db = [
+        'isPrimary' => 'Boolean(0)',
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
         'Layout' => 'Varchar(255)',
         'TitleAlign' => 'Varchar(255)',
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
-        'TextColumnsDivider' => 'Boolean(0)',
-        'isPrimary' => 'Boolean(0)'
-       
+        'TextColumnsDivider' => 'Boolean(0)'
     ];
 
     private static $has_one = [
