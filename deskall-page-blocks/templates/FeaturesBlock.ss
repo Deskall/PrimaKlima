@@ -1,4 +1,6 @@
-<% include TextBlock %>
+	<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+		$HTML
+	</div>
 <% if activeFeatures %>
 	<% if $FeaturesTitle %>
 		<h3>$FeaturesTitle</h3>
@@ -8,4 +10,7 @@
 	    <li><span class="dk-large-icon uk-text-large" data-uk-icon="icon: $Top.IconItem;">$Text</span></li>
 	<% end_loop %>
 	</ul>
+<% end_if %>
+<% if LinkableLinkID > 0 %>
+	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 <% end_if %>
