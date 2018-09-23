@@ -51,6 +51,8 @@ class VideoBlock extends BaseElement implements Searchable
         'uk-child-width-1-3@s' => '3'
     ];
 
+    private static $has_many = ['Videos' => VideoObject::class];
+
     private static $cascade_duplicates = [];
 
 	/**
