@@ -152,8 +152,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     public function populateDefaults(){
         parent::populateDefaults();
-        if ($this->isPrimary){
-            $this->ShowTitle = 1;
+        if ($this->owner->isPrimary){
+            $this->owner->ShowTitle = 1;
         }
     }
 
