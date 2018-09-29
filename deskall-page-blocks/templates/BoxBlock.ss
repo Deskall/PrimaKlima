@@ -21,7 +21,7 @@
 					    <% if Image %>
 					    	<% if $Image.getExtension == "svg" %>
 					    	<div class="uk-flex uk-flex-center uk-flex-middle">
-					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-svg width="$Up.PictureWidth" height="$Up.PictureHeight" />
+					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="$Up.PictureHeight" />
 					    	</div>
 					    	<% else %>
 					    	
@@ -35,7 +35,7 @@
 					     <% if Image %>
 					    	<% if $Image.getExtension == "svg" %>
 					    	<div class="uk-flex uk-flex-center uk-flex-middle">
-					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-svg width="$Up.PictureWidth" height="$Up.PictureHeight"  />
+					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="$Up.PictureHeight"  />
 					    	</div>
 					    	<% else %>
 					    	
@@ -57,7 +57,7 @@
 					     <% if Image %>
 					    	<% if $Image.getExtension == "svg" %>
 					    	<div class="uk-flex uk-flex-center uk-flex-middle">
-					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-svg width="$Up.PictureWidth" height="$Up.PictureHeight"  />
+					    		<img class="dk-icon uk-width-auto <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="$Up.PictureHeight"  />
 					    	</div>
 					    	<% else %>
 					    	
