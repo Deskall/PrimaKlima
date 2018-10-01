@@ -115,7 +115,7 @@ class MenuBlock extends LayoutBlock{
 	}
 
 	public function forTemplate(){
-		return $this->renderWith('Includes/MenuBlock');
+		return $this->renderWith('Includes/MenuBlock_'.$this->Type);
 	}
 
 	/**
