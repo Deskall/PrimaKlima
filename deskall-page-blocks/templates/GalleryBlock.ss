@@ -17,7 +17,17 @@
 		            <ul class="uk-slider-items $PicturesPerLine" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;">
 		            	<% loop OrderedImages %>
 		                <li class="uk-flex uk-flex-middle uk-flex-center">
-				            <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else %>$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img></a>
+				            <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description">
+				            	<img data-src="
+				            	<% if $getExtension == "svg" %>
+				            	$URL
+				            	<% else %>
+					            	<% if Up.PaddedImages %>
+					            	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
+					            	<% else %>
+					            	$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
+					            	<% end_if %>
+				            	<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img></a>
 				        </li>
 				     	<% end_loop %>
 		            </ul>
