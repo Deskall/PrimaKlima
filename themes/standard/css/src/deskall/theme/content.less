@@ -5,9 +5,6 @@ a:hover{
 }
 
 // LIST
-	ul{
-		list-style-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
-	}
 
 	li[data-uk-icon]{
 		padding-left: 15px;
@@ -70,6 +67,10 @@ a:hover{
 	color:@black-color;
 }
 
+.uk-section{
+	background-repeat:no-repeat;
+	background-size:cover;
+}
 
 .dk-default-icon{
 	vertical-align: text-bottom;
@@ -85,13 +86,18 @@ a:hover{
 		}
 	}
 	&.uk-flex-left{
-		.button-uk-section-default{
+		.button-no-bg:not([data-uk-icon]){
 			padding-left:0;
 		}
 	}
 	&.uk-flex-right{
-		.button-uk-section-default{
+		.button-no-bg:not([data-uk-icon]){
 			padding-right:0;
+		}
+	}
+	&.uk-flex-center{
+		.button-no-bg:not([data-uk-icon]){
+			padding:0;
 		}
 	}
 }
@@ -136,4 +142,42 @@ span.dk-link-with-icon{
 
 .button-no-bg{
 	padding-left:0;
+}
+
+
+//UTILITY
+//MIN HEIGHT (ie : LargeImageBlock)
+.dk-height-small{
+	min-height:200px;
+	@media only screen and (min-width:@breakpoint-medium){
+		min-height: 150px;
+	}
+}
+.dk-height-medium{
+	min-height:300px;
+	@media only screen and (min-width:@breakpoint-medium){
+		min-height: 350px;
+	}
+}
+.dk-height-large{
+	min-height:100vh;
+	@media only screen and (min-width:@breakpoint-medium){
+		min-height: 450px;
+	}
+}
+//Position responsive
+.dk-position-top{
+	@media only screen and (min-width:@breakpoint-medium){
+		.uk-position-top;
+	}
+}
+.dk-position-bottom{
+	@media only screen and (min-width:@breakpoint-medium){
+		.uk-position-bottom;
+	}
+}
+.dk-position-center{
+	@media only screen and (min-width:@breakpoint-medium){
+		.uk-position-center;
+	}
 }

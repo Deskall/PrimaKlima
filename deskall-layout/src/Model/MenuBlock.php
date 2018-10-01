@@ -29,8 +29,8 @@ class MenuBlock extends LayoutBlock{
 
 	private static $block_types = [
 		'links' => 'Links',
-		'logo' => 'Logo',
-		'form' => 'Formular'
+		'logo' => 'Logo'/*,
+		'form' => 'Formular'*/
 	];
 
 	private static $menu_options = [

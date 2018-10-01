@@ -10,9 +10,12 @@ use SilverStripe\UserForms\Control\UserDefinedFormController;
 use SilverStripe\UserForms\UserForm;
 use SilverStripe\Control\Controller;
 use DNADesign\ElementalUserForms\Control\ElementFormController;
-use SilverStripe\Form\RequiredFields;
+use SilverStripe\Forms\RequiredFields;
+use g4b0\SearchableDataObjects\Searchable;
 
-class FormBlock extends ElementForm 
+
+
+class FormBlockExtension extends DataExtension implements Searchable
 {
 
     private static $controller_template = 'DefaultHolder';
@@ -28,7 +31,7 @@ class FormBlock extends ElementForm
     'StepTitleBackground' => 'Varchar(255)'
    ];
 
-   private static $cascade_duplicates = [];
+   private static $cascade_duplicates = ['EmailRecipients'];
 
    private static $defaults = [
     'ShowLabels' => 1,
@@ -55,8 +58,7 @@ class FormBlock extends ElementForm
 
    private static $controller_class = DeskallFormController::class;
 
-   public function getCMSFields(){
-    $fields = parent::getCMSFields();
+   public function updateCMSFields(FieldList $fields){
     $fields->removeByName('Layout');
     $fields->removeByName('TextLayout');
     $fields->removeByName('RedirectPageID');
@@ -74,7 +76,6 @@ class FormBlock extends ElementForm
       $fields->removeByName('Recipients');
      }
 
-     return $fields;
    
    }
 
@@ -154,4 +155,46 @@ class FormBlock extends ElementForm
 
         return parent::Link($action);
     }
+
+    /************* SEARCHABLE FUNCTIONS ******************/
+
+
+        /**
+         * Filter array
+         * eg. array('Disabled' => 0);
+         * @return array
+         */
+        public static function getSearchFilter() {
+            return array();
+        }
+
+        /**
+         * FilterAny array (optional)
+         * eg. array('Disabled' => 0, 'Override' => 1);
+         * @return array
+         */
+        public static function getSearchFilterAny() {
+            return array();
+        }
+
+
+        /**
+         * Fields that compose the Title
+         * eg. array('Title', 'Subtitle');
+         * @return array
+         */
+        public function getTitleFields() {
+            return array('Title');
+        }
+
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array();
+        }
+        
+    /************ END SEARCHABLE ***************************/
 }

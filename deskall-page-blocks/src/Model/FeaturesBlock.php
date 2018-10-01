@@ -18,8 +18,9 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\Tab;
+use g4b0\SearchableDataObjects\Searchable;
 
-class FeaturesBlock extends BaseElement
+class FeaturesBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-block-file-list';
     
@@ -35,9 +36,6 @@ class FeaturesBlock extends BaseElement
         'FeaturesTextAlign' => 'Varchar(255)'
     ];
 
-    private static $has_one = [
-        'ContentImage' => Image::class
-    ];
 
     private static $has_many = [
         'Features' => Features::class
@@ -50,9 +48,7 @@ class FeaturesBlock extends BaseElement
     private static $cascade_duplicates = ['Features'];
 
 
-    private static $owns = [
-        'ContentImage',
-    ];
+
 
     private static $defaults = [
         'FeaturesColumns' => 'uk-child-width-1-1',
@@ -160,7 +156,6 @@ class FeaturesBlock extends BaseElement
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
                 ->setRows(5);
-            $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
 
            
 
@@ -225,5 +220,60 @@ class FeaturesBlock extends BaseElement
         //To do : filter relevant icons
         return HTMLDropdownField::getSourceIcones();
     }
+
+    /************* SEARCHABLE FUNCTIONS ******************/
+
+
+        /**
+         * Filter array
+         * eg. array('Disabled' => 0);
+         * @return array
+         */
+        public static function getSearchFilter() {
+            return array();
+        }
+
+        /**
+         * FilterAny array (optional)
+         * eg. array('Disabled' => 0, 'Override' => 1);
+         * @return array
+         */
+        public static function getSearchFilterAny() {
+            return array();
+        }
+
+
+        /**
+         * Fields that compose the Title
+         * eg. array('Title', 'Subtitle');
+         * @return array
+         */
+        public function getTitleFields() {
+            return array('Title','FeaturesTitle');
+        }
+
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array('HTML','FeaturesContent');
+        }
+
+        public function getFeaturesContent(){
+            $html = '';
+            if ($this->Features()->filter('isVisible',1)->count() > 0){
+                $html .= '<ul>';
+                foreach ($this->Features()->filter('isVisible',1) as $feature) {
+                    if ($feature->Text){
+                        $html .= '<li>'.$feature->Text.'</li>';
+                    }
+                }
+                $html .='</ul>';
+            }
+            return $html;
+        }
+    /************ END SEARCHABLE ***************************/
 
 }

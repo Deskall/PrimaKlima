@@ -12,8 +12,9 @@ use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\ElementalBlocks\Block\BannerBlock;
 use SilverStripe\ORM\FieldType\DBField;
+use g4b0\SearchableDataObjects\Searchable;
 
-class LargeImageBlock extends BannerBlock{
+class LargeImageBlock extends BannerBlock implements Searchable{
 	private static $icon = 'font-icon-image';
 
 	private static $singular_name = 'banner';
@@ -42,10 +43,10 @@ class LargeImageBlock extends BannerBlock{
     ];
 
     private static $defaults = [
-        'Layout' => 'uk-position-top',
+        'Layout' => 'dk-position-top',
         'Effect' => 'none',
         'Overlay' => 'none',
-        'Height' => 'uk-height-medium'
+        'Height' => 'dk-height-medium'
     ];
 
     private static $cascade_duplicates = [];
@@ -58,9 +59,9 @@ class LargeImageBlock extends BannerBlock{
     ];
 
     private static $block_heights = [
-        'uk-height-small' => 'klein',
-        'uk-height-medium' => 'medium',
-        'uk-height-large' => 'gross',
+        'dk-height-small' => 'klein',
+        'dk-height-medium' => 'medium',
+        'dk-height-large' => 'gross',
         'viewport' => 'ganz Bildschirm'
     ];
 
@@ -82,6 +83,7 @@ class LargeImageBlock extends BannerBlock{
         $fields->removeByName('Height');
         $fields->removeByName('Effect');
         $fields->removeByName('EffectOptions');
+         $fields->removeByName('Overlay');
         $fields->fieldByName('Root.Main.Image')->setTitle(_t(__CLASS__ . '.Image','Bild'))->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             OptionsetField::create('Layout',_t(__CLASS__. '.Format','vertikale Ausrichtung'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
@@ -107,13 +109,13 @@ class LargeImageBlock extends BannerBlock{
 
     public function ImageHeight(){
         switch($this->Height){
-            case "uk-height-small":
+            case "dk-height-small":
             return 150;
             break;
-            case "uk-height-medium":
+            case "dk-height-medium":
             return 350;
             break;
-            case "uk-height-large":
+            case "dk-height-large":
             return 450;
             break;
         }
@@ -137,5 +139,47 @@ class LargeImageBlock extends BannerBlock{
     }
 
 /************* END TRANLSATIONS *******************/
+
+/************* SEARCHABLE FUNCTIONS ******************/
+
+
+    /**
+     * Filter array
+     * eg. array('Disabled' => 0);
+     * @return array
+     */
+    public static function getSearchFilter() {
+        return array();
+    }
+
+    /**
+     * FilterAny array (optional)
+     * eg. array('Disabled' => 0, 'Override' => 1);
+     * @return array
+     */
+    public static function getSearchFilterAny() {
+        return array();
+    }
+
+
+    /**
+     * Fields that compose the Title
+     * eg. array('Title', 'Subtitle');
+     * @return array
+     */
+    public function getTitleFields() {
+        return array('Title');
+    }
+
+    /**
+     * Fields that compose the Content
+     * eg. array('Teaser', 'Content');
+     * @return array
+     */
+    public function getContentFields() {
+        return array('Content');
+    }
+
+/************ END SEARCHABLE ***************************/
 
 }

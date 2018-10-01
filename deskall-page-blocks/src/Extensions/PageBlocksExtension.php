@@ -3,8 +3,18 @@
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HeaderField;
+use DNADesign\Elemental\Models\BaseElement;
 
 class PageBlocksExtension extends DataExtension {
+	
+	private static $db = [
+		'showSlide' => 'Boolean(1)'
+	];
+
+	private static $defaults = [
+		'showSlide' => 1
+	];
+
 	public function requireDefaultRecords(){
 		parent::requireDefaultRecords();
 		foreach (Page::get() as $page){
@@ -18,7 +28,7 @@ class PageBlocksExtension extends DataExtension {
 
 	public function checkLead(){
 		$ElementalArea = $this->owner->ElementalArea(); 
-		$hasLead = LeadBlock::get()->filter(array('ParentID' => $ElementalArea->ID, 'isPrimary' => 1))->count();
+		$hasLead = BaseElement::get()->filter(array('ParentID' => $ElementalArea->ID, 'isPrimary' => 1))->count();
 		if (!$hasLead){
 			$lead = new LeadBlock();
 			$lead->ParentID = $ElementalArea->ID;
@@ -34,8 +44,15 @@ class PageBlocksExtension extends DataExtension {
 		$this->owner->checkLead();
 	}
 
-	public function noSlide(){
-		return (SliderBlock::get()->filter('ParentID',$this->owner->ElementalAreaID)->count() == 0);
+	public function firstBlockSlide(){
+		if ($this->owner->ID < 0){
+			return false;
+		}
+		$firstBlock = $this->owner->ElementalArea()->Elements()->first();
+		if (!$firstBlock){
+			return false;
+		}
+		return $firstBlock->ClassName != "SliderBlock";
 	}
 
 	public function ParentSlide(){

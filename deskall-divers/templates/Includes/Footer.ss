@@ -1,4 +1,4 @@
-<footer class="uk-section $SiteConfig.FooterBackground" data-uk-height-match="target:.title-container;row:false;">
+<footer class="uk-section" data-uk-height-match="target:.title-container;row:false;">
 	<div class="uk-container">
 		<div class="uk-panel uk-flex uk-flex-left@s uk-margin-small-top" data-uk-grid>
 			<% loop $SiteConfig.activeFooterBlocks %>
@@ -49,7 +49,13 @@
 		    	$Content
 		    	<% else_if Type == "logo" %>
 		    	<div>
-		    		<a href="/" class="uk-navbar-item uk-logo"><img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="Home" /></a>
+		    		<a href="/" class="uk-navbar-item uk-logo">
+		    			<% if $Logo.getExtension == "svg" %>
+		    			<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo" data-uk-svg />
+		    			<% else %>
+		    			<img src="$Logo.ScaleWidth(150).URL" data-srcset="$Logo.ScaleWidth(150).URL 150w, $Logo.ScaleWidth(250).URL 250w, $Logo.ScaleWidth(350).URL 350w" sizes="150w, (min-width:650px) 250w, (min-width:1200px) 350w" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" data-uk-img />
+		    			<% end_if %>
+		    		</a>
 		    	</div>
 		        <% else %>
 		    	<div class="title-container">

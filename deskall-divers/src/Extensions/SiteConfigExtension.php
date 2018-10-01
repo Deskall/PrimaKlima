@@ -41,11 +41,6 @@ class SiteConfigExtension extends DataExtension
     'Xing' => 'Varchar(255)'  
   ];
 
-  private static $has_one = [
-    'DefaultSlide' => Image::class
-  ];
-
-
   public function updateCMSFields(FieldList $fields) {
      
 
@@ -70,10 +65,9 @@ class SiteConfigExtension extends DataExtension
       TextField::create('Xing',_t(__CLASS__.'.Xing','Xing'))
     ]);
     
-    $fields->addFieldToTab("Root.Default", UploadField::create('DefaultSlide','Slide')->setFolderName(_t(__CLASS__.'.FolderName','Uploads/Einstellungen')));
+   
     
     $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.MainTab','Hauptteil'));
     $fields->FieldByName('Root.Access')->setTitle(_t(__CLASS__.'.AccessTab','Zugang'));
-    $fields->FieldByName('Root.Default')->setTitle(_t(__CLASS__.'.DefaultTab','Standard'));
   }
 }

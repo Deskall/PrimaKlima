@@ -20,7 +20,7 @@ em,u,i,.italic-font{
 }
 .nav-font{
 	font-family:@nav-font-family;
-	font-size: @main-nav-font-size;
+	font-size: @dk-main-nav-font-size;
 	text-transform: none;
 }
 .subnav-font{
@@ -41,12 +41,15 @@ em,u,i,.italic-font{
 .read-more-font{
 	font-family:@read-more-font-family;
 }
-
+.slider-font{
+	.hook-slider-font;
+}
 .hook-text-lead(){
 	
 	color: @global-color;
 }
 
+.hook-slider-font() {}
 
 
 // BUTTONS ///

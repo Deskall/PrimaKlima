@@ -86,7 +86,7 @@ class CreateWebsiteTask extends BuildTask
         singleton(ErrorPage::class)->requireDefaultRecords();
         //Create the Pages
         if (!SiteTree::get_by_link(RootURLController::config()->default_homepage_link)) {
-            $homepage = new Page();
+            $homepage = new HomePage();
             $homepage->Title = 'Home';
             $homepage->URLSegment = RootURLController::config()->default_homepage_link;
             $homepage->Sort = 1;

@@ -32,4 +32,8 @@ class Activable extends DataExtension
     public function canActivate(){
         return true;
     }
+
+    public function canDesactivate(){
+        return true;
+    }
 }

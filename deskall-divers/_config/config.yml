@@ -8,6 +8,7 @@ Page:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
     - DeskallPageExtension
+    - 'g4b0\SearchableDataObjects\SearchableDataObject'
 
 PageController:
   extensions:
@@ -35,3 +36,15 @@ SilverStripe\ORM\DataObject:
 Sheadawson\Linkable\Models\Link:
   extensions:
     - LinkableLinkExtension
+
+SilverStripe\Assets\File:
+  extensions:
+    - RenameFileExtension
+
+---
+Name: deskall-searchable-dataobjects-extensions
+After: '#searchable-dataobjects-extensions'
+---
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - CustomSearchExtension

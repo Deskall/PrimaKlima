@@ -13,19 +13,20 @@ use SilverStripe\i18n\i18nEntityProvider;
 use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
 
     private static $db = [
+        'isPrimary' => 'Boolean(0)',
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
         'Layout' => 'Varchar(255)',
         'TitleAlign' => 'Varchar(255)',
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
-        'TextColumnsDivider' => 'Boolean(0)',
-       
+        'TextColumnsDivider' => 'Boolean(0)'
     ];
 
     private static $has_one = [
@@ -42,7 +43,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextAlign' => 'uk-text-left',
         'TitleAlign' => 'uk-text-left',
         'TextColumns' => '1',
-        'AvailableGlobally' => 1,
+        'AvailableGlobally' => 1
     ];
 
     private static $blocks = [
@@ -52,7 +53,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'BoxBlock',
         'FeaturesBlock',
         'ListBlock',
-        'FormBlock',
+        'DNADesign-ElementalUserForms-Model-ElementForm',
         'DownloadBlock',
         'LargeImageBlock',
         'ParentBlock',
@@ -74,7 +75,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'BoxBlock',
         'FeaturesBlock',
         'ListBlock',
-        'FormBlock',
+        'DNADesign-ElementalUserForms-Model-ElementForm',
         'DownloadBlock',
         'ParentBlock',
         'MapBlock',
@@ -149,6 +150,13 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         ]
     ];
 
+    public function populateDefaults(){
+        parent::populateDefaults();
+        if ($this->owner->isPrimary){
+            $this->owner->ShowTitle = 1;
+        }
+    }
+
 
     public function updateCMSFields(FieldList $fields){
         $fields->removeByName('Background');
@@ -159,11 +167,12 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('TextColumns');
         $fields->removeByName('TextColumnsDivider');
         $fields->removeByName('AvailableGlobally');
-     
-        
+
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
         $fields->removeByName('ExtraClass');
+
+        $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Ce bloc contient le titre principale de la page (h1)")),'TitleAndDisplayed');
       
       
      
@@ -189,9 +198,15 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $fields->addFieldToTab('Root',$history);
         }
 
+
         $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LAYOUTTAB','Layout'));
     
-       return parent::updateCMSFields($fields);
+ 
+        if ($this->owner->isPrimary){
+            $fields->removeByName('TitleAndDisplayed');
+        }
+        
+
     }
 
     public function getAnchorTitle(){
@@ -269,16 +284,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
 
 
-//Duplicate block with correct elem
-    public function DuplicateChildrens($original){
-        foreach (Config::inst()->get($original->ClassName,'cascade_duplicates') as $class) {
-            foreach($original->{$class}() as $object){
-                $newObject = $object->duplicate(false);
-                $newObject->ParentID = $this->owner->ID;
-                $newObject->write();
-            }
-        }
-    }
+
 
     public function onAfterPublish(){
         if ($this->owner->hasMethod('Parent')){

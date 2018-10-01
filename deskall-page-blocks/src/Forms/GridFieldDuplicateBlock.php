@@ -105,7 +105,8 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 				$newBlock->ParentID = $parent->ElementsID;
 				$newBlock->write();
 
-				$newBlock->DuplicateChildrens($block);
+				//Commented as it duplicate 2 times the children
+				//$newBlock->DuplicateChildrens($block);
 
 
 				return Controller::curr()->redirectBack();

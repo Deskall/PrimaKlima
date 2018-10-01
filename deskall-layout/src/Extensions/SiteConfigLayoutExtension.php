@@ -56,6 +56,9 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderOpacity' => 'Varchar(255)',
     'HeaderFormat' => 'Varchar(255)',
     'StickyHeader' => 'Boolean(0)',
+    'BackContent' => 'Boolean(0)',
+    'HeaderLogoHeight' => 'Varchar(255)',
+    'DropdownSubMenuWidth' => 'Varchar(255)',
 
     'FooterBackground' => 'Varchar(255)',
     'FooterLogoWidth' => 'Varchar(255)',
@@ -64,7 +67,8 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterFontColor' => 'Varchar(7)',
 
     'MobileNaviBackground' => 'Varchar(255)',
-    'MobileNaviHoverFontColor' => 'Varchar(7)'
+    'MobileNaviHoverFontColor' => 'Varchar(7)',
+    'ToggleMenuButtonColor' => 'Varchar(7)',
 
   ];
 
@@ -93,9 +97,11 @@ class SiteConfigLayoutExtension extends DataExtension
       '@navbar-nav-item-active-color',
       '@nav-active-border-color'],
     'HeaderHeight' => '@header-menu-height',
-    'HeaderFontSize' => '@main-nav-font-size',
+    'HeaderFontSize' => '@dk-main-nav-font-size',
     'HeaderMenuItemSize' => '@navbar-nav-item-height',
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
+    'HeaderLogoHeight' => '@header-logo-height',
+    'DropdownSubMenuWidth' => '@navbar-dropdown-width',
 
     'FooterLogoWidth' => '@footer-logo-width',
     'FooterBackground' => '@footer-background-color',
@@ -104,8 +110,13 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterTitleFontSize' => '@footer-title-font-size',
 
     'MobileNaviHoverFontColor' => '@mobile-navigation-active-color',
+    'ToggleMenuButtonColor' =>'@toggle-mobile-menu-button-color'
 
 
+  ];
+
+  private static $has_one = [
+    'DefaultSlide' => Image::class
   ];
 
   private static $has_many = [
@@ -136,15 +147,14 @@ class SiteConfigLayoutExtension extends DataExtension
     }
   }
 
-  public function updateCMSFields(FieldList $fields) {
+  public function getLayoutFields() {
     Requirements::javascript('deskall-layout/javascript/jscolor.min.js');
     Requirements::javascript('deskall-layout/javascript/layout.js');
     Requirements::css('deskall-layout/css/layout.css');
-
+    $fields = new FieldList(new Tabset('Root',_t('FORMS.MAINTAB','Haupt')));
     //GLOBAL
     //COLORS
-    $fields->addFieldToTab("Root.Layout.Global",new HiddenField('ID'));
-    $fields->FieldByName('Root.Layout')->setTitle(_t(__CLASS__.'.LayoutTabTitle','Layout'));
+    $fields->addFieldToTab("Root.Global",new HiddenField('ID'));
     $config = GridFieldConfig::create()
                 ->addComponent(new GridFieldButtonRow('before'))
                 ->addComponent(new GridFieldTitleHeader())
@@ -176,14 +186,15 @@ class SiteConfigLayoutExtension extends DataExtension
     ]);
                 
     $colorsField = new GridField('Colors',_t(__CLASS__.'.Colors','Farben'),$this->owner->Colors(),$config);
-    $fields->addFieldsToTab("Root.Layout.Global",[
+    $fields->addFieldsToTab("Root.Global",[
+      UploadField::create('DefaultSlide','Slide')->setFolderName(_t(__CLASS__.'.FolderName','Uploads/Einstellungen')),
       HeaderField::create('ColorTitle',_t(__CLASS__.'.ColorsTitle','Farben'),2),
       $colorsField]);
 
 
 
    
-    $fields->addFieldsToTab("Root.Layout.Global", 
+    $fields->addFieldsToTab("Root.Global", 
       [
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
         TextField::create('GlobalFontSize',_t(__CLASS__.'.GlobalFontSize','Standard Schriftgrösse')),
@@ -195,7 +206,7 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('LeadFontSize',_t(__CLASS__.'.LeadFontSize','LeadText Schriftgrösse'))
       ]
     );
-    $fields->FieldByName('Root.Layout.Global')->setTitle(_t(__CLASS__.'.GlobalTabTitle','Global'));
+    $fields->FieldByName('Root.Global')->setTitle(_t(__CLASS__.'.GlobalTabTitle','Global'));
 
 
 
@@ -211,9 +222,9 @@ class SiteConfigLayoutExtension extends DataExtension
     // $MenusField->getConfig()->removeComponentsByType(GridFieldAddNewButton::class)
     //     ->addComponent(new DeskallGridFieldAddNewMultiClass());
     // $MenusField->getConfig()->getComponentByType(DeskallGridFieldAddNewMultiClass::class)->setClasses(['MenuBlock' => 'Menu']);
-    $fields->addFieldToTab("Root.Layout.Header.Content", $MenusField);
+    $fields->addFieldToTab("Root.Header.Content", $MenusField);
 
-    $fields->addFieldToTab("Root.Layout.Header.Layout", CompositeField::create(
+    $fields->addFieldToTab("Root.Header.Layout", CompositeField::create(
       FieldGroup::create(
         TextField::create('HeaderBackground',_t(__CLASS__.'.HeaderBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
         TextField::create('HeaderOpacity',_t(__CLASS__.'.HeaderOpacity','Opazität')),
@@ -224,13 +235,18 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('HeaderHeight',_t(__CLASS__.'.HeaderHeight','Höhe')),
         TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Höhe')),
         TextField::create('HeaderMenuItemSize',_t(__CLASS__.'.HeaderItemHeight','Menu Item Höhe')),
-        TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse'))
+        TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse')),
+        TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe'))
       ),
+      // FieldGroup::create(
+      //   TextField::create('DropdownSubMenuWidth',_t(__CLASS__.'.DropdownSubMenuWidth','Breite der Dropdown-Navigation'))
+      // ),
+      CheckboxField::create('BackContent',_t(__CLASS__.'.BackContent','Header über Inhalt')),
       CheckboxField::create('StickyHeader',_t(__CLASS__.'.StickyHeader','Sticky Header'))
     )->setTitle(_t(__CLASS__.'.HeaderLayout','Header Layout'))->setName('HeaderBackgroundFields'));
 
-    $fields->FieldByName('Root.Layout.Header.Content')->setTitle(_t(__CLASS__.'.LayoutHeaderContentTab','Inhalt der Header'));
-    $fields->FieldByName('Root.Layout.Header.Layout')->setTitle(_t(__CLASS__.'.LayoutHeaderLayoutTab','Layout der Header'));
+    $fields->FieldByName('Root.Header.Content')->setTitle(_t(__CLASS__.'.LayoutHeaderContentTab','Inhalt der Header'));
+    $fields->FieldByName('Root.Header.Layout')->setTitle(_t(__CLASS__.'.LayoutHeaderLayoutTab','Layout der Header'));
 
     
     //MOBILE NAVI
@@ -241,17 +257,18 @@ class SiteConfigLayoutExtension extends DataExtension
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
-    $fields->addFieldToTab("Root.Layout.MobileNavigation.Content", $MobileMenusField);
+    $fields->addFieldToTab("Root.MobileNavigation.Content", $MobileMenusField);
 
-    $fields->addFieldToTab("Root.Layout.MobileNavigation.Layout", CompositeField::create(
+    $fields->addFieldToTab("Root.MobileNavigation.Layout", CompositeField::create(
       FieldGroup::create(
         HTMLDropdownField::create('MobileNaviBackground',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getBackgroundColors())->addExtraClass('colors'),
-        TextField::create('MobileNaviHoverFontColor',_t(__CLASS__.'.HeaderHoverFontColor','Aktive und Hover Schriftfarbe'))->addExtraClass('jscolor')
+        TextField::create('MobileNaviHoverFontColor',_t(__CLASS__.'.HeaderHoverFontColor','Aktive und Hover Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('ToggleMenuButtonColor',_t(__CLASS__.'.ToggleMenuButtonColor','Mobile-Navi Umschaltknopf Schriftfarbe'))->addExtraClass('jscolor')
       )
     )->setTitle(_t(__CLASS__.'.MobileNaviLayout','MobileNavigation Layout'))->setName('MobileNaviFields'));
 
-    $fields->FieldByName('Root.Layout.MobileNavigation.Content')->setTitle(_t(__CLASS__.'.LayoutMobileContentTab','Inhalt der mobile Navigation'));
-    $fields->FieldByName('Root.Layout.MobileNavigation.Layout')->setTitle(_t(__CLASS__.'.LayoutMobileLayoutTab','Layout der mobile Navigation'));
+    $fields->FieldByName('Root.MobileNavigation.Content')->setTitle(_t(__CLASS__.'.LayoutMobileContentTab','Inhalt der mobile Navigation'));
+    $fields->FieldByName('Root.MobileNavigation.Layout')->setTitle(_t(__CLASS__.'.LayoutMobileLayoutTab','Layout der mobile Navigation'));
 
 
 
@@ -263,9 +280,9 @@ class SiteConfigLayoutExtension extends DataExtension
         GridFieldConfig_RecordEditor::create()->addComponents(new GridFieldOrderableRows('Sort'))
         ->addComponent(new GridFieldShowHideAction())
     );
-    $fields->addFieldToTab("Root.Layout.Footer.Content", $FooterLinksField);
+    $fields->addFieldToTab("Root.Footer.Content", $FooterLinksField);
 
-    $fields->addFieldToTab("Root.Layout.Footer.Layout", CompositeField::create(
+    $fields->addFieldToTab("Root.Footer.Layout", CompositeField::create(
       FieldGroup::create(
         TextField::create('FooterBackground',_t(__CLASS__.'.FooterBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
         TextField::create('FooterFontColor',_t(__CLASS__.'.FooterFontColor','Schriftfarbe'))->addExtraClass('jscolor')
@@ -277,15 +294,15 @@ class SiteConfigLayoutExtension extends DataExtension
       )
      
     )->setTitle(_t(__CLASS__.'.FooterLayout','Footer Layout'))->setName('FooterLayoutFields'));
-    $fields->FieldByName('Root.Layout.Footer.Content')->setTitle(_t(__CLASS__.'.FooterContentTab','Inhalt der Footer'));
-    $fields->FieldByName('Root.Layout.Footer.Layout')->setTitle(_t(__CLASS__.'.FooterLayoutTab','Layout der Footer'));
+    $fields->FieldByName('Root.Footer.Content')->setTitle(_t(__CLASS__.'.FooterContentTab','Inhalt der Footer'));
+    $fields->FieldByName('Root.Footer.Layout')->setTitle(_t(__CLASS__.'.FooterLayoutTab','Layout der Footer'));
 
   
 
-    $fields->FieldByName('Root.Layout.Global')->setTitle(_t(__CLASS__.'.LayoutGlobalTab','Allgemein'));
-    $fields->FieldByName('Root.Layout.Header')->setTitle(_t(__CLASS__.'.LayoutHeaderTab','Header'));
-    $fields->FieldByName('Root.Layout.MobileNavigation')->setTitle(_t(__CLASS__.'.MobilNavigationTab','mobile Navigation'));
-    $fields->FieldByName('Root.Layout.Footer')->setTitle(_t(__CLASS__.'.FooterTab','Footer'));
+    $fields->FieldByName('Root.Global')->setTitle(_t(__CLASS__.'.LayoutGlobalTab','Allgemein'));
+    $fields->FieldByName('Root.Header')->setTitle(_t(__CLASS__.'.LayoutHeaderTab','Header'));
+    $fields->FieldByName('Root.MobileNavigation')->setTitle(_t(__CLASS__.'.MobilNavigationTab','mobile Navigation'));
+    $fields->FieldByName('Root.Footer')->setTitle(_t(__CLASS__.'.FooterTab','Footer'));
     
     return $fields;
   }
@@ -313,6 +330,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->FooterBackground = "#".$this->owner->FooterBackground;
     $this->owner->H1FontColor = "#".$this->owner->H1FontColor;
     $this->owner->MobileNaviHoverFontColor = "#".$this->owner->MobileNaviHoverFontColor;
+    $this->owner->ToggleMenuButtonColor = "#".$this->owner->ToggleMenuButtonColor;
     parent::onBeforeWrite();
   }
 
@@ -320,6 +338,7 @@ class SiteConfigLayoutExtension extends DataExtension
   public function onAfterWrite(){
     $this->owner->WriteUserDefinedConstants();
     $this->owner->WriteBackgroundClasses();
+    $this->owner->RegenerateCss();
     parent::onAfterWrite();
   }
 
@@ -358,7 +377,7 @@ class SiteConfigLayoutExtension extends DataExtension
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
       /** global background element and font color **/
-      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';&:hover,&:focus,&:active{color:#'.$c->FontColor.';}}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.'!important;*{color:#'.$c->FontColor.'!important;&:hover,&:focus,&:active{color:#'.$c->FontColor.'!important;}}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
       file_put_contents($fullpath, "\n".".button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.'!important;*, &:hover,&:focus,&:active{color:#'.$c->FontColor.'!important;}}',FILE_APPEND);
       /*** Css class for Slideshow controls **/
@@ -370,13 +389,23 @@ class SiteConfigLayoutExtension extends DataExtension
       /*** Css class for Background Overlays **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.'.dk-overlay:after{background-color:fade(#'.$c->Color.',50%);}'
         ."\n".'.'.$c->Code.'.dk-overlay .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->FontColor.'!important;}'
-        ."\n".'.'.$c->Code.'.dk-overlay *{color:#'.$c->FontColor.'!important;}',FILE_APPEND);
+        ."\n".'.'.$c->Code.'.dk-overlay *{color:#'.$c->FontColor.';}',FILE_APPEND);
     }
 
     //Provide extension for project specific stuff
     $this->owner->extend('updateWriteBackgroundClasses', $fullpath);
   }
 
+  public function RegenerateCss(){
+
+    $url = Director::AbsoluteURL('themes/standard/css/main.min.css');
+    $req = curl_init($url);
+    $postdata = [];
+    curl_setopt($req, CURLOPT_POST, true);
+    curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
+    curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+    curl_exec($req);
+  }
 
   public function getBackgroundColors(){
         $colors = $this->owner->Colors();

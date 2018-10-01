@@ -11,8 +11,9 @@ use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use Bummzack\SortableFile\Forms\SortableUploadField;
+use g4b0\SearchableDataObjects\Searchable;
 
-class GalleryBlock extends BaseElement
+class GalleryBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-block-carousel';
     
@@ -89,7 +90,7 @@ class GalleryBlock extends BaseElement
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
           
-            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
+            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()),'HTML');
 
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(
@@ -145,4 +146,61 @@ class GalleryBlock extends BaseElement
     }
 
 /************* END TRANLSATIONS *******************/
+
+/************* SEARCHABLE FUNCTIONS ******************/
+
+
+    /**
+     * Filter array
+     * eg. array('Disabled' => 0);
+     * @return array
+     */
+    public static function getSearchFilter() {
+        return array();
+    }
+
+    /**
+     * FilterAny array (optional)
+     * eg. array('Disabled' => 0, 'Override' => 1);
+     * @return array
+     */
+    public static function getSearchFilterAny() {
+        return array();
+    }
+
+
+    /**
+     * Fields that compose the Title
+     * eg. array('Title', 'Subtitle');
+     * @return array
+     */
+    public function getTitleFields() {
+        return array('Title');
+    }
+
+    /**
+     * Fields that compose the Content
+     * eg. array('Teaser', 'Content');
+     * @return array
+     */
+    public function getContentFields() {
+        return array('HTML','ImageContent');
+    }
+
+    public function getImageContent(){
+        $html = '';
+        if ($this->Images()->count() > 0){
+            $html .= '<ul>';
+            foreach ($this->Images() as $image) {
+                $html .= '<li>'.$image->Title."\n";
+                if ($image->Description){
+                    $html .= $image->Description;
+                }
+                $html .= '</li>';
+            }
+            $html .='</ul>';
+        }
+        return $html;
+    }
+/************ END SEARCHABLE ***************************/
 }

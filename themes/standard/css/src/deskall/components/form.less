@@ -1,26 +1,32 @@
 //FORM
-fieldset{
-	border: none;
+.form-std{
+
+	input[type="text"],input[type="email"],input[type="password"],input[type="number"]{
+		.uk-input;
+	}
+	input[type="checkbox"]{
+		.uk-checkbox;
+		margin-right:15px;
+	}
+	input[type="radio"]{
+		.uk-radio;
+		margin-right:15px;
+	}
+	input[type="submit"]{
+		.uk-button;
+		.PrimaryBackground;
+	}
+	select{
+		.uk-select;
+	}
+	textarea{
+		.uk-textarea;
+	}
 }
-input[type="text"],input[type="email"],input[type="password"],input[type="number"]{
-	//.uk-input;
-}
-input[type="checkbox"]{
-	//.uk-checkbox;
-}
-input[type="radio"]{
-	//.uk-radio;
-}
-input[type="submit"]{
-	.uk-button;
-	.PrimaryBackground;
-}
-select{
-	.uk-select;
-}
-textarea{
-	.uk-textarea;
-}
+	fieldset{
+		border: none;
+		padding:0;
+	}
 
 .dk-background-white{
 	.uk-input,
@@ -49,11 +55,26 @@ textarea{
 	padding: 5px 10px;
 }
 
-#MemberLoginForm_LoginForm{
-	fieldset{
-		padding:0;
+
+
+
+
+.uk-form-horizontal .form-group--no-label > .uk-form-controls{
+	margin-left:0;
+}
+
+//messages
+form .message {
+	padding:5px 10px;
+	border:1px solid #eee;
+	background-color:#ccc;
+	color:#004800;
+	&.good{
+		background-color:#cce8cc;
+		border-color:#b8deb8;
 	}
-	input[type="text"],input[type="email"],input[type="password"]{
-		.uk-input;
+	&.bad{
+		background-color:#f59fa5;
+		border-color:#e78291;
 	}
 }
