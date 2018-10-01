@@ -86,6 +86,7 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('SortAttribute');
             $fields->removeByName('Layout');
             $fields->removeByName('Autoplay');
+            $fields->removeByName('PaddedImages');
            
             $fields
                 ->fieldByName('Root.Main.HTML')
