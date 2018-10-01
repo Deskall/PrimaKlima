@@ -1,6 +1,7 @@
-<section class="uk-container uk-padding">
+<% include DefaultSlide %>
 
-
+<section class="uk-section">
+	<div class="uk-container">
 		<h1>
  			<% if $ArchiveYear %>
 				<%t SilverStripe\\Blog\\Model\\Blog.Archive 'Archive' %>:
@@ -57,6 +58,5 @@
 			<p><%t SilverStripe\\Blog\\Model\\Blog.NoPosts 'There are no posts' %></p>
 		<% end_if %>
 
-
-	
+	</div>
 </section>

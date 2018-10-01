@@ -7,7 +7,7 @@
 <div class="element" id="member-section">
 	<section class="uk-section">
 
-		<div class="uk-container uk-container-large">
+		<div class="uk-container">
 			<h1>$Title</h1>
 			<% if $Type == 'Register' %>
 			<% include Symbiote/MemberProfiles/Pages/MemberProfilePage_register %>
