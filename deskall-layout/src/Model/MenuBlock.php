@@ -75,6 +75,8 @@ class MenuBlock extends LayoutBlock{
 		$fields->removeByName('UseMenuOption');
 		$fields->removeByName('isMobile');
 		$fields->removeByName('ShowSubLevels');
+		$fields->removeByName('Layout');
+		$fields->removeByName('Width');
 
 	//	$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')));
 		
