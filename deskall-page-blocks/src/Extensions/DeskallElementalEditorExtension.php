@@ -16,16 +16,14 @@ class DeskallElementalEditorExtension extends DataExtension
                     unset($types[$key]);
                 }
             }
-            else{
-                //unset non needed by deskall
-                unset($types['SilverStripe\ElementalBlocks\Block\BannerBlock']);
-                unset($types['DNADesign\Elemental\Models\ElementContent']);
-                unset($types['SilverStripe\ElementalBlocks\Block\FileBlock']);
-                unset($types['DNADesign\ElementalList\Model\ElementList']);
-            }
         }
-        
-
+        else{
+            //unset non needed by deskall
+            unset($types['SilverStripe\ElementalBlocks\Block\BannerBlock']);
+            unset($types['DNADesign\Elemental\Models\ElementContent']);
+            unset($types['SilverStripe\ElementalBlocks\Block\FileBlock']);
+            unset($types['DNADesign\ElementalList\Model\ElementList']);
+        }
     }
 
      public function updateField($gridfield){
