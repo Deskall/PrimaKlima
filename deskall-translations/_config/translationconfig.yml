@@ -71,8 +71,10 @@ LayoutBlock:
     - 'Title'
     - 'Content'
 
-
-
+---
+Only:
+  moduleexists: 'deskall-users'
+---
 RegisterPage:
   translate:
     - 'AfterRegistrationTitle'
@@ -83,3 +85,6 @@ RegisterPage:
     - 'ConfirmationTitle'
     - 'ConfirmationContent'
     - 'AlreadyConnected'
+    - 'ApprovalEmailSender'
+    - 'ApprovalEmailSubject'
+    - 'ApprovalEmailBody'
