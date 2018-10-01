@@ -72,3 +72,17 @@ LayoutBlock:
     - 'Content'
 
 
+---
+Only:
+  moduleexists: 'deskall-users'
+---
+RegisterPage:
+  translate:
+    - 'AfterRegistrationTitle'
+    - 'AfterRegistrationContent'
+    - 'EmailFrom'
+    - 'EmailSubject'
+    - 'EmailTemplate'
+    - 'ConfirmationTitle'
+    - 'ConfirmationContent'
+    - 'AlreadyConnected'
