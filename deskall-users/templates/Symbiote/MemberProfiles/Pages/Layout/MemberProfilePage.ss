@@ -1,4 +1,3 @@
-<% include BreadCrumbs %>
 
 <% if ID < 0 || $firstBlockSlide %>
 <% include DefaultSlide %>
