@@ -1,5 +1,5 @@
 <% if $Locales %>
-<div class="uk-navbar-right uk-visible@m">
+<div class="uk-navbar-right uk-visible@m dk-nav-top">
 	<ul class="uk-navbar-nav">
 	<% loop $Locales %>
 		<li class="$LinkingMode">
