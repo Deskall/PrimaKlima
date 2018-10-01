@@ -1,4 +1,4 @@
-<div class="$Layout <% if Type != "logo" %><% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %><% end_if %> $Class">
+<div class="$Layout $Class">
 	<a href="/" class="uk-navbar-item uk-logo">
 		<% if $Logo.getExtension == "svg" %>
 		<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo" data-uk-svg />
