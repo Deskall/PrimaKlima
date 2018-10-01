@@ -1,7 +1,7 @@
 
-<% if ID < 0 || $firstBlockSlide %>
+
 <% include DefaultSlide %>
-<% end_if %>
+
 
 
 <div class="element" id="member-section">
