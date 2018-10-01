@@ -6,7 +6,7 @@
 				<% if Type == 'form' %>
 					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
 				<% else_if Type == "Languages" %>
-					<% include MenuBlock_Languages %>
+					<% include MenuBlock_Languages with Locales=Top.Locales %>
 				<% else %>
 					$forTemplate
 				<% end_if %>
