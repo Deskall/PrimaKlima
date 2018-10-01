@@ -228,6 +228,11 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $last = $this->owner->Parent()->Elements()->sort('Sort','DESC')->first();
             $this->owner->Sort = ($last) ? $last->Sort + 1 : 1;
         }
+        if ($this->owner->isPrimary){
+            foreach($this->getPage()->ElementalArea()->Elements()->filter('isPrimary',1)->exclude('ID',$this->owner->ID) as $primary){
+                $primary->isPrimary = 0;
+            }
+        }
         parent::onBeforeWrite();
     }
 
