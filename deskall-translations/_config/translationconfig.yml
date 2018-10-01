@@ -62,6 +62,7 @@ Sheadawson\Linkable\Models\Link:
 LayoutBlock:
   extensions:
     - TractorCow\Fluent\Extension\FluentVersionedExtension
+    - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
     - 'FilterLocalExtension'
   translate:
     - 'Title'
