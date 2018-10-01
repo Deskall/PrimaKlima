@@ -35,9 +35,14 @@ Box:
   translate:
     - 'Title'
     - 'Content'
+FeaturesBlock:
+  translate:
+    - 'FeaturesTitle'
 Features:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
+    - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
+    - 'FilterLocalExtension'
   translate:
     - 'Text'
 ListItem:
