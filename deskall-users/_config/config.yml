@@ -1,14 +1,3 @@
 ---
 Name: deskall-users
 ---
-SilverStripe\Security\Member:
-  extensions:
-    - MemberProfileExtension
-
-SilverStripe\Admin\SecurityAdmin:
-  extensions:
-    - SecurityAdminExtension
-    
-Page:
-  extensions:
-    - UserPageExtension
