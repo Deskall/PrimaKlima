@@ -65,5 +65,10 @@ LayoutBlock:
   translate:
     - 'Title'
     - 'Content'
-
+MenuBlock:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentVersionedExtension
+  translate:
+    - 'Title'
+    - 'Content'
 
