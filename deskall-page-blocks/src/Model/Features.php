@@ -28,6 +28,7 @@ class Features extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('ParentID');
+        $fields->removeByName('FilteredLocales');
         return $fields;
     }
 }
