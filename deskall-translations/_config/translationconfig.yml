@@ -41,6 +41,7 @@ FeaturesBlock:
 Features:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
+    - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
   translate:
     - 'Text'
 ListItem:
