@@ -42,6 +42,7 @@ Features:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
+    - 'FilterLocalExtension'
   translate:
     - 'Text'
 ListItem:
