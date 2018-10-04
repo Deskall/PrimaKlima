@@ -9,6 +9,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
@@ -161,18 +162,19 @@ class FeaturesBlock extends BaseElement implements Searchable
 
             if ($this->ID > 0){
 
-                $config = 
-                GridFieldConfig::create()
-                ->addComponent(new GridFieldButtonRow('before'))
-                ->addComponent(new GridFieldToolbarHeader())
-                ->addComponent(new GridFieldTitleHeader())
-                ->addComponent(new GridFieldEditableColumns())
-                ->addComponent(new GridFieldDeleteAction())
-                ->addComponent(new GridFieldAddNewInlineButton())
-                ->addComponent(new GridFieldOrderableRows('Sort'));
-                if (singleton('Features')->hasExtension('Activable')){
-                     $config->addComponent(new GridFieldShowHideAction());
-                }
+                // $config = 
+                // GridFieldConfig::create()
+                // ->addComponent(new GridFieldButtonRow('before'))
+                // ->addComponent(new GridFieldToolbarHeader())
+                // ->addComponent(new GridFieldTitleHeader())
+                // ->addComponent(new GridFieldEditableColumns())
+                // ->addComponent(new GridFieldDeleteAction())
+                // ->addComponent(new GridFieldAddNewInlineButton())
+                // ->addComponent(new GridFieldOrderableRows('Sort'));
+                // if (singleton('Features')->hasExtension('Activable')){
+                //      $config->addComponent(new GridFieldShowHideAction());
+                // }
+                $config = GridFieldConfig_RecordEditor::create();
                 $featuresField = new GridField('Features',_t(__CLASS__.'.Features','Features'),$this->Features(),$config);
                 $featuresField->addExtraClass('fluent__localised-field');
                 $title = $fields->fieldByName('Root.Main.FeaturesTitle');
