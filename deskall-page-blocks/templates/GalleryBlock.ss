@@ -49,6 +49,7 @@
 		</div>
 		<% else %>
 		<div class="uk-flex-center <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid-small" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;">
+			$PaddedImages
 			<% if PaddedImages %>
 			 	<% loop OrderedImages %>
 			    	<div class="uk-flex uk-flex-middle uk-flex-center">
