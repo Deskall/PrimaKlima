@@ -51,7 +51,13 @@
 		<div class="uk-flex-center <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid-small" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;">
 		    <% loop OrderedImages %>
 		    	<div class="uk-flex uk-flex-middle uk-flex-center">
-					 <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else %>$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img></a>
+					 <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else %>
+					 	<% if Up.PaddedImages %>
+					 	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
+					 	<% else %>
+					 	$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
+					 	<% end_if %>
+					 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img></a>
 				</div>
 			<% end_loop %>
 		</div>
