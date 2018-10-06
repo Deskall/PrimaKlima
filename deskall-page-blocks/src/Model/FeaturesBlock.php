@@ -41,7 +41,9 @@ class FeaturesBlock extends BaseElement implements Searchable
     private static $has_many = [
         'Features' => Features::class
     ];
-
+    private static $owns = [
+        'Features',
+    ];
     private static $cascade_delete = [
         'Features',
     ];
