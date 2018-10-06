@@ -59,6 +59,8 @@ DownloadBlock:
 Sheadawson\Linkable\Models\Link:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
+    - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
+    - 'FilterLocalExtension'
   translate:
     - 'Title'
     - 'URL'
