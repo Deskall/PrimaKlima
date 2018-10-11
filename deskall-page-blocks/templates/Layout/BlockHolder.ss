@@ -6,6 +6,9 @@
 		<section class="uk-section $Element.Background uk-section-small">
 	<% end_if %>				
 			<div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
+				<% if Element.TitleIcon %>
+				<div class="title-icon"><i class="fa fa-{$TitleIcon}"></i></div>
+				<% end_if %>
 				<% if Element.isPrimary %>
 					<h1 class="$Element.TitleAlign">$getPage.Title</h1>
 				<% else %>
