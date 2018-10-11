@@ -7,8 +7,21 @@
 	<% end_if %>				
 			<div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
 				<% if Element.TitleIcon %>
-				<div class="title-icon"><i class="fa fa-{$TitleIcon}"></i></div>
-				<% end_if %>
+				<div class="uk-flex uk-flex-middle">
+					<div class="title-icon"><i class="fa fa-{$TitleIcon}"></i></div>
+					<% if Element.isPrimary %>
+						<h1 class="$Element.TitleAlign">$getPage.Title</h1>
+					<% else %>
+						<% if Element.Title && $Element.ShowTitle %>
+							<% if $Element.isChildren %>
+								<h3 class="$Element.TitleAlign">$Element.Title</h3>
+							<% else %>
+								<h2 class="$Element.TitleAlign">$Element.Title</h2>
+							<% end_if %>
+						<% end_if %>
+					<% end_if %>
+				</div>
+				<% else %>
 				<% if Element.isPrimary %>
 					<h1 class="$Element.TitleAlign">$getPage.Title</h1>
 				<% else %>
@@ -19,6 +32,7 @@
 							<h2 class="$Element.TitleAlign">$Element.Title</h2>
 						<% end_if %>
 					<% end_if %>
+				<% end_if %>
 				<% end_if %>
 				<div class="uk-panel">
 					$Element
