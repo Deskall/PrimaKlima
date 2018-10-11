@@ -14,6 +14,7 @@ use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
+use SilverStripe\Forms\TextField;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
