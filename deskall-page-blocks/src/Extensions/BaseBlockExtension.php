@@ -19,6 +19,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
 
     private static $db = [
+        'Title' => 'HTMLVarchar',
         'isPrimary' => 'Boolean(0)',
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
@@ -164,6 +165,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('FullWidth');
         $fields->removeByName('TextAlign');
         $fields->removeByName('TitleAlign');
+        $fields->removeByName('TitleAndDisplayed');
         $fields->removeByName('TextColumns');
         $fields->removeByName('TextColumnsDivider');
         $fields->removeByName('AvailableGlobally');
@@ -171,8 +173,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
         $fields->removeByName('ExtraClass');
-
-        $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Ce bloc contient le titre principale de la page (h1)")),'TitleAndDisplayed');
+        
+        $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Ce bloc contient le titre principale de la page (h1)")),'Title');
       
       
      
@@ -203,7 +205,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     
  
         if ($this->owner->isPrimary){
-            $fields->removeByName('TitleAndDisplayed');
+            $fields->removeByName('Title');
         }
         
 
