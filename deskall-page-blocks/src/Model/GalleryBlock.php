@@ -28,7 +28,8 @@ class GalleryBlock extends BaseElement implements Searchable
         'PictureWidth' => 'Int',
         'PictureHeight' => 'Int',
         'Autoplay' => 'Boolean(0)',
-        'PaddedImages' => 'Boolean(0)'
+        'PaddedImages' => 'Boolean(0)',
+        'lightboxOff' => 'Boolean(0)'
     ];
 
     private static $many_many = [
@@ -87,6 +88,7 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('Layout');
             $fields->removeByName('Autoplay');
             $fields->removeByName('PaddedImages');
+             $fields->removeByName('lightboxOff');
            
             $fields
                 ->fieldByName('Root.Main.HTML')
@@ -99,7 +101,8 @@ class GalleryBlock extends BaseElement implements Searchable
                     DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Bilder per Linie'), self::$pictures_per_line),
                     OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
                     CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches Abspielen?')),
-                    CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Afficher les images dans leur entiereté ? (pas de redimensionnement, indiqué pour les logos par exemple)'))
+                    CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Afficher les images dans leur entiereté ? (pas de redimensionnement, indiqué pour les logos par exemple)')),
+                    CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Images non cliquables?'))
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             

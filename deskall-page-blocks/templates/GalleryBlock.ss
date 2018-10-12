@@ -13,10 +13,28 @@
 		    <div class="uk-position-relative">
 
 		        <div class="uk-slider-container uk-light">
+		        	<% if lightboxOff %>
+		        	<ul class="uk-slider-items $PicturesPerLine" data-uk-grid >
+		            	<% loop OrderedImages %>
+		                <li class="uk-flex uk-flex-middle uk-flex-center">
+				            	<img data-src="
+				            	<% if $getExtension == "svg" %>
+				            	$URL
+				            	<% else %>
+					            	<% if Up.PaddedImages %>
+					            	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
+					            	<% else %>
+					            	$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
+					            	<% end_if %>
+				            	<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+				        </li>
+				     	<% end_loop %>
+		            </ul>
+		        	<% else %>
 		            <ul class="uk-slider-items $PicturesPerLine" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;">
 		            	<% loop OrderedImages %>
 		                <li class="uk-flex uk-flex-middle uk-flex-center">
-				            <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description">
+				           <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description">
 				            	<img data-src="
 				            	<% if $getExtension == "svg" %>
 				            	$URL
@@ -30,6 +48,7 @@
 				        </li>
 				     	<% end_loop %>
 		            </ul>
+		            <% end_if %>
 		        </div>
 		        <% if not isChildren %>
 		        <div class="uk-hidden@s uk-light">
@@ -47,25 +66,49 @@
 		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 		</div>
 		<% else %>
-		<div class="uk-flex-center <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid-small" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;">
-			<% if PaddedImages %>
-			 	<% loop OrderedImages %>
-			    	<div class="uk-flex uk-flex-middle uk-flex-center">
-						 <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else %>
-						 	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
-						 	<% end_if %>
-						 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img></a>
-					</div>
-				<% end_loop %>
-			<% else %>
-			    <% loop OrderedImages %>
-			    	<div class="uk-flex uk-flex-middle uk-flex-center">
-						 <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else %>
-						 	$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
-						 	<% end_if %>
-						 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img></a>
-					</div>
-				<% end_loop %>
-			<% end_if %>
-		</div>
+		<% if lightboxOff %>
+			<div class="uk-flex-center <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid-small" data-uk-grid >
+				<% if PaddedImages %>
+				 	<% loop OrderedImages %>
+				    	<div class="uk-flex uk-flex-middle uk-flex-center">
+							<img data-src="<% if $getExtension == "svg" %>$URL<% else %>
+							 	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
+							 	<% end_if %>
+							 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+						</div>
+					<% end_loop %>
+				<% else %>
+				    <% loop OrderedImages %>
+				    	<div class="uk-flex uk-flex-middle uk-flex-center">
+							<img data-src="<% if $getExtension == "svg" %>$URL<% else %>
+							 	$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
+							 	<% end_if %>
+							 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+						</div>
+					<% end_loop %>
+				<% end_if %>
+			</div>
+		<% else %>
+			<div class="uk-flex-center <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid-small" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;">
+				<% if PaddedImages %>
+				 	<% loop OrderedImages %>
+				    	<div class="uk-flex uk-flex-middle uk-flex-center">
+							 <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else %>
+							 	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
+							 	<% end_if %>
+							 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img></a>
+						</div>
+					<% end_loop %>
+				<% else %>
+				    <% loop OrderedImages %>
+				    	<div class="uk-flex uk-flex-middle uk-flex-center">
+							 <a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else %>
+							 	$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
+							 	<% end_if %>
+							 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img></a>
+						</div>
+					<% end_loop %>
+				<% end_if %>
+			</div>
+		<% end_if %>
 		<% end_if %>
