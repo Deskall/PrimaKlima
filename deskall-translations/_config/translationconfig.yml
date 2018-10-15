@@ -79,7 +79,14 @@ SilverStripe\UserForms\Model\EditableFormField:
     - 'Name'
     - 'Title'
     - 'Placeholder'
-
+SilverStripe\UserForms\Model\Recipient\EmailRecipient:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentVersionedExtension
+  frontend_publish_required: false
+  translate:
+    - 'EmailSubject'
+    - 'EmailBodyHtml'
+    - 'EmailBody'
 ---
 Only:
   moduleexists: 'deskall-users'
