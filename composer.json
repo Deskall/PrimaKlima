@@ -13,7 +13,8 @@
         "tinify/tinify": "1.5.2",
         "tractorcow/silverstripe-fluent": "4.1.3",
         "g4b0/searchable-dataobjects": "5.0.0",
-        "silverstripe/blog": "^3.2"
+        "silverstripe/blog": "^3.2",
+        "symbiote/silverstripe-queuedjobs": "^4.2"
     },
     "extra": {
         "project-files-installed": [

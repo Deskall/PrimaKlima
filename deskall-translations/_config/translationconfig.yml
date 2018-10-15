@@ -71,6 +71,13 @@ LayoutBlock:
   translate:
     - 'Title'
     - 'Content'
+SilverStripe\UserForms\Model\EditableFormField:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentVersionedExtension
+  translate:
+    - 'Name'
+    - 'Title'
+    - 'Placeholder'
 
 ---
 Only:
