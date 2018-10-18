@@ -221,7 +221,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         }
 
         if ($this->owner->isChildren()){
-            $fields->dataFieldByName('Root.Global.GlobalLayout')->push(DropdownField::create('Width',_t(__CLASS__.'.Width','Breite'),$this->getTranslatedSourceFor(__CLASS__,'widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
+            $fields->dataFieldByName('Root.Global.GlobalLayout')->push(DropdownField::create('Width',_t(__CLASS__.'.Width','Breite'),$this->owner->getTranslatedSourceFor(__CLASS__,'widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
         }
         
 
