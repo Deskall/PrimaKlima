@@ -181,7 +181,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('TextColumns');
         $fields->removeByName('TextColumnsDivider');
         $fields->removeByName('AvailableGlobally');
-        $fields->removeByName('HTML');
+       $fields->removeByName('Width');
 
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
