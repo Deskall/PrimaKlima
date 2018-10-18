@@ -28,8 +28,20 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TitleAlign' => 'Varchar(255)',
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
-        'TextColumnsDivider' => 'Boolean(0)'
+        'TextColumnsDivider' => 'Boolean(0)',
+        'Width' => 'Varchar'
     ];
+
+    private static $widths = [
+        'uk-width-1-1@s uk-width-1-5@m' => '20%',
+        'uk-width-1-1@s uk-width-1-4@m' => '25%', 
+        'uk-width-1-1@s uk-width-1-3@m' => '33.33%', 
+        'uk-width-1-1@s uk-width-1-2@m' => '50%',
+        'uk-width-1-1' => 'Voll Breite',
+        'uk-width-auto' => 'auto Breite',
+        'uk-width-expand' => 'verbleibende Breite'
+    ];
+
 
     private static $has_one = [
         'BackgroundImage' => Image::class,
@@ -207,6 +219,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         if ($this->owner->isPrimary){
             $fields->removeByName('TitleAndDisplayed');
         }
+
+        if ($this->owner->isChildren()){
+            $fields->dataFieldByName('Root.Global.GlobalLayout')->push(DropdownField::create('Width',_t(__CLASS__.'.Width','Breite'),$this->getTranslatedSourceFor(__CLASS__,'widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
+        }
         
 
     }
@@ -307,6 +323,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
+        foreach($this->stat('widths') as $key => $value) {
+          $entities[__CLASS__.".widths_{$key}"] = $value;
+        }      
 
         return $entities;
     }
