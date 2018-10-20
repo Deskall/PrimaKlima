@@ -323,14 +323,14 @@ class SiteConfigLayoutExtension extends DataExtension
   public function onBeforeWrite(){
     
     $this->owner->populateDefaultsColors();
-    $this->owner->HeaderBackground = "#".$this->owner->HeaderBackground;
-    $this->owner->HeaderFontColor = "#".$this->owner->HeaderFontColor;
-    $this->owner->HeaderHoverFontColor = "#".$this->owner->HeaderHoverFontColor;
-    $this->owner->FooterFontColor = "#".$this->owner->FooterFontColor;
-    $this->owner->FooterBackground = "#".$this->owner->FooterBackground;
-    $this->owner->H1FontColor = "#".$this->owner->H1FontColor;
-    $this->owner->MobileNaviHoverFontColor = "#".$this->owner->MobileNaviHoverFontColor;
-    $this->owner->ToggleMenuButtonColor = "#".$this->owner->ToggleMenuButtonColor;
+    $this->owner->HeaderBackground = "#".ltrim($this->owner->HeaderBackground,"#");
+    $this->owner->HeaderFontColor = "#".ltrim($this->owner->HeaderFontColor,"#");
+    $this->owner->HeaderHoverFontColor = "#".ltrim($this->owner->HeaderHoverFontColor,"#");
+    $this->owner->FooterFontColor = "#".ltrim($this->owner->FooterFontColor,"#");
+    $this->owner->FooterBackground = "#".ltrim($this->owner->FooterBackground,"#");
+    $this->owner->H1FontColor = "#".ltrim($this->owner->H1FontColor,"#");
+    $this->owner->MobileNaviHoverFontColor = "#".ltrim($this->owner->MobileNaviHoverFontColor,"#");
+    $this->owner->ToggleMenuButtonColor = "#".ltrim($this->owner->ToggleMenuButtonColor,"#");
     parent::onBeforeWrite();
   }
 
