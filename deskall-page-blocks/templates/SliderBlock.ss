@@ -21,7 +21,11 @@
                         <div class="uk-position-relative uk-height-1-1">
                             <div class="$TextPosition $TextBackground $TextWidth <% if TextOpacity %>uk-overlay<% end_if %> <% if TextBackground %>uk-padding-small<% end_if %>">
                                 <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
-                                <% if Title %><h2 class="$TitleAlign">$Title</h2><% end_if %>
+                                <% if Up.isPrimary && isMainSlide %>
+                                    <h1 class="$TitleAlign">$getPage.Title</h1>
+                                <% else %>
+                                    <% if Title %><h2 class="$TitleAlign">$Title</h2><% end_if %>
+                                <% end_if %>
                                 <div class="uk-text-lead uk-visible@s $TextAlign  $TextColumns">$Content</div>
                                 <% if Effect == "parallax" %></div><% end_if %>
                                 <% if LinkableLinkID > 0 %>

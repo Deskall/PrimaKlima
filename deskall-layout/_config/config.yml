@@ -18,7 +18,9 @@ Color:
 LayoutBlock:
   extensions:
     - SubObjectPermission
+    - MenuBlockExtension
 
 LayoutLink:
   extensions:
     - SubObjectPermission
+

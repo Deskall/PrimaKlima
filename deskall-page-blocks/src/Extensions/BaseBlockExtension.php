@@ -14,11 +14,13 @@ use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
+use SilverStripe\Forms\TextField;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
 
     private static $db = [
+        'TitleIcon' => 'Varchar',
         'isPrimary' => 'Boolean(0)',
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
@@ -26,8 +28,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TitleAlign' => 'Varchar(255)',
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
-        'TextColumnsDivider' => 'Boolean(0)'
+        'TextColumnsDivider' => 'Boolean(0)',
+        'Width' => 'Varchar'
     ];
+
 
     private static $has_one = [
         'BackgroundImage' => Image::class,
@@ -159,7 +163,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
 
     public function updateCMSFields(FieldList $fields){
-       
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
@@ -168,14 +171,15 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('TextColumns');
         $fields->removeByName('TextColumnsDivider');
         $fields->removeByName('AvailableGlobally');
+       $fields->removeByName('Width');
 
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
         $fields->removeByName('ExtraClass');
 
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Ce bloc contient le titre principale de la page (h1)")),'TitleAndDisplayed');
+        $fields->addFieldToTab('Root.Main',TextField::create('TitleIcon',_t(__CLASS__.".TitleIcon","Icone apposée au titre (class css font awesome)")),'TitleAndDisplayed');
       
-        $fields->addFieldToTab('Root',new Tab('LayoutTab',_t(__CLASS__.'.LAYOUTTAB','Layout')));
      
         if (Permission::check('ADMIN')){
             $fields->addFieldToTab('Root.LayoutTab',$extracss);
@@ -199,10 +203,19 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $fields->addFieldToTab('Root',$history);
         }
 
+
+        $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LAYOUTTAB','Layout'));
+    
+ 
         if ($this->owner->isPrimary){
             $fields->removeByName('TitleAndDisplayed');
         }
+
+        if ($this->owner->isChildren()){
+            $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(DropdownField::create('Width',_t('LayoutBlock.Width','Breite'),$this->owner->getTranslatedSourceFor('LayoutBlock','widths'))->setEmptyString(_t('LayoutBlock.WidthLabel','Breite auswählen'))->setDescription(_t('LayoutBlock.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
+        }
         
+
     }
 
     public function getAnchorTitle(){
@@ -223,6 +236,12 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         if (!$this->owner->Sort){
             $last = $this->owner->Parent()->Elements()->sort('Sort','DESC')->first();
             $this->owner->Sort = ($last) ? $last->Sort + 1 : 1;
+        }
+        if ($this->owner->isPrimary && $this->owner->getPage()){
+            foreach($this->owner->getPage()->ElementalArea()->Elements()->filter('isPrimary',1)->exclude('ID',$this->owner->ID) as $primary){
+                $primary->isPrimary = 0;
+                $primary->write();
+            }
         }
         parent::onBeforeWrite();
     }

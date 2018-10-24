@@ -9,6 +9,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
@@ -144,8 +145,8 @@ class FeaturesBlock extends BaseElement implements Searchable
 
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
-
+        
+        $this->beforeUpdateCMSFields(function($fields) {
             $fields->removeByName('FeaturesColumns');
             $fields->removeByName('IconItem');
             $fields->removeByName('Layout');
@@ -157,13 +158,7 @@ class FeaturesBlock extends BaseElement implements Searchable
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
                 ->setRows(5);
 
-            $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
-            
-            $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-                HTMLOptionsetField::create('FeaturesTextAlign',_t(__CLASS__.'.FeaturesTextAlignment','Features Textausrichtung'),$this->stat('features_text_alignments')),
-                HTMLOptionsetField::create('FeaturesColumns',_t(__CLASS__.'.FeaturesInColumns','Features in mehreren Spalten'),$this->stat('features_columns')),
-                HTMLDropdownField::create('IconItem',_t(__CLASS__.'.FeaturesIcons','Icon'),$this->getSourceIcons(),'check')
-            )->setTitle(_t(__CLASS__.'.FeaturesLayout','Features Layout'))->setName('FeaturesLayout'));
+           
 
             if ($this->ID > 0){
 
@@ -180,6 +175,7 @@ class FeaturesBlock extends BaseElement implements Searchable
                      $config->addComponent(new GridFieldShowHideAction());
                 }
                 $featuresField = new GridField('Features',_t(__CLASS__.'.Features','Features'),$this->Features(),$config);
+                $featuresField->addExtraClass('fluent__localised-field');
                 $title = $fields->fieldByName('Root.Main.FeaturesTitle');
                 $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'Features List Titel'));
                 $fields->addFieldToTab('Root.Main',$title);
@@ -191,8 +187,17 @@ class FeaturesBlock extends BaseElement implements Searchable
                 $fields->removeByName('Features');
                 $fields->removeByName('FeaturesTitle');
             }
-     
-       return $fields;
+        });
+
+        $fields = parent::getCMSFields();
+        $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
+        
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            HTMLOptionsetField::create('FeaturesTextAlign',_t(__CLASS__.'.FeaturesTextAlignment','Features Textausrichtung'),$this->stat('features_text_alignments')),
+            HTMLOptionsetField::create('FeaturesColumns',_t(__CLASS__.'.FeaturesInColumns','Features in mehreren Spalten'),$this->stat('features_columns')),
+            HTMLDropdownField::create('IconItem',_t(__CLASS__.'.FeaturesIcons','Icon'),$this->getSourceIcons(),'check')
+        )->setTitle(_t(__CLASS__.'.FeaturesLayout','Features Layout'))->setName('FeaturesLayout'));
+        return $fields;
     }
 
     public function getSummary()
