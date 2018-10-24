@@ -23,7 +23,8 @@ class ParentBlock extends ElementList
         'FirstBlockID' => 'Int',
         'CollapsableChildren' => 'Boolean(0)',
         'CollapseMultipe' => 'Boolean(1)',
-        'CanCollapse' => 'Boolean(1)'
+        'CanCollapse' => 'Boolean(1)',
+        'HTML' => 'HTMLText'
     ];
 
     private static $table_name = 'ParentBlock';

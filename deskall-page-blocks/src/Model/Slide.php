@@ -226,6 +226,10 @@ class Slide extends DataObject
 
         $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LayoutTab','Layout'));
 
+        if ($this->isMainSlide){
+            $fields->removeByName('TitleAndDisplayed');
+        }
+
         return $fields;
     }
 

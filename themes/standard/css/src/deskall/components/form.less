@@ -1,28 +1,32 @@
 //FORM
-fieldset{
-	border: none;
+.form-std{
+
+	input[type="text"],input[type="email"],input[type="password"],input[type="number"]{
+		.uk-input;
+	}
+	input[type="checkbox"]{
+		.uk-checkbox;
+		margin-right:15px;
+	}
+	input[type="radio"]{
+		.uk-radio;
+		margin-right:15px;
+	}
+	input[type="submit"]{
+		.uk-button;
+		.PrimaryBackground;
+	}
+	select{
+		.uk-select;
+	}
+	textarea{
+		.uk-textarea;
+	}
 }
-input[type="text"],input[type="email"],input[type="password"],input[type="number"]{
-	.uk-input;
-}
-input[type="checkbox"]{
-	.uk-checkbox;
-	margin-right:15px;
-}
-input[type="radio"]{
-	.uk-radio;
-	margin-right:15px;
-}
-input[type="submit"]{
-	.uk-button;
-	.PrimaryBackground;
-}
-select{
-	.uk-select;
-}
-textarea{
-	.uk-textarea;
-}
+	fieldset{
+		border: none;
+		padding:0;
+	}
 
 .dk-background-white{
 	.uk-input,
@@ -52,9 +56,7 @@ textarea{
 }
 
 
-fieldset{
-	padding:0;
-}
+
 
 
 .uk-form-horizontal .form-group--no-label > .uk-form-controls{

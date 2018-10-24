@@ -8,6 +8,7 @@ use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 class DeskallElementalEditorExtension extends DataExtension 
 {
     public function updateGetTypes(&$types){
+
         if ($this->owner->getArea()->getOwnerPage() && $this->owner->getArea()->getOwnerPage()->ClassName == "ParentBlock" && $this->owner->getArea()->getOwnerPage()->CollapsableChildren){
             $allowed = $this->owner->getArea()->getOwnerPage()->stat('allowed_collapsed_blocks');
             foreach ($types as $key => $value) {
@@ -23,7 +24,6 @@ class DeskallElementalEditorExtension extends DataExtension
             unset($types['SilverStripe\ElementalBlocks\Block\FileBlock']);
             unset($types['DNADesign\ElementalList\Model\ElementList']);
         }
-
     }
 
      public function updateField($gridfield){

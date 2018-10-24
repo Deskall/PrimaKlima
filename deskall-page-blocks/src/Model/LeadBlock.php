@@ -16,8 +16,7 @@ class LeadBlock extends BaseElement implements Searchable
     private static $controller_class = BlockController::class;
 
     private static $db = [
-        'HTML' => 'HTMLText',
-        'isPrimary' => 'Boolean(0)'
+        'HTML' => 'HTMLText'
     ];
 
    
@@ -31,12 +30,7 @@ class LeadBlock extends BaseElement implements Searchable
 
     private static $cascade_duplicates = [];
 
-    public function populateDefaults(){
-        parent::populateDefaults();
-        if ($this->isPrimary){
-            $this->ShowTitle = 1;
-        }
-    }
+    
 
     public function canDesactivate(){
         if ($this->isPrimary){

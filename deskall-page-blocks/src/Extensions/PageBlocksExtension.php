@@ -3,6 +3,7 @@
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HeaderField;
+use DNADesign\Elemental\Models\BaseElement;
 
 class PageBlocksExtension extends DataExtension {
 	
@@ -27,7 +28,7 @@ class PageBlocksExtension extends DataExtension {
 
 	public function checkLead(){
 		$ElementalArea = $this->owner->ElementalArea(); 
-		$hasLead = LeadBlock::get()->filter(array('ParentID' => $ElementalArea->ID, 'isPrimary' => 1))->count();
+		$hasLead = BaseElement::get()->filter(array('ParentID' => $ElementalArea->ID, 'isPrimary' => 1))->count();
 		if (!$hasLead){
 			$lead = new LeadBlock();
 			$lead->ParentID = $ElementalArea->ID;

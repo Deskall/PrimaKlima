@@ -1,6 +1,7 @@
 @mobile-nav-font-size: 18px;
 @mobile-nav-item-height:40px;
 
+
 header{
 	.uk-navbar-container {
 		min-height:@header-menu-collapsed-height;
@@ -20,7 +21,14 @@ header{
 	}
 	.uk-navbar-nav > li > a{
 		.nav-font;
-		padding:0 40px;
+		padding:0 15px;
+
+		@media only screen and (min-width:@breakpoint-large){
+			padding:0 20px;
+		}
+		@media only screen and (min-width:@breakpoint-xlarge){
+			padding:0 40px;
+		}
 	}
 
 	.dk-submenu{
@@ -50,7 +58,7 @@ header li > a[data-uk-icon], .dk-nav-mobile-container li > a[data-uk-icon]{
 }
 .dk-nav-mobile{
 		.uk-nav-header,
-		
+
 		li.uk-nav-divider{
 			border-top: 1px solid #999;
 		}
@@ -60,7 +68,7 @@ header li > a[data-uk-icon], .dk-nav-mobile-container li > a[data-uk-icon]{
 		font-size: 0.75rem;
 
 	}
-	
+
 }
 .hook-subnav-item(){
 	text-transform: none;
