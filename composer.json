@@ -11,7 +11,11 @@
         "sheadawson/silverstripe-linkable": "2.0.0",
         "bummzack/sortablefile": "2.1.0",
         "tinify/tinify": "1.5.2",
-        "g4b0/searchable-dataobjects": "5.0.0"
+        "g4b0/searchable-dataobjects": "5.0.0",
+        "tractorcow/silverstripe-fluent": "^4.1",
+        "silverstripe/blog": "^3.2",
+        "colymba/gridfield-bulk-editing-tools": "3.x-dev",
+        "silverstripe/comments": "^3.1"
     },
     "extra": {
         "project-files-installed": [
