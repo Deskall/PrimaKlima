@@ -5,6 +5,7 @@ use SilverStripe\Core\ClassInfo;
 use TractorCow\Fluent\Model\Locale;
 use SilverStripe\ORM\DataList;
 use TractorCow\Fluent\Extension\FluentFilteredExtension;
+use Silverstripe\ORM\DataObject;
 
 class PublishInDefaultLocaleExtension extends DataExtension{
 	
@@ -12,7 +13,6 @@ class PublishInDefaultLocaleExtension extends DataExtension{
 		parent::onAfterWrite();
 		if ($this->owner->IsGlobalDefault){
 			ob_start();
-
 			foreach(ClassInfo::subclassesFor(DataObject::class) as $class ) {
 				print_r($class."\n");
 				if (singleton($class)->hasExtension(FluentFilteredExtension::class)) {
