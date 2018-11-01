@@ -14,8 +14,9 @@ class PublishInDefaultLocaleExtension extends DataExtension{
 		if ($this->owner->IsGlobalDefault){
 			ob_start();
 			foreach(ClassInfo::subclassesFor(DataObject::class) as $class ) {
-				print_r($class."\n");
+				
 				if (singleton($class)->hasExtension(FluentFilteredExtension::class)) {
+					print_r($class."\n");
 					$objects = DataList::create($class);
 					
 					foreach($objects as $obj){
