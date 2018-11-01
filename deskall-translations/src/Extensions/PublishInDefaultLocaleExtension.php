@@ -20,8 +20,8 @@ class PublishInDefaultLocaleExtension extends DataExtension{
 					$objects = DataList::create($class);
 					
 					foreach($objects as $obj){
-						if ($obj->Locales()->count() == 0){
-							$obj->Locales()->add($this->owner);
+						if ($obj->FilteredLocales()->count() == 0){
+							$obj->FilteredLocales()->add($this->owner);
 							$obj->write();
 						}
 					}
