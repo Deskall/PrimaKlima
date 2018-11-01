@@ -12,11 +12,10 @@ class PublishInDefaultLocaleExtension extends DataExtension{
 	public function onAfterWrite(){
 		parent::onAfterWrite();
 		if ($this->owner->IsGlobalDefault){
-			ob_start();
 			foreach(ClassInfo::subclassesFor(DataObject::class) as $class ) {
 				
 				if (singleton($class)->hasExtension(FluentFilteredExtension::class)) {
-					print_r($class."\n");
+					
 					$objects = DataList::create($class);
 					
 					foreach($objects as $obj){
@@ -28,8 +27,7 @@ class PublishInDefaultLocaleExtension extends DataExtension{
 				}
 			}
 
-			$result = ob_get_clean();
-			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+			
 		}
 		
 	}
