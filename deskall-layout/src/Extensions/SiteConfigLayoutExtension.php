@@ -303,6 +303,8 @@ class SiteConfigLayoutExtension extends DataExtension
     $fields->FieldByName('Root.Header')->setTitle(_t(__CLASS__.'.LayoutHeaderTab','Header'));
     $fields->FieldByName('Root.MobileNavigation')->setTitle(_t(__CLASS__.'.MobilNavigationTab','mobile Navigation'));
     $fields->FieldByName('Root.Footer')->setTitle(_t(__CLASS__.'.FooterTab','Footer'));
+
+    $this->owner->extend('updateLayoutFields', $fields);
     
     return $fields;
   }
