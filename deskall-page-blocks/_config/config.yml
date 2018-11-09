@@ -77,3 +77,6 @@ SilverStripe\CMS\Controllers\ContentController:
 DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
     - FormBlockExtension
+
+SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
+    default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NocaptchaProtector
