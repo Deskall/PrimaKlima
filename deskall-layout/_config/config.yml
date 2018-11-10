@@ -23,3 +23,10 @@ LayoutLink:
   extensions:
     - SubObjectPermission
 
+---
+Only:
+  moduleexists: 'subsiteconfig'
+---
+ThemeLeftAndMain:
+  extensions:
+    - SubsiteMenuExtension
