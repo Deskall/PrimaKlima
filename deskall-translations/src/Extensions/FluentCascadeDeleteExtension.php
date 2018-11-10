@@ -10,24 +10,7 @@ use SilverStripe\ORM\Queries\SQLDelete;
 use SilverStripe\Versioned\Versioned;
 use TractorCow\Fluent\Model\Locale;
 
-/**
- * Class FluentCascadeDeleteExtension
- *
- * This extension ensures that all localized-entries of a record are deleted, once the main record gets deleted.
- * This is a workaround/fix for the following issue: https://github.com/tractorcow-farm/silverstripe-fluent/issues/438
- * 
- * Apply to the same model as you applied the fluent extension to. Example:
- * ```
- * DNADesign\Elemental\Models\BaseElement:
- *  extensions:
- *    - Bummzack\Extensions\FluentCascadeDeleteExtension
- *    - TractorCow\Fluent\Extension\FluentVersionedExtension
- * ```
- * 
- * This extension works for versioned and unversioned records.
- * 
- * @package Bummzack\Extensions
- */
+
 class FluentCascadeDeleteExtension extends DataExtension
 {
     public function updateDeleteTables(&$queriedTables)
