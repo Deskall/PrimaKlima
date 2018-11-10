@@ -16,6 +16,7 @@ DNADesign\Elemental\Models\BaseElement:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
     - 'FilterLocalExtension'
+    - 'FluentCascadeDeleteExtension'
   translate:
     - 'Title'
     - 'HTML'
@@ -28,6 +29,7 @@ Slide:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
     - 'FilterLocalExtension'
+    - 'FluentCascadeDeleteExtension'
   translate:
     - 'Title'
     - 'Content'
@@ -36,6 +38,7 @@ Box:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
     - 'FilterLocalExtension'
+    - 'FluentCascadeDeleteExtension'
   translate:
     - 'Title'
     - 'Content'
@@ -45,12 +48,14 @@ FeaturesBlock:
 Features:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
+    - 'FluentCascadeDeleteExtension'
   frontend_publish_required: false
   translate:
     - 'Text'
 ListItem:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
+    - 'FluentCascadeDeleteExtension'
   frontend_publish_required: false
   translate:
     - 'Title'
@@ -61,6 +66,7 @@ DownloadBlock:
 Sheadawson\Linkable\Models\Link:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
+    - 'FluentCascadeDeleteExtension'
   frontend_publish_required: false
   translate:
     - 'Title'
@@ -72,12 +78,14 @@ LayoutBlock:
     - TractorCow\Fluent\Extension\FluentVersionedExtension
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
     - 'FilterLocalExtension'
+    - 'FluentCascadeDeleteExtension'
   translate:
     - 'Title'
     - 'Content'
 SilverStripe\UserForms\Model\EditableFormField:
   extensions:
     - TractorCow\Fluent\Extension\FluentVersionedExtension
+    - 'FluentCascadeDeleteExtension'
   frontend_publish_required: false
   translate:
     - 'Name'
@@ -86,6 +94,7 @@ SilverStripe\UserForms\Model\EditableFormField:
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   extensions:
     - TractorCow\Fluent\Extension\FluentVersionedExtension
+    - 'FluentCascadeDeleteExtension'
   frontend_publish_required: false
   translate:
     - 'EmailSubject'
