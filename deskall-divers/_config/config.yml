@@ -41,6 +41,10 @@ SilverStripe\Assets\File:
   extensions:
     - RenameFileExtension
 
+SilverStripe\Assets\FileNameFilter:
+  extensions:
+    - FileNameFilterExtension
+
 ---
 Name: deskall-searchable-dataobjects-extensions
 After: '#searchable-dataobjects-extensions'
