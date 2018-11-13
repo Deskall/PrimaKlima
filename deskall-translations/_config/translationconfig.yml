@@ -7,6 +7,10 @@ TractorCow\Fluent\Extension\FluentDirectorExtension:
 Name: translatableblocks
 After: '#versionedfiles'
 ---
+TractorCow\Fluent\Model\Locale:
+  extensions:
+    - PublishInDefaultLocaleExtension
+
 DNADesign\Elemental\Models\BaseElement:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
