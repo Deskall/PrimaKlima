@@ -26,16 +26,7 @@ class Page extends SiteTree implements Searchable
        return array();
      }
 
-     /**
-      * FilterByCallback function (optional)
-      * eg. function($object){
-      *  return ($object->StartDate > date('Y-m-d') || $object->isStillRecurring());
-      * };
-      * @return array
-      */
-     public static function getSearchFilterByCallback() {
-       return function($object){ return true; };
-     }
+
 
      /**
       * Fields that compose the Title
