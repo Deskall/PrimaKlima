@@ -256,7 +256,7 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('DropdownSubMenuBackground',_t(__CLASS__.'.DropdownBackground','Unten Navigation Hintergrundfarbe'))->addExtraClass('jscolor'),
         TextField::create('DropdownSubMenuColor',_t(__CLASS__.'.DropdownColor','Unten Navigation Schriftfarbe'))->addExtraClass('jscolor'),
         TextField::create('DropdownSubMenuHoverBackground',_t(__CLASS__.'.DropdownBackground','Unten Navigation Hintergrundfarbe (hover)'))->addExtraClass('jscolor'),
-        TextField::create('DropdownSubMenuHoverColor',_t(__CLASS__.'.DropdownColor','Unten Navigation Schriftfarbe (hover)'))->addExtraClass('jscolor'),
+        TextField::create('DropdownSubMenuHoverColor',_t(__CLASS__.'.DropdownColor','Unten Navigation Schriftfarbe (hover)'))->addExtraClass('jscolor')
       ),
       CheckboxField::create('BackContent',_t(__CLASS__.'.BackContent','Header über Inhalt')),
       CheckboxField::create('StickyHeader',_t(__CLASS__.'.StickyHeader','Sticky Header'))
