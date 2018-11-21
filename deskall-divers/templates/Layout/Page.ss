@@ -3,7 +3,7 @@
 <% end_if %>
 
 $ElementalArea
-
+<% if $ID < 0 %> 
 <% if Form || Content %>
 <section class="uk-section">
 	<div class="uk-container">
@@ -12,4 +12,5 @@ $ElementalArea
 		$Form
 	</div>
 </section>
+<% end_if %>
 <% end_if %>
