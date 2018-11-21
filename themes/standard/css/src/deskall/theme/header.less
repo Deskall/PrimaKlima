@@ -47,6 +47,22 @@ header li > a[data-uk-icon], .dk-nav-mobile-container li > a[data-uk-icon]{
 	}
 }
 
+//UNten navigation
+header .uk-navbar-nav.main .uk-navbar-dropdown{
+	background-color: @main-subnavi-background;
+	color:@main-subnavi-color;
+	> li:hover{
+		background-color: @main-subnavi-hover-background;
+		color: @main-subnavi-hover-color;
+	}
+	> li {
+		padding: @main-subnavi-padding;
+	}
+	> li > a{
+		padding:0;
+	}
+}
+
 //MOBILE NAVIGATION
 .dk-toggle-mobile-menu{
 	line-height: @header-menu-collapsed-height;

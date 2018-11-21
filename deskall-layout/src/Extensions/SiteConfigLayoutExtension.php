@@ -59,6 +59,13 @@ class SiteConfigLayoutExtension extends DataExtension
     'BackContent' => 'Boolean(0)',
     'HeaderLogoHeight' => 'Varchar(255)',
     'DropdownSubMenuWidth' => 'Varchar(255)',
+    'DropdownSubMenuBackground' => 'Varchar(255)',
+    'DropdownSubMenuColor' => 'Varchar(255)',
+    'DropdownSubMenuHoverBackground' => 'Varchar(255)',
+    'DropdownSubMenuHoverColor' => 'Varchar(255)',
+    'DropdownSubMenuPadding' => 'Varchar(255)',
+
+
 
     'FooterBackground' => 'Varchar(255)',
     'FooterLogoWidth' => 'Varchar(255)',
@@ -102,7 +109,12 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
     'HeaderLogoHeight' => '@header-logo-height',
     'DropdownSubMenuWidth' => '@navbar-dropdown-width',
-
+    'DropdownSubMenuBackground' => '@main-subnavi-background',
+    'DropdownSubMenuColor' => '@main-subnavi-color',
+    'DropdownSubMenuHoverBackground' => '@main-subnavi-hover-background',
+    'DropdownSubMenuHoverColor' => '@main-subnavi-hover-color',
+    'DropdownSubMenuPadding' => '@main-subnavi-padding',
+   
     'FooterLogoWidth' => '@footer-logo-width',
     'FooterBackground' => '@footer-background-color',
     'FooterFontColor' => '@footer-font-color',
@@ -238,9 +250,14 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse')),
         TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe'))
       ),
-      // FieldGroup::create(
-      //   TextField::create('DropdownSubMenuWidth',_t(__CLASS__.'.DropdownSubMenuWidth','Breite der Dropdown-Navigation'))
-      // ),
+      FieldGroup::create(
+        TextField::create('DropdownSubMenuWidth',_t(__CLASS__.'.DropdownSubMenuWidth','Breite der Dropdown-Navigation')),
+        TextField::create('DropdownSubMenuPadding',_t(__CLASS__.'.DropdownSubMenuPadding','Padding der Dropdown-Navigation')),
+        TextField::create('DropdownSubMenuBackground',_t(__CLASS__.'.DropdownBackground','Unten Navigation Hintergrundfarbe'))->addExtraClass('jscolor'),
+        TextField::create('DropdownSubMenuColor',_t(__CLASS__.'.DropdownColor','Unten Navigation Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('DropdownSubMenuHoverBackground',_t(__CLASS__.'.DropdownBackground','Unten Navigation Hintergrundfarbe (hover)'))->addExtraClass('jscolor'),
+        TextField::create('DropdownSubMenuHoverColor',_t(__CLASS__.'.DropdownColor','Unten Navigation Schriftfarbe (hover)'))->addExtraClass('jscolor'),
+      ),
       CheckboxField::create('BackContent',_t(__CLASS__.'.BackContent','Header über Inhalt')),
       CheckboxField::create('StickyHeader',_t(__CLASS__.'.StickyHeader','Sticky Header'))
     )->setTitle(_t(__CLASS__.'.HeaderLayout','Header Layout'))->setName('HeaderBackgroundFields'));
@@ -333,6 +350,11 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->H1FontColor = "#".ltrim($this->owner->H1FontColor,"#");
     $this->owner->MobileNaviHoverFontColor = "#".ltrim($this->owner->MobileNaviHoverFontColor,"#");
     $this->owner->ToggleMenuButtonColor = "#".ltrim($this->owner->ToggleMenuButtonColor,"#");
+    $this->owner->DropdownSubMenuHoverBackground = "#".ltrim($this->owner->DropdownSubMenuHoverBackground,"#");
+    $this->owner->DropdownSubMenuBackground = "#".ltrim($this->owner->DropdownSubMenuBackground,"#");
+    $this->owner->DropdownSubMenuHoverColor = "#".ltrim($this->owner->DropdownSubMenuHoverColor,"#");
+    $this->owner->DropdownSubMenuColor = "#".ltrim($this->owner->DropdownSubMenuColor,"#");
+
     parent::onBeforeWrite();
   }
 
