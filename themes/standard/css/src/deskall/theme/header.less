@@ -50,16 +50,18 @@ header li > a[data-uk-icon], .dk-nav-mobile-container li > a[data-uk-icon]{
 //UNten navigation
 header .uk-navbar-nav.main .uk-navbar-dropdown{
 	background-color: @main-subnavi-background;
-	color:@main-subnavi-color;
-	> li:hover{
-		background-color: @main-subnavi-hover-background;
-		color: @main-subnavi-hover-color;
-	}
-	> li {
+	.uk-navbar-dropdown-nav > li {
 		padding: @main-subnavi-padding;
+		> a{
+			padding:0;
+			color:@main-subnavi-color;
+		}
 	}
-	> li > a{
-		padding:0;
+	.uk-navbar-dropdown-nav > li:hover{
+		background-color: @main-subnavi-hover-background;
+		> a{
+			color: @main-subnavi-hover-color;
+		}
 	}
 }
 
