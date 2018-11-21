@@ -7,16 +7,25 @@
 		    	<div class="title-container">
 			 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
 			 	</div>
+
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
+			 		<% if $SiteConfig.Address || $SiteConfig.CodeCity %>
 			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT}, {$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
 			 			<span class="uk-margin-small-right" data-uk-icon="icon: location;"></span>
 			 			<span class="dk-link-with-icon">
+			 				<% if $SiteConfig.Address %>
 				 			$SiteConfig.Address<br/>
+				 			<% end_if %>
+				 			<% if $SiteConfig.CodeCity %>
 				 			$SiteConfig.CodeCity<br/>
+				 			<% end_if %>
+				 			<% if $SiteConfig.Country %>
 				 			$SiteConfig.Country
+				 			<% end_if %>
 				 		</span>
 				 		</a>
 			 		</li>
+			 		<% end_if %>
 			 		<% if SiteConfig.Email %>
 			 		<li>
 			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
