@@ -20,7 +20,7 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\Tab;
-use Sheadawson\Linkable\Forms\LinkField;
+use SilverStripe\ElementalBlocks\Form\BlockLinkField;
 
 class NavigationBlock extends BaseElement
 {
@@ -104,7 +104,7 @@ class NavigationBlock extends BaseElement
                                     return DropdownField::create($column,'Seite Block',$this->Parent()->Elements()->filter('ClassName','HiddenActionBlock')->exclude('ID',$this->ID)->map('ID','Title'));
                                 break;
                                 case "link":
-                                    return LinkField::create('LinkableLinkID', _t(__CLASS__.'.CTA', 'Link'));
+                                    return BlockLinkField::create('LinkableLinkID', _t(__CLASS__.'.CTA', 'Link'));
                                 break;
                                 default:
                                     return DropdownField::create($column,'Seite Block',['' => 'Menu Typ auswählen']);
@@ -140,6 +140,39 @@ class NavigationBlock extends BaseElement
         return HTMLDropdownField::getSourceIcones();
     }
 
+        /**
+     * For the frontend, return a parsed set of data for use in templates
+     *
+     * @return ArrayData|null
+     */
+    public function CallToActionLink()
+    {
+        return $this->decodeLinkData($this->getField('CallToActionLink'));
+    }
+
+
+
+    /**
+     * Given a set of JSON data, decode it, attach the relevant Page object and return as ArrayData
+     *
+     * @param string $linkJson
+     * @return ArrayData|null
+     */
+    protected function decodeLinkData($linkJson)
+    {
+        if (!$linkJson || $linkJson === 'null') {
+            return;
+        }
+
+        $data = ArrayData::create(Convert::json2obj($linkJson));
+
+        // Link page, if selected
+        if ($data->PageID) {
+            $data->setField('Page', self::get_by_id(SiteTree::class, $data->PageID));
+        }
+
+        return $data;
+    }
  
 
 }

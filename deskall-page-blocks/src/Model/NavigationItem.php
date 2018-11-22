@@ -2,19 +2,18 @@
 
 use SilverStripe\ORM\DataObject;
 use DNADesign\Elemental\Models\BaseElement;
-use Sheadawson\Linkable\Models\Link;
 
 class NavigationItem extends DataObject{
 	private static $db = [
 		'BackgroundColor' => 'Varchar',
 		'Title' => 'Varchar',
-		'ItemType' => 'Varchar'
+		'ItemType' => 'Varchar',
+		'Link' => 'Link',
 	];
 
 	private static $has_one = [
 		'Target' => BaseElement::class,
-		'Parent' => NavigationBlock::class,
-		'LinkableLink' => Link::class
+		'Parent' => NavigationBlock::class
 	];
 
 	private static $extensions = ['Sortable'];
