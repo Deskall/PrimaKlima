@@ -79,7 +79,7 @@
 			                    <div class="uk-card-media-top">
 			                        <img data-src="<% if $getExtension == "svg" %>$URL<% else %>
 				                        <% if Orientation == "1" %>
-									 	$FitMax(150,250).URL
+									 	$FitMax(300,500).URL
 									 	<% else %>
 									 	$FitMax(350,250).URL
 									 	<% end_if %>
