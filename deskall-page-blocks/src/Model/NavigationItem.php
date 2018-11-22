@@ -52,6 +52,8 @@ class NavigationItem extends DataObject{
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
+		$fields->removeByName('ActionID');
+		$fields->removeByName('TargetID');
 		$fields->addFieldToTab('Root.Main',TextField::create('Title',_t(__CLASS__."Title",'Titel'))->setAttribute('Placeholder','wird den Block- /Seitetitel benutzen falls leer.'));
 		$fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Menu Typ',['block' => 'Scroll zu Element','target' => 'Aktion', 'link' => 'Link']));
 		$fields->addFieldToTab('Root.Main',Wrapper::create(DropdownField::create('ActionID','Aktion',$this->Parent()->Parent()->Elements()->exclude(['ID' => $this->ParentID, 'ClassName' => 'HiddenActionBlock'])->map('ID','Title')))->displayIf('ItemType')->isEqualTo('target')->end());
