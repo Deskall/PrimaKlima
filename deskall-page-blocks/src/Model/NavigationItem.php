@@ -29,18 +29,18 @@ class NavigationItem extends DataObject{
 				return $this->Target()->Anchor;
 			break;
 			case 'target':
-				switch ($this->Target()->InteractionType) {
+				switch ($this->Action()->InteractionType) {
 					case 'modal':
-						return "#content-container-".$this->TargetID;
+						return "#content-container-".$this->ActionID;
 						break;
 					case 'offcanvas':
-						return "#offcanvas-container-".$this->TargetID;
+						return "#offcanvas-container-".$this->ActionID;
 						break;
 					case 'toggle':
-						return "#toggle-container-".$this->TargetID;
+						return "#toggle-container-".$this->ActionID;
 						break;
 					default:
-						return "#".$this->TargetID;
+						return "#".$this->ActionID;
 					break;
 				}
 			break;
@@ -55,7 +55,7 @@ class NavigationItem extends DataObject{
 		$fields->addFieldToTab('Root.Main',TextField::create('Title',_t(__CLASS__."Title",'Titel'))->setAttribute('Placeholder','wird den Block- /Seitetitel benutzen falls leer.'));
 		$fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Menu Typ',['block' => 'Scroll zu Element','target' => 'Aktion', 'link' => 'Link']));
 		$fields->addFieldToTab('Root.Main',Wrapper::create(DropdownField::create('ActionID','Aktion',$this->Parent()->Elements()->exclude(['ID' => $this->ParentID, 'ClassName' => 'HiddenActionBlock'])->map('ID','Title')))->displayIf('ItemType')->isEqualTo('target')->end());
-		$fields->addFieldToTab('Root.Main',Wrapper::create(DropdownField::create('TargetID','Seite Block',$this->Parent()->Elements()->filter('ClassName','HiddenActionBlock')->exclude('ID',$this->ParentID)->map('ID','Title')))->displayIf('ItemType')->isEqualTo('target')->end());
+		$fields->addFieldToTab('Root.Main',Wrapper::create(DropdownField::create('TargetID','Seite Block',$this->Parent()->Elements()->filter('ClassName','HiddenActionBlock')->exclude('ID',$this->ParentID)->map('ID','Title')))->displayIf('ItemType')->isEqualTo('block')->end());
 		return $fields;
 	}
 }
