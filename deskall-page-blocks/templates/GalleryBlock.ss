@@ -78,9 +78,13 @@
 			                <div class="uk-card uk-card-default">
 			                    <div class="uk-card-media-top">
 			                        <img data-src="<% if $getExtension == "svg" %>$URL<% else %>
-								 	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
+				                        <% if Orientation == "Portrait" %>
+									 	$FitMax(150,250).URL
+									 	<% else %>
+									 	$FitMax(350,250).URL
+									 	<% end_if %>
 								 	<% end_if %>
-								 	" alt="$Up.AltTag($Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+								 	" alt="$Orientation $Up.AltTag($Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1" data-uk-img>
 			                    </div>
 			                    <div class="uk-card-body uk-padding-small">
 			                        <div class="uk-card-title">$Title</div>
