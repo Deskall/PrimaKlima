@@ -147,7 +147,7 @@ class NavigationBlock extends BaseElement
      */
     public function CallToActionLink()
     {
-        return $this->decodeLinkData($this->getField('CallToActionLink'));
+        return $this->decodeLinkData($this->getField('Link'));
     }
 
 
