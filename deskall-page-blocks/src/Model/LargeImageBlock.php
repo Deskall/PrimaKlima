@@ -54,7 +54,7 @@ class LargeImageBlock extends BannerBlock implements Searchable{
 
     private static $block_layouts = [
         "uk-position-top" => "Positions the element at the top",
-        "uk-position-center" => "Positions the element vertically centered in the middle.",
+        "uk-position-center-left" => "Positions the element vertically centered in the middle.",
         "uk-position-bottom" => "Positions the element at the bottom"
     ];
 
