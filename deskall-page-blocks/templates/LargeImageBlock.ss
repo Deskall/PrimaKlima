@@ -10,7 +10,7 @@
 	     data-sizes="100vw" data-uk-img>
 	    <div class="uk-container uk-overflow-auto uk-position-relative <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %> $Height">
 		    <div class="$Layout uk-padding-small">
-		    	<% if Element.TitleIcon %>
+		    	<% if TitleIcon %>
 				<div class="uk-flex uk-flex-middle uk-margin-bottom">
 					<div class="title-icon"><i class="fa fa-{$TitleIcon}"></i></div>
 					<% if isPrimary %>
