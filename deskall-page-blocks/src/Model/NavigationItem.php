@@ -23,6 +23,8 @@ class NavigationItem extends DataObject{
 
 	private static $extensions = ['Sortable','Activable','Linkable'];
 
+	private static $summary_fields = ['NiceTitle' => ['title' => 'Titel'],'ItemType' => ['title' => 'Typ']];
+
 	public function TargetLink(){
 		switch ($this->ItemType) {
 			case 'block':
@@ -65,5 +67,20 @@ class NavigationItem extends DataObject{
 			$fields->removeByName('LinkableLinkID');
 		}
 		return $fields;
+	}
+
+	public function NiceTitle(){
+		if ($this->Title){
+			return $title;
+		}
+		if ($this->Action()->exists()){
+			return $this->Action()->Title;
+		}
+		if ($this->Target()->exists()){
+			return $this->Target()->Title;
+		}
+		if ($this->LinkableLink()->exists()){
+			return $this->LinkableLink()->Title;
+		}
 	}
 }
