@@ -29,7 +29,9 @@ class GalleryBlock extends BaseElement implements Searchable
         'PictureHeight' => 'Int',
         'Autoplay' => 'Boolean(0)',
         'PaddedImages' => 'Boolean(0)',
-        'lightboxOff' => 'Boolean(0)'
+        'lightboxOff' => 'Boolean(0)',
+        'ShowDot' => 'Boolean(1)',
+        'ShowNav' => 'Boolean(0)'
     ];
 
     private static $many_many = [
@@ -101,6 +103,8 @@ class GalleryBlock extends BaseElement implements Searchable
                 CompositeField::create(
                     DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Bilder per Linie'), self::$pictures_per_line),
                     OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
+                    CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
+                    CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
                     CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches Abspielen?')),
                     CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Afficher les images dans leur entiereté ? (pas de redimensionnement, indiqué pour les logos par exemple)')),
                     CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Images non cliquables?'))
