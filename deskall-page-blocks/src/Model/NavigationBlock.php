@@ -20,7 +20,7 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\Tab;
-use SilverStripe\ElementalBlocks\Form\BlockLinkField;
+use Sheadawson\Linkable\Forms\LinkField;
 
 class NavigationBlock extends BaseElement
 {
@@ -65,7 +65,6 @@ class NavigationBlock extends BaseElement
             $fields->removeByName('Layout');
             $fields->removeByName('Items');
             $fields->removeByName('TitleAndDisplayed');
-            $fields->removeByName('LinkableLinkID');
 
 
             if ($this->ID > 0){
@@ -104,7 +103,7 @@ class NavigationBlock extends BaseElement
                                     return DropdownField::create($column,'Seite Block',$this->Parent()->Elements()->filter('ClassName','HiddenActionBlock')->exclude('ID',$this->ID)->map('ID','Title'));
                                 break;
                                 case "link":
-                                    return BlockLinkField::create('LinkableLinkID', _t(__CLASS__.'.CTA', 'Link'));
+                                    return LinkField::create('LinkableLinkID', _t(__CLASS__.'.CTA', 'Link'));
                                 break;
                                 default:
                                     return DropdownField::create($column,'Seite Block',['' => 'Menu Typ auswählen']);
@@ -139,6 +138,7 @@ class NavigationBlock extends BaseElement
         //To do : filter relevant icons
         return HTMLDropdownField::getSourceIcones();
     }
+
  
 
 }
