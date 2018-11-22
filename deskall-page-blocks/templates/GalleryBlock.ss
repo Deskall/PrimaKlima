@@ -66,7 +66,7 @@
 		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 		</div>
 		<% else_if Layout == "card" %>
-		<div data-uk-slider="center: true">
+		<div data-uk-slider>
 		    <div class="uk-position-relative uk-visible-toggle uk-light">
 		        <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
 		        	<% loop OrderedImages %>
@@ -74,7 +74,7 @@
 		                <div class="uk-card uk-card-default">
 		                    <div class="uk-card-media-top">
 		                        <img data-src="<% if $getExtension == "svg" %>$URL<% else %>
-							 	$ScaleWidth(150).URL
+							 	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 							 	<% end_if %>
 							 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
 		                    </div>
