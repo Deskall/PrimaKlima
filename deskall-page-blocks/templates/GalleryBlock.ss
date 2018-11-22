@@ -74,7 +74,7 @@
 		                <div class="uk-card uk-card-default">
 		                    <div class="uk-card-media-top">
 		                        <img data-src="<% if $getExtension == "svg" %>$URL<% else %>
-							 	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
+							 	$ScaleWidth(300).URL
 							 	<% end_if %>
 							 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
 		                    </div>
