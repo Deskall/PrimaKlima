@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use DNADesign\Elemental\Models\BaseElement;
+use Sheadawson\Linkable\Models\Link;
 
 class NavigationItem extends DataObject{
 	private static $db = [
@@ -12,7 +13,8 @@ class NavigationItem extends DataObject{
 
 	private static $has_one = [
 		'Target' => BaseElement::class,
-		'Parent' => NavigationBlock::class
+		'Parent' => NavigationBlock::class,
+		'LinkableLink' => Link::class
 	];
 
 	private static $extensions = ['Sortable'];

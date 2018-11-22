@@ -20,7 +20,7 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\Tab;
-
+use Sheadawson\Linkable\Forms\LinkField;
 
 class NavigationBlock extends BaseElement
 {
@@ -90,7 +90,7 @@ class NavigationBlock extends BaseElement
                     'ItemType'  => array(
                         'title' => 'Menu Typ',
                         'callback' => function($record, $column, $grid) {
-                            return DropdownField::create($column,'Menu Typ',['block' => 'Scroll zu Element','target' => 'Aktion']);
+                            return DropdownField::create($column,'Menu Typ',['block' => 'Scroll zu Element','target' => 'Aktion', 'link' => 'Link']);
                         }
                     ),
                     'TargetID' => array(
@@ -102,6 +102,9 @@ class NavigationBlock extends BaseElement
                                 break;
                                 case "target":
                                     return DropdownField::create($column,'Seite Block',$this->Parent()->Elements()->filter('ClassName','HiddenActionBlock')->exclude('ID',$this->ID)->map('ID','Title'));
+                                break;
+                                case "link":
+                                    return LinkField::create('LinkableLinkID', _t(__CLASS__.'.CTA', 'Link'));
                                 break;
                                 default:
                                     return DropdownField::create($column,'Seite Block',['' => 'Menu Typ auswählen']);
