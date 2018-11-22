@@ -62,6 +62,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'LargeImageBlock',
         'ParentBlock',
         'LeadBlock',
+        'NavigationBlock',
         'MapBlock',
         'VideoBlock',
         'ActionBlock',
