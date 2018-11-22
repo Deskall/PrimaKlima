@@ -52,7 +52,7 @@ class FooterBlock extends LayoutBlock{
         $fields->removeByName('Layout');
         $fields->removeByName('Type');
         $fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t('LayoutBlock.Type','BlockTyp'),$this->owner->getTranslatedSourceFor('FooterBlock','block_types'))->setEmptyString(_t('LayoutBlock.TypeLabel','Wählen Sie den Typ aus')),'Title');
-        $fields->addFieldToTab('Root.Main',Wrapper::create(SortableUploadField::create('Partners',_t(__CLASS__.'.Images','Partners'))->setIsMultiUpload(true)->setFolderName(_t(__CLASS__.'.FolderName','Uploads/Einstellungen'))->setAllowedMaxFileNumber(6))->displayIf('Type')->isEqualTo('partners')->end(),'Title');
+        $fields->insertAfter('Title',Wrapper::create(SortableUploadField::create('Partners',_t(__CLASS__.'.Images','Partners'))->setIsMultiUpload(true)->setFolderName(_t(__CLASS__.'.FolderName','Uploads/Einstellungen'))->setAllowedMaxFileNumber(6))->displayIf('Type')->isEqualTo('partners')->end(),'Title');
 
 		return $fields;
 	}
