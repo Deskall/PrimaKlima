@@ -68,6 +68,11 @@
 		    	</div>
 		    	<% else_if Type == "partners" %>
 		    	<div>
+		    		<% if Title %>
+		    		 <div class="title-container">
+			    		<h3 class="uk-margin-small-bottom">$Title</h3>
+			    	</div>
+			    	<% end_if %>
 		    		<div class="uk-child-width-1-3 uk-flex uk-flex-middle uk-grid-small" data-uk-grid>
 		    			<% loop Partners.Sort('SortOrder') %>
 		    			<div class="uk-text-center partner-container">
