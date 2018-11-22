@@ -66,9 +66,9 @@
 		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 		</div>
 		<% else_if Layout == "card" %>
-		<div data-uk-slider>
+		<div data-uk-slider="<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
 		    <div class="uk-position-relative uk-visible-toggle uk-light">
-		        <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
+		        <ul class="uk-slider-items $PicturesPerLine uk-grid">
 		        	<% loop OrderedImages %>
 		            <li>
 		                <div class="uk-card uk-card-default">
