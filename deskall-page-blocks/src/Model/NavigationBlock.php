@@ -21,7 +21,6 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\Tab;
-use Sheadawson\Linkable\Forms\LinkField;
 
 class NavigationBlock extends BaseElement
 {
