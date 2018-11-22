@@ -17,7 +17,7 @@ class NavigationItem extends DataObject{
 		'LinkableLink' => Link::class
 	];
 
-	private static $extensions = ['Sortable'];
+	private static $extensions = ['Sortable','Activable'];
 
 	public function TargetLink(){
 		switch ($this->ItemType) {
