@@ -77,7 +77,7 @@
 		    			<% loop Partners.Sort('SortOrder') %>
 		    			<div class="uk-text-center partner-container">
 		    			<% if $getExtension == "svg" %>
-		    			<img src="$URL" alt="$AltTag($Title)" class="svg-logo" data-uk-svg />
+		    			<img src="$URL" alt="$AltTag($Title)" class="svg-logo" />
 		    			<% else %>
 		    			<img src="$FitMax(200,100).URL" />
 		    			<% end_if %>
