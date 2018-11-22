@@ -71,7 +71,7 @@
 		<% else_if Layout == "card" %>
 		<div data-uk-slider="<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
 		    <div class="uk-position-relative uk-visible-toggle">
-		        <ul class="uk-slider-items $PicturesPerLine uk-grid">
+		        <ul class="uk-slider-items $PicturesPerLine uk-grid" data-uk-height-match=".uk-card-body">
 		        	<% loop OrderedImages %>
 		            <li>
 		                <div class="uk-card uk-card-default">
@@ -81,8 +81,8 @@
 							 	<% end_if %>
 							 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
 		                    </div>
-		                    <div class="uk-card-body">
-		                        <h3 class="uk-card-title">$Name</h3>
+		                    <div class="uk-card-body uk-padding-small">
+		                        <div class="uk-card-title">$Name</div>
 		                        <p>$Description</p>
 		                    </div>
 		                </div>
