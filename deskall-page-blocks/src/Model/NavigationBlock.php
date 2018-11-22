@@ -103,7 +103,7 @@ class NavigationBlock extends BaseElement
                                     return DropdownField::create($column,'Seite Block',$this->Parent()->Elements()->filter('ClassName','HiddenActionBlock')->exclude('ID',$this->ID)->map('ID','Title'));
                                 break;
                                 case "link":
-                                    return LinkField::create('LinkableLinkID', _t(__CLASS__.'.CTA', 'Link'));
+                                    return LinkField::create($column, _t(__CLASS__.'.CTA', 'Link'));
                                 break;
                                 default:
                                     return DropdownField::create($column,'Seite Block',['' => 'Menu Typ auswählen']);
