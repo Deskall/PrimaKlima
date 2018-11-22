@@ -112,7 +112,7 @@ class LayoutBlock extends DataObject{
 			$title = $fields->fieldByName('Root.Main.Title');
 			$fields->removeByName('Links');
 			$fields->removeByName('SiteConfigID');
-			$title->displayIf('Type')->isEqualTo('links')->orIf('Type')->isEqualTo('content');
+			$title->displayIf('Type')->isEqualTo('links')->orIf('Type')->isEqualTo('content')->orIf('Type')->isEqualTo('partners');
 			
 			if ($this->ID > 0){
 				$fields->fieldByName('Root.Main.Type')->setDisabled(true);
