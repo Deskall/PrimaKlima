@@ -7,7 +7,7 @@ use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DropdownField;
-
+use SilverStripe\SiteConfig\SiteConfig;
 class NavigationItem extends DataObject{
 	private static $db = [
 		'BackgroundColor' => 'Varchar',
@@ -52,6 +52,7 @@ class NavigationItem extends DataObject{
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
+		$fields->removeByName('ParentID');
 		$fields->removeByName('ActionID');
 		$fields->removeByName('TargetID');
 		$fields->addFieldToTab('Root.Main',TextField::create('Title',_t(__CLASS__."Title",'Titel'))->setAttribute('Placeholder','wird den Block- /Seitetitel benutzen falls leer.'));
