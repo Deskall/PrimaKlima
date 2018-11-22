@@ -70,7 +70,7 @@
 		</div>
 		<% else_if Layout == "card" %>
 		<div data-uk-slider="<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
-		    <div class="uk-position-relative uk-visible-toggle uk-light">
+		    <div class="uk-position-relative uk-visible-toggle">
 		        <ul class="uk-slider-items $PicturesPerLine uk-grid">
 		        	<% loop OrderedImages %>
 		            <li>
