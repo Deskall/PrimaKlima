@@ -108,8 +108,8 @@ class GalleryBlock extends BaseElement implements Searchable
                     CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
                     CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
                     CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches Abspielen?')),
-                    CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Afficher les images dans leur entiereté ? (pas de redimensionnement, indiqué pour les logos par exemple)')),
-                    CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Images non cliquables?'))
+                    CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Bilder vollständig anzeigen? (keine Größenanpassung, beispielsweise für Logos angegeben)')),
+                    CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?'))
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             

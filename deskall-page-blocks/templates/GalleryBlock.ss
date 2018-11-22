@@ -51,19 +51,22 @@
 		            <% end_if %>
 		        </div>
 		        <% if not isChildren %>
-		        <div class="uk-hidden@s uk-light">
-		            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-		            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
-		        </div>
+			        <% if ShowNav %>
+			        <div class="uk-hidden@s uk-light">
+			            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+			            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+			        </div>
 
-		        <div class="uk-visible@s">
-		            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-		            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
-		        </div>
+			        <div class="uk-visible@s">
+			            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+			            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+			        </div>
+			        <% end_if %>
 		        <% end_if %>
 		    </div>
-
+		    <% if ShowDot %>
 		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+		    <% end_if %>
 		</div>
 		<% else_if Layout == "card" %>
 		<div data-uk-slider="<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
@@ -87,12 +90,23 @@
 		            <% end_loop %>
 		        </ul>
 
-		        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-previous uk-slider-item="previous"></a>
-		        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next uk-slider-item="next"></a>
+		        <% if not isChildren %>
+			        <% if ShowNav %>
+			        <div class="uk-hidden@s uk-light">
+			            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+			            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+			        </div>
 
+			        <div class="uk-visible@s">
+			            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+			            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+			        </div>
+			        <% end_if %>
+		        <% end_if %>
 		    </div>
-
+		    <% if ShowDot %>
 		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+		    <% end_if %>
 
 		</div>
 		<% else %>
