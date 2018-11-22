@@ -125,7 +125,7 @@ class LayoutBlock extends DataObject{
 						}
 						else {
 							$LinksField = Wrapper::create(
-								LabelField::create('Links', _t(__CLASS__.'.LinksLabel','Links können erst nach dem Speichern erstellt werden')))->setName('LinksField');
+								LabelField::create('Links', _t(__CLASS__.'.LinksLabel','Links können erst nach dem Speichern erstellt werden')))->displayIf('Type')->isEqualTo('links')->end()->setName('LinksField');
 						}
 
 						$fields->addFieldToTab('Root.Main',$LinksField);
