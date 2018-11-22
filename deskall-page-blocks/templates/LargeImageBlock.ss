@@ -10,13 +10,26 @@
 	     data-sizes="100vw" data-uk-img>
 	    <div class="uk-container uk-overflow-auto uk-position-relative <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %> $Height">
 		    <div class="$Layout uk-padding-small">
-		    	<% if isPrimary %>
-		    		<h1 class="$TitleAlign">$getPage.Title</h1>
-		    	<% else %>
-		    		<% if Title && $ShowTitle %>
-		    			<h2 class="$TitleAlign">$Title</h2>
-		    		<% end_if %>
-		    	<% end_if %>
+		    	<% if Element.TitleIcon %>
+				<div class="uk-flex uk-flex-middle uk-margin-bottom">
+					<div class="title-icon"><i class="fa fa-{$TitleIcon}"></i></div>
+					<% if isPrimary %>
+			    		<h1 class="$TitleAlign">$getPage.Title</h1>
+			    	<% else %>
+			    		<% if Title && $ShowTitle %>
+			    			<h2 class="$TitleAlign">$Title</h2>
+			    		<% end_if %>
+			    	<% end_if %>
+				</div>
+				<% else %>
+			    	<% if isPrimary %>
+			    		<h1 class="$TitleAlign">$getPage.Title</h1>
+			    	<% else %>
+			    		<% if Title && $ShowTitle %>
+			    			<h2 class="$TitleAlign">$Title</h2>
+			    		<% end_if %>
+			    	<% end_if %>
+			    <% end_if %>
 
 			    <div class="uk-text-lead $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 				    $Content
