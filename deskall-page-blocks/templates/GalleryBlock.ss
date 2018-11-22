@@ -79,10 +79,10 @@
 		                        <img data-src="<% if $getExtension == "svg" %>$URL<% else %>
 							 	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 							 	<% end_if %>
-							 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+							 	" alt="$Up.AltTag($Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1" data-uk-img>
 		                    </div>
 		                    <div class="uk-card-body uk-padding-small">
-		                        <div class="uk-card-title">$Name</div>
+		                        <div class="uk-card-title">$Title</div>
 		                        <p>$Description</p>
 		                    </div>
 		                </div>
