@@ -69,7 +69,7 @@
 		    <% end_if %>
 		</div>
 		<% else_if Layout == "card" %>
-		<div data-uk-slider="<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
+		<div data-uk-slider="finite: true;<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
 		    <div class="uk-position-relative uk-visible-toggle">
 		    	<div class="uk-slider-container">
 			        <ul class="uk-slider-items $PicturesPerLine uk-grid" data-uk-height-match=".uk-card-body">
