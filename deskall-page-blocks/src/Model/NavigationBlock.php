@@ -69,50 +69,57 @@ class NavigationBlock extends BaseElement
 
             if ($this->ID > 0){
 
-                $config = 
-                GridFieldConfig::create()
-                ->addComponent(new GridFieldButtonRow('before'))
-                ->addComponent(new GridFieldToolbarHeader())
-                ->addComponent(new GridFieldTitleHeader())
-                ->addComponent(new GridFieldEditableColumns())
-                ->addComponent(new GridFieldDeleteAction())
-                ->addComponent(new GridFieldAddNewInlineButton())
-                ->addComponent(new GridFieldOrderableRows('Sort'));
+                // $config = 
+                // GridFieldConfig::create()
+                // ->addComponent(new GridFieldButtonRow('before'))
+                // ->addComponent(new GridFieldToolbarHeader())
+                // ->addComponent(new GridFieldTitleHeader())
+                // ->addComponent(new GridFieldEditableColumns())
+                // ->addComponent(new GridFieldDeleteAction())
+                // ->addComponent(new GridFieldAddNewInlineButton())
+                // ->addComponent(new GridFieldOrderableRows('Sort'));
 
-                $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
-                    'Title'  => array(
-                        'title' => 'Menu Titel',
-                        'callback' => function($record, $column, $grid) {
-                            return TextField::create($column)->setAttribute('Placeholder','wird den Blocktitel benutzen falls leer.');
-                        }
-                    ),
-                    'ItemType'  => array(
-                        'title' => 'Menu Typ',
-                        'callback' => function($record, $column, $grid) {
-                            return DropdownField::create($column,'Menu Typ',['block' => 'Scroll zu Element','target' => 'Aktion', 'link' => 'Link']);
-                        }
-                    ),
-                    'TargetID' => array(
-                        'title' => 'Seite Block',
-                        'callback' => function($record, $column, $grid) {
-                            switch($record->ItemType){
-                                case "block":
-                                    return DropdownField::create($column,'Seite Block',$this->Parent()->Elements()->exclude(['ID' => $this->ID, 'ClassName' => 'HiddenActionBlock'])->map('ID','Title'));
-                                break;
-                                case "target":
-                                    return DropdownField::create($column,'Seite Block',$this->Parent()->Elements()->filter('ClassName','HiddenActionBlock')->exclude('ID',$this->ID)->map('ID','Title'));
-                                break;
-                                case "link":
-                                    return LinkField::create($column, _t(__CLASS__.'.CTA', 'Link'));
-                                break;
-                                default:
-                                    return DropdownField::create($column,'Seite Block',['' => 'Menu Typ auswählen']);
-                                break;
-                            }
+                // $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
+                //     'Title'  => array(
+                //         'title' => 'Menu Titel',
+                //         'callback' => function($record, $column, $grid) {
+                //             return TextField::create($column)->setAttribute('Placeholder','wird den Blocktitel benutzen falls leer.');
+                //         }
+                //     ),
+                //     'ItemType'  => array(
+                //         'title' => 'Menu Typ',
+                //         'callback' => function($record, $column, $grid) {
+                //             return DropdownField::create($column,'Menu Typ',['block' => 'Scroll zu Element','target' => 'Aktion', 'link' => 'Link']);
+                //         }
+                //     ),
+                //     'TargetID' => array(
+                //         'title' => 'Target / Link',
+                //         'callback' => function($record, $column, $grid) {
+                //             switch($record->ItemType){
+                //                 case "block":
+                //                     return DropdownField::create($column,'Seite Block',$this->Parent()->Elements()->exclude(['ID' => $this->ID, 'ClassName' => 'HiddenActionBlock'])->map('ID','Title'));
+                //                 break;
+                //                 case "target":
+                //                     return DropdownField::create($column,'Seite Block',$this->Parent()->Elements()->filter('ClassName','HiddenActionBlock')->exclude('ID',$this->ID)->map('ID','Title'));
+                //                 break;
+                //                 case "link":
+                //                     return LinkField::create($column, _t(__CLASS__.'.CTA', 'Link'));
+                //                 break;
+                //                 default:
+                //                     return DropdownField::create($column,'Seite Block',['' => 'Menu Typ auswählen']);
+                //                 break;
+                //             }
                             
-                        }
-                    )
-                ));
+                //         }
+                //     )
+                // ));
+
+                $config = 
+                GridFieldConfig_RecordEditor::create()
+                 ->addComponent(new GridFieldShowHideAction())
+                 ->addComponent(new GridFieldOrderableRows('Sort'));
+
+                
                
                 $itemsField = new GridField('Items',_t(__CLASS__.'.Items','Menu Items'),$this->Items(),$config);
               
