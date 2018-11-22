@@ -4,6 +4,8 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Control\Controller;
 use SilverStripe\SiteConfig\SiteConfigLeftAndMain;
+use SilverStripe\Assets\Image;
+use Bummzack\SortableFile\Forms\SortableUploadField;
 
 class FooterBlock extends LayoutBlock{
 
@@ -14,12 +16,17 @@ class FooterBlock extends LayoutBlock{
         'Links' => LayoutLink::class
     ];
 
+    private static $many_many = ['Partners' => Image::class];
+
+    private static $many_many_extraFields = ['Partners' => ['SortOrder' => 'Int']];
+
     private static $block_types = [
         'address' => 'Adresse',
         'links' => 'Links',
         'content' => 'Inhalt',
         'logo' => 'Logo',
-        'form' => 'Formular'
+        'form' => 'Formular',
+        'partners' => 'Partners'
     ];
 
     public function Preview(){
@@ -42,6 +49,9 @@ class FooterBlock extends LayoutBlock{
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
         $fields->removeByName('Layout');
+        $fields->removeByName('Type');
+        $fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t('LayoutBlock.Type','BlockTyp'),$this->owner->getTranslatedSourceFor('FooterBlock','block_types'))->setEmptyString(_t('LayoutBlock.TypeLabel','Wählen Sie den Typ aus')));
+        $fields->addFieldToTab('Root.Main',SortableUploadField::create('Partners',_t(__CLASS__.'.Images','Partners'))->setIsMultiUpload(true)->setFolderName(_t(__CLASS__.'.FolderName','Uploads/Einstellungen'))->setAllowedMaxFileNumber(6),'Title');
 
 		return $fields;
 	}

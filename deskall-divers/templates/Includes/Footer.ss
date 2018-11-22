@@ -66,6 +66,20 @@
 		    			<% end_if %>
 		    		</a>
 		    	</div>
+		    	<% else_if Type == "partners" %>
+		    	<div>
+		    		<div class="uk-child-width-1-3 uk-flex uk-flex-middle uk-grid-small" data-uk-grid>
+		    			<% loop Partners %>
+		    			<div class="uk-text-center">
+		    			<% if $getExtension == "svg" %>
+		    			<img src="$URL" alt="$AltTag($Title)" class="svg-logo" />
+		    			<% else %>
+		    			<img src="$FitMax(100,100).URL" />
+		    			<% end_if %>
+		    			</div>
+		    			<% end_loop %>
+		    		</div>
+		    	</div>
 		        <% else %>
 		    	<div class="title-container">
 		    		<h3 class="uk-margin-small-bottom">$Title</h3>
