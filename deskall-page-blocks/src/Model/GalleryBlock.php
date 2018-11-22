@@ -54,7 +54,8 @@ class GalleryBlock extends BaseElement implements Searchable
 
     private static $block_layouts = [
         'carousel' => 'Carousel',
-        'grid' => 'Grid'
+        'grid' => 'Grid',
+        'card' => 'Card'
     ];
     
     private static $pictures_per_line = [

@@ -65,6 +65,36 @@
 
 		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 		</div>
+		<% else_if Layout == "card" %>
+		<div data-uk-slider="center: true">
+		    <div class="uk-position-relative uk-visible-toggle uk-light">
+		        <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
+		        	<% loop OrderedImages %>
+		            <li>
+		                <div class="uk-card uk-card-default">
+		                    <div class="uk-card-media-top">
+		                        <img data-src="<% if $getExtension == "svg" %>$URL<% else %>
+							 	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
+							 	<% end_if %>
+							 	" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+		                    </div>
+		                    <div class="uk-card-body">
+		                        <h3 class="uk-card-title">$Name</h3>
+		                        <p>$Description</p>
+		                    </div>
+		                </div>
+		            </li>
+		            <% end_loop %>
+		        </ul>
+
+		        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-previous uk-slider-item="previous"></a>
+		        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next uk-slider-item="next"></a>
+
+		    </div>
+
+		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+
+		</div>
 		<% else %>
 		<% if lightboxOff %>
 			<div class="uk-flex-center <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid-small" data-uk-grid >
