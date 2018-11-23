@@ -355,6 +355,8 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->DropdownSubMenuHoverColor = "#".ltrim($this->owner->DropdownSubMenuHoverColor,"#");
     $this->owner->DropdownSubMenuColor = "#".ltrim($this->owner->DropdownSubMenuColor,"#");
 
+
+    $this->owner->FooterLogoWidth = intval($this->owner->FooterLogoWidth);
     parent::onBeforeWrite();
   }
 
