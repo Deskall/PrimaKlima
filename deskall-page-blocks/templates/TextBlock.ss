@@ -22,7 +22,7 @@
 							                  $ContentImage.FillMax(1000,1000).URL 1000w,
 							                  $ContentImage.FillMax(1500,1500).URL 1500w,
 							                  $ContentImage.FillMax(2500,2500).URL 2500w"
-							     sizes="(min-width: 1700px) 2500px,(min-width: 1000px) 1500px,(min-width: 650px) 1000px, 100vw" width="500" height="350" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" data-uk-img>
+							     sizes="(min-width: 1700px) 2500px,(min-width: 1000px) 1500px,(min-width: 650px) 1000px, 100vw"  alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" data-uk-img>
 						<% end_if %>
 					<% else %>
 						<% if ContentImage.getExtension == "svg" %>
@@ -33,7 +33,7 @@
 							     data-srcset="$ContentImage.FillMax(500,500).URL 500w,
 							                  $ContentImage.FillMax(1000,1000).URL 1000w,
 							                  $ContentImage.FillMax(1500,1500).URL 1200w"
-							     sizes="(min-width: 1200px) 1200px,(min-width: 650px) 1000px, 100vw" width="500" height="350" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" data-uk-img>
+							     sizes="(min-width: 1200px) 1200px,(min-width: 650px) 1000px, 100vw" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" data-uk-img>
 						<% end_if %>
 					<% end_if %>
 
