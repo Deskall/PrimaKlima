@@ -1,0 +1,33 @@
+---
+Name: deskall-blog
+After:
+    - '#deskall-divers'
+    - '#deskall-page-blocks'
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: deskall-blog
+
+BaseBlockExtension:
+  blocks:
+    - SummaryBlogBlock
+
+SilverStripe\Comments\Controllers\CommentingController:
+  extensions:
+    - 'DeskallCommentingControllerExtension'
+
+SilverStripe\Blog\Model\BlogPost:
+  extensions:
+    - BlogPostExtension
+    - SilverStripe\Comments\Extensions\CommentsExtension
+    - SilverStripe\Widgets\Extensions\WidgetPageExtension
+  comments:
+    enabled: true
+
+SilverStripe\Blog\Model\BlogCategory:
+  extensions:
+    - BlogCategoryExtension
+
+SilverStripe\Comments\Extensions\CommentsExtension:
+  comments:
+    nested_comments: true
+    nested_depth: 2
