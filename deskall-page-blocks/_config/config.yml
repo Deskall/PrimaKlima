@@ -19,6 +19,11 @@ DNADesign\Elemental\Models\BaseElement:
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
     - 'VirtualBlockExtension'
 
+ParentBlock:
+  extensions:
+    - 'VirtualBlockExtension'
+
+
 DNADesign\Elemental\ElementalEditor:
   extensions:
     - DeskallElementalEditorExtension

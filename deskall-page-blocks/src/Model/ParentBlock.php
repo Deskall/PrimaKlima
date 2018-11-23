@@ -111,59 +111,6 @@ class ParentBlock extends ElementList
         return $fields;
     }
 
-    public function onBeforeDelete()
-    {
-        if (Versioned::get_reading_mode() == 'Stage.Stage') {
-            $firstVirtual = false;
-            $allVirtual = $this->getVirtualElements();
-
-            if ($this->getPublishedVirtualElements()->Count() > 0) {
-                // choose the first one
-                $firstVirtual = $this->getPublishedVirtualElements()->First();
-                $wasPublished = true;
-            } elseif ($allVirtual->Count() > 0) {
-                // choose the first one
-                $firstVirtual = $this->getVirtualElements()->First();
-                $wasPublished = false;
-            }
-            if ($firstVirtual) {
-                $origParentID = $this->ParentID;
-                $origSort = $this->Sort;
-
-                $clone = $this->duplicate(false);
-
-                // set clones values to first virtual's values
-                $clone->ParentID = $firstVirtual->ParentID;
-                $clone->Sort = $firstVirtual->Sort;
-
-                $clone->write();
-                if ($wasPublished) {
-                    $clone->doPublish();
-                    $firstVirtual->doUnpublish();
-                }
-
-                // clone has a new ID, so need to repoint
-                // all the other virtual elements
-                foreach ($allVirtual as $virtual) {
-                    if ($virtual->ID == $firstVirtual->ID) {
-                        continue;
-                    }
-                    $pub = false;
-                    if ($virtual->isPublished()) {
-                        $pub = true;
-                    }
-                    $virtual->LinkedElementID = $clone->ID;
-                    $virtual->write();
-                    if ($pub) {
-                        $virtual->doPublish();
-                    }
-                }
-
-                $firstVirtual->delete();
-            }
-        }
-    }
-
      /*** Duplicate block with correct elements */
     public function DuplicateChildrens($original){
         foreach (Config::inst()->get($original->ClassName,'owns') as $class) {
