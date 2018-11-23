@@ -111,12 +111,14 @@ $(document).ready(function(){
 //Table
 
 $(".element table").each(function(){
-    $(this).addClass("uk-table uk-table-striped uk-table-small uk-table-responsive");
+  $(this).wrap('<div class="uk-overflow-auto"></div>');
+    $(this).addClass("uk-table uk-table-striped uk-table-small");
     if ($(this).width() > $(window).width()){
         divContainer = $("<div></div>");
         divContainer.addClass("uk-overflow-auto");
         $(this).detach().appendTo(divContainer);
     }
+
 });
 
 
