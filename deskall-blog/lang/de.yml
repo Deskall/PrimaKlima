@@ -1,0 +1,3 @@
+de:
+  SilverStripe\Blog\Model\Blog:
+    LessThanAMinuteToRead: 'Weniger als eine Minute zu lesen'
