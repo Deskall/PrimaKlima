@@ -355,8 +355,6 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->DropdownSubMenuHoverColor = "#".ltrim($this->owner->DropdownSubMenuHoverColor,"#");
     $this->owner->DropdownSubMenuColor = "#".ltrim($this->owner->DropdownSubMenuColor,"#");
 
-
-    $this->owner->FooterLogoWidth = intval($this->owner->FooterLogoWidth);
     parent::onBeforeWrite();
   }
 
@@ -466,6 +464,12 @@ class SiteConfigLayoutExtension extends DataExtension
         }
         return $source;
     }
+
+
+  //Transform 120px into 120
+  public function IntVal($param){
+    return intval(str_replace('px','',$param));
+  }
 
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
