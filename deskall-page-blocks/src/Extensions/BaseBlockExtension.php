@@ -15,7 +15,6 @@ use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\TextField;
-use SilverStripe\Versioned\Versioned;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -312,59 +311,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
 
-   //Consistency with Virtual
-    public function onBeforeDelete()
-    {
-        if (Versioned::get_reading_mode() == 'Stage.Stage') {
-            $firstVirtual = false;
-            $allVirtual = $this->owner->getVirtualElements();
-
-            if ($this->owner->getPublishedVirtualElements()->Count() > 0) {
-                // choose the first one
-                $firstVirtual = $this->owner->getPublishedVirtualElements()->First();
-                $wasPublished = true;
-            } elseif ($allVirtual->Count() > 0) {
-                // choose the first one
-                $firstVirtual = $this->owner->getVirtualElements()->First();
-                $wasPublished = false;
-            }
-            if ($firstVirtual) {
-                $origParentID = $this->owner->ParentID;
-                $origSort = $this->owner->Sort;
-
-                $clone = $this->owner->duplicate(false);
-
-                // set clones values to first virtual's values
-                $clone->ParentID = $firstVirtual->ParentID;
-                $clone->Sort = $firstVirtual->Sort;
-
-                $clone->write();
-                if ($wasPublished) {
-                    $clone->doPublish();
-                    $firstVirtual->doUnpublish();
-                }
-
-                // clone has a new ID, so need to repoint
-                // all the other virtual elements
-                foreach ($allVirtual as $virtual) {
-                    if ($virtual->ID == $firstVirtual->ID) {
-                        continue;
-                    }
-                    $pub = false;
-                    if ($virtual->isPublished()) {
-                        $pub = true;
-                    }
-                    $virtual->LinkedElementID = $clone->ID;
-                    $virtual->write();
-                    if ($pub) {
-                        $virtual->doPublish();
-                    }
-                }
-
-                $firstVirtual->delete();
-            }
-        }
-    }
 
 
 /************* TRANLSATIONS *******************/

@@ -17,6 +17,7 @@ DNADesign\Elemental\Models\BaseElement:
     - Linkable
     - Collapsable
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
+    - 'VirtualBlockExtension'
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
