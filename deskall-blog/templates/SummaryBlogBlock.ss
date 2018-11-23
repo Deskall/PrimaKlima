@@ -11,8 +11,8 @@
 			            	<% if FeaturedImage %>
 			            	<div class="uk-cover-container uk-height-medium">
 			                	<img src="$FeaturedImage.ScaleWidth(350).URL" alt="$FeaturedImage.AtlTag($Title)" data-uk-cover/>
-			            	<div class="uk-position-bottom uk-light">
-			            		<div class="uk-padding-small uk-text-break"><h3 class="uk-card-title">$Title</h3></div>
+			            	<div class="uk-position-bottom ">
+			            		<div class="uk-padding-small uk-text-break"><h3 class="uk-card-title uk-light">$Title</h3></div>
 			            	</div>
 			            </div>
 			            	
