@@ -263,7 +263,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
     public function duplicate(){
-        return parent::duplicate();
+        return $this->owner->duplicate();
     }
 
 
