@@ -370,7 +370,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->user_defined_file;
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
       if ($this->owner->SubsiteID > 0){
-         $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/.'$this->owner->Subsite()->Theme.'/css/src/deskall/theme/user_defined.less';
+         $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/user_defined.less';
       }
     }
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
@@ -405,7 +405,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->background_colors;
      if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
       if ($this->owner->SubsiteID > 0){
-         $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/.'$this->owner->Subsite()->Theme.'/css/src/deskall/theme/colors.less';
+         $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/colors.less';
       }
     }
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
