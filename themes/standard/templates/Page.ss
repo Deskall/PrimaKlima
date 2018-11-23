@@ -6,7 +6,9 @@
   <body>
     <div class="uk-offcanvas-content">
       <% include Header %>
+      <div class="main-content-wrapper">
       $Layout
+      </div>
       <% include Footer %>
 
       <% include NavMobile %>

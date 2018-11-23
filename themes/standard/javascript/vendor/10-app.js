@@ -1,4 +1,13 @@
+ // Height of body
 $(document).ready(function(){
+  var footerH = $("footer").Height();
+  var headerH = $("header").Height();
+  if ( $(".main-content-wrapper").length > 0){
+     $(".main-content-wrapper").css({'minHeight','calc(100% - '+footerH+'px - '+headerH+'px'});
+  }
+});
+$(document).ready(function(){
+  if ($(".flatpickr").length > 0){
     $(".flatpickr").flatpickr({
         dateFormat: "d.m.Y",
         locale: {
@@ -51,21 +60,7 @@ $(document).ready(function(){
           toggleTitle: "Zum Umschalten klicken",
         }
     });
-});
-
-//Recaptcha validation
-$(document).ready(function(){
-	if ($(".g-recaptcha").length > 0){
-		//$('<script src="https://www.google.com/recaptcha/api.js" defer></script>').appendTo($("head"));
-	}
-	$(".g-recaptcha").on("click",function(event){
-		event.preventDefault();
-		grecaptcha.execute();
-	});
-
-	function onSubmit(token) {
-	    alert('thanks ');
-	}
+  }  
 });
 
 //Google Maps
