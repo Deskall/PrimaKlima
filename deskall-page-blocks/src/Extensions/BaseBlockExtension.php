@@ -182,7 +182,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->addFieldToTab('Root.Main',TextField::create('TitleIcon',_t(__CLASS__.".TitleIcon","Icone apposée au titre (class css font awesome)")),'TitleAndDisplayed');
       
      
-        if (Permission::check('ADMIN')){
+        if (Permission::check('ADMIN') && $extracss){
             $fields->addFieldToTab('Root.LayoutTab',$extracss);
         } 
     	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
