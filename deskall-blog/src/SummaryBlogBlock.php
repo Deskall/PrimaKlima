@@ -6,7 +6,7 @@ use SilverStripe\Blog\Model\BlogPost;
 
 class SummaryBlogBlock extends BaseElement
 {
-    private static $icon = 'font-icon-blog';
+    private static $icon = 'font-icon-paper';
 
     
     private static $controller_template = 'BlockHolder';
@@ -32,7 +32,7 @@ class SummaryBlogBlock extends BaseElement
 
     private static $plural_name = 'Blog Summaries';
 
-    private static $description = 'Affiche les 3 derniers articles publiés du blog';
+    private static $description = 'Letzte 3 Blog Artikeln';
 
     public function getCMSFields()
     {
@@ -45,7 +45,7 @@ class SummaryBlogBlock extends BaseElement
 
     public function getType()
     {
-        return _t(__CLASS__ . '.BlockType', 'Derniers articles publiés');
+        return _t(__CLASS__ . '.BlockType', 'Letzte 3 Blog Artikeln');
     }
 
 
