@@ -19,7 +19,6 @@ SilverStripe\Blog\Model\BlogPost:
   extensions:
     - BlogPostExtension
     - SilverStripe\Comments\Extensions\CommentsExtension
-    - SilverStripe\Widgets\Extensions\WidgetPageExtension
   comments:
     enabled: true
 
