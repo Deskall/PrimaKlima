@@ -6,7 +6,7 @@
 		<div class="uk-child-width-1-2@s uk-child-width-1-3@l uk-grid-match uk-grid-medium" data-uk-grid >
 			<% loop LastPosts %>
 				<div>
-			        <div class="uk-card uk-dark uk-card-hover blogpost">
+			        <div class="uk-card uk-card-default uk-card-hover blogpost">
 			            <div class="uk-card-media-top">
 			            	<% if FeaturedImage %>
 			            	<div class="uk-cover-container uk-height-medium">
@@ -18,7 +18,7 @@
 			            	
 			                <% end_if %>
 			            </div>
-			            <div class="uk-card-body uk-card-default uk-padding-small uk-text-justify">
+			            <div class="uk-card-body uk-padding-small uk-text-justify">
 			                <% if Summary %>
 			                $Summary
 			                <% else %>
