@@ -8,7 +8,7 @@
 			 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
 			 	</div>
 
-			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
+			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">$SiteConfig.Address
 			 		<% if $SiteConfig.Address != "" || $SiteConfig.CodeCity != "" %>
 			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT}, {$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
 			 			<span class="uk-margin-small-right" data-uk-icon="icon: location;"></span>
