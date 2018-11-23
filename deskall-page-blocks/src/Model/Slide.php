@@ -258,7 +258,10 @@ class Slide extends DataObject
         if ($this->Parent()){
             $this->Parent()->publishSingle();
         }
-        $this->getPage()->publishSingle();
+        if ($this->getPage()){
+            $this->getPage()->publishSingle();
+        }
+        
     }
 
     /************* TRANLSATIONS *******************/
