@@ -25,7 +25,7 @@
 			                <p>$Excerpt</p>
 			                <% end_if %>
 			            </div>
-			            <div class="uk-card-footer color-gris-tres-clair uk-padding-small">
+			            <div class="uk-card-footer uk-padding-small">
 			            	<a href="$Link" title="<%t SilverStripe\\Blog\\Model\\Blog.ReadMoreAbout "Read more about '{title}'..." title=$Title %>"><%t SilverStripe\\Blog\\Model\\Blog.ReadPost "Lire l'article" %> <i class="icon icon-arrow-right-b"></i></a>
 			            </div>
 			        </div>
