@@ -67,7 +67,7 @@ class FooterBlock extends LayoutBlock{
      */
     public function CMSEditLink()
     {
-        $editLinkPrefix = Controller::join_links(SiteConfigLeftAndMain::singleton()->Link('EditForm'));
+        $editLinkPrefix = Controller::join_links(ThemeLeftAndMain::singleton()->Link('EditForm'));
         
         $link = Controller::join_links(
             $editLinkPrefix,
