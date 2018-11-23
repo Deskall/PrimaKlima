@@ -433,6 +433,11 @@ class SiteConfigLayoutExtension extends DataExtension
   public function RegenerateCss(){
 
     $url = Director::AbsoluteURL('themes/standard/css/main.min.css');
+    if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
+        if ($this->owner->SubsiteID > 0){
+            $url =Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/main.min.css');
+        }
+      }
     $req = curl_init($url);
     $postdata = [];
     curl_setopt($req, CURLOPT_POST, true);
