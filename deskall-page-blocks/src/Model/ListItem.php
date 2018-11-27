@@ -182,8 +182,7 @@ class ListItem extends DataObject
             return $this->Parent()->getFolderName();
         }
         if ($this->FooterBlockID > 0){
-            return 
-            SiteConfig::current_site_config()->getFolderName()
+            return SiteConfig::current_site_config()->getFolderName();
         }
     }
 
