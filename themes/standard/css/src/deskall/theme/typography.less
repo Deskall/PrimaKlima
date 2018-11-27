@@ -20,13 +20,13 @@ em,u,i,.italic-font{
 }
 .nav-font{
 	font-family:@nav-font-family;
-	font-size: @dk-main-nav-font-size;
+
+	
 	text-transform: none;
 }
 .subnav-font{
 	.nav-font;
 	font-family:@global-font-family;
-	font-size: @sub-nav-font-size;
 	text-transform: none;
 	text-decoration: none;
 	&:hover{
@@ -63,6 +63,18 @@ em,u,i,.italic-font{
 	font-size:@global-small-font-size;
 	@media (min-width:@breakpoint-medium){
 		font-size:@global-font-size;
+	}
+}
+.nav-font{
+	font-size: @dk-main-nav-font-size*@font-ratio-small;
+	@media (min-width:@breakpoint-medium){
+		font-size: @dk-main-nav-font-size;
+	}
+}
+.subnav-font{
+	font-size: @sub-nav-font-size*@font-ratio-small;
+	@media (min-width:@breakpoint-medium){
+		font-size: @sub-nav-font-size;
 	}
 }
 h1{
