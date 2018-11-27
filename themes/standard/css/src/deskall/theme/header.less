@@ -30,14 +30,14 @@ header{
 		@media only screen and (min-width:@breakpoint-xlarge){
 			padding:0 @nav-item-padding-xlarge;
 		}
-		&:first-of-type{
-			padding-left:0;
-		}
-		&:last-of-type{
-			padding-right:0;
-		}
+		&
 	}
-
+	.uk-navbar-nav > li:first-of-type > a{
+		padding-left:0!important;
+	}
+	.uk-navbar-nav > li:last-of-type a{
+		padding-right:0!important;
+	}
 	.dk-submenu{
 		.uk-navbar-nav > li > a{
 			.subnav-font;
