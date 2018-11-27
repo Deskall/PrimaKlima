@@ -74,6 +74,7 @@
 			    	</div>
 			    	<% end_if %>
 		    			<% loop Items %>
+		    			<div class="uk-margin">
 		    			<% if LinkableLinkID > 0 %>
 		    			     <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr}>
 		    			 <% end_if %>
@@ -82,9 +83,13 @@
 		    			     	<% if Image %>
 				    			    <div>
 				    			    	<% if Image.getExtension == "svg" %>
-				    						<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+				    						<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" width="150">
 				    					<% else %>
+				    						<% if Image.ScaleWidth(150).Height > 100 %>
+				    						<img src="$Image.ScaleHeight(100).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+				    						<% else %>
 				    						<img src="$Image.ScaleWidth(150).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+				    						<% end_if %>
 				    					<% end_if %> 
 				    			    </div>
 			    			    <% end_if %>
@@ -98,6 +103,7 @@
 		    			<% if LinkableLinkID > 0 %>
 			    			</a>
 			    		<% end_if %>
+			    	</div>
 		    			<% end_loop %>
 		    	</div>
 		        <% else %>
