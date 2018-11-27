@@ -80,7 +80,7 @@
 		    			     <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr}>
 		    			    <% end_if %>
 		    			     	<% if Image %>
-				    			    <div class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l">
+				    			    <div class="uk-width-1-2">
 				    			    	<% if Image.getExtension == "svg" %>
 				    						<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
 				    					<% else %>
@@ -88,7 +88,7 @@
 				    					<% end_if %> 
 				    			    </div>
 			    			    <% end_if %>
-			    			    <div class="<% if Image %>uk-width-1-2 uk-width-2-3@s uk-width-3-4@m uk-width-4-5@l<% else %>uk-width-1-1<% end_if %>">
+			    			    <div class="<% if Image %>uk-width-1-2<% else %>uk-width-1-1<% end_if %>">
 			    				    <div  class="$TitleAlign">$Title</div>
 			    				    <div class="dk-text-content $TextAlign  $TextColumns <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 			    				    	$Content
