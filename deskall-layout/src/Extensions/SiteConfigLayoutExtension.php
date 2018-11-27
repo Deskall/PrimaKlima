@@ -199,7 +199,7 @@ class SiteConfigLayoutExtension extends DataExtension
                 
     $colorsField = new GridField('Colors',_t(__CLASS__.'.Colors','Farben'),$this->owner->Colors(),$config);
     $fields->addFieldsToTab("Root.Global",[
-      UploadField::create('DefaultSlide','Slide')->setFolderName(_t(__CLASS__.'.FolderName','Uploads/Einstellungen')),
+      UploadField::create('DefaultSlide','Slide')->setFolderName($this->owner->getFolderName()),
       HeaderField::create('ColorTitle',_t(__CLASS__.'.ColorsTitle','Farben'),2),
       $colorsField]);
 

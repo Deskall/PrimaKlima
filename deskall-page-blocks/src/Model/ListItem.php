@@ -11,6 +11,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class ListItem extends DataObject
 {
@@ -177,7 +178,13 @@ class ListItem extends DataObject
     }
 
     public function getFolderName(){
-        return $this->Parent()->getFolderName();
+        if ($this->ParentID > 0){
+            return $this->Parent()->getFolderName();
+        }
+        if ($this->FooterBlockID > 0){
+            return 
+            SiteConfig::current_site_config()->getFolderName()
+        }
     }
 
     public function getSummary()

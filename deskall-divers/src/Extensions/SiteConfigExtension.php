@@ -88,4 +88,9 @@ class SiteConfigExtension extends DataExtension
       
       parent::onBeforeWrite();
   }
+
+
+  public function getFolderName(){
+    return "Uploads/".URLSegmentFilter::create()->filter($this->owner->Title)."/Parameters";
+  }
 }

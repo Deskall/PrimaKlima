@@ -47,7 +47,7 @@ class DeskallPageExtension extends DataExtension
 	    	else{
                 if ($this->owner->hasExtension(SiteTreeSubsites::class)){
                     $config = SiteConfig::current_site_config();
-                    $subsite = ($this->owner->SubsiteID > 0) ? $this->owner->Subsite()->Theme : URLSegmentFilter::create()->filter($config->Title);
+                    $subsite = ($this->owner->SubsiteID > 0) ? URLSegmentFilter::create()->filter($this->owner->Subsite()->Title) : URLSegmentFilter::create()->filter($config->Title);
                     return "Uploads/".$subsite.'/'.$this->owner->URLSegment;
                 }
 	    		return "Uploads/".$this->owner->URLSegment;
