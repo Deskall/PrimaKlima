@@ -10,6 +10,8 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\View\ThemeResourceLoader;
 use SilverStripe\View\SSViewer;
 use SilverStripe\Control\Director;
+use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\SiteConfig\SiteConfig;
 
 
 class DeskallPageExtension extends DataExtension
@@ -43,6 +45,11 @@ class DeskallPageExtension extends DataExtension
 	    		return $this->owner->Parent()->generateFolderName()."/".$this->owner->URLSegment;
 	    	}
 	    	else{
+                if ($this->owner->hasExtension('SiteTreeSubsites')){
+                    $config = SiteConfig::current_site_config();
+                    $subsite = ($this->owner->SubsiteID > 0) ? $this->owner->Subsite()->Theme : URLSegmentFilter::create()->filter($config->Title);
+                    return "Uploads/".$subsite.'/'.$this->owner->URLSegment;
+                }
 	    		return "Uploads/".$this->owner->URLSegment;
 	    	}
     	}
