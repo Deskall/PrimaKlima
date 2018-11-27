@@ -52,12 +52,12 @@
 		        </div>
 		        <% if not isChildren %>
 			        <% if ShowNav %>
-			        <div class="uk-hidden@s uk-light">
+			        <div class="uk-hidden@m uk-light">
 			            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 			            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 			        </div>
 
-			        <div class="uk-visible@s">
+			        <div class="uk-visible@m">
 			            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 			            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 			        </div>
@@ -97,12 +97,12 @@
 		        </div>
 		        <% if not isChildren %>
 			        <% if ShowNav %>
-			        <div class="uk-hidden@s uk-light">
+			        <div class="uk-hidden@m uk-light">
 			            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 			            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 			        </div>
 
-			        <div class="uk-visible@s">
+			        <div class="uk-visible@m">
 			            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 			            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 			        </div>
