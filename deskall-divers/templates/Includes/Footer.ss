@@ -73,14 +73,14 @@
 			    		<h3 class="uk-margin-small-bottom">$Title</h3>
 			    	</div>
 			    	<% end_if %>
-		    		
 		    			<% loop Items %>
-		    			    <div class="uk-grid-small uk-flex <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
-		    			    <% if LinkableLinkID > 0 %>
+		    			<% if LinkableLinkID > 0 %>
 		    			     <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr}>
-		    			    <% end_if %>
+		    			 <% end_if %>
+		    			    <div class="uk-grid-small uk-child-width-1-1" data-uk-grid >
+		    			    
 		    			     	<% if Image %>
-				    			    <div class="uk-width-1-2">
+				    			    <div>
 				    			    	<% if Image.getExtension == "svg" %>
 				    						<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
 				    					<% else %>
@@ -88,24 +88,17 @@
 				    					<% end_if %> 
 				    			    </div>
 			    			    <% end_if %>
-			    			    <div class="<% if Image %>uk-width-1-2<% else %>uk-width-1-1<% end_if %>">
+			    			    <div>
 			    				    <div  class="$TitleAlign">$Title</div>
 			    				    <div class="dk-text-content $TextAlign  $TextColumns <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 			    				    	$Content
 			    				    </div>
-			    				   
-			    				    	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-			    				    <% end_if %>
 			    				 </div>
-			    				 <% if Top.Divider %>
-			    				 <hr class="uk-width-1-1">
-			    				 <% end_if %>
-			    			<% if LinkableLinkID > 0 %>
-			    			 </a>
-			    			<% end_if %>
 		    			   </div>
-		    			 <% end_loop %>
-		    		
+		    			<% if LinkableLinkID > 0 %>
+			    			</a>
+			    		<% end_if %>
+		    			<% end_loop %>
 		    	</div>
 		        <% else %>
 		    	<div class="title-container">
