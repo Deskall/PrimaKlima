@@ -94,7 +94,8 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('ShowDot');
             $fields->removeByName('ShowNav');
             $fields->removeByName('PaddedImages');
-             $fields->removeByName('lightboxOff');
+            $fields->removeByName('lightboxOff');
+            $fields->removeByName('infiniteLoop');
            
             $fields
                 ->fieldByName('Root.Main.HTML')
