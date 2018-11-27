@@ -74,14 +74,14 @@ class SiteConfigExtension extends DataExtension
   }
 
   public function onBeforeWrite(){
+    ob_start();
+      print_r('start'."\n"."------------------------");
+      $result = ob_get_clean();
+      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     if ($this->owner->ID > 0){
             $changedFields = $this->owner->getChangedFields();
             //Update Folder Name
             if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
-              ob_start();
-                    print_r($changedFields['Title']['before']);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
                 $oldFolderPath = "Uploads/".URLSegmentFilter::create()->filter($changedFields['Title']['before']);
                 $newFolder = Folder::find_or_make($oldFolderPath);
                 $newFolder->renameFile($changedFields['Title']['after']);
@@ -93,6 +93,7 @@ class SiteConfigExtension extends DataExtension
 
 
   public function getFolderName(){
-    return "Uploads/".URLSegmentFilter::create()->filter($this->owner->Title)."/Parameters";
+    $folder = Folder::find_or_make("Uploads/".URLSegmentFilter::create()->filter($this->owner->Title)."/Parameters");
+    return $folder->getFilename();
   }
 }
