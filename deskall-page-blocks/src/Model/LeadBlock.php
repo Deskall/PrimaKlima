@@ -56,7 +56,7 @@ class LeadBlock extends BaseElement implements Searchable
                 // $fields->removeByName('isPrimary');
                 if ($this->isPrimary){
                     $fields->removeByName('TitleAndDisplayed');
-                    $fields->insertBefore($fields->FieldByName('Root.Main.TitleIcon'),'HTML');
+                    $fields->insertBefore('HTML',$fields->FieldByName('Root.Main.TitleIcon'));
                 }
         });
         return parent::getCMSFields();
