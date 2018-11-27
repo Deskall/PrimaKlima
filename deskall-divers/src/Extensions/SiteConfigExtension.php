@@ -22,7 +22,7 @@ use SilverStripe\Assets\Image;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
-use use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Assets\Folder;
 
 class SiteConfigExtension extends DataExtension 
