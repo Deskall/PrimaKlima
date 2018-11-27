@@ -78,7 +78,7 @@
 		    			<% if LinkableLinkID > 0 %>
 		    			     <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr}>
 		    			 <% end_if %>
-		    			    <div class="uk-grid-small uk-child-width-1-1" data-uk-grid >
+		    			    <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-1@m" data-uk-grid >
 		    			    
 		    			     	<% if Image %>
 				    			    <div>
