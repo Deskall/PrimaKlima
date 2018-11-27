@@ -17,9 +17,9 @@ class FooterBlock extends LayoutBlock{
         'Links' => LayoutLink::class
     ];
 
-    private static $many_many = ['Partners' => Image::class];
+    private static $many_many = ['Items' => ListItem::class];
 
-    private static $many_many_extraFields = ['Partners' => ['SortOrder' => 'Int']];
+    private static $many_many_extraFields = ['Items' => ['SortOrder' => 'Int']];
 
     private static $block_types = [
         'address' => 'Adresse',
@@ -27,7 +27,7 @@ class FooterBlock extends LayoutBlock{
         'content' => 'Inhalt',
         'logo' => 'Logo',
         'form' => 'Formular',
-        'partners' => 'Partners'
+        'items' => 'List mit Items'
     ];
 
     public function Preview(){
@@ -51,8 +51,9 @@ class FooterBlock extends LayoutBlock{
 		$fields = parent::getCMSFields();
         $fields->removeByName('Layout');
         $fields->removeByName('Type');
+        $fields->removeByName('Items');
         $fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t('LayoutBlock.Type','BlockTyp'),$this->owner->getTranslatedSourceFor('FooterBlock','block_types'))->setEmptyString(_t('LayoutBlock.TypeLabel','Wählen Sie den Typ aus')),'Title');
-        $fields->insertAfter('Title',Wrapper::create($fields->FieldByName('Root.Partners'))->displayIf('Type')->isEqualTo('partners')->end());
+        $fields->insertAfter('Title',Wrapper::create(GridField::create('Items',_t(__CLASS__.".Items",'Items'),$this->Items()))->displayIf('Type')->isEqualTo('items')->end());
 
 		return $fields;
 	}

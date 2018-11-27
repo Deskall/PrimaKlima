@@ -66,24 +66,40 @@
 		    			<% end_if %>
 		    		</a>
 		    	</div>
-		    	<% else_if Type == "partners" %>
+		    	<% else_if Type == "items" %>
 		    	<div>
 		    		<% if Title %>
 		    		 <div class="title-container">
 			    		<h3 class="uk-margin-small-bottom">$Title</h3>
 			    	</div>
 			    	<% end_if %>
-		    		<div class="uk-child-width-1-3 uk-flex uk-flex-middle" data-uk-grid>
-		    			<% loop Partners.Sort('SortOrder') %>
-		    			<div class="uk-text-center partner-container">
-		    			<% if $getExtension == "svg" %>
-		    			<img src="$URL" alt="$AltTag($Title)" class="svg-logo format-{$Orientation} <% if $Height > 100 %>restrict-height<%end_if %>" />
-		    			<% else %>
-		    			<img src="$FitMax(200,100).URL" />
-		    			<% end_if %>
-		    			</div>
-		    			<% end_loop %>
-		    		</div>
+		    		
+		    			<% loop Items %>
+		    			    <div class="uk-grid-small uk-flex <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
+		    			    <% if Image %>
+		    			    <div class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l">
+		    			    	<% if Image.getExtension == "svg" %>
+		    						<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+		    					<% else %>
+		    						<img src="$Image.ScaleWidth(150).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+		    					<% end_if %> 
+		    			    </div>
+		    			    <% end_if %>
+		    			    <div class="<% if Image %>uk-width-1-2 uk-width-2-3@s uk-width-3-4@m uk-width-4-5@l<% else %>uk-width-1-1<% end_if %>">
+		    				    <div  class="$TitleAlign"><strong>$Title</strong></div>
+		    				    <div class="dk-text-content $TextAlign  $TextColumns <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+		    				    	$Content
+		    				    </div>
+		    				    <% if LinkableLinkID > 0 %>
+		    				    	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+		    				    <% end_if %>
+		    				 </div>
+		    				 <% if Top.Divider %>
+		    				 <hr class="uk-width-1-1">
+		    				 <% end_if %>
+		    			   </div>
+		    			 <% end_loop %>
+		    		
 		    	</div>
 		        <% else %>
 		    	<div class="title-container">
