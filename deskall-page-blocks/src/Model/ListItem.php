@@ -27,7 +27,8 @@ class ListItem extends DataObject
 
     private static $has_one = [
         'Parent' => ListBlock::class,
-        'Image' => Image::class
+        'Image' => Image::class,
+        'FooterBlock' => FooterBlock::class
     ];
 
     private static $extensions = [
