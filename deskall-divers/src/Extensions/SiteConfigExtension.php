@@ -84,8 +84,7 @@ class SiteConfigExtension extends DataExtension
                     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
                 $oldFolderPath = "Uploads/".URLSegmentFilter::create()->filter($changedFields['Title']['before']);
                 $newFolder = Folder::find_or_make($oldFolderPath);
-                $newFolder->Name = $changedFields['Title']['after'];
-                $newFolder->write();
+                $newFolder->renameFile($changedFields['Title']['after']);
             }
         }
       
