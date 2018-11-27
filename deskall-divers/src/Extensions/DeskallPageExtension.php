@@ -47,8 +47,8 @@ class DeskallPageExtension extends DataExtension
 	    	else{
                 if ($this->owner->hasExtension(SiteTreeSubsites::class)){
                     $config = SiteConfig::current_site_config();
-                    $subsite = ($this->owner->SubsiteID > 0) ? URLSegmentFilter::create()->filter($this->owner->Subsite()->Title) : URLSegmentFilter::create()->filter($config->Title);
-                    return "Uploads/".$subsite.'/'.$this->owner->URLSegment;
+                    $prefix = URLSegmentFilter::create()->filter($config->Title);
+                    return "Uploads/".$prefix.'/'.$this->owner->URLSegment;
                 }
 	    		return "Uploads/".$this->owner->URLSegment;
 	    	}
@@ -64,7 +64,7 @@ class DeskallPageExtension extends DataExtension
             $changedFields = $this->owner->getChangedFields();
             //Update Folder Name
             if ($this->owner->isChanged('URLSegment') && ($changedFields['URLSegment']['before'] != $changedFields['URLSegment']['after'])){
-                $oldFolderPath = ($this->owner->ParentID > 0 ) ? $this->owner->Parent()->generateFolderName()."/".$changedFields['URLSegment']['before'] : "Uploads/".$changedFields['URLSegment']['before'];
+                $oldFolderPath = ($this->owner->ParentID > 0 ) ? $this->owner->Parent()->generateFolderName()."/".$changedFields['URLSegment']['before'] : (($this->owner->hasExtension(SiteTreeSubsites::class)) ? "Uploads/".URLSegmentFilter::create()->filter(SiteConfig::current_site_config()->Title)."/".$changedFields['URLSegment']['before'] : "Uploads/".$changedFields['URLSegment']['before']);
                 $newFolder = Folder::find_or_make($oldFolderPath);
                 $newFolder->Name = $changedFields['URLSegment']['after'];
                 $newFolder->Title = $changedFields['URLSegment']['after'];
@@ -73,11 +73,11 @@ class DeskallPageExtension extends DataExtension
             //Update Folder Structure
             if($this->owner->isChanged('ParentID')){
                 $oldParent = ($changedFields['ParentID']['before'] == 0) ? null : DataObject::get_by_id(SiteTree::class,$changedFields['ParentID']['before']);
-                $oldFolderPath = ($oldParent) ? $oldParent->generateFolderName()."/".$this->owner->URLSegment : "Uploads/".$this->owner->URLSegment;
+                $oldFolderPath = ($oldParent) ? $oldParent->generateFolderName()."/".$this->owner->URLSegment : (($this->owner->hasExtension(SiteTreeSubsites::class)) ? "Uploads/".URLSegmentFilter::create()->filter(SiteConfig::current_site_config()->Title)."/".$this->owner->URLSegment : "Uploads/".$this->owner->URLSegment);
                 $oldFolder = Folder::find_or_make($oldFolderPath);
 
                 $newParent = ($changedFields['ParentID']['after'] == 0) ? null : DataObject::get_by_id(SiteTree::class,$changedFields['ParentID']['after']);
-                $newParentFolderPath = ($newParent) ? $newParent->generateFolderName() : "Uploads";
+                $newParentFolderPath = ($newParent) ? $newParent->generateFolderName() : (($this->owner->hasExtension(SiteTreeSubsites::class)) ? "Uploads/".URLSegmentFilter::create()->filter(SiteConfig::current_site_config()->Title) : "Uploads");
                 $newParentFolder = Folder::find_or_make($newParentFolderPath);
                 
                 $oldFolder->ParentID = $newParentFolder->ID;
