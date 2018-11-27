@@ -60,7 +60,7 @@
 		    	<div>
 		    		<a href="/" class="uk-navbar-item uk-logo">
 		    			<% if $Logo.getExtension == "svg" %>
-		    			<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo" />
+		    			<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo" width="$Top.SiteConfig.FooterLogoWidth" />
 		    			<% else %>
 		    			<img src="$Logo.ScaleMaxWidth($Top.SiteConfig.IntVal($Top.SiteConfig.FooterLogoWidth)).URL" alt="$Top.SiteConfig.Title Logo" />
 		    			<% end_if %>
