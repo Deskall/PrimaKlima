@@ -13,7 +13,7 @@ use SilverStripe\Control\Director;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Subsites\Extensions\SiteTreeSubsites;
-use SilverStripe\Subsites\Extensions/FileSubsites;
+use SilverStripe\Subsites\Extensions\FileSubsites;
 use SilverStripe\Subsites\Model\Subsite;
 
 class DeskallPageExtension extends DataExtension
