@@ -55,7 +55,7 @@ class LeadBlock extends BaseElement implements Searchable
                 ->setRows(8);
                 // $fields->removeByName('isPrimary');
                 if ($this->isPrimary){
-                    $fields->removeByName('TitleAndDisplayed');
+                   // $fields->removeByName('TitleAndDisplayed');
                     $fields->insertBefore('HTML',$fields->FieldByName('Root.Main.TitleIcon'));
                 }
         });
