@@ -22,6 +22,8 @@ use SilverStripe\Assets\Image;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
+use use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\Assets\Folder;
 
 class SiteConfigExtension extends DataExtension 
 {
@@ -69,5 +71,21 @@ class SiteConfigExtension extends DataExtension
     
     $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.MainTab','Hauptteil'));
     $fields->FieldByName('Root.Access')->setTitle(_t(__CLASS__.'.AccessTab','Zugang'));
+  }
+
+  public function onBeforeWrite(){
+    if ($this->owner->ID > 0){
+            $changedFields = $this->owner->getChangedFields();
+            //Update Folder Name
+            if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
+                $oldFolderPath = "Uploads/".URLSegmentFilter::create()->filter($changedFields['Title']['before']);
+                $newFolder = Folder::find_or_make($oldFolderPath);
+                $newFolder->Name = $changedFields['Title']['after'];
+                $newFolder->Title = $changedFields['Title']['after'];
+                $newFolder->write();
+            }
+        }
+      
+      parent::onBeforeWrite();
   }
 }
