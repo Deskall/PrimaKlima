@@ -78,10 +78,13 @@ class SiteConfigExtension extends DataExtension
             $changedFields = $this->owner->getChangedFields();
             //Update Folder Name
             if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
+              ob_start();
+                    print_r($changedFields['Title']['before']);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
                 $oldFolderPath = "Uploads/".URLSegmentFilter::create()->filter($changedFields['Title']['before']);
                 $newFolder = Folder::find_or_make($oldFolderPath);
                 $newFolder->Name = $changedFields['Title']['after'];
-                $newFolder->Title = $changedFields['Title']['after'];
                 $newFolder->write();
             }
         }
