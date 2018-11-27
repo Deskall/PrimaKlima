@@ -31,7 +31,8 @@ class GalleryBlock extends BaseElement implements Searchable
         'PaddedImages' => 'Boolean(0)',
         'lightboxOff' => 'Boolean(0)',
         'ShowDot' => 'Boolean(1)',
-        'ShowNav' => 'Boolean(0)'
+        'ShowNav' => 'Boolean(0)',
+        'infiniteLoop' => 'Boolean(1)'
     ];
 
     private static $many_many = [
@@ -107,7 +108,8 @@ class GalleryBlock extends BaseElement implements Searchable
                     OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
                     CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
                     CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
-                    CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches Abspielen?')),
+                    CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches abspielen?')),
+                    CheckboxField::create('infiniteLoop',_t(__CLASS__.'.inifite','unendlish abspielen?')),
                     CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Bilder vollständig anzeigen? (keine Größenanpassung, beispielsweise für Logos angegeben)')),
                     CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?'))
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
