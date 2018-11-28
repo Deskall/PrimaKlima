@@ -28,6 +28,7 @@ class DeskallImageAssetFormFactoryExtension extends Extension
                     ->setDescription(_t('Image.DescriptionLabel','wird im Front End als alt Tag angezeigt.'))
             );
         }
+        print_r($image->getExtension());
         if ($image->getExtension() == "svg"){
             $fields->removeByName('FocusPoint');
         }
