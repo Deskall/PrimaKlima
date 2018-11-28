@@ -15,7 +15,7 @@ SilverStripe\Comments\Controllers\CommentingController:
   extensions:
     - 'DeskallCommentingControllerExtension'
 
-SilverStripe\CMS\Model\SiteTree:
+Page:  
   comments:
     enabled: false
 
