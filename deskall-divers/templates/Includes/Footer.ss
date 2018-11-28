@@ -83,12 +83,12 @@
 		    			     	<% if Image %>
 				    			    <div>
 				    			    	<% if Image.getExtension == "svg" %>
-				    						<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" width="100">
+				    						<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" width="120">
 				    					<% else %>
-				    						<% if Image.ScaleWidth(100).Height > 100 %>
+				    						<% if Image.ScaleWidth(120).Height > 100 %>
 				    						<img src="$Image.ScaleHeight(100).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
 				    						<% else %>
-				    						<img src="$Image.ScaleWidth(100).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+				    						<img src="$Image.ScaleWidth(120).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
 				    						<% end_if %>
 				    					<% end_if %> 
 				    			    </div>
