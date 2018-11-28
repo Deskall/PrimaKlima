@@ -21,7 +21,7 @@ class DeskallImageAssetFormFactoryExtension extends Extension
     public function updateFormFields(FieldList $fields, $controller, $formName, $context)
     {
         $image = isset($context['Record']) ? $context['Record'] : null;
-        if ($image && $image->appCategory() === 'image') {
+        if ($image && $image->appCategory() === 'image' && $image->getExtension() != "svg") {
             $fields->insertAfter(
                 'Title',
                 TextareaField::create('Description',_t('Image.Description','Beschreibung'))
