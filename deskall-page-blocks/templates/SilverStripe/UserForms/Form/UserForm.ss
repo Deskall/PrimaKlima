@@ -20,6 +20,7 @@
         <!-- TO DO : make a field with template and automatic link to any form -->
         <div class="dk-text-content uk-width-1-1 uk-margin-small"><label class="acceptance"><input type="checkbox" name="acceptance" required /> Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der <a href="/unternehmen/datenschutzerklaerung" title="Datenschutzerklärung Seite" target="_blank">Datenschutzerklärung</a>. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt. </label>
         </div>
+        <div class="dk-text-content uk-width-1-1 uk-margin-small">Die mit einem Stern (*) markierten Felder sind Pflichtfelder.</div>
     </div>
 <% end_if %>
 
