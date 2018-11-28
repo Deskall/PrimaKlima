@@ -16,7 +16,7 @@
 	        	    	<% if Image.getExtension == "svg" %>
 	        				<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
 	        			<% else %>
-	        				<img src="$Image.ScaleWidth(150).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+	        				<img src="$Image.ScaleWidth(350).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
 	        			<% end_if %> 
 	        	    </div>
 	        	    <% end_if %>
@@ -48,7 +48,7 @@
     	<% if Image.getExtension == "svg" %>
 			<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
 		<% else %>
-			<img src="$Image.ScaleWidth(150).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+			<img src="$Image.ScaleWidth(350).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
 		<% end_if %> 
     </div>
     <% end_if %>
