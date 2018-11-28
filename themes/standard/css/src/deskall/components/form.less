@@ -1,4 +1,8 @@
 //FORM
+@form-message-border-color:       #eee;
+@form-message-background-color:   #ccc;
+@form-message-color:              #666;
+
 .form-std, #MemberLoginForm_LoginForm,#CommentForm_CommentsForm{
 
 	input[type="text"],input[type="email"],input[type="password"],input[type="number"]{
@@ -69,9 +73,10 @@
 //messages
 form .message {
 	padding:5px 10px;
-	border:1px solid #eee;
-	background-color:#ccc;
-	color:#004800;
+	border:1px solid @form-message-border-color;
+	background-color:@form-message-background-color;
+	display:block;
+	color:@form-message-color;
 	&.good{
 		background-color:#cce8cc;
 		border-color:#b8deb8;
