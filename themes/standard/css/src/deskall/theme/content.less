@@ -114,23 +114,25 @@ picture img{
 	display: inline-block;
 	position: relative;
 	text-decoration: none;
-
-	&:after {
-	    background-color: @global-link-color;
-	    content: '';
-	    height: 1px;
-	    position: absolute;
-	    bottom: 2px;
-	    left: 0;
-	    transition: width 0.3s ease-in-out;
-	    width: 0;
-	}
-	&:hover {
-	    &:after {
-	    background-color: @global-link-hover-color;
-		width: 100%;
-	    }
-	}
+    &:not(.no-underline){
+    	&:after {
+    	    background-color: @global-link-color;
+    	    content: '';
+    	    height: 1px;
+    	    position: absolute;
+    	    bottom: 2px;
+    	    left: 0;
+    	    transition: width 0.3s ease-in-out;
+    	    width: 0;
+    	}
+    	&:hover {
+    	    &:after {
+    	    background-color: @global-link-hover-color;
+    		width: 100%;
+    	    }
+    	}
+    }
+	
 } 
 
 span.dk-link-with-icon{
