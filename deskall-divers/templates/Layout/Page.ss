@@ -1,7 +1,4 @@
 
-	<% if ID < 0 || $firstBlockSlide %>
-		<% include DefaultSlide %>
-	<% end_if %>
 
 	$ElementalArea
 	<% if $ID < 0 %> 
