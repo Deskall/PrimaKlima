@@ -11,7 +11,7 @@ TractorCow\Fluent\Model\Locale:
   extensions:
     - PublishInDefaultLocaleExtension
 
-MenuBlock:
+LayoutBlock:
   extensions:
     - 'MenuBlockExtension'
 
