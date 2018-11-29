@@ -1,5 +1,5 @@
 <div class="$Layout $Width $Class">
-<%-- 	<% if Type == "Languages" %>
+	<% if Type == "Languages" %>
 		<% if $Locales %>
 		<ul class="uk-navbar-nav">
 		<% loop $Locales %>
@@ -7,7 +7,7 @@
 		<% end_loop %>
 		</ul>
 		<% end_if %>
-	<% end_if %> --%>
+	<% end_if %>
 	<% if Type == "links" %>
 	<% if UseMenu %>
 	<ul class="dk-nav-mobile uk-nav" data-uk-nav>
