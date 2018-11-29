@@ -3,7 +3,7 @@
 		<% if $Logo.getExtension == "svg" %>
 		<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo"  />
 		<% else %>
-		<img src="$Logo.ScaleWidth($Top.SiteConfig.HeaderLogoHeight).URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>"/>
+		<img src="$Logo.ScaleHeight($Top.SiteConfig.HeaderLogoHeight).URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>"/>
 		<% end_if %>
 	</a>
 </div>
