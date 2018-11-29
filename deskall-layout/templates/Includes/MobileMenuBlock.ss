@@ -1,5 +1,6 @@
-<div class="$Layout $Width $Class ici">
+<div class="$Layout $Width $Class">
 	<% if Type == "Languages" %>
+	ici
 		<% if $Top.Locales %>
 		<ul class="uk-navbar-nav">
 		<% loop $Top.Locales %>
