@@ -11,7 +11,7 @@ class PublishInDefaultLocaleExtension extends DataExtension{
 	
 	public function onAfterWrite(){
 		parent::onAfterWrite();
-		// if ($this->owner->IsGlobalDefault){
+		if ($this->owner->IsGlobalDefault){
 			foreach(ClassInfo::subclassesFor(DataObject::class) as $class ) {
 				
 				if (singleton($class)->hasExtension(FluentFilteredExtension::class)) {
@@ -28,7 +28,7 @@ class PublishInDefaultLocaleExtension extends DataExtension{
 			}
 
 			
-		// }
+		}
 		
 	}
 }
