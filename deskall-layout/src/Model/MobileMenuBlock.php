@@ -67,17 +67,4 @@ class MobileMenuBlock extends MenuBlock{
 		return $this->renderWith('Includes/MobileMenuBlock_'.$this->Type);
 	}
 
-	public function getMenu(){
-		$menu = ContentController::create()->getMenu(1);
-		if ($this->UseMenu){
-			if ($this->UseMenuOption == "main"){
-				$menu = $menu->filter('ShowInMainMenu',1);
-			}
-			else{
-				$menu = $menu->filter('ShowInMainMenu',0);
-			}
-		}
-		return $menu;
-	}
-
 }
