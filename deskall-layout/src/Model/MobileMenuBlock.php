@@ -57,10 +57,14 @@ class MobileMenuBlock extends MenuBlock{
 		return $fields;
 	}
 
+	// public function forTemplate(){
+	// 	$menu = ContentController::create()->getMenu(1);
+	// 	return $this->renderWith('Includes/MobileMenuBlock', [
+	// 		'Menu' =>$menu]);
+	// }
+
 	public function forTemplate(){
-		$menu = ContentController::create()->getMenu(1);
-		return $this->renderWith('Includes/MobileMenuBlock', [
-			'Menu' =>$menu]);
+		return $this->renderWith('Includes/MenuBlockMobile_'.$this->Type);
 	}
 
 }
