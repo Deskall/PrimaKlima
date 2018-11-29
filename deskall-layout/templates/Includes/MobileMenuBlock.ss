@@ -1,8 +1,8 @@
 <div class="$Layout $Width $Class">
 	<% if Type == "Languages" %>
-		<% if $Locales %>
+		<% if $Top.Locales %>
 		<ul class="uk-navbar-nav">
-		<% loop $Locales %>
+		<% loop $Top.Locales %>
 			<li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link.ATT" <% if $LinkingMode != 'invalid' %>rel="alternate" hreflang="$LocaleRFC1766"<% end_if %>>$Title.XML</a></li>
 		<% end_loop %>
 		</ul>
