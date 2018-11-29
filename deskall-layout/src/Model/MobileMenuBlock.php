@@ -32,6 +32,11 @@ class MobileMenuBlock extends MenuBlock{
 		
 	];
 
+	public function onBeforeWrite(){
+		$this->isMobile = 1;
+		parent::onBeforeWrite();
+	}
+
 
 
 	public function NiceTitle(){

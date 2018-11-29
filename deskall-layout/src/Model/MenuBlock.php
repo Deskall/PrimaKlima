@@ -46,6 +46,12 @@ class MenuBlock extends LayoutBlock{
 		return parent::NiceTitle();
 	}
 
+	public function onBeforeWrite(){
+		$this->isMobile = 0;
+		parent::onBeforeWrite();
+	}
+
+
 	public function onAfterWrite(){
 		if ($this->Logo()->ID > 0){
 			$this->Logo()->publishSingle();
