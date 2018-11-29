@@ -64,8 +64,7 @@ class MobileMenuBlock extends MenuBlock{
 	// }
 
 	public function forTemplate(){
-		print_r('ici');
-		return $this->renderWith('Includes/MenuBlockMobile_'.$this->Type);
+		return $this->renderWith('Includes/MobileMenuBlock_'.$this->Type);
 	}
 
 }
