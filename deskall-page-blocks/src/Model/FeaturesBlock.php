@@ -3,6 +3,7 @@
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\LabelField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
@@ -34,7 +35,8 @@ class FeaturesBlock extends BaseElement implements Searchable
         'IconItem' => 'Varchar(255)',
         'FeaturesTitle' => 'Varchar(255)',
         'FeaturesColumns' => 'Varchar(255)',
-        'FeaturesTextAlign' => 'Varchar(255)'
+        'FeaturesTextAlign' => 'Varchar(255)',
+        'FeaturesTextBig' => 'Boolean(0)'
     ];
 
 
@@ -152,6 +154,7 @@ class FeaturesBlock extends BaseElement implements Searchable
             $fields->removeByName('Layout');
             $fields->removeByName('FeaturesTextAlign');
             $fields->removeByName('Features');
+            $fields->removeByName('FeaturesTextBig');
 
             $fields
                 ->fieldByName('Root.Main.HTML')
@@ -193,6 +196,7 @@ class FeaturesBlock extends BaseElement implements Searchable
         $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
         
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            CheckboxField::create('FeaturesTextBig',_t(__CLASS__.'.FeaturesTextBig','Features mit grössere Schrift?')),
             HTMLOptionsetField::create('FeaturesTextAlign',_t(__CLASS__.'.FeaturesTextAlignment','Features Textausrichtung'),$this->stat('features_text_alignments')),
             HTMLOptionsetField::create('FeaturesColumns',_t(__CLASS__.'.FeaturesInColumns','Features in mehreren Spalten'),$this->stat('features_columns')),
             HTMLDropdownField::create('IconItem',_t(__CLASS__.'.FeaturesIcons','Icon'),$this->getSourceIcons(),'check')

@@ -7,16 +7,25 @@
 		    	<div class="title-container">
 			 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
 			 	</div>
+
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
+			 		<% if $SiteConfig.Address != "" %>
 			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT}, {$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
 			 			<span class="uk-margin-small-right" data-uk-icon="icon: location;"></span>
 			 			<span class="dk-link-with-icon">
+			 				<% if $SiteConfig.Address %>
 				 			$SiteConfig.Address<br/>
+				 			<% end_if %>
+				 			<% if $SiteConfig.CodeCity %>
 				 			$SiteConfig.CodeCity<br/>
+				 			<% end_if %>
+				 			<% if $SiteConfig.Country %>
 				 			$SiteConfig.Country
+				 			<% end_if %>
 				 		</span>
 				 		</a>
 			 		</li>
+			 		<% end_if %>
 			 		<% if SiteConfig.Email %>
 			 		<li>
 			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
@@ -53,9 +62,28 @@
 		    			<% if $Logo.getExtension == "svg" %>
 		    			<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo" data-uk-svg />
 		    			<% else %>
-		    			<img src="$Logo.ScaleWidth(150).URL" data-srcset="$Logo.ScaleWidth(150).URL 150w, $Logo.ScaleWidth(250).URL 250w, $Logo.ScaleWidth(350).URL 350w" sizes="150w, (min-width:650px) 250w, (min-width:1200px) 350w" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" data-uk-img />
+		    			<img src="$Logo.ScaleMaxWidth($Top.SiteConfig.IntVal($Top.SiteConfig.FooterLogoWidth)).URL" alt="$Top.SiteConfig.Title Logo" />
 		    			<% end_if %>
 		    		</a>
+		    	</div>
+		    	<% else_if Type == "partners" %>
+		    	<div>
+		    		<% if Title %>
+		    		 <div class="title-container">
+			    		<h3 class="uk-margin-small-bottom">$Title</h3>
+			    	</div>
+			    	<% end_if %>
+		    		<div class="uk-child-width-1-3 uk-flex uk-flex-middle" data-uk-grid>
+		    			<% loop Partners.Sort('SortOrder') %>
+		    			<div class="uk-text-center partner-container">
+		    			<% if $getExtension == "svg" %>
+		    			<img src="$URL" alt="$AltTag($Title)" class="svg-logo format-{$Orientation} <% if $Height > 100 %>restrict-height<%end_if %>" />
+		    			<% else %>
+		    			<img src="$FitMax(200,100).URL" />
+		    			<% end_if %>
+		    			</div>
+		    			<% end_loop %>
+		    		</div>
 		    	</div>
 		        <% else %>
 		    	<div class="title-container">

@@ -16,6 +16,7 @@ DNADesign\Elemental\Models\BaseElement:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
     - 'FilterLocalExtension'
+    - 'FluentCascadeDeleteExtension'
   translate:
     - 'Title'
     - 'HTML'

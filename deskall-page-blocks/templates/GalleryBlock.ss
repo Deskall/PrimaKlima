@@ -51,19 +51,68 @@
 		            <% end_if %>
 		        </div>
 		        <% if not isChildren %>
-		        <div class="uk-hidden@s uk-light">
-		            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-		            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
-		        </div>
+			        <% if ShowNav %>
+			        <div class="uk-hidden@s uk-light">
+			            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+			            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+			        </div>
 
-		        <div class="uk-visible@s">
-		            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-		            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
-		        </div>
+			        <div class="uk-visible@s">
+			            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+			            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+			        </div>
+			        <% end_if %>
 		        <% end_if %>
 		    </div>
-
+		    <% if ShowDot %>
 		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+		    <% end_if %>
+		</div>
+		<% else_if Layout == "card" %>
+		<div data-uk-slider="finite: true;<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
+		    <div class="uk-position-relative uk-visible-toggle">
+		    	<div class="uk-slider-container">
+			        <ul class="uk-slider-items $PicturesPerLine uk-grid" data-uk-height-match=".uk-card-body">
+			        	<% loop OrderedImages %>
+			            <li>
+			                <div class="uk-card uk-card-default">
+			                    <div class="uk-card-media-top">
+			                        <img data-src="<% if $getExtension == "svg" %>$URL<% else %>
+				                        <% if Orientation == "1" %>
+									 	$FitMax(300,500).URL
+									 	<% else %>
+									 	$FitMax(350,250).URL
+									 	<% end_if %>
+								 	<% end_if %>
+								 	" alt="$Up.AltTag($Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+			                    </div>
+			                    <div class="uk-card-body uk-padding-small">
+			                        <div class="uk-card-title">$Title</div>
+			                        <p>$Description</p>
+			                    </div>
+			                </div>
+			            </li>
+			            <% end_loop %>
+			        </ul>
+		        </div>
+		        <% if not isChildren %>
+			        <% if ShowNav %>
+			        <div class="uk-hidden@s uk-light">
+			            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+			            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+			        </div>
+
+			        <div class="uk-visible@s">
+			            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+			            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+			        </div>
+			        <% end_if %>
+		        <% end_if %>
+		    </div>
+		    <% if ShowDot %>
+		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+		    <% end_if %>
+
 		</div>
 		<% else %>
 		<% if lightboxOff %>

@@ -23,10 +23,4 @@ class VirtualBlock extends ElementVirtual{
     {
         return _t(__CLASS__ . '.BlockType', 'Block verknüpfen');
     }
-
-    public function VirtualEditorPreview(){
-        return 'yo';
-    }
-
-
 }

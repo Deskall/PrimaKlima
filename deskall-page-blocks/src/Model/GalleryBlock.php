@@ -29,7 +29,9 @@ class GalleryBlock extends BaseElement implements Searchable
         'PictureHeight' => 'Int',
         'Autoplay' => 'Boolean(0)',
         'PaddedImages' => 'Boolean(0)',
-        'lightboxOff' => 'Boolean(0)'
+        'lightboxOff' => 'Boolean(0)',
+        'ShowDot' => 'Boolean(1)',
+        'ShowNav' => 'Boolean(0)'
     ];
 
     private static $many_many = [
@@ -54,7 +56,8 @@ class GalleryBlock extends BaseElement implements Searchable
 
     private static $block_layouts = [
         'carousel' => 'Carousel',
-        'grid' => 'Grid'
+        'grid' => 'Grid',
+        'card' => 'Card'
     ];
     
     private static $pictures_per_line = [
@@ -87,6 +90,8 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('SortAttribute');
             $fields->removeByName('Layout');
             $fields->removeByName('Autoplay');
+            $fields->removeByName('ShowDot');
+            $fields->removeByName('ShowNav');
             $fields->removeByName('PaddedImages');
              $fields->removeByName('lightboxOff');
            
@@ -100,9 +105,11 @@ class GalleryBlock extends BaseElement implements Searchable
                 CompositeField::create(
                     DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Bilder per Linie'), self::$pictures_per_line),
                     OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
+                    CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
+                    CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
                     CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches Abspielen?')),
-                    CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Afficher les images dans leur entiereté ? (pas de redimensionnement, indiqué pour les logos par exemple)')),
-                    CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Images non cliquables?'))
+                    CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Bilder vollständig anzeigen? (keine Größenanpassung, beispielsweise für Logos angegeben)')),
+                    CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?'))
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             

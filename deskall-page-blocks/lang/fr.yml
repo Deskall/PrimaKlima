@@ -270,6 +270,10 @@ fr:
     block_layouts_carousel: "Carousel"
     block_layouts_grid: "Grille"
     php.GalleryBlockPicturesTab: Images
+    PaddedImages: 'Afficher les images dans leur entiereté ? (pas de redimensionnement, indiqué pour les logos par exemple)'
+    LightboxOff: 'Images non cliquables?'
+    ShowNav: 'Afficher les flêches de navigation ?'
+    ShowDot: 'Afficher les points de navigation ?'
   Global:
     BUTTONCOLLAPSE: Rassembler
     BUTTONEXPAND: Agrandir

@@ -112,7 +112,7 @@ class LayoutBlock extends DataObject{
 			$title = $fields->fieldByName('Root.Main.Title');
 			$fields->removeByName('Links');
 			$fields->removeByName('SiteConfigID');
-			$title->displayIf('Type')->isEqualTo('links')->orIf('Type')->isEqualTo('content');
+			$title->displayIf('Type')->isEqualTo('links')->orIf('Type')->isEqualTo('content')->orIf('Type')->isEqualTo('partners');
 			
 			if ($this->ID > 0){
 				$fields->fieldByName('Root.Main.Type')->setDisabled(true);
@@ -125,7 +125,7 @@ class LayoutBlock extends DataObject{
 						}
 						else {
 							$LinksField = Wrapper::create(
-								LabelField::create('Links', _t(__CLASS__.'.LinksLabel','Links können erst nach dem Speichern erstellt werden')))->setName('LinksField');
+								LabelField::create('Links', _t(__CLASS__.'.LinksLabel','Links können erst nach dem Speichern erstellt werden')))->displayIf('Type')->isEqualTo('links')->end()->setName('LinksField');
 						}
 
 						$fields->addFieldToTab('Root.Main',$LinksField);

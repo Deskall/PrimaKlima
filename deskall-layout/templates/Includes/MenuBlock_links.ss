@@ -5,7 +5,7 @@
 		<% loop Menu %>
 		<li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" title="$Title.XML">$MenuTitle.XML</a>
 			<% if Top.ShowSubLevels && Children %>
-			<div class="uk-navbar-dropdown uk-margin-remove">
+			<div class="uk-navbar-dropdown" data-uk-drop="boundary: !li; boundary-align: true; pos: bottom-justify;">
 				<ul class="uk-nav uk-navbar-dropdown-nav">
 					<% loop Children %>
 					<li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" title="$Title.XML">$MenuTitle.XML</a></li>

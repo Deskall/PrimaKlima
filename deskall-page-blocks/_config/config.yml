@@ -16,7 +16,13 @@ DNADesign\Elemental\Models\BaseElement:
     - Activable
     - Linkable
     - Collapsable
-    - ' g4b0\SearchableDataObjects\SearchableDataObject'
+    - 'g4b0\SearchableDataObjects\SearchableDataObject'
+    - 'VirtualBlockExtension'
+
+ParentBlock:
+  extensions:
+    - 'VirtualBlockExtension'
+
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
@@ -77,6 +83,7 @@ SilverStripe\CMS\Controllers\ContentController:
 DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
     - FormBlockExtension
+    - 'g4b0\SearchableDataObjects\SearchableDataObject'
 
 SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
     default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NocaptchaProtector

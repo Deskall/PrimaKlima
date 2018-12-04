@@ -62,6 +62,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'LargeImageBlock',
         'ParentBlock',
         'LeadBlock',
+        'NavigationBlock',
         'MapBlock',
         'VideoBlock',
         'ActionBlock',
@@ -181,7 +182,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->addFieldToTab('Root.Main',TextField::create('TitleIcon',_t(__CLASS__.".TitleIcon","Icone apposée au titre (class css font awesome)")),'TitleAndDisplayed');
       
      
-        if (Permission::check('ADMIN')){
+        if (Permission::check('ADMIN') && $extracss){
             $fields->addFieldToTab('Root.LayoutTab',$extracss);
         } 
     	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
@@ -261,7 +262,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         return ($this->owner->Title) ? $this->owner->Title : $this->owner->ID;
     }
 
-
    
 
     public function isFirstMobile(){
@@ -305,7 +305,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         if ($this->owner->hasMethod('Parent')){
             $this->owner->Parent()->publishSingle();
         }
-        $this->owner->getPage()->publishSingle();
+        if ($this->owner->getPage()){
+            $this->owner->getPage()->publishSingle();
+        }
     }
 
 

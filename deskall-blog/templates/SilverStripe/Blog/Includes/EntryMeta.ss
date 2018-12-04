@@ -24,8 +24,8 @@
     </div>
      <div class="uk-width-1-4@s">
         <div class="uk-flex uk-flex-around">
-            <a rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u={$AbsoluteLink.URLATT}" title='<%t SilverStripe\\Blog\\Model\\Blog.ShareOn "Partager sur" %> Facebook' target="_blank"><i data-uk-icon="icon: facebook;ratio:2;"></i></a>
-            <a rel="nofollow" href="https://twitter.com/intent/tweet/?text={$Title.URLATT}&url={$AbsoluteLink.URLATT}&via=fitnessstriver" title='<%t SilverStripe\\Blog\\Model\\Blog.ShareOn "Partager sur" %> Twitter' target="_blank"><i data-uk-icon="icon: twitter;ratio:2;"></i></a>
+            <a rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u={$AbsoluteLink.URLATT}" title='<%t SilverStripe\\Blog\\Model\\Blog.ShareOn "Teilen" %> Facebook' target="_blank"><i data-uk-icon="icon: facebook;ratio:2;"></i></a>
+            <a rel="nofollow" href="https://twitter.com/intent/tweet/?text={$Title.URLATT}&url={$AbsoluteLink.URLATT}&via=fitnessstriver" title='<%t SilverStripe\\Blog\\Model\\Blog.ShareOn "Teilen" %> Twitter' target="_blank"><i data-uk-icon="icon: twitter;ratio:2;"></i></a>
             <%-- <a rel="nofollow" href="#" title='<%t SilverStripe\\Blog\\Model\\Blog.ShareOn "Partager sur" %> Linkedin' target="_blank"><i data-uk-icon="icon: linkedin;ratio:2;"></i></a> --%>
     </div>
     </div>
