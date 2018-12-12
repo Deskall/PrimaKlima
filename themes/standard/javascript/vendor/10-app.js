@@ -1,11 +1,4 @@
- // Height of body
-$(document).ready(function(){
-  var footerH = $("footer").Height();
-  var headerH = $("header").Height();
-  if ( $(".main-content-wrapper").length > 0){
-     $(".main-content-wrapper").css({'minHeight','calc(100% - '+footerH+'px - '+headerH+'px'});
-  }
-});
+
 $(document).ready(function(){
   if ($(".flatpickr").length > 0){
     $(".flatpickr").flatpickr({
