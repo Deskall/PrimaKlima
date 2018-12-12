@@ -31,15 +31,18 @@ class GalleryBlock extends BaseElement implements Searchable
         'PaddedImages' => 'Boolean(0)',
         'lightboxOff' => 'Boolean(0)',
         'ShowDot' => 'Boolean(1)',
-        'ShowNav' => 'Boolean(0)'
+        'ShowNav' => 'Boolean(0)',
+        'Type' => 'Varchar'
     ];
 
     private static $many_many = [
-        'Images' => Image::class
+        'Images' => Image::class,
+        'Boxes' => Box::class
     ];
 
     private static $many_many_extraFields = [
-        'Images' => ['SortOrder' => 'Int']
+        'Images' => ['SortOrder' => 'Int'],
+        'Boxes' => ['SortOrder' => 'Int']
     ];
 
     private static $owns = [
@@ -58,6 +61,11 @@ class GalleryBlock extends BaseElement implements Searchable
         'carousel' => 'Carousel',
         'grid' => 'Grid',
         'card' => 'Card'
+    ];
+
+    private static $block_types = [
+        'images' => 'Images',
+        'boxes' => 'Boxes'
     ];
     
     private static $pictures_per_line = [
@@ -94,7 +102,7 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('ShowNav');
             $fields->removeByName('PaddedImages');
              $fields->removeByName('lightboxOff');
-           
+           $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'Title');
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
@@ -114,6 +122,7 @@ class GalleryBlock extends BaseElement implements Searchable
             );
             
            $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname')),'HTML');
+
 
         });
      $fields = parent::getCMSFields();
@@ -154,6 +163,10 @@ class GalleryBlock extends BaseElement implements Searchable
         foreach($this->stat('block_layouts') as $key => $value) {
           $entities[__CLASS__.".block_layouts_{$key}"] = $value;
         }
+         foreach($this->stat('block_types') as $key => $value) {
+          $entities[__CLASS__.".block_types_{$key}"] = $value;
+        }
+
        
         return $entities;
     }
