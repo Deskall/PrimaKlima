@@ -122,7 +122,7 @@ $(document).ready(function(){
 
 //Table
 $(document).ready(function(){
-  $(".element table").each(function(){
+  $(".dk-text-content table").each(function(){
     $(this).wrap('<div class="uk-overflow-auto"></div>');
       $(this).addClass("uk-table uk-table-striped uk-table-small");
       if ($(this).width() > $(window).width()){
