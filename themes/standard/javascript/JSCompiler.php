@@ -54,19 +54,20 @@ function autoCompileJs($srcDir,$filename){
 	}
 	if ($modified){
 		//Concatenate all src files in main
-		$main = fopen("main.js","w");
-		$handle = fopen("compiled.js","w");
+		$main = fopen("main.js","a");
+		$handle = fopen("compiled.js","a");
 		$minify = fopen("tocompile.js","w");
 		foreach($srcFiles as $key => $file) {
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", "\n".$file." : ".strpos($file,".min.js")."\n");
 			$in = fopen($srcDir."/".$file, "r");
 	        while ($line = fgets($in)){
 	            if (!strpos($file,".min.js")){
 	            	fwrite($minify, $line);
 	            }
 	            else{
+	            	
 	            	fwrite($handle, $line);
 	            } 
-	            fwrite($main, $line);
 	            fwrite($main, $line);
 	        }
           	fclose($in);

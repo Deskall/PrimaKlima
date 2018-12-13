@@ -1,4 +1,28 @@
 
+
+numeral.language('de-ch', {
+    delimiters: {
+        thousands: ' ',
+        decimal: '.'
+    },
+    abbreviations: {
+        thousand: 'k',
+        million: 'm',
+        billion: 'b',
+        trillion: 't'
+    },
+    ordinal: function (number) {
+        return '.';
+    },
+    currency: {
+        symbol: 'Fr. '
+    }
+});
+
+// switch between languages
+numeral.language('de-ch');
+
+
 $(document).ready(function(){
   if ($(".flatpickr").length > 0){
     $(".flatpickr").flatpickr({
