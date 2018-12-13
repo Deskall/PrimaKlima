@@ -3,7 +3,7 @@
   <head>
      <% include Meta %>
   </head>
-  <body>
+  <body class="$ClassName">
     <div class="uk-offcanvas-content">
       <% include Header %>
       <div class="main-content-wrapper">
