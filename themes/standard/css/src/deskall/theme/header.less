@@ -4,6 +4,7 @@
 .hook-main-nav-dropdown() {}
 
 header{
+	margin-bottom:@header-margin-bottom;
 	.uk-navbar-container {
 		min-height:@header-menu-collapsed-height;
 		@media (min-width:@breakpoint-medium){
@@ -31,7 +32,12 @@ header{
 			padding:0 @nav-item-padding-xlarge;
 		}
 	}
-
+	.uk-navbar-nav > li:first-of-type > a{
+		padding-left:0!important;
+	}
+	.uk-navbar-nav > li:last-of-type > a{
+		padding-right:0!important;
+	}
 	.dk-submenu{
 		.uk-navbar-nav > li > a{
 			.subnav-font;
@@ -51,10 +57,10 @@ header li > a[data-uk-icon], .dk-nav-mobile-container li > a[data-uk-icon]{
 //UNten navigation
 header .uk-navbar-nav.main .uk-navbar-dropdown{
 	@media only screen and (min-width:@breakpoint-large){
-		margin:0 20px;
+		margin:0 @nav-item-padding-large;
 	}
 	@media only screen and (min-width:@breakpoint-xlarge){
-		margin:0 40px;
+		margin:0 @nav-item-padding-xlarge;
 	}
 	background-color: @main-subnavi-background;
 	.uk-navbar-dropdown-nav > li {

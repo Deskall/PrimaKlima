@@ -11,6 +11,10 @@ TractorCow\Fluent\Model\Locale:
   extensions:
     - PublishInDefaultLocaleExtension
 
+LayoutBlock:
+  extensions:
+    - 'MenuBlockExtension'
+
 DNADesign\Elemental\Models\BaseElement:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'

@@ -104,7 +104,7 @@ class LayoutBlock extends DataObject{
 	public function getCMSFields(){
 		$this->beforeUpdateCMSFields(function ($fields) {
 			$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')));
-			$fields->addFieldToTab('Root.Main',UploadField::create('Logo',_t(__CLASS__.'.Logo','Logo'))->setFolderName(_t(__CLASS__.'.FolderName','Uploads/Einstellungen')));
+			$fields->addFieldToTab('Root.Main',UploadField::create('Logo',_t(__CLASS__.'.Logo','Logo'))->setFolderName(SiteConfig::current_site_config()->getFolderName()));
 			$fields->addFieldToTab('Root.Main',TextareaField::create('Title',_t(__CLASS__.'.Title','Titel'))->setRows(2));
 			$fields->addFieldToTab('Root.LayoutTab', $w = DropdownField::create('Width',_t(__CLASS__.'.Width','Breite'),$this->getTranslatedSourceFor(__CLASS__,'widths'))->setEmptyString(_t(__CLASS__.'.WidthLabel','Breite auswählen'))->setDescription(_t(__CLASS__.'.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
 			$fields->addFieldToTab('Root.LayoutTab', $cs = TextField::create('Class',_t(__CLASS__.'.ExtraClass','Extra CSS Class'))->setDescription(_t(__CLASS__.'.ClassDescription','Fügen Sie alle relevanten Klassen nur durch ein Leerzeichen getrennt')));
@@ -112,7 +112,7 @@ class LayoutBlock extends DataObject{
 			$title = $fields->fieldByName('Root.Main.Title');
 			$fields->removeByName('Links');
 			$fields->removeByName('SiteConfigID');
-			$title->displayIf('Type')->isEqualTo('links')->orIf('Type')->isEqualTo('content')->orIf('Type')->isEqualTo('partners');
+			$title->displayIf('Type')->isEqualTo('links')->orIf('Type')->isEqualTo('content')->orIf('Type')->isEqualTo('items');
 			
 			if ($this->ID > 0){
 				$fields->fieldByName('Root.Main.Type')->setDisabled(true);

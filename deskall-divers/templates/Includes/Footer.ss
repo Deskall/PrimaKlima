@@ -60,30 +60,51 @@
 		    	<div>
 		    		<a href="/" class="uk-navbar-item uk-logo">
 		    			<% if $Logo.getExtension == "svg" %>
-		    			<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo" data-uk-svg />
+		    			<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo" width="$Top.SiteConfig.FooterLogoWidth" />
 		    			<% else %>
 		    			<img src="$Logo.ScaleMaxWidth($Top.SiteConfig.IntVal($Top.SiteConfig.FooterLogoWidth)).URL" alt="$Top.SiteConfig.Title Logo" />
 		    			<% end_if %>
 		    		</a>
 		    	</div>
-		    	<% else_if Type == "partners" %>
+		    	<% else_if Type == "items" %>
 		    	<div>
 		    		<% if Title %>
 		    		 <div class="title-container">
 			    		<h3 class="uk-margin-small-bottom">$Title</h3>
 			    	</div>
 			    	<% end_if %>
-		    		<div class="uk-child-width-1-3 uk-flex uk-flex-middle" data-uk-grid>
-		    			<% loop Partners.Sort('SortOrder') %>
-		    			<div class="uk-text-center partner-container">
-		    			<% if $getExtension == "svg" %>
-		    			<img src="$URL" alt="$AltTag($Title)" class="svg-logo format-{$Orientation} <% if $Height > 100 %>restrict-height<%end_if %>" />
-		    			<% else %>
-		    			<img src="$FitMax(200,100).URL" />
-		    			<% end_if %>
-		    			</div>
+		    			<% loop Items %>
+		    			<div class="uk-margin">
+		    			<% if LinkableLinkID > 0 %>
+		    			     <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr}>
+		    			 <% end_if %>
+		    			    <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-1@m" data-uk-grid >
+		    			    
+		    			     	<% if Image %>
+				    			    <div>
+				    			    	<% if Image.getExtension == "svg" %>
+				    						<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" width="120">
+				    					<% else %>
+				    						<% if Image.ScaleWidth(120).Height > 100 %>
+				    						<img src="$Image.ScaleHeight(100).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+				    						<% else %>
+				    						<img src="$Image.ScaleWidth(120).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+				    						<% end_if %>
+				    					<% end_if %> 
+				    			    </div>
+			    			    <% end_if %>
+			    			    <div>
+			    				    <div  class="$TitleAlign">$Title</div>
+			    				    <div class="dk-text-content $TextAlign  $TextColumns <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+			    				    	$Content
+			    				    </div>
+			    				 </div>
+		    			   </div>
+		    			<% if LinkableLinkID > 0 %>
+			    			</a>
+			    		<% end_if %>
+			    	</div>
 		    			<% end_loop %>
-		    		</div>
 		    	</div>
 		        <% else %>
 		    	<div class="title-container">

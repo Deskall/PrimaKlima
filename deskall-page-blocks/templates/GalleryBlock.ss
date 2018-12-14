@@ -8,7 +8,7 @@
 		<% end_if %>
 
 		<% if Layout == "carousel" %>
-		<div data-uk-slider="<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
+		<div data-uk-slider="<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %><% if not infiniteLoop %>finite:true;<% end_if %>">
 
 		    <div class="uk-position-relative">
 
@@ -52,12 +52,12 @@
 		        </div>
 		        <% if not isChildren %>
 			        <% if ShowNav %>
-			        <div class="uk-hidden@s uk-light">
+			        <div class="uk-hidden@l uk-light">
 			            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 			            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 			        </div>
 
-			        <div class="uk-visible@s">
+			        <div class="uk-visible@l">
 			            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 			            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 			        </div>
@@ -69,7 +69,7 @@
 		    <% end_if %>
 		</div>
 		<% else_if Layout == "card" %>
-		<div data-uk-slider="finite: true;<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
+		<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
 		    <div class="uk-position-relative uk-visible-toggle">
 		    	<div class="uk-slider-container">
 			        <ul class="uk-slider-items $PicturesPerLine uk-grid" data-uk-height-match=".uk-card-body">
@@ -97,12 +97,12 @@
 		        </div>
 		        <% if not isChildren %>
 			        <% if ShowNav %>
-			        <div class="uk-hidden@s uk-light">
+			        <div class="uk-hidden@l uk-light">
 			            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 			            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 			        </div>
 
-			        <div class="uk-visible@s">
+			        <div class="uk-visible@l">
 			            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 			            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 			        </div>

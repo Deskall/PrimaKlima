@@ -22,6 +22,8 @@ use SilverStripe\Assets\Image;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
+use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\Assets\Folder;
 
 class SiteConfigExtension extends DataExtension 
 {
@@ -69,5 +71,29 @@ class SiteConfigExtension extends DataExtension
     
     $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.MainTab','Hauptteil'));
     $fields->FieldByName('Root.Access')->setTitle(_t(__CLASS__.'.AccessTab','Zugang'));
+  }
+
+  public function onBeforeWrite(){
+    ob_start();
+      print_r('start'."\n"."------------------------");
+      $result = ob_get_clean();
+      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+    if ($this->owner->ID > 0){
+            $changedFields = $this->owner->getChangedFields();
+            //Update Folder Name
+            if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
+                $oldFolderPath = "Uploads/".URLSegmentFilter::create()->filter($changedFields['Title']['before']);
+                $newFolder = Folder::find_or_make($oldFolderPath);
+                $newFolder->renameFile($changedFields['Title']['after']);
+            }
+        }
+      
+      parent::onBeforeWrite();
+  }
+
+
+  public function getFolderName(){
+    $folder = Folder::find_or_make("Uploads/".URLSegmentFilter::create()->filter($this->owner->Title)."/Parameters");
+    return $folder->getFilename();
   }
 }

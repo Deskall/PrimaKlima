@@ -15,6 +15,10 @@ SilverStripe\Comments\Controllers\CommentingController:
   extensions:
     - 'DeskallCommentingControllerExtension'
 
+Page:  
+  comments:
+    enabled: false
+
 SilverStripe\Blog\Model\BlogPost:
   extensions:
     - BlogPostExtension

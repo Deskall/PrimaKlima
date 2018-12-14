@@ -32,7 +32,8 @@ class GalleryBlock extends BaseElement implements Searchable
         'lightboxOff' => 'Boolean(0)',
         'ShowDot' => 'Boolean(1)',
         'ShowNav' => 'Boolean(0)',
-        'Type' => 'Varchar'
+        'Type' => 'Varchar',
+        'infiniteLoop' => 'Boolean(1)'
     ];
 
     private static $many_many = [
@@ -101,8 +102,10 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('ShowDot');
             $fields->removeByName('ShowNav');
             $fields->removeByName('PaddedImages');
-             $fields->removeByName('lightboxOff');
-           $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'Title');
+            $fields->removeByName('lightboxOff');
+            $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'Title');
+            $fields->removeByName('infiniteLoop');
+           
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
@@ -115,7 +118,8 @@ class GalleryBlock extends BaseElement implements Searchable
                     OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
                     CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
                     CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
-                    CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches Abspielen?')),
+                    CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches abspielen?')),
+                    CheckboxField::create('infiniteLoop',_t(__CLASS__.'.inifite','unendlish abspielen?')),
                     CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Bilder vollständig anzeigen? (keine Größenanpassung, beispielsweise für Logos angegeben)')),
                     CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?'))
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
