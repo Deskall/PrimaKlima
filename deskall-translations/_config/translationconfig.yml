@@ -33,6 +33,7 @@ Slide:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
     - 'FilterLocalExtension'
+    - 'FluentCascadeDeleteExtension'
   translate:
     - 'Title'
     - 'Content'
