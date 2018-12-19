@@ -97,6 +97,26 @@ SilverStripe\UserForms\Model\Recipient\EmailRecipient:
     - 'EmailSubject'
     - 'EmailBodyHtml'
     - 'EmailBody'
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentVersionedExtension
+  frontend_publish_required: false
+  translate:
+    - 'Title'
+    - 'Tagline'
+    - 'AddressTitle'
+    - 'Address'
+    - 'CodeCity'
+    - 'Country'
+    - 'Email'
+    - 'Phone'
+    - 'Mobile'
+    - 'Notfall'
+    - 'Facebook'
+    - 'Twitter'
+    - 'Linkedin'
+    - 'Xing'
 ---
 Only:
   moduleexists: 'deskall-users'
