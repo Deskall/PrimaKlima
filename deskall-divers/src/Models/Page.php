@@ -12,7 +12,7 @@ class Page extends SiteTree implements Searchable
 
     public function fieldLabels($includerelation = true){
       $labels = parent::fieldLabels($includerelation);
-      $labels['ExtraHeaderClass'] = _t('Page.ExtraHeaderClass','Custom CSS Class');
+      $labels['ExtraHeaderClass'] = _t('Page.ExtraHeaderClass','Custom CSS Class für der Header');
 
       return $labels;
     }
