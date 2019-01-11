@@ -10,6 +10,12 @@ class Page extends SiteTree implements Searchable
     ];
 
 
+    public function getCMSFields(){
+      $fields = parent::getCMSFields();
+      $fields->addFieldToTab('Root.Layout',$fields->fieldByName('Root.Main.ExtraHeaderClass'));
+      return $fields;
+    }
+
      /**
       * Filter array
       * eg. array('Disabled' => 0);
