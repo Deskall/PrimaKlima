@@ -1,5 +1,0 @@
-la
-
-$RenderPreview
-
-ici
