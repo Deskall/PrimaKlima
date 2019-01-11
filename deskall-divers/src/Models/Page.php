@@ -2,6 +2,7 @@
 
 use SilverStripe\CMS\Model\SiteTree;
 use g4b0\SearchableDataObjects\Searchable;
+use SilverStripe\Forms\TextField;
 
 class Page extends SiteTree implements Searchable
 {
@@ -9,10 +10,17 @@ class Page extends SiteTree implements Searchable
       'ExtraHeaderClass' => 'Varchar'
     ];
 
+    public function fieldLabels($includerelation = true){
+      $labels = parent::fieldLabels($includerelation);
+      $labels['ExtraHeaderClass'] = _t('Page.ExtraHeaderClass','Custom CSS Class');
+
+      return $labels;
+    }
+
 
     public function getCMSFields(){
       $fields = parent::getCMSFields();
-      $fields->addFieldToTab('Root.Layout',$fields->fieldByName('Root.Main.ExtraHeaderClass'));
+      $fields->addFieldToTab('Root.Layout',TextField::create('ExtraHeaderClass',$this->fieldLabels()['ExtraHeaderClass']));
       return $fields;
     }
 
