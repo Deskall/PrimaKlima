@@ -112,6 +112,14 @@ fr:
       one: 'une page'
       other: '{count} pages'
     SINGULARNAME: Page
+    SEARCHRESULTS: 'Résultats de la recherche'
+  SearchPage:
+    QUERY: 'Votre recherche :'
+    Read: 'Consulter la page'
+    NORESULT: 'Votre recherche ne donne aucun résultat.'
+    PREV: 'Précédent'
+    NEXT: 'Suivant'
+    SEEPAGE: 'Consulter la page'
   SiteConfigExtension:
     AccessTab: 'Accès'
     Address: Adresse
