@@ -10,8 +10,9 @@ use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\File;
 use Bummzack\SortableFile\Forms\SortableUploadField;
+use g4b0\SearchableDataObjects\Searchable;
 
-class DownloadBlock extends BaseElement
+class DownloadBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-install';
     
@@ -111,24 +112,26 @@ class DownloadBlock extends BaseElement
 
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
-        $fields->removeByName('Files');
-        $fields->removeByName('DownloadsTitle');
-        $fields->removeByName('FilesColumns');
-        $fields->removeByName('FilesTextAlign');
-        $fields->removeByName('Layout');
+        $this->beforeUpdateCMSFields(function($fields) {
         
-        $fields->fieldByName('Root.Main.HTML')->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))->setRows(5);
+            $fields->removeByName('Files');
+            $fields->removeByName('DownloadsTitle');
+            $fields->removeByName('FilesColumns');
+            $fields->removeByName('FilesTextAlign');
+            $fields->removeByName('Layout');
+            
+            $fields->fieldByName('Root.Main.HTML')->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))->setRows(5);
 
-        $fields->addFieldToTab('Root.Main',CompositeField::create(
-            TextField::create('DownloadsTitle',_t(__CLASS__.'.DownloadsTitle','Downloads Area Titel')),
-            SortableUploadField::create('Files',_t(__CLASS__.'.Files','Dateien'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())
-        )->setTitle(_t(__CLASS__.'.Files','Dateien'))->setName('FilesFields'));
-        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-            HTMLOptionsetField::create('FilesColumns',_t(__CLASS__.'.FilesInColumns','Dateien in mehreren Spalten'),$this->stat('files_columns')),
-            HTMLOptionsetField::create('FilesTextAlign',_t(__CLASS__.'.FilesTextAlign','Dateien Textausrichtung'),$this->stat('files_text_alignments'))
-        )->setTitle(_t(__CLASS__.'.FilesLayout','Dateien Layout'))->setName('FilesLayout'));
-        
+            $fields->addFieldToTab('Root.Main',CompositeField::create(
+                TextField::create('DownloadsTitle',_t(__CLASS__.'.DownloadsTitle','Downloads Area Titel')),
+                SortableUploadField::create('Files',_t(__CLASS__.'.Files','Dateien'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())
+            )->setTitle(_t(__CLASS__.'.Files','Dateien'))->setName('FilesFields'));
+            $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+                HTMLOptionsetField::create('FilesColumns',_t(__CLASS__.'.FilesInColumns','Dateien in mehreren Spalten'),$this->stat('files_columns')),
+                HTMLOptionsetField::create('FilesTextAlign',_t(__CLASS__.'.FilesTextAlign','Dateien Textausrichtung'),$this->stat('files_text_alignments'))
+            )->setTitle(_t(__CLASS__.'.FilesLayout','Dateien Layout'))->setName('FilesLayout'));
+        });
+        $fields = parent::getCMSFields();
         return $fields;
     }
 
@@ -151,4 +154,57 @@ class DownloadBlock extends BaseElement
     }
 
 /************* END TRANLSATIONS *******************/
+
+/************* SEARCHABLE FUNCTIONS ******************/
+
+
+    /**
+     * Filter array
+     * eg. array('Disabled' => 0);
+     * @return array
+     */
+    public static function getSearchFilter() {
+        return array();
+    }
+
+    /**
+     * FilterAny array (optional)
+     * eg. array('Disabled' => 0, 'Override' => 1);
+     * @return array
+     */
+    public static function getSearchFilterAny() {
+        return array();
+    }
+
+
+    /**
+     * Fields that compose the Title
+     * eg. array('Title', 'Subtitle');
+     * @return array
+     */
+    public function getTitleFields() {
+        return array('Title','DownloadsTitle');
+    }
+
+    /**
+     * Fields that compose the Content
+     * eg. array('Teaser', 'Content');
+     * @return array
+     */
+    public function getContentFields() {
+        return array('HTML','FileNames');
+    }
+
+    public function getFileNames(){
+        $html = '';
+        if ($this->Files()->count() > 0){
+            $html .= '<ul>';
+            foreach ($this->Files() as $file) {
+                $html .= '<li>'.$file->Title.'</li>';
+            }
+            $html .='</ul>';
+        }
+        return $html;
+    }
+/************ END SEARCHABLE ***************************/
 }

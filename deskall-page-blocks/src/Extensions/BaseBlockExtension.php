@@ -13,11 +13,15 @@ use SilverStripe\i18n\i18nEntityProvider;
 use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
+use SilverStripe\Forms\TextField;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
 
     private static $db = [
+        'TitleIcon' => 'Varchar',
+        'isPrimary' => 'Boolean(0)',
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
         'Layout' => 'Varchar(255)',
@@ -25,8 +29,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
-       
+        'Width' => 'Varchar'
     ];
+
 
     private static $has_one = [
         'BackgroundImage' => Image::class,
@@ -42,7 +47,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextAlign' => 'uk-text-left',
         'TitleAlign' => 'uk-text-left',
         'TextColumns' => '1',
-        'AvailableGlobally' => 1,
+        'AvailableGlobally' => 1
     ];
 
     private static $blocks = [
@@ -52,11 +57,12 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'BoxBlock',
         'FeaturesBlock',
         'ListBlock',
-        'FormBlock',
+        'DNADesign-ElementalUserForms-Model-ElementForm',
         'DownloadBlock',
         'LargeImageBlock',
         'ParentBlock',
         'LeadBlock',
+        'NavigationBlock',
         'MapBlock',
         'VideoBlock',
         'ActionBlock',
@@ -74,7 +80,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'BoxBlock',
         'FeaturesBlock',
         'ListBlock',
-        'FormBlock',
+        'DNADesign-ElementalUserForms-Model-ElementForm',
         'DownloadBlock',
         'ParentBlock',
         'MapBlock',
@@ -149,9 +155,15 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         ]
     ];
 
+    public function populateDefaults(){
+        parent::populateDefaults();
+        if ($this->owner->isPrimary){
+            $this->owner->ShowTitle = 1;
+        }
+    }
+
 
     public function updateCMSFields(FieldList $fields){
-       
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
@@ -160,15 +172,17 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('TextColumns');
         $fields->removeByName('TextColumnsDivider');
         $fields->removeByName('AvailableGlobally');
-     
-        
+       $fields->removeByName('Width');
+
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
         $fields->removeByName('ExtraClass');
+
+        $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Diese Block enthalt den Haupttitel der Seite (h1)")),'TitleAndDisplayed');
+        $fields->addFieldToTab('Root.Main',TextField::create('TitleIcon',_t(__CLASS__.".TitleIcon","Icon (Class font awesome)")),'TitleAndDisplayed');
       
-        $fields->addFieldToTab('Root',new Tab('LayoutTab',_t(__CLASS__.'.LAYOUTTAB','Layout')));
      
-        if (Permission::check('ADMIN')){
+        if (Permission::check('ADMIN') && $extracss){
             $fields->addFieldToTab('Root.LayoutTab',$extracss);
         } 
     	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
@@ -189,6 +203,20 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
             $fields->addFieldToTab('Root',$history);
         }
+
+
+        $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LAYOUTTAB','Layout'));
+    
+ 
+        if ($this->owner->isPrimary){
+            $fields->removeByName('TitleAndDisplayed');
+        }
+
+        if ($this->owner->isChildren()){
+            $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(DropdownField::create('Width',_t('LayoutBlock.Width','Breite'),$this->owner->getTranslatedSourceFor('LayoutBlock','widths'))->setEmptyString(_t('LayoutBlock.WidthLabel','Breite auswählen'))->setDescription(_t('LayoutBlock.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
+        }
+        
+
     }
 
     public function getAnchorTitle(){
@@ -210,6 +238,12 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $last = $this->owner->Parent()->Elements()->sort('Sort','DESC')->first();
             $this->owner->Sort = ($last) ? $last->Sort + 1 : 1;
         }
+        if ($this->owner->isPrimary && $this->owner->getPage()){
+            foreach($this->owner->getPage()->ElementalArea()->Elements()->filter('isPrimary',1)->exclude('ID',$this->owner->ID) as $primary){
+                $primary->isPrimary = 0;
+                $primary->write();
+            }
+        }
         parent::onBeforeWrite();
     }
 
@@ -227,7 +261,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     public function NiceTitle(){
         return ($this->owner->Title) ? $this->owner->Title : $this->owner->ID;
     }
-
 
    
 
@@ -266,22 +299,15 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
 
 
-//Duplicate block with correct elem
-    public function DuplicateChildrens($original){
-        foreach (Config::inst()->get($original->ClassName,'cascade_duplicates') as $class) {
-            foreach($original->{$class}() as $object){
-                $newObject = $object->duplicate(false);
-                $newObject->ParentID = $this->owner->ID;
-                $newObject->write();
-            }
-        }
-    }
+
 
     public function onAfterPublish(){
         if ($this->owner->hasMethod('Parent')){
             $this->owner->Parent()->publishSingle();
         }
-        $this->owner->getPage()->publishSingle();
+        if ($this->owner->getPage()){
+            $this->owner->getPage()->publishSingle();
+        }
     }
 
 

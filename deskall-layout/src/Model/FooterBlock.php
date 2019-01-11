@@ -4,6 +4,12 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Control\Controller;
 use SilverStripe\SiteConfig\SiteConfigLeftAndMain;
+use SilverStripe\Assets\Image;
+use Bummzack\SortableFile\Forms\SortableUploadField;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridField;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class FooterBlock extends LayoutBlock{
 
@@ -11,7 +17,8 @@ class FooterBlock extends LayoutBlock{
 	];
 
     private static $has_many = [
-        'Links' => LayoutLink::class
+        'Links' => LayoutLink::class,
+        'Items' => ListItem::class
     ];
 
     private static $block_types = [
@@ -19,7 +26,8 @@ class FooterBlock extends LayoutBlock{
         'links' => 'Links',
         'content' => 'Inhalt',
         'logo' => 'Logo',
-        'form' => 'Formular'
+        'form' => 'Formular',
+        'items' => 'List mit Items'
     ];
 
     public function Preview(){
@@ -42,6 +50,10 @@ class FooterBlock extends LayoutBlock{
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
         $fields->removeByName('Layout');
+        $fields->removeByName('Type');
+        $fields->removeByName('Items');
+        $fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t('LayoutBlock.Type','BlockTyp'),$this->owner->getTranslatedSourceFor('FooterBlock','block_types'))->setEmptyString(_t('LayoutBlock.TypeLabel','Wählen Sie den Typ aus')),'Title');
+        $fields->insertAfter('Title',Wrapper::create(GridField::create('Items',_t(__CLASS__.".Items",'Items'),$this->Items(), GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())))->displayIf('Type')->isEqualTo('items')->end());
 
 		return $fields;
 	}
@@ -55,7 +67,7 @@ class FooterBlock extends LayoutBlock{
      */
     public function CMSEditLink()
     {
-        $editLinkPrefix = Controller::join_links(SiteConfigLeftAndMain::singleton()->Link('EditForm'));
+        $editLinkPrefix = Controller::join_links(ThemeLeftAndMain::singleton()->Link('EditForm'));
         
         $link = Controller::join_links(
             $editLinkPrefix,

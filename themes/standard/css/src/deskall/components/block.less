@@ -31,6 +31,12 @@
 	.uk-section{
 		padding:0;
 	}
+	.uk-section.with-background{
+		padding:10px;
+	}
 }
 
 
+.element:not(.children) > .uk-section{
+	padding: @intrablock-padding-vertical 0;
+}

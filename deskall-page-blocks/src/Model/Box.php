@@ -67,6 +67,8 @@ class Box extends DataObject
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.Settings',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
         $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
+        $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.Main','Inhalt'));
+        $fields->FieldByName('Root.Settings')->setTitle(_t(__CLASS__.'.Settings','Einstellungen'));
         return $fields;
     }
 
@@ -100,7 +102,9 @@ class Box extends DataObject
         if ($this->Parent()){
             $this->Parent()->publishSingle();
         }
-        $this->getPage()->publishSingle();
+        if ($this->getPage()){
+             $this->getPage()->publishSingle();
+        }
     }
 
 

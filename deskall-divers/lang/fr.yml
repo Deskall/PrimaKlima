@@ -46,3 +46,161 @@ fr:
   SiteTree:
     BUTTONACTIVE: Activer
     BUTTONINACTIVE: Désactiver
+  FooterBlock:
+    ClassDescription: 'Ajouter les classes nécessaires séparées par une virgule'
+    Content: Contenu
+    Links: Liens
+    PLURALNAME: 'Bloc de bas de page'
+    PLURALS:
+      one: 'un bloc de bas de page'
+      other: '{count} blocs de bas de page'
+    Preview: Aperçu
+    SINGULARNAME: 'bloc de bas de page'
+    TitleLabel: Titre
+    Type: Type de bloc
+    TypeLabel: 'Choisissez un type de bloc'
+    Width: Largeur
+    WidthDescription: 'Largeur relative à la page'
+    WidthLabel: 'Choisissez une largeur'
+    block_types_adresse: Adresse
+    block_types_content: Contenu
+    block_types_links: Liens
+    FooterBlockExtraClass: 'Classes css supplémentaires'
+    FooterBlockLinksLabel: 'Vous pourrez ajouter des liens après avoir sauvegardé le bloc.'
+    widths_uk-width-1-1: 'Plein écran'
+    'widths_uk-width-1-1@s uk-width-1-2@m': 50%
+    'widths_uk-width-1-1@s uk-width-1-3@m': 33.33%
+    'widths_uk-width-1-1@s uk-width-1-4@m': 25%
+    'widths_uk-width-1-1@s uk-width-1-5@m': 20%
+    widths_uk-width-auto: 'largeur automatique en fonction du contenu'
+    widths_uk-width-expand: 'prendre toute la largeur libre'
+  FooterLink:
+    Icon: Îcone
+    IconLabel: 'Ajouter une îcone'
+    Link: Lien
+    PLURALNAME: 'Liens de bas de page'
+    PLURALS:
+      one: 'un lien de bas de page'
+      other: '{count} liens de bas de page'
+    SINGULARNAME: 'lien de bas de page'
+    icons_calendar: Calendrier
+    icons_chevron-right: flêche droite
+    icons_facebook: facebook
+    icons_google-plus: google-plus
+    icons_home: accueil
+    icons_linkedin: linkedin
+    icons_list: Liste
+    icons_location: Marqueur
+    icons_lock: Privé
+    icons_mail: Email
+    icons_receiver: Téléphone
+    icons_search: Recherche
+    icons_tag: étiquette
+    icons_twitter: twitter
+    icons_user: personne
+    icons_users: personnes
+    icons_xing: xing
+  Linkable:
+    CTA: "Appel à l'action"
+  Global:
+    BUTTONACTIVEDESC: Activer
+    BUTTONINACTIVEDESC: Désactiver
+  Page:
+    DESCRIPTION: 'Page standard'
+    PLURALNAME: Pages
+    PLURALS:
+      one: 'une page'
+      other: '{count} pages'
+    SINGULARNAME: Page
+    SEARCHRESULTS: 'Résultats de la recherche'
+  SearchPage:
+    QUERY: 'Votre recherche :'
+    Read: 'Consulter la page'
+    NORESULT: 'Votre recherche ne donne aucun résultat.'
+    PREV: 'Précédent'
+    NEXT: 'Suivant'
+    SEEPAGE: 'Consulter la page'
+  SiteConfigExtension:
+    AccessTab: 'Accès'
+    Address: Adresse
+    AddressStreet: Adresse
+    AdresseTitle: "Titre de l'adresse"
+    Background: "Couleur d'arrière-plan"
+    BackgroundHelp: "Choisissez une couleur d'arrière-plan"
+    'backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
+    'backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
+    backgrounds_uk-section-default: "Pas de couleur d'arrière-plan"
+    'backgrounds_uk-section-muted dk-text-hover-muted': gris
+    'backgrounds_uk-section-primary dk-text-hover-primary': 'Couleur principale'
+    'backgrounds_uk-section-secondary dk-text-hover-secondary': 'Couleur secondaire'
+    CodeCity: 'CP / Lieu'
+    Country: Pays
+    Default: Défaults
+    Email: 'Adresse email'
+    Facebook: Facebook
+    Linkedin: Linkedin
+    MainTab: 'Contenu principal'
+    Mobile: Mobile
+    Notfall: "Numéro d'urgence"
+    Phone: Téléphone
+    SocialTitle: Réseau
+    TagLine: 'Slogan'
+    Twitter: Twitter
+    Title: 'Titre du site'
+    Xing: Xing
+  SiteTree:
+    BUTTONACTIVE: Activer
+    BUTTONINACTIVE: Désactiver
+
+### SITECONFIG
+  SilverStripe\SiteConfig\SiteConfig:
+    EDITHEADER: 'Qui peux modifier les page de ce site ?'
+    EDIT_PERMISSION: 'Gérer la configuration du site'
+    EDIT_PERMISSION_HELP: 'Permet de modifier les accès globaux et les permissions de page'
+    PLURALNAME: 'Configurations de site'
+    PLURALS:
+      one: 'une configuration de site'
+      other: '{count} configurations de site'
+    SINGULARNAME: 'Confiuration du site'
+    SITENAMEDEFAULT: 'Nom de votre site'
+    SITETAGLINE: 'Slogan'
+    SITETITLE: 'Titre du site'
+    TABACCESS: Accès
+    TABMAIN: Principal
+    TAGLINEDEFAULT: 'copiez votre slogan ici'
+    TOPLEVELCREATE: 'Qui peut crééer des pages à la racine de ce site ?'
+    TOPLEVELCREATORGROUPS: 'Créateurs de page à la racine du site'
+    VIEWHEADER: 'Qui peut voir les pages de ce site ?'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Paramètres
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
+    EDIT: Modifier
+
+
+### GOOGLESITEMPS MODULE
+  GoogleSitemaps:
+    METANOTEPRIORITY: 'Définir la priorité pour cette page (%s)'
+    METAPAGEPRIO: 'Priorité de la page'
+    PRIORITYAUTOSET: 'Définie par la position de la page dans la hierarchie.'
+    PRIORITYLEASTIMPORTANT: 'la moins importante'
+    PRIORITYMOSTIMPORTANT: 'la plus importante'
+    PRIORITYNOTINDEXED: ne pas indexer la page'
+    TABGOOGLESITEMAP: 'Google Sitemap'
+
+
+
+
+  ## GRIDFIELD EXTENSIONS MODULE
+  GridFieldExtensions:
+    ADD: Ajouter
+    ADDEXISTING: 'Ajouter un existant'
+    BACK: Retour
+    CURRENT: (actuel)
+    NOITEMS: "Il n'y a aucun élément"
+    Next: "Suivant"
+    PREVIOUS: "Précédent"
+    RESULTS: "Résultats"
+    SEARCH: "Rechercher"
+    SELECTTYPETOCREATE: '(Choisissez un type de bloc à créer)'
+  Symbiote\GridFieldExtensions\GridFieldConfigurablePaginator:
+    SHOW: Voir

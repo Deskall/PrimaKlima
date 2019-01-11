@@ -13,7 +13,7 @@ if($js_compiled){
 	//minify via google closure api
 		$url = 'https://closure-compiler.appspot.com/compile';
 		$params = array(
-			'js_code' => $js_compiled,
+			'js_code' => $js_compiled['to_minify'],
 			'compilation_level' => 'SIMPLE_OPTIMIZATIONS',
 			'output_format' => 'text',
 			'output_info' => 'compiled_code'
@@ -35,8 +35,8 @@ if($js_compiled){
 		}
 
 		// save files
-	file_put_contents($filename_full,$js_compiled);
-	file_put_contents($filename_min,$js_minified);
+	file_put_contents($filename_full,$js_compiled['minified'].$js_compiled['to_minify']);
+	file_put_contents($filename_min,$js_compiled['minified'].$js_minified);
 }
 
 
@@ -54,19 +54,33 @@ function autoCompileJs($srcDir,$filename){
 	}
 	if ($modified){
 		//Concatenate all src files in main
-		$handle = fopen("main.js","w");
+		$main = fopen("main.js","a");
+		$handle = fopen("compiled.js","a");
+		$minify = fopen("tocompile.js","w");
 		foreach($srcFiles as $key => $file) {
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", "\n".$file." : ".strpos($file,".min.js")."\n",FILE_APPEND);
 			$in = fopen($srcDir."/".$file, "r");
 	        while ($line = fgets($in)){
-	            fwrite($handle, $line);
+	            if (!strpos($file,".min.js")){
+	            	fwrite($minify, $line);
+	            }
+	            else{
+	            	
+	            	fwrite($handle, $line);
+	            } 
+	            fwrite($main, $line);
 	        }
           	fclose($in);
 		}
 		fclose($handle);
+		fclose($minify);
+		fclose($main);
 
-		$js_compiled = file_get_contents("main.js");
+		$js_compiled = file_get_contents("compiled.js");
 
-		return $js_compiled;
+		$toMinifiy = file_get_contents("tocompile.js");
+
+		return ['minified' => $js_compiled, 'to_minify' => $toMinifiy];
 	}
 	return false;
 

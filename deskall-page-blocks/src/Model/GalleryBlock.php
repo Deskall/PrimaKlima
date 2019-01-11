@@ -11,8 +11,9 @@ use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use Bummzack\SortableFile\Forms\SortableUploadField;
+use g4b0\SearchableDataObjects\Searchable;
 
-class GalleryBlock extends BaseElement
+class GalleryBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-block-carousel';
     
@@ -26,15 +27,23 @@ class GalleryBlock extends BaseElement
         'PicturesPerLine' => 'Varchar(255)',
         'PictureWidth' => 'Int',
         'PictureHeight' => 'Int',
-        'Autoplay' => 'Boolean(0)'
+        'Autoplay' => 'Boolean(0)',
+        'PaddedImages' => 'Boolean(0)',
+        'lightboxOff' => 'Boolean(0)',
+        'ShowDot' => 'Boolean(1)',
+        'ShowNav' => 'Boolean(0)',
+        'Type' => 'Varchar',
+        'infiniteLoop' => 'Boolean(1)'
     ];
 
     private static $many_many = [
-        'Images' => Image::class
+        'Images' => Image::class,
+        'Boxes' => Box::class
     ];
 
     private static $many_many_extraFields = [
-        'Images' => ['SortOrder' => 'Int']
+        'Images' => ['SortOrder' => 'Int'],
+        'Boxes' => ['SortOrder' => 'Int']
     ];
 
     private static $owns = [
@@ -51,7 +60,13 @@ class GalleryBlock extends BaseElement
 
     private static $block_layouts = [
         'carousel' => 'Carousel',
-        'grid' => 'Grid'
+        'grid' => 'Grid',
+        'card' => 'Card'
+    ];
+
+    private static $block_types = [
+        'images' => 'Images',
+        'boxes' => 'Boxes'
     ];
     
     private static $pictures_per_line = [
@@ -74,8 +89,8 @@ class GalleryBlock extends BaseElement
 
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
-
+       
+        $this->beforeUpdateCMSFields(function($fields) {
        
             $fields->removeByName('Images');
             $fields->removeByName('PictureHeight');
@@ -84,25 +99,37 @@ class GalleryBlock extends BaseElement
             $fields->removeByName('SortAttribute');
             $fields->removeByName('Layout');
             $fields->removeByName('Autoplay');
+            $fields->removeByName('ShowDot');
+            $fields->removeByName('ShowNav');
+            $fields->removeByName('PaddedImages');
+            $fields->removeByName('lightboxOff');
+            $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'Title');
+            $fields->removeByName('infiniteLoop');
            
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
           
-            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName(),'HTML'));
+            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()),'HTML');
 
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(
                     DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Bilder per Linie'), self::$pictures_per_line),
                     OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
-                    CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches Abspielen?'))
+                    CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
+                    CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
+                    CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches abspielen?')),
+                    CheckboxField::create('infiniteLoop',_t(__CLASS__.'.inifite','unendlish abspielen?')),
+                    CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Bilder vollständig anzeigen? (keine Größenanpassung, beispielsweise für Logos angegeben)')),
+                    CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?'))
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             
            $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname')),'HTML');
 
-          
-    
+
+        });
+     $fields = parent::getCMSFields();
       
 
         return $fields;
@@ -140,9 +167,70 @@ class GalleryBlock extends BaseElement
         foreach($this->stat('block_layouts') as $key => $value) {
           $entities[__CLASS__.".block_layouts_{$key}"] = $value;
         }
+         foreach($this->stat('block_types') as $key => $value) {
+          $entities[__CLASS__.".block_types_{$key}"] = $value;
+        }
+
        
         return $entities;
     }
 
 /************* END TRANLSATIONS *******************/
+
+/************* SEARCHABLE FUNCTIONS ******************/
+
+
+    /**
+     * Filter array
+     * eg. array('Disabled' => 0);
+     * @return array
+     */
+    public static function getSearchFilter() {
+        return array();
+    }
+
+    /**
+     * FilterAny array (optional)
+     * eg. array('Disabled' => 0, 'Override' => 1);
+     * @return array
+     */
+    public static function getSearchFilterAny() {
+        return array();
+    }
+
+
+    /**
+     * Fields that compose the Title
+     * eg. array('Title', 'Subtitle');
+     * @return array
+     */
+    public function getTitleFields() {
+        return array('Title');
+    }
+
+    /**
+     * Fields that compose the Content
+     * eg. array('Teaser', 'Content');
+     * @return array
+     */
+    public function getContentFields() {
+        return array('HTML','ImageContent');
+    }
+
+    public function getImageContent(){
+        $html = '';
+        if ($this->Images()->count() > 0){
+            $html .= '<ul>';
+            foreach ($this->Images() as $image) {
+                $html .= '<li>'.$image->Title."\n";
+                if ($image->Description){
+                    $html .= $image->Description;
+                }
+                $html .= '</li>';
+            }
+            $html .='</ul>';
+        }
+        return $html;
+    }
+/************ END SEARCHABLE ***************************/
 }

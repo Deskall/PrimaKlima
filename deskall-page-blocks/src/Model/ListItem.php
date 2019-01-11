@@ -11,6 +11,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class ListItem extends DataObject
 {
@@ -27,7 +28,8 @@ class ListItem extends DataObject
 
     private static $has_one = [
         'Parent' => ListBlock::class,
-        'Image' => Image::class
+        'Image' => Image::class,
+        'FooterBlock' => FooterBlock::class
     ];
 
     private static $extensions = [
@@ -139,6 +141,7 @@ class ListItem extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('ParentID');
+        $fields->removeByName('FooterBlockID');
         $fields->removeByName('Layout');
         $fields->removeByName('TitleAlign');
         $fields->removeByName('TextAlign');
@@ -176,7 +179,12 @@ class ListItem extends DataObject
     }
 
     public function getFolderName(){
-        return $this->Parent()->getFolderName();
+        if ($this->ParentID > 0){
+            return $this->Parent()->getFolderName();
+        }
+        if ($this->FooterBlockID > 0){
+            return SiteConfig::current_site_config()->getFolderName();
+        }
     }
 
     public function getSummary()

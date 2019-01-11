@@ -28,6 +28,7 @@
 			 		<% end_if %>
 		        </ul>
 		    <% else_if Type == "content" %>
+		    <h3><% if Title %>$Title <% end_if %></h3>
 		    $Content
 		    <% else_if Type == "logo" %>
 		    <img src="$Logo.URL" width="150" />

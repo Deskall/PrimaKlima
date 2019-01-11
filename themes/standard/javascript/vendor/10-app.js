@@ -1,4 +1,31 @@
+
+
+
+numeral.language('de-ch', {
+    delimiters: {
+        thousands: ' ',
+        decimal: '.'
+    },
+    abbreviations: {
+        thousand: 'k',
+        million: 'm',
+        billion: 'b',
+        trillion: 't'
+    },
+    ordinal: function (number) {
+        return '.';
+    },
+    currency: {
+        symbol: 'Fr. '
+    }
+});
+
+// switch between languages
+numeral.language('de-ch');
+
+
 $(document).ready(function(){
+  if ($(".flatpickr").length > 0){
     $(".flatpickr").flatpickr({
         dateFormat: "d.m.Y",
         locale: {
@@ -51,21 +78,7 @@ $(document).ready(function(){
           toggleTitle: "Zum Umschalten klicken",
         }
     });
-});
-
-//Recaptcha validation
-$(document).ready(function(){
-	if ($(".g-recaptcha").length > 0){
-		//$('<script src="https://www.google.com/recaptcha/api.js" defer></script>').appendTo($("head"));
-	}
-	$(".g-recaptcha").on("click",function(event){
-		event.preventDefault();
-		grecaptcha.execute();
-	});
-
-	function onSubmit(token) {
-	    alert('thanks ');
-	}
+  }  
 });
 
 //Google Maps
@@ -109,19 +122,21 @@ $(document).ready(function(){
 
 
 //Table
+$(document).ready(function(){
+  $(".dk-text-content table").each(function(){
+    $(this).wrap('<div class="uk-overflow-auto"></div>');
+      $(this).addClass("uk-table uk-table-striped uk-table-small");
+      if ($(this).width() > $(window).width()){
+          divContainer = $("<div></div>");
+          divContainer.addClass("uk-overflow-auto");
+          $(this).detach().appendTo(divContainer);
+      }
 
-$(".element table").each(function(){
-    $(this).addClass("uk-table uk-table-striped uk-table-small uk-table-responsive");
-    if ($(this).width() > $(window).width()){
-        divContainer = $("<div></div>");
-        divContainer.addClass("uk-overflow-auto");
-        $(this).detach().appendTo(divContainer);
-    }
+  });
 });
 
-
 //Parent Block
-
+$(document).ready(function(){
     $(".parentblock .uk-accordion").each(function(){
         $(this).find("h3").each(function(){
             var html = $(this).html();
@@ -135,4 +150,15 @@ $(".element table").each(function(){
             $("#e"+value).addClass("uk-open");
         });
     });
- 
+});
+
+//Scroll links
+$(document).ready(function(){
+  $("[href *= '#']").each(function(){
+    var target = $(this).attr("href");
+    target = target.substr(0,target.indexOf("#"));
+    if (window.location.pathname == target){
+      UIkit.scroll($(this));
+    }
+  });
+});

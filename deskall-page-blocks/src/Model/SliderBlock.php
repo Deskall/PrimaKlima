@@ -21,8 +21,9 @@ use SilverStripe\Assets\Image;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
+use g4b0\SearchableDataObjects\Searchable;
 
-class SliderBlock extends BaseElement
+class SliderBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-block-banner';
     
@@ -59,37 +60,14 @@ class SliderBlock extends BaseElement
         'Slides',
     ];
 
-     private static $block_text_alignments = [
-        'uk-text-left' =>  [
-            'value' => 'uk-text-left',
-            'title' => 'Links Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
-        ],
-        'uk-text-right' => [
-            'value' => 'uk-text-right',
-            'title' => 'Rechts Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
-        ],
-        'uk-text-center' =>  [
-            'value' => 'uk-text-center',
-            'title' => 'Mittel Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
-        ],
-        'uk-text-justify' =>  [
-            'value' => 'uk-text-justify',
-            'title' => 'Justify Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
-        ]
-    ];
-
+    
 
     private static $defaults = [
         'Layout' => 'slideshow',
         'FullWidth' => 1,
         'MinHeight' => '250',
-        'Height' => 'viewport',
-        'TextAlign' => 'uk-text-left',
-        'TitleAlign' => 'uk-text-left'
+        'Height' => 'viewport'
+       
     ];
 
     private static $block_layouts = [
@@ -183,6 +161,9 @@ class SliderBlock extends BaseElement
             $fields->removeByName('Animation');
             $fields->removeByName('MinHeight');
             $fields->removeByName('MaxHeight');
+            $fields->removeByName('BackgroundImage');
+            $fields->removeByName('Background');
+            $fields->removeByName('TextLayout');
 
             if ($this->ID == 0){
                 $fields->addFieldToTab('Root.Main',LabelField::create('LabelField',_t(__CLASS__.'.SlideCopyHelpText','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider')));
@@ -276,10 +257,6 @@ class SliderBlock extends BaseElement
                     $this->MinHeight = 450;
                     $this->MaxHeight = 700;
                 break;
-                default:
-                    $this->MaxHeight = 2500;
-                    $this->MinHeight =250;
-                break;
             }
         }
     }
@@ -312,4 +289,65 @@ class SliderBlock extends BaseElement
     }
 
 /************* END TRANLSATIONS *******************/
+
+
+/************* SEARCHABLE FUNCTIONS ******************/
+
+
+    /**
+     * Filter array
+     * eg. array('Disabled' => 0);
+     * @return array
+     */
+    public static function getSearchFilter() {
+        return array();
+    }
+
+    /**
+     * FilterAny array (optional)
+     * eg. array('Disabled' => 0, 'Override' => 1);
+     * @return array
+     */
+    public static function getSearchFilterAny() {
+        return array();
+    }
+
+
+    /**
+     * Fields that compose the Title
+     * eg. array('Title', 'Subtitle');
+     * @return array
+     */
+    public function getTitleFields() {
+        return array('Title');
+    }
+
+    /**
+     * Fields that compose the Content
+     * eg. array('Teaser', 'Content');
+     * @return array
+     */
+    public function getContentFields() {
+        return array('SlideContent');
+    }
+
+    public function getSlideContent(){
+        $html = '';
+        if ($this->Slides()->count() > 0){
+            $html .= '<ul>';
+            foreach ($this->Slides() as $slide) {
+                $html .= '<li>';
+                if ($slide->Title){
+                    $html .= $slide->Title."\n";
+                }
+                if ($slide->Content){
+                    $html .= $slide->Content;
+                }
+                $html .= '</li>';
+            }
+            $html .='</ul>';
+        }
+        return $html;
+    }
+/************ END SEARCHABLE ***************************/
 }

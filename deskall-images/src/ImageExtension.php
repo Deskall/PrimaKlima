@@ -48,7 +48,8 @@ class ImageExtension extends Extension
     }
 
     private static $db = [
-        'Description' => 'Text'
+        'Description' => 'Text',
+        'Optimised' => 'Boolean(0)'
     ];
 
 
@@ -56,9 +57,11 @@ class ImageExtension extends Extension
 
         //Publish
         $this->owner->publishSingle();
-        if ($this->owner->config()->get('optimise_tiny')){
+        if ($this->owner->config()->get('optimise_tiny') && !$this->owner->Optimised){
             //Optimise via TinyPNG API
             $this->OptimiseImage(Director::absoluteURL($this->owner->getSourceURL()), $_SERVER['DOCUMENT_ROOT'].$this->owner->getSourceURL());
+            $this->owner->Optimised = 1;
+            $this->owner->write();
         }
         
         //Resize image to fit max Width and Height before resampling

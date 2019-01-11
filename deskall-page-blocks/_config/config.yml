@@ -16,6 +16,13 @@ DNADesign\Elemental\Models\BaseElement:
     - Activable
     - Linkable
     - Collapsable
+    - 'g4b0\SearchableDataObjects\SearchableDataObject'
+    - 'VirtualBlockExtension'
+
+ParentBlock:
+  extensions:
+    - 'VirtualBlockExtension'
+
 
 DNADesign\Elemental\ElementalEditor:
   extensions:
@@ -64,10 +71,19 @@ SilverStripe\UserForms\Control\UserDefinedFormController:
 
 SilverStripe\Forms\FormField:
   extensions:
-    - 'DeskallFormFieldExtension'
+  - 'DeskallFormFieldExtension'
 
 SilverStripe\CMS\Controllers\ContentController:
   extensions:
     - DeskallContentControllerExtension
   url_handlers:
     'children/$ID!/$OTHERID!': 'handleChildren'
+
+
+DNADesign\ElementalUserForms\Model\ElementForm:
+  extensions:
+    - FormBlockExtension
+    - 'g4b0\SearchableDataObjects\SearchableDataObject'
+
+SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
+    default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NocaptchaProtector

@@ -4,7 +4,13 @@
             <button class="uk-offcanvas-close" type="button" data-uk-close></button>
            <div class="uk-margin-top">
            <% loop SiteConfig.activeMobileMenuBlocks %>
-				$forTemplate
+				<% if Type == 'form' %>
+					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
+				<% else_if Type == "Languages" %>
+					<% include MenuBlock_Languages Locales=Top.Locales %>
+				<% else %>
+					$forTemplate
+				<% end_if %>
 			<% end_loop %>
 			</div>
         </div>

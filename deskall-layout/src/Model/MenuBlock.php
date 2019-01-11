@@ -29,8 +29,8 @@ class MenuBlock extends LayoutBlock{
 
 	private static $block_types = [
 		'links' => 'Links',
-		'logo' => 'Logo',
-		'form' => 'Formular'
+		'logo' => 'Logo'/*,
+		'form' => 'Formular'*/
 	];
 
 	private static $menu_options = [
@@ -75,6 +75,7 @@ class MenuBlock extends LayoutBlock{
 		$fields->removeByName('UseMenuOption');
 		$fields->removeByName('isMobile');
 		$fields->removeByName('ShowSubLevels');
+		$fields->removeByName('Width');
 
 	//	$fields->addFieldToTab('Root.Main', DropdownField::create('Type',_t(__CLASS__.'.Type','BlockTyp'),$this->getTranslatedSourceFor(__CLASS__,'block_types'))->setEmptyString(_t(__CLASS__.'.TypeLabel','Wählen Sie den Typ aus')));
 		
@@ -114,7 +115,7 @@ class MenuBlock extends LayoutBlock{
 	}
 
 	public function forTemplate(){
-		return $this->renderWith('Includes/MenuBlock');
+		return $this->renderWith('Includes/MenuBlock_'.$this->Type);
 	}
 
 	/**

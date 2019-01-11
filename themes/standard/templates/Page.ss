@@ -1,23 +1,18 @@
 <!doctype html>
-<html lang="$ContentLocale" dir="ltr" class="uk-text-break">
+<html lang="$ContentLocale" dir="ltr">
   <head>
      <% include Meta %>
   </head>
-  <body>
+  <body class="$ClassName">
     <div class="uk-offcanvas-content">
       <% include Header %>
+      <div class="main-content-wrapper">
       $Layout
+      </div>
       <% include Footer %>
 
       <% include NavMobile %>
     </div>
-
-    <% if isLive %>
-    <script async defer src="$ThemeDir/javascript/main.min.js"></script>
-
-    <% else %>
-    <script src="$ThemeDir/javascript/main.js"></script>
-    <% end_if %>
 
     <% if BodyScripts %>
       <% loop BodyScripts %>

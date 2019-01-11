@@ -1,54 +1,80 @@
+
+<% include DefaultSlide %>
+
+
 <div id="Content" class="searchResults">
-    <h1>$Title</h1>
+    <section class="uk-section">
+        <div class="uk-container">
+        
+        <h1><%t Page.SEARCHRESULTS 'Suchergebnisse' %></h1>
 
-    <% if $Query %>
-        <p class="searchQuery">You searched for &quot;{$Query}&quot;</p>
-    <% end_if %>
 
-    <% if $Results %>
-    <ul id="SearchResults">
-        <% loop $Results %>
-        <li>
-            <h4>
-                <a href="$Link">
-                    <% if $MenuTitle %>
-                    $MenuTitle
-                    <% else %>
-                    $Title
-                    <% end_if %>
-                </a>
-            </h4>
-            <% if $Content %>
-                <p>$Content.LimitWordCountXML</p>
-            <% end_if %>
-            <a class="readMoreLink" href="$Link" title="Read more about &quot;{$Title}&quot;">Read more about &quot;{$Title}&quot;...</a>
-        </li>
-        <% end_loop %>
-    </ul>
-    <% else %>
-    <p>Sorry, your search query did not return any results.</p>
-    <% end_if %>
 
-    <% if $Results.MoreThanOnePage %>
-    <div id="PageNumbers">
-        <div class="pagination">
-            <% if $Results.NotFirstPage %>
-            <a class="prev" href="$Results.PrevLink" title="View the previous page">&larr;</a>
-            <% end_if %>
-            <span>
-                <% loop $Results.Pages %>
-                    <% if $CurrentBool %>
-                    $PageNum
-                    <% else %>
-                    <a href="$Link" title="View page number $PageNum" class="go-to-page">$PageNum</a>
-                    <% end_if %>
-                <% end_loop %>
-            </span>
-            <% if $Results.NotLastPage %>
-            <a class="next" href="$Results.NextLink" title="View the next page">&rarr;</a>
-            <% end_if %>
+
+
+        <div class="dk-text-content uk-text-lead">
+            <p ><%t SearchPage.QUERY 'Sie suchten nach' %> &quot;{$Query.XML}&quot;</p>
         </div>
-        <p>Page $Results.CurrentPage of $Results.TotalPages</p>
-    </div>
+
+
+
+
+
+
+        <% if $Results %>
+           <ul class="uk-list uk-list-divider">
+           <% loop $Results %>
+                <li>
+                        <% if $BaseClass == 'SilverStripe\CMS\Model\SiteTree' %>
+                                    <h3><% if $MenuTitle %>$MenuTitle<% else %><% if $Title %>$Title.LimitWordCount<% else %>$Parent.MenuTitle.LimitWordCount<% end_if %><% end_if %></h3>
+                                    <p>$Content.ContextSummary(100,$Query.XML,true)</p>
+                                    <a href="$Link" class="uk-link" data-uk-icon="chevron-right"><%t SearchPage.Read 'consulter la page' %></a>
+
+                     <% else_if $BaseClass == 'DNADesign\Elemental\Models\BaseElement' %>
+
+                                <% with $getPage %><h3><% if $MenuTitle %>$MenuTitle.LimitWordCount<% else %><% if $Title %>$Title.LimitWordCount<% else %>$Parent.MenuTitle.LimitWordCount<% end_if %><% end_if %></h3><% end_with %>
+                                <% if Title %><strong>$Title.LimitWordCount</strong><% end_if %>
+                                <p>$Content.ContextSummary(100,$Query.XML,true)</p>
+                                <a href="$Link" class="uk-link" data-uk-icon="chevron-right"><%t SearchPage.Read 'consulter la page' %></a>
+
+                        
+                    <% end_if %>
+                </li>
+            <% end_loop %>
+        </ul>
+        <% else %>
+            
+                    <p><%t SearchPage.NORESULT 'Ihre Suche ergab keine Treffer' %>.</p> 
+        <% end_if %>
+
+
+    <% if $Results.MoreThanOnePage %>    
+    <ul class="uk-pagination uk-flex-center" uk-margin>
+
+        <li><a href="$Results.PrevLink" title="<%t SearchPage.PREV 'Zurück' %>"><span data-uk-pagination-previous></span></a></li>
+
+        <% loop $Results.Pages %>
+        <% if $CurrentBool %><li class="uk-active"><span>$PageNum</span></li>
+        <% else %><li><a href="$Link" title="<%t SearchPage.SEEPAGE 'Seite anzeigen' %>">$PageNum</a></li>
+        <% end_if %>
+
+        <% end_loop %>
+
+        <li><a href="$Results.NextLink" title="<%t SearchPage.NEXT 'Weiter' %>"><span data-uk-pagination-next></span></a></li>
+
+    </ul>
     <% end_if %>
+
+
+
+$clearSearchresultSession
+
+    </div>
+
+
+
+      <%-- <% include NavigationSidebar %> --%>
+
+        </div>
+    </section>
 </div>

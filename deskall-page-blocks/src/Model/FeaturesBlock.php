@@ -3,12 +3,14 @@
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\LabelField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
@@ -18,8 +20,9 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\Tab;
+use g4b0\SearchableDataObjects\Searchable;
 
-class FeaturesBlock extends BaseElement
+class FeaturesBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-block-file-list';
     
@@ -32,12 +35,10 @@ class FeaturesBlock extends BaseElement
         'IconItem' => 'Varchar(255)',
         'FeaturesTitle' => 'Varchar(255)',
         'FeaturesColumns' => 'Varchar(255)',
-        'FeaturesTextAlign' => 'Varchar(255)'
+        'FeaturesTextAlign' => 'Varchar(255)',
+        'FeaturesTextBig' => 'Boolean(0)'
     ];
 
-    private static $has_one = [
-        'ContentImage' => Image::class
-    ];
 
     private static $has_many = [
         'Features' => Features::class
@@ -50,9 +51,7 @@ class FeaturesBlock extends BaseElement
     private static $cascade_duplicates = ['Features'];
 
 
-    private static $owns = [
-        'ContentImage',
-    ];
+
 
     private static $defaults = [
         'FeaturesColumns' => 'uk-child-width-1-1',
@@ -148,27 +147,21 @@ class FeaturesBlock extends BaseElement
 
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
-
+        
+        $this->beforeUpdateCMSFields(function($fields) {
             $fields->removeByName('FeaturesColumns');
             $fields->removeByName('IconItem');
             $fields->removeByName('Layout');
             $fields->removeByName('FeaturesTextAlign');
             $fields->removeByName('Features');
+            $fields->removeByName('FeaturesTextBig');
 
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
                 ->setRows(5);
-            $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
 
-            $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
-            
-            $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-                HTMLOptionsetField::create('FeaturesTextAlign',_t(__CLASS__.'.FeaturesTextAlignment','Features Textausrichtung'),$this->stat('features_text_alignments')),
-                HTMLOptionsetField::create('FeaturesColumns',_t(__CLASS__.'.FeaturesInColumns','Features in mehreren Spalten'),$this->stat('features_columns')),
-                HTMLDropdownField::create('IconItem',_t(__CLASS__.'.FeaturesIcons','Icon'),$this->getSourceIcons(),'check')
-            )->setTitle(_t(__CLASS__.'.FeaturesLayout','Features Layout'))->setName('FeaturesLayout'));
+           
 
             if ($this->ID > 0){
 
@@ -185,6 +178,7 @@ class FeaturesBlock extends BaseElement
                      $config->addComponent(new GridFieldShowHideAction());
                 }
                 $featuresField = new GridField('Features',_t(__CLASS__.'.Features','Features'),$this->Features(),$config);
+                $featuresField->addExtraClass('fluent__localised-field');
                 $title = $fields->fieldByName('Root.Main.FeaturesTitle');
                 $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'Features List Titel'));
                 $fields->addFieldToTab('Root.Main',$title);
@@ -196,8 +190,18 @@ class FeaturesBlock extends BaseElement
                 $fields->removeByName('Features');
                 $fields->removeByName('FeaturesTitle');
             }
-     
-       return $fields;
+        });
+
+        $fields = parent::getCMSFields();
+        $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
+        
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            CheckboxField::create('FeaturesTextBig',_t(__CLASS__.'.FeaturesTextBig','Features mit grössere Schrift?')),
+            HTMLOptionsetField::create('FeaturesTextAlign',_t(__CLASS__.'.FeaturesTextAlignment','Features Textausrichtung'),$this->stat('features_text_alignments')),
+            HTMLOptionsetField::create('FeaturesColumns',_t(__CLASS__.'.FeaturesInColumns','Features in mehreren Spalten'),$this->stat('features_columns')),
+            HTMLDropdownField::create('IconItem',_t(__CLASS__.'.FeaturesIcons','Icon'),$this->getSourceIcons(),'check')
+        )->setTitle(_t(__CLASS__.'.FeaturesLayout','Features Layout'))->setName('FeaturesLayout'));
+        return $fields;
     }
 
     public function getSummary()
@@ -221,5 +225,60 @@ class FeaturesBlock extends BaseElement
         //To do : filter relevant icons
         return HTMLDropdownField::getSourceIcones();
     }
+
+    /************* SEARCHABLE FUNCTIONS ******************/
+
+
+        /**
+         * Filter array
+         * eg. array('Disabled' => 0);
+         * @return array
+         */
+        public static function getSearchFilter() {
+            return array();
+        }
+
+        /**
+         * FilterAny array (optional)
+         * eg. array('Disabled' => 0, 'Override' => 1);
+         * @return array
+         */
+        public static function getSearchFilterAny() {
+            return array();
+        }
+
+
+        /**
+         * Fields that compose the Title
+         * eg. array('Title', 'Subtitle');
+         * @return array
+         */
+        public function getTitleFields() {
+            return array('Title','FeaturesTitle');
+        }
+
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array('HTML','FeaturesContent');
+        }
+
+        public function getFeaturesContent(){
+            $html = '';
+            if ($this->Features()->filter('isVisible',1)->count() > 0){
+                $html .= '<ul>';
+                foreach ($this->Features()->filter('isVisible',1) as $feature) {
+                    if ($feature->Text){
+                        $html .= '<li>'.$feature->Text.'</li>';
+                    }
+                }
+                $html .='</ul>';
+            }
+            return $html;
+        }
+    /************ END SEARCHABLE ***************************/
 
 }
