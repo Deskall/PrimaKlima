@@ -55,7 +55,7 @@ function autoCompileJs($srcDir,$filename){
 	if ($modified){
 		//Concatenate all src files in main
 		$main = fopen("main.js","w");
-		$handle = fopen("compiled.js","a");
+		$handle = fopen("compiled.js","w");
 		$minify = fopen("tocompile.js","w");
 		foreach($srcFiles as $key => $file) {
 			// file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", "\n".$file." : ".strpos($file,".min.js")."\n",FILE_APPEND);
