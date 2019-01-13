@@ -103,7 +103,7 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('ShowNav');
             $fields->removeByName('PaddedImages');
             $fields->removeByName('lightboxOff');
-            $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'Title');
+            $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
             $fields->removeByName('infiniteLoop');
            
             $fields
