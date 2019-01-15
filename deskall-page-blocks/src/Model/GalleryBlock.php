@@ -110,7 +110,7 @@ class GalleryBlock extends BaseElement implements Searchable
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
           
-            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()),'HTML');
+            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())->displayIf('Type')->isEqualTo('images')->end(),'HTML');
 
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(
