@@ -18,7 +18,7 @@ use g4b0\SearchableDataObjects\Searchable;
 class FormBlockExtension extends DataExtension 
 {
 
-    private static $controller_template = 'DefaultHolder';
+    private static $controller_template = 'ElementHolder';
 
     private static $description = 'Formular';
 
