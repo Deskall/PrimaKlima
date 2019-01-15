@@ -23,7 +23,7 @@ class LargeImageBlock extends BaseElement implements Searchable{
 
     private static $description = 'Banner Bild mit Text und Effekt Möglichkeiten';
 
-    private static $controller_template = 'DefaultHolder';
+    private static $controller_template = 'ElementHolder';
 
     private static $controller_class = BlockController::class;
 
