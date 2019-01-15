@@ -78,11 +78,11 @@
 			                <div class="uk-card uk-card-default">
 			                    <div class="uk-card-media-top">
 			                        <img data-src="<% if $getExtension == "svg" %>$URL<% else %>
-				                        <% if Orientation == "1" %>
-									 	$FitMax(300,500).URL
-									 	<% else %>
-									 	$FitMax(350,250).URL
-									 	<% end_if %>
+				                       <% if Up.PaddedImages %>
+						            	$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
+						            	<% else %>
+						            	$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
+						            	<% end_if %>
 								 	<% end_if %>
 								 	" alt="$Up.AltTag($Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1" data-uk-img>
 			                    </div>
