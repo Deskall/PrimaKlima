@@ -89,7 +89,7 @@ class Page extends SiteTree implements Searchable
     }
 
     public function getPrivatePolicyPage(){
-      return Page::get()->filter('URLSegment',_t('Page.PrivatePolicyURLSegment','datenschutzerklaerung'))->first();
+      return PrivatePolicyPage::get()->first();
     }
 }
 
