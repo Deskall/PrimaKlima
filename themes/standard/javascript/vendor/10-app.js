@@ -158,7 +158,7 @@ $(document).ready(function(){
     var target = $(this).attr("href");
     target = target.substr(0,target.indexOf("#"));
     if (window.location.pathname == target){
-      UIkit.scroll($(this));
+      UIkit.scroll($(this),{offset: 100});
     }
   });
 });
