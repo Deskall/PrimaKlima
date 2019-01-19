@@ -25,7 +25,7 @@ class FormBlockExtension extends DataExtension
    
     
    private static $db = [
-    'ButtonBackground' => 'Varchar(255)',
+    'ButtonBackground' => 'Varchar(255)'
    ];
 
    private static $cascade_duplicates = ['EmailRecipients'];
