@@ -72,6 +72,11 @@
 		div[class=column]{width:auto!important;float:none!important}
 		table.social div[class=column]{width:auto!important}
 	}
+
+	.uk-text-bold{font-weight: bolder; } 
+	.uk-text-small{font-size: 0.875rem; line-height: 1.5; }
+	.uk-heading-divider {margin: 10px 0; border-bottom: 1px solid #ccc; float: left; width: 100%;}
+	.uk-text-large {font-size: 1.5rem; line-height: 1.5; }
 	.uk-clearfix:before{content:""; display: table-cell; }
 	.uk-clearfix:after{content: ""; display: table; clear: both; }
 	[class*='uk-float-']{max-width:100%;}
