@@ -69,6 +69,9 @@ class FormBlockExtension extends DataExtension
       $fields->addFieldToTab('Root.LayoutTab',TextField::create('SubmitButtonText',_t('Form.SubmitButtonText','Button Text')));
      $fields->addFieldToTab('Root.LayoutTab',HTMLDropdownField::create('ButtonBackground',_t('Form.ButtonBackground','Button Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'));
 
+     $fields->fieldByName('Root.FormFields')->setTitle(_t('Form.FormFields','Felder'));
+     $fields->fieldByName('Root.Submissions')->setTitle(_t('Form.Submissions','Anfragen'));
+     $fields->fieldByName('Root.Recipients')->setTitle(_t('Form.Recipients','Empfänger'));
      if ($this->owner->ID == 0){ 
       $fields->removeByName('FormFields');
       $fields->removeByName('Submissions');

@@ -259,6 +259,9 @@ fr:
     ButtonBackground: 'Couleur du bouton'
     RedirectPage: 'Page de redirection'
     SubmitButtonText: 'Texte du bouton d''envoi'
+    FormFields: 'Champs du formulaire'
+    Submissions: 'Requêtes effectuées'
+    Recipients: 'Destinataires'
   GalleryBlock:
     Autoplay: "Lecture automatique"
     BlockType: "Galerie d'images"
@@ -625,3 +628,16 @@ fr:
     SUBMISSIONS: Soumissions
     SUBMITBUTTON: Envoyer
     TEXTONSUBMIT: 'Texte du bouton Envoyer :'  
+  SilverStripe\UserForms\Extension\UserFormFieldEditorExtension:
+    ADD_FIELD: 'Ajouter un champ'
+    ADD_PAGE_BREAK: 'Ajouter une section'
+    ADD_FIELD_GROUP: 'Ajouter un groupe'
+  SilverStripe\UserForms\Model\EditableFormField\EditableFormStep:
+    TITLE_FIRST: 'Première section'
+
+
+
+
+
+
+
