@@ -1,627 +1,627 @@
-# fr:
-#   ActionBlock:
-#     BlockType: Action
-#     ButtonBackground: 'Couleur du bouton'
-#     ButtonPosition: 'Alignement du bouton'
-#     CloseText: 'Texte du bouton de fermeture'
-#     ContentLabel: Contenu
-#     Description: Action déclenchant un évènement (Modal, Menu déroulant,...)
-#     DropdownBoundary: 'Adapter le contenu à la largeur du bloc parent'
-#     DropdownLayout: 'Format du menu déroulant'
-#     DropdownPosition: 'Alignement du menu déroulant'
-#     DropdownTrigger: 'Déclenché par'
-#     InteractionType: Type
-#     InteractionTypeHelp: 'Choisissez un type'
-#     ModalLayout: 'Format du modal'
-#     ModalSize: 'Largeur de la fenêtre'
-#     OffcanvasEffect: 'Effet du hors-champ'
-#     OffcanvasLayout: 'Format du hors-champ'
-#     OffcanvasOverlay: "Surcouche d'arrière-plan"
-#     OffcanvasPosition: 'Position'
-#     Target: "élément cible"
-#     TargetHelp: 'Choisissez un élément'
-#     TriggeringText: "Texte du bouton d'ouverture"
-#     block_actions_dropdown: "Menu déroulant"
-#     block_actions_modal: Modal
-#     block_actions_offcanvas: Hors-champ
-#     block_actions_scroll: Défilement
-#     block_actions_toggle: Changement au clic
-#     block_effects_none: Aucun
-#     block_effects_push: Poucée
-#     block_effects_reveal: Apparition
-#     block_effects_slide: Glissement
-#     button_alignments_center: Centré
-#     button_alignments_left: Gauche
-#     button_alignments_right: Droite
-#     'button_backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
-#     'button_backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
-#     button_backgrounds_uk-button-default: "pas de couleur d'arrière-plan"
-#     'button_backgrounds_uk-button-muted dk-text-hover-muted': gris
-#     'button_backgrounds_uk-button-primary dk-text-hover-primary': 'couleur primaire'
-#     'button_backgrounds_uk-button-secondary dk-text-hover-secondary': 'couleur secondaire'
-#     dropdown_positions_bottom-center: 'Aligné en bas et centré'
-#     dropdown_positions_bottom-justify: 'Aligné en bas et justifié'
-#     dropdown_positions_bottom-left: 'Aligné en bas à gauche'
-#     dropdown_positions_bottom-right: 'Aligné en bas à droite'
-#     dropdown_positions_left-bottom: 'Aligns the dropdown to the left bottom'
-#     dropdown_positions_left-center: 'Aligns the dropdown to the left center'
-#     dropdown_positions_left-top: 'Aligns the dropdown to the left top'
-#     dropdown_positions_right-bottom: 'Aligns the dropdown to the right bottom'
-#     dropdown_positions_right-center: 'Aligns the dropdown to the right center'
-#     dropdown_positions_right-top: 'Aligns the dropdown to the right top'
-#     dropdown_positions_top-center: 'Aligné en haut et centré'
-#     dropdown_positions_top-justify: 'Aligné en haut et justifié'
-#     dropdown_positions_top-left: 'Aligné en haut à gauche'
-#     dropdown_positions_top-right: 'Aligné en haut à droite'
-#     dropdown_triggers_click: Clic
-#     dropdown_triggers_hover: Survol
-#     'dropdown_triggers_hover,click': 'Survol et clic'
-#     modal_sizes_auto: 'Largeur du contenu'
-#     modal_sizes_uk-modal-container: 'Largeur de la page'
-#     modal_sizes_uk-modal-full: "Largeur de l'écran"
-#     offcanvas_position_left: Liens
-#     offcanvas_position_right: Droits
-#   BOXBLOCK:
-#     BOXTAB: Boîtes
-#   BaseBlockExtension:
-#     block_link_alignments_left: 'gauche'
-#     block_link_alignments_center: 'centré'
-#     block_link_alignments_right: 'droit'
-#     BackgroundColor: "Couleur d'arrière-plan"
-#     BackgroundColorHelpText: "sera superposée en calque opaque si le bloc a une image d'arrière-plan"
-#     BackgroundImage: "Image d'arrière-plan"
-#     ContentTab: 'Contenu'
-#     GlobalLayout: 'Options globales de format'
-#     FullWidth: "étendre le bloc à la largeur de la page"
-#     HistoryTab: 'Historique'
-#     LAYOUTTAB: Affichage
-#     LinkAlignment: "Alignement du lien"
-#     ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
-#     TitleAlignment: "Alignement du titre"
-#     TextAlignment: "Alignement du texte"
-#     TextColumns: "Afficher le texte en plusieurs colonnes"
-#     TextLayout: "Option de format du texte"
-#     'block_backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
-#     'block_backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
-#     block_backgrounds_uk-section-default: "Pas de couleur d'arrière-plan"
-#     'block_backgrounds_uk-section-muted dk-text-hover-muted': gris
-#     'block_backgrounds_uk-section-primary dk-text-hover-primary': 'Couleur principale'
-#     'block_backgrounds_uk-section-secondary dk-text-hover-secondary': 'Couleur secondaire'
-#     block_text_alignments_uk-text-justify: 'Justifier le texte'
-#     'block_text_alignments_uk-text-center': 'Centrer le texte horizontalement'
-#     'block_text_alignments_uk-text-left': 'Aligner le texte à gauche'
-#     'block_text_alignments_uk-text-right': 'Aligner le texte à droite'
-#     'block_text_columns_ ': 'Pas de colonnes'
-#     block_text_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
-#     'block_text_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
-#     'block_text_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
-#     'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
-#     'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
-#     SettingsTab: 'Paramètres'
-#     isPrimary: 'Ce bloc contient le titre principale de la page (h1)'
-#     TitleIcon: 'Icône (renseigner la classe font awesome)'
-#   Box:
-#     Effect: Effet
-#     EffectOptions: "Options pour l'effet"
-#     Image: Image
-#     NoBild: (aucune)
-#     PLURALNAME: Boîtes
-#     PLURALS:
-#       one: 'une boîte'
-#       other: '{count} boîtes'
-#     SINGULARNAME: Box
-#     Summary: Contenu
-#     TitleLabel: Titre
-#     effects_kenburns: 'ken burns'
-#     effects_none: aucun
-#     effects_parallax: parallax
-#   BoxBlock:
-#     BlockType: Boites
-#     BoxPerLine: 'Boites par ligne'
-#     BoxTextAlignment: 'Alignement du texte dans les boîtes'
-#     Boxes: Boites
-#     Description: "Bloc avec de 2 à 5 boites de contenu sur une ligne"
-#     Effect: Effet
-#     Format: Format
-#     PLURALNAME: 'Blocs de boites'
-#     PLURALS:
-#       one: 'un bloc de boîtes'
-#       other: '{count} Blocs de boîtes'
-#     SINGULARNAME: 'Bloc de boîtes'
-#     block_layouts_inversed: 'Titre,Contenu,Image'
-#     block_layouts_mixed: 'Image, Titre, Contenu'
-#     block_layouts_standard: 'Titre, Image, Contenu'
-#     boxes_text_alignments_uk-text-justify: 'Justifier le texte'
-#     'boxes_text_alignments_uk-text-justify uk-text-center@s': 'Centrer le texte horizontalement'
-#     'boxes_text_alignments_uk-text-justify uk-text-left@s': 'Aligner le texte à gauche'
-#     'boxes_text_alignments_uk-text-justify uk-text-righ@st': 'Aligner le texte à droite'
-#     effects_cta: "Afficher un appel à l'action"
-#     effects_double: "afficher une deuxième image"
-#     effects_none: aucun
-#     effects_scale: "Agrandir l'image"
-#   CodeBlock:
-#     BlockType: 'Code - Plugin'
-#     Description: "Bloc permettant d'insérer un script sur la page. Indiqué pour google Analytics ou Facebook par exemple."
-#     PLURALNAME: 'Blocs de code'
-#     PLURALS:
-#       one: 'un bloc de code'
-#       other: '{count} blocs de code'
-#     SINGULARNAME: 'bloc de code'
-#     block_positions_body: 'Avant la balise </body>'
-#     block_positions_head: 'Dans la balise <head>'
-#     block_positions_normal: 'à la position du bloc sur la page'
-#     CodeBlockScriptLabel: 'Copier ici le code avec les balises "<script></script>"'
-#     CodeBlockScriptPosition: 'Inserer le code...'
-#   DNADesign\Elemental\Forms\HistoricalVersionedGridFieldItemRequest:
-#     BUTTONREVERTDESC: 'Publier cette ligne sur le site brouillon'
-#     InvalidVersion: 'Version invalide'
-#     Position: Position
-#     REVERT: 'Retour à cette version'
-#   DNADesign\Elemental\Models\BaseElement:
-#     Author: Auteur
-#     BlockType: Bloc
-#     CUSTOM_STYLES: 'Choisissez un style'
-#     ExtraCssClassesLabel: 'Classes css personalisées'
-#     ExtraCssClassesPlaceholder: autre_class
-#     MainTabLabel: Contenu
-#     Modified: modifié
-#     PLURALNAME: Blocs
-#     PLURALS:
-#       one: 'un bloc'
-#       other: '{count} blocs'
-#     Published: Publié
-#     Record: Entrée
-#     SINGULARNAME: Bloc
-#     STYLE: 'Variations de style'
-#     ShowTitleLabel: Affiché
-#     TitleLabel: 'Titre (sera affiché si coché)'
-#   DNADesign\Elemental\Models\ElementContent:
-#     BlockType: Contenu
-#     ContentLabel: Contenu
-#     PLURALNAME: Blocs de contenu
-#     PLURALS:
-#       one: 'un bloc de contenu'
-#       other: '{count} Blocs de contenu'
-#     SINGULARNAME: Bloc de contenu
-#   DNADesign\Elemental\Models\ElementalArea:
-#     PLURALNAME: 'Zones de contenu'
-#     PLURALS:
-#       one: 'une zone de contenu'
-#       other: '{count} zones de contenu'
-#     SINGULARNAME: 'Zone de contenu'
-#   DNADesign\Elemental\Reports\ElementTypeReport:
-#     Title: 'Type de bloc'
-#     Total: Total
-#     Type: 'Type de contenu'
-#   DNADesign\Elemental\Reports\ElementsInUseReport:
-#     None: Aucun
-#     Page: Page
-#     ReportTitle: 'Utilisé par '
-#     Summary: Résumé
-#     Title: Titre
-#     Type: Type
-#   DownloadBlock:
-#     BlockType: 'Zone de téléchargement'
-#     ContentLabel: Contenu
-#     Description: "Bloc avec fichiers en libre téléchargement"
-#     DownloadsTitle: 'Titre de la zone de chargements'
-#     Files: Fichiers
-#     FilesInColumns: 'Afficher les fichiers sur plusieurs colonnes'
-#     FilesTab: Fichiers
-#     PLURALNAME: 'Zones de téléchargement'
-#     PLURALS:
-#       one: 'une zone de téléchargement'
-#       other: '{count} zones de téléchargement'
-#     SINGULARNAME: 'Zone de téléchargement'
-#     'files_columns_ ': 'aucune colonne'
-#     files_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
-#     'files_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
-#     'files_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
-#     'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
-#     'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
-#     php.DownloadBlockFilesTab: Fichiers
-#   DuplicateBlock:
-#     BlockType: 'Dupliquer un bloc'
-#     Description: "Dupliquer un bloc existant"
-#     PLURALNAME: blocs
-#     PLURALS:
-#       one: 'un bloc'
-#       other: '{count} blocs'
-#     SINGULARNAME: bloc
-#   Features:
-#     PLURALNAME: Features
-#     PLURALS:
-#       one: 'une Feature'
-#       other: '{count} Features'
-#     SINGULARNAME: Features
-#   FeaturesBlock:
-#     AfterCreation: "Vous pourrez ajouter des features après la création du bloc."
-#     BlockType: 'Liste de features'
-#     ContentLabel: Contenu
-#     Description: "Bloc permettant d'insérer une liste de features"
-#     Features: Features
-#     FeaturesLayout: "Format des features"
-#     FeaturesInColumns: 'Afficher les features sur plusieurs colonnes'
-#     FeaturesTextAlignment: "Alignement des features"
-#     FeaturesTitle: 'Titre de la liste'
-#     PLURALNAME: 'Listes de features'
-#     PLURALS:
-#       one: 'une liste de features'
-#       other: '{count} listes de features'
-#     SINGULARNAME: 'liste de features'
-#     'features_columns_ ': 'aucune colonne'
-#     features_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
-#     'features_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
-#     'features_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
-#     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
-#     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
-#   Form:
-#     ButtonBackground: 'Couleur du bouton'
-#     RedirectPage: 'Page de redirection'
-#     SubmitButtonText: 'Texte du bouton d''envoi'
-#   GalleryBlock:
-#     Autoplay: "Lecture automatique"
-#     BlockType: "Galerie d'images"
-#     ContentLabel: Contenu
-#     Description: "Affiche un carousel d'image ou une grille au choix"
-#     Format: Format
-#     Images: Images
-#     PLURALNAME: "Galeries d'images"
-#     PLURALS:
-#       one: "une galerie d'images"
-#       other: "{count} galeries d'images"
-#     PicturesPerLine: 'Images par ligne'
-#     PicturesTab: Images
-#     SINGULARNAME: "Galerie d'images"
-#     block_layouts_carousel: "Carousel"
-#     block_layouts_grid: "Grille"
-#     php.GalleryBlockPicturesTab: Images
-#     PaddedImages: 'Afficher les images dans leur entiereté ? (pas de redimensionnement, indiqué pour les logos par exemple)'
-#     LightboxOff: 'Images non cliquables?'
-#     ShowNav: 'Afficher les flêches de navigation ?'
-#     ShowDot: 'Afficher les points de navigation ?'
-#   Global:
-#     BUTTONCOLLAPSE: Rassembler
-#     BUTTONEXPAND: Agrandir
-#   GridFieldDuplicateBlock:
-#     Label: 'Copier un bloc existant'
-#   GridFieldExtensions:
-#     Duplicate: Copier
-#     Link: Lier
-#   GridFieldLinkBlock:
-#     Label: 'Lier un bloc existant'
-#   LargeImageBlock:
-#     BlockType: 'Bannière'
-#     Description: "Bannière avec une image en arrière plan"
-#     Effect: Effet
-#     EffectOptions: "Options d'effet"
-#     Format: Format
-#     Height: Hauteur
-#     PLURALNAME: "Bannières"
-#     PLURALS:
-#       one: 'une bannière'
-#       other: '{count} bannières'
-#     SINGULARNAME: bannière
-#     block_heights_uk-height-large: grande
-#     block_heights_uk-height-medium: moyenne
-#     block_heights_uk-height-small: petite
-#     block_heights_viewport: "tout l'écran"
-#     block_layouts_uk-position-bottom: "Positionner l'élément en bas"
-#     block_layouts_uk-position-center: "Positionner l'élément au centre"
-#     block_layouts_uk-position-top: "Positionner l'élément en haut"
-#     effects_fixed: fixe
-#     effects_none: aucun
-#     effects_parallax: parallax
-#   LeadBlock:
-#     BlockType: Contenu principal
-#     ContentLabel: Contenu
-#     Description: "Bloc de texte mis en évidence"
-#     PLURALNAME: 'contenus principaux'
-#     PLURALS:
-#       one: 'un contenu principal'
-#       other: '{count} contenus principaux'
-#     SINGULARNAME: 'contenu principal'
-#   ListBlock:
-#     AfterCreation: "Vous pourrez ajouter des items après création de la liste"
-#     BlockType: 'Liste'
-#     Content: "Contenu"
-#     Description: "Créer une liste d'item (liens, références,...)"
-#     PLURALS:
-#       one: 'une liste'
-#       other: '{count} listes'
-#     SINGULARNAME: 'Liste'
-#     ItemAlignment: 'Format des items'
-#     ShowBottomBorder: 'Afficher une bordure entre les items'
-#     ItemLayout: 'Format de la liste'
-#   ListItem:
-#     TitleLabel: Titre
-#     Image: Image
-#     Summary: Contenu
-#     PLURALS:
-#       one: 'un item'
-#       other: '{count} items'
-#     SINGULARNAME: 'Item'
-#     GlobalLayout: 'Options globales de format'
-#     LAYOUTTAB: Affichage
-#     Layout: Format
-#     NoBild: "(pas d'image)"
-#     ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
-#     TitleAlignment: "Alignement du titre"
-#     TextAlignment: "Alignement du texte"
-#     TextColumns: "Afficher le texte en plusieurs colonnes"
-#     TextLayout: "Option de format du texte"
-#     text_alignments_uk-text-justify: 'Justifier le texte'
-#     'text_alignments_uk-text-center': 'Centrer le texte horizontalement'
-#     'text_alignments_uk-text-left': 'Aligner le texte à gauche'
-#     'text_alignments_uk-text-right': 'Aligner le texte à droite'
-#     'text_columns_ ': 'Pas de colonnes'
-#     text_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
-#     'text_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
-#     'text_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
-#     'text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
-#     'text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
-#   MapBlock:
-#     Adresse: Adresse
-#     BlockType: Carte
-#     ContentLabel: Contenu
-#     Description: "Bloc permettant d'insérer une carte google avec un marqueur sur une adresse donnée."
-#     Height: Hauteur
-#     LinkToStyle: 'générer un style de carte'
-#     PLURALNAME: 'bloc de cartes'
-#     PLURALS:
-#       one: 'un bloc de carte'
-#       other: '{count} blocs de carte'
-#     SINGULARNAME: 'bloc de carte'
-#     Styles: 'styles de carte'
-#     disableControls: 'Désactiver tous les contrôles'
-#     fullscreenControls: 'Contrôle plein écran'
-#     mapControlOptions: 'Options de carte'
-#     mapControls: 'Contrôle de la carte'
-#     scaleControls: "Contrôle de l'échelle"
-#     streetViewControlOptions: 'Options pour StreetView'
-#     streetViewControls: 'Contrôle StreetView'
-#     zoomControlOptions: 'Options pour le zoom'
-#     zoomControls: 'Contrôle du zoom'
-#   PAGEBLOCKS:
-#     BLOCKSTITLE: blocs de contenu
-#   ParentBlock:
-#     BUTTONFIRST: 'Premier bloc à afficher en mobile'
-#     BlockType: 'Bloc multiple'
-#     BlocksPerLine: 'blocs par ligne'
-#     BlocksPerLineHelpText: 'Sélection un nombre de blocs par ligne'
-#     Border: 'Afficher une bordure entre les blocs ?'
-#     Description: "Bloc permettant de combiner plusieurs blocs en un seul."
-#     CanCollapse: 'Blocs peuvent être rassemblés'
-#     CollapsableChildren: 'Blocs rassemblables'
-#     CollapsableChildrenHelpText: "Cette option ne peut pas être modifiée après la création du bloc."
-#     CollapseMultipe: "Permettre l'ouverture de plusieurs blocs en même temps"
-#     Layout: Format
-#     PLURALNAME: 'Blocs multiples'
-#     PLURALS:
-#       one: 'un bloc multiple'
-#       other: '{count} blocs multiples'
-#     SINGULARNAME: 'bloc multiple'
-#     SameHeight: 'ajuster tous les blocs à la même taille ?'
-#     block_layouts_default: "défauts"
-#     blocks_per_line_uk-child-width-1-1@s: '1'
-#     'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-2@m': '2'
-#     'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-3@m': '3'
-#     'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-4@m': '4'
-#   ShareBlock:
-#     BlockType: 'Bloc de partage'
-#     ContentLabel: Contenu
-#     Description: "Bloc contenant des boutons de partage pour les réseaux sociaux"
-#     PLURALNAME: 'Blocs de partage'
-#     PLURALS:
-#       one: 'un bloc de partage'
-#       other: '{count} blocs de partage'
-#     SINGULARNAME: 'Bloc de partage'
-#   SiteTree:
-#     BUTTONCOLLAPSE: Rassembler
-#     BUTTONEXPAND: Agrandir
-#     FirstBlock: 'Premier bloc'
-#   SitemapBlock:
-#     BlockType: Plan du site
-#     ContentLabel: Contenu
-#     Description: "Bloc présentant la structure des page du site sous forme d'une liste."
-#     PLURALNAME: 'Plans de site'
-#     PLURALS:
-#       one: 'un bloc plan de site'
-#       other: '{count} blocs plan de site'
-#     SINGULARNAME: 'Bloc plan de site'
-#   Slide:
-#     CTA: Lien
-#     ContentLabel: Contenu
-#     ContentTab: Contenu
-#     Effect: Effet
-#     EffectOptions: "Options d'effet"
-#     Image: Image
-#     NoBild: (aucune)
-#     PLURALNAME: Slides
-#     PLURALS:
-#       one: 'une Slide'
-#       other: '{count} Slides'
-#     SINGULARNAME: Slide
-#     TitleLabel: Titre
-#     effects_kenburns: 'dérive'
-#     effects_none: aucun
-#     effects_parallax: parallax
-#   SliderBlock:
-#     Animation: Animation
-#     Autoplay: "Défilement automatique"
-#     BlockType: Carousel de slides
-#     Controls: Contrôles
-#     CopySlides: 'Copier les slides depuis'
-#     CopySlidesHelpText: 'Veuillez sélectionner un carousel'
-#     Description: "Carousel d'images avec contenu"
-#     Format: Format
-#     Heights: Hauteur
-#     MaxHeight: 'Hauteur max.'
-#     MinHeight: 'Hauteur min.'
-#     PLURALNAME: Carousels de slides
-#     PLURALS:
-#       one: 'Un carousel de slides'
-#       other: '{count} carousel de slides'
-#     SINGULARNAME: carousel de slides
-#     Slides: Slides
-#     SlideCopyHelpText: "Enregistrez le carousel pour pouvoir ajouter des images, ou copiez les images d'un carousel existant."
-#     animations_fade: Apparition
-#     animations_pull: Tire
-#     animations_push: Pousse
-#     animations_scale: "Changement d'échelle"
-#     animations_slide: Glissement
-#     block_heights_large: grande
-#     block_heights_medium: moyenne
-#     block_heights_small: petite
-#     block_heights_viewport: "tout l'écran"
-#     block_layouts_slideshow: carousel de slides
-#     controls_controls: flêches
-#     controls_dots: points
-#     controls_none: aucun
-#   TextBlock:
-#     BlockType: 'Texte et image'
-#     ContentLabel: Contenu
-#     Description: "Bloc de contenu classique permettant d'ajouter du texte et des images."
-#     PLURALNAME: 'Bloc de contenu classique'
-#     PLURALS:
-#       one: 'un bloc de contenu classique'
-#       other: '{count} blocs de contenu classique'
-#     SINGULARNAME: 'bloc de contenu classique'
-#     block_layouts_above: En-dessous
-#     block_layouts_hover: Au-dessus
-#     block_layouts_left: "à gauche"
-#     block_layouts_right: "à droite"
-#   UserFormExtension:
-#     BlockType: Formulaire
-#     ButtonBackground: 'Couleur du bouton'
-#     RedirectPage: 'page de redirection après une soumission réussie'
-#     ShowLabels: 'Afficher les labels de champ ?'
-#     StepTitleBackground: "Couleur d'arrière-plan du titre de section"
-#     WITHCAPTCHA: 'protéger par un recaptcha Google ?'
-#     UserFormExtensionRedirectPage: 'Page de redirection en cas de soumission avec succès'
-#   VideoBlock:
-#     BlockType: Galerie de vidéos
-#     Description: "Galerie de vidéos issues d'URL externe (Youtube, vimeo,...)"
-#     PLURALNAME: Galeries de vidéos
-#     PLURALS:
-#       one: 'une galerie de vidéos'
-#       other: '{count} galeries de vidéos'
-#     SINGULARNAME: Galerie de vidéos
-#     VideoPerLine: 'Videos par ligne'
-#     VideosURL: 'Videos (1 URL par ligne) '
-#     block_layouts_carousel: Carousel
-#     block_layouts_grid: Grille
-#     videos_per_line_uk-child-width-1-1: '1'
-#     videos_per_line_uk-child-width-1-2@s: '2'
-#     videos_per_line_uk-child-width-1-3@s: '3'
-#   VirtualBlock:
-#     BlockType: 'Lier un bloc'
-#     Description: "Lier un bloc existant"
-#     PLURALNAME: 'Blocs liés'
-#     PLURALS:
-#       one: 'un bloc lié'
-#       other: '{count} blocs liés'
-#     SINGULARNAME: 'bloc lié'
+fr:
+  ActionBlock:
+    BlockType: Action
+    ButtonBackground: 'Couleur du bouton'
+    ButtonPosition: 'Alignement du bouton'
+    CloseText: 'Texte du bouton de fermeture'
+    ContentLabel: Contenu
+    Description: Action déclenchant un évènement (Modal, Menu déroulant,...)
+    DropdownBoundary: 'Adapter le contenu à la largeur du bloc parent'
+    DropdownLayout: 'Format du menu déroulant'
+    DropdownPosition: 'Alignement du menu déroulant'
+    DropdownTrigger: 'Déclenché par'
+    InteractionType: Type
+    InteractionTypeHelp: 'Choisissez un type'
+    ModalLayout: 'Format du modal'
+    ModalSize: 'Largeur de la fenêtre'
+    OffcanvasEffect: 'Effet du hors-champ'
+    OffcanvasLayout: 'Format du hors-champ'
+    OffcanvasOverlay: "Surcouche d'arrière-plan"
+    OffcanvasPosition: 'Position'
+    Target: "élément cible"
+    TargetHelp: 'Choisissez un élément'
+    TriggeringText: "Texte du bouton d'ouverture"
+    block_actions_dropdown: "Menu déroulant"
+    block_actions_modal: Modal
+    block_actions_offcanvas: Hors-champ
+    block_actions_scroll: Défilement
+    block_actions_toggle: Changement au clic
+    block_effects_none: Aucun
+    block_effects_push: Poucée
+    block_effects_reveal: Apparition
+    block_effects_slide: Glissement
+    button_alignments_center: Centré
+    button_alignments_left: Gauche
+    button_alignments_right: Droite
+    'button_backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
+    'button_backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
+    button_backgrounds_uk-button-default: "pas de couleur d'arrière-plan"
+    'button_backgrounds_uk-button-muted dk-text-hover-muted': gris
+    'button_backgrounds_uk-button-primary dk-text-hover-primary': 'couleur primaire'
+    'button_backgrounds_uk-button-secondary dk-text-hover-secondary': 'couleur secondaire'
+    dropdown_positions_bottom-center: 'Aligné en bas et centré'
+    dropdown_positions_bottom-justify: 'Aligné en bas et justifié'
+    dropdown_positions_bottom-left: 'Aligné en bas à gauche'
+    dropdown_positions_bottom-right: 'Aligné en bas à droite'
+    dropdown_positions_left-bottom: 'Aligns the dropdown to the left bottom'
+    dropdown_positions_left-center: 'Aligns the dropdown to the left center'
+    dropdown_positions_left-top: 'Aligns the dropdown to the left top'
+    dropdown_positions_right-bottom: 'Aligns the dropdown to the right bottom'
+    dropdown_positions_right-center: 'Aligns the dropdown to the right center'
+    dropdown_positions_right-top: 'Aligns the dropdown to the right top'
+    dropdown_positions_top-center: 'Aligné en haut et centré'
+    dropdown_positions_top-justify: 'Aligné en haut et justifié'
+    dropdown_positions_top-left: 'Aligné en haut à gauche'
+    dropdown_positions_top-right: 'Aligné en haut à droite'
+    dropdown_triggers_click: Clic
+    dropdown_triggers_hover: Survol
+    'dropdown_triggers_hover,click': 'Survol et clic'
+    modal_sizes_auto: 'Largeur du contenu'
+    modal_sizes_uk-modal-container: 'Largeur de la page'
+    modal_sizes_uk-modal-full: "Largeur de l'écran"
+    offcanvas_position_left: Liens
+    offcanvas_position_right: Droits
+  BOXBLOCK:
+    BOXTAB: Boîtes
+  BaseBlockExtension:
+    block_link_alignments_left: 'gauche'
+    block_link_alignments_center: 'centré'
+    block_link_alignments_right: 'droit'
+    BackgroundColor: "Couleur d'arrière-plan"
+    BackgroundColorHelpText: "sera superposée en calque opaque si le bloc a une image d'arrière-plan"
+    BackgroundImage: "Image d'arrière-plan"
+    ContentTab: 'Contenu'
+    GlobalLayout: 'Options globales de format'
+    FullWidth: "étendre le bloc à la largeur de la page"
+    HistoryTab: 'Historique'
+    LAYOUTTAB: Affichage
+    LinkAlignment: "Alignement du lien"
+    ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
+    TitleAlignment: "Alignement du titre"
+    TextAlignment: "Alignement du texte"
+    TextColumns: "Afficher le texte en plusieurs colonnes"
+    TextLayout: "Option de format du texte"
+    'block_backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
+    'block_backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
+    block_backgrounds_uk-section-default: "Pas de couleur d'arrière-plan"
+    'block_backgrounds_uk-section-muted dk-text-hover-muted': gris
+    'block_backgrounds_uk-section-primary dk-text-hover-primary': 'Couleur principale'
+    'block_backgrounds_uk-section-secondary dk-text-hover-secondary': 'Couleur secondaire'
+    block_text_alignments_uk-text-justify: 'Justifier le texte'
+    'block_text_alignments_uk-text-center': 'Centrer le texte horizontalement'
+    'block_text_alignments_uk-text-left': 'Aligner le texte à gauche'
+    'block_text_alignments_uk-text-right': 'Aligner le texte à droite'
+    'block_text_columns_ ': 'Pas de colonnes'
+    block_text_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
+    'block_text_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
+    'block_text_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
+    'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
+    'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
+    SettingsTab: 'Paramètres'
+    isPrimary: 'Ce bloc contient le titre principale de la page (h1)'
+    TitleIcon: 'Icône (renseigner la classe font awesome)'
+  Box:
+    Effect: Effet
+    EffectOptions: "Options pour l'effet"
+    Image: Image
+    NoBild: (aucune)
+    PLURALNAME: Boîtes
+    PLURALS:
+      one: 'une boîte'
+      other: '{count} boîtes'
+    SINGULARNAME: Box
+    Summary: Contenu
+    TitleLabel: Titre
+    effects_kenburns: 'ken burns'
+    effects_none: aucun
+    effects_parallax: parallax
+  BoxBlock:
+    BlockType: Boites
+    BoxPerLine: 'Boites par ligne'
+    BoxTextAlignment: 'Alignement du texte dans les boîtes'
+    Boxes: Boites
+    Description: "Bloc avec de 2 à 5 boites de contenu sur une ligne"
+    Effect: Effet
+    Format: Format
+    PLURALNAME: 'Blocs de boites'
+    PLURALS:
+      one: 'un bloc de boîtes'
+      other: '{count} Blocs de boîtes'
+    SINGULARNAME: 'Bloc de boîtes'
+    block_layouts_inversed: 'Titre,Contenu,Image'
+    block_layouts_mixed: 'Image, Titre, Contenu'
+    block_layouts_standard: 'Titre, Image, Contenu'
+    boxes_text_alignments_uk-text-justify: 'Justifier le texte'
+    'boxes_text_alignments_uk-text-justify uk-text-center@s': 'Centrer le texte horizontalement'
+    'boxes_text_alignments_uk-text-justify uk-text-left@s': 'Aligner le texte à gauche'
+    'boxes_text_alignments_uk-text-justify uk-text-righ@st': 'Aligner le texte à droite'
+    effects_cta: "Afficher un appel à l'action"
+    effects_double: "afficher une deuxième image"
+    effects_none: aucun
+    effects_scale: "Agrandir l'image"
+  CodeBlock:
+    BlockType: 'Code - Plugin'
+    Description: "Bloc permettant d'insérer un script sur la page. Indiqué pour google Analytics ou Facebook par exemple."
+    PLURALNAME: 'Blocs de code'
+    PLURALS:
+      one: 'un bloc de code'
+      other: '{count} blocs de code'
+    SINGULARNAME: 'bloc de code'
+    block_positions_body: 'Avant la balise </body>'
+    block_positions_head: 'Dans la balise <head>'
+    block_positions_normal: 'à la position du bloc sur la page'
+    CodeBlockScriptLabel: 'Copier ici le code avec les balises "<script></script>"'
+    CodeBlockScriptPosition: 'Inserer le code...'
+  DNADesign\Elemental\Forms\HistoricalVersionedGridFieldItemRequest:
+    BUTTONREVERTDESC: 'Publier cette ligne sur le site brouillon'
+    InvalidVersion: 'Version invalide'
+    Position: Position
+    REVERT: 'Retour à cette version'
+  DNADesign\Elemental\Models\BaseElement:
+    Author: Auteur
+    BlockType: Bloc
+    CUSTOM_STYLES: 'Choisissez un style'
+    ExtraCssClassesLabel: 'Classes css personalisées'
+    ExtraCssClassesPlaceholder: autre_class
+    MainTabLabel: Contenu
+    Modified: modifié
+    PLURALNAME: Blocs
+    PLURALS:
+      one: 'un bloc'
+      other: '{count} blocs'
+    Published: Publié
+    Record: Entrée
+    SINGULARNAME: Bloc
+    STYLE: 'Variations de style'
+    ShowTitleLabel: Affiché
+    TitleLabel: 'Titre (sera affiché si coché)'
+  DNADesign\Elemental\Models\ElementContent:
+    BlockType: Contenu
+    ContentLabel: Contenu
+    PLURALNAME: Blocs de contenu
+    PLURALS:
+      one: 'un bloc de contenu'
+      other: '{count} Blocs de contenu'
+    SINGULARNAME: Bloc de contenu
+  DNADesign\Elemental\Models\ElementalArea:
+    PLURALNAME: 'Zones de contenu'
+    PLURALS:
+      one: 'une zone de contenu'
+      other: '{count} zones de contenu'
+    SINGULARNAME: 'Zone de contenu'
+  DNADesign\Elemental\Reports\ElementTypeReport:
+    Title: 'Type de bloc'
+    Total: Total
+    Type: 'Type de contenu'
+  DNADesign\Elemental\Reports\ElementsInUseReport:
+    None: Aucun
+    Page: Page
+    ReportTitle: 'Utilisé par '
+    Summary: Résumé
+    Title: Titre
+    Type: Type
+  DownloadBlock:
+    BlockType: 'Zone de téléchargement'
+    ContentLabel: Contenu
+    Description: "Bloc avec fichiers en libre téléchargement"
+    DownloadsTitle: 'Titre de la zone de chargements'
+    Files: Fichiers
+    FilesInColumns: 'Afficher les fichiers sur plusieurs colonnes'
+    FilesTab: Fichiers
+    PLURALNAME: 'Zones de téléchargement'
+    PLURALS:
+      one: 'une zone de téléchargement'
+      other: '{count} zones de téléchargement'
+    SINGULARNAME: 'Zone de téléchargement'
+    'files_columns_ ': 'aucune colonne'
+    files_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
+    'files_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
+    'files_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
+    'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
+    'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
+    php.DownloadBlockFilesTab: Fichiers
+  DuplicateBlock:
+    BlockType: 'Dupliquer un bloc'
+    Description: "Dupliquer un bloc existant"
+    PLURALNAME: blocs
+    PLURALS:
+      one: 'un bloc'
+      other: '{count} blocs'
+    SINGULARNAME: bloc
+  Features:
+    PLURALNAME: Features
+    PLURALS:
+      one: 'une Feature'
+      other: '{count} Features'
+    SINGULARNAME: Features
+  FeaturesBlock:
+    AfterCreation: "Vous pourrez ajouter des features après la création du bloc."
+    BlockType: 'Liste de features'
+    ContentLabel: Contenu
+    Description: "Bloc permettant d'insérer une liste de features"
+    Features: Features
+    FeaturesLayout: "Format des features"
+    FeaturesInColumns: 'Afficher les features sur plusieurs colonnes'
+    FeaturesTextAlignment: "Alignement des features"
+    FeaturesTitle: 'Titre de la liste'
+    PLURALNAME: 'Listes de features'
+    PLURALS:
+      one: 'une liste de features'
+      other: '{count} listes de features'
+    SINGULARNAME: 'liste de features'
+    'features_columns_ ': 'aucune colonne'
+    features_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
+    'features_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
+    'features_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
+    'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
+    'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
+  Form:
+    ButtonBackground: 'Couleur du bouton'
+    RedirectPage: 'Page de redirection'
+    SubmitButtonText: 'Texte du bouton d''envoi'
+  GalleryBlock:
+    Autoplay: "Lecture automatique"
+    BlockType: "Galerie d'images"
+    ContentLabel: Contenu
+    Description: "Affiche un carousel d'image ou une grille au choix"
+    Format: Format
+    Images: Images
+    PLURALNAME: "Galeries d'images"
+    PLURALS:
+      one: "une galerie d'images"
+      other: "{count} galeries d'images"
+    PicturesPerLine: 'Images par ligne'
+    PicturesTab: Images
+    SINGULARNAME: "Galerie d'images"
+    block_layouts_carousel: "Carousel"
+    block_layouts_grid: "Grille"
+    php.GalleryBlockPicturesTab: Images
+    PaddedImages: 'Afficher les images dans leur entiereté ? (pas de redimensionnement, indiqué pour les logos par exemple)'
+    LightboxOff: 'Images non cliquables?'
+    ShowNav: 'Afficher les flêches de navigation ?'
+    ShowDot: 'Afficher les points de navigation ?'
+  Global:
+    BUTTONCOLLAPSE: Rassembler
+    BUTTONEXPAND: Agrandir
+  GridFieldDuplicateBlock:
+    Label: 'Copier un bloc existant'
+  GridFieldExtensions:
+    Duplicate: Copier
+    Link: Lier
+  GridFieldLinkBlock:
+    Label: 'Lier un bloc existant'
+  LargeImageBlock:
+    BlockType: 'Bannière'
+    Description: "Bannière avec une image en arrière plan"
+    Effect: Effet
+    EffectOptions: "Options d'effet"
+    Format: Format
+    Height: Hauteur
+    PLURALNAME: "Bannières"
+    PLURALS:
+      one: 'une bannière'
+      other: '{count} bannières'
+    SINGULARNAME: bannière
+    block_heights_uk-height-large: grande
+    block_heights_uk-height-medium: moyenne
+    block_heights_uk-height-small: petite
+    block_heights_viewport: "tout l'écran"
+    block_layouts_uk-position-bottom: "Positionner l'élément en bas"
+    block_layouts_uk-position-center: "Positionner l'élément au centre"
+    block_layouts_uk-position-top: "Positionner l'élément en haut"
+    effects_fixed: fixe
+    effects_none: aucun
+    effects_parallax: parallax
+  LeadBlock:
+    BlockType: Contenu principal
+    ContentLabel: Contenu
+    Description: "Bloc de texte mis en évidence"
+    PLURALNAME: 'contenus principaux'
+    PLURALS:
+      one: 'un contenu principal'
+      other: '{count} contenus principaux'
+    SINGULARNAME: 'contenu principal'
+  ListBlock:
+    AfterCreation: "Vous pourrez ajouter des items après création de la liste"
+    BlockType: 'Liste'
+    Content: "Contenu"
+    Description: "Créer une liste d'item (liens, références,...)"
+    PLURALS:
+      one: 'une liste'
+      other: '{count} listes'
+    SINGULARNAME: 'Liste'
+    ItemAlignment: 'Format des items'
+    ShowBottomBorder: 'Afficher une bordure entre les items'
+    ItemLayout: 'Format de la liste'
+  ListItem:
+    TitleLabel: Titre
+    Image: Image
+    Summary: Contenu
+    PLURALS:
+      one: 'un item'
+      other: '{count} items'
+    SINGULARNAME: 'Item'
+    GlobalLayout: 'Options globales de format'
+    LAYOUTTAB: Affichage
+    Layout: Format
+    NoBild: "(pas d'image)"
+    ShowColumnsBorder: 'Afficher une bordure entre les colonnes'
+    TitleAlignment: "Alignement du titre"
+    TextAlignment: "Alignement du texte"
+    TextColumns: "Afficher le texte en plusieurs colonnes"
+    TextLayout: "Option de format du texte"
+    text_alignments_uk-text-justify: 'Justifier le texte'
+    'text_alignments_uk-text-center': 'Centrer le texte horizontalement'
+    'text_alignments_uk-text-left': 'Aligner le texte à gauche'
+    'text_alignments_uk-text-right': 'Aligner le texte à droite'
+    'text_columns_ ': 'Pas de colonnes'
+    text_columns_uk-column-1-2@s: 'Afficher le contenu sur 2 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-3@m': 'Afficher le contenu sur 3 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
+    'text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
+  MapBlock:
+    Adresse: Adresse
+    BlockType: Carte
+    ContentLabel: Contenu
+    Description: "Bloc permettant d'insérer une carte google avec un marqueur sur une adresse donnée."
+    Height: Hauteur
+    LinkToStyle: 'générer un style de carte'
+    PLURALNAME: 'bloc de cartes'
+    PLURALS:
+      one: 'un bloc de carte'
+      other: '{count} blocs de carte'
+    SINGULARNAME: 'bloc de carte'
+    Styles: 'styles de carte'
+    disableControls: 'Désactiver tous les contrôles'
+    fullscreenControls: 'Contrôle plein écran'
+    mapControlOptions: 'Options de carte'
+    mapControls: 'Contrôle de la carte'
+    scaleControls: "Contrôle de l'échelle"
+    streetViewControlOptions: 'Options pour StreetView'
+    streetViewControls: 'Contrôle StreetView'
+    zoomControlOptions: 'Options pour le zoom'
+    zoomControls: 'Contrôle du zoom'
+  PAGEBLOCKS:
+    BLOCKSTITLE: blocs de contenu
+  ParentBlock:
+    BUTTONFIRST: 'Premier bloc à afficher en mobile'
+    BlockType: 'Bloc multiple'
+    BlocksPerLine: 'blocs par ligne'
+    BlocksPerLineHelpText: 'Sélection un nombre de blocs par ligne'
+    Border: 'Afficher une bordure entre les blocs ?'
+    Description: "Bloc permettant de combiner plusieurs blocs en un seul."
+    CanCollapse: 'Blocs peuvent être rassemblés'
+    CollapsableChildren: 'Blocs rassemblables'
+    CollapsableChildrenHelpText: "Cette option ne peut pas être modifiée après la création du bloc."
+    CollapseMultipe: "Permettre l'ouverture de plusieurs blocs en même temps"
+    Layout: Format
+    PLURALNAME: 'Blocs multiples'
+    PLURALS:
+      one: 'un bloc multiple'
+      other: '{count} blocs multiples'
+    SINGULARNAME: 'bloc multiple'
+    SameHeight: 'ajuster tous les blocs à la même taille ?'
+    block_layouts_default: "défauts"
+    blocks_per_line_uk-child-width-1-1@s: '1'
+    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-2@m': '2'
+    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-3@m': '3'
+    'blocks_per_line_uk-child-width-1-1@s uk-child-width-1-4@m': '4'
+  ShareBlock:
+    BlockType: 'Bloc de partage'
+    ContentLabel: Contenu
+    Description: "Bloc contenant des boutons de partage pour les réseaux sociaux"
+    PLURALNAME: 'Blocs de partage'
+    PLURALS:
+      one: 'un bloc de partage'
+      other: '{count} blocs de partage'
+    SINGULARNAME: 'Bloc de partage'
+  SiteTree:
+    BUTTONCOLLAPSE: Rassembler
+    BUTTONEXPAND: Agrandir
+    FirstBlock: 'Premier bloc'
+  SitemapBlock:
+    BlockType: Plan du site
+    ContentLabel: Contenu
+    Description: "Bloc présentant la structure des page du site sous forme d'une liste."
+    PLURALNAME: 'Plans de site'
+    PLURALS:
+      one: 'un bloc plan de site'
+      other: '{count} blocs plan de site'
+    SINGULARNAME: 'Bloc plan de site'
+  Slide:
+    CTA: Lien
+    ContentLabel: Contenu
+    ContentTab: Contenu
+    Effect: Effet
+    EffectOptions: "Options d'effet"
+    Image: Image
+    NoBild: (aucune)
+    PLURALNAME: Slides
+    PLURALS:
+      one: 'une Slide'
+      other: '{count} Slides'
+    SINGULARNAME: Slide
+    TitleLabel: Titre
+    effects_kenburns: 'dérive'
+    effects_none: aucun
+    effects_parallax: parallax
+  SliderBlock:
+    Animation: Animation
+    Autoplay: "Défilement automatique"
+    BlockType: Carousel de slides
+    Controls: Contrôles
+    CopySlides: 'Copier les slides depuis'
+    CopySlidesHelpText: 'Veuillez sélectionner un carousel'
+    Description: "Carousel d'images avec contenu"
+    Format: Format
+    Heights: Hauteur
+    MaxHeight: 'Hauteur max.'
+    MinHeight: 'Hauteur min.'
+    PLURALNAME: Carousels de slides
+    PLURALS:
+      one: 'Un carousel de slides'
+      other: '{count} carousel de slides'
+    SINGULARNAME: carousel de slides
+    Slides: Slides
+    SlideCopyHelpText: "Enregistrez le carousel pour pouvoir ajouter des images, ou copiez les images d'un carousel existant."
+    animations_fade: Apparition
+    animations_pull: Tire
+    animations_push: Pousse
+    animations_scale: "Changement d'échelle"
+    animations_slide: Glissement
+    block_heights_large: grande
+    block_heights_medium: moyenne
+    block_heights_small: petite
+    block_heights_viewport: "tout l'écran"
+    block_layouts_slideshow: carousel de slides
+    controls_controls: flêches
+    controls_dots: points
+    controls_none: aucun
+  TextBlock:
+    BlockType: 'Texte et image'
+    ContentLabel: Contenu
+    Description: "Bloc de contenu classique permettant d'ajouter du texte et des images."
+    PLURALNAME: 'Bloc de contenu classique'
+    PLURALS:
+      one: 'un bloc de contenu classique'
+      other: '{count} blocs de contenu classique'
+    SINGULARNAME: 'bloc de contenu classique'
+    block_layouts_above: En-dessous
+    block_layouts_hover: Au-dessus
+    block_layouts_left: "à gauche"
+    block_layouts_right: "à droite"
+  UserFormExtension:
+    BlockType: Formulaire
+    ButtonBackground: 'Couleur du bouton'
+    RedirectPage: 'page de redirection après une soumission réussie'
+    ShowLabels: 'Afficher les labels de champ ?'
+    StepTitleBackground: "Couleur d'arrière-plan du titre de section"
+    WITHCAPTCHA: 'protéger par un recaptcha Google ?'
+    UserFormExtensionRedirectPage: 'Page de redirection en cas de soumission avec succès'
+  VideoBlock:
+    BlockType: Galerie de vidéos
+    Description: "Galerie de vidéos issues d'URL externe (Youtube, vimeo,...)"
+    PLURALNAME: Galeries de vidéos
+    PLURALS:
+      one: 'une galerie de vidéos'
+      other: '{count} galeries de vidéos'
+    SINGULARNAME: Galerie de vidéos
+    VideoPerLine: 'Videos par ligne'
+    VideosURL: 'Videos (1 URL par ligne) '
+    block_layouts_carousel: Carousel
+    block_layouts_grid: Grille
+    videos_per_line_uk-child-width-1-1: '1'
+    videos_per_line_uk-child-width-1-2@s: '2'
+    videos_per_line_uk-child-width-1-3@s: '3'
+  VirtualBlock:
+    BlockType: 'Lier un bloc'
+    Description: "Lier un bloc existant"
+    PLURALNAME: 'Blocs liés'
+    PLURALS:
+      one: 'un bloc lié'
+      other: '{count} blocs liés'
+    SINGULARNAME: 'bloc lié'
 
-#   DNADesign\ElementalUserForms\Model\ElementForm:
-#     BlockType: 'Formulaire'
-#     Description: 'Créer un formulaire avec champs personnalisables'
+  DNADesign\ElementalUserForms\Model\ElementForm:
+    BlockType: 'Formulaire'
+    Description: 'Créer un formulaire avec champs personnalisables'
 
-#   CustomRule:
-#     BLANK: Vide
-#     DELETE: Supprimer
-#     GREATERTHAN: 'Valeur plus grande que'
-#     GREATERTHANEQUAL: 'Value plus grande ou égale'
-#     HIDETHISFIELD: 'Cacher ce champ'
-#     IS: Est
-#     LESSTHAN: 'Valeur plus petite que'
-#     LESSTHANEQUAL: 'Valeur plus petite ou égale'
-#     NOTBLANK: 'Non vide'
-#     NOTVALUE: 'Pas une valeur'
-#     SHOWTHISFIELD: 'Afficher ce champ'
-#     VALUE: Valeur
-#     WHEN: Lorsque
-#   SilverStripe\Forms\Form:
-#     FIELDISREQUIRED: '%s est requis'
-#   SilverStripe\UserForms\Model\EditableFormField:
-#     ADD: Ajouter
-#     ADDRULE: 'Ajouter une règle'
-#     BLANK: Vide
-#     CUSTOMRULES: 'Règles personalisées'
-#     DELETE: 'Supprimer ce champ'
-#     DRAG: 'Glisser pour arranger l''ordre des champs'
-#     FIELDCONFIGURATION: 'Configuration du champ'
-#     FIELDONDEFAULT: 'Coché par défaut'
-#     GREATERTHAN: 'Valeur plus grande que'
-#     GREATERTHANEQUAL: 'Value plus grande ou égale'
-#     HIDE: Cacher
-#     HIDETHISFIELD: 'Cacher ce champ'
-#     IS: Est
-#     LESSTHAN: 'Valeur plus petite que'
-#     LESSTHANEQUAL: 'Valeur plus petite ou égale'
-#     LOCKED: 'Ces champs ne peuvent pas être modifiés'
-#     NOTBLANK: 'Non vide'
-#     NOTVALUE: 'Pas une valeur'
-#     OPTIONS: Options
-#     REQUIRED: 'Ce champ est requis pour ce formulaire et ne peut pas être supprimé'
-#     SHOW: Afficher
-#     SHOWOPTIONS: 'Afficher les options'
-#     SHOWTHISFIELD: 'Afficher ce champ'
-#     VALIDATION: Validation
-#     VALUE: Valeur
-#     WHEN: Lorsque
-#   SilverStripe\UserForms\Model\EditableFormField\EditableCountryDropdownField:
-#     PLURALNAME: 'Listes de pays'
-#     SINGULARNAME: 'Liste de pays'
-#   SilverStripe\UserForms\Model\EditableFormField\EditableEmailField:
-#     PLURALNAME: 'Email'
-#     SINGULARNAME: 'Email'
-#   SilverStripe\UserForms\Model\EditableFormField\EditableLiteralField:
-#     HIDEFROMREPORT: 'caché des rapports?'
-#     PLURALNAME: 'Contenus HTML'
-#     SINGULARNAME: 'Contenu HTML'
-#   SilverStripe\UserForms\Model\EditableFormField\EditableMemberListField:
-#     PLURALNAME: 'Listes de membres'
-#     SINGULARNAME: 'Liste de membre'
-#   SilverStripe\UserForms\Model\EditableFormField\EditableMultipleOptionField:
-#     PLURALNAME: 'Option'
-#     SINGULARNAME: 'Option'
-#   SilverStripe\UserForms\Model\EditableFormField\EditableOption:
-#     DELETE: 'Supprimer cette option'
-#     DRAG: 'Glisser pour ré-ordonner les options'
-#     LOCKED: 'Ces champs ne peuvent être modifiés'
-#   SilverStripe\UserForms\Model\Recipient\EmailRecipient:
-#     PLURALNAME: 'Destinataires'
-#     SINGULARNAME: 'Destinataire'
-#   SilverStripe\UserForms\Model\Submission\SubmittedFileField:
-#     DOWNLOADFILE: 'Fichier à télécharger'
-#     PLURALNAME: 'Fichiers à télécharger'
-#     SINGULARNAME: 'Fichier à télécharger'
-#   SilverStripe\UserForms\Model\Submission\SubmittedForm:
-#     PLURALNAME: 'Soumissions'
-#     SINGULARNAME: 'Soumission'
-#   SilverStripe\UserForms\Model\Submission\SubmittedFormField:
-#     PLURALNAME: 'Soumis'
-#     SINGULARNAME: 'Soumis'
-#   SilverStripe\UserForms\Model\UserDefinedForm:
-#     EMAILADDRESS: Email
-#     EMAILBODY: Corps
-#     EMAILFROM: De
-#     EMAILRECIPIENTS: 'Destinataires de l''email'
-#     EMAILSUBJECT: 'Sujet de l''email'
-#     EmailFromContent: 'Le champ pour l''adresse de vous permet de définir d''où provient l''email. Sur la plupart des serveurs cela nécessitera que l''adresse mail soit du même domaine que votre site. Par exemple sur votresite.com l''adresse mail devra sûrement être exemple@votresite.com. Cependant vous pouvez mettre n''importe qu''elle adresse email, à laquelle vous souhaitez qu''on réponde. '
-#     FORM: Formulaire
-#     FROMADDRESS: 'Expéditeur'
-#     HIDEFORMDATA: 'Ne pas afficher les données du formulaire dans l''email'
-#     ONCOMPLETELABEL: 'Utiliser la complétion'
-#     ORSELECTAFIELDTOUSEASFROM: '.. ou Choisissez un champ en tant qu''adresse email'
-#     ORSELECTAFIELDTOUSEASTO: '.. ou Choisissez un champ en tant qu''adresse email'
-#     REPLYADDRESS: 'Email pour répondre à'
-#     SAVESUBMISSIONS: 'Ne pas enregistrer les soumissions sur le serveur'
-#     SENDEMAILTO: 'Envoyer l''email à'
-#     SENDPLAIN: 'Envoyer l''email comme texte simple (le contenu HTML sera supprimé)'
-#     SHOWCLEARFORM: 'Afficher un bouton reset'
-#     SINGULARNAME: 'Formulaire'
-#     SUBMISSIONS: Soumissions
-#     SUBMITBUTTON: Envoyer
-#     TEXTONSUBMIT: 'Texte du bouton Envoyer :'  
+  CustomRule:
+    BLANK: Vide
+    DELETE: Supprimer
+    GREATERTHAN: 'Valeur plus grande que'
+    GREATERTHANEQUAL: 'Value plus grande ou égale'
+    HIDETHISFIELD: 'Cacher ce champ'
+    IS: Est
+    LESSTHAN: 'Valeur plus petite que'
+    LESSTHANEQUAL: 'Valeur plus petite ou égale'
+    NOTBLANK: 'Non vide'
+    NOTVALUE: 'Pas une valeur'
+    SHOWTHISFIELD: 'Afficher ce champ'
+    VALUE: Valeur
+    WHEN: Lorsque
+  SilverStripe\Forms\Form:
+    FIELDISREQUIRED: '%s est requis'
+  SilverStripe\UserForms\Model\EditableFormField:
+    ADD: Ajouter
+    ADDRULE: 'Ajouter une règle'
+    BLANK: Vide
+    CUSTOMRULES: 'Règles personalisées'
+    DELETE: 'Supprimer ce champ'
+    DRAG: 'Glisser pour arranger l''ordre des champs'
+    FIELDCONFIGURATION: 'Configuration du champ'
+    FIELDONDEFAULT: 'Coché par défaut'
+    GREATERTHAN: 'Valeur plus grande que'
+    GREATERTHANEQUAL: 'Value plus grande ou égale'
+    HIDE: Cacher
+    HIDETHISFIELD: 'Cacher ce champ'
+    IS: Est
+    LESSTHAN: 'Valeur plus petite que'
+    LESSTHANEQUAL: 'Valeur plus petite ou égale'
+    LOCKED: 'Ces champs ne peuvent pas être modifiés'
+    NOTBLANK: 'Non vide'
+    NOTVALUE: 'Pas une valeur'
+    OPTIONS: Options
+    REQUIRED: 'Ce champ est requis pour ce formulaire et ne peut pas être supprimé'
+    SHOW: Afficher
+    SHOWOPTIONS: 'Afficher les options'
+    SHOWTHISFIELD: 'Afficher ce champ'
+    VALIDATION: Validation
+    VALUE: Valeur
+    WHEN: Lorsque
+  SilverStripe\UserForms\Model\EditableFormField\EditableCountryDropdownField:
+    PLURALNAME: 'Listes de pays'
+    SINGULARNAME: 'Liste de pays'
+  SilverStripe\UserForms\Model\EditableFormField\EditableEmailField:
+    PLURALNAME: 'Email'
+    SINGULARNAME: 'Email'
+  SilverStripe\UserForms\Model\EditableFormField\EditableLiteralField:
+    HIDEFROMREPORT: 'caché des rapports?'
+    PLURALNAME: 'Contenus HTML'
+    SINGULARNAME: 'Contenu HTML'
+  SilverStripe\UserForms\Model\EditableFormField\EditableMemberListField:
+    PLURALNAME: 'Listes de membres'
+    SINGULARNAME: 'Liste de membre'
+  SilverStripe\UserForms\Model\EditableFormField\EditableMultipleOptionField:
+    PLURALNAME: 'Option'
+    SINGULARNAME: 'Option'
+  SilverStripe\UserForms\Model\EditableFormField\EditableOption:
+    DELETE: 'Supprimer cette option'
+    DRAG: 'Glisser pour ré-ordonner les options'
+    LOCKED: 'Ces champs ne peuvent être modifiés'
+  SilverStripe\UserForms\Model\Recipient\EmailRecipient:
+    PLURALNAME: 'Destinataires'
+    SINGULARNAME: 'Destinataire'
+  SilverStripe\UserForms\Model\Submission\SubmittedFileField:
+    DOWNLOADFILE: 'Fichier à télécharger'
+    PLURALNAME: 'Fichiers à télécharger'
+    SINGULARNAME: 'Fichier à télécharger'
+  SilverStripe\UserForms\Model\Submission\SubmittedForm:
+    PLURALNAME: 'Soumissions'
+    SINGULARNAME: 'Soumission'
+  SilverStripe\UserForms\Model\Submission\SubmittedFormField:
+    PLURALNAME: 'Soumis'
+    SINGULARNAME: 'Soumis'
+  SilverStripe\UserForms\Model\UserDefinedForm:
+    EMAILADDRESS: Email
+    EMAILBODY: Corps
+    EMAILFROM: De
+    EMAILRECIPIENTS: 'Destinataires de l''email'
+    EMAILSUBJECT: 'Sujet de l''email'
+    EmailFromContent: 'Le champ pour l''adresse de vous permet de définir d''où provient l''email. Sur la plupart des serveurs cela nécessitera que l''adresse mail soit du même domaine que votre site. Par exemple sur votresite.com l''adresse mail devra sûrement être exemple@votresite.com. Cependant vous pouvez mettre n''importe qu''elle adresse email, à laquelle vous souhaitez qu''on réponde. '
+    FORM: Formulaire
+    FROMADDRESS: 'Expéditeur'
+    HIDEFORMDATA: 'Ne pas afficher les données du formulaire dans l''email'
+    ONCOMPLETELABEL: 'Utiliser la complétion'
+    ORSELECTAFIELDTOUSEASFROM: '.. ou Choisissez un champ en tant qu''adresse email'
+    ORSELECTAFIELDTOUSEASTO: '.. ou Choisissez un champ en tant qu''adresse email'
+    REPLYADDRESS: 'Email pour répondre à'
+    SAVESUBMISSIONS: 'Ne pas enregistrer les soumissions sur le serveur'
+    SENDEMAILTO: 'Envoyer l''email à'
+    SENDPLAIN: 'Envoyer l''email comme texte simple (le contenu HTML sera supprimé)'
+    SHOWCLEARFORM: 'Afficher un bouton reset'
+    SINGULARNAME: 'Formulaire'
+    SUBMISSIONS: Soumissions
+    SUBMITBUTTON: Envoyer
+    TEXTONSUBMIT: 'Texte du bouton Envoyer :'  
