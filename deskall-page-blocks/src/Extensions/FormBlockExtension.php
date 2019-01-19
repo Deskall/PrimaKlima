@@ -39,7 +39,7 @@ class FormBlockExtension extends DataExtension
     'RedirectPage' => SiteTree::class
    ];
 
-   public function updateFieldLabels($labels){
+   public function updateFieldLabels(&$labels){
       $labels['ButtonBackground'] = _t('Form.ButtonBackground','Button Hintergrundfarbe');
    }
 
