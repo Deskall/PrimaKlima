@@ -98,6 +98,8 @@ fr:
     'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
     'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
     SettingsTab: 'Paramètres'
+    isPrimary: 'Ce bloc contient le titre principale de la page (h1)'
+    TitleIcon: 'Icône (renseigner la classe font awesome)'
   Box:
     Effect: Effet
     EffectOptions: "Options pour l'effet"
@@ -255,6 +257,8 @@ fr:
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
   Form:
     ButtonBackground: 'Couleur du bouton'
+    RedirectPage: 'Page de redirection'
+    SubmitButtonText: 'Texte du bouton d''envoi'
   GalleryBlock:
     Autoplay: "Lecture automatique"
     BlockType: "Galerie d'images"
@@ -522,3 +526,106 @@ fr:
   DNADesign\ElementalUserForms\Model\ElementForm:
     BlockType: 'Formulaire'
     Description: 'Créer un formulaire avec champs personnalisables'
+
+
+
+
+  ##Userforms
+  CustomRule:
+    BLANK: Vide
+    DELETE: Supprimer
+    GREATERTHAN: 'Valeur plus grande que'
+    GREATERTHANEQUAL: 'Value plus grande ou égale'
+    HIDETHISFIELD: 'Cacher ce champ'
+    IS: Est
+    LESSTHAN: 'Valeur plus petite que'
+    LESSTHANEQUAL: 'Valeur plus petite ou égale'
+    NOTBLANK: 'Non vide'
+    NOTVALUE: 'Pas une valeur'
+    SHOWTHISFIELD: 'Afficher ce champ'
+    VALUE: Valeur
+    WHEN: Lorsque
+  SilverStripe\Forms\Form:
+    FIELDISREQUIRED: '%s est requis'
+  SilverStripe\UserForms\Model\EditableFormField:
+    ADD: Ajouter
+    ADDRULE: 'Ajouter une règle'
+    BLANK: Vide
+    CUSTOMRULES: 'Règles personalisées'
+    DELETE: 'Supprimer ce champ'
+    DRAG: 'Glisser pour arranger l''ordre des champs'
+    FIELDCONFIGURATION: 'Configuration du champ'
+    FIELDONDEFAULT: 'Coché par défaut'
+    GREATERTHAN: 'Valeur plus grande que'
+    GREATERTHANEQUAL: 'Value plus grande ou égale'
+    HIDE: Cacher
+    HIDETHISFIELD: 'Cacher ce champ'
+    IS: Est
+    LESSTHAN: 'Valeur plus petite que'
+    LESSTHANEQUAL: 'Valeur plus petite ou égale'
+    LOCKED: 'Ces champs ne peuvent pas être modifiés'
+    NOTBLANK: 'Non vide'
+    NOTVALUE: 'Pas une valeur'
+    OPTIONS: Options
+    REQUIRED: 'Ce champ est requis pour ce formulaire et ne peut pas être supprimé'
+    SHOW: Afficher
+    SHOWOPTIONS: 'Afficher les options'
+    SHOWTHISFIELD: 'Afficher ce champ'
+    VALIDATION: Validation
+    VALUE: Valeur
+    WHEN: Lorsque
+  SilverStripe\UserForms\Model\EditableFormField\EditableCountryDropdownField:
+    PLURALNAME: 'Listes de pays'
+    SINGULARNAME: 'Liste de pays'
+  SilverStripe\UserForms\Model\EditableFormField\EditableEmailField:
+    PLURALNAME: 'Email'
+    SINGULARNAME: 'Email'
+  SilverStripe\UserForms\Model\EditableFormField\EditableLiteralField:
+    HIDEFROMREPORT: 'caché des rapports?'
+    PLURALNAME: 'Contenus HTML'
+    SINGULARNAME: 'Contenu HTML'
+  SilverStripe\UserForms\Model\EditableFormField\EditableMemberListField:
+    PLURALNAME: 'Listes de membres'
+    SINGULARNAME: 'Liste de membre'
+  SilverStripe\UserForms\Model\EditableFormField\EditableMultipleOptionField:
+    PLURALNAME: 'Option'
+    SINGULARNAME: 'Option'
+  SilverStripe\UserForms\Model\EditableFormField\EditableOption:
+    DELETE: 'Supprimer cette option'
+    DRAG: 'Glisser pour ré-ordonner les options'
+    LOCKED: 'Ces champs ne peuvent être modifiés'
+  SilverStripe\UserForms\Model\Recipient\EmailRecipient:
+    PLURALNAME: 'Destinataires'
+    SINGULARNAME: 'Destinataire'
+  SilverStripe\UserForms\Model\Submission\SubmittedFileField:
+    DOWNLOADFILE: 'Fichier à télécharger'
+    PLURALNAME: 'Fichiers à télécharger'
+    SINGULARNAME: 'Fichier à télécharger'
+  SilverStripe\UserForms\Model\Submission\SubmittedForm:
+    PLURALNAME: 'Soumissions'
+    SINGULARNAME: 'Soumission'
+  SilverStripe\UserForms\Model\Submission\SubmittedFormField:
+    PLURALNAME: 'Soumis'
+    SINGULARNAME: 'Soumis'
+  SilverStripe\UserForms\Model\UserDefinedForm:
+    EMAILADDRESS: Email
+    EMAILBODY: Corps
+    EMAILFROM: De
+    EMAILRECIPIENTS: 'Destinataires de l''email'
+    EMAILSUBJECT: 'Sujet de l''email'
+    EmailFromContent: 'Le champ pour l''adresse de vous permet de définir d''où provient l''email. Sur la plupart des serveurs cela nécessitera que l''adresse mail soit du même domaine que votre site. Par exemple sur votresite.com l''adresse mail devra sûrement être exemple@votresite.com. Cependant vous pouvez mettre n''importe qu''elle adresse email, à laquelle vous souhaitez qu''on réponde. '
+    FORM: Formulaire
+    FROMADDRESS: 'Expéditeur'
+    HIDEFORMDATA: 'Ne pas afficher les données du formulaire dans l''eemail'
+    ONCOMPLETELABEL: 'Utiliser la complétion'
+    ORSELECTAFIELDTOUSEASFROM: '.. ou Choisissez un champ en tant qu''adresse email'
+    ORSELECTAFIELDTOUSEASTO: '.. ou Choisissez un champ en tant qu''adresse email'
+    REPLYADDRESS: 'Email pour répondre à'
+    SAVESUBMISSIONS: 'Ne pas enregistrer les soumissions sur le serveur'
+    SENDEMAILTO: 'Envoyer l''email à'
+    SENDPLAIN: 'Envoyer l''email comme texte simple (le contenu HTML sera supprimé)'
+    SHOWCLEARFORM: 'Afficher un bouton reset'
+    SINGULARNAME: 'Formulaire'
+    SUBMISSIONS: Soumissions
+    SUBMITBUTTON: Envoyer
+    TEXTONSUBMIT: 'Texte du bouton Envoyer :'  
