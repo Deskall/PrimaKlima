@@ -253,8 +253,8 @@ fr:
     'features_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
-  Form:
-    ButtonBackground: 'Couleur du bouton'
+  #Form:
+  #  ButtonBackground: 'Couleur du bouton'
   GalleryBlock:
     Autoplay: "Lecture automatique"
     BlockType: "Galerie d'images"
