@@ -12,7 +12,7 @@ use SilverStripe\Control\Controller;
 use DNADesign\ElementalUserForms\Control\ElementFormController;
 use SilverStripe\Forms\RequiredFields;
 use g4b0\SearchableDataObjects\Searchable;
-
+use SilverStripe\Forms\TextField;
 
 
 class FormBlockExtension extends DataExtension 
