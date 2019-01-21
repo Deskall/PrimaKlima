@@ -720,9 +720,9 @@ fr:
     SINGULARNAME: 'Groupes de champs radio'
   SilverStripe\UserForms\Model\EditableFormField\EditableTextField:
     AUTOCOMPLETE: Autocomplete
-    AUTOCOMPLETE_DESCRIPTION: 'Les navigateurs pris en charge essaieront de renseigner automatiquement ce champ avec les informations de l'utilisateur, à utiliser pour définir la valeur renseignée.'
+    AUTOCOMPLETE_DESCRIPTION: 'Les navigateurs pris en charge essaieront de renseigner automatiquement ce champ avec les informations de l''utilisateur, à utiliser pour définir la valeur renseignée.'
     NUMBERROWS: 'Nombre de ligne'
-    NUMBERROWS_DESCRIPTION: 'Les champs avec plus d'une ligne seront générés sous la forme d'une zone de texte'
+    NUMBERROWS_DESCRIPTION: 'Les champs avec plus d''une ligne seront générés sous la forme d''une zone de texte'
     PLURALNAME: 'Champs de texte'
     PLURALS:
       one: 'Champ de texte'
@@ -731,7 +731,7 @@ fr:
     SINGULARNAME: 'Champ de texte'
     TEXTLENGTH: 'Longeur de texte autorisée'
   SilverStripe\UserForms\Model\EditableFormField\Validator:
-    REQUIRED_ERROR: 'Les champs de formulaire ne peuvent pas être requis et ont des règles d'affichage conditionnelles.'
+    REQUIRED_ERROR: 'Les champs de formulaire ne peuvent pas être requis et ont des règles d''affichage conditionnelles.'
   SilverStripe\UserForms\Model\Recipient\EmailRecipient:
     CUSTOMRULESTAB: 'Régles personnalisées'
     EMAILCONTENTTAB: 'Contenu de l''email'
@@ -777,7 +777,7 @@ fr:
     EMAILSUBJECT: 'Sujet'
     EMAILTEMPLATE: 'Template'
     EMAIL_RECIPIENT_UNSAVED_FORM: 'Vous pourrez sélectionner des champs de formulaire valides après avoir enregistré cet enregistrement.'
-    EmailFromContent: 'L''adresse de vous permet de définir l''origine de l'e-mail. Sur la plupart des serveurs, vous devrez définir une adresse électronique sur le même nom de domaine que votre site. Par exemple, sur yoursite.com, l''adresse de départ doit être quelque chose@votresite.com. Vous pouvez toutefois définir l''adresse de messagerie de votre choix comme adresse de réponse.'
+    EmailFromContent: 'L''adresse de vous permet de définir l''origine de l''e-mail. Sur la plupart des serveurs, vous devrez définir une adresse électronique sur le même nom de domaine que votre site. Par exemple, sur yoursite.com, l''adresse de départ doit être quelque chose@votresite.com. Vous pouvez toutefois définir l''adresse de messagerie de votre choix comme adresse de réponse.'
     FROMADDRESS: 'Expéditeur'
     FileUploadWarning: 'Les fichiers téléchargés via ce champ pourraient être accessibles au public si l''URL exacte est connue'
     HIDEFORMDATA: 'Masquer les données de formulaire de l''email?'
@@ -788,7 +788,7 @@ fr:
       one: 'Un formulaire'
       other: '{count} formulaires'
     PREVIEW_EMAIL: 'Aperçu'
-    PREVIEW_EMAIL_DESCRIPTION: 'Remarque: les modifications non enregistrées n'apparaîtront pas dans l''aperçu.'
+    PREVIEW_EMAIL_DESCRIPTION: 'Remarque: les modifications non enregistrées n''apparaîtront pas dans l''aperçu.'
     PREVIEW_EMAIL_UNAVAILABLE: 'Vous pouvez prévisualiser cet email une fois que vous avez enregistré le destinataire.'
     REPLYADDRESS: 'Email de réponse'
     REPLYADDRESS_DESCRIPTION: 'L''adresse e-mail à laquelle le destinataire peut "répondre".'
