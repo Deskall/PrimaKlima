@@ -553,7 +553,7 @@ fr:
   SilverStripe\UserForms\Extension\UserFormValidator:
     CONDITIONAL_REQUIRED: 'Le champ requis ''{name}'' ne peut pas être placé dans une page conditionnelle'
     NO_PAGE: 'Champ ''{name}'' trouvé avant la Première page'
-    UNEXPECTED_BREAK: 'Saut de page inattendu ''{name}'' à l'intérieur du groupe ''{group}'''
+    UNEXPECTED_BREAK: 'Saut de page inattendu ''{name}'' à l''intérieur du groupe ''{group}'''
     UNEXPECTED_GROUP_END: '''{name}'' trouvé sans groupe correspondant'
     WRONG_GROUP_END: '''{name}'' ferme le mauvais groupe ''{group}'''
   SilverStripe\UserForms\Form\UserFormsGridFieldFilterHeader:
