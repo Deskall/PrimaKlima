@@ -40,9 +40,9 @@
 						                <h3 class="uk-card-title">$Title</h3>
 						                <div class="uk-text-small">
 						                	<% if $Summary %>
-						                		$Summary.LimitWordCount(15)
+						                		$Summary.LimitWordCount(30)
 						                	<% else %>
-						                		<p>$Excerpt.LimitWordCount(15)</p>
+						                		<p>$SummaryFromBlocks.LimitWordCount(30)</p>
 						                	<% end_if %>
 										</div>
 						                <div class="uk-position-bottom-right"><a href="$Link" title="<%t SilverStripe\\Blog\\Model\\Blog.ReadMoreAbout "Read more about '{title}'..." title=$Title %>"><%t SilverStripe\\Blog\\Model\\Blog.ReadMore "Lire" %><i class="icon icon-arrow-right-b"></i></a></div>
