@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\CheckboxField;
 
 class BlogPostExtension extends DataExtension{
 
@@ -20,9 +21,9 @@ class BlogPostExtension extends DataExtension{
 	public function updateCMSFields(FieldList $fields){
 		$fields->FieldByName('Root.Main.FeaturedImage')->setFolderName($this->owner->generateFolderName());
 		$fields->addFieldsToTab('Root.PostOptions',[
-			$fields->FieldByName('Root.Main.displayEntryMeta'),
-			$fields->FieldByName('Root.Main.displayCommentsCount'),
-			$fields->FieldByName('Root.Main.displayShareButtons')
+			CheckboxField::create('displayEntryMeta',$this->owner->fieldLabels(false)['displayEntryMeta']),
+			CheckboxField::create('displayCommentsCount',$this->owner->fieldLabels(false)['displayCommentsCount']),
+			CheckboxField::create('displayShareButtons',$this->owner->fieldLabels(false)['displayShareButtons'])
 		]);
 	}
 
