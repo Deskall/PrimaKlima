@@ -9,7 +9,7 @@
 		</ul>
 		<% end_if %>
 		<% if Tags.Exists %>
-		<h5><%t SilverStripe\\Blog\\Model\\Blog.Thema 'Thema' %></h5>
+		<h5><%t SilverStripe\\Blog\\Model\\Blog.Tag 'Tags' %></h5>
 		<ul class="uk-nav">
 		<% loop Tags %>
 		    <li> <a href="$Link" title="$Title" data-uk-icon="chevron-right">$Title</a></li>
