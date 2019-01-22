@@ -82,9 +82,9 @@ $(document).ready(function(){
   }
   if ($(".flatpickr-year").length > 0){
     $(".flatpickr-year").flatpickr({
-        dateFormat: "Y",
+        dateFormat: "m.Y",
         altInput: true,
-        altFormat: "Y"
+        altFormat: "m.Y"
     });
   }
 });
