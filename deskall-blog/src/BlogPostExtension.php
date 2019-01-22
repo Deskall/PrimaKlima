@@ -3,6 +3,7 @@
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class BlogPostExtension extends DataExtension{
 
