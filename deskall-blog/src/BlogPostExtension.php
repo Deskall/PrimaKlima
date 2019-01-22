@@ -7,7 +7,7 @@ class BlogPostExtension extends DataExtension{
 
 	private static $db = ['displayEntryMeta' => 'Boolean(0)'];
 
-	public function updateCMSFields(&$labels){
+	public function updateFieldLabels(&$labels){
 		$labels['displayEntryMeta'] = _t('BlogPost.DisplayEntryMeta','Artikel Infos anzeigen?');
 	}
 
