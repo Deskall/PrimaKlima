@@ -1,4 +1,4 @@
-<div class="uk-section-small" data-uk-sticky="media:960;bottom:true;offset:-80;">
+<div class="uk-section-small uk-background-primary" data-uk-sticky="media:960;bottom:true;offset:-80;">
 	<% if Categories.Exists %>
 		<h4><%t SilverStripe\\Blog\\Model\\Blog.Thema 'Thema' %></h4>
 		<ul class="uk-nav">
