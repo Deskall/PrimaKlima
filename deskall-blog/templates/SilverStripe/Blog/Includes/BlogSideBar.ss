@@ -1,5 +1,6 @@
-<div class="uk-section-small uk-background-primary" data-uk-sticky="media:960;bottom:true;offset:-80;">
-	<% if Categories.Exists %>
+<div class="uk-section-small" data-uk-sticky="media:960;bottom:true;offset:-80;">
+	<div class="uk-padding-small uk-background-primary">
+		<% if Categories.Exists %>
 		<h4><%t SilverStripe\\Blog\\Model\\Blog.Thema 'Thema' %></h4>
 		<ul class="uk-nav">
 		<% loop Categories %>
@@ -31,5 +32,6 @@
 		</div>
 		<div class="uk-margin-top uk-text-center">
 		<a class="uk-button uk-button-secondary" href="{$Link}#comments-holder" data-uk-scroll><%t SilverStripe\\Blog\\Model\\Blog.Comment 'Kommentar hinzufügen' %></a>
+		</div>
 	</div>
 </div>
