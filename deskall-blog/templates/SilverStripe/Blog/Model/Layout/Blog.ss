@@ -41,9 +41,9 @@ $ElementalArea
 						                <h3 class="uk-card-title">$Title</h3>
 						                <div>
 						                	<% if $Summary %>
-						                		$Summary
+						                		$Summary.LimitWordCount(30)
 						                	<% else %>
-						                		$SummaryFromBlocks
+						                		$SummaryFromBlocks.LimitWordCount(30)
 						                	<% end_if %>
 										</div>
 						                <div class="uk-position-bottom-right uk-position-medium"><%t SilverStripe\\Blog\\Model\\Blog.ReadPost "Lesen" %><i class="fa fa-chevron-right uk-margin-small-left"></i></div>
