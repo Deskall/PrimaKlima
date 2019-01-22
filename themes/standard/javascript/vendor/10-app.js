@@ -80,13 +80,6 @@ $(document).ready(function(){
         }
     });
   }
-  if ($(".flatpickr-year").length > 0){
-    $(".flatpickr-year").flatpickr({
-        dateFormat: "m.Y",
-        altInput: true,
-        altFormat: "m.Y"
-    });
-  }
 });
 
 //Google Maps
