@@ -19,6 +19,11 @@ class BlogPostExtension extends DataExtension{
 
 	public function updateCMSFields(FieldList $fields){
 		$fields->FieldByName('Root.Main.FeaturedImage')->setFolderName($this->owner->generateFolderName());
+		$fields->addFieldsToTab('Root.PostOptions',[
+			$fields->FieldByName('Root.Main.displayEntryMeta'),
+			$fields->FieldByName('Root.Main.displayCommentsCount'),
+			$fields->FieldByName('Root.Main.displayShareButtons')
+		]);
 	}
 
 	public function checkLead(){
