@@ -1,8 +1,10 @@
 <% include DefaultSlide %>
 
+$ElementalArea
+
 <section class="uk-section">
 	<div class="uk-container">
-		<h1>
+		<h2>
  			<% if $ArchiveYear %>
 				<%t SilverStripe\\Blog\\Model\\Blog.Archive 'Archive' %>:
 				<% if $ArchiveDay %>
@@ -16,10 +18,8 @@
 				<%t SilverStripe\\Blog\\Model\\Blog.Tag 'Tag' %>: $CurrentTag.Title
 			<% else_if $CurrentCategory %>
 				<%t SilverStripe\\Blog\\Model\\Blog.Category 'Category' %>: $CurrentCategory.Title
-			<% else %>
-				$Title
 			<% end_if %>
-		</h1>
+		</h2>
 
 		<div class="content">$Content</div>
 
@@ -30,24 +30,26 @@
 							<% loop $PaginatedList %>
 							
 							<div>
-								<div class="uk-card uk-background-primary uk-card-hover uk-border-rounded">
-						            <div class="uk-card-media-top">
-						            	<div class="uk-cover-container">
-						                	<img src="$FeaturedImage.ScaleWidth(390).URL" alt="$FeaturedImage.AltTag($Title)" data-uk-cover>
-						                </div>
+							
+								<a href="$Link" title="<%t SilverStripe\\Blog\\Model\\Blog.ReadMoreAbout "mehr über '{title}' lesen..." title=$Title %>">
+								<div class="uk-card uk-card-default uk-card-hover uk-border-rounded uk-grid-collapse uk-child-width-1-2@s uk-margin" data-uk-grid>
+						            <div class="uk-card-media-left uk-cover-container">
+						                <img src="$FeaturedImage.ScaleWidth(390).URL" alt="$FeaturedImage.AltTag($Title)" data-uk-cover>
+						                <canvas with="390" height="300"></canvas> 
 						            </div>
 						            <div class="uk-card-body uk-padding-small">
 						                <h3 class="uk-card-title">$Title</h3>
-						                <div class="uk-text-small">
+						                <div>
 						                	<% if $Summary %>
-						                		$Summary.LimitWordCount(30)
+						                		$Summary
 						                	<% else %>
-						                		<p>$SummaryFromBlocks.LimitWordCount(30)</p>
+						                		$SummaryFromBlocks
 						                	<% end_if %>
 										</div>
-						                <div class="uk-position-bottom-right"><a href="$Link" title="<%t SilverStripe\\Blog\\Model\\Blog.ReadMoreAbout "Read more about '{title}'..." title=$Title %>"><%t SilverStripe\\Blog\\Model\\Blog.ReadMore "Lire" %><i class="icon icon-arrow-right-b"></i></a></div>
+						                <div class="uk-position-bottom-right uk-position-medium"><%t SilverStripe\\Blog\\Model\\Blog.ReadPost "Lesen" %><i class="fa fa-chevron-right uk-margin-small-left"></i></div>
 						            </div>
 						        </div>
+						    	</a>
 						    </div>
 						    
 						    <% end_loop %>
@@ -55,7 +57,7 @@
 				</div>
 			</div>
 		<% else %>
-			<p><%t SilverStripe\\Blog\\Model\\Blog.NoPosts 'There are no posts' %></p>
+			<p><%t SilverStripe\\Blog\\Model\\Blog.NoPosts 'Es gibt keine Artikel' %></p>
 		<% end_if %>
 
 	</div>
