@@ -32,7 +32,7 @@ class BlogPostExtension extends DataExtension{
 	}
 
 	public function SummaryFromBlocks(){
-		$block = $this->owner->ElementalArea()->Elements()->filter('ClassName', ['FeaturesBlock','LeadBlock','TextBlock'])->where('HTML IS NOT NULL')->first();
+		$block = $this->owner->ElementalArea()->Elements()->filter('ClassName', ['LeadBlock','TextBlock'])->where('HTML IS NOT NULL')->first();
 		return $block->HTML;
 	}
 
