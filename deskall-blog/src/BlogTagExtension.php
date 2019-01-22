@@ -7,7 +7,7 @@ class BlogTagExtension extends DataExtension{
 
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
-		$this->owner->URLSegment = URLSegmentFilter::create()->filter($this->Title);
+		$this->owner->URLSegment = URLSegmentFilter::create()->filter($this->owner->Title);
 	}
 
 }
