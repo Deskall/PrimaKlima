@@ -6,7 +6,7 @@
 	    <div class="uk-position-bottom uk-overlay uk-overlay-default uk-padding-small">
 	    	<div class="uk-container uk-container-large uk-padding-small">
 		    	<h1 class="uk-article-title">$Title</h1>
-		    	<% if displayEntryMeta %><% include SilverStripe\\Blog\\EntryMeta %><% end_if %>
+		    	<% include SilverStripe\\Blog\\EntryMeta %>
 		    </div>
 	    </div>
 	</div>
