@@ -28,6 +28,7 @@ $(document).ready(function(){
   if ($(".flatpickr").length > 0){
     $(".flatpickr").flatpickr({
         dateFormat: "d.m.Y",
+        altInput: true,
         locale: {
           weekdays: {
             shorthand: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
@@ -81,7 +82,9 @@ $(document).ready(function(){
   }
   if ($(".flatpickr-year").length > 0){
     $(".flatpickr-year").flatpickr({
-        dateFormat: "Y"
+        dateFormat: "Y",
+        altInput: true,
+        altFormat: "Y"
     });
   }
 });
