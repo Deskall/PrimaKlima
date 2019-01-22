@@ -37,7 +37,9 @@ class BlogPostExtension extends DataExtension{
 		foreach ($blocks as $block) {
 			$html .= $block->HTML;
 		}
-		return $html;
+		$o = DBHTMLText();
+		$o->setValue($html);
+		return $o;
 	}
 
 }
