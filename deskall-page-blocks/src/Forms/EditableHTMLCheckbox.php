@@ -45,7 +45,7 @@ class EditableHTMLCheckbox extends EditableCheckbox
 
     public function getFormField()
     {
-        $field = CheckboxField::create($this->Name, $this->Title ?: false, $this->CheckedDefault)
+        $field = CheckboxField::create($this->Name, $this->HTMLLabel ?: false, $this->CheckedDefault)
             ->setFieldHolderTemplate(__CLASS__ . '_holder')
             ->setTemplate(__CLASS__);
 
