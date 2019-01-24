@@ -35,7 +35,7 @@ class EditableHTMLCheckbox extends EditableCheckbox
     {
         $fields = parent::getCMSFields();
 
-        $fields->replaceField('HTMLLabel', HTMLEditorField::create(
+        $fields->addFieldToTab('Root.Main', HTMLEditorField::create(
             "HTMLLabel",
             _t('SilverStripe\\UserForms\\Model\\EditableFormField.HTMLLabel', 'Label (HTML)')
         ));
