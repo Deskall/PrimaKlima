@@ -262,6 +262,7 @@ fr:
     FormFields: 'Champs du formulaire'
     Submissions: 'Requêtes effectuées'
     Recipients: 'Destinataires'
+    RequiredFieldsLabel: 'Les champs marqués d''un astérisque (*) sont requis'
   GalleryBlock:
     Autoplay: "Lecture automatique"
     BlockType: "Galerie d'images"
