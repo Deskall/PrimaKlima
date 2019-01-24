@@ -6,6 +6,7 @@ use SilverStripe\UserForms\Model\EditableFormField;
 use SilverStripe\UserForms\Model\EditableFormField\EditableCheckbox;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\CMS\Model\SiteTree;
 
 /**
  * EditableCheckbox
@@ -47,7 +48,7 @@ class EditableHTMLCheckbox extends EditableCheckbox
     public function getFormField()
     {
         $title = DBHTMLText::create();
-        $title->setValue($this->HTMLLabel);
+        $title->setValue(SiteTree::link_shortcode_handler($this->HTMLLabel));
         $field = CheckboxField::create($this->Name, $title ?: false, $this->CheckedDefault)
             ->setFieldHolderTemplate(__CLASS__ . '_holder')
             ->setTemplate(__CLASS__);
