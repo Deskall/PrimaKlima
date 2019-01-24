@@ -5,6 +5,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\UserForms\Model\EditableFormField;
 use SilverStripe\UserForms\Model\EditableFormField\EditableCheckbox;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 /**
  * EditableCheckbox
