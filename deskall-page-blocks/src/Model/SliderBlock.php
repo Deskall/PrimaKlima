@@ -41,8 +41,7 @@ class SliderBlock extends BaseElement implements Searchable
     ];
 
     private static $has_one = [
-        'Referent' => SliderBlock::class,
-        'BackgroundElement' => Image::class
+        'Referent' => SliderBlock::class
     ];
 
     private static $has_many = [
@@ -50,15 +49,15 @@ class SliderBlock extends BaseElement implements Searchable
     ];
 
     private static $owns = [
-        'Slides','BackgroundElement'
+        'Slides'
     ];
 
     private static $cascade_deletes = [
-        'Slides','BackgroundElement'
+        'Slides'
     ];
 
     private static $cascade_duplicates = [
-        'Slides','BackgroundElement'
+        'Slides'
     ];
 
     
@@ -191,7 +190,7 @@ class SliderBlock extends BaseElement implements Searchable
            
             $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
           //      HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->stat('block_layouts')),
-                UploadField::create('BackgroundElement',_t(__CLASS__.'.BackgroundElement','Hintergrund Grafik (wird über die Slides angezeigt)')),
+                UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrund Grafik (wird über die Slides angezeigt)'))
                 HTMLOptionsetField::create('Height',_t(__CLASS__.'.Heights','Höhe'),$this->stat('block_heights')),
                 HTMLOptionsetField::create('Nav',_t(__CLASS__.'.Controls','Kontrols'), $this->stat('controls'))
                 )->setTitle(_t(__CLASS__.'.SlideLayout','Slide Format'))->setName('SlideLayout')
