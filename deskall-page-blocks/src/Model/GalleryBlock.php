@@ -75,7 +75,8 @@ class GalleryBlock extends BaseElement implements Searchable
 
     private static $block_types = [
         'images' => 'Images',
-        'boxes' => 'Boxes'
+        'boxes' => 'Boxes',
+        'logos' => 'Logos'
     ];
     
     private static $pictures_per_line = [
@@ -119,7 +120,7 @@ class GalleryBlock extends BaseElement implements Searchable
                 $fields->addFieldToTab('Root.Main',HiddenField::create('ItemType'));
             }
             else{
-                $fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
+                $fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Item Typ',$this->stat('block_types')),'TitleAndDisplayed');
             }
 
            
@@ -127,7 +128,7 @@ class GalleryBlock extends BaseElement implements Searchable
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
          
-            $fields->addFieldToTab('Root.Main',Wrapper::create(SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()))->displayIf('ItemType')->isEqualTo('images')->end(),'HTML');
+            $fields->addFieldToTab('Root.Main',Wrapper::create(SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()))->displayIf('ItemType')->isEqualTo('images')->orIf('ItemType')->isEqualTo('logos')->end(),'HTML');
 
             $config = GridFieldConfig_RecordEditor::create();
             $config->addComponent(new GridFieldOrderableRows('Sort'));
@@ -154,7 +155,7 @@ class GalleryBlock extends BaseElement implements Searchable
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             
-           $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname'))->displayIf('ItemType')->isEqualTo('images')->end(),'HTML');
+           $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname'))->displayIf('ItemType')->isEqualTo('images')->orIf('ItemType')->isEqualTo('logos')->end(),'HTML');
 
 
         });
