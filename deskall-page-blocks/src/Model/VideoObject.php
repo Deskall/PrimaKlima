@@ -44,8 +44,8 @@ class VideoObject extends DataObject{
 		$fields = parent::getCMSFields();
 		$fields->removeByName('URL');
 		$fields->fieldByName('Root.Main.File')->displayIf('Type')->isEqualTo('Datei');
-		$fields->addFieldToTab('Root.Main',DropdownField::create('Player',_t(__CLASS__.'Player','Player'),['youtube'=>'You Tube','vimeo' => 'Vimeo', 'dailymotion' => 'Dailymotion'])->setEmptyString('Player wählen')->displayIf('Type')->isEqualTo('Link')->end(),'Title');
-		$fields->addFieldToTab('Root.Main',HTMLEditorField::create('HTML',_t(__CLASS__.'HTML','Beschreibung'))->setRows(3)->displayIf('Type')->isEqualTo('Link')->end(),'Player');
+		$fields->addFieldToTab('Root.Main',DropdownField::create('Player',_t(__CLASS__.'Player','Player'),['youtube'=>'You Tube','vimeo' => 'Vimeo', 'dailymotion' => 'Dailymotion'])->setEmptyString('Player wählen')->displayIf('Type')->isEqualTo('Link')->end(),'VideoID');
+		$fields->addFieldToTab('Root.Main',HTMLEditorField::create('HTML',_t(__CLASS__.'HTML','Beschreibung'))->setRows(3)->displayIf('Type')->isEqualTo('Link')->end());
 
 		return $fields;
 	}
