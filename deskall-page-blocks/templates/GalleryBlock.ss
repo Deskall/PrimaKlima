@@ -6,7 +6,7 @@
 		<% if LinkableLinkID > 0 %>
 			<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 		<% end_if %>
-		<% if Type == "boxes" %>
+		<% if ItemType == "boxes" %>
 			<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
 			    <div class="uk-position-relative uk-visible-toggle">
 			    	<div class="uk-slider-container">

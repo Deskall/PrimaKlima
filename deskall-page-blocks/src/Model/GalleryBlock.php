@@ -41,7 +41,7 @@ class GalleryBlock extends BaseElement implements Searchable
         'lightboxOff' => 'Boolean(0)',
         'ShowDot' => 'Boolean(1)',
         'ShowNav' => 'Boolean(0)',
-        'Type' => 'Varchar',
+        'ItemType' => 'Varchar',
         'infiniteLoop' => 'Boolean(1)'
     ];
 
@@ -113,14 +113,14 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('PaddedImages');
             $fields->removeByName('lightboxOff');
              $fields->removeByName('Boxes');
-            $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
+            $fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
             $fields->removeByName('infiniteLoop');
 
             if ($this->ID > 0){
-                $fields->addFieldToTab('Root.Main',HiddenField::create('Type'));
+                $fields->addFieldToTab('Root.Main',HiddenField::create('ItemType'));
             }
             else{
-                $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
+                $fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
             }
 
            
@@ -128,7 +128,7 @@ class GalleryBlock extends BaseElement implements Searchable
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
          
-            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())->displayIf('Type')->isEqualTo('images')->end(),'HTML');
+            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())->displayIf('ItemType')->isEqualTo('images')->end(),'HTML');
 
             $config = GridFieldConfig_RecordEditor::create();
             $config->addComponent(new GridFieldOrderableRows('Sort'));
@@ -136,7 +136,7 @@ class GalleryBlock extends BaseElement implements Searchable
                  $config->addComponent(new GridFieldShowHideAction());
             }
             $boxesField = new GridField('Boxes',_t(__CLASS__.'.Boxes','Boxen'),$this->Boxes(),$config);
-            $boxesField->displayIf('Type')->isEqualTo('boxes')->end();
+            $boxesField->displayIf('ItemType')->isEqualTo('boxes')->end();
             $fields->addFieldToTab('Root.Main',$boxesField);
 
             $fields->addFieldToTab('Root.LayoutTab',
