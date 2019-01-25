@@ -20,10 +20,12 @@
 		            		<div class="uk-card uk-card-default uk-child-width-1-2" data-uk-grid>
                     			<div class="uk-card-media-left"><iframe src="$URL" frameborder="0" class="uk-width-1-1 uk-height-1-1" allowfullscreen  data-uk-video="automute: true;autoplay:false;"></iframe>
                     			</div>
+                    			<% if Title || $HTML %>
                     			<div class="uk-card-body">
 	                    			<% if Title %><h3 class="uk-card-title">$Title</h3><% end_if %> 
 	                    			<% if HTML %><div class="dk-text-content">$HTML</div><% end_if %>
 	                    		</div>
+	                    		<% end_if %>
                     		</div>
                     	</li>
                     	<% end_loop %>
