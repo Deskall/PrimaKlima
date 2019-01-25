@@ -1,4 +1,4 @@
-<header>
+<header class="dk-background-header">
 	<div data-uk-sticky>
 		<div class="uk-padding-small">
 			<% loop SiteConfig.activeMenuBlocks %>
