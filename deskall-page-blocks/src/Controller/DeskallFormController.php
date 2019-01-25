@@ -5,6 +5,7 @@ use SilverStripe\Control\Director;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\View\Requirements;
+use SilverStripe\Control\Controller;
 
 class DeskallFormController extends ElementFormController
 {
@@ -26,17 +27,14 @@ class DeskallFormController extends ElementFormController
         
     }
 
-    
+
     /**
      * @param string $action
      *
      * @return string
      */
     public function Link($action = null)
-    {  ob_start();
-                print_r('ici');
-                $result = ob_get_clean();
-                file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+    {  
         $id = $this->element->ID;
         $segment = Controller::join_links('element', $id, $action);
         $page = Director::get_current_page();
