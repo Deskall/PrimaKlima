@@ -21,8 +21,9 @@
                     			<div class="uk-card-media-top"><iframe src="$URL" frameborder="0" allowfullscreen class="uk-preserve-width uk-height-large" data-uk-video="automute: true;autoplay:false;"></iframe>
                     			</div>
                     			<div class="uk-card-body">
-                    			<% if Title %><h3 class="uk-card-title">$Title</h3><% end_if %> 
-                    			<% if HTML %><div class="dk-text-content uk-background-muted uk-padding-small  uk-box-shadow-small">$HTML</div><% end_if %>
+	                    			<% if Title %><h3 class="uk-card-title">$Title</h3><% end_if %> 
+	                    			<% if HTML %><div class="dk-text-content">$HTML</div><% end_if %>
+	                    		</div>
                     		</div>
                     	</li>
                     	<% end_loop %>
