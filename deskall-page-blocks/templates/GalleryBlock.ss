@@ -87,7 +87,7 @@
 	<div data-uk-slider="<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %><% if not infiniteLoop %>finite:true;<% end_if %>">
 		<div class="uk-position-relative">
 			<div class="uk-slider-container uk-light">
-				<ul class="uk-slider-items uk-height-small $PicturesPerLine" data-uk-grid >
+				<ul class="uk-slider-items $PicturesPerLine" data-uk-grid >
 					<% loop OrderedImages %>
 					<li class="uk-flex uk-flex-middle uk-flex-center">
 						<img data-src="
@@ -99,7 +99,7 @@
 						<% else %>
 						$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
 						<% end_if %>
-						<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+						<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-height-small" data-uk-img>
 					</li>
 					<% end_loop %>
 				</ul>
