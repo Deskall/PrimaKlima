@@ -10,7 +10,7 @@ use SilverStripe\Forms\TextField;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Control\Controller;
 use SilverStripe\SiteConfig\SiteConfigLeftAndMain;
-
+use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\CMS\Controllers\ContentController;
 
 class MenuBlock extends LayoutBlock{
@@ -115,7 +115,7 @@ class MenuBlock extends LayoutBlock{
 	}
 
 	public function forTemplate(){
-		return $this->renderWith('Includes/MenuBlock_'.$this->Type);
+		return $this->renderWith('Includes/MenuBlock_'.$this->Type.'_'.SiteConfig::current_site_config()->Theme);
 	}
 
 	/**
