@@ -48,7 +48,7 @@ class EditableHTMLCheckbox extends EditableCheckbox
     {
         $title = DBHTMLText::create();
         $title->setValue(ShortcodeParser::get_active()->parse($this->HTMLLabel));
-        $field = CheckboxField::create($this->Name, $title ?: false, $this->CheckedDefault)->setAttribute('class','acceptance')
+        $field = CheckboxField::create($this->Name, $title ?: false, $this->CheckedDefault)
             ->setFieldHolderTemplate(__CLASS__ . '_holder')
             ->setTemplate(__CLASS__);
 
