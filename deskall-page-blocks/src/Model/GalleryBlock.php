@@ -141,7 +141,7 @@ class GalleryBlock extends BaseElement implements Searchable
 
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(
-                    DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Bilder per Linie'), self::$pictures_per_line),
+                    DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Item per Linie'), self::$pictures_per_line),
                     OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
                     CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
                     CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
