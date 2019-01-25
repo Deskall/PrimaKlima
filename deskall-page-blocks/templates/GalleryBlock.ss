@@ -23,7 +23,7 @@
 									$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
 									<% end_if %>
 									<% end_if %>
-									" alt="$Up.AltTag($Image.Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+									" alt="$Up.AltTag($Image.Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
 								</div>
 								<div class="uk-card-body uk-padding-small">
 									<div class="uk-card-title">$Title</div>
@@ -68,7 +68,7 @@
 						$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
 						<% end_if %>
 						<% end_if %>
-						" alt="$Up.AltTag($Image.Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+						" alt="$Up.AltTag($Image.Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
 					</div>
 					<div class="uk-card-body uk-padding-small">
 						<div class="uk-card-title">$Title</div>
@@ -131,7 +131,7 @@
 						<% else %>
 						$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
 						<% end_if %>
-						<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+						<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
 					</li>
 					<% end_loop %>
 				</ul>
@@ -149,7 +149,7 @@
 							<% else %>
 							$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
 							<% end_if %>
-							<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+							<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
 						</a>
 					</li>
 					<% end_loop %>
@@ -181,7 +181,7 @@
 				<img data-src="<% if $getExtension == "svg" %>$URL<% else %>
 				$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 				<% end_if %>
-				" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+				" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
 			</div>
 			<% end_loop %>
 			<% else %>
@@ -190,7 +190,7 @@
 				<img data-src="<% if $getExtension == "svg" %>$URL<% else %>
 				$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
 				<% end_if %>
-				" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+				" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
 			</div>
 			<% end_loop %>
 			<% end_if %>
@@ -203,7 +203,7 @@
 					<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else %>
 						$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 						<% end_if %>
-						" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+						" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
 					</a>
 				</div>
 				<% end_loop %>
@@ -213,7 +213,7 @@
 					<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else %>
 						$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
 						<% end_if %>
-						" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+						" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
 					</a>
 				</div>
 				<% end_loop %>
