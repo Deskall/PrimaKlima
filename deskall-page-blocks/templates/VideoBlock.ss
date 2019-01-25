@@ -18,7 +18,7 @@
 		            	<% loop ActiveVideos %>
 		            	<li class="uk-height-1-1">
 		            		<div class="uk-card uk-card-default">
-                    			<div class="uk-card-media-top"><iframe src="$URL" frameborder="0" allowfullscreen class="uk-preserve-width uk-height-large" data-uk-video="automute: true;autoplay:false;"></iframe>
+                    			<div class="uk-card-media-left"><iframe src="$URL" frameborder="0" allowfullscreen class="uk-preserve-width uk-height-large" data-uk-video="automute: true;autoplay:false;"></iframe>
                     			</div>
                     			<div class="uk-card-body">
 	                    			<% if Title %><h3 class="uk-card-title">$Title</h3><% end_if %> 
