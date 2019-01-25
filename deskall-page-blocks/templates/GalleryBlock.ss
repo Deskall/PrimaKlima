@@ -123,7 +123,7 @@
 		
 			<% else %>
 				<% if lightboxOff %>
-					<div class="uk-flex-center <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid-small" data-uk-grid >
+					<div class="uk-flex-center $PicturesPerLine uk-grid-small" data-uk-grid >
 						<% if PaddedImages %>
 						 	<% loop OrderedImages %>
 						    	<div class="uk-flex uk-flex-middle uk-flex-center">
@@ -145,7 +145,7 @@
 						<% end_if %>
 					</div>
 				<% else %>
-					<div class="uk-flex-center <% if isChildren %>uk-child-width-1-1 <% else %>$PicturesPerLine<% end_if %> uk-grid-small" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;">
+					<div class="uk-flex-center $PicturesPerLine uk-grid-small" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;">
 						<% if PaddedImages %>
 						 	<% loop OrderedImages %>
 						    	<div class="uk-flex uk-flex-middle uk-flex-center">
