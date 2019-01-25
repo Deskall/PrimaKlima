@@ -8,8 +8,8 @@
 	                  $Image.ScaleWidth(2500).URL 2500w,
 	                  $Image.ScaleWidth(5000).URL 5000w"
 	     data-sizes="100vw" data-uk-img>
-	    <div class="uk-container uk-overflow-auto uk-position-relative <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %> $Height">
-	    	<div class="uk-position-relative">
+	    <div class="uk-container uk-overflow-auto <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
+	    	<div class="uk-position-relative  $Height">
 			    <div class="$Layout uk-padding-small">
 			    	<% if TitleIcon %>
 					<div class="uk-flex uk-flex-middle uk-margin-bottom">
