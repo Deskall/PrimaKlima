@@ -91,15 +91,7 @@
 					<% loop OrderedImages %>
 					<li class="uk-flex uk-flex-middle uk-flex-center">
 						<img data-src="
-						<% if $getExtension == "svg" %>
-						$URL
-						<% else %>
-						<% if Up.PaddedImages %>
-						$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
-						<% else %>
-						$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
-						<% end_if %>
-						<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-height-small" data-uk-img>
+						<% if $getExtension == "svg" %> $URL <% else %> <% if Up.PaddedImages %> $FitMax($Up.PictureWidth,$Up.PictureHeight).URL <% else %> $FocusFill($Up.PictureWidth,$Up.PictureHeight).URL <% end_if %> <% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-height-small" data-uk-img>
 					</li>
 					<% end_loop %>
 				</ul>
