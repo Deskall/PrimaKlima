@@ -39,7 +39,7 @@ class VideoObject extends DataObject{
 		if ($this->File()->exists()){
 			return $this->File()->getURL();
 		}
-		return $this->URL."?rel=0";
+		return $this->URL;
 	}
 	
 }
