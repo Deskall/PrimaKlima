@@ -44,6 +44,8 @@ class VideoObject extends DataObject{
 		$fields->removeByName('URL');
 		$fields->addFieldToTab('Root.Main',DropdownField::create('Player',_t(__CLASS__.'Player','Player'),['youtube'=>'You Tube','vimeo' => 'Vimeo', 'dailymotion' => 'Dailymotion'])->setEmptyString('Player wählen'),'Title');
 		$fields->addFieldToTab('Root.Main',HTMLEditorField::create('HTML',_t(__CLASS__.'HTML','Beschreibung'))->setRows(3),'Player');
+
+		return $fields;
 	}
 
 	public function getSrc(){
