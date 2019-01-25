@@ -17,7 +17,7 @@
 		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match">
 		            	<% loop ActiveVideos %>
 		            	<li class="uk-height-1-1">
-		            		<div class="uk-card uk-card-default">
+		            		<div class="uk-card uk-card-default uk-child-width-1-2" data-uk-grid>
                     			<div class="uk-card-media-left"><iframe src="$URL" frameborder="0" allowfullscreen class="uk-preserve-width uk-height-large" data-uk-video="automute: true;autoplay:false;"></iframe>
                     			</div>
                     			<div class="uk-card-body">
