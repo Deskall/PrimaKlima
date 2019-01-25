@@ -35,6 +35,17 @@
                         </div>
                     </div>
                 </div>
+                <% if BackgroundImage %>
+                <div class="uk-position-center">
+
+                               <div uk-slider-parallax="x: 100,-100">
+
+                                  $BackgroundImage
+
+                               </div>
+
+                           </div>
+                           <% end_if %>
             
         </li>
         <% end_loop %>
