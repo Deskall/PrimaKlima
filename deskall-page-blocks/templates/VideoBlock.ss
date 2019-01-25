@@ -15,12 +15,9 @@
 
 		        <div class="uk-slider-container uk-light">
 		            <ul class="uk-slider-items uk-height-large <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-lightbox>
-		            	<% loop Videos %>
-		            	<li class="uk-height-1-1"><iframe src="$Src" frameborder="0" allowfullscreen data-uk-responsive data-uk-video="automute: true;autoplay:false;"></iframe></li>
-		            	<% end_loop %>
+		            	$Videos
 		            </ul>
 		        </div>
-		        <% if not isChildren %>
 		        <div class="uk-hidden@s uk-light">
 		            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 		            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
@@ -30,7 +27,6 @@
 		            <a class="uk-position-center-left-out uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 		            <a class="uk-position-center-right-out uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 		        </div>
-		        <% end_if %>
 		    </div>
 
 		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>

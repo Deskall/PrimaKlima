@@ -113,25 +113,38 @@ class VideoBlock extends BaseElement implements Searchable
 		return $content;
 	}
 
-	function GetVideos(){
-		$videos = '';
-		if ($this->VideoList != ""){
-			foreach (explode("\n",$this->VideoList) as $url){
-				$videoObject = $this->Media(trim($url));
-			    if( $videoObject ){
-				    $videos .= '<li class="uk-height-1-1">'.$videoObject->code.'</li>';
-				}
-			}
-		}
-		
-		$html = DBHTMLText::create();
-		$html->setValue($videos);
-		return $html;
-	}
+    public function Videos(){
+     $content = '';
+     foreach (explode("\n",$this->VideoList) as $url){
+        // //youtube
+        //  preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $url, $matches);
 
-	public function Media($url) {
-		return Embed::create($url);
-	}
+         $content = $content.'<li><iframe class="uk-height-1-1 uk-width-1-1" src="'.$url.'" allowfullscreen data-uk-responsive data-uk-video="automute: true;autoplay:false;"></iframe></li>';
+     }
+     $output = new DBHTMLText();
+     $output->setValue($content);
+     return $output;    
+    }
+
+	// function getVideos(){
+	// 	$videos = '';
+	// 	if ($this->VideoList != ""){
+	// 		foreach (explode("\n",$this->VideoList) as $url){
+	// 			$videoObject = $this->Media(trim($url));
+	// 		    if( $videoObject ){
+	// 			    $videos .= '<li class="uk-height-1-1">'.$videoObject->code.'</li>';
+	// 			}
+	// 		}
+	// 	}
+		
+	// 	$html = DBHTMLText::create();
+	// 	$html->setValue($videos);
+	// 	return $html;
+	// }
+
+	// public function Media($url) {
+	// 	return Embed::create($url);
+	// }
 
 	 public function getSummary()
     {
