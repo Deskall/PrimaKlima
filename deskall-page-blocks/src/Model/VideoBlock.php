@@ -96,7 +96,7 @@ class VideoBlock extends BaseElement implements Searchable
 	}
 
     public function ActiveVideos(){
-        return $this->Videos()->filter('isVisible',1)->sort('Sort');
+        return $this->Videos()->filter('isVisible',1);
     }
 
 	// public function getThumbnailURL( $url ){
