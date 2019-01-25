@@ -1,6 +1,9 @@
 <header>
 	<div data-uk-sticky="offset: 100">
 		<div class="uk-padding-small">
+			<div class="dk-logo-container">
+				<img src="$ThemeDir/img/logo.svg" />
+			</div>
 		    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
 		        <li class="uk-active"><a href="#">Active</a></li>
 		        <li class="uk-parent">
