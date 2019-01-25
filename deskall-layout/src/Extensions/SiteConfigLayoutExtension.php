@@ -32,11 +32,9 @@ use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 
 class SiteConfigLayoutExtension extends DataExtension 
 {
-  protected $user_defined_file = '/themes/standard/css/src/deskall/theme/user_defined.less';
-  protected $background_colors = '/themes/standard/css/src/deskall/theme/colors.less';
-  protected $path_to_themes = '/deskall-layout/config/theme.yml';
 
   private static $db = [
+    'Theme' => 'Varchar',
     'HeaderBackground' => 'Varchar(7)',
     'GlobalFontSize' => 'Varchar(25)',
     'H1FontSize' => 'Varchar(25)',
@@ -162,6 +160,14 @@ class SiteConfigLayoutExtension extends DataExtension
   //   ]
   // ];
 
+  public function user_defined_file(){
+    return '/themes/'.$this->owner->Theme.'/css/src/deskall/theme/user_defined.less';
+  }
+
+  public function background_colors(){
+    return '/themes/'.$this->owner->Theme.'/css/src/deskall/theme/colors.less';
+  }
+
   public function populateDefaultsColors(){
     if ($this->owner->ID > 0){
       foreach($this->owner->stat('default_colors') as $code => $array){
@@ -222,6 +228,7 @@ class SiteConfigLayoutExtension extends DataExtension
    
     $fields->addFieldsToTab("Root.Global", 
       [
+        DropdownField::create('Theme','Global Theme',['standard' => 'Standard', 'grid' => 'Grid']),
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
         TextField::create('GlobalFontSize',_t(__CLASS__.'.GlobalFontSize','Standard Schriftgrösse')),
         TextField::create('H1FontSize',_t(__CLASS__.'.H1FontSize','H1 Schriftgrösse')),
@@ -383,7 +390,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function WriteUserDefinedConstants(){
-    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->user_defined_file;
+    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->user_defined_file();
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
       if ($this->owner->SubsiteID > 0){
          $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/user_defined.less';
@@ -418,7 +425,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function WriteBackgroundClasses(){
-    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->background_colors;
+    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->background_colors();
      if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
       if ($this->owner->SubsiteID > 0){
          $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/colors.less';
