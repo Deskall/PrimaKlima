@@ -118,7 +118,7 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Item Typ',$this->stat('block_types')),'TitleAndDisplayed');
 
             if ($this->ID > 0){
-               $fields->dataFieldByName('Root.Main.ItemType')->performReadonlyTransformation();
+               $fields->FieldByName('Root.Main.ItemType')->performReadonlyTransformation();
             }
 
            
