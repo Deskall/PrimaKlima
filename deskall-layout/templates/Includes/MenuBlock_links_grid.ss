@@ -1,5 +1,5 @@
 <div class="$Layout <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">	  
-    <ul class="uk-nav-default uk-nav-parent-icon <% if UseMenu %>$UseMenuOption<% end_if %>" data-uk-nav>
+    <ul class="uk-nav-default uk-nav-parent-icon <% if UseMenu %>$UseMenuOption<% end_if %> uk-width-1-1" data-uk-nav>
 	 	<% if UseMenu %>
 			<% loop Menu %>
 		        <li class="<% if Top.ShowSubLevels && Children %>uk-parent<% end_if %> $LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
