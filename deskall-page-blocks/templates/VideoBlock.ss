@@ -16,7 +16,7 @@
 		        <div class="uk-slider-container">
 		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-lightbox>
 		            	<% loop ActiveVideos %>
-		            	<li class="uk-height-1-1"> <% if Title %><h3>$Title</h3><% end_if %> <iframe src="$URL" frameborder="0" allowfullscreen class="uk-preserve-width uk-height-large" data-uk-video="automute: true;autoplay:false;"></iframe> <% if HTML %><div class="dk-text-content uk-background-muted uk-padding-small">$HTML</div> <% end_if %> </li> <% end_loop %>
+		            	<li class="uk-height-1-1 uk-box-shadow-medium"> <% if Title %><h3>$Title</h3><% end_if %> <iframe src="$URL" frameborder="0" allowfullscreen class="uk-preserve-width uk-height-large" data-uk-video="automute: true;autoplay:false;"></iframe> <% if HTML %><div class="dk-text-content uk-background-muted uk-padding-small">$HTML</div> <% end_if %> </li> <% end_loop %>
 		            </ul>
 		        </div>
 		        <div class="uk-hidden@s">
