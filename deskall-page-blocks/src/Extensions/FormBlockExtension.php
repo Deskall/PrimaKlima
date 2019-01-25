@@ -139,7 +139,7 @@ class FormBlockExtension extends DataExtension
     {
         $current = Controller::curr();
         if ($action === 'finished') {
-            if ($this->isChildren()){
+            if ($this->owner->isChildren()){
               return Controller::join_links(
                   str_replace('element','children',$current->Link()),
                   $this->owner->Parent()->getOwnerPage()->ID,
