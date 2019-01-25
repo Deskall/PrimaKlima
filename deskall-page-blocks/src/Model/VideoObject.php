@@ -59,6 +59,7 @@ class VideoObject extends DataObject{
 					$this->URL = "https://player.vimeo.com/video/".$this->VideoID;
 				break;
 				case "dailymotion":
+				    $this->URL = "https//www.dailymotion.com/embed/video/".$this->VideoID."?queue-autoplay-next=false&queue-autoplay-next=false";
 				break;
 			}
 		}
