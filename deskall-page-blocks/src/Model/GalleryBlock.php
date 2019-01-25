@@ -43,7 +43,8 @@ class GalleryBlock extends BaseElement implements Searchable
         'ShowDot' => 'Boolean(1)',
         'ShowNav' => 'Boolean(0)',
         'ItemType' => 'Varchar',
-        'infiniteLoop' => 'Boolean(1)'
+        'infiniteLoop' => 'Boolean(1)',
+        'ImagePadding' => 'Varchar'
     ];
 
     private static $many_many = [
@@ -115,6 +116,7 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('lightboxOff');
             $fields->removeByName('Boxes');
             $fields->removeByName('infiniteLoop');
+            $fields->removeByName('ImagePadding');
             $fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Item Typ',$this->stat('block_types')),'TitleAndDisplayed');
 
             if ($this->ID > 0){
@@ -149,7 +151,8 @@ class GalleryBlock extends BaseElement implements Searchable
                     CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches abspielen?')),
                     CheckboxField::create('infiniteLoop',_t(__CLASS__.'.inifite','unendlish abspielen?')),
                     CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Bilder vollständig anzeigen? (keine Größenanpassung, beispielsweise für Logos angegeben)')),
-                    CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?'))
+                    CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?')),
+                    TextField::create('ImagePadding',_t(__CLASS__.'.ImagePadding','Bild Abstand (px)')
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             
