@@ -34,6 +34,7 @@ class SiteConfigLayoutExtension extends DataExtension
 {
   protected $user_defined_file = '/themes/standard/css/src/deskall/theme/user_defined.less';
   protected $background_colors = '/themes/standard/css/src/deskall/theme/colors.less';
+  protected $path_to_themes = '/deskall-layout/config/theme.yml';
 
   private static $db = [
     'Theme' => 'Varchar',
