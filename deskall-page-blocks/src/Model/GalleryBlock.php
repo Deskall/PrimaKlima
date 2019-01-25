@@ -152,7 +152,7 @@ class GalleryBlock extends BaseElement implements Searchable
                     CheckboxField::create('infiniteLoop',_t(__CLASS__.'.inifite','unendlish abspielen?')),
                     CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Bilder vollständig anzeigen? (keine Größenanpassung, beispielsweise für Logos angegeben)')),
                     CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?')),
-                    TextField::create('ImagePadding',_t(__CLASS__.'.ImagePadding','Bild Abstand (px)')
+                    TextField::create('ImagePadding',_t(__CLASS__.'.ImagePadding','Bild Abstand (px)'))
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             
