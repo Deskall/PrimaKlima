@@ -103,14 +103,14 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('ShowNav');
             $fields->removeByName('PaddedImages');
             $fields->removeByName('lightboxOff');
-            $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'Title');
+            $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
             $fields->removeByName('infiniteLoop');
            
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
           
-            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()),'HTML');
+            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())->displayIf('Type')->isEqualTo('images')->end(),'HTML');
 
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(

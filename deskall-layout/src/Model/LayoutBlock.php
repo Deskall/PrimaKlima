@@ -62,6 +62,8 @@ class LayoutBlock extends DataObject{
 		'uk-width-1-1@s uk-width-1-4@m' => '25%', 
 		'uk-width-1-1@s uk-width-1-3@m' => '33.33%', 
 		'uk-width-1-1@s uk-width-1-2@m' => '50%',
+		'uk-width-1-1@s uk-width-2-3@m' => '66.66667%',
+		'uk-width-1-1@s uk-width-3-4@m' => '75%',
 		'uk-width-1-1' => 'Voll Breite',
 		'uk-width-auto' => 'auto Breite',
 		'uk-width-expand' => 'verbleibende Breite'

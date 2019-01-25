@@ -12,23 +12,20 @@ use SilverStripe\Control\Controller;
 use DNADesign\ElementalUserForms\Control\ElementFormController;
 use SilverStripe\Forms\RequiredFields;
 use g4b0\SearchableDataObjects\Searchable;
-
+use SilverStripe\Forms\TextField;
 
 
 class FormBlockExtension extends DataExtension 
 {
 
-    private static $controller_template = 'DefaultHolder';
+    private static $controller_template = 'ElementHolder';
 
     private static $description = 'Formular';
 
    
     
    private static $db = [
-    'hasCaptcha' => 'Boolean(1)',
-    'ButtonBackground' => 'Varchar(255)',
-    'ShowLabels' => 'Boolean(0)',
-    'StepTitleBackground' => 'Varchar(255)'
+    'ButtonBackground' => 'Varchar(255)'
    ];
 
    private static $cascade_duplicates = ['EmailRecipients'];
@@ -41,6 +38,10 @@ class FormBlockExtension extends DataExtension
    private static $has_one = [
     'RedirectPage' => SiteTree::class
    ];
+
+   public function updateFieldLabels(&$labels){
+      $labels['ButtonBackground'] = _t('Form.ButtonBackground','Button Hintergrundfarbe');
+   }
 
 
     private static $block_layouts = [
@@ -62,17 +63,18 @@ class FormBlockExtension extends DataExtension
     $fields->removeByName('Layout');
     $fields->removeByName('TextLayout');
     $fields->removeByName('RedirectPageID');
+    $fields->removeByName('FormOptions');
 
-     $fields->addFieldToTab('Root.FormOptions',CheckboxField::create('hasCaptcha', _t(__CLASS__.'.WITHCAPTCHA', 'mit Google recaptcha Prüfung?')));
-     $fields->addFieldToTab('Root.FormOptions',CheckboxField::create('ShowLabels', _t(__CLASS__.'.ShowLabels', 'Feld Titel anzeigen?')));
-     $fields->addFieldToTab('Root.Main',TreeDropdownField::create('RedirectPageID',_t(__CLASS__.'.RedirectPage', 'erfolgreiche Einreichungsseite'), SiteTree::class));
-     $fields->addFieldToTab('Root.LayoutTab',HTMLDropdownField::create('ButtonBackground',_t(__CLASS__.'.ButtonBackground','Button Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'));
-    // TO DO $fields->addFieldToTab('Root.LayoutTab',HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Layout','Layout'),$this->owner->stat('block_layouts')));
-     $fields->addFieldToTab('Root.LayoutTab',HTMLDropdownField::create('StepTitleBackground',_t(__CLASS__.'.StepTitleBackground','Hintergrundfarbe den Seite Titel'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'));
+     $fields->addFieldToTab('Root.Main',TreeDropdownField::create('RedirectPageID',_t('Form.RedirectPage', 'erfolgreiche Einreichungsseite'), SiteTree::class));
+      $fields->addFieldToTab('Root.LayoutTab',TextField::create('SubmitButtonText',_t('Form.SubmitButtonText','Button Text')));
+     $fields->addFieldToTab('Root.LayoutTab',HTMLDropdownField::create('ButtonBackground',_t('Form.ButtonBackground','Button Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'));
+
+     $fields->fieldByName('Root.FormFields')->setTitle(_t('Form.FormFields','Felder'));
+     $fields->fieldByName('Root.Submissions')->setTitle(_t('Form.Submissions','Anfragen'));
+     $fields->fieldByName('Root.Recipients')->setTitle(_t('Form.Recipients','Empfänger'));
      if ($this->owner->ID == 0){ 
       $fields->removeByName('FormFields');
       $fields->removeByName('Submissions');
-      $fields->removeByName('FormOptions');
       $fields->removeByName('Recipients');
      }
 
@@ -95,9 +97,9 @@ class FormBlockExtension extends DataExtension
   /**
      * @return UserForm
      */
-    public function Form()
+    public function CustomForm()
     {
-        $controller = UserDefinedFormController::create($this);
+        $controller = UserDefinedFormController::create($this->owner);
         $current = Controller::curr();
         $controller->setRequest($current->getRequest());
 
@@ -106,7 +108,7 @@ class FormBlockExtension extends DataExtension
         }
 
         $form = $controller->Form();
-        if ($this->isChildren()){
+        if ($this->owner->isChildren()){
           $form->setFormAction(
               Controller::join_links(
                   $current->Link(),
@@ -125,7 +127,7 @@ class FormBlockExtension extends DataExtension
                 $this->owner->ID,
                 'Form'
             )
-        );
+          );
 
         }
        
@@ -137,7 +139,7 @@ class FormBlockExtension extends DataExtension
     {
         $current = Controller::curr();
         if ($action === 'finished') {
-            if ($this->isChildren()){
+            if ($this->owner->isChildren()){
               return Controller::join_links(
                   str_replace('element','children',$current->Link()),
                   $this->owner->Parent()->getOwnerPage()->ID,

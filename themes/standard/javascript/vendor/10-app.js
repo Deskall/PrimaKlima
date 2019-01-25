@@ -28,6 +28,7 @@ $(document).ready(function(){
   if ($(".flatpickr").length > 0){
     $(".flatpickr").flatpickr({
         dateFormat: "d.m.Y",
+        altInput: true,
         locale: {
           weekdays: {
             shorthand: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
@@ -78,7 +79,7 @@ $(document).ready(function(){
           toggleTitle: "Zum Umschalten klicken",
         }
     });
-  }  
+  }
 });
 
 //Google Maps
@@ -158,7 +159,7 @@ $(document).ready(function(){
     var target = $(this).attr("href");
     target = target.substr(0,target.indexOf("#"));
     if (window.location.pathname == target){
-      UIkit.scroll($(this));
+      UIkit.scroll($(this),{offset: 100});
     }
   });
 });

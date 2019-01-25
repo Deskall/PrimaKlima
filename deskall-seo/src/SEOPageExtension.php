@@ -141,6 +141,6 @@ class SEOPageExtension extends DataExtension
 			return $this->owner->SharableImage()->FocusFill(600,315)->URL;
 		}
 		$siteConfig = SiteConfig::current_site_config();
-		return ($siteConfig->OpenGraphDefaultImageID > 0) ? $siteConfig->OpenGraphDefaultImage()->FocusFill(600,315)->URL : null;
+		return ($siteConfig->OpenGraphDefaultImage()->exists() ) ? $siteConfig->OpenGraphDefaultImage()->FocusFill(600,315)->URL : null;
 	}
 }

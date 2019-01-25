@@ -98,6 +98,8 @@ fr:
     'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
     'block_text_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
     SettingsTab: 'Paramètres'
+    isPrimary: 'Ce bloc contient le titre principale de la page (h1)'
+    TitleIcon: 'Icône (renseigner la classe font awesome)'
   Box:
     Effect: Effet
     EffectOptions: "Options pour l'effet"
@@ -159,7 +161,7 @@ fr:
     Author: Auteur
     BlockType: Bloc
     CUSTOM_STYLES: 'Choisissez un style'
-    ExtraCssClassesLabel: 'Classes css personalisées'
+    ExtraCssClassesLabel: 'Classes css personnalisées'
     ExtraCssClassesPlaceholder: autre_class
     MainTabLabel: Contenu
     Modified: modifié
@@ -253,6 +255,14 @@ fr:
     'features_columns_uk-column-1-2@s uk-column-1-4@m': 'Afficher le contenu sur 4 colonnes'
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Afficher le contenu sur 5 colonnes'
     'features_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Afficher le contenu sur 6 colonnes'
+  Form:
+    ButtonBackground: 'Couleur du bouton'
+    RedirectPage: 'Page de redirection'
+    SubmitButtonText: 'Texte du bouton d''envoi'
+    FormFields: 'Champs du formulaire'
+    Submissions: 'Requêtes effectuées'
+    Recipients: 'Destinataires'
+    RequiredFieldsLabel: 'Les champs marqués d''un astérisque (*) sont requis'
   GalleryBlock:
     Autoplay: "Lecture automatique"
     BlockType: "Galerie d'images"
@@ -520,3 +530,287 @@ fr:
   DNADesign\ElementalUserForms\Model\ElementForm:
     BlockType: 'Formulaire'
     Description: 'Créer un formulaire avec champs personnalisables'
+
+  EditableUploadField:
+    SELECTUPLOADFOLDER: 'Selectionnez un dossier'
+  SilverStripe\CMS\Model\SiteTree:
+    TABMAIN: Principale
+  SilverStripe\UserForms:
+    ADDEMAILRECIPIENT: 'Ajouter un destinataire'
+    CLEARBUTTON: Effacer
+    CONFIGURATION: Configuration
+    RECIPIENTS: Destinataires
+    SAVESUBMISSIONS: 'Ne pas enregistrer les requêtes sur le serveur'
+    SHOWCLEARFORM: 'Afficher un bouton reset'
+    SUBMISSIONS: Requêtes
+    SUBMITBUTTON: Soumettre
+    TEXTONCLEAR: 'Texte du bouton reset'
+    TEXTONSUBMIT: 'Texte du bouton d''envoi'
+  SilverStripe\UserForms\Extension\UserFormFieldEditorExtension:
+    ADD_FIELD: 'Ajouter un champ'
+    ADD_FIELD_GROUP: 'Ajouter un groupe'
+    ADD_PAGE_BREAK: 'Ajouter une page'
+    FORMFIELDS: 'Champs'
+  SilverStripe\UserForms\Extension\UserFormValidator:
+    CONDITIONAL_REQUIRED: 'Le champ requis ''{name}'' ne peut pas être placé dans une page conditionnelle'
+    NO_PAGE: 'Champ ''{name}'' trouvé avant la Première page'
+    UNEXPECTED_BREAK: 'Saut de page inattendu ''{name}'' à l''intérieur du groupe ''{group}'''
+    UNEXPECTED_GROUP_END: '''{name}'' trouvé sans groupe correspondant'
+    WRONG_GROUP_END: '''{name}'' ferme le mauvais groupe ''{group}'''
+  SilverStripe\UserForms\Form\UserFormsGridFieldFilterHeader:
+    FILTERSUBMISSIONS: 'Filtrer les requêtes'
+    FROM: De
+    TILL: Jusqu'à
+    WHEREVALUEIS: 'Où la valeur est ...'
+  SilverStripe\UserForms\Model\EditableCustomRule:
+    PLURALNAME: 'Règles personnalisées'
+    PLURALS:
+      one: 'Une règle personnalisée'
+      other: '{count} règles personnalisées'
+    SINGULARNAME: 'Editable Custom Rule'
+  SilverStripe\UserForms\Model\EditableFormField:
+    CHECKEDBYDEFAULT: 'Coché par défaut?'
+    CUSTOMERROR: 'Message d''erreur personnalisé'
+    CUSTOMOPTIONS: Options
+    CUSTOMRULES: 'Règles personnalisées'
+    DEFAULT: 'Valeur par défaut'
+    DEFAULTTOTODAY: 'Aujourd''hui par défaut ?'
+    DISPLAYIF: 'Changer la visibilité lorsque'
+    DISPLAY_RULES_DISABLED: 'Les règles d''affichages conditionnelles sont désactivés pour les champs requis.'
+    EXTRACLASS_MULTIPLE: 'Séparer chaque classe css par un espace'
+    EXTRACLASS_SELECT: 'Sélectionnez parmi la liste des styles pré-définis'
+    EXTRACLASS_TITLE: 'Style / Format supplémentaire'
+    EXTRACLASS_Title: 'Classes CSS supplémentaires'
+    GROUP: Groupe
+    INITIALVISIBILITY: 'Visibilité initiale'
+    MERGEFIELDNAME: 'Champ fusionné'
+    NAME: Nom
+    'NO': 'Non'
+    PLACEHOLDER: Contenu du champ avant saisi
+    PLURALNAME: 'Champs'
+    PLURALS:
+      one: 'Un champ'
+      other: '{count} champs'
+    REQUIRED: 'Ce champ est-il requis ?'
+    REQUIRED_DESCRIPTION: 'Veuillez noter que les champs dont l''affichage est soumis à condition ne peuvent pas être requis.'
+    RIGHTTITLE: 'Label'
+    SHOWINSUMMARY: 'Afficher dans le résumé'
+    SINGULARNAME: 'Champ'
+    TITLE: Titre
+    TYPE: Type
+    VALIDATION: Validation
+    'YES': 'Oui'
+  SilverStripe\UserForms\Model\EditableFormField\EditableCheckbox:
+    PLURALNAME: Case à cocher
+    PLURALS:
+      one: 'Une case à cocher'
+      other: '{count} Case à cocher'
+    SINGULARNAME: 'case à cocher'
+  SilverStripe\UserForms\Model\EditableFormField\EditableCheckboxGroupField:
+    PLURALNAME: 'Groupes de cases à cocher'
+    PLURALS:
+      one: 'Un groupe de cases à cocher'
+      other: '{count} Groupes de cases à cocher'
+    SINGULARNAME: 'Groupe de cases à cocher'
+  SilverStripe\UserForms\Model\EditableFormField\EditableCountryDropdownField:
+    DEFAULT: 'Valeur par défaut'
+    EMPTY_STRING: 'texte par défaut'
+    PLURALNAME: 'Listes de pays'
+    PLURALS:
+      one: 'Une liste de pays'
+      other: '{count} Listes de pays'
+    SINGULARNAME: 'Liste de pays'
+    USE_EMPTY_STRING: 'Définir le texte par défaut'
+  SilverStripe\UserForms\Model\EditableFormField\EditableDateField:
+    PLURALNAME: 'Champs date'
+    PLURALS:
+      one: 'Un champ date'
+      other: '{count} champs date'
+    SINGULARNAME: 'champ date'
+  SilverStripe\UserForms\Model\EditableFormField\EditableDropdown:
+    PLURALNAME: Listes
+    PLURALS:
+      one: 'Une liste'
+      other: '{count} listes'
+    SINGULARNAME: 'Liste déroulante'
+  SilverStripe\UserForms\Model\EditableFormField\EditableEmailField:
+    PLURALNAME: 'Champ email'
+    PLURALS:
+      one: 'Un champ email'
+      other: '{count} champs emails'
+    SINGULARNAME: 'champ'
+  SilverStripe\UserForms\Model\EditableFormField\EditableFieldGroup:
+    PLURALNAME: 'Groupe de champs'
+    PLURALS:
+      one: 'Un groupe de champs'
+      other: '{count} groupes de champs'
+    SINGULARNAME: 'groupe de champs'
+  SilverStripe\UserForms\Model\EditableFormField\EditableFieldGroupEnd:
+    FIELD_GROUP_END: '{group} fin'
+    FIELD_GROUP_START: 'Groupe {group}'
+    PLURALNAME: 'Fins du groupe de champs'
+    PLURALS:
+      one: 'Fin du groupe de champ'
+      other: '{count} Fins du groupe de champs'
+    SINGULARNAME: 'Fin du groupe de champ'
+  SilverStripe\UserForms\Model\EditableFormField\EditableFileField:
+    PLURALNAME: 'Champs de téléchargement'
+    PLURALS:
+      one: 'Un Champ de téléchargement'
+      other: '{count} Champs de téléchargement'
+    SINGULARNAME: 'Champ de téléchargement'
+  SilverStripe\UserForms\Model\EditableFormField\EditableFormHeading:
+    LEVEL: 'Sélectionnez le niveau du titre'
+    PLURALNAME: Titres
+    PLURALS:
+      one: 'Un titre'
+      other: '{count} titres'
+    SINGULARNAME: Titre
+  SilverStripe\UserForms\Model\EditableFormField\EditableFormStep:
+    PLURALNAME: 'Sauts de page'
+    PLURALS:
+      one: 'Un Saut de page'
+      other: '{count} Sauts de page'
+    SINGULARNAME: 'Sauts de page'
+    STEP_TITLE: 'Page {page}'
+    TITLE_FIRST: 'Première page'
+  SilverStripe\UserForms\Model\EditableFormField\EditableLiteralField:
+    CONTENT: HTML
+    HIDEFROMREPORT: 'Cacher des rapports ?'
+    HIDELABEL: 'Cacher le label ''Title'' ?'
+    PLURALNAME: 'Contenus HTML'
+    PLURALS:
+      one: 'Contenu HTML'
+      other: '{count} Contenus HTML'
+    SINGULARNAME: 'Contenus HTML'
+  SilverStripe\UserForms\Model\EditableFormField\EditableMemberListField:
+    PLURALNAME: 'Liste de Membres'
+    PLURALS:
+      one: 'Liste de Membres'
+      other: '{count} Liste de Membres'
+    SINGULARNAME: 'Liste de Membres'
+  SilverStripe\UserForms\Model\EditableFormField\EditableMultipleOptionField:
+    DEFAULT: 'Sélectionné par défaut'
+    OPTIONSTAB: Options
+    PLURALNAME: 'Champs Options'
+    PLURALS:
+      one: 'Champs Options'
+      other: '{count} Champs Options'
+    SINGULARNAME: 'Champs Options'
+    TITLE: Titre
+    VALUE: Valeur
+  SilverStripe\UserForms\Model\EditableFormField\EditableNumericField:
+    PLURALNAME: 'Champ numérique'
+    PLURALS:
+      one: 'Champ numérique'
+      other: '{count} Champ numérique'
+    RANGE: 'Intervalle autorisé'
+    RANGE_TO: de
+    SINGULARNAME: 'Champ numérique'
+  SilverStripe\UserForms\Model\EditableFormField\EditableOption:
+    PLURALNAME: 'Options'
+    PLURALS:
+      one: 'Une Option'
+      other: '{count} Options'
+    SINGULARNAME: 'Option'
+  SilverStripe\UserForms\Model\EditableFormField\EditableRadioField:
+    PLURALNAME: 'Groupes de champs radio'
+    PLURALS:
+      one: 'Groupes de champs radio'
+      other: '{count} Groupes de champs radio'
+    SINGULARNAME: 'Groupes de champs radio'
+  SilverStripe\UserForms\Model\EditableFormField\EditableTextField:
+    AUTOCOMPLETE: Autocomplete
+    AUTOCOMPLETE_DESCRIPTION: 'Les navigateurs pris en charge essaieront de renseigner automatiquement ce champ avec les informations de l''utilisateur, à utiliser pour définir la valeur renseignée.'
+    NUMBERROWS: 'Nombre de ligne'
+    NUMBERROWS_DESCRIPTION: 'Les champs avec plus d''une ligne seront générés sous la forme d''une zone de texte'
+    PLURALNAME: 'Champs de texte'
+    PLURALS:
+      one: 'Champ de texte'
+      other: '{count} Champs de texte'
+    RANGE_TO: de
+    SINGULARNAME: 'Champ de texte'
+    TEXTLENGTH: 'Longeur de texte autorisée'
+  SilverStripe\UserForms\Model\EditableFormField\Validator:
+    REQUIRED_ERROR: 'Les champs de formulaire ne peuvent pas être requis et ont des règles d''affichage conditionnelles.'
+  SilverStripe\UserForms\Model\Recipient\EmailRecipient:
+    CUSTOMRULESTAB: 'Régles personnalisées'
+    EMAILCONTENTTAB: 'Contenu de l''email'
+    EMAILDETAILSTAB: 'Détails de l''email'
+    EMAILFROMREQUIRED: 'L''adresse de l"Expéditeur" est requise'
+    PLURALNAME: 'Destinataires'
+    PLURALS:
+      one: 'Un Destinataire'
+      other: '{count} Destinataires'
+    SINGULARNAME: 'Destinataire'
+  SilverStripe\UserForms\Model\Recipient\EmailRecipientCondition:
+    PLURALNAME: 'Conditions d''envoi'
+    PLURALS:
+      one: 'Une Condition d''envoi'
+      other: '{count} Conditions d''envoi'
+    SINGULARNAME: 'Condition d''envoi'
+  SilverStripe\UserForms\Model\Submission\SubmittedFileField:
+    DOWNLOADFILE: 'Télécharger le fichier'
+    PLURALNAME: 'Fichiers téléchargés'
+    PLURALS:
+      one: 'A Fichier téléchargé'
+      other: '{count} Fichiers téléchargés'
+    SINGULARNAME: 'Fichier téléchargé'
+  SilverStripe\UserForms\Model\Submission\SubmittedForm:
+    PLURALNAME: 'Formulaires soumis'
+    PLURALS:
+      one: 'Un formulaire soumis'
+      other: '{count} formulaires soumis'
+    SINGULARNAME: 'formulaire soumis'
+  SilverStripe\UserForms\Model\Submission\SubmittedFormField:
+    PLURALNAME: 'Champs'
+    PLURALS:
+      one: 'Un champ'
+      other: '{count} Champs'
+    SINGULARNAME: 'champ'
+  SilverStripe\UserForms\Model\UserDefinedForm:
+    CLEARBUTTON: reset
+    DESCRIPTION: 'Ajoute un formulaire personnalisé'
+    EMAILADDRESS: Email
+    EMAILBODY: Contenu
+    EMAILBODYHTML: Contenu
+    EMAILFROM: de
+    EMAILSUBJECT: 'Sujet'
+    EMAILTEMPLATE: 'Template'
+    EMAIL_RECIPIENT_UNSAVED_FORM: 'Vous pourrez sélectionner des champs de formulaire valides après avoir enregistré cet enregistrement.'
+    EmailFromContent: 'L''adresse de vous permet de définir l''origine de l''e-mail. Sur la plupart des serveurs, vous devrez définir une adresse électronique sur le même nom de domaine que votre site. Par exemple, sur yoursite.com, l''adresse de départ doit être quelque chose@votresite.com. Vous pouvez toutefois définir l''adresse de messagerie de votre choix comme adresse de réponse.'
+    FROMADDRESS: 'Expéditeur'
+    FileUploadWarning: 'Les fichiers téléchargés via ce champ pourraient être accessibles au public si l''URL exacte est connue'
+    HIDEFORMDATA: 'Masquer les données de formulaire de l''email?'
+    ORSELECTAFIELDTOUSEASFROM: '.. ou sélectionnez un champ à utiliser comme adresse d''envoi'
+    ORSELECTAFIELDTOUSEASTO: '.. ou sélectionnez un champ à utiliser comme adresse de réponse'
+    PLURALNAME: 'Formulaires'
+    PLURALS:
+      one: 'Un formulaire'
+      other: '{count} formulaires'
+    PREVIEW_EMAIL: 'Aperçu'
+    PREVIEW_EMAIL_DESCRIPTION: 'Remarque: les modifications non enregistrées n''apparaîtront pas dans l''aperçu.'
+    PREVIEW_EMAIL_UNAVAILABLE: 'Vous pouvez prévisualiser cet email une fois que vous avez enregistré le destinataire.'
+    REPLYADDRESS: 'Email de réponse'
+    REPLYADDRESS_DESCRIPTION: 'L''adresse e-mail à laquelle le destinataire peut "répondre".'
+    RulesDescription: 'Les courriels ne seront envoyés au destinataire que si les règles personnalisées sont respectées. Si aucune règle n''est définie, ce destinataire recevra des notifications pour chaque soumission.'
+    SELECTAFIELDTOSETSUBJECT: '.. ou sélectionnez un champ à utiliser comme sujet'
+    SENDEMAILTO: 'Destinataire'
+    SENDEMAILTO_DESCRIPTION: 'Vous pouvez entrer plusieurs adresses électroniques sous forme de liste séparée par des virgules.'
+    SENDIF: 'Condition d''envoi'
+    SENDIFAND: 'Toutes les conditions sont remplies'
+    SENDIFOR: 'Une des conditions est remplie'
+    SENDPLAIN: 'Envoyer l''email en texte brut ? (le contenu HTML sera ignoré)'
+    SINGULARNAME: 'Formulaire'
+    SUBMITBUTTON: Soumettre
+    TYPEREPLY: 'Tapez l''adresse de réponse'
+    TYPESUBJECT: 'Tapez le sujet'
+    TYPETO: 'Tapez l''adresse de destinataire'
+
+
+
+
+
+
+
+

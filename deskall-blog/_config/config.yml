@@ -30,7 +30,12 @@ SilverStripe\Blog\Model\BlogCategory:
   extensions:
     - BlogCategoryExtension
 
+SilverStripe\Blog\Model\BlogTag:
+  extensions:
+    - BlogTagExtension
+
 SilverStripe\Comments\Extensions\CommentsExtension:
   comments:
     nested_comments: true
     nested_depth: 2
+

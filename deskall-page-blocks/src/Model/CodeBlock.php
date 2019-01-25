@@ -12,7 +12,7 @@ class CodeBlock extends BaseElement
 {
     private static $icon = 'font-icon-code';
     
-    private static $controller_template = 'DefaultHolder';
+    private static $controller_template = 'ElementHolder';
 
     private static $controller_class = BlockController::class;
 

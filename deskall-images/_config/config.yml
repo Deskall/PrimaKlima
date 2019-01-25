@@ -1,5 +1,7 @@
 ---
 Name: deskall-images
+After:
+    - '#focuspoint'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-images

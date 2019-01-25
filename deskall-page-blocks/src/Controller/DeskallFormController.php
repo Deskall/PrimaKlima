@@ -5,6 +5,7 @@ use SilverStripe\Control\Director;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\View\Requirements;
+use SilverStripe\Control\Controller;
 
 class DeskallFormController extends ElementFormController
 {
@@ -24,6 +25,34 @@ class DeskallFormController extends ElementFormController
     	
     	parent::finished();
         
+    }
+
+
+    /**
+     * @param string $action
+     *
+     * @return string
+     */
+    public function Link($action = null)
+    {  
+        $id = $this->element->ID;
+        if ($this->element->isChildren()){
+            $segment = Controller::join_links('children', $id, $this->element->Parent()->getOwnerPage()->ID, $action);
+        }
+        else{
+            $segment = Controller::join_links('element', $id, $action);
+        }
+        $page = Director::get_current_page();
+
+        if ($page && !($page instanceof ElementController)) {
+            return $page->Link($segment);
+        }
+
+        if ($controller = $this->getParentController()) {
+            return $controller->Link($segment);
+        }
+
+        return $segment;
     }
 
     /**

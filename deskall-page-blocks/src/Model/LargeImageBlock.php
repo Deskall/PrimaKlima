@@ -10,11 +10,11 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\ElementalBlocks\Block\BannerBlock;
+use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\FieldType\DBField;
 use g4b0\SearchableDataObjects\Searchable;
 
-class LargeImageBlock extends BannerBlock implements Searchable{
+class LargeImageBlock extends BaseElement implements Searchable{
 	private static $icon = 'font-icon-image';
 
 	private static $singular_name = 'banner';
@@ -23,7 +23,7 @@ class LargeImageBlock extends BannerBlock implements Searchable{
 
     private static $description = 'Banner Bild mit Text und Effekt Möglichkeiten';
 
-    private static $controller_template = 'DefaultHolder';
+    private static $controller_template = 'ElementHolder';
 
     private static $controller_class = BlockController::class;
 

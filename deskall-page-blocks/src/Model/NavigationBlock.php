@@ -64,7 +64,7 @@ class NavigationBlock extends BaseElement
 
             $fields->removeByName('Layout');
             $fields->removeByName('Items');
-            $fields->removeByName('TitleAndDisplayed');
+           // $fields->removeByName('TitleAndDisplayed');
 
 
             if ($this->ID > 0){

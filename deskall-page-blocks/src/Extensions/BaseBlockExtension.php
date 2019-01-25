@@ -212,9 +212,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $fields->removeByName('TitleAndDisplayed');
         }
 
-        if ($this->owner->isChildren()){
+        //if ($this->owner->isChildren()){
             $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(DropdownField::create('Width',_t('LayoutBlock.Width','Breite'),$this->owner->getTranslatedSourceFor('LayoutBlock','widths'))->setEmptyString(_t('LayoutBlock.WidthLabel','Breite auswählen'))->setDescription(_t('LayoutBlock.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
-        }
+      //  }
         
 
     }

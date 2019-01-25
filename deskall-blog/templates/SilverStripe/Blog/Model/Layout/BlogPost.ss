@@ -3,7 +3,7 @@
 	<% if $FeaturedImage %>
 	<div class="uk-cover-container uk-height-large">
 	    <img src="$FeaturedImage.ScaleWidth(2500).URL" alt="" data-uk-cover>
-	    <div class="uk-position-bottom uk-overlay uk-overlay-default">
+	    <div class="uk-position-bottom uk-overlay uk-overlay-default uk-padding-small">
 	    	<div class="uk-container uk-container-large uk-padding-small">
 		    	<h1 class="uk-article-title">$Title</h1>
 		    	<% include SilverStripe\\Blog\\EntryMeta %>

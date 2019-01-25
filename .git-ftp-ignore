@@ -7,6 +7,7 @@
 /assets/
 /.htaccess
 composer.lock
+composer.json
 silverstripe.log
 /silverstripe.log
 log.txt
@@ -27,8 +28,11 @@ themes/standard/css/src/deskall/theme/fonts.less
 deskall-layout/templates/Includes/Css.ss
 themes/standard/css/main.css
 themes/standard/css/main.min.css
+themes/standard/javascript/main.min.js
+themes/standard/javascript/main.js
 
 themes/standard/javascript/vendor/11-project-specific.js
 
 
 
+composer.json

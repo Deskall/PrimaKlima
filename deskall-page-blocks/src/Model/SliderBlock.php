@@ -27,7 +27,7 @@ class SliderBlock extends BaseElement implements Searchable
 {
     private static $icon = 'font-icon-block-banner';
     
-    private static $controller_template = 'DefaultHolder';
+    private static $controller_template = 'ElementHolder';
 
     private static $controller_class = BlockController::class;
 
