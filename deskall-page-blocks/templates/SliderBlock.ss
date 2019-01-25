@@ -24,7 +24,7 @@
                                 <% if Up.isPrimary && isMainSlide %>
                                     <h1 class="$TitleAlign">$getPage.Title</h1>
                                 <% else %>
-                                    <% if Title %><h2 class="$TitleAlign">$Title</h2><% end_if %>
+                                    <% if Title %><h2 class="$TitleAlign uk-h1">$Title</h2><% end_if %>
                                 <% end_if %>
                                 <div class="uk-text-lead uk-visible@s $TextAlign  $TextColumns">$Content</div>
                                 <% if Effect == "parallax" %></div><% end_if %>
