@@ -10,7 +10,7 @@
 			        <% end_if %>
 			    <% end_if %>
 
-			    $Form
+			    $CustomForm
 			</div>
 		</section>
 	</div>
