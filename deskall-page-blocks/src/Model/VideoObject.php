@@ -16,11 +16,12 @@ class VideoObject extends DataObject{
     private static $description = 'Video';
 
 	private static $db = [
-		'HTML' => 'HTMLText',
-        'Title' => 'Text',
-        'Player' => 'Varchar',
+		'Type' => 'Enum("Datei,Link","Link")',
+		'Player' => 'Varchar',
         'VideoID' => 'Varchar(255)',
-        'URL' => 'Varchar',
+		'Title' => 'Text',
+		'HTML' => 'HTMLText',
+        'URL' => 'Varchar'
 	];
 
 	private static $has_one = [
@@ -42,8 +43,9 @@ class VideoObject extends DataObject{
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->removeByName('URL');
-		$fields->addFieldToTab('Root.Main',DropdownField::create('Player',_t(__CLASS__.'Player','Player'),['youtube'=>'You Tube','vimeo' => 'Vimeo', 'dailymotion' => 'Dailymotion'])->setEmptyString('Player wählen'),'Title');
-		$fields->addFieldToTab('Root.Main',HTMLEditorField::create('HTML',_t(__CLASS__.'HTML','Beschreibung'))->setRows(3),'Player');
+		$fields->fieldByName('Root.Main.File')->displayIf('Type')->isEqualTo('Datei');
+		$fields->addFieldToTab('Root.Main',DropdownField::create('Player',_t(__CLASS__.'Player','Player'),['youtube'=>'You Tube','vimeo' => 'Vimeo', 'dailymotion' => 'Dailymotion'])->setEmptyString('Player wählen')->displayIf('Type')->isEqualTo('Link')->end(),'Title');
+		$fields->addFieldToTab('Root.Main',HTMLEditorField::create('HTML',_t(__CLASS__.'HTML','Beschreibung'))->setRows(3)->displayIf('Type')->isEqualTo('Link')->end(),'Player');
 
 		return $fields;
 	}
