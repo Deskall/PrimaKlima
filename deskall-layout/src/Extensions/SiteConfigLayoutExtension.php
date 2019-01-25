@@ -390,7 +390,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function WriteUserDefinedConstants(){
-    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->user_defined_file();
+    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->owner->user_defined_file();
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
       if ($this->owner->SubsiteID > 0){
          $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/user_defined.less';
@@ -425,7 +425,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function WriteBackgroundClasses(){
-    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->background_colors();
+    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->owner->background_colors();
      if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
       if ($this->owner->SubsiteID > 0){
          $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/colors.less';
@@ -455,7 +455,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function RegenerateCss(){
 
-    $url = Director::AbsoluteURL('themes/standard/css/main.min.css');
+    $url = Director::AbsoluteURL('themes/'.$this->owner->Theme.'/css/main.min.css');
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
         if ($this->owner->SubsiteID > 0){
             $url =Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/main.min.css');
