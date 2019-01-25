@@ -57,10 +57,10 @@ class GalleryBlock extends BaseElement implements Searchable
     ];
 
     private static $owns = [
-        'Images',
+        'Images','Boxes'
     ];
 
-    private static $cascade_duplicates = [];
+    private static $cascade_duplicates = ['Boxes'];
 
     private static $defaults = [
         'Layout' => 'carousel',
