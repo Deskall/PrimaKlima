@@ -128,7 +128,7 @@ class GalleryBlock extends BaseElement implements Searchable
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
          
-            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())->displayIf('ItemType')->isEqualTo('images')->end(),'HTML');
+            $fields->addFieldToTab('Root.Main',Wrapper::create(SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()))->displayIf('ItemType')->isEqualTo('images')->end(),'HTML');
 
             $config = GridFieldConfig_RecordEditor::create();
             $config->addComponent(new GridFieldOrderableRows('Sort'));
@@ -137,7 +137,7 @@ class GalleryBlock extends BaseElement implements Searchable
             }
             $boxesField = new GridField('Boxes',_t(__CLASS__.'.Boxes','Boxen'),$this->Boxes(),$config);
             $boxesField->displayIf('ItemType')->isEqualTo('boxes')->end();
-            $fields->addFieldToTab('Root.Main',$boxesField);
+            $fields->addFieldToTab('Root.Main',$boxesField,'HTML');
 
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(
