@@ -99,7 +99,6 @@ class FormBlockExtension extends DataExtension
      */
     public function CustomForm()
     {
-      print_r('ici');
         $controller = UserDefinedFormController::create($this);
         $current = Controller::curr();
         $controller->setRequest($current->getRequest());
