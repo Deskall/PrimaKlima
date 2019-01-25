@@ -37,7 +37,6 @@ class SiteConfigLayoutExtension extends DataExtension
   protected $path_to_themes = '/deskall-layout/config/theme.yml';
 
   private static $db = [
-    'Theme' => 'Varchar',
     'HeaderBackground' => 'Varchar(7)',
     'GlobalFontSize' => 'Varchar(25)',
     'H1FontSize' => 'Varchar(25)',
@@ -223,7 +222,6 @@ class SiteConfigLayoutExtension extends DataExtension
    
     $fields->addFieldsToTab("Root.Global", 
       [
-        DropdownField::create('Theme','Global Theme',['standard' => 'Standard', 'grid' => 'Grid']),
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
         TextField::create('GlobalFontSize',_t(__CLASS__.'.GlobalFontSize','Standard Schriftgrösse')),
         TextField::create('H1FontSize',_t(__CLASS__.'.H1FontSize','H1 Schriftgrösse')),
