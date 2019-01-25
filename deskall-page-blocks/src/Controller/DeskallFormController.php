@@ -36,7 +36,12 @@ class DeskallFormController extends ElementFormController
     public function Link($action = null)
     {  
         $id = $this->element->ID;
-        $segment = Controller::join_links('element', $id, $action);
+        if ($this->element->isChildren()){
+            $segment = Controller::join_links('children',$this->element->Parent()->getOwnerPage()->ID, $id, $action);
+        }
+        else{
+            $segment = Controller::join_links('element', $id, $action);
+        }
         $page = Director::get_current_page();
 
         if ($page && !($page instanceof ElementController)) {
