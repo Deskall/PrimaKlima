@@ -13,14 +13,13 @@
 
 		    <div class="uk-position-relative">
 
-		        <div class="uk-slider-container uk-light">
-		            <ul class="uk-slider-items uk-height-large <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-lightbox>
+		        <div class="uk-slider-container">
+		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-lightbox>
 		            	<% loop ActiveVideos %>
-		            	<li class="uk-height-1-1"><iframe src="$URL" frameborder="0" allowfullscreen data-uk-responsive data-uk-video="automute: true;autoplay:false;"></iframe></li>
-		            	<% end_loop %>
+		            	<li class="uk-height-1-1"> <% if Title %><h3>$Title</h3><% end_if %> <iframe src="$URL" frameborder="0" allowfullscreen data-uk-responsive data-uk-video="automute: true;autoplay:false;"></iframe> <% if HTML %> <div class="dk-text-content">$HTML</div> <% end_if %> </li> <% end_loop %>
 		            </ul>
 		        </div>
-		        <div class="uk-hidden@s uk-light">
+		        <div class="uk-hidden@s">
 		            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 		            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 		        </div>
