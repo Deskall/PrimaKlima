@@ -14,7 +14,7 @@
 		    <div class="uk-position-relative">
 
 		        <div class="uk-slider-container">
-		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match">
+		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-height-match=".uk-card-body">
 		            	<% loop ActiveVideos %>
 		            	<li class="uk-height-1-1">
 		            		<div class="uk-card uk-card-default uk-child-width-1-2" data-uk-grid>
