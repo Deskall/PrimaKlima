@@ -97,7 +97,7 @@ class FormBlockExtension extends DataExtension
   /**
      * @return UserForm
      */
-    public function Form()
+    public function CustomForm()
     {
       print_r('ici');
         $controller = UserDefinedFormController::create($this);
