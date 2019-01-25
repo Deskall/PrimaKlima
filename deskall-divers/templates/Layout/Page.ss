@@ -1,4 +1,4 @@
-<div class="uk-child-width-1-3@m uk-grid-collapse" data-uk-grid>
+
 	$ElementalArea
 	<% if $ID < 0 %> 
 		<% if Form || Content %>
@@ -11,4 +11,4 @@
 		</section>
 		<% end_if %>
 	<% end_if %>
-</div>
+	
