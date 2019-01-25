@@ -46,7 +46,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'H3FontSize' => 'Varchar(25)',
     'LeadFontSize' => 'Varchar(25)',
 
-    'HeaderLayout' => 'Varchar(255)',
+   // 'HeaderLayout' => 'Varchar(255)',
     'HeaderBackground' => 'Varchar(255)',
     'HeaderFontColor' => 'Varchar(7)',
     'HeaderFontSize' => 'Varchar(255)',
@@ -149,18 +149,18 @@ class SiteConfigLayoutExtension extends DataExtension
     'ActiveColor' => ['Code' => 'ActiveColor', 'FontTitle' => 'Aktiv farbe','Color' => '10206B','FontColor' => 'FFFFFF','isReadonly' => 1, 'canChangeTitle' => 1]
   ];
 
-  private static $header_layouts = [
-    'top' => [
-            'value' => 'top',
-            'title' => 'Oben',
-            'icon' => '/deskall-page-blocks/images/icon-menu-top.svg'
-    ],
-    'left' => [
-            'value' => 'left',
-            'title' => 'Links',
-            'icon' => '/deskall-page-blocks/images/icon-menu-left.svg'
-    ]
-  ];
+  // private static $header_layouts = [
+  //   'top' => [
+  //           'value' => 'top',
+  //           'title' => 'Oben',
+  //           'icon' => '/deskall-page-blocks/images/icon-menu-top.svg'
+  //   ],
+  //   'left' => [
+  //           'value' => 'left',
+  //           'title' => 'Links',
+  //           'icon' => '/deskall-page-blocks/images/icon-menu-left.svg'
+  //   ]
+  // ];
 
   public function populateDefaultsColors(){
     if ($this->owner->ID > 0){
@@ -252,7 +252,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
     $fields->addFieldToTab("Root.Header.Layout", CompositeField::create(
       //HTMLOptionsetField::create('HeaderLayout',_t(__CLASS__.'.HeaderLayout','Navigation Format'),$this->owner->stat('header_layouts')),
-      DropdownField::create('HeaderLayout','Navigation Format',['top' => 'Oben', 'left' => 'Links']),
+      //DropdownField::create('HeaderLayout','Navigation Format',['top' => 'Oben', 'left' => 'Links']),
       FieldGroup::create(
         TextField::create('HeaderBackground',_t(__CLASS__.'.HeaderBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
         TextField::create('HeaderOpacity',_t(__CLASS__.'.HeaderOpacity','Opazität')),
