@@ -12,7 +12,7 @@
         <div class="uk-accordion-content">
         	<div class="uk-grid-small uk-flex <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
 	        	    <% if Image %>
-	        	    <div class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l">
+	        	    <div class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l uk-flex uk-flex-middle">
 	        	    	<% if Image.getExtension == "svg" %>
 	        				<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
 	        			<% else %>
