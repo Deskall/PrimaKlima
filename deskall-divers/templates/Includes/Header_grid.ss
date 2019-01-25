@@ -1,5 +1,5 @@
 <header>
-	<div data-uk-sticky="offset: 100">
+	<div data-uk-sticky>
 		<div class="uk-padding-small">
 			<div class="dk-logo-container">
 				<img src="$ThemeDir/img/logo.svg" />
