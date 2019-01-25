@@ -117,8 +117,12 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('infiniteLoop');
 
             if ($this->ID > 0){
-                $fields->replaceField('Root.Main.Type',HiddenField::create('Type'));
+                $fields->addFieldToTab('Root.Main',HiddenField::create('Type'));
             }
+            else{
+                $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
+            }
+
            
             $fields
                 ->fieldByName('Root.Main.HTML')
