@@ -26,7 +26,7 @@
 		            	<% end_loop %>
 		            </ul>
 		        </div>
-		        <div class="uk-hidden@s uk-light">
+		        <div class="uk-hidden@s">
 		            <a class="uk-position-center-left uk-position-small" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
 		            <a class="uk-position-center-right uk-position-small" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
 		        </div>
