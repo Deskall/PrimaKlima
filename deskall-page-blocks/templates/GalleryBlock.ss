@@ -13,7 +13,7 @@
 				        <ul class="uk-slider-items $PicturesPerLine" data-uk-height-match=".uk-card-body" data-uk-grid>
 				        	<% loop Boxes %>
 				            <li>
-				                <div class="uk-card uk-card-default">
+				                <div class="uk-card uk-card-default uk-margin-bottom">
 				                    <div class="uk-card-media-top">
 				                        <img data-src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
 					                       <% if Up.PaddedImages %>
@@ -27,6 +27,9 @@
 				                    <div class="uk-card-body uk-padding-small">
 				                        <div class="uk-card-title">$Title</div>
 				                        <p>$Content</p>
+				                        <% if LinkableLinkID > 0 %>
+											<% include CallToActionLink c=r,pos=center %>
+										<% end_if %>
 				                    </div>
 				                </div>
 				            </li>

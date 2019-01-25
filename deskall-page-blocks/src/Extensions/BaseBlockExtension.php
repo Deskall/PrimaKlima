@@ -160,6 +160,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         if ($this->owner->isPrimary){
             $this->owner->ShowTitle = 1;
         }
+        $this->owner->Width = "uk-width-1-1";
     }
 
 
