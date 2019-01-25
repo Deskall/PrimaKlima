@@ -251,7 +251,8 @@ class SiteConfigLayoutExtension extends DataExtension
     $fields->addFieldToTab("Root.Header.Content", $MenusField);
 
     $fields->addFieldToTab("Root.Header.Layout", CompositeField::create(
-      HTMLOptionsetField::create('HeaderLayout',_t(__CLASS__.'.HeaderLayout','Navigation Format'),$this->owner->stat('header_layouts')),
+      //HTMLOptionsetField::create('HeaderLayout',_t(__CLASS__.'.HeaderLayout','Navigation Format'),$this->owner->stat('header_layouts')),
+      DropdownField::create('HeaderLayout','Navigation Format',['top' => 'Oben', 'left' => 'Links']),
       FieldGroup::create(
         TextField::create('HeaderBackground',_t(__CLASS__.'.HeaderBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
         TextField::create('HeaderOpacity',_t(__CLASS__.'.HeaderOpacity','Opazität')),
