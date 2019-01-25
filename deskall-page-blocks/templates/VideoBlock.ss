@@ -14,9 +14,18 @@
 		    <div class="uk-position-relative">
 
 		        <div class="uk-slider-container">
-		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-lightbox>
+		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match">
 		            	<% loop ActiveVideos %>
-		            	<li class="uk-height-1-1"> <% if Title %><h3>$Title</h3><% end_if %> <iframe src="$URL" frameborder="0" allowfullscreen class="uk-preserve-width uk-height-large" data-uk-video="automute: true;autoplay:false;"></iframe> <% if HTML %><div class="dk-text-content uk-background-muted uk-padding-small  uk-box-shadow-small">$HTML</div> <% end_if %> </li> <% end_loop %>
+		            	<li class="uk-height-1-1">
+		            		<div class="uk-card uk-card-default">
+                    			<div class="uk-card-media-top"><iframe src="$URL" frameborder="0" allowfullscreen class="uk-preserve-width uk-height-large" data-uk-video="automute: true;autoplay:false;"></iframe>
+                    			</div>
+                    			<div class="uk-card-body">
+                    			<% if Title %><h3 class="uk-card-title">$Title</h3><% end_if %> 
+                    			<% if HTML %><div class="dk-text-content uk-background-muted uk-padding-small  uk-box-shadow-small">$HTML</div><% end_if %>
+                    		</div>
+                    	</li>
+                    	<% end_loop %>
 		            </ul>
 		        </div>
 		        <div class="uk-hidden@s">
