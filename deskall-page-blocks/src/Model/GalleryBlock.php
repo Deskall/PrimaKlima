@@ -7,6 +7,7 @@ use SilverStripe\Forms\Tab;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\HiddenField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
@@ -114,6 +115,10 @@ class GalleryBlock extends BaseElement implements Searchable
              $fields->removeByName('Boxes');
             $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
             $fields->removeByName('infiniteLoop');
+
+            if ($this->ID > 0){
+                $fields->replaceField('Root.Main.Type',HiddenField::create('Type'));
+            }
            
             $fields
                 ->fieldByName('Root.Main.HTML')
