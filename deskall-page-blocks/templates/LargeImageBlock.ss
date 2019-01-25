@@ -24,10 +24,10 @@
 					</div>
 					<% else %>
 				    	<% if isPrimary %>
-				    		<h1 class="$TitleAlign">$getPage.Title</h1>
+				    		<h1 class="$TitleAlign" <% if Effect == "parallax"%>data-uk-parrallax="$EffectOptions"<% end_if %>>$getPage.Title</h1>
 				    	<% else %>
 				    		<% if Title && $ShowTitle %>
-				    			<h2 class="$TitleAlign">$Title</h2>
+				    			<h2 class="$TitleAlign" <% if Effect == "parallax"%>data-uk-parrallax="$EffectOptions"<% end_if %>>$Title</h2>
 				    		<% end_if %>
 				    	<% end_if %>
 				    <% end_if %>
