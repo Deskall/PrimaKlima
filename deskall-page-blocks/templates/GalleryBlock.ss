@@ -59,7 +59,7 @@
 			    <div class="uk-position-relative">
 
 			        <div class="uk-slider-container uk-light">
-			        	<% if Type 
+			        	
 			        	<% if lightboxOff %>
 			        	<ul class="uk-slider-items $PicturesPerLine" data-uk-grid >
 
