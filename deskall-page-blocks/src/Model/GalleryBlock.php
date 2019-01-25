@@ -12,6 +12,11 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use g4b0\SearchableDataObjects\Searchable;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use SilverStripe\Forms\GridField\GridFieldButtonRow;
 
 class GalleryBlock extends BaseElement implements Searchable
 {
@@ -103,19 +108,24 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('ShowNav');
             $fields->removeByName('PaddedImages');
             $fields->removeByName('lightboxOff');
+             $fields->removeByName('Boxes');
             $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
             $fields->removeByName('infiniteLoop');
            
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
-            if ($this->ID == 0){
-                $fields->removeByName('Boxes');
-            }
-            else{
-                $fields->fieldByName('Root.Boxes')->displayIf('Type')->isEqualTo('boxes')->end();
-            }
+         
             $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())->displayIf('Type')->isEqualTo('images')->end(),'HTML');
+
+            $config = GridFieldConfig_RecordEditor::create();
+            $config->addComponent(new GridFieldOrderableRows('Sort'));
+            if (singleton('Box')->hasExtension('Activable')){
+                 $config->addComponent(new GridFieldShowHideAction());
+            }
+            $boxesField = new GridField('Boxes',_t(__CLASS__.'.Boxes','Boxen'),$this->Boxes(),$config);
+            $boxesField->displayIf('Type')->isEqualTo('boxes')->end();
+            $fields->addFieldToTab('Root.Main',$boxesField);
 
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(
