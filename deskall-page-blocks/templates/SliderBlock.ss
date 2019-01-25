@@ -46,8 +46,8 @@
     <% end_if %>
     <% if Nav == "controls" || Nav == "both" %>
             <div class="uk-light uk-visible@m">
-                <a class="uk-slidenav-large uk-position-center-left uk-position-large uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
-                <a class="uk-slidenav-large uk-position-center-right uk-position-large uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
+                <a class="uk-slidenav-large uk-position-center-left uk-position-large uk-hidden-hover" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
+                <a class="uk-slidenav-large uk-position-center-right uk-position-large uk-hidden-hover" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
             </div>
 
     <% end_if %>

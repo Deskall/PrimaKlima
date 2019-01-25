@@ -8,7 +8,7 @@
 <ul uk-accordion="<% if MultipleCollapse %>multiple: true<% end_if %>">
 	<% loop Items %>
     <li class="list-item <% if not collapsed %>uk-open<% end_if %>">
-        <a class="uk-accordion-title $TitleAlign" href="#">$Title</a>
+        <a class="uk-accordion-title $TitleAlign">$Title</a>
         <div class="uk-accordion-content">
         	<div class="uk-grid-small uk-flex uk-flex-middle <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
 	        	    <% if Image %>
