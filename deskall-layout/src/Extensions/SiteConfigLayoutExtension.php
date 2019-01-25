@@ -489,9 +489,6 @@ class SiteConfigLayoutExtension extends DataExtension
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
-        foreach($this->stat('header_layouts') as $key => $value) {
-          $entities[__CLASS__.".header_layouts_{$key}"] = $value;
-        }       
         return $entities;
     }
 
