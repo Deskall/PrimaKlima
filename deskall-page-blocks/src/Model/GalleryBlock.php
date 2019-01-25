@@ -21,6 +21,7 @@ use SilverStripe\Forms\GridField\GridFieldButtonRow;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class GalleryBlock extends BaseElement implements Searchable
 {
