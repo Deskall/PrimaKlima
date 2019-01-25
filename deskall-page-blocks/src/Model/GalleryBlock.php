@@ -89,6 +89,12 @@ class GalleryBlock extends BaseElement implements Searchable
         'uk-child-width-1-2@s uk-child-width-1-5@m' => '5'
     ];
 
+    private static $image_padding = [
+        'dk-padding-s' => 'klein',
+        'dk-padding-m' => 'medium',
+        'dk-padding-l' => 'gross'
+    ];
+
     private static $table_name = 'GalleryBlock';
 
     private static $singular_name = 'Bildergalerie';
@@ -153,7 +159,7 @@ class GalleryBlock extends BaseElement implements Searchable
                     CheckboxField::create('infiniteLoop',_t(__CLASS__.'.inifite','unendlish abspielen?')),
                     CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Bilder vollständig anzeigen? (keine Größenanpassung, beispielsweise für Logos angegeben)')),
                     CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?')),
-                    TextField::create('ImagePadding',_t(__CLASS__.'.ImagePadding','Bild Abstand (px)'))
+                    DropdownField::create('ImagePadding',_t(__CLASS__.'.ImagePadding','Bild Abstand'), $this->getTranslatedSourceFor(__CLASS__,'image_padding'))->setEmptyString(_t('Global.None','Keine'))
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             
@@ -201,6 +207,9 @@ class GalleryBlock extends BaseElement implements Searchable
         }
          foreach($this->stat('block_types') as $key => $value) {
           $entities[__CLASS__.".block_types_{$key}"] = $value;
+        }
+        foreach($this->stat('image_padding') as $key => $value) {
+          $entities[__CLASS__.".image_padding_{$key}"] = $value;
         }
 
        
