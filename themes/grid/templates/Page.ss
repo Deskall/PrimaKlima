@@ -5,7 +5,7 @@
   </head>
   <body class="$ClassName">
     <div class="uk-offcanvas-content">
-      <div data-uk-grid class="uk-grid-collapse">
+      <div data-uk-grid class="uk-grid-collapse uk-grid-match">
         <div class="uk-width-1-3@m uk-width-1-4@l uk-width-1-5@xl">
           <% include Header %>
         </div>
