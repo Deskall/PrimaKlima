@@ -114,7 +114,6 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('PaddedImages');
             $fields->removeByName('lightboxOff');
              $fields->removeByName('Boxes');
-            $fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
             $fields->removeByName('infiniteLoop');
 
             if ($this->ID > 0){
@@ -153,7 +152,7 @@ class GalleryBlock extends BaseElement implements Searchable
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             
-           $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname')),'HTML');
+           $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname'))->displayIf('ItemType')->isEqualTo('images')->end(),'HTML');
 
 
         });
