@@ -108,7 +108,7 @@ class FormBlockExtension extends DataExtension
         }
 
         $form = $controller->Form();
-        if ($this->isChildren()){
+        if ($this->owner->isChildren()){
           $form->setFormAction(
               Controller::join_links(
                   $current->Link(),
