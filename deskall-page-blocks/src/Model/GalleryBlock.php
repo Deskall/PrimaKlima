@@ -70,8 +70,7 @@ class GalleryBlock extends BaseElement implements Searchable
 
     private static $block_layouts = [
         'carousel' => 'Carousel',
-        'grid' => 'Grid',
-        'card' => 'Card'
+        'grid' => 'Grid'
     ];
 
     private static $block_types = [
@@ -135,9 +134,12 @@ class GalleryBlock extends BaseElement implements Searchable
             if (singleton('Box')->hasExtension('Activable')){
                  $config->addComponent(new GridFieldShowHideAction());
             }
-            $boxesField = new GridField('Boxes',_t(__CLASS__.'.Boxes','Boxen'),$this->Boxes(),$config);
-            $boxesField->displayIf('ItemType')->isEqualTo('boxes')->end();
-            $fields->addFieldToTab('Root.Main',$boxesField,'HTML');
+            if ($this->ItemType == "boxes"){
+                $boxesField = new GridField('Boxes',_t(__CLASS__.'.Boxes','Boxen'),$this->Boxes(),$config);
+                $boxesField->displayIf('ItemType')->isEqualTo('boxes')->end();
+                $fields->addFieldToTab('Root.Main',$boxesField,'HTML');
+            }
+          
 
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(
