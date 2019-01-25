@@ -17,6 +17,9 @@ use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldButtonRow;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
+use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 
 class GalleryBlock extends BaseElement implements Searchable
 {
