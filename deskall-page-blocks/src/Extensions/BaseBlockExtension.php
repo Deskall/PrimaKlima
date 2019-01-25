@@ -30,8 +30,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
         'Width' => 'Varchar',
-        'Animation' => 'Varchar',
-        'AnimationTarget' => 'Varchar'
+        'Animation' => 'Varchar'
     ];
 
 
@@ -177,7 +176,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('AvailableGlobally');
         $fields->removeByName('Width');
         $fields->removeByName('Animation');
-        $fields->removeByName('AnimationTarget');
 
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
@@ -194,8 +192,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
             HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
             UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()),
-            TextField::create('Animation',_t(__CLASS__.'.Animation','Animation')),
-            TextField::create('AnimationTarget',_t(__CLASS__.'.AnimationTarget','animiertes Element'))
+            TextField::create('Animation',_t(__CLASS__.'.Animation','Animation'))
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),
