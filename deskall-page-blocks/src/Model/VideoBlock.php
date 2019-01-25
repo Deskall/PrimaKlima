@@ -11,7 +11,14 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use g4b0\SearchableDataObjects\Searchable;
-use Embed\Embed;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use SilverStripe\Forms\GridField\GridFieldButtonRow;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
+use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 
 class VideoBlock extends BaseElement implements Searchable
 {
@@ -65,6 +72,7 @@ class VideoBlock extends BaseElement implements Searchable
 		$fields = parent::getCMSFields();
 		$fields->removeByName('VideoPerLine');
 		$fields->removeByName('Layout');
+        $fields->removeByName('Videos');
 		  
             $fields
                 ->fieldByName('Root.Main.HTML')
@@ -76,7 +84,13 @@ class VideoBlock extends BaseElement implements Searchable
 				OptionsetField::create('Layout','Format', $this->getTranslatedSourceFor(__CLASS__,'block_layouts'))
 			)->setTitle(_t(__CLASS__.'.BlockLayout','Layout'))->setName('BlockLayout'));
        
-        
+            $config = GridFieldConfig_RecordEditor::create();
+                $config->addComponent(new GridFieldOrderableRows('Sort'));
+                if (singleton('VideoObject')->hasExtension('Activable')){
+                     $config->addComponent(new GridFieldShowHideAction());
+                }
+                $videosField = new GridField('Videos',_t(__CLASS__.'.Videos','Videos'),$this->Videos(),$config);
+                $fields->addFieldToTab('Root.Main',$videosField);
         
         return $fields;
 	}
