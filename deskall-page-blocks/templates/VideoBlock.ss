@@ -18,7 +18,7 @@
 		            	<% loop ActiveVideos %>
 		            	<li class="uk-height-1-1">
 		            		<% if Title %><h3>$Title</h3><% end_if %>
-		            		<iframe src="$URL" frameborder="0" allowfullscreen data-uk-responsive data-uk-video="automute: true;autoplay:false;"></iframe>
+		            		<iframe src="$URL" frameborder="0" allowfullscreen data-uk-responsive data-uk-video="automute: true;autoplay:false;" class="uk-height-large"></iframe>
 		            		<% if HTML %>
 		            		<div class="dk-text-content">$HTML</div>
 		            		<% end_if %>
