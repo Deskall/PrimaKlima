@@ -17,11 +17,11 @@
 		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-lightbox>
 		            	<% loop ActiveVideos %>
 		            	<li class="uk-height-1-1">
-		            		<% if Title %><h3>$Title</h3><% end_if %>
-		            		<iframe src="$URL" frameborder="0" allowfullscreen data-uk-responsive data-uk-video="automute: true;autoplay:false;" class="uk-responsive-height"></iframe>
-		            		<% if HTML %>
+		            		<%-- <% if Title %><h3>$Title</h3><% end_if %> --%>
+		            		<iframe src="$URL" frameborder="0" allowfullscreen data-uk-responsive data-uk-video="automute: true;autoplay:false;"></iframe>
+		            		<%-- <% if HTML %>
 		            		<div class="dk-text-content">$HTML</div>
-		            		<% end_if %>
+		            		<% end_if %> --%>
 		            	</li>
 		            	<% end_loop %>
 		            </ul>
