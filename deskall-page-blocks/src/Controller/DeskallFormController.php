@@ -26,6 +26,32 @@ class DeskallFormController extends ElementFormController
         
     }
 
+    
+    /**
+     * @param string $action
+     *
+     * @return string
+     */
+    public function Link($action = null)
+    {  ob_start();
+                print_r('ici');
+                $result = ob_get_clean();
+                file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        $id = $this->element->ID;
+        $segment = Controller::join_links('element', $id, $action);
+        $page = Director::get_current_page();
+
+        if ($page && !($page instanceof ElementController)) {
+            return $page->Link($segment);
+        }
+
+        if ($controller = $this->getParentController()) {
+            return $controller->Link($segment);
+        }
+
+        return $segment;
+    }
+
     /**
      * Renders the managed {@link BaseElement} wrapped with the current
      * {@link ElementController}.
