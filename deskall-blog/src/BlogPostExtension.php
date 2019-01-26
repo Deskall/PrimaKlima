@@ -43,4 +43,29 @@ class BlogPostExtension extends DataExtension{
 		return $o;
 	}
 
+	public function MinutesToRead($wpm = null)
+	{
+	    $wpm = $wpm ?: $this->owner->config()->get('minutes_to_read_wpm');
+
+	    if (!is_numeric($wpm)) {
+	        throw new \InvalidArgumentException(sprintf("Expecting integer but got %s instead", gettype($wpm)));
+	    }
+	    $content = '';
+	    foreach ($this->owner->ElementalArea()->Elements()->filter('isVisible',1) as $block) {
+	    	if ($block->HTML){
+	    		$content .= $block->HTML;
+	    	}
+	    	if ($block->Content){
+	    		$content .= $block->content;
+	    	}
+	    }
+	    $wordCount = str_word_count(strip_tags($content));
+
+	    if ($wordCount < $wpm) {
+	        return 0;
+	    }
+
+	    return round($wordCount / $wpm, 0);
+	}
+
 }
