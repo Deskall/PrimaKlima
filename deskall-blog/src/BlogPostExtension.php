@@ -43,7 +43,7 @@ class BlogPostExtension extends DataExtension{
 		return $o;
 	}
 
-	public function MinutesToRead($wpm = null)
+	public function RealMinutesToRead($wpm = null)
 	{
 	    $wpm = $wpm ?: $this->owner->config()->get('minutes_to_read_wpm');
 

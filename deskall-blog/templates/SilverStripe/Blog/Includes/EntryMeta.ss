@@ -6,10 +6,10 @@
                 <a href="$Link" title="$Title">$Title</a><% if not Last %>, <% else %> | <% end_if %>
             <% end_loop %>
         <% end_if %>
-         <% if $MinutesToRead < 1 %>
+         <% if $RealMinutesToRead < 1 %>
             <%t SilverStripe\\Blog\\Model\\Blog.LessThanAMinuteToRead "Less than a minute to read" %> | 
         <% else %>
-            $MinutesToRead <%t SilverStripe\\Blog\\Model\\Blog.MinutesToRead "Minute(s) to read" %> | 
+            $RealMinutesToRead <%t SilverStripe\\Blog\\Model\\Blog.MinutesToRead "Minute(s) to read" %> | 
         <% end_if %>
         <%t SilverStripe\\Blog\\Model\\Blog.Posted "Posted" %>
         <a href="$MonthlyArchiveLink">$PublishDate.Nice</a>
