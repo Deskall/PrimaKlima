@@ -30,6 +30,8 @@ class VideoObject extends DataObject{
 		'File' => File::class
 	];
 
+	private static $owns = ['File'];
+
 	private static $extensions = ['Activable','Sortable'];
 
 	public function fieldLabels($includerelation = true){
