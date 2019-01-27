@@ -59,13 +59,13 @@ class VideoObject extends DataObject{
 		if ($this->Player){
 			switch ($this->Player){
 				case "youtube":
-				 $this->URL = "https://www.youtube-nocookie.com/embed/".$this->VideoID."?autoplay=0&amp;showinfo=0&amp;rel=0";
+				 $this->URL = "https://www.youtube-nocookie.com/watch?v=".$this->VideoID;
 				break;
 				case "vimeo":
 					$this->URL = "https://player.vimeo.com/video/".$this->VideoID;
 				break;
 				case "dailymotion":
-				    $this->URL = "https://www.dailymotion.com/embed/video/".$this->VideoID."?queue-autoplay-next=false&queue-autoplay-next=false";
+				    $this->URL = "https://www.dailymotion.com/".$this->VideoID;
 				break;
 			}
 		}
