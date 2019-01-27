@@ -21,7 +21,8 @@ class VideoObject extends DataObject{
         'VideoID' => 'Varchar(255)',
 		'Title' => 'Text',
 		'HTML' => 'HTMLText',
-        'URL' => 'Varchar'
+        'URL' => 'Varchar',
+        'ThumbnailURL' => 'Varchar'
 	];
 
 	private static $has_one = [
@@ -60,12 +61,17 @@ class VideoObject extends DataObject{
 			switch ($this->Player){
 				case "youtube":
 				 $this->URL = "https://www.youtube-nocookie.com/watch?v=".$this->VideoID;
+				 $this->ThumbnailURL = "http://i3.ytimg.com/vi/".$this->VideoID."/hqdefault.jpg";
 				break;
 				case "vimeo":
-					$this->URL = "https://player.vimeo.com/video/".$this->VideoID;
+					$this->URL = "https://vimeo.com/".$this->VideoID;
+					$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$this->VideoID.".php"));
+					$this->ThumbnailURL = $hash[0]['thumbnail_large'];
 				break;
 				case "dailymotion":
-				    $this->URL = "https://www.dailymotion.com/".$this->VideoID;
+				    $this->URL = "https://www.dailymotion.com/video/".$this->VideoID;
+				    $hash = json_decode(file_get_contents('https://api.dailymotion.com/video/'.$this->VideoID.'?fields=thumbnail_large_url'));
+				    $this->ThumbnailURL = $hash[0];
 				break;
 			}
 		}
