@@ -22,7 +22,6 @@
 			                    	<a class="uk-inline uk-panel uk-link-muted uk-text-center" href="$URL" caption="$Title">
 			                        <figure>
 			                            <img src="http://i3.ytimg.com/vi/$VideoID/hqdefault.jpg" width="400" alt="">
-			                            <figcaption class="uk-margin-small-top">$Title</figcaption>
 			                        </figure>
                     				</a>
                     			</div>
