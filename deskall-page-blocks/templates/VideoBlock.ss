@@ -17,7 +17,15 @@
 		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-height-match=".uk-card-body">
 		            	<% loop ActiveVideos %>
 		            	<li class="uk-height-1-1">
-		            		<div class="uk-card uk-card-default uk-child-width-1-2" data-uk-grid>
+		            		<div class="uk-card uk-card-default uk-child-width-1-2@s" data-uk-grid>
+		            			<% if Type == "Datei" %>
+		            			<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
+			                    	<video uk-video="autoplay: inview">
+			                    		<source src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4">
+			                    		<source src="https://quirksmode.org/html5/videos/big_buck_bunny.ogv" type="video/ogg">
+			                    	</video>
+                    			</div>
+		            			<% else %>
                     			<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
 			                    	<a class="uk-inline uk-panel uk-link-muted uk-text-center" href="$URL" caption="$Title">
 			                        <figure>
@@ -25,6 +33,7 @@
 			                        </figure>
                     				</a>
                     			</div>
+                    			<% end_if %>
                     			<div class="uk-card-body">
 	                    			<% if Title %><h3 class="uk-card-title">$Title</h3><% end_if %> 
 	                    			<% if HTML %><div class="dk-text-content">$HTML</div><% end_if %>
