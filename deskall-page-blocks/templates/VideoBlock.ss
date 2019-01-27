@@ -18,7 +18,14 @@
 		            	<% loop ActiveVideos %>
 		            	<li class="uk-height-1-1">
 		            		<div class="uk-card uk-card-default uk-child-width-1-2" data-uk-grid>
-                    			<div class="uk-card-media-left" data-uk-lightbox><a href="$URL" data-type="video" class="uk-width-1-1 uk-display-block uk-height-1-1"><img src="http://i3.ytimg.com/vi/$VideoID/hqdefault.jpg" /></a></div>
+                    			<div class="uk-card-media-left" data-uk-lightbox>
+			                    	<a class="uk-inline uk-panel uk-link-muted uk-text-center" href="$URL" caption="$Title">
+			                        <figure>
+			                            <img src="http://i3.ytimg.com/vi/$VideoID/hqdefault.jpg" width="400" alt="">
+			                            <figcaption class="uk-margin-small-top">$Title</figcaption>
+			                        </figure>
+                    				</a>
+                    			</div>
                     			<div class="uk-card-body">
 	                    			<% if Title %><h3 class="uk-card-title">$Title</h3><% end_if %> 
 	                    			<% if HTML %><div class="dk-text-content">$HTML</div><% end_if %>
