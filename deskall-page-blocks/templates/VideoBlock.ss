@@ -21,8 +21,7 @@
 		            			<% if Type == "Datei" %>
 		            			<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
 			                    	<video data-uk-video width="480" height="360" controls>
-			                    		<source src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4">
-			                    		<source src="https://quirksmode.org/html5/videos/big_buck_bunny.ogv" type="video/ogg">
+			                    		<source src="$File.URL" type="video/{$File.getExtension}">
 			                    	</video>
                     			</div>
 		            			<% else %>

@@ -52,6 +52,7 @@ class VideoObject extends DataObject{
 		$fields->fieldByName('Root.Main.VideoID')->displayIf('Type')->isEqualTo('Link');
 		$fields->addFieldToTab('Root.Main',DropdownField::create('Player',_t(__CLASS__.'Player','Player'),['youtube'=>'You Tube','vimeo' => 'Vimeo', /*'dailymotion' => 'Dailymotion'*/])->setEmptyString('Player wählen')->displayIf('Type')->isEqualTo('Link')->end(),'VideoID');
 		$fields->addFieldToTab('Root.Main',HTMLEditorField::create('HTML',_t(__CLASS__.'HTML','Beschreibung'))->setRows(3));
+		$fields->FieldByName('Root.Main.File')->setAllowedFileCategories('video');
 
 		return $fields;
 	}
