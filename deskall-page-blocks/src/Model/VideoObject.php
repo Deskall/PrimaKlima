@@ -71,7 +71,11 @@ class VideoObject extends DataObject{
 				case "dailymotion":
 				    $this->URL = "https://www.dailymotion.com/video/".$this->VideoID;
 				    $hash = json_decode(file_get_contents('https://api.dailymotion.com/video/'.$this->VideoID.'?fields=thumbnail_large_url'));
-				    $this->ThumbnailURL = $hash[0];
+				    ob_start();
+				    			print_r($hash);
+				    			$result = ob_get_clean();
+				    			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+				    // $this->ThumbnailURL = $hash[0];
 				break;
 			}
 		}
