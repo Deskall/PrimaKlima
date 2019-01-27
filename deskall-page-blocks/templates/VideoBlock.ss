@@ -18,7 +18,7 @@
 		            	<% loop ActiveVideos %>
 		            	<li class="uk-height-1-1">
 		            		<div class="uk-card uk-card-default uk-child-width-1-2" data-uk-grid>
-                    			<div class="uk-card-media-left" data-uk-lightbox>
+                    			<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
 			                    	<a class="uk-inline uk-panel uk-link-muted uk-text-center" href="$URL" caption="$Title">
 			                        <figure>
 			                            <img src="http://i3.ytimg.com/vi/$VideoID/hqdefault.jpg" width="400" alt="">
