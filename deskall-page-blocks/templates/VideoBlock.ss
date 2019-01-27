@@ -20,7 +20,7 @@
 		            		<div class="uk-card uk-card-default uk-child-width-1-2@s" data-uk-grid>
 		            			<% if Type == "Datei" %>
 		            			<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
-			                    	<video uk-video="autoplay: inview">
+			                    	<video data-uk-video>
 			                    		<source src="https://quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4">
 			                    		<source src="https://quirksmode.org/html5/videos/big_buck_bunny.ogv" type="video/ogg">
 			                    	</video>
