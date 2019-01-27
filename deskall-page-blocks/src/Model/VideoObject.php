@@ -49,7 +49,7 @@ class VideoObject extends DataObject{
 		$fields->removeByName('ParentID');
 		$fields->fieldByName('Root.Main.File')->displayIf('Type')->isEqualTo('Datei');
 		$fields->fieldByName('Root.Main.VideoID')->displayIf('Type')->isEqualTo('Link');
-		$fields->addFieldToTab('Root.Main',DropdownField::create('Player',_t(__CLASS__.'Player','Player'),['youtube'=>'You Tube','vimeo' => 'Vimeo', 'dailymotion' => 'Dailymotion'])->setEmptyString('Player wählen')->displayIf('Type')->isEqualTo('Link')->end(),'VideoID');
+		$fields->addFieldToTab('Root.Main',DropdownField::create('Player',_t(__CLASS__.'Player','Player'),['youtube'=>'You Tube','vimeo' => 'Vimeo', /*'dailymotion' => 'Dailymotion'*/])->setEmptyString('Player wählen')->displayIf('Type')->isEqualTo('Link')->end(),'VideoID');
 		$fields->addFieldToTab('Root.Main',HTMLEditorField::create('HTML',_t(__CLASS__.'HTML','Beschreibung'))->setRows(3));
 
 		return $fields;
@@ -68,11 +68,12 @@ class VideoObject extends DataObject{
 					$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$this->VideoID.".php"));
 					$this->ThumbnailURL = $hash[0]['thumbnail_large'];
 				break;
-				case "dailymotion":
-				    $this->URL = "https://www.dailymotion.com/video/".$this->VideoID;
-				    $hash = json_decode(file_get_contents('https://api.dailymotion.com/video/'.$this->VideoID.'?fields=thumbnail_large_url'));
-				    $this->ThumbnailURL = $hash->thumbnail_large_url;
-				break;
+				// case "dailymotion":
+				//     $this->URL = "https://www.dailymotion.com/video/".$this->VideoID;
+				//     $hash = json_decode(file_get_contents('https://api.dailymotion.com/video/'.$this->VideoID.'?fields=thumbnail_480_url'));
+				//     $this->ThumbnailURL = $hash->thumbnail_large_url;
+
+				// break;
 			}
 		}
 	}
