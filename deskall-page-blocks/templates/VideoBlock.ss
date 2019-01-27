@@ -14,12 +14,11 @@
 		    <div class="uk-position-relative">
 
 		        <div class="uk-slider-container">
-		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-height-match=".uk-card-body">
+		            <ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-height-match=".uk-card-body" data-uk-lightbox>
 		            	<% loop ActiveVideos %>
 		            	<li class="uk-height-1-1">
 		            		<div class="uk-card uk-card-default uk-child-width-1-2" data-uk-grid>
-                    			<div class="uk-card-media-left"><iframe src="$URL" frameborder="0" class="uk-width-1-1 uk-height-1-1" allowfullscreen  data-uk-video="automute: true;autoplay:false;"></iframe>
-                    			</div>
+                    			<div class="uk-card-media-left"><a href="$URL"></a></div>
                     			<div class="uk-card-body">
 	                    			<% if Title %><h3 class="uk-card-title">$Title</h3><% end_if %> 
 	                    			<% if HTML %><div class="dk-text-content">$HTML</div><% end_if %>
