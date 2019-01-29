@@ -70,6 +70,7 @@
 			 				<% end_if %>
 			 			</ul>
 			 		</li>
+			 		<% end_if %>
 		        </ul>
 		        <% else_if Type == "content" %>
 		        <div class="title-container">
