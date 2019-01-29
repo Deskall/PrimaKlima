@@ -29,8 +29,10 @@
 					
 				</article>
 				<hr/>
+				<section class="uk-section">
 				$Form
 				$CommentsForm
+				</section>
 			</div>
 		</div>
 	</div>
