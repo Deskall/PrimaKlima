@@ -52,7 +52,7 @@
 			 		<% end_if %>
 			 		<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
 			 		<li>
-			 			<ul class="uk-iconnav">
+			 			<ul class="uk-iconnav uk-padding-remove uk-margin-remove">
 			 				<% if SiteConfig.Facebook %>
 			 				<li><a href="SiteConfig.Facebook" target="_blank" data-uk-icon="facebook"></a></li>
 			 				<% end_if %>
@@ -66,7 +66,7 @@
 			 				<li><a href="SiteConfig.Xing" target="_blank" data-uk-icon="xing"></a></li>
 			 				<% end_if %>
 			 				<% if SiteConfig.Instagramm %>
-			 				<li><a href="SiteConfig.Instagramm" target="_blank" data-uk-icon="instagramm"></a></li>
+			 				<li><a href="SiteConfig.Instagramm" target="_blank" data-uk-icon="instagram"></a></li>
 			 				<% end_if %>
 			 			</ul>
 			 		</li>
