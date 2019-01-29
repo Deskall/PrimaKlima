@@ -20,7 +20,7 @@
 		</div>
 		<div class="uk-width-expand">
 			<div class="blog-entry content-container">
-				<article class="uk-article uk-margin-large-bottom">
+				<article class="uk-article uk-margin-medium-top uk-margin-large-bottom">
 					
 
 					$ElementalArea
