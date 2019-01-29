@@ -29,8 +29,10 @@
 					
 				</article>
 				<hr/>
-				$Form
-				$CommentsForm
+				<div class="uk-padding-small">
+					$Form
+					$CommentsForm
+				</div>
 			</div>
 		</div>
 	</div>
