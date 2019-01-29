@@ -66,7 +66,7 @@ class SiteConfigExtension extends DataExtension
       TextField::create('Twitter',_t(__CLASS__.'.Twitter','Twitter')),
       TextField::create('Linkedin',_t(__CLASS__.'.Linkedin','Linkedin')),
       TextField::create('Xing',_t(__CLASS__.'.Xing','Xing')),
-      TextField::create('Instagramm',_t(__CLASS__.'.Instagramm','Instagramm'))
+      TextField::create('Instagramm',_t(__CLASS__.'.Instagram','Instagram'))
     ]);
     
    
