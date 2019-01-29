@@ -19,6 +19,10 @@ Page:
   comments:
     enabled: false
 
+SilverStripe\Blog\Model\Blog:
+  extensions:
+    - BlogExtension
+
 SilverStripe\Blog\Model\BlogPost:
   extensions:
     - BlogPostExtension
