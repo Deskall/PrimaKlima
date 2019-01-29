@@ -13,7 +13,7 @@
 	<% end_if %>
 	
 </div>
-<section class="uk-container uk-container-large uk-padding">
+<section class="uk-container">
 	<div data-uk-grid>
 		<div class="uk-width-1-4@m uk.width-1-5@l uk-flex-last uk-flex-first@m">
 			<% include SilverStripe\\Blog\\BlogSideBar %>
