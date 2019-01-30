@@ -65,8 +65,8 @@
 			 				<% if SiteConfig.Xing %>
 			 				<li><a href="$SiteConfig.Xing" target="_blank" data-uk-icon="xing"></a></li>
 			 				<% end_if %>
-			 				<% if SiteConfig.Instagramm %>
-			 				<li><a href="$SiteConfig.Instagramm" target="_blank" data-uk-icon="instagram"></a></li>
+			 				<% if SiteConfig.Instagram %>
+			 				<li><a href="$SiteConfig.Instagram" target="_blank" data-uk-icon="instagram"></a></li>
 			 				<% end_if %>
 			 			</ul>
 			 		</li>
