@@ -41,7 +41,7 @@ class SiteConfigExtension extends DataExtension
     'Twitter' => 'Varchar(255)',
     'Linkedin' => 'Varchar(255)',
     'Xing' => 'Varchar(255)' ,
-    'Instagramm' => 'Varchar(255)'
+    'Instagram' => 'Varchar(255)'
   ];
 
   public function updateCMSFields(FieldList $fields) {
@@ -66,7 +66,7 @@ class SiteConfigExtension extends DataExtension
       TextField::create('Twitter',_t(__CLASS__.'.Twitter','Twitter')),
       TextField::create('Linkedin',_t(__CLASS__.'.Linkedin','Linkedin')),
       TextField::create('Xing',_t(__CLASS__.'.Xing','Xing')),
-      TextField::create('Instagramm',_t(__CLASS__.'.Instagram','Instagram'))
+      TextField::create('Instagram',_t(__CLASS__.'.Instagram','Instagram'))
     ]);
     
    
