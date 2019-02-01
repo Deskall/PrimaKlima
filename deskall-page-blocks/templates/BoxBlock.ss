@@ -26,7 +26,7 @@
 					    	<% else %>
 					    	
 					    		<a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description">
-					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" dat-src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
+					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" data-src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
 						    	</a>
 						    
 					    	<% end_if %>
@@ -40,7 +40,7 @@
 					    	<% else %>
 					    	
 					    		<a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description">
-					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
+					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" data-src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
 						    	</a>
 						    
 					    	<% end_if %>
@@ -62,7 +62,7 @@
 					    	<% else %>
 					    	
 					    		<a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description">
-					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img/>
+					    			<img class="uk-width-1-1 uk-height-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" data-src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img/>
 						    	</a>
 						    
 					    	<% end_if %>
