@@ -26,10 +26,12 @@
 		<% end_loop %>
 		<hr/>
 		<% end_if %>
+		<% if $Parent.displayShareButtons %>
 		<p class="uk-text-center"><%t SilverStripe\\Blog\\Model\\Blog.ShareThis 'diese Artikel teilen' %></p>
 		 <div class="uk-margin-top uk-text-center">
 			<div class="shariff" data-lang="de" data-url="$AbsoluteLink" data-button-style="icon" data-mail-url="mailto:" data-services="[&quot;facebook&quot;,&quot;twitter&quot;,&quot;linkedin&quot;,&quot;xing&quot;,&quot;whatsapp&quot;,mail&quot;]"></div>
 		</div>
+		<% end_if %>
 		<div class="uk-margin-top uk-text-center">
 		<a class="uk-button uk-button-secondary" href="{$Link}#comments-holder" data-uk-scroll><%t SilverStripe\\Blog\\Model\\Blog.Comment 'Kommentar hinzufügen' %></a>
 		</div>

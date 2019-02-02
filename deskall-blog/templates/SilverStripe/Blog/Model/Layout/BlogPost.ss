@@ -13,14 +13,14 @@
 	<% end_if %>
 	
 </div>
-<section class="uk-container uk-container-large uk-padding">
+<section class="uk-container">
 	<div data-uk-grid>
 		<div class="uk-width-1-4@m uk.width-1-5@l uk-flex-last uk-flex-first@m">
 			<% include SilverStripe\\Blog\\BlogSideBar %>
 		</div>
 		<div class="uk-width-expand">
 			<div class="blog-entry content-container">
-				<article class="uk-article uk-margin-large-bottom">
+				<article class="uk-article uk-margin-medium-top uk-margin-large-bottom">
 					
 
 					$ElementalArea
@@ -29,8 +29,10 @@
 					
 				</article>
 				<hr/>
-				$Form
-				$CommentsForm
+				<div class="uk-padding-small">
+					$Form
+					$CommentsForm
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1,4 +1,4 @@
-<p class="uk-article-meta">
+<p class="uk-article-meta uk-padding-small">
     <i data-uk-icon="icon: pencil; ratio: 2;"></i>
 <%t SilverStripe\\Blog\\Model\\Blog.Posted "Posted" %>
 <a href="$MonthlyArchiveLink">$PublishDate.Nice</a>
