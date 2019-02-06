@@ -11,7 +11,7 @@
                 <img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-cover />
                 <% else %>
 
-                <img src="$Image.FocusFill(1200,$Top.ImageHeight).URL" data-srcset="$Image.FocusFill(320,$Top.ImageHeight).URL 320w, $Image.FocusFill(650,$Top.ImageHeight).URL 650w, $Image.FocusFill(1200,$Top.ImageHeight).URL 1200w, $Image.FocusFill(2500,$Top.ImageHeight).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
+                <img src="$Image.FocusFillMax(1200,$Top.ImageHeight).URL" data-srcset="$Image.FocusFillMax(320,$Top.ImageHeight).URL 320w, $Image.FocusFillMax(650,$Top.ImageHeight).URL 650w, $Image.FocusFillMax(1200,$Top.ImageHeight).URL 1200w, $Image.FocusFillMax(2500,$Top.ImageHeight).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
 
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
