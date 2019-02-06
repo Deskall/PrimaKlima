@@ -82,6 +82,13 @@ class VideoObject extends DataObject{
 		}
 	}
 
+	public function onAfterWrite(){
+		if ($this->FileID > 0){
+			$this->File()->publishSingle();
+		}
+		parent::onAfterWrite();
+	}
+
 	public function getSrc(){
 		if ($this->File()->exists()){
 			return $this->File()->getURL();
