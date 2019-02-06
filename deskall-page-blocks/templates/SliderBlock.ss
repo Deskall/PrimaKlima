@@ -12,7 +12,8 @@
                 <% else %>
 
                 <%-- <img src="$Image.FocusFill(1200,$Top.ImageHeight).URL" data-srcset="$Image.FocusFill(320,$Top.ImageHeight).URL 320w, $Image.FocusFill(650,$Top.ImageHeight).URL 650w, $Image.FocusFill(1200,$Top.ImageHeight).URL 1200w, $Image.FocusFill(2500,$Top.ImageHeight).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img> --%>
-                <img src="$Image.FocusCropWidth(1200).URL" data-srcset="$Image.FocusCropWidth(320).URL 320w, $Image.FocusCropWidth(650).URL 650w, $Image.FocusCropWidth(1200).URL 1200w, $Image.FocusCropWidth(2500).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
+                <%-- <img src="$Image.FocusCropWidth(1200).URL" data-srcset="$Image.FocusCropWidth(320).URL 320w, $Image.FocusCropWidth(650).URL 650w, $Image.FocusCropWidth(1200).URL 1200w, $Image.FocusCropWidth(2500).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img> --%>
+                <img src="$Image.FocusCropHeight($Top.ImageHeight).URL" data-srcset="$Image.FocusFillMax(320,$Top.ImageHeight).URL 320w, $Image.FocusFillMax(650,$Top.ImageHeight).URL 650w, $Image.FocusCropHeight(1200).URL 1200w, $Image.FocusCropHeight($Top.ImageHeight).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
             <% end_if %>
