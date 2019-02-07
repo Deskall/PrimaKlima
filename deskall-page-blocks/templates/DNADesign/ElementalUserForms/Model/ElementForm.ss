@@ -1,7 +1,8 @@
 <% if isVisible %>
 	<div class="form-element__form $ExtraClass">
-		<section class="uk-section $Background">
+		<section class="uk-section uk-section-small $Background">
 			<div class="uk-container <% if not FullWidth %>uk-container-medium<% end_if %>">
+				<div class="$Width"><% end_if %>
 			    <% if $Title && $ShowTitle %>
 			    	<% if isChildren %>
 			    	<h3 class="form-element__title">$Title</h3>
@@ -11,6 +12,7 @@
 			    <% end_if %>
 
 			    $CustomForm
+				</div>
 			</div>
 		</section>
 	</div>
