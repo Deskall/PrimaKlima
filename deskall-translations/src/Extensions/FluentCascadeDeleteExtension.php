@@ -51,4 +51,11 @@ class FluentCascadeDeleteExtension extends DataExtension
             $localisedDelete->execute();
         }
     }
+
+    public function onBeforeDelete(){
+        parent::onBeforeDelete();
+        foreach($this->owner->Locales() as $locale){
+            $this->owner->Locales()->remove($locale);
+        }
+    }
 }
