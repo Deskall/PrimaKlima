@@ -14,7 +14,7 @@ class Page extends SiteTree implements Searchable
     public function fieldLabels($includerelation = true){
       $labels = parent::fieldLabels($includerelation);
       $labels['ExtraHeaderClass'] = _t('Page.ExtraHeaderClass','Custom CSS Class für der Header');
-      $labels['ExtraHeaderClass'] = _t('Page.ExtraMenuClass','Custom CSS Class für der Menü');
+      $labels['ExtraMenuClass'] = _t('Page.ExtraMenuClass','Custom CSS Class für der Menü');
 
       return $labels;
     }
