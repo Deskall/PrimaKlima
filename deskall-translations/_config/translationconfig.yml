@@ -14,6 +14,9 @@ TractorCow\Fluent\Model\Locale:
 LayoutBlock:
   extensions:
     - 'MenuBlockExtension'
+    - 'TractorCow\Fluent\Extension\FluentExtension'
+  translate:
+    - 'Title'
 
 DNADesign\Elemental\Models\BaseElement:
   extensions:
