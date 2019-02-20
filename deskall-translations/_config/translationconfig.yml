@@ -15,6 +15,7 @@ LayoutBlock:
   extensions:
     - 'MenuBlockExtension'
     - 'TractorCow\Fluent\Extension\FluentExtension'
+  frontend_publish_required: false
   translate:
     - 'Title'
 
