@@ -7,12 +7,14 @@ use SilverStripe\Forms\TextField;
 class Page extends SiteTree implements Searchable
 {
     private static $db = [
-      'ExtraHeaderClass' => 'Varchar'
+      'ExtraHeaderClass' => 'Varchar',
+      'ExtraMenuClass' => 'Varchar'
     ];
 
     public function fieldLabels($includerelation = true){
       $labels = parent::fieldLabels($includerelation);
       $labels['ExtraHeaderClass'] = _t('Page.ExtraHeaderClass','Custom CSS Class für der Header');
+      $labels['ExtraHeaderClass'] = _t('Page.ExtraMenuClass','Custom CSS Class für der Menü');
 
       return $labels;
     }
@@ -21,6 +23,7 @@ class Page extends SiteTree implements Searchable
     public function getCMSFields(){
       $fields = parent::getCMSFields();
       $fields->addFieldToTab('Root.Layout',TextField::create('ExtraHeaderClass',$this->fieldLabels()['ExtraHeaderClass']));
+      $fields->addFieldToTab('Root.Layout',TextField::create('ExtraMenuClass',$this->fieldLabels()['ExtraMenuClass']));
       return $fields;
     }
 
