@@ -69,16 +69,19 @@ class ImageExtension extends Extension
         $height = $this->owner->config()->get('MaxHeight');
         $backend = $this->owner->getImageBackend();
         $resource = $backend->getImageResource();
-        if ($width >= $height){
-            $resource->widen($width,function ($constraint) {
-                $constraint->upsize();
-            });
+        if ($this->owner->getExtension() != "svg"){
+            if ($width >= $height){
+                $resource->widen($width,function ($constraint) {
+                    $constraint->upsize();
+                });
+            }
+            if ($height > $width){
+                $resource->heighten($width,function ($constraint) {
+                    $constraint->upsize();
+                });
+            }
         }
-        if ($height > $width){
-            $resource->heighten($width,function ($constraint) {
-                $constraint->upsize();
-            });
-        }
+        
         $backend->setImageResource($resource);
     }
 
