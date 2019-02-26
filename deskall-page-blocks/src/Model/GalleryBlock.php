@@ -49,13 +49,15 @@ class GalleryBlock extends BaseElement implements Searchable
     ];
 
     private static $many_many = [
-        'Images' => Image::class,
+        'Images' => Image::class
+    ];
+
+    private static $has_many = [
         'Boxes' => Box::class
     ];
 
     private static $many_many_extraFields = [
-        'Images' => ['SortOrder' => 'Int'],
-        'Boxes' => ['SortOrder' => 'Int']
+        'Images' => ['SortOrder' => 'Int']
     ];
 
     private static $owns = [
