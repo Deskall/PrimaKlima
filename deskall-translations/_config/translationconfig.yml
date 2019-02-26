@@ -54,7 +54,7 @@ FeaturesBlock:
     - 'FeaturesTitle'
 Features:
   extensions:
-    - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
+    - 'TractorCow\Fluent\Extension\FluentExtension'
   frontend_publish_required: false
   translate:
     - 'Text'

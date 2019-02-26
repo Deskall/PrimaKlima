@@ -263,6 +263,7 @@ fr:
     Submissions: 'Requêtes effectuées'
     Recipients: 'Destinataires'
     RequiredFieldsLabel: 'Les champs marqués d''un astérisque (*) sont requis'
+    SelectFile: 'Sélectionnez un fichier'
   GalleryBlock:
     Autoplay: "Lecture automatique"
     BlockType: "Galerie d'images"
