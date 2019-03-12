@@ -402,9 +402,14 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
   public function onAfterWrite(){
-    $this->owner->WriteUserDefinedConstants();
-    $this->owner->WriteBackgroundClasses();
-    $this->owner->RegenerateCss();
+    
+     ob_start();
+    print_r($this->owner->ThemeDir());
+    $result = ob_get_clean();
+    file_put_contents($_SERVER['DOCUMENT_ROOT']."/logo.txt", $result);
+   // $this->owner->WriteUserDefinedConstants();
+   // $this->owner->WriteBackgroundClasses();
+   // $this->owner->RegenerateCss();
     parent::onAfterWrite();
   }
 
