@@ -8,7 +8,7 @@
 		<% loop Resources %>
 		<div class="$ExtraCssClass " <% if Animation %>data-uk-scrollspy="$Animation"<% end_if %>>
 			<% if Image.exists %>
-			<div class="uk-cover-container">
+			<div class="uk-cover-container uk-width-1-1">
 				<img src="$Image.ScaleWidth(350).URL" alt="$Image.Title" data-uk-cover />
 			</div>
 			<% end_if %>
