@@ -8,11 +8,11 @@
     <div class="uk-grid-collapse" data-uk-grid>
       <div class="uk-width-1-1 uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl">
         <div data-uk-sticky>
-          <div class="uk-panel uk-panel-scrollable" data-uk-height-viewport>
-            <div class="uk-height-3-4">
+          <div data-uk-height-viewport>
+            <div class="uk-flex-1">
             <% include Header %>
             </div>
-            <div class="uk-height-1-4">
+            <div class="uk-flex-auto">
             <% include Footer %>
             </div>
           </div>
