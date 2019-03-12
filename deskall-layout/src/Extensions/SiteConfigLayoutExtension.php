@@ -199,7 +199,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $dirs = glob($themesPath . '/*' , GLOB_ONLYDIR);
     $themes = [];
     foreach ($dirs as $key => $dir) {
-      $themes[$dir] = $dir;
+      $themes[basename($dir)] = basename($dir);
     }
     //GLOBAL
     $fields->addFieldToTab("Root.Global",DropdownField::create('Theme','Theme',$themes)->setValue('standard')->setEmptyString('Bitte wählen'));
