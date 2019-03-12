@@ -6,8 +6,12 @@
 		</div>
 	</div>
 		<% loop Resources %>
-		<div class="$ExtraCssClass <% if Image.exists %>uk-cover-container<% end_if %>" <% if Animation %>data-uk-scrollspy="$Animation"<% end_if %>>
-			<img src="$Image.ScaleWidth(350).URL" alt="$Image.Title" data-uk-cover />
+		<div class="$ExtraCssClass " <% if Animation %>data-uk-scrollspy="$Animation"<% end_if %>>
+			<% if Image.exists %>
+			<div class="uk-cover-container">
+				<img src="$Image.ScaleWidth(350).URL" alt="$Image.Title" data-uk-cover />
+			</div>
+			<% end_if %>
 		</div>
 		<% end_loop %>
 
