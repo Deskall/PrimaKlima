@@ -21,18 +21,26 @@ log.txt
 mysite/
 mysite/_config.php
 
+deskall-layout/templates/Includes/Css.ss
+
 themes/standard/css/src/deskall/theme/project_specific.less
 themes/standard/css/src/deskall/theme/user_defined.less
 themes/standard/css/src/deskall/theme/colors.less
 themes/standard/css/src/deskall/theme/fonts.less
-deskall-layout/templates/Includes/Css.ss
 themes/standard/css/main.css
 themes/standard/css/main.min.css
 themes/standard/javascript/main.min.js
 themes/standard/javascript/main.js
-
 themes/standard/javascript/vendor/11-project-specific.js
 
-
+themes/restaurant/css/src/deskall/theme/project_specific.less
+themes/restaurant/css/src/deskall/theme/user_defined.less
+themes/restaurant/css/src/deskall/theme/colors.less
+themes/restaurant/css/src/deskall/theme/fonts.less
+themes/restaurant/css/main.css
+themes/restaurant/css/main.min.css
+themes/restaurant/javascript/main.min.js
+themes/restaurant/javascript/main.js
+themes/restaurant/javascript/vendor/11-project-specific.js
 
 composer.json

@@ -29,11 +29,11 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
 use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
+use SilverStripe\View\ThemeResourceLoader;
+use SilverStripe\View\SSViewer;
 
 class SiteConfigLayoutExtension extends DataExtension 
 {
-  protected $user_defined_file = '/themes/standard/css/src/deskall/theme/user_defined.less';
-  protected $background_colors = '/themes/standard/css/src/deskall/theme/colors.less';
   protected $path_to_themes = '/deskall-layout/config/theme.yml';
 
   private static $db = [
@@ -171,6 +171,22 @@ class SiteConfigLayoutExtension extends DataExtension
         }
       }
     }
+  }
+
+  public function ThemeDir(){
+    return ThemeResourceLoader::inst()->getThemePaths(SSViewer::get_themes())[0];
+  }
+
+  public function getAbsoluteThemeDir(){
+    return Director::AbsoluteURL($this->owner->ThemeDir());
+  }
+
+  public function getUserDefinedFile(){
+    return $this->owner->ThemeDir().'/css/src/deskall/theme/user_defined.less';
+  }
+
+  public function getBackgroundColorsFile(){
+    return $this->owner->ThemeDir().'/css/src/deskall/theme/colors.less';
   }
 
   public function getLayoutFields() {
@@ -383,7 +399,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function WriteUserDefinedConstants(){
-    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->user_defined_file;
+    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->getUserDefinedFile();
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
       if ($this->owner->SubsiteID > 0){
          $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/user_defined.less';
@@ -418,7 +434,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function WriteBackgroundClasses(){
-    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->background_colors;
+    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->getBackgroundColorsFile();
      if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
       if ($this->owner->SubsiteID > 0){
          $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/colors.less';
@@ -448,7 +464,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function RegenerateCss(){
 
-    $url = Director::AbsoluteURL('themes/standard/css/main.min.css');
+    $url = $this->owner->getAbsoluteThemeDir().'/css/main.min.css';
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
         if ($this->owner->SubsiteID > 0){
             $url =Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/main.min.css');

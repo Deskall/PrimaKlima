@@ -1,4 +1,5 @@
 <?php
+use SilverStripe\SiteConfig\SiteConfig;
 
 require_once "less/lessc.inc.php";
 $filecore = str_replace(".min","",basename($_SERVER['REQUEST_URI'],".css"));
@@ -8,13 +9,14 @@ $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".css", ".min.css", $filename_full);
 $filename_less = str_replace(".css", ".less", $filename_full);
 $css_compiled = autoCompileLess($filename_less, $filename_full);
+$root_theme_path = SiteConfig::current_site_config()->ThemeDir();
 
 if($css_compiled){
 	// set correct paths
 	$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
 	$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
-	$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/themes/standard/css/src/images/backgrounds/",$css_compiled);
-	$css_live = str_replace("url('../fonts","url('/themes/standard/fonts",$css_compiled);
+	$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/",$root_theme_path."/css/src/images/backgrounds/",$css_compiled);
+	$css_live = str_replace("url('../fonts","url('".$root_theme_path."/fonts",$css_compiled);
 	
 
 	// // optimize file
