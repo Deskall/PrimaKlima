@@ -1,6 +1,6 @@
 <footer>
 	<% loop $SiteConfig.activeFooterBlocks %>
-		    <div class="$Width $Layout $Class">
+		<div class="$Layout $Class">
 		    	<% if Type == "address" %>
 		    	<div class="title-container">
 			 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
@@ -135,7 +135,7 @@
 					<% end_loop %>
 				</ul>
 				<% end_if %>
-		    </div>
+		</div>
 	<% end_loop %>
 		
 </footer>
