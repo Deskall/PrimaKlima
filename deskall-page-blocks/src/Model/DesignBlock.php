@@ -34,7 +34,8 @@ class DesignBlock extends BaseElement implements Searchable
 
 
     private static $db = [
-        'HTML' => 'HTMLText'
+        'HTML' => 'HTMLText',
+        'TextVerticalAlign' => 'Varchar'
         
     ];
 
