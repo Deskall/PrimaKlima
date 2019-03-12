@@ -7,7 +7,7 @@
   <body class="$ClassName">
     <div class="uk-grid-collapse" data-uk-grid>
       <div class="uk-width-1-1 uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl">
-        <div data-uk-sticky>
+        <div class="uk-overflow-auto" data-uk-sticky>
           <% include Header %> 
           <% include Footer %>
         </div>
