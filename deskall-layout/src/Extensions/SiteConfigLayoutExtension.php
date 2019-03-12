@@ -130,8 +130,15 @@ class SiteConfigLayoutExtension extends DataExtension
   ];
 
   private static $has_one = [
-    'DefaultSlide' => Image::class
+    'DefaultSlide' => Image::class,
+    'HeaderBackgroundImage' => Image::class
   ];
+
+  private static $owns = [
+    'DefaultSlide',
+    'HeaderBackgroundImage'
+  ];
+
 
   private static $has_many = [
     'FooterBlocks' => FooterBlock::class,
@@ -149,6 +156,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'GrayBackground' => ['Code' => 'GrayBackground', 'FontTitle' => 'Graufarbe','Color' => 'cccccc','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 1],
     'ActiveColor' => ['Code' => 'ActiveColor', 'FontTitle' => 'Aktiv farbe','Color' => '10206B','FontColor' => 'FFFFFF','isReadonly' => 1, 'canChangeTitle' => 1]
   ];
+
 
   // private static $header_layouts = [
   //   'top' => [
@@ -276,9 +284,10 @@ class SiteConfigLayoutExtension extends DataExtension
     $fields->addFieldToTab("Root.Header.Content", $MenusField);
 
     $fields->addFieldToTab("Root.Header.Layout", CompositeField::create(
-      //HTMLOptionsetField::create('HeaderLayout',_t(__CLASS__.'.HeaderLayout','Navigation Format'),$this->owner->stat('header_layouts')),
+  //HTMLOptionsetField::create('HeaderLayout',_t(__CLASS__.'.HeaderLayout','Navigation Format'),$this->owner->stat('header_layouts')),
       //DropdownField::create('HeaderLayout','Navigation Format',['top' => 'Oben', 'left' => 'Links']),
       FieldGroup::create(
+        UploadField::create('HeaderBackgroundImage',_t(__CLASS__.'.HeaderBackgroundImage','Hintergrund Bild'))->setFolderName($this->owner->getFolderName()),
         TextField::create('HeaderBackground',_t(__CLASS__.'.HeaderBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
         TextField::create('HeaderOpacity',_t(__CLASS__.'.HeaderOpacity','Opazität')),
         TextField::create('HeaderFontColor',_t(__CLASS__.'.HeaderFontColor','Schriftfarbe'))->addExtraClass('jscolor'),
