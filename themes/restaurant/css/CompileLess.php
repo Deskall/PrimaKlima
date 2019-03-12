@@ -9,7 +9,7 @@ $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".css", ".min.css", $filename_full);
 $filename_less = str_replace(".css", ".less", $filename_full);
 $css_compiled = autoCompileLess($filename_less, $filename_full);
-$root_theme_path = SiteConfig::current_site_config()->ThemeDir();
+$root_theme_path = 'themes/restaurant';
 
 if($css_compiled){
 	// set correct paths
