@@ -58,6 +58,16 @@ class DesignBlock extends BaseElement implements Searchable
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        $fields->removeByName('Resources');
+       if ($this->ID > 0 ){
+            $config = GridFieldConfig_RecordEditor::create();
+            $config->addComponent(new GridFieldOrderableRows('Sort'));
+            if (singleton('GrafikElement')->hasExtension('Activable')){
+                 $config->addComponent(new GridFieldShowHideAction());
+            }
+            $slidesField = new GridField('Resources',_t(__CLASS__.'.Resources','Grafik Elemente'),$this->Resources(),$config);
+            $fields->addFieldToTab('Root.Main',$slidesField);
+        }
       
 
         return $fields;
