@@ -19,7 +19,7 @@
 				
 	</div> --%>
 	
-    <ul class="uk-nav-default uk-nav-parent-icon" data-uk-nav>
+    <ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" data-uk-nav>
     	<% loop SiteConfig.activeMenuBlocks %>
 				<% if Type == 'form' %>
 					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
@@ -29,12 +29,6 @@
 					$forTemplate
 				<% end_if %>
 			<% end_loop %>
-       
-        <li class="uk-nav-header">Header</li>
-        <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Item</a></li>
-        <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-        <li class="uk-nav-divider"></li>
-        <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
     </ul>
 
 </header>
