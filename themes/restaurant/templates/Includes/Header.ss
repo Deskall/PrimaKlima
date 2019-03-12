@@ -1,4 +1,4 @@
-<header class="dk-background-header $ExtraHeaderClass uk-height-1-1 <% if SiteConfig.HeaderBackgroundImage.exists %>dk-overlay uk-background-image@m uk-background-cover<% end_if %>"
+<header class="dk-background-header $ExtraHeaderClass uk-height-1-1 <% if SiteConfig.HeaderBackgroundImage.exists %>uk-cover-container dk-overlay<% end_if %>"
 	<% if SiteConfig.HeaderBackgroundImage.exists %>style="background-image: url($SiteConfig.HeaderBackgroundImage.URL);"<% end_if %>>
 			
 
