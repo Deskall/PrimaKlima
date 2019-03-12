@@ -97,7 +97,7 @@
 						<table>
 							<tbody>
 								<tr>
-									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="{$SiteConfig.AbsoluteThemeDir}/standard/img/logo-email.png" border="0" alt="$SiteConfig.Title"/></a></a></td>
+									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="{$SiteConfig.AbsoluteCurrentThemeDir}/standard/img/logo-email.png" border="0" alt="$SiteConfig.Title"/></a></a></td>
 								</tr>
 								<% if $Header %>
 								<tr><td class="header-text">

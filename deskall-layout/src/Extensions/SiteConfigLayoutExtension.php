@@ -174,22 +174,22 @@ class SiteConfigLayoutExtension extends DataExtension
     }
   }
 
-  public function ThemeDir(){
+  public function getCurrentThemeDir(){
      print_r('ici');
     return 'themes/'.$this->owner->Theme;
   }
 
-  public function getAbsoluteThemeDir(){
-    return Director::AbsoluteURL($this->owner->ThemeDir());
+  public function getAbsoluteCurrentThemeDir(){
+    return Director::AbsoluteURL($this->owner->getCurrentThemeDir());
   }
 
   public function getUserDefinedFile(){
-    print_r($this->owner->ThemeDir());
-    return $this->owner->ThemeDir().'/css/src/deskall/theme/user_defined.less';
+    print_r($this->owner->getCurrentThemeDir());
+    return $this->owner->getCurrentThemeDir().'/css/src/deskall/theme/user_defined.less';
   }
 
   public function getBackgroundColorsFile(){
-    return $this->owner->ThemeDir().'/css/src/deskall/theme/colors.less';
+    return $this->owner->getCurrentThemeDir().'/css/src/deskall/theme/colors.less';
   }
 
   public function getLayoutFields() {
@@ -404,7 +404,7 @@ class SiteConfigLayoutExtension extends DataExtension
   public function onAfterWrite(){
     
      ob_start();
-    print_r($this->owner->ThemeDir());
+    print_r($this->owner->getCurrentThemeDir());
     $result = ob_get_clean();
     file_put_contents($_SERVER['DOCUMENT_ROOT']."/logo.txt", $result);
    // $this->owner->WriteUserDefinedConstants();
@@ -479,7 +479,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function RegenerateCss(){
 
-    $url = $this->owner->getAbsoluteThemeDir().'/css/main.min.css';
+    $url = $this->owner->getAbsolutegetCurrentThemeDir().'/css/main.min.css';
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
         if ($this->owner->SubsiteID > 0){
             $url =Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/main.min.css');
