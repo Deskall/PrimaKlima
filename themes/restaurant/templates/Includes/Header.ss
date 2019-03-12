@@ -1,4 +1,5 @@
 <header>
+	<div data-uk-sticky>
 <%--	<div class="uk-container uk-container-medium uk-position-relative">
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 			
@@ -40,5 +41,5 @@
         <li class="uk-nav-divider"></li>
         <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
     </ul>
-
+</div>
 </header>
