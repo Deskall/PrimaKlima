@@ -46,6 +46,9 @@ class DesignBlock extends BaseElement implements Searchable
 
     private static $cascade_duplicates = [];
 
+    public function DesignedHTML(){
+        $html = $this->HTML;
+    }
 
 
 
