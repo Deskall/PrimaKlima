@@ -28,16 +28,10 @@ class CreateWebsiteTask extends BuildTask
     private static $segment = 'CreateWebsiteTask';
 
     private static $default_members = [
-        '0' => [
+        '1' => [
             'FirstName' => 'Guillaume',
             'Surname' => 'Pacilly',
             'Email' => 'guillaume.pacilly@deskall.ch',
-            'Password' => 'deskall24$'
-        ],
-        '1' => [
-            'FirstName' => 'Daniel',
-            'Surname' => 'Wirz',
-            'Email' => 'daniel.wirz@deskall.ch',
             'Password' => 'deskall24$'
         ],
         '2' => [
@@ -50,6 +44,12 @@ class CreateWebsiteTask extends BuildTask
             'FirstName' => 'Ulla',
             'Surname' => 'Frei',
             'Email' => 'ulla.frei@deskall.ch',
+            'Password' => 'deskall24$'
+        ],
+        '4' => [
+            'FirstName' => 'Rahel',
+            'Surname' => 'Beyli',
+            'Email' => 'rahel.beyli@deskall.ch',
             'Password' => 'deskall24$'
         ],
     ];

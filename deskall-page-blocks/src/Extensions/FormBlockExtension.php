@@ -28,8 +28,6 @@ class FormBlockExtension extends DataExtension
     'ButtonBackground' => 'Varchar(255)'
    ];
 
-   private static $cascade_duplicates = ['EmailRecipients'];
-
    private static $defaults = [
     'ShowLabels' => 1,
     'Layout' => 'standard'

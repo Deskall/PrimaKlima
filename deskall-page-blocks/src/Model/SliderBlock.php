@@ -272,6 +272,9 @@ class SliderBlock extends BaseElement implements Searchable
             case "large":
             return 700;
             break;
+            case "viewport":
+            return 1200;
+            break;
         }
     }
 

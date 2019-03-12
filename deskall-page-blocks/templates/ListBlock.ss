@@ -7,16 +7,16 @@
 <% if Collapsible %>
 <ul uk-accordion="<% if MultipleCollapse %>multiple: true<% end_if %>">
 	<% loop Items %>
-    <li <% if not collapsed %>class="uk-open"<% end_if %>>
-        <a class="uk-accordion-title $TitleAlign" href="#">$Title</a>
+    <li class="list-item uk-margin-top <% if not collapsed %>uk-open<% end_if %>">
+        <a class="uk-accordion-title $TitleAlign">$Title</a>
         <div class="uk-accordion-content">
-        	<div class="uk-grid-small uk-flex <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
+        	<div class="uk-grid-small uk-flex uk-flex-middle <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
 	        	    <% if Image %>
 	        	    <div class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l">
 	        	    	<% if Image.getExtension == "svg" %>
-	        				<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+	        				<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" class="svg-list-item">
 	        			<% else %>
-	        				<img src="$Image.ScaleWidth(350).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+	        				<img src="$Image.ScaleWidth(200).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
 	        			<% end_if %> 
 	        	    </div>
 	        	    <% end_if %>
@@ -42,13 +42,13 @@
 </ul>
 <% else %>
 <% loop Items %>
-    <div class="uk-grid-small uk-flex <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
+    <div class="uk-grid-small uk-flex uk-flex-middle list-item <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
     <% if Image %>
     <div class="uk-width-1-1 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l">
     	<% if Image.getExtension == "svg" %>
-			<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+			<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" class="svg-list-item" >
 		<% else %>
-			<img src="$Image.ScaleWidth(350).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+			<img src="$Image.ScaleWidth(200).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
 		<% end_if %> 
     </div>
     <% end_if %>

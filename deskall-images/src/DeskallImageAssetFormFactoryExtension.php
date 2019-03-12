@@ -32,9 +32,5 @@ class DeskallImageAssetFormFactoryExtension extends Extension
         if ($image->getExtension() == "svg"){
             $fields->removeByName('FocusPoint');
         }
-        ob_start();
-        print_r($fields);
-        $result = ob_get_clean();
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     }
 }

@@ -21,7 +21,8 @@ class Box extends DataObject
 
     private static $has_one = [
         'Parent' => BoxBlock::class,
-        'Image' => Image::class
+        'Image' => Image::class,
+        'Gallery' => GalleryBlock::class
     ];
 
     private static $extensions = [
@@ -63,6 +64,7 @@ class Box extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('ParentID');
+        $fields->removeByName('GalleryID');
         $fields->FieldByName('Root.Main.Content')->setRows(3);
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.Settings',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
