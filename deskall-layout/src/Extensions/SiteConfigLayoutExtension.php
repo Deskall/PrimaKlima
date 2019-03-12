@@ -175,7 +175,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function getCurrentThemeDir(){
-    return 'themes/'.$this->owner->Theme;
+    return '/themes/'.$this->owner->Theme;
   }
 
   public function getAbsoluteCurrentThemeDir(){
