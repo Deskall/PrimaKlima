@@ -37,6 +37,7 @@ class SiteConfigLayoutExtension extends DataExtension
   protected $path_to_themes = '/deskall-layout/config/theme.yml';
 
   private static $db = [
+    'Theme' => 'Varchar',
     'HeaderBackground' => 'Varchar(7)',
     'GlobalFontSize' => 'Varchar(25)',
     'H1FontSize' => 'Varchar(25)',
@@ -194,7 +195,14 @@ class SiteConfigLayoutExtension extends DataExtension
     Requirements::javascript('deskall-layout/javascript/layout.js');
     Requirements::css('deskall-layout/css/layout.css');
     $fields = new FieldList(new Tabset('Root',_t('FORMS.MAINTAB','Haupt')));
+    $themesPath = Director::baseFolder().'/themes';
+    $dirs = glob($themesPath . '/*' , GLOB_ONLYDIR);
+    $themes = [];
+    foreach ($dirs as $key => $dir) {
+      $themes[$dir] = $dir;
+    }
     //GLOBAL
+    $fields->addFieldToTab("Root.Global",DropdownField::create('Theme','Theme',$themes)->setValue('standard')->setEmptyString('Bitte wählen'));
     //COLORS
     $fields->addFieldToTab("Root.Global",new HiddenField('ID'));
     $config = GridFieldConfig::create()
