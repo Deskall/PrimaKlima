@@ -175,7 +175,6 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function getCurrentThemeDir(){
-     print_r('ici');
     return 'themes/'.$this->owner->Theme;
   }
 
@@ -401,15 +400,12 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
 
-  public function onAfterWrite(){
-    
-     ob_start();
-    print_r($this->owner->getCurrentThemeDir());
-    $result = ob_get_clean();
-    file_put_contents($_SERVER['DOCUMENT_ROOT']."/logo.txt", $result);
-   // $this->owner->WriteUserDefinedConstants();
-   // $this->owner->WriteBackgroundClasses();
-   // $this->owner->RegenerateCss();
+  public function onAfterWrite(){ 
+    if ($this->owner->isChanged()){
+      $this->owner->WriteUserDefinedConstants();
+      $this->owner->WriteBackgroundClasses();
+      $this->owner->RegenerateCss();
+    }
     parent::onAfterWrite();
   }
 
