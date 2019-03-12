@@ -1,4 +1,4 @@
-<header <% if $SiteConfig.StickyHeader %>class="dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header  <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
+<header>
 <%--	<div class="uk-container uk-container-medium uk-position-relative">
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 			
@@ -17,7 +17,7 @@
 		</nav>
 				
 	</div> --%>
-	<div class="uk-card uk-card-default uk-card-body uk-width-1-2@s">
+	
     <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
         <li class="uk-active"><a href="#">Active</a></li>
         <li class="uk-parent">
@@ -40,5 +40,5 @@
         <li class="uk-nav-divider"></li>
         <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
     </ul>
-</div>
+
 </header>
