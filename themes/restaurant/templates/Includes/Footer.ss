@@ -1,4 +1,4 @@
-<footer>
+<footer class="uk-overflow-auto">
 	<% loop $SiteConfig.activeFooterBlocks %>
 		<div class="$Layout $Class">
 		    	<% if Type == "address" %>
