@@ -7,9 +7,15 @@
   <body class="$ClassName">
     <div class="uk-grid-collapse" data-uk-grid>
       <div class="uk-width-1-1 uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl">
-        <div class="uk-overflow-auto" data-uk-sticky>
-          <% include Header %> 
-          <% include Footer %>
+        <div data-uk-sticky>
+          <div class="uk-panel uk-panel-scrollable">
+            <div class="uk-height-3-4">
+            <% include Header %>
+            </div>
+            <div class="uk-height-1-4">
+            <% include Footer %>
+            </div>
+          </div>
         </div>
       </div>
       <div class="uk-width-1-1 uk-width-3-4@m uk-width-4-5@l uk-width-5-6@xl">
