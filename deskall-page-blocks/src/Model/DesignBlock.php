@@ -10,6 +10,11 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use g4b0\SearchableDataObjects\Searchable;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+
 
 class DesignBlock extends BaseElement implements Searchable
 {
