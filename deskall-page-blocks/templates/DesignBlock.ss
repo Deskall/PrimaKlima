@@ -6,7 +6,7 @@
 		</div>
 	</div>
 		<% loop Resources %>
-		<div class="$ExtraCssClass">
+		<div class="$ExtraCssClass" <% if Animation %>data-uk-scrollspy="$Animation"<% end_if %>>
 			$Image
 		</div>
 		<% end_loop %>
