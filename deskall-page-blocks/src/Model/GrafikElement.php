@@ -17,6 +17,7 @@ class GrafikElement extends DataObject
         'Type' => 'Varchar',
         'Content' => 'HTMLText',
         'Animation' => 'Varchar',
+        'Parallax' => 'Varchar', 
         'ExtraCssClass' => 'Varchar'
     ];
 
