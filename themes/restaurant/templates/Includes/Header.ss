@@ -1,8 +1,6 @@
-<header class="dk-background-header $ExtraHeaderClass uk-height-1-1">
- <% if SiteConfig.HeaderBackgroundImage.exists %>
-	<div class="uk-background-image@m uk-background-cover uk-background-muted uk-height-medium uk-width-large uk-flex uk-flex-center uk-flex-middle" style="background-image: url($SiteConfig.HeaderBackgroundImage.URL);">
- <% end_if %>
-				
+<header class="dk-background-header $ExtraHeaderClass uk-height-1-1 <% if SiteConfig.HeaderBackgroundImage.exists %>dk-overlay uk-background-image@m uk-background-cover<% end_if %>"
+	<% if SiteConfig.HeaderBackgroundImage.exists %>style="background-image: url($SiteConfig.HeaderBackgroundImage.URL);"<% end_if %>>
+			
 
     <ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" data-uk-nav>
     	<% loop SiteConfig.activeMenuBlocks %>
