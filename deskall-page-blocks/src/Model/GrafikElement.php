@@ -16,9 +16,7 @@ class GrafikElement extends DataObject
         'Title' => 'Text',
         'Type' => 'Varchar',
         'Content' => 'HTMLText',
-        'Effect' => 'Varchar(255)',
-        'EffectOptions' => 'Varchar(255)',
-        'Position' => 'Varchar',
+        'Animation' => 'Varchar',
         'ExtraCssClass' => 'Varchar'
     ];
 
