@@ -1,5 +1,6 @@
 <header class="dk-background-header $ExtraHeaderClass uk-height-1-1">
  <% if HeaderBackgroundImage.exists %>
+	<div class="uk-background-image@m uk-background-cover uk-background-muted uk-height-medium uk-width-large uk-flex uk-flex-center uk-flex-middle" style="background-image: url(HeaderBackgroundImage.URL);">
  <% end_if %>
 				
 
@@ -15,4 +16,7 @@
 			<% end_loop %>
     </ul>
 
+   <% if HeaderBackgroundImage.exists %>
+	</div>
+   <% end_if %>
 </header>
