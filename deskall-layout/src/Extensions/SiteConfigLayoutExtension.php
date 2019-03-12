@@ -475,7 +475,7 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function RegenerateCss(){
 
-    $url = $this->owner->getAbsolutegetCurrentThemeDir().'/css/main.min.css';
+    $url = $this->owner->getAbsoluteCurrentThemeDir().'/css/main.min.css';
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
         if ($this->owner->SubsiteID > 0){
             $url =Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/main.min.css');
