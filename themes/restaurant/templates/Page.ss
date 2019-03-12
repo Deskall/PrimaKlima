@@ -7,8 +7,10 @@
   <body class="$ClassName">
     <div class="uk-grid-collapse" data-uk-grid>
       <div class="uk-width-1-1 uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl">
-      <% include Header %> 
-      <% include Footer %>
+        <div data-uk-sticky>
+          <% include Header %> 
+          <% include Footer %>
+        </div>
       </div>
       <div class="uk-width-1-1 uk-width-3-4@m uk-width-4-5@l uk-width-5-6@xl">
         <div class="main-content-wrapper">
