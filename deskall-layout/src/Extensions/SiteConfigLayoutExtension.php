@@ -175,7 +175,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function ThemeDir(){
-    return ThemeResourceLoader::inst()->getThemePaths(SSViewer::get_themes())[0];
+    return 'themes/'.$this->owner->Theme;
   }
 
   public function getAbsoluteThemeDir(){
