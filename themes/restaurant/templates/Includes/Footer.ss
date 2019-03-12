@@ -1,132 +1,133 @@
 <footer>
-	<% loop $SiteConfig.activeFooterBlocks %>
-		<div class="$Layout $Class">
-		    	<% if Type == "address" %>
-		    	<div class="title-container">
-			 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
-			 	</div>
+	<div class="uk-padding-small">
+		<% loop $SiteConfig.activeFooterBlocks %>
+			<div class="$Layout $Class">
+			    	<% if Type == "address" %>
+			    	<div class="title-container">
+				 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
+				 	</div>
 
-			 	<ul class="uk-nav-default" data-uk-nav>
-			 		<% if $SiteConfig.Address != "" %>
-			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT}, {$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
-			 			
-			 				<% if $SiteConfig.Address %>
-				 			$SiteConfig.Address<br/>
-				 			<% end_if %>
-				 			<% if $SiteConfig.CodeCity %>
-				 			$SiteConfig.CodeCity<br/>
-				 			<% end_if %>
-				 			<% if $SiteConfig.Country %>
-				 			$SiteConfig.Country
-				 			<% end_if %>
-				 		</a>
-			 		</li>
-			 		<% end_if %>
-			 		<% if SiteConfig.Email %>
-			 		<li>
-			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
-			 				$SiteConfig.Email
-			 			</a>
-			 		</li>
-			 		<% end_if %>
-			 		<% if SiteConfig.Phone %>
-			 		<li>
-			 			<a href="tel:$SiteConfig.Phone">$SiteConfig.Phone</a>
-			 		</li>
-			 		<% end_if %>
-			 		<% if SiteConfig.Mobile %>
-			 		<li>
-			 			<a href="tel:$SiteConfig.Mobile">$SiteConfig.Mobile</a>
-			 		</li>
-			 		<% end_if %>
-			 		<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
-			 		<li>
-			 			<ul class="uk-iconnav uk-padding-remove uk-margin-remove">
-			 				<% if SiteConfig.Facebook %>
-			 				<li><a href="$SiteConfig.Facebook" target="_blank" data-uk-icon="facebook"></a></li>
-			 				<% end_if %>
-			 				<% if SiteConfig.Twitter %>
-			 				<li><a href="$SiteConfig.Twitter" target="_blank" data-uk-icon="twitter"></a></li>
-			 				<% end_if %>
-			 				<% if SiteConfig.Linkedin %>
-			 				<li><a href="$SiteConfig.Linkedin" target="_blank" data-uk-icon="linkedin"></a></li>
-			 				<% end_if %>
-			 				<% if SiteConfig.Xing %>
-			 				<li><a href="$SiteConfig.Xing" target="_blank" data-uk-icon="xing"></a></li>
-			 				<% end_if %>
-			 				<% if SiteConfig.Instagram %>
-			 				<li><a href="$SiteConfig.Instagram" target="_blank" data-uk-icon="instagram"></a></li>
-			 				<% end_if %>
-			 			</ul>
-			 		</li>
-			 		<% end_if %>
-		        </ul>
-		        <% else_if Type == "content" %>
-		        <div class="title-container">
-		    		<h3 class="uk-margin-small-bottom">$Title</h3>
-		    	</div>
-		    	$Content
-		    	<% else_if Type == "logo" %>
-		    	<div>
-		    		<a href="/" class="uk-navbar-item uk-logo">
-		    			<% if $Logo.getExtension == "svg" %>
-		    			<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo" width="$Top.SiteConfig.FooterLogoWidth" />
-		    			<% else %>
-		    			<img src="$Logo.ScaleMaxWidth($Top.SiteConfig.IntVal($Top.SiteConfig.FooterLogoWidth)).URL" alt="$Top.SiteConfig.Title Logo" />
-		    			<% end_if %>
-		    		</a>
-		    	</div>
-		    	<% else_if Type == "items" %>
-		    	<div>
-		    		<% if Title %>
-		    		 <div class="title-container">
+				 	<ul class="uk-nav-default" data-uk-nav>
+				 		<% if $SiteConfig.Address != "" %>
+				 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT}, {$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
+				 			
+				 				<% if $SiteConfig.Address %>
+					 			$SiteConfig.Address<br/>
+					 			<% end_if %>
+					 			<% if $SiteConfig.CodeCity %>
+					 			$SiteConfig.CodeCity<br/>
+					 			<% end_if %>
+					 			<% if $SiteConfig.Country %>
+					 			$SiteConfig.Country
+					 			<% end_if %>
+					 		</a>
+				 		</li>
+				 		<% end_if %>
+				 		<% if SiteConfig.Email %>
+				 		<li>
+				 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
+				 				$SiteConfig.Email
+				 			</a>
+				 		</li>
+				 		<% end_if %>
+				 		<% if SiteConfig.Phone %>
+				 		<li>
+				 			<a href="tel:$SiteConfig.Phone">$SiteConfig.Phone</a>
+				 		</li>
+				 		<% end_if %>
+				 		<% if SiteConfig.Mobile %>
+				 		<li>
+				 			<a href="tel:$SiteConfig.Mobile">$SiteConfig.Mobile</a>
+				 		</li>
+				 		<% end_if %>
+				 		<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
+				 		<li>
+				 			<ul class="uk-iconnav uk-padding-remove uk-margin-remove">
+				 				<% if SiteConfig.Facebook %>
+				 				<li><a href="$SiteConfig.Facebook" target="_blank" data-uk-icon="facebook"></a></li>
+				 				<% end_if %>
+				 				<% if SiteConfig.Twitter %>
+				 				<li><a href="$SiteConfig.Twitter" target="_blank" data-uk-icon="twitter"></a></li>
+				 				<% end_if %>
+				 				<% if SiteConfig.Linkedin %>
+				 				<li><a href="$SiteConfig.Linkedin" target="_blank" data-uk-icon="linkedin"></a></li>
+				 				<% end_if %>
+				 				<% if SiteConfig.Xing %>
+				 				<li><a href="$SiteConfig.Xing" target="_blank" data-uk-icon="xing"></a></li>
+				 				<% end_if %>
+				 				<% if SiteConfig.Instagram %>
+				 				<li><a href="$SiteConfig.Instagram" target="_blank" data-uk-icon="instagram"></a></li>
+				 				<% end_if %>
+				 			</ul>
+				 		</li>
+				 		<% end_if %>
+			        </ul>
+			        <% else_if Type == "content" %>
+			        <div class="title-container">
 			    		<h3 class="uk-margin-small-bottom">$Title</h3>
 			    	</div>
-			    	<% end_if %>
-		    			<% loop Items %>
-		    			<div class="uk-margin">
-		    			<% if LinkableLinkID > 0 %>
-		    			     <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr}>
-		    			 <% end_if %>
-		    			    <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-1@m" data-uk-grid >
-		    			    
-		    			     	<% if Image %>
-				    			    <div>
-				    			    	<% if Image.getExtension == "svg" %>
-				    						<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" width="120">
-				    					<% else %>
-				    						<% if Image.ScaleWidth(120).Height > 100 %>
-				    						<img src="$Image.ScaleHeight(100).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
-				    						<% else %>
-				    						<img src="$Image.ScaleWidth(120).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
-				    						<% end_if %>
-				    					<% end_if %> 
-				    			    </div>
-			    			    <% end_if %>
-			    			    <div>
-			    				    <div  class="$TitleAlign">$Title</div>
-			    				    <div class="dk-text-content $TextAlign  $TextColumns <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
-			    				    	$Content
-			    				    </div>
-			    				 </div>
-		    			   </div>
-		    			<% if LinkableLinkID > 0 %>
-			    			</a>
-			    		<% end_if %>
+			    	$Content
+			    	<% else_if Type == "logo" %>
+			    	<div>
+			    		<a href="/" class="uk-navbar-item uk-logo">
+			    			<% if $Logo.getExtension == "svg" %>
+			    			<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo" width="$Top.SiteConfig.FooterLogoWidth" />
+			    			<% else %>
+			    			<img src="$Logo.ScaleMaxWidth($Top.SiteConfig.IntVal($Top.SiteConfig.FooterLogoWidth)).URL" alt="$Top.SiteConfig.Title Logo" />
+			    			<% end_if %>
+			    		</a>
 			    	</div>
-		    			<% end_loop %>
-		    	</div>
-		        <% else %>
-		    	<div class="title-container">
-		    		<h3 class="uk-margin-small-bottom">$Title</h3>
-		    	</div>
-		    	<ul class="uk-nav-default" data-uk-nav>
-				    <% loop $activeLinks %>
-						$forTemplate
-					<% end_loop %>
-				</ul>
-				<% end_if %>
-		</div>
-	<% end_loop %>
-		
+			    	<% else_if Type == "items" %>
+			    	<div>
+			    		<% if Title %>
+			    		 <div class="title-container">
+				    		<h3 class="uk-margin-small-bottom">$Title</h3>
+				    	</div>
+				    	<% end_if %>
+			    			<% loop Items %>
+			    			<div class="uk-margin">
+			    			<% if LinkableLinkID > 0 %>
+			    			     <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr}>
+			    			 <% end_if %>
+			    			    <div class="uk-grid-small uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-1@m" data-uk-grid >
+			    			    
+			    			     	<% if Image %>
+					    			    <div>
+					    			    	<% if Image.getExtension == "svg" %>
+					    						<img src="$Image.URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" width="120">
+					    					<% else %>
+					    						<% if Image.ScaleWidth(120).Height > 100 %>
+					    						<img src="$Image.ScaleHeight(100).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+					    						<% else %>
+					    						<img src="$Image.ScaleWidth(120).URL" alt="$Up.AltTag($Image.Description, $Image.Name, $Title)" title="$Up.TitleTag($Image.Name,$Title)" >
+					    						<% end_if %>
+					    					<% end_if %> 
+					    			    </div>
+				    			    <% end_if %>
+				    			    <div>
+				    				    <div  class="$TitleAlign">$Title</div>
+				    				    <div class="dk-text-content $TextAlign  $TextColumns <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+				    				    	$Content
+				    				    </div>
+				    				 </div>
+			    			   </div>
+			    			<% if LinkableLinkID > 0 %>
+				    			</a>
+				    		<% end_if %>
+				    	</div>
+			    			<% end_loop %>
+			    	</div>
+			        <% else %>
+			    	<div class="title-container">
+			    		<h3 class="uk-margin-small-bottom">$Title</h3>
+			    	</div>
+			    	<ul class="uk-nav-default" data-uk-nav>
+					    <% loop $activeLinks %>
+							$forTemplate
+						<% end_loop %>
+					</ul>
+					<% end_if %>
+			</div>
+		<% end_loop %>
+	</div>
 </footer>
