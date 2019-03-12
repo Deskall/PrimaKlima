@@ -19,7 +19,16 @@
 				
 	</div> --%>
 	
-    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+    <ul class="uk-nav-default uk-nav-parent-icon" data-uk-nav>
+    	<% loop SiteConfig.activeMenuBlocks %>
+				<% if Type == 'form' %>
+					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
+				<% else_if Type == "Languages" %>
+					<% include MenuBlock_Languages Locales=Top.Locales %>
+				<% else %>
+					$forTemplate
+				<% end_if %>
+			<% end_loop %>
         <li class="uk-active"><a href="#">Active</a></li>
         <li class="uk-parent">
             <a href="#">Parent</a>
@@ -41,5 +50,5 @@
         <li class="uk-nav-divider"></li>
         <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
     </ul>
-    
+
 </header>
