@@ -5,11 +5,11 @@
 			$HTML
 		</div>
 		<% loop Resources %>
-		<div class="uk-position-center-left uk-width-large">
+		<div class="$ExtraCssClass">
 			$Image
 		</div>
 		<% end_loop %>
-	
+
 </div>
 
 <% if LinkableLinkID > 0 %>
