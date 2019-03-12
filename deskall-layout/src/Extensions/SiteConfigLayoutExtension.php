@@ -183,7 +183,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function getUserDefinedFile(){
-    print_r($this->owner->getCurrentThemeDir());
+
     return $this->owner->getCurrentThemeDir().'/css/src/deskall/theme/user_defined.less';
   }
 
