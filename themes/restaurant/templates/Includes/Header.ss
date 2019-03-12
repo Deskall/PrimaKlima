@@ -1,4 +1,4 @@
-<header>
+<header class="dk-background-header $ExtraHeaderClass">
 
     <ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" data-uk-nav>
     	<% loop SiteConfig.activeMenuBlocks %>
