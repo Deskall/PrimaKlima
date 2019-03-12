@@ -2,23 +2,28 @@
 <html lang="$ContentLocale" dir="ltr">
   <head>
      <% include Meta %>
+     $SiteConfig.GoogleAnalyticsCode
   </head>
   <body class="$ClassName">
-    <div class="uk-offcanvas-content">
-      <% include Header %>
-      <div class="main-content-wrapper">
-      $Layout
-      </div>
+    <div class="uk-grid-collapse" data-uk-grid>
+      <div class="uk-width-1-1 uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl">
+      <% include Header %> 
       <% include Footer %>
+      </div>
+      <div class="uk-width-1-1 uk-width-3-4@m uk-width-4-5@l uk-width-5-6@xl">
+        <div class="main-content-wrapper">
+        $Layout
+        </div>
+      </div>
+    
 
       <% include NavMobile %>
-    </div>
+  
 
     <% if BodyScripts %>
       <% loop BodyScripts %>
       $Script
       <% end_loop %>
     <% end_if %>
-    $SiteConfig.GoogleAnalyticsCode
   </body>
 </html>
