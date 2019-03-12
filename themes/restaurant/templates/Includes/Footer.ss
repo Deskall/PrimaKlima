@@ -6,11 +6,10 @@
 			 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
 			 	</div>
 
-			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
+			 	<ul class="uk-nav-default" data-uk-nav>
 			 		<% if $SiteConfig.Address != "" %>
 			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT}, {$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
-			 			<span class="uk-margin-small-right" data-uk-icon="icon: location;"></span>
-			 			<span class="dk-link-with-icon">
+			 			
 			 				<% if $SiteConfig.Address %>
 				 			$SiteConfig.Address<br/>
 				 			<% end_if %>
@@ -20,32 +19,24 @@
 				 			<% if $SiteConfig.Country %>
 				 			$SiteConfig.Country
 				 			<% end_if %>
-				 		</span>
 				 		</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Email %>
 			 		<li>
 			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
-			 				<span class="uk-margin-small-right" data-uk-icon="icon: mail;"></span>
-			 				<span class="dk-link-with-icon">$SiteConfig.Email</span>
+			 				$SiteConfig.Email
 			 			</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Phone %>
 			 		<li>
-			 			
-			 				<span class="uk-margin-small-right" data-uk-icon="icon: receiver;"></span>
-			 				<span class="dk-link-with-icon">$SiteConfig.Phone</span>
-			 			
+			 			<a href="tel:$SiteConfig.Phone">$SiteConfig.Phone</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Mobile %>
 			 		<li>
-			 			
-			 				<span class="uk-margin-small-right"  data-uk-icon="icon: phone;"></span>
-				 			<span class="dk-link-with-icon">$SiteConfig.Mobile</span>
-				 		
+			 			<a href="tel:$SiteConfig.Mobile">$SiteConfig.Mobile</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
@@ -129,7 +120,7 @@
 		    	<div class="title-container">
 		    		<h3 class="uk-margin-small-bottom">$Title</h3>
 		    	</div>
-		    	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
+		    	<ul class="uk-nav-default" data-uk-nav>
 				    <% loop $activeLinks %>
 						$forTemplate
 					<% end_loop %>
