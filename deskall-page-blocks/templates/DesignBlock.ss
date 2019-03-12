@@ -4,7 +4,7 @@
 		$HTML
 	</div>
 	<% loop Resources %>
-	<div>
+	<div class="uk-position-center-left uk-width-large">
 		$Image
 	</div>
 	<% end_loop %>
