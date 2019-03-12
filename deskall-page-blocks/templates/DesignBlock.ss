@@ -1,5 +1,6 @@
 
 <div class="uk-position-relative" data-uk-height-viewport>
+	<div class="class-wrapper"></div>
 	<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 		$HTML
 	</div>
