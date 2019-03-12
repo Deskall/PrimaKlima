@@ -75,11 +75,6 @@ class GrafikElement extends DataObject
         return $fields;
     }
 
-    public function BoxTitle(){
-        $o = new DBHTMLText();
-        $o->setValue($this->Title);
-        return $o;
-    }
 
     public function ImageThumbnail(){
         $o = new DBHTMLText();
