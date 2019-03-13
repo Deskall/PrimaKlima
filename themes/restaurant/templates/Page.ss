@@ -7,13 +7,15 @@
   <body class="$ClassName">
     <div class="uk-grid-collapse" data-uk-grid>
       <div class="uk-width-1-1 uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl">
-        <div data-uk-sticky>
-          <div >
-            <div data-uk-height-viewport="offset-top: true; offset-bottom: true;">
-            <% include Header %>
-            </div>
-            <div>
-            <% include Footer %>
+        <div class="uk-background-top-right uk-background-cover sidebar-container" style="background-image:url($SiteConfig.HeaderBackgroundImage.URL);">
+          <div data-uk-sticky>
+            <div >
+              <div data-uk-height-viewport="offset-top: true; offset-bottom: true;">
+              <% include Header %>
+              </div>
+              <div>
+              <% include Footer %>
+              </div>
             </div>
           </div>
         </div>
