@@ -71,6 +71,7 @@ class Dish extends DataObject{
     }
 
     public function PrintThumbnail(){
-        return ($this->Image()->exists()) ? $this->Image()->Thumbnail(80,80) : '(keine)';
+        $html = ($this->Image()->exists()) ? $this->Image()->Thumbnail(80,80) : '(keine)';
+        return DBField::create_field('HTMLText',$html);
     }
 }
