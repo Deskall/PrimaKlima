@@ -1,5 +1,4 @@
-<header class="dk-background-header $ExtraHeaderClass uk-height-1-1"
-	<% if SiteConfig.HeaderBackgroundImage.exists %>style="background-image: url($SiteConfig.HeaderBackgroundImage.FocusFill(800,200).URL);background-color:$SiteConfig.HeaderBackground;background-size:cover;"<% end_if %>>
+<header class="dk-background-header $ExtraHeaderClass uk-height-1-1">
 			
 
     <ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" data-uk-nav>
