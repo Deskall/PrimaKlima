@@ -63,6 +63,7 @@ class MenuCarteElement extends DataObject{
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        print_r($fields);
         $fields->removeByName('Type');
 
         $fields->insertBefore('Title',DropdownField::create('Type',$this->fieldLabels()['Type'],['menu' => 'Menü','dish' => 'Speise','element' => 'Inhalt'])->setEmptyString('Bitte wählen'));
