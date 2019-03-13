@@ -74,7 +74,6 @@
           <% end_if %>
         </div>
       <% end_if %>
-     <% end_if %>
      <% end_loop %>
  </div>
  <% end_with %>
