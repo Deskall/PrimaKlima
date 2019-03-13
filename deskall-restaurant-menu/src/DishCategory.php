@@ -14,25 +14,23 @@ use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 
-class Dish extends DataObject{
+class DishCategory extends DataObject{
 
-    private static $singular_name = 'Speise';
+    private static $singular_name = 'Speise Sort';
 
-    private static $plural_name = 'Speisen';
+    private static $plural_name = 'Speise Sorten';
 
     private static $db = [
-        'Title' => 'Text',
-        'Description' => 'HTMLText',
-        'Price' => 'Currency'
+        'Title' => 'Varchar',
+        'Description' => 'HTMLText'
     ];
 
     private static $has_one = [
-    	'Image' => Image::class,
-        'MainDish' => Dish::class
+    	'Image' => Image::class
     ];
 
     private static $has_many = [
-        'Subdishes' => Dish::class
+        'Dishes' => Dish::class
     ];
 
     private static $owns = ['Image'];
@@ -46,8 +44,7 @@ class Dish extends DataObject{
     private static $summary_fields = [
         'PrintThumbnail' => ['title' => 'Bild'],
         'Title',
-        'Description',
-        'PrintPrice'  => ['title' => 'Preis']
+        'Description'
     ];
 
     private static $searchable_fields = ['Title'];
@@ -57,7 +54,6 @@ class Dish extends DataObject{
      
         $labels['Title'] = _t(__CLASS__.'.Title','Titel');
         $labels['Description'] = _t(__CLASS__.'.Description','Beschreibung');
-        $labels['Price'] = _t(__CLASS__.'.Price','Preis');
         $labels['Image'] = _t(__CLASS__.'.Image','Bild');
      
         return $labels;
@@ -70,11 +66,6 @@ class Dish extends DataObject{
 
         
         return $fields;
-    }
-
-    public function PrintPrice(){
-        setlocale(LC_MONETARY, 'ch_CH');
-        return DBField::create_field('Varchar',money_format('%i',$this->Price));
     }
 
     public function PrintThumbnail(){
