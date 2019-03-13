@@ -39,7 +39,7 @@ class Dish extends DataObject{
     ];
 
     private static $summary_fields = [
-        'Image.Thumbnail(80,80)',
+        'Image.Thumbnail',
         'Title',
         'Description',
         'Price'
