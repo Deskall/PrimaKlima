@@ -31,10 +31,16 @@
         		<% loop Children %>
         		<div>
         			<% if Description %>
-        			<div><strong>$Title:</strong></div>
-        			$Description
+        			<strong class="uk-clearfix">$Title:</strong>
+        			<div class="uk-grid-small" data-uk-grid>
+					    <div class="uk-width-expand" data-uk-leader>$Description</div>
+					    <div>$PrintPrice</div>
+					</div>
         			<% else %>
-        			$Title
+        			<div class="uk-grid-small" data-uk-grid>
+					    <div class="uk-width-expand" data-uk-leader>$Title</div>
+					    <div>$PrintPrice</div>
+					</div>
         			<% end_if %>
         		</div>
 	        	<% end_loop %>
