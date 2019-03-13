@@ -10,6 +10,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use g4b0\SearchableDataObjects\Searchable;
+use SilverStripe\ORM\GroupedList;
 
 class RestaurantCarteBlock extends BaseElement
 {
@@ -31,6 +32,8 @@ class RestaurantCarteBlock extends BaseElement
         return $this->description;
     }
 
-    
+    public function Dishes(){
+        return GroupedList::create(Dish::get()->filter('isVisible',1)->sort('Category.Title'));
+    }
 
 }
