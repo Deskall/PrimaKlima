@@ -17,6 +17,9 @@ header{
 	}
 	&.dk-background-header{
 		background:@dk-background-header;
+		&.dk-overlay{
+			background:fade(@dk-background-header,50%);
+		}
 	}
 	a:first-of-type{
 		padding-left:0;
