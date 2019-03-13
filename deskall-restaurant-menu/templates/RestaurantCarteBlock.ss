@@ -48,6 +48,24 @@
             					</div>
                     			<% end_if %>
                     		</div>
+                            <% if Subdishes.exists %>
+                                <% loop Subdishes %>
+                                <div>
+                                    <% if Description %>
+                                    <strong class="uk-clearfix">$Title:</strong>
+                                    <div class="uk-grid-small" data-uk-grid>
+                                        <div class="uk-width-expand" data-uk-leader>$PrintDescription</div>
+                                        <div>$PrintPrice</div>
+                                    </div>
+                                    <% else %>
+                                    <div class="uk-grid-small" data-uk-grid>
+                                        <div class="uk-width-expand" data-uk-leader>$Title</div>
+                                        <div>$PrintPrice</div>
+                                    </div>
+                                    <% end_if %>
+                                </div>
+                                <% end_loop %>
+                            <% end_if %>
             	        	<% end_loop %>
             	        </div>
 
