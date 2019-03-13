@@ -33,7 +33,7 @@
         			<% if Description %>
         			<strong class="uk-clearfix">$Title:</strong>
         			<div class="uk-grid-small" data-uk-grid>
-					    <div class="uk-width-expand" data-uk-leader>$Description</div>
+					    <div class="uk-width-expand" data-uk-leader><div class="uk-display-inline">$Description</div></div>
 					    <div>$PrintPrice</div>
 					</div>
         			<% else %>
