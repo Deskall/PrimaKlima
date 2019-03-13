@@ -23,7 +23,7 @@
     <% end_loop %>
 </ul>
 <% else %>
-	<% loop Dishes.exclude('CategoryID',0).groupedBy(CategoryTitle) %>
+	<% loop Dishes.groupedBy(CategoryTitle) %>
     
        <h3>$CategoryTitle</h3>
         
