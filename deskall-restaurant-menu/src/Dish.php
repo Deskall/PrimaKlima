@@ -89,4 +89,8 @@ class Dish extends DataObject{
        
         return DBField::create_field('HTMLText',$this->Description);
     }
+
+    public function getCategoryTitle(){
+        return ($this->Category()->exists()) ? $this->Category()->Title : null;
+    }
 }
