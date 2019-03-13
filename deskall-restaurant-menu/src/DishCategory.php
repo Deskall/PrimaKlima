@@ -73,8 +73,7 @@ class DishCategory extends DataObject{
         return DBField::create_field('HTMLText',$html);
     }
 
-     public function PrintDescription(){
-       
+    public function PrintDescription(){
         return DBField::create_field('HTMLText',$this->Description);
     }
 }
