@@ -49,7 +49,7 @@
                             </div>
                             <% if Subdishes.exists %>
                                 <% loop Subdishes %>
-                                <div class="<% if First %>uk-margin-remove-top<% end_if %> uk-margin-small">
+                                <div class="<% if First %>uk-margin-remove-top<% end_if %> uk-margin-remove">
                                     <% if Description %>
                                     <strong class="uk-clearfix">$Title:</strong>
                                     <div class="uk-grid-small" data-uk-grid>
