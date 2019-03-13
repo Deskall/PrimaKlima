@@ -48,7 +48,7 @@ class Dish extends DataObject{
     private static $summary_fields = [
         'PrintThumbnail' => ['title' => 'Bild'],
         'Title',
-        'PrintDescription',
+        'PrintDescription'=> ['title' => 'Beschreibung'],
         'PrintPrice'  => ['title' => 'Preis']
     ];
 
