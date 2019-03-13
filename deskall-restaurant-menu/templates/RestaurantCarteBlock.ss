@@ -27,7 +27,7 @@
     
        <h3>$CategoryTitle</h3>
         
-        	<div class="uk-grid-small uk-flex uk-flex-middle <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
+        	<div class="uk-grid-small uk-flex uk-flex-middle uk-child-width-1-1 <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
         		<% loop Children %>
         		<div>
         			<% if Description %>
