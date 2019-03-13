@@ -80,14 +80,16 @@
         <% end_if %>
     </div>
     <div class="uk-width-1-1 uk-width-1-3@m uk-width-1-4@l uk-width-1-6@xl uk-visible@m">
-        <div data-uk-sticky="offset:100;offsetBottom:50;bottom:true;">
-            <div class="uk-margin-left">
-               <ul class="uk-nav uk-nav-default tm-nav" data-uk-scrollspy-nav="closest: li; scroll: true;offset:150">
-                   <% loop Categories %>
-                   <li><a href="#c-{$Pos}">$Title</a></li>
-                    <% end_loop %>
-               </ul>
-           </div>
+        <div class="uk-position-fixed uk-position-center-right">
+            <div data-uk-sticky="offset:100;offsetBottom:50;bottom:true;">
+                <div class="uk-margin-left">
+                   <ul class="uk-nav uk-nav-default tm-nav" data-uk-scrollspy-nav="closest: li; scroll: true;offset:150">
+                       <% loop Categories %>
+                       <li><a href="#c-{$Pos}">$Title</a></li>
+                        <% end_loop %>
+                   </ul>
+               </div>
+            </div>
         </div>
     </div>
 </div>
