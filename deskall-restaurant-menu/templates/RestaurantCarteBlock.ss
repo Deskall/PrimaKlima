@@ -27,8 +27,8 @@
         </ul>
         <% else %>
         <div class="uk-child-width-1-1 uk-grid-large" data-uk-grid >
-        	<% loop Dishes %>
-
+        	<% loop Categories %>
+                <% if Dishes.exists %>
                 <div class="uk-margin-large">
                    <h3 id="c-$Pos">$Title</h3>
                     
@@ -74,6 +74,7 @@
             	       <hr class="uk-width-1-1">
             	    <% end_if %>
                 </div>
+                 <% end_if %>
             <% end_loop %>
         </div>
         <% end_if %>
@@ -82,7 +83,7 @@
         <div data-uk-sticky="offset:100;offsetBottom:50;bottom:true;">
             <div class="uk-margin-left">
                <ul class="uk-nav uk-nav-default tm-nav" data-uk-scrollspy-nav="closest: li; scroll: true;offset:150">
-                   <% loop Dishes %>
+                   <% loop Categories %>
                    <li><a href="#c-{$Pos}">$Title</a></li>
                     <% end_loop %>
                </ul>

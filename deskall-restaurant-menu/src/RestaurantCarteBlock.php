@@ -32,8 +32,8 @@ class RestaurantCarteBlock extends BaseElement
         return $this->description;
     }
 
-    public function Dishes(){
-        return DishCategory::get()->filter('isVisible',1)->where('Dishes IS NOT NULL');
+    public function Categories(){
+        return DishCategory::get()->filter('isVisible',1)->sort('Sort');
     }
 
 }
