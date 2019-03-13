@@ -23,7 +23,7 @@ class Dish extends DataObject{
     private static $db = [
         'Title' => 'Text',
         'Description' => 'HTMLText',
-        'Price' => 'Currency'
+        'Price' => 'Currency',
         'PriceDescription' => 'Text'
     ];
 
