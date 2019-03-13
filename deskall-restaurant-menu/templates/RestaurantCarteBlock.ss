@@ -29,8 +29,8 @@
         <div class="uk-child-width-1-1 uk-grid-large" data-uk-grid >
         	<% loop Dishes.groupedBy(CategoryTitle) %>
 
-                <div id="c-$Pos" class="uk-margin-large">
-                   <h3>$CategoryTitle</h3>
+                <div class="uk-margin-large">
+                   <h3 id="c-$Pos">$CategoryTitle</h3>
                     
                     	<div class="uk-grid-small uk-flex uk-flex-middle uk-child-width-1-1 <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
                     		<% loop Children %>
