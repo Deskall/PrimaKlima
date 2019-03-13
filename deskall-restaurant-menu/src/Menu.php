@@ -80,5 +80,11 @@ class Menu extends DataObject{
         return $this->Dishes()->filter('isVisible',1);
     }
 
+    public function PrintPrice(){
+        setlocale(LC_MONETARY, 'de_CH');
+        return DBField::create_field('Varchar',money_format('%i',$this->Price));
+    }
+
+
 
 }
