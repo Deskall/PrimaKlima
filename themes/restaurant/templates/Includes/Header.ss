@@ -1,4 +1,4 @@
-<header class="dk-background-header uk-cover-container $ExtraHeaderClass uk-height-1-1">
+<header class="dk-background-header dk-overlay uk-cover-container $ExtraHeaderClass uk-height-1-1">
 			
 	<img src="$SiteConfig.HeaderBackgroundImage.URL" data-uk-cover />
     <div class="uk-position-center">
