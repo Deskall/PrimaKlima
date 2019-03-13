@@ -1,7 +1,7 @@
 <header class="dk-background-header dk-overlay uk-cover-container $ExtraHeaderClass uk-height-1-1">
 			
 	<img src="$SiteConfig.HeaderBackgroundImage.URL" data-uk-cover />
-    <div class="uk-position-center uk-position-z-index">
+    <div class="uk-position-center dk-z-index">
     	<ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" data-uk-nav>
     	<% loop SiteConfig.activeMenuBlocks %>
 				<% if Type == 'form' %>
