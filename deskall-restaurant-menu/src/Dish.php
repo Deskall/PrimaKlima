@@ -13,6 +13,7 @@ use SilverStripe\Forms\GridField\GridFieldEditButton;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class Dish extends DataObject{
 
@@ -92,5 +93,9 @@ class Dish extends DataObject{
    
     public function getCategoryTitle(){
         return ($this->Category()->exists()) ? $this->Category()->Title : null;
+    }
+
+    public function getAnchorTitle(){
+        return URLSegmentFilter::create()->filter($this->ID.'-'.$this->Title);
     }
 }

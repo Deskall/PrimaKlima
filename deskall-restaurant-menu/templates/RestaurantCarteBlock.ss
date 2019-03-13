@@ -29,7 +29,7 @@
         
         	<div class="uk-grid-small uk-flex uk-flex-middle uk-child-width-1-1 <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
         		<% loop Children %>
-        		<div>
+        		<div id="$AnchorTitle">
         			<% if Description %>
         			<strong class="uk-clearfix">$Title:</strong>
         			<div class="uk-grid-small" data-uk-grid>
