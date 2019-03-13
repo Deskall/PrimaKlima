@@ -29,7 +29,7 @@
         <div class="uk-child-width-1-1" data-uk-grid >
         	<% loop Dishes.groupedBy(CategoryTitle) %>
 
-                <div id="$CategoryTitle.URLATT">
+                <div id="$CategoryTitle">
                    <h3>$CategoryTitle</h3>
                     
                     	<div class="uk-grid-small uk-flex uk-flex-middle uk-child-width-1-1 <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
@@ -63,9 +63,9 @@
     <div class="uk-width-1-1 uk-width-1-3@m uk-width-1-4@l uk-width-1-6@xl uk-visible@m">
         <div data-uk-sticky="offset:100;offsetBottom:50;bottom:true;">
             <div class="uk-margin-left">
-               <ul class="uk-nav uk-nav-default" data-uk-scrollspy-nav="closest: li; scroll: true">
+               <ul class="uk-nav uk-nav-default tm-nav" data-uk-scrollspy-nav="closest: li; scroll: true">
                    <% loop Dishes.groupedBy(CategoryTitle) %>
-                   <li><a href="#{$CategoryTitle.URLATT}">$CategoryTitle</a></li>
+                   <li><a href="#{$CategoryTitle}">$CategoryTitle</a></li>
                     <% end_loop %>
                </ul>
            </div>
