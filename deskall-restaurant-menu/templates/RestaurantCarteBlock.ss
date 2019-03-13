@@ -27,13 +27,13 @@
         </ul>
         <% else %>
         <div class="uk-child-width-1-1 uk-grid-large" data-uk-grid >
-        	<% loop Dishes.groupedBy(CategoryTitle) %>
+        	<% loop Dishes %>
 
                 <div class="uk-margin-large">
-                   <h3 id="c-$Pos">$CategoryTitle</h3>
+                   <h3 id="c-$Pos">$Title</h3>
                     
                     	<div class="uk-grid-small uk-flex uk-flex-middle uk-child-width-1-1 <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
-                    		<% loop Children %>
+                    		<% loop Dishes %>
                     		<div>
                     			<% if Description %>
                     			<strong class="uk-clearfix">$Title:</strong>
@@ -82,8 +82,8 @@
         <div data-uk-sticky="offset:100;offsetBottom:50;bottom:true;">
             <div class="uk-margin-left">
                <ul class="uk-nav uk-nav-default tm-nav" data-uk-scrollspy-nav="closest: li; scroll: true;offset:150">
-                   <% loop Dishes.groupedBy(CategoryTitle) %>
-                   <li><a href="#c-{$Pos}">$CategoryTitle</a></li>
+                   <% loop Dishes %>
+                   <li><a href="#c-{$Pos}">$Title</a></li>
                     <% end_loop %>
                </ul>
            </div>

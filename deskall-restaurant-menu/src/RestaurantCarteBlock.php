@@ -33,7 +33,7 @@ class RestaurantCarteBlock extends BaseElement
     }
 
     public function Dishes(){
-        return GroupedList::create(Dish::get()->filter('isVisible',1)->exclude('CategoryID',0)->sort('Category.Title'));
+        return DishCategory::get()->filter('isVisible',1)->where('Dishes IS NOT NULL');
     }
 
 }
