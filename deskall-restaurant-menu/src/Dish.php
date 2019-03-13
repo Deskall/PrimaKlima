@@ -28,14 +28,15 @@ class Dish extends DataObject{
 
     private static $has_one = [
     	'Image' => Image::class,
-        'MainDish' => Dish::class
+        'MainDish' => Dish::class,
+        'Category' => DishCategory::class
     ];
 
     private static $has_many = [
         'Subdishes' => Dish::class
     ];
 
-    private static $owns = ['Image'];
+    private static $owns = ['Image','Subdishes'];
 
 
     private static $extensions = [
