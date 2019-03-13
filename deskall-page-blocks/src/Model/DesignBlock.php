@@ -59,6 +59,7 @@ class DesignBlock extends BaseElement implements Searchable
     public function fieldLabels($includerelations = true ){
         $labels = parent::fieldLabels($includerelations );
         $labels['Trigger'] = _t(__CLASS__.'.TriggeringText', 'Text der Öffnen-Button');
+        $labels['FullHeight'] = _t(__CLASS__.'.FullHeight', 'nimmt die ganz Bilschirm Höhe?');
 
         return $labels;
     }
