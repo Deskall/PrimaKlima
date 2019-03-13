@@ -66,7 +66,7 @@
                                 <% end_loop %>
                             <% end_if %>
           
-           </div>
+          
            <% end_with %>
            <% end_if %>
            <% end_loop %>
