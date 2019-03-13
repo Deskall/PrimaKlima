@@ -33,6 +33,7 @@ class Menu extends DataObject{
     	'Dishes' => Dish::class
     ];
 
+    private static $owns = ['Dishes'];
 
     private static $many_many_extraFields = [
         'Dishes' => ['SortOrder' => 'Int']
@@ -42,7 +43,6 @@ class Menu extends DataObject{
         'Activable',
         'Sortable'
     ];
-
 
 
     function fieldLabels($includerelations = true) {
