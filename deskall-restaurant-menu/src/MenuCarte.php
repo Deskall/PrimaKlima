@@ -67,7 +67,7 @@ class MenuCarte extends DataObject{
         $fields = parent::getCMSFields();
         $fields->removeByName('Elements');
         $fields->removeByName('File');
-        $fields->addFieldToTab('Root.Main',UploadField::create('File',$this->fieldLabels()['File'])->setFolderName($this->getFolderName());
+        $fields->addFieldToTab('Root.Main',UploadField::create('File',$this->fieldLabels()['File'])->setFolderName($this->getFolderName()));
 
 		$config = GridFieldConfig_RecordEditor::create();
 		$config->addComponent(new GridFieldOrderableRows('Sort'));
