@@ -16,7 +16,9 @@
            <div>
             <div class="uk-float-left"><strong>$Title</strong></div><div class="uk-float-right"><strong>$PrintPrice</strong></div>
             <% loop $Dishes %>
-            $Title
+            <div>
+                $Title
+            </div>
             ***
             <% end_loop %>
            </div>
