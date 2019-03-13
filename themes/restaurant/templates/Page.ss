@@ -8,15 +8,15 @@
     <div class="uk-grid-collapse" data-uk-grid>
       <div class="uk-width-1-1 uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl">
         <div class="uk-cover-container sidebar-container">
-          <img src="$SiteConfig.HeaderBackgroundImage.URL" data-uk-cover />
+          
           <div data-uk-sticky>
             <div >
               <div data-uk-height-viewport="offset-top: true; offset-bottom: true;">
               <% include Header %>
               </div>
-              <div>
+             <%--  <div>
               <% include Footer %>
-              </div>
+              </div> --%>
             </div>
           </div>
         </div>
