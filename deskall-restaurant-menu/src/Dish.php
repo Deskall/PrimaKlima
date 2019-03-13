@@ -39,10 +39,10 @@ class Dish extends DataObject{
     ];
 
     private static $summary_fields = [
-        'Image.Thumbnail',
+        'PrintThumbnail' => ['title' => 'Bild'],
         'Title',
         'Description',
-        'Price'
+        'PrintPrice' => ['title' => 'Preis']
        
     ];
 
@@ -68,5 +68,9 @@ class Dish extends DataObject{
     public function PrintPrice(){
         setlocale(LC_MONETARY, 'ch_CH');
         return DBField::create_field('Varchar',money_format('%i',$this->Price));
+    }
+
+    public function PrintThumbnail(){
+        return ($this->Image()->exists()) ? $this->Image()->Thumbnail(80,80) : '(keine)';
     }
 }
