@@ -48,6 +48,9 @@ class RestaurantMenuAdmin extends ModelAdmin{
 	    if($this->modelClass == 'Dish' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
 	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
 	    }
+	    if($this->modelClass == 'DishCategory' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction()));
+	    }
 
 	    return $form;
 	}
