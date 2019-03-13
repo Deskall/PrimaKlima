@@ -77,7 +77,7 @@ class Dish extends DataObject{
     }
 
     public function PrintPrice(){
-        setlocale(LC_MONETARY, 'ch_CH');
+        setlocale(LC_MONETARY, 'de_CH');
         return DBField::create_field('Varchar',money_format('%i',$this->Price));
     }
 
