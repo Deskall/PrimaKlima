@@ -68,12 +68,14 @@ class MenuCarte extends DataObject{
         $fields->removeByName('Elements');
         $fields->removeByName('File');
         $fields->addFieldToTab('Root.Main',UploadField::create('File',$this->fieldLabels()['File'])->setFolderName($this->getFolderName()));
-
-		$config = GridFieldConfig_RecordEditor::create();
-		$config->addComponent(new GridFieldOrderableRows('Sort'));
-		$config->addComponent(new GridFieldShowHideAction());
-		$itemsField = new GridField('Elements',_t(__CLASS__.'.Elements','Elements'),$this->Elements(),$config);
-		$fields->addFieldToTab('Root.Main',$itemsField);
+        if ($this->ID > 0){
+            $config = GridFieldConfig_RecordEditor::create();
+            $config->addComponent(new GridFieldOrderableRows('Sort'));
+            $config->addComponent(new GridFieldShowHideAction());
+            $itemsField = new GridField('Elements',_t(__CLASS__.'.Elements','Elements'),$this->Elements(),$config);
+            $fields->addFieldToTab('Root.Main',$itemsField);
+        }
+		
 
         return $fields;
     }
