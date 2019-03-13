@@ -30,7 +30,7 @@ class Dish extends DataObject{
     	'Image' => Image::class
     ];
 
-    private static $has_one = ['Image'];
+    private static $owns = ['Image'];
 
 
     private static $extensions = [
