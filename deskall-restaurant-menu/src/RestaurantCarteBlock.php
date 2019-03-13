@@ -11,26 +11,21 @@ use SilverStripe\Assets\Image;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use g4b0\SearchableDataObjects\Searchable;
 
-class RestaurantMenuBlock extends BaseElement
+class RestaurantCarteBlock extends BaseElement
 {
-    private static $icon = 'font-icon-book-open';
+    private static $icon = 'font-icon-block-file-list';
     
     private static $controller_template = 'BlockHolder';
 
     private static $controller_class = BlockController::class;
 
-    private static $table_name = 'RestaurantMenuBlock';
+    private static $table_name = 'RestaurantCarteBlock';
 
-    private static $singular_name = 'Menu Block';
+    private static $singular_name = 'Speisenkarte Block';
 
-    private static $plural_name = 'Menu Blocks';
+    private static $plural_name = 'Speisenkarte Block';
 
-    private static $description = 'Bestimmte Menu mit Speisen';
-
-
-    private static $has_one = [
-        'Menu' => MenuCarte::class
-    ];
+    private static $description = 'Speisenkarte per Sorten';
 
     public function getType(){
         return $this->description;
