@@ -23,7 +23,7 @@
     <% end_loop %>
 </ul>
 <% else %>
-<div class="uk-grid-small uk-child-width-1-1" data-uk-grid >
+<div class="uk-child-width-1-1" data-uk-grid >
 	<% loop Dishes.groupedBy(CategoryTitle) %>
 
         <div id="$CategoryTitle.URLATT">
@@ -56,3 +56,11 @@
     <% end_loop %>
 </div>
 <% end_if %>
+
+<div class="uk-position-fixed uk-position-center-right">
+    <ul class="uk-nav">
+       <% loop Dishes.groupedBy(CategoryTitle) %>
+       <li><a href="#{$CategoryTitle.URLATT}">$CategoryTitle</a></li>
+        <% end_loop %>
+   </ul>
+</div>
