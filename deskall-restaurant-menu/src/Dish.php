@@ -42,7 +42,7 @@ class Dish extends DataObject{
         'PrintThumbnail',
         'Title',
         'Description',
-        'PrintPrice'
+        'Price'
        
     ];
 
