@@ -14,12 +14,14 @@
            <% loop Elements.filter('Type','menu') %>
            <% with Menu %>
            <div>
-            <div class="uk-clearfix"><div class="uk-float-left"><strong>$Title</strong></div><div class="uk-float-right"><strong>$PrintPrice</strong></div></div>
+            <div class="uk-clearfix"><div class="uk-float-left"><strong>$Title</strong><strong>$PrintPrice</strong></div></div>
             <% loop $Dishes %>
             <div>
                 $Title
             </div>
+            <% if not Last %>
             ***
+            <% end_if %>
             <% end_loop %>
            </div>
            <% end_with %>
