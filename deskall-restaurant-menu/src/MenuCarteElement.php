@@ -25,7 +25,7 @@ class MenuCarteElement extends DataObject{
 
     private static $db = [
         'Type' => 'Varchar',
-        'Title' => 'Varchar'
+        'Title' => 'Varchar',
         'Content' => 'HTMLText'
     ];
 
