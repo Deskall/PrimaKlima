@@ -44,7 +44,7 @@ class DishCategory extends DataObject{
     private static $summary_fields = [
         'PrintThumbnail' => ['title' => 'Bild'],
         'Title',
-        'PrintDescription'
+        'PrintDescription' => ['title' => 'Beschreibung']
     ];
 
     private static $searchable_fields = ['Title'];
