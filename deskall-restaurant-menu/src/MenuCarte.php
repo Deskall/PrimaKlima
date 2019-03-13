@@ -13,9 +13,8 @@ use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
-
+use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class MenuCarte extends DataObject{
 
@@ -67,7 +66,8 @@ class MenuCarte extends DataObject{
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('Elements');
-        $fields->FieldByName('File')->setFolderName($this->getFolderName());
+        $fields->removeByName('File');
+        $fields->addFieldToTab('Root.Main',UploadField::create('File',$this->fieldLabels()['File'])->setFolderName($this->getFolderName());
 
 		$config = GridFieldConfig_RecordEditor::create();
 		$config->addComponent(new GridFieldOrderableRows('Sort'));
