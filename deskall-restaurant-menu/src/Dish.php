@@ -39,10 +39,10 @@ class Dish extends DataObject{
     ];
 
     private static $summary_fields = [
-        'PrintThumbnail' => ['title' => 'Bild'],
+        'PrintThumbnail',
         'Title',
         'Description',
-        'PrintPrice' => ['title' => 'Preis']
+        'PrintPrice'
        
     ];
 
@@ -61,6 +61,7 @@ class Dish extends DataObject{
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+
         
         return $fields;
     }
