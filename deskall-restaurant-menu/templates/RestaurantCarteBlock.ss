@@ -81,7 +81,7 @@
     <div class="uk-width-1-1 uk-width-1-3@m uk-width-1-4@l uk-width-1-6@xl uk-visible@m">
         <div data-uk-sticky="offset:100;offsetBottom:50;bottom:true;">
             <div class="uk-margin-left">
-               <ul class="uk-nav uk-nav-default tm-nav" data-uk-scrollspy-nav="closest: li; scroll: true">
+               <ul class="uk-nav uk-nav-default tm-nav" data-uk-scrollspy-nav="closest: li; scroll: true;offset:-50">
                    <% loop Dishes.groupedBy(CategoryTitle) %>
                    <li><a href="#c-{$Pos}">$CategoryTitle</a></li>
                     <% end_loop %>
