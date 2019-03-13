@@ -10,7 +10,7 @@
 <% with Menu %>
 <h4>$Title $Date.Nice</h4>
 <div class="uk-grid-collapse uk-child-width-1-2@s" data-uk-grid>
-   <% loop Items.filter('Type','menu') %>
+   <% loop Elements.filter('Type','menu') %>
    <div>
     <div class="uk-float-left"><strong>$Title</strong></div><div class="uk-float-right"><strong>$PrintPrice</strong></div>
     <% loop $Dishes %>
