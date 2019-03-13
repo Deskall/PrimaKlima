@@ -10,11 +10,11 @@
     <div class="uk-padding-large">
         <% with Menu %>
         <h4>$Title $Date.Nice</h4>
-        <div class="uk-grid-collapse uk-child-width-1-2@s" data-uk-grid>
+        <div class="uk-child-width-1-2@s" data-uk-grid>
            <% loop Elements.filter('Type','menu') %>
            <% with Menu %>
            <div>
-            <div class="uk-float-left"><strong>$Title</strong></div><div class="uk-float-right"><strong>$PrintPrice</strong></div>
+            <div class="uk-clearfix"><div class="uk-float-left"><strong>$Title</strong></div><div class="uk-float-right"><strong>$PrintPrice</strong></div></div>
             <% loop $Dishes %>
             <div>
                 $Title
