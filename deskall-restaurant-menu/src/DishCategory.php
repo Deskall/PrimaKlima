@@ -44,7 +44,7 @@ class DishCategory extends DataObject{
     private static $summary_fields = [
         'PrintThumbnail' => ['title' => 'Bild'],
         'Title',
-        'Description'
+        'PrintDescription'
     ];
 
     private static $searchable_fields = ['Title'];
@@ -71,5 +71,10 @@ class DishCategory extends DataObject{
     public function PrintThumbnail(){
         $html = ($this->Image()->exists()) ? $this->Image()->Thumbnail(80,80) : '(keine)';
         return DBField::create_field('HTMLText',$html);
+    }
+
+     public function PrintDescription(){
+       
+        return DBField::create_field('HTMLText',$this->Description);
     }
 }
