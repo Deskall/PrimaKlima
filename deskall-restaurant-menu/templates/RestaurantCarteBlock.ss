@@ -65,7 +65,7 @@
             <div class="uk-margin-left">
                <ul class="uk-nav uk-nav-default" data-uk-scrollspy-nav="closest: li; scroll: true">
                    <% loop Dishes.groupedBy(CategoryTitle) %>
-                   <li><a href="#{$CategoryTitle.URLATT}">$CategoryTitle</a></li>
+                   <li><a href="{$CategoryTitle.URLATT}">$CategoryTitle</a></li>
                     <% end_loop %>
                </ul>
            </div>
