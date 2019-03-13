@@ -86,7 +86,7 @@ class Dish extends DataObject{
     }
 
     public function PrintDescription(){
-        return DBField::create_field('Text',$this->Description);
+        return DBField::create_field('Text',strip_tags($this->Description));
     }
 
    
