@@ -7,7 +7,7 @@
 <% end_if %>
 
 <div class="menu-container">
-    <div class="uk-panel">
+    <div class="uk-padding-large">
         <% with Menu %>
         <h4>$Title $Date.Nice</h4>
         <div class="uk-grid-collapse uk-child-width-1-2@s" data-uk-grid>
