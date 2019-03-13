@@ -1,7 +1,8 @@
 <header class="dk-background-header uk-cover-container $ExtraHeaderClass uk-height-1-1">
 			
 	<img src="$SiteConfig.HeaderBackgroundImage.URL" data-uk-cover />
-    <ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" data-uk-nav>
+    <div class="uk-position">
+    	<ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" data-uk-nav>
     	<% loop SiteConfig.activeMenuBlocks %>
 				<% if Type == 'form' %>
 					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
@@ -11,6 +12,7 @@
 					$forTemplate
 				<% end_if %>
 			<% end_loop %>
-    </ul>
+   	 	</ul>
+   	 </div>
 
 </header>
