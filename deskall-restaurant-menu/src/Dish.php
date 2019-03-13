@@ -22,7 +22,7 @@ class Dish extends DataObject{
 
     private static $db = [
         'Title' => 'Text',
-        'Description' => 'HTMLText',
+        'Description' => 'Text',
         'Price' => 'Currency',
         'PriceDescription' => 'Text'
     ];
@@ -48,7 +48,7 @@ class Dish extends DataObject{
     private static $summary_fields = [
         'PrintThumbnail' => ['title' => 'Bild'],
         'Title',
-        'PrintDescription'=> ['title' => 'Beschreibung'],
+        'Description',
         'PrintPrice'  => ['title' => 'Preis']
     ];
 
@@ -85,11 +85,7 @@ class Dish extends DataObject{
         return DBField::create_field('HTMLText',$html);
     }
 
-     public function PrintDescription(){
-       
-        return DBField::create_field('HTMLText',$this->Description);
-    }
-
+   
     public function getCategoryTitle(){
         return ($this->Category()->exists()) ? $this->Category()->Title : null;
     }
