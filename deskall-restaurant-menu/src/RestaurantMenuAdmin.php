@@ -26,6 +26,9 @@ class RestaurantMenuAdmin extends ModelAdmin{
 		'Dish' => [
 			'title' => 'Speisen'
 		],
+		'DishCategory' => [
+			'title' => 'Speise Sorten'
+		],
 		'MenuConfig' => [
 			'title' => 'Einstellungen'
 		]

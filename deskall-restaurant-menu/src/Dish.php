@@ -67,7 +67,7 @@ class Dish extends DataObject{
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-
+        $fields->removeByName('MainDishID');
         
         return $fields;
     }
