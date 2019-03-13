@@ -68,10 +68,9 @@ class MenuCarteElement extends DataObject{
 
         $fields->insertBefore('Title',DropdownField::create('Type',$this->fieldLabels()['Type'],['menu' => 'Menü','dish' => 'Speise','element' => 'Inhalt'])->setEmptyString('Bitte wählen'));
 
-        $fields->FieldByName('DishID')->displayIf('Type')->isEqualTo('dish');
-        $fields->FieldByName('MenuID')->displayIf('Type')->isEqualTo('menu');
-        $fields->FieldByName('Title')->displayIf('Type')->isEqualTo('element');
-        $fields->FieldByName('Content')->displayIf('Type')->isEqualTo('element');
+        $fields->FieldByName('Root.Main.DishID')->displayIf('Type')->isEqualTo('dish');
+        $fields->FieldByName('Root.Main.MenuID')->displayIf('Type')->isEqualTo('menu');
+        $fields->FieldByName('Root.Main.Content')->displayIf('Type')->isEqualTo('element');
         
         return $fields;
     }
