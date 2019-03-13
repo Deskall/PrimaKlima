@@ -2,9 +2,6 @@
   $HTML
 </div>
 
-<% if LinkableLinkID > 0 %>
-<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-<% end_if %>
 
 <div class="menu-container">
     <div class="uk-padding-large">
@@ -68,7 +65,7 @@
          <% end_with %>
       <% else %>
         <div>
-          <% if Title %><strong class="uk-clearfix">$Title:</strong><% end_if %>
+          <% if Title %><strong class="uk-clearfix">$Title</strong><% end_if %>
           <% if Content %>
           $Content
           <% end_if %>
@@ -79,3 +76,8 @@
  <% end_with %>
 </div>
 </div>
+
+
+<% if LinkableLinkID > 0 %>
+<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+<% end_if %>
