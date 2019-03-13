@@ -57,6 +57,20 @@ class MenuCarteElement extends DataObject{
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
+        if (!$this->Title){
+            switch($this->Type){
+                case "menu":
+                $this->Title = ($this->Menu()->exists()) ? $this->Menu()->Title : null;
+                break;
+                case "dish":
+                $this->Title = ($this->Dish()->exists()) ? $this->Dish()->Title : null;
+                break;
+                case "element":
+                default:
+                $this->Title = ($this->ID > 0) ? "Menu-".$this->ID : null;
+                break;
+            }
+        }
     }
 
 
