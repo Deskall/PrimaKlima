@@ -27,6 +27,7 @@ class RestaurantMenuBlock extends BaseElement
 
     private static $description = 'Bestimmte Menu mit Speisen';
 
+    private static $db = ['HTML' => 'HTMLText'];
 
     private static $has_one = [
         'Menu' => MenuCarte::class
