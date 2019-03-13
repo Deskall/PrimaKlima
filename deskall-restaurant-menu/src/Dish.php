@@ -48,7 +48,7 @@ class Dish extends DataObject{
     private static $summary_fields = [
         'PrintThumbnail' => ['title' => 'Bild'],
         'Title',
-        'Description',
+        'PrintDescription' => ['title' => 'Description'],
         'PrintPrice'  => ['title' => 'Preis']
     ];
 
@@ -83,6 +83,10 @@ class Dish extends DataObject{
     public function PrintThumbnail(){
         $html = ($this->Image()->exists()) ? $this->Image()->Thumbnail(80,80) : '(keine)';
         return DBField::create_field('HTMLText',$html);
+    }
+
+    public function PrintDescription(){
+        return DBField::create_field('Text',$this->Description);
     }
 
    
