@@ -63,15 +63,15 @@ class MenuCarteElement extends DataObject{
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        print_r($fields);
+
         $fields->removeByName('Type');
 
         $fields->insertBefore('Title',DropdownField::create('Type',$this->fieldLabels()['Type'],['menu' => 'Menü','dish' => 'Speise','element' => 'Inhalt'])->setEmptyString('Bitte wählen'));
 
-        $fields->FieldByName('Root.DishID')->displayIf('Type')->isEqualTo('dish');
-        $fields->FieldByName('Root.MenuID')->displayIf('Type')->isEqualTo('menu');
-        $fields->FieldByName('Root.Title')->displayIf('Type')->isEqualTo('element');
-        $fields->FieldByName('Root.Content')->displayIf('Type')->isEqualTo('element');
+        $fields->FieldByName('DishID')->displayIf('Type')->isEqualTo('dish');
+        $fields->FieldByName('MenuID')->displayIf('Type')->isEqualTo('menu');
+        $fields->FieldByName('Title')->displayIf('Type')->isEqualTo('element');
+        $fields->FieldByName('Content')->displayIf('Type')->isEqualTo('element');
         
         return $fields;
     }
