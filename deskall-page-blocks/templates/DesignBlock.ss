@@ -9,7 +9,7 @@
 		<div class="$ExtraCssClass" <% if Animation %>data-uk-scrollspy="$Animation"<% end_if %> <% if Parallax %>data-uk-parallax="$Parallax"<% end_if %>>
 			<% if Image.exists %>
 			<div class="uk-cover-container uk-width-1-1 uk-height-1-1">
-				<img src="$Image.ScaleWidth(800).URL" alt="$Image.Title" data-uk-cover />
+				<img src="$Image.ScaleWidth(1200).URL" alt="$Image.Title" data-uk-cover />
 			</div>
 			<% end_if %>
 		</div>
