@@ -49,68 +49,30 @@ class Menu extends DataObject{
         $labels = parent::fieldLabels($includerelations);
      
         $labels['Title'] = _t(__CLASS__.'.Title','Titel');
-        $labels['Subtitle'] = _t(__CLASS__.'.Subtitle','SubTitel');
-        $labels['MenuTitle'] = _t(__CLASS__.'.MenuTitle','Menu');
-        $labels['LeadText'] = _t(__CLASS__.'.LeadText','Einstiegtext');
-        $labels['Intro'] = _t(__CLASS__.'.Intro','Intro');
-        $labels['Target'] = _t(__CLASS__.'.Target','Zielgruppe');
-        $labels['Content'] = _t(__CLASS__.'.Content','Seminarinhalte');
-        $labels['Extras'] = _t(__CLASS__.'.Extras','Extras');
-        $labels['Duration'] = _t(__CLASS__.'.Duration','Dauer');
-        $labels['Target'] = _t(__CLASS__.'.Target','Zielgruppe');
-        $labels['Investition'] = _t(__CLASS__.'.Investition','Investition');
-        $labels['Footer'] = _t(__CLASS__.'.Footer','Footer');
-        $labels['Files'] = _t(__CLASS__.'.Files','Dateien');
-        $labels['Images'] = _t(__CLASS__.'.Images','Bilder');
-        $labels['Videos'] = _t(__CLASS__.'.Videos','Videos');
-     
+        $labels['Price'] = _t(__CLASS__.'.Price','Preis');
+        $labels['Dishes'] = _t(__CLASS__.'.Dishes','Speisen');
+       
         return $labels;
     }
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        $this->URLSegment = URLSegmentFilter::create()->filter($this->MenuTitle);
     }
 
 
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->removeByName('URLSegment');
-        $fields->removeByName('Files');
-        $fields->removeByName('Images');
-        $fields->removeByName('Videos');
-        $fields->removeByName('Dates');
-
-        $fields->addFieldsToTab('Root.Files',[
-        	SortableUploadField::create('Files',$this->fieldLabels()['Files'])->setIsMultiUpload(true)->setFolderName($this->getFolderName()),
-        	SortableUploadField::create('Images',$this->fieldLabels()['Images'])->setIsMultiUpload(true)->setFolderName($this->getFolderName())
-        ]);
-
+        $fields->removeByName('Dishes');
 		$config = GridFieldConfig_RelationEditor::create();
 		$config->addComponent(new GridFieldOrderableRows('Sort'));
 		$config->addComponent(new GridFieldShowHideAction());
-		$videosField = new GridField('Videos',_t(__CLASS__.'.Videos','Videos'),$this->Videos(),$config);
-		$fields->addFieldToTab('Root.Files',$videosField);
-		$fields->fieldByName('Root.Files')->setTitle('Datei');
+		$dishesField = new GridField('Dishes',_t(__CLASS__.'.Dishes','Speisen'),$this->Dishes(),$config);
+		$fields->addFieldToTab('Root.Main',$dishesField);
 
-        $dateconfig = GridFieldConfig_RecordEditor::create();
-        $dateconfig->addComponent(new GridFieldOrderableRows('Sort'));
-        $dateconfig->addComponent(new GridFieldShowHideAction());
-        $dateconfig->addComponent(new GridFieldDuplicateAction());
-        $datesField = new GridField('Dates',_t(__CLASS__.'.Dates','Termine'),$this->Dates(),$dateconfig);
-        $fields->addFieldToTab('Root.Dates',$datesField);
-        $fields->fieldByName('Root.Dates')->setTitle('Termine');
+       
         
         return $fields;
-    }
-
-    public function getFolderName(){
-        return "Uploads/Menu/".$this->URLSegment;
-    }
-
-    public function Link(){
-        return 'menus/aktuelles/'.$this->URLSegment;
     }
 
 

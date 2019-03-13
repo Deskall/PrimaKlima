@@ -14,11 +14,11 @@ use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 
-class EventDate extends DataObject{
+class Dish extends DataObject{
 
-    private static $singular_name = 'Termin';
+    private static $singular_name = 'Speise';
 
-    private static $plural_name = 'Termine';
+    private static $plural_name = 'Speisen';
 
     private static $db = [
         'Title' => 'Text',
@@ -27,20 +27,10 @@ class EventDate extends DataObject{
     ];
 
     private static $has_one = [
-    	'Event' => Event::class
+    	'Image' => Image::class
     ];
 
-    private static $has_many = [
-        'Orders' => Order::class
-    ];
-
-    private static $many_many = [
-        'Participants' => Participant::class
-    ];
-
-    private static $many_many_extraFields = [
-        'Participants' => ['paid' => 'Boolean(0)']
-    ];
+    private static $has_one = ['Image'];
 
 
     private static $extensions = [
@@ -49,25 +39,20 @@ class EventDate extends DataObject{
     ];
 
     private static $summary_fields = [
-        'Date',
-        'City',
-        'Price',
-        'Places',
-        'Participants.count' => ['title' => 'Teilnehmer'],
-        'ConfirmedParticipants' => ['title' => 'Teilnehmer (bezahlt)']
+        'Image.Thumbnail(80,80)',
+        'Title',
+        'Description',
+        'Price'
+       
     ];
 
     function fieldLabels($includerelations = true) {
         $labels = parent::fieldLabels($includerelations);
      
-        $labels['Date'] = _t(__CLASS__.'.Date','Datum');
-        $labels['City'] = _t(__CLASS__.'.City','Ort');
-        $labels['Places'] = _t(__CLASS__.'.Places','Plätze zur Verfügung');
-        $labels['isOpen'] = _t(__CLASS__.'.isOpen','ist Anmeldung möglich?');
-        $labels['isFull'] = _t(__CLASS__.'.isFull','ist ausgebucht?');
+        $labels['Title'] = _t(__CLASS__.'.Title','Titel');
+        $labels['Description'] = _t(__CLASS__.'.Description','Beschreibung');
         $labels['Price'] = _t(__CLASS__.'.Price','Preis');
-        $labels['Main'] = _t(__CLASS__.'.Main','Haupt');
-        $labels['Orders'] = _t(__CLASS__.'.Participants','Teilnehmer');
+        $labels['Image'] = _t(__CLASS__.'.Image','Bild');
      
         return $labels;
     }
@@ -76,48 +61,12 @@ class EventDate extends DataObject{
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->removeByName('Participants');
-        $fields->FieldByName('Root.Main')->setTitle('Termin Angaben');
-        $fields->FieldByName('Root.Orders.Orders')->getConfig()
-        ->removeComponentsByType([
-            GridFieldEditButton::class,
-            GridFieldAddNewButton::class,
-            GridFieldAddExistingAutocompleter::class
-        ])
-        ->addComponent(new GridFieldDeleteAction())->addComponent(new GridFieldPaidAction());
-        // $grid = $fields->FieldByName('Root.Participants.Participants');
-        // $config = $grid->getConfig();
-        // $columns = $config->getComponentByType(GridFieldDataColumns::class)->setDisplayFields([
-        //     'Title' => ['title' => 'Name'],
-        //     'printAddress' => ['title' => 'Adresse'],
-        //     'paid' => ['title' => 'Bezahlt?']
-        // ]);
+        
         return $fields;
     }
 
-    public function getConfirmedParticipants(){
-        $num = $this->Participants()->filter('paid',1)->count();
-        return DBField::create_field('Int',$num);
-    }
-
-    public function RegisterLink(){
-        return 'seminare/anmeldung/'.$this->Event()->URLSegment.'/'.$this->ID;
-    }
-
-    public function getOrderPrice(){
-        setlocale(LC_MONETARY, 'de_DE');
+    public function PrintPrice(){
+        setlocale(LC_MONETARY, 'ch_CH');
         return DBField::create_field('Varchar',money_format('%i',$this->Price));
-    }
-
-    public function getOrderPriceNetto(){
-        $price = $this->Price * 100 / 107.7;
-        setlocale(LC_MONETARY, 'de_DE');
-        return DBField::create_field('Varchar',money_format('%i',$price));
-    }
-
-    public function getOrderMwSt(){
-        $price = $this->Price - ($this->Price * 100 / 107.7);
-        setlocale(LC_MONETARY, 'de_DE');
-        return DBField::create_field('Varchar',money_format('%i',$price));
     }
 }

@@ -29,8 +29,8 @@ class MenuCarte extends DataObject{
     ];
 
 
-    private static $many_many = [
-    	'Elements' => MenuKarteElement::class
+    private static $has_many = [
+    	'Elements' => MenuCarteElement::class
     ];
 
     private static $has_one = [
@@ -39,10 +39,6 @@ class MenuCarte extends DataObject{
 
     private static $owns = [
         'File'
-    ];
-
-    private static $many_many_extraFields = [
-        'Elements' => ['SortOrder' => 'Int']
     ];
 
     private static $extensions = [
@@ -55,68 +51,35 @@ class MenuCarte extends DataObject{
         $labels = parent::fieldLabels($includerelations);
      
         $labels['Title'] = _t(__CLASS__.'.Title','Titel');
-        $labels['Subtitle'] = _t(__CLASS__.'.Subtitle','SubTitel');
-        $labels['MenuTitle'] = _t(__CLASS__.'.MenuTitle','Menu');
-        $labels['LeadText'] = _t(__CLASS__.'.LeadText','Einstiegtext');
-        $labels['Intro'] = _t(__CLASS__.'.Intro','Intro');
-        $labels['Target'] = _t(__CLASS__.'.Target','Zielgruppe');
-        $labels['Content'] = _t(__CLASS__.'.Content','Seminarinhalte');
-        $labels['Extras'] = _t(__CLASS__.'.Extras','Extras');
-        $labels['Duration'] = _t(__CLASS__.'.Duration','Dauer');
-        $labels['Target'] = _t(__CLASS__.'.Target','Zielgruppe');
-        $labels['Investition'] = _t(__CLASS__.'.Investition','Investition');
-        $labels['Footer'] = _t(__CLASS__.'.Footer','Footer');
-        $labels['Files'] = _t(__CLASS__.'.Files','Dateien');
-        $labels['Images'] = _t(__CLASS__.'.Images','Bilder');
-        $labels['Videos'] = _t(__CLASS__.'.Videos','Videos');
-     
+        $labels['Date'] = _t(__CLASS__.'.Date','Datum');
+        $labels['Elements'] = _t(__CLASS__.'.Elements','Menü Items');
+        $labels['File'] = _t(__CLASS__.'.File','Menü Datei (PDF)');
+       
         return $labels;
     }
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        $this->URLSegment = URLSegmentFilter::create()->filter($this->Title);
     }
 
 
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->removeByName('URLSegment');
-        $fields->removeByName('Files');
-        $fields->removeByName('Images');
-        $fields->removeByName('Videos');
-        $fields->removeByName('Dates');
+        $fields->removeByName('Elements');
+        $fields->FieldByName('Root.File')->setFolderName($this->getFolderName());
 
-        $fields->addFieldsToTab('Root.Files',[
-        	SortableUploadField::create('Files',$this->fieldLabels()['Files'])->setIsMultiUpload(true)->setFolderName($this->getFolderName()),
-        	SortableUploadField::create('Images',$this->fieldLabels()['Images'])->setIsMultiUpload(true)->setFolderName($this->getFolderName())
-        ]);
-
-		$config = GridFieldConfig_RelationEditor::create();
+		$config = GridFieldConfig_RecordEditor::create();
 		$config->addComponent(new GridFieldOrderableRows('Sort'));
 		$config->addComponent(new GridFieldShowHideAction());
-		$videosField = new GridField('Videos',_t(__CLASS__.'.Videos','Videos'),$this->Videos(),$config);
-		$fields->addFieldToTab('Root.Files',$videosField);
-		$fields->fieldByName('Root.Files')->setTitle('Datei');
+		$itemsField = new GridField('Elements',_t(__CLASS__.'.Elements','Elements'),$this->Elements(),$config);
+		$fields->addFieldToTab('Root.Main',$itemsField);
 
-        $dateconfig = GridFieldConfig_RecordEditor::create();
-        $dateconfig->addComponent(new GridFieldOrderableRows('Sort'));
-        $dateconfig->addComponent(new GridFieldShowHideAction());
-        $dateconfig->addComponent(new GridFieldDuplicateAction());
-        $datesField = new GridField('Dates',_t(__CLASS__.'.Dates','Termine'),$this->Dates(),$dateconfig);
-        $fields->addFieldToTab('Root.Dates',$datesField);
-        $fields->fieldByName('Root.Dates')->setTitle('Termine');
-        
         return $fields;
     }
 
     public function getFolderName(){
-        return "Uploads/Menu/".$this->URLSegment;
-    }
-
-    public function Link(){
-        return 'menus/aktuelles/'.$this->URLSegment;
+        return "Uploads/Menu";
     }
 
 
