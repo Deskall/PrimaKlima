@@ -7,18 +7,22 @@
 <% end_if %>
 
 <div class="menu-container">
-<% with Menu %>
-<h4>$Title $Date.Nice</h4>
-<div class="uk-grid-collapse uk-child-width-1-2@s" data-uk-grid>
-   <% loop Elements.filter('Type','menu') %>
-   <div>
-    <div class="uk-float-left"><strong>$Title</strong></div><div class="uk-float-right"><strong>$PrintPrice</strong></div>
-    <% loop $Dishes %>
-    $Title
-    ***
-    <% end_loop %>
-   </div>
-   <% end_loop %>
-</div>
-<% end_with %>
+    <div class="uk-panel">
+        <% with Menu %>
+        <h4>$Title $Date.Nice</h4>
+        <div class="uk-grid-collapse uk-child-width-1-2@s" data-uk-grid>
+           <% loop Elements.filter('Type','menu') %>
+           <% with Menu %>
+           <div>
+            <div class="uk-float-left"><strong>$Title</strong></div><div class="uk-float-right"><strong>$PrintPrice</strong></div>
+            <% loop $Dishes %>
+            $Title
+            ***
+            <% end_loop %>
+           </div>
+           <% end_with %>
+           <% end_loop %>
+        </div>
+        <% end_with %>
+    </div>
 </div>
