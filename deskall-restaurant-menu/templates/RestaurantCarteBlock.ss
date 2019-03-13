@@ -8,7 +8,7 @@
 <ul uk-accordion="<% if MultipleCollapse %>multiple: true<% end_if %>">
 	<% loop Dishes.groupedBy(CategoryTitle) %>
     <li class="list-item uk-margin-top <% if not collapsed %>uk-open<% end_if %>">
-        <a class="uk-accordion-title $TitleAlign">$CategoryTitle</a>
+        <a class="uk-accordion-title $TitleAlign"><h3>$CategoryTitle</h3></a>
         <div class="uk-accordion-content">
         	<div class="uk-grid-small uk-flex uk-flex-middle <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
         		<% loop Children %>
@@ -25,10 +25,18 @@
 <% else %>
 	<% loop Dishes.groupedBy(CategoryTitle) %>
     
-       $CategoryTitle
+       <h3>$CategoryTitle</h3>
         
         	<div class="uk-grid-small uk-flex uk-flex-middle <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
         		<% loop Children %>
+        		<div>
+        			<% if Description %>
+        			<div><strong>$Title:</strong></div>
+        			$Description
+        			<% else %>
+        			$Title
+        			<% end_if %>
+        		</div>
 	        	<% end_loop %>
 	        </div>
 
