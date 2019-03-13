@@ -57,7 +57,7 @@
 </div>
 <% end_if %>
 
-<div class="uk-position-fixed uk-position-center-right">
+<div class="uk-position-fixed uk-position-center-right-out">
     <ul class="uk-nav">
        <% loop Dishes.groupedBy(CategoryTitle) %>
        <li><a href="#{$CategoryTitle.URLATT}">$CategoryTitle</a></li>
