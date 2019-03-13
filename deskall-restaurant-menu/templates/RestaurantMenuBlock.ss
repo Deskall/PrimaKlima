@@ -14,7 +14,7 @@
            <% loop Elements.filter('Type','menu') %>
            <% with Menu %>
            <div>
-            <div class="uk-clearfix"><div class="uk-float-left"><strong>$Title</strong><strong>$PrintPrice</strong></div></div>
+            <div class="uk-clearfix"><div class="uk-float-left"><strong>$Title</strong><strong class="uk-margin-left">$PrintPrice</strong></div></div>
             <% loop $Dishes %>
             <div>
                 $Title
@@ -25,6 +25,50 @@
             <% end_loop %>
            </div>
            <% end_with %>
+           <% end_loop %>
+        </div>
+       
+        <div class="uk-child-width-1-1" data-uk-grid>
+            <% loop Elements.exclude('Type','menu').sort('Sort') %>
+           <% if Type == "dish" %>
+           <% with Dish %>
+           <div>
+
+                                <% if Description %>
+                                <strong class="uk-clearfix">$Title:</strong>
+                                <div class="uk-grid-small" data-uk-grid>
+                                    <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$PrintDescription</div>
+                                   <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
+                                </div>
+                                <% else %>
+                                <div class="uk-grid-small" data-uk-grid>
+                                    <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$Title</div>
+                                    <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
+                                </div>
+                                <% end_if %>
+                            </div>
+                            <% if Subdishes.exists %>
+                                <% loop Subdishes %>
+                                <div>
+                                    <% if Description %>
+                                    <strong class="uk-clearfix">$Title:</strong>
+                                    <div class="uk-grid-small" data-uk-grid>
+                                        <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$PrintDescription</div>
+                                        <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
+                                    </div>
+                                    <% else %>
+                                    <div class="uk-grid-small" data-uk-grid>
+                                       <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$Title</div>
+                                    <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
+                                    </div>
+                                    <% end_if %>
+                                </div>
+                                <% end_loop %>
+                            <% end_if %>
+          
+           </div>
+           <% end_with %>
+           <% end_if %>
            <% end_loop %>
         </div>
         <% end_with %>
