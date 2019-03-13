@@ -26,7 +26,7 @@
             <% end_loop %>
         </ul>
         <% else %>
-        <div class="uk-child-width-1-1" data-uk-grid >
+        <div class="uk-child-width-1-1 uk-grid-large" data-uk-grid >
         	<% loop Dishes.groupedBy(CategoryTitle) %>
 
                 <div id="c-$Pos">
