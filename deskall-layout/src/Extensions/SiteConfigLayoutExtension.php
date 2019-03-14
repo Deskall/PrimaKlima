@@ -75,7 +75,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterFontSize' => 'Varchar(255)',
     'FooterTitleFontSize' => 'Varchar(255)',
     'FooterFontColor' => 'Varchar(7)',
-    'FooterHeaderClass' => 'Varchar(255)',
+    'ExtraFooterClass' => 'Varchar(255)',
 
     'MobileNaviBackground' => 'Varchar(255)',
     'MobileNaviHoverFontColor' => 'Varchar(7)',
