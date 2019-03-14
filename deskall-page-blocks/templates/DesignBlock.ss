@@ -15,7 +15,7 @@
 			<% end_if %>
 		</div>
 		<% end_loop %>
-
+	</div>
 </div>
 
 <% if LinkableLinkID > 0 %>
