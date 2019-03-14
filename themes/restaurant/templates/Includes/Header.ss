@@ -1,4 +1,4 @@
-<header class="dk-background-header $ExtraHeaderClass uk-height-1-1"
+<header class="dk-background-header $ExtraHeaderClass uk-height-1-1 uk-text-center"
 	<% if SiteConfig.HeaderBackgroundImage.exists %>style="background-image: url($SiteConfig.HeaderBackgroundImage.FocusFill(800,200).URL);background-color:$SiteConfig.HeaderBackground;background-size:cover;"<% end_if %>>
 			
 
