@@ -1,4 +1,4 @@
-<footer class="$ExtraFooterClass">
+<footer class="$SiteConfig.ExtraFooterClass">
 	<div class="uk-padding-small">
 		<% loop $SiteConfig.activeFooterBlocks %>
 			<div class="$Layout $Class">
