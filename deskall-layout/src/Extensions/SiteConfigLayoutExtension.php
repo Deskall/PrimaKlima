@@ -57,6 +57,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderCollapsedHeight' => 'Varchar(255)',
     'HeaderOpacity' => 'Varchar(255)',
     'HeaderFormat' => 'Varchar(255)',
+    'ExtraHeaderClass' => 'Varchar(255)',
     'StickyHeader' => 'Boolean(0)',
     'BackContent' => 'Boolean(0)',
     'HeaderLogoHeight' => 'Varchar(255)',
@@ -74,6 +75,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterFontSize' => 'Varchar(255)',
     'FooterTitleFontSize' => 'Varchar(255)',
     'FooterFontColor' => 'Varchar(7)',
+    'FooterHeaderClass' => 'Varchar(255)',
 
     'MobileNaviBackground' => 'Varchar(255)',
     'MobileNaviHoverFontColor' => 'Varchar(7)',
@@ -300,6 +302,7 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse')),
         TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe'))
       ),
+      TextField::create('ExtraHeaderClass',_t(__CLASS__.'.ExtraHeaderClass','Custom CSS für header')),
       FieldGroup::create(
         TextField::create('DropdownSubMenuWidth',_t(__CLASS__.'.DropdownSubMenuWidth','Breite der Dropdown-Navigation')),
         TextField::create('DropdownSubMenuPadding',_t(__CLASS__.'.DropdownSubMenuPadding','Padding der Dropdown-Navigation')),
@@ -358,7 +361,8 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('FooterLogoWidth',_t(__CLASS__.'.Footerlogowidtht','Logo Breite')),
         TextField::create('FooterTitleFontSize',_t(__CLASS__.'.FooterTitleFontSize','Footer Titel Schriftgrösse')),
         TextField::create('FooterFontSize',_t(__CLASS__.'.FooterFontSize','Footer Schriftgrösse'))
-      )
+      ),
+      TextField::create('ExtraFooterClass',_t(__CLASS__.'.ExtraFooterClass','Custom CSS für footer'))
      
     )->setTitle(_t(__CLASS__.'.FooterLayout','Footer Layout'))->setName('FooterLayoutFields'));
     $fields->FieldByName('Root.Footer.Content')->setTitle(_t(__CLASS__.'.FooterContentTab','Inhalt der Footer'));
