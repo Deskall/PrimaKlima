@@ -463,18 +463,18 @@ class SiteConfigLayoutExtension extends DataExtension
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
       /** global background element and font color **/
-      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.'!important;*{color:#'.$c->FontColor.'!important;&:hover,&:focus,&:active{color:#'.$c->FontColor.'!important;}}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';&:hover,&:focus,&:active{color:#'.$c->FontColor.';}}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
-      file_put_contents($fullpath, "\n".".button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.'!important;*, &:hover,&:focus,&:active{color:#'.$c->FontColor.'!important;}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*, &:hover,&:focus,&:active{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /*** Css class for Slideshow controls **/
       file_put_contents($fullpath,
-        "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:transparent!important;border-color:#'.$c->FontColor.'!important;}' 
-        ."\n".'.'.$c->Code.' .uk-dotnav > .uk-active > *{background-color:#'.$c->FontColor.'!important;}'
-        ."\n".'.'.$c->Code.' .uk-dotnav > * > :hover, .'.$c->Code.' .uk-dotnav > * > :focus {background-color:#'.$c->FontColor.'!important;}',FILE_APPEND);
-      file_put_contents($fullpath, "\n".".uk-active .menu-title-".$c->Code.'{border-color:#'.$c->Color.'!important;}',FILE_APPEND);
+        "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:transparent;border-color:#'.$c->FontColor.';}' 
+        ."\n".'.'.$c->Code.' .uk-dotnav > .uk-active > *{background-color:#'.$c->FontColor.';}'
+        ."\n".'.'.$c->Code.' .uk-dotnav > * > :hover, .'.$c->Code.' .uk-dotnav > * > :focus {background-color:#'.$c->FontColor.';}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".uk-active .menu-title-".$c->Code.'{border-color:#'.$c->Color.';}',FILE_APPEND);
       /*** Css class for Background Overlays **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.'.dk-overlay:after{background-color:fade(#'.$c->Color.',50%);}'
-        ."\n".'.'.$c->Code.'.dk-overlay .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->FontColor.'!important;}'
+        ."\n".'.'.$c->Code.'.dk-overlay .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->FontColor.';}'
         ."\n".'.'.$c->Code.'.dk-overlay *{color:#'.$c->FontColor.';}',FILE_APPEND);
     }
 
