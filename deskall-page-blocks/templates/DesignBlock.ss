@@ -6,7 +6,7 @@
 		</div>
 	</div>
 	<% if Resources.exists %>
-	<div class="uk-child-width-1-{$Resouces.count}" data-uk-grid>
+	<div class="uk-child-width-1-{$Resources.count}" data-uk-grid>
 		<% loop Resources %>
 		<div class="$ExtraCssClass" <% if Animation %>data-uk-scrollspy="$Animation"<% end_if %> <% if Parallax %>data-uk-parallax="$Parallax"<% end_if %>>
 			<% if Image.exists %>
