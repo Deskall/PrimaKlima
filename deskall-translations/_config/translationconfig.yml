@@ -10,6 +10,7 @@ After: '#versionedfiles'
 TractorCow\Fluent\Model\Locale:
   extensions:
     - PublishInDefaultLocaleExtension
+    - SubObjectPermission
 
 LayoutBlock:
   extensions:

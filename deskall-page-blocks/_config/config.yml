@@ -50,6 +50,10 @@ Features:
   extensions:
     - SubObjectPermission
 
+VideoObject:
+  extensions:
+    - SubObjectPermission
+
 SilverStripe\UserForms\Form\UserForm:
   extensions:
    - UserDefinedFormExtension
