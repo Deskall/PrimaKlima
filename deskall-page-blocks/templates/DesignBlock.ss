@@ -5,17 +5,17 @@
 			$HTML
 		</div>
 	</div>
-	<div class="uk-child-width-1-1" data-uk-grid>
+	<% if Resouces %>
+	<div class="uk-child-width-1-{$Resouces.count}" data-uk-grid>
 		<% loop Resources %>
 		<div class="$ExtraCssClass" <% if Animation %>data-uk-scrollspy="$Animation"<% end_if %> <% if Parallax %>data-uk-parallax="$Parallax"<% end_if %>>
 			<% if Image.exists %>
-			
 				<img src="$Image.ScaleWidth(1200).URL" alt="$Image.Title" />
-			
 			<% end_if %>
 		</div>
 		<% end_loop %>
 	</div>
+	<% end_if %>
 </div>
 
 <% if LinkableLinkID > 0 %>
