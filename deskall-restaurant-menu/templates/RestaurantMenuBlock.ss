@@ -3,7 +3,7 @@
 </div>
 
 
-<div class="menu-container">
+<div class="menu-container uk-box-shadow-large">
     <div class="uk-padding-large">
         <% with Menu %>
         <h4>$Title $Date.Nice</h4>
