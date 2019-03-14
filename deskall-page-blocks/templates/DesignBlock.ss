@@ -5,6 +5,7 @@
 			$HTML
 		</div>
 	</div>
+	<div class="uk-child-width-1-1" data-uk-grid>
 		<% loop Resources %>
 		<div class="$ExtraCssClass" <% if Animation %>data-uk-scrollspy="$Animation"<% end_if %> <% if Parallax %>data-uk-parallax="$Parallax"<% end_if %>>
 			<% if Image.exists %>
