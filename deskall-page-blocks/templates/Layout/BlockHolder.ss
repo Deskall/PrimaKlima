@@ -1,9 +1,9 @@
 <% if Element.isVisible %>
-<div class="element <% if $Element.isChildren %>children <% if $Element.Width %>$Element.Width<% end_if %><% if $Element.isFirstMobile %>uk-flex-first<% end_if %> <% if $Element.isFirst %>uk-flex-first@m<% end_if %><% end_if %> $Element.SimpleClassName.LowerCase<% if $Element.StyleVariant %> $Element.StyleVariant<% end_if %><% if $Element.ExtraClass %> $Element.ExtraClass<% end_if %>" id="$Element.Anchor">
+<div class="element <% if $Element.isChildren %>children <% if $Element.Width %>$Element.Width<% end_if %><% if $Element.isFirstMobile %>uk-flex-first<% end_if %> <% if $Element.isFirst %>uk-flex-first@m<% end_if %><% end_if %> $Element.SimpleClassName.LowerCase<% if $Element.StyleVariant %> $Element.StyleVariant<% end_if %><% if $Element.ExtraClass %> $Element.ExtraClass<% end_if %>" id="$Element.Anchor" <% if Element.Animation %>data-uk-scrollspy="cls: $Element.Animation;target: $Element.AnimationTarget;"<% end_if %>>
 	<% if $Element.BackgroundImage.exists %>
-		<section class="uk-section $Element.Background uk-cover-container dk-overlay uk-section-large with-background" <% if $Element.BackgroundImage.getExtension == "svg" %>data-src="$Element.BackgroundImage.URL"<% else %>data-src="$Element.BackgroundImage.ScaleWidth(350).URL" data-srcset="$Element.BackgroundImage.ScaleWidth(650).URL 650w,$Element.BackgroundImage.ScaleWidth(1200).URL 1200w, $Element.BackgroundImage.ScaleWidth(1600).URL 1600w, $Element.BackgroundImage.URL 2500w" data-sizes="100vw" data-uk-img<% end_if %>>
+		<section class="uk-section $Element.Background uk-cover-container dk-overlay uk-section-large with-background" <% if $Element.BackgroundImage.getExtension == "svg" %>data-src="$Element.BackgroundImage.URL"<% else %>data-src="$Element.BackgroundImage.ScaleWidth(1200).URL" data-srcset="$Element.BackgroundImage.ScaleWidth(650).URL 650w,$Element.BackgroundImage.ScaleWidth(1200).URL 1200w, $Element.BackgroundImage.ScaleWidth(1600).URL 1600w, $Element.BackgroundImage.URL 2500w" data-sizes="100vw" data-uk-img<% end_if %>>
 	<% else %>
-		<section class="uk-section <% if $Element.Background %>$Element.Background with-background<% end_if %> uk-section-small">
+		<section class="uk-section <% if $Element.Background != "no-bg" %>$Element.Background with-background<% end_if %> uk-section-small">
 	<% end_if %>				
 			<div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
 				<% if not $Element.isChildren %><div class="uk-child-width-1-1 uk-grid-small" data-uk-grid>

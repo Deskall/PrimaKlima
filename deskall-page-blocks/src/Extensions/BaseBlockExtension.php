@@ -29,7 +29,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextAlign' => 'Varchar(255)',
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
-        'Width' => 'Varchar'
+        'Width' => 'Varchar',
+        'Animation' => 'Varchar'
     ];
 
 
@@ -160,6 +161,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         if ($this->owner->isPrimary){
             $this->owner->ShowTitle = 1;
         }
+        $this->owner->Width = "uk-width-1-1";
     }
 
 
@@ -172,7 +174,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('TextColumns');
         $fields->removeByName('TextColumnsDivider');
         $fields->removeByName('AvailableGlobally');
-       $fields->removeByName('Width');
+        $fields->removeByName('Width');
+        $fields->removeByName('Animation');
 
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
@@ -188,7 +191,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
             HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
-            UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName())
+            UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()),
+            TextField::create('Animation',_t(__CLASS__.'.Animation','Animation'))
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),

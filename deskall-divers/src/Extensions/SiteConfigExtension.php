@@ -40,7 +40,8 @@ class SiteConfigExtension extends DataExtension
     'Facebook' => 'Varchar(255)',
     'Twitter' => 'Varchar(255)',
     'Linkedin' => 'Varchar(255)',
-    'Xing' => 'Varchar(255)'  
+    'Xing' => 'Varchar(255)' ,
+    'Instagram' => 'Varchar(255)'
   ];
 
   public function updateCMSFields(FieldList $fields) {
@@ -64,7 +65,8 @@ class SiteConfigExtension extends DataExtension
       TextField::create('Facebook',_t(__CLASS__.'.Facebook','Facebook')),
       TextField::create('Twitter',_t(__CLASS__.'.Twitter','Twitter')),
       TextField::create('Linkedin',_t(__CLASS__.'.Linkedin','Linkedin')),
-      TextField::create('Xing',_t(__CLASS__.'.Xing','Xing'))
+      TextField::create('Xing',_t(__CLASS__.'.Xing','Xing')),
+      TextField::create('Instagram',_t(__CLASS__.'.Instagram','Instagram'))
     ]);
     
    
@@ -74,26 +76,23 @@ class SiteConfigExtension extends DataExtension
   }
 
   public function onBeforeWrite(){
-    ob_start();
-      print_r('start'."\n"."------------------------");
-      $result = ob_get_clean();
-      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-    if ($this->owner->ID > 0){
-            $changedFields = $this->owner->getChangedFields();
-            //Update Folder Name
-            if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
-                $oldFolderPath = "Uploads/".URLSegmentFilter::create()->filter($changedFields['Title']['before']);
-                $newFolder = Folder::find_or_make($oldFolderPath);
-                $newFolder->renameFile($changedFields['Title']['after']);
-            }
-        }
-      
+
+  // if ($this->owner->ID > 0){
+  //         $changedFields = $this->owner->getChangedFields();
+  //         //Update Folder Name
+  //         if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
+  //             $oldFolderPath = "Uploads/".URLSegmentFilter::create()->filter($changedFields['Title']['before']);
+  //             $newFolder = Folder::find_or_make($oldFolderPath);
+  //             $newFolder->renameFile($changedFields['Title']['after']);
+  //         }
+  //     }
+    
       parent::onBeforeWrite();
   }
 
 
   public function getFolderName(){
-    $folder = Folder::find_or_make("Uploads/".URLSegmentFilter::create()->filter($this->owner->Title)."/Parameters");
+    $folder = Folder::find_or_make("Uploads/Einstellungen");
     return $folder->getFilename();
   }
 }

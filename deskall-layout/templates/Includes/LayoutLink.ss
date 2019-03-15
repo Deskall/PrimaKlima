@@ -1,10 +1,10 @@
 <li data-level="$Level">
 	<% with LinkableLink %>
 	    <% if $LinkURL %>
-	     	<a  href="$LinkURL" {$TargetAttr}>
+	     	<a  href="$LinkURL" {$TargetAttr} class="<% if $Background %>uk-button button-{$Background}<% end_if %> <% if hasIcone %>dk-link-with-icon<% end_if %>">
                 <% if hasIcone %>
                 <% if $Icone %><span class="uk-margin-small-right" data-uk-icon="icon:  $Icone;"></span><% end_if %> 
-	            <span class="dk-link-with-icon">$Title</span>
+	            <span class="dk-link-with-icon-text">$Title</span>
                 <% else %>
                 $Title
                 <% end_if %>

@@ -50,6 +50,10 @@ Features:
   extensions:
     - SubObjectPermission
 
+VideoObject:
+  extensions:
+    - SubObjectPermission
+
 SilverStripe\UserForms\Form\UserForm:
   extensions:
    - UserDefinedFormExtension
@@ -64,6 +68,10 @@ FormBlock:
 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   allow_unbound_recipient_fields: true
+
+SilverStripe\UserForms\UserForm:
+  cascade_duplicates:
+    - 'EmailRecipients'
 
 SilverStripe\UserForms\Control\UserDefinedFormController:
   extensions:

@@ -1,27 +1,27 @@
 
 
 
-numeral.language('de-ch', {
-    delimiters: {
-        thousands: ' ',
-        decimal: '.'
-    },
-    abbreviations: {
-        thousand: 'k',
-        million: 'm',
-        billion: 'b',
-        trillion: 't'
-    },
-    ordinal: function (number) {
-        return '.';
-    },
-    currency: {
-        symbol: 'Fr. '
-    }
-});
+// numeral.language('de-ch', {
+//     delimiters: {
+//         thousands: ' ',
+//         decimal: '.'
+//     },
+//     abbreviations: {
+//         thousand: 'k',
+//         million: 'm',
+//         billion: 'b',
+//         trillion: 't'
+//     },
+//     ordinal: function (number) {
+//         return '.';
+//     },
+//     currency: {
+//         symbol: 'Fr. '
+//     }
+// });
 
-// switch between languages
-numeral.language('de-ch');
+// // switch between languages
+// numeral.language('de-ch');
 
 
 $(document).ready(function(){
@@ -146,10 +146,13 @@ $(document).ready(function(){
             $(this).html(a);
         });
         var expandedBlocks = $(this).attr('data-element-expanded');
-        expandedBlocks = $.parseJSON(expandedBlocks);
-        $.each(expandedBlocks, function(index, value){
-            $("#e"+value).addClass("uk-open");
-        });
+        if (expandedBlocks){
+            expandedBlocks = $.parseJSON(expandedBlocks);
+          $.each(expandedBlocks, function(index, value){
+              $("#e"+value).addClass("uk-open");
+          });
+        }
+      
     });
 });
 

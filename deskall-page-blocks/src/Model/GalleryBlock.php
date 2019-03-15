@@ -7,11 +7,22 @@ use SilverStripe\Forms\Tab;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\HiddenField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use g4b0\SearchableDataObjects\Searchable;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use SilverStripe\Forms\GridField\GridFieldButtonRow;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
+use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class GalleryBlock extends BaseElement implements Searchable
 {
@@ -32,25 +43,28 @@ class GalleryBlock extends BaseElement implements Searchable
         'lightboxOff' => 'Boolean(0)',
         'ShowDot' => 'Boolean(1)',
         'ShowNav' => 'Boolean(0)',
-        'Type' => 'Varchar',
-        'infiniteLoop' => 'Boolean(1)'
+        'ItemType' => 'Varchar',
+        'infiniteLoop' => 'Boolean(1)',
+        'ImagePadding' => 'Varchar'
     ];
 
     private static $many_many = [
-        'Images' => Image::class,
+        'Images' => Image::class
+    ];
+
+    private static $has_many = [
         'Boxes' => Box::class
     ];
 
     private static $many_many_extraFields = [
-        'Images' => ['SortOrder' => 'Int'],
-        'Boxes' => ['SortOrder' => 'Int']
+        'Images' => ['SortOrder' => 'Int']
     ];
 
     private static $owns = [
-        'Images',
+        'Images','Boxes'
     ];
 
-    private static $cascade_duplicates = [];
+    private static $cascade_duplicates = ['Boxes'];
 
     private static $defaults = [
         'Layout' => 'carousel',
@@ -60,13 +74,13 @@ class GalleryBlock extends BaseElement implements Searchable
 
     private static $block_layouts = [
         'carousel' => 'Carousel',
-        'grid' => 'Grid',
-        'card' => 'Card'
+        'grid' => 'Grid'
     ];
 
     private static $block_types = [
         'images' => 'Images',
-        'boxes' => 'Boxes'
+        'boxes' => 'Boxes',
+        'logos' => 'Logos'
     ];
     
     private static $pictures_per_line = [
@@ -75,6 +89,12 @@ class GalleryBlock extends BaseElement implements Searchable
         'uk-child-width-1-3@s' => '3',
         'uk-child-width-1-2@s uk-child-width-1-4@m' => '4',
         'uk-child-width-1-2@s uk-child-width-1-5@m' => '5'
+    ];
+
+    private static $image_padding = [
+        'dk-padding-s' => 'klein',
+        'dk-padding-m' => 'medium',
+        'dk-padding-l' => 'gross'
     ];
 
     private static $table_name = 'GalleryBlock';
@@ -103,29 +123,49 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('ShowNav');
             $fields->removeByName('PaddedImages');
             $fields->removeByName('lightboxOff');
-            $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Item Typ',array('images' => 'Bilder', 'boxes' => 'Boxen')),'TitleAndDisplayed');
+            $fields->removeByName('Boxes');
             $fields->removeByName('infiniteLoop');
+            $fields->removeByName('ImagePadding');
+            $fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Item Typ',$this->stat('block_types')),'TitleAndDisplayed');
+
+            if ($this->ID > 0){
+               $fields->FieldByName('Root.Main.ItemType')->performReadonlyTransformation();
+            }
+
            
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
+         
+            $fields->addFieldToTab('Root.Main',Wrapper::create(SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()))->displayIf('ItemType')->isEqualTo('images')->orIf('ItemType')->isEqualTo('logos')->end(),'HTML');
+
+            $config = GridFieldConfig_RecordEditor::create();
+            $config->addComponent(new GridFieldOrderableRows('Sort'));
+            if (singleton('Box')->hasExtension('Activable')){
+                 $config->addComponent(new GridFieldShowHideAction());
+            }
+            if ($this->ItemType == "boxes"){
+                $boxesField = new GridField('Boxes',_t(__CLASS__.'.Boxes','Boxen'),$this->Boxes(),$config);
+                $boxesField->displayIf('ItemType')->isEqualTo('boxes')->end();
+                $fields->addFieldToTab('Root.Main',$boxesField,'HTML');
+            }
           
-            $fields->addFieldToTab('Root.Main',SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())->displayIf('Type')->isEqualTo('images')->end(),'HTML');
 
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(
-                    DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Bilder per Linie'), self::$pictures_per_line),
+                    DropdownField::create('PicturesPerLine',_t(__CLASS__.'.PicturesPerLine','Item per Linie'), self::$pictures_per_line),
                     OptionsetField::create('Layout',_t(__CLASS__.'.Format','Format'), $this->getTranslatedSourceFor(__CLASS__,'block_layouts')),
                     CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
                     CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
                     CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches abspielen?')),
                     CheckboxField::create('infiniteLoop',_t(__CLASS__.'.inifite','unendlish abspielen?')),
                     CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Bilder vollständig anzeigen? (keine Größenanpassung, beispielsweise für Logos angegeben)')),
-                    CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?'))
+                    CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?')),
+                    DropdownField::create('ImagePadding',_t(__CLASS__.'.ImagePadding','Bild Abstand'), $this->getTranslatedSourceFor(__CLASS__,'image_padding'))->setEmptyString(_t('Global.None','Keine'))
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             
-           $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname')),'HTML');
+           $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Filename' => 'Dateiname'))->displayIf('ItemType')->isEqualTo('images')->orIf('ItemType')->isEqualTo('logos')->end(),'HTML');
 
 
         });
@@ -169,6 +209,9 @@ class GalleryBlock extends BaseElement implements Searchable
         }
          foreach($this->stat('block_types') as $key => $value) {
           $entities[__CLASS__.".block_types_{$key}"] = $value;
+        }
+        foreach($this->stat('image_padding') as $key => $value) {
+          $entities[__CLASS__.".image_padding_{$key}"] = $value;
         }
 
        

@@ -11,7 +11,7 @@
                 <img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-cover />
                 <% else %>
 
-                <img src="$Image.FocusFill(320,250).URL" data-srcset="$Image.FocusFill(320,250).URL 320w, $Image.FocusFill(650,500).URL 650w, $Image.FocusFill(1200,800).URL 1200w, $Image.FocusFill(2500,1500).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
+                <img src="$Image.FocusFill(1200,800).URL" data-srcset="$Image.FocusFill(320,250).URL 320w, $Image.FocusFill(650,500).URL 650w, $Image.FocusFill(1200,800).URL 1200w, $Image.FocusFill(2500,1500).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
 
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
@@ -46,8 +46,8 @@
     <% end_if %>
     <% if Nav == "controls" || Nav == "both" %>
             <div class="uk-light uk-visible@m">
-                <a class="uk-slidenav-large uk-position-center-left uk-position-large uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
-                <a class="uk-slidenav-large uk-position-center-right uk-position-large uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
+                <a class="uk-slidenav-large uk-position-center-left uk-position-large uk-hidden-hover" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
+                <a class="uk-slidenav-large uk-position-center-right uk-position-large uk-hidden-hover" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
             </div>
 
     <% end_if %>

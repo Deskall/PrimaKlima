@@ -11,7 +11,14 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use g4b0\SearchableDataObjects\Searchable;
-use Embed\Embed;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use SilverStripe\Forms\GridField\GridFieldButtonRow;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
+use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 
 class VideoBlock extends BaseElement implements Searchable
 {
@@ -31,7 +38,6 @@ class VideoBlock extends BaseElement implements Searchable
 
 	private static $db = [
 		'HTML' => 'HTMLText',
-        'VideoList' => 'Text',
         'VideoPerLine' => 'Varchar(255)'
 	];
 
@@ -66,72 +72,98 @@ class VideoBlock extends BaseElement implements Searchable
 		$fields = parent::getCMSFields();
 		$fields->removeByName('VideoPerLine');
 		$fields->removeByName('Layout');
+        $fields->removeByName('Videos');
 		  
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
                 ->setRows(5);
-            // field to enter the video URL
-			$fields->addFieldToTab('Root.Main', new TextareaField('VideoList', _t(__CLASS__.'.VideosURL','Videos (1 URL pro Zeile) ')));
+   
 			$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
 				DropdownField::create('VideoPerLine',_t(__CLASS__.'.VideoPerLine','Videos per Linie'), $this->getTranslatedSourceFor(__CLASS__,'videos_per_line')),
 				OptionsetField::create('Layout','Format', $this->getTranslatedSourceFor(__CLASS__,'block_layouts'))
 			)->setTitle(_t(__CLASS__.'.BlockLayout','Layout'))->setName('BlockLayout'));
        
-        
+            $config = GridFieldConfig_RecordEditor::create();
+                $config->addComponent(new GridFieldOrderableRows('Sort'));
+                if (singleton('VideoObject')->hasExtension('Activable')){
+                     $config->addComponent(new GridFieldShowHideAction());
+                }
+                $videosField = new GridField('Videos',_t(__CLASS__.'.Videos','Videos'),$this->Videos(),$config);
+                $fields->addFieldToTab('Root.Main',$videosField);
         
         return $fields;
 	}
 
-	public function getThumbnailURL( $url ){
-		$media =  $this->Media($url);
-		$ThumbnailUrl = ($media) ? $media->thumbnail_url : false;
-		return $ThumbnailUrl;
-	}
+    public function ActiveVideos(){
+        return $this->Videos()->filter('isVisible',1);
+    }
 
-	function GetVideoThumbs(){
-		$content = '';
-		if( $this->countVideos() < 2){
-		    $thumbnail = $this->getThumbnailURL(trim($this->VideoList));
-		    if( $thumbnail ){
-		        $content .= '<img src="'.$thumbnail.'" class="img-full"/>';
-		    }
-		}else{
-			$count = 0;
-			foreach (explode("\n",$this->VideoList) as $url){
-			    $thumbnail = $this->getThumbnailURL(trim($url));
-			    if( $thumbnail ){
-			        $content .= '<img src="'.$thumbnail.'" class="img-left"/>';
-			    }
-			    $count++;
-			    if( $count == 2 ){
-			    	break;
-			    }
-			}
-		}
+	// public function getThumbnailURL( $url ){
+	// 	$media =  $this->Media($url);
+	// 	$ThumbnailUrl = ($media) ? $media->thumbnail_url : false;
+	// 	return $ThumbnailUrl;
+	// }
 
-		return $content;
-	}
+	// function GetVideoThumbs(){
+	// 	$content = '';
+	// 	if( $this->countVideos() < 2){
+	// 	    $thumbnail = $this->getThumbnailURL(trim($this->VideoList));
+	// 	    if( $thumbnail ){
+	// 	        $content .= '<img src="'.$thumbnail.'" class="img-full"/>';
+	// 	    }
+	// 	}else{
+	// 		$count = 0;
+	// 		foreach (explode("\n",$this->VideoList) as $url){
+	// 		    $thumbnail = $this->getThumbnailURL(trim($url));
+	// 		    if( $thumbnail ){
+	// 		        $content .= '<img src="'.$thumbnail.'" class="img-left"/>';
+	// 		    }
+	// 		    $count++;
+	// 		    if( $count == 2 ){
+	// 		    	break;
+	// 		    }
+	// 		}
+	// 	}
 
-	function GetVideos(){
-		$videos = '';
-		if ($this->VideoList != ""){
-			foreach (explode("\n",$this->VideoList) as $url){
-				$videoObject = $this->Media(trim($url));
-			    if( $videoObject ){
-				    $videos .= '<li class="uk-height-1-1">'.$videoObject->code.'</li>';
-				}
-			}
-		}
+	// 	return $content;
+	// }
+
+    // public function Videos(){
+    //  $content = '';
+    //  foreach (explode("\n",$this->VideoList) as $url){
+    //     //youtube
+    //      preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $url, $matches);
+    //      if ($matches[1]){
+    //         $content = $content.'<li><iframe class="uk-height-1-1 uk-width-1-1" src="https://www.youtube-nocookie.com/embed/'.$matches[1].'?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1" frameborder="0" allowfullscreen></iframe></li>';
+    //      }
+
+        
+    //  }
+    //  $output = new DBHTMLText();
+    //  $output->setValue($content);
+    //  return $output;    
+    // }
+
+	// function getVideos(){
+	// 	$videos = '';
+	// 	if ($this->VideoList != ""){
+	// 		foreach (explode("\n",$this->VideoList) as $url){
+	// 			$videoObject = $this->Media(trim($url));
+	// 		    if( $videoObject ){
+	// 			    $videos .= '<li class="uk-height-1-1">'.$videoObject->code.'</li>';
+	// 			}
+	// 		}
+	// 	}
 		
-		$html = DBHTMLText::create();
-		$html->setValue($videos);
-		return $html;
-	}
+	// 	$html = DBHTMLText::create();
+	// 	$html->setValue($videos);
+	// 	return $html;
+	// }
 
-	public function Media($url) {
-		return Embed::create($url);
-	}
+	// public function Media($url) {
+	// 	return Embed::create($url);
+	// }
 
 	 public function getSummary()
     {
