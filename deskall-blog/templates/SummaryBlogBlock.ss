@@ -7,7 +7,7 @@
 			<% loop LastPosts %>
 				<div>
 			        <a href="$Link" title="<%t SilverStripe\\Blog\\Model\\Blog.ReadMoreAbout "mehr über '{title}' lesen..." title=$Title %>">
-								<div class="uk-card uk-card-default uk-card-hover uk-border-rounded uk-grid-collapse uk-child-width-1-2@s uk-margin" data-uk-grid>
+								<div class="uk-card uk-card-default uk-card-hover uk-border-rounded uk-grid-collapse uk-child-width-1-1 uk-margin" data-uk-grid>
 						            <div class="uk-card-media-left uk-cover-container">
 						                <img src="$FeaturedImage.ScaleWidth(390).URL" alt="$FeaturedImage.AltTag($Title)" data-uk-cover>
 						                <canvas with="390" height="300"></canvas> 
