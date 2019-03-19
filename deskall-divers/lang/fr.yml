@@ -30,7 +30,8 @@ fr:
     Address: Adresse
     AddressStreet: Adresse
     AdresseTitle: "Titre de l'adresse"
-    CodeCity: "Code postal / Ville"
+    Code: "Code postal"
+    City: "Ville"
     Country: Pays
     DefaultTab: "Defaut"
     Email: "Adresse email"
@@ -133,7 +134,8 @@ fr:
     'backgrounds_uk-section-muted dk-text-hover-muted': gris
     'backgrounds_uk-section-primary dk-text-hover-primary': 'Couleur principale'
     'backgrounds_uk-section-secondary dk-text-hover-secondary': 'Couleur secondaire'
-    CodeCity: 'CP / Lieu'
+    Code: "Code postal"
+    City: "Ville"
     Country: Pays
     Default: Défaults
     Email: 'Adresse email'
