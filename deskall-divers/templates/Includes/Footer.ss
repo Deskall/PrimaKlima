@@ -10,14 +10,14 @@
 
 			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
 			 		<% if $SiteConfig.Address != "" %>
-			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.CodeCity.URLATT}, {$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
+			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
 			 			<span class="uk-margin-small-right" data-uk-icon="icon: location;"></span>
 			 			<span class="dk-link-with-icon">
 			 				<% if $SiteConfig.Address %>
 				 			$SiteConfig.Address<br/>
 				 			<% end_if %>
-				 			<% if $SiteConfig.CodeCity %>
-				 			$SiteConfig.CodeCity<br/>
+				 			<% if $SiteConfig.Code %>
+				 			$SiteConfig.Code - $SiteConfig.City<br/>
 				 			<% end_if %>
 				 			<% if $SiteConfig.Country %>
 				 			$SiteConfig.Country

@@ -2,7 +2,7 @@
 
 $ElementalArea
 
-<section class="uk-section">
+<section class="uk-section uk-padding-remove-top">
 	<div class="uk-container">
 		<h2>
  			<% if $ArchiveYear %>

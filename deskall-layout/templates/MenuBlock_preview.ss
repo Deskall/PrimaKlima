@@ -28,7 +28,7 @@
                 
                     <li>
                         $SiteConfig.Address<br/>
-                        $SiteConfig.CodeCity<br/>
+                        $SiteConfig.Code - $SiteConfig.City<br/>
                         $SiteConfig.Country
                     </li>
                     <% if SiteConfig.Email %>
