@@ -168,7 +168,7 @@ class SEOPageExtension extends DataExtension
 	}
 
 	public function PrintDescription(){
-		if ($this->owner->MetaDescription){
+		if ($this->owner->MetaDescription != ""){
 			return $this->owner->MetaDescription;
 		}
 		$content = '';
