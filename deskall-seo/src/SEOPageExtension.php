@@ -121,7 +121,7 @@ class SEOPageExtension extends DataExtension
 			"@context": "http://schema.org",
 			"@type": "WebPage",
 			"url": "'.rtrim(Director::AbsoluteUrl($this->owner->Link()),'/').'",
-			"description": "'.$this->owner->MetaDescription;
+			"description": "'.$this->owner->PrintDescription().'"';
 
 		if ($this->owner->OpenGraphImage()){
 			$sd .= ',"image": "'.Director::absoluteBaseURL().ltrim($this->owner->OpenGraphImage(),"/");
@@ -165,5 +165,22 @@ class SEOPageExtension extends DataExtension
 		}
 		$siteConfig = SiteConfig::current_site_config();
 		return ($siteConfig->OpenGraphDefaultImage()->exists() ) ? $siteConfig->OpenGraphDefaultImage()->FocusFill(600,315)->URL : null;
+	}
+
+	public function PrintDescription(){
+		if ($this->owner->MetaDescription){
+			return $this->owner->MetaDescription;
+		}
+		$content = '';
+		foreach ($this->owner->ElementalArea()->Elements()->filter('isVisible',1) as $block) {
+			if ($block->HTML){
+				$content .= $block->HTML;
+			}
+			if ($block->Content){
+				$content .= $block->content;
+			}
+		}
+
+		return DBField::create_field('HTMLText',$content)->LimitWordCount(60);
 	}
 }
