@@ -127,7 +127,27 @@ class SEOPageExtension extends DataExtension
 		$sd .= '}'. "\n";
 		$sd .= '</script>';
 
-		return $sd;
+		return DBField::create_field('HTMLText',$sd);
+	}
+
+	public function getStructuredBreadcrumbs(){
+
+	  $pages = $this->owner->getBreadcrumbItems();
+	  $array = [];
+	  $i = 1;
+	  foreach ($pages as $page) {
+	    $array[] = ["@type" => "ListItem", "position" => $i,"item" => ["@id" => Director::AbsoluteURL($page->Link()), "name" => $page->Title, "@type" => "WebPage"]];
+	    $i++;
+	  }
+
+	  $html = '<script type="application/ld+json">
+	  {
+	    "@context": "http://www.schema.org",
+	    "@type": "BreadcrumbList",
+	    "itemListElement": '.json_encode($array).'
+	  }
+	  </script>';
+	   return DBField::create_field('HTMLText',$html);
 	}
 
 

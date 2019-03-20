@@ -96,26 +96,6 @@ class Page extends SiteTree implements Searchable
     public function getPrivatePolicyPage(){
       return PrivatePolicyPage::get()->first();
     }
-
-    /*********** Structured Data **********/
-    public function getStructuredBreadcrumbs(){
-
-      $pages = $this->getBreadcrumbItems();
-      $array = [];
-      $i = 1;
-      foreach ($pages as $page) {
-        $array[] = ["@type" => "ListItem", "position" => $i,"item" => ["@id" => Director::AbsoluteURL($page->Link()), "name" => $page->Title, "@type" => "WebPage"]];
-        $i++;
-      }
-
-      $html = '<script type="application/ld+json">
-      {
-        "@context": "http://www.schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": '.json_encode($array).'
-      }
-      </script>';
-       return DBField::create_field('HTMLText',$html);
-    }
+   
 }
 
