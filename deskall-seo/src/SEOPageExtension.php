@@ -116,17 +116,19 @@ class SEOPageExtension extends DataExtension
 	public function StructuredData() {
 
 		$siteConfig = SiteConfig::current_site_config();
-		$sd = '<script type="application/ld+json">';
-		$sd .= '{"@context": "http://schema.org",' . "\n";
-		$sd .= '"@type": "WebPage",' . "\n";
-		$sd .= '"url": "'.rtrim(Director::AbsoluteUrl($this->owner->Link()),'/').'",' . "\n";
-		$sd .= '"description": "'.$this->owner->MetaDescription.'",' . "\n";
+		$sd = '<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "WebPage",
+			"url": "'.rtrim(Director::AbsoluteUrl($this->owner->Link()),'/').'",
+			"description": "'.$this->owner->MetaDescription;
+
 		if ($this->owner->OpenGraphImage()){
-			$sd .= '"image": "'.Director::absoluteBaseURL().ltrim($this->owner->OpenGraphImage(),"/").'"'. "\n";
+			$sd .= ',"image": "'.Director::absoluteBaseURL().ltrim($this->owner->OpenGraphImage(),"/");
 		}
-		
-		$sd .= '}'. "\n";
-		$sd .= '</script>';
+
+		$sd .= '}
+		</script>';
 
 		return DBField::create_field('HTMLText',$sd);
 	}
