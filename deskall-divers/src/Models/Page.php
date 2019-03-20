@@ -99,29 +99,19 @@ class Page extends SiteTree implements Searchable
     /*********** Structured Data **********/
     public function getStructuredBreadcrumbs(){
 
-      print_r($this->getBreadcrumbItems());
+      $pages = $this->getBreadcrumbItems();
+      $array = [];
+      $i = 1;
+      foreach ($pages as $page) {
+        $array[] = ["@type" => "ListItem", "position" => $i,"item" => ["@id" => Director::AbsoluteURL($page->Link()), "name" => $page->Title]];
+        $i++;
+      }
+
       $html = '<script type="application/ld+json">
       {
         "@context": "http://www.schema.org",
         "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "https://www.akademie.ch/",
-              "name": "Akademie St.Gallen"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "https://www.akademie.ch/de/lehrgang/lehrgangsstarts",
-              "name": "Lehrgänge"
-            }
-          }
-        ]
+        "itemListElement": '.json_encode($array).'
       }
       </script>';
        return DBField::create_field('HTMLText',$html);
