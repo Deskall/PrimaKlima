@@ -104,7 +104,7 @@ class Page extends SiteTree implements Searchable
       $array = [];
       $i = 1;
       foreach ($pages as $page) {
-        $array[] = ["@type" => "ListItem", "position" => $i,"item" => ["@id" => Director::AbsoluteURL($page->Link()), "name" => $page->Title]];
+        $array[] = ["@type" => "ListItem", "position" => $i,"item" => ["@id" => Director::AbsoluteURL($page->Link()), "name" => $page->Title, "@type": => "WebPage"]];
         $i++;
       }
 
