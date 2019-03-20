@@ -3,6 +3,7 @@
 use SilverStripe\CMS\Model\SiteTree;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\TextField;
+use SilverStripe\ORM\FieldType\DBField;
 
 class Page extends SiteTree implements Searchable
 {
@@ -93,6 +94,37 @@ class Page extends SiteTree implements Searchable
 
     public function getPrivatePolicyPage(){
       return PrivatePolicyPage::get()->first();
+    }
+
+    /*********** Structured Data **********/
+    public function BreadCrumbsStructured(){
+
+      print_r($this->getBreadcrumbItems());
+      $html = '<script type="application/ld+json">
+      {
+        "@context": "http://www.schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "https://www.akademie.ch/",
+              "name": "Akademie St.Gallen"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "https://www.akademie.ch/de/lehrgang/lehrgangsstarts",
+              "name": "Lehrgänge"
+            }
+          }
+        ]
+      }
+      </script>';
+       return DBField::create_field('HTMLText',$html);
     }
 }
 
