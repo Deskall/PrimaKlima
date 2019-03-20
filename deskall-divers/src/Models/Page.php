@@ -97,7 +97,7 @@ class Page extends SiteTree implements Searchable
     }
 
     /*********** Structured Data **********/
-    public function BreadCrumbsStructured(){
+    public function getStructuredBreadcrumbs(){
 
       print_r($this->getBreadcrumbItems());
       $html = '<script type="application/ld+json">

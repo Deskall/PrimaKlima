@@ -2,6 +2,7 @@
 <title><% if MetaTitle %>$MetaTitle<% else %>$Title<% end_if %></title>
 $MetaTags(false)
 <!--$StructuredData-->
+$StructuredBreadcrumbs
 <% base_tag %>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
