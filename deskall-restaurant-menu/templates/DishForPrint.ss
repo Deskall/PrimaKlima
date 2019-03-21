@@ -29,3 +29,5 @@
              </div>
              <% end_if %>
          </div>
+         <% end_loop %>
+         <% end_if %>
