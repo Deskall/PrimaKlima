@@ -14,7 +14,7 @@
       </div>
       <% end_if %>
     </div>
-    <% if Subdishes.exists %>
+  <%--   <% if Subdishes.exists %>
       <% loop Subdishes %>
       <div class="<% if First %>uk-margin-remove-top<% end_if %> uk-margin-remove">
         <% if Description %>
@@ -31,7 +31,7 @@
        <% end_if %>
       </div>
       <% end_loop %>
-    <% end_if %>
+    <% end_if %> --%>
   <% end_with %> 
 <% else_if Type == "menu" %>
   <% with Menu %>
