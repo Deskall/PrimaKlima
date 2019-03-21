@@ -33,12 +33,12 @@
 
                 <% if Description %>
                 <strong class="uk-clearfix">$Title:</strong>
-                <div class="uk-grid-small" data-uk-grid>
+                <div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
                     <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$PrintDescription</div>
                     <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
                 </div>
                 <% else %>
-                <div class="uk-grid-small" data-uk-grid>
+                <div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
                     <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$Title</div>
                     <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
                 </div>
@@ -49,12 +49,12 @@
             <div class="<% if First %>uk-margin-remove-top<% end_if %> uk-margin-remove">
                 <% if Description %>
                 <strong class="uk-clearfix">$Title:</strong>
-                <div class="uk-grid-small" data-uk-grid>
+                <div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
                     <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$PrintDescription</div>
                     <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
                 </div>
                 <% else %>
-                <div class="uk-grid-small" data-uk-grid>
+                <div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
                  <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$Title</div>
                  <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
              </div>
