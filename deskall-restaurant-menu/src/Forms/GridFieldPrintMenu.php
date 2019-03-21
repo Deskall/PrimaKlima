@@ -41,7 +41,7 @@ class GridFieldPrintMenu implements GridField_ColumnProvider, GridField_ActionPr
                 $gridField,
                 'printMenu'.$record->ID,
                 '',
-                "printMenu",
+                "printmenu",
                 ['RecordID' => $record->ID]
             )->addExtraClass('grid-field__icon-action font-icon-print btn--icon-large action action-detail')
                 ->setAttribute('title', _t('MenuCarte.Print', 'Menu generieren'))
@@ -52,21 +52,15 @@ class GridFieldPrintMenu implements GridField_ColumnProvider, GridField_ActionPr
 
     public function getActions($gridField) 
     {
-        return ['printMenu'];
+        return ['printmenu'];
     }
 
     public function handleAction(GridField $gridField, $actionName, $arguments, $data) 
     {
-        ob_start();
-                    print_r($actionName);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+     
         $item = $gridField->getList()->byID($arguments['RecordID']);
-        if($actionName == 'printMenu') {
-            ob_start();
-                        print_r('printMenu');
-                        $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        if($actionName == 'printmenu') {
+          
             $item->printPDF();
             // output a success message to the user
             Controller::curr()->getResponse()->setStatusCode(
