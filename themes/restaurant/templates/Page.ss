@@ -17,7 +17,7 @@
             </div>
           </div>
         </div>
-        <nav class="uk-navbar uk-navbar-container uk-padding uk-primary-background">
+        <nav class="uk-navbar uk-navbar-container uk-padding uk-background-primary">
             <div class="uk-navbar-right uk-hidden@m">
               <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"><span class="uk-margin-small-right">Menu</span></button>
             </div>
