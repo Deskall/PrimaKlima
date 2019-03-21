@@ -48,6 +48,8 @@ class MenuCarte extends DataObject{
         'Sortable'
     ];
 
+    private static $summary_fields = ['Title','downloadMenu' => ['title' => '']];
+
 
     function fieldLabels($includerelations = true) {
         $labels = parent::fieldLabels($includerelations);
@@ -85,6 +87,11 @@ class MenuCarte extends DataObject{
 
     public function getFolderName(){
         return "Uploads/Menu";
+    }
+
+    public function downloadMenu(){
+        $html = '<a href="'.$this->File()->getURL().'" title="Herunterladen" target="_blank">Herunterladen</a>';
+        return DBField::create_field('HTMLText',$html);
     }
 
 
