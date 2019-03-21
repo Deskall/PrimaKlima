@@ -32,8 +32,14 @@ class MenuCarteElement extends DataObject{
     private static $has_one = [
         'Karte' => MenuCarte::class,
         'Menu' => Menu::class,
-        'Dish' => Dish::class
+        'Dish' => Dish::class,
+        'Parent' => MenuCarteElement::class
     ];
+
+    private static $has_many = [
+        'Children' => MenuCarteElement::class
+    ];
+
 
    
     private static $extensions = [
@@ -81,13 +87,20 @@ class MenuCarteElement extends DataObject{
         $fields = parent::getCMSFields();
 
         $fields->removeByName('Type');
+        $fields->removeByName('Children');
+        $fields->removeByName('ParentID');
 
-        $fields->insertBefore('Title',DropdownField::create('Type',$this->fieldLabels()['Type'],['menu' => 'Menü','dish' => 'Speise','element' => 'Inhalt', 'divider' => 'Linie','pagebreak' => 'Seitenumbruch'])->setEmptyString('Bitte wählen'));
+        $fields->insertBefore('Title',DropdownField::create('Type',$this->fieldLabels()['Type'],['menu' => 'Menü','dish' => 'Speise','group','grupp','element' => 'Inhalt', 'divider' => 'Linie','pagebreak' => 'Seitenumbruch'])->setEmptyString('Bitte wählen'));
 
         $fields->FieldByName('Root.Main.DishID')->displayIf('Type')->isEqualTo('dish');
         $fields->FieldByName('Root.Main.MenuID')->displayIf('Type')->isEqualTo('menu');
         $fields->FieldByName('Root.Main.Content')->displayIf('Type')->isEqualTo('element');
         $fields->FieldByName('Root.Main.Title')->hideIf('Type')->isEqualTo('divider')->orIf('Type')->isEqualTo('pagebreak');
+
+        if ($this->ID > 0){
+            $gridfield = new GridField::create('Children','Items',$this->Children(),GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort')->addComponent(new GridFieldShowHideAction())));
+            $fields->addFieldToTab('Root.Main',Wrapper::create($gridfield)->displayIf('Type')->isEqualTo('group');
+        }
         
         return $fields;
     }
