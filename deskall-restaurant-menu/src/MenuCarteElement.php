@@ -85,6 +85,7 @@ class MenuCarteElement extends DataObject{
         $fields->FieldByName('Root.Main.DishID')->displayIf('Type')->isEqualTo('dish');
         $fields->FieldByName('Root.Main.MenuID')->displayIf('Type')->isEqualTo('menu');
         $fields->FieldByName('Root.Main.Content')->displayIf('Type')->isEqualTo('element');
+        $fields->FieldByName('Root.Main.Title')->hideIf('Type')->isEqualTo('divider')->orIf('Type')->isEqualTo('pagebreak');
         
         return $fields;
     }
