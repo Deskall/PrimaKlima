@@ -11,7 +11,7 @@
 			    	<% if LinkableLinkID > 0 %>
 						<% with $LinkableLink %>
 							<% if $LinkURL %>
-							    <a href="$LinkURL" {$TargetAttr} class="uk-button $Up.BackgroundColor" <% if hasIcone %>data-uk-icon="icon: $Icone"<% end_if %>>$Title</a>
+							    <a href="$LinkURL" {$TargetAttr} class="$Up.ExtraClass $Up.BackgroundColor" <% if hasIcone %>data-uk-icon="icon: $Icone"<% end_if %>>$Title</a>
 							<% end_if %>
 						<% end_with %>
 					<% end_if %>
