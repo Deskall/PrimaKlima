@@ -1,4 +1,4 @@
- <%-- <% if $Type == "dish" %>
+<% if Type == "dish" %>
  <% with Dish %>
     <div>
       <% if Description %>
@@ -32,7 +32,7 @@
       </div>
       <% end_loop %>
     <% end_if %> 
-  <% end_with %> --%>
+  <% end_with %>
 <% if Type == "menu" %>
   <% with Menu %>
   <div>
