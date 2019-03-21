@@ -4,18 +4,18 @@
 
 
 <div class="menu-container uk-box-shadow-large uk-position-relative">
-  <% with Menu %>
+ 
     <div class="uk-position-top-left">
-      <a href="$File.URL" target="_blank"><i class="fa fa-print uk-margin-small-right"></i>Menu drucken (PDF)</a>
+      <a href="$Menu.File.URL" target="_blank"><i class="fa fa-print uk-margin-small-right"></i>Menu drucken (PDF)</a>
     </div>
     
 
     <div class="uk-child-width-1-1" data-uk-grid>
-      <% loop Elements.sort('Sort') %>
+      <% loop Manu.Elements.sort('Sort') %>
         <% include CarteElement %>
      <% end_loop %>
    </div>
-  <% end_with %>
+
 </div>
 
 
