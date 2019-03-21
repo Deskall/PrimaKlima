@@ -3,8 +3,11 @@
 </div>
 
 
-<div class="menu-container uk-box-shadow-large">
-    <div class="uk-padding-large uk-position-relative">
+<div class="menu-container uk-box-shadow-large uk-position-relative">
+    <div class="uk-position-top-left">
+      <a href="$File.URL" target="_blank"><i class="fa fa-print uk-margin-small-right"></i>Menu drucken (PDF)</a>
+    </div>
+    <%-- <div class="uk-padding-large">
         <% with Menu %>
         <h4>$Title $Date.Nice</h4>
         <div class="uk-child-width-1-2@s" data-uk-grid>
@@ -21,12 +24,10 @@
             <% end_if %>
             <% end_loop %>
         </div>
-        <div class="uk-position-top-left">
-          <a href="$File.URL" target="_blank"><i class="fa fa-print uk-margin-small-right"></i>Menu drucken (PDF)</a>
-        </div>
+        
         <% end_with %>
         <% end_loop %>
-    </div>
+    </div> --%>
 
     <div class="uk-child-width-1-1" data-uk-grid>
         <% loop Elements.exclude('Type','menu').sort('Sort') %>
