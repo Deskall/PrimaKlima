@@ -95,7 +95,7 @@ class MenuCarte extends DataObject{
     public function printPDF(){
 
 
-
+        $output = dirname(__FILE__).'/../../../assets/Uploads/tmp/menus_'.$this->ID.'.pdf';
 
       $pdf = new Fpdi();
 
