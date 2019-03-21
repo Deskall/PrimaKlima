@@ -1,4 +1,4 @@
-$Type
+
 <% if Type == "menu" %>
   <% with Menu %>
   <div>
@@ -23,7 +23,7 @@ ici
   </div>
   <% end_if %>
 <% else_if Type == "element" %>
-    <div>
+    <div>$Type
       <% if Content %>
       $Content
       <% end_if %>
