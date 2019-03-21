@@ -93,6 +93,12 @@ class MenuCarte extends DataObject{
 
     public function printPDF(){
 
+        ob_start();
+                    print_r('printPDF');
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
+
       // $pdf = new Fpdi();
 
       // $pdf->AddPage();
