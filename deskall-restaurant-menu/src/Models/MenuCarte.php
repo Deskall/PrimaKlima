@@ -130,6 +130,9 @@ class MenuCarte extends DataObject{
             case 'dish':
                $pdf->writeHtml($item->Dish()->renderWith('DishForPrint'));
             break;
+            case 'group':
+               $pdf->writeHtml($item->renderWith('GroupForPrint'));
+            break;
             default:
                 # code...
             break;
