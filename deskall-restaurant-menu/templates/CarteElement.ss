@@ -1,4 +1,4 @@
-<% if Type == "dish" %>
+<%-- <% if Type == "dish" %>
   <% with Dish %>
     <div>
       <% if Description %>
@@ -61,4 +61,4 @@
       $Content
       <% end_if %>
     </div>
-<% end_if %>
+<% end_if %> --%>
