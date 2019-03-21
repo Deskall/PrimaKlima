@@ -206,7 +206,7 @@ class MenuCarte extends DataObject{
 
       $tmpFolder = "Uploads/Menus/".$this->ID;
       $folder = Folder::find_or_make($tmpFolder);
-      $file = File::create();
+      $file = ($this->File()->exists() ) $this->File() : File::create();
       $file->ParentID = $folder->ID;
       $file->setFromLocalFile($output, 'Uploads/Menus/'.$this->ID.'/'.$this->Title.'.pdf');
       $file->write();
