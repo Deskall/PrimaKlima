@@ -66,5 +66,9 @@ $Type - $ID
 <% end_if %> --%>
 
 <% if Type == "element" %>
-<div>ici</div>
+    <div>
+      <% if Content %>
+      $Content
+      <% end_if %>
+    </div>
 <% end_if %>
