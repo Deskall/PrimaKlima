@@ -109,7 +109,7 @@ class MenuCarte extends DataObject{
       $pdf->setPrintFooter(false);
 
       $pdf->AddPage('P',$this->Format);
-      foreach ($this->Items() as $item) {
+      foreach ($this->Elements() as $item) {
           switch ($item->Type) {
             case 'pagebreak':
                 $pdf->AddPage('P',$this->Format);
