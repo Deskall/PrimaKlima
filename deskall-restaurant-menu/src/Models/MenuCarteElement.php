@@ -98,7 +98,7 @@ class MenuCarteElement extends DataObject{
         $fields->FieldByName('Root.Main.Title')->hideIf('Type')->isEqualTo('divider')->orIf('Type')->isEqualTo('pagebreak');
 
         if ($this->ID > 0){
-            $gridfield = new GridField::create('Children','Items',$this->Children(),GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort')->addComponent(new GridFieldShowHideAction())));
+            $gridfield = GridField::create('Children','Items',$this->Children(),GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort')->addComponent(new GridFieldShowHideAction())));
             $fields->addFieldToTab('Root.Main',Wrapper::create($gridfield)->displayIf('Type')->isEqualTo('group');
         }
         
