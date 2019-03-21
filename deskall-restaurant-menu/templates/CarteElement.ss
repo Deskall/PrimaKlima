@@ -1,4 +1,4 @@
-<% if Type == "dish" %>
+<% if $Type == "dish" %>
   <% with Dish %>
     <div>
       <%-- <% if Description %>
