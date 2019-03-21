@@ -99,7 +99,7 @@ class MenuCarteElement extends DataObject{
 
         if ($this->ID > 0){
             $gridfield = GridField::create('Children','Items',$this->Children(),GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction()));
-            $fields->addFieldToTab('Root.Main',Wrapper::create($gridfield)->displayIf('Type')->isEqualTo('group');
+            $fields->addFieldToTab('Root.Main',Wrapper::create($gridfield)->displayIf('Type')->isEqualTo('group')->end());
         }
         
         return $fields;
