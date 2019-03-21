@@ -34,6 +34,7 @@
     <% end_if %>
   <% end_with %> 
 <% else_if Type == "menu" %>--%>
+$Type
 <% if Type == "menu" %>
   <% with Menu %>
   <div>

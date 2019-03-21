@@ -12,7 +12,6 @@
 
     <div class="uk-child-width-1-1" data-uk-grid>
       <% loop Elements.sort('Sort') %>
-      $Type
         <% include CarteElement %>
      <% end_loop %>
    </div>
