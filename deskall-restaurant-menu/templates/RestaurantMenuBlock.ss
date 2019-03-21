@@ -66,7 +66,7 @@
          <% end_loop %>
          <% end_if %>
          <% end_with %>
-      <% else %>
+      <% else_if Type == "element" %>
         <div>
           <% if Title %><strong class="uk-clearfix">$Title</strong><% end_if %>
           <% if Content %>
