@@ -2,10 +2,14 @@
     <tr>
         <% loop Children %>
             <td>
-                <% if ClassName == "Menu" %>
+                <% if Type == "menu" %>
+                <% with $Menu %>
                 <% include MenuForPrint %>
-                <% else_if ClassName == "Dish" %>
+                <% end_with %>
+                <% else_if Type == "dish" %>
+                <% with $Dish %>
                 <% include DishForPrint %>
+                <% end_with %>
                 <% end_if %>
             </td>
         <% end_loop %>
