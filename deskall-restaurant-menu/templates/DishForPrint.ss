@@ -14,8 +14,8 @@
             <% if Subdishes.exists %>
             <% loop Subdishes %>
             	<% if Description %>
-                <strong>$Title:</strong>
-                <table>
+                <strong style="padding-left:10px">$Title:</strong>
+                <table style="padding-left:10px">
                 	<tr><td <% if Price > 0 %>width="250"<% end_if %>>$PrintDescription</td><% if Price > 0 %><td style="text-align:right" width="60">$PrintPrice</td><% end_if %></tr>
                 </table>
                 <% else %>
