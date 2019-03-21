@@ -11,7 +11,7 @@
     
 
     <div class="uk-child-width-1-1" data-uk-grid>
-      <% loop Manu.Elements.sort('Sort') %>
+      <% loop Menu.Elements.sort('Sort') %>
         <% include CarteElement %>
      <% end_loop %>
    </div>
