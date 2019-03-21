@@ -4,7 +4,7 @@
 
 
 <div class="menu-container uk-box-shadow-large uk-position-relative">
- 
+ <div class="uk-padding">
     <div class="uk-position-top-left">
       <a href="$Menu.File.URL" target="_blank"><i class="fa fa-print uk-margin-small-right"></i>Menu drucken (PDF)</a>
     </div>
@@ -15,7 +15,7 @@
         <% include CarteElement %>
      <% end_loop %>
    </div>
-
+  </div>
 </div>
 
 
