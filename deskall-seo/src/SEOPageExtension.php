@@ -127,7 +127,7 @@ class SEOPageExtension extends DataExtension
 			$sd .= ',"image": "'.Director::absoluteBaseURL().ltrim($this->owner->OpenGraphImage(),"/");
 		}
 
-		$sd .= '}
+		$sd .= "\n".'}
 		</script>';
 
 		return DBField::create_field('HTMLText',$sd);
