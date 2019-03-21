@@ -1,4 +1,4 @@
-$Type - $ID
+
 <%-- <% if Type == "dish" %>
  <% with Dish %>
     <div>
