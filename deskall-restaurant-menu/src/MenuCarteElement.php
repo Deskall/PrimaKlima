@@ -41,6 +41,8 @@ class MenuCarteElement extends DataObject{
         'Sortable'
     ];
 
+    private static $summary_fields = ['Type','Title'];
+
 
     function fieldLabels($includerelations = true) {
         $labels = parent::fieldLabels($includerelations);
