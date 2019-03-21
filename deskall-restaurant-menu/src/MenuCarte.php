@@ -24,7 +24,8 @@ class MenuCarte extends DataObject{
 
     private static $db = [
         'Title' => 'Varchar',
-        'Date' => 'Date'
+        'Date' => 'Date',
+        'Format' => 'Enum("A5,A4","A4")'
     ];
 
 
@@ -67,7 +68,7 @@ class MenuCarte extends DataObject{
         $fields = parent::getCMSFields();
         $fields->removeByName('Elements');
         $fields->removeByName('File');
-        $fields->addFieldToTab('Root.Main',UploadField::create('File',$this->fieldLabels()['File'])->setFolderName($this->getFolderName()));
+        // $fields->addFieldToTab('Root.Main',UploadField::create('File',$this->fieldLabels()['File'])->setFolderName($this->getFolderName()));
         if ($this->ID > 0){
             $config = GridFieldConfig_RecordEditor::create();
             $config->addComponent(new GridFieldOrderableRows('Sort'));
