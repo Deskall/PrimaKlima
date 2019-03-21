@@ -41,7 +41,9 @@ class RestaurantMenuAdmin extends ModelAdmin{
 
 	public function getEditForm($id = null, $fields = null) {
 	    $form = parent::getEditForm($id, $fields);
-
+	    if($this->modelClass == 'MenuCarte' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+	       $gridField->getConfig()->addComponent(new GridFieldPrintMenu())->addComponent(new GridFieldDuplicateAction());
+	    }
 	    if($this->modelClass == 'Menu' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
 	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
 	    }
