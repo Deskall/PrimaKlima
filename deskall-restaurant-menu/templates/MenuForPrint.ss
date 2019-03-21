@@ -1,11 +1,11 @@
-<div>
-            <div class="uk-clearfix"><div class="uk-float-left"><strong>$Title</strong><strong class="uk-margin-left">$PrintPrice</strong></div></div>
+<div style="text-align:center;">
+           <strong style="text-align:left;">$Title</strong><strong style="text-align:right;margin-left:10px">$PrintPrice</strong></div></div>
             <% loop $Dishes %>
-            <div style="text-align:center;">
+            <div >
                 $Title
             </div>
             <% if not Last %>
-            <div style="text-align:center;">
+            <div>
             ***
             </div>
             <% end_if %>
