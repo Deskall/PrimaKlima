@@ -105,8 +105,32 @@ class MenuCarte extends DataObject{
         $output = dirname(__FILE__).'/../../../assets/Uploads/tmp/menus_'.$this->ID.'.pdf';
 
       $pdf = new Fpdi();
+      $pdf->setPrintHeader(false);
+      $pdf->setPrintFooter(false);
 
-      $pdf->AddPage();
+      $pdf->AddPage('P',$this->Format);
+      foreach ($this->Items() as $item) {
+          switch ($item->Type) {
+            case 'pagebreak':
+                $pdf->AddPage('P',$this->Format);
+            break;
+            case 'divider':
+                $pdf->Line(5, 10, 80, 30);
+            break;
+            case 'element':
+                $pdf->writeHtml($item->Content);
+            break;
+            case 'menu':
+                $pdf->writeHtml($item->Menu()->renderWidth('MenuForPrint'));
+            break;
+            case 'dish':
+               $pdf->writeHtml($item->Dish()->renderWidth('DishForPrint'));
+            break;
+            default:
+                # code...
+            break;
+          }
+      }
 
       $html = '
       <h1>Welcome to <a href="http://www.tcpdf.org" style="text-decoration:none;background-color:#CC0000;color:black;">&nbsp;<span style="color:black;">TC</span><span style="color:white;">PDF</span>&nbsp;</a>!</h1>
