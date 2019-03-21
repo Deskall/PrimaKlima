@@ -89,6 +89,7 @@ class MenuCarteElement extends DataObject{
         $fields->removeByName('Type');
         $fields->removeByName('Children');
         $fields->removeByName('ParentID');
+        $fields->removeByName('KarteID');
 
         $fields->insertBefore('Title',DropdownField::create('Type',$this->fieldLabels()['Type'],['menu' => 'Menü','dish' => 'Speise','group' => 'grupp','element' => 'Inhalt', 'divider' => 'Linie','pagebreak' => 'Seitenumbruch'])->setEmptyString('Bitte wählen'));
 
