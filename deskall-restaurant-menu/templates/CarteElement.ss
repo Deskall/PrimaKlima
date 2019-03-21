@@ -32,8 +32,9 @@
       </div>
       <% end_loop %>
     <% end_if %>
-  <% end_with %>
-<% else_if Type == "menu" %>
+  <% end_with %> 
+<% else_if Type == "menu" %>--%>
+<% if Type == "menu" %>
   <% with Menu %>
   <div>
     <div class="uk-clearfix"><div class="uk-float-left"><strong>$Title</strong><strong class="uk-margin-left">$PrintPrice</strong></div></div>
@@ -61,4 +62,4 @@
       $Content
       <% end_if %>
     </div>
-<% end_if %> --%>
+<% end_if %>
