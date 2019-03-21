@@ -17,6 +17,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use setasign\Fpdi\Tcpdf\Fpdi;
 use SilverStripe\Assets\Folder;
+use SilverStripe\View\Parsers\ShortcodeParser;
 
 class MenuCarte extends DataObject{
 
