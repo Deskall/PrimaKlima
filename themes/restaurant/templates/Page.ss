@@ -7,7 +7,7 @@
   <body class="$ClassName">
     <div class="uk-grid-collapse" data-uk-grid>
       <div class="uk-width-1-1 uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl">
-        <div data-uk-sticky class="uk-visible@m">
+        <div id="main-navigation" data-uk-sticky class="uk-visible@m">
           <div class="uk-box-shadow-large">
             <div data-uk-height-viewport="offset-top: true; offset-bottom: true;">
             <% include Header %>
@@ -19,7 +19,7 @@
         </div>
         <nav class="uk-navbar uk-navbar-container uk-margin">
             <div class="uk-navbar-left">
-                <a class="uk-navbar-toggle" href="#">
+                <a class="uk-navbar-toggle" href="#main-navigation">
                     <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
                 </a>
             </div>
