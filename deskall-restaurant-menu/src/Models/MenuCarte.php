@@ -90,8 +90,11 @@ class MenuCarte extends DataObject{
     }
 
     public function downloadMenu(){
-        $html = '<a href="'.$this->File()->getURL().'" title="Herunterladen" target="_blank">Herunterladen</a>';
-        return DBField::create_field('HTMLText',$html);
+        if($this->File()->exists()){
+            $html = '<a href="'.$this->File()->getURL().'" title="Herunterladen" target="_blank">Herunterladen</a>';
+            return DBField::create_field('HTMLText',$html);
+        }
+        return null;
     }
 
 
@@ -118,7 +121,7 @@ class MenuCarte extends DataObject{
                 $pdf->Line(5, 10, 80, 30);
             break;
             case 'element':
-                $pdf->writeHtml($item->Content);
+                $pdf->writeHtml(ShortcodeParser::get_active()->parse($item->Content));
             break;
             case 'menu':
                 $pdf->writeHtml($item->Menu()->renderWith('MenuForPrint'));
