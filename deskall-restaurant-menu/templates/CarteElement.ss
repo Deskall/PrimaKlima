@@ -1,4 +1,14 @@
-
+<% if Type == "group" %>
+<div>ggggggggggggggg
+  <% if Children %>
+  <div class="uk-child-width-1-1 uk-child-width-1-2@s <% if Children.count > 2 %>uk-child-width-1-{$Children.count}@l" data-uk-grid>
+    <% loop Children %>
+    <div><% include CarteElement %></div>
+    <% end_loop %>
+  </div>
+  <% end_if %>
+</div>
+<% end_if %>
 <% if Type == "dish" %>
  <% with Dish %>
     <div>
@@ -43,17 +53,7 @@
     </div>
 <% end_if %>
 
-<% if Type == "group" %>
-<div>ggggggggggggggg
-  <% if Children %>
-  <div class="uk-child-width-1-1 uk-child-width-1-2@s <% if Children.count > 2 %>uk-child-width-1-{$Children.count}@l" data-uk-grid>
-    <% loop Children %>
-    <div><% include CarteElement %></div>
-    <% end_loop %>
-  </div>
-  <% end_if %>
-</div>
-<% end_if %>
+
 
 <% if Type == "menu" %>
   
