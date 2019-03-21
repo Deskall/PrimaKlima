@@ -108,8 +108,7 @@
     </div>
 <% end_if %>
 
-<% if $Type == "group" %>
-
+<% if Type == "group" %>
   <% if Children %>
   <div class="uk-child-width-1-1 uk-child-width-1-2@s <% if Children.count > 2 %>uk-child-width-1-{$Children.count}@l" data-uk-grid>
     <% loop Children %>
@@ -119,7 +118,7 @@
   <% end_if %>
 <% end_if %>
 
-<% if $Type == "menu" %>
+<% if Type == "menu" %>
   
   <div>
     <div class="uk-clearfix"><div class="uk-float-left"><strong>$Title</strong><strong class="uk-margin-left">$PrintPrice</strong></div></div>
