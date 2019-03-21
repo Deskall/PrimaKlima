@@ -4,7 +4,7 @@
 
 
 <div class="menu-container uk-box-shadow-large">
-    <div class="uk-padding-large">
+    <div class="uk-padding-large uk-position-relative">
         <% with Menu %>
         <h4>$Title $Date.Nice</h4>
         <div class="uk-child-width-1-2@s" data-uk-grid>
