@@ -168,7 +168,8 @@ class MenuCarte extends DataObject{
       //       $pdf->setXY(150,$y + $i);
       //       $pdf->WriteHtml("Kunde Unterschrift: ");
       // }
-      // $pdf->Output($output,'F');
+      
+      $pdf->Output($output,'F');
       
 
 
