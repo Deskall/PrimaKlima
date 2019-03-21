@@ -46,8 +46,12 @@ class NavigationBlock extends BaseElement
         'Items'
     ];
 
+    private static $db = [
+        'NavClass' => 'Varchar'
+    ];
+
     private static $defaults = [
-        'ExtraClass' => 'uk-subnav'
+        'NavClass' => 'uk-subnav'
     ];
 
 
@@ -67,9 +71,10 @@ class NavigationBlock extends BaseElement
         $fields = parent::getCMSFields();
 
             $fields->removeByName('Layout');
+            $fields->removeByName('NavClass');
             $fields->removeByName('Items');
            // $fields->removeByName('TitleAndDisplayed');
-
+            $fields->insertAfter('ExtraClass',TextField::create('NavClass',_t(__CLASS__.'.NavClass','css class für die Navigation')));
 
             if ($this->ID > 0){
 
