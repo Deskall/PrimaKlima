@@ -1,5 +1,5 @@
 <div>
-    <div style="text-align:center;"><strong>$Title</strong><strong style="padding-left:10px">$PrintPrice</strong></div>
+   <table><tr><td><strong>$Title</strong></td><td><strong style="padding-left:10px">$PrintPrice</strong></td></tr></table>
  <% loop $Dishes %>
  <div style="text-align:center;">
     $Title
