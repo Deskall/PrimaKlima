@@ -119,7 +119,7 @@ class MenuCarte extends DataObject{
                 $pdf->AddPage('P',$this->Format);
             break;
             case 'divider':
-                $pdf->Line(5, 10, 80, 30);
+                $pdf->Line(5, $pdf->y, $pdf->w - 5, $pdf->y);
             break;
             case 'element':
                 $pdf->writeHtml(ShortcodeParser::get_active()->parse($item->Content));
