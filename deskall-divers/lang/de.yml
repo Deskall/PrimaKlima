@@ -323,7 +323,8 @@ de:
     AdresseTitle: 'Adresse Titel'
     Background: Hintergrundfarbe
     BackgroundHelp: 'Wählen Sie aus eine Hintergrundfarbe'
-    CodeCity: 'PLZ / Ort'
+    Code: 'PLZ'
+    City: 'Ort'
     Country: Land
     Default: Standard
     DefaultTab: Standard
@@ -651,7 +652,8 @@ de:
     AdresseTitle: 'Adresse Titel'
     Background: Hintergrundfarbe
     BackgroundHelp: 'Wählen Sie aus eine Hintergrundfarbe'
-    CodeCity: 'PLZ / Ort'
+    Code: 'PLZ'
+    City: 'Ort'
     Country: Land
     Default: Standard
     Email: 'E-Mail Adresse'

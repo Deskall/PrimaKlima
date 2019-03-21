@@ -155,8 +155,8 @@
 																		<td>
 																			<h5 class=""><%t Email.Contact 'Kontakt' %>:</h5>
 																			<p><strong>$SiteConfig.AddressTitle</strong></p>
-																			<p>$SiteConfig.Address<br/>$SiteConfig.CodeCity<br/> $SiteConfig.Country</p>
-																			<p>$SiteConfig.PhoneDisplay<br /><a href="mailto:$SiteConfig.Email">$SiteConfig.Email</a></p>
+																			<p>$SiteConfig.Address<br/>$SiteConfig.Code - $SiteConfig.City<br/> $SiteConfig.Country</p>
+																			<p>$SiteConfig.Phone<br /><a href="mailto:$SiteConfig.Email">$SiteConfig.Email</a></p>
 																		</td>
 																	</tr>
 																</tbody>

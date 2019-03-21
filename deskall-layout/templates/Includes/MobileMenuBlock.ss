@@ -64,7 +64,7 @@
 			<% end_if %>
 			<li data-uk-icon="icon: location;ratio: 0.75;"><a>
 				$SiteConfig.Address<br/>
-				$SiteConfig.CodeCity<br/>
+				$SiteConfig.Code - $SiteConfig.City<br/>
 			$SiteConfig.Country</a>
 		</li>
 		<% if SiteConfig.Email %>
