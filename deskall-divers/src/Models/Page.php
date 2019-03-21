@@ -4,6 +4,7 @@ use SilverStripe\CMS\Model\SiteTree;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\TextField;
 
+
 class Page extends SiteTree implements Searchable
 {
     private static $db = [
@@ -94,5 +95,6 @@ class Page extends SiteTree implements Searchable
     public function getPrivatePolicyPage(){
       return PrivatePolicyPage::get()->first();
     }
+   
 }
 
