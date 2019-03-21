@@ -11,7 +11,7 @@
     
 
     <div class="uk-child-width-1-1" data-uk-grid>
-      <% loop Menu.ActiveElements.filter('ParentID',0).sort('Sort') %>
+      <% loop Menu.ActiveElements.sort('Sort') %>
         <% include CarteElement %>
      <% end_loop %>
    </div>
