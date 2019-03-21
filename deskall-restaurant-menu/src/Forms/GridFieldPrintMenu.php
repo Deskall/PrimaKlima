@@ -59,6 +59,10 @@ class GridFieldPrintMenu implements GridField_ColumnProvider, GridField_ActionPr
     {
         $item = $gridField->getList()->byID($arguments['RecordID']);
         if($actionName == 'printMenu') {
+            ob_start();
+                        print_r('printMenu');
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
             $item->printPDF();
             // output a success message to the user
             Controller::curr()->getResponse()->setStatusCode(
