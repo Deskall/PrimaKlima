@@ -1,4 +1,4 @@
-<%-- <% if Type == "dish" %>
+<% if Type == "dish" %>
   <% with Dish %>
     <div>
       <% if Description %>
@@ -33,9 +33,7 @@
       <% end_loop %>
     <% end_if %>
   <% end_with %> 
-<% else_if Type == "menu" %>--%>
-
-<% if Type == "menu" %>
+<% else_if Type == "menu" %>
   <% with Menu %>
   <div>
     <div class="uk-clearfix"><div class="uk-float-left"><strong>$Title</strong><strong class="uk-margin-left">$PrintPrice</strong></div></div>
