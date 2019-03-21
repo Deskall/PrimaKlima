@@ -2,9 +2,9 @@
 <div>ggggggggggggggg
   <% if Children %>
   <div class="uk-child-width-1-1 uk-child-width-1-2@s <% if Children.count > 2 %>uk-child-width-1-{$Children.count}@l" data-uk-grid>
-    <% loop Children %>
+   <%--  <% loop Children %>
     <div><% include CarteElement %></div>
-    <% end_loop %>
+    <% end_loop %> --%>
   </div>
   <% end_if %>
 </div>
