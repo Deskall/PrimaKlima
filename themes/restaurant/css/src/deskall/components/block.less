@@ -39,9 +39,7 @@
 
 .element:not(.children) > .uk-section{
 	padding: @intrablock-padding-vertical 0;
-	&.with-background{
-		padding: @intrablock-padding-vertical @container-padding-horizontal;
-	}
+	
 	@media only screen and (min-width:@breakpoint-small){
 		padding: @intrablock-padding-vertical-s 0;
 		&.with-background{
@@ -52,6 +50,11 @@
 		padding: @intrablock-padding-vertical-m 0;
 		&.with-background{
 			padding: @intrablock-padding-vertical-m @container-padding-horizontal-m;
+		}
+	}
+	@media only screen and (min-width:@breakpoint-large){
+		&.with-background{
+			padding: @intrablock-padding-vertical @container-padding-horizontal;
 		}
 	}
 }
