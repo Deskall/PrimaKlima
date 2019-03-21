@@ -15,7 +15,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
-UncleCheese\DisplayLogic\Forms\Wrapper;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class MenuCarteElement extends DataObject{
 
