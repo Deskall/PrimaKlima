@@ -58,7 +58,7 @@ class GridFieldPrintMenu implements GridField_ColumnProvider, GridField_ActionPr
     public function handleAction(GridField $gridField, $actionName, $arguments, $data) 
     {
         ob_start();
-                    print_r('heho');
+                    print_r($actionName);
                     $result = ob_get_clean();
                     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $item = $gridField->getList()->byID($arguments['RecordID']);
