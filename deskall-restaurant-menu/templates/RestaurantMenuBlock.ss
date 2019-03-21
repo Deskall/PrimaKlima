@@ -21,6 +21,9 @@
             <% end_if %>
             <% end_loop %>
         </div>
+        <div class="uk-position-top-left">
+          <a href="$File.URL" target="_blank"><i class="fa fa-print uk-margin-small-right"></i>Menu drucken (PDF)</a>
+        </div>
         <% end_with %>
         <% end_loop %>
     </div>
