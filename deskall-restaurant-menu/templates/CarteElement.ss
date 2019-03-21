@@ -1,4 +1,4 @@
-
+$Type
 <% if Type == "menu" %>
   <% with Menu %>
   <div>
