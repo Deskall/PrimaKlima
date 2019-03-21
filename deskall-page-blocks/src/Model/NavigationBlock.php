@@ -46,6 +46,10 @@ class NavigationBlock extends BaseElement
         'Items'
     ];
 
+    private static $defaults = [
+        'ExtraClass' => 'uk-subnav'
+    ];
+
 
 
     private static $table_name = 'NavigationBlock';

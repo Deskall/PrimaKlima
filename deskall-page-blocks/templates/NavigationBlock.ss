@@ -1,6 +1,6 @@
 
 
-<ul class="uk-subnav" data-uk-margin>
+<ul class="$ExtraClass" data-uk-margin>
 		<% loop Items %>
 	    	<li class="uk-width-1-1 uk-width-auto@m">
 	    		<% if ItemType == "block" %> 
