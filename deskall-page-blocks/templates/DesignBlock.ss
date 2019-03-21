@@ -5,7 +5,7 @@
 			$HTML
 		</div>
 	</div>
-	<div class="uk-flex uk-flex-around">
+	<div class="uk-flex uk-flex-around uk-flex-wrap">
 		<% loop Resources %>
 		<div class="$ExtraCssClass" <% if Animation %>data-uk-scrollspy="$Animation"<% end_if %> <% if Parallax %>data-uk-parallax="$Parallax"<% end_if %>>
 			<% if Image.exists %>
