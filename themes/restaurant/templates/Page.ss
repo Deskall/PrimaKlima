@@ -24,7 +24,7 @@
         </div>
       </div>
     
-      <div class="uk-hidden@m">
+      <div class="uk-hidden@m uk-width-1-1">
         <% include Footer %>
       </div>
       <% include NavMobile %>
