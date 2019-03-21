@@ -61,7 +61,7 @@ class GridFieldPrintMenu implements GridField_ColumnProvider, GridField_ActionPr
         if($actionName == 'printMenu') {
             $item->printPDF();
             // output a success message to the user
-            Controller::curr()->getResponse()->setStatusCode(
+            return Controller::curr()->getResponse()->setStatusCode(
                 200,
                 'Menu generiert.'
             );
