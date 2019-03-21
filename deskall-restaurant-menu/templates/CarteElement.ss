@@ -1,7 +1,7 @@
 <% if Type == "dish" %>
   <% with Dish %>
     <div>
-      <% if Description %>
+      <%-- <% if Description %>
       <strong class="uk-clearfix">$Title:</strong>
       <div class="uk-grid-small uk-flex uk-flex-bottom" data-uk-grid>
         <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$PrintDescription</div>
@@ -12,7 +12,7 @@
         <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$Title</div>
         <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
       </div>
-      <% end_if %>
+      <% end_if %> --%>
     </div>
   <%--   <% if Subdishes.exists %>
       <% loop Subdishes %>
