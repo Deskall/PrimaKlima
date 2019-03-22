@@ -272,7 +272,7 @@ class Slide extends DataObject
 
     public function ImageForTemplate(){
 
-        return $this->Image()->hasMethod('onAfterUpload');
+        return $this->Image()->hasMethod('AltTag');
 
 
         // $html = '<img ';
