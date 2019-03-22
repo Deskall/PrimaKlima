@@ -114,6 +114,7 @@ class ImageExtension extends Extension
     }
 
     public function HeightForWidth($width){
+        print_r('ici');
         return round($width / ($this->owner->getWidth() / $this->owner->getHeight()) , 0);
     }
 
