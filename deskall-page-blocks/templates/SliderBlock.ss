@@ -1,7 +1,7 @@
 
 <div data-uk-slideshow="<% if Height != "viewport" %><% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %><% end_if %> <% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};" class="dk-slider uk-visible-toggle uk-position-relative">
     <ul class="uk-slideshow-items" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
-        <% loop ActiveSlides %>
+        <% if RandomPlay %><% loop RandomSlides %><% else %><% loop ActiveSlides %><% end_if %>
         <li>
             <% if VideoID %>
             <video src="$Video.URL"  autoplay loop muted playslinline data-uk-cover></video>

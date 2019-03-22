@@ -37,7 +37,8 @@ class SliderBlock extends BaseElement implements Searchable
         'Nav' => 'Varchar(255)',
         'Height' => 'Varchar(255)',
         'MinHeight' => 'Varchar(255)',
-        'MaxHeight' => 'Varchar(255)'
+        'MaxHeight' => 'Varchar(255)',
+        'RandomPlay' => 'Boolean(0)'
     ];
 
     private static $has_one = [
@@ -164,6 +165,7 @@ class SliderBlock extends BaseElement implements Searchable
             $fields->removeByName('BackgroundImage');
             $fields->removeByName('Background');
             $fields->removeByName('TextLayout');
+            $fields->removeByName('RandomPlay');
 
             if ($this->ID == 0){
                 $fields->addFieldToTab('Root.Main',LabelField::create('LabelField',_t(__CLASS__.'.SlideCopyHelpText','Speichern Sie um Slides hinzufügen oder kopieren Sie eine andere Slider')));
@@ -198,6 +200,7 @@ class SliderBlock extends BaseElement implements Searchable
 
             $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
                 CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','Autoplay')),
+                CheckboxField::create('RandomPlay',_t(__CLASS__.'.RandomPlay','zufällige Anzeige?')),
                 DropdownField::create('Animation',_t(__CLASS__.'.Animation','Animation'), $this->getTranslatedSourceFor(__CLASS__,'animations')),
                 TextField::create('MinHeight',_t(__CLASS__.'.MinHeight','min. Höhe')),
                 TextField::create('MaxHeight',_t(__CLASS__.'.MaxHeight','max. Höhe'))
@@ -224,7 +227,13 @@ class SliderBlock extends BaseElement implements Searchable
         if (singleton('Slide')->hasExtension('Activable')){
             return $slides->filter('isVisible',1);
         }
-        return $slides();
+        return $slides;
+    }
+
+    public function RandomSlides(){
+        $slides = $this->activeSlides();
+        $slides = $slides->sort('RAND()');
+        return $slides;
     }
 
     public function NiceTitle(){
