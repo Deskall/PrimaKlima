@@ -12,7 +12,7 @@
                 <% else %>
                     <% if Image.exists %> 
                     <%-- <img  data-srcset="$Image.FocusFill(400,$Image.HeightForWidth(400)).Link 0w, $Image.FocusFill(800,$Image.HeightForWidth(800)).Link 600w, $Image.FocusFill(1000,$Image.HeightForWidth(1000)).Link 800w, $Image.FocusFill(1200,$Image.HeightForWidth(1200)).Link 1000w, $Image.FocusFill(1500,$Image.HeightForWidth(1500)).Link 1300w, $Image.FocusFill(2500,$Image.HeightForWidth(2500)).Link 1500w" alt="$Image.AtlTag($Title)" data-uk-cover sizes="100vw" data-uk-img> --%>
-                    <%-- $ImageForTemplate --%>
+                    $ImageForTemplate
                     <% end_if %>
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
