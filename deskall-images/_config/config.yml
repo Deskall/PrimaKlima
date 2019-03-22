@@ -27,8 +27,6 @@ SilverStripe\Filesystem\Storage\DBFile:
 
 SilverStripe\Assets\File:
   force_resample: true
-  extensions:
-    - ImageExtension
   allowed_extensions:
     - svg
   app_categories:
