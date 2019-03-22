@@ -30,7 +30,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
         'Width' => 'Varchar',
-        'Animation' => 'Varchar'
+        'Animation' => 'Varchar',
+        'BlockAlignment' => 'Varchar'
     ];
 
 
@@ -126,6 +127,34 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         ]
     ];
 
+    private static $block_alignments = [
+        'uk-flex uk-flex-left' =>  [
+            'value' => 'uk-flex uk-flex-left',
+            'title' => 'Links Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-block-left-align.svg'
+        ],
+        'uk-flex uk-flex-right' => [
+            'value' => 'uk-flex uk-flex-right',
+            'title' => 'Rechts Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-block-right-align.svg'
+        ],
+        'uk-flex uk-flex-center' =>  [
+            'value' => 'uk-flex uk-flex-center',
+            'title' => 'Mittel Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-block-center-align.svg'
+        ],
+        'uk-flex uk-flex-between' =>  [
+            'value' => 'uk-flex uk-flex-between',
+            'title' => 'Fügen Sie diese Klasse hinzu, um Elemente gleichmäßig zu verteilen, wobei der Abstand zwischen den Elementen entlang der Hauptachse gleich ist.',
+            'icon' => '/deskall-page-blocks/images/icon-block-between-align.svg'
+        ],
+         'uk-flex uk-flex-around' =>  [
+            'value' => 'uk-flex uk-flex-around',
+            'title' => 'Fügen Sie diese Klasse hinzu, um Artikel auf beiden Seiten gleichmäßig zu verteilen.',
+            'icon' => '/deskall-page-blocks/images/icon-block-between-align.svg'
+        ]
+    ];
+
 
 
     private static $block_text_columns = [
@@ -195,6 +224,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             TextField::create('Animation',_t(__CLASS__.'.Animation','Animation'))
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            HTMLOptionsetField::create('BlockAlignment',_t(__CLASS__.'.BlockAlignment','Blockausrichtung'),$this->owner->stat('block_alignments')),
             HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),
             HTMLOptionsetField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->stat('block_text_alignments')),
             HTMLOptionsetField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->stat('block_text_columns')),
