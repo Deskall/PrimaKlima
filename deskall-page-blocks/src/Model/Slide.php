@@ -271,7 +271,7 @@ class Slide extends DataObject
     }
 
     public function ImageForTemplate(){
-        $html = '<img alt="'.$this->Image()->AltTag($this->Title).'"';
+        $html = '<img ';
         $height = $this->Parent()->ImageHeight();
         $ratio = $this->getWidth() / $this->getHeight();
         $width = $ratio * $height;
