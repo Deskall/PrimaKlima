@@ -22,8 +22,6 @@ SilverStripe\Assets\Image:
 SilverStripe\Filesystem\Storage\DBFile:
   extensions:
     - ImageExtension
-
-SilverStripe\Assets\Storage\DBFile:
   force_resample: true
 
 SilverStripe\Assets\File:
