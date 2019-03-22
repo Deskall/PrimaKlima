@@ -26,7 +26,7 @@
                                 <% else %>
                                     <% if Title %><h2 class="$TitleAlign uk-h1">$Title</h2><% end_if %>
                                 <% end_if %>
-                                <div class="uk-text-lead uk-visible@s $TextAlign  $TextColumns">$Content</div>
+                                <div class="uk-text-lead $TextAlign  $TextColumns">$Content</div>
                                 <% if Effect == "parallax" %></div><% end_if %>
                                 <% if LinkableLinkID > 0 %>
                                     <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
