@@ -205,6 +205,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('AvailableGlobally');
         $fields->removeByName('Width');
         $fields->removeByName('Animation');
+        $fields->removeByName('BlockAlignment');
 
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
