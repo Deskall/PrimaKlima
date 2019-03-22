@@ -272,7 +272,7 @@ class Slide extends DataObject
 
     public function ImageForTemplate(){
 
-        return $this->Image()->hasMethod('AltTag');
+        return $this->Image()->AltTag($this->Title);
 
 
         // $html = '<img ';
