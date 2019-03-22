@@ -18,7 +18,7 @@
                 <% if Effect == "kenburns" %></div><% end_if %>
                 <% end_if %>
             </div>
-            <div class="dk-slide-text-container dk-overlay $Background uk-height-1-1 ">
+            <div class="dk-slide-text-container dk-overlay uk-position-absolute $Background uk-height-1-1 ">
                 <div class="uk-container uk-height-1-1 <% if $Top.FullWidth %>uk-container-expand<% end_if %>">
                     <div class="uk-position-relative uk-height-1-1">
                         <div class="dk-slide-text $TextPosition $TextBackground $TextWidth $TextOffset <% if TextOpacity %>uk-overlay<% end_if %> <% if TextBackground != "no-bg" %>uk-padding-small<% end_if %>">
