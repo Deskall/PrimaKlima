@@ -3,7 +3,7 @@
     <ul class="uk-slideshow-items" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
         <% loop ActiveSlides %>
         <li class="uk-overflow-auto">
-            <div class="media-container uk-overflow-hidden">
+            <div class="media-container uk-overflow-hidden uk-height-1-1 uk-width-1-1">
                 <% if VideoID %>
                 <video src="$Video.URL"  autoplay loop muted playslinline data-uk-cover></video>
                 <% else %>
