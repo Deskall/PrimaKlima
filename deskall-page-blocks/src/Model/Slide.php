@@ -276,7 +276,7 @@ class Slide extends DataObject
         $height = $this->Parent()->ImageHeight();
         $ratio = $this->Image()->getWidth() / $this->Image()->getHeight();
         $width = $ratio * $height;
-        $html .= ' src="'.$this->Image()->FocusFillMax($width,$height)->Link().'" />';
+        $html .= ' src="'.$this->Image()->FocusFillMax($width,$height)->Link().'" data-uk-cover />';
 
         return DBField::create_field('HTMLText',$html);
     }
