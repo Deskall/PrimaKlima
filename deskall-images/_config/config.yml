@@ -19,6 +19,7 @@ SilverStripe\Assets\Image:
   memory: 512M
   extensions:
     - ImageExtension
+
 SilverStripe\Filesystem\Storage\DBFile:
   extensions:
     - ImageExtension
