@@ -9,6 +9,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\ORM\FieldType\DBField;
 
 class Slide extends DataObject
 {
@@ -267,6 +268,16 @@ class Slide extends DataObject
             $this->getPage()->publishSingle();
         }
         
+    }
+
+    public function ImageForTemplate(){
+        $html = '<img alt="'.$this->Image()->AltTag($this->Title).'"';
+        $height = $this->Parent()->ImageHeight();
+        $ratio = $this->getWidth() / $this->getHeight();
+        $width = $ratio * $height;
+        $html .= ' src="'.$this->Image()->FocusFillMax($width,$height)->Link().'" />';
+
+        return DBField::create_field('HTMLText',$html);
     }
 
     /************* TRANLSATIONS *******************/
