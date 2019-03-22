@@ -11,8 +11,8 @@
                 <img src="$Image.Link" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-cover />
                 <% else %>
                     <% if Image.exists %> 
-                    <%-- <img  data-src="$Image.FocusFillMax(400,$Image.HeightForWidth(400)).Link" data-srcset="$Image.FocusFillMax(400,$Image.HeightForWidth(400)).Link 0w, $Image.FocusFillMax(800,$Image.HeightForWidth(800)).Link 600w, $Image.FocusFillMax(1000,$Image.HeightForWidth(1000)).Link 800w, $Image.FocusFillMax(1200,$Image.HeightForWidth(1200)).Link 1000w, $Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).Link 1300w, $Image.FocusFillMax(2500,$Image.HeightForWidth(2500)).Link 1500w" alt="$Image.AtlTag($Title)" data-uk-cover sizes="100vw" data-uk-img> --%>
-                    $ImageForTemplate
+                    <img  data-src="$Image.FocusFillMax(400,$Image.HeightForWidth(400)).Link" data-srcset="$Image.FocusFillMax(400,$Image.HeightForWidth(400)).Link 0w, $Image.FocusFillMax(800,$Image.HeightForWidth(800)).Link 600w, $Image.FocusFillMax(1000,$Image.HeightForWidth(1000)).Link 800w, $Image.FocusFillMax(1200,$Image.HeightForWidth(1200)).Link 1000w, $Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).Link 1300w, $Image.FocusFillMax(2500,$Image.HeightForWidth(2500)).Link 1500w" alt="$Image.AtlTag($Title)" sizes="100vw" data-uk-img>
+                    <%-- $ImageForTemplate --%>
                     <% end_if %>
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
