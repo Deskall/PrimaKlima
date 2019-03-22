@@ -223,10 +223,9 @@ class SliderBlock extends BaseElement implements Searchable
     }
 
     public function ActiveSlides(){
-        $slides = ($this->ReferentID > 0) ? $this->Referent()->Slides() : $this->Slides();
-        if (singleton('Slide')->hasExtension('Activable')){
-            return $slides->filter('isVisible',1);
-        }
+        $slides = ($this->ReferentID > 0) ? $this->Referent()->Slides()->filter('isVisible',1) : $this->Slides()->filter('isVisible',1);
+        
+        
         if ($this->RandomPlay){
             return $slides->sort('RAND()');
         }
