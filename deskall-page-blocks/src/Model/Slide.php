@@ -271,13 +271,17 @@ class Slide extends DataObject
     }
 
     public function ImageForTemplate(){
-        $html = '<img ';
-        $height = $this->Parent()->ImageHeight();
-        $ratio = $this->Image()->getWidth() / $this->Image()->getHeight();
-        $width = $ratio * $height;
-        $html .= ' src="'.$this->Image()->FocusFillMax($width,$height)->Link().'" />';
 
-        return DBField::create_field('HTMLText',$html);
+        return $this->Image()->hasExtension('ImageExtension');
+
+
+        // $html = '<img ';
+        // $height = $this->Parent()->ImageHeight();
+        // $ratio = $this->Image()->getWidth() / $this->Image()->getHeight();
+        // $width = $ratio * $height;
+        // $html .= ' src="'.$this->Image()->FocusFillMax($width,$height)->Link().'" />';
+
+        // return DBField::create_field('HTMLText',$html);
     }
 
     /************* TRANLSATIONS *******************/
