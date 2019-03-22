@@ -182,6 +182,7 @@ class SliderBlock extends BaseElement implements Searchable
                 if (singleton('Slide')->hasExtension('Activable')){
                      $config->addComponent(new GridFieldShowHideAction());
                 }
+                $config->addComponent(new GridFieldDuplicateAction());
                 $slidesField = new GridField('Slides',_t(__CLASS__.'.Slides','Slides'),$this->Slides(),$config);
                 $fields->addFieldToTab('Root.Main',$slidesField);
             }
