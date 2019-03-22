@@ -222,7 +222,7 @@ class SliderBlock extends BaseElement implements Searchable
         return _t(__CLASS__ . '.BlockType', 'Slideshow');
     }
 
-    public function activeSlides(){
+    public function ActiveSlides(){
         $slides = ($this->ReferentID > 0) ? $this->Referent()->Slides() : $this->Slides();
         if (singleton('Slide')->hasExtension('Activable')){
             return $slides->filter('isVisible',1);
