@@ -103,6 +103,10 @@ class MenuCarte extends DataObject{
         return $this->Elements()->filter('isVisible',1);
     }
 
+    public function WebActiveElements(){
+        return $this->Elements()->filter(['isVisible' => 1,'ShowOnWeb' => 1]);
+    }
+
     public function printPDF(){
 
 
