@@ -8,10 +8,10 @@
             <% else %>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
                 <% if $Image.getExtension == "svg" %>
-                <img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-cover />
+                <img src="$Image.Link" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-cover />
                 <% else %>
                     <% if Image.exists %> 
-                    <img src="$Image.FocusFill(1200,800).URL" data-srcset="$Image.FocusFill(320,250).URL 320w, $Image.FocusFill(650,500).URL 650w, $Image.FocusFill(1200,800).URL 1200w, $Image.FocusFill(2500,1500).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
+                    <img  data-src="$Image.FocusFillMax(400,$Image.HeightForWidth(400)).Link" data-srcset="$Image.FocusFillMax(400,$Image.HeightForWidth(400)).Link 10w, $Image.FocusFillMax(800,$Image.HeightForWidth(800)).Link 600w, $Image.FocusFillMax(1000,$Image.HeightForWidth(1000)).Link 800w, $Image.FocusFillMax(1200,$Image.HeightForWidth(1200)).Link 1000w, $Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).Link 1300w, $Image.FocusFillMax(2500,$Image.HeightForWidth(2500)).Link 1500w" alt="$Image.AtlTag($Title)" data-uk-cover sizes="100vw" data-uk-img>
                     <% end_if %>
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
@@ -19,14 +19,14 @@
                 <div class="dk-slide-text-container dk-overlay $Background uk-height-1-1 ">
                     <div class="uk-container uk-height-1-1 <% if $Top.FullWidth %>uk-container-expand<% end_if %>">
                         <div class="uk-position-relative uk-height-1-1">
-                            <div class="$TextPosition $TextBackground $TextWidth <% if TextOpacity %>uk-overlay<% end_if %> <% if TextBackground != "no-bg" %>uk-padding-small<% end_if %>">
+                            <div class="dk-slide-text $TextPosition $TextBackground $TextWidth $TextOffset <% if TextOpacity %>uk-overlay<% end_if %> <% if TextBackground != "no-bg" %>uk-padding-small<% end_if %>">
                                 <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
                                 <% if Up.isPrimary && isMainSlide %>
                                     <h1 class="$TitleAlign">$getPage.Title</h1>
                                 <% else %>
                                     <% if Title %><h2 class="$TitleAlign uk-h1">$Title</h2><% end_if %>
                                 <% end_if %>
-                                <div class="uk-text-lead uk-visible@s $TextAlign  $TextColumns">$Content</div>
+                                <div class="uk-text-lead $TextAlign  $TextColumns">$Content</div>
                                 <% if Effect == "parallax" %></div><% end_if %>
                                 <% if LinkableLinkID > 0 %>
                                     <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>

@@ -11,7 +11,7 @@
 		<div class="$FilesTextAlign $FilesColumns" data-uk-grid>
 		<% loop Files %>
 		<div>
-			<a href="$URL" title="Download $Title" class="uk-text-truncate uk-display-block" target="_blank">$Title</a>
+			<a href="$URL" title="Download $Title" class="uk-text-truncate" target="_blank">$Title</a>
 		</div>
 		<% end_loop %>
 		</div>

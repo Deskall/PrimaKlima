@@ -36,6 +36,7 @@ class MapBlock extends BaseElement implements Searchable
         'streetViewControlOptions' => 'Text',
         'scaleControl' => 'Boolean(1)',
         'fullscreenControl' => 'Boolean(1)',
+        'InfoWindowHTML' => 'HTMLText'
 
     ];
 
@@ -81,6 +82,11 @@ class MapBlock extends BaseElement implements Searchable
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
+                ->setRows(5);
+
+            $fields
+                ->fieldByName('Root.Main.InfoWindowHTML')
+                ->setTitle(_t(__CLASS__ . '.InfoWindowHTMLLabel', 'Inhalt der Infowindow'))
                 ->setRows(5);
                 
             $fields->addFieldToTab('Root.Main',TextField::create('Adresse',_t(__CLASS__.'.Adresse','Adresse')),'HTML');
