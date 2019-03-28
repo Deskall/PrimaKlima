@@ -26,7 +26,8 @@ class MenuCarteElement extends DataObject{
     private static $db = [
         'Type' => 'Varchar',
         'Title' => 'Varchar',
-        'Content' => 'HTMLText'
+        'Content' => 'HTMLText',
+        'ShowOnWeb' => 'Boolean(0)'
     ];
 
     private static $has_one = [
@@ -59,7 +60,7 @@ class MenuCarteElement extends DataObject{
         $labels['Karte'] = _t(__CLASS__.'.Karte','Karte');
         $labels['Menu'] = _t(__CLASS__.'.Menu','Menü');
         $labels['Dish'] = _t(__CLASS__.'.Dish','Speise');
-     
+        $labels['ShowOnWeb'] = _t(__CLASS__.'.ShowOnWeb','Auf Web anzeigen?');
         return $labels;
     }
 
