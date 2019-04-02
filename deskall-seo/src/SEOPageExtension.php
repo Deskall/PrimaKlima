@@ -115,19 +115,59 @@ class SEOPageExtension extends DataExtension
 	public function StructuredData() {
 
 		$siteConfig = SiteConfig::current_site_config();
-		$sd = '<script type="application/ld+json">';
-		$sd .= '{"@context": "http://schema.org",' . "\n";
-		$sd .= '"@type": "WebPage",' . "\n";
-		$sd .= '"url": "'.rtrim(Director::AbsoluteUrl($this->owner->Link()),'/').'",' . "\n";
-		$sd .= '"description": "'.$this->owner->MetaDescription.'",' . "\n";
-		if ($this->owner->OpenGraphImage()){
-			$sd .= '"image": "'.Director::absoluteBaseURL().ltrim($this->owner->OpenGraphImage(),"/").'"'. "\n";
-		}
-		
-		$sd .= '}'. "\n";
-		$sd .= '</script>';
+		$sd = '<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "WebPage",
+			"url": "'.rtrim(Director::AbsoluteUrl($this->owner->Link()),'/').'",
+			"description": "'.$this->owner->PrintDescription().'"';
 
-		return $sd;
+		if ($this->owner->OpenGraphImage()){
+			$sd .= ',"image": "'.Director::absoluteBaseURL().ltrim($this->owner->OpenGraphImage(),"/");
+		}
+
+		$sd .= "\n".'}
+		</script>';
+
+		return DBField::create_field('HTMLText',$sd);
+	}
+
+
+	public function getStructuredBreadcrumbs(){
+
+	  $pages = $this->owner->getBreadcrumbItems();
+	  $array = [];
+	  $i = 1;
+	  foreach ($pages as $page) {
+	    $array[] = ["@type" => "ListItem", "position" => $i,"item" => ["@id" => Director::AbsoluteURL($page->Link()), "name" => $page->Title, "@type" => "WebPage"]];
+	    $i++;
+	  }
+
+	  $html = '<script type="application/ld+json">
+	  {
+	    "@context": "http://www.schema.org",
+	    "@type": "BreadcrumbList",
+	    "itemListElement": '.json_encode($array).'
+	  }
+	  </script>';
+	   return DBField::create_field('HTMLText',$html);
+	}
+
+	public function PrintDescription(){
+		if ($this->owner->MetaDescription != ""){
+			return $this->owner->MetaDescription;
+		}
+		$content = '';
+		foreach ($this->owner->ElementalArea()->Elements()->filter('isVisible',1) as $block) {
+			if ($block->HTML){
+				$content .= $block->HTML;
+			}
+			if ($block->Content){
+				$content .= $block->content;
+			}
+		}
+
+		return DBField::create_field('HTMLText',$content)->LimitWordCount(60);
 	}
 
 
