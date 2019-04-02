@@ -167,6 +167,7 @@ class SEOPageExtension extends DataExtension
 				$content .= $block->content;
 			}
 		}
+		$content = trim(str_replace("\n"," ",$content));
 
 		return DBField::create_field('HTMLText',$content)->LimitWordCount(60);
 	}
