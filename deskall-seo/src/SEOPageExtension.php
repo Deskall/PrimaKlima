@@ -16,6 +16,7 @@ use SilverStripe\View\SSViewer;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\ORM\FieldType\DBField;
 
 class SEOPageExtension extends DataExtension
 {
