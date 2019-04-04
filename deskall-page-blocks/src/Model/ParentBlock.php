@@ -25,7 +25,11 @@ class ParentBlock extends ElementList
         'CollapseMultipe' => 'Boolean(1)',
         'CanCollapse' => 'Boolean(1)',
         'HTML' => 'HTMLText',
-        'Slide' => 'Boolean(0)'
+        'Slide' => 'Boolean(0)',
+        'Autoplay' => 'Boolean(0)',
+        'ShowDot' => 'Boolean(1)',
+        'ShowNav' => 'Boolean(0)',
+        'infiniteLoop' => 'Boolean(1)'
     ];
 
     private static $table_name = 'ParentBlock';
@@ -97,6 +101,10 @@ class ParentBlock extends ElementList
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
             CheckboxField::create('Slide',_t(__CLASS__.'.Slide','Blöcke als Gallerie einrichten?')),
+            CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
+            CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
+            CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches abspielen?')),
+            CheckboxField::create('infiniteLoop',_t(__CLASS__.'.inifite','unendlish abspielen?')),
             CheckboxField::create('Border',_t(__CLASS__.'.Border','Border zwischen Blöcke anzeigen')),
             CheckboxField::create('matchHeight',_t(__CLASS__.'.SameHeight','gleiche Höhe für alle Blöcke benutzen'))
         )->setTitle(_t(__CLASS__.'.Layout','Layout'))->setName('Layout'));
