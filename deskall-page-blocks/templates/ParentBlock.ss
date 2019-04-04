@@ -5,7 +5,7 @@
 	<div data-uk-slider="center: true">
 	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
 	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
-	        	 <% loop $ElementControllers %>
+	        	 <% loop $Elements.Elements %>
 				  <li>$Me</li>
 			    <% end_loop %>
 	        </ul>
