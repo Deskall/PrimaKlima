@@ -96,7 +96,11 @@ class ParentBlock extends ElementList
         $fields->removeByName('CollapsableChildren'); 
         $fields->removeByName('CollapseMultipe'); 
         $fields->removeByName('CanCollapse');
-        $fields->removeByName('Slide');  
+        $fields->removeByName('Slide');
+        $fields->removeByName('Autoplay');
+        $fields->removeByName('ShowDot');
+        $fields->removeByName('ShowNav');
+        $fields->removeByName('infiniteLoop');
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
