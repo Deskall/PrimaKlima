@@ -6,7 +6,7 @@
 	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
 	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
 	        	<% loop $Elements %>
-	        	<li>$Me</li>
+	        	<li>$ClassName</li>
 	        	<% end_loop %>
 	        </ul>
 	    </div>
