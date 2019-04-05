@@ -56,7 +56,7 @@
 
 		</div>
 	<% else_if Layout == "grid" %>
-		<div class="uk-flex-center $PicturesPerLine uk-grid-small" data-uk-height-match=".uk-card-body" data-uk-grid>
+		<div class="uk-flex-center $PicturesPerLine uk-grid-small" data-uk-height-match="target:.uk-card-body;row:true;" data-uk-grid>
 			<% loop activeBoxes %>
 			<div>
 				<div class="uk-card uk-card-default uk-margin-bottom">
