@@ -33,13 +33,6 @@ class DeskallPageExtension extends DataExtension
     	return ThemeResourceLoader::inst()->getThemePaths(SSViewer::get_themes())[0];
     }
 
-    public function onBeforeWrite(){
-        parent::onBeforeWrite();
-        if ($this->owner->ID == 0 && $this->owner->getPageLevel() == 1){
-            $this->owner->ShowInMainMenu = true;
-        }
-    }
-
     public function updateCMSFields(FieldList $fields){
         if ($this->owner->ShowInMenus ){
             $field = OptionsetField::create('ShowInMainMenu',_t(__CLASS__.'.ShowInMainMenuLabel','In welchem Menu sollt diese Seite anzeigen ?'), $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
@@ -98,6 +91,11 @@ class DeskallPageExtension extends DataExtension
                 }
                 $oldFolder->ParentID = $newParentFolder->ID;
                 $oldFolder->write();
+            }
+        }
+        else{
+            if $this->owner->getPageLevel() == 1){
+                $this->owner->ShowInMainMenu = true;
             }
         }
     	
