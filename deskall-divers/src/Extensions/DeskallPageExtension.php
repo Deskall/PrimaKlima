@@ -19,7 +19,7 @@ use SilverStripe\Subsites\Model\Subsite;
 class DeskallPageExtension extends DataExtension
 {
 	 private static $db = [
-        'ShowInMainMenu' => 'Boolean(1)'
+        'ShowInMainMenu' => 'Boolean'
     ];
 
     private static $has_one = [];
@@ -31,6 +31,13 @@ class DeskallPageExtension extends DataExtension
 
     public function ThemeDir(){
     	return ThemeResourceLoader::inst()->getThemePaths(SSViewer::get_themes())[0];
+    }
+
+    public function onBeforeWrite(){
+        parent::onBeforeWrite();
+        if ($this->owner->ID == 0 && $this->owner->getPageLevel() == 1){
+            $this->owner->ShowInMainMenu = true;
+        }
     }
 
     public function updateCMSFields(FieldList $fields){
