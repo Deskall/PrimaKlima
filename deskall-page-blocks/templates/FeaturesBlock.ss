@@ -5,9 +5,9 @@
 	<% if $FeaturesTitle %>
 		<h3>$FeaturesTitle</h3>
 	<% end_if %>
-	<ul class="dk-list $FeaturesColumns $FeaturesTextAlign uk-grid-small" data-uk-grid>
+	<ul class="dk-list $FeaturesColumns $FeaturesTextAlign uk-grid-small uk-margin-medium" data-uk-grid>
 	<% loop activeFeatures %> 
-	    <li><span <% if Top.FeaturesTextBig %>class="dk-large-icon uk-text-large"<% end_if %> data-uk-icon="icon: $Top.IconItem;">$Text</span></li>
+	    <li><div class="uk-inline"><span class="<% if Top.FeaturesTextBig %>dk-large-icon uk-text-large<% end_if %>" data-uk-icon="icon: $Top.IconItem;"></span><span class="icon-text">$Text</span></div></li>
 	<% end_loop %>
 	</ul>
 <% end_if %>

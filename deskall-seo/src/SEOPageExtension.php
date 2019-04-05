@@ -152,6 +152,7 @@ class SEOPageExtension extends DataExtension
 	  }
 	  </script>';
 	   return DBField::create_field('HTMLText',$html);
+
 	}
 
 	public function PrintDescription(){

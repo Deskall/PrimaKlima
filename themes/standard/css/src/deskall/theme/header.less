@@ -2,6 +2,7 @@
 @mobile-nav-item-height:40px;
 
 .hook-main-nav-dropdown() {}
+.hook-second-nav-dropdown() {}
 
 header{
 	margin-bottom:@header-margin-bottom;
@@ -79,6 +80,27 @@ header .uk-navbar-nav.main .uk-navbar-dropdown{
 		}
 	}
 	.hook-main-nav-dropdown;
+}
+
+header .second.uk-dropdown{
+	margin:0;
+	padding: 0 @main-subnavi-padding;
+	box-shadow:none;
+	background-color: @main-subnavi-background;
+	.uk-dropdown-nav > li {
+		padding: 0 @main-subnavi-padding;
+		> a{
+			padding:0;
+			color:@main-subnavi-color;
+		}
+	}
+	.uk-dropdown-nav > li:hover{
+		background-color: @main-subnavi-hover-background;
+		> a{
+			color: @main-subnavi-hover-color;
+		}
+	}
+	.hook-second-nav-dropdown;
 }
 
 //MOBILE NAVIGATION

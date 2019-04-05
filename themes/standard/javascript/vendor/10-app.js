@@ -126,7 +126,7 @@ $(document).ready(function(){
 $(document).ready(function(){
   $(".dk-text-content table").each(function(){
     $(this).wrap('<div class="uk-overflow-auto"></div>');
-      $(this).addClass("uk-table uk-table-striped uk-table-small");
+      $(this).addClass("uk-table uk-table-small");
       if ($(this).width() > $(window).width()){
           divContainer = $("<div></div>");
           divContainer.addClass("uk-overflow-auto");

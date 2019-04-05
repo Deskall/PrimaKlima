@@ -9,6 +9,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\ORM\FieldType\DBField;
 
 class Slide extends DataObject
 {
@@ -43,6 +44,11 @@ class Slide extends DataObject
     ];
 
     private static $block_text_positions = [
+        '' =>  [
+            'value' => '',
+            'title' => 'Keine',
+            'icon' => 'Keine'
+        ],
         'uk-position-bottom-left' =>  [
             'value' => 'uk-position-bottom-left',
             'title' => 'Bottom left',
@@ -262,6 +268,17 @@ class Slide extends DataObject
             $this->getPage()->publishSingle();
         }
         
+    }
+
+    public function ImageForTemplate(){
+
+        $html = '<img ';
+        $height = $this->Parent()->ImageHeight();
+        $ratio = $this->Image()->getWidth() / $this->Image()->getHeight();
+        $width = $ratio * $height;
+        $html .= ' src="'.$this->Image()->FocusFillMax($width,$height)->Link().'" data-uk-cover />';
+
+        return DBField::create_field('HTMLText',$html);
     }
 
     /************* TRANLSATIONS *******************/
