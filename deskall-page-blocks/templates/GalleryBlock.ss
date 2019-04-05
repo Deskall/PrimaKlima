@@ -12,7 +12,7 @@
 			<div class="uk-position-relative uk-visible-toggle">
 				<div class="uk-slider-container">
 					<ul class="uk-slider-items $PicturesPerLine" data-uk-height-match=".uk-card-body" data-uk-grid>
-						<% loop Boxes %>
+						<% loop activeBoxes %>
 						<li>
 							<div class="uk-card uk-card-default uk-margin-bottom">
 								<div class="uk-card-media-top">
@@ -57,7 +57,7 @@
 		</div>
 	<% else_if Layout == "grid" %>
 		<div class="uk-flex-center $PicturesPerLine uk-grid-small" data-uk-height-match=".uk-card-body" data-uk-grid>
-			<% loop Boxes %>
+			<% loop activeBoxes %>
 			<div>
 				<div class="uk-card uk-card-default uk-margin-bottom">
 					<div class="uk-card-media-top">

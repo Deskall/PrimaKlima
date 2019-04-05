@@ -189,6 +189,10 @@ class GalleryBlock extends BaseElement implements Searchable
         return $this->Images()->sort($this->SortAttribute);
     }
 
+    public function activeBoxes(){
+        return $this->Boxes()->filter('isVisible',1);
+    }
+
     public function onBeforeWrite(){
         parent::onBeforeWrite();
         $widthF = 2500;
