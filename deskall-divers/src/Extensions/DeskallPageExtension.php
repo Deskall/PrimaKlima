@@ -94,7 +94,7 @@ class DeskallPageExtension extends DataExtension
             }
         }
         else{
-            if $this->owner->getPageLevel() == 1){
+            if ($this->owner->getPageLevel() == 1){
                 $this->owner->ShowInMainMenu = true;
             }
         }
