@@ -147,6 +147,7 @@ class BoxBlock extends BaseElement implements Searchable
             $fields->removeByName('BoxPerLine');
             $fields->removeByName('Effect');
             $fields->removeByName('Layout');
+            $fields->removeByName('FullLink');
 
             $fields->FieldByName('Root.Main.HTML')->setRows(5);
                 
