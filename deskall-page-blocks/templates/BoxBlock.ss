@@ -7,7 +7,7 @@
 		<% end_if %>
 		<div data-uk-height-match="target:h3;row:false;" class="uk-margin">
 			<div data-uk-height-match="target:.dk-box-content p;row:false;">
-				<div class="$BoxPerLine $BoxTextAlign uk-grid-medium" data-uk-grid data-uk-lightbox="toggle:.dk-lightbox" data-uk-height-match="target:img;row:false;">
+				<div class="$BoxPerLine $BoxTextAlign uk-grid-medium" data-uk-grid  <% if not FullLink %>data-uk-lightbox="toggle:.dk-lightbox" <% end_if %>data-uk-height-match="target:img;row:false;">
 					<% loop ActiveBoxes %>
 					<% if FullLink && LinkableLinkID > 0 && $LinkableLink.LinkURL%>
 		   				 <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr}>
