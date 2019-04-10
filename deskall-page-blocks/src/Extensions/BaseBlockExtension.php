@@ -16,6 +16,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\ORM\DataObject;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
