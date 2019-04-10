@@ -288,7 +288,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     public function getRealPage(){
         $parent = $this->owner->getPage();
-        while(!in_array(SiteTree::class,$parent->getAncestralClasses())){
+        while(!in_array(SiteTree::class,$parent->getClassAncestry())){
             $parent = $parent->getPage();
         }
         return $parent;
