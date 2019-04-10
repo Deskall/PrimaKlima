@@ -78,7 +78,7 @@
 					    </div>
 					    <% end_if %>
 					</div>
-					<% if FullLink && LinkableLinkID > 0 && $LinkableLink.LinkURL%>
+					<% if Top.FullLink && LinkableLinkID > 0 && $LinkableLink.LinkURL%>
 					</a>
 					<% end_if %>
 					<% end_loop %>
