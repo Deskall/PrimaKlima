@@ -9,7 +9,7 @@
 			<div data-uk-height-match="target:.dk-box-content p;row:false;">
 				<div class="$BoxPerLine $BoxTextAlign uk-grid-medium" data-uk-grid  <% if not FullLink %>data-uk-lightbox="toggle:.dk-lightbox" <% end_if %>data-uk-height-match="target:img;row:false;">
 					<% loop ActiveBoxes %>
-					<% if FullLink && LinkableLinkID > 0 && $LinkableLink.LinkURL%>
+					<% if Top.FullLink && LinkableLinkID > 0 && $LinkableLink.LinkURL%>
 		   				 <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr}>
 					<% end_if %>
 					<div class="uk-transition-toggle uk-height-1-1" tabindex="0">
@@ -28,9 +28,9 @@
 					    	</div>
 					    	<% else %>
 					    	
-					    		<a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description">
+					    		<% if not Top.FullLink %><a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description"><% end_if %>
 					    			<img class="uk-width-1-1 <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" dat-src="$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
-						    	</a>
+						    	<% if not Top.FullLink %></a><% end_if %>
 						    
 					    	<% end_if %>
 					    <% end_if %>
