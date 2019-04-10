@@ -35,7 +35,8 @@ class BoxBlock extends BaseElement implements Searchable
         'Effect' => 'Varchar(255)',
         'BoxTextAlign' => 'Varchar(255)',
         'PictureWidth' => 'Int',
-        'PictureHeight' => 'Int'
+        'PictureHeight' => 'Int',
+        'FullLink' => 'Boolean(0)'
     ];
 
     private static $has_many = [
@@ -154,7 +155,8 @@ class BoxBlock extends BaseElement implements Searchable
                 HTMLOptionsetField::create('Layout',_t(__CLASS__.'.BoxTemplate','Box Inhalt Position'), $this->stat('block_layouts')),
                 HTMLOptionsetField::create('BoxTextAlign',_t(__CLASS__.'.BoxTextAlignment','Boxen Textausrichtung'),$this->stat('boxes_text_alignments')),
                 HTMLOptionsetField::create('BoxPerLine',_t(__CLASS__.'.BoxPerLine','Boxen per Linie'), $this->stat('boxes_per_line')),
-                DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt auf Mouseover'), $this->getTranslatedSourceFor(__CLASS__,'effects'))
+                DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt auf Mouseover'), $this->getTranslatedSourceFor(__CLASS__,'effects')),
+                CheckboxField::create('FullLink',_t(__CLASS__.'.FullLink','ganze Box anklickbar?'))
                 )->setTitle(_t(__CLASS__.'.BoxFormat','Boxen Format'))->setName('BoxLayout'));
                 
                 $config = GridFieldConfig_RecordEditor::create();

@@ -9,6 +9,9 @@
 			<div data-uk-height-match="target:.dk-box-content p;row:false;">
 				<div class="$BoxPerLine $BoxTextAlign uk-grid-medium" data-uk-grid data-uk-lightbox="toggle:.dk-lightbox" data-uk-height-match="target:img;row:false;">
 					<% loop ActiveBoxes %>
+					<% if FullLink && LinkableLinkID > 0 && $LinkableLink.LinkURL%>
+		   				 <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr}>
+					<% end_if %>
 					<div class="uk-transition-toggle uk-height-1-1" tabindex="0">
 						<% if Top.Layout == "inversed" %>
 						<h3 class="uk-margin">$Title</h3>
@@ -75,6 +78,9 @@
 					    </div>
 					    <% end_if %>
 					</div>
+					<% if FullLink && LinkableLinkID > 0 && $LinkableLink.LinkURL%>
+					</a>
+					<% end_if %>
 					<% end_loop %>
 				</div>
 			</div>
