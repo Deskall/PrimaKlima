@@ -94,7 +94,7 @@ class MenuCarte extends DataObject{
         if($this->File()->exists()){
             $html = '<a href="'.$this->File()->getURL().'" title="Herunterladen" target="_blank">Herunterladen</a>';
             if ($this->LastEdited > $this->File()->LastEdited){
-              $html .= " (letzte Änderungen wurde noch nicht in PDF aktualisiert.)";
+              $html .= " (Ihre letzte Änderungen wurden noch nicht in PDF aktualisiert.)";
             }
             return DBField::create_field('HTMLText',$html);
         }
