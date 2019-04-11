@@ -84,7 +84,7 @@ class MenuCarteElement extends DataObject{
     }
 
     public function NiceType(){
-        $types = ['menu' => 'Menü','dish' => 'Speise','group' => 'grupp','element' => 'Inhalt', 'divider' => 'Linie','pagebreak' => 'Seitenumbruch'];
+        $types = ['menu' => 'Menü','dish' => 'Speise','group' => 'Grupp','element' => 'Inhalt', 'divider' => 'Linie','pagebreak' => 'Seitenumbruch'];
         return $types[$this->Type];
     }
 

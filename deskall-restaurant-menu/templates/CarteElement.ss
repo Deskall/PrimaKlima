@@ -58,7 +58,7 @@
 <% if Type == "menu" %>
   
   <div>
-    <div class="uk-clearfix"><div class="uk-float-left"><strong>$Title</strong><strong class="uk-margin-left">$PrintPrice</strong></div></div>
+    <div class="uk-clearfix"><div class="uk-float-left"><strong>$Menu.Title</strong><strong class="uk-margin-left">$Menu.PrintPrice</strong></div></div>
     <% loop $Menu.Dishes %>
     <div>
       $Title
