@@ -243,15 +243,13 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             
             $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(DropdownField::create('Width',_t('LayoutBlock.Width','Breite'),$this->owner->getTranslatedSourceFor('LayoutBlock','widths'))->setEmptyString(_t('LayoutBlock.WidthLabel','Breite auswählen'))->setDescription(_t('LayoutBlock.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
         
-            if ($history = $fields->FieldByName('Root.History') ){
-                $fields->removeByName('History');
-                $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
-                $fields->addFieldToTab('Root',$history);
-            }
-
-
             $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LAYOUTTAB','Layout'));
     
+        }
+        if ($history = $fields->FieldByName('Root.History') ){
+            $fields->removeByName('History');
+            $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
+            $fields->addFieldToTab('Root',$history);
         }
 
         if ($this->owner->isPrimary){
