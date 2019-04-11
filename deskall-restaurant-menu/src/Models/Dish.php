@@ -69,7 +69,7 @@ class Dish extends DataObject{
         $labels['PrintThumbnail'] = _t(__CLASS__.'.Image','Bild');
         $labels['Category'] = _t(__CLASS__.'.Category','Speise Sort');
         $labels['CategoryID'] = _t(__CLASS__.'.Category','Speise Sort');
-     
+        $labels['Subdishes'] = _t(__CLASS__.'.Subdishes','Untenspeisen');
         return $labels;
     }
 
