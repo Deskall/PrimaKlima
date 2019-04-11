@@ -88,7 +88,12 @@ class Box extends DataObject
     }
 
     public function getFolderName(){
-        return $this->Parent()->getFolderName();
+        if ($this->Parent()->exists()){
+            return $this->Parent()->getFolderName();
+        }
+        if ($this->Gallery()->exists()){
+            return $this->Gallery()->getFolderName();
+        }
     }
 
     public function getSummary()

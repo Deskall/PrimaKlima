@@ -27,16 +27,16 @@ class PageBlocksExtension extends DataExtension {
 	}
 
 	public function checkLead(){
-		$ElementalArea = $this->owner->ElementalArea(); 
-		$hasLead = BaseElement::get()->filter(array('ParentID' => $ElementalArea->ID, 'isPrimary' => 1))->count();
-		if (!$hasLead){
-			$lead = new LeadBlock();
-			$lead->ParentID = $ElementalArea->ID;
-			$lead->HTML = $this->owner->Content;
-			$lead->isPrimary = 1;
-			$lead->Sort = 1;
-			$lead->write();
-		}
+		// $ElementalArea = $this->owner->ElementalArea(); 
+		// $hasLead = BaseElement::get()->filter(array('ParentID' => $ElementalArea->ID, 'isPrimary' => 1))->count();
+		// if (!$hasLead){
+		// 	$lead = new LeadBlock();
+		// 	$lead->ParentID = $ElementalArea->ID;
+		// 	$lead->HTML = $this->owner->Content;
+		// 	$lead->isPrimary = 1;
+		// 	$lead->Sort = 1;
+		// 	$lead->write();
+		// }
 	}
 
 	public function onBeforeWrite(){

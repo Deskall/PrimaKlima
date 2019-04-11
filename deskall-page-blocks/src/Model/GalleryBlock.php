@@ -86,9 +86,9 @@ class GalleryBlock extends BaseElement implements Searchable
     private static $pictures_per_line = [
         'uk-child-width-1-1' => '1',
         'uk-child-width-1-2@s' => '2',
-        'uk-child-width-1-3@s' => '3',
-        'uk-child-width-1-2@s uk-child-width-1-4@m' => '4',
-        'uk-child-width-1-2@s uk-child-width-1-5@m' => '5'
+        'uk-child-width-1-2@s uk-child-width-1-3@m' => '3',
+        'uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l' => '4',
+        'uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-5@l' => '5'
     ];
 
     private static $image_padding = [
@@ -187,6 +187,10 @@ class GalleryBlock extends BaseElement implements Searchable
 
     public function OrderedImages(){
         return $this->Images()->sort($this->SortAttribute);
+    }
+
+    public function activeBoxes(){
+        return $this->Boxes()->filter('isVisible',1);
     }
 
     public function onBeforeWrite(){

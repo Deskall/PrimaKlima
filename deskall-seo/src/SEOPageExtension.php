@@ -133,6 +133,7 @@ class SEOPageExtension extends DataExtension
 		return DBField::create_field('HTMLText',$sd);
 	}
 
+
 	public function getStructuredBreadcrumbs(){
 
 	  $pages = $this->owner->getBreadcrumbItems();
@@ -151,20 +152,7 @@ class SEOPageExtension extends DataExtension
 	  }
 	  </script>';
 	   return DBField::create_field('HTMLText',$html);
-	}
 
-
-	/**
-	* Return page image url to display on Facebook or Google +
-	* @return string
-	* By default Page Open Graph > Site Default Open graph
-	*/
-	public function OpenGraphImage(){
-		if ($this->owner->SharableImageID > 0){
-			return $this->owner->SharableImage()->FocusFill(600,315)->URL;
-		}
-		$siteConfig = SiteConfig::current_site_config();
-		return ($siteConfig->OpenGraphDefaultImage()->exists() ) ? $siteConfig->OpenGraphDefaultImage()->FocusFill(600,315)->URL : null;
 	}
 
 	public function PrintDescription(){
@@ -180,7 +168,22 @@ class SEOPageExtension extends DataExtension
 				$content .= $block->content;
 			}
 		}
+		$content = trim(str_replace("\n"," ",strip_tags($content)));
 
 		return DBField::create_field('HTMLText',$content)->LimitWordCount(60);
+	}
+
+
+	/**
+	* Return page image url to display on Facebook or Google +
+	* @return string
+	* By default Page Open Graph > Site Default Open graph
+	*/
+	public function OpenGraphImage(){
+		if ($this->owner->SharableImageID > 0){
+			return $this->owner->SharableImage()->FocusFill(600,315)->URL;
+		}
+		$siteConfig = SiteConfig::current_site_config();
+		return ($siteConfig->OpenGraphDefaultImage()->exists() ) ? $siteConfig->OpenGraphDefaultImage()->FocusFill(600,315)->URL : null;
 	}
 }
