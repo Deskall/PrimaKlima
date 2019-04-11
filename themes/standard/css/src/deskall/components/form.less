@@ -3,10 +3,11 @@
 @form-message-background-color:   #eee;
 @form-message-color:              #666;
 
-.form-std, #MemberLoginForm_LoginForm,#CommentForm_CommentsForm, form[id*="CommentForm_ReplyForm"]{
+.form-std, .userform, #MemberLoginForm_LoginForm,#CommentForm_CommentsForm, form[id*="CommentForm_ReplyForm"]{
 
 	input[type="text"],input[type="email"],input[type="password"],input[type="number"]{
 		.uk-input;
+		color:@global-form-color;
 	}
 	input[type="checkbox"]{
 		margin-right:15px;
@@ -19,9 +20,11 @@
 	}
 	select{
 		.uk-select;
+		color:@global-form-color;
 	}
 	textarea{
 		.uk-textarea;
+		color:@global-form-color;
 	}
 }
 
