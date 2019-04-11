@@ -87,6 +87,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'DNADesign-ElementalUserForms-Model-ElementForm',
         'DownloadBlock',
         'ParentBlock',
+        'NavigationBlock',
         'MapBlock',
         'VideoBlock',
         'ActionBlock',
