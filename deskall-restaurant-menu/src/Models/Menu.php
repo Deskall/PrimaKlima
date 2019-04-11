@@ -15,7 +15,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
-
+use SilverStripe\Forms\LiteralField;
 
 class Menu extends DataObject{
 
@@ -67,6 +67,7 @@ class Menu extends DataObject{
 		$config = GridFieldConfig_RelationEditor::create();
 		$config->addComponent(new GridFieldOrderableRows('Sort'));
 		$config->addComponent(new GridFieldShowHideAction());
+        $fields->addFieldToTab('Root.Main',LiteralField::create('HelpText','<div>Verknüpfen Sie eine bestehende Speise oder schaffen Sie eine neue Speise.</div>'));
 		$dishesField = new GridField('Dishes',_t(__CLASS__.'.Dishes','Speisen'),$this->Dishes(),$config);
 		$fields->addFieldToTab('Root.Main',$dishesField);
 

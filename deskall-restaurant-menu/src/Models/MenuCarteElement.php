@@ -54,7 +54,7 @@ class MenuCarteElement extends DataObject{
     function fieldLabels($includerelations = true) {
         $labels = parent::fieldLabels($includerelations);
      
-        $labels['Title'] = _t(__CLASS__.'.Title','Titel');
+        $labels['Title'] = _t(__CLASS__.'.Title','Titel (nur Intern, wird nicht angezeigt)');
         $labels['Type'] = _t(__CLASS__.'.Type','Typ');
         $labels['NiceType'] = _t(__CLASS__.'.Type','Typ');
         $labels['Content'] = _t(__CLASS__.'.Content','Inhalt');
