@@ -16,11 +16,13 @@
       <strong class="uk-clearfix">$Title:</strong>
       <div class="uk-grid-small uk-flex uk-flex-bottom" data-uk-grid>
         <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$PrintDescription</div>
+        <% if PriceDescription %><div>$PriceDescription</div><% end_if %>
         <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
       </div>
       <% else %>
       <div class="uk-grid-small uk-flex uk-flex-bottom" data-uk-grid>
         <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$Title</div>
+        <% if PriceDescription %><div>$PriceDescription</div><% end_if %>
         <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
       </div>
       <% end_if %> 
@@ -32,11 +34,13 @@
         <strong class="uk-clearfix">$Title:</strong>
         <div class="uk-grid-small uk-flex uk-flex-bottom" data-uk-grid>
           <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$PrintDescription</div>
+          <% if PriceDescription %><div>$PriceDescription</div><% end_if %>
           <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
         </div>
         <% else %>
         <div class="uk-grid-small uk-flex uk-flex-bottom" data-uk-grid>
          <div class="uk-width-expand" <% if Price > 0 %>data-uk-leader<% end_if %>>$Title</div>
+         <% if PriceDescription %><div>$PriceDescription</div><% end_if %>
          <% if Price > 0 %><div>$PrintPrice</div><% end_if %>
        </div>
        <% end_if %>
