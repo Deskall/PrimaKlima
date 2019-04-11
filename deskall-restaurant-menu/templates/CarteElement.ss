@@ -57,7 +57,7 @@
 
 <% if Type == "menu" %>
   
-  <div>
+  <div class="uk-text-center">
     <div class="uk-clearfix"><div class="uk-float-left"><strong>$Menu.Title</strong><strong class="uk-margin-left">$Menu.PrintPrice</strong></div></div>
     <% loop $Menu.Dishes %>
     <div>
