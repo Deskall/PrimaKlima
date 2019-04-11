@@ -140,6 +140,7 @@ class MenuCarte extends DataObject{
                $pdf->writeHtml($item->Dish()->renderWith('DishForPrint'));
             break;
             case 'group':
+               $pdf->setFontSize(10);
                $pdf->writeHtml($item->renderWith('GroupForPrint'));
             break;
             default:
