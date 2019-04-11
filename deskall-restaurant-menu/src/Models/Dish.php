@@ -54,7 +54,7 @@ class Dish extends DataObject{
         'PrintPrice'
     ];
 
-    private static $searchable_fields = ['Title'];
+    private static $searchable_fields = ['Title', 'Category'];
 
     function fieldLabels($includerelations = true) {
         $labels = parent::fieldLabels($includerelations);
