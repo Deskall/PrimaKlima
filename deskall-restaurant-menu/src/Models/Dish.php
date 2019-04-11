@@ -47,6 +47,7 @@ class Dish extends DataObject{
     ];
 
     private static $summary_fields = [
+        'Category.Title',
         'PrintThumbnail',
         'Title',
         'PrintDescription',
