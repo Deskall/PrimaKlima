@@ -47,10 +47,10 @@ class Dish extends DataObject{
     ];
 
     private static $summary_fields = [
-        'PrintThumbnail' => ['title' => 'Bild'],
+        'PrintThumbnail',
         'Title',
-        'PrintDescription' => ['title' => 'Description'],
-        'PrintPrice'  => ['title' => 'Preis']
+        'PrintDescription',
+        'PrintPrice'
     ];
 
     private static $searchable_fields = ['Title'];
@@ -60,9 +60,12 @@ class Dish extends DataObject{
      
         $labels['Title'] = _t(__CLASS__.'.Title','Titel');
         $labels['Description'] = _t(__CLASS__.'.Description','Beschreibung');
+        $labels['PrintDescription'] = _t(__CLASS__.'.Description','Beschreibung');
         $labels['Price'] = _t(__CLASS__.'.Price','Preis');
+        $labels['PrintPrice'] = _t(__CLASS__.'.Price','Preis');
         $labels['PriceDescription'] = _t(__CLASS__.'.PriceDescription','Preis Zusatz');
         $labels['Image'] = _t(__CLASS__.'.Image','Bild');
+        $labels['PrintThumbnail'] = _t(__CLASS__.'.Image','Bild');
      
         return $labels;
     }
