@@ -11,7 +11,7 @@
 <% end_if %>
 <% if Type == "dish" %>
  <% with Dish %>
-    <div class="$Margin">
+    <div class="$Top.Margin">
       <% if Description %>
       <strong class="uk-clearfix">$Title:</strong>
       <div class="uk-grid-small uk-flex uk-flex-bottom" data-uk-grid>
