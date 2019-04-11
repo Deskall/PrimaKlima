@@ -48,7 +48,7 @@ class MenuCarteElement extends DataObject{
         'Sortable'
     ];
 
-    private static $summary_fields = ['Type','Title'];
+    private static $summary_fields = ['NiceType','Title'];
 
 
     function fieldLabels($includerelations = true) {
@@ -56,6 +56,7 @@ class MenuCarteElement extends DataObject{
      
         $labels['Title'] = _t(__CLASS__.'.Title','Titel');
         $labels['Type'] = _t(__CLASS__.'.Type','Typ');
+        $labels['NiceType'] = _t(__CLASS__.'.Type','Typ');
         $labels['Content'] = _t(__CLASS__.'.Content','Inhalt');
         $labels['Karte'] = _t(__CLASS__.'.Karte','Karte');
         $labels['Menu'] = _t(__CLASS__.'.Menu','Menü');
@@ -80,6 +81,11 @@ class MenuCarteElement extends DataObject{
                 break;
             }
         }
+    }
+
+    public function NiceType(){
+        $types = ['menu' => 'Menü','dish' => 'Speise','group' => 'grupp','element' => 'Inhalt', 'divider' => 'Linie','pagebreak' => 'Seitenumbruch'];
+        return $types[$this->Type];
     }
 
 
