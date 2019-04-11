@@ -71,5 +71,7 @@
 <% end_if %>
 
 <% if Type == "divider" %>
+<div>
 <hr>
+</div>
 <% end_if %>
