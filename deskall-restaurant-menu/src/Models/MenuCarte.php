@@ -132,9 +132,11 @@ class MenuCarte extends DataObject{
                 $pdf->writeHtml(ShortcodeParser::get_active()->parse($item->Content));
             break;
             case 'menu':
+                $pdf->setFontSize(10);
                 $pdf->writeHtml($item->Menu()->renderWith('MenuForPrint'));
             break;
             case 'dish':
+               $pdf->setFontSize(10);
                $pdf->writeHtml($item->Dish()->renderWith('DishForPrint'));
             break;
             case 'group':
