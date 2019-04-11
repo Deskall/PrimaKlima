@@ -76,6 +76,7 @@ class Dish extends DataObject{
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('MainDishID');
+        $fields->FieldByName('Root.Main.PriceDescription')->setDescription(_t(__CLASS__.'.PriceDescriptionHelpText','wird neben die Preis anzeigen.'));
         
         return $fields;
     }
