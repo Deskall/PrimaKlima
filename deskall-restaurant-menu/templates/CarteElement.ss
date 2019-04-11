@@ -1,5 +1,5 @@
 <% if Type == "group" %>
-<div>
+<div class="$Margin">
   <% if Children %>
   <div class="uk-child-width-1-1 uk-child-width-1-2@s <% if Children.count > 2 %>uk-child-width-1-{$Children.count}@l<% end_if %>" data-uk-grid>
     <% loop Children %>
@@ -11,7 +11,7 @@
 <% end_if %>
 <% if Type == "dish" %>
  <% with Dish %>
-    <div>
+    <div class="$Margin">
       <% if Description %>
       <strong class="uk-clearfix">$Title:</strong>
       <div class="uk-grid-small uk-flex uk-flex-bottom" data-uk-grid>
@@ -50,7 +50,7 @@
   <% end_with %>
 <% end_if %>
 <% if Type == "element" %>
-    <div>
+    <div class="$Margin">
       <% if Content %>
       $Content
       <% end_if %>
@@ -61,7 +61,7 @@
 
 <% if Type == "menu" %>
   
-  <div class="uk-text-center">
+  <div class="$Margin uk-text-center">
     <div><strong>$Menu.Title</strong><strong class="uk-margin-left">$Menu.PrintPrice</strong></div>
     <% loop $Menu.Dishes %>
     <div>
@@ -75,7 +75,7 @@
 <% end_if %>
 
 <% if Type == "divider" %>
-<div>
+<div class="$Margin">
 <hr>
 </div>
 <% end_if %>

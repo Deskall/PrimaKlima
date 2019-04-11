@@ -27,7 +27,8 @@ class MenuCarteElement extends DataObject{
         'Type' => 'Varchar',
         'Title' => 'Varchar',
         'Content' => 'HTMLText',
-        'ShowOnWeb' => 'Boolean(0)'
+        'ShowOnWeb' => 'Boolean(0)',
+        'Margin' => 'Varchar'
     ];
 
     private static $has_one = [
@@ -62,6 +63,7 @@ class MenuCarteElement extends DataObject{
         $labels['Menu'] = _t(__CLASS__.'.Menu','Menü');
         $labels['Dish'] = _t(__CLASS__.'.Dish','Speise');
         $labels['ShowOnWeb'] = _t(__CLASS__.'.ShowOnWeb','Auf Web anzeigen?');
+        $labels['Margin'] = _t(__CLASS__.'.Margin','Abstand');
         return $labels;
     }
 
@@ -97,8 +99,10 @@ class MenuCarteElement extends DataObject{
         $fields->removeByName('Children');
         $fields->removeByName('ParentID');
         $fields->removeByName('KarteID');
+        $fields->removeByName('Margin');
 
         $fields->insertBefore('Title',DropdownField::create('Type',$this->fieldLabels()['Type'],['menu' => 'Menü','dish' => 'Speise','group' => 'grupp','element' => 'Inhalt', 'divider' => 'Linie','pagebreak' => 'Seitenumbruch'])->setEmptyString('Bitte wählen'));
+        $fields->insertAfter('ShowOnWeb',DropdownField::create('Margin',$this->fieldLabels()['Margin'],['uk-margin-remove' => 'Keine','uk-margin-small' => 'Kleine','uk-margin' => 'Normal','uk-margin-large' => 'Grosse'])->setEmptyString('Bitte wählen'));
 
         $fields->FieldByName('Root.Main.DishID')->displayIf('Type')->isEqualTo('dish');
         $fields->FieldByName('Root.Main.MenuID')->displayIf('Type')->isEqualTo('menu');
