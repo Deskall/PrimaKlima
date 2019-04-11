@@ -1,9 +1,7 @@
 <% if Element.isVisible %>
-<<<<<<< HEAD
-<div class="element <% if $Element.isChildren %>children <% if $Element.Width %>$Element.Width<% end_if %><% if $Element.isFirstMobile %>uk-flex-first<% end_if %> <% if $Element.isFirst %>uk-flex-first@m<% end_if %><% end_if %> $Element.SimpleClassName.LowerCase<% if $Element.StyleVariant %> $Element.StyleVariant<% end_if %><% if $Element.ExtraClass %> $Element.ExtraClass<% end_if %>" id="$Element.Anchor" <% if Element.Animation %>data-uk-scrollspy="$Animation"<% end_if %>>
-=======
-<div class="element <% if $Element.isChildren %>children <% if $Element.Width %>$Element.Width<% end_if %> <% if $Element.isFirstMobile %>uk-flex-first<% end_if %> <% if $Element.isFirst %>uk-flex-first@m<% end_if %><% end_if %> $Element.SimpleClassName.LowerCase<% if $Element.StyleVariant %> $Element.StyleVariant<% end_if %> $Element.ExtraClass" id="$Element.Anchor" <% if Element.Animation %>data-uk-scrollspy="cls: $Element.Animation;target: $Element.AnimationTarget;"<% end_if %>>
->>>>>>> master
+
+<div class="element <% if $Element.isChildren %>children <% if $Element.Width %>$Element.Width<% end_if %> <% if $Element.isFirstMobile %>uk-flex-first<% end_if %> <% if $Element.isFirst %>uk-flex-first@m<% end_if %><% end_if %> $Element.SimpleClassName.LowerCase<% if $Element.StyleVariant %> $Element.StyleVariant<% end_if %> $Element.ExtraClass" id="$Element.Anchor" <% if Element.Animation %>data-uk-scrollspy="$Element.Animation"<% end_if %>>
+
 	<% if $Element.BackgroundImage.exists %>
 		<section class="uk-section $Element.Background uk-cover-container dk-overlay uk-section-large uk-background-blend-overlay with-background" <% if $Element.BackgroundImage.getExtension == "svg" %>data-src="$Element.BackgroundImage.URL"<% else %>data-src="$Element.BackgroundImage.FocusFillMax(1200,800).URL" data-srcset="$Element.BackgroundImage.FocusFillMax(650,420).URL 650w,$Element.BackgroundImage.URL 1200w" data-sizes="100vw" data-uk-img<% end_if %>>
 	<% else %>
