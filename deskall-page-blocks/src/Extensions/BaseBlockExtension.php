@@ -224,7 +224,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->addFieldToTab('Root.Main',TextField::create('TitleIcon',_t(__CLASS__.".TitleIcon","Icon (Class font awesome)")),'TitleAndDisplayed');
         $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
         
-        if (Permission::check('ADMIN'){
+        if (Permission::check('ADMIN')){
             $fields->addFieldToTab('Root.LayoutTab',$extracss);
          
         	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
