@@ -47,6 +47,10 @@ class GridFieldPrintMenu implements GridField_ColumnProvider, GridField_ActionPr
                 ->setAttribute('title', _t('MenuCarte.Print', 'Menu generieren'))
                 ->setDescription(_t('MenuCarte.PrintDescription', 'Menu als PDF generieren'));
 
+        if ($record->LastEdited > $record->File()->LastEdited){
+            $field->addExtraClass('icon-primary');
+        }
+
         return $field->Field();
     }
 
