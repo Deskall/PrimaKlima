@@ -15,6 +15,8 @@ use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\TextField;
+use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\ORM\DataObject;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -85,6 +87,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'DNADesign-ElementalUserForms-Model-ElementForm',
         'DownloadBlock',
         'ParentBlock',
+        'NavigationBlock',
         'MapBlock',
         'VideoBlock',
         'ActionBlock',
@@ -274,13 +277,23 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $last = $this->owner->Parent()->Elements()->sort('Sort','DESC')->first();
             $this->owner->Sort = ($last) ? $last->Sort + 1 : 1;
         }
-        if ($this->owner->isPrimary && $this->owner->getPage()){
-            foreach($this->owner->getPage()->ElementalArea()->Elements()->filter('isPrimary',1)->exclude('ID',$this->owner->ID) as $primary){
-                $primary->isPrimary = 0;
-                $primary->write();
+        if ($this->owner->isPrimary){
+            foreach(BaseElement::get()->filter('isPrimary',1)->exclude('ID',$this->owner->ID) as $primary){
+                if ($primary->getRealPage()->ID == $this->owner->getRealPage()->ID){
+                    $primary->isPrimary = 0;
+                    $primary->write();
+                }
             }
         }
         parent::onBeforeWrite();
+    }
+
+    public function getRealPage(){
+        $parent = $this->owner->getPage();
+        while($parent && !in_array('SilverStripe\CMS\Model\SiteTree',$parent->getClassAncestry())){
+            $parent = $parent->getPage();
+        }
+        return $parent;
     }
 
     public function isChildren(){
