@@ -1,12 +1,8 @@
-<div class="title-container">
-	<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
-</div>
 
-<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
+<strong>$SiteConfig.AddressTitle</strong>
+<ul class="uk-list uk-margin-remove-top">
 	<% if $SiteConfig.Address != "" %>
 	<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
-		<span class="uk-margin-small-right" data-uk-icon="icon: location;"></span>
-		<span class="dk-link-with-icon">
 			<% if $SiteConfig.Address %>
 			$SiteConfig.Address<br/>
 			<% end_if %>
@@ -16,40 +12,29 @@
 			<% if $SiteConfig.Country %>
 			$SiteConfig.Country
 			<% end_if %>
-		</span>
 	</a>
 </li>
 <% end_if %>
 <% if SiteConfig.Email %>
 <li>
 	<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
-		<span class="uk-margin-small-right" data-uk-icon="icon: mail;"></span>
-		<span class="dk-link-with-icon">$SiteConfig.Email</span>
+		$SiteConfig.Email
 	</a>
 </li>
 <% end_if %>
 <% if SiteConfig.Phone %>
 <li>
-
-	<span class="uk-margin-small-right" data-uk-icon="icon: receiver;"></span>
-	<span class="dk-link-with-icon">$SiteConfig.Phone</span>
-
+	$SiteConfig.Phone
 </li>
 <% end_if %>
 <% if SiteConfig.Fax %>
 <li>
-	
-	<span class="uk-margin-small-right" data-uk-icon="icon: fax;"></span>
-	<span class="dk-link-with-icon">$SiteConfig.Fax</span>
-	
+	$SiteConfig.Fax
 </li>
 <% end_if %>
 <% if SiteConfig.Mobile %>
 <li>
-
-	<span class="uk-margin-small-right"  data-uk-icon="icon: phone;"></span>
-	<span class="dk-link-with-icon">$SiteConfig.Mobile</span>
-
+$SiteConfig.Mobile
 </li>
 <% end_if %>
 <% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
