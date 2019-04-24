@@ -1,3 +1,4 @@
+<div class="$Layout <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
 <strong>$SiteConfig.AddressTitle</strong>
 <ul class="uk-list uk-margin-remove-top">
 	<% if $SiteConfig.Address != "" %>
@@ -56,3 +57,4 @@ $SiteConfig.Mobile
 </li>
 <% end_if %>
 </ul>
+</div>
