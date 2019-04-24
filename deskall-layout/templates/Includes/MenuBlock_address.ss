@@ -1,8 +1,7 @@
-
 <strong>$SiteConfig.AddressTitle</strong>
 <ul class="uk-list uk-margin-remove-top">
 	<% if $SiteConfig.Address != "" %>
-	<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
+	<li>
 			<% if $SiteConfig.Address %>
 			$SiteConfig.Address<br/>
 			<% end_if %>
@@ -12,14 +11,6 @@
 			<% if $SiteConfig.Country %>
 			$SiteConfig.Country
 			<% end_if %>
-	</a>
-</li>
-<% end_if %>
-<% if SiteConfig.Email %>
-<li>
-	<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
-		$SiteConfig.Email
-	</a>
 </li>
 <% end_if %>
 <% if SiteConfig.Phone %>
@@ -37,6 +28,12 @@
 $SiteConfig.Mobile
 </li>
 <% end_if %>
+<% if SiteConfig.Email %>
+<li>
+	$SiteConfig.Email
+</li>
+<% end_if %>
+
 <% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
 <li>
 	<ul class="uk-iconnav uk-padding-remove uk-margin-remove">
