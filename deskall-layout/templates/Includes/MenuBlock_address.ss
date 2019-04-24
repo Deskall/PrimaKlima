@@ -17,9 +17,9 @@
 <% end_if %>
 <% if SiteConfig.Phone %>
 <li>
-	$SiteConfig.Phone
+	Tel. $SiteConfig.Phone
 	<% if SiteConfig.Fax %><br/>
-	$SiteConfig.Fax
+	Fax $SiteConfig.Fax
 	<% end_if %>
 	<% if SiteConfig.Mobile %><br/>
 	$SiteConfig.Mobile
