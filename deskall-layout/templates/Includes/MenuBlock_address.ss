@@ -1,8 +1,9 @@
 <div class="$Layout <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
-<strong>$SiteConfig.AddressTitle</strong>
+
 <ul class="uk-list uk-margin-remove-top">
 	<% if $SiteConfig.Address != "" %>
 	<li>
+		<strong>$SiteConfig.AddressTitle</strong><br/>
 			<% if $SiteConfig.Address %>
 			$SiteConfig.Address<br/>
 			<% end_if %>
@@ -17,18 +18,16 @@
 <% if SiteConfig.Phone %>
 <li>
 	$SiteConfig.Phone
-</li>
-<% end_if %>
-<% if SiteConfig.Fax %>
-<li>
+	<% if SiteConfig.Fax %><br/>
 	$SiteConfig.Fax
+	<% end_if %>
+	<% if SiteConfig.Mobile %><br/>
+	$SiteConfig.Mobile
+	<% end_if %>
 </li>
 <% end_if %>
-<% if SiteConfig.Mobile %>
-<li>
-$SiteConfig.Mobile
-</li>
-<% end_if %>
+
+
 <% if SiteConfig.Email %>
 <li>
 	$SiteConfig.Email
