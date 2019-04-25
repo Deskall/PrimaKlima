@@ -18,11 +18,11 @@
 <% if SiteConfig.Phone %>
 <li>
 	Tel. $SiteConfig.Phone
-	<% if SiteConfig.Fax %><br/>
-	Fax $SiteConfig.Fax
+	<% if SiteConfig.Fax %>
+	<br/>Fax $SiteConfig.Fax
 	<% end_if %>
-	<% if SiteConfig.Mobile %><br/>
-	$SiteConfig.Mobile
+	<% if SiteConfig.Mobile %>
+	<br/>$SiteConfig.Mobile
 	<% end_if %>
 </li>
 <% end_if %>
