@@ -487,6 +487,10 @@ class SiteConfigLayoutExtension extends DataExtension
     return intval(str_replace('px','',$param));
   }
 
+  public function RandomSlides(){
+    return $this->owner->Slides()->sort('RAND()');
+  }
+
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
