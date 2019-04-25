@@ -129,11 +129,14 @@ class SiteConfigLayoutExtension extends DataExtension
   ];
 
   private static $has_many = [
-    'Slides' => Image::class,
     'FooterBlocks' => FooterBlock::class,
     'MenuBlocks' => MenuBlock::class,
     'MobileMenuBlocks' => MobileMenuBlock::class,
     'Colors' => Color::class
+  ];
+
+  private static $many_many = [
+     'Slides' => Image::class
   ];
 
   private static $default_colors = [
