@@ -10,7 +10,7 @@
 				<div class="$BoxPerLine $BoxTextAlign uk-grid-medium" data-uk-grid  <% if not FullLink %>data-uk-lightbox="toggle:.dk-lightbox" <% end_if %>data-uk-height-match="target:img;row:false;">
 					<% loop ActiveBoxes %>
 					
-					<div class="uk-transition-toggle uk-height-1-1" tabindex="0">
+					<div class="box uk-transition-toggle uk-height-1-1" tabindex="0">
 						<% if Top.FullLink && LinkableLinkID > 0 && $LinkableLink.LinkURL%>
 		   				<a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr}>
 						<% end_if %>
