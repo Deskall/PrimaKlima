@@ -28,6 +28,7 @@ class LargeImageBlock extends BaseElement implements Searchable{
     private static $controller_class = BlockController::class;
 
     private static $db = [
+        'HTML' => 'Varchar(255)',
     	'Effect' => 'Varchar(255)',
     	'EffectOptions' => 'Varchar(255)',
     	'Overlay' => 'Varchar(255)',
@@ -74,7 +75,15 @@ class LargeImageBlock extends BaseElement implements Searchable{
 
 
     public function getCMSFields(){
-    	$fields = parent::getCMSFields();
+        $this->beforeUpdateCMSFields(function ($fields) {
+            $fields
+                ->fieldByName('Root.Main.HTML')
+                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Inhalt'));
+            $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
+        });
+        $fields = parent::getCMSFields();
+        $fields->RemoveByName('Layout');
+        
     	$fields->removeByName('RelatedPageID');
         $fields->removeByName('CallToActionLink');
     	$fields->removeByName('BackgroundImage');
@@ -92,6 +101,8 @@ class LargeImageBlock extends BaseElement implements Searchable{
             TextField::create('EffectOptions',_t(__CLASS__. '.EffectOptions','Effekt Optionen'))
           )->setTitle(_t(__CLASS__.'BlockLayout','Layout'))->setName('BlockLayout')
         );
+
+
         
     	return $fields;
     }

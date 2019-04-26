@@ -33,7 +33,7 @@
 				    <% end_if %>
 
 				    <div class="uk-text-lead $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
-					    $Content
+					    $HTML
 					</div>
 
 				 	<% if LinkableLinkID > 0 %>
