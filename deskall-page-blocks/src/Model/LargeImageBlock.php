@@ -79,7 +79,6 @@ class LargeImageBlock extends BaseElement implements Searchable{
             $fields
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Inhalt'));
-            $fields->fieldByName('Root.Main.ContentImage')->setFolderName($this->getFolderName());
         });
         $fields = parent::getCMSFields();
         $fields->RemoveByName('Layout');
