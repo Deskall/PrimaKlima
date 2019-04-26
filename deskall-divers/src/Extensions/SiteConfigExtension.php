@@ -94,6 +94,10 @@ class SiteConfigExtension extends DataExtension
       parent::onBeforeWrite();
   }
 
+  public function FormattedNumber($number){
+    return str_replace(' ','',$number);
+  }
+
 
   public function getFolderName(){
     $folder = Folder::find_or_make("Uploads/Einstellungen");
