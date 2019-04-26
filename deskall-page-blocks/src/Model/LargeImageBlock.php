@@ -28,7 +28,7 @@ class LargeImageBlock extends BaseElement implements Searchable{
     private static $controller_class = BlockController::class;
 
     private static $db = [
-        'HTML' => 'Varchar(255)',
+        'HTML' => 'HTMLText',
     	'Effect' => 'Varchar(255)',
     	'EffectOptions' => 'Varchar(255)',
     	'Overlay' => 'Varchar(255)',
