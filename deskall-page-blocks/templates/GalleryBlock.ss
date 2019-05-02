@@ -15,6 +15,7 @@
 						<% loop activeBoxes %>
 						<li>
 							<div class="uk-card uk-card-default uk-margin-bottom">
+								<% if Image.exists %>
 								<div class="uk-card-media-top">
 									<img data-src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
 									<% if Up.PaddedImages %>
@@ -25,6 +26,7 @@
 									<% end_if %>
 									" alt="$Up.AltTag($Image.Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
 								</div>
+								<% end_if %>
 								<div class="uk-card-body uk-padding-small">
 									<div class="uk-card-title">$Title</div>
 									<p>$Content</p>
@@ -60,6 +62,7 @@
 			<% loop activeBoxes %>
 			<div>
 				<div class="uk-card uk-card-default uk-margin-bottom">
+					<% if Image.exists %>
 					<div class="uk-card-media-top">
 						<img data-src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
 						<% if Up.PaddedImages %>
@@ -70,6 +73,7 @@
 						<% end_if %>
 						" alt="$Up.AltTag($Image.Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
 					</div>
+					<% end_if %>
 					<div class="uk-card-body uk-padding-small">
 						<div class="uk-card-title">$Title</div>
 						<p>$Content</p>
