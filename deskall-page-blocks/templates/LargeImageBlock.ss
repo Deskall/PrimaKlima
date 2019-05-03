@@ -10,7 +10,7 @@
 	     data-sizes="100vw" data-uk-img>
 	    <div class="uk-container uk-overflow-auto <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
 	    	<div class="uk-position-relative  $Height">
-			    <div class="$Layout uk-padding-small">
+			    <div class="$Layout uk-padding-small uk-padding-remove-horizontal">
 			    	<% if TitleIcon %>
 					<div class="uk-flex uk-flex-middle uk-margin-bottom">
 						<div class="title-icon"><i class="fa fa-{$TitleIcon}"></i></div>
@@ -33,7 +33,7 @@
 				    <% end_if %>
 
 				    <div class="uk-text-lead $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
-					    $Content
+					    $HTML
 					</div>
 
 				 	<% if LinkableLinkID > 0 %>
