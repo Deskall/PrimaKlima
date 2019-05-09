@@ -32,7 +32,7 @@
 				    	<% end_if %>
 				    <% end_if %>
 
-				    <div class="uk-text-lead $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+				    <div class="$TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 					    $HTML
 					</div>
 
