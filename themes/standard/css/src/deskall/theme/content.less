@@ -195,11 +195,21 @@ a.dk-link-with-icon{
 	}
 }
 //Position responsive
-[class*='dk-position-top'],
-[class*='dk-position-bottom'],
-[class*='dk-position-left'],
-[class*='dk-position-right'],
-[class*='dk-position-center'] { position: absolute !important; }
+@media only screen and (min-width:@breakpoint-medium){
+	[class*='dk-position-top'],
+	[class*='dk-position-bottom'],
+	[class*='dk-position-left'],
+	[class*='dk-position-right'],
+	[class*='dk-position-center'] { 
+		position: absolute !important; 
+	}
+
+	[class*='dk-position-center-left'],
+	[class*='dk-position-center-right'] {
+	    top: 50%;
+	    transform: translateY(-50%);
+	}
+}
 
 .dk-position-bottom{
 	@media only screen and (min-width:@breakpoint-medium){
