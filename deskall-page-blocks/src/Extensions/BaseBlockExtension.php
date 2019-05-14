@@ -279,7 +279,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         }
         if ($this->owner->isPrimary){
             foreach(BaseElement::get()->filter('isPrimary',1)->exclude('ID',$this->owner->ID) as $primary){
-                if ($primary->getRealPage()->ID == $this->owner->getRealPage()->ID){
+                if ($primary->getRealPage() && $this->owner->getRealPage() && $primary->getRealPage()->ID == $this->owner->getRealPage()->ID){
                     $primary->isPrimary = 0;
                     $primary->write();
                 }
