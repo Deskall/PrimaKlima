@@ -25,7 +25,7 @@
 						</div>
 						<% else %>
 						<% if Element.isPrimary %>
-							<h1 class="$Element.TitleAlign">$getPage.Title</h1>
+							<% if $Element.isChildren %><h1 class="$Element.TitleAlign">$getRealPage.Title</h1><% else %><h1 class="$Element.TitleAlign">$getPage.Title</h1><% end_if %>
 						<% else %>
 							<% if Element.Title && $Element.ShowTitle %>
 								<% if $Element.isChildren %>
