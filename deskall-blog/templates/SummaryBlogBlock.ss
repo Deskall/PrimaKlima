@@ -2,7 +2,7 @@
 	$HTML
 </div>
 <div data-uk-height-match="target:h3;row:false;" class="uk-margin">
-	<div data-uk-height-match="target:.uk-card-body;row:false;">
+	<div data-uk-height-match="target:.uk-card;row:false;">
 		<div class="uk-child-width-1-2@s uk-child-width-1-3@l uk-grid-match uk-grid-medium" data-uk-grid >
 			<% loop LastPosts %>
 				<div>
