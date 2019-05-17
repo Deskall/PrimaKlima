@@ -209,6 +209,18 @@ class SiteConfigLayoutExtension extends DataExtension
               return TextField::create($column)->addExtraClass('jscolor');
             }
         ],
+        'LinkColor'  => [
+            'title' => _t(__CLASS__.'.LinkColorLabel','Link Farbe'),
+            'callback' => function($record, $column, $grid) {
+              return TextField::create($column)->addExtraClass('jscolor');
+            }
+        ],
+        'LinkHoverColor'  => [
+            'title' => _t(__CLASS__.'.LinkHoverColor','Link hover Farbe'),
+            'callback' => function($record, $column, $grid) {
+              return TextField::create($column)->addExtraClass('jscolor');
+            }
+        ],
     ]);
                 
     $colorsField = new GridField('Colors',_t(__CLASS__.'.Colors','Farben'),$this->owner->Colors(),$config);
