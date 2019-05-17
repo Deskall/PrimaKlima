@@ -450,7 +450,8 @@ class SiteConfigLayoutExtension extends DataExtension
       file_put_contents($fullpath, "\n".".uk-active .menu-title-".$c->Code.'{border-color:#'.$c->Color.';}',FILE_APPEND);
       /*** Css class for Background Overlays **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.'.dk-overlay:after{background-color:fade(#'.$c->Color.',50%);}'
-        ."\n".'.'.$c->Code.'.dk-overlay .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->LinkHoverColor.';}'
+        ."\n".'.'.$c->Code.'.dk-overlay a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->LinkHoverColor.';}'
+        ."\n".'.'.$c->Code.'.dk-overlay.no-bg a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav){color:#'.$c->LinkHoverColor.';&:hover:after{background-color:#'.$c->LinkHoverColor.';}}'
         ."\n".'.'.$c->Code.'.dk-overlay *{color:#'.$c->FontColor.';}',FILE_APPEND);
     }
 
