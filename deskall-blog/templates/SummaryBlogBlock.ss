@@ -9,13 +9,13 @@
 			        <a href="$Link" title="<%t SilverStripe\\Blog\\Model\\Blog.ReadMoreAbout "mehr über '{title}' lesen..." title=$Title %>">
 								<div class="uk-card uk-card-default uk-card-hover uk-border-rounded uk-grid-collapse uk-margin" data-uk-grid>
 									<% if FeaturedImage %>
-									<div class="uk-width-1-1 uk-width-1-2@s uk-width-1-3@m">
+									<div class="uk-width-1-1 uk-width-1-3@m">
 							            <div class="uk-card-media-left uk-cover-container">
 							                <img src="$FeaturedImage.ScaleWidth(390).URL" alt="$FeaturedImage.AltTag($Title)" data-uk-cover>
 							                <canvas with="390" height="300"></canvas> 
 							            </div>
 							        </div>
-							        <div class="uk-width-1-1 uk-width-1-2@s uk-width-2-3@m">
+							        <div class="uk-width-1-1 uk-width-2-3@m">
 							        <% else %>
 							        <div class="uk-width-1-1">
 						            <% end_if %>
