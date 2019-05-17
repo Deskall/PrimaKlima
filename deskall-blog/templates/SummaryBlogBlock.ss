@@ -1,13 +1,13 @@
 <div class="dk-text-content uk-text-muted $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	$HTML
 </div>
-<div data-uk-height-match="target:h3;row:false;" class="uk-margin">
-	<div data-uk-height-match="target:.uk-card;row:false;">
-		<div class="uk-child-width-1-2@s uk-child-width-1-3@l uk-grid-match uk-grid-medium" data-uk-grid >
+<div class="uk-margin">
+	
+		<div class="uk-child-width-1-1 uk-grid-medium" data-uk-grid >
 			<% loop LastPosts %>
 				<div>
 			        <a href="$Link" title="<%t SilverStripe\\Blog\\Model\\Blog.ReadMoreAbout "mehr über '{title}' lesen..." title=$Title %>">
-								<div class="uk-card uk-card-default uk-card-hover uk-border-rounded uk-grid-collapse uk-child-width-1-1 uk-margin" data-uk-grid>
+								<div class="uk-card uk-card-default uk-card-hover uk-border-rounded uk-grid-collapse uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-margin" data-uk-grid>
 									<% if FeaturedImage %>
 						            <div class="uk-card-media-left uk-cover-container">
 						                <img src="$FeaturedImage.ScaleWidth(390).URL" alt="$FeaturedImage.AltTag($Title)" data-uk-cover>
@@ -30,7 +30,7 @@
 			    </div>
 			<% end_loop %>
 		</div>
-	</div>
+	
 </div>
 <% if LinkableLinkID > 0 %>
 	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
