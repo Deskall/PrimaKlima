@@ -7,7 +7,7 @@
 	<% end_if %>
 	<ul class="$FeaturesColumns $FeaturesTextAlign uk-grid-small uk-margin-medium" data-uk-grid>
 	<% loop activeFeatures %> 
-	    <li><div class="dk-text-content data-uk-icon="icon: $Top.IconItem;">$Text</div></li>
+	    <li><div class="uk-inline dk-text-content data-uk-icon="icon: $Top.IconItem;">$Text</div></li>
 	<% end_loop %>
 	</ul>
 <% end_if %>
