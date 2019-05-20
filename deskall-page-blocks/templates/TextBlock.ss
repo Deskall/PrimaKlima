@@ -53,12 +53,14 @@
 -->
 <div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	<% if ContentImage %>
+	<div class="uk-flex-left">
 	<img data-src="$ContentImage.FitMax(500,500).URL"
 	     data-srcset="$ContentImage.FitMax(500,500).URL 500w,
 	                  $ContentImage.FitMax(1000,1000).URL 1000w,
 	                  $ContentImage.FitMax(1500,1500).URL 1500w,
 	                  $ContentImage.FitMax(2500,2500).URL 2500w"
 	     sizes="(min-width: 1700px) 2500px,(min-width: 1000px) 1500px,(min-width: 650px) 1000px, 100vw"  alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" data-uk-img>
+	 </div>
 	<% end_if %>
 		$HTML
 </div>
