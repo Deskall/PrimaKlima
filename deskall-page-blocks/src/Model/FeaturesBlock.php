@@ -89,17 +89,17 @@ class FeaturesBlock extends BaseElement implements Searchable
 
 
     private static $features_text_alignments = [
-        'uk-flex-left' =>  [
+        'uk-flex-left uk-text-left' =>  [
             'value' => 'uk-flex-left uk-text-left',
             'title' => 'Links Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
-        'uk-flex-right' =>  [
+        'uk-flex-right uk-text-right' =>  [
             'value' => 'uk-flex-right uk-text-right',
             'title' => 'Rechts Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
-        'uk-flex-center' => [
+        'uk-flex-center uk-text-center' => [
             'value' => 'uk-flex-center uk-text-center',
             'title' => 'Mittel Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
