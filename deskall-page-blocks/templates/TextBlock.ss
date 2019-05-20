@@ -62,7 +62,9 @@
 	     sizes="(min-width: 1700px) 2500px,(min-width: 1000px) 1500px,(min-width: 650px) 1000px, 100vw"  alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" data-uk-img>
 	 </div>
 	<% end_if %>
+	<div class="uk-flex-left">
 		$HTML
+	</div>
 </div>
 <% if LinkableLinkID > 0 %>
 	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
