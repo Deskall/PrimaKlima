@@ -110,23 +110,22 @@ header .second.uk-dropdown{
 }
 .dk-nav-mobile-container{
 	background-color:@mobile-navigation-background-color; 
-	.uk-navbar-nav > li{
-		display: block;
-		width:100%;
-		a{
-			color: @mobile-navigation-color;
-		}
-		a:hover{
-			color:@mobile-navigation-active-color;
-		}
-		&.uk-active a{
-			color:@mobile-navigation-active-color;
-		}
-	}
 }
 .dk-nav-mobile{
 		.uk-nav-header,
-
+		> li{
+			display: block;
+			width:100%;
+			a{
+				color: @mobile-navigation-color;
+			}
+			a:hover{
+				color:@mobile-navigation-active-color;
+			}
+			&.uk-active a{
+				color:@mobile-navigation-active-color;
+			}
+		}
 		li.uk-nav-divider{
 			border-top: 1px solid #999;
 		}

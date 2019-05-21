@@ -123,7 +123,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterFontSize' => '@footer-font-size',
     'FooterTitleFontSize' => '@footer-title-font-size',
 
-    'MobileNaviBackgroundColor' => '@mobile-navigation-background-color',
+    'MobileNaviBackground' => '@mobile-navigation-background-color',
     'MobileNaviFontColor' => '@mobile-navigation-color',
     'MobileNaviHoverFontColor' => '@mobile-navigation-active-color',
     'ToggleMenuButtonColor' =>'@toggle-mobile-menu-button-color'
@@ -380,7 +380,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->FooterFontColor = "#".ltrim($this->owner->FooterFontColor,"#");
     $this->owner->FooterBackground = "#".ltrim($this->owner->FooterBackground,"#");
     $this->owner->H1FontColor = "#".ltrim($this->owner->H1FontColor,"#");
-    $this->owner->MobileNaviBackgroundColor = "#".ltrim($this->owner->MobileNaviBackgroundColor,"#");
+    $this->owner->MobileNaviBackground = "#".ltrim($this->owner->MobileNaviBackground,"#");
     $this->owner->MobileNaviColor = "#".ltrim($this->owner->MobileNaviColor,"#");
     $this->owner->MobileNaviHoverFontColor = "#".ltrim($this->owner->MobileNaviHoverFontColor,"#");
     $this->owner->ToggleMenuButtonColor = "#".ltrim($this->owner->ToggleMenuButtonColor,"#");
