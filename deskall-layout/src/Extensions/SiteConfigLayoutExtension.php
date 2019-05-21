@@ -75,6 +75,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterFontColor' => 'Varchar(7)',
 
     'MobileNaviBackground' => 'Varchar(255)',
+    'MobileNaviFontColor' => 'Varchar(7)',
     'MobileNaviHoverFontColor' => 'Varchar(7)',
     'ToggleMenuButtonColor' => 'Varchar(7)',
 
@@ -309,7 +310,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $fields->addFieldToTab("Root.MobileNavigation.Layout", CompositeField::create(
       FieldGroup::create(
         TextField::create('MobileNaviBackground',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'))->addExtraClass('jscolor'),
-        TextField::create('MobileNaviColor',_t(__CLASS__.'.MobileNaviColor','Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('MobileNaviFontColor',_t(__CLASS__.'.MobileNaviColor','Schriftfarbe'))->addExtraClass('jscolor'),
         TextField::create('MobileNaviHoverFontColor',_t(__CLASS__.'.HeaderHoverFontColor','Aktive und Hover Schriftfarbe'))->addExtraClass('jscolor'),
         TextField::create('ToggleMenuButtonColor',_t(__CLASS__.'.ToggleMenuButtonColor','Mobile-Navi Umschaltknopf Schriftfarbe'))->addExtraClass('jscolor')
       )
