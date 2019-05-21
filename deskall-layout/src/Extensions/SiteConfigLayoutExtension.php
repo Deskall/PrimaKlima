@@ -381,7 +381,7 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->FooterBackground = "#".ltrim($this->owner->FooterBackground,"#");
     $this->owner->H1FontColor = "#".ltrim($this->owner->H1FontColor,"#");
     $this->owner->MobileNaviBackground = "#".ltrim($this->owner->MobileNaviBackground,"#");
-    $this->owner->MobileNaviFontColor = "#".ltrim($this->owner->MobileNaviColor,"#");
+    $this->owner->MobileNaviFontColor = "#".ltrim($this->owner->MobileNaviFontColor,"#");
     $this->owner->MobileNaviHoverFontColor = "#".ltrim($this->owner->MobileNaviHoverFontColor,"#");
     $this->owner->ToggleMenuButtonColor = "#".ltrim($this->owner->ToggleMenuButtonColor,"#");
     $this->owner->DropdownSubMenuHoverBackground = "#".ltrim($this->owner->DropdownSubMenuHoverBackground,"#");
