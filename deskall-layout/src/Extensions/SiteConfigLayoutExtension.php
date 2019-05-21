@@ -442,6 +442,8 @@ class SiteConfigLayoutExtension extends DataExtension
       file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';.dk-text-content a{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';&:after{background-color:#'.$c->LinkHoverColor.';}}}*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
       file_put_contents($fullpath, "\n".".button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*, &:hover,&:focus,&:active{color:#'.$c->FontColor.';}}',FILE_APPEND);
+       /** CSS Class for Moblie Navi **/
+       file_put_contents($fullpath, "\n".".dk-nav-mobile-container.".$c->Code.' li a {color:#'.$c->FontColor.';}',FILE_APPEND);
       /*** Css class for Slideshow controls **/
       file_put_contents($fullpath,
         "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:transparent;border-color:#'.$c->FontColor.';}' 
