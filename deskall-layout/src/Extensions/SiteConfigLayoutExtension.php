@@ -209,6 +209,18 @@ class SiteConfigLayoutExtension extends DataExtension
               return TextField::create($column)->addExtraClass('jscolor');
             }
         ],
+        'LinkColor'  => [
+            'title' => _t(__CLASS__.'.LinkColorLabel','Link Farbe'),
+            'callback' => function($record, $column, $grid) {
+              return TextField::create($column)->addExtraClass('jscolor');
+            }
+        ],
+        'LinkHoverColor'  => [
+            'title' => _t(__CLASS__.'.LinkHoverColor','Link hover Farbe'),
+            'callback' => function($record, $column, $grid) {
+              return TextField::create($column)->addExtraClass('jscolor');
+            }
+        ],
     ]);
                 
     $colorsField = new GridField('Colors',_t(__CLASS__.'.Colors','Farben'),$this->owner->Colors(),$config);
@@ -427,7 +439,7 @@ class SiteConfigLayoutExtension extends DataExtension
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
       /** global background element and font color **/
-      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';&:hover,&:focus,&:active{color:#'.$c->FontColor.';}}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';.dk-text-content a{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';&:after{background-color:#'.$c->LinkHoverColor.';}}}*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
       file_put_contents($fullpath, "\n".".button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*, &:hover,&:focus,&:active{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /*** Css class for Slideshow controls **/
@@ -438,7 +450,7 @@ class SiteConfigLayoutExtension extends DataExtension
       file_put_contents($fullpath, "\n".".uk-active .menu-title-".$c->Code.'{border-color:#'.$c->Color.';}',FILE_APPEND);
       /*** Css class for Background Overlays **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.'.dk-overlay:after{background-color:fade(#'.$c->Color.',50%);}'
-        ."\n".'.'.$c->Code.'.dk-overlay .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->FontColor.';}'
+        ."\n".'.'.$c->Code.'.dk-overlay .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->LinkHoverColor.';}'
         ."\n".'.'.$c->Code.'.dk-overlay *{color:#'.$c->FontColor.';}',FILE_APPEND);
     }
 

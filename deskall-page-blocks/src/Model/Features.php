@@ -7,7 +7,7 @@ class Features extends DataObject
 {
 
     private static $db = [
-        'Text' => 'Varchar'
+        'Text' => 'HTMLText'
     ];
 
     private static $has_one = [

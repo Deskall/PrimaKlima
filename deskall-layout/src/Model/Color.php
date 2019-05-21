@@ -14,6 +14,8 @@ class Color extends DataObject{
         'FontTitle' => 'Varchar(255)',
         'Color' => 'Varchar(7)',
         'FontColor' => 'Varchar(7)',
+        'LinkColor' => 'Varchar(7)',
+        'LinkHoverColor' => 'Varchar(7)',
         'isReadonly' => 'Boolean(0)',
         'canChangeTitle' => 'Boolean(1)'
 	];
