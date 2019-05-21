@@ -108,11 +108,17 @@ header .second.uk-dropdown{
 	line-height: @header-menu-collapsed-height;
 	color:@toggle-mobile-menu-button-color;
 }
-.dk-nav-mobile-container .uk-navbar-nav > li{
-	display: block;
-	width:100%;
-	a:hover,a:active{
-		color:@mobile-navigation-active-color;
+.dk-nav-mobile-container{
+	background-color:@mobile-navigation-background-color; 
+	.uk-navbar-nav > li{
+		display: block;
+		width:100%;
+		a{
+			color: @mobile-navigation-color;
+		}
+		a:hover,a:active{
+			color:@mobile-navigation-active-color;
+		}
 	}
 }
 .dk-nav-mobile{

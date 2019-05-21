@@ -122,6 +122,8 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterFontSize' => '@footer-font-size',
     'FooterTitleFontSize' => '@footer-title-font-size',
 
+    'MobileNaviBackgroundColor' => '@mobile-navigation-background-color',
+    'MobileNaviFontColor' => '@mobile-navigation-color',
     'MobileNaviHoverFontColor' => '@mobile-navigation-active-color',
     'ToggleMenuButtonColor' =>'@toggle-mobile-menu-button-color'
 
@@ -376,12 +378,15 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->FooterFontColor = "#".ltrim($this->owner->FooterFontColor,"#");
     $this->owner->FooterBackground = "#".ltrim($this->owner->FooterBackground,"#");
     $this->owner->H1FontColor = "#".ltrim($this->owner->H1FontColor,"#");
+    $this->owner->MobileNaviBackgroundColor = "#".ltrim($this->owner->MobileNaviBackgroundColor,"#");
+    $this->owner->MobileNaviColor = "#".ltrim($this->owner->MobileNaviColor,"#");
     $this->owner->MobileNaviHoverFontColor = "#".ltrim($this->owner->MobileNaviHoverFontColor,"#");
     $this->owner->ToggleMenuButtonColor = "#".ltrim($this->owner->ToggleMenuButtonColor,"#");
     $this->owner->DropdownSubMenuHoverBackground = "#".ltrim($this->owner->DropdownSubMenuHoverBackground,"#");
     $this->owner->DropdownSubMenuBackground = "#".ltrim($this->owner->DropdownSubMenuBackground,"#");
     $this->owner->DropdownSubMenuHoverColor = "#".ltrim($this->owner->DropdownSubMenuHoverColor,"#");
     $this->owner->DropdownSubMenuColor = "#".ltrim($this->owner->DropdownSubMenuColor,"#");
+
 
     parent::onBeforeWrite();
   }
@@ -442,8 +447,6 @@ class SiteConfigLayoutExtension extends DataExtension
       file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';.dk-text-content a{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';&:after{background-color:#'.$c->LinkHoverColor.';}}}*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
       file_put_contents($fullpath, "\n".".button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*, &:hover,&:focus,&:active{color:#'.$c->FontColor.';}}',FILE_APPEND);
-       /** CSS Class for Moblie Navi **/
-       file_put_contents($fullpath, "\n".".dk-nav-mobile-container.".$c->Code.' li a {color:#'.$c->FontColor.';}',FILE_APPEND);
       /*** Css class for Slideshow controls **/
       file_put_contents($fullpath,
         "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:transparent;border-color:#'.$c->FontColor.';}' 
