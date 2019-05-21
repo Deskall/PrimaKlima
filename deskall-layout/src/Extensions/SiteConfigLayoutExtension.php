@@ -308,7 +308,8 @@ class SiteConfigLayoutExtension extends DataExtension
 
     $fields->addFieldToTab("Root.MobileNavigation.Layout", CompositeField::create(
       FieldGroup::create(
-        HTMLDropdownField::create('MobileNaviBackground',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),$this->owner->getBackgroundColors())->addExtraClass('colors'),
+        TextField::create('MobileNaviBackground',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'))->addExtraClass('jscolor'),
+        TextField::create('MobileNaviColor',_t(__CLASS__.'.MobileNaviColor','Schriftfarbe'))->addExtraClass('jscolor'),
         TextField::create('MobileNaviHoverFontColor',_t(__CLASS__.'.HeaderHoverFontColor','Aktive und Hover Schriftfarbe'))->addExtraClass('jscolor'),
         TextField::create('ToggleMenuButtonColor',_t(__CLASS__.'.ToggleMenuButtonColor','Mobile-Navi Umschaltknopf Schriftfarbe'))->addExtraClass('jscolor')
       )
