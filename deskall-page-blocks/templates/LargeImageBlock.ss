@@ -10,7 +10,7 @@
 	     data-sizes="100vw" data-uk-img>
 	    <div class="uk-container uk-overflow-auto <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
 	    	<div class="uk-position-relative  $Height">
-			    <div class="$Layout uk-padding-small uk-padding-remove-horizontal">
+			    <div class="$Layout uk-padding-small uk-padding-remove-horizontal uk-width-1-1">
 			    	<% if TitleIcon %>
 					<div class="uk-flex uk-flex-middle uk-margin-bottom">
 						<div class="title-icon"><i class="fa fa-{$TitleIcon}"></i></div>
