@@ -55,6 +55,11 @@ $ElementalArea
 						    <% end_loop %>
 					
 				</div>
+				<div class="uk-text-center">
+				<% with $PaginatedList %>
+					<% include SilverStripe\\Blog\\Pagination %>
+				<% end_with %>
+				</div>
 			</div>
 		<% else %>
 			<p><%t SilverStripe\\Blog\\Model\\Blog.NoPosts 'Es gibt keine Artikel' %></p>

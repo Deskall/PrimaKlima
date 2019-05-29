@@ -4,6 +4,7 @@ use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\ORM\FieldType\DBText;
 
 class BlogPostExtension extends DataExtension{
 
@@ -25,12 +26,12 @@ class BlogPostExtension extends DataExtension{
 
 	public function SummaryFromBlocks(){
 		$blocks = $this->owner->ElementalArea()->Elements()->filter('ClassName', ['LeadBlock','TextBlock']);
-		$html = '';
+		$content = '';
 		foreach ($blocks as $block) {
-			$html .= $block->HTML;
+			$content .= strip_tags($block->HTML);
 		}
-		$o = DBHTMLText::create();
-		$o->setValue($html);
+		$o = DBText::create();
+		$o->setValue($content);
 		return $o;
 	}
 
