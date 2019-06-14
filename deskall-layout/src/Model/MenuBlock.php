@@ -108,7 +108,7 @@ class MenuBlock extends LayoutBlock{
 				$menu = $menu->filter('ShowInMainMenu',1);
 			}
 			else{
-				$menu = $menu->filter('ShowInMainMenu',0);
+				$menu = SiteTree::get()->filter(array('ShowInMainMenu' => 0,'ShowInMenus' => 1));
 			}
 		}
 		return $menu;
