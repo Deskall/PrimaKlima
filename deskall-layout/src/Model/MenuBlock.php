@@ -109,7 +109,7 @@ class MenuBlock extends LayoutBlock{
 				$menu = $menu->filter('ShowInMainMenu',1);
 			}
 			else{
-				$menu = Page::get()->filter(array('ShowInMainMenu' => 0,'ShowInMenus' => 1));
+				$menu = Page::get()->filter(array('ShowInMainMenu' => 2,'ShowInMenus' => 1));
 			}
 		}
 		return $menu;
