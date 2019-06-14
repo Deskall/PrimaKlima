@@ -56,7 +56,6 @@ class SitemapBlock extends BaseElement
 
     public function SitemapItems() {
         $Pages = SiteTree::get()->filter(array(
-            'ShowInMenus' => true,
             'ParentID' => 0
         ));
         return $Pages;
