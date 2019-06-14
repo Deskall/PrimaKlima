@@ -19,7 +19,7 @@ use SilverStripe\Subsites\Model\Subsite;
 class DeskallPageExtension extends DataExtension
 {
 	 private static $db = [
-        'ShowInMainMenu' => 'Boolean'
+        'ShowInMainMenu' => 'Int'
     ];
 
     private static $has_one = [];
