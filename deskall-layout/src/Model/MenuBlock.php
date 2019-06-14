@@ -10,6 +10,7 @@ use SilverStripe\Forms\TextField;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Control\Controller;
 use SilverStripe\SiteConfig\SiteConfigLeftAndMain;
+use SilverStripe\CMS\Model\SiteTree;
 
 use SilverStripe\CMS\Controllers\ContentController;
 
