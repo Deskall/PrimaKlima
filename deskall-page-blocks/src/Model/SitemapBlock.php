@@ -57,7 +57,7 @@ class SitemapBlock extends BaseElement
     public function SitemapItems() {
         $Pages = SiteTree::get()->filter(array(
             'ParentID' => 0
-        ));
+        ))->exclude('ClassName','SilverStripe\ErrorPage\ErrorPage');
         return $Pages;
     }
 
