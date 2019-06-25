@@ -19,14 +19,15 @@ use SilverStripe\Subsites\Model\Subsite;
 class DeskallPageExtension extends DataExtension
 {
 	 private static $db = [
-        'ShowInMainMenu' => 'Boolean'
+        'ShowInMainMenu' => 'Int'
     ];
 
     private static $has_one = [];
 
     private static $menu_level = [
+        '0' => 'Nicht in Menüs anzeigen',
         '1' => 'Hauptnavigation',
-        '0' => 'Untennavigation'
+        '2' => 'Untennavigation'
     ];
 
     public function ThemeDir(){

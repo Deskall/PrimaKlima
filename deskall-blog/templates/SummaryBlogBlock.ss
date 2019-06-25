@@ -21,7 +21,7 @@
 						            <% end_if %>
 
 							            <div class="uk-card-body uk-padding-small">
-							                <h3 class="uk-card-title">$Title</h3>
+							                <strong class="uk-card-title">$Title</strong>
 							                <div>
 							                	<% if $Summary %>
 							                		$Summary.LimitWordCount(30)

@@ -1,26 +1,25 @@
-<% require css('silverstripe/blog: client/dist/styles/main.css') %>
-<div class="heading-article">
-	<% if $FeaturedImage %>
-	<div class="uk-cover-container uk-height-large">
-	    <img src="$FeaturedImage.ScaleWidth(2500).URL" alt="" data-uk-cover>
-	    <div class="uk-position-bottom uk-overlay uk-overlay-default uk-padding-small">
-	    	<div class="uk-container uk-container-large uk-padding-small">
-		    	<h1 class="uk-article-title">$Title</h1>
-		    	<% include SilverStripe\\Blog\\EntryMeta %>
-		    </div>
-	    </div>
+<div class="uk-background-muted uk-padding-small">
+	<div class="uk-container">
+		<div class="uk-margin-small">
+			$BreadCrumbs
+		</div>
 	</div>
-	<% end_if %>
-	
 </div>
 <section class="uk-container">
+	
 	<div data-uk-grid>
 		<div class="uk-width-1-4@m uk.width-1-5@l uk-flex-last uk-flex-first@m">
 			<% include SilverStripe\\Blog\\BlogSideBar %>
 		</div>
 		<div class="uk-width-expand">
-			<div class="blog-entry content-container">
+			<div class="blog-entry content-container uk-padding-small">
 				<article class="uk-article uk-margin-medium-top uk-margin-large-bottom">
+					<% if $FeaturedImage %>
+					    <img data-src="$FeaturedImage.FocusFillMax(850,450).URL" alt="" data-uk-img>
+					<% end_if %>
+					<h1 class="uk-article-title">$Title</h1>
+					<% include SilverStripe\\Blog\\EntryMeta %>
+
 					
 
 					$ElementalArea

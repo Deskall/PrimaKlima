@@ -1,27 +1,31 @@
 <div class="uk-section-small" data-uk-sticky="media:960;bottom:true;offset:-80;">
 	<div class="uk-padding-small sidebar-container">
 		<% if Categories.Exists %>
-		<h4><%t SilverStripe\\Blog\\Model\\Blog.Thema 'Thema' %></h4>
-		<ul class="uk-nav">
-		<% loop Categories %>
-		    <li> <a href="$Link" title="$Title" data-uk-icon="chevron-right" class="uk-padding-remove">$Title</a></li>
-		<% end_loop %>
-		</ul>
+		<div class="uk-margin-small">
+			<strong><%t SilverStripe\\Blog\\Model\\Blog.Thema 'Thema' %></strong>
+			<ul class="uk-nav">
+			<% loop Categories %>
+			    <li><a href="$Link" title="$Title" class="uk-text-break">$Title<i class="fa fa-caret-right uk-margin-small-left"></i></a></li>
+			<% end_loop %>
+			</ul>
+		</div>
 		<% end_if %>
 		<% if Tags.Exists %>
-		<h5><%t SilverStripe\\Blog\\Model\\Blog.Tag 'Tags' %></h5>
-		<ul class="uk-nav">
-		<% loop Tags %>
-		    <li> <a href="$Link" title="$Title" data-uk-icon="chevron-right">$Title</a></li>
-		<% end_loop %>
-		</ul>
+		<div class="uk-margin-small">
+			<strong><%t SilverStripe\\Blog\\Model\\Blog.Tag 'Tags' %></strong>
+			<ul class="uk-nav">
+			<% loop Tags %>
+			    <li><a href="$Link" title="$Title" class="uk-text-break">$Title<i class="fa fa-caret-right uk-margin-small-left"></i></a></li>
+			<% end_loop %>
+			</ul>
+		</div>
 		<% end_if %>
-		<hr>
-		<% if $Categories.first.BlogPosts.exists %> 
+		<% if Tags.Exists || Categories.Exists %><hr><% end_if %>
+		<% if $Categories.first.BlogPosts.exclude('ID',$ID).exists %> 
 		<p class="uk-text-center"><%t SilverStripe\\Blog\\Model\\Blog.SimilarThema 'mehr über dieses Thema' %></p>
 		<% loop $Categories.first.BlogPosts.exclude('ID',$ID).limit(2) %>
 		<div class="uk-background-muted uk-border-rounded uk-padding-small uk-text-small uk-margin-small">
-			<a href="$Link" title="$Title" data-uk-icon="triangle-right">$Title</a>
+			<a href="$Link" title="$Title">$MenuTitle<i class="fa fa-caret-right uk-margin-small-left"></i></a>
 		</div>
 		<% end_loop %>
 		<hr/>
@@ -33,7 +37,7 @@
 		</div>
 		<% end_if %>
 		<div class="uk-margin-top uk-text-center">
-		<a class="uk-button uk-button-secondary" href="{$Link}#comments-holder" data-uk-scroll><%t SilverStripe\\Blog\\Model\\Blog.Comment 'Kommentar hinzufügen' %></a>
+		<a class="uk-button uk-button-primary" href="{$Link}#comments-holder" data-uk-scroll><%t SilverStripe\\Blog\\Model\\Blog.Comment 'Kommentieren' %></a>
 		</div>
 	</div>
 </div>

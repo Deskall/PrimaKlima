@@ -10,6 +10,7 @@ use SilverStripe\Forms\TextField;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Control\Controller;
 use SilverStripe\SiteConfig\SiteConfigLeftAndMain;
+use SilverStripe\CMS\Model\SiteTree;
 
 use SilverStripe\CMS\Controllers\ContentController;
 
@@ -108,7 +109,7 @@ class MenuBlock extends LayoutBlock{
 				$menu = $menu->filter('ShowInMainMenu',1);
 			}
 			else{
-				$menu = $menu->filter('ShowInMainMenu',0);
+				$menu = Page::get()->filter(array('ShowInMainMenu' => 2,'ShowInMenus' => 1));
 			}
 		}
 		return $menu;

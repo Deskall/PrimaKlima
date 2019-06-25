@@ -1,3 +1,14 @@
+#RewriteEngine On
+
+#Redirection old website
+#Redirect 301 /contatto/newsletter/ /kontakt/newsletter/
+
+
+#RewriteCond %{HTTPS} off
+#RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule .* https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 ### SILVERSTRIPE START ###
 # Deny access to templates (but allow from localhost)
 <Files *.ss>

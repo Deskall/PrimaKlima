@@ -123,18 +123,18 @@ $(document).ready(function(){
 
 
 //Table
-$(document).ready(function(){
-  $(".dk-text-content table").each(function(){
-    $(this).wrap('<div class="uk-overflow-auto"></div>');
-      $(this).addClass("uk-table uk-table-small");
-      if ($(this).width() > $(window).width()){
-          divContainer = $("<div></div>");
-          divContainer.addClass("uk-overflow-auto");
-          $(this).detach().appendTo(divContainer);
-      }
+// $(document).ready(function(){
+//   $(".dk-text-content table").each(function(){
+//     $(this).wrap('<div class="uk-overflow-auto"></div>');
+//       $(this).addClass("uk-table uk-table-small");
+//       if ($(this).width() > $(window).width()){
+//           divContainer = $("<div></div>");
+//           divContainer.addClass("uk-overflow-auto");
+//           $(this).detach().appendTo(divContainer);
+//       }
 
-  });
-});
+//   });
+// });
 
 //Parent Block
 $(document).ready(function(){
@@ -165,4 +165,11 @@ $(document).ready(function(){
       UIkit.scroll($(this),{offset: 100});
     }
   });
+});
+
+$(document).ready(function(){
+  UIkit.update(document.body, type = 'update');
+});
+$( window ).resize(function() {
+  UIkit.update(document.body, type = 'update');
 });
