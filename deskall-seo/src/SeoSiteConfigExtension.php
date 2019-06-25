@@ -16,7 +16,8 @@ class SeoSiteConfigExtension extends DataExtension {
 
 	private static $db = array(
 		'GoogleWebmasterMetaTag' => 'Varchar(512)',
-        'GoogleAnalyticsCode' => 'HTMLText',
+        'HeadScripts' => 'HTMLText',
+        'BodyScripts' => 'HTMLText'
 	);
 
      private static $has_one = ['OpenGraphDefaultImage' => Image::class];
@@ -32,11 +33,25 @@ class SeoSiteConfigExtension extends DataExtension {
 	public function updateCMSFields(FieldList $fields) {
 
         $fields->addFieldsToTab("Root.SEO",array(
-                TextareaField::create("GoogleAnalyticsCode", _t('SEO.SEOGoogleAnalyticsCode', 'Google Analytics Script'))
+                HeaderField::create('ScriptTitle','Google Scripts',3)
                 ->setRightTitle(
                     _t(
-                        'SEO.SEOGoogleAnalyticsCodeRightTitle',
-                        "Füngen Sie Ihre Google Analytics Script hier."
+                        'SEO.ScriptTitle',
+                        "Geben Sie hier alle Skripte an, die auf allen Seiten der Site hinzugefügt werden sollen."
+                    )
+                ),
+                TextareaField::create("HeadScripts", _t('SEO.HeadScripts', 'Skripte für Head'))
+                ->setRightTitle(
+                    _t(
+                        'SEO.HeadScriptsRightTitle',
+                        "Fügen Sie Ihre alle Skripte, die im Header hinzugefügt werden sollen."
+                    )
+                ),
+                TextareaField::create("BodyScripts", _t('SEO.BodyScripts', 'Skripte für Body'))
+                ->setRightTitle(
+                    _t(
+                        'SEO.BodyScriptsRightTitle',
+                        "Fügen Sie Ihre alle Skripte, die im Body hinzugefügt werden sollen."
                     )
                 ),
                 TextareaField::create("GoogleWebmasterMetaTag", _t('SEO.SEOGoogleWebmasterMetaTag', 'Google webmaster meta tag'))
