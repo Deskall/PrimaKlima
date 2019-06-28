@@ -42,4 +42,9 @@ SilverStripe\Comments\Extensions\CommentsExtension:
   comments:
     nested_comments: true
     nested_depth: 2
+    require_moderation_cms: false
+    require_moderation: true
+    require_moderation_nonmembers: true
+    frontend_moderation: false
+
 
