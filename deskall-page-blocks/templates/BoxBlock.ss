@@ -6,7 +6,7 @@
 			<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 		<% end_if %>
 		<div data-uk-height-match="target:h3;row:false;" class="uk-margin">
-			<div data-uk-height-match="target:.dk-box-content p;row:false;">
+			<div data-uk-height-match="target:.dk-box-content .box-text;">
 				<div class="$BoxPerLine $BoxTextAlign uk-grid-medium" data-uk-grid  <% if not FullLink %>data-uk-lightbox="toggle:.dk-lightbox" <% end_if %>data-uk-height-match="target:img;row:false;">
 					<% loop ActiveBoxes %>
 					
@@ -17,7 +17,7 @@
 						<% if Top.Layout == "inversed" %>
 							<h3 class="uk-margin">$Title</h3>
 							<div class="uk-margin-top dk-box-content">
-						    	$Content
+						    	<div class="box-text">$Content</div>
 						   <% if LinkableLinkID > 0 %>
 								<% include CallToActionLink c=r,pos=center %>
 							<% end_if %>
@@ -51,7 +51,7 @@
 					    	<% end_if %>
 						    <h3 class="uk-margin">$Title</h3>
 						    <div class="uk-margin-top dk-box-content">
-						    	$Content
+						    	<div class="box-text">$Content</div>
 						    	<% if LinkableLinkID > 0 %>
 									<% include CallToActionLink c=r,pos=center %>
 								<% end_if %>
@@ -72,7 +72,7 @@
 						    	<% end_if %>
 						    <% end_if %>
 						    <div class="uk-margin-top dk-box-content">
-						    	$Content
+						    	<div class="box-text">$Content</div>
 						   <% if LinkableLinkID > 0 %>
 								<% include CallToActionLink c=r,pos=center %>
 							<% end_if %>
