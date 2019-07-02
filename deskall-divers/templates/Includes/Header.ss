@@ -4,7 +4,7 @@
 			
 			<% loop SiteConfig.activeMenuBlocks %>
 				<% if Type == 'form' %>
-					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
+					<div class="$Layout $Width uk-visible@m $Class">$Top.SearchForm</div>
 				<% else_if Type == "Languages" %>
 					<% include MenuBlock_Languages Locales=Top.Locales %>
 				<% else %>
