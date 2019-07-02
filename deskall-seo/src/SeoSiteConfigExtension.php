@@ -7,6 +7,7 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\AssetAdmin\Forms\HeaderField;
 
 /**
  * SeoSiteConfig
