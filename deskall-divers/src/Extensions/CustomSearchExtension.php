@@ -132,7 +132,7 @@ class CustomSearchExtension extends Extension
 
     public function shouldDisplay($do){
         $excludeClasses = Config::inst()->get('g4b0\SearchableDataObjects\CustomSearch', 'exclude_from_search');
-        $page = ($do->baseClass() == "SilverStripe\CMS\Model\SiteTree") ? $do : $do->getPage();
+        $page = ($do->baseClass() == "SilverStripe\CMS\Model\SiteTree") ? $do : $do->getRealPage();
         if (!$page || $page->ID <= 0 ){
             return false;
         }
