@@ -7,7 +7,7 @@
 		<% end_if %>
 		<% loop Menu(1) %>
 		<li class="$LinkingMode">
-			<a href="$Link" title="$Title.XML" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %>><span class="uk-margin-small-right" data-uk-icon="icon: chevron-right;"></span>$MenuTitle.XML</a><% if Children.exists %><span data-uk-toggle="#subnav-{ID}" class="uk-float-right" data-uk-icon="chevron-down"></span><% end_if %>
+			<a href="$Link" title="$Title.XML" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %>><span class="uk-margin-small-right" data-uk-icon="icon: chevron-right;"></span>$MenuTitle.XML</a><% if Children.exists %><span data-uk-toggle="#subnav-{$ID}" data-uk-icon="chevron-down"></span><% end_if %>
 			<% if LinkingMode == "current" || LinkingMode == "section" %>
 				<% if $Children %>
 				<ul id="subnav-$ID" class="uk-nav-sub">
