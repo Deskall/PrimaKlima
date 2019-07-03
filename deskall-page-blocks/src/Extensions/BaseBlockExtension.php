@@ -135,27 +135,27 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'uk-flex uk-flex-left' =>  [
             'value' => 'uk-flex uk-flex-left',
             'title' => 'Links Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-block-left-align.svg'
+            'icon' => '/deskall-page-blocks/images/icon-block-left.svg'
         ],
         'uk-flex uk-flex-right' => [
             'value' => 'uk-flex uk-flex-right',
             'title' => 'Rechts Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-block-right-align.svg'
+            'icon' => '/deskall-page-blocks/images/icon-block-right.svg'
         ],
         'uk-flex uk-flex-center' =>  [
             'value' => 'uk-flex uk-flex-center',
             'title' => 'Mittel Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-block-center-align.svg'
+            'icon' => '/deskall-page-blocks/images/icon-block-center.svg'
         ],
         'uk-flex uk-flex-between' =>  [
             'value' => 'uk-flex uk-flex-between',
             'title' => 'Fügen Sie diese Klasse hinzu, um Elemente gleichmäßig zu verteilen, wobei der Abstand zwischen den Elementen entlang der Hauptachse gleich ist.',
-            'icon' => '/deskall-page-blocks/images/icon-block-between-align.svg'
+            'icon' => '/deskall-page-blocks/images/icon-block-between.svg'
         ],
          'uk-flex uk-flex-around' =>  [
             'value' => 'uk-flex uk-flex-around',
             'title' => 'Fügen Sie diese Klasse hinzu, um Artikel auf beiden Seiten gleichmäßig zu verteilen.',
-            'icon' => '/deskall-page-blocks/images/icon-block-between-align.svg'
+            'icon' => '/deskall-page-blocks/images/icon-block-around.svg'
         ]
     ];
 
