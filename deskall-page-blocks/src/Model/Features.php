@@ -19,12 +19,15 @@ class Features extends DataObject
      'Activable'
     ];
 
+    private static $summary_fields = [
+        'Text' => 'Text'
+    ];
+
 
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('ParentID');
-        $fields->dataFieldByName('Text')->setRows(3);
         return $fields;
     }
 }
