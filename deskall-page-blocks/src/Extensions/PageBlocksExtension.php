@@ -5,6 +5,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
 
 class PageBlocksExtension extends DataExtension {
@@ -12,7 +13,8 @@ class PageBlocksExtension extends DataExtension {
 	private static $db = [
 		'showSlide' => 'Boolean(1)',
         'BlockAlignment' => 'Varchar',
-        'useMasonry' => 'Boolean(1)'
+        'useMasonry' => 'Boolean(1)',
+        'Parallax' => 'Varchar'
 	];
 
 	private static $defaults = [
@@ -65,7 +67,8 @@ class PageBlocksExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Layout',CompositeField::create(
 		    // HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
 		    HTMLOptionsetField::create('BlockAlignment',_t(__CLASS__.'.BlockAlignment','Blockausrichtung'),$this->owner->stat('block_alignments'))->setDescription(_t(__CLASS__.'.BlockAlignmentLabel','Nur gültig wenn die Blöcke per Linie nehmen nicht die ganze Breite.')),
-		    CheckboxField::create('useMasonry',_t(__CLASS__.'.useMasonry','Wenn die Blöcken unterschiedliche Höhen haben, wird ein Layout ohne Lücken erstellt'))
+		    CheckboxField::create('useMasonry',_t(__CLASS__.'.useMasonry','Wenn die Blöcken unterschiedliche Höhen haben, wird ein Layout ohne Lücken erstellt')),
+		    TextField::create('Parallax',_t(__CLASS__.'.Parallax','mit Parallax Effekt'))->displayIf('useMasonry')->isChecked()->end()
 		));
 	}
 
