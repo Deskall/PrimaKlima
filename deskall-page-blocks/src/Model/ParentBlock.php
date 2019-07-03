@@ -80,28 +80,28 @@ class ParentBlock extends ElementList
     ];
 
     private static $block_alignments = [
-        'uk-flex uk-flex-left' =>  [
-            'value' => 'uk-flex uk-flex-left',
+        'uk-flex-left' =>  [
+            'value' => 'uk-flex-left',
             'title' => 'Links Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-block-left.svg'
         ],
-        'uk-flex uk-flex-right' => [
-            'value' => 'uk-flex uk-flex-right',
+        'uk-flex-right' => [
+            'value' => 'uk-flex-right',
             'title' => 'Rechts Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-block-right.svg'
         ],
-        'uk-flex uk-flex-center' =>  [
-            'value' => 'uk-flex uk-flex-center',
+        'uk-flex-center' =>  [
+            'value' => 'uk-flex-center',
             'title' => 'Mittel Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-block-center.svg'
         ],
-        'uk-flex uk-flex-between' =>  [
-            'value' => 'uk-flex uk-flex-between',
+        'uk-flex-between' =>  [
+            'value' => 'uk-flex-between',
             'title' => 'Fügen Sie diese Klasse hinzu, um Elemente gleichmäßig zu verteilen, wobei der Abstand zwischen den Elementen entlang der Hauptachse gleich ist.',
             'icon' => '/deskall-page-blocks/images/icon-block-between.svg'
         ],
-         'uk-flex uk-flex-around' =>  [
-            'value' => 'uk-flex uk-flex-around',
+         'uk-flex-around' =>  [
+            'value' => 'uk-flex-around',
             'title' => 'Fügen Sie diese Klasse hinzu, um Artikel auf beiden Seiten gleichmäßig zu verteilen.',
             'icon' => '/deskall-page-blocks/images/icon-block-around.svg'
         ]
