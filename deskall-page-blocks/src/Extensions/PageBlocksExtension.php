@@ -20,6 +20,11 @@ class PageBlocksExtension extends DataExtension {
 	];
 
 	private static $block_alignments = [
+		'' => [
+			'value' => '',
+			'title' => 'Standard',
+			'icon' => ''
+		],
 	    'uk-flex-left' =>  [
 	        'value' => 'uk-flex-left',
 	        'title' => 'Links Ausrichtung',
