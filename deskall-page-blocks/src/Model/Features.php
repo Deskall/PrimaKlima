@@ -28,6 +28,7 @@ class Features extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('ParentID');
+        $fields->dataFieldByName('Text')->setRows(3);
         return $fields;
     }
 }
