@@ -17,7 +17,7 @@
 							<img src="$ContentImage.URL" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)">
 						<% else %>
 							<%-- $ContentImage.Content($ContentImage.ID,2500,$Title) --%>
-							<img data-src="$ContentImage.FitMax(500,500).URL"
+							<img src="$ContentImage.FitMax(1500,1500).URL" data-src="$ContentImage.FitMax(500,500).URL"
 							     data-srcset="$ContentImage.FitMax(500,500).URL 500w,
 							                  $ContentImage.FitMax(1000,1000).URL 1000w,
 							                  $ContentImage.FitMax(1500,1500).URL 1500w,
@@ -29,7 +29,7 @@
 							<img src="$ContentImage.URL" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)">
 						<% else %>
 							<%-- $ContentImage.Content($ContentImage.ID,1200,$Title) --%>
-							<img data-src="$ContentImage.FitMax(500,500).URL"
+							<img src="$ContentImage.FitMax(1500,1500).URL" data-src="$ContentImage.FitMax(500,500).URL"
 							     data-srcset="$ContentImage.FitMax(500,500).URL 500w,
 							                  $ContentImage.FitMax(1000,1000).URL 1000w,
 							                  $ContentImage.FitMax(1500,1500).URL 1200w"
