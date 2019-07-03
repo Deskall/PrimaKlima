@@ -6,8 +6,7 @@
 		<section class="uk-section <% if $Element.Background != "no-bg" %>$Element.Background with-background<% end_if %> uk-section-small">
 	<% end_if %>				
 			<div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
-				<% if not $Element.isChildren %><div class="uk-child-width-1-1 uk-grid-small $BlockAlignment" data-uk-grid>
-					<div class="$Element.Width"><% end_if %>
+				
 						<% if Element.TitleIcon %>
 						<div class="uk-flex uk-flex-middle uk-margin-bottom">
 							<div class="title-icon"><i class="fa fa-{$TitleIcon}"></i></div>
@@ -39,10 +38,7 @@
 						<div class="uk-panel">
 							$Element
 						</div>
-					<% if not $Element.isChildren %>
-					</div>
-				</div>
-				<% end_if %>
+					
 			</div>
 		</section>
 </div>

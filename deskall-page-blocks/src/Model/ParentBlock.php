@@ -29,7 +29,8 @@ class ParentBlock extends ElementList
         'Autoplay' => 'Boolean(0)',
         'ShowDot' => 'Boolean(1)',
         'ShowNav' => 'Boolean(0)',
-        'infiniteLoop' => 'Boolean(1)'
+        'infiniteLoop' => 'Boolean(1)',
+        'BlockAlignment' => 'Varchar'
     ];
 
     private static $table_name = 'ParentBlock';

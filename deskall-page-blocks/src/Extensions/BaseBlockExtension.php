@@ -32,8 +32,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
         'Width' => 'Varchar',
-        'Animation' => 'Varchar',
-        'BlockAlignment' => 'Varchar'
+        'Animation' => 'Varchar'
     ];
 
 
