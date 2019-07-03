@@ -60,7 +60,7 @@ class PageBlocksExtension extends DataExtension {
 		$fields->addFieldToTab('Root.Layout',CompositeField::create(
 		    // HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
 		    HTMLOptionsetField::create('BlockAlignment',_t(__CLASS__.'.BlockAlignment','Blockausrichtung'),$this->owner->stat('block_alignments'))->setDescription(_t(__CLASS__.'.BlockAlignmentLabel','Nur gültig wenn die Blöcke per Linie nehmen nicht die ganze Breite.')),
-		    CheckboxField::create('useMasonry',_t(__CLASS__.'.useMasonry','Wenn Blöcke unterschiedliche Höhen haben'))
+		    CheckboxField::create('useMasonry',_t(__CLASS__.'.useMasonry','Wenn die Blöcken unterschiedliche Höhen haben, wird ein Layout ohne Lücken erstellt'))
 		));
 	}
 
