@@ -19,10 +19,6 @@ class Features extends DataObject
      'Activable'
     ];
 
-    private static $summary_fields = [
-        'Text' => 'Text'
-    ];
-
 
     public function getCMSFields()
     {
