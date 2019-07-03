@@ -1,5 +1,5 @@
 
-	<div class="$BlockAlignment" data-uk-grid>
+	<div class="$BlockAlignment" data-uk-grid="<% if useMasonry %>masonry=true;<% end_if %>">
 	$ElementalArea
 	</div>
 	<% if $ID < 0 %> 
