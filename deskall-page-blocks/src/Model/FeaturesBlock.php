@@ -1,6 +1,7 @@
 <?php
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\CheckboxField;
