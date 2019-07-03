@@ -1,6 +1,6 @@
 <?php
 
-use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\CheckboxField;
@@ -177,7 +177,7 @@ class FeaturesBlock extends BaseElement implements Searchable
                         'Text' => [
                             'title' => 'Feature',
                             'callback' => function($record, $column, $grid) {
-                                return HtmlEditorField::create($column)->setRows(2);
+                                return HTMLEditorField::create($column)->setRows(2);
                             }
                         ]
                     ]
