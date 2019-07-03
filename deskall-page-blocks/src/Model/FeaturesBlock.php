@@ -172,16 +172,16 @@ class FeaturesBlock extends BaseElement implements Searchable
                 if (singleton('Features')->hasExtension('Activable')){
                      $config->addComponent(new GridFieldShowHideAction());
                 }
-                $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(
-                    [
-                        'Text' => [
-                            'title' => 'Feature',
-                            'callback' => function($record, $column, $grid) {
-                                return HTMLEditorField::create($column)->setRows(2);
-                            }
-                        ]
-                    ]
-                );
+                // $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(
+                //     [
+                //         'Text' => [
+                //             'title' => 'Feature',
+                //             'callback' => function($record, $column, $grid) {
+                //                 return HTMLEditorField::create($column)->setRows(2);
+                //             }
+                //         ]
+                //     ]
+                // );
                 $featuresField = new GridField('Features',_t(__CLASS__.'.Features','Features'),$this->Features(),$config);
                 $featuresField->addExtraClass('fluent__localised-field');
                 $title = $fields->fieldByName('Root.Main.FeaturesTitle');
