@@ -78,6 +78,35 @@ class ParentBlock extends ElementList
         ]
     ];
 
+    private static $block_alignments = [
+        'uk-flex uk-flex-left' =>  [
+            'value' => 'uk-flex uk-flex-left',
+            'title' => 'Links Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-block-left.svg'
+        ],
+        'uk-flex uk-flex-right' => [
+            'value' => 'uk-flex uk-flex-right',
+            'title' => 'Rechts Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-block-right.svg'
+        ],
+        'uk-flex uk-flex-center' =>  [
+            'value' => 'uk-flex uk-flex-center',
+            'title' => 'Mittel Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-block-center.svg'
+        ],
+        'uk-flex uk-flex-between' =>  [
+            'value' => 'uk-flex uk-flex-between',
+            'title' => 'Fügen Sie diese Klasse hinzu, um Elemente gleichmäßig zu verteilen, wobei der Abstand zwischen den Elementen entlang der Hauptachse gleich ist.',
+            'icon' => '/deskall-page-blocks/images/icon-block-between.svg'
+        ],
+         'uk-flex uk-flex-around' =>  [
+            'value' => 'uk-flex uk-flex-around',
+            'title' => 'Fügen Sie diese Klasse hinzu, um Artikel auf beiden Seiten gleichmäßig zu verteilen.',
+            'icon' => '/deskall-page-blocks/images/icon-block-around.svg'
+        ]
+    ];
+
+
 
     private static $defaults = [
         'BlocksPerLine' => 'uk-child-width-1-1@s uk-child-width-1-2@m' 
@@ -101,9 +130,11 @@ class ParentBlock extends ElementList
         $fields->removeByName('ShowDot');
         $fields->removeByName('ShowNav');
         $fields->removeByName('infiniteLoop');
+        $fields->removeByName('BlockAlignment');
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
+            HTMLOptionsetField::create('BlockAlignment',_t(__CLASS__.'.BlockAlignment','Blockausrichtung'),$this->owner->stat('block_alignments'))->setDescription(_t(__CLASS__.'.BlockAlignmentLabel','Nur wenn mehrere Blöcke per Linie.')),
             CheckboxField::create('Slide',_t(__CLASS__.'.Slide','Blöcke als Gallerie einrichten?')),
             CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
             CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
