@@ -1,5 +1,5 @@
 
-	<div data-uk-grid>
+	<div class="$BlockAlignment" data-uk-grid>
 	$ElementalArea
 	</div>
 	<% if $ID < 0 %> 
