@@ -1,4 +1,4 @@
-<%-- <div class="$Layout $Class">
+<div class="$Layout $Class">
 
 	<% if UseMenu %>
 	<ul class="dk-nav-mobile uk-nav" data-uk-nav>
@@ -32,9 +32,9 @@
 		<% end_loop %>
 	</ul>
 	<% end_if %>		  
-</div> --%>
+</div>
 
-<div class="$Layout <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
+<%-- <div class="$Layout <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
 
 	 <ul class="dk-nav-mobile uk-nav uk-nav-parent-icon <% if UseMenu %>$UseMenuOption<% end_if %>" data-uk-nav>
 		<% if UseMenu %>
@@ -62,4 +62,4 @@
 		$forTemplate
 		<% end_loop %>
 	</ul>		  
-</div>
+</div> --%>
