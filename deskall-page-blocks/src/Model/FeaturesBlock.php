@@ -176,7 +176,7 @@ class FeaturesBlock extends BaseElement implements Searchable
                     [
                         'Text' => [
                             'title' => 'Feature',
-                            'field' => 'callback' => function($record, $column, $grid) {
+                            'callback' => function($record, $column, $grid) {
                                 return HtmlEditorField::create($column)->setRows(2);
                             }
                         ]
