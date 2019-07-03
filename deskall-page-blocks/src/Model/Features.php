@@ -7,7 +7,7 @@ class Features extends DataObject
 {
 
     private static $db = [
-        'Text' => 'HTMLText'
+        'Text' => 'Text'
     ];
 
     private static $has_one = [
@@ -20,7 +20,7 @@ class Features extends DataObject
     ];
 
     private static $summary_fields = [
-        'Text' => 'Text'
+        'Text'
     ];
 
 
