@@ -1,5 +1,7 @@
 
+	<div data-uk-grid>
 	$ElementalArea
+	</div>
 	<% if $ID < 0 %> 
 		<% if Form || Content %>
 		<section class="uk-section">
