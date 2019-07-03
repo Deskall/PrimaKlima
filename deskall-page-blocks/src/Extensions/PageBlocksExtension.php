@@ -34,7 +34,7 @@ class PageBlocksExtension extends DataExtension {
 				$hasLead = true;
 			}
 		}
-		// $ElementalArea = $this->owner->ElementalArea(); 
+		$ElementalArea = $this->owner->ElementalArea(); 
 		// $hasLead = BaseElement::get()->filter(array('ParentID' => $ElementalArea->ID, 'isPrimary' => 1))->count();
 		if (!$hasLead){
 			$lead = new LeadBlock();
