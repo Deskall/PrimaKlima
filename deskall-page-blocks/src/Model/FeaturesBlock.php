@@ -173,7 +173,7 @@ class FeaturesBlock extends BaseElement implements Searchable
                      $config->addComponent(new GridFieldShowHideAction());
                 }
                 $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(
-                    FieldList::create(HtmlEditorField::create('Text','Text')->setRows(2));
+                    FieldList::create(HtmlEditorField::create('Text','Text')->setRows(2))
                 );
                 $featuresField = new GridField('Features',_t(__CLASS__.'.Features','Features'),$this->Features(),$config);
                 $featuresField->addExtraClass('fluent__localised-field');
