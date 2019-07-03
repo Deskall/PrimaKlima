@@ -1,7 +1,6 @@
 <?php
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
-use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\CheckboxField;
@@ -174,7 +173,14 @@ class FeaturesBlock extends BaseElement implements Searchable
                      $config->addComponent(new GridFieldShowHideAction());
                 }
                 $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(
-                    FieldList::create(HtmlEditorField::create('Text','Text')->setRows(2))
+                    [
+                        'Text' => [
+                            'title' => 'Feature',
+                            'field' => 'callback' => function($record, $column, $grid) {
+                                return HtmlEditorField::create($column)->setRows(2);
+                            }
+                        ]
+                    ]
                 );
                 $featuresField = new GridField('Features',_t(__CLASS__.'.Features','Features'),$this->Features(),$config);
                 $featuresField->addExtraClass('fluent__localised-field');
