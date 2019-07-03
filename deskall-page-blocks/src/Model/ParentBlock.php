@@ -135,7 +135,7 @@ class ParentBlock extends ElementList
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
-            HTMLOptionsetField::create('BlockAlignment',_t(__CLASS__.'.BlockAlignment','Blockausrichtung'),$this->owner->stat('block_alignments'))->setDescription(_t(__CLASS__.'.BlockAlignmentLabel','Nur wenn mehrere Blöcke per Linie.')),
+            HTMLOptionsetField::create('BlockAlignment',_t(__CLASS__.'.BlockAlignment','Blockausrichtung'),$this->owner->stat('block_alignments'))->setDescription(_t(__CLASS__.'.BlockAlignmentLabel','Nur gültig wenn die Blöcke per Linie nehmen nicht die ganze Breite.')),
             CheckboxField::create('Slide',_t(__CLASS__.'.Slide','Blöcke als Gallerie einrichten?')),
             CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
             CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
