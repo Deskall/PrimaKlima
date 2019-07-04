@@ -1,5 +1,5 @@
 
-	<div class="$BlockAlignment uk-child-width-auto" data-uk-grid="<% if useMasonry %>masonry:true;<% end_if %><% if Parallax %>parallax:$Parallax;<% end_if %>">
+	<div class="$BlockAlignment uk-child-width-expand" data-uk-grid="<% if useMasonry %>masonry:true;<% end_if %><% if Parallax %>parallax:$Parallax;<% end_if %>">
 	$ElementalArea
 	</div>
 	<% if $ID < 0 %> 
