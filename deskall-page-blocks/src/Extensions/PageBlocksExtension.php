@@ -12,6 +12,7 @@ class PageBlocksExtension extends DataExtension {
 	
 	private static $db = [
 		'showSlide' => 'Boolean(1)',
+		'BlocksPerLine' => 'Varchar',
         'BlockAlignment' => 'Varchar',
         'useMasonry' => 'Boolean(1)',
         'Parallax' => 'Varchar'
@@ -20,6 +21,30 @@ class PageBlocksExtension extends DataExtension {
 	private static $defaults = [
 		'showSlide' => 1
 	];
+
+	private static $blocks_per_line = [
+	    'uk-child-width-1-1@s' => [
+	        'value' => 'uk-child-width-1-1@s',
+	        'title' => '1 Spalte',
+	        'icon' => '/deskall-page-blocks/images/icon-parent-1-columns.svg'
+	    ],
+	    'uk-child-width-1-1@s uk-child-width-1-2@m' => [
+	        'value' => 'uk-child-width-1-1@s uk-child-width-1-2@m',
+	        'title' => '2 Spalten',
+	        'icon' => '/deskall-page-blocks/images/icon-parent-2-columns.svg'
+	    ],
+	    'uk-child-width-1-1@s uk-child-width-1-3@m' => [
+	        'value' => 'uk-child-width-1-1@s uk-child-width-1-3@m',
+	        'title' => '3 Spalten',
+	        'icon' => '/deskall-page-blocks/images/icon-parent-3-columns.svg'
+	    ],
+	    'uk-child-width-1-1@s uk-child-width-1-4@m' => [
+	        'value' => 'uk-child-width-1-1@s uk-child-width-1-4@m',
+	        'title' => '4 Spalten',
+	        'icon' => '/deskall-page-blocks/images/icon-parent-4-columns.svg'
+	    ]
+	];
+
 
 	private static $block_alignments = [
 		'' => [
@@ -65,7 +90,7 @@ class PageBlocksExtension extends DataExtension {
 		$fields->removeByName('BlockAlignment');
 		$fields->insertBefore('ElementalArea',HeaderField::create('BlockTitle',_t('PAGEBLOCKS.BLOCKSTITLE','Inhaltblöcke'), 3));
 		$fields->addFieldToTab('Root.Layout',CompositeField::create(
-		    // HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
+		    HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
 		    HTMLOptionsetField::create('BlockAlignment',_t(__CLASS__.'.BlockAlignment','Blockausrichtung'),$this->owner->stat('block_alignments'))->setDescription(_t(__CLASS__.'.BlockAlignmentLabel','Nur gültig wenn die Blöcke per Linie nehmen nicht die ganze Breite.')),
 		    CheckboxField::create('useMasonry',_t(__CLASS__.'.useMasonry','Wenn die Blöcken unterschiedliche Höhen haben, wird ein Layout ohne Lücken erstellt')),
 		    TextField::create('Parallax',_t(__CLASS__.'.Parallax','mit Parallax Effekt'))
