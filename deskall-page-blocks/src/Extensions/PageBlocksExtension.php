@@ -76,7 +76,7 @@ class PageBlocksExtension extends DataExtension {
 		$hasLead = false;
 		$PrimaryBlocks = BaseElement::get()->filter(array('isVisible' => 1, 'isPrimary' => 1));
 		foreach ($PrimaryBlocks as $lead) {
-			if ($lead->getRealPage()->ID == $this->owner->ID){
+			if ($lead->getRealPage() && $lead->getRealPage()->ID == $this->owner->ID){
 				$hasLead = true;
 			}
 		}
