@@ -32,7 +32,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
         'Width' => 'Varchar',
-        'Animation' => 'Varchar'
+        'Animation' => 'Varchar',
+        'BackgroundImageEffect' => 'Boolean(0)'
     ];
 
 
@@ -199,6 +200,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
             HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
             UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()),
+            CheckboxField::create('BackgroundImageEffect',_t(__CLASS__.'.BackgroundImageEffect','Behobenes Scrollen des Bildes?')),
             TextField::create('Animation',_t(__CLASS__.'.Animation','Animation'))
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
