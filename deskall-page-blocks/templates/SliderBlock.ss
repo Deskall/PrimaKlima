@@ -55,10 +55,17 @@
 
 <div data-uk-slideshow="maxHeight:350">
     <ul class="uk-slideshow-items">
-        <% loop ActiveSlides %>
+        <% with ActiveSlides.First %>
         <li>
-            <img src="$Image.ScaleHeight(350).URL" alt="" data-uk-cover>
+            <img src="$Image.URL" alt="" data-uk-cover>
         </li>
-        <% end_loop %>
+        <li>
+            <img src="$Image.URL" alt="" >
+        </li>
+        <li>
+            <img src="$Image.FocusFill(2500,350).URL" alt="">
+        </li>
+        
+        <% end_with %>
     </ul>
 </div>
