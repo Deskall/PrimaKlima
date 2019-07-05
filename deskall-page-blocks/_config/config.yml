@@ -32,10 +32,6 @@ Page:
   extensions:
     - PageBlocksExtension
 
-SilverStripe\UserForms\Model\UserDefinedForm:
-  block_default_userforms_js: true
-  block_default_userforms_css: true
-
 Slide:
   extensions:
     - Activable
@@ -61,7 +57,8 @@ VideoObject:
 SilverStripe\UserForms\Form\UserForm:
   extensions:
    - UserDefinedFormExtension
-
+  block_default_userforms_js: true
+  block_default_userforms_css: true
 
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
