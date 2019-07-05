@@ -12,13 +12,13 @@
                 <% else %>
                     <% if Image.exists %> 
                    
-                    <img src="$Image.FocusFillMax(1500,$Top.MaxHeight).Link" sizes="100vw"
-                         srcset="$Image.FocusFillMax(400,$Top.MaxHeight).Link 400w,
+                    <img data-src="$Image.FocusFillMax(1500,$Top.MaxHeight).Link" sizes="100vw"
+                         data-srcset="$Image.FocusFillMax(400,$Top.MaxHeight).Link 400w,
                          $Image.FocusFillMax(600,$Top.MaxHeight).Link 600w,
                          $Image.FocusFillMax(800,$Top.MaxHeight).Link 800w,
                          $Image.FocusFillMax(1200,$Top.MaxHeight).Link 1200w,
                          $Image.FocusFillMax(1500,$Top.MaxHeight).Link 1500w,
-                         $Image.FocusFillMax(2500,$Top.MaxHeight).Link 2500w"  alt="$Image.AtlTag($Title)" data-uk-cover>
+                         $Image.FocusFillMax(2500,$Top.MaxHeight).Link 2500w"  alt="$Image.AtlTag($Title)" data-uk-cover data-uk-img="target: !.uk-slideshow-items">
                     <% end_if %>
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
