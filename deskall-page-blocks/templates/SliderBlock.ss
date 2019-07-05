@@ -53,7 +53,7 @@
     <% end_if %>
 </div> --%>
 
-<div data-uk-slideshow>
+<div class="uk-height-large" data-uk-slideshow>
     <ul class="uk-slideshow-items">
         <% loop ActiveSlides %>
         <li>
