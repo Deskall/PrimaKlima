@@ -128,6 +128,8 @@ class LargeImageBlock extends BaseElement implements Searchable{
             case "dk-height-large":
             return 450;
             break;
+            case "viewport":
+            return 700;
         }
     }
     
