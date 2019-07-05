@@ -11,74 +11,13 @@ use DNADesign\Elemental\Models\BaseElement;
 class PageBlocksExtension extends DataExtension {
 	
 	private static $db = [
-		'showSlide' => 'Boolean(1)',
-		'BlocksPerLine' => 'Varchar',
-        'BlockAlignment' => 'Varchar',
-        'useMasonry' => 'Boolean(0)',
-        'Parallax' => 'Varchar'
+		'showSlide' => 'Boolean(1)'
 	];
 
 	private static $defaults = [
-		'showSlide' => 1,
-		'BlocksPerLine' => 'uk-child-width-1-1@s'
+		'showSlide' => 1
 	];
 
-	private static $blocks_per_line = [
-	    'uk-child-width-1-1@s' => [
-	        'value' => 'uk-child-width-1-1@s',
-	        'title' => '1 Spalte',
-	        'icon' => '/deskall-page-blocks/images/icon-parent-1-columns.svg'
-	    ],
-	    'uk-child-width-1-1@s uk-child-width-1-2@m' => [
-	        'value' => 'uk-child-width-1-1@s uk-child-width-1-2@m',
-	        'title' => '2 Spalten',
-	        'icon' => '/deskall-page-blocks/images/icon-parent-2-columns.svg'
-	    ],
-	    'uk-child-width-1-1@s uk-child-width-1-3@m' => [
-	        'value' => 'uk-child-width-1-1@s uk-child-width-1-3@m',
-	        'title' => '3 Spalten',
-	        'icon' => '/deskall-page-blocks/images/icon-parent-3-columns.svg'
-	    ],
-	    'uk-child-width-1-1@s uk-child-width-1-4@m' => [
-	        'value' => 'uk-child-width-1-1@s uk-child-width-1-4@m',
-	        'title' => '4 Spalten',
-	        'icon' => '/deskall-page-blocks/images/icon-parent-4-columns.svg'
-	    ]
-	];
-
-
-	private static $block_alignments = [
-		'' => [
-			'value' => '',
-			'title' => 'Standard',
-			'icon' => ''
-		],
-	    'uk-flex-left' =>  [
-	        'value' => 'uk-flex-left',
-	        'title' => 'Links Ausrichtung',
-	        'icon' => '/deskall-page-blocks/images/icon-block-left.svg'
-	    ],
-	    'uk-flex-right' => [
-	        'value' => 'uk-flex-right',
-	        'title' => 'Rechts Ausrichtung',
-	        'icon' => '/deskall-page-blocks/images/icon-block-right.svg'
-	    ],
-	    'uk-flex-center' =>  [
-	        'value' => 'uk-flex-center',
-	        'title' => 'Mittel Ausrichtung',
-	        'icon' => '/deskall-page-blocks/images/icon-block-center.svg'
-	    ],
-	    'uk-flex-between' =>  [
-	        'value' => 'uk-flex-between',
-	        'title' => 'Fügen Sie diese Klasse hinzu, um Elemente gleichmäßig zu verteilen, wobei der Abstand zwischen den Elementen entlang der Hauptachse gleich ist.',
-	        'icon' => '/deskall-page-blocks/images/icon-block-between.svg'
-	    ],
-	     'uk-flex-around' =>  [
-	        'value' => 'uk-flex-around',
-	        'title' => 'Fügen Sie diese Klasse hinzu, um Artikel auf beiden Seiten gleichmäßig zu verteilen.',
-	        'icon' => '/deskall-page-blocks/images/icon-block-around.svg'
-	    ]
-	];
 
 	public function requireDefaultRecords(){
 		parent::requireDefaultRecords();
@@ -88,14 +27,7 @@ class PageBlocksExtension extends DataExtension {
 	}
 
 	public function updateCMSFields(FieldList $fields){
-		$fields->removeByName('BlockAlignment');
 		$fields->insertBefore('ElementalArea',HeaderField::create('BlockTitle',_t('PAGEBLOCKS.BLOCKSTITLE','Inhaltblöcke'), 3));
-		$fields->addFieldToTab('Root.Layout',CompositeField::create(
-		    HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->owner->stat('blocks_per_line')),
-		    HTMLOptionsetField::create('BlockAlignment',_t(__CLASS__.'.BlockAlignment','Blockausrichtung'),$this->owner->stat('block_alignments'))->setDescription(_t(__CLASS__.'.BlockAlignmentLabel','Nur gültig wenn die Blöcke per Linie nehmen nicht die ganze Breite.')),
-		    CheckboxField::create('useMasonry',_t(__CLASS__.'.useMasonry','Wenn die Blöcken unterschiedliche Höhen haben, wird ein Layout ohne Lücken erstellt')),
-		    TextField::create('Parallax',_t(__CLASS__.'.Parallax','mit Parallax Effekt'))
-		));
 	}
 
 	public function checkLead(){

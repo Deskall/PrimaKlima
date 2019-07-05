@@ -1,7 +1,6 @@
 
-	<div class="<% if not useMasonry %>$BlockAlignment<% end_if %> $BlocksPerLine uk-grid-collapse uk-grid-match" data-uk-grid="<% if useMasonry %>masonry:true;<% end_if %><% if Parallax %>parallax:$Parallax;<% end_if %>">
 	$ElementalArea
-	</div>
+	
 	<% if $ID < 0 %> 
 		<% if Form || Content %>
 		<section class="uk-section">
