@@ -63,7 +63,7 @@
             <img src="$Image.URL" alt="" >
         </li>
         <li>
-            <img src="$Image.FocusFill(2500,350).URL" alt="">
+            <img src="$Image.FocusFill(2500,350).URL" alt="" data-uk-cover>
         </li>
         
         <% end_with %>
