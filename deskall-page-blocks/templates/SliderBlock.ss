@@ -17,7 +17,7 @@
                          $Image.FocusFillMax(600,$Top.MaxHeight).Link 600w,
                          $Image.FocusFillMax(800,$Top.MaxHeight).Link 800w,
                          $Image.FocusFillMax(1200,$Top.MaxHeight).Link 1200w,
-                         $Image.FocusFillMax(1500,$Top.MaxHeight).Link 1500w"  alt="$Image.AtlTag($Title)">
+                         $Image.FocusFillMax(1500,$Top.MaxHeight).Link 1500w"  alt="$Image.AtlTag($Title)" data-uk-cover>
                     <% end_if %>
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
