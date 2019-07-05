@@ -61,7 +61,7 @@ class FormBlockExtension extends DataExtension
     $fields->removeByName('Layout');
     $fields->removeByName('TextLayout');
     $fields->removeByName('RedirectPageID');
-    // $fields->removeByName('FormOptions');
+    $fields->removeByName('FormOptions');
 
      $fields->addFieldToTab('Root.Main',TreeDropdownField::create('RedirectPageID',_t('Form.RedirectPage', 'erfolgreiche Einreichungsseite'), SiteTree::class));
       $fields->addFieldToTab('Root.LayoutTab',TextField::create('SubmitButtonText',_t('Form.SubmitButtonText','Button Text')));
