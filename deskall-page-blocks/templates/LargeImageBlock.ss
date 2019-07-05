@@ -1,5 +1,5 @@
 	<% if Effect == "fixed" %>
-	<div class="$Height uk-background-cover uk-background-fixed uk-light <% if Background %>$Background dk-overlay uk-background-blend-overlay<% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" 
+	<div class="$Height uk-background-cover uk-background-fixed uk-light <% if Background %>$Background dk-overlay <% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" 
 		data-src="$Image.ScaleWidth(1500).URL"
 	    data-srcset="$Image.ScaleWidth(650).URL 650w,
 	                  $Image.ScaleWidth(1200).URL 1200w,
