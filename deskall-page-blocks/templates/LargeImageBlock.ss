@@ -1,7 +1,7 @@
 
 	<div class="$Height uk-background-cover uk-light <% if Background %>$Background dk-overlay uk-background-blend-overlay <% end_if %><% if Effect == "fixed" %>uk-background-fixed<% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" 
 		data-src="$Image.FocusFillMax(1600,$ImageHeight).URL"
-	    data-srcset="$Image.FocusFillMax(650),$ImageHeight.URL 650w,
+	    data-srcset="$Image.FocusFillMax(650,$ImageHeight).URL 650w,
 	                  $Image.FocusFillMax(1200,$ImageHeight).URL 1200w,
 	                  $Image.FocusFillMax(1600,$ImageHeight).URL 1600w,
 	                  $Image.FocusFillMax(2500,$ImageHeight).URL 2500w,
