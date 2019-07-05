@@ -14,12 +14,13 @@ class PageBlocksExtension extends DataExtension {
 		'showSlide' => 'Boolean(1)',
 		'BlocksPerLine' => 'Varchar',
         'BlockAlignment' => 'Varchar',
-        'useMasonry' => 'Boolean(1)',
+        'useMasonry' => 'Boolean(0)',
         'Parallax' => 'Varchar'
 	];
 
 	private static $defaults = [
-		'showSlide' => 1
+		'showSlide' => 1,
+		'BlocksPerLine' => 'uk-child-width-1-1@s'
 	];
 
 	private static $blocks_per_line = [
