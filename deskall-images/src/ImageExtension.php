@@ -16,13 +16,13 @@ class ImageExtension extends Extension
      * @var array
      * @config
      */
-    // private static $default_arguments = [600];
+    private static $default_arguments = [600];
 
     /**
      * @var string
      * @config
      */
-    // private static $default_method = 'ScaleWidth';
+    private static $default_method = 'ScaleWidth';
 
     /**
      * @var string
@@ -33,19 +33,19 @@ class ImageExtension extends Extension
     /**
      * @var array A cached copy of the image sets
      */
-    // protected $configSets;
+    protected $configSets;
 
     protected $uikit;
 
 
-    // /**
-    //  * {@inheritdoc}
-    //  */
-    // public function __construct()
-    // {
-    //     parent::__construct();
-    //     $this->configSets = Config::inst()->get(__CLASS__, 'sets') ?: [];
-    // }
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->configSets = Config::inst()->get(__CLASS__, 'sets') ?: [];
+    }
 
     private static $db = [
         'Description' => 'Text',
