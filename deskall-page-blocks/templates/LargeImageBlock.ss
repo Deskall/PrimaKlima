@@ -1,13 +1,12 @@
 
 	<div class="$Height uk-background-cover uk-light <% if Background %>$Background dk-overlay uk-background-blend-overlay <% end_if %><% if Effect == "fixed" %>uk-background-fixed<% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" 
 		src="$Image.ScaleWidth(1600).URL"
-	     data-src="$Image.ScaleWidth(1600).URL"
-	     data-srcset="$Image.ScaleWidth(650).URL 650w,
+	    srcset="$Image.ScaleWidth(650).URL 650w,
 	                  $Image.ScaleWidth(1200).URL 1200w,
 	                  $Image.ScaleWidth(1600).URL 1600w,
 	                  $Image.ScaleWidth(2500).URL 2500w,
 	                  $Image.ScaleWidth(5000).URL 5000w"
-	     data-sizes="100vw" data-uk-img>
+	    sizes="100vw" >
 	    <div class="uk-container uk-overflow-auto <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
 	    	<div class="uk-position-relative  $Height">
 			    <div class="$Layout uk-padding-small uk-padding-remove-horizontal uk-width-1-1">
