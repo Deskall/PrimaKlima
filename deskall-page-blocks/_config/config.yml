@@ -57,8 +57,6 @@ VideoObject:
 SilverStripe\UserForms\Form\UserForm:
   extensions:
    - UserDefinedFormExtension
-  block_default_userforms_js: true
-  block_default_userforms_css: true
 
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
@@ -93,6 +91,8 @@ DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
     - FormBlockExtension
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
+  block_default_userforms_js: true
+  block_default_userforms_css: true
 
 SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
     default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NocaptchaProtector
