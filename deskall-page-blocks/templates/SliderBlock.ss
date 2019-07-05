@@ -1,4 +1,4 @@
-<%-- 
+
 <div data-uk-slideshow="<% if Height != "viewport" %><% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %><% end_if %> <% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};" class="dk-slider uk-visible-toggle uk-position-relative">
     <ul class="uk-slideshow-items" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
         <% loop ActiveSlides %>
@@ -11,7 +11,7 @@
                 <img src="$Image.Link" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-cover />
                 <% else %>
                     <% if Image.exists %> 
-                    <img src="$Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).Link" data-src="$Image.FocusFillMax(400,$Image.HeightForWidth(400)).Link" data-srcset="$Image.FocusFillMax(400,$Image.HeightForWidth(400)).Link 10w, $Image.FocusFillMax(800,$Image.HeightForWidth(800)).Link 600w, $Image.FocusFillMax(1000,$Image.HeightForWidth(1000)).Link 800w, $Image.FocusFillMax(1200,$Image.HeightForWidth(1200)).Link 1000w, $Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).Link 1300w, $Image.FocusFillMax(2500,$Image.HeightForWidth(2500)).Link 1500w" alt="$Image.AtlTag($Title)" data-uk-cover sizes="100vw" data-uk-img>
+                    <img src="$Image.FocusFillMax(1500,$Top.MaxHeight).Link" data-src="$Image.FocusFillMax(400,$Top.MaxHeight).Link" data-srcset="$Image.FocusFillMax(400,$Top.MaxHeight).Link 10w, $Image.FocusFillMax(800,$Top.MaxHeight).Link 600w, $Image.FocusFillMax(1000,$Top.MaxHeight).Link 800w, $Image.FocusFillMax(1200,$Top.MaxHeight).Link 1000w, $Image.FocusFillMax(1500,$Top.MaxHeight).Link 1300w, $Image.FocusFillMax(2500,$Top.MaxHeight).Link 1500w" alt="$Image.AtlTag($Title)" data-uk-cover sizes="100vw" data-uk-img>
                     <% end_if %>
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
@@ -51,21 +51,4 @@
             </div>
 
     <% end_if %>
-</div> --%>
-
-<div data-uk-slideshow="maxHeight:350">
-    <ul class="uk-slideshow-items">
-        <% with ActiveSlides.First %>
-        <li>
-            <img src="$Image.URL" alt="" data-uk-cover>
-        </li>
-        <li>
-            <img src="$Image.URL" alt="" >
-        </li>
-        <li>
-            <img src="$Image.FocusFill(2500,350).URL" alt="" data-uk-cover>
-        </li>
-        
-        <% end_with %>
-    </ul>
 </div>
