@@ -6,7 +6,7 @@
 	                  $Image.FocusFillMax(1600,$ImageHeight).URL 1600w,
 	                  $Image.FocusFillMax(2500,$ImageHeight).URL 2500w,
 	                  $Image.FocusFillMax(5000,$ImageHeight).URL 5000w"
-	     data-sizes="100vw" data-uk-img>
+	    sizes="100vw" data-uk-img>
 	    <div class="uk-container uk-overflow-auto <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
 	    	<div class="uk-position-relative  $Height">
 			    <div class="$Layout uk-padding-small uk-padding-remove-horizontal uk-width-1-1">
