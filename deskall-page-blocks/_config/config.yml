@@ -31,6 +31,8 @@ DNADesign\Elemental\ElementalEditor:
 Page:
   extensions:
     - PageBlocksExtension
+  block_default_userforms_js: true
+  block_default_userforms_css: true
 
 Slide:
   extensions:
