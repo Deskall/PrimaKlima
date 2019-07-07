@@ -12,26 +12,26 @@
 						<div class="uk-flex uk-flex-middle uk-margin-bottom">
 							<div class="title-icon"><i class="fa fa-{$TitleIcon}"></i></div>
 							<% if Element.isPrimary %>
-								<h1 class="$Element.TitleAlign <% if Element.isChildren && Element.Parent.CollapsibleChildren %>uk-accordion-title<% end_if%>">$getPage.Title</h1>
+								<h1 class="$Element.TitleAlign">$getPage.Title</h1>
 							<% else %>
 								<% if Element.Title && $Element.ShowTitle %>
 									<% if $Element.isChildren %>
-										<h3 class="$Element.TitleAlign <% if Element.isChildren && Element.Parent.CollapsibleChildren %>uk-accordion-title<% end_if%>">$Element.Title</h3>
+										<h3 class="$Element.TitleAlign">$Element.Title</h3>
 									<% else %>
-										<h2 class="$Element.TitleAlign <% if Element.isChildren && Element.Parent.CollapsibleChildren %>uk-accordion-title<% end_if%>">$Element.Title</h2>
+										<h2 class="$Element.TitleAlign">$Element.Title</h2>
 									<% end_if %>
 								<% end_if %>
 							<% end_if %>
 						</div>
 						<% else %>
 						<% if Element.isPrimary %>
-							<h1 class="$Element.TitleAlign <% if Element.isChildren && Element.Parent.CollapsibleChildren %>uk-accordion-title<% end_if%>">$getPage.Title</h1>
+							<h1 class="$Element.TitleAlign">$getPage.Title</h1>
 						<% else %>
 							<% if Element.Title && $Element.ShowTitle %>
 								<% if $Element.isChildren %>
-									<h3 class="$Element.TitleAlign <% if Element.isChildren && Element.Parent.CollapsibleChildren %>uk-accordion-title<% end_if%>">$Element.Title</h3>
+									<h3 class="$Element.TitleAlign">$Element.Title</h3>
 								<% else %>
-									<h2 class="$Element.TitleAlign <% if Element.isChildren && Element.Parent.CollapsibleChildren %>uk-accordion-title<% end_if%>">$Element.Title</h2>
+									<h2 class="$Element.TitleAlign">$Element.Title</h2>
 								<% end_if %>
 							<% end_if %>
 						<% end_if %>
