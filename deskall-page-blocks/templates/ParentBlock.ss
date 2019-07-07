@@ -29,8 +29,8 @@
 <ul data-uk-accordion>
     <% loop $Elements.ElementControllers %>
     <li>
-        <a class="uk-accordion-title" href="#">$Element.Title</a>
-        <div class="uk-accordion-content">$Element</div>
+        <a class="uk-accordion-title" href="#panel-{$Element.ID}">$Element.Title</a>
+        <div id="panel-{$Element.ID}" class="uk-accordion-content">$Element</div>
     </li>
     <% end_loop %>
 </ul>
