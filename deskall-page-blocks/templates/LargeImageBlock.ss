@@ -18,7 +18,7 @@
 	    sizes="100vw" data-uk-img>
 	<% end_if %>
 	    <div class="uk-container uk-overflow-auto <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
-	    	<div class="uk-position-relative  $Height">
+	    	<div class="uk-position-relative   <% if Height == "viewport" %>uk-height-1-1<% else %>$Height<% end_if %>">
 			    <div class="$Layout uk-padding-small uk-padding-remove-horizontal uk-width-1-1">
 			    	<% if TitleIcon %>
 					<div class="uk-flex uk-flex-middle uk-margin-bottom">
