@@ -10,7 +10,7 @@ class DeskallElementalEditorExtension extends DataExtension
     public function updateGetTypes(&$types){
 
         if ($this->owner->getArea()->getOwnerPage() && $this->owner->getArea()->getOwnerPage()->ClassName == "ParentBlock" && $this->owner->getArea()->getOwnerPage()->CollapsableChildren){
-            $allowed = $this->owner->getArea()->getOwnerPage()->stat('allowed_collapsed_blocks');
+            $allowed = BaseBlockExtension::inst()->stat('collapsable_blocks');
             foreach ($types as $key => $value) {
                 if (!in_array($key,$allowed)){
                     unset($types[$key]);

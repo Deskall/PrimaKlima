@@ -104,6 +104,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'BoxBlock',
         'ListBlock',
         'DownloadBlock',
+        'ParentBlock'
     ];
 
     private static $icon;
