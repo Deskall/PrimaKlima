@@ -28,7 +28,7 @@
 <% else_if CollapsableChildren %>
 <ul data-uk-accordion="<% if not CanCollapse %>collapsible:false;<% end_if %><% if CollapseMultipe %>multiple:true;<% end_if %>">
     <% loop $Elements.ElementControllers %>
-    <li id="$Element.Anchor" class="<% if not Element.collapsed %>uk-open<% end_if %>">
+    <li id="$Element.Anchor" class="uk-margin <% if not Element.collapsed %>uk-open<% end_if %>">
        <a class="uk-accordion-title"><h3>$Element.Title</h3></a>
         <div id="panel-{$Element.ID}" class="uk-accordion-content element">
         <% if $Element.BackgroundImage.exists %>
