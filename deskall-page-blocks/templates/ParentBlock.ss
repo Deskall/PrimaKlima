@@ -26,16 +26,16 @@
         <% end_if %>
 	</div>
 <% else_if CollapsableChildren %>
-<ul data-uk-accordion>
+<ul data-uk-accordion="<% if not Collapsable %>collapsible:false;<% end_if %><% if CollapseMultipe %>multiple:true;<% end_if %>">
     <% loop $Elements.ElementControllers %>
     <li>
-        <a class="uk-accordion-title">$Element.Title</a>
-        <div id="panel-{$Element.ID}" class="uk-accordion-content">$Element</div>
+        <h3><a class="uk-accordion-title">$Element.Title</a></h3>
+        <div id="panel-{$Element.ID}" class="uk-accordion-content <% if not collapsed %>uk-open<% end_if %>">$Element</div>
     </li>
     <% end_loop %>
 </ul>
 <% else %>
-<div class="list-element__container $BlocksPerLine  $BlockAlignment uk-grid-small <% if $Border %>uk-grid-divider<% end_if %> <% if $matchHeight %>uk-grid-match<% end_if %>" <% if CollapsableChildren %>data-uk-accordion="content:.uk-panel;toggle:h3;<% if not Collapsable %>collapsible:false;<% end_if %><% if CollapseMultipe %>multiple:true;<% end_if %>"<% end_if %> data-uk-grid data-listelement-count="$Elements.Elements.Count" data-element-expanded="$ExpandedBlocks" >
+<div class="list-element__container $BlocksPerLine  $BlockAlignment uk-grid-small <% if $Border %>uk-grid-divider<% end_if %> <% if $matchHeight %>uk-grid-match<% end_if %>"<% end_if %> data-uk-grid data-listelement-count="$Elements.Elements.Count" data-element-expanded="$ExpandedBlocks" >
     <% loop $Elements.ElementControllers %>
     $Me
     <% end_loop %>
