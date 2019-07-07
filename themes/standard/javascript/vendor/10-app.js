@@ -139,8 +139,8 @@ $(document).ready(function(){
 //Parent Block
 $(document).ready(function(){
     $(".parentblock .uk-accordion").each(function(){
-      var options = {content: '.uk-panel', target: 'h3' }; 
-      UIkit.accordion($(this), options);
+      // var options = {content: '.uk-panel', target: 'h3' }; 
+      // UIkit.accordion($(this), options);
         // $(this).find("h3").each(function(){
         //     var html = $(this).html();
         //     var a = $('<a></a>');
