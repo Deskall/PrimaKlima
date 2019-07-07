@@ -28,9 +28,19 @@
 <% else_if CollapsableChildren %>
 <ul data-uk-accordion="<% if not CanCollapse %>collapsible:false;<% end_if %><% if CollapseMultipe %>multiple:true;<% end_if %>">
     <% loop $Elements.ElementControllers %>
-    <li class="<% if not Element.collapsed %>uk-open<% end_if %>">
+    <li id="$Element.Anchor" class="<% if not Element.collapsed %>uk-open<% end_if %>">
        <a class="uk-accordion-title"><h3>$Element.Title</h3></a>
-        <div id="panel-{$Element.ID}" class="uk-accordion-content">$Element</div>
+        <div id="panel-{$Element.ID}" class="uk-accordion-content">
+        <% if $Element.BackgroundImage.exists %>
+            <section class="uk-section $Element.Background uk-cover-container dk-overlay uk-section-large with-background <% if $Element.BackgroundImageEffect %>uk-background-fixed<% end_if %>" <% if $Element.BackgroundImage.getExtension == "svg" %>data-src="$Element.BackgroundImage.URL"<% else %>data-src="$Element.BackgroundImage.ScaleWidth(1200).URL" data-srcset="$Element.BackgroundImage.ScaleWidth(650).URL 650w,$Element.BackgroundImage.ScaleWidth(1200).URL 1200w, $Element.BackgroundImage.ScaleWidth(1600).URL 1600w, $Element.BackgroundImage.URL 2500w" data-sizes="100vw" data-uk-img<% end_if %>>
+        <% else %>
+            <section class="uk-section <% if $Element.Background != "no-bg" %>$Element.Background with-background<% end_if %> uk-section-small">
+        <% end_if %>                
+                <div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
+                    $Element
+                </div>
+            </section>
+        </div>
     </li>
     <% end_loop %>
 </ul>
