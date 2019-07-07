@@ -29,7 +29,7 @@
 <ul data-uk-accordion="<% if not CanCollapse %>collapsible:false;<% end_if %><% if CollapseMultipe %>multiple:true;<% end_if %>">
     <% loop $Elements.ElementControllers %>
     <li class="<% if not Element.collapsed %>uk-open<% end_if %>">
-        <h3><a class="uk-accordion-title">$Element.Title</a></h3>
+       <a class="uk-accordion-title">$Element.Title</a>
         <div id="panel-{$Element.ID}" class="uk-accordion-content">$Element</div>
     </li>
     <% end_loop %>
