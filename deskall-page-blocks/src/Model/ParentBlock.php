@@ -113,7 +113,7 @@ class ParentBlock extends ElementList
         'BlocksPerLine' => 'uk-child-width-1-1@s uk-child-width-1-2@m' 
     ];
 
-    private static $allowed_collapsed_blocks = ['TextBlock','GalleryBlock'];
+    private static $allowed_collapsed_blocks = ['TextBlock','GalleryBlock','ParentBlock'];
 
     public function getCMSFields(){
         $fields = parent::getCMSFields();
