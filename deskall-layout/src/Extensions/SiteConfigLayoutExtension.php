@@ -30,6 +30,7 @@ use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
 use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 
+
 class SiteConfigLayoutExtension extends DataExtension 
 {
   protected $user_defined_file = '/themes/standard/css/src/deskall/theme/user_defined.less';
@@ -139,7 +140,7 @@ class SiteConfigLayoutExtension extends DataExtension
   ];
 
   private static $many_many = [
-     'Slides' => Image::class
+     'Slides' => Slide::class
   ];
 
   private static $default_colors = [
@@ -227,8 +228,14 @@ class SiteConfigLayoutExtension extends DataExtension
     ]);
                 
     $colorsField = new GridField('Colors',_t(__CLASS__.'.Colors','Farben'),$this->owner->Colors(),$config);
+    $slideconfig = GridFieldConfig_RecordEditor::create();
+    $slideconfig->addComponent(new GridFieldOrderableRows('Sort'));
+    if (singleton('Slide')->hasExtension('Activable')){
+         $slideconfig->addComponent(new GridFieldShowHideAction());
+    }
+    $slideconfig->addComponent(new GridFieldDuplicateAction());
     $fields->addFieldsToTab("Root.Global",[
-      UploadField::create('Slides','Slides')->setIsMultiUpload(true)->setFolderName($this->owner->getFolderName()),
+      new GridField('Slides',_t(__CLASS__.'.Slides','Slides'),$this->owner->Slides(),$slideconfig),
       HeaderField::create('ColorTitle',_t(__CLASS__.'.ColorsTitle','Farben'),2),
       $colorsField]);
 
