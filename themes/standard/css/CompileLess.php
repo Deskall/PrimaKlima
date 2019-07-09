@@ -11,7 +11,7 @@ $filename_less = str_replace(".css", ".less", $filename_full);
 
 	$css_compiled = autoCompileLess($filename_less, $filename_full);
 
-	if($css_compiled){
+if($css_compiled){
 		// set correct paths
 		$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
 		$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
@@ -40,7 +40,7 @@ $filename_less = str_replace(".css", ".less", $filename_full);
 		// }
 
 		// save files
-		if ($filename == "editorstyle.css"){
+		if ($filename == "editortocompile.css"){
 			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/themes/standard/css/editor.css',$css_compiled);
 		}
 		else{
@@ -50,7 +50,7 @@ $filename_less = str_replace(".css", ".less", $filename_full);
 		}
 			
 		
-	}
+	
 }
 header("Content-type: text/css");
 echo file_get_contents( $filename );
