@@ -466,19 +466,22 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function RegenerateCss(){
-
-    $url = Director::AbsoluteURL('themes/standard/css/main.min.css');
-    if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
-        if ($this->owner->SubsiteID > 0){
-            $url =Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/main.min.css');
+    $files = ['main.min.css','editor.css'];
+    foreach ($files as $key => $value) {
+      $url = Director::AbsoluteURL('themes/standard/css/'.$value);
+      if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
+          if ($this->owner->SubsiteID > 0){
+              $url =Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/main.min.css');
+          }
         }
-      }
-    $req = curl_init($url);
-    $postdata = [];
-    curl_setopt($req, CURLOPT_POST, true);
-    curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
-    curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-    curl_exec($req);
+      $req = curl_init($url);
+      $postdata = [];
+      curl_setopt($req, CURLOPT_POST, true);
+      curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
+      curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+      curl_exec($req);
+    }
+   
   }
 
   public function getBackgroundColors(){
