@@ -1,6 +1,14 @@
 <?php
 
 require_once "less/lessc.inc.php";
+
+$cleaned = strtok($_SERVER['REQUEST_URI'], '?');
+
+ob_start();
+		print_r($cleaned);
+		$result = ob_get_clean();
+		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
 $filecore = str_replace(".min","",basename($_SERVER['REQUEST_URI'],".css"));
 $filename = basename($_SERVER['REQUEST_URI'],".css").".css";
 

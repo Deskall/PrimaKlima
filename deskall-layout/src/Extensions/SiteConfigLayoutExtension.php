@@ -471,7 +471,7 @@ class SiteConfigLayoutExtension extends DataExtension
       $url = Director::AbsoluteURL('themes/standard/css/'.$value);
       if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
           if ($this->owner->SubsiteID > 0){
-              $url =Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/main.min.css');
+              $url =Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/'.$value);
           }
         }
       $req = curl_init($url);
