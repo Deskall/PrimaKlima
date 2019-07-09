@@ -20,4 +20,17 @@
 			width:auto;
 		}
 	}
+	ul.dk-list-with-icon{
+		> li > a {
+			position:relative;
+			padding-left:25px;
+			display: block;
+			span[data-uk-icon]{
+				position:absolute;
+				left:0;
+				top:@footer-font-size*@global-line-height/2;
+				transform: translateY(-(@footer-font-size*@global-line-height/2 - ( @footer-font-size*@global-line-height -  @footer-font-size)/2));
+			}
+		}
+	}
 }
