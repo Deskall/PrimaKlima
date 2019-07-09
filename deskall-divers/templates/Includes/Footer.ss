@@ -29,24 +29,24 @@
 			 		<% if SiteConfig.Email %>
 			 		<li>
 			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
-			 				<span class="uk-margin-small-right" data-uk-icon="icon: mail;"></span>
-			 				<span class="dk-link-with-icon">$SiteConfig.Email</span>
+			 				<span data-uk-icon="icon: mail;"></span>
+			 				$SiteConfig.Email
 			 			</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Phone %>
 			 		<li>
 			 			
-			 				<span class="uk-margin-small-right" data-uk-icon="icon: receiver;"></span>
-			 				<span class="dk-link-with-icon">$SiteConfig.Phone</span>
+			 				<span data-uk-icon="icon: receiver;"></span>
+			 				$SiteConfig.Phone
 			 			
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Mobile %>
 			 		<li>
 			 			
-			 				<span class="uk-margin-small-right"  data-uk-icon="icon: phone;"></span>
-				 			<span class="dk-link-with-icon">$SiteConfig.Mobile</span>
+			 				<span data-uk-icon="icon: phone;"></span>
+				 			$SiteConfig.Mobile
 				 		
 			 		</li>
 			 		<% end_if %>
