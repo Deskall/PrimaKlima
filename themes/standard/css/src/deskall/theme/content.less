@@ -5,8 +5,18 @@ a:hover{
 	text-decoration: none;
 }
 
-// LIST
 
+// LIST
+	li.dk-list-with-icon{
+		> a {
+			position:relative;
+			padding-left:25px;
+			span[data-uk-icon]{
+				position:absolute;
+				left:0;
+			}
+		}
+	}
 	li[data-uk-icon]{
 		padding-left: 15px;
 		display: block;

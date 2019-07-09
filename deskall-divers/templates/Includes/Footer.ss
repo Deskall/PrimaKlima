@@ -8,11 +8,11 @@
 			 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
 			 	</div>
 
-			 	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
+			 	<ul class="uk-list uk-list-large dk-list dk-list-with-icon uk-margin-remove-top">
 			 		<% if $SiteConfig.Address != "" %>
 			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
-			 			<span class="uk-margin-small-right" data-uk-icon="icon: location;"></span>
-			 			<span class="dk-link-with-icon">
+			 			<span data-uk-icon="icon: location;"></span>
+			 			
 			 				<% if $SiteConfig.Address %>
 				 			$SiteConfig.Address<br/>
 				 			<% end_if %>
@@ -22,7 +22,7 @@
 				 			<% if $SiteConfig.Country %>
 				 			$SiteConfig.Country
 				 			<% end_if %>
-				 		</span>
+				 		
 				 		</a>
 			 		</li>
 			 		<% end_if %>
