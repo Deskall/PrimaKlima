@@ -64,15 +64,7 @@
 				<div class="uk-card uk-card-default uk-margin-bottom">
 					<% if Image.exists %>
 					<div class="uk-card-media-top">
-						<img src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
-						<% if Up.PaddedImages %>
-						$Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL
-						<% else %>
-						$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
-						<% end_if %>
-						<% end_if %>
-						" alt="$Up.AltTag($Image.Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
-					</div>
+						<img src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %> <% if Up.PaddedImages %> $Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL <% else %> $Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL <% end_if %> <% end_if %> " alt="$Up.AltTag($Image.Description,$Title,$Up.Title)" title="$Up.TitleTag($Title,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img> </div>
 					<% end_if %>
 					<div class="uk-card-body uk-padding-small">
 						<div class="uk-card-title">$Title</div>
