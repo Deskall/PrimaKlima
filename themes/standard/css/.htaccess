@@ -8,7 +8,7 @@
 	RewriteRule (main.css) CompileLess.php
 	RewriteRule (head.css) CompileLess.php
 	RewriteRule (body.css) CompileLess.php
-	RewriteRule (editor.css) CompileLess.php
+	RewriteRule (editortocompile.css) CompileLess.php
 
 
 </IfModule>
