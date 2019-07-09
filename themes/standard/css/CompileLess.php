@@ -1,8 +1,9 @@
 <?php
 
 require_once "less/lessc.inc.php";
-$filecore = str_replace(".min","",basename($_SERVER['REQUEST_URI'],".css"));
-$filename = basename($_SERVER['REQUEST_URI'],".css").".css";
+$cleaned = strtok($_SERVER['REQUEST_URI'], '?');
+$filecore = str_replace(".min","",basename($cleaned,".css"));
+$filename = basename($cleaned,".css").".css";
 
 $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".css", ".min.css", $filename_full);
