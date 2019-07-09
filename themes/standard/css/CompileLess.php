@@ -1,26 +1,19 @@
 <?php
 
 require_once "less/lessc.inc.php";
-
-$cleaned = strtok($_SERVER['REQUEST_URI'], '?');
-$filecore = str_replace(".min","",basename($cleaned,".css"));
-$filename = basename($cleaned,".css").".css";
-
-ob_start();
-		print_r($filename);
-		$result = ob_get_clean();
-		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+$filecore = str_replace(".min","",basename($_SERVER['REQUEST_URI'],".css"));
+$filename = basename($_SERVER['REQUEST_URI'],".css").".css";
 
 $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".css", ".min.css", $filename_full);
 $filename_less = str_replace(".css", ".less", $filename_full);
-if ($filename != "editor.css"){
+
 
 	$css_compiled = autoCompileLess($filename_less, $filename_full);
 
 	if($css_compiled){
 		// set correct paths
-		$fontdir = str_replace("/css","/fonts", dirname($cleaned));
+		$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
 		$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
 		$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/themes/standard/css/src/images/backgrounds/",$css_compiled);
 		$css_live = str_replace("url('../fonts","url('/themes/standard/fonts",$css_compiled);
@@ -51,7 +44,7 @@ if ($filename != "editor.css"){
 		file_put_contents($filename_min,$css_compiled);
 		file_put_contents($_SERVER['DOCUMENT_ROOT']."/deskall-layout/templates/Includes/Css.ss","<style>".$css_live."</style>");
 	}
-}
+
 header("Content-type: text/css");
 echo file_get_contents( $filename );
 
