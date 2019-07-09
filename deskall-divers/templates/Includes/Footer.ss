@@ -10,9 +10,8 @@
 
 			 	<ul class="uk-list uk-list-large dk-list dk-list-with-icon uk-margin-remove-top">
 			 		<% if $SiteConfig.Address != "" %>
-			 		<li><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
-			 			<span data-uk-icon="icon: location;"></span>
-			 			
+			 		<li><span data-uk-icon="icon: location;"></span>
+			 			<a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
 			 				<% if $SiteConfig.Address %>
 				 			$SiteConfig.Address<br/>
 				 			<% end_if %>
@@ -22,14 +21,13 @@
 				 			<% if $SiteConfig.Country %>
 				 			$SiteConfig.Country
 				 			<% end_if %>
-				 		
 				 		</a>
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Email %>
 			 		<li>
+			 			<span data-uk-icon="icon: mail;"></span>
 			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
-			 				<span data-uk-icon="icon: mail;"></span>
 			 				$SiteConfig.Email
 			 			</a>
 			 		</li>
