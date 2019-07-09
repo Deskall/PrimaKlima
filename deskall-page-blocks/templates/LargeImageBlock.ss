@@ -1,21 +1,21 @@
 	<% if Effect == "fixed" %>
 	<div class="$Height uk-background-cover uk-background-fixed uk-light <% if Background %>$Background dk-overlay <% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" 
-		data-src="$Image.ScaleWidth(1500).URL"
-	    data-srcset="$Image.ScaleWidth(650).URL 650w,
+		src="$Image.ScaleWidth(1500).URL"
+	    srcset="$Image.ScaleWidth(650).URL 650w,
 	                  $Image.ScaleWidth(1200).URL 1200w,
 	                  $Image.ScaleWidth(1600).URL 1600w,
 	                  $Image.ScaleWidth(2500).URL 2500w,
 	                  $Image.ScaleWidth(5000).URL 5000w"
-	    sizes="100vw" data-uk-img>
+	    sizes="100vw" >
 	<% else %>
 	<div class="$Height uk-background-cover uk-light <% if Background %>$Background dk-overlay <% end_if %><% if Effect == "fixed" %>uk-background-fixed<% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" 
-		data-src="$Image.FocusFillMax(1600,$ImageHeight).URL"
-	    data-srcset="$Image.FocusFillMax(650,$ImageHeight).URL 650w,
+		src="$Image.FocusFillMax(1600,$ImageHeight).URL"
+	    srcset="$Image.FocusFillMax(650,$ImageHeight).URL 650w,
 	                  $Image.FocusFillMax(1200,$ImageHeight).URL 1200w,
 	                  $Image.FocusFillMax(1600,$ImageHeight).URL 1600w,
 	                  $Image.FocusFillMax(2500,$ImageHeight).URL 2500w,
 	                  $Image.FocusFillMax(5000,$ImageHeight).URL 5000w"
-	    sizes="100vw" data-uk-img>
+	    sizes="100vw" >
 	<% end_if %>
 	    <div class="uk-container uk-overflow-auto <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
 	    	<div class="uk-position-relative   <% if Height == "viewport" %>uk-height-viewport<% else %>$Height<% end_if %>">
