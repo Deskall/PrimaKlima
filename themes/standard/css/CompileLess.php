@@ -7,7 +7,7 @@ $filename = basename($_SERVER['REQUEST_URI'],".css").".css";
 $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".css", ".min.css", $filename_full);
 $filename_less = str_replace(".css", ".less", $filename_full);
-
+if ($filename != "editor.css"){
 
 	$css_compiled = autoCompileLess($filename_less, $filename_full);
 
@@ -44,7 +44,7 @@ $filename_less = str_replace(".css", ".less", $filename_full);
 		file_put_contents($filename_min,$css_compiled);
 		file_put_contents($_SERVER['DOCUMENT_ROOT']."/deskall-layout/templates/Includes/Css.ss","<style>".$css_live."</style>");
 	}
-
+}
 header("Content-type: text/css");
 echo file_get_contents( $filename );
 
