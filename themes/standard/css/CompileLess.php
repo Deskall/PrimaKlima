@@ -7,40 +7,43 @@ $filename = basename($_SERVER['REQUEST_URI'],".css").".css";
 $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".css", ".min.css", $filename_full);
 $filename_less = str_replace(".css", ".less", $filename_full);
-$css_compiled = autoCompileLess($filename_less, $filename_full);
+if ($filename != "editor.css"){
 
-if($css_compiled){
-	// set correct paths
-	$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
-	$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
-	$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/themes/standard/css/src/images/backgrounds/",$css_compiled);
-	$css_live = str_replace("url('../fonts","url('/themes/standard/fonts",$css_compiled);
-	
+	$css_compiled = autoCompileLess($filename_less, $filename_full);
 
-	// // optimize file
-	// $url = 'http://optimizer-deskall.rhcloud.com/css';
-	// $data = array('css' => $css_compiled);
+	if($css_compiled){
+		// set correct paths
+		$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
+		$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
+		$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/themes/standard/css/src/images/backgrounds/",$css_compiled);
+		$css_live = str_replace("url('../fonts","url('/themes/standard/fonts",$css_compiled);
+		
 
-	// // use key 'http' even if you send the request to https://...
-	// $options = array(
-	//     'http' => array(
-	//         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-	//         'method'  => 'POST',
-	//         'content' => http_build_query($data)
-	//     )
-	// );
-	// $context  = stream_context_create($options);
-	// $css_minified = file_get_contents($url, false, $context);
-	// if ($css_minified === FALSE) {
-	// 	echo "there has been an error.";
-	// }else{
-	// 	$css_minified = str_replace('filter:url("\'', 'filter:url(\'', $css_minified);
-	// }
+		// // optimize file
+		// $url = 'http://optimizer-deskall.rhcloud.com/css';
+		// $data = array('css' => $css_compiled);
 
-	// save files
-	file_put_contents($filename_full,$css_compiled);
-	file_put_contents($filename_min,$css_compiled);
-	file_put_contents($_SERVER['DOCUMENT_ROOT']."/deskall-layout/templates/Includes/Css.ss","<style>".$css_live."</style>");
+		// // use key 'http' even if you send the request to https://...
+		// $options = array(
+		//     'http' => array(
+		//         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+		//         'method'  => 'POST',
+		//         'content' => http_build_query($data)
+		//     )
+		// );
+		// $context  = stream_context_create($options);
+		// $css_minified = file_get_contents($url, false, $context);
+		// if ($css_minified === FALSE) {
+		// 	echo "there has been an error.";
+		// }else{
+		// 	$css_minified = str_replace('filter:url("\'', 'filter:url(\'', $css_minified);
+		// }
+
+		// save files
+		file_put_contents($filename_full,$css_compiled);
+		file_put_contents($filename_min,$css_compiled);
+		file_put_contents($_SERVER['DOCUMENT_ROOT']."/deskall-layout/templates/Includes/Css.ss","<style>".$css_live."</style>");
+	}
 }
 header("Content-type: text/css");
 echo file_get_contents( $filename );
