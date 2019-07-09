@@ -27,7 +27,7 @@
 	</div>
 <% else_if CollapsableChildren %>
 <ul data-uk-accordion="<% if not CanCollapse %>collapsible:false;<% end_if %><% if CollapseMultipe %>multiple:true;<% end_if %>">
-    <% loop $Elements.ElementControllers %>
+    <% loop $Elements.ElementControllers.filter('isVisible',1) %>
     <li id="$Element.Anchor" class="uk-margin <% if not Element.collapsed %>uk-open<% end_if %>">
        <a class="uk-accordion-title"><h3>$Element.Title</h3></a>
         <div id="panel-{$Element.ID}" class="uk-accordion-content element uk-margin-remove-top">
