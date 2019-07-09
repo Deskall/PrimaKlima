@@ -7,7 +7,7 @@ $filename = basename($_SERVER['REQUEST_URI'],".css").".css";
 $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".css", ".min.css", $filename_full);
 $filename_less = str_replace(".css", ".less", $filename_full);
-if ($filename != "editor.css"){
+
 
 	$css_compiled = autoCompileLess($filename_less, $filename_full);
 
@@ -40,9 +40,16 @@ if ($filename != "editor.css"){
 		// }
 
 		// save files
-		file_put_contents($filename_full,$css_compiled);
-		file_put_contents($filename_min,$css_compiled);
-		file_put_contents($_SERVER['DOCUMENT_ROOT']."/deskall-layout/templates/Includes/Css.ss","<style>".$css_live."</style>");
+		if ($filename == "editorstyle.css"){
+			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/themes/standard/css/editor.css',$css_compiled);
+		}
+		else{
+			file_put_contents($filename_full,$css_compiled);
+			file_put_contents($filename_min,$css_compiled);
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/deskall-layout/templates/Includes/Css.ss","<style>".$css_live."</style>");
+		}
+			
+		
 	}
 }
 header("Content-type: text/css");
