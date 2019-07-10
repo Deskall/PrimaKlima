@@ -27,7 +27,8 @@ class DeskallPageExtension extends DataExtension
     private static $menu_level = [
         '0' => 'Nicht in Menüs anzeigen',
         '1' => 'Hauptnavigation',
-        '2' => 'Untennavigation'
+        '2' => 'Untennavigation',
+        '3' => 'Beide'
     ];
 
     public function ThemeDir(){
