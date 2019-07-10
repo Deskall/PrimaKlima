@@ -56,3 +56,7 @@ After: '#searchable-dataobjects-extensions'
 SilverStripe\CMS\Controllers\ContentController:
   extensions:
     - CustomSearchExtension
+
+g4b0\SearchableDataObjects\CustomSearch:
+  exclude_from_search: 
+    - SilverStripe\ErrorPage\ErrorPage
