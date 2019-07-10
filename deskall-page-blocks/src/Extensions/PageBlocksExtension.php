@@ -46,6 +46,7 @@ class PageBlocksExtension extends DataExtension {
 			$lead->HTML = $this->owner->Content;
 			$lead->isPrimary = 1;
 			$lead->Sort = 1;
+			$lead->Background = 'no-bg';
 			$lead->write();
 		}
 	}
