@@ -4,8 +4,7 @@
 	    data-srcset="$Image.ScaleWidth(650).URL 650w,
 	                  $Image.ScaleWidth(1200).URL 1200w,
 	                  $Image.ScaleWidth(1600).URL 1600w,
-	                  $Image.ScaleWidth(2500).URL 2500w,
-	                  $Image.ScaleWidth(5000).URL 5000w"
+	                  $Image.URL 2500w"
 	    sizes="100vw" data-uk-img<% end_if %>>
 	<% else %>
 	<div class="$Height uk-background-cover uk-light <% if Background %>$Background dk-overlay <% end_if %><% if Effect == "fixed" %>uk-background-fixed<% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" 
