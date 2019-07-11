@@ -11,16 +11,25 @@
                 <img src="$Image.Link" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-cover />
                 <% else %>
                     <% if Image.exists %> 
-                   
-                    <img data-src="$Image.FocusFillMax(1500,$Top.MaxHeight).Link" sizes="100vw"
-                         data-srcset="$Image.FocusFillMax(400,$Top.MaxHeight).Link 400w,
-                         $Image.FocusFillMax(600,$Top.MaxHeight).Link 600w,
-                         $Image.FocusFillMax(800,$Top.MaxHeight).Link 800w,
-                         $Image.FocusFillMax(1200,$Top.MaxHeight).Link 1200w,
-                         $Image.FocusFillMax(1500,$Top.MaxHeight).Link 1500w,
-                         $Image.FocusFillMax(2500,$Top.MaxHeight).Link 2500w,
-                         $Image.Link 3000w"  alt="$Image.AtlTag($Title)" data-uk-cover data-uk-img="target:<% if First %>!ul > :last-child, !* +*"<% else_if Last %>!* -*, !ul > :first-child<% else %>!.uk-slideshow-items<% end_if %>">
+                    <% if Top.Height == "viewport" %>
+                        <img data-src="$Image.Link" sizes="100vw"
+                             data-srcset="$Image.ScaleHeight(400).Link 400w,
+                             $Image.ScaleHeight(400).Link 600w,
+                             $Image.ScaleHeight(500).Link 800w,
+                             $Image.ScaleHeight(600).Link 1200w,
+                             $Image.ScaleHeight(700).Link 1500w,
+                             $Image.ScaleHeight(1000).Link 2500w"  alt="$Image.AtlTag($Title)" data-uk-cover data-uk-img="target:<% if First %>!ul > :last-child, !* +*"<% else_if Last %>!* -*, !ul > :first-child<% else %>!.uk-slideshow-items<% end_if %>">
+                    <% else %>
+                        <img data-src="$Image.FocusFillMax(1500,$Top.MaxHeight).Link" sizes="100vw"
+                             data-srcset="$Image.FocusFillMax(400,$Top.MaxHeight).Link 400w,
+                             $Image.FocusFillMax(600,$Top.MaxHeight).Link 600w,
+                             $Image.FocusFillMax(800,$Top.MaxHeight).Link 800w,
+                             $Image.FocusFillMax(1200,$Top.MaxHeight).Link 1200w,
+                             $Image.FocusFillMax(1500,$Top.MaxHeight).Link 1500w,
+                             $Image.Link 2500w"  alt="$Image.AtlTag($Title)" data-uk-cover data-uk-img="target:<% if First %>!ul > :last-child, !* +*"<% else_if Last %>!* -*, !ul > :first-child<% else %>!.uk-slideshow-items<% end_if %>">
+                        <% end_if %>
                     <% end_if %>
+                   
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
             <% end_if %>
