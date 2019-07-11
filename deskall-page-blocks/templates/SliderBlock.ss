@@ -13,11 +13,11 @@
                     <% if Image.exists %> 
                     <% if Top.Height == "viewport" %>
                         <img data-src="$Image.Link" sizes="100vw"
-                             data-srcset="$Image.ScaleHeight(400).Link 400w,
-                             $Image.ScaleWidth(400).Link 600w,
-                             $Image.ScaleWidth(800).Link 800w,
-                             $Image.ScaleWidth(1200).Link 1200w,
-                             $Image.ScaleWidth(1500).Link 1500w,
+                             data-srcset="$Image.FocusFillMax(400,400).Link 400w,
+                             $Image.FocusFillMax(600,500).Link 600w,
+                             $Image.FocusFillMax(800,600).Link 800w,
+                             $Image.FocusFillMax(1200,800).Link 1200w,
+                             $Image.FocusFillMax(1500,1200).Link 1500w,
                              $Image.Link 2500w"  alt="$Image.AtlTag($Title)" data-uk-cover data-uk-img="target:<% if First %>!ul > :last-child, !* +*"<% else_if Last %>!* -*, !ul > :first-child<% else %>!.uk-slideshow-items<% end_if %>">
                     <% else %>
                         <img data-src="$Image.FocusFillMax(1500,$Top.MaxHeight).Link" sizes="100vw"
