@@ -136,16 +136,10 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterBlocks' => FooterBlock::class,
     'MenuBlocks' => MenuBlock::class,
     'MobileMenuBlocks' => MobileMenuBlock::class,
-    'Colors' => Color::class
+    'Colors' => Color::class,
+    'Slides' => HeaderSlide::class
   ];
 
-  private static $many_many = [
-     'Slides' => Slide::class
-  ];
-
-  private static $owns = [
-    'Slides'
-  ];
 
   private static $default_colors = [
     'BodyBackground' => ['Code' => 'BodyBackground', 'FontTitle' => 'Body Hintergrundfarbe','Color' => 'e4e4e4','FontColor' => '575756','isReadonly' => 1, 'canChangeTitle' => 0],
