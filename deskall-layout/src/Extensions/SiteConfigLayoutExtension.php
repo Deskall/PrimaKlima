@@ -455,7 +455,7 @@ class SiteConfigLayoutExtension extends DataExtension
       /** CSS Class for Call To Action Link **/
       file_put_contents($fullpath, "\n".".calltoaction-container .uk-button.button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->LinkColor.';*{color:#'.$c->LinkColor.';}&:hover,&:focus,&:active{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}}}',FILE_APPEND);
       /** CSS Class for Call To Form Button **/
-      file_put_contents($fullpath, "\n".".userform .button-".$c->Code.' .uk-button{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';}}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".userform .button-".$c->Code.' .uk-button{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /*** Css class for Slideshow controls **/
       file_put_contents($fullpath,
         "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:transparent;border-color:#'.$c->FontColor.';}' 
