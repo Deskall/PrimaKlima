@@ -114,10 +114,7 @@ class ImageExtension extends Extension
     }
 
     public function HeightForWidth($width){
-        ob_start();
-        print_r('filename: '.$this->owner->Filename.' for width '.$width.' gives height: '.round($width / ($this->owner->getWidth() / $this->owner->getHeight()) , 0)."\n");
-        $result = ob_get_clean();
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+
         return ($this->owner->exists()) ? round($width / ($this->owner->getWidth() / $this->owner->getHeight()) , 0) : 0;
     }
 
