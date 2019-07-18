@@ -285,12 +285,6 @@ class SliderBlock extends BaseElement implements Searchable
         }
     }
 
-    public function HeightForWidth($width){
-       
-        return ($this->Image()->exists()) ? round($width / ($this->Image()->getWidth() / $this->Image()->getHeight()) , 0) : 0;
-    }
-
-
 
 
     /************* TRANLSATIONS *******************/

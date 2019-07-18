@@ -281,6 +281,12 @@ class Slide extends DataObject
         return DBField::create_field('HTMLText',$html);
     }
 
+    public function HeightForWidth($width){
+       
+        return ($this->Image()->exists()) ? round($width / ($this->Image()->getWidth() / $this->Image()->getHeight()) , 0) : 0;
+    }
+
+
     /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
