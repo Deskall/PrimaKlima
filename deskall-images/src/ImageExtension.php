@@ -65,24 +65,24 @@ class ImageExtension extends Extension
         }
         
         //Resize image to fit max Width and Height before resampling
-        $width = $this->owner->config()->get('MaxWidth');
-        $height = $this->owner->config()->get('MaxHeight');
-        $backend = $this->owner->getImageBackend();
-        $resource = $backend->getImageResource();
-        if ($this->owner->getExtension() != "svg"){
-            if ($width >= $height){
-                $resource->widen($width,function ($constraint) {
-                    $constraint->upsize();
-                });
-            }
-            if ($height > $width){
-                $resource->heighten($width,function ($constraint) {
-                    $constraint->upsize();
-                });
-            }
-        }
+        // $width = $this->owner->config()->get('MaxWidth');
+        // $height = $this->owner->config()->get('MaxHeight');
+        // $backend = $this->owner->getImageBackend();
+        // $resource = $backend->getImageResource();
+        // if ($this->owner->getExtension() != "svg"){
+        //     if ($width >= $height){
+        //         $resource->widen($width,function ($constraint) {
+        //             $constraint->upsize();
+        //         });
+        //     }
+        //     if ($height > $width){
+        //         $resource->heighten($width,function ($constraint) {
+        //             $constraint->upsize();
+        //         });
+        //     }
+        // }
         
-        $backend->setImageResource($resource);
+        // $backend->setImageResource($resource);
     }
 
 

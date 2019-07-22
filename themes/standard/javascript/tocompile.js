@@ -123,28 +123,30 @@ $(document).ready(function(){
 
 
 //Table
-$(document).ready(function(){
-  $(".dk-text-content table").each(function(){
-    $(this).wrap('<div class="uk-overflow-auto"></div>');
-      $(this).addClass("uk-table uk-table-small");
-      if ($(this).width() > $(window).width()){
-          divContainer = $("<div></div>");
-          divContainer.addClass("uk-overflow-auto");
-          $(this).detach().appendTo(divContainer);
-      }
+// $(document).ready(function(){
+//   $(".dk-text-content table").each(function(){
+//     $(this).wrap('<div class="uk-overflow-auto"></div>');
+//       $(this).addClass("uk-table uk-table-small");
+//       if ($(this).width() > $(window).width()){
+//           divContainer = $("<div></div>");
+//           divContainer.addClass("uk-overflow-auto");
+//           $(this).detach().appendTo(divContainer);
+//       }
 
-  });
-});
+//   });
+// });
 
 //Parent Block
 $(document).ready(function(){
     $(".parentblock .uk-accordion").each(function(){
-        $(this).find("h3").each(function(){
-            var html = $(this).html();
-            var a = $('<a></a>');
-            a.addClass("uk-accordion-title uk-width-1-1").html(html);
-            $(this).html(a);
-        });
+      // var options = {content: '.uk-panel', target: 'h3' }; 
+      // UIkit.accordion($(this), options);
+        // $(this).find("h3").each(function(){
+        //     var html = $(this).html();
+        //     var a = $('<a></a>');
+        //     a.addClass("uk-accordion-title uk-width-1-1").html(html);
+        //     $(this).html(a);
+        // });
         var expandedBlocks = $(this).attr('data-element-expanded');
         if (expandedBlocks){
             expandedBlocks = $.parseJSON(expandedBlocks);
@@ -165,6 +167,13 @@ $(document).ready(function(){
       UIkit.scroll($(this),{offset: 100});
     }
   });
+});
+
+$(document).ready(function(){
+  UIkit.update(document.body, type = 'update');
+});
+$( window ).resize(function() {
+  UIkit.update(document.body, type = 'update');
 }); $(document).ready(function(){
 		$(".js-upload.with-preview").each(function(){
 			var bar = $('<progress id="js-progressbar" class="uk-progress" value="0" max hidden></progress>');
