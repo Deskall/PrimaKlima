@@ -30,7 +30,7 @@
     <% loop $Elements.ElementControllers.filter('isVisible',1) %>
     <li id="$Element.Anchor" class="uk-margin <% if not Element.collapsed %>uk-open<% end_if %>">
        <a class="uk-accordion-title"><h3>$Element.Title</h3></a>
-        <div id="panel-{$Element.ID}" class="uk-accordion-content element uk-margin-remove-top">
+        <div id="panel-{$Element.ID}" class="uk-accordion-content element $Element.SimpleClassName.LowerCase uk-margin-remove-top">
         <% if $Element.BackgroundImage.exists %>
             <section class="uk-section $Element.Background uk-cover-container dk-overlay uk-section-large with-background <% if $Element.BackgroundImageEffect %>uk-background-fixed<% end_if %>" <% if $Element.BackgroundImage.getExtension == "svg" %>data-src="$Element.BackgroundImage.URL"<% else %>data-src="$Element.BackgroundImage.ScaleWidth(1200).URL" data-srcset="$Element.BackgroundImage.ScaleWidth(650).URL 650w,$Element.BackgroundImage.ScaleWidth(1200).URL 1200w, $Element.BackgroundImage.ScaleWidth(1600).URL 1600w, $Element.BackgroundImage.URL 2500w" data-sizes="100vw" data-uk-img<% end_if %>>
         <% else %>
@@ -45,7 +45,7 @@
     <% end_loop %>
 </ul>
 <% else %>
-<div class="list-element__container $BlocksPerLine  $BlockAlignment uk-grid-small <% if $Border %>uk-grid-divider<% end_if %> <% if $matchHeight %>uk-grid-match<% end_if %>" data-uk-grid data-listelement-count="$Elements.Elements.Count" data-element-expanded="$ExpandedBlocks" >
+<div class="list-element__container $BlocksPerLine  $BlockAlignment uk-grid-small <% if $Border %>uk-grid-divider<% end_if %> <% if $matchHeight %>uk-grid-match<% end_if %>" data-uk-grid >
     <% loop $Elements.ElementControllers %>
     $Me
     <% end_loop %>

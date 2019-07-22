@@ -11,7 +11,7 @@ use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\FieldType\DBField;
 
-class Slide extends DataObject
+class HeaderSlide extends DataObject
 {
 
     private static $db = [
@@ -33,7 +33,7 @@ class Slide extends DataObject
     ];
 
     private static $has_one = [
-        'Parent' => SliderBlock::class,
+        'Parent' => SiteConfig::class,
         'Image' => Image::class
     ];
 
@@ -168,7 +168,6 @@ class Slide extends DataObject
         
 
     private static $extensions = [
-        Versioned::class,
         'Activable',
         'Linkable',
         'Sortable'
@@ -208,7 +207,6 @@ class Slide extends DataObject
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName('SliderID');
         $fields->removeByName('ParentID');
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isMainSlide',_t(__CLASS__.'isMainSlide','Slide principale (contient le titre de la page)')));
@@ -256,19 +254,7 @@ class Slide extends DataObject
         return $this->Parent()->getFolderName();
     }
 
-    public function getPage(){
-        return $this->Parent()->getPage();
-    }
 
-    public function onAfterPublish(){
-        if ($this->Parent()){
-            $this->Parent()->publishSingle();
-        }
-        if ($this->getPage()){
-            $this->getPage()->publishSingle();
-        }
-        
-    }
 
     public function ImageForTemplate(){
 
@@ -280,12 +266,6 @@ class Slide extends DataObject
 
         return DBField::create_field('HTMLText',$html);
     }
-
-    public function HeightForWidth($width){
-       
-        return ($this->Image()->exists()) ? round($width / ($this->Image()->getWidth() / $this->Image()->getHeight()) , 0) : 0;
-    }
-
 
     /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){

@@ -287,7 +287,6 @@ class SliderBlock extends BaseElement implements Searchable
 
 
 
-
     /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];

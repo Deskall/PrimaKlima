@@ -106,10 +106,10 @@ class MenuBlock extends LayoutBlock{
 		$menu = ContentController::create()->getMenu(1);
 		if ($this->UseMenu){
 			if ($this->UseMenuOption == "main"){
-				$menu = $menu->filter('ShowInMainMenu',1);
+				$menu = $menu->filter('ShowInMainMenu',[1,3]);
 			}
 			else{
-				$menu = Page::get()->filter(array('ShowInMainMenu' => 2,'ShowInMenus' => 1));
+				$menu = Page::get()->filter(array('ShowInMainMenu' => [2,3],'ShowInMenus' => 1));
 			}
 		}
 		return $menu;
