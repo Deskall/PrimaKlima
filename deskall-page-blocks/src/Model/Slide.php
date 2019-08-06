@@ -29,7 +29,8 @@ class Slide extends DataObject
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
-        'isMainSlide' => 'Boolean(0)'
+        'isMainSlide' => 'Boolean(0)',
+        'Type' => 'Enum("Bild, Video","Bild")'
     ];
 
     private static $has_one = [
