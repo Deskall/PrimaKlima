@@ -235,9 +235,9 @@ class Slide extends DataObject
             ]
         );
 
-        $fields->FieldByName('File')->displayIf('SlideType')->isEqualTo('Video')->end();
-        $fields->FieldByName('URL')->displayIf('SlideType')->isEqualTo('Video')->end();
-        $fields->FieldByName('Image')->displayIf('SlideType')->isEqualTo('Bild')->end();
+        $fields->dataFieldByName('File')->displayIf('SlideType')->isEqualTo('Video')->end();
+        $fields->dataFieldByName('URL')->displayIf('SlideType')->isEqualTo('Video')->end();
+        $fields->dataFieldByName('Image')->displayIf('SlideType')->isEqualTo('Bild')->end();
 
         $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LayoutTab','Layout'));
 
