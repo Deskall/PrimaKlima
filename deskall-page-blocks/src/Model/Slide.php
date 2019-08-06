@@ -254,7 +254,13 @@ class Slide extends DataObject
 
     public function ImageThumbnail(){
         $o = new DBHTMLText();
-        $html = ($this->Image() && $this->Image()->exists()) ? (($this->Image()->getExtension() == "svg" ) ? '<img src="'.$this->Image()->URL.'" class="svg-slide-thumbnail" />' : '<img src="'.$this->Image()->Fill(400,200)->URL.'" />') : _t(__CLASS__.'.NoBild','(keine)');
+        if ($this->SlideType == "Video"){
+            $html = ($this->File() && $this->File()->exists()) ? $this->File()->Thumbnail() : _t(__CLASS__.'.NoBild','(keine)');
+        }
+        else{
+            $html = ($this->Image() && $this->Image()->exists()) ? (($this->Image()->getExtension() == "svg" ) ? '<img src="'.$this->Image()->URL.'" class="svg-slide-thumbnail" />' : '<img src="'.$this->Image()->Fill(400,200)->URL.'" />') : _t(__CLASS__.'.NoBild','(keine)');
+        }
+     
         $o->setValue($html);
         return $o;
     }
