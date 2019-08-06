@@ -31,8 +31,7 @@ class Slide extends DataObject
         'TextColumnsDivider' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
         'isMainSlide' => 'Boolean(0)',
-        'SlideType' => 'Enum("Bild, Video","Bild")',
-        'URL' => 'Varchar'
+        'SlideType' => 'Enum("Bild, Video","Bild")'
     ];
 
     private static $has_one = [
@@ -236,7 +235,6 @@ class Slide extends DataObject
         );
 
         $fields->dataFieldByName('File')->displayIf('SlideType')->isEqualTo('Video')->end();
-        $fields->dataFieldByName('URL')->displayIf('SlideType')->isEqualTo('Video')->end();
         $fields->dataFieldByName('Image')->displayIf('SlideType')->isEqualTo('Bild')->end();
 
         $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LayoutTab','Layout'));
