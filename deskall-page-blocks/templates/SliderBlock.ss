@@ -3,8 +3,11 @@
     <ul class="uk-slideshow-items" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
         <% loop ActiveSlides %>
         <li>
-            <% if VideoID %>
-            <video src="$Video.URL"  autoplay loop muted playslinline data-uk-cover></video>
+            <% if SlideType == "Video" %>
+                <% if URL %>
+                    <video src="$URL"  autoplay loop muted playslinline data-uk-cover></video>
+                <% else %>
+                <% end_if %>
             <% else %>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
                 <% if $Image.getExtension == "svg" %>
