@@ -46,13 +46,13 @@
 			 		<% end_if %>
 			 		<% if SiteConfig.Fax %>
 			 		<li>
-			 			<span data-uk-icon="icon: fax;"></span>
+			 			<span data-uk-icon="icon: print;"></span>
 				 		$SiteConfig.Fax
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Notfall %>
 			 		<li>
-			 			<span data-uk-icon="icon: alert;"></span>
+			 			<span data-uk-icon="icon: bell;"></span>
 				 		$SiteConfig.Notfall
 			 		</li>
 			 		<% end_if %>
