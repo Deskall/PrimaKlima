@@ -46,7 +46,7 @@
 			 		<% end_if %>
 			 		<% if SiteConfig.Fax %>
 			 		<li>
-			 			<span data-uk-icon="icon: print;"></span>
+			 			<span data-uk-icon="icon: phone;"></span>
 				 		$SiteConfig.Fax
 			 		</li>
 			 		<% end_if %>
