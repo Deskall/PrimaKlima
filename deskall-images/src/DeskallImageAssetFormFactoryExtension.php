@@ -4,7 +4,7 @@
 use SilverStripe\Core\Extension;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\FormField;
+use SilverStripe\Forms\LiteralField;
 use SilverStripe\View\Requirements;
 
 /**
@@ -27,7 +27,7 @@ class DeskallImageAssetFormFactoryExtension extends Extension
             
             $fields->insertBefore(
                 'Title',
-                 FormField::create('Edit','Edit')->setTemplate('EditImageField')
+                 EditImageField::create('Edit','Edit')->setFieldHolderTemplate('deskall-images/templates/Forms/EditImageField_holder')
             );
             $fields->insertAfter(
                 'Title',
