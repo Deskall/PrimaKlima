@@ -35,13 +35,6 @@ SilverStripe\Assets\File:
     image/supported:
       - svg
 
-SilverStripe\Admin\LeftAndMain:
-  extra_requirements_css:
-    - deskall-images/css/toast-ui/tui-image-editor.css
-  extra_requirements_javascript:
-    - deskall-images/javascript/toast-ui/tui-image-editor.js
-    - deskall-images/javascript/imageeditor.js
-
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:
     properties:

@@ -24,11 +24,7 @@ class DeskallImageAssetFormFactoryExtension extends Extension
 
         $image = isset($context['Record']) ? $context['Record'] : null;
         if ($image && $image->appCategory() === 'image') {
-            
-            $fields->insertBefore(
-                'Title',
-                 LiteralField::create('Edit','<button id="edit-image" data-id="'.$image->ID.'">Bild bearbeiten</button><div id="tui-image-editor-container"></div>')
-            );
+      
             $fields->insertAfter(
                 'Title',
                 TextareaField::create('Description',_t('Image.Description','Beschreibung'))
