@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+Jquery( document ).ready(function() {
 	// Create image editor
 	var imageEditor = new tui.component.ImageEditor('#my-image-editor canvas', {
 	    cssMaxWidth: 1000, // Component default value: 1000
