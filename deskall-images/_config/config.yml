@@ -35,6 +35,11 @@ SilverStripe\Assets\File:
     image/supported:
       - svg
 
+SilverStripe\Assets\AssetAdmin:
+  extra_requirements_css:
+    - deskall-images/css/tui-image-editor.css
+  extra_requirements_javascript:
+    - deskall-images/css/tui-image-editor.js
 
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:

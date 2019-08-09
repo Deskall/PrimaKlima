@@ -13,9 +13,7 @@ class EditImageField extends LiteralField{
 	public function __construct($name, $title = null, $value = null)
     {
     	
-        Requirements::css("deskall-images/css/tui-image-editor.css");
-        Requirements::javascript("deskall-images/javascript/tui-image-editor.js");
-
+        
         ob_start();
         			print_r('ici');
         			$result = ob_get_clean();
