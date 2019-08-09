@@ -21,8 +21,8 @@ class DeskallImageAssetFormFactoryExtension extends Extension
      */
     public function updateFormFields(FieldList $fields, $controller, $formName, $context)
     {
-        Requirements::css("deskall-images: css/toast-ui/tui-image-editor.css");
-        Requirements::javascript("deskall-images: css/toast-ui/tui-image-editor.js");
+        Requirements::css("css/toast-ui/tui-image-editor.css");
+        Requirements::javascript("javascript/toast-ui/tui-image-editor.js");
 
         $image = isset($context['Record']) ? $context['Record'] : null;
         if ($image && $image->appCategory() === 'image') {
