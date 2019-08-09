@@ -17,12 +17,12 @@ class DeskallImageAssetFormFactoryExtension extends Extension
 {
 
     /**
-     * Add FocusPoint field for selecting focus.
+     * 
      */
     public function updateFormFields(FieldList $fields, $controller, $formName, $context)
     {
-        Requirements::css("deskall-images/css/toast-ui/tui-image-editor.css");
-        Requirements::javascript("deskall-images/css/toast-ui/tui-image-editor.js");
+        Requirements::css("deskall-images: css/toast-ui/tui-image-editor.css");
+        Requirements::javascript("deskall-images: css/toast-ui/tui-image-editor.js");
 
         $image = isset($context['Record']) ? $context['Record'] : null;
         if ($image && $image->appCategory() === 'image') {
