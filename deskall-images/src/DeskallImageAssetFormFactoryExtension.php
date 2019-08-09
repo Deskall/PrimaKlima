@@ -27,7 +27,7 @@ class DeskallImageAssetFormFactoryExtension extends Extension
             
             $fields->insertBefore(
                 'Title',
-                 EditImageField::create('Edit','Edit')->setTemplate('EditImageField')
+                 FormField::create('Edit','Edit')->setTemplate('EditImageField')
             );
             $fields->insertAfter(
                 'Title',
