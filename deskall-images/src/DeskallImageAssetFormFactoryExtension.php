@@ -24,6 +24,9 @@ class DeskallImageAssetFormFactoryExtension extends Extension
 
         $image = isset($context['Record']) ? $context['Record'] : null;
         if ($image && $image->appCategory() === 'image') {
+            Requirements::css("deskall-images/css/toast-ui/tui-image-editor.min.css");
+            Requirements::javascript("deskall-images/javascript/toast-ui/tui-image-editor.min.js");
+            
             $fields->insertBefore(
                 'Title',
                  EditImageField::create('Edit','<button id="edit-image" data-id="'.$image->ID.'">'._t('Image.Edit','Bild bearbeiten').'</button>')
