@@ -21,11 +21,6 @@ class EditImageField extends FormField{
     }
  	
 
- 	public function Field($properties = array()) {
-	
-		$properties = array_merge($properties, array('Options' => new ArrayList($options)));
-		return FormField::Field($properties);
-	}
 	
 
 }
