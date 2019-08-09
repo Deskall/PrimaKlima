@@ -4,7 +4,7 @@
 use SilverStripe\Core\Extension;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\FieldList;
-
+use SilverStripe\Forms\LiteralField;
 
 /**
  * Asset Form Factory extension.
