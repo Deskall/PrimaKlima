@@ -39,7 +39,7 @@ SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - deskall-images/css/tui-image-editor.css
   extra_requirements_javascript:
-    - deskall-images/css/tui-image-editor.js
+    - deskall-images/javascript/tui-image-editor.js
 
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:
