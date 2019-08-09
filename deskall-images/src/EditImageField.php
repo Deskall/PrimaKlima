@@ -13,8 +13,8 @@ class EditImageField extends LiteralField{
 	public function __construct($name, $title = null, $value = null)
     {
     	
-        Requirements::css("deskall-images/css/toast-ui/tui-image-editor.css");
-        Requirements::javascript("deskall-images/javascript/toast-ui/tui-image-editor.js");
+        Requirements::css("deskall-images/css/toast-ui/tui-image-editor.min.css");
+        Requirements::javascript("deskall-images/javascript/toast-ui/tui-image-editor.min.js");
 
         parent::__construct($name, $title, $value);
     }
