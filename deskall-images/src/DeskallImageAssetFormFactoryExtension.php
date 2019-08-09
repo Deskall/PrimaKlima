@@ -26,7 +26,7 @@ class DeskallImageAssetFormFactoryExtension extends Extension
         if ($image && $image->appCategory() === 'image') {
             $fields->insertBefore(
                 'Title',
-                 EditImageField::create('Edit','Bearbeiten')
+                 EditImageField::create('Edit','<button id="edit-image" data-id="'.$image->ID.'">'._t('Image.Edit','Bild bearbeiten').'</button>')
             );
             $fields->insertAfter(
                 'Title',

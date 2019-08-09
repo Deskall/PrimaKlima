@@ -5,11 +5,10 @@ use SilverStripe\View\Requirements;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\ArrayList;
-use SilverStripe\Forms\FormField;
+use SilverStripe\Forms\LiteralField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 
-class EditImageField extends FormField{
-	protected $template = 'Forms/EditImageField';
+class EditImageField extends LiteralField{
 
 	public function __construct($name, $title = null, $value = null)
     {
