@@ -1,0 +1,1 @@
+<button id="edit-image" data-id="$ID"><%t Image.Edit 'Bild bearbeiten' %></button>
