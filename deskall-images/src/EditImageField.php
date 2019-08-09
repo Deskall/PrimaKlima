@@ -5,20 +5,14 @@ use SilverStripe\View\Requirements;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\ArrayList;
-use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\FormField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 
-class EditImageField extends LiteralField{
+class EditImageField extends FormField{
+	protected $template = 'Forms/EditImageField';
 
 	public function __construct($name, $title = null, $value = null)
     {
-    	
-        
-        ob_start();
-        			print_r('ici');
-        			$result = ob_get_clean();
-        			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-
         parent::__construct($name, $title, $value);
     }
  	
