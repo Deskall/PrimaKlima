@@ -35,7 +35,7 @@ SilverStripe\Assets\File:
     image/supported:
       - svg
 
-SilverStripe\Assets\AssetAdmin:
+SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - deskall-images/css/tui-image-editor.css
   extra_requirements_javascript:
