@@ -67,6 +67,8 @@ FormBlock:
 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   allow_unbound_recipient_fields: true
+  extensions:
+    - SubObjectPermission
 
 SilverStripe\UserForms\UserForm:
   cascade_duplicates:
