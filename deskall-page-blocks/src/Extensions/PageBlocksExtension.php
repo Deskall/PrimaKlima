@@ -33,11 +33,15 @@ class PageBlocksExtension extends DataExtension {
 	public function checkLead(){
 		$hasLead = false;
 		$PrimaryBlocks = BaseElement::get()->filter(array('isVisible' => 1, 'isPrimary' => 1));
-		// foreach ($PrimaryBlocks as $lead) {
-		// 	if ($lead->getRealPage() && $lead->getRealPage()->ID == $this->owner->ID){
-		// 		$hasLead = true;
-		// 	}
-		// }
+		ob_start();
+					print_r($this->owner->ID);
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+		foreach ($PrimaryBlocks as $lead) {
+			if ($lead->getRealPage() && $lead->getRealPage()->ID == $this->owner->ID){
+				$hasLead = true;
+			}
+		}
 		$ElementalArea = $this->owner->ElementalArea(); 
 		// $hasLead = BaseElement::get()->filter(array('ParentID' => $ElementalArea->ID, 'isPrimary' => 1))->count();
 		if (!$hasLead){
