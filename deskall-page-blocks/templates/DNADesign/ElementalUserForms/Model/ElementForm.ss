@@ -16,6 +16,12 @@
 			        <% end_if %>
 			    <% end_if %>
 
+			    <% if HTML %>
+			    <div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+					$HTML
+				</div>
+				<% end_if %>
+
 			    $CustomForm
 			   <% if not $isChildren %>
 			    	</div>
