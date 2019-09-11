@@ -1,6 +1,8 @@
+	<% if HTML %>
 	<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 		$HTML
 	</div>
+	<% end_if %>
 <% if activeFeatures %>
 	<% if $FeaturesTitle %>
 		<h3>$FeaturesTitle</h3>
