@@ -47,7 +47,7 @@
     <% end_loop %>
 </ul>
 <% else %>
-<div class="list-element__container $BlocksPerLine  $BlockAlignment uk-grid-small uk-flex uk-flex-middle <% if $Border %>uk-grid-divider<% end_if %> <% if $matchHeight %>uk-grid-match<% end_if %>" data-uk-grid >
+<div class="list-element__container $BlocksPerLine  $BlockAlignment uk-grid-small uk-flex $BlockVerticalAlignment <% if $Border %>uk-grid-divider<% end_if %> <% if $matchHeight %>uk-grid-match<% end_if %>" data-uk-grid >
     <% loop $Elements.ElementControllers %>
     $Me
     <% end_loop %>
