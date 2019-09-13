@@ -17,6 +17,10 @@ class DeskallFormController extends ElementFormController
 	public function finished()
     {
     	if ($this->element->RedirectPageID > 0){
+            ob_start();
+                        print_r($this->getRequest()->postVars());
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     		$redirectPage = DataObject::get_by_id(SiteTree::class,$this->element->RedirectPageID);
     		if ($redirectPage){
     			return $this->redirect($redirectPage->Link());
