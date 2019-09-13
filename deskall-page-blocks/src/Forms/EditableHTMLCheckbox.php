@@ -21,8 +21,6 @@ class EditableHTMLCheckbox extends EditableCheckbox
 
     private static $plural_name = 'Checkboxes';
 
-    protected $fieldHolderTemplate = "EditableHTMLCheckboxField_holder";
-
     protected $jsEventHandler = 'click';
 
     private static $db = [
