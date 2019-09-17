@@ -75,23 +75,27 @@ class EditableNewsletterCheckbox extends EditableHTMLCheckbox
     public function getValueFromData($data)
     {
         $value = (isset($data[$this->Name])) ? $data[$this->Name] : false;
+        ob_start();
+                    print_r($data);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
         if ($value){
             //newsletter is checked and we can bind with Mailchimp (#TO DO : or other )
-            $mailchimp = new MailChimp("a2f7cf68973c83628c038a1a49f55146-us3");
-            $list_id = "c6033e1592";
-            $result = $mailchimp->post("lists/".$list_id."/members",
-                [
-                    'email_address' => $_POST['email'],
-                    'status' => 'subscribed',
-                    'merge_fields' => [
-                        'MMERGE8' => $_POST['anrede'],
-                        'FNAME' => $_POST['vorname'],
-                        'LNAME' => $_POST['name'],
-                        'PHONE' => $_POST['telephone']
-                    ]
-                ]
-            );
+            // $mailchimp = new MailChimp("517c3436cf5f753fe423f3c01fc9da53-us4");
+            // $list_id = "0c880834b3";
+            // $result = $mailchimp->post("lists/".$list_id."/members",
+            //     [
+            //         'email_address' => $_POST['email'],
+            //         'status' => 'subscribed',
+            //         'merge_fields' => [
+            //             'MMERGE7' => $_POST['anrede'],
+            //             'FNAME' => $_POST['vorname'],
+            //             'LNAME' => $_POST['name'],
+            //             'PHONE' => $_POST['telephone']
+            //         ]
+            //     ]
+            // );
         }
 
         return ($value)
