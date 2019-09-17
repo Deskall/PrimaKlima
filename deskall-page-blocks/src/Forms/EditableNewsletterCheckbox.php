@@ -15,19 +15,21 @@ use SilverStripe\View\Parsers\ShortcodeParser;
  * @package userforms
  */
 
-class EditableHTMLCheckbox extends EditableCheckbox
+class EditableNewsletterCheckbox extends EditableHTMLCheckbox
 {
-    private static $singular_name = 'Checkbox Field with HTML Label';
+    private static $singular_name = 'Newsletter Checkbox';
 
-    private static $plural_name = 'Checkboxes';
+    private static $plural_name = 'Newsletter Checkboxes';
 
     protected $jsEventHandler = 'click';
 
     private static $db = [
-        'HTMLLabel' => 'HTMLText' // from CustomSettings
+        'HTMLLabel' => 'HTMLText',
+        'MailChimpID' => 'Varchar',
+        'ListeID' => 'Varchar'
     ];
 
-    private static $table_name = 'EditableHTMLCheckbox';
+    private static $table_name = 'EditableNewsletterCheckbox';
 
     /**
      * @return FieldList
@@ -39,6 +41,16 @@ class EditableHTMLCheckbox extends EditableCheckbox
         $fields->addFieldToTab('Root.Main', HTMLEditorField::create(
             "HTMLLabel",
             _t('SilverStripe\\UserForms\\Model\\EditableFormField.HTMLLabel', 'Label (HTML)')
+        ));
+
+        $fields->addFieldToTab('Root.Main', TextField::create(
+            "MailChimpID",
+            _t('FormField.MailChimpID', 'Mailchimp API Key')
+        ));
+
+        $fields->addFieldToTab('Root.ListeID', TextField::create(
+            "ListeID",
+            _t('FormField.ListeID', 'Empfängerliste ID')
         ));
 
         return $fields;

@@ -101,10 +101,7 @@ class FormBlockExtension extends DataExtension
         $current = Controller::curr();
         $controller->setRequest($current->getRequest());
         if ($current && $current->getAction() == 'process') {
-          ob_start();
-                print_r($current->getRequest()->postVars());
-                $result = ob_get_clean();
-                file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+          $data = $current->getRequest()->postVars();
         }
 
         if ($current && $current->getAction() == 'finished') {

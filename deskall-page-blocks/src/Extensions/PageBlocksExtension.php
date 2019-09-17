@@ -23,10 +23,6 @@ class PageBlocksExtension extends DataExtension {
 	public function requireDefaultRecords(){
 		parent::requireDefaultRecords();
 		foreach (Page::get() as $page){
-			ob_start();
-						print_r($page->ClassName);
-						$result = ob_get_clean();
-						file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 			if (ClassInfo::exists($page->ClassName)){
 				$page->checkLead();
 			}
