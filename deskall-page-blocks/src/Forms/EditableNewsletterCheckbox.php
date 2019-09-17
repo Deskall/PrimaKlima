@@ -78,8 +78,8 @@ class EditableNewsletterCheckbox extends EditableHTMLCheckbox
 
         if ($value){
             //newsletter is checked and we can bind with Mailchimp (#TO DO : or other )
-            $mailchimp = new MailChimp("517c3436cf5f753fe423f3c01fc9da53-us4");
-            $list_id = "0c880834b3";
+            $mailchimp = new MailChimp($this->MailChimpID);
+            $list_id = $this->ListeID;
             $result = $mailchimp->post("lists/".$list_id."/members",
                 [
                     'email_address' => $data['email'],
