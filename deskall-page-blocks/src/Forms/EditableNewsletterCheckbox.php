@@ -90,11 +90,12 @@ class EditableNewsletterCheckbox extends EditableHTMLCheckbox
      * @return bool Returns boolean true if valid false if not
      */
     public function validate() {
+        ob_start();
+                    print_r($this->Name);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         if(isset($_REQUEST[$this->Name])) {
-            ob_start();
-                        print_r($this->Name);
-                        $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+            
         }
         
         
