@@ -100,9 +100,9 @@ class FormBlockExtension extends DataExtension
         $controller = UserDefinedFormController::create($this->owner);
         $current = Controller::curr();
         $controller->setRequest($current->getRequest());
+        $form = $controller->Form();
         if ($current && $current->getAction() == 'process') {
           $data = $current->getRequest()->postVars();
-          $form = $controller->Form();
           ob_start();
                 print_r('ici');
                 $result = ob_get_clean();
@@ -113,7 +113,7 @@ class FormBlockExtension extends DataExtension
             return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
         }
 
-        $form = $controller->Form();
+        
         if ($this->owner->isChildren()){
           $form->setFormAction(
               Controller::join_links(
