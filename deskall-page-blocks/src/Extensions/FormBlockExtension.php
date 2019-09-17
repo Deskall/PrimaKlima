@@ -104,7 +104,7 @@ class FormBlockExtension extends DataExtension
           $data = $current->getRequest()->postVars();
           $form = $controller->Form();
           ob_start();
-                print_r($form->Fields());
+                print_r($form);
                 $result = ob_get_clean();
                 file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         }
