@@ -49,7 +49,7 @@ class EditableNewsletterCheckbox extends EditableHTMLCheckbox
             _t('FormField.MailChimpID', 'Mailchimp API Key')
         ));
 
-        $fields->addFieldToTab('Root.ListeID', TextField::create(
+        $fields->addFieldToTab('Root.Main', TextField::create(
             "ListeID",
             _t('FormField.ListeID', 'Empfängerliste ID')
         ));
