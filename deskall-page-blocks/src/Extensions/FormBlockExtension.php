@@ -100,18 +100,14 @@ class FormBlockExtension extends DataExtension
         $controller = UserDefinedFormController::create($this->owner);
         $current = Controller::curr();
         $controller->setRequest($current->getRequest());
-
         $form = $controller->Form();
-        if ($current && $current->getAction() == 'process') {
+
+        if ($current && $current->getAction() == 'finished') {
           $data = $current->getRequest()->postVars();
           ob_start();
                 print_r($data);
                 $result = ob_get_clean();
                 file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-        
-        }
-
-        if ($current && $current->getAction() == 'finished') {
             return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
         }
 
