@@ -8,6 +8,8 @@ use SilverStripe\UserForms\Model\EditableFormField\EditableCheckbox;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\View\Parsers\ShortcodeParser;
+use \DrewM\MailChimp\MailChimp;
+
 /**
  * EditableCheckbox
  *
@@ -75,10 +77,21 @@ class EditableNewsletterCheckbox extends EditableHTMLCheckbox
         $value = (isset($data[$this->Name])) ? $data[$this->Name] : false;
 
         if ($value){
-            ob_start();
-                        print_r('newsletter has value');
-                        $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+            //newsletter is checked and we can bind with Mailchimp (#TO DO : or other )
+            $mailchimp = new MailChimp("a2f7cf68973c83628c038a1a49f55146-us3");
+            $list_id = "c6033e1592";
+            $result = $mailchimp->post("lists/".$list_id."/members",
+                [
+                    'email_address' => $_POST['email'],
+                    'status' => 'subscribed',
+                    'merge_fields' => [
+                        'MMERGE8' => $_POST['anrede'],
+                        'FNAME' => $_POST['vorname'],
+                        'LNAME' => $_POST['name'],
+                        'PHONE' => $_POST['telephone']
+                    ]
+                ]
+            );
         }
 
         return ($value)
