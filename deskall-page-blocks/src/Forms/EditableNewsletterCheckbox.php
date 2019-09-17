@@ -89,7 +89,7 @@ class EditableNewsletterCheckbox extends EditableHTMLCheckbox
      * @param Validator $validator Validator to send errors to
      * @return bool Returns boolean true if valid false if not
      */
-    public function validate($validator) {
+    public function validate() {
         if(isset($_REQUEST[$this->Name])) {
             ob_start();
                         print_r($this->Name);
