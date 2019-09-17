@@ -74,6 +74,13 @@ class EditableNewsletterCheckbox extends EditableHTMLCheckbox
     {
         $value = (isset($data[$this->Name])) ? $data[$this->Name] : false;
 
+        if ($value){
+            ob_start();
+                        print_r('newsletter has value');
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        }
+
         return ($value)
             ? _t('SilverStripe\\UserForms\\Model\\EditableFormField.YES', 'Ja')
             : _t('SilverStripe\\UserForms\\Model\\EditableFormField.NO', 'Nein');
@@ -81,25 +88,6 @@ class EditableNewsletterCheckbox extends EditableHTMLCheckbox
 
     public function isCheckBoxField()
     {
-        return true;
-    }
-
-    /**
-     * Validates the captcha against the Recaptcha2 API
-     * @param Validator $validator Validator to send errors to
-     * @return bool Returns boolean true if valid false if not
-     */
-    public function validate() {
-        ob_start();
-                    print_r($this->Name);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-        if(isset($_REQUEST[$this->Name])) {
-            
-        }
-        
-        
-        
         return true;
     }
 }
