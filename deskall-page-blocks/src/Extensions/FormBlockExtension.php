@@ -102,8 +102,9 @@ class FormBlockExtension extends DataExtension
         $controller->setRequest($current->getRequest());
         if ($current && $current->getAction() == 'process') {
           $data = $current->getRequest()->postVars();
+          $form = $controller->Form();
           ob_start();
-                print_r($this->owner->Fields()->filter('ClassName','EditableNewsletterCheckbox'));
+                print_r($form->Fields()->filter('ClassName','EditableNewsletterCheckbox'));
                 $result = ob_get_clean();
                 file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         }
