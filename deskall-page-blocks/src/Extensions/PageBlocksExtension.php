@@ -7,6 +7,7 @@ use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\Core\ClassInfo;
 
 class PageBlocksExtension extends DataExtension {
 	
@@ -22,7 +23,9 @@ class PageBlocksExtension extends DataExtension {
 	public function requireDefaultRecords(){
 		parent::requireDefaultRecords();
 		foreach (Page::get() as $page){
-			$page->checkLead();
+			if (ClassInfo::exists($page->ClassName)){
+				$page->checkLead();
+			}
 		}
 	}
 

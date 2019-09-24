@@ -34,18 +34,26 @@
 			 		<% end_if %>
 			 		<% if SiteConfig.Phone %>
 			 		<li>
-			 			
-			 				<span data-uk-icon="icon: receiver;"></span>
-			 				$SiteConfig.Phone
-			 			
+			 			<span data-uk-icon="icon: receiver;"></span>
+			 			$SiteConfig.Phone
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Mobile %>
 			 		<li>
-			 			
-			 				<span data-uk-icon="icon: phone;"></span>
-				 			$SiteConfig.Mobile
-				 		
+			 			<span data-uk-icon="icon: phone;"></span>
+				 		$SiteConfig.Mobile
+			 		</li>
+			 		<% end_if %>
+			 		<% if SiteConfig.Fax %>
+			 		<li>
+			 			<span data-uk-icon="icon: print;"></span>
+				 		$SiteConfig.Fax
+			 		</li>
+			 		<% end_if %>
+			 		<% if SiteConfig.Notfall %>
+			 		<li>
+			 			<span data-uk-icon="icon: bell;"></span>
+				 		$SiteConfig.Notfall
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>

@@ -1,6 +1,8 @@
+<% if HTML %>
 <div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	$HTML
 </div>
+<% end_if %>
 <% if Slide %>
 	<div data-uk-slider="center: true;<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
 	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
@@ -45,7 +47,7 @@
     <% end_loop %>
 </ul>
 <% else %>
-<div class="list-element__container $BlocksPerLine  $BlockAlignment uk-grid-small <% if $Border %>uk-grid-divider<% end_if %> <% if $matchHeight %>uk-grid-match<% end_if %>" data-uk-grid >
+<div class="list-element__container $BlocksPerLine  $BlockAlignment uk-grid-small uk-flex $BlockVerticalAlignment <% if $Border %>uk-grid-divider<% end_if %> <% if $matchHeight %>uk-grid-match<% end_if %>" data-uk-grid >
     <% loop $Elements.ElementControllers %>
     $Me
     <% end_loop %>

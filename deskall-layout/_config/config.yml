@@ -2,6 +2,7 @@
 Name: siteconfiglayout
 After:
     - '#deskall-divers'
+    - '#deskall-page-blocks'
 ---
 SilverStripe\SiteConfig\SiteConfig:
   extensions:

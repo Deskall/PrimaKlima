@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
+use SilverStripe\Assets\File;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\DropdownField;
@@ -29,12 +30,14 @@ class Slide extends DataObject
         'TextColumns' => 'Varchar(255)',
         'TextColumnsDivider' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
-        'isMainSlide' => 'Boolean(0)'
+        'isMainSlide' => 'Boolean(0)',
+        'SlideType' => 'Enum("Bild, Video","Bild")'
     ];
 
     private static $has_one = [
         'Parent' => SliderBlock::class,
-        'Image' => Image::class
+        'Image' => Image::class,
+        'File' => File::class
     ];
 
     private static $defaults = [
@@ -198,6 +201,7 @@ class Slide extends DataObject
         $labels['Title'] = _t(__CLASS__.'.TitleLabel','Titel');
         $labels['Content'] = _t(__CLASS__.'.ContentLabel','Inhalt');
         $labels['Image'] = _t(__CLASS__.'.Image', 'Bild');
+        $labels['File'] = _t(__CLASS__.'.File', 'Datei');
         $labels['CallToActionLink'] = _t(__CLASS__.'.CTA', 'Link');
      
         return $labels;
@@ -230,6 +234,9 @@ class Slide extends DataObject
             ]
         );
 
+        $fields->dataFieldByName('File')->displayIf('SlideType')->isEqualTo('Video')->end();
+        $fields->dataFieldByName('Image')->displayIf('SlideType')->isEqualTo('Bild')->end();
+
         $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LayoutTab','Layout'));
 
         if ($this->isMainSlide){
@@ -247,7 +254,13 @@ class Slide extends DataObject
 
     public function ImageThumbnail(){
         $o = new DBHTMLText();
-        $html = ($this->Image() && $this->Image()->exists()) ? (($this->Image()->getExtension() == "svg" ) ? '<img src="'.$this->Image()->URL.'" class="svg-slide-thumbnail" />' : '<img src="'.$this->Image()->Fill(400,200)->URL.'" />') : _t(__CLASS__.'.NoBild','(keine)');
+        if ($this->SlideType == "Video"){
+            $html = ($this->File() && $this->File()->exists()) ? $this->File()->forTemplate() : _t(__CLASS__.'.NoBild','(keine)');
+        }
+        else{
+            $html = ($this->Image() && $this->Image()->exists()) ? (($this->Image()->getExtension() == "svg" ) ? '<img src="'.$this->Image()->URL.'" class="svg-slide-thumbnail" />' : '<img src="'.$this->Image()->Fill(400,200)->URL.'" />') : _t(__CLASS__.'.NoBild','(keine)');
+        }
+     
         $o->setValue($html);
         return $o;
     }

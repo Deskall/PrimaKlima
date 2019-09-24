@@ -517,7 +517,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function RandomSlides(){
-    return $this->owner->Slides()->sort('RAND()');
+    return $this->owner->Slides()->filter('isVisible',1)->sort('RAND()');
   }
 
 /************* TRANLSATIONS *******************/

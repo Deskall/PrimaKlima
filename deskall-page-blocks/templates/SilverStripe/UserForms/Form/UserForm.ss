@@ -1,3 +1,5 @@
+ <div class="dk-text-content uk-width-1-1 uk-margin-small"><small class="uk-text-small"><%t Form.RequiredFieldsLabel 'Die mit einem Stern (*) markierten Felder sind Pflichtfelder.' %></small></div>
+
 <form $AttributesHTML>
 
 <% include SilverStripe\\UserForms\\Form\\UserFormProgress %>
@@ -18,7 +20,7 @@
     <div class="userform-fields">
         <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
       
-        <div class="dk-text-content uk-width-1-1 uk-margin-small"><%t Form.RequiredFieldsLabel 'Die mit einem Stern (*) markierten Felder sind Pflichtfelder.' %></div>
+       
     </div>
 <% end_if %>
 

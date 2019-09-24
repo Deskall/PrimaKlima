@@ -2,11 +2,14 @@
 
 
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TextField;
 use SilverStripe\UserForms\Model\EditableFormField;
 use SilverStripe\UserForms\Model\EditableFormField\EditableCheckbox;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\View\Parsers\ShortcodeParser;
+use \DrewM\MailChimp\MailChimp;
+
 /**
  * EditableCheckbox
  *
@@ -15,19 +18,21 @@ use SilverStripe\View\Parsers\ShortcodeParser;
  * @package userforms
  */
 
-class EditableHTMLCheckbox extends EditableCheckbox
+class EditableNewsletterCheckbox extends EditableHTMLCheckbox
 {
-    private static $singular_name = 'Checkbox Field with HTML Label';
+    private static $singular_name = 'Newsletter Checkbox';
 
-    private static $plural_name = 'Checkboxes';
+    private static $plural_name = 'Newsletter Checkboxes';
 
     protected $jsEventHandler = 'click';
 
     private static $db = [
-        'HTMLLabel' => 'HTMLText' // from CustomSettings
+        'HTMLLabel' => 'HTMLText',
+        'MailChimpID' => 'Varchar',
+        'ListeID' => 'Varchar'
     ];
 
-    private static $table_name = 'EditableHTMLCheckbox';
+    private static $table_name = 'EditableNewsletterCheckbox';
 
     /**
      * @return FieldList
@@ -39,6 +44,16 @@ class EditableHTMLCheckbox extends EditableCheckbox
         $fields->addFieldToTab('Root.Main', HTMLEditorField::create(
             "HTMLLabel",
             _t('SilverStripe\\UserForms\\Model\\EditableFormField.HTMLLabel', 'Label (HTML)')
+        ));
+
+        $fields->addFieldToTab('Root.Main', TextField::create(
+            "MailChimpID",
+            _t('FormField.MailChimpID', 'Mailchimp API Key')
+        ));
+
+        $fields->addFieldToTab('Root.Main', TextField::create(
+            "ListeID",
+            _t('FormField.ListeID', 'Empfängerliste ID')
         ));
 
         return $fields;
@@ -60,6 +75,23 @@ class EditableHTMLCheckbox extends EditableCheckbox
     public function getValueFromData($data)
     {
         $value = (isset($data[$this->Name])) ? $data[$this->Name] : false;
+
+        if ($value){
+            //newsletter is checked and we can bind with Mailchimp (#TO DO : or other )
+            $mailchimp = new MailChimp($this->MailChimpID);
+            $list_id = $this->ListeID;
+            $result = $mailchimp->post("lists/".$list_id."/members",
+                [
+                    'email_address' => $data['email'],
+                    'status' => 'subscribed',
+                    'merge_fields' => [
+                        'FNAME' => $data['vorname'],
+                        'LNAME' => $data['name'],
+                        'PHONE' => $data['phone']
+                    ]
+                ]
+            );
+        }
 
         return ($value)
             ? _t('SilverStripe\\UserForms\\Model\\EditableFormField.YES', 'Ja')

@@ -175,3 +175,17 @@ $(document).ready(function(){
 $( window ).resize(function() {
   UIkit.update(document.body, type = 'update');
 });
+
+//Anonymize IP
+var gaProperty = 'UA-XXXXXXXX-X';
+var disableStr = 'ga-disable-' + gaProperty;
+if (document.cookie.indexOf(disableStr + '=true') > -1) {
+  window[disableStr] = true;
+}
+
+$('a[href$="#ga-optout"]').click(function(){
+    document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+    window[disableStr] = true;
+    alert('Google Analytics wurde deaktiviert');
+    return false;
+});

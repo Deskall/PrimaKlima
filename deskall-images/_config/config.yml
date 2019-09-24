@@ -35,7 +35,6 @@ SilverStripe\Assets\File:
     image/supported:
       - svg
 
-
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:
     properties:

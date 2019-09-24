@@ -4,7 +4,8 @@
 use SilverStripe\Core\Extension;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\FieldList;
-
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\View\Requirements;
 
 /**
  * Asset Form Factory extension.
@@ -16,12 +17,14 @@ class DeskallImageAssetFormFactoryExtension extends Extension
 {
 
     /**
-     * Add FocusPoint field for selecting focus.
+     * 
      */
     public function updateFormFields(FieldList $fields, $controller, $formName, $context)
     {
+
         $image = isset($context['Record']) ? $context['Record'] : null;
         if ($image && $image->appCategory() === 'image') {
+      
             $fields->insertAfter(
                 'Title',
                 TextareaField::create('Description',_t('Image.Description','Beschreibung'))

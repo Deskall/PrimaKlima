@@ -100,12 +100,12 @@ class FormBlockExtension extends DataExtension
         $controller = UserDefinedFormController::create($this->owner);
         $current = Controller::curr();
         $controller->setRequest($current->getRequest());
+        $form = $controller->Form();
 
         if ($current && $current->getAction() == 'finished') {
             return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
         }
-
-        $form = $controller->Form();
+        
         if ($this->owner->isChildren()){
           $form->setFormAction(
               Controller::join_links(
