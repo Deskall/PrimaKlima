@@ -168,8 +168,11 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         if ($this->owner->isPrimary){
             $this->owner->ShowTitle = 1;
         }
-
-        $this->owner->Width = 'uk-width-1-1';
+        //determine width if not set
+        if (!$this->owner->isChildren() ){
+            $this->owner->Width = 'uk-width-1-1';
+        }
+       
     }
 
 
@@ -261,6 +264,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
                 }
             }
         }
+
         parent::onBeforeWrite();
     }
 
