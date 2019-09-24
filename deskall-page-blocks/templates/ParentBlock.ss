@@ -4,10 +4,12 @@
 </div>
 <% end_if %>
 <% if Slide %>
-<%-- 	<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
-	    <div class="dk-slider uk-position-relative uk-visible-toggle" tabindex="-1">
-	        <ul class="uk-slider-items list-element__container uk-grid">
-	        	
+	<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
+	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
+	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
+	        	 <% loop $Elements.ElementControllers %>
+				  <li class="$Element.Parent.BlockAlignment uk-grid-small uk-flex $Parent.BlockVerticalAlignment">$Me</li>
+			    <% end_loop %>
 	        </ul>
         	<% if ShowNav %>
         	<div class="uk-hidden@l uk-light">
@@ -24,26 +26,7 @@
         <% if ShowDot %>
         <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
         <% end_if %>
-	</div> --%>
-    <div uk-slider>
-
-        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-
-            <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
-                <% loop $Elements.ElementControllers %>
-                  <li>$Me</li>
-                <% end_loop %>
-              
-            </ul>
-
-            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-
-        </div>
-
-        <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-
-    </div>
+	</div>
 <% else_if CollapsableChildren %>
 <ul data-uk-accordion="<% if not CanCollapse %>collapsible:false;<% end_if %><% if CollapseMultipe %>multiple:true;<% end_if %>">
     <% loop $Elements.ElementControllers.filter('isVisible',1) %>
