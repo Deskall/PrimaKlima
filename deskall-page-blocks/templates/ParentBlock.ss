@@ -4,9 +4,9 @@
 </div>
 <% end_if %>
 <% if Slide %>
-	<div data-uk-slider="center: true;<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
+	<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
 	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
-	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
+	        <ul class="uk-slider-items list-element__container $BlocksPerLine $BlockAlignment uk-flex $BlockVerticalAlignment uk-grid">
 	        	 <% loop $Elements.ElementControllers %>
 				  <li>$Me</li>
 			    <% end_loop %>
