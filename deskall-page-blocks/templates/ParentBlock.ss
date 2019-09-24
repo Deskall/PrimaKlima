@@ -27,7 +27,7 @@
         <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
         <% end_if %>
 	</div> --%>
-    <div uk-slider="center: true">
+    <div uk-slider>
 
         <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
