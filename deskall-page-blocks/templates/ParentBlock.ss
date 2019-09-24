@@ -5,7 +5,7 @@
 <% end_if %>
 <% if Slide %>
 	<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
-	    <div class="dk-slider uk-position-relative uk-visible-toggle" tabindex="-1">
+	    <%-- <div class="dk-slider uk-position-relative uk-visible-toggle" tabindex="-1"> --%>
 	        <ul class="uk-slider-items list-element__container uk-grid">
 	        	 <% loop $Elements.ElementControllers %>
 				  <li>$Me</li>
@@ -22,7 +22,7 @@
         		<a class="uk-position-center-right-out uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
         	</div>
         	<% end_if %>
-	    </div>
+	    <%-- </div> --%>
         <% if ShowDot %>
         <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
         <% end_if %>
