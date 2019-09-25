@@ -161,6 +161,7 @@ $(document).ready(function(){
 //Scroll links
 $(document).ready(function(){
   $("[href *= '#']").each(function(){
+    UIkit.offcanvas($("#offcanvas-flip")).hide();
     var target = $(this).attr("href");
     target = target.substr(0,target.indexOf("#"));
     if (window.location.pathname == target){
