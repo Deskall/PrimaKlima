@@ -125,8 +125,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             'title' => 'Mittel Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
         ],
-        'uk-text-justify' =>  [
-            'value' => 'uk-text-justify',
+        'uk-text-justify@s' =>  [
+            'value' => 'uk-text-justify@s',
             'title' => 'Justify Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
         ]
