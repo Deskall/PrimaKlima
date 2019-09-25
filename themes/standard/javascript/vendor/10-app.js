@@ -161,7 +161,6 @@ $(document).ready(function(){
 //Scroll links
 $(document).ready(function(){
   $("[href *= '#']").each(function(){
-    UIkit.offcanvas($("#offcanvas-flip")).hide();
     var target = $(this).attr("href");
     target = target.substr(0,target.indexOf("#"));
     if (window.location.pathname == target){
@@ -169,6 +168,12 @@ $(document).ready(function(){
     }
   });
 });
+$(document).ready(function(){
+  $("#offcanvas-flip a[href *= '#']").click(function(){
+    UIkit.offcanvas($("#offcanvas-flip")).hide();
+  });
+});
+
 
 $(document).ready(function(){
   UIkit.update(document.body, type = 'update');
