@@ -186,6 +186,7 @@ class Slide extends DataObject
 
     private static $owns = [
         'Image',
+        'File'
     ];
 
     private static $summary_fields = [
