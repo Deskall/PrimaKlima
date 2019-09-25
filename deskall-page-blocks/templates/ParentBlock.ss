@@ -53,3 +53,7 @@
     <% end_loop %>
 </div>
 <% end_if %>
+
+<% if LinkableLinkID > 0 %>
+    <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+<% end_if %>
