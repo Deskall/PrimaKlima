@@ -51,8 +51,6 @@ class ParentBlock extends ElementList
 
     private static $cascade_duplicates = ['Elements'];
 
-    private static $extensions = ['Linkable'];
-
     public function getType()
     {
         return _t(__CLASS__ . '.BlockType', 'Parent Block');
@@ -120,7 +118,6 @@ class ParentBlock extends ElementList
     public function getCMSFields(){
         $fields = parent::getCMSFields();
         $fields->removeByName('FirstBlockID');
-        $fields->removeByName('LinkableLinkID');
         $fields->removeByName('Layout');
         $fields->removeByName('BlocksPerLine');
         $fields->removeByName('Border');
