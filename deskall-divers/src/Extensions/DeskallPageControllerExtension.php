@@ -13,7 +13,7 @@ class DeskallPageControllerExtension extends Extension
     }
 
     public function Css(){
-    	$css_compiled = file_get_contents(Director::baseFolder().SiteConfig::current_site_config()->getCurrentThemeDir().'templates/Includes/Css.ss');
+    	$css_compiled = file_get_contents(Director::baseFolder().SiteConfig::current_site_config()->getCurrentThemeDir().'/templates/Includes/Css.ss');
         $css = new DBHTMLText();
         $css->setValue($css_compiled);
         return $css;
