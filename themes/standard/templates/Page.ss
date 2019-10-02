@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="$ContentLocale" dir="ltr" class="BodyBackground">
+<html lang="$ContentLocale" dir="ltr">
   <head>
      <% include Meta %>
   </head>
