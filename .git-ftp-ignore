@@ -17,21 +17,12 @@ log.txt
 *.cache
 *.zip
 /cache/!.gitkeep
-/mysite/
-mysite/
-mysite/_config.php
 
-themes/standard/css/src/deskall/theme/project_specific.less
-themes/standard/css/src/deskall/theme/user_defined.less
-themes/standard/css/src/deskall/theme/colors.less
-themes/standard/css/src/deskall/theme/fonts.less
-deskall-layout/templates/Includes/Css.ss
-themes/standard/css/main.css
-themes/standard/css/main.min.css
-themes/standard/javascript/main.min.js
-themes/standard/javascript/main.js
 
-themes/standard/javascript/vendor/11-project-specific.js
+/themes/standard/
+
+/deskall-layout/templates/Includes/Css.ss
+
 
 
 
