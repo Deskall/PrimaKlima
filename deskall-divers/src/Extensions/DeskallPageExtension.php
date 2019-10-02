@@ -32,7 +32,7 @@ class DeskallPageExtension extends DataExtension
     ];
 
     public function ThemeDir(){
-    	return ThemeResourceLoader::inst()->getThemePaths(SSViewer::get_themes())[0];
+        return SiteConfig::current_site_config()->getCurrentThemeDir();
     }
 
     public function updateCMSFields(FieldList $fields){
