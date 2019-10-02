@@ -22,7 +22,7 @@ $CustomStructuredData
 
 <% if isLive %>
 	<script async defer src="$ThemeDir/javascript/main.min.js"></script>
-	$Css
+	$HeadCss
 <% else %>
     <script src="$ThemeDir/javascript/main.js"></script>
 	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/main.min.css" />
