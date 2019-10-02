@@ -39,6 +39,7 @@ class SiteConfigLayoutExtension extends DataExtension
   protected $path_to_themes = '/deskall-layout/config/theme.yml';
 
   private static $db = [
+    'Theme' => 'Varchar',
     'HeaderBackground' => 'Varchar(7)',
     'GlobalFontSize' => 'Varchar(25)',
     'H1FontSize' => 'Varchar(25)',

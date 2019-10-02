@@ -18,7 +18,7 @@ use SilverStripe\Subsites\Model\Subsite;
 
 class DeskallPageExtension extends DataExtension
 {
-	 private static $db = [
+     private static $db = [
         'ShowInMainMenu' => 'Int'
     ];
 
@@ -44,27 +44,27 @@ class DeskallPageExtension extends DataExtension
 
 
     public function generateFolderName(){
-    	if ($this->owner->ID > 0){
-    		if ($this->owner->ParentID > 0){
-	    		return $this->owner->Parent()->generateFolderName()."/".$this->owner->URLSegment;
-	    	}
-	    	else{
+        if ($this->owner->ID > 0){
+            if ($this->owner->ParentID > 0){
+                return $this->owner->Parent()->generateFolderName()."/".$this->owner->URLSegment;
+            }
+            else{
                 if ($this->owner->hasExtension(SiteTreeSubsites::class)){
                     $config = SiteConfig::current_site_config();
                     $prefix = URLSegmentFilter::create()->filter($config->Title);
                     return "Uploads/".$prefix.'/'.$this->owner->URLSegment;
                 }
-	    		return "Uploads/".$this->owner->URLSegment;
-	    	}
-    	}
-    	else{
-    		return "Uploads/tmp";
-    	}
-    	
+                return "Uploads/".$this->owner->URLSegment;
+            }
+        }
+        else{
+            return "Uploads/tmp";
+        }
+        
     }
 
     public function onBeforeWrite(){
-    	if ($this->owner->ID > 0){
+        if ($this->owner->ID > 0){
             $changedFields = $this->owner->getChangedFields();
             //Update Folder Name
             if ($this->owner->isChanged('URLSegment') && ($changedFields['URLSegment']['before'] != $changedFields['URLSegment']['after'])){
@@ -100,8 +100,8 @@ class DeskallPageExtension extends DataExtension
                 $this->owner->ShowInMainMenu = true;
             }
         }
-    	
-    	parent::onBeforeWrite();
+        
+        parent::onBeforeWrite();
     }
 
 
