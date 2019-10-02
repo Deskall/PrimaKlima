@@ -508,7 +508,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function RegenerateCss(){
-    $files = ['main.min.css','editortocompile.css'];
+    $files = ['body.min.css','head.min.css','editortocompile.css'];
     foreach ($files as $key => $value) {
       $url = $this->owner->getAbsoluteCurrentThemeDir().$value;
       if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
