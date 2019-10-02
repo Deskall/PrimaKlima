@@ -5,7 +5,6 @@ SilverStripe\View\SSViewer:
   themes:
     - '$public'
     - 'yplay'
-    - 'standard'
     - '$default'
 SilverStripe\i18n\i18n:
   default_locale: 'de_DE'
