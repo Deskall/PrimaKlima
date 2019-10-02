@@ -1,0 +1,38 @@
+@slidenav-color:                                @white-background;
+@slidenav-hover-color:                          @global-primary-background;
+@slidenav-active-color:                         @white-background;
+@dotnav-item-background:                        @white-background;
+@dotnav-item-hover-background:                  @global-primary-background;
+@dotnav-item-onclick-background:                @global-primary-background;
+@dotnav-item-active-background:                 @global-primary-background;
+
+.dk-slider{
+	min-height:@header-menu-height;
+	.dk-slide-text-container{
+		.slider-font;
+		&.dk-overlay{
+			position: static;
+		}
+		@media only screen and (min-width:@breakpoint-large){
+			.uk-container:not(.uk-container-expand){
+				max-width:1280px;
+			}	
+		}
+			
+	}
+	.uk-text-lead.with-padding{
+		padding:10px;
+		@media (min-width:@breakpoint-medium){
+			padding: 20px;
+		}
+		@media (min-width:@breakpoint-large){
+			padding: 40px;
+		}
+	}
+}
+
+.dk-slide-default{
+	height:300px;
+	max-width: none;
+	width:auto;
+}

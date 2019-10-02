@@ -1,0 +1,152 @@
+[11-Jan-2019 17:38:43 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 17:39:13 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 17:55:13 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 17:56:28 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 17:56:47 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:33:52 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:34:09 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:35:30 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:36:30 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:37:44 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:39:16 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:40:10 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:41:29 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:42:03 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:43:48 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:45:44 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:47:09 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:51:13 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:51:52 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45

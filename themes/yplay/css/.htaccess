@@ -1,0 +1,18 @@
+# LESS compiler
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+
+	RewriteRule (main.min.css) CompileLess.php
+	RewriteRule (head.min.css) CompileLess.php
+	RewriteRule (body.min.css) CompileLess.php
+	RewriteRule (main.css) CompileLess.php
+	RewriteRule (head.css) CompileLess.php
+	RewriteRule (body.css) CompileLess.php
+	RewriteRule (editortocompile.css) CompileLess.php
+
+
+</IfModule>
+
+
+
+
