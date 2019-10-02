@@ -29,7 +29,8 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
 use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
-
+use SilverStripe\View\ThemeResourceLoader;
+use SilverStripe\View\SSViewer;
 
 class SiteConfigLayoutExtension extends DataExtension 
 {
@@ -58,6 +59,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderCollapsedHeight' => 'Varchar(255)',
     'HeaderOpacity' => 'Varchar(255)',
     'HeaderFormat' => 'Varchar(255)',
+    'ExtraHeaderClass' => 'Varchar(255)',
     'StickyHeader' => 'Boolean(0)',
     'BackContent' => 'Boolean(0)',
     'HeaderLogoHeight' => 'Varchar(255)',
@@ -75,6 +77,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterFontSize' => 'Varchar(255)',
     'FooterTitleFontSize' => 'Varchar(255)',
     'FooterFontColor' => 'Varchar(7)',
+    'ExtraFooterClass' => 'Varchar(255)',
 
     'MobileNaviBackground' => 'Varchar(255)',
     'MobileNaviFontColor' => 'Varchar(7)',
@@ -177,12 +180,37 @@ class SiteConfigLayoutExtension extends DataExtension
     }
   }
 
+  public function getCurrentThemeDir(){
+    return '/themes/'.$this->owner->Theme;
+  }
+
+  public function getAbsoluteCurrentThemeDir(){
+    return Director::AbsoluteURL($this->owner->getCurrentThemeDir());
+  }
+
+  public function getUserDefinedFile(){
+
+    return $this->owner->getCurrentThemeDir().'/css/src/deskall/theme/user_defined.less';
+  }
+
+  public function getBackgroundColorsFile(){
+    return $this->owner->getCurrentThemeDir().'/css/src/deskall/theme/colors.less';
+  }
+
   public function getLayoutFields() {
     Requirements::javascript('deskall-layout/javascript/jscolor.min.js');
     Requirements::javascript('deskall-layout/javascript/layout.js');
     Requirements::css('deskall-layout/css/layout.css');
     $fields = new FieldList(new Tabset('Root',_t('FORMS.MAINTAB','Haupt')));
+    $themesPath = Director::baseFolder().'/themes';
+    $dirs = glob($themesPath . '/*' , GLOB_ONLYDIR);
+    $themes = [];
+    foreach ($dirs as $key => $dir) {
+      $themes[basename($dir)] = basename($dir);
+    }
     //GLOBAL
+    $fields->addFieldToTab("Root.Global",DropdownField::create('Theme','Theme',$themes)->setValue('standard')->setEmptyString('Bitte wählen'));
+    
     //COLORS
     $fields->addFieldToTab("Root.Global",new HiddenField('ID'));
     $config = GridFieldConfig::create()
@@ -288,6 +316,7 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse')),
         TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe'))
       ),
+      TextField::create('ExtraHeaderClass',_t(__CLASS__.'.ExtraHeaderClass','Custom CSS für header')),
       FieldGroup::create(
         TextField::create('DropdownSubMenuWidth',_t(__CLASS__.'.DropdownSubMenuWidth','Breite der Dropdown-Navigation')),
         TextField::create('DropdownSubMenuPadding',_t(__CLASS__.'.DropdownSubMenuPadding','Padding der Dropdown-Navigation')),
@@ -347,7 +376,8 @@ class SiteConfigLayoutExtension extends DataExtension
         TextField::create('FooterLogoWidth',_t(__CLASS__.'.Footerlogowidtht','Logo Breite')),
         TextField::create('FooterTitleFontSize',_t(__CLASS__.'.FooterTitleFontSize','Footer Titel Schriftgrösse')),
         TextField::create('FooterFontSize',_t(__CLASS__.'.FooterFontSize','Footer Schriftgrösse'))
-      )
+      ),
+      TextField::create('ExtraFooterClass',_t(__CLASS__.'.ExtraFooterClass','Custom CSS für footer'))
      
     )->setTitle(_t(__CLASS__.'.FooterLayout','Footer Layout'))->setName('FooterLayoutFields'));
     $fields->FieldByName('Root.Footer.Content')->setTitle(_t(__CLASS__.'.FooterContentTab','Inhalt der Footer'));
@@ -402,17 +432,19 @@ class SiteConfigLayoutExtension extends DataExtension
 
 
   public function onAfterWrite(){
-    $this->owner->WriteUserDefinedConstants();
-    $this->owner->WriteBackgroundClasses();
-    $this->owner->RegenerateCss();
+    if ($this->owner->isChanged()){
+      $this->owner->WriteUserDefinedConstants();
+      $this->owner->WriteBackgroundClasses();
+      $this->owner->RegenerateCss();
+    }
     parent::onAfterWrite();
   }
 
   public function WriteUserDefinedConstants(){
-    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->user_defined_file;
+    $fullpath = Director::baseFolder().$this->owner->getUserDefinedFile();
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
       if ($this->owner->SubsiteID > 0){
-         $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/user_defined.less';
+         $fullpath = Director::baseFolder().'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/user_defined.less';
       }
     }
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
@@ -444,10 +476,10 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function WriteBackgroundClasses(){
-    $fullpath = $_SERVER['DOCUMENT_ROOT'].$this->background_colors;
+    $fullpath = Director::baseFolder().$this->owner->getBackgroundColorsFile();
      if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
       if ($this->owner->SubsiteID > 0){
-         $fullpath = $_SERVER['DOCUMENT_ROOT'].'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/colors.less';
+         $fullpath = Director::baseFolder().'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/colors.less';
       }
     }
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
@@ -477,7 +509,7 @@ class SiteConfigLayoutExtension extends DataExtension
   public function RegenerateCss(){
     $files = ['main.min.css','editortocompile.css'];
     foreach ($files as $key => $value) {
-      $url = Director::AbsoluteURL('themes/standard/css/'.$value);
+      $url = $this->owner->getAbsoluteCurrentThemeDir().$value);
       if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
           if ($this->owner->SubsiteID > 0){
               $url =Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/'.$value);
