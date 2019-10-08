@@ -118,7 +118,6 @@ class ParentBlock extends ElementList
     public function getCMSFields(){
         $fields = parent::getCMSFields();
         $fields->removeByName('FirstBlockID');
-        $fields->removeByName('LinkableLinkID');
         $fields->removeByName('Layout');
         $fields->removeByName('BlocksPerLine');
         $fields->removeByName('Border');

@@ -7,6 +7,7 @@
 header{
 	margin-bottom:@header-margin-bottom;
 	.uk-navbar-container {
+		position: relative;
 		min-height:@header-menu-collapsed-height;
 		@media (min-width:@breakpoint-medium){
 			min-height:@header-menu-height;
@@ -78,7 +79,9 @@ header .uk-navbar-nav.main .uk-navbar-dropdown{
 			color: @main-subnavi-hover-color;
 		}
 	}
+	width: @dk-navbar-dropdown-width;
 	.hook-main-nav-dropdown;
+
 }
 
 header .second.uk-dropdown{

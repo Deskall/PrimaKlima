@@ -168,6 +168,12 @@ $(document).ready(function(){
     }
   });
 });
+$(document).ready(function(){
+  $("#offcanvas-flip a[href *= '#']").click(function(){
+    UIkit.offcanvas($("#offcanvas-flip")).hide();
+  });
+});
+
 
 $(document).ready(function(){
   UIkit.update(document.body, type = 'update');

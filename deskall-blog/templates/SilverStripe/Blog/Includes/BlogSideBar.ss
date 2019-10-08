@@ -36,8 +36,10 @@
 			<div class="shariff" data-lang="de" data-url="$AbsoluteLink" data-button-style="icon" data-mail-url="mailto:" data-services="[&quot;facebook&quot;,&quot;twitter&quot;,&quot;linkedin&quot;,&quot;xing&quot;,&quot;whatsapp&quot;,mail&quot;]"></div>
 		</div>
 		<% end_if %>
+		<% if $CommentsEnabled %>
 		<div class="uk-margin-top uk-text-center">
 		<a class="uk-button uk-button-primary" href="{$Link}#comments-holder" data-uk-scroll><%t SilverStripe\\Blog\\Model\\Blog.Comment 'Kommentieren' %></a>
 		</div>
+		<% end_if %>
 	</div>
 </div>

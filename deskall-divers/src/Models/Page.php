@@ -3,7 +3,7 @@
 use SilverStripe\CMS\Model\SiteTree;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\TextField;
-
+use SilverStripe\Control\Session;
 
 class Page extends SiteTree implements Searchable
 {
@@ -69,28 +69,22 @@ class Page extends SiteTree implements Searchable
      //search related
      public function notInListYet( $link ){
       $this->session_start();
-      if( !isset($_SESSION['searchresults'] )){
-        $_SESSION['searchresults'] = array();
-      }
+      $results = ( Session::get('searchresults') ) ?  Session::get('searchresults') : array();
+ 
 
-      if( !in_array($link, $_SESSION['searchresults']) ){
-        array_push($_SESSION['searchresults'], $link);
+      if( !in_array($link, $results) ){
+        array_push($results, $link);
+        Session::set('searchresults',$results);
         return 1;
       }else{
         return 0;
       }
     }
 
-    public function clearSearchresultSession(  ){
-      $this->session_start();
-      $_SESSION['searchresults'] = array();
+    public function clearSearchresultSession(){
+     Session::clear('searchresults');
     }
 
-    function session_start() {
-      if ( ! session_id() ) {
-        @session_start();
-      }
-    }
 
     public function getPrivatePolicyPage(){
       return PrivatePolicyPage::get()->first();

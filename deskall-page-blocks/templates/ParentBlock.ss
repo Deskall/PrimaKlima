@@ -8,7 +8,7 @@
 	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
 	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
 	        	 <% loop $Elements.ElementControllers %>
-				  <li>$Me</li>
+				  <li class="$Top.BlockAlignment uk-grid-small uk-flex $Top.BlockVerticalAlignment">$Me</li>
 			    <% end_loop %>
 	        </ul>
         	<% if ShowNav %>
@@ -52,4 +52,8 @@
     $Me
     <% end_loop %>
 </div>
+<% end_if %>
+
+<% if LinkableLinkID > 0 %>
+    <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 <% end_if %>
