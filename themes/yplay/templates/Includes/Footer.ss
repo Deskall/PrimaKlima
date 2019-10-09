@@ -147,22 +147,22 @@
 		   <% end_loop %>
 
 		</div>
-		<div class="uk-margin-small-top dk-footer-secondary">
-			<div class="uk-container">
-				<% loop $SiteConfig.activeFooterBlocks.filter('Class','nav-secondary') %>
-				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-				    <div class="uk-navbar-center">
-				        <ul class="uk-navbar-nav">
-				            <% loop $activeLinks %>
-				           		$forTemplate
-				           	<% end_loop %>
-				        </ul>
-				    </div>
-				</nav>
-				<% end_loop %>
-				<div class="copyright">
-					© $Now.Year YplaY, GIB-Solutions AG
-				</div>
+	</div>
+	<div class="uk-margin-small-top dk-footer-secondary">
+		<div class="uk-container">
+			<% loop $SiteConfig.activeFooterBlocks.filter('Class','nav-secondary') %>
+			<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+			    <div class="uk-navbar-center">
+			        <ul class="uk-navbar-nav">
+			            <% loop $activeLinks %>
+			           		$forTemplate
+			           	<% end_loop %>
+			        </ul>
+			    </div>
+			</nav>
+			<% end_loop %>
+			<div class="copyright">
+				© $Now.Year YplaY, GIB-Solutions AG
 			</div>
 		</div>
 	</div>
