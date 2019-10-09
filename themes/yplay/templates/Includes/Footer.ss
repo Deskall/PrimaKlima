@@ -150,7 +150,7 @@
 			<div class="uk-container">
 				<% loop $SiteConfig.activeFooterBlocks.filter('Class','nav-secondary') %>
 				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-				    <div class="$Width $Layout $Class">
+				    <div class="uk-navbar-center">
 				        <ul class="uk-navbar-nav">
 				            <% loop $activeLinks %>
 				           		$forTemplate
