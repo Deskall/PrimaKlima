@@ -321,8 +321,8 @@ class SiteConfigLayoutExtension extends DataExtension
       FieldGroup::create(
         TextField::create('HeaderHeight',_t(__CLASS__.'.HeaderHeight','Höhe')),
         TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Header Höhe')),
-        TextField::create('HeaderMainMenuItemSize',_t(__CLASS__.'.HeaderItemHeight','Haupt Menu Item Höhe')),
-        TextField::create('HeaderSubMenuItemSize',_t(__CLASS__.'.HeaderItemHeight','Haupt Menu Item Höhe')),
+        TextField::create('HeaderMainMenuItemSize',_t(__CLASS__.'.HeaderMainMenuItemHeight','Haupt Menu Item Höhe')),
+        TextField::create('HeaderSubMenuItemSize',_t(__CLASS__.'.HeaderSubMenuItemHeight','Sekondäre Menu Item Höhe')),
         TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse')),
         TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe'))
       ),
