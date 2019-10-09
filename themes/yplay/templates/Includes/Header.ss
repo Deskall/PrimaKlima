@@ -32,7 +32,7 @@
 							</div>
 							<div class="uk-navbar-right uk-visible@m">
 								<ul class="uk-navbar-nav">
-									<li class="link"><a href="#"><i class="fa fa-loop uk-margin-small-right"></i><small>Suchen</small></a></li>
+									<li class="link"><a href="#"><i class="fa fa-search uk-margin-small-right"></i><small>Suchen</small></a></li>
 									<li class="link"><a href="#"><i class="fa fa-user uk-margin-small-right"></i><small>Mein Konto</small></a></li>
 									<li class="link"><a href="#"><i class="fa fa-bell uk-margin-small-right"></i><small>Meldungen</small></a></li>
 									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
