@@ -148,11 +148,15 @@
 		</div>
 		<div class="uk-margin-small-top dk-footer-secondary">
 			<% loop $SiteConfig.activeFooterBlocks.filter('Class','nav-secondary') %>
-			    	<ul>
-					    <% loop $activeLinks %>
-							$forTemplate
-						<% end_loop %>
-					</ul>
+			<nav class="uk-navbar-container" data-uk-navbar>
+			    <div class="$Width $Layout $Class">
+			        <ul class="uk-navbar-nav">
+			            <% loop $activeLinks %>
+			           		$forTemplate
+			           	<% end_loop %>
+			        </ul>
+			    </div>
+			</nav>
 			<% end_loop %>
 		</div>
 	</div>
