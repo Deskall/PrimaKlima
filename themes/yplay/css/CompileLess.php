@@ -61,7 +61,7 @@ if($css_compiled){
 		else{
 			file_put_contents($filename_full,$css_compiled);
 			file_put_contents($filename_min,$css_compiled);
-			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/'.$theme."/templates/Includes/Css.ss","<style>".$css_live."</style>");
+			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/'.$theme."/templates/Includes/".ucfirst($filecore)."Css.ss","<style>".$css_live."</style>");
 			
 		}
 			

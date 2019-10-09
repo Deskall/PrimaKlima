@@ -11,7 +11,7 @@
 			 	<ul class="uk-list uk-list-large dk-list dk-list-with-icon uk-margin-remove-top">
 			 		<% if $SiteConfig.Address != "" %>
 			 		<li><span data-uk-icon="icon: location;"></span>
-			 			<a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title">
+			 			<a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title" rel="nofollow">
 			 				<% if $SiteConfig.Address %>
 				 			$SiteConfig.Address<br/>
 				 			<% end_if %>
@@ -27,7 +27,7 @@
 			 		<% if SiteConfig.Email %>
 			 		<li>
 			 			<span data-uk-icon="icon: mail;"></span>
-			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title">
+			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title" target="_blank" rel="noopener noreferrer">
 			 				$SiteConfig.Email
 			 			</a>
 			 		</li>
@@ -60,19 +60,19 @@
 			 		<li>
 			 			<ul class="uk-iconnav uk-padding-remove uk-margin-remove">
 			 				<% if SiteConfig.Facebook %>
-			 				<li><a href="$SiteConfig.Facebook" target="_blank" data-uk-icon="facebook"></a></li>
+			 				<li><a href="$SiteConfig.Facebook" target="_blank" data-uk-icon="facebook" rel="nofollow"></a></li>
 			 				<% end_if %>
 			 				<% if SiteConfig.Twitter %>
-			 				<li><a href="$SiteConfig.Twitter" target="_blank" data-uk-icon="twitter"></a></li>
+			 				<li><a href="$SiteConfig.Twitter" target="_blank" data-uk-icon="twitter" rel="nofollow"></a></li>
 			 				<% end_if %>
 			 				<% if SiteConfig.Linkedin %>
-			 				<li><a href="$SiteConfig.Linkedin" target="_blank" data-uk-icon="linkedin"></a></li>
+			 				<li><a href="$SiteConfig.Linkedin" target="_blank" data-uk-icon="linkedin" rel="nofollow"></a></li>
 			 				<% end_if %>
 			 				<% if SiteConfig.Xing %>
-			 				<li><a href="$SiteConfig.Xing" target="_blank" data-uk-icon="xing"></a></li>
+			 				<li><a href="$SiteConfig.Xing" target="_blank" data-uk-icon="xing" rel="nofollow"></a></li>
 			 				<% end_if %>
 			 				<% if SiteConfig.Instagram %>
-			 				<li><a href="$SiteConfig.Instagram" target="_blank" data-uk-icon="instagram"></a></li>
+			 				<li><a href="$SiteConfig.Instagram" target="_blank" data-uk-icon="instagram" rel="nofollow"></a></li>
 			 				<% end_if %>
 			 			</ul>
 			 		</li>

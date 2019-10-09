@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="$ContentLocale" dir="ltr">
+<html lang="$ContentLocale" dir="ltr" class="BodyBackground">
   <head>
      <% include Meta %>
   </head>
@@ -7,11 +7,9 @@
     $SiteConfig.BodyScripts
     <div class="uk-offcanvas-content">
       <% include Header %>
-      <main class="main-content-wrapper">
-          $Layout
-      </main>
-
-    
+      <div class="main-content-wrapper">
+      $Layout
+      </div>
       <% include Footer %>
 
       <% include NavMobile %>
@@ -23,6 +21,5 @@
       <% end_loop %>
     <% end_if %>
     $SiteConfig.GoogleAnalyticsCode
-    $BodyCss
   </body>
 </html>

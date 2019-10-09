@@ -92,19 +92,32 @@ class SEOPageExtension extends DataExtension
 	public function MetaTags(&$tags) {
 
 		$siteConfig = SiteConfig::current_site_config();
+		if(!$this->owner->MetaDescription){
+			$tags .= '<meta name="description" content="'.$this->owner->PrintDescription().'" />' . "\n";
+		}
 		
 		// facebook OpenGraph
-		
-		$tags .= '<meta property="og:locale" content="' . i18n::get_locale() . '" />' . "\n";
-		$tags .= '<meta property="og:title" content="' . $this->owner->Title . '" />' . "\n";
-		$tags .= '<meta property="og:description" content="' . $this->owner->MetaDescription . '" />' . "\n";
-		$tags .= '<meta property="og:url" content=" ' . rtrim(Director::AbsoluteUrl($this->owner->Link()),'/'). ' " />' . "\n";
-		$tags .= '<meta property="og:site_name" content="' . $siteConfig->Title . '" />' . "\n";
 		$tags .= '<meta property="og:type" content="website" />' . "\n";
+		$tags .= '<meta property="og:url" content=" ' . Director::AbsoluteUrl($this->owner->Link()). ' " />' . "\n";
+		$tags .= '<meta property="og:title" content="' . $this->owner->Title . '" />' . "\n";
+		$tags .= '<meta property="og:description" content="' . $this->owner->PrintDescription() . '" />' . "\n";
 		if ($this->owner->OpenGraphImage()){
 			$tags .= '<meta property="og:image:width" content="600" />' . "\n";
-			$tags .= '<meta property="og:image:height" content="300" />' . "\n";
+			$tags .= '<meta property="og:image:height" content="315" />' . "\n";
 			$tags .= '<meta property="og:image" content="'.Director::absoluteBaseURL().ltrim($this->owner->OpenGraphImage(),"/").'" />' . "\n";
+		}
+		$tags .= '<meta property="og:locale" content="' . i18n::get_locale() . '" />' . "\n";
+		$tags .= '<meta property="og:site_name" content="' . $siteConfig->Title . '" />' . "\n";
+		
+		
+
+		//Twitter meta Card
+		$tags .= '<meta name="twitter:card" content="summary" />'. "\n";
+		$tags .= '<meta name="twitter:site" content="'.Director::AbsoluteUrl($this->owner->Link()).'" />'. "\n";
+		$tags .= '<meta name="twitter:title" content="' . $this->owner->Title . '" />'. "\n";
+		$tags .= '<meta name="twitter:description" content="' . $this->owner->PrintDescription() . '" />';
+		if ($this->owner->OpenGraphImage()){
+			$tags .=  '<meta name="twitter:image" content="'.Director::absoluteBaseURL().ltrim($this->owner->OpenGraphImage(),"/").'" />';
 		}
         $tags .= $siteConfig->GoogleWebmasterMetaTag . "\n";
 	}
