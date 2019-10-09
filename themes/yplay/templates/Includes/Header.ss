@@ -7,12 +7,12 @@
 					<%-- <div class="dk-nav-top-container uk-width-1-1 uk-visible@m">
 						<div class="uk-grid-small" data-uk-grid>
 							<div class="uk-width-1-3"> --%>
-							<div class="uk-navbar-right">
+					<%-- 		<div class="uk-navbar-right">
 								<form class="search-form" method="GET" action="{$Link}SearchForm">
 									<input type="text" class="uk-input uk-width-medium" minlength="4" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
 									<button type="submit"><i class="fas fa-search"></i></button>
 								</form>
-							</div>
+							</div> --%>
 							<%-- </div>
 							<div class="uk-width-2-3"> --%>
 							<div class="uk-navbar-right">
