@@ -24,6 +24,8 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Assets\Folder;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Subsites\Extensions\SiteTreeSubsites;
 
 class SiteConfigExtension extends DataExtension 
 {
