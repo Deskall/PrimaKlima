@@ -45,10 +45,6 @@ SilverStripe\Assets\FileNameFilter:
   extensions:
     - FileNameFilterExtension
 
-SilverStripe\Forms\HTMLEditor\TinyMCEConfig:
-  editor_css:
-    - 'themes/standard/css/editor.css'
-
 ---
 Name: deskall-searchable-dataobjects-extensions
 After: '#searchable-dataobjects-extensions'
