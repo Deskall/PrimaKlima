@@ -145,6 +145,9 @@
 				<% end_if %>
 		    </div>
 		   <% end_loop %>
+		   <div class="copyright">
+		   	© $Now.Year YplaY, GIB-Solutions AG
+		   </div>
 		</div>
 		<div class="uk-margin-small-top dk-footer-secondary uk-position-bottom">
 			<div class="uk-container">
@@ -159,9 +162,7 @@
 				    </div>
 				</nav>
 				<% end_loop %>
-				<div class="copyright">
-					© $Now.Year YplaY, GIB-Solutions AG
-				</div>
+				
 			</div>
 		</div>
 	</div>
