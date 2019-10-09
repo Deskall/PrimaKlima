@@ -24,6 +24,8 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Assets\Folder;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Subsites\Extensions\SiteTreeSubsites;
 
 class SiteConfigExtension extends DataExtension 
 {
@@ -98,9 +100,16 @@ class SiteConfigExtension extends DataExtension
     return str_replace(' ','',$number);
   }
 
-
   public function getFolderName(){
-    $folder = Folder::find_or_make("Uploads/Einstellungen");
+    if ($this->owner->hasExtension(SiteTreeSubsites::class)){
+        $config = SiteConfig::current_site_config();
+        $prefix = URLSegmentFilter::create()->filter($config->Title);
+        $folder = Folder::find_or_make("Uploads/".$prefix."/Einstellungen");
+    }
+    else{
+      $folder = Folder::find_or_make("Uploads/Einstellungen");
+    }
+    
     return $folder->getFilename();
   }
 }
