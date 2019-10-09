@@ -146,7 +146,7 @@
 		    </div>
 		   <% end_loop %>
 		</div>
-		<div class="uk-margin-small-top dk-footer-secondary">
+		<div class="uk-margin-small-top dk-footer-secondary uk-position-bottom">
 			<% loop $SiteConfig.activeFooterBlocks.filter('Class','nav-secondary') %>
 			<nav class="uk-navbar-container" data-uk-navbar>
 			    <div class="$Width $Layout $Class">
