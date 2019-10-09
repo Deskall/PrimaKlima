@@ -78,6 +78,9 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterFontSize' => 'Varchar(255)',
     'FooterTitleFontSize' => 'Varchar(255)',
     'FooterFontColor' => 'Varchar(7)',
+    'FooterTitleFontColor' => 'Varchar(7)',
+    'FooterLinkFontColor' => 'Varchar(7)',
+    'FooterLinkHoverFontColor' => 'Varchar(7)',
     'ExtraFooterClass' => 'Varchar(255)',
 
     'MobileNaviBackground' => 'Varchar(255)',
@@ -127,6 +130,9 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterLogoWidth' => '@footer-logo-width',
     'FooterBackground' => '@footer-background-color',
     'FooterFontColor' => '@footer-font-color',
+    'FooterTitleFontColor' => '@footer-title-font-color',
+    'FooterLinkFontColor' => '@footer-link-font-color',
+    'FooterLinkHoverFontColor' => '@footer-link-hover-font-color',
     'FooterFontSize' => '@footer-font-size',
     'FooterTitleFontSize' => '@footer-title-font-size',
 
@@ -371,7 +377,10 @@ class SiteConfigLayoutExtension extends DataExtension
     $fields->addFieldToTab("Root.Footer.Layout", CompositeField::create(
       FieldGroup::create(
         TextField::create('FooterBackground',_t(__CLASS__.'.FooterBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
-        TextField::create('FooterFontColor',_t(__CLASS__.'.FooterFontColor','Schriftfarbe'))->addExtraClass('jscolor')
+        TextField::create('FooterFontColor',_t(__CLASS__.'.FooterFontColor','Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('FooterTitleFontColor',_t(__CLASS__.'.FooterTitleFontColor','Titel Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('FooterLinkFontColor',_t(__CLASS__.'.FooterLinkFontColor','Link Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('FooterLinkHoverFontColor',_t(__CLASS__.'.FooterLinkHoverFontColor',' Link Hover Schriftfarbe'))->addExtraClass('jscolor')
       ),
       FieldGroup::create(
         TextField::create('FooterLogoWidth',_t(__CLASS__.'.Footerlogowidtht','Logo Breite')),
@@ -416,6 +425,9 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->HeaderFontColor = "#".ltrim($this->owner->HeaderFontColor,"#");
     $this->owner->HeaderHoverFontColor = "#".ltrim($this->owner->HeaderHoverFontColor,"#");
     $this->owner->FooterFontColor = "#".ltrim($this->owner->FooterFontColor,"#");
+    $this->owner->FooterTitleFontColor = "#".ltrim($this->owner->FooterTitleFontColor,"#");
+    $this->owner->FooterLinkFontColor = "#".ltrim($this->owner->FooterLinkFontColor,"#");
+    $this->owner->FooterLinkHoverFontColor = "#".ltrim($this->owner->FooterLinkHoverFontColor,"#");
     $this->owner->FooterBackground = "#".ltrim($this->owner->FooterBackground,"#");
     $this->owner->H1FontColor = "#".ltrim($this->owner->H1FontColor,"#");
     $this->owner->MobileNaviBackground = "#".ltrim($this->owner->MobileNaviBackground,"#");
