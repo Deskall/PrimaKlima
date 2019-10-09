@@ -4,7 +4,7 @@
 use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
 use SilverStripe\SiteConfig\SiteConfig;
 
-$editorCss = SiteConfig::current_site_config()->getCurrentThemeDir().'css/editor.css';
+$editorCss = SiteConfig::current_site_config()->getCurrentThemeDir().'/css/editor.css';
 
 ob_start();
 			print_r($editorCss);
