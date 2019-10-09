@@ -146,5 +146,14 @@
 		    </div>
 		   <% end_loop %>
 		</div>
+		<div class="uk-margin-small-top dk-footer-secondary">
+			<% loop $SiteConfig.activeFooterBlocks.filter('Class','nav-secondary') %>
+			    	<ul>
+					    <% loop $activeLinks %>
+							$forTemplate
+						<% end_loop %>
+					</ul>
+			<% end_loop %>
+		</div>
 	</div>
 </footer>
