@@ -3,7 +3,7 @@
 		<div class="uk-grid-collapse uk-flex uk-flex-middle uk-flex-right" data-uk-grid>
 			
 			<div class="uk-width-4-5">
-				<nav class="uk-navbar-container uk-navbar-transparent uk-visible@m" data-uk-navbar>
+				<nav class="uk-navbar-container uk-navbar-transparent uk-visible@m uk-navbar-sub" data-uk-navbar>
 					<%-- <div class="dk-nav-top-container uk-width-1-1 uk-visible@m">
 						<div class="uk-grid-small" data-uk-grid>
 							<div class="uk-width-1-3"> --%>
