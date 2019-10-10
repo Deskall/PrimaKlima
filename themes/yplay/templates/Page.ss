@@ -14,7 +14,7 @@
     
       <% include Footer %>
 
-      <% include NavMobile %>
+      
     </div>
 
     <% if BodyScripts %>

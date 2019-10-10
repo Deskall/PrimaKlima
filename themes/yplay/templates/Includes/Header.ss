@@ -56,7 +56,18 @@
 					<% end_loop %>
 					
 					<div class="uk-navbar-right uk-hidden@m">
-			            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
+			            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon></button>
+			        </div>
+			        <div data-uk-dropdown>
+			            <ul class="uk-nav uk-dropdown-nav">
+			                <li class="uk-active"><a href="#">Active</a></li>
+			                <li><a href="#">Item</a></li>
+			                <li class="uk-nav-header">Header</li>
+			                <li><a href="#">Item</a></li>
+			                <li><a href="#">Item</a></li>
+			                <li class="uk-nav-divider"></li>
+			                <li><a href="#">Item</a></li>
+			            </ul>
 			        </div>
 				</nav>
 				
@@ -65,3 +76,5 @@
 	</div>
 	<div class="uk-navbar-dropbar"></div>
 </header>
+
+<% include NavMobile %>
