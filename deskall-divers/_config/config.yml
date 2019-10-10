@@ -56,3 +56,14 @@ SilverStripe\CMS\Controllers\ContentController:
 g4b0\SearchableDataObjects\CustomSearch:
   exclude_from_search: 
     - SilverStripe\ErrorPage\ErrorPage
+
+---
+Name: customgooglesitemaps
+After: googlesitemaps
+---
+GoogleSitemap:
+  enabled: true
+  objects_per_sitemap: 1000
+  google_notification_enabled: true
+  use_show_in_search: true
+  bing_notification_enabled: true
