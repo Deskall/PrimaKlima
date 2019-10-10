@@ -65,7 +65,7 @@
 				
 	</div>
 	<div class="uk-navbar-dropbar"></div>
-	<div data-uk-dropdown>
+	<div data-uk-dropdown="toggle:.dk-toggle-mobile-menu;">
 	    <ul class="uk-nav uk-dropdown-nav">
 	        <li class="uk-active"><a href="#">Active</a></li>
 	        <li><a href="#">Item</a></li>
