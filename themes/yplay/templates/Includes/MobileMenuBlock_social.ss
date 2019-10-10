@@ -1,5 +1,5 @@
 <div class="$Layout <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
-	<ul class="uk-iconnav uk-flex uk-flex-account">
+	<ul class="uk-iconnav uk-flex uk-flex-around">
 		<% if SiteConfig.Facebook %>
 		<li><a href="$SiteConfig.Facebook" data-uk-icon="facebook" target="_blank"></a></li>
 		<% end_if %>
