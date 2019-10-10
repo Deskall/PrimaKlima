@@ -79,10 +79,9 @@
 
 	<div id="modal-full" class="uk-modal-full" data-uk-modal>
 	    <div class="uk-modal-dialog uk-height-1-1">
-	        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-	        <div class="uk-grid-collapse uk-child-width-1-1 uk-flex-middle" data-uk-grid>
-	            <div class="uk-padding-large">
-	                <h1>Headline</h1>
+	         <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
+
+	         <%--       <h1>Headline</h1>
 	               	<ul class="uk-nav-default uk-nav-parent-icon" data-uk-nav>
 	               	        <li class="uk-active"><a href="#">Active</a></li>
 	               	        <li class="uk-parent">
@@ -106,8 +105,18 @@
 	               	            </ul>
 	               	        </li>
 	               	    </ul>
-	            </div>
-	        </div>
+	            --%>
+           <div class="uk-margin-top">
+           <% loop SiteConfig.activeMobileMenuBlocks %>
+				<% if Type == 'form' %>
+					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
+				<% else_if Type == "Languages" %>
+					<% include MenuBlock_Languages Locales=Top.Locales %>
+				<% else %>
+					$forTemplate
+				<% end_if %>
+			<% end_loop %>
+			</div>
 	    </div>
 	</div>
 </header>
