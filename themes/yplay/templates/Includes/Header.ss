@@ -106,7 +106,7 @@
 	               	        </li>
 	               	    </ul>
 	            --%>
-           <div class="uk-margin-top">
+
            <% loop SiteConfig.activeMobileMenuBlocks %>
 				<% if Type == 'form' %>
 					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
@@ -116,7 +116,7 @@
 					$forTemplate
 				<% end_if %>
 			<% end_loop %>
-			</div>
+			
 	    </div>
 	</div>
 </header>
