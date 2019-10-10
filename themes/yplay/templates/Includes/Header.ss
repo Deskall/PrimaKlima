@@ -78,7 +78,7 @@
 	</div> --%>
 
 	<div id="modal-full" class="uk-modal-full" data-uk-modal>
-	    <div class="uk-modal-dialog uk-height-1-1">
+	    <div class="uk-modal-dialog uk-height-1-1 dk-nav-mobile-container">
 	         <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
 
 	         <%--       <h1>Headline</h1>
@@ -106,7 +106,6 @@
 	               	        </li>
 	               	    </ul>
 	            --%>
-	        <h1>$SiteConfig.Title</h1>
            <% loop SiteConfig.activeMobileMenuBlocks %>
 				<% if Type == 'form' %>
 					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
