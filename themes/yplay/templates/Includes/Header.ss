@@ -78,7 +78,7 @@
 	</div> --%>
 
 	<div id="modal-full" class="uk-modal-full" data-uk-modal>
-	    <div class="uk-modal-dialog">
+	    <div class="uk-modal-dialog uk-height-1-1">
 	        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
 	        <div class="uk-grid-collapse uk-child-width-1-1 uk-flex-middle" data-uk-grid>
 	            <div class="uk-padding-large">
