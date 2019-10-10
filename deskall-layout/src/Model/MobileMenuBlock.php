@@ -47,7 +47,7 @@ class MobileMenuBlock extends MenuBlock{
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 
-		// $fields->fieldByName('Root.Main.Type')->setSource($this->getTranslatedSourceFor(__CLASS__,'block_types'));
+		$fields->fieldByName('Root.Main.Type')->setSource($this->getTranslatedSourceFor(__CLASS__,'block_types'));
 		// $fields->removeByName('UseMenuOption');
 		// $fields->removeByName('LayoutTab');
 		// $fields->insertAfter(TextField::create('Title',_t(__CLASS__.'.Title','Titel'))
