@@ -11,7 +11,7 @@
 <div class="calltoaction-container uk-flex <% if not noMargin %>dk-margin-responsive<% end_if %> uk-flex-{$LinkableLink.LinkPosition}">
 	<% with $LinkableLink %>
 		<% if $LinkURL %>
-		    <a href="$LinkURL" {$TargetAttr} class="uk-button button-{$Background}" <% if hasIcone %>data-uk-icon="icon: $Icone"<% end_if %>>$Title</a>
+		    <a href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %> class="uk-button button-{$Background}" <% if hasIcone %>data-uk-icon="icon: $Icone"<% end_if %>>$Title</a>
 		<% end_if %>
 	<% end_with %>
 </div>
