@@ -106,7 +106,7 @@
 	               	        </li>
 	               	    </ul>
 	            --%>
-
+	        <h1>$SiteConfig.Title</h1>
            <% loop SiteConfig.activeMobileMenuBlocks %>
 				<% if Type == 'form' %>
 					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
