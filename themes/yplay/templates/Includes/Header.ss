@@ -83,15 +83,29 @@
 	        <div class="uk-grid-collapse uk-child-width-1-1 uk-flex-middle" data-uk-grid>
 	            <div class="uk-padding-large">
 	                <h1>Headline</h1>
-	               <ul class="uk-nav uk-dropdown-nav">
-				        <li class="uk-active"><a href="#">Active</a></li>
-				        <li><a href="#">Item</a></li>
-				        <li class="uk-nav-header">Header</li>
-				        <li><a href="#">Item</a></li>
-				        <li><a href="#">Item</a></li>
-				        <li class="uk-nav-divider"></li>
-				        <li><a href="#">Item</a></li>
-				    </ul>
+	               	<ul class="uk-nav-default uk-nav-parent-icon" data-uk-nav>
+	               	        <li class="uk-active"><a href="#">Active</a></li>
+	               	        <li class="uk-parent">
+	               	            <a href="#">Parent</a>
+	               	            <ul class="uk-nav-sub">
+	               	                <li><a href="#">Sub item</a></li>
+	               	                <li>
+	               	                    <a href="#">Sub item</a>
+	               	                    <ul>
+	               	                        <li><a href="#">Sub item</a></li>
+	               	                        <li><a href="#">Sub item</a></li>
+	               	                    </ul>
+	               	                </li>
+	               	            </ul>
+	               	        </li>
+	               	        <li class="uk-parent">
+	               	            <a href="#">Parent</a>
+	               	            <ul class="uk-nav-sub">
+	               	                <li><a href="#">Sub item</a></li>
+	               	                <li><a href="#">Sub item</a></li>
+	               	            </ul>
+	               	        </li>
+	               	    </ul>
 	            </div>
 	        </div>
 	    </div>
