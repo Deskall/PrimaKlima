@@ -56,7 +56,7 @@
 					<% end_loop %>
 					
 					<div class="uk-navbar-right uk-hidden@m">
-			            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon></button>
+			            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="#modal-full"></button>
 			        </div>
 			        
 				</nav>
@@ -65,7 +65,7 @@
 				
 	</div>
 	<div class="uk-navbar-dropbar"></div>
-	<div data-uk-dropdown="toggle:.dk-toggle-mobile-menu;boundary: header; boundary-align: true;animation: uk-animation-slide-top-small;" class="uk-width-1-1">
+	<%-- <div data-uk-dropdown="toggle:.dk-toggle-mobile-menu;boundary: header; boundary-align: true;animation: uk-animation-slide-top-small;" class="uk-width-1-1">
 	    <ul class="uk-nav uk-dropdown-nav">
 	        <li class="uk-active"><a href="#">Active</a></li>
 	        <li><a href="#">Item</a></li>
@@ -75,6 +75,27 @@
 	        <li class="uk-nav-divider"></li>
 	        <li><a href="#">Item</a></li>
 	    </ul>
+	</div> --%>
+
+	<div id="modal-full" class="uk-modal-full" data-uk-modal>
+	    <div class="uk-modal-dialog">
+	        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+	        <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+	            <div class="uk-background-cover" style="background-image: url('images/photo.jpg');" uk-height-viewport></div>
+	            <div class="uk-padding-large">
+	                <h1>Headline</h1>
+	               <ul class="uk-nav uk-dropdown-nav">
+				        <li class="uk-active"><a href="#">Active</a></li>
+				        <li><a href="#">Item</a></li>
+				        <li class="uk-nav-header">Header</li>
+				        <li><a href="#">Item</a></li>
+				        <li><a href="#">Item</a></li>
+				        <li class="uk-nav-divider"></li>
+				        <li><a href="#">Item</a></li>
+				    </ul>
+	            </div>
+	        </div>
+	    </div>
 	</div>
 </header>
 
