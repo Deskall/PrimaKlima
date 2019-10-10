@@ -1,4 +1,4 @@
-<ul class="dk-nav-mobile uk-nav">
+<ul class="dk-nav-mobile uk-iconnav">
 	<% if SiteConfig.Facebook %>
 	<li class="uk-display-inline-block"><a href="$SiteConfig.Facebook" data-uk-icon="facebook" target="_blank"></a></li>
 	<% end_if %>
