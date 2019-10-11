@@ -7,7 +7,7 @@
 			<% if MenuSections.exists %>
 				
 					<% loop MenuSections %>
-					<div class="uk-flex uk-flex-left">
+					<div class="uk-flex uk-flex-left uk-padding-small ">
 						<div><img width="60" height="60" src="$Image.URL" ></div>
 						<div>
 							<div class="menu-section-title">$Title</div>
@@ -26,7 +26,7 @@
 						</ul>
 					
 					<% end_loop %>
-				</div>
+				
 		<%-- 	<% else_if Top.ShowSubLevels && Children %>
 			<ul class="uk-nav-sub">
 					<% loop Children %>
