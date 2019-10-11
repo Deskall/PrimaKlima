@@ -8,7 +8,7 @@
 				
 					<% loop MenuSections %>
 					<div class="uk-flex uk-flex-left">
-						<img width="60" height="60" src="$Image.URL" data-uk-svg>
+						<img src="$Image.URL" data-uk-svg>
 						<div>
 							<div class="menu-section-title">$Title</div>
 							<div class="menu-section-text">$Text</div>
