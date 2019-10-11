@@ -320,9 +320,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
     public function TitleTag($name,$fallback = null){
-        $title = ($fallback) ? $fallback : $name;
+        // $title = ($fallback) ? $fallback : $name;
         
-        return $title;
+        // return $title;
+        return "Klicken, um das Bild zu vergrößern";
     }
 
     public function HeightForWidth($width, $ImageWidth, $ImageHeight){
