@@ -65,47 +65,10 @@
 				
 	</div>
 	<div class="uk-navbar-dropbar"></div>
-	<%-- <div data-uk-dropdown="toggle:.dk-toggle-mobile-menu;boundary: header; boundary-align: true;animation: uk-animation-slide-top-small;" class="uk-width-1-1">
-	    <ul class="uk-nav uk-dropdown-nav">
-	        <li class="uk-active"><a href="#">Active</a></li>
-	        <li><a href="#">Item</a></li>
-	        <li class="uk-nav-header">Header</li>
-	        <li><a href="#">Item</a></li>
-	        <li><a href="#">Item</a></li>
-	        <li class="uk-nav-divider"></li>
-	        <li><a href="#">Item</a></li>
-	    </ul>
-	</div> --%>
 
 	<div id="modal-full" class="uk-modal-full" data-uk-modal>
 	    <div class="uk-modal-dialog uk-height-1-1 dk-nav-mobile-container">
 	         <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-
-	         <%--       <h1>Headline</h1>
-	               	<ul class="uk-nav-default uk-nav-parent-icon" data-uk-nav>
-	               	        <li class="uk-active"><a href="#">Active</a></li>
-	               	        <li class="uk-parent">
-	               	            <a href="#">Parent</a>
-	               	            <ul class="uk-nav-sub">
-	               	                <li><a href="#">Sub item</a></li>
-	               	                <li>
-	               	                    <a href="#">Sub item</a>
-	               	                    <ul>
-	               	                        <li><a href="#">Sub item</a></li>
-	               	                        <li><a href="#">Sub item</a></li>
-	               	                    </ul>
-	               	                </li>
-	               	            </ul>
-	               	        </li>
-	               	        <li class="uk-parent">
-	               	            <a href="#">Parent</a>
-	               	            <ul class="uk-nav-sub">
-	               	                <li><a href="#">Sub item</a></li>
-	               	                <li><a href="#">Sub item</a></li>
-	               	            </ul>
-	               	        </li>
-	               	    </ul>
-	            --%>
            <% loop SiteConfig.activeMobileMenuBlocks %>
 				<% if Type == 'form' %>
 					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
@@ -115,9 +78,6 @@
 					$forTemplate
 				<% end_if %>
 			<% end_loop %>
-			
 	    </div>
 	</div>
 </header>
-
-<% include NavMobile %>
