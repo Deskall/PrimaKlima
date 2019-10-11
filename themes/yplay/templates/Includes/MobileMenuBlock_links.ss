@@ -4,6 +4,7 @@
 		<% if UseMenu %>
 		<% loop Menu %>
 		<li class="level-1 $LinkingMode $ExtraMenuClass <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %> <% if Top.ShowSubLevels && Children %>uk-parent<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
+			$ClassName
 			<% if MenuSections.exists %>
 			<ul class="uk-nav-sub">
 				<% loop MenuSections %>
