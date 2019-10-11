@@ -21,7 +21,7 @@
 					<% end_loop %>
 				</ul>
 				<% end_loop %>
-			<% else_if Top.ShowSubLevels && Children %>
+		<%-- 	<% else_if Top.ShowSubLevels && Children %>
 			<ul class="uk-nav-sub">
 					<% loop Children %>
 					<li class="level-2 $LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %> <% if Top.ShowSubLevels && Children %>uk-parent<% end_if %> $ExtraMenuClass"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
@@ -34,7 +34,7 @@
 						<% end_if %>
 					</li>
 					<% end_loop %>
-			</ul>
+			</ul> --%>
 			<% end_if %>
 		</li>
 		<% end_loop %>
