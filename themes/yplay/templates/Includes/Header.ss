@@ -66,8 +66,8 @@
 	</div>
 	<div class="uk-navbar-dropbar"></div>
 
-	<div id="modal-full" class="uk-modal-full" data-uk-modal>
-	    <div class="uk-modal-dialog uk-height-1-1 dk-nav-mobile-container">
+	<div id="modal-full" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
+	    <div class="uk-modal-dialog">
 	         <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
            <% loop SiteConfig.activeMobileMenuBlocks %>
 				<% if Type == 'form' %>
