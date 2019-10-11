@@ -13,7 +13,7 @@
 					<li>
 						    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>>
 						    	<div data-uk-grid>
-						    		<div class="uk-width-1-4">$Image</div>
+						    		<div class="uk-width-1-4"><img width="60" height="60" src="$Image.URL" data-uk-svg></div>
 						    		<div class="uk-width-3-4"><% if Label %><span class="uk-label $Background uk-margin-small-right uk-border-rounded">$Label</span><% end_if %>$LinkableLink.Title</div>
 						    	</div>
 						    </a>
