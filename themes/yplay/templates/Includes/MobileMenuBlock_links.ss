@@ -11,6 +11,8 @@
 					<div class="uk-width-3-4">
 						<div class="menu-section-title">$Title</div>
 						<div class="menu-section-text">$Text</div>
+					</div>
+					<div>
 						<ul class="uk-nav">
 							<% loop Links %>
 							<li>
