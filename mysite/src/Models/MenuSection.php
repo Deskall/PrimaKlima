@@ -8,15 +8,20 @@ use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Sheadawson\Linkable\Forms\LinkField;
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 
 class MenuSection extends DataObject{
 
 	private static $db = [
-		'Title' => 'Varchar(255)'
+		'Title' => 'Varchar(255)',
+		'Text' => 'HTMLText'
 	];
 
 	private static $has_one = [
-		'Page' => SiteTree::class
+		'Page' => SiteTree::class,
+		'Image' => Image::class
 	];
 
 	private static $has_many = [
@@ -30,6 +35,8 @@ class MenuSection extends DataObject{
 	    $labels = parent::fieldLabels($includerelations);
 	    $labels['Title'] = 'Titel';
 	    $labels['Links'] = 'Links';
+	    $labels['Image'] = 'Bild / Icon';
+
 	 
 	    return $labels;
 	}
@@ -40,6 +47,8 @@ class MenuSection extends DataObject{
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Links');
 		$fields->removeByName('PageID');
+		$fields->push(UploadField::create('Image',_t(__CLASS__.'.Image','Bild / Icon'))->setFolderName($this->Page()->generateFolderName()));
+		$fields->push(HTMLEditorField::create('Text',_t(__CLASS__.'.Text','Einstiegstext'))->setRows(3));
 		if ($this->ID > 0){
 			$config = GridFieldConfig_RecordEditor::create();
 			// $config->removeComponentsByType(GridFieldAddNewButton::class);

@@ -8,7 +8,7 @@
 			
 				<% loop MenuSections %>
 				<div class="menu-section-title">$Title</div>
-				<ul class="uk-nav uk-navbar-dropdown-nav">
+				<ul class="uk-nav">
 					<% loop Links %>
 					<li>
 						    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>>
