@@ -5,14 +5,16 @@
 		<% loop Menu %>
 		<li class="level-1 $LinkingMode $ExtraMenuClass <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %> <% if Top.ShowSubLevels && Children %>uk-parent<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
 			<% if MenuSections.exists %>
-				<div data-uk-grid>
+				
 					<% loop MenuSections %>
-					<div class="uk-width-1-4"><img width="60" height="60" src="$Image.URL" data-uk-svg></div>
-					<div class="uk-width-3-4">
-						<div class="menu-section-title">$Title</div>
-						<div class="menu-section-text">$Text</div>
+					<div class="uk-flex uk-flex-left">
+						<img width="60" height="60" src="$Image.URL" data-uk-svg>
+						<div>
+							<div class="menu-section-title">$Title</div>
+							<div class="menu-section-text">$Text</div>
+						</div>
 					</div>
-					<div>
+					
 						<ul class="uk-nav">
 							<% loop Links %>
 							<li>
@@ -22,7 +24,7 @@
 							</li>
 							<% end_loop %>
 						</ul>
-					</div>
+					
 					<% end_loop %>
 				</div>
 		<%-- 	<% else_if Top.ShowSubLevels && Children %>
