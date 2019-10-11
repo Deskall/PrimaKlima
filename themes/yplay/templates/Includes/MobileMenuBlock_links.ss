@@ -13,8 +13,6 @@
 							<div class="menu-section-title">$Title</div>
 							<div class="menu-section-text">$Text</div>
 						</div>
-					</div>
-					
 						<ul class="uk-nav">
 							<% loop Links %>
 							<li>
@@ -24,6 +22,9 @@
 							</li>
 							<% end_loop %>
 						</ul>
+					</div>
+					
+						
 					
 					<% end_loop %>
 				
