@@ -7,7 +7,7 @@
 			<% if MenuSections.exists %>
 				<ul class="uk-nav-sub">
 					<% loop MenuSections %>
-					<li>
+					<li class="menu-section">
 						<div class="uk-flex uk-flex-left">
 							<div><img width="60" height="60" src="$Image.URL" ></div>
 							<div>
@@ -16,7 +16,7 @@
 							</div>
 						</div>
 						<div class="menu-section-links">
-							<ul class="uk-nav">
+							<ul class="uk-nav uk-padding-remove">
 								<% loop Links %>
 								<li>
 									    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>>
