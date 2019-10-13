@@ -32,7 +32,7 @@
 							</div>
 							<div class="uk-navbar-right uk-visible@m">
 								<ul class="uk-navbar-nav">
-									<li class="link"><a href="#"><i class="fas fa-search uk-margin-small-right"></i><small>Suchen</small></a></li>
+									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="fas fa-search uk-margin-small-right"></i><small>Suchen</small></a></li>
 									<li class="link"><a href="#"><i class="fa fa-user uk-margin-small-right"></i><small>Mein Konto</small></a></li>
 									<li class="link"><a href="#"><i class="fa fa-bell uk-margin-small-right"></i><small>Meldungen</small></a></li>
 									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
@@ -56,7 +56,7 @@
 					<% end_loop %>
 					
 					<div class="uk-navbar-right uk-hidden@m">
-			            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="#modal-full"></button>
+			            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="#modal-nav-mobile"></button>
 			        </div>
 			        
 				</nav>
@@ -66,7 +66,7 @@
 	</div>
 	<div class="uk-navbar-dropbar"></div>
 
-	<div id="modal-full" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
+	<div id="modal-nav-mobile" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
 	    <div class="uk-modal-dialog">
 	         <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
            <% loop SiteConfig.activeMobileMenuBlocks %>
@@ -81,6 +81,16 @@
 			<div class="copyright uk-text-center uk-margin-top">
 				© $Now.Year flashcable, GIB-Solutions AG
 			</div>
+	    </div>
+	</div>
+
+	<div id="modal-search" class="uk-modal-full" data-uk-modal>
+	    <div class="uk-modal-dialog">
+	        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+	        <form class="search-form" method="GET" action="{$Link}SearchForm">
+	        	<input type="text" class="uk-input uk-width-medium" minlength="4" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
+	        	<button type="submit"><i class="fas fa-search"></i></button>
+	        </form>
 	    </div>
 	</div>
 </header>
