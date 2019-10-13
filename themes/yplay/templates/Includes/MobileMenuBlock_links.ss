@@ -7,7 +7,7 @@
 			<% if MenuSections.exists %>
 				<ul class="uk-nav-sub">
 					<% loop MenuSections %>
-					<li class="menu-section">
+					<li>
 						<div class="uk-flex uk-flex-left">
 							<div><img width="60" height="60" src="$Image.URL" ></div>
 							<div>
