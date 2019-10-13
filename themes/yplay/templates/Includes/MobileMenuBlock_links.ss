@@ -15,7 +15,7 @@
 								<div class="menu-section-text">$Text</div>
 							</div>
 						</div>
-						<div class="uk-padding-small">
+						<div class="menu-section-links">
 							<ul class="uk-nav">
 								<% loop Links %>
 								<li>
