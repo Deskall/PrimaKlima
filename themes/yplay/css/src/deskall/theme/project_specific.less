@@ -15,7 +15,9 @@ header {
 		padding-left:15px;
 	}
 	.menu-section{
-		border-bottom:1px solid #eee;
+		&:not(last-child){
+			border-bottom:1px solid #eee;
+		}
 		padding:10px 0;
 		.menu-section-title{
 			.strong-font;
