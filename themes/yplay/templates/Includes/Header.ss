@@ -91,7 +91,7 @@
 	    </div>
 	</div>
 
-	<div id="modal-search" class="uk-modal-full" data-uk-modal>
+	<div id="modal-search" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
 	    <div class="uk-modal-dialog">
 	        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
 	        <form class="search-form" method="GET" action="{$Link}SearchForm">
