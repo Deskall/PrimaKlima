@@ -30,11 +30,11 @@
 									</ul>		  
 								<% end_loop %>
 							</div>
-							<div class="uk-navbar-right uk-visible@m">
+							<div class="uk-navbar-right">
 								<ul class="uk-navbar-nav">
-									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="fas fa-search uk-margin-small-right"></i><small>Suchen</small></a></li>
-									<li class="link"><a href="#"><i class="fa fa-user uk-margin-small-right"></i><small>Mein Konto</small></a></li>
-									<li class="link"><a href="#"><i class="fa fa-bell uk-margin-small-right"></i><small>Meldungen</small></a></li>
+									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="fas fa-search uk-margin-small-right"></i><small class="uk-visible@m">Suchen</small></a></li>
+									<li class="link"><a href="#"><i class="fa fa-user uk-margin-small-right"></i><small class="uk-visible@m">Mein Konto</small></a></li>
+									<li class="link"><a href="#"><i class="fa fa-bell uk-margin-small-right"></i><small class="uk-visible@m">Meldungen</small></a></li>
 									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
 								</ul>
 							</div>
