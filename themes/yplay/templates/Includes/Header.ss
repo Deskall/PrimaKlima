@@ -78,7 +78,7 @@
 					$forTemplate
 				<% end_if %>
 			<% end_loop %>
-			<div class="copyright">
+			<div class="copyright uk-text-center uk-margin-top">
 				© $Now.Year flashcable, GIB-Solutions AG
 			</div>
 	    </div>
