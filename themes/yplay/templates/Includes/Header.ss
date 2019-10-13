@@ -92,7 +92,7 @@
 	</div>
 
 	<div id="modal-search" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
-	    <div class="uk-modal-dialog">
+	    <div class="uk-modal-dialog" data-uk-height-viewport>
 	        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
 	        <div class="uk-position-center">
 		        <form class="search-form" method="GET" action="{$Link}SearchForm">
