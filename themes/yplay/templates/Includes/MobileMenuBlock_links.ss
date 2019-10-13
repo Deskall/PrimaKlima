@@ -19,9 +19,13 @@
 							<ul class="uk-nav uk-padding-remove">
 								<% loop Links %>
 								<li>
-									    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>>
-									    	<% if Label %><span class="uk-label $Background uk-margin-small-right uk-border-rounded">$Label</span><% end_if %>$LinkableLink.Title
-									    </a>
+									<div class="uk-grid-small" data-uk-grid>
+										<div class="uk-width-1-5"></div>
+										<div class="uk-width-4-5">
+										    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>>
+										    	<% if Label %><span class="uk-label $Background uk-margin-small-right uk-border-rounded">$Label</span><% end_if %>$LinkableLink.Title
+										    </a>
+										</div>
 								</li>
 								<% end_loop %>
 							</ul>
