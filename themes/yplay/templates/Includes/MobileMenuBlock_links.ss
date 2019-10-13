@@ -8,8 +8,8 @@
 				
 					<% loop MenuSections %>
 					<div class="uk-flex uk-flex-left">
-						<div class="uk-padding-small"><img width="60" height="60" src="$Image.URL" ></div>
-						<div class="uk-padding-small">
+						<div><img width="60" height="60" src="$Image.URL" ></div>
+						<div>
 							<div class="menu-section-title">$Title</div>
 							<div class="menu-section-text">$Text</div>
 						</div>
