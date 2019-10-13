@@ -8,7 +8,7 @@
 				<ul class="uk-nav-sub">
 					<% loop MenuSections %>
 					<li class="menu-section">
-						<div class="uk-flex uk-flex-left">
+						<div class="uk-grid-small" data-uk-grid>
 							<div><img width="60" height="60" src="$Image.URL" ></div>
 							<div>
 								<div class="menu-section-title">$Title</div>
