@@ -7,23 +7,25 @@
 			<% if MenuSections.exists %>
 				
 					<% loop MenuSections %>
-					<div class="uk-flex uk-flex-left">
-						<div><img width="60" height="60" src="$Image.URL" ></div>
-						<div>
-							<div class="menu-section-title">$Title</div>
-							<div class="menu-section-text">$Text</div>
+					<div class="menu-section">
+						<div class="uk-flex uk-flex-left">
+							<div><img width="60" height="60" src="$Image.URL" ></div>
+							<div>
+								<div class="menu-section-title">$Title</div>
+								<div class="menu-section-text">$Text</div>
+							</div>
 						</div>
-					</div>
-					<div class="uk-padding-small">
-						<ul class="uk-nav">
-							<% loop Links %>
-							<li>
-								    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>>
-								    	<% if Label %><span class="uk-label $Background uk-margin-small-right uk-border-rounded">$Label</span><% end_if %>$LinkableLink.Title
-								    </a>
-							</li>
-							<% end_loop %>
-						</ul>
+						<div class="uk-padding-small">
+							<ul class="uk-nav">
+								<% loop Links %>
+								<li>
+									    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>>
+									    	<% if Label %><span class="uk-label $Background uk-margin-small-right uk-border-rounded">$Label</span><% end_if %>$LinkableLink.Title
+									    </a>
+								</li>
+								<% end_loop %>
+							</ul>
+						</div>
 					</div>
 					
 						
