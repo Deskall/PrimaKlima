@@ -45,7 +45,7 @@
 			</div>
 		</div>
 
-				<nav class="uk-navbar-container uk-navbar-transparent uk-navbar-main uk-hidden@m" data-uk-navbar="dropbar: true;boundary-align:true;mode:click;">
+				<nav class="uk-navbar-container uk-navbar-transparent uk-navbar-main" data-uk-navbar="dropbar: true;boundary-align:true;mode:click;">
 
 					<% with SiteConfig.activeMenuBlocks.filter('Type','logo').first %>
 					$forTemplate
