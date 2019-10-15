@@ -106,22 +106,28 @@
 	<div id="modal-notifications" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
 	    <div class="uk-modal-dialog" data-uk-height-viewport>
 	        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-	        <div class="uk-padding-small">
-	        	<h2>Meldungen</h2>
-		        <ul data-uk-accordion>
-		            <li>
-		                <a class="uk-accordion-title" href="#">Meldung 1</a>
-		                <div class="uk-accordion-content">
-		                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		                </div>
-		            </li>
-		            <li>
-		                <a class="uk-accordion-title" href="#">Meldung 2</a>
-		                <div class="uk-accordion-content">
-		                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
-		                </div>
-		            </li>
-		        </ul>
+	        <div class="uk-grid-small" data-uk-grid>
+	        	<div class="uk-width-1-2@m uk-hidden@m">
+	        		<div class="uk-background-cover" style="background-image: url('$ThemeDir/img/thomas-q-_fQ6zg_McEU-unsplash.jpg');" data-uk-height-viewport></div>
+	        	</div>
+	        	<div class="uk-width-1-1 uk-width-1-2@m">
+	        		<h2>Meldungen</h2>
+			        <ul data-uk-accordion>
+			            <li>
+			                <a class="uk-accordion-title" href="#">Meldung 1</a>
+			                <div class="uk-accordion-content">
+			                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			                </div>
+			            </li>
+			            <li>
+			                <a class="uk-accordion-title" href="#">Meldung 2</a>
+			                <div class="uk-accordion-content">
+			                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
+			                </div>
+			            </li>
+			        </ul>
+			    </div>
+			</div>
 		    </div>
 	    </div>
 	</div>
