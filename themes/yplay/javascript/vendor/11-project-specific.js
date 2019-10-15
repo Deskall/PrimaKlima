@@ -11,7 +11,7 @@ function resizeMain(){
 	$('main').css({ minHeight: `${screen - h}px` });
 }
 
-UIkit.utility.on("show",$("#modal-search"),function(){
+UIkit.util.on("#modal-search","show",function(){
 	console.log('hehe');
 	$("input[name='Search']").focusIn();
 });
