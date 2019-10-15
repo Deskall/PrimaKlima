@@ -61,7 +61,7 @@
 									<li class="link"><a href="#" data-uk-icon="bell"></a></li>
 									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
 			
-			            			<li class="link"><a class="dk-toggle-mobile-menu" data-uk-navbar-toggle-icon data-uk-toggle="#modal-nav-mobile"></button></li>
+			            			<li class="link"><a class="dk-toggle-mobile-menu" data-uk-navbar-toggle-icon data-uk-toggle="#modal-nav-mobile"></a></li>
 			            		</ul>
 			        </div>
 			        
