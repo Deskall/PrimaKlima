@@ -56,9 +56,9 @@
 					<% end_loop %>
 					<div class="uk-navbar-right">
 								<ul class="uk-navbar-nav">
-									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="uk-margin-small-right"  data-uk-icon="search"></i><small>Suchen</small></a></li>
-									<li class="link"><a href="#"><i class="uk-margin-small-right" data-uk-icon="user"></i><small>Mein Konto</small></a></li>
-									<li class="link"><a href="#"><i class="uk-margin-small-right"  data-uk-icon="bell"></i><small>Meldungen</small></a></li>
+									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="uk-margin-small-right"  data-uk-icon="search"></i></a></li>
+									<li class="link"><a href="#"><i class="uk-margin-small-right" data-uk-icon="user"></i></a></li>
+									<li class="link"><a href="#"><i class="uk-margin-small-right"  data-uk-icon="bell"></i></a></li>
 									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
 								</ul>
 							</div>
