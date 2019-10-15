@@ -55,7 +55,7 @@
 							<% include MainNaviDropdown %>
 					<% end_loop %>
 					<div class="uk-navbar-right">
-								<ul class="uk-navbar-nav">
+								<ul class="uk-navbar-nav mobile-icon-nav">
 									<li class="link"><a href="#" data-uk-toggle="#modal-search" data-uk-icon="search"></a></li>
 									<li class="link"><a href="#" data-uk-icon="user"></a></li>
 									<li class="link"><a href="#" data-uk-icon="bell"></a></li>
