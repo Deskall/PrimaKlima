@@ -56,27 +56,7 @@
 					 		$SiteConfig.Notfall
 				 		</li>
 				 		<% end_if %>
-				 		<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
-				 		<li>
-				 			<ul class="uk-iconnav uk-padding-remove uk-margin-remove">
-				 				<% if SiteConfig.Facebook %>
-				 				<li><a href="$SiteConfig.Facebook" target="_blank" data-uk-icon="facebook" rel="nofollow"></a></li>
-				 				<% end_if %>
-				 				<% if SiteConfig.Twitter %>
-				 				<li><a href="$SiteConfig.Twitter" target="_blank" data-uk-icon="twitter" rel="nofollow"></a></li>
-				 				<% end_if %>
-				 				<% if SiteConfig.Linkedin %>
-				 				<li><a href="$SiteConfig.Linkedin" target="_blank" data-uk-icon="linkedin" rel="nofollow"></a></li>
-				 				<% end_if %>
-				 				<% if SiteConfig.Xing %>
-				 				<li><a href="$SiteConfig.Xing" target="_blank" data-uk-icon="xing" rel="nofollow"></a></li>
-				 				<% end_if %>
-				 				<% if SiteConfig.Instagram %>
-				 				<li><a href="$SiteConfig.Instagram" target="_blank" data-uk-icon="instagram" rel="nofollow"></a></li>
-				 				<% end_if %>
-				 			</ul>
-				 		</li>
-				 		<% end_if %>
+				 		
 			        </ul>
 		        <% else_if Type == "content" %>
 			        <div class="title-container">
@@ -150,6 +130,27 @@
 	</div>
 	<div class="uk-margin-small-top dk-footer-secondary">
 		<div class="uk-container">
+			<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
+			
+				<ul class="uk-iconnav uk-padding-remove uk-margin-remove">
+					<% if SiteConfig.Facebook %>
+					<li><a href="$SiteConfig.Facebook" target="_blank" data-uk-icon="facebook" rel="nofollow"></a></li>
+					<% end_if %>
+					<% if SiteConfig.Twitter %>
+					<li><a href="$SiteConfig.Twitter" target="_blank" data-uk-icon="twitter" rel="nofollow"></a></li>
+					<% end_if %>
+					<% if SiteConfig.Linkedin %>
+					<li><a href="$SiteConfig.Linkedin" target="_blank" data-uk-icon="linkedin" rel="nofollow"></a></li>
+					<% end_if %>
+					<% if SiteConfig.Xing %>
+					<li><a href="$SiteConfig.Xing" target="_blank" data-uk-icon="xing" rel="nofollow"></a></li>
+					<% end_if %>
+					<% if SiteConfig.Instagram %>
+					<li><a href="$SiteConfig.Instagram" target="_blank" data-uk-icon="instagram" rel="nofollow"></a></li>
+					<% end_if %>
+				</ul>
+		
+			<% end_if %>
 			<% loop $SiteConfig.activeFooterBlocks.filter('Class','nav-secondary') %>
 			<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 			    <div class="uk-navbar-center">
