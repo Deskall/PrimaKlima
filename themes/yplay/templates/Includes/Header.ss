@@ -35,7 +35,7 @@
 									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="uk-margin-small-right"  data-uk-icon="search"></i><small>Suchen</small></a></li>
 									<li class="link"><a href="#"><i class="uk-margin-small-right" data-uk-icon="user"></i><small>Mein Konto</small></a></li>
 									<li class="link"><a href="#"><i class="uk-margin-small-right"  data-uk-icon="bell"></i><small>Meldungen</small></a></li>
-									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
+									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Meldung(s) im Warenkorb</small></a></li> --%>
 								</ul>
 							</div>
 						<%-- 	</div>
@@ -59,7 +59,7 @@
 									<li class="link"><a href="#" data-uk-toggle="#modal-search" data-uk-icon="search"></a></li>
 									<li class="link"><a href="#" data-uk-icon="user"></a></li>
 									<li class="link"><a href="#" data-uk-icon="bell" data-uk-toggle="#modal-notifications"></a></li>
-									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
+									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Meldung(s) im Warenkorb</small></a></li> --%>
 			
 			            			<li class="link"><a class="dk-toggle-mobile-menu" data-uk-navbar-toggle-icon data-uk-toggle="#modal-nav-mobile"></a></li>
 			            		</ul>
@@ -107,8 +107,27 @@
 	    <div class="uk-modal-dialog" data-uk-height-viewport>
 	        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
 	        <div class="uk-padding-small">
-	        	<h2>Medlungen</h2>
-		        
+	        	<h2>Meldungen</h2>
+		        <ul data-uk-accordion>
+		            <li class="uk-open">
+		                <a class="uk-accordion-title" href="#">Meldung 1</a>
+		                <div class="uk-accordion-content">
+		                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		                </div>
+		            </li>
+		            <li>
+		                <a class="uk-accordion-title" href="#">Meldung 2</a>
+		                <div class="uk-accordion-content">
+		                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
+		                </div>
+		            </li>
+		            <li>
+		                <a class="uk-accordion-title" href="#">Meldung 3</a>
+		                <div class="uk-accordion-content">
+		                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
+		                </div>
+		            </li>
+		        </ul>
 		    </div>
 	    </div>
 	</div>
