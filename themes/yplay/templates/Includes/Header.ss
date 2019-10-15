@@ -60,10 +60,9 @@
 									<li class="link"><a href="#" data-uk-icon="user"></a></li>
 									<li class="link"><a href="#" data-uk-icon="bell"></a></li>
 									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
-								</ul>
-							</div>
-					<div class="uk-navbar-right ">
-			            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="#modal-nav-mobile"></button>
+			
+			            			<li class="link"><button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="#modal-nav-mobile"></button></li>
+			            		</ul>
 			        </div>
 			        
 				</nav>
