@@ -58,7 +58,7 @@
 								<ul class="uk-navbar-nav mobile-icon-nav">
 									<li class="link"><a href="#" data-uk-toggle="#modal-search" data-uk-icon="search"></a></li>
 									<li class="link"><a href="https://mein.yplay.ch/" data-uk-icon="user"></a></li>
-									<li class="link"><a href="#" class="uk-label uk-label-danger uk-border-rounded" data-uk-icon="bell" data-uk-toggle="#modal-notifications">2</a></li>
+									<li class="link"><a href="#" data-uk-toggle="#modal-notifications"><span class="uk-label uk-label-danger uk-border-rounded" data-uk-icon="bell" >2</span></a></li>
 									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Meldung(s) im Warenkorb</small></a></li> --%>
 			
 			            			<li class="link"><a class="dk-toggle-mobile-menu" data-uk-navbar-toggle-icon data-uk-toggle="#modal-nav-mobile"></a></li>
