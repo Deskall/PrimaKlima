@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	resizeMain();
 
-	UIkit.util.on("#modal-search","show",function(){
+	UIkit.util.on("#modal-search","shown",function(){
 		$("input[name='Search']").focus();
 	});
 
