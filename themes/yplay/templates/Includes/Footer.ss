@@ -131,7 +131,7 @@
 	<div class="uk-margin-small-top dk-footer-secondary">
 		<div class="uk-container">
 			<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
-			
+			<div class="uk-padding-small uk-align-center">
 				<ul class="uk-iconnav uk-padding-remove uk-margin-remove">
 					<% if SiteConfig.Facebook %>
 					<li><a href="$SiteConfig.Facebook" target="_blank" data-uk-icon="facebook" rel="nofollow"></a></li>
@@ -149,7 +149,7 @@
 					<li><a href="$SiteConfig.Instagram" target="_blank" data-uk-icon="instagram" rel="nofollow"></a></li>
 					<% end_if %>
 				</ul>
-		
+			</div>
 			<% end_if %>
 			<% loop $SiteConfig.activeFooterBlocks.filter('Class','nav-secondary') %>
 			<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
