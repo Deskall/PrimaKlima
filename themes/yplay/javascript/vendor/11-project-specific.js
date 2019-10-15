@@ -10,3 +10,7 @@ function resizeMain(){
 	var h = $('header').outerHeight() + $('footer').outerHeight();
 	$('main').css({ minHeight: `${screen - h}px` });
 }
+
+UIkit.utility.on("show",$("#modal-search"),function(){
+	$("input[name='Search']").focusIn();
+});
