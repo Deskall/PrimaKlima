@@ -132,7 +132,7 @@
 		<div class="uk-container">
 		<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-			<div class="uk-navbar-center uk-padding">
+			<div class="uk-navbar-center uk-padding uk-padding-remove-horizontal">
 				<ul class="uk-iconnav uk-flex uk-flex-around">
 					<% if SiteConfig.Facebook %>
 					<li><a href="$SiteConfig.Facebook" target="_blank" data-uk-icon="facebook" rel="nofollow"></a></li>
