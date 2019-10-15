@@ -58,7 +58,7 @@
 								<ul class="uk-navbar-nav mobile-icon-nav">
 									<li class="link"><a href="#" data-uk-toggle="#modal-search" data-uk-icon="search"></a></li>
 									<li class="link"><a href="#" data-uk-icon="user"></a></li>
-									<li class="link"><a href="#" data-uk-icon="bell"></a></li>
+									<li class="link"><a href="#" data-uk-icon="bell" data-uk-toggle="#modal-notifications"></a></li>
 									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
 			
 			            			<li class="link"><a class="dk-toggle-mobile-menu" data-uk-navbar-toggle-icon data-uk-toggle="#modal-nav-mobile"></a></li>
@@ -99,6 +99,16 @@
 		        	<input type="text" class="uk-input" minlength="4" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
 		        	<button type="submit"><i data-uk-icon="search"></i></button>
 		        </form>
+		    </div>
+	    </div>
+	</div>
+
+	<div id="modal-notifications" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
+	    <div class="uk-modal-dialog" data-uk-height-viewport>
+	        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+	        <div class="uk-padding-small">
+	        	<h2>Medlungen</h2>
+		        
 		    </div>
 	    </div>
 	</div>
