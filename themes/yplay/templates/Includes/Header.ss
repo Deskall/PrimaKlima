@@ -32,9 +32,9 @@
 							</div>
 							<div class="uk-navbar-right">
 								<ul class="uk-navbar-nav">
-									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="fas fa-search uk-margin-small-right"></i><small>Suchen</small></a></li>
-									<li class="link"><a href="#"><i class="fa fa-user uk-margin-small-right"></i><small>Mein Konto</small></a></li>
-									<li class="link"><a href="#"><i class="fa fa-bell uk-margin-small-right"></i><small>Meldungen</small></a></li>
+									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="uk-margin-small-right"  data-uk-icon="search"></i><small>Suchen</small></a></li>
+									<li class="link"><a href="#"><i class="uk-margin-small-right" data-uk-icon="user"></i><small>Mein Konto</small></a></li>
+									<li class="link"><a href="#"><i class="uk-margin-small-right"  data-uk-icon="bell"></i><small>Meldungen</small></a></li>
 									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
 								</ul>
 							</div>
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 
-				<nav class="uk-navbar-container uk-navbar-transparent uk-navbar-main" data-uk-navbar="dropbar: true;boundary-align:true;mode:click;">
+				<nav class="uk-navbar-container uk-navbar-transparent uk-navbar-main uk-hidden@m" data-uk-navbar="dropbar: true;boundary-align:true;mode:click;">
 
 					<% with SiteConfig.activeMenuBlocks.filter('Type','logo').first %>
 					$forTemplate
@@ -55,14 +55,14 @@
 							<% include MainNaviDropdown %>
 					<% end_loop %>
 					<div class="uk-navbar-right">
-						<ul class="uk-navbar-nav">
-							<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="fas fa-search uk-margin-small-right"></i><small class="uk-visible@m">Suchen</small></a></li>
-							<li class="link"><a href="#"><i class="fa fa-user uk-margin-small-right"></i><small class="uk-visible@m">Mein Konto</small></a></li>
-							<li class="link"><a href="#"><i class="fa fa-bell uk-margin-small-right"></i><small class="uk-visible@m">Meldungen</small></a></li>
-							<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
-						</ul>
-					</div>
-					<div class="uk-navbar-right uk-hidden@m">
+								<ul class="uk-navbar-nav">
+									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="uk-margin-small-right"  data-uk-icon="search"></i><small>Suchen</small></a></li>
+									<li class="link"><a href="#"><i class="uk-margin-small-right" data-uk-icon="user"></i><small>Mein Konto</small></a></li>
+									<li class="link"><a href="#"><i class="uk-margin-small-right"  data-uk-icon="bell"></i><small>Meldungen</small></a></li>
+									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Item(s) im Warenkorb</small></a></li> --%>
+								</ul>
+							</div>
+					<div class="uk-navbar-right ">
 			            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="#modal-nav-mobile"></button>
 			        </div>
 			        
