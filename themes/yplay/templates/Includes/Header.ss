@@ -94,9 +94,9 @@
 	<div id="modal-search" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
 	    <div class="uk-modal-dialog" data-uk-height-viewport>
 	        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-	        <div class="uk-position-center">
+	        <div class="uk-position-center uk-width-1-1 uk-width-2-3@s uk-wisth-1-2@m uk-padding-small">
 	        	<h2>Suche</h2>
-		        <form class="search-form" method="GET" action="{$Link}SearchForm">
+		        <form class="search-form uk-flex uk-flex-between" method="GET" action="{$Link}SearchForm">
 		        	<input type="text" class="uk-input" minlength="4" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
 		        	<button type="submit"><i data-uk-icon="search"></i></button>
 		        </form>
