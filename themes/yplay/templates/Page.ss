@@ -9,7 +9,7 @@
       <% include Header %>
       <main class="main-content-wrapper">
           $Layout
-          <div class="uk-position-center-right">
+          <div class="uk-position-center-right uk-position-z-index">
             <button class="uk-button uk-button-default uk-margin-small-right" type="button" data-uk-toggle="target: #offcanvas-usage">Open</button>
             <div id="offcanvas-usage" data-uk-offcanvas>
                 <div class="uk-card">
