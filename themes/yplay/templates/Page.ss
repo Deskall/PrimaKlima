@@ -11,7 +11,7 @@
           $Layout
           <div class="uk-position-fixed uk-position-center-right uk-position-z-index">
             <button class="uk-button uk-button-default uk-margin-small-right" type="button" data-uk-toggle="target: #offcanvas-usage">Open</button>
-            <div id="offcanvas-usage" data-uk-offcanvas>
+            <div id="offcanvas-usage" data-uk-offcanvas="flip:true;">
                 <div class="uk-offcanvas-bar dk-middle-offcanvas">
 
                     <button class="uk-offcanvas-close" type="button" uk-close></button>
