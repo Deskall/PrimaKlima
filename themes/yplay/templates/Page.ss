@@ -12,7 +12,7 @@
           <div class="uk-position-fixed uk-position-center-right uk-position-z-index">
             <button class="uk-button uk-button-default uk-margin-small-right" type="button" data-uk-toggle="target: #offcanvas-usage">Open</button>
             <div id="offcanvas-usage" data-uk-offcanvas>
-                <div class="uk-card">
+                <div class="uk-offcanvas-bar">
 
                     <button class="uk-offcanvas-close" type="button" uk-close></button>
 
