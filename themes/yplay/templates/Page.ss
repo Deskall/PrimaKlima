@@ -11,19 +11,20 @@
           $Layout
           <div class="uk-position-center-right">
             <button class="uk-button uk-button-default uk-margin-small-right" type="button" data-uk-toggle="target: #offcanvas-usage">Open</button>
+            <div id="offcanvas-usage" data-uk-offcanvas>
+                <div class="uk-card">
+
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                    <h3>Title</h3>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                </div>
+            </div>
           </div>
          
-          <div id="offcanvas-usage" data-uk-offcanvas>
-              <div class="uk-card">
-
-                  <button class="uk-offcanvas-close" type="button" uk-close></button>
-
-                  <h3>Title</h3>
-
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-              </div>
-          </div>
+          
 
       </main>
 
