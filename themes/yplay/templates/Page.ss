@@ -15,7 +15,7 @@
           <a href="#offcanvas-usage" uk-toggle>Open</a>
 
           <div id="offcanvas-usage" uk-offcanvas>
-              <div class="uk-offcanvas-bar">
+              <div>
 
                   <button class="uk-offcanvas-close" type="button" uk-close></button>
 
@@ -25,7 +25,7 @@
 
               </div>
           </div>
-          
+
       </main>
 
     
