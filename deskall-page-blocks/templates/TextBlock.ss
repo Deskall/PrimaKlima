@@ -47,7 +47,6 @@
 		$HTML
 	</div>
 	<% end_if %>
-	
 </div>
 
 <% if LinkableLinkID > 0 %>
