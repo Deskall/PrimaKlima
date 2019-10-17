@@ -7,9 +7,9 @@
     $SiteConfig.BodyScripts
     <div class="uk-offcanvas-content">
       <% include Header %>
-      <div class="main-content-wrapper">
+      <main class="main-content-wrapper">
       $Layout
-      </div>
+      </main>
       <% include Footer %>
 
       <% include NavMobile %>
