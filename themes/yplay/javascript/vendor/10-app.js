@@ -189,3 +189,23 @@ $('a[href$="#ga-optout"]').click(function(){
     alert('Google Analytics wurde deaktiviert');
     return false;
 });
+
+
+//ensure minimum height for main content
+$(document).ready(function(){
+  resizeMain();
+
+  UIkit.util.on("#modal-search","shown",function(){
+    $("input[name='Search']").focus();
+  });
+
+});
+$( window ).resize(function() {
+  resizeMain();
+});
+
+function resizeMain(){
+  var screen = $( window ).height();
+  var h = $('header').outerHeight() + $('footer').outerHeight();
+  $('main').css({ minHeight: `${screen - h}px` });
+}

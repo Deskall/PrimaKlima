@@ -540,6 +540,11 @@ class SiteConfigLayoutExtension extends DataExtension
       curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
       curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
       curl_exec($req);
+      ob_start();
+            print_r($url);
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+
     }
    
   }

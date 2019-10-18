@@ -7,8 +7,7 @@
 		    	<div class="title-container">
 			 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
 			 	</div>
-
-			 	<ul class="uk-list uk-list-large dk-list dk-list-with-icon uk-margin-remove-top">
+			 	<ul class="uk-list dk-list dk-list-with-icon uk-margin-remove-top">
 			 		<% if $SiteConfig.Address != "" %>
 			 		<li><span data-uk-icon="icon: location;"></span>
 			 			<a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title" rel="nofollow">
@@ -137,7 +136,7 @@
 		    	<div class="title-container">
 		    		<h3 class="uk-margin-small-bottom">$Title</h3>
 		    	</div>
-		    	<ul class="uk-list uk-list-large dk-list uk-margin-remove-top">
+		    	<ul class="uk-list dk-list uk-margin-remove-top">
 				    <% loop $activeLinks %>
 						$forTemplate
 					<% end_loop %>

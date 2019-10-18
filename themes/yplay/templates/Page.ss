@@ -10,13 +10,8 @@
       <main class="main-content-wrapper">
           $Layout
       </main>
-
-    
       <% include Footer %>
-
-      
     </div>
-
     <% if BodyScripts %>
       <% loop BodyScripts %>
       $Script
