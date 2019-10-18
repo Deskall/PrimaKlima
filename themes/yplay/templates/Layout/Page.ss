@@ -26,8 +26,8 @@
 		        	<% loop Links %>
 		        	<li>
 		        		<div class="uk-grid-small" data-uk-grid>
-		        			<div class="uk-width-1-5"><% if Label %><span class="uk-label $Background uk-margin-small-right uk-border-rounded">$Label</span><% end_if %></div>
-		        			<div class="uk-width-4-5">
+		        			<% if Label %><div class="uk-width-1-5"><span class="uk-label $Background uk-margin-small-right uk-border-rounded">$Label</span></div><% end_if %>
+		        			<div class="<% if Label %>uk-width-4-5<% else %>uk-width-1-1<% end_if %>">
 		        			    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>>
 		        			    	$LinkableLink.Title
 		        			    </a>
