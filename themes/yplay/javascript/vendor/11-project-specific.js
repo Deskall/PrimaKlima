@@ -1,18 +1,9 @@
 $(document).ready(function(){
-	resizeMain();
-
-	UIkit.util.on("#modal-search","shown",function(){
-		$("input[name='Search']").focus();
-	});
-
-});
-$( window ).resize(function() {
-	resizeMain();
+	if ($(".sidebar").length > 0){
+		var sidebarWidth = $(".sidebar").width();
+		$(".sidebar").css({transform-origin: '~"calc(50% + '+sidebarWidth+'px)" 0'});
+		$(".sidebar").show();
+	}
 });
 
-function resizeMain(){
-	var screen = $( window ).height();
-	var h = $('header').outerHeight() + $('footer').outerHeight();
-	$('main').css({ minHeight: `${screen - h}px` });
-}
 
