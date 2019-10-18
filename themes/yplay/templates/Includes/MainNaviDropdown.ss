@@ -9,14 +9,11 @@
 				<% loop MenuSections %>
 				<div>
 					<div class="uk-padding-small">
-						<div class="uk-grid-small" data-uk-grid>
-							<div class="uk-width-1-5"><img width="60" height="60" src="$Image.URL" ></div>
-							<div class="uk-width-4-5">
-								<div class="menu-section-title">$Title</div>
-								<div class="menu-section-text">$Text</div>
-							</div>
+						<div class="uk-flex uk-flex-between">
+							<img width="60" height="60" src="$Image.URL">
+							<div class="menu-section-title">$Title</div>
 						</div>
-						
+						<div class="menu-section-text">$Text</div>
 						<ul class="uk-nav uk-navbar-dropdown-nav">
 							<% loop Links %>
 							<li>
