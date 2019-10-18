@@ -57,13 +57,13 @@ class MarketingBlock extends TextBlock
     public function getDuration(){
         $start = new DateTime($this->Start);
         $end = new DateTime($this->Countdown);
-        return $end->diff($start)->getTimestamp();
+        return $end->diff($start)->format('%s');
     }
 
     public function getActual(){
         $start = new DateTime($this->Start);
         $end = new DateTime();
-        return $end->diff($start)->getTimestamp();
+        return $end->diff($start)->format('%s');
     }
 
 
