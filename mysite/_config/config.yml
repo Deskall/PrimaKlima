@@ -30,3 +30,7 @@ PageController:
 Page:
   extensions:
     - 'CustomPageExtension'
+
+SliderBlock:
+  extensions:
+    - 'SliderBlockExtension'
