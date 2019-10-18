@@ -18,7 +18,7 @@ class MarketingBlock extends TextBlock
     private static $help_text = "Marketing Block";
 
     private static $db = [
-        'Countdown' => 'Date',
+        'Countdown' => 'DBDatetime',
         'LabelText' => 'Varchar',
         'LabelColor' => 'Varchar'
     ];
