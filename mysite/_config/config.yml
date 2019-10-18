@@ -34,3 +34,5 @@ Page:
 BaseBlockExtension:
   blocks:
     - MarketingBlock
+  children_blocks:
+    - MarketingBlock
