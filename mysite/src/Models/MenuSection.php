@@ -47,8 +47,9 @@ class MenuSection extends DataObject{
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Links');
 		$fields->removeByName('PageID');
-		$fields->push(UploadField::create('Image',_t(__CLASS__.'.Image','Bild / Icon'))->setFolderName($this->Page()->generateFolderName()));
-		$fields->push(HTMLEditorField::create('Text',_t(__CLASS__.'.Text','Einstiegstext'))->setRows(3));
+		$fields->insertAfter('Title',HTMLEditorField::create('Text',_t(__CLASS__.'.Text','Einstiegstext'))->setRows(3));
+		$fields->insertAfter('Text',UploadField::create('Image',_t(__CLASS__.'.Image','Bild / Icon'))->setFolderName($this->Page()->generateFolderName()));
+		
 		if ($this->ID > 0){
 			$config = GridFieldConfig_RecordEditor::create();
 			// $config->removeComponentsByType(GridFieldAddNewButton::class);
