@@ -39,7 +39,7 @@ class MarketingBlock extends TextBlock
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('Color');
-        $fields->insertAfter('isPrimary',HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'));
+        $fields->insertAfter('isPrimary',HTMLDropdownField::create('Color',_t(__CLASS__.'.Color','Farbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'));
 
         return $fields;
     }
