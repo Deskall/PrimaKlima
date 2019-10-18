@@ -54,10 +54,25 @@
 <% end_if %>
 
 <div class="uk-text-large">
-	<div data-uk-countdown="date: $Countdown">
-	    <span class="uk-countdown-number uk-countdown-days">Tage</span>
-	    <span class="uk-countdown-number uk-countdown-hours">Stunden</span>
-	    <span class="uk-countdown-number uk-countdown-minutes">Minuten</span>
-	    <span class="uk-countdown-number uk-countdown-seconds">Sekunden</span>
+	<div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
+	    <div>
+	        <div class="uk-countdown-number uk-countdown-days"></div>
+	        <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Tage</div>
+	    </div>
+	    <div class="uk-countdown-separator">:</div>
+	    <div>
+	        <div class="uk-countdown-number uk-countdown-hours"></div>
+	        <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Stunden</div>
+	    </div>
+	    <div class="uk-countdown-separator">:</div>
+	    <div>
+	        <div class="uk-countdown-number uk-countdown-minutes"></div>
+	        <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Minuten</div>
+	    </div>
+	    <div class="uk-countdown-separator">:</div>
+	    <div>
+	        <div class="uk-countdown-number uk-countdown-seconds"></div>
+	        <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Sekunden</div>
+	    </div>
 	</div>
 </div>
