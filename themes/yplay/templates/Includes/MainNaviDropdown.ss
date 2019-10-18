@@ -9,7 +9,7 @@
 				<% loop MenuSections %>
 				<div>
 					<div class="uk-padding-small">
-						<div class="uk-flex">
+						<div class="uk-flex uk-margin">
 							<% if Image %><img width="30" height="30" src="$Image.URL"><% end_if %>
 							<div class="uk-margin-small-left menu-section-title">$Title</div>
 						</div>
