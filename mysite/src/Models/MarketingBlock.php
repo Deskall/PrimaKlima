@@ -63,7 +63,7 @@ class MarketingBlock extends TextBlock
     public function getActual(){
         $start = new DateTime($this->Start);
         $end = new DateTime();
-        return $end->diff($start)->format('%s');
+        return $end->diff($start)->format('%d');
     }
 
 
