@@ -54,5 +54,18 @@ class MarketingBlock extends TextBlock
         return _t(__CLASS__ . '.BlockType', 'Marketing Block mit Bild, Text, Counter und Label');
     }
 
+    public function getDuration(){
+        $start = new DateTime($this->Start);
+        $end = new DateTime($this->Countdown);
+        return $end->diff($start);
+    }
+
+    public function getActual(){
+        $start = new DateTime($this->Start);
+        $end = new DateTime();
+        return $end->diff($start);
+    }
+
+
 
 }
