@@ -22,6 +22,19 @@
 		        <button class="uk-offcanvas-close" type="button" data-uk-close></button>
 		        <h3>$Title</h3>
 		        $Text
+		        <ul class="uk-nav uk-padding-remove">
+		        	<% loop Links %>
+		        	<li>
+		        		<div class="uk-grid-small" data-uk-grid>
+		        			<div class="uk-width-1-5"><% if Label %><span class="uk-label $Background uk-margin-small-right uk-border-rounded">$Label</span><% end_if %></div>
+		        			<div class="uk-width-4-5">
+		        			    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>>
+		        			    	$LinkableLink.Title
+		        			    </a>
+		        			</div>
+		        	</li>
+		        	<% end_loop %>
+		        </ul>
 		    </div>
 		</div>
 		<% end_loop %>
