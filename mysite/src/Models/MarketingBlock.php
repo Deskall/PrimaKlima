@@ -6,6 +6,7 @@ use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use g4b0\SearchableDataObjects\Searchable;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class MarketingBlock extends TextBlock
 {
@@ -18,9 +19,10 @@ class MarketingBlock extends TextBlock
     private static $help_text = "Marketing Block";
 
     private static $db = [
+        'Start' => 'DBDatetime',
         'Countdown' => 'DBDatetime',
         'LabelText' => 'Varchar',
-        'LabelColor' => 'Varchar'
+        'Color' => 'Varchar'
     ];
 
     private static $table_name = 'MarketingBlock';
@@ -36,7 +38,9 @@ class MarketingBlock extends TextBlock
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-      
+        $fields->removeByName('Color');
+        $fields->insertAfter('Title',HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'));
+
         return $fields;
     }
 
