@@ -53,9 +53,11 @@
 	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 <% end_if %>
 
-<div data-uk-countdown="date: $Countdown">
-    <span class="uk-countdown-number uk-countdown-days"></span>
-    <span class="uk-countdown-number uk-countdown-hours"></span>
-    <span class="uk-countdown-number uk-countdown-minutes"></span>
-    <span class="uk-countdown-number uk-countdown-seconds"></span>
+<div class="uk-text-large">
+	<div data-uk-countdown="date: $Countdown">
+	    <span class="uk-countdown-number uk-countdown-days">Tage</span>
+	    <span class="uk-countdown-number uk-countdown-hours">Stunden</span>
+	    <span class="uk-countdown-number uk-countdown-minutes">Minuten</span>
+	    <span class="uk-countdown-number uk-countdown-seconds">Sekunden</span>
+	</div>
 </div>
