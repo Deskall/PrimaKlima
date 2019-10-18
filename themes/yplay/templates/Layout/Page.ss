@@ -14,7 +14,7 @@
 	<% end_if %>
 	
 	<% if $LateralSections.exists %>
-	<div class="uk-position-fixed uk-position-center-right uk-position-z-index sidebar">
+	<div class="uk-position-fixed uk-position-center-right uk-position-z-index sidebar-menu">
 		<% loop LateralSections %>
 	  	<button class="uk-button $ButtonFarbe" type="button" data-uk-toggle="target: #offcanvas-usage-{$ID}">$ButtonTitle<% if $ButtonIcon %><span class="uk-margin-small-left" data-uk-icon="icon: $ButtonIcon"></span><% end_if %></button>
 		 <div id="offcanvas-usage-{$ID}" data-uk-offcanvas="flip:true;">
