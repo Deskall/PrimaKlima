@@ -11,7 +11,7 @@
 					<div class="uk-padding-small">
 						<div class="uk-flex">
 							<img width="30" height="30" src="$Image.URL">
-							<div class="menu-section-title">$Title</div>
+							<div class="uk-margin-small-left menu-section-title">$Title</div>
 						</div>
 						<div class="menu-section-text">$Text</div>
 						<ul class="uk-nav uk-navbar-dropdown-nav">
