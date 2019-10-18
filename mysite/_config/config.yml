@@ -31,6 +31,6 @@ Page:
   extensions:
     - 'CustomPageExtension'
 
-SliderBlock:
-  extensions:
-    - 'SliderBlockExtension'
+BaseBlockExtension:
+  blocks:
+    - MarketingBlock
