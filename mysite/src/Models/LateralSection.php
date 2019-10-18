@@ -14,7 +14,7 @@ class LateralSection extends MenuSection{
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Image');
-		$fields->insertAfter('ButtonTitle',HTMLDropdownField::create('ButtonBackground',_t('Form.ButtonBackground','Button Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'));
+		$fields->insertAfter('ButtonTitle',HTMLDropdownField::create('ButtonFarbe',_t('Form.ButtonBackground','Button Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'));
 
 		return $fields;
 	}
