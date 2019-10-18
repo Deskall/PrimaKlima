@@ -8,8 +8,14 @@
 				<div class="uk-navbar-dropdown-grid uk-child-width-1-{$MenuSections.count}" data-uk-grid>
 				<% loop MenuSections %>
 				<div>
-					<div class="uk-padding-small">
-						<div class="menu-section-title">$Title</div>
+					<div class="uk-grid-small" data-uk-grid>
+						<div class="uk-width-1-5"><img width="60" height="60" src="$Image.URL" ></div>
+						<div class="uk-width-4-5">
+							<div class="menu-section-title">$Title</div>
+							<div class="menu-section-text">$Text</div>
+						</div>
+					</div>
+						
 						<ul class="uk-nav uk-navbar-dropdown-nav">
 							<% loop Links %>
 							<li>
@@ -17,7 +23,7 @@
 							</li>
 							<% end_loop %>
 						</ul>
-					</div>
+					
 				</div>
 				<% end_loop %>
 			</div>
