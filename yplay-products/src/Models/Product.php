@@ -63,6 +63,9 @@ class Product extends DataObject {
 		if ($this->RecurringPrice){
 			return DBText::create()->setValue('CHF '.$this->Price.' / Mt.');
 		}
+		else{
+			return DBText::create()->setValue('CHF '.$this->Price);
+		}
 	}
 
 	public function getCMSFields(){
