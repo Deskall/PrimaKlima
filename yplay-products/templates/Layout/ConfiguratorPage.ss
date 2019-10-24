@@ -23,8 +23,8 @@
 								                <div class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-box-shadow-medium uk-card-small">
 								                    <div class="uk-card-body">
 								                        <h3 class="uk-card-title">$Title</h3>
-								                        $Subtitle
 								                        <div class="price">$PrintPriceString</div>
+								                        $Subtitle
 								                    </div>
 								                </div>
 								            </li>
