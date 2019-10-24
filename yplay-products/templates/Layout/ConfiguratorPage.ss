@@ -133,13 +133,16 @@
 						<div class="uk-card-body">
 							<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %> - CHF 45.- / Mt.</h3>
 							<div class="uk-flex uk-flex-between">
-								<div class="chosen-product">
+								<div class="chosen-product yplay-tv">
 									Watch M
 								</div>
-								<div class="chosen-product">
+								<div class="chosen-product yplay-internet">
 									Surf M
 								</div>
-								<div class="chosen-product">
+								<div class="chosen-product yplay-telefonie">
+									Talk S
+								</div>
+								<div class="chosen-product yplay-mobile">
 									Talk S
 								</div>
 								<a href="/bestellen" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
