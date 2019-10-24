@@ -52,7 +52,7 @@
 					            <h2 class="uk-modal-title">$Title</h2>
 					        </div>
 					        <div class="uk-modal-body" data-uk-overflow-auto>
-						        <div class="uk-child-width-1-2@s uk-flex-middle uk-grid-match" data-uk-grid>
+						        <div class="uk-child-width-1-2@s uk-grid-match" data-uk-grid>
 						            <div>
 						            	<div class="uk-background-cover uk-height-1-1" style="background-image: url('$ThemeDir/img/thomas-q-_fQ6zg_McEU-unsplash.jpg');"></div>
 						            </div>
