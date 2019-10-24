@@ -8,7 +8,9 @@
 	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
 	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
 	        	 <% loop $Elements.ElementControllers %>
-				  <li class="$Top.BlockAlignment uk-grid-small uk-flex $Top.BlockVerticalAlignment">$Me</li>
+				  <% if $isVisible %>
+                  <li class="$Top.BlockAlignment uk-grid-small uk-flex $Top.BlockVerticalAlignment">$Me</li>
+                  <% end_if %>
 			    <% end_loop %>
 	        </ul>
         	<% if ShowNav %>
