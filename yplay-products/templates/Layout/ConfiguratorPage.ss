@@ -24,7 +24,7 @@
 								                    <div class="uk-card-body">
 								                        <h3 class="uk-card-title">$Title</h3>
 								                        $Subtitle
-								                        $PrintPriceString
+								                        <div class="price">$PrintPriceString</div>
 								                    </div>
 								                </div>
 								            </li>
