@@ -1,4 +1,4 @@
-<div class="countdown-container uk-margin-small">
+<div class="countdown-container uk-margin">
 	<div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
 	    <div>
 	        <div class="uk-countdown-number uk-countdown-days"></div>
