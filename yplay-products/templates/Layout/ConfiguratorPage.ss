@@ -49,7 +49,7 @@
 					<div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
 					    <div class="uk-modal-dialog" data-uk-height-viewport>
 					        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-					        <div data-uk-slider="finite:true;draggable:false;">
+					        <div data-uk-slider="finite:true;draggable:false;" class="uk-height-1-1">
 						        <div class="uk-modal-header">
 						        	<div class="uk-flex uk-flex-middle uk-margin-small-bottom"><img src="$Icon.URL" width="50" class="uk-margin-small-right" alt="$Icon.Description"><h2 class="uk-modal-title uk-margin-remove">$Title</h2></div>
 						        </div>
