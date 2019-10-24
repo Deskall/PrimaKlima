@@ -1,8 +1,9 @@
 
-	$ElementalArea
+
 	
 	<section class="uk-section uk-section-medium">
 		<div class="uk-container uk-container-medium">
+			<h1>$Title</h1>
 			<h2><%t Configurator.Title 'Wählen Sie Ihr Paket' %></h2>
 			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
