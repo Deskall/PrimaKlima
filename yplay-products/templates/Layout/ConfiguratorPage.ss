@@ -49,7 +49,7 @@
 					    <div class="uk-modal-dialog">
 					        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
 					        <div class="uk-modal-header">
-					            <h2 class="uk-modal-title">$Title</h2>
+					        	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" alt="$Icon.Alt"><h2 class="uk-modal-title">$Title</h2></div>
 					        </div>
 					        <div class="uk-modal-body">
 						        <div class="uk-child-width-1-2@s uk-grid-match" data-uk-grid>
