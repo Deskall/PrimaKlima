@@ -17,7 +17,7 @@
 							<div class="uk-card uk-card-default uk-margin-bottom">
 								<% if Image.exists %>
 								<div class="uk-card-media-top">
-									<img src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
+									<img data-src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
 									<% if Up.PaddedImages %>
 									$Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 									<% else %>
