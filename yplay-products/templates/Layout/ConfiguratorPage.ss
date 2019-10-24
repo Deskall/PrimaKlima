@@ -17,9 +17,9 @@
 
 							    
 							    	<div class="uk-slider-container">
-								        <ul class="uk-slider-items uk-child-width-1-2 uk-grid-match uk-transition-toggle">
+								        <ul class="uk-slider-items uk-child-width-1-2 uk-grid-match ">
 								            <% loop Products %>
-								            <li>
+								            <li class="uk-transition-toggle">
 								                <div class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-box-shadow-medium uk-card-small uk-transition-scale-up">
 								                    <div class="uk-card-body">
 								                        <h3 class="uk-card-title">$Title</h3>
