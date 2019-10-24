@@ -54,7 +54,7 @@
 					        <div class="uk-modal-body">
 					        	<div class="uk-padding-small" data-uk-slider="center:true;index:1;">
 					        	    <div class="uk-slider-container">
-					        		   <ul class="uk-slider-items uk-child-width-1-2 uk-grid-match">
+					        		   <ul class="uk-slider-items uk-child-width-1-1 uk-grid-match">
 									        <li>
 									        	<div class="uk-child-width-1-2@s uk-grid-match" data-uk-grid>
 									            <div>
