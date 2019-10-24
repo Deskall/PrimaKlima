@@ -133,6 +133,15 @@
 						<div class="uk-card-body">
 							<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %> - CHF 45.- / Mt.</h3>
 							<div class="uk-flex uk-flex-between">
+								<div class="chosen-product">
+									Watch M
+								</div>
+								<div class="chosen-product">
+									Surf M
+								</div>
+								<div class="chosen-product">
+									Talk S
+								</div>
 								<a href="/bestellen" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
 							</div>
 						</div>
