@@ -7,11 +7,12 @@ class Product extends DataObject {
 	private static $db = [
 	'ProductCode' => 'Varchar',
 	'Title' => 'Varchar',
+	'RecurringPrice' => 'Boolean(1)',
 	'MonthlyPrice' => 'Currency',
 	'UniquePrice' => 'Currency',
 	'UniquePriceLabel' => 'Varchar',
 	'Unit' => 'Varchar',
-	'RecurringPrice' => 'Boolean(1)',
+	
 	'Subtitle' => 'Text',
 	'Description' => 'HTMLText'
 	];
@@ -38,18 +39,13 @@ class Product extends DataObject {
 		parent::onBeforeWrite();
 	}
 
-	public function getCMSFields(){
-		$fields = parent::getCMSFields();
-		$fields->removeByName('ProductCode');
-		return $fields;
-	}
-
 	public function fieldLabels($includerelation = true){
 		$labels = parent::fieldLabels($includerelation);
 		$labels['Title'] = 'Name';
 		$labels['Subtitle'] = 'Untertitel';
 		$labels['Description'] = 'Beschreibung';
 		$labels['UniquePrice'] = ($this->RecurringPrice) ? 'Einmaliger Preis' : 'Preis';
+		$labels['UniquePriceLabel'] = 'Einmaliger Preis Erklärung';
 		$labels['MonthlyPrice'] = 'Montalicher Preis';
 		$labels['Unit'] = 'Einheit';
 		$labels['RecurringPrice'] = 'Monatlicher Preis?';
@@ -61,5 +57,16 @@ class Product extends DataObject {
 		if ($this->RecurringPrice){
 			return DBText::create()->setValue('CHF '.$this->MonthlyPrice.' / Mt.');
 		}
+	}
+
+	public function getCMSFields(){
+		$fields = parent::getCMSFields();
+		$fields->removeByName('ProductCode');
+		$fields->removeByName('CategoryID');
+
+		$fields->fieldByName('Root.Main.Unit')->displayIf('RecurringPrice')->isNotChecked();
+		$fields->fieldByName('Root.Main.MonthlyPrice')->displayIf('RecurringPrice')->isChecked();
+		$fields->fieldByName('Root.Main.UniquePriceLabel')->displayIf('RecurringPrice')->isChecked();
+		return $fields;
 	}
 }
