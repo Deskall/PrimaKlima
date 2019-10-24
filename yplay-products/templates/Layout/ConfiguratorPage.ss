@@ -31,8 +31,11 @@
 								            <% end_loop %>
 								        </ul>
 								    </div>
-
-							    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+								<div class="uk-flex uk-flex-between">
+									<a href="#" uk-slider-item="previous">...</a>
+								    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+								    <a href="#" uk-slider-item="next">...</a>
+								</div>
 							</div>
 						
 						<div class="not-included-input">
