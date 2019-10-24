@@ -38,6 +38,12 @@ class ProductCategory extends DataObject {
 		'Activable'
 	];
 
+	private static $summary_fields = [
+		'Title',
+		'Subtitle',
+		'Products.count' => ['title' => 'Produktzahl']
+	];
+
 	public function getFolderName(){
 		if ($this->Title){
 			return "Uploads/Produkte/".URLSegmentFilter::create()->filter($this->Title);
@@ -86,7 +92,7 @@ class ProductCategory extends DataObject {
 		$labels['Description'] = 'Beschreibung';
 		$labels['Products'] = 'Produkte';
 		$labels['Icon'] = 'Bild';
-		
+
 		return $labels;
 	}
 }
