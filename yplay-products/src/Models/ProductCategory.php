@@ -63,7 +63,6 @@ class ProductCategory extends DataObject {
 	            $newFolder->Name = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
 	            $newFolder->Title = $changedFields['Title']['after'];
 	            $newFolder->write();
-	            $this->Code = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
 	        }
 	    }
 	    else{
@@ -71,10 +70,9 @@ class ProductCategory extends DataObject {
 	    	$newFolder = Folder::find_or_make($oldFolderPath);
 	    	$newFolder->Name = URLSegmentFilter::create()->filter($this->Title);
 	    	$newFolder->Title = $this->Title;
-	    	$this->Code = URLSegmentFilter::create()->filter($this->Title);
 	    	$newFolder->write();
 	    }
-
+	    $this->Code = URLSegmentFilter::create()->filter($this->Title);
 		parent::onBeforeWrite();
 	}
 
