@@ -57,8 +57,11 @@
 					        		   <ul class="uk-slider-items uk-child-width-1-1 uk-grid-match">
 									        <li>
 									        	<div class="uk-child-width-1-2@s uk-grid-match" data-uk-grid>
-									            <div>
-									            	<div class="uk-background-cover uk-height-medium" style="background-image: url('$ThemeDir/img/thomas-q-_fQ6zg_McEU-unsplash.jpg');"></div>
+								        		<div class="uk-hidden@m">
+								        			<div class="uk-background-cover uk-height-medium" style="background-image: url('$ThemeDir/img/thomas-q-_fQ6zg_McEU-unsplash.jpg');"></div>
+								        		</div>
+									            <div class="uk-visible@m">
+									            	<div class="uk-background-cover" style="background-image: url('$ThemeDir/img/thomas-q-_fQ6zg_McEU-unsplash.jpg');"></div>
 									            </div>
 									            <div class="uk-padding-large">
 									                <h1>Headline</h1>
