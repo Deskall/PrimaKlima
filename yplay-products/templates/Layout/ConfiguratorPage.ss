@@ -48,11 +48,11 @@
 					<div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
 					    <div class="uk-modal-dialog">
 					        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-					        <div class="uk-modal-header">
-					        	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" alt="$Icon.Alt"><h2 class="uk-modal-title">$Title</h2></div>
-					        </div>
-					        <div class="uk-modal-body">
-					        	<div class="uk-padding-small" data-uk-slider="center:true;index:1;">
+					        <div data-uk-slider>
+						        <div class="uk-modal-header">
+						        	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" alt="$Icon.Alt"><h2 class="uk-modal-title">$Title</h2></div>
+						        </div>
+						        <div class="uk-modal-body">
 					        	    <div class="uk-slider-container">
 					        		   <ul class="uk-slider-items uk-child-width-1-1 uk-grid-match">
 									        <li>
@@ -92,14 +92,14 @@
 									    </ul>
 									</div>
 								</div>
-					    	</div>
-					        <div class="uk-modal-footer">
-					        	<div class="uk-flex uk-flex-between">
-					        		<a data-uk-slider-item="previous"><i class="icon icon-chevron-left"></i></a>
-					        		<button class="uk-button uk-modal-close" type="button">Schliessen</button>
-					        		<a data-uk-slider-item="next"><i class="icon icon-chevron-right"></i></a>
-					        	</div>
-					        </div>
+						        <div class="uk-modal-footer">
+						        	<div class="uk-flex uk-flex-between">
+						        		<a data-uk-slider-item="previous"><i class="icon icon-chevron-left"></i></a>
+						        		<button class="uk-button uk-modal-close" type="button">Schliessen</button>
+						        		<a data-uk-slider-item="next"><i class="icon icon-chevron-right"></i></a>
+						        	</div>
+						        </div>
+						    </div>
 					    </div>
 					</div>
 					<% end_loop %>
