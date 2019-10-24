@@ -2,22 +2,22 @@
 	<div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
 	    <div>
 	        <div class="uk-countdown-number uk-countdown-days"></div>
-	        <div class="uk-countdown-label uk-margin-small uk-text-center">Tage</div>
+	        <div class="uk-countdown-label uk-text-center">Tage</div>
 	    </div>
 	    <div class="uk-countdown-separator">:</div>
 	    <div>
 	        <div class="uk-countdown-number uk-countdown-hours"></div>
-	        <div class="uk-countdown-label uk-margin-small uk-text-center">Stunden</div>
+	        <div class="uk-countdown-label uk-text-center">Stunden</div>
 	    </div>
 	    <div class="uk-countdown-separator">:</div>
 	    <div>
 	        <div class="uk-countdown-number uk-countdown-minutes"></div>
-	        <div class="uk-countdown-label uk-margin-small uk-text-center">Minuten</div>
+	        <div class="uk-countdown-label uk-text-center">Minuten</div>
 	    </div>
 	    <div class="uk-countdown-separator">:</div>
 	    <div>
 	        <div class="uk-countdown-number uk-countdown-seconds"></div>
-	        <div class="uk-countdown-label uk-margin-small uk-text-center">Sekunden</div>
+	        <div class="uk-countdown-label uk-text-center">Sekunden</div>
 	    </div>
 	</div>
 </div>
