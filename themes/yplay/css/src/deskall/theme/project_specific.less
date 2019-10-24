@@ -168,8 +168,14 @@ footer.uk-section{
 		border-bottom:1px solid @global-color;
 	}
 	&.yplay-tv{
+		h3{
+			color:@tv;
+		}
 		.uk-card{
 			border-color: @tv;
+		}
+		li.uk-active,li:hover{
+			background-color:lighten(@tv,50%);
 		}
 	}
 }
