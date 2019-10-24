@@ -237,7 +237,7 @@
 					</div>
 				</div>
 			<% end_loop %>
-			<div class="uk-position-fixed uk-position-bottom uk-position-z-index">
+			<div class="uk-position-fixed uk-position-bottom uk-position-z-index"  data-uk-scrollspy="cls: uk-position-fixed uk-position-bottom uk-position-z-index;">
 				<div class="uk-card uk-card-primary uk-box-shadow-medium uk-card-small">
 					<div class="uk-card-header">
 						<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %></h3>
