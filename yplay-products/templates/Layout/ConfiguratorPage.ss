@@ -13,11 +13,11 @@
 						$Description
 						
 						
-							<div class="uk-padding-small" data-uk-slider="index:1;">
+							<div class="uk-padding-small" data-uk-slider="center:true;index:1;">
 
 							    
 							    	<div class="uk-slider-container">
-								        <ul class="uk-slider-items uk-child-width-3-4 uk-grid-match">
+								        <ul class="uk-slider-items uk-child-width-1-2 uk-grid-match">
 								            <% loop Products %>
 								            <li>
 								                <div class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-box-shadow-medium uk-card-small">
