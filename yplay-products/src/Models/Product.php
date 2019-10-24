@@ -50,6 +50,7 @@ class Product extends DataObject {
 		$labels['MonthlyPrice'] = 'Montalicher Preis';
 		$labels['Unit'] = 'Einheit';
 		$labels['RecurringPrice'] = 'Monatlicher Preis?';
+		$labels['PrintPriceString'] = 'Preis';
 
 		return $labels;
 	}
