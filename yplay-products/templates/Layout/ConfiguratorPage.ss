@@ -31,7 +31,7 @@
 								            <% end_loop %>
 								        </ul>
 								    </div>
-								<div class="uk-flex uk-flex-between">
+								<div class="uk-flex uk-flex-between uk-flex-middle">
 									<a href="#" data-uk-slider-item="previous"><i class="icon icon-chevron-left"></i></a>
 								    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 								    <a href="#" data-uk-slider-item="next"><i class="icon icon-chevron-right"></i></a>
