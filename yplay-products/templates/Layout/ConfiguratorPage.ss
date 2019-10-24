@@ -250,7 +250,7 @@
 					</div>
 				</div>
 			</div>
-			<div  data-uk-scrollspy="target: #test;cls: uk-position-fixed uk-position-bottom uk-position-z-index;">
+			<div  data-uk-scrollspy="target: #test;cls: uk-position-relative;">
 				
 			</div>
 		</div>
