@@ -238,7 +238,7 @@
 				</div>
 			<% end_loop %>
 			<div class="uk-position-fixed uk-position-bottom uk-position-z-index">
-				<div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-small">
+				<div class="uk-card uk-card-primary uk-box-shadow-medium uk-card-small">
 					<div class="uk-card-header">
 						<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %></h3>
 					</div>
