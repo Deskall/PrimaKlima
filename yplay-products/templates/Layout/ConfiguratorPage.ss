@@ -7,7 +7,7 @@
 			<div data-uk-grid>
 				<div class="uk-width-2-3@m uk-width-3-4@l">
 					<% loop activeCategories %>
-					<div class="category uk-text-center">
+					<div class="category uk-text-center $Code">
 						<h3><img src="$Icon.URL" width="50">$Title</h3>
 						
 						$Description
