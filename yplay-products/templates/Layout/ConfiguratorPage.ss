@@ -110,8 +110,8 @@
 					</div>
 					<% end_loop %>
 				</div>
-				<div class="uk-width-expand">
-					<div data-uk-sticky="media:640">
+				<div class="uk-width-expand uk-visible@m">
+					<div data-uk-sticky="media:@m">
 						<div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-small">
 							<div class="uk-card-header">
 								<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %></h3>
@@ -122,6 +122,21 @@
 							<div class="uk-card-footer">
 								<a href="/bestellen" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
 							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="uk-hidden@m">
+				<div class="uk-position-fixed uk-position-bottom uk-position-z-index">
+					<div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-small">
+						<div class="uk-card-header">
+							<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %></h3>
+						</div>
+						<div class="uk-card-body">
+							<p>Aenean vel tempor sapien, sit amet interdum erat. Pellentesque congue at ipsum ut condimentum.</p>
+						</div>
+						<div class="uk-card-footer">
+							<a href="/bestellen" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
 						</div>
 					</div>
 				</div>
