@@ -7,7 +7,7 @@
 			<div data-uk-grid>
 				<div class="uk-width-2-3@m uk-width-3-4@l">
 					<% loop activeCategories %>
-					<div class="category uk-text-center $Code uk-margin">
+					<div class="category uk-text-center $Code uk-margin-large">
 						<div class="uk-flex uk-flex-middle uk-flex-center"><img src="$Icon.URL" width="50" alt="$Icon.Alt"><h3 class="uk-margin-remove">$Title</h3></div>
 						
 						$Description
