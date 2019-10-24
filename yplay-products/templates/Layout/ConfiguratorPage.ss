@@ -45,7 +45,10 @@
 							<label for="no-{$ID}"><%t Category.NotIncluded 'Keine {title} Angebot' title=$Title %></label>
 						</div>
 					</div>
-					<div id="modal-category-{$Code}" data-uk-modal>
+					<div id="modal-category-{$Code}" class="uk-modal-full" data-uk-modal>
+						<div class="uk-modal-header">
+						    <img src="https://via.placeholder.com/1500*300">
+						</div>
 						<div class="uk-modal-dialog" data-uk-overflow-auto>
 					        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
 					                <h1>Headline</h1>
