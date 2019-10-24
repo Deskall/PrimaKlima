@@ -39,7 +39,6 @@
 						<% end_loop %>
 					</ul>
 				</div>
-				
 				<% if ShowNav %>
 				<div class="uk-hidden@l uk-light">
 					<a class="uk-position-center-left uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
