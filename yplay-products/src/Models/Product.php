@@ -9,7 +9,7 @@ class Product extends DataObject {
 	'ProductCode' => 'Varchar',
 	'Title' => 'Varchar',
 	'RecurringPrice' => 'Boolean(1)',
-	'MonthlyPrice' => 'Currency',
+	'Price' => 'Currency',
 	'UniquePrice' => 'Currency',
 	'ActivationPrice' => 'Currency',
 	'UniquePriceLabel' => 'Varchar',
@@ -51,7 +51,7 @@ class Product extends DataObject {
 		$labels['UniquePriceLabel'] = 'Einmaliger Preis Erklärung';
 		$labels['ActivationPrice'] = 'Grundgebühr';
 		$labels['ActivationPriceLabel'] = 'Grundgebühr Preis Erklärung';
-		$labels['MonthlyPrice'] = 'Montalicher Preis';
+		$labels['Price'] = 'Preis';
 		$labels['Unit'] = 'Einheit';
 		$labels['RecurringPrice'] = 'Monatlicher Preis?';
 		$labels['PrintPriceString'] = 'Preis';
@@ -61,7 +61,7 @@ class Product extends DataObject {
 
 	public function PrintPriceString(){
 		if ($this->RecurringPrice){
-			return DBText::create()->setValue('CHF '.$this->MonthlyPrice.' / Mt.');
+			return DBText::create()->setValue('CHF '.$this->Price.' / Mt.');
 		}
 	}
 
@@ -71,7 +71,6 @@ class Product extends DataObject {
 		$fields->removeByName('CategoryID');
 
 		$fields->fieldByName('Root.Main.Unit')->displayIf('RecurringPrice')->isNotChecked();
-		$fields->fieldByName('Root.Main.MonthlyPrice')->displayIf('RecurringPrice')->isChecked();
 		$fields->fieldByName('Root.Main.UniquePriceLabel')->displayIf('RecurringPrice')->isChecked();
 		return $fields;
 	}
