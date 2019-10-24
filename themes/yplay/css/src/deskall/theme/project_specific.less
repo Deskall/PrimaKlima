@@ -172,24 +172,36 @@ footer.uk-section{
 		border:1px solid #666;
 	}
 	&.yplay-tv{
-		h3{
-			color:@tv;
-		}
-		.uk-card{
-			border-color: @tv;
-		}
-		li.uk-active .uk-card,li:hover .uk-card{
-			background-color:lighten(@tv,50%);
-		}
-		.uk-dotnav>li>*{
-			background-color:lighten(@tv,50%);
-		}
-		.uk-dotnav>.uk-active>*{
-			background-color:@tv;
-		}
-		.uk-checkbox:checked, .uk-checkbox:indeterminate{
-			background-color: @tv;
-			border-color: lighten(@tv,50%);
-		}
+		.category-fill(@tv);
+	}
+	&.yplay-internet{
+		.category-fill(@internet);
+	}
+	&.yplay-phone{
+		.category-fill(@phone);
+	}
+	&.yplay-mobile{
+		.category-fill(@mobile);
+	}
+}
+.category-fill(@color){
+	h3{
+		color:@color;
+	}
+	.uk-card{
+		border-color: @color;
+	}
+	li.uk-active .uk-card,li:hover .uk-card{
+		background-color:lighten(@color,50%);
+	}
+	.uk-dotnav>li>*{
+		background-color:lighten(@color,50%);
+	}
+	.uk-dotnav>.uk-active>*{
+		background-color:@color;
+	}
+	.uk-checkbox:checked, .uk-checkbox:indeterminate{
+		background-color: @color;
+		border-color: lighten(@color,50%);
 	}
 }
