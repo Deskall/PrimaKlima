@@ -47,7 +47,7 @@
 						</div>
 					</div>
 					<div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
-					    <div class="uk-modal-dialog">
+					    <div class="uk-modal-dialog" data-uk-height-viewport>
 					        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
 					        <div data-uk-slider="finite:true;draggable:false;">
 						        <div class="uk-modal-header">
@@ -99,7 +99,7 @@
 									    </ul>
 									</div>
 								</div>
-						        <div class="uk-modal-footer uk-box-shadow-small">
+						        <div class="uk-modal-footer uk-box-shadow-small uk-position-absolute uk-position-bottom">
 						        	<div class="uk-flex uk-flex-between uk-flex-middle">
 						        		<a data-uk-slider-item="previous"><i class="icon icon-chevron-left"></i></a>
 						        		<button class="uk-button uk-modal-close" type="button">Schliessen</button>
