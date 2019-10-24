@@ -72,12 +72,15 @@ class ProductCategory extends DataObject {
 	    	$newFolder->Title = $this->Title;
 	    	$newFolder->write();
 	    }
-	    $this->Code = URLSegmentFilter::create()->filter($this->Title);
+	    if (!$this->Code){
+	    	$this->Code = URLSegmentFilter::create()->filter($this->Title);
+	    }
 		parent::onBeforeWrite();
 	}
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
+		$fields->removeByName($this->Code);
 		$fields->dataFieldByName('Icon')->setFolderName($this->getFolderName());
 
 		return $fields;
