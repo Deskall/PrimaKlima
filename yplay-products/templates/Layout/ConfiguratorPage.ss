@@ -48,13 +48,13 @@
 					<div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
 					    <div class="uk-modal-dialog">
 					        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-					        <div data-uk-slider="animation:fade;">
+					        <div data-uk-slideshow="animation:fade;ratio:false;draggable:false;">
 						        <div class="uk-modal-header">
 						        	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" alt="$Icon.Alt"><h2 class="uk-modal-title uk-margin-remove">$Title</h2></div>
 						        </div>
 						        <div class="uk-modal-body">
 					        	    <div class="uk-slider-container">
-					        		   <ul class="uk-slider-items uk-child-width-1-1 uk-grid-match">
+					        		   <ul class="uk-slideshow-items uk-child-width-1-1 uk-grid-match">
 									        <li>
 									        	<div class="uk-child-width-1-2@s uk-grid-match" data-uk-grid>
 								        		<div class="uk-hidden@m">
@@ -100,9 +100,9 @@
 								</div>
 						        <div class="uk-modal-footer">
 						        	<div class="uk-flex uk-flex-between">
-						        		<a data-uk-slider-item="previous"><i class="icon icon-chevron-left"></i></a>
+						        		<a data-uk-slideshow-item="previous"><i class="icon icon-chevron-left"></i></a>
 						        		<button class="uk-button uk-modal-close" type="button">Schliessen</button>
-						        		<a data-uk-slider-item="next"><i class="icon icon-chevron-right"></i></a>
+						        		<a data-uk-slideshow-item="next"><i class="icon icon-chevron-right"></i></a>
 						        	</div>
 						        </div>
 						    </div>
