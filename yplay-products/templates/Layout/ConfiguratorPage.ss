@@ -47,15 +47,15 @@
 						</div>
 					</div>
 					<div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
-					    <div class="uk-modal-dialog" data-uk-height-viewport>
+					    <div class="uk-modal-dialog">
 					        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-					        <div data-uk-slider="finite:true;draggable:false;" class="uk-height-1-1">
+					        <div data-uk-slider="finite:true;draggable:false;">
 						        <div class="uk-modal-header">
 						        	<div class="uk-flex uk-flex-middle uk-margin-small-bottom"><img src="$Icon.URL" width="50" class="uk-margin-small-right" alt="$Icon.Description"><h2 class="uk-modal-title uk-margin-remove">$Title</h2></div>
 						        </div>
-						        <div class="uk-modal-body uk-padding-remove-vertical uk-height-1-1">
-					        	    <div class="uk-slider-container uk-height-1-1">
-					        		   <ul class="uk-slider-items uk-child-width-1-1 uk-grid-match">
+						        <div class="uk-modal-body uk-padding-remove-vertical">
+					        	    <div class="uk-slider-container">
+					        		   <ul class="uk-slider-items uk-child-width-1-1 uk-grid-match" data-uk-height-viewport>
 									        <li>
 									        	<div class="uk-child-width-1-2@s uk-grid-match" data-uk-grid>
 								        		<div class="uk-hidden@m">
@@ -99,7 +99,7 @@
 									    </ul>
 									</div>
 								</div>
-						        <div class="uk-modal-footer uk-box-shadow-small uk-position-absolute uk-position-bottom">
+						        <div class="uk-modal-footer uk-box-shadow-small">
 						        	<div class="uk-flex uk-flex-between uk-flex-middle">
 						        		<a data-uk-slider-item="previous"><i class="icon icon-chevron-left"></i></a>
 						        		<button class="uk-button uk-modal-close" type="button">Schliessen</button>
