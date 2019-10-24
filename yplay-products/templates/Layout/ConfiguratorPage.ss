@@ -237,7 +237,7 @@
 					</div>
 				</div>
 			<% end_loop %>
-			<div  data-uk-scrollspy="target: > div;cls: uk-position-relative;">
+			<div  data-uk-scrollspy="target: > div;cls: uk-position-fixed uk-position-bottom uk-position-z-index;">
 				<div class="uk-position-fixed uk-position-bottom uk-position-z-index" >
 					<div class="uk-card uk-card-primary uk-box-shadow-medium uk-card-small">
 						<div class="uk-card-header">
