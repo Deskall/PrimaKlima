@@ -17,7 +17,7 @@
 							<div class="uk-card uk-card-default uk-margin-bottom">
 								<% if Image.exists %>
 								<div class="uk-card-media-top">
-									<img src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
+									<img data-src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
 									<% if Up.PaddedImages %>
 									$Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 									<% else %>
@@ -39,7 +39,6 @@
 						<% end_loop %>
 					</ul>
 				</div>
-				
 				<% if ShowNav %>
 				<div class="uk-hidden@l uk-light">
 					<a class="uk-position-center-left uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
@@ -64,7 +63,7 @@
 				<div class="uk-card uk-card-default uk-margin-bottom">
 					<% if Image.exists %>
 					<div class="uk-card-media-top">
-						<img src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
+						<img data-src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
 						<% if Up.PaddedImages %>
 						$Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 						<% else %>
@@ -94,7 +93,7 @@
 				<ul class="uk-slider-items $PicturesPerLine" data-uk-grid >
 					<% loop OrderedImages %>
 					<li class="uk-flex uk-flex-middle uk-flex-center">
-						<img src="
+						<img data-src="
 						<% if $getExtension == "svg" %> $URL <% else %> <% if Up.PaddedImages %> $FitMax($Up.PictureWidth,$Up.PictureHeight).URL <% else %> $FocusFill($Up.PictureWidth,$Up.PictureHeight).URL <% end_if %> <% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="<% if $getExtension == "svg" %>uk-slide-logo-svg<% else %>uk-slide-logo<% end_if %>  $Top.ImagePadding" data-uk-img>
 					</li>
 					<% end_loop %>
@@ -126,7 +125,7 @@
 
 					<% loop OrderedImages %>
 					<li class="uk-flex uk-flex-middle uk-flex-center">
-						<img src="
+						<img data-src="
 						<% if $getExtension == "svg" %>
 						$URL
 						<% else %>
@@ -144,7 +143,7 @@
 					<% loop OrderedImages %>
 					<li class="uk-flex uk-flex-middle uk-flex-center">
 						<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description">
-							<img src="
+							<img data-src="
 							<% if $getExtension == "svg" %>
 							$URL
 							<% else %>
@@ -182,7 +181,7 @@
 			<% if PaddedImages %>
 			<% loop OrderedImages %>
 			<div class="uk-flex uk-flex-middle uk-flex-center">
-				<img src="<% if $getExtension == "svg" %>$URL<% else %>
+				<img data-src="<% if $getExtension == "svg" %>$URL<% else %>
 				$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 				<% end_if %>
 				" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
@@ -191,7 +190,7 @@
 			<% else %>
 			<% loop OrderedImages %>
 			<div class="uk-flex uk-flex-middle uk-flex-center">
-				<img src="<% if $getExtension == "svg" %>$URL<% else %>
+				<img data-src="<% if $getExtension == "svg" %>$URL<% else %>
 				$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
 				<% end_if %>
 				" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
@@ -204,7 +203,7 @@
 			<% if PaddedImages %>
 				<% loop OrderedImages %>
 				<div class="uk-flex uk-flex-middle uk-flex-center">
-					<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img src="<% if $getExtension == "svg" %>$URL<% else %>
+					<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else %>
 						$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 						<% end_if %>
 						" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
@@ -214,7 +213,7 @@
 			<% else %>
 				<% loop OrderedImages %>
 				<div class="uk-flex uk-flex-middle uk-flex-center">
-					<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img src="<% if $getExtension == "svg" %>$URL<% else %>
+					<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else %>
 						$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
 						<% end_if %>
 						" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding" data-uk-img>
