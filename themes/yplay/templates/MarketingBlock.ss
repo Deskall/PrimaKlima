@@ -1,27 +1,28 @@
-<div class="countdown-container">
-	<div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
-	    <div>
-	        <div class="uk-countdown-number uk-countdown-days"></div>
-	        <div class="uk-countdown-label uk-margin-small uk-text-center">Tage</div>
-	    </div>
-	    <div class="uk-countdown-separator">:</div>
-	    <div>
-	        <div class="uk-countdown-number uk-countdown-hours"></div>
-	        <div class="uk-countdown-label uk-margin-small uk-text-center">Stunden</div>
-	    </div>
-	    <div class="uk-countdown-separator">:</div>
-	    <div>
-	        <div class="uk-countdown-number uk-countdown-minutes"></div>
-	        <div class="uk-countdown-label uk-margin-small uk-text-center">Minuten</div>
-	    </div>
-	    <div class="uk-countdown-separator">:</div>
-	    <div>
-	        <div class="uk-countdown-number uk-countdown-seconds"></div>
-	        <div class="uk-countdown-label uk-margin-small uk-text-center">Sekunden</div>
-	    </div>
-	</div>
-</div>
+
 <div <% if ContentImage %>class="uk-flex" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %>>
+	<div class="countdown-container">
+		<div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
+		    <div>
+		        <div class="uk-countdown-number uk-countdown-days"></div>
+		        <div class="uk-countdown-label uk-margin-small uk-text-center">Tage</div>
+		    </div>
+		    <div class="uk-countdown-separator">:</div>
+		    <div>
+		        <div class="uk-countdown-number uk-countdown-hours"></div>
+		        <div class="uk-countdown-label uk-margin-small uk-text-center">Stunden</div>
+		    </div>
+		    <div class="uk-countdown-separator">:</div>
+		    <div>
+		        <div class="uk-countdown-number uk-countdown-minutes"></div>
+		        <div class="uk-countdown-label uk-margin-small uk-text-center">Minuten</div>
+		    </div>
+		    <div class="uk-countdown-separator">:</div>
+		    <div>
+		        <div class="uk-countdown-number uk-countdown-seconds"></div>
+		        <div class="uk-countdown-label uk-margin-small uk-text-center">Sekunden</div>
+		    </div>
+		</div>
+	</div>
 	<% if ContentImage %>
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
