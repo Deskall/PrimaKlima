@@ -4,8 +4,8 @@
 	<section class="uk-section uk-section-medium">
 		<div class="uk-container uk-container-medium">
 			<h2><%t Configurator.Title 'Wählen Sie Ihr Paket' %></h2>
-			<div data-uk-grid>
-				<div class="uk-width-2-3@m uk-width-3-4@l">
+			<div class="uk-grid-small" data-uk-grid>
+				<div class="uk-width-2-3@m">
 					<% loop activeCategories %>
 					<div class="category uk-text-center $Code uk-margin-large">
 						<div class="uk-flex uk-flex-middle uk-flex-center"><img src="$Icon.URL" width="50" alt="$Icon.Alt"><h3 class="uk-margin-remove">$Title</h3></div>
