@@ -43,7 +43,7 @@
 							</div>
 						
 						<div class="not-included-input">
-							<input id="no-{$ID}" name="no-{$ID}" type="checkbox">
+							<input id="no-{$ID}" name="no-{$ID}" type="checkbox" class="uk-checkbox">
 							<label for="no-{$ID}"><%t Category.NotIncluded 'Keine {title} Angebot' title=$Title %></label>
 						</div>
 					</div>
