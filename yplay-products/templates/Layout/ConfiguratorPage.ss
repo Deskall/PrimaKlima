@@ -132,7 +132,7 @@
 					<div class="uk-card BlackBackground uk-card-hover uk-box-shadow-medium uk-card-small">
 						<div class="uk-card-body">
 							<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %> - CHF 45.- / Mt.</h3>
-							<div class="uk-flex uk-flex-middle uk-flex-between">
+							<div class="uk-flex uk-flex-middle uk-flex-around">
 								<span class="chosen-product yplay-tv">
 									Watch M
 								</span>
