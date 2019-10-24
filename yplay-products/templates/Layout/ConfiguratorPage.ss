@@ -13,7 +13,7 @@
 						$Description
 						
 						
-							<div data-uk-slider="center:true;index:1;">
+							<div class="uk-padding-small" data-uk-slider="center:true;index:1;">
 
 							    
 							    	<div class="uk-slider-container">
