@@ -20,7 +20,7 @@
 								        <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
 								            <% loop Products %>
 								            <li>
-								                <div class="uk-card uk-card-default uk-border-rounded">
+								                <div class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-box-shadow-small">
 								                    <div class="uk-card-media-top">
 								                        <img src="$Image.URL" alt="">
 								                    </div>
