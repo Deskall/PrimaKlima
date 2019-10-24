@@ -8,6 +8,11 @@ use SilverStripe\Subsites\State\SubsiteState;
 use SilverStripe\Assets\Folder;
 
 class ProductCategory extends DataObject {
+
+	private static $singular_name = "Kategorie";
+	private static $plural_name = "Kategorien";
+
+
 	private static $db = [
 	'Title' => 'Varchar',
 	'Subtitle' => 'Text',
@@ -72,5 +77,16 @@ class ProductCategory extends DataObject {
 		$fields->dataFieldByName('Icon')->setFolderName($this->getFolderName());
 
 		return $fields;
+	}
+
+	public function fieldLabels($includerelation = true){
+		$labels = parent::fieldLabels($includerelation);
+		$labels['Title'] = 'Kategoriename';
+		$labels['Subtitle'] = 'Untertitel';
+		$labels['Description'] = 'Beschreibung';
+		$labels['Products'] = 'Produkte';
+		$labels['Icon'] = 'Bild';
+		
+		return $labels;
 	}
 }
