@@ -129,12 +129,13 @@
 			</div>
 			<div class="uk-hidden@m">
 				<div class="uk-position-fixed uk-position-bottom uk-position-z-index">
-					<div class="uk-card BlackBackground uk-box-shadow-medium uk-card-small">
+					<div class="uk-card BlackBackground uk-box-shadow-medium uk-card-small" data-uk-accordion="targets:.uk-card-body;toggle:button">
 						<div class="uk-card-header">
 							<div class="uk-position-relative">
 								<strong class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %> - CHF 45.- / Mt.</strong>
 								<div class="uk-position-absolute uk-position-right">
-									<button type="button" data-uk-toggle="target: #my-id; animation: uk-animation-slide-up" data-uk-icon="chevron-up"></button>
+									<%-- <button type="button" data-uk-toggle="target: #my-id; animation: uk-animation-slide-up" data-uk-icon="chevron-up"></button> --%>
+									<button type="button"  data-uk-icon="chevron-up"></button>
 								</div>
 							</div>
 						<div id="my-id" class="uk-card-body" hidden>
