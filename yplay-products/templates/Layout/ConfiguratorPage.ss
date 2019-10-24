@@ -37,7 +37,9 @@
 								    <a  data-uk-slider-item="next"><i class="icon icon-chevron-right"></i></a>
 								</div>
 							</div>
-						
+						<div class="uk-margin-small">
+							<a data-uk-toggle>Mehr Erfahren</a>
+						</div>
 						<div class="not-included-input">
 							<input id="no-{$ID}" name="no-{$ID}" type="checkbox" class="uk-checkbox">
 							<label for="no-{$ID}"><%t Category.NotIncluded 'Keine {title} Angebot' title=$Title %></label>
