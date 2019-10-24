@@ -15,9 +15,9 @@
 						
 							<div data-uk-slider="center:true;index:1;">
 
-							    <div class="uk-position-relative" tabindex="-1">
+							    
 							    	<div class="uk-slider-container">
-								        <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
+								        <ul class="uk-slider-items uk-child-width-1-2@s uk-grid uk-grid-match">
 								            <% loop Products %>
 								            <li>
 								                <div class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-box-shadow-small">
@@ -33,11 +33,6 @@
 								            <% end_loop %>
 								        </ul>
 								    </div>
-
-							        <a class="uk-position-center-left-out uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-							        <a class="uk-position-center-right-out uk-position-small uk-hidden-hover" href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
-
-							    </div>
 
 							    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 							</div>
