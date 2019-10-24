@@ -53,7 +53,6 @@
 						        	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" alt="$Icon.Alt"><h2 class="uk-modal-title uk-margin-remove">$Title</h2></div>
 						        </div>
 						        <div class="uk-modal-body">
-					        	    <div class="uk-slider-container">
 					        		   <ul class="uk-slideshow-items uk-child-width-1-1 uk-grid-match">
 									        <li>
 									        	<div class="uk-child-width-1-2@s uk-grid-match" data-uk-grid>
@@ -96,7 +95,6 @@
 									        	</div>
 									        </li>
 									    </ul>
-									</div>
 								</div>
 						        <div class="uk-modal-footer">
 						        	<div class="uk-flex uk-flex-between">
