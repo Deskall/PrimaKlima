@@ -167,6 +167,10 @@ footer.uk-section{
 	.uk-card{
 		border-bottom:1px solid @global-color;
 	}
+	.uk-checkbox{
+		background-color:#fff;
+		border:1px solid #eee;
+	}
 	&.yplay-tv{
 		h3{
 			color:@tv;
@@ -185,6 +189,7 @@ footer.uk-section{
 		}
 		.uk-checkbox:checked, .uk-checkbox:indeterminate{
 			background-color: @tv;
+			border-color: lighten(@tv,50%);
 		}
 	}
 }
