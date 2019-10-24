@@ -8,7 +8,7 @@
 				<div class="uk-width-2-3@m uk-width-3-4@l">
 					<% loop activeCategories %>
 					<div class="category uk-text-center $Code uk-margin">
-						<h3><img src="$Icon.URL" width="50">$Title</h3>
+						<h3 class="uk-flex uk-flex-middle"><img src="$Icon.URL" width="50">$Title</h3>
 						
 						$Description
 						
