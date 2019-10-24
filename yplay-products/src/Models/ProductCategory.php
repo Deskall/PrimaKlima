@@ -11,7 +11,8 @@ class ProductCategory extends DataObject {
 	private static $db = [
 	'Title' => 'Varchar',
 	'Subtitle' => 'Text',
-	'Description' => 'HTMLText'
+	'Description' => 'HTMLText',
+	'Code' => 'Varchar'
 	];
 
 	private static $has_one = [
@@ -48,16 +49,18 @@ class ProductCategory extends DataObject {
 	        if ($this->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
 	            $oldFolderPath = "Uploads/Produkte/".URLSegmentFilter::create()->filter($changedFields['Title']['before']);
 	            $newFolder = Folder::find_or_make($oldFolderPath);
-	            $newFolder->Name = $changedFields['Title']['after'];
+	            $newFolder->Name = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
 	            $newFolder->Title = $changedFields['Title']['after'];
 	            $newFolder->write();
+	            $this->Code = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
 	        }
 	    }
 	    else{
 	    	$oldFolderPath = "Uploads/Produkte/tmp";
 	    	$newFolder = Folder::find_or_make($oldFolderPath);
-	    	$newFolder->Name = $this->Title;
+	    	$newFolder->Name = URLSegmentFilter::create()->filter($this->Title);
 	    	$newFolder->Title = $this->Title;
+	    	$this->Code = URLSegmentFilter::create()->filter($this->Title);
 	    	$newFolder->write();
 	    }
 
