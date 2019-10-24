@@ -185,6 +185,25 @@ footer.uk-section{
 		.category-fill(@mobile);
 	}
 }
+.category-modal{
+	.uk-modal-header,
+	.uk-modal-footer{
+		background-color:#fff;
+	}
+	&.yplay-tv{
+		.category-fill(@tv);
+	}
+	&.yplay-internet{
+		.category-fill(@internet);
+	}
+	&.yplay-telefonie{
+		.category-fill(@phone);
+	}
+	&.yplay-mobile{
+		.category-fill(@mobile);
+	}
+
+}
 .category-fill(@color){
 	h1,h2,h3,h4{
 		color:@color;
@@ -218,8 +237,5 @@ footer.uk-section{
 		background-color: @color;
 		border-color: lighten(@color,20%);
 	}
-	.uk-modal-header,
-	.uk-modal-footer{
-		background-color:#fff;
-	}
+	
 }

@@ -45,7 +45,7 @@
 							<label for="no-{$ID}"><%t Category.NotIncluded 'Keine {title} Angebot' title=$Title %></label>
 						</div>
 					</div>
-					<div id="modal-category-{$Code}" class="uk-modal-full" data-uk-modal>
+					<div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
 					    <div class="uk-modal-dialog">
 					        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
 					        <div class="uk-modal-header">
