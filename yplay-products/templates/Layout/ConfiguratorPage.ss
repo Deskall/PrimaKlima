@@ -128,7 +128,7 @@
 			</div> --%>
 			<% loop activeCategories %>
 				<div class="category uk-text-center $Code uk-margin-large">
-					<div class="uk-grid-small" data-uk-grid>
+					<div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
 						<div class="uk-width-1-1 uk-width-1-3@m uk-width-1-5@l">
 							<img src="$Icon.URL" width="50" alt="$Icon.Alt">
 							<h3 class="uk-margin-remove">$Title</h3>
