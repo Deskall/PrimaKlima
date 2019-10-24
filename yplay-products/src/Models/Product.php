@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBText;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class Product extends DataObject {
 	private static $db = [
