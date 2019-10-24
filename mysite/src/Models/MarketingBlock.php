@@ -12,7 +12,7 @@ class MarketingBlock extends TextBlock
 {
     private static $icon = 'font-icon-tags';
     
-    private static $controller_template = 'BlockHolder';
+    private static $controller_template = 'MarketingBlockHolder';
 
     private static $controller_class = BlockController::class;
 
