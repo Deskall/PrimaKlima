@@ -129,7 +129,7 @@
 			</div>
 			<div class="uk-hidden@m">
 				<div class="uk-position-fixed uk-position-bottom uk-position-z-index">
-					<div class="uk-card BlackBackground uk-card-hover uk-box-shadow-medium uk-card-small">
+					<div class="uk-card BlackBackground uk-box-shadow-medium uk-card-small">
 						<div class="uk-card-header">
 							<div class="uk-position-relative">
 								<strong class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %> - CHF 45.- / Mt.</strong>
