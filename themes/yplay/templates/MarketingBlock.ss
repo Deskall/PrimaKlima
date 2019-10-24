@@ -1,4 +1,3 @@
-<progress id="js-progressbar" class="uk-progress" value="$Actual" max="$Duration"></progress>
 <div class="uk-text-large">
 	<div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
 	    <div>
