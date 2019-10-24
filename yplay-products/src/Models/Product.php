@@ -11,7 +11,9 @@ class Product extends DataObject {
 	'RecurringPrice' => 'Boolean(1)',
 	'MonthlyPrice' => 'Currency',
 	'UniquePrice' => 'Currency',
+	'ActivationPrice' => 'Currency',
 	'UniquePriceLabel' => 'Varchar',
+	'ActivationPriceLabel' => 'Varchar',
 	'Unit' => 'Varchar',
 	
 	'Subtitle' => 'Text',
@@ -45,8 +47,10 @@ class Product extends DataObject {
 		$labels['Title'] = 'Name';
 		$labels['Subtitle'] = 'Untertitel';
 		$labels['Description'] = 'Beschreibung';
-		$labels['UniquePrice'] = ($this->RecurringPrice) ? 'Einmaliger Preis' : 'Preis';
+		$labels['UniquePrice'] = 'Einmaliger Preis';
 		$labels['UniquePriceLabel'] = 'Einmaliger Preis Erklärung';
+		$labels['ActivationPrice'] = 'Grundgebühr';
+		$labels['ActivationPriceLabel'] = 'Grundgebühr Preis Erklärung';
 		$labels['MonthlyPrice'] = 'Montalicher Preis';
 		$labels['Unit'] = 'Einheit';
 		$labels['RecurringPrice'] = 'Monatlicher Preis?';
