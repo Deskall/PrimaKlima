@@ -145,8 +145,8 @@
 								<span class="chosen-product yplay-mobile">
 									Talk S
 								</span>
-								<a href="/bestellen" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
 							</div>
+							<a href="/bestellen" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
 						</div>
 					</div>
 				</div>
