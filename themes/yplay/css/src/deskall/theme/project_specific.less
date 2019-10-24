@@ -186,7 +186,7 @@ footer.uk-section{
 	}
 }
 .category-fill(@color){
-	h3{
+	h1,h2,h3,h4{
 		color:@color;
 	}
 	a{
@@ -217,5 +217,9 @@ footer.uk-section{
 	.uk-checkbox:checked, .uk-checkbox:indeterminate{
 		background-color: @color;
 		border-color: lighten(@color,20%);
+	}
+	.uk-modal-header,
+	.uk-modal-footer{
+		background-color:#fff;
 	}
 }
