@@ -50,7 +50,7 @@
 					        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
 					        <div data-uk-slider>
 						        <div class="uk-modal-header">
-						        	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" alt="$Icon.Alt"><h2 class="uk-modal-title uk-margin-remove">$Title</h2></div>
+						        	<div class="uk-flex uk-flex-middle uk-margin-small-bottom"><img src="$Icon.URL" width="50" alt="$Icon.Alt"><h2 class="uk-modal-title uk-margin-remove">$Title</h2></div>
 						        </div>
 						        <div class="uk-modal-body" data-uk-overflow-auto>
 					        	    <div class="uk-slider-container">
@@ -98,7 +98,7 @@
 									    </ul>
 									</div>
 								</div>
-						        <div class="uk-modal-footer">
+						        <div class="uk-modal-footer uk-box-shadow-small">
 						        	<div class="uk-flex uk-flex-between">
 						        		<a data-uk-slider-item="previous"><i class="icon icon-chevron-left"></i></a>
 						        		<button class="uk-button uk-modal-close" type="button">Schliessen</button>
