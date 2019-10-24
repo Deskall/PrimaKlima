@@ -46,7 +46,7 @@
 						</div>
 					</div>
 					<div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
-					    <div class="uk-modal-dialog" data-uk-height-viewport>
+					    <div class="uk-modal-dialog">
 					        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
 					        <div data-uk-slider="finite:true;draggable:false;">
 						        <div class="uk-modal-header">
