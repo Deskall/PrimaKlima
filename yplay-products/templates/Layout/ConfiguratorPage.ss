@@ -154,7 +154,7 @@
 							</div>
 						</div>
 						<div class="uk-card-footer">
-							<a href="/bestellen" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
+							<a href="/bestellen" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
 						</div>
 					</div>
 				</div>
