@@ -80,7 +80,7 @@ class ProductCategory extends DataObject {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->removeByName($this->Code);
+		$fields->removeByName('Code');
 		$fields->dataFieldByName('Icon')->setFolderName($this->getFolderName());
 
 		return $fields;
