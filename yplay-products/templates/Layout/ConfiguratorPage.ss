@@ -42,7 +42,7 @@
 					<% end_loop %>
 				</div>
 				<div class="uk-width-expand">
-					<div data-uk-sticky>
+					<div data-uk-sticky="media:640">
 						<div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-small">
 							<div class="uk-card-header">
 								<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %></h3>
