@@ -69,8 +69,10 @@
 						        </div>
 					    	</div>
 					        <div class="uk-modal-footer">
-					        	<div class="uk-flex-right">
+					        	<div class="uk-flex uk-flex-between">
+					        		<a data-uk-slider-item="previous"><i class="icon icon-chevron-left"></i></a>
 					        		<button class="uk-button uk-modal-close" type="button">Schliessen</button>
+					        		<a data-uk-slider-item="next"><i class="icon icon-chevron-right"></i></a>
 					        	</div>
 					        </div>
 					    </div>
