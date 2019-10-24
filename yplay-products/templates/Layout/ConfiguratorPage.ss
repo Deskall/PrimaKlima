@@ -20,7 +20,7 @@
 								        <ul class="uk-slider-items uk-child-width-1-2 uk-grid-match uk-transition-toggle">
 								            <% loop Products %>
 								            <li>
-								                <div class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-box-shadow-medium uk-card-small">
+								                <div class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-box-shadow-medium uk-card-small uk-transition-scale-up">
 								                    <div class="uk-card-body">
 								                        <h3 class="uk-card-title">$Title</h3>
 								                        <div class="price">$PrintPriceString</div>
