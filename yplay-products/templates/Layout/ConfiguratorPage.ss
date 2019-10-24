@@ -51,7 +51,7 @@
 					        <div class="uk-modal-header">
 					            <h2 class="uk-modal-title">$Title</h2>
 					        </div>
-					        <div class="uk-modal-body">
+					        <div class="uk-modal-body" data-uk-overflow-auto>
 						        <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle uk-grid-match" data-uk-grid>
 						            <div class="uk-background-cover uk-height-1-1" style="background-image: url('$ThemeDir/img/thomas-q-_fQ6zg_McEU-unsplash.jpg');"></div>
 						            <div class="uk-padding-large">
@@ -64,7 +64,9 @@
 						            </div>
 						        </div>
 					    	</div>
-					        <div class="uk-modal-footer"></div>
+					        <div class="uk-modal-footer">
+					        	<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+					        </div>
 					    </div>
 					</div>
 					<% end_loop %>
