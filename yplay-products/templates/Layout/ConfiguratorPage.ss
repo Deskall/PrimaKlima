@@ -53,9 +53,9 @@
 						        <div class="uk-modal-header">
 						        	<div class="uk-flex uk-flex-middle uk-margin-small-bottom"><img src="$Icon.URL" width="50" class="uk-margin-small-right" alt="$Icon.Description"><h2 class="uk-modal-title uk-margin-remove">$Title</h2></div>
 						        </div>
-						        <div class="uk-modal-body uk-padding-remove-vertical">
+						        <div class="uk-modal-body uk-padding-remove-vertical"  data-uk-height-viewport="offset-top:true;offset-bottom:true;">
 					        	    <div class="uk-slider-container">
-					        		   <ul class="uk-slider-items uk-child-width-1-1 uk-grid-match" data-uk-height-viewport="offset-top:true;offset-bottom:true;">
+					        		   <ul class="uk-slider-items uk-child-width-1-1 uk-grid-match">
 									        <li>
 									        	<div class="uk-child-width-1-2@s uk-grid-match" data-uk-grid>
 								        		<div class="uk-hidden@m">
