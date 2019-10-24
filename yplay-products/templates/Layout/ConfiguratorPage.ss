@@ -55,7 +55,7 @@
 						        </div>
 						        <div class="uk-modal-body uk-padding-remove-vertical">
 					        	    <div class="uk-slider-container">
-					        		   <ul class="uk-slider-items uk-child-width-1-1 uk-grid-match" data-uk-height-viewport="offset-top:true;offset-bottom:70;">
+					        		   <ul class="uk-slider-items uk-child-width-1-1 uk-grid-match" data-uk-height-viewport="offset-top:true;">
 									        <li>
 									        	<div class="uk-child-width-1-2@s uk-grid-match" data-uk-grid>
 								        		<div class="uk-hidden@m">
