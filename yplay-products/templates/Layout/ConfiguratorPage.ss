@@ -137,6 +137,7 @@
 									<button type="button" data-uk-toggle="target: #my-id; animation: uk-animation-slide-up" data-uk-icon="chevron-up"></button>
 								</div>
 							</div>
+						</div>
 						<div id="my-id" class="uk-card-body" hidden>
 							<div class="uk-flex uk-flex-middle uk-flex-around">
 								<span class="chosen-product yplay-tv">
