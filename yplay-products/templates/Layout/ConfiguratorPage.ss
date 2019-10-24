@@ -4,7 +4,7 @@
 	<section class="uk-section uk-section-medium">
 		<div class="uk-container uk-container-medium">
 			<h2><%t Configurator.Title 'Wählen Sie Ihr Paket' %></h2>
-			<%-- <div class="uk-grid-small" data-uk-grid>
+			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
 					<% loop activeCategories %>
 					<div class="category uk-text-center $Code uk-margin-large">
@@ -125,8 +125,8 @@
 						</div>
 					</div>
 				</div>
-			</div> --%>
-			<% loop activeCategories %>
+			</div>
+			<%-- <% loop activeCategories %>
 				<div class="category uk-text-center $Code uk-margin-large">
 					<div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
 						<div class="uk-width-1-1 uk-width-1-3@m uk-width-1-5@l">
@@ -251,6 +251,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --%>
 		</div>
 	</section>
