@@ -578,6 +578,10 @@ class SiteConfigLayoutExtension extends DataExtension
     return $this->owner->Slides()->filter('isVisible',1)->sort('RAND()');
   }
 
+  public function activeSlides(){
+    return $this->owner->Slides()->filter('isVisible',1);
+  }
+
 /************* TRANLSATIONS *******************/
     public function provideI18nEntities(){
         $entities = [];
