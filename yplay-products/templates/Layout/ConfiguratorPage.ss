@@ -69,7 +69,9 @@
 						        </div>
 					    	</div>
 					        <div class="uk-modal-footer">
-					        	<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+					        	<div class="uk-flex-right">
+					        		<button class="uk-button uk-modal-close" type="button">Schliessen</button>
+					        	</div>
 					        </div>
 					    </div>
 					</div>
