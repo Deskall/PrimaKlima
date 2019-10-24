@@ -129,14 +129,11 @@
 			<div class="uk-hidden@m">
 				<div class="uk-position-fixed uk-position-bottom uk-position-z-index">
 					<div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-small">
-						<div class="uk-card-header">
-							<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %></h3>
-						</div>
 						<div class="uk-card-body">
-							<p>Aenean vel tempor sapien, sit amet interdum erat. Pellentesque congue at ipsum ut condimentum.</p>
-						</div>
-						<div class="uk-card-footer">
-							<a href="/bestellen" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
+							<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %> - CHF 45.- / Mt.</h3>
+							<div class="uk-flex uk-flex-between">
+								<a href="/bestellen" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
+							</div>
 						</div>
 					</div>
 				</div>
