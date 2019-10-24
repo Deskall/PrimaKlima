@@ -48,7 +48,7 @@
 					<div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
 					    <div class="uk-modal-dialog">
 					        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-					        <div data-uk-slider>
+					        <div data-uk-slider="animation:fade;">
 						        <div class="uk-modal-header">
 						        	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" alt="$Icon.Alt"><h2 class="uk-modal-title uk-margin-remove">$Title</h2></div>
 						        </div>
