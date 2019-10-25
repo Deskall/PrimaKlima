@@ -225,7 +225,7 @@
 				</div>
 				<div class="uk-width-expand uk-visible@m">
 					<div data-uk-sticky="media:@m">
-						<div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-small">
+						<div class="uk-card WhiteBackground uk-card-hover uk-box-shadow-medium uk-card-small">
 							<div class="uk-card-header">
 								<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %></h3>
 							</div>
