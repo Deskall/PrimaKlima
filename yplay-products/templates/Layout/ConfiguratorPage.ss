@@ -137,12 +137,12 @@
 						            		    	</tr>
 						            		    </table>
 						            		    <div class="uk-margin uk-transition-fade">
-						            		    	<a class="uk-button BlackBackground" href="#">Bestellen</a>
+						            		    	<a class="uk-button BlackBackground" href="/bestellen">Bestellen</a>
 						            		    </div>
 						            		</div>
 						            	</div>
 						            	<div>
-						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body">
+						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">
 						            		    <div class="uk-card-badge uk-label BlackBackground uk-padding-small">Bestseller</div>
 						            		    <h3 class="uk-card-title">Abo M</h3>
 						            		    <strong>CHF 65.- / Mt.</strong>
@@ -160,10 +160,13 @@
 						            		    		<td>Flatrate CH<br>Flatrate Europa</td>
 						            		    	</tr>
 						            		    </table>
+						            		    <div class="uk-margin uk-transition-fade">
+						            		    	<a class="uk-button BlackBackground" href="/bestellen">Bestellen</a>
+						            		    </div>
 						            		</div>
 						            	</div>
 						            	<div>
-						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body">
+						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">
 						            		    <h3 class="uk-card-title">Abo L</h3>
 						            		    <strong>CHF 85.- / Mt.</strong>
 						            		   	<table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
@@ -180,6 +183,9 @@
 						            		    		<td>Flatrate CH<br>Flatrate Europa</td>
 						            		    	</tr>
 						            		    </table>
+						            		    <div class="uk-margin uk-transition-fade">
+						            		    	<a class="uk-button BlackBackground" href="/bestellen">Bestellen</a>
+						            		    </div>
 						            		</div>
 						            	</div>
 						            </div>
