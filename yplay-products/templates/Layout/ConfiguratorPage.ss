@@ -283,19 +283,37 @@
 							</div>
 						</div>
 						<div id="my-id" class="uk-card-body" hidden>
-							<div class="uk-flex uk-flex-middle uk-flex-around">
-								<span class="chosen-product yplay-tv">
-									Watch M
-								</span>
-								<span class="chosen-product yplay-internet">
-									Surf M
-								</span>
-								<span class="chosen-product yplay-telefonie">
-									Talk S
-								</span>
-								<span class="chosen-product yplay-mobile">
-									Talk S
-								</span>
+							<strong class="uk-text-small">Monatliche Kosten</strong>
+							<table class="uk-table uk-table-small uk-table-striped">
+								<tbody>
+									<tr><td class="uk-table-expand">Surf M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
+									<tr><td class="uk-table-expand">Watch M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
+									<tr><td class="uk-table-expand">Talk S</td><td class="uk-text-right">CHF 15.- / Mt</td></tr>
+								</tbody>
+								<tfoot>
+									<tr><td class="uk-table-expand">Total (monatlich)</td><td class="uk-text-right uk-text-lead uk-strong">CHF 65.- / Mt</td></tr>
+								</tfoot>
+							</table>
+							<strong class="uk-text-small">Einmalige Kosten</strong>
+							<table class="uk-table uk-table-small uk-table-striped">
+								<tbody>
+									<tr><td class="uk-table-expand">Aktivierungsgebühr</td><td class="uk-text-right">CHF 40.-</td></tr>
+								</tbody>
+								<tfoot>
+									<tr><td class="uk-table-expand">Total (einmalig)</td><td class="uk-text-right uk-text-lead uk-strong">CHF 40.-</td></tr>
+								</tfoot>
+							</table>
+							<div class="uk-margin-small">
+								<a data-uk-toggle="#modal-conditions" data-uk-icon="chevron-right">Konditionen</a>
+							</div>
+							<div class="uk-margin-small">
+								<div class="uk-flex uk-flex-middle">
+									<img src="$ThemeDir/img/gift-solid.svg" class="uk-margin-small-right" width="50">
+									<div>
+										<strong>Aktion</strong><br>
+										<small>3 Monate 1/2 Preis</small>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="uk-card-footer">
