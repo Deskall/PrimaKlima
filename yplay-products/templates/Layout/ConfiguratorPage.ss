@@ -273,7 +273,7 @@
 					<div class="uk-card uk-box-shadow-medium uk-card-small">
 						<div class="uk-card-header BlackBackground">
 							<div class="uk-position-relative">
-								<strong class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %> - CHF 45.- / Mt.</strong>
+								<strong class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %> - CHF 65.- / Mt.</strong>
 								<div class="uk-position-absolute uk-position-right">
 									<button type="button" data-uk-toggle="target: #my-id; animation: uk-animation-slide-up" data-uk-icon="chevron-up"></button>
 								</div>
