@@ -121,7 +121,7 @@
 						            	<div>
 						            		<div class="uk-card uk-card-default uk-card-body">
 						            		    <h3 class="uk-card-title">Abo S</h3>
-						            		    <table class="uk-table">
+						            		    <table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
 						            		    	<tr>
 						            		    		<td><strong>Internet</strong></td>
 						            		    		<td>1Gb/s Download<br><small>100 Mo/s Upload</small></td>
@@ -141,7 +141,7 @@
 						            		<div class="uk-card uk-card-default uk-card-body">
 						            		    <div class="uk-card-badge uk-label">Bestseller</div>
 						            		    <h3 class="uk-card-title">Abo M</h3>
-						            		    <table class="uk-table">
+						            		    <table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
 						            		    	<tr>
 						            		    		<td><strong>Internet</strong></td>
 						            		    		<td>1Gb/s Download<br><small>100 Mo/s Upload</small></td>
@@ -160,7 +160,7 @@
 						            	<div>
 						            		<div class="uk-card uk-card-default uk-card-body">
 						            		    <h3 class="uk-card-title">Abo L</h3>
-						            		   	<table class="uk-table">
+						            		   	<table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
 						            		    	<tr>
 						            		    		<td><strong>Internet</strong></td>
 						            		    		<td>1Gb/s Download<br><small>100 Mo/s Upload</small></td>
