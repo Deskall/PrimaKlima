@@ -121,53 +121,59 @@
 						            	<div>
 						            		<div class="uk-card uk-card-default uk-card-body">
 						            		    <h3 class="uk-card-title">Abo S</h3>
-						            		    <div class="uk-flex uk-flex-between uk-flex-middle">
-						            		    	<strong>Internet</strong>
-						            		    	<p>1Gb/s Download<br>100 Mo/s Upload</p>
-						            		    </div>
-						            		    <div class="uk-flex uk-flex-between uk-flex-middle">
-						            		    	<strong>TV</strong>
-						            		    	<p>140 Sender<br>Replay TV</p>
-						            		    </div>
-						            		    <div class="uk-flex uk-flex-between uk-flex-middle">
-						            		    	<strong>Telefonie</strong>
-						            		    	<p>Flatrate CH<br>Flatrate Europa</p>
-						            		    </div>
+						            		    <table class="uk-table">
+						            		    	<tr>
+						            		    		<td><strong>Internet</strong></td>
+						            		    		<td>1Gb/s Download<br><small>100 Mo/s Upload</small></td>
+						            		    	</tr>
+						            		    	<tr>
+						            		    		<td><strong>TV</strong></td>
+						            		    		<td>140 Sender<br>Replay TV</td>
+						            		    	</tr>
+						            		    	<tr>
+						            		    		<td><strong>Telefonie</strong></td>
+						            		    		<td>Flatrate CH<br>Flatrate Europa</td>
+						            		    	</tr>
+						            		    </table>
 						            		</div>
 						            	</div>
 						            	<div>
 						            		<div class="uk-card uk-card-default uk-card-body">
 						            		    <div class="uk-card-badge uk-label">Bestseller</div>
 						            		    <h3 class="uk-card-title">Abo M</h3>
-						            		    <div class="uk-flex uk-flex-between uk-flex-middle">
-						            		    	<strong>Internet</strong>
-						            		    	<p>1Gb/s Download<br>100 Mo/s Upload</p>
-						            		    </div>
-						            		    <div class="uk-flex uk-flex-between uk-flex-middle">
-						            		    	<strong>TV</strong>
-						            		    	<p>140 Sender<br>Replay TV</p>
-						            		    </div>
-						            		    <div class="uk-flex uk-flex-between uk-flex-middle">
-						            		    	<strong>Telefonie</strong>
-						            		    	<p>Flatrate CH<br>Flatrate Europa</p>
-						            		    </div>
+						            		    <table class="uk-table">
+						            		    	<tr>
+						            		    		<td><strong>Internet</strong></td>
+						            		    		<td>1Gb/s Download<br><small>100 Mo/s Upload</small></td>
+						            		    	</tr>
+						            		    	<tr>
+						            		    		<td><strong>TV</strong></td>
+						            		    		<td>140 Sender<br>Replay TV</td>
+						            		    	</tr>
+						            		    	<tr>
+						            		    		<td><strong>Telefonie</strong></td>
+						            		    		<td>Flatrate CH<br>Flatrate Europa</td>
+						            		    	</tr>
+						            		    </table>
 						            		</div>
 						            	</div>
 						            	<div>
 						            		<div class="uk-card uk-card-default uk-card-body">
 						            		    <h3 class="uk-card-title">Abo L</h3>
-						            		    <div class="uk-flex uk-flex-between uk-flex-middle">
-						            		    	<strong>Internet</strong>
-						            		    	<p>1Gb/s Download<br>100 Mo/s Upload</p>
-						            		    </div>
-						            		    <div class="uk-flex uk-flex-between uk-flex-middle">
-						            		    	<strong>TV</strong>
-						            		    	<p>140 Sender<br>Replay TV</p>
-						            		    </div>
-						            		    <div class="uk-flex uk-flex-between uk-flex-middle">
-						            		    	<strong>Telefonie</strong>
-						            		    	<p>Flatrate CH<br>Flatrate Europa</p>
-						            		    </div>
+						            		   	<table class="uk-table">
+						            		    	<tr>
+						            		    		<td><strong>Internet</strong></td>
+						            		    		<td>1Gb/s Download<br><small>100 Mo/s Upload</small></td>
+						            		    	</tr>
+						            		    	<tr>
+						            		    		<td><strong>TV</strong></td>
+						            		    		<td>140 Sender<br>Replay TV</td>
+						            		    	</tr>
+						            		    	<tr>
+						            		    		<td><strong>Telefonie</strong></td>
+						            		    		<td>Flatrate CH<br>Flatrate Europa</td>
+						            		    	</tr>
+						            		    </table>
 						            		</div>
 						            	</div>
 						            </div>
