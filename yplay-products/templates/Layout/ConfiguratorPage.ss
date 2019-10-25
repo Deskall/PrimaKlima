@@ -112,7 +112,7 @@
 					</div>
 					<% end_loop %>
 					<div class="uk-margin">
-						<ul class="WhiteBackground" data-uk-accordion>
+						<ul class="WhiteBackground uk-padding-small" data-uk-accordion>
 						    <li class="uk-open">
 						        <a class="uk-accordion-title" href="#">Item 1</a>
 						        <div class="uk-accordion-content">
