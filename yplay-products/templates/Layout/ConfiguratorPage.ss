@@ -239,7 +239,16 @@
 										<tr><td class="uk-table-expand">Talk S</td><td class="uk-text-right">CHF 15.- / Mt</td></tr>
 									</tbody>
 									<tfoot>
-										<tr><td class="uk-table-expand">Total (monatlich)</td><td class="uk-text-right uk-text-large uk-strong">CHF 65.- / Mt</td></tr>
+										<tr><td class="uk-table-expand">Total (monatlich)</td><td class="uk-text-right uk-text-lead uk-strong">CHF 65.- / Mt</td></tr>
+									</tfoot>
+								</table>
+								<strong class="uk-text-small">Einmalige Kosten</strong>
+								<table class="uk-table uk-table-small uk-table-striped">
+									<tbody>
+										<tr><td class="uk-table-expand">Aktivierungsgebühr</td><td class="uk-text-right">CHF 40.-</td></tr>
+									</tbody>
+									<tfoot>
+										<tr><td class="uk-table-expand">Total (einmalig)</td><td class="uk-text-right uk-text-lead uk-strong">CHF 40.-</td></tr>
 									</tfoot>
 								</table>
 							</div>
