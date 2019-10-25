@@ -233,7 +233,7 @@
 								<p>Aenean vel tempor sapien, sit amet interdum erat. Pellentesque congue at ipsum ut condimentum.</p>
 							</div>
 							<div class="uk-card-footer">
-								<a href="/bestellen" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
+								<a href="/bestellen" class="uk-button BlackBackground"><%t Configurator.Order 'Bestellen' %></a>
 							</div>
 						</div>
 					</div>
