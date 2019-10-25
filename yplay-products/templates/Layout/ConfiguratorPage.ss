@@ -251,6 +251,18 @@
 										<tr><td class="uk-table-expand">Total (einmalig)</td><td class="uk-text-right uk-text-lead uk-strong">CHF 40.-</td></tr>
 									</tfoot>
 								</table>
+								<div class="uk-margin-small">
+									<a data-uk-toggle="#modal-conditions">Konditionen</a>
+								</div>
+								<div class="uk-margin-small">
+									<div class="uk-flex uk-flex-middle">
+										<img src="$ThemeDir/img/gift-solid.svg" width="50">
+										<div>
+											<strong>Aktion</strong>
+											<small>3 Monate 1/2 Preis</small>
+										</div>
+									</div>
+								</div>
 							</div>
 							<div class="uk-card-footer">
 								<a href="/bestellen" class="uk-button BlackBackground"><%t Configurator.Order 'Bestellen' %></a>
@@ -420,3 +432,13 @@
 			</div> --%>
 		</div>
 	</section>
+
+	<div id="modal-conditions" data-uk-modal>
+	    <div class="uk-modal-dialog uk-modal-body">
+	        <h2 class="uk-modal-title">Konditionen</h2>
+	        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	        <p class="uk-text-right">
+	            <button class="uk-button BlackBackground" type="button">Schliessen</button>
+	        </p>
+	    </div>
+	</div>
