@@ -5,7 +5,7 @@
 </div>
 	<section class="uk-section uk-section-medium" style="background-color:#eee;">
 		<div class="uk-container uk-container-medium">
-			<h2><%t Configurator.Title 'Wählen Sie Ihr Paket' %></h2>
+			<h2><%t Configurator.Title 'Wählen Sie Bestellübersicht' %></h2>
 			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
 					<% loop activeCategories %>
@@ -227,10 +227,16 @@
 					<div data-uk-sticky="media:@m">
 						<div class="uk-card WhiteBackground uk-card-hover uk-box-shadow-medium uk-card-small">
 							<div class="uk-card-header">
-								<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %></h3>
+								<h3 class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %></h3>
+								<strong>Abobezeichnung</strong>
 							</div>
 							<div class="uk-card-body">
-								<p>Aenean vel tempor sapien, sit amet interdum erat. Pellentesque congue at ipsum ut condimentum.</p>
+								<strong class="uk-text-small">Monatliche Kosten</strong>
+								<table class="uk-table uk-table-small uk-table-striped">
+									<tr><td class="uk-table-expand">Surf M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
+									<tr><td class="uk-table-expand">Watch M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
+									<tr><td class="uk-table-expand">Talk S</td><td class="uk-text-right">CHF 15.- / Mt</td></tr>
+								</table>
 							</div>
 							<div class="uk-card-footer">
 								<a href="/bestellen" class="uk-button BlackBackground"><%t Configurator.Order 'Bestellen' %></a>
@@ -244,7 +250,7 @@
 					<div class="uk-card BlackBackground uk-box-shadow-medium uk-card-small">
 						<div class="uk-card-header">
 							<div class="uk-position-relative">
-								<strong class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %> - CHF 45.- / Mt.</strong>
+								<strong class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %> - CHF 45.- / Mt.</strong>
 								<div class="uk-position-absolute uk-position-right">
 									<button type="button" data-uk-toggle="target: #my-id; animation: uk-animation-slide-up" data-uk-icon="chevron-up"></button>
 								</div>
@@ -387,7 +393,7 @@
 				<div class="uk-position-fixed uk-position-bottom uk-position-z-index" >
 					<div class="uk-card uk-card-primary uk-box-shadow-medium uk-card-small">
 						<div class="uk-card-header">
-							<h3 class="uk-card-title"><%t Configurator.AboLabel 'Ihr Abo' %></h3>
+							<h3 class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %></h3>
 						</div>
 						<div class="uk-card-body">
 							<p>Aenean vel tempor sapien, sit amet interdum erat. Pellentesque congue at ipsum ut condimentum.</p>
