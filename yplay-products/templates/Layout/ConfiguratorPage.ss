@@ -139,7 +139,7 @@
 						            	</div>
 						            	<div>
 						            		<div class="uk-card uk-card-default uk-card-body">
-						            		    <div class="uk-card-badge uk-label uk-label-primary">Bestseller</div>
+						            		    <div class="uk-card-badge uk-label BlackBackground uk-padding-small">Bestseller</div>
 						            		    <h3 class="uk-card-title">Abo M</h3>
 						            		    <table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
 						            		    	<tr>
