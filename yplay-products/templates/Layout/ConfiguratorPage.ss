@@ -6,7 +6,7 @@
 				<div class="uk-width-2-3@m">
 					<% loop activeCategories %>
 					<div class="category uk-text-center $Code uk-margin-large">
-						<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" alt="$Icon.Alt"><h3 class="uk-margin-remove">$Title</h3></div>
+						<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" class="uk-margin-small-right" alt="$Icon.Alt"><h3 class="uk-margin-remove">$Title</h3></div>
 						
 						$Description
 						
