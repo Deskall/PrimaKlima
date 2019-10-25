@@ -37,7 +37,7 @@
 								</div>
 							</div>
 						<div class="uk-margin-small">
-							<a data-uk-toggle="#modal-category-{$Code}">Mehr Erfahren</a>
+							<a data-uk-toggle="#modal-category-{$Code}">Mehr erfahren</a>
 						</div>
 						<div class="not-included-input">
 							<input id="no-{$ID}" name="no-{$ID}" type="checkbox" class="uk-checkbox">
@@ -313,7 +313,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="uk-card-footer">
+						<div class="uk-card-footer BlackBackground">
 							<a href="/bestellen" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
 						</div>
 					</div>
@@ -350,7 +350,7 @@
 									</div>
 								</div>
 							<div class="uk-margin-small">
-								<a data-uk-toggle="#modal-category-{$Code}">Mehr Erfahren</a>
+								<a data-uk-toggle="#modal-category-{$Code}">Mehr erfahren</a>
 							</div>
 							<div class="not-included-input">
 								<input id="no-{$ID}" name="no-{$ID}" type="checkbox" class="uk-checkbox">
