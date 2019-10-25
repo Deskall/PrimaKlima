@@ -117,6 +117,26 @@
 						        <a class="uk-accordion-title">Weitere Angebote</a>
 						        <div class="uk-accordion-content">
 						            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						            <div class="uk-grid-small uk-grid-match" data-uk-grid>
+						            	<div>
+						            		<div class="uk-card uk-card-default uk-card-body">
+						            		    <div class="uk-card-badge uk-label">Badge</div>
+						            		    <h3 class="uk-card-title">Abo S</h3>
+						            		</div>
+						            	</div>
+						            	<div>
+						            		<div class="uk-card uk-card-default uk-card-body">
+						            		    <div class="uk-card-badge uk-label">Badge</div>
+						            		    <h3 class="uk-card-title">Abo S</h3>
+						            		</div>
+						            	</div>
+						            	<div>
+						            		<div class="uk-card uk-card-default uk-card-body">
+						            		    <div class="uk-card-badge uk-label">Badge</div>
+						            		    <h3 class="uk-card-title">Abo S</h3>
+						            		</div>
+						            	</div>
+						            </div>
 						        </div>
 						    </li>
 						    <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin">
