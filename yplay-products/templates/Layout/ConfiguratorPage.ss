@@ -273,8 +273,8 @@
 			</div>
 			<div class="uk-hidden@m">
 				<div class="uk-position-fixed uk-position-bottom uk-position-z-index">
-					<div class="uk-card BlackBackground uk-box-shadow-medium uk-card-small">
-						<div class="uk-card-header">
+					<div class="uk-card uk-box-shadow-medium uk-card-small">
+						<div class="uk-card-header BlackBackground">
 							<div class="uk-position-relative">
 								<strong class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %> - CHF 45.- / Mt.</strong>
 								<div class="uk-position-absolute uk-position-right">
