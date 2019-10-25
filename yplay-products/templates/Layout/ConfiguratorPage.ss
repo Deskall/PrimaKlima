@@ -119,7 +119,7 @@
 						            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 						            <div class="uk-grid-small uk-grid-match uk-child-width-auto" data-uk-grid>
 						            	<div>
-						            		<div class="uk-card uk-card-default uk-card-body">
+						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body">
 						            		    <h3 class="uk-card-title">Abo S</h3>
 						            		    <strong>CHF 45.- / Mt.</strong>
 						            		    <table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
@@ -139,7 +139,7 @@
 						            		</div>
 						            	</div>
 						            	<div>
-						            		<div class="uk-card uk-card-default uk-card-body">
+						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body">
 						            		    <div class="uk-card-badge uk-label BlackBackground uk-padding-small">Bestseller</div>
 						            		    <h3 class="uk-card-title">Abo M</h3>
 						            		    <strong>CHF 65.- / Mt.</strong>
@@ -160,7 +160,7 @@
 						            		</div>
 						            	</div>
 						            	<div>
-						            		<div class="uk-card uk-card-default uk-card-body">
+						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body">
 						            		    <h3 class="uk-card-title">Abo L</h3>
 						            		    <strong>CHF 85.- / Mt.</strong>
 						            		   	<table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
