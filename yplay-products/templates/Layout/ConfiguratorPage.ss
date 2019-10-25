@@ -1,11 +1,7 @@
-<div class="uk-container uk-container-medium">
-	<div class="uk-padding">
-		<h1>$Title</h1>
-	</div>
-</div>
+
 	<section class="uk-section uk-section-medium" style="background-color:#eee;">
 		<div class="uk-container uk-container-medium">
-			<h2><%t Configurator.Title 'Wählen Sie Bestellübersicht' %></h2>
+			<h1>$Title</h1>
 			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
 					<% loop activeCategories %>
