@@ -70,7 +70,7 @@
 		
 				
 	</div>
-	<div class="uk-navbar-dropbar uk-box-shadow-medium"></div>
+	<div class="uk-navbar-dropbar"></div>
 
 	<div id="modal-nav-mobile" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
 	    <div class="uk-modal-dialog">

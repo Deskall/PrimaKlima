@@ -4,7 +4,7 @@
 		<% loop Menu %>
 		<li class="$LinkingMode $ExtraMenuClass <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
 			<% if MenuSections.exists %>
-			<div class="uk-navbar-dropdown uk-width-1-1">
+			<div class="uk-navbar-dropdown uk-box-shadow-medium uk-width-1-1">
 				<div class="uk-navbar-dropdown-grid uk-child-width-1-{$MenuSections.count}" data-uk-grid>
 				<% loop MenuSections %>
 				<div>
