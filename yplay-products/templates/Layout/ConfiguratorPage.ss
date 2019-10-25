@@ -1,9 +1,8 @@
-
-
-	
-	<section class="uk-section uk-section-medium">
+<div class="uk-container uk-container-medium">
+	<h1>$Title</h1>
+</div>
+	<section class="uk-section uk-section-medium uk-background-muted">
 		<div class="uk-container uk-container-medium">
-			<h1>$Title</h1>
 			<h2><%t Configurator.Title 'Wählen Sie Ihr Paket' %></h2>
 			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
@@ -111,7 +110,7 @@
 					</div>
 					<% end_loop %>
 					<div class="uk-margin">
-						<ul data-uk-accordion>
+						<ul class="WhiteBackground" data-uk-accordion>
 						    <li class="uk-open">
 						        <a class="uk-accordion-title" href="#">Item 1</a>
 						        <div class="uk-accordion-content">
