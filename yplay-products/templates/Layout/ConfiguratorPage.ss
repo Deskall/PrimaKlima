@@ -252,7 +252,7 @@
 									</tfoot>
 								</table>
 								<div class="uk-margin-small">
-									<a data-uk-toggle="#modal-conditions">Konditionen</a>
+									<a data-uk-toggle="#modal-conditions" data-uk-icon="chevron-right">Konditionen</a>
 								</div>
 								<div class="uk-margin-small">
 									<div class="uk-flex uk-flex-middle">
