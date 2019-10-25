@@ -119,7 +119,7 @@
 						            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 						            <div class="uk-grid-small uk-grid-match uk-child-width-auto" data-uk-grid>
 						            	<div>
-						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body">
+						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">
 						            		    <h3 class="uk-card-title">Abo S</h3>
 						            		    <strong>CHF 45.- / Mt.</strong>
 						            		    <table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
@@ -136,6 +136,9 @@
 						            		    		<td>Flatrate CH<br>Flatrate Europa</td>
 						            		    	</tr>
 						            		    </table>
+						            		    <div class="uk-margin uk-transition-fade">
+						            		    	<a class="uk-button BlackBackground" href="#">Bestellen</a>
+						            		    </div>
 						            		</div>
 						            	</div>
 						            	<div>
