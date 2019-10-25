@@ -120,20 +120,18 @@
 						            <div class="uk-grid-small uk-grid-match" data-uk-grid>
 						            	<div>
 						            		<div class="uk-card uk-card-default uk-card-body">
-						            		    <div class="uk-card-badge uk-label">Badge</div>
 						            		    <h3 class="uk-card-title">Abo S</h3>
 						            		</div>
 						            	</div>
 						            	<div>
 						            		<div class="uk-card uk-card-default uk-card-body">
-						            		    <div class="uk-card-badge uk-label">Badge</div>
-						            		    <h3 class="uk-card-title">Abo S</h3>
+						            		    <div class="uk-card-badge uk-label">Bestseller</div>
+						            		    <h3 class="uk-card-title">Abo M</h3>
 						            		</div>
 						            	</div>
 						            	<div>
 						            		<div class="uk-card uk-card-default uk-card-body">
-						            		    <div class="uk-card-badge uk-label">Badge</div>
-						            		    <h3 class="uk-card-title">Abo S</h3>
+						            		    <h3 class="uk-card-title">Abo L</h3>
 						            		</div>
 						            	</div>
 						            </div>
