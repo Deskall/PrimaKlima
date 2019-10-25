@@ -233,9 +233,14 @@
 							<div class="uk-card-body">
 								<strong class="uk-text-small">Monatliche Kosten</strong>
 								<table class="uk-table uk-table-small uk-table-striped">
-									<tr><td class="uk-table-expand">Surf M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
-									<tr><td class="uk-table-expand">Watch M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
-									<tr><td class="uk-table-expand">Talk S</td><td class="uk-text-right">CHF 15.- / Mt</td></tr>
+									<tbody>
+										<tr><td class="uk-table-expand">Surf M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
+										<tr><td class="uk-table-expand">Watch M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
+										<tr><td class="uk-table-expand">Talk S</td><td class="uk-text-right">CHF 15.- / Mt</td></tr>
+									</tbody>
+									<tfoot>
+										<tr><td class="uk-table-expand">Total (monatlich)</td><td class="uk-text-right uk-text-large uk-strong">CHF 65.- / Mt</td></tr>
+									</tfoot>
 								</table>
 							</div>
 							<div class="uk-card-footer">
