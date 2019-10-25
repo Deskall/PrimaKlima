@@ -112,20 +112,20 @@
 					</div>
 					<% end_loop %>
 					<div class="uk-margin">
-						<ul class="WhiteBackground uk-padding-small" data-uk-accordion>
-						    <li>
+						<ul data-uk-accordion>
+						    <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin">
 						        <a class="uk-accordion-title">Weitere Angebote</a>
 						        <div class="uk-accordion-content">
 						            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 						        </div>
 						    </li>
-						    <li>
+						    <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin">
 						        <a class="uk-accordion-title">Optionen</a>
 						        <div class="uk-accordion-content">
 						            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
 						        </div>
 						    </li>
-						    <li>
+						    <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin">
 						        <a class="uk-accordion-title">Aktionen</a>
 						        <div class="uk-accordion-content">
 						            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
