@@ -258,7 +258,7 @@
 									<div class="uk-flex uk-flex-middle">
 										<img src="$ThemeDir/img/gift-solid.svg" class="uk-margin-small-right" width="50">
 										<div>
-											<strong>Aktion</strong>
+											<strong>Aktion</strong><br>
 											<small>3 Monate 1/2 Preis</small>
 										</div>
 									</div>
