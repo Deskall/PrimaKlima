@@ -282,7 +282,7 @@
 								</div>
 							</div>
 						</div>
-						<div id="my-id" class="uk-card-body" hidden>
+						<div id="my-id" class="uk-card-body WhiteBackground" hidden>
 							<strong class="uk-text-small">Monatliche Kosten</strong>
 							<table class="uk-table uk-table-small uk-table-striped">
 								<tbody>
