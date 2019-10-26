@@ -53,3 +53,4 @@
 	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 <% end_if %>
 
+<div class="shape"></div>
