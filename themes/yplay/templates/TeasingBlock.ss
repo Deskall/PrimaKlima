@@ -54,5 +54,6 @@
 <% end_if %>
 
 <div class="uk-position-absolute uk-position-left shape-container">
-<div class="shape"></div>
+<%-- <div class="shape-parallelogram"></div> --%>
+<div class="shape-triangle"></div>
 </div>
