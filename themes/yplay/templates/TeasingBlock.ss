@@ -53,6 +53,6 @@
 	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 <% end_if %>
 
-<div class="uk-position-absolute uk-position-left">
+<div class="uk-position-absolute uk-position-left shape-container">
 <div class="shape"></div>
 </div>
