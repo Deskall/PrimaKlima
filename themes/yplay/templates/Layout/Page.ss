@@ -42,5 +42,5 @@
 	<% end_if %>
 
 	<div class="uk-position-center uk-position-fixed">
-		<div class="uk-background-fixed" style="background:rgba(0,0,0,0.5);"></div>
+		<div class="uk-background-fixed" style="background-image:url($ThemeDir/img/paul-green-mln2ExJIkfc-unsplash.jpg);"></div>
 	</div>
