@@ -164,8 +164,10 @@ footer.uk-section{
 }
 //teasing block
 .teasingblock{
-	.shape-parallelogram-container{
+	.shape-container{
 		z-index:-1;
+	}
+	.shape-parallelogram{
 		width: 50%;
 		height: 80%;
 		.shape{
@@ -175,15 +177,24 @@ footer.uk-section{
 	      background: @tv;
 		}
 	}
-	.shape-triangle-container{
-		z-index:-1;
+	.shape-triangle{
 		width: 50%;
 		height: 50%;
 		.shape{
 			width: 0;
 	      	height: 0;
-	      	border-bottom: 300px solid @tv;
-	      	border-right: 300px solid transparent;
+		}
+		&.uk-position-left{
+			.shape{
+				border-bottom: 300px solid @tv;
+				border-right: 300px solid transparent;
+			}
+		}
+		&.uk-position-right{
+			.shape{
+				border-bottom: 300px solid @tv;
+				border-left: 300px solid transparent;
+			}
 		}
 	}
 }

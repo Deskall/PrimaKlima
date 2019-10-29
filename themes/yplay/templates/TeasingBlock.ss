@@ -6,7 +6,7 @@
 				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" >
 					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)">
 				</a>
-				<div class="uk-position-absolute <% if Layout == right %>uk-position-right<% else_if Layout == left %>uk-position-left<% else_if Layout == above" %>uk-position-top<% else %>uk-position-bottom<% end_if %> shape-triangle-container">
+				<div class="uk-position-absolute <% if Layout == right %>uk-position-right<% else_if Layout == left %>uk-position-left<% else_if Layout == above" %>uk-position-top<% else %>uk-position-bottom<% end_if %> shape-triangle shape-container">
 					<div class="shape"></div>
 				</div>
 			</div>
