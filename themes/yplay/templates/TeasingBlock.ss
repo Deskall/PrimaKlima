@@ -57,6 +57,6 @@
 <div class="shape"></div>
 </div> --%>
 
-<div class="uk-position-absolute <% if Layout == right %>uk-position-right<% else_if Layout == left %>uk-position-left<% else_if Layout == above" %>uk-position-top<% else %>uk-position-bottom<% end_if %>shape-triangle-container">
+<div class="uk-position-absolute <% if Layout == right %>uk-position-right<% else_if Layout == left %>uk-position-left<% else_if Layout == above" %>uk-position-top<% else %>uk-position-bottom<% end_if %> shape-triangle-container">
 	<div class="shape"></div>
 </div>
