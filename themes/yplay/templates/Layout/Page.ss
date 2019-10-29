@@ -41,4 +41,6 @@
 	</div>
 	<% end_if %>
 
-	<div class="uk-background-fixed uk-background-center-center uk-height-medium uk-width-large" style="background:rgba(0,0,0,0.5);"></div>
+	<div class="uk-position-center uk-position-fixed">
+		<div class="uk-background-fixed" style="background:rgba(0,0,0,0.5);"></div>
+	</div>
