@@ -4,7 +4,7 @@
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
 				<a href="$ContentImage.getSourceURL" class="dk-lightbox uk-position-relative uk-display-block" data-caption="$ContentImage.Description" >
-					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" data-uk-parallax="opacity: 0,1; <% if Layout == right %>x: 0, 100<% else %>x: 100, 0<% end_if %>;  viewport: 0.5;">
+					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" data-uk-parallax="opacity: 0,1; <% if Layout == right %>x: -100, 0<% else %>x: 100, 0<% end_if %>;  viewport: 0.5;">
 					<div class="uk-position-absolute <% if Layout == right %>uk-position-right<% else_if Layout == left %>uk-position-left<% else_if Layout == above" %>uk-position-top<% else %>uk-position-bottom<% end_if %> shape-triangle shape-container">
 					<div class="shape"></div>
 				</div>
