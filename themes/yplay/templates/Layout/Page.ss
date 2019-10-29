@@ -41,6 +41,6 @@
 	</div>
 	<% end_if %>
 
-	<div class="uk-position-center uk-position-fixed">
-		<div class="uk-background-fixed" style="background-image:url($ThemeDir/img/paul-green-mln2ExJIkfc-unsplash.jpg);"></div>
+	<div class="uk-position-center uk-position-fixed uk-width-1-1">
+		<div class="uk-background-fixed uk-height-large" style="background-image:url($ThemeDir/img/paul-green-mln2ExJIkfc-unsplash.jpg);"></div>
 	</div>
