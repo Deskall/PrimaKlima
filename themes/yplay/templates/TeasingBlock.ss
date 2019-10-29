@@ -2,13 +2,13 @@
 <div <% if ContentImage %>class="uk-flex" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %>>
 	<% if ContentImage %>
 		<% if Layout == right || Layout == left %>
-			<div class="uk-width-1-3@m uk-position-relative">
-				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" >
+			<div class="uk-width-1-3@m">
+				<a href="$ContentImage.getSourceURL" class="dk-lightbox uk-position-relative" data-caption="$ContentImage.Description" >
 					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)">
-				</a>
-				<div class="uk-position-absolute <% if Layout == right %>uk-position-right<% else_if Layout == left %>uk-position-left<% else_if Layout == above" %>uk-position-top<% else %>uk-position-bottom<% end_if %> shape-triangle shape-container">
+					<div class="uk-position-absolute <% if Layout == right %>uk-position-right<% else_if Layout == left %>uk-position-left<% else_if Layout == above" %>uk-position-top<% else %>uk-position-bottom<% end_if %> shape-triangle shape-container">
 					<div class="shape"></div>
 				</div>
+				</a>
 			</div>
 			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
