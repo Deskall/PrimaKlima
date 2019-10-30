@@ -37,7 +37,7 @@ class CustomPageControllerExtension extends Extension
 
     public function SavePLZ(HTTPRequest $request){
         $this->owner->getRequest()->getSession()->clear('active_plz');
-        Cookie::force_expiry('yplay_plz');
+        // Cookie::force_expiry('yplay_plz');
         $plz = $request->postVar('plz-choice');
         if ($plz){
             $PostalCode = PostalCode::get()->filter('Code',$plz)->first();
@@ -46,7 +46,7 @@ class CustomPageControllerExtension extends Extension
                 if ($PostalCode->SubsiteID > 0){
                     return $this->redirect($PostalCode->Link());
                 }
-                Cookie::set('yplay_plz', $PostalCode->ID);
+                // Cookie::set('yplay_plz', $PostalCode->ID);
                 $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID);
                 return $this->owner->redirectBack();
             }
