@@ -1,7 +1,7 @@
 <?php
 
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Subsite\Models\Subsite;
+use SilverStripe\Subsites\Models\Subsite;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\RequiredFields;
