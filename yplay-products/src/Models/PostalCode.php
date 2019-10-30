@@ -37,7 +37,7 @@ class PostalCode extends DataObject {
 	//     'ownedPackages' => 'Package'
 	// ];
 
-	public static $default_sort = 'Code';
+	private static $default_sort = 'Code';
 
 	public function fieldLabels($includerelation = true){
 	    $labels = parent::fieldLabels($includerelation);
