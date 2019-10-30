@@ -7,6 +7,7 @@ use SilverStripe\Security\Security;
 use SilverStripe\Subsites\Model\Subsite;
 use SilverStripe\Control\Cookie;
 use SilverStripe\Control\Session;
+use SilverStripe\Control\HTTPRequest;
 
 class CustomPageControllerExtension extends Extension
 {   
