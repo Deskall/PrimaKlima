@@ -49,7 +49,7 @@ class CustomPageControllerExtension extends Extension
     }
 
     public function activePLZ(){
-        $plz = Session::get('active_plz');
+        $plz = $this->getRequest()->getSession()->get('active_plz');
         if ($plz){
             $PostalCode = PostalCode::get()->byId($plz);
             return $PostalCode;
