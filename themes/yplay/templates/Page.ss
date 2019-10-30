@@ -11,6 +11,7 @@
           $Layout
       </main>
       <% include Footer %>
+      <% include Modals %>
     </div>
     <% if BodyScripts %>
       <% loop BodyScripts %>

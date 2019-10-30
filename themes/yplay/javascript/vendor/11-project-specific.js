@@ -5,6 +5,9 @@ $(document).ready(function(){
 		$(".sidebar-menu").css("transform-origin", 'calc(50% + '+sidebarWidth+'px + 4px) 0');
 		$(".sidebar-menu").show();
 	}
+
+	//PLZ Modal
+	UIkit.modal($("#modal-postal-code")).show();
 });
 
 
