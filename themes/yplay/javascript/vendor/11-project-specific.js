@@ -9,7 +9,7 @@ $(document).ready(function(){
 	UIkit.modal($("#modal-postal-code")).show();
 	UIkit.util.on("#modal-postal-code","shown",function(){
 		console.log('ici');
-		$('input[name="plz"]').focus();
+		$('input[name="plz-choice"]').focus();
 	});
 });
 

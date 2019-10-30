@@ -8,7 +8,7 @@
             <form>
                 <div class="uk-margin">
                     <div class="uk-text-large">
-                        <input class="uk-input uk-text-center" type="text" name="plz" required="required" placeholder="PLZ">
+                        <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
                     </div>
                 </div>
                 <div class="uk-text-right">
