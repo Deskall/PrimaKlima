@@ -6,11 +6,15 @@
             <h2 class="uk-modal-title">Das perfekte in Ihrer Region</h2>
             <p>Durch die Eingabe Ihrer Postleitzahl ermöglichen Sie uns die in Ihrer Region verfügbaren Produkte anzuzeigen.</p>
             <form>
-                <input class="uk-input" type="text" name="plz" required="required" placeholder="PLZ">
+                <div class="uk-margin">
+                    <div class="uk-text-center uk-text-large">
+                        <input class="uk-input" type="text" name="plz" required="required" placeholder="PLZ">
+                    </div>
+                </div>
                 <div class="uk-text-right">
                     <button class="uk-button uk-button-default uk-modal-close" type="button">Später eingeben.</button>
                     <button class="uk-button uk-button-primary" type="submit">Region wählen</button>
-                </div> 
+                </div>
             </form>
         </div>
     </div>
