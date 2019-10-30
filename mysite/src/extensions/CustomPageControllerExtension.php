@@ -5,10 +5,18 @@ use SilverStripe\Subsites\State\SubsiteState;
 use SilverStripe\Control\Director;
 use SilverStripe\Security\Security;
 use SilverStripe\Subsites\Model\Subsite;
+use SilverStripe\Control\Cookie;
+
 
 class CustomPageControllerExtension extends Extension
-{
-	 public function Css(){
+{   
+    private static $allowed_actions = ['SavePLZ'];
+
+    private static $url_handlers = [
+        'plz-speichern' => 'SavePLZ'
+    ];
+
+	public function Css(){
 
 	 	if (SubsiteState::singleton()->getSubsiteId() > 0){
             $subsite = Subsite::get()->byId(SubsiteState::singleton()->getSubsiteId());
@@ -24,5 +32,28 @@ class CustomPageControllerExtension extends Extension
 
     public function loggedIn(){
         return Security::getCurrentUser();
+    }
+
+    public function SavePLZ(HTTPRequest $request){
+        $plz = $request->postVar('plz-choice');
+        if ($plz){
+            $PostalCode = PostalCode::get()->byCode($plz);
+            if ($PostalCode){
+                Cookie::set('yplay_plz', $PostalCode->ID);
+                Session::set('active_plz',$PostalCode->ID);
+            }
+
+            return $this->redirectBack();
+            
+        }
+    }
+
+    public function activePLZ(){
+        $plz = Session::get('active_plz');
+        if ($plz){
+            $PostalCode = PostalCode::get()->byId($plz);
+            return $PostalCode;
+        }
+        return null;
     }
 }
