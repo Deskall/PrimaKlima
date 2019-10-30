@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 	//PLZ Modal
 	UIkit.modal($("#modal-postal-code")).show();
+	$("input[name='plz']").focus();
 });
 
 
