@@ -17,7 +17,7 @@
 							    
 							    	<div class="uk-slider-container">
 								        <ul class="uk-slider-items uk-child-width-1-2 uk-grid-match">
-								            <% loop Products %>
+								            <% loop filteredProducts %>
 								            <li>
 								                <div class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-box-shadow-medium uk-card-small">
 								                    <div class="uk-card-body">

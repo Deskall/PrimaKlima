@@ -96,4 +96,15 @@ class ProductCategory extends DataObject {
 
 		return $labels;
 	}
+
+	public function filteredProducts(){
+		$products = $this->Products();
+		foreach($products as $product){
+			if (!$product->shouldDisplay()){
+				$products->remove($product);
+			}
+		}
+		return $products;
+	}
+
 }

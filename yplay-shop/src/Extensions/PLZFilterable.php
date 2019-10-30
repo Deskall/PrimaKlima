@@ -3,6 +3,7 @@
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\ListboxField;
+use SilverStripe\Control\Cookie;
 
 class PLZFilterable extends DataExtension
 {
@@ -24,5 +25,25 @@ class PLZFilterable extends DataExtension
             new ListboxField('ExcludedPLZ',$this->owner->fieldLabels(true)['ExcludedPLZ'],PostalCode::get()->map('ID','Code'),$this->owner->ExcludedPLZ())
         ]);
         $fields->FieldByName('Root.PLZ')->setTitle('Ortschaften');
+    }
+
+    public function shouldDisplay(){
+        //first we check if plz is defined
+        $plz = Cookie::get('yplay_plz');
+        // $plz = $this->owner->getRequest()->getSession()->get('active_plz');
+        if ($plz){
+             //then we check if plz exists
+            $PostalCode = PostalCode::get()->byId($plz);
+            if ($PostalCode){
+                //then we apply filter / exclusion
+                if ($this->owner->FilteredPLZ()->exists()){
+                    return $this->owner->FilteredPLZ()->find($PostalCode);
+                }
+                if ($this->owner->ExcludedPLZ()->exists()){
+                    return !$this->owner->ExcludedPLZ()->find($PostalCode);
+                }
+            }
+        }
+        return true;
     }
 }
