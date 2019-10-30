@@ -20,8 +20,8 @@ class PLZFilterable extends DataExtension
         $fields->removeByName('FilteredPLZ');
         $fields->removeByName('ExcludedPLZ');
         $fields->addFieldsToTab('Root.PLZ',[
-            new ListboxField::create('FilteredPLZ',$this->owner->fieldLabels(true)['FilteredPLZ'],PostalCode::get()->map('ID','Code'),$this->owner->FilteredPLZ()),
-            new ListboxField::create('ExcludedPLZ',$this->owner->fieldLabels(true)['ExcludedPLZ'],PostalCode::get()->map('ID','Code'),$this->owner->ExcludedPLZ())
+            new ListboxField('FilteredPLZ',$this->owner->fieldLabels(true)['FilteredPLZ'],PostalCode::get()->map('ID','Code'),$this->owner->FilteredPLZ()),
+            new ListboxField('ExcludedPLZ',$this->owner->fieldLabels(true)['ExcludedPLZ'],PostalCode::get()->map('ID','Code'),$this->owner->ExcludedPLZ())
         ]);
         $fields->FieldByName('Root.PLZ')->setTitle('Ortschaften');
     }
