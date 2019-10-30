@@ -19,7 +19,10 @@ class ProductAdmin extends ModelAdmin{
 	private static $managed_models = [
 		'ProductCategory' => [
 			'title' => 'Kategorien'
-		]
+		],
+		'PostalCode' => [
+			'title' => 'Ortschaften'
+		],
 	];
 
 	
