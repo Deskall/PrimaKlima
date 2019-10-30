@@ -43,7 +43,7 @@ class CustomPageControllerExtension extends Extension
                     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
         if ($plz){
-            $PostalCode = PostalCode::get()->byCode($plz);
+            $PostalCode = PostalCode::get()->filter('Code',$plz)->first();
             if ($PostalCode){
                 Cookie::set('yplay_plz', $PostalCode->ID);
                 Session::set('active_plz',$PostalCode->ID);
