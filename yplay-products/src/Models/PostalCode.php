@@ -4,7 +4,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Subsite\Models\Subsite;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DropdownField;
-use SilverStripe\Forms\RequiredField;
+use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Control\Director;
 
 class PostalCode extends DataObject {
@@ -56,7 +56,7 @@ class PostalCode extends DataObject {
 	    $fields = parent::getCMSFields();
 	    $fields->addFieldToTab('Root.Main', TextField::create('City','Ortschaft'));
 	    $fields->addFieldToTab('Root.Main', DropdownField::create('StandardOffer',$this->fieldLabels()['StandardOffer'], array('Coax' => 'Cable', 'FTTH' => 'Fiber'))->setEmptyString('Bitte Typ auswählen'));
-	    $fields->addFieldToTab('Root.Main', DropdownField::create('AlternateOffer',$this->fieldLabels()['AlternateOffer'], array('' => 'Keine', 'FTTH' => 'Fiber', 'DSL' => 'DSL'))->setEmptyString('Bitte Typ auswählen'));
+	    $fields->addFieldToTab('Root.Main', DropdownField::create('AlternateOffer',$this->fieldLabels()['AlternateOffer'], array('' => 'Keine','Coax' => 'Cable','FTTH' => 'Fiber', 'DSL' => 'DSL'))->setEmptyString('Bitte Typ auswählen'));
 	    $fields->addFieldToTab('Root.Main', DropdownField::create('TVType',$this->fieldLabels()['TVType'], array('DVBC' => 'DVB-C', 'IPTV' => 'IPTV'))->setEmptyString('Bitte Typ auswählen'));
 	    
 	    // $fields->addFieldToTab('Root.Main', TextField::create('URL','Externe Bestellung URL (Falls es keine Subsite gibt)'));
