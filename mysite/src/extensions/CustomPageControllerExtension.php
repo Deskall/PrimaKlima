@@ -37,7 +37,11 @@ class CustomPageControllerExtension extends Extension
 
     public function SavePLZ(HTTPRequest $request){
         $plz = $request->postVar('plz-choice');
-        var_dump($plz);
+        ob_start();
+                    print_r($plz);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
         if ($plz){
             $PostalCode = PostalCode::get()->byCode($plz);
             if ($PostalCode){
