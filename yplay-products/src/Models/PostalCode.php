@@ -58,6 +58,7 @@ class PostalCode extends DataObject {
 
 	public function getCMSFields() {
 	    $fields = parent::getCMSFields();
+	    $fields->FieldByName('Root.Main')->setTitle('Ortschaft Angaben');
 	    $fields->addFieldToTab('Root.Main', DropdownField::create('SubsiteID',$this->fieldLabels()['Subsite'],Subsite::get()->map('ID','Title'))->setEmptyString('YplaY'));
 	  	$fields->addFieldToTab('Root.Main', CheckboxField::create('YplaY',$this->fieldLabels()['YplaY'])->displayIf('SubsiteID')->isNotEmpty()->end());
 	    $fields->addFieldToTab('Root.Main', DropdownField::create('StandardOffer',$this->fieldLabels()['StandardOffer'], array('Coax' => 'Cable', 'FTTH' => 'Fiber'))->setEmptyString('Bitte Typ auswählen'));
