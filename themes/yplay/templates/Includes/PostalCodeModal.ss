@@ -9,7 +9,7 @@
                 <input class="uk-input" type="text" name="plz" required="required" placeholder="PLZ">
                 <div class="uk-text-right">
                     <button class="uk-button uk-button-default uk-modal-close" type="button">Später eingeben.</button>
-                    <button class="uk-button uk-button-primary" type="button">Region wählen</button>
+                    <button class="uk-button uk-button-primary" type="submit">Region wählen</button>
                 </div> 
             </form>
         </div>
