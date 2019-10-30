@@ -43,13 +43,13 @@ class CustomPageControllerExtension extends Extension
                 Session::set('active_plz',$PostalCode->ID);
             }
 
-            return $this->redirectBack();
+            return $this->owner->redirectBack();
             
         }
     }
 
     public function activePLZ(){
-        $plz = $this->getRequest()->getSession()->get('active_plz');
+        $plz = $this->owner->getRequest()->getSession()->get('active_plz');
         if ($plz){
             $PostalCode = PostalCode::get()->byId($plz);
             return $PostalCode;
