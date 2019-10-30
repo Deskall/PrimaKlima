@@ -16,6 +16,12 @@
 							<%-- </div>
 							<div class="uk-width-2-3"> --%>
 							<div class="uk-navbar-right">
+								<ul class="uk-navbar-nav">
+									<li><a href="#modal-postal-code" title="Ihrer PLZ auswählen / Ändern" data-uk-toggle><% if activePLZ %>$activePLZ.CodeCity<% else %> Region unbekannt<% end_if %></a>
+									</li>
+								</ul>
+							</div>
+							<div class="uk-navbar-right">
 								<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top') %>
 									<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
 										<% if UseMenu %>
