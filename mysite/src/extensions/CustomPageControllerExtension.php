@@ -52,6 +52,7 @@ class CustomPageControllerExtension extends Extension
             }
             else{
                 //return to unbekannt plz page
+                return ['Title' => 'Unbekannt Region'];
             }
         }
         //should not happen as plz is mandatory, but redirecting anyway
