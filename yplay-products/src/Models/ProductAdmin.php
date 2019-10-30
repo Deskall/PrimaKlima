@@ -13,8 +13,8 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 class ProductAdmin extends ModelAdmin{
 
 	private static $menu_icon_class = "font-icon-database";
-	private static $url_segment = "produkte";
-	private static $menu_title = "Produkte";
+	private static $url_segment = "shop";
+	private static $menu_title = "Shop";
 	
 	private static $managed_models = [
 		'ProductCategory' => [

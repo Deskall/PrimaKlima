@@ -19,17 +19,17 @@ class PostalCode extends DataObject {
 	private static $singular_name = 'Postleitzahl';
 	private static $plural_name = 'Postleitzahlen';
 
-	private static $summary_fields = array(
-	  'Code' => 'Postleitzahl',
-	  'City' => 'Ortschaft',
-	  'Availability' => 'Verfügbarkeit',
+	private static $summary_fields = [
+	  'Code',
+	  'City',
+	  'StandardOffer',
 	  'TVType' => 'TV-Angebot',
 	  'Link' => 'Website'
-	);
+	];
 
-	private static $has_one = array(
+	private static $has_one = [
 	    'Subsite'=> Subsite::class
-	);
+	];
 
 	// private static $belongs_many_many= [
 	//     'unavailableProducts' => 'Product.unavailableCodes',
