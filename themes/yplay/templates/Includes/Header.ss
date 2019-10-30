@@ -16,7 +16,7 @@
 							<%-- </div>
 							<div class="uk-width-2-3"> --%>
 							<div class="uk-navbar-right">
-								<ul class="uk-navbar-nav">
+								<ul class="uk-navbar-nav sub">
 									<li><a id="toggle-modal-postal-code" data-active="<% if activePLZ %>true<% else %>false<% end_if %>" title="Ihrer PLZ auswählen / Ändern" data-uk-toggle="#modal-postal-code"><% if activePLZ %>$activePLZ.CodeCity<% else %> Region unbekannt<% end_if %></a>
 									</li>
 								</ul>
