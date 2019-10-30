@@ -46,7 +46,7 @@ class CustomPageControllerExtension extends Extension
             $PostalCode = PostalCode::get()->filter('Code',$plz)->first();
             if ($PostalCode){
                 Cookie::set('yplay_plz', $PostalCode->ID);
-                Session::set('active_plz',$PostalCode->ID);
+                $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID);
             }
 
             return $this->owner->redirectBack();
