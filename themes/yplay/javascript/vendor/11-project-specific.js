@@ -6,9 +6,10 @@ $(document).ready(function(){
 	}
 
 	//PLZ Modal
-	UIkit.modal($("#modal-postal-code")).show();
+	if ($("#toggle-modal-postal-code").attr('data-active') == "false"){
+		UIkit.modal($("#modal-postal-code")).show();
+	}
 	UIkit.util.on("#modal-postal-code","shown",function(){
-		console.log('ici');
 		$('input[name="plz-choice"]').focus();
 	});
 });
