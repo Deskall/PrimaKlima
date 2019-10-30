@@ -13,12 +13,6 @@
       <% include Footer %>
       <% include Modals %>
     </div>
-    <% if BodyScripts %>
-      <% loop BodyScripts %>
-      $Script
-      <% end_loop %>
-    <% end_if %>
-    $SiteConfig.GoogleAnalyticsCode
-    $BodyCss
+   <% include MetaDown %>
   </body>
 </html>
