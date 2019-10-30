@@ -37,10 +37,10 @@ class PLZFilterable extends DataExtension
             if ($PostalCode){
                 //then we apply filter / exclusion
                 if ($this->owner->FilteredPLZ()->exists()){
-                    return $this->owner->FilteredPLZ()->find($PostalCode);
+                    return $this->owner->FilteredPLZ()->find('ID',$PostalCode->ID);
                 }
                 if ($this->owner->ExcludedPLZ()->exists()){
-                    return !$this->owner->ExcludedPLZ()->find($PostalCode);
+                    return !$this->owner->ExcludedPLZ()->find('ID',$PostalCode->ID);
                 }
             }
         }
