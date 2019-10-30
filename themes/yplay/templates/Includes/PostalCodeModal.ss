@@ -7,8 +7,8 @@
             <p>Durch die Eingabe Ihrer Postleitzahl ermöglichen Sie uns die in Ihrer Region verfügbaren Produkte anzuzeigen.</p>
             <form>
                 <div class="uk-margin">
-                    <div class="uk-text-center uk-text-large">
-                        <input class="uk-input" type="text" name="plz" required="required" placeholder="PLZ">
+                    <div class="uk-text-large">
+                        <input class="uk-input uk-text-center" type="text" name="plz" required="required" placeholder="PLZ">
                     </div>
                 </div>
                 <div class="uk-text-right">
