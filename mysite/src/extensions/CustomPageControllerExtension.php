@@ -47,7 +47,7 @@ class CustomPageControllerExtension extends Extension
                     return $this->redirect($PostalCode->Link());
                 }
                 Cookie::set('yplay_plz', $PostalCode->ID);
-                // $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID);
+               
                 return $this->owner->redirectBack();
             }
             else{
@@ -65,6 +65,9 @@ class CustomPageControllerExtension extends Extension
         // $plz = $this->owner->getRequest()->getSession()->get('active_plz');
         if ($plz){
             $PostalCode = PostalCode::get()->byId($plz);
+            if (!$this->$this->owner->getRequest()->getSession()->get('active_plz')){
+               $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID); 
+            }
             return $PostalCode;
         }
         return null;
