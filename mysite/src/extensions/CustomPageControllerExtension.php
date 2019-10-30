@@ -37,7 +37,7 @@ class CustomPageControllerExtension extends Extension
 
     public function SavePLZ(HTTPRequest $request){
         $this->owner->getRequest()->getSession()->clear('active_plz');
-        Cookie::clear('yplay_plz');
+        Cookie::force_expiry('yplay_plz');
         $plz = $request->postVar('plz-choice');
         if ($plz){
             $PostalCode = PostalCode::get()->filter('Code',$plz)->first();
