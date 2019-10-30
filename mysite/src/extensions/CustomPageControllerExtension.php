@@ -37,6 +37,7 @@ class CustomPageControllerExtension extends Extension
 
     public function SavePLZ(HTTPRequest $request){
         $plz = $request->postVar('plz-choice');
+        var_dump($plz);
         if ($plz){
             $PostalCode = PostalCode::get()->byCode($plz);
             if ($PostalCode){
@@ -47,6 +48,7 @@ class CustomPageControllerExtension extends Extension
             return $this->owner->redirectBack();
             
         }
+        return $this->owner->redirectBack();
     }
 
     public function activePLZ(){

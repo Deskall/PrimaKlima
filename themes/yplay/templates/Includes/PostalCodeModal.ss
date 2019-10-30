@@ -5,7 +5,7 @@
         <div class="uk-modal-body">
             <h2 class="uk-modal-title">Das perfekte in Ihrer Region</h2>
             <p>Durch die Eingabe Ihrer Postleitzahl ermöglichen Sie uns die in Ihrer Region verfügbaren Produkte anzuzeigen.</p>
-            <form methode="post" action="{$Link}plz-speichern">
+            <form methode="POST" action="{$Link}plz-speichern">
                 <div class="uk-margin">
                     <div class="uk-text-large">
                         <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
