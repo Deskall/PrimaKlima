@@ -88,6 +88,13 @@ class PostalCode extends DataObject {
 	    return Director::absoluteBaseURL();
 	}
 
+	public function onBeforeWrite(){
+		parent::onBeforeWrite();
+		if ($this->SubsiteID == 0){
+			$this->YplaY = false;
+		}
+	}
+
 
 	
 }
