@@ -53,19 +53,20 @@
 <% loop filteredProducts %>
     <div class="uk-transition-toggle">
         <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque">
-        <h3 class="uk-card-title">$Title</h3>
-        <% loop $Items %>
-        <div>
-       	 <strong>$Title</strong>
-       	 $Content
-       	</div>
-        <% end_loop %>
-        <div class="product-footer">
-        	<div class="product-price">$PrintPriceString</div>
-        	<div class="uk-margin">
-        		<a href="/angebote" class="uk-button uk-button-primary">Bestellen</a>
-        	</div>
-    	</div>
+	        <h3 class="uk-card-title">$Title</h3>
+	        <% loop $Items %>
+	        <div>
+	       	 <strong>$Title</strong>
+	       	 $Content
+	       	</div>
+	        <% end_loop %>
+	        <div class="product-footer">
+	        	<div class="product-price">$PrintPriceString</div>
+	        	<div class="uk-margin">
+	        		<a href="/angebote" class="uk-button uk-button-primary">Bestellen</a>
+	        	</div>
+	    	</div>
+	    </div>
     </div>
 <% end_loop %>
 </div>
