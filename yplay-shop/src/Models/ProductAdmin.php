@@ -44,7 +44,9 @@ class ProductAdmin extends ModelAdmin{
 
 	public function getList(){
 		$list = parent::getList();
-		 
+		if($this->modelClass == 'Product') {
+	      $list = $list->filter('ClassName','Product');
+	    }
 		return $list;
 	}
 
