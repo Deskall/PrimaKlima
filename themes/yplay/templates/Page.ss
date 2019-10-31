@@ -3,7 +3,7 @@
   <head>
      <% include Meta %>
   </head>
-  <body class="$ClassName $ExtraHeaderClass">
+  <body class="$ClassName $ExtraCSSClass">
     $SiteConfig.BodyScripts
     <div class="uk-offcanvas-content">
       <% include Header %>
