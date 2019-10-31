@@ -60,6 +60,11 @@
        	 $Content
        	</div>
         <% end_loop %>
+        <div class="product-footer">
+        	<div class="product-price">$PrintPriceString</div>
+        	<div class="uk-margin">
+        		<a href="/angebote" class="uk-button uk-button-primary">Bestellen</a>
+        	</div>
     	</div>
     </div>
 <% end_loop %>
