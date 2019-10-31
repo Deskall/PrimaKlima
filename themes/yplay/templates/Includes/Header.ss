@@ -4,17 +4,7 @@
 			
 			<div class="uk-width-4-5">
 				<nav class="uk-navbar-container uk-navbar-transparent uk-visible@m uk-navbar-sub" data-uk-navbar>
-					<%-- <div class="dk-nav-top-container uk-width-1-1 uk-visible@m">
-						<div class="uk-grid-small" data-uk-grid>
-							<div class="uk-width-1-3"> --%>
-					<%-- 		<div class="uk-navbar-right">
-								<form class="search-form" method="GET" action="{$Link}SearchForm">
-									<input type="text" class="uk-input uk-width-medium" minlength="4" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
-									<button type="submit"><i class="fas fa-search"></i></button>
-								</form>
-							</div> --%>
-							<%-- </div>
-							<div class="uk-width-2-3"> --%>
+				
 							<% if $ID > 0 %>
 							<div class="uk-navbar-right">
 								<ul class="uk-navbar-nav sub">
@@ -46,9 +36,6 @@
 									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Meldung(s) im Warenkorb</small></a></li> --%>
 								</ul>
 							</div>
-						<%-- 	</div>
-						</div>
-					</div> --%>
 				</nav>
 			</div>
 		</div>
