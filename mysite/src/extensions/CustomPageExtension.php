@@ -8,6 +8,7 @@ use SilverStripe\Subsites\Model\Subsite;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class CustomPageExtension extends DataExtension
 {
@@ -19,13 +20,13 @@ class CustomPageExtension extends DataExtension
         $fields->removeByName('MenuSections');
         if ($this->owner->ShowInMainMenu){
             $fields->addFieldToTab('Root.Menu',
-                GridField::create('MenuSections','Menu Sektionen',$this->owner->MenuSections(),GridFieldConfig_RecordEditor::create())
+                GridField::create('MenuSections','Menu Sektionen',$this->owner->MenuSections(),GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction()))
             );
         }
 
         $fields->removeByName('LateralSections');
         $fields->addFieldToTab('Root.Sidebar',
-             GridField::create('LateralSections','Sidebar Menu Sektionen',$this->owner->LateralSections(),GridFieldConfig_RecordEditor::create())
+             GridField::create('LateralSections','Sidebar Menu Sektionen',$this->owner->LateralSections(),GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction()))
         );
         
        
