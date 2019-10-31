@@ -8,12 +8,14 @@ use SilverStripe\Control\Session;
 class Page extends SiteTree implements Searchable
 {
     private static $db = [
+      'ExtraCSSClass' => 'Varchar',
       'ExtraHeaderClass' => 'Varchar',
       'ExtraMenuClass' => 'Varchar'
     ];
 
     public function fieldLabels($includerelation = true){
       $labels = parent::fieldLabels($includerelation);
+      $labels['ExtraCSSClass'] = _t('Page.ExtraCssClass','Custom CSS Class für die Seite');
       $labels['ExtraHeaderClass'] = _t('Page.ExtraHeaderClass','Custom CSS Class für der Header');
       $labels['ExtraMenuClass'] = _t('Page.ExtraMenuClass','Custom CSS Class für der Menü');
 
@@ -23,6 +25,7 @@ class Page extends SiteTree implements Searchable
 
     public function getCMSFields(){
       $fields = parent::getCMSFields();
+      $fields->addFieldToTab('Root.Layout',TextField::create('ExtraCSSClass',$this->fieldLabels()['ExtraCSSClass']));
       $fields->addFieldToTab('Root.Layout',TextField::create('ExtraHeaderClass',$this->fieldLabels()['ExtraHeaderClass']));
       $fields->addFieldToTab('Root.Layout',TextField::create('ExtraMenuClass',$this->fieldLabels()['ExtraMenuClass']));
       return $fields;
