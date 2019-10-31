@@ -55,7 +55,7 @@
         <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
 	        <h3 class="uk-card-title">$Title</h3>
 	        <% loop $Items %>
-	        <div>
+	        <div class="product-item">
 	       	 <strong>$Title</strong>
 	       	 $Content
 	       	</div>

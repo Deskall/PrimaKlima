@@ -315,7 +315,38 @@ footer.uk-section{
 	.products-container{
 		.uk-card{
 			padding-bottom:100px;
+			.product-item{
+
+			}
 		}
 	}
 }
+
+
+//Apply category style
+.internet-page{
+	.fill-page(@internet);
+}
+.tv-page{
+	.fill-page(@tv);
+}
+.phone-page{
+	.fill-page(@phone);
+}
+.mobile-page{
+	.fill-page(@mobile);
+}
+
+//Mixins
+.fill-page(@color){
+	h1{
+		color:@color;
+	}
+	.uk-button{
+		background-color: @color;
+		color:@white-background;
+	}
+}
+
+
 
