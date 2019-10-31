@@ -16,7 +16,6 @@ class Package extends DataObject {
 	'ActivationPrice' => 'Currency',
 	'UniquePriceLabel' => 'Varchar',
 	'ActivationPriceLabel' => 'Varchar',
-	'Unit' => 'Varchar',
 	'Subtitle' => 'Text'
 	];
 
@@ -58,7 +57,6 @@ class Package extends DataObject {
 		$labels['ActivationPrice'] = 'Grundgebühr';
 		$labels['ActivationPriceLabel'] = 'Grundgebühr Preis Erklärung';
 		$labels['Price'] = 'Preis';
-		$labels['Unit'] = 'Einheit';
 		$labels['RecurringPrice'] = 'Monatlicher Preis?';
 		$labels['PrintPriceString'] = 'Preis';
 
@@ -78,7 +76,6 @@ class Package extends DataObject {
 		$fields = parent::getCMSFields();
 		$fields->removeByName('ProductCode');
 
-		$fields->fieldByName('Root.Main.Unit')->displayIf('RecurringPrice')->isNotChecked();
 		$fields->fieldByName('Root.Main.UniquePriceLabel')->displayIf('RecurringPrice')->isChecked();
 		return $fields;
 	}
