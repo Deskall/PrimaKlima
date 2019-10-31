@@ -52,7 +52,15 @@
 <div class="uk-child-width-expand@s uk-text-center" data-uk-grid>
 <% loop filteredProducts %>
     <div>
-        <div class="uk-card uk-card-default uk-card-body">$Title</div>
+        <div class="uk-card uk-card-default uk-card-body">
+        <h3 class="uk-card-title">$Title</h3>
+        <% loop $Items %>
+        <div>
+       	 <strong>$Title</strong>
+       	 $Content
+       	</div>
+        <% end_loop %>
+    	</div>
     </div>
 <% end_loop %>
 </div>
