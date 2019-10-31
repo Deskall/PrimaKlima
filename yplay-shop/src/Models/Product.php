@@ -5,6 +5,10 @@ use SilverStripe\ORM\FieldType\DBText;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class Product extends DataObject {
+
+	private static $singular_name = 'Produkt';
+	private static $plural_name = 'Produkte';
+
 	private static $db = [
 	'ProductCode' => 'Varchar',
 	'Title' => 'Varchar',

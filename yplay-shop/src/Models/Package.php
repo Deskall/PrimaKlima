@@ -6,6 +6,9 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Assets\Image;
 
 class Package extends Product {
+	private static $singular_name = 'Paket';
+	private static $plural_name = 'Pakete';
+
 	private static $db = [
 	
 	];
