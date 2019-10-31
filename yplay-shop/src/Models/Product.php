@@ -15,8 +15,7 @@ class Product extends DataObject {
 	'UniquePriceLabel' => 'Varchar',
 	'ActivationPriceLabel' => 'Varchar',
 	'Unit' => 'Varchar',
-	'Subtitle' => 'Text',
-	'Description' => 'HTMLText'
+	'Subtitle' => 'Text'
 	];
 
 	private static $has_one = [
@@ -47,7 +46,6 @@ class Product extends DataObject {
 		$labels = parent::fieldLabels($includerelation);
 		$labels['Title'] = 'Name';
 		$labels['Subtitle'] = 'Untertitel';
-		$labels['Description'] = 'Beschreibung';
 		$labels['UniquePrice'] = 'Einmaliger Preis';
 		$labels['UniquePriceLabel'] = 'Einmaliger Preis Erklärung';
 		$labels['ActivationPrice'] = 'Grundgebühr';
