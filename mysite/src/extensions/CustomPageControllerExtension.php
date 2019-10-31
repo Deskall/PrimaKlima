@@ -72,4 +72,12 @@ class CustomPageControllerExtension extends Extension
         }
         return null;
     }
+
+    public function showModalPLZ(){
+       if (!$this->owner->getRequest()->getSession()->get('active_plz_asked')){
+         $this->owner->getRequest()->getSession()->set('active_plz_asked',true);
+         return true;
+       } 
+       return false;
+    }
 }

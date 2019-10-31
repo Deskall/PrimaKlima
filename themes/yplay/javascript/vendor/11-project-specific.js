@@ -6,7 +6,7 @@ $(document).ready(function(){
 	}
 
 	//PLZ Modal
-	if ($("#toggle-modal-postal-code").attr('data-active') == "false"){
+	if ($("#toggle-modal-postal-code").attr('data-active') == "false" && $("#toggle-modal-postal-code").attr('data-trigger') == "true"){
 		UIkit.modal($("#modal-postal-code")).show();
 	}
 	UIkit.util.on("#modal-postal-code","shown",function(){
