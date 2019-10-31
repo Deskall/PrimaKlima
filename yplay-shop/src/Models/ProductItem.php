@@ -21,9 +21,7 @@ class ProductItem extends DataObject {
 		'Content' 
 	];
 	
-	public function getContent(){
-		return DBField::create_field('HTMLText',$this->Content);
-	}
+	
 
 	public function fieldLabels($includerelation = true){
 		$labels = parent::fieldLabels($includerelation);
