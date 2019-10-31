@@ -29,6 +29,11 @@ class MenuSection extends DataObject{
 		'Links' => MenuSectionLink::class
 	];
 
+	private static $extensions = [
+		'Activable',
+		'Sortable'
+	];
+
 	private static $owns = ['Links'];
 
 
