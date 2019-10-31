@@ -20,6 +20,9 @@ class ProductAdmin extends ModelAdmin{
 		'ProductCategory' => [
 			'title' => 'Kategorien'
 		],
+		'Package'  => [
+			'title' => 'Pakete'
+		],
 		'PostalCode' => [
 			'title' => 'Ortschaften'
 		],
