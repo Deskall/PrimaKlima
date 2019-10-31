@@ -1,0 +1,9 @@
+---
+Name: yplay-shop-config
+---
+BaseBlockExtension:
+  blocks:
+    - MarketingBlock
+    - TeasingBlock
+  children_blocks:
+    - MarketingBlock

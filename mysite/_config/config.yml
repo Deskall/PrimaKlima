@@ -31,9 +31,3 @@ Page:
   extensions:
     - 'CustomPageExtension'
 
-BaseBlockExtension:
-  blocks:
-    - MarketingBlock
-    - TeasingBlock
-  children_blocks:
-    - MarketingBlock

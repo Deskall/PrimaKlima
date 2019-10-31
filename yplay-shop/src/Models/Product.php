@@ -15,7 +15,6 @@ class Product extends DataObject {
 	'UniquePriceLabel' => 'Varchar',
 	'ActivationPriceLabel' => 'Varchar',
 	'Unit' => 'Varchar',
-	
 	'Subtitle' => 'Text',
 	'Description' => 'HTMLText'
 	];
@@ -27,7 +26,8 @@ class Product extends DataObject {
 	private static $extensions = [
 		'Sortable',
 		'Activable',
-		'PLZFilterable'
+		'PLZFilterable',
+		'Itemable'
 	];
 
 	private static $summary_fields = [
