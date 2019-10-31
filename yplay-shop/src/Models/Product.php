@@ -35,6 +35,10 @@ class Product extends DataObject {
 		'PrintPriceString'
 	];
 
+	private static $searchable_fields = [
+		'Title'
+	];
+
 	public function onBeforeWrite(){
 	    if (!$this->ProductCode){
 	    	$this->ProductCode = URLSegmentFilter::create()->filter($this->Title);
