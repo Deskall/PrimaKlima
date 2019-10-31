@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBText;
+use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class ProductItem extends DataObject {
@@ -19,12 +20,10 @@ class ProductItem extends DataObject {
 		'Title',
 		'Content' 
 	];
-
-	private static $casting = [
-		"Title" => 'Text',
-		"Content" => 'HTMLText'
-	];
 	
+	public function getContent(){
+		return DBField::create('HTMLText')->setValue($this->Content);
+	}
 
 	public function fieldLabels($includerelation = true){
 		$labels = parent::fieldLabels($includerelation);
