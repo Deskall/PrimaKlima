@@ -49,7 +49,7 @@
 	<% end_if %>
 </div>
 
-<div class="uk-child-width-expand@s uk-text-center uk-grid-match products-container" data-uk-grid data-uk-height-match="target: .product-body;">
+<div class="uk-child-width-expand@s uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
 <% loop filteredProducts %>
     <div class="uk-transition-toggle">
         <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">

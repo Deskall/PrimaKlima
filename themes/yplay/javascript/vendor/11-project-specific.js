@@ -5,6 +5,13 @@ $(document).ready(function(){
 		$(".sidebar-menu").show();
 	}
 
+	//responsive height match
+	if ($("[data-dk-height-match]").length > 0){
+		$("[data-dk-height-match]").each(function(){
+			UIkit.heightMatch($(this), {target: $(this).attr('data-dk-height-match')});
+		});
+	}
+
 	//PLZ Modal
 	if ($("#toggle-modal-postal-code").attr('data-active') == "false" && $("#toggle-modal-postal-code").attr('data-trigger') == "true"){
 		UIkit.modal($("#modal-postal-code")).show();
