@@ -49,18 +49,20 @@
 	<% end_if %>
 </div>
 
-<div class="uk-child-width-expand@s uk-text-center uk-grid-match products-container" data-uk-grid>
+<div class="uk-child-width-expand@s uk-text-center uk-grid-match products-container" data-uk-grid data-uk-heigth-match=".product-body;">
 <% loop filteredProducts %>
     <div class="uk-transition-toggle">
         <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
 	        <h3 class="uk-card-title">$Title</h3>
-	        <% loop $Items %>
-	        <div class="product-item">
-	       	 <strong>$Title</strong>
-	       	 $Content
-	       	</div>
-	        <% end_loop %>
-	        <div class="product-footer uk-position-bottom">
+	        <div class="product-body">
+		        <% loop $Items %>
+		        <div class="product-item">
+		       	 <strong>$Title</strong>
+		       	 $Content
+		       	</div>
+		        <% end_loop %>
+		    </div>
+	        <div class="product-footer">
 	        	<div class="product-price uk-text-large uk-text-bold">$PrintPriceString</div>
 	        	<div class="uk-margin">
 	        		<a href="/angebote" class="uk-button uk-button-primary">Bestellen</a>
