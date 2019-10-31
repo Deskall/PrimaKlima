@@ -48,7 +48,6 @@ class SiteConfigLayoutExtension extends DataExtension
     'H2FontSize' => 'Varchar(25)',
     'H3FontSize' => 'Varchar(25)',
     'LeadFontSize' => 'Varchar(25)',
-    'ExtraPageClass' => 'Varchar(255)',
 
    // 'HeaderLayout' => 'Varchar(255)',
     'HeaderBackground' => 'Varchar(255)',
