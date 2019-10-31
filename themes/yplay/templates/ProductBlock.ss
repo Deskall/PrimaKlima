@@ -53,7 +53,7 @@
 <% loop filteredProducts %>
     <div class="uk-transition-toggle">
     	<% if BestSeller %>
-    	<div class="bestseller">Bestseller</div>
+    	<div class="bestseller uk-padding-small uk-position-bottom">Bestseller</div>
     	<% end_if %>
         <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
 	        <h3 class="uk-card-title">$Title</h3>
