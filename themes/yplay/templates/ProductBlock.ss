@@ -61,7 +61,7 @@
 	       	</div>
 	        <% end_loop %>
 	        <div class="product-footer uk-position-bottom">
-	        	<div class="product-price uk-text-large">$PrintPriceString</div>
+	        	<div class="product-price uk-text-large uk-text-bold">$PrintPriceString</div>
 	        	<div class="uk-margin">
 	        		<a href="/angebote" class="uk-button uk-button-primary">Bestellen</a>
 	        	</div>
