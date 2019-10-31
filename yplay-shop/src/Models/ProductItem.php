@@ -20,7 +20,7 @@ class ProductItem extends DataObject {
 		'Content' 
 	];
 
-	private $castings = [
+	private static $casting = [
 		"Title" => 'Text',
 		"Content" => 'HTMLText'
 	];
