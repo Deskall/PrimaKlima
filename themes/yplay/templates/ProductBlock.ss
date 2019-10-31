@@ -57,7 +57,7 @@
 	        
 	        <h3 class="uk-card-title">$Title</h3>
 	        <% if BestSeller %>
-	        <div class="bestseller uk-padding-small uk-position-top">Bestseller</div>
+	        <div class="bestseller uk-padding-small">Bestseller</div>
 	        <% end_if %>
 	        <div class="product-body">
 		        <% loop $Items %>
