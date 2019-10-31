@@ -52,4 +52,14 @@ class ProductBlock extends TextBlock
     {
         return _t(__CLASS__ . '.BlockType', 'Zeigt Produktdetails nach Kategorie an');
     }
+
+
+    public function filteredProducts(){
+        if ($this->Category()->exists()){
+            return $this->Category()->filteredProducts();
+        }
+        return $this->Products()->filterByCallback(function($item, $list) {
+            return ($item->shouldDisplay());
+        });
+    }
 }
