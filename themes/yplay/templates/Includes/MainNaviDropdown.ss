@@ -10,7 +10,7 @@
 				<div>
 					<div class="uk-padding-small">
 						<div class="uk-flex uk-margin">
-							<% if Image %><img width="30" height="30" src="$Image.URL"><% end_if %>
+							<% if Image %><img width="30" height="30" src="$Image.URL" class="menu-section-img"><% end_if %>
 							<div class="<% if Image %>uk-margin-small-left<% end_if %> menu-section-title">$Title</div>
 						</div>
 						<div class="menu-section-text">$Text</div>
