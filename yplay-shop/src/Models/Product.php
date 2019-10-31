@@ -3,6 +3,7 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBText;
 use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 class Product extends DataObject {
 
@@ -19,7 +20,8 @@ class Product extends DataObject {
 	'UniquePriceLabel' => 'Varchar',
 	'ActivationPriceLabel' => 'Varchar',
 	'Unit' => 'Varchar',
-	'Subtitle' => 'Text'
+	'Subtitle' => 'Text',
+	'FooterText' => 'HTMLText'
 	];
 
 	private static $has_one = [
@@ -62,6 +64,7 @@ class Product extends DataObject {
 		$labels['Unit'] = 'Einheit';
 		$labels['RecurringPrice'] = 'Monatlicher Preis?';
 		$labels['PrintPriceString'] = 'Preis';
+		$labels['FooterText'] = 'Weitere Informationen (wird im Produkt Kart zeigt an boden.)';
 
 		return $labels;
 	}
@@ -79,9 +82,11 @@ class Product extends DataObject {
 		$fields = parent::getCMSFields();
 		$fields->removeByName('ProductCode');
 		$fields->removeByName('CategoryID');
+		$fields->removeByName('FooterText');
 
 		$fields->fieldByName('Root.Main.Unit')->displayIf('RecurringPrice')->isNotChecked();
 		$fields->fieldByName('Root.Main.UniquePriceLabel')->displayIf('RecurringPrice')->isChecked();
+		$fields->addFielToTab('Root.Items',HTMLEditorField::create('FooterText',$this->fieldLabels()['FooterText'])->setRows(3));
 		return $fields;
 	}
 }

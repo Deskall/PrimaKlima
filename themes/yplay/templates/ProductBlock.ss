@@ -67,6 +67,7 @@
 	        	<div class="uk-margin">
 	        		<a href="/angebote" class="uk-button uk-button-primary">Bestellen</a>
 	        	</div>
+	        	<div class="footer-text">$FooterText</div>
 	    	</div>
 	    </div>
     </div>
