@@ -15,12 +15,14 @@
 							</div> --%>
 							<%-- </div>
 							<div class="uk-width-2-3"> --%>
+							<% if $ID > 0 %>
 							<div class="uk-navbar-right">
 								<ul class="uk-navbar-nav sub">
 									<li><a id="toggle-modal-postal-code" data-active="<% if activePLZ %>true<% else %>false<% end_if %>" title="Ihrer PLZ auswählen / Ändern" data-uk-toggle="#modal-postal-code"><% if activePLZ %>$activePLZ.CodeCity<% else %> Region unbekannt<% end_if %></a>
 									</li>
 								</ul>
 							</div>
+							<% end_if %>
 							<div class="uk-navbar-right">
 								<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top') %>
 									<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
