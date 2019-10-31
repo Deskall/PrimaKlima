@@ -14,7 +14,7 @@
 							<div class="<% if Image %>uk-margin-small-left<% end_if %> menu-section-title">$Title</div>
 						</div>
 						<div class="menu-section-text">$Text</div>
-						<ul class="uk-nav uk-navbar-dropdown-nav">
+						<ul class="uk-nav uk-navbar-dropdown-nav menu-section-links">
 							<% loop Links %>
 							<li>
 								    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>>$LinkableLink.Title<% if Label %><span class="uk-label $Background uk-margin-small-left uk-border-rounded">$Label</span><% end_if %></a>
