@@ -17,9 +17,13 @@ class ProductItem extends DataObject {
 	
 	private static $summary_fields = [
 		'Title',
-		'Content'
+		'Content' 
 	];
 
+	private $castings = [
+		"Title" => 'Text',
+		"Content" => 'HTMLText'
+	];
 	
 
 	public function fieldLabels($includerelation = true){
