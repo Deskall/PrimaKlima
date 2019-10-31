@@ -98,12 +98,14 @@ class ProductCategory extends DataObject {
 	}
 
 	public function filteredProducts(){
-		$products = $this->Products();
-		foreach($products as $product){
-			if (!$product->shouldDisplay()){
-				$products->remove($product);
-			}
-		}
+		$products = $this->Products()->filterByCallback(function($item, $list) {
+		    return ($item->shouldDisplay());
+		});
+		// foreach($products as $product){
+		// 	if (!$product->shouldDisplay()){
+		// 		$products->remove($product);
+		// 	}
+		// }
 		return $products;
 	}
 
