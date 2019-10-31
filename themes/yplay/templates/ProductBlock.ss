@@ -54,10 +54,11 @@
     <div class="uk-transition-toggle">
     	
         <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
-	        <% if BestSeller %>
-	        <div class="bestseller uk-padding-small uk-position-bottom">Bestseller</div>
-	        <% end_if %>
+	        
 	        <h3 class="uk-card-title">$Title</h3>
+	        <% if BestSeller %>
+	        <div class="bestseller uk-padding-small uk-position-top">Bestseller</div>
+	        <% end_if %>
 	        <div class="product-body">
 		        <% loop $Items %>
 		        <div class="product-item">
