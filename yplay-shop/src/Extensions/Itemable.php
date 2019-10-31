@@ -7,7 +7,7 @@ use SilverStripe\Control\Cookie;
 
 class Itemable extends DataExtension
 {
-    private static $has_many = [
+    private static $many_many = [
         'Items' => ProductItem::class
     ];
 

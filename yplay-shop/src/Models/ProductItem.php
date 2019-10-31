@@ -10,17 +10,11 @@ class ProductItem extends DataObject {
 	'Title' => 'Varchar',
 	'Content' => 'HTMLText'
 	];
-
-	private static $has_one = [
-		'Parent' => DataObject::class
-	];
-
 	
 	private static $summary_fields = [
 		'Title',
 		'Content' 
 	];
-	
 	
 
 	public function fieldLabels($includerelation = true){
@@ -33,7 +27,6 @@ class ProductItem extends DataObject {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->removeByName('ParentID');
 		return $fields;
 	}
 }
