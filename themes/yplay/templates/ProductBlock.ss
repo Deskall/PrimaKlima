@@ -52,10 +52,10 @@
 <div class="uk-child-width-expand@s uk-text-center" data-uk-grid>
 <% loop filteredProducts %>
     <div>
-        <div class="uk-card uk-border-rounded uk-card-body uk-card-hover">
+        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-card-hover">
         <h3 class="uk-card-title">$Title</h3>
         <% loop $Items %>
-        <div class="uk-list-divider">
+        <div>
        	 <strong>$Title</strong>
        	 $Content
        	</div>
