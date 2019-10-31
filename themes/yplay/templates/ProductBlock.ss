@@ -52,6 +52,9 @@
 <div class="uk-child-width-expand@s uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
 <% loop filteredProducts %>
     <div class="uk-transition-toggle">
+    	<% if BestSeller %>
+    	<div class="bestseller">Bestseller</div>
+    	<% end_if %>
         <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
 	        <h3 class="uk-card-title">$Title</h3>
 	        <div class="product-body">

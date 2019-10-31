@@ -13,6 +13,8 @@ class Product extends DataObject {
 	private static $db = [
 	'ProductCode' => 'Varchar',
 	'Title' => 'Varchar',
+	'Subtitle' => 'Text',
+	'BestSeller' => 'Boolean(0)',
 	'RecurringPrice' => 'Boolean(1)',
 	'Price' => 'Currency',
 	'UniquePrice' => 'Currency',
@@ -20,7 +22,6 @@ class Product extends DataObject {
 	'UniquePriceLabel' => 'Varchar',
 	'ActivationPriceLabel' => 'Varchar',
 	'Unit' => 'Varchar',
-	'Subtitle' => 'Text',
 	'FooterText' => 'HTMLText'
 	];
 
@@ -64,6 +65,7 @@ class Product extends DataObject {
 		$labels['Unit'] = 'Einheit';
 		$labels['RecurringPrice'] = 'Monatlicher Preis?';
 		$labels['PrintPriceString'] = 'Preis';
+		$labels['BestSeller'] = 'Bestseller?';
 		$labels['FooterText'] = 'Weitere Informationen (wird im Produkt Kart zeigt an boden.)';
 
 		return $labels;
