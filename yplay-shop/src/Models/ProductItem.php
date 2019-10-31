@@ -22,7 +22,7 @@ class ProductItem extends DataObject {
 	];
 	
 	public function getContent(){
-		return DBField::create('HTMLText')->setValue($this->Content);
+		return DBField::create_field('HTMLText',$this->Content);
 	}
 
 	public function fieldLabels($includerelation = true){
