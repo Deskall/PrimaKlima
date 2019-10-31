@@ -49,9 +49,13 @@
 	<% end_if %>
 </div>
 
+<div class="uk-child-width-expand@s uk-text-center" data-uk-grid>
 <% loop filteredProducts %>
-$Title
+    <div>
+        <div class="uk-card uk-card-default uk-card-body">$Title</div>
+    </div>
 <% end_loop %>
+</div>
 
 <% if LinkableLinkID > 0 %>
 	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
