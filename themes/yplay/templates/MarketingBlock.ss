@@ -1,5 +1,5 @@
 <div class="countdown-container uk-margin">
-	<div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
+	<div class="uk-grid-collapse uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
 	    <div>
 	        <div class="uk-countdown-number uk-countdown-days"></div>
 	        <div class="uk-countdown-label  uk-text-center">Tage</div>
