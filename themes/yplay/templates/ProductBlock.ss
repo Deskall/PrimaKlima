@@ -60,12 +60,21 @@
 	        <div class="bestseller">Bestseller</div>
 	        <% end_if %>
 	        <div class="product-body">
-		        <% loop $Items %>
-		        <div class="product-item">
-		       	 <strong>$Title</strong>
-		       	 $Content
-		       	</div>
-		        <% end_loop %>
+	        	<% if ProductType == "products" %>
+			        <% loop $Items %>
+			        <div class="product-item">
+			       	 <strong>$Title</strong>
+			       	 $Content
+			       	</div>
+			        <% end_loop %>
+		        <% else_if ProductType == "packages" %>
+		        	<% loop Products %>
+		        	 <div class="product-item">
+		        		 <strong>$Title</strong>
+		        		 $Subtitle
+		        		</div>
+		        		<% end_loop %>
+		        <% end_if %>
 		    </div>
 	        <div class="product-footer">
 	        	<div class="product-price uk-text-large uk-text-bold">$PrintPriceString</div>
