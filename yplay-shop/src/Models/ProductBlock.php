@@ -41,7 +41,7 @@ class ProductBlock extends TextBlock
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('Type');
-        $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Typ',['products' => 'Produkte','packages' => 'Pakete','options' => 'Optionen'])->setEmtpyString('Bitte Typ auswählen'));
+        $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Typ',['products' => 'Produkte','packages' => 'Pakete','options' => 'Optionen'])->setEmptyString('Bitte Typ auswählen'));
        
 
         return $fields;
