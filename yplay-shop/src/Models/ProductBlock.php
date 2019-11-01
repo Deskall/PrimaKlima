@@ -19,8 +19,10 @@ class ProductBlock extends TextBlock
     private static $help_text = "Produkte Block";
 
     private static $db = [
-        
+        'Type' => 'Varchar'
     ];
+
+    private static $defaults = ['Type' => 'products'];
 
     private static $has_one = ['Category' => ProductCategory::Class];
 
@@ -38,6 +40,8 @@ class ProductBlock extends TextBlock
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        $fields->removeByName('Type');
+        $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Typ',['products' => 'Produkte','packages' => 'Pakete','options' => 'Optionen'])->setEmtpyString('Bitte Typ auswählen'));
        
 
         return $fields;
@@ -54,12 +58,31 @@ class ProductBlock extends TextBlock
     }
 
 
-    public function filteredProducts(){
-        if ($this->Category()->exists()){
-            return $this->Category()->filteredProducts();
+    public function filteredItems(){
+        switch($this->Type){
+            case "products":
+                if ($this->Category()->exists()){
+                    return $this->Category()->filteredProducts();
+                }
+                return $this->Products()->filterByCallback(function($item, $list) {
+                    return ($item->shouldDisplay());
+                });
+            break;
+            case "packages":
+                //TO DO if needed custom packages
+                // if ($this->CustomPackages()->exists()){
+                //     return $this->CustomPackages()->filterByCallback(function($item, $list) {
+                //         return ($item->shouldDisplay());
+                //     });
+                // }
+                return Packages::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
+                    return ($item->shouldDisplay());
+                });
+            break;
+            case "optionen":
+               // 
+            break;
         }
-        return $this->Products()->filterByCallback(function($item, $list) {
-            return ($item->shouldDisplay());
-        });
+        
     }
 }
