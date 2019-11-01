@@ -10,7 +10,7 @@ use SilverStripe\i18n\i18n;
 use SilverStripe\Security\Member;
 use SilverStripe\View\Requirements;
 
-class ShopController extends ElementController
+class ShopController extends PageController
 {
 
    private static $allowed_actions = ['fetchPackages']; 
