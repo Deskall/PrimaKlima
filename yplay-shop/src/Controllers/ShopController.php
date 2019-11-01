@@ -9,6 +9,7 @@ use SilverStripe\Core\ClassInfo;
 use SilverStripe\i18n\i18n;
 use SilverStripe\Security\Member;
 use SilverStripe\View\Requirements;
+use SilverStripe\ORM\ArrayList;
 
 class ShopController extends PageController
 {
@@ -16,6 +17,6 @@ class ShopController extends PageController
    private static $allowed_actions = ['fetchPackages']; 
 
    public function fetchPackages(){
-   	return Package::get()->toArray();
+   	return json_encode(new ArrayList(Package::get())));
    } 
 }
