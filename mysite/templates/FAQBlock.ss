@@ -57,7 +57,7 @@
 <div class="uk-grid-small uk-child-width-1-4@s uk-flex-center uk-text-center" data-uk-grid>
     <% loop activeCategories %>
 	<div>
-        <div class="uk-card uk-card-default uk-card-body">$Title</div>
+        <div class="uk-card uk-card-default uk-card-body">$Icon $Title</div>
     </div>
 	<% end_loop %>
 </div>
