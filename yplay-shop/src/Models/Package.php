@@ -21,11 +21,14 @@ class Package extends Product {
 		'Products' => Product::class
 	];
 	
+	private static $defaults = [
+		'RecurringPrice' => 1
+	];
 	
 
 	public function fieldLabels($includerelation = true){
 		$labels = parent::fieldLabels($includerelation);
-		
+		$labels['Products'] = 'Produkte';
 
 		return $labels;
 	}
@@ -34,6 +37,7 @@ class Package extends Product {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
+		$fields->removeByName('RecurringPrice');
 		
 		return $fields;
 	}
