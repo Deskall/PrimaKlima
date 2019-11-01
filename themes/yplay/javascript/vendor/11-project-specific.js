@@ -27,3 +27,16 @@ $(document).ready(function(){
 });
 
 
+
+//Product Choice Scripts
+$(document).ready(function(){
+	//we fetch the packages
+	var packages = [];
+	var url = window.location.pathname;
+	$.ajax({
+		url: '/shop-functions/fetchPackages',
+		dataType: 'Json'
+	}).done(function(response){
+		console.log(response);
+	});
+});
