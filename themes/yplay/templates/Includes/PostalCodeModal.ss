@@ -11,7 +11,7 @@
                         <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
                     </div>
                 </div>
-                <div class="uk-flex uk-flex-right">
+                <div class="uk-flex uk-flex-center uk-flex-right@s uk-flex-wrap">
                     <button class="uk-button uk-button-default uk-modal-close" type="button">Später eingeben.</button>
                     <button class="uk-button uk-button-primary" type="submit">Region wählen</button>
                 </div>
