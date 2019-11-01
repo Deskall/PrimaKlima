@@ -71,7 +71,9 @@
 		        	<% loop Products %>
 		        	 <div class="product-item">
 		        		 <strong>$Title</strong>
-		        		 $Subtitle
+		        		 <div>
+		        			 $Subtitle
+		        		 </div>
 		        		</div>
 		        		<% end_loop %>
 		        <% end_if %>
