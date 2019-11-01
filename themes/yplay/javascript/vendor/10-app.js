@@ -223,7 +223,7 @@ $(document).ready(function(){
           srcset: $(this).attr('data-dk-srcset'),
           sizes: $(this).attr('data-dk-sizes')
         };
-        UIkit.img($(this), options);
+        UIkit.img($(this).attr('id'), options);
       });
     }
   }
