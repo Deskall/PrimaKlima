@@ -48,7 +48,7 @@ $(document).ready(function(){
 		UIkit.slider(slider).show(index);
 	});
 
-	UIkit.util.on('.uk-slider','itemshow',function(){
+	UIkit.util.on('.uk-slider','itemshown',function(){
 		UpgradeOrder();
 	});
 
