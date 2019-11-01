@@ -37,6 +37,12 @@ $(document).ready(function(){
 		url: '/shop-functions/fetchPackages',
 		dataType: 'Json'
 	}).done(function(response){
-		console.log(response);
+		packages = response;
+	});
+
+
+	//Handle the product slider
+	$(document).on("click",".category .uk-slider-items li",function(){
+		console.log('ici');
 	});
 });
