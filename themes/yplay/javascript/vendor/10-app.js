@@ -209,22 +209,3 @@ function resizeMain(){
   var h = $('header').outerHeight() + $('footer').outerHeight();
   $('main').css({ minHeight: `${screen - h}px` });
 }
-
-
-//show background image only on desktop
-// $(document).ready(function(){
-//   var screenWidth = $( window ).width();
-//   if (screenWidth > 640){
-//     if ($("[data-dk-img]").length > 0){
-//       $("[data-dk-img]").each(function(){
-//         console.log('ici');
-//         var options = {
-//           src: $(this).attr('data-dk-src'),
-//           srcset: $(this).attr('data-dk-srcset'),
-//           sizes: $(this).attr('data-dk-sizes')
-//         };
-//         UIkit.img($(this).attr('id'), options);
-//       });
-//     }
-//   }
-// });
