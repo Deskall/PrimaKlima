@@ -57,7 +57,7 @@
 <div class="uk-grid-small uk-child-width-1-4@s uk-flex-center uk-text-center" data-uk-grid>
     <% loop activeCategories %>
 	<div>
-        <div class="uk-card uk-card-default uk-card-body">
+        <div class="uk-card uk-card-muted uk-card-body">
         	<img src="$Icon.URL" width="60" height="60" data-uk-svg>
     	    $Title
     	</div>
