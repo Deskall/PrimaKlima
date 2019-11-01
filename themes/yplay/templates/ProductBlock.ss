@@ -60,14 +60,14 @@
 	        <div class="bestseller">Bestseller</div>
 	        <% end_if %>
 	        <div class="product-body">
-	        	<% if ProductType == "products" %>
+	        	<% if Top.ProductType == "products" %>
 			        <% loop $Items %>
 			        <div class="product-item">
 			       	 <strong>$Title</strong>
 			       	 $Content
 			       	</div>
 			        <% end_loop %>
-		        <% else_if ProductType == "packages" %>
+		        <% else_if Top.ProductType == "packages" %>
 		        	<% loop Products %>
 		        	 <div class="product-item">
 		        		 <strong>$Title</strong>
