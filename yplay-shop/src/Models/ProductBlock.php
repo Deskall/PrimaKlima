@@ -19,7 +19,7 @@ class ProductBlock extends TextBlock
     private static $help_text = "Produkte Block";
 
     private static $db = [
-        'Type' => 'Varchar'
+        'ProductType' => 'Varchar'
     ];
 
     private static $defaults = ['Type' => 'products'];
@@ -40,8 +40,8 @@ class ProductBlock extends TextBlock
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->removeByName('Type');
-        $fields->insertBefore('TitleAndDisplayed',DropdownField::create('Type','Typ',['products' => 'Produkte','packages' => 'Pakete','options' => 'Optionen'])->setEmptyString('Bitte Typ auswählen'));
+        $fields->removeByName('ProductType');
+        $fields->insertBefore('TitleAndDisplayed',DropdownField::create('ProductType','Typ',['products' => 'Produkte','packages' => 'Pakete','options' => 'Optionen'])->setEmptyString('Bitte Typ auswählen'));
        
         $fields->FieldByName('Root.Main.CategoryID')->displayIf('Type')->isEqualTo('products');
 
@@ -60,7 +60,7 @@ class ProductBlock extends TextBlock
 
 
     public function filteredItems(){
-        switch($this->Type){
+        switch($this->ProductType){
             case "products":
                 if ($this->Category()->exists()){
                     return $this->Category()->filteredProducts();
