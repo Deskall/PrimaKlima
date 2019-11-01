@@ -55,4 +55,11 @@ class FAQBlock extends TextBlock
     {
         return _t(__CLASS__ . '.BlockType', 'Häufigen Fragen, als Icon oder nach Kategorien');
     }
+
+    public function activeItems(){
+        if ($this->Category()->exists())){
+            return $this->Category()->Items()->filter('isVisible',1);
+        }
+        return $this->Items()->filter('isVisible',1);
+    }
 }
