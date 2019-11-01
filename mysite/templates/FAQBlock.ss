@@ -58,7 +58,7 @@
     <% loop activeCategories %>
 	<div>
         <div class="uk-card uk-card-default uk-card-body">
-        	<img scr="$Icon.URL" width="60" height="60" >
+        	<img src="$Icon.URL" width="60" height="60" data-uk-svg>
     	    $Title
     	</div>
     </div>
