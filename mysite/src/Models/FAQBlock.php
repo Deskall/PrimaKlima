@@ -62,4 +62,8 @@ class FAQBlock extends TextBlock
         }
         return $this->Items()->filter('isVisible',1);
     }
+
+    public function activeCategories(){
+        return FAQCategory::get();
+    }
 }

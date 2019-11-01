@@ -49,10 +49,15 @@
 	<% end_if %>
 </div>
 
-
-<% loop activeItems %>
-$Title
-<% end_loop %>
+<% if Category.exists %>
+	<% loop activeItems %>
+	$Title
+	<% end_loop %>
+<% else %>
+	<% loop activeCategories %>
+	$Title
+	<% end_loop %>
+<% end_if %>
 
 <% if LinkableLinkID > 0 %>
 	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
