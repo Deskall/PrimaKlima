@@ -41,9 +41,10 @@ class ProductBlock extends TextBlock
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('Type');
-        $fields->addFieldToTab('Root.Main',DropdownField::create('Type','Typ',['products' => 'Produkte','packages' => 'Pakete','options' => 'Optionen'])->setEmptyString('Bitte Typ auswählen'));
+        $fields->insertBefore('Title',DropdownField::create('Type','Typ',['products' => 'Produkte','packages' => 'Pakete','options' => 'Optionen'])->setEmptyString('Bitte Typ auswählen'));
        
-
+        $fields->FieldByName('Root.Main.CategoryID')->displayIf('Type')->isEqualTo('products');
+        
         return $fields;
     }
 
