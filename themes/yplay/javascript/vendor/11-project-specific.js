@@ -49,6 +49,12 @@ $(document).ready(function(){
 	});
 
 	UIKit.util.on('.uk-slider','itemshow',function(){
-		console.log('ici');
+		UpgradeOrder();
 	});
+
+	function UpgradeOrder(){
+		$('.category .uk-slider li.uk-active').each(function(){
+			console.log($(this).attr('data-title'));
+		});
+	}
 });
