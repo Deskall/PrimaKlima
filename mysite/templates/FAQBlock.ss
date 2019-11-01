@@ -54,9 +54,13 @@
 	$Title
 	<% end_loop %>
 <% else %>
-	<% loop activeCategories %>
-	$Title
+<div class="uk-grid-small uk-child-width-1-4@s uk-flex-center uk-text-center" data-uk-grid>
+    <% loop activeCategories %>
+	<div>
+        <div class="uk-card uk-card-default uk-card-body">$Title</div>
+    </div>
 	<% end_loop %>
+</div>
 <% end_if %>
 
 <% if LinkableLinkID > 0 %>
