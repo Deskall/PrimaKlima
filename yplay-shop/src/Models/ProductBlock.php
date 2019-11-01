@@ -76,7 +76,7 @@ class ProductBlock extends TextBlock
                 //         return ($item->shouldDisplay());
                 //     });
                 // }
-                return Packages::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
+                return Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
                     return ($item->shouldDisplay());
                 });
             break;
