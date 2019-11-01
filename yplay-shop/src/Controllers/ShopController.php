@@ -17,6 +17,6 @@ class ShopController extends PageController
    private static $allowed_actions = ['fetchPackages']; 
 
    public function fetchPackages(){
-   	return print_r(new ArrayList(Package::get()->toArray()));
+   	return json_encode(Package::get());
    } 
 }
