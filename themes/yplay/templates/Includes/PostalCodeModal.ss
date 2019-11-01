@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="uk-flex uk-flex-center uk-flex-right@s uk-flex-wrap">
-                    <button class="uk-button uk-button-default uk-flex-first@s uk-modal-close uk-margin-small-right" type="button">Später eingeben.</button>
+                    <a class="uk-flex-first@s uk-modal-close uk-margin-small-right">Später eingeben.</a>
                     <button class="uk-button uk-button-primary uk-flex-first" type="submit">Region wählen</button>
                 </div>
             </form>
