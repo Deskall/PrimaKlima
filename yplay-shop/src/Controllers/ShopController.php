@@ -16,8 +16,6 @@ class ShopController extends PageController
    private static $allowed_actions = ['fetchPackages']; 
 
    public function fetchPackages(){
-   	return json_encode(Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
-		    return ($item->shouldDisplay());
-		}));
+   	return json_encode(Package::get()->filter('isVisible',1));
    } 
 }
