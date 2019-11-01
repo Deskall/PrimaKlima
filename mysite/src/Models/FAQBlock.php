@@ -57,7 +57,7 @@ class FAQBlock extends TextBlock
     }
 
     public function activeItems(){
-        if ($this->Category()->exists())){
+        if ($this->Category()->exists()){
             return $this->Category()->Items()->filter('isVisible',1);
         }
         return $this->Items()->filter('isVisible',1);
