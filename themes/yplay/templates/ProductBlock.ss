@@ -81,7 +81,7 @@
 	        <div class="product-footer">
 	        	<div class="product-price uk-text-large uk-text-bold">$PrintPriceString</div>
 	        	<div class="uk-margin">
-	        		<a href="/angebote" class="uk-button uk-button-primary">Bestellen</a>
+	        		<a href="/angebote" class="uk-button uk-button-primary btn-order">Bestellen</a>
 	        	</div>
 	        	<div class="footer-text">$FooterText</div>
 	    	</div>

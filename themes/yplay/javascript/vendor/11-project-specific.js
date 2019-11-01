@@ -19,6 +19,11 @@ $(document).ready(function(){
 	UIkit.util.on("#modal-postal-code","shown",function(){
 		$('input[name="plz-choice"]').focus();
 	});
+
+	//productblock
+	$(document).on('click','.productblock .uk-card',function(){
+		$(this).find('.btn-order').trigger('click');
+	});
 });
 
 
