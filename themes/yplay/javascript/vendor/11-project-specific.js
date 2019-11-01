@@ -22,6 +22,7 @@ $(document).ready(function(){
 
 	//productblock
 	$(document).on('click','.productblock .uk-card',function(){
+		console.log('ici');
 		$(this).find('.btn-order').trigger('click');
 	});
 });
