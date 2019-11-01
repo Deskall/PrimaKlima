@@ -43,6 +43,7 @@
 							<input id="no-{$ID}" name="no-{$ID}" type="checkbox" class="uk-checkbox">
 							<label for="no-{$ID}"><%t Category.NotIncluded 'Keine {title} Angebot' title=$Title %></label>
 						</div>
+						<input type="hidden" name="$ProductCode" data-product-choice>
 					</div>
 					<div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
 					    <div class="uk-modal-dialog">

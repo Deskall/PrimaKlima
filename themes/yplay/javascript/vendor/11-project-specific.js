@@ -48,9 +48,11 @@ $(document).ready(function(){
 		UIkit.slider(slider).show(index);
 	});
 
-	UIkit.util.on('.uk-slider','itemshown',function(){
-		UpgradeOrder();
+	$(document).on("change","[data-product-choice]",function(){
+		UpdateOrder();
 	});
+
+	
 
 	function UpgradeOrder(){
 		$('.category .uk-slider li.uk-active').each(function(){
