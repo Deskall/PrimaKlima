@@ -18,7 +18,7 @@
 							    	<div class="uk-slider-container">
 								        <ul class="uk-slider-items uk-child-width-1-2 uk-grid-match">
 								            <% loop filteredProducts %>
-								            <li data-index="$Pos" data-title="$Title">
+								            <li data-index="$Pos" data-title="$Title" data-value="$ProductCode">
 								                <div class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-box-shadow-medium uk-card-small">
 								                    <div class="uk-card-body">
 								                        <h3 class="uk-card-title">$Title</h3>
@@ -43,7 +43,7 @@
 							<input id="no-{$ID}" name="no-{$ID}" type="checkbox" class="uk-checkbox">
 							<label for="no-{$ID}"><%t Category.NotIncluded 'Keine {title} Angebot' title=$Title %></label>
 						</div>
-						<input type="hidden" name="$ProductCode" data-product-choice>
+						<input type="hidden" name="$Code" data-product-choice>
 					</div>
 					<div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
 					    <div class="uk-modal-dialog">
