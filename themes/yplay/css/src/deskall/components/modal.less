@@ -1,0 +1,18 @@
+ .hook-modal-body(){
+ 	padding: 10px;
+ 	@media only screen and (min-width:@breakpoint-medium){
+ 		padding: @modal-body-padding-vertical @modal-body-padding-horizontal;
+ 	}
+ }
+ .hook-modal-title(){
+ 	font-size:@modal-title-font-size*@font-ratio-small;
+ 	@media only screen and (min-width:@breakpoint-small){
+ 		font-size:@modal-title-font-size*@font-ratio-medium;
+ 	}
+ 	@media only screen and (min-width:@breakpoint-medium){
+ 		font-size:@modal-title-font-size*@font-ratio-large;
+ 	}
+ 	@media only screen and (min-width:@breakpoint-large){
+ 		font-size:@modal-title-font-size;
+ 	}
+ }
