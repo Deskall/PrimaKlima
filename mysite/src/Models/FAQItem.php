@@ -5,6 +5,9 @@ use SilverStripe\ORM\DataObject;
 
 class FAQItem extends DataObject{
 
+	private static $singular_name = 'FAQ Item';
+	private static $plural_name = 'FAQ Items';
+
 	private static $db = [
 		'Title' => 'Varchar(255)',
 		'Summary' => 'HTMLText', 

@@ -5,6 +5,9 @@ use SilverStripe\Assets\Image;
 
 class FAQCategory extends DataObject{
 
+	private static $singular_name = 'FAQ Kategorie';
+	private static $plural_name = 'FAQ Kategorien';
+
 	private static $db = [
 		'Title' => 'Varchar(255)',
 		'Summary' => 'HTMLText'
