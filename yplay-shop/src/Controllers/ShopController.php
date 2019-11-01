@@ -17,6 +17,18 @@ class ShopController extends PageController
    private static $allowed_actions = ['fetchPackages']; 
 
    public function fetchPackages(){
-   	return json_encode(Package::get());
+   	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
+		return ($item->shouldDisplay());
+	});
+	$array = [];
+   	foreach ($packages as $package) {
+   		$array[$package->ProductCode] = $package->toMap();
+   		$products = [];
+   		foreach($package->Products() as $product){
+   			$products[] = $product->ProductCode;
+   		}
+   		$array[$package->ProductCode]['Products'] = $products;
+   	}
+   	return json_encode($array);
    } 
 }
