@@ -217,6 +217,7 @@ $(document).ready(function(){
   if (screenWidth > 640){
     if ($("[data-dk-img]").length > 0){
       $("[data-dk-img]").each(function(){
+        console.log('ici');
         var options = {
           src: $(this).attr('data-dk-src'),
           srcset: $(this).attr('data-dk-srcset'),
