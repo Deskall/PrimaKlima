@@ -28,7 +28,7 @@ class FAQBlock extends TextBlock
 
     private static $has_one = ['Category' => FAQCategory::class];
 
-    private static $many_many = ['Items' => FAQItem::class]
+    private static $many_many = ['Items' => FAQItem::class];
 
     public function fieldLabels($includerelations = true) {
         $labels = parent::fieldLabels($includerelations);
