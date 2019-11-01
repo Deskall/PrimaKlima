@@ -35,5 +35,6 @@ BaseBlockExtension:
   blocks:
     - MarketingBlock
     - TeasingBlock
+    - FAQBlock
   children_blocks:
     - MarketingBlock
