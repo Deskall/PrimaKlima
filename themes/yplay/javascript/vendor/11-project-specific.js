@@ -46,6 +46,7 @@ $(document).ready(function(){
 		var slider = $(this).parents('.uk-slider');
 		var index = parseInt($(this).attr('data-index')) - 1;
 		UIkit.slider(slider).show(index);
+		slider.parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
 	});
 
 	$(document).on("change","[data-product-choice]",function(){
