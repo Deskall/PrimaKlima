@@ -58,7 +58,7 @@
     <% loop activeCategories %>
 	<div>
         <div class="uk-card uk-card-default uk-card-body">
-        	<img scr="$Icon.URL" data-uk-svg="strokeAnimation:true">
+        	<img scr="$Icon.URL" data-uk-svg>
     	    $Title
     	</div>
     </div>
