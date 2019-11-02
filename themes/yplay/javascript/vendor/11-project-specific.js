@@ -67,14 +67,18 @@ $(document).ready(function(){
 			products.push($(this).attr('data-value'));
 		});
 		$.each(packages,function(i,v){
-	      var same = v['Products'].every(function(element, index) {
-	       return $.inArray(element,products) > -1; 
-	      });
-	      if (same){
-	        chosenPackage = i;
-	        return false;
-	      }
+			if (v['Products'] == products){
+				console.log(v);
+				return false;
+			}
+	      // var same = v['Products'].every(function(element, index) {
+	      //  return $.inArray(element,products) > -1; 
+	      // });
+	      // if (same){
+	      //   chosenPackage = i;
+	      //   return false;
+	      // }
 		});
-		console.log(chosenPackage);
+		// console.log(chosenPackage);
 	}
 });
