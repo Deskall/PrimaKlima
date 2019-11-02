@@ -60,9 +60,21 @@ $(document).ready(function(){
 
 	function UpdateOrder(){
 		products = [];
+		var package;
+		var packagesMatrice =  $.parseJSON(packages);
+		var chosenPackage;
 		$('.category .slider-products .uk-slider-items li.uk-active').each(function(){
 			products.push($(this).attr('data-value'));
 		});
-		console.log(products);
+		$.each(packagesMatrice,function(i,v){
+			console.log(v['products']);
+	      var same = v['products'].every(function(element, index) {
+	       return $.inArray(element,products) > -1; 
+	      });
+	      if (same){
+	        chosenPackage = i;
+	        return false;
+	      }
+		});
 	}
 });
