@@ -228,7 +228,7 @@
 								<h3 class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %></h3>
 								<strong>Abobezeichnung</strong>
 							</div>
-							<div class="uk-card-body">
+							<div class="uk-card-body order-preview">
 								<strong class="uk-text-small">Monatliche Kosten</strong>
 								<table class="uk-table uk-table-small uk-table-striped">
 									<tbody>

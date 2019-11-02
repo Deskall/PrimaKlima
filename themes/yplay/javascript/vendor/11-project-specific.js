@@ -61,23 +61,29 @@ $(document).ready(function(){
 	function UpdateOrder(){
 		products = [];
 		var package;
-
 		var chosenPackage;
 		$('.category .slider-products .uk-slider-items li.uk-active').each(function(){
 			products.push($(this).attr('data-value'));
 		});
 		// console.log(products.sort());
 		$.each(packages,function(i,v){
-			console.log(v['Products'].sort());
+
 			if (compareArrays(v['Products'],products)){
-				console.log(v);
+				chosenPackage = v;
 				return false;
 			}
 		});
-		// console.log(chosenPackage);
+		UpdateOrderPreview(chosenPackage);
 	}
 
 	function compareArrays(arr1, arr2) {
 	    return $(arr1).not(arr2).length == 0 && $(arr2).not(arr1).length == 0
 	};
+
+	function UpdateOrderPreview(package){
+		$('.order-preview').empty();
+		if (package){
+			$('.order-preview').append(package['Title']);
+		}
+	}
 });
