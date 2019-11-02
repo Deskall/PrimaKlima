@@ -12,7 +12,7 @@
 						$Description
 						
 						
-							<div id="slider-products-{$ID}" class="uk-padding-small slider-products uk-padding-remove-bottom" data-uk-slider="center:true;index:1;">
+							<div class="uk-padding-small <% if Code != "yplay-mobile" %>slider-products<% end_if %> uk-padding-remove-bottom" data-uk-slider="center:true;index:1;">
 
 							    
 							    	<div class="uk-slider-container">
