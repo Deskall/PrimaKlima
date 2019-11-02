@@ -55,7 +55,7 @@ $(document).ready(function(){
 
 	
 
-	function UpgradeOrder(){
+	function UpdateOrder(){
 		$('.category .uk-slider li.uk-active').each(function(){
 			console.log($(this).attr('data-title'));
 		});
