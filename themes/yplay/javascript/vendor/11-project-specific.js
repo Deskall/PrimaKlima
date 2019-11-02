@@ -67,7 +67,6 @@ $(document).ready(function(){
 			products.push($(this).attr('data-value'));
 		});
 		$.each(packages,function(i,v){
-			console.log(v['Products']);
 	      var same = v['Products'].every(function(element, index) {
 	       return $.inArray(element,products) > -1; 
 	      });
@@ -76,5 +75,6 @@ $(document).ready(function(){
 	        return false;
 	      }
 		});
+		console.log(chosenPackage);
 	}
 });
