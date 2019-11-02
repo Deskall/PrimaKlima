@@ -66,8 +66,9 @@ $(document).ready(function(){
 		$('.category .slider-products .uk-slider-items li.uk-active').each(function(){
 			products.push($(this).attr('data-value'));
 		});
-		console.log(products.sort());
+		// console.log(products.sort());
 		$.each(packages,function(i,v){
+			console.log(v['Products'].sort());
 			if (compareArrays(v['Products'],products)){
 				console.log(v);
 				return false;
