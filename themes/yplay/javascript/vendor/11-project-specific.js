@@ -32,6 +32,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 	//we fetch the packages
 	var packages = [];
+	var products =[]; 
 	var url = window.location.pathname;
 	$.ajax({
 		url: '/shop-functions/fetchPackages',
@@ -56,8 +57,10 @@ $(document).ready(function(){
 	
 
 	function UpdateOrder(){
+		products = [];
 		$('.category .slider-products li.uk-active').each(function(){
-			console.log($(this).attr('data-title'));
+			products.push($(this).attr('data-value'));
 		});
+		console.log(products);
 	}
 });
