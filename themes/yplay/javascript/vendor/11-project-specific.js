@@ -68,20 +68,15 @@ $(document).ready(function(){
 		});
 		console.log(products.sort());
 		$.each(packages,function(i,v){
-			console.log(v['Products'].sort());
-
-			if (v['Products'].sort() == products.sort()){
+			if (compareArrays(v['Products'],products)){
 				console.log(v);
 				return false;
 			}
-	      // var same = v['Products'].every(function(element, index) {
-	      //  return $.inArray(element,products) > -1; 
-	      // });
-	      // if (same){
-	      //   chosenPackage = i;
-	      //   return false;
-	      // }
 		});
 		// console.log(chosenPackage);
 	}
+
+	function compareArrays(arr1, arr2) {
+	    return $(arr1).not(arr2).length == 0 && $(arr2).not(arr1).length == 0
+	};
 });
