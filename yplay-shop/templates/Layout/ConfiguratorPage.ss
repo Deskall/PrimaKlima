@@ -12,7 +12,7 @@
 						$Description
 						
 						
-							<div class="uk-padding-small uk-padding-remove-bottom" data-uk-slider="center:true;index:1;">
+							<div class="uk-padding-small slider-products uk-padding-remove-bottom" data-uk-slider="center:true;index:1;">
 
 							    
 							    	<div class="uk-slider-container">
