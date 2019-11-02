@@ -61,6 +61,7 @@ $(document).ready(function(){
 	function UpdateOrder(){
 		products = [];
 		var package;
+		console.log(packages);
 		var packagesMatrice =  $.parseJSON(packages);
 		var chosenPackage;
 		$('.category .slider-products .uk-slider-items li.uk-active').each(function(){
