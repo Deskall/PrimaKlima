@@ -70,7 +70,7 @@ $(document).ready(function(){
 		$.each(packages,function(i,v){
 			console.log(v['Products']);
 
-			if (v['Products'] == products){
+			if (v['Products'].sort() == products.sort()){
 				console.log(v);
 				return false;
 			}
