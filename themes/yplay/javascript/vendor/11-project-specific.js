@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 	function UpdateOrder(){
 		products = [];
-		$('.category .slider-products li.uk-active').each(function(){
+		$('.category .slider-products .uk-slider-items li.uk-active').each(function(){
 			products.push($(this).attr('data-value'));
 		});
 		console.log(products);
