@@ -126,6 +126,7 @@ $(document).ready(function(){
 
 	function printPrice(price){
 		price = parseFloat(price);
+		
 		if (price % 1 != 0){
 			return 'CHF '+price;
 		}
