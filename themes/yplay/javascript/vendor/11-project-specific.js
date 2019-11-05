@@ -90,8 +90,8 @@ $(document).ready(function(){
 	};
 
 	function UpdateOrderPreview(package){
-		$('.order-preview #monthly-costs').empty();
-		$('.order-preview #unique-costs').empty();
+		$('.order-preview #monthly-costs tbody').empty();
+		$('.order-preview #unique-costs tbody').empty();
 		//If package found we fill it.
 		if (package){
 			$('.order-preview').append(package['Title']);
