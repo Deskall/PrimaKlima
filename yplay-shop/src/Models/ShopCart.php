@@ -7,7 +7,9 @@ class ShopCart extends DataObject {
 
 	
 	private static $db = [
-		'IP' => 'Varchar'
+		'IP' => 'Varchar',
+		'TotalMonthlyPrice' => 'Varchar',
+		'TotalUniquePrice' => 'Varchar'
 	];
 
 	private static $has_one = [
@@ -21,13 +23,15 @@ class ShopCart extends DataObject {
 	
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
+		$this->writeTotalMonthlyPrice();
+		$this->writeTotalUniquePrice();
 	}
 
 	public function forTemplate(){
 		return $this->renderWith('Includes/ShopCart');
 	}
 
-	public function TotalMonthlyPrice(){
+	public function writeTotalMonthlyPrice(){
 		$price = 0;
 		if ($this->Package()->exists()){
 			$price += $this->Package->Price;
@@ -37,10 +41,10 @@ class ShopCart extends DataObject {
 				$price += $product->Price;
 			}
 		}
-		return 'CHF '.number_format($price,2). ' /Mt.';
+		$this->TotalMonthlyPrice = "CHF ".number_format($price,2)." /Mt.";
 	}
 
-	public function TotalUniquePrice(){
+	public function writeTotalUniquePrice(){
 		$price = 0;
 		if ($this->Package()->exists()){
 			$price += $this->Package->UniquePrice;
@@ -52,6 +56,6 @@ class ShopCart extends DataObject {
 				$price += $product->ActivationPrice;
 			}
 		}
-		return 'CHF '.number_format($price,2);
+		$this->TotalUniquePrice = "CHF ".number_format($price,2);
 	}
 }
