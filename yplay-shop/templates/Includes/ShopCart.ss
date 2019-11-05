@@ -1,19 +1,19 @@
 <strong class="uk-text-small">Monatliche Kosten</strong>
-								<table id="monthly-costs" class="uk-table uk-table-small uk-table-striped">
+								<table id="monthly-costs" class="uk-table uk-table-small uk-table-justify">
 									<tbody>
 										<% if Package.exists %>
 										<% with Package %>
-										<tr><td >$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+										<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
 										<% end_with %>
 										<% end_if %>
 										<% if Products.exists %>
 										<% loop Products %>
-										<tr><td >$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+										<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
 										<% end_loop %>
 										<% end_if %>
 									</tbody>
 									<tfoot>
-										<tr><td >Total (monatlich)</td><td id="total-monthly-price" class="uk-text-right uk-strong">$TotalMonthlyPrice</td></tr>
+										<tr><td>Total (monatlich)</td><td id="total-monthly-price" class="uk-text-right uk-strong">$TotalMonthlyPrice</td></tr>
 									</tfoot>
 								</table>
 								<strong class="uk-text-small">Einmalige Kosten</strong>
@@ -22,26 +22,26 @@
 										<% if Package %>
 										<% with Package %>
 											<% if UniquePrice > 0 %>
-												<tr><td >$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
+												<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
 											<% end_if %>
 											<% if ActivationPrice > 0 %>
-												<tr><td >$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
+												<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
 											<% end_if %>
 										<% end_with %>
 										<% end_if %>
 										<% if Products.exists %>
 										<% loop Products %>
 											<% if UniquePrice > 0 %>
-												<tr><td >$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
+												<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
 											<% end_if %>
 											<% if ActivationPrice > 0 %>
-												<tr><td >$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
+												<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
 											<% end_if %>
 										<% end_loop %>
 										<% end_if %>
 									</tbody>
 									<tfoot>
-										<tr><td >Total (einmalig)</td><td id="total-unique-price" class="uk-text-right uk-strong">$TotalUniquePrice</td></tr>
+										<tr><td>Total (einmalig)</td><td id="total-unique-price" class="uk-text-right uk-strong">$TotalUniquePrice</td></tr>
 									</tfoot>
 								</table>
 								<div class="uk-margin-small">
