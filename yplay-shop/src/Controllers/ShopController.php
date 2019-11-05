@@ -52,6 +52,6 @@ class ShopController extends PageController
          $cart->PackageID = $this->getRequest()->postVar('packageID');
          $cart->write();
       }
-      return $cart;
+      return $cart->forTemplate();
    } 
 }

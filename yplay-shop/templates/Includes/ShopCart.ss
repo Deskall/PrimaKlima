@@ -2,7 +2,9 @@
 								<table id="monthly-costs" class="uk-table uk-table-small uk-table-striped">
 									<tbody>
 										<% if Package %>
+										<% with Package %>
 										<tr><td class="uk-table-expand">$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+										<% end_with %>
 										<% end_if %>
 									</tbody>
 									<tfoot>
@@ -13,12 +15,14 @@
 								<table id="unique-costs" class="uk-table uk-table-small uk-table-striped">
 									<tbody>
 										<% if Package %>
+										<% with Package %>
 											<% if Package.UniquePrice > 0 %>
 												<tr><td class="uk-table-expand">$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
 											<% end_if %>
 											<% if Package.ActivationPrice > 0 %>
 												<tr><td class="uk-table-expand">$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
 											<% end_if %>
+										<% end_with %>
 										<% end_if %>
 									</tbody>
 									<tfoot>
