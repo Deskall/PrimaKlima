@@ -53,12 +53,11 @@ class ShopController extends PageController
       if ($products = $this->getRequest()->postVar('products')){
          foreach ($products as $code) {
             $product = Product::get()->filter('ProductCode',$code)->first();
-            if ($product){
+            if ($product && !$cart->Package()->Products()->find($product)){
                $cart->Products()->add($product);
             }
          }
       }
-
 
       $cart->write();
       return $cart->forTemplate();
