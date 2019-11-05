@@ -1,5 +1,5 @@
 <strong class="uk-text-small">Monatliche Kosten</strong>
-								<table id="monthly-costs" class="uk-table uk-table-justify">
+								<table id="monthly-costs" class="uk-table uk-table-small uk-table-justify">
 									<tbody>
 										<% if Package.exists %>
 										<% with Package %>
@@ -17,7 +17,7 @@
 									</tfoot>
 								</table>
 								<strong class="uk-text-small">Einmalige Kosten</strong>
-								<table id="unique-costs" class="uk-table uk-table-justify">
+								<table id="unique-costs" class="uk-table uk-table-small uk-table-justify">
 									<tbody>
 										<% if Package %>
 										<% with Package %>
