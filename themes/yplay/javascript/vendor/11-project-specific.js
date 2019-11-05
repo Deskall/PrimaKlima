@@ -97,7 +97,7 @@ $(document).ready(function(){
 			url: '/shop-functions/fetchCart',
 			dataType: 'html'
 		}).done(function(response){
-			$("[data-order-preview]").empty().append(response);
+			$(".order-preview").empty().append(response);
 		});
 
 		// $('.order-preview #monthly-costs tbody').empty();
