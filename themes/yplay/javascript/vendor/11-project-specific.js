@@ -93,6 +93,7 @@ $(document).ready(function(){
 	};
 
 	function UpdateOrderPreview(package, products){
+		console.log(package);
 		$.ajax({
 			url: '/shop-functions/fetchCart',
 			method: 'POST',
