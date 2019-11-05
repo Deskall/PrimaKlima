@@ -89,13 +89,12 @@ $(document).ready(function(){
 	    return $(arr1).not(arr2).length == 0 && $(arr2).not(arr1).length == 0
 	};
 
-	function UpdateOrderPreview(package){
+	function UpdateOrderPreview(package, products){
 		$('.order-preview #monthly-costs tbody').empty();
 		$('.order-preview #unique-costs tbody').empty();
 		//If package found we fill it.
 		if (package){
-			$('.order-preview').append(package['Title']);
-			$('.order-preview #monthly-costs tbody').append('<tr><td class="uk-table-expand">Surf M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>');
+			$('.order-preview #monthly-costs tbody').append('<tr><td class="uk-table-expand">'+package['Title']+'</td><td class="uk-text-right">'+package['Price']+'</td></tr>');
 		}
 		else{
 
