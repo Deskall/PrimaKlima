@@ -69,7 +69,7 @@ $(document).ready(function(){
 		productsOfPackages = [];
 		products = [];
 		var package;
-		var chosenPackage;
+		var chosenPackageID = 0;
 		$('.category .slider-packages .uk-slider-items li.uk-active').each(function(){
 			productsOfPackages.push($(this).attr('data-value'));
 		});
@@ -79,13 +79,13 @@ $(document).ready(function(){
 		//Compare to see if any package matches the selected products
 		$.each(packages,function(i,v){
 			if (compareArrays(v['Products'],productsOfPackages)){
-				chosenPackage = v;
+				chosenPackageID = v;
 				return false;
 			}
 		});
 
 
-		UpdateOrderPreview(chosenPackage['ID'], products);
+		UpdateOrderPreview(chosenPackageID, products);
 	}
 
 	function compareArrays(arr1, arr2) {
