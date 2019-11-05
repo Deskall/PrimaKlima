@@ -120,7 +120,16 @@ $(document).ready(function(){
 
 		}
 
-		$('#total-monthly-price').text('CHF '+totalMonthly+' / Mt.');
-		$('#total-unique-price').text('CHF '+totalUnique);
+		$('#total-monthly-price').text(printPrice(totalMonthly)+' / Mt.');
+		$('#total-unique-price').text(printPrice(totalUnique));
+	}
+
+	function printPrice(price){
+		price = parseFloat(price);
+		if (price % 1 != 0){
+			return 'CHF '+price;
+		}
+		return 'CHF'+parseInt(price)+.'.-';
 	}
 });
+
