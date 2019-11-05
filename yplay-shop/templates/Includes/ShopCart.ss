@@ -13,7 +13,7 @@
 										<% end_if %>
 									</tbody>
 									<tfoot>
-										<tr><td>Total (monatlich)</td><td id="total-monthly-price" class="uk-text-right uk-strong">$TotalMonthlyPrice</td></tr>
+										<tr><td>Total (monatlich)</td><td id="total-monthly-price" class="uk-text-right uk-text-bold">$TotalMonthlyPrice</td></tr>
 									</tfoot>
 								</table>
 								<strong class="uk-text-small">Einmalige Kosten</strong>
@@ -41,7 +41,7 @@
 										<% end_if %>
 									</tbody>
 									<tfoot>
-										<tr><td>Total (einmalig)</td><td id="total-unique-price" class="uk-text-right uk-strong">$TotalUniquePrice</td></tr>
+										<tr><td>Total (einmalig)</td><td id="total-unique-price" class="uk-text-right uk-text-bold">$TotalUniquePrice</td></tr>
 									</tfoot>
 								</table>
 								<div class="uk-margin-small">
