@@ -85,7 +85,7 @@ $(document).ready(function(){
 		});
 
 
-		UpdateOrderPreview(chosenPackage, products);
+		UpdateOrderPreview(chosenPackage['ID'], products);
 	}
 
 	function compareArrays(arr1, arr2) {
