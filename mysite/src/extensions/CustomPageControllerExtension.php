@@ -8,7 +8,6 @@ use SilverStripe\Subsites\Model\Subsite;
 use SilverStripe\Control\Cookie;
 use SilverStripe\Control\Session;
 use SilverStripe\Control\HTTPRequest;
-use SilverStripe\Subsites\Model\Subsite;
 
 class CustomPageControllerExtension extends Extension
 {   
