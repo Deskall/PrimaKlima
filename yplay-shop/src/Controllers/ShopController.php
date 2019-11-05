@@ -49,6 +49,16 @@ class ShopController extends PageController
 
       //apply package and product
       $cart->PackageID = $this->getRequest()->postVar('packageID');
+      $cart->Products()->removeAll();
+      if ($products = $this->getRequest()->postVar('products')){
+         foreach ($products as $code) {
+            $product = Product::get()->filter('ProductCode',$code)->first();
+            if ($product){
+               $cart->Products()->add($product);
+            }
+         }
+      }
+
 
       $cart->write();
       return $cart->forTemplate();

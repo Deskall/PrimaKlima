@@ -74,7 +74,7 @@ $(document).ready(function(){
 			productsOfPackages.push($(this).attr('data-value'));
 		});
 		$('.category .slider-products .uk-slider-items li.uk-active').each(function(){
-			products.push($(this));
+			products.push($(this).attr('data-value'));
 		});
 		//Compare to see if any package matches the selected products
 		$.each(packages,function(i,v){
@@ -93,12 +93,11 @@ $(document).ready(function(){
 	};
 
 	function UpdateOrderPreview(packageID, products){
-		console.log(packageID);
 		$.ajax({
 			url: '/shop-functions/fetchCart',
 			method: 'POST',
 			dataType: 'html',
-			data: {packageID: packageID}
+			data: {packageID: packageID, products: products}
 		}).done(function(response){
 			$(".order-preview").empty().append(response);
 		});
