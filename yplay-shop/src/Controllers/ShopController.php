@@ -55,7 +55,7 @@ class ShopController extends PageController
          foreach ($products as $code) {
             if (!in_array($code,$productIds)){
                $product = Product::get()->filter('ProductCode',$code)->first();
-               if ($product && !$cart->Package()->Products()->find($product)){
+               if ($product){
                   $cart->Products()->add($product);
                }
             }
