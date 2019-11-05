@@ -30,6 +30,8 @@ $(document).ready(function(){
 
 //Product Choice Scripts
 $(document).ready(function(){
+	//set up the products
+	var products = [];
 	//we fetch the packages
 	var packages = [];
 	var productsOfPackages = [];
@@ -39,13 +41,13 @@ $(document).ready(function(){
 		dataType: 'Json'
 	}).done(function(response){
 		packages = response;
+		//Init Order
+		UpdateOrder();
 	});
 
-	//set up the products
-	var products = [];
+	
 
-	//Init Order
-	UpdateOrder();
+	
 	
 	//Handle the product slider
 	$(document).on("click",".category .uk-slider-items li",function(){
