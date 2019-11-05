@@ -94,7 +94,7 @@ $(document).ready(function(){
 		$('.order-preview #unique-costs tbody').empty();
 		//If package found we fill it.
 		if (package){
-			$('.order-preview #monthly-costs tbody').append('<tr><td class="uk-table-expand">'+package['Title']+'</td><td class="uk-text-right">'+package['Price']+'</td></tr>');
+			$('.order-preview #monthly-costs tbody').append('<tr><td class="uk-table-expand">'+package['Title']+'</td><td class="uk-text-right">CHF '+package['Price']+' / Mt.</td></tr>');
 		}
 		else{
 
