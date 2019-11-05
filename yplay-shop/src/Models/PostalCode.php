@@ -82,7 +82,7 @@ class PostalCode extends DataObject {
 	public function Link(){
 	    
 	    if ($this->SubsiteID > 0){
-	        if ($Subsite = DataObject::get_by_id('Subsite',$this->SubsiteID)){
+	        if ($Subsite = DataObject::get_by_id(Subsite::class,$this->SubsiteID)){
 	             return $Subsite->absoluteBaseURL();
 	        }
 	    }
