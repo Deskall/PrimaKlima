@@ -49,7 +49,7 @@ class ShopController extends PageController
 
       //apply package and product
       $cart->PackageID = $this->getRequest()->postVar('packageID');
-      $productIds = ($cart->Package()->exists()) ? $cart->Package()->Products()->column('ProductCode');
+      $productIds = ($cart->Package()->exists()) ? $cart->Package()->Products()->column('ProductCode') : [];
       $cart->Products()->removeAll();
       if ($products = $this->getRequest()->postVar('products')){
          foreach ($products as $code) {
