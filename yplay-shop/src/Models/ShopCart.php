@@ -37,6 +37,6 @@ class ShopCart extends DataObject {
 				$price += $product->Price;
 			}
 		}
-		return 'CHF '.$price. ' /Mt.';
+		return 'CHF '.number_format($price,2). ' /Mt.';
 	}
 }
