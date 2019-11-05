@@ -35,6 +35,7 @@ class ShopController extends PageController
    public function fetchCart(){
       //retrieve cart in session
       $id = $this->getRequest()->getSession()->get('shopcart_id');
+      $cart = null;
       if ($id){
          $cart = ShopCart::get()->byId($id);
       }
