@@ -50,7 +50,7 @@ $(document).ready(function(){
 	
 	
 	//Handle the product slider
-	$(document).on("click",".category .uk-slider-items li",function(){
+	$(document).on("click",".category:not(.disabled) .uk-slider-items li",function(){
 		var slider = $(this).parents('.uk-slider');
 		var index = parseInt($(this).attr('data-index')) - 1;
 		UIkit.slider(slider).show(index);
@@ -75,10 +75,10 @@ $(document).ready(function(){
 		products = [];
 		var package;
 		var chosenPackageID = 0;
-		$('.category .slider-packages .uk-slider-items li.uk-active').each(function(){
+		$('.category:not(.disabled) .slider-packages .uk-slider-items li.uk-active').each(function(){
 			productsOfPackages.push($(this).attr('data-value'));
 		});
-		$('.category .slider-products .uk-slider-items li.uk-active').each(function(){
+		$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
 			products.push($(this).attr('data-value'));
 		});
 		//Compare to see if any package matches the selected products
