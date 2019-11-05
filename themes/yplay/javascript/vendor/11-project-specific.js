@@ -116,9 +116,7 @@ $(document).ready(function(){
 			}
 			
 		}
-		else{
-
-		}
+		
 
 		$('#total-monthly-price').text(printPrice(totalMonthly)+' / Mt.');
 		$('#total-unique-price').text(printPrice(totalUnique));
@@ -126,7 +124,7 @@ $(document).ready(function(){
 
 	function printPrice(price){
 		price = parseFloat(price);
-		
+
 		if (price % 1 != 0){
 			return 'CHF '+price;
 		}
