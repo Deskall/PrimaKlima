@@ -39,4 +39,19 @@ class ShopCart extends DataObject {
 		}
 		return 'CHF '.number_format($price,2). ' /Mt.';
 	}
+
+	public function TotalUniquePrice(){
+		$price = 0;
+		if ($this->Package()->exists()){
+			$price += $this->Package->UniquePrice;
+			$price += $this->Package->ActivationPrice;
+		}
+		if ($this->Products()->exists()){
+			foreach ($this->Products() as $product) {
+				$price += $product->UniquePrice;
+				$price += $product->ActivationPrice;
+			}
+		}
+		return 'CHF '.number_format($price,2);
+	}
 }
