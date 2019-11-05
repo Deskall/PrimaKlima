@@ -43,9 +43,10 @@ $(document).ready(function(){
 
 	//set up the products
 	var products = [];
+
+	//Init Order
+	UpdateOrder();
 	
-
-
 	//Handle the product slider
 	$(document).on("click",".category .uk-slider-items li",function(){
 		var slider = $(this).parents('.uk-slider');
