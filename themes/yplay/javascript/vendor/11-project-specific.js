@@ -95,16 +95,22 @@ $(document).ready(function(){
 	function UpdateOrderPreview(package, products){
 		$('.order-preview #monthly-costs tbody').empty();
 		$('.order-preview #unique-costs tbody').empty();
+		var totalMonthly = 0;
+		var totalUnique = 0;
+
 		//If package found we fill it.
 		if (package){
 			if (package['Price'] > 0){
+				totalMonthly += package['Price'];
 				$('.order-preview #monthly-costs tbody').append('<tr><td class="uk-table-expand">'+package['Title']+'</td><td class="uk-text-right">CHF '+package['Price']+' / Mt.</td></tr>');
 			}
 			if (package['UniquePrice'] > 0){
+				totalUnique += package['UniquePrice'];
 				var UniquePriceLabel = (package['UniquePriceLabel']) ? package['UniquePriceLabel'] : package['Title'];
 				$('.order-preview #unique-costs tbody').append('<tr><td class="uk-table-expand">'+UniquePriceLabel+'</td><td class="uk-text-right">CHF '+package['UniquePrice']+' / Mt.</td></tr>');
 			}
 			if (package['ActivationPrice'] > 0){
+				totalUnique += package['ActivationPrice'];
 				var ActivationPriceLabel = (package['ActivationPriceLabel']) ? package['ActivationPriceLabel'] : package['Title'];
 				$('.order-preview #unique-costs tbody').append('<tr><td class="uk-table-expand">'+ActivationPriceLabel+'</td><td class="uk-text-right">CHF '+package['ActivationPrice']+' / Mt.</td></tr>');
 			}
@@ -113,5 +119,8 @@ $(document).ready(function(){
 		else{
 
 		}
+
+		$('#total-monthly-price').text('CHF '+totalMonthly+' / Mt.');
+		$('#total-unique-price').text('CHF '+totalUnique);
 	}
 });
