@@ -93,12 +93,11 @@ $(document).ready(function(){
 	};
 
 	function UpdateOrderPreview(package, products){
-		console.log(package);
 		$.ajax({
 			url: '/shop-functions/fetchCart',
 			method: 'POST',
 			dataType: 'html',
-			data: {package: package, products: products}
+			data: {package: package}
 		}).done(function(response){
 			$(".order-preview").empty().append(response);
 		});
