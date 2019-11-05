@@ -12,7 +12,7 @@
 						$Description
 						
 						
-							<div class="uk-padding-small <% if Code != "yplay-mobile" %>slider-products<% end_if %> uk-padding-remove-bottom" data-uk-slider="center:true;index:1;">
+							<div class="uk-padding-small <% if Code != "yplay-mobile" %>slider-packages<% end_if %> slider-products uk-padding-remove-bottom" data-uk-slider="center:true;index:1;">
 
 							    
 							    	<div class="uk-slider-container">
@@ -230,23 +230,19 @@
 							</div>
 							<div class="uk-card-body order-preview">
 								<strong class="uk-text-small">Monatliche Kosten</strong>
-								<table class="uk-table uk-table-small uk-table-striped">
+								<table id="monthly-costs" class="uk-table uk-table-small uk-table-striped">
 									<tbody>
-										<tr><td class="uk-table-expand">Surf M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
-										<tr><td class="uk-table-expand">Watch M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
-										<tr><td class="uk-table-expand">Talk S</td><td class="uk-text-right">CHF 15.- / Mt</td></tr>
 									</tbody>
 									<tfoot>
-										<tr><td class="uk-table-expand">Total (monatlich)</td><td class="uk-text-right uk-text-lead uk-strong">CHF 65.- / Mt</td></tr>
+										<tr><td class="uk-table-expand">Total (monatlich)</td><td id="total-monthly-price" class="uk-text-right uk-text-lead uk-strong"></td></tr>
 									</tfoot>
 								</table>
 								<strong class="uk-text-small">Einmalige Kosten</strong>
-								<table class="uk-table uk-table-small uk-table-striped">
+								<table id="unique-costs" class="uk-table uk-table-small uk-table-striped">
 									<tbody>
-										<tr><td class="uk-table-expand">Aktivierungsgebühr</td><td class="uk-text-right">CHF 40.-</td></tr>
 									</tbody>
 									<tfoot>
-										<tr><td class="uk-table-expand">Total (einmalig)</td><td class="uk-text-right uk-text-lead uk-strong">CHF 40.-</td></tr>
+										<tr><td class="uk-table-expand">Total (einmalig)</td><td id="total-unique-price" class="uk-text-right uk-text-lead uk-strong"></td></tr>
 									</tfoot>
 								</table>
 								<div class="uk-margin-small">

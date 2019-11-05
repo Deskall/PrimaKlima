@@ -32,7 +32,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 	//we fetch the packages
 	var packages = [];
-	var products =[]; 
+	var productsOfPackages = [];
 	var url = window.location.pathname;
 	$.ajax({
 		url: '/shop-functions/fetchPackages',
@@ -40,6 +40,10 @@ $(document).ready(function(){
 	}).done(function(response){
 		packages = response;
 	});
+
+	//set up the products
+	var products = [];
+	
 
 
 	//Handle the product slider
@@ -59,21 +63,26 @@ $(document).ready(function(){
 	
 
 	function UpdateOrder(){
+		productsOfPackages = [];
 		products = [];
 		var package;
 		var chosenPackage;
-		$('.category .slider-products .uk-slider-items li.uk-active').each(function(){
-			products.push($(this).attr('data-value'));
+		$('.category .slider-packages .uk-slider-items li.uk-active').each(function(){
+			productsOfPackages.push($(this).attr('data-value'));
 		});
-		// console.log(products.sort());
+		$('.category .slider-products .uk-slider-items li.uk-active').each(function(){
+			products.push($(this));
+		});
+		//Compare to see if any package matches the selected products
 		$.each(packages,function(i,v){
-
-			if (compareArrays(v['Products'],products)){
+			if (compareArrays(v['Products'],productsOfPackages)){
 				chosenPackage = v;
 				return false;
 			}
 		});
-		UpdateOrderPreview(chosenPackage);
+
+
+		UpdateOrderPreview(chosenPackage, products);
 	}
 
 	function compareArrays(arr1, arr2) {
@@ -81,9 +90,15 @@ $(document).ready(function(){
 	};
 
 	function UpdateOrderPreview(package){
-		$('.order-preview').empty();
+		$('.order-preview #monthly-costs').empty();
+		$('.order-preview #unique-costs').empty();
+		<tr><td class="uk-table-expand">Surf M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
+		//If package found we fill it.
 		if (package){
 			$('.order-preview').append(package['Title']);
+		}
+		else{
+
 		}
 	}
 });
