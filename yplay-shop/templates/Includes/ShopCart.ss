@@ -17,7 +17,7 @@
 									</tfoot>
 								</table>
 								<strong class="uk-text-small">Einmalige Kosten</strong>
-								<table id="unique-costs" class="uk-table uk-table-small uk-table-striped">
+								<table id="unique-costs" class="uk-table uk-table-small uk-table-justify">
 									<tbody>
 										<% if Package %>
 										<% with Package %>
