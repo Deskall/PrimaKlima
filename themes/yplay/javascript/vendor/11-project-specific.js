@@ -129,7 +129,7 @@ $(document).ready(function(){
 		if (price % 1 != 0){
 			return 'CHF '+price;
 		}
-		return 'CHF'+parseInt(price)+'.-';
+		return 'CHF '+parseInt(price)+'.-';
 	}
 });
 
