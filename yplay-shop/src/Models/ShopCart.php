@@ -26,4 +26,17 @@ class ShopCart extends DataObject {
 	public function forTemplate(){
 		return $this->renderWith('Includes/ShopCart');
 	}
+
+	public function TotalMonthlyPrice(){
+		$price = 0;
+		if ($this->Package()->exists()){
+			$price += $this->Package->Price;
+		}
+		if ($this->Products()->exists()){
+			foreach ($this->Products() as $product) {
+				$price += $product->Price;
+			}
+		}
+		return $price;
+	}
 }
