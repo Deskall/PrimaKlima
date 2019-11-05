@@ -229,7 +229,7 @@
 								<strong>Abobezeichnung</strong>
 							</div>
 							<div class="uk-card-body order-preview">
-								<% include OrderPreview %>
+								
 							</div>
 							<div class="uk-card-footer">
 								<a href="/bestellen" class="uk-button BlackBackground"><%t Configurator.Order 'Bestellen' %></a>
