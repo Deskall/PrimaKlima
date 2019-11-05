@@ -245,43 +245,11 @@
 							<div class="uk-position-relative">
 								<strong class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %> - CHF 65.- / Mt.</strong>
 								<div class="uk-position-absolute uk-position-right">
-									<button type="button" data-uk-toggle="target: #my-id; animation: uk-animation-slide-up" data-uk-icon="chevron-up"></button>
+									<button type="button" data-uk-toggle="target: #mobile-order-preview; animation: uk-animation-slide-up" data-uk-icon="chevron-up"></button>
 								</div>
 							</div>
 						</div>
-						<div id="my-id" class="uk-card-body WhiteBackground" hidden>
-							<strong class="uk-text-small">Monatliche Kosten</strong>
-							<table class="uk-table uk-table-small uk-table-striped">
-								<tbody>
-									<tr><td class="uk-table-expand">Surf M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
-									<tr><td class="uk-table-expand">Watch M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
-									<tr><td class="uk-table-expand">Talk S</td><td class="uk-text-right">CHF 15.- / Mt</td></tr>
-								</tbody>
-								<tfoot>
-									<tr><td class="uk-table-expand">Total (monatlich)</td><td class="uk-text-right uk-text-lead uk-strong">CHF 65.- / Mt</td></tr>
-								</tfoot>
-							</table>
-							<strong class="uk-text-small">Einmalige Kosten</strong>
-							<table class="uk-table uk-table-small uk-table-striped">
-								<tbody>
-									<tr><td class="uk-table-expand">Aktivierungsgebühr</td><td class="uk-text-right">CHF 40.-</td></tr>
-								</tbody>
-								<tfoot>
-									<tr><td class="uk-table-expand">Total (einmalig)</td><td class="uk-text-right uk-text-lead uk-strong">CHF 40.-</td></tr>
-								</tfoot>
-							</table>
-							<div class="uk-margin-small">
-								<a data-uk-toggle="#modal-conditions" data-uk-icon="chevron-right">Konditionen</a>
-							</div>
-							<div class="uk-margin-small">
-								<div class="uk-flex uk-flex-middle">
-									<img src="$ThemeDir/img/gift-solid.svg" class="uk-margin-small-right" width="50">
-									<div>
-										<strong>Aktion</strong><br>
-										<small>3 Monate 1/2 Preis</small>
-									</div>
-								</div>
-							</div>
+						<div id="mobile-order-preview" class="uk-card-body WhiteBackground order-preview" hidden>
 						</div>
 						<div class="uk-card-footer BlackBackground">
 							<a href="/bestellen" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
