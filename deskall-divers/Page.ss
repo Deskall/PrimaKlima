@@ -11,7 +11,6 @@
           $Layout
       </main>
       <% include Footer %>
-      <% include Modals %>
     </div>
    <% include MetaDown %>
   </body>
