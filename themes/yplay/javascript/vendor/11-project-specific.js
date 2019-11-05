@@ -99,7 +99,9 @@ $(document).ready(function(){
 			dataType: 'html',
 			data: {packageID: packageID, products: products}
 		}).done(function(response){
-			$(".order-preview").empty().append(response);
+			$(".order-preview").each(function(){
+				$(this).empty().append(response);
+			});
 		});
 
 		// $('.order-preview #monthly-costs tbody').empty();
