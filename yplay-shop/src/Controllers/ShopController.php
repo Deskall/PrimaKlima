@@ -33,7 +33,7 @@ class ShopController extends PageController
    }
 
    public function fetchCart(){
-      $this->getRequest()->getSession()->clear('shopcart_id');
+      // $this->getRequest()->getSession()->clear('shopcart_id');
       //retrieve cart in session
       $id = $this->getRequest()->getSession()->get('shopcart_id');
       $cart = null;
