@@ -92,10 +92,10 @@ $(document).ready(function(){
 	function UpdateOrderPreview(package){
 		$('.order-preview #monthly-costs').empty();
 		$('.order-preview #unique-costs').empty();
-		<tr><td class="uk-table-expand">Surf M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>
 		//If package found we fill it.
 		if (package){
 			$('.order-preview').append(package['Title']);
+			$('.order-preview #monthly-costs tbody').append('<tr><td class="uk-table-expand">Surf M</td><td class="uk-text-right">CHF 25.- / Mt</td></tr>');
 		}
 		else{
 
