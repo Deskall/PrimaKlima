@@ -45,6 +45,6 @@ class ShopController extends PageController
          $cart->write();
          $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
       }
-      return $cart->forTempate();
+      return $cart->forTemplate();
    } 
 }
