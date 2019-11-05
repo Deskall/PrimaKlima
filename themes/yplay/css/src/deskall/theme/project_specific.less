@@ -225,9 +225,6 @@ footer.uk-section{
 	&.disabled{
 		-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
 	  	filter: grayscale(100%);
-	  	li.uk-active .uk-card,li:hover .uk-card{
-	  		opacity: 0.5;
-	  	}
 	}
 	.uk-card{
 		border-bottom:2px solid @global-color;
@@ -289,7 +286,7 @@ footer.uk-section{
 	li.uk-active{
 		.uk-transition-scale-up;
 	}
-	li.uk-active .uk-card,li:hover .uk-card{
+	&:not(.disabled) li.uk-active .uk-card,li:hover .uk-card{
 		opacity: 1;
 	}
 	li:hover .uk-card{
