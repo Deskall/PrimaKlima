@@ -63,6 +63,11 @@ $(document).ready(function(){
 		UpdateOrder();
 	});
 
+	$(document).on("change",".no-category",function(){
+		if ($(this).is(':checked')){
+			$(this).parents('.category').addClass('disabled');
+		}
+	});
 	
 
 	function UpdateOrder(){
@@ -103,43 +108,6 @@ $(document).ready(function(){
 				$(this).empty().append(response);
 			});
 		});
-
-		// $('.order-preview #monthly-costs tbody').empty();
-		// $('.order-preview #unique-costs tbody').empty();
-		// var totalMonthly = 0;
-		// var totalUnique = 0;
-
-		// //If package found we fill it.
-		// if (package){
-		// 	if (package['Price'] > 0){
-		// 		totalMonthly += parseFloat(package['Price']);
-		// 		$('.order-preview #monthly-costs tbody').append('<tr><td class="uk-table-expand">'+package['Title']+'</td><td class="uk-text-right">'+printPrice(package['Price'])+' / Mt.</td></tr>');
-		// 	}
-		// 	if (package['UniquePrice'] > 0){
-		// 		totalUnique += parseFloat(package['UniquePrice']);
-		// 		var UniquePriceLabel = (package['UniquePriceLabel']) ? package['UniquePriceLabel'] : package['Title'];
-		// 		$('.order-preview #unique-costs tbody').append('<tr><td class="uk-table-expand">'+UniquePriceLabel+'</td><td class="uk-text-right">'+printPrice(package['UniquePrice'])+'</td></tr>');
-		// 	}
-		// 	if (package['ActivationPrice'] > 0){
-		// 		totalUnique += parseFloat(package['ActivationPrice']);
-		// 		var ActivationPriceLabel = (package['ActivationPriceLabel']) ? package['ActivationPriceLabel'] : package['Title'];
-		// 		$('.order-preview #unique-costs tbody').append('<tr><td class="uk-table-expand">'+ActivationPriceLabel+'</td><td class="uk-text-right">'+printPrice(package['ActivationPrice'])+'</td></tr>');
-		// 	}
-			
-		// }
-		
-
-		// $('#total-monthly-price').text(printPrice(totalMonthly)+' / Mt.');
-		// $('#total-unique-price').text(printPrice(totalUnique));
-	}
-
-	function printPrice(price){
-		price = parseFloat(price);
-
-		if (price % 1 != 0){
-			return 'CHF '+price;
-		}
-		return 'CHF '+parseInt(price)+'.-';
 	}
 });
 
