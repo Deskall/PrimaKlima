@@ -67,6 +67,7 @@ $(document).ready(function(){
 		if ($(this).is(':checked')){
 			$(this).parents('.category').addClass('disabled');
 		}
+		UpdateOrder();
 	});
 	
 
