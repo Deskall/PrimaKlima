@@ -79,7 +79,7 @@ $(document).ready(function(){
 		//Compare to see if any package matches the selected products
 		$.each(packages,function(i,v){
 			if (compareArrays(v['Products'],productsOfPackages)){
-				chosenPackageID = v;
+				chosenPackageID = v['ID'];
 				return false;
 			}
 		});
