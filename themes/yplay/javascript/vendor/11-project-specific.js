@@ -112,7 +112,7 @@ $(document).ready(function(){
 			if (package['ActivationPrice'] > 0){
 				totalUnique += parseFloat(package['ActivationPrice']);
 				var ActivationPriceLabel = (package['ActivationPriceLabel']) ? package['ActivationPriceLabel'] : package['Title'];
-				$('.order-preview #unique-costs tbody').append('<tr><td class="uk-table-expand">'+ActivationPriceLabel+'</td><td class="uk-text-right">CHF '+package['ActivationPrice']+' / Mt.</td></tr>');
+				$('.order-preview #unique-costs tbody').append('<tr><td class="uk-table-expand">'+ActivationPriceLabel+'</td><td class="uk-text-right">CHF '+package['ActivationPrice']+'</td></tr>');
 			}
 			
 		}
