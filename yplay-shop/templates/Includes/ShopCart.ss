@@ -16,10 +16,10 @@
 									<tbody>
 										<% if Package %>
 										<% with Package %>
-											<% if Package.UniquePrice > 0 %>
+											<% if UniquePrice > 0 %>
 												<tr><td class="uk-table-expand">$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
 											<% end_if %>
-											<% if Package.ActivationPrice > 0 %>
+											<% if ActivationPrice > 0 %>
 												<tr><td class="uk-table-expand">$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
 											<% end_if %>
 										<% end_with %>
