@@ -42,12 +42,12 @@ class CustomPageControllerExtension extends Extension
         if ($plz){
             $PostalCode = PostalCode::get()->filter('Code',$plz)->first();
             if ($PostalCode){ 
-                Cookie::set('yplay_plz', $PostalCode->ID);
+                
                 //if subsite we redirect
                 if ($PostalCode->SubsiteID > 0){
                     return $this->owner->redirect($PostalCode->Link());
                 }
-               
+                Cookie::set('yplay_plz', $PostalCode->ID);
                 return $this->owner->redirectBack();
             }
             else{
