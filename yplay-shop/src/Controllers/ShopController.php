@@ -14,13 +14,13 @@ use SilverStripe\ORM\ArrayList;
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
-		return ($item->shouldDisplay());
-	});
-	$array = [];
+   		return ($item->shouldDisplay());
+   	});
+	  $array = [];
    	foreach ($packages as $package) {
    		$array[$package->ProductCode] = $package->toMap();
    		$products = [];
@@ -30,5 +30,20 @@ class ShopController extends PageController
    		$array[$package->ProductCode]['Products'] = $products;
    	}
    	return json_encode($array);
+   }
+
+   public function fetchCart(){
+      //retrieve cart in session
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+      if (!$cart){
+         $cart = new ShopCart();
+         $cart->IP = $this->getRequest()->getIp();
+         $cart->write();
+         $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+      }
+      return $cart;
    } 
 }
