@@ -45,6 +45,12 @@ class ShopController extends PageController
          $cart->write();
          $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
       }
+
+      //apply package and product
+      if ($this->getRequest()->postVar('package')){
+         $cart->PackageID = $this->getRequest()->postVar('package');
+         $cart->write();
+      }
       return $cart->forTemplate();
    } 
 }

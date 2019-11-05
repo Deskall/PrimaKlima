@@ -95,7 +95,9 @@ $(document).ready(function(){
 	function UpdateOrderPreview(package, products){
 		$.ajax({
 			url: '/shop-functions/fetchCart',
-			dataType: 'html'
+			method: 'POST',
+			dataType: 'html',
+			data: {package: package, products: products}
 		}).done(function(response){
 			$(".order-preview").empty().append(response);
 		});
