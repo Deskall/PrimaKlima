@@ -47,8 +47,8 @@ class ShopController extends PageController
       }
 
       //apply package and product
-      if ($this->getRequest()->postVar('package')){
-         $cart->PackageID = $this->getRequest()->postVar('package');
+      if ($this->getRequest()->postVar('packageID')){
+         $cart->PackageID = $this->getRequest()->postVar('packageID');
          $cart->write();
       }
       return $cart->forTemplate();

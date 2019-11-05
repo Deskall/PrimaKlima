@@ -92,12 +92,12 @@ $(document).ready(function(){
 	    return $(arr1).not(arr2).length == 0 && $(arr2).not(arr1).length == 0
 	};
 
-	function UpdateOrderPreview(package, products){
+	function UpdateOrderPreview(packageID, products){
 		$.ajax({
 			url: '/shop-functions/fetchCart',
 			method: 'POST',
 			dataType: 'html',
-			data: {package: package}
+			data: {packageID: packageID}
 		}).done(function(response){
 			$(".order-preview").empty().append(response);
 		});
