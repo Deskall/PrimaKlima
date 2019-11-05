@@ -91,6 +91,7 @@ $(document).ready(function(){
 	};
 
 	function UpdateOrderPreview(package, products){
+		console.log('ici');
 		$('.order-preview #monthly-costs tbody').empty();
 		$('.order-preview #unique-costs tbody').empty();
 		//If package found we fill it.
