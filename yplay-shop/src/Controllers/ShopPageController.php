@@ -2,11 +2,11 @@
 
 
 
-class ShopPage_Controller extends PageController
+class ShopPageController extends PageController
 {
 
-   public function onBeforeInit(){
-      parent::onBeforeInit();
+   public function init(){
+      
       $id = $this->getRequest()->getSession()->get('shopcart_id');
       $cart = null;
       if ($id){
@@ -19,5 +19,7 @@ class ShopPage_Controller extends PageController
                   file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
          return $this->redirect($this->ConfiguratorPage()->Link(), 302);
       }
+
+      parent::init();
    }
 }
