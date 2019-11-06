@@ -53,8 +53,8 @@ class Package extends Product {
 			$altPrice += $p->Price;
 			$altPriceU += $p->UniquePrice + $p->ActivationPrice;
 		}
-		$gainM = abs((($this->Price / $altPrice) - 1) * 100);
-		$gainU = abs(((($this->Price + $this->ActivationPrice)/ $altPriceU) - 1) * 100);
+		$gainM = number_format( abs((($this->Price / $altPrice) - 1)) * 100, 2 ) . '%';
+		$gainU = number_format( abs(((($this->Price + $this->ActivationPrice)/ $altPriceU) - 1)) * 100, 2 ) . '%';
 		return new ArrayData(['gainM' => $gainM, 'gainU' => $gainU]);
 	}
 }
