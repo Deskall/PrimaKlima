@@ -36,33 +36,40 @@ class ShopController extends PageController
       // $this->getRequest()->getSession()->clear('shopcart_id');
       //retrieve cart in session
       $id = $this->getRequest()->getSession()->get('shopcart_id');
+      $products = $this->getRequest()->postVar('products');
+      $packageID = $this->getRequest()->postVar('packageID');
       $cart = null;
       if ($id){
          $cart = ShopCart::get()->byId($id);
       }
-      if (!$cart){
+      if (!$cart && ($products || $packageID > 0)){
          $cart = new ShopCart();
          $cart->IP = $this->getRequest()->getIp();
          $cart->write();
          $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
       }
 
-      //apply package and product
-      $cart->PackageID = $this->getRequest()->postVar('packageID');
-      $productIds = ($cart->Package()->exists()) ? $cart->Package()->Products()->column('ProductCode') : [];
-      $cart->Products()->removeAll();
-      if ($products = $this->getRequest()->postVar('products')){
-         foreach ($products as $code) {
-            if (!in_array($code,$productIds)){
-               $product = Product::get()->filter('ProductCode',$code)->first();
-               if ($product){
-                  $cart->Products()->add($product);
+      if ($cart){
+         //apply package and product
+         $cart->PackageID = $packageID;
+         $productIds = ($cart->Package()->exists()) ? $cart->Package()->Products()->column('ProductCode') : [];
+         $cart->Products()->removeAll();
+         if ($products){
+            foreach ($products as $code) {
+               if (!in_array($code,$productIds)){
+                  $product = Product::get()->filter('ProductCode',$code)->first();
+                  if ($product){
+                     $cart->Products()->add($product);
+                  }
                }
             }
          }
+
+         $cart->write();
+         return $cart->forTemplate();
       }
 
-      $cart->write();
-      return $cart->forTemplate();
+      return null;
+      
    } 
 }
