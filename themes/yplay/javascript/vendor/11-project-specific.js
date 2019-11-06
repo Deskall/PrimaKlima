@@ -74,7 +74,7 @@ $(document).ready(function(){
 	}
 
 	//Shop Page
-	if ($('body').hasClass('ShoPage')){
+	if ($('body').hasClass('ShopPage')){
 		UpdateOrderPreview();
 	}
 
