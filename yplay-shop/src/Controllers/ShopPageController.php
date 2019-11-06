@@ -2,7 +2,7 @@
 
 
 
-class ShopPageController extends PageController
+class ShopPage_Controller extends PageController
 {
 
    public function onBeforeInit(){
