@@ -13,7 +13,7 @@ class ShopPage_Controller extends PageController
          $cart = ShopCart::get()->byId($id);
       }
       if (!$cart ){
-         return $this->redirect($this->ConfiguratorPage()->Link());
+         return $this->redirect($this->ConfiguratorPage()->Link(), 302);
       }
    }
 }
