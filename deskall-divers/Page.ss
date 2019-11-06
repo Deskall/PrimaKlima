@@ -13,5 +13,6 @@
       <% include Footer %>
     </div>
    <% include MetaDown %>
+   <% include NavMobile %>
   </body>
 </html>
