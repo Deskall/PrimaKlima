@@ -17,6 +17,12 @@ class ProductAdmin extends ModelAdmin{
 	private static $menu_title = "Shop";
 	
 	private static $managed_models = [
+		'ShopOrder' => [
+			'title' => 'Bestellungen'
+		],
+		'ShopCustomer' => [
+			'title' => 'Kunden'
+		],
 		'ProductCategory' => [
 			'title' => 'Kategorien'
 		],
