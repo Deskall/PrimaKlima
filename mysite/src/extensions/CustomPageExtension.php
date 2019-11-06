@@ -29,6 +29,9 @@ class CustomPageExtension extends DataExtension
              GridField::create('LateralSections','Sidebar Menu Sektionen',$this->owner->LateralSections(),GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction()))
         );
         
-       
+    }
+
+    public function ShopPage(){
+        return ShopPage::get()->first();
     }
 }
