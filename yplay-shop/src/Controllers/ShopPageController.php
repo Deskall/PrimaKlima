@@ -6,7 +6,7 @@ class ShopPageController extends PageController
 {
 
    public function init(){
-      
+      parent::init();
       $id = $this->getRequest()->getSession()->get('shopcart_id');
       $cart = null;
       if ($id){
@@ -20,6 +20,6 @@ class ShopPageController extends PageController
          return $this->redirect($this->ConfiguratorPage()->Link(), 302);
       }
 
-      parent::init();
+      
    }
 }
