@@ -55,7 +55,7 @@ class ShopController extends PageController
          $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
       }
 
-      if ($cart){
+      if ($cart && ($products || $packageID > 0)){
          //apply package and product
          $cart->PackageID = $packageID;
          $productIds = ($cart->Package()->exists()) ? $cart->Package()->Products()->column('ProductCode') : [];
