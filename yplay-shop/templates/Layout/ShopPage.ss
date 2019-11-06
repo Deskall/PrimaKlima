@@ -4,6 +4,7 @@
 			<h1>$Title</h1>
 			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
+					
 				</div>
 				<div class="uk-width-expand uk-visible@m">
 					<div data-uk-sticky="media:@m;bottom:true;">
