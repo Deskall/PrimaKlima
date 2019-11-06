@@ -7,7 +7,4 @@ class ShopPage extends Page {
 		return ShopPage::get()->count() == 0;
 	}
 
-	public function activeCategories(){
-		return ProductCategory::get()->filter('isVisible',1);
-	}
 }
