@@ -79,43 +79,45 @@ $(document).ready(function(){
 	}
 
 
-});
 
-function UpdateOrder(){
-	productsOfPackages = [];
-	products = [];
-	var package;
-	var chosenPackageID = 0;
-	$('.category:not(.disabled) .slider-packages .uk-slider-items li.uk-active').each(function(){
-		productsOfPackages.push($(this).attr('data-value'));
-	});
-	$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
-		products.push($(this).attr('data-value'));
-	});
-	//Compare to see if any package matches the selected products
-	$.each(packages,function(i,v){
-		if (compareArrays(v['Products'],productsOfPackages)){
-			chosenPackageID = v['ID'];
-			return false;
-		}
-	});
 
-	UpdateOrderPreview(chosenPackageID, products);
-}
-
-function compareArrays(arr1, arr2) {
-    return $(arr1).not(arr2).length == 0 && $(arr2).not(arr1).length == 0
-};
-
-function UpdateOrderPreview(packageID, products){
-	$.ajax({
-		url: '/shop-functions/fetchCart',
-		method: 'POST',
-		dataType: 'html',
-		data: {packageID: packageID, products: products}
-	}).done(function(response){
-		$(".order-preview").each(function(){
-			$(this).empty().append(response);
+	function UpdateOrder(){
+		productsOfPackages = [];
+		products = [];
+		var package;
+		var chosenPackageID = 0;
+		$('.category:not(.disabled) .slider-packages .uk-slider-items li.uk-active').each(function(){
+			productsOfPackages.push($(this).attr('data-value'));
 		});
-	});
-}
+		$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
+			products.push($(this).attr('data-value'));
+		});
+		//Compare to see if any package matches the selected products
+		$.each(packages,function(i,v){
+			if (compareArrays(v['Products'],productsOfPackages)){
+				chosenPackageID = v['ID'];
+				return false;
+			}
+		});
+
+		UpdateOrderPreview(chosenPackageID, products);
+	}
+
+	function compareArrays(arr1, arr2) {
+	    return $(arr1).not(arr2).length == 0 && $(arr2).not(arr1).length == 0
+	};
+
+	function UpdateOrderPreview(packageID, products){
+		$.ajax({
+			url: '/shop-functions/fetchCart',
+			method: 'POST',
+			dataType: 'html',
+			data: {packageID: packageID, products: products}
+		}).done(function(response){
+			$(".order-preview").each(function(){
+				$(this).empty().append(response);
+			});
+		});
+	}
+
+});
