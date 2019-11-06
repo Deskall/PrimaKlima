@@ -135,7 +135,7 @@
 						            		    	</tr>
 						            		    </table>
 						            		    <div class="uk-margin uk-transition-fade">
-						            		    	<a class="uk-button BlackBackground" href="$Top.getPage.ShopPage.Link">Bestellen</a>
+						            		    	<a class="uk-button BlackBackground" href="$ShopPage.Link">Bestellen</a>
 						            		    </div>
 						            		</div>
 						            	</div>
@@ -159,7 +159,7 @@
 						            		    	</tr>
 						            		    </table>
 						            		    <div class="uk-margin uk-transition-fade">
-						            		    	<a class="uk-button BlackBackground" href="$Top.getPage.ShopPage.Link">Bestellen</a>
+						            		    	<a class="uk-button BlackBackground" href="$ShopPage.Link">Bestellen</a>
 						            		    </div>
 						            		</div>
 						            	</div>
@@ -182,7 +182,7 @@
 						            		    	</tr>
 						            		    </table>
 						            		    <div class="uk-margin uk-transition-fade">
-						            		    	<a class="uk-button BlackBackground" href="$Top.getPage.ShopPage.Link">Bestellen</a>
+						            		    	<a class="uk-button BlackBackground" href="$ShopPage.Link">Bestellen</a>
 						            		    </div>
 						            		</div>
 						            	</div>
@@ -232,7 +232,7 @@
 								
 							</div>
 							<div class="uk-card-footer">
-								<a href="$Top.getPage.ShopPage.Link" class="uk-button BlackBackground"><%t Configurator.Order 'Bestellen' %></a>
+								<a href="$ShopPage.Link" class="uk-button BlackBackground"><%t Configurator.Order 'Bestellen' %></a>
 							</div>
 						</div>
 					</div>
@@ -252,7 +252,7 @@
 						<div id="mobile-order-preview" class="uk-card-body WhiteBackground order-preview" hidden>
 						</div>
 						<div class="uk-card-footer BlackBackground">
-							<a href="$Top.getPage.ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
+							<a href="$ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
 						</div>
 					</div>
 				</div>
@@ -378,7 +378,7 @@
 							<p>Aenean vel tempor sapien, sit amet interdum erat. Pellentesque congue at ipsum ut condimentum.</p>
 						</div>
 						<div class="uk-card-footer">
-							<a href="$Top.getPage.ShopPage.Link" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
+							<a href="$ShopPage.Link" class="uk-button uk-button-primary"><%t Configurator.Order 'Bestellen' %></a>
 						</div>
 					</div>
 				</div>
