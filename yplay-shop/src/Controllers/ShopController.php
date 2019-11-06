@@ -70,7 +70,8 @@ class ShopController extends PageController
                }
             }
          }
-
+      }
+      if ($cart){
          $cart->write();
          return $cart->forTemplate();
       }
