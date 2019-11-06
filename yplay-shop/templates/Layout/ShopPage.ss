@@ -4,26 +4,26 @@
 			<h1>$Title</h1>
 			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
-					<ul data-uk-accordion>
-					    <li class="uk-open">
-					        <a class="uk-accordion-title" href="#">Item 1</a>
-					        <div class="uk-accordion-content">
-					            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<div data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: true">
+					    <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
+					        <div class="uk-navbar-left">
+
+					            <ul class="uk-subnav uk-subnav-pill" uk-switcher>
+								    <li><a href="#">Item</a></li>
+								    <li><a href="#">Item</a></li>
+								    <li><a href="#">Item</a></li>
+								</ul>
+
 					        </div>
-					    </li>
-					    <li>
-					        <a class="uk-accordion-title" href="#">Item 2</a>
-					        <div class="uk-accordion-content">
-					            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
-					        </div>
-					    </li>
-					    <li>
-					        <a class="uk-accordion-title" href="#">Item 3</a>
-					        <div class="uk-accordion-content">
-					            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
-					        </div>
-					    </li>
+					    </nav>
+					</div>
+					
+					<ul class="uk-switcher uk-margin">
+					    <li>Hello! <a href="#" uk-switcher-item="2">Switch to item 3</a></li>
+					    <li>Hello again! <a href="#" uk-switcher-item="next">Next item</a></li>
+					    <li>Bazinga! <a href="#" uk-switcher-item="previous">Previous item</a></li>
 					</ul>
+					
 				</div>
 				<div class="uk-width-expand uk-visible@m">
 					<div data-uk-sticky="media:@m;bottom:true;">
