@@ -76,6 +76,9 @@ class ShopCustomer extends DataObject
     $labels = parent::fieldLabels($includerelation);
    
     $labels['Gender'] = _t(__CLASS__.'.Gender','Anrede');
+    $labels['Name'] = _t(__CLASS__.'.Name','Name');
+    $labels['FirstName'] = _t(__CLASS__.'.FirstName','Vorname');
+    $labels['Email'] = _t(__CLASS__.'.Email','E-Mail');
     $labels['Address'] = _t(__CLASS__.'.Address','Adresse');
     $labels['PostalCode'] = _t(__CLASS__.'.PostalCode','PLZ');
     $labels['City'] = _t(__CLASS__.'.City','Stadt');
