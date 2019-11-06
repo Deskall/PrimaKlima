@@ -44,5 +44,17 @@ class Package extends Product {
 		
 		return $fields;
 	}
+
+	public function PriceGain(){
+		$altPrice = 0;
+		$altPriceU = 0;
+		foreach($this->Products() as $p){
+			$altPrice += $p->Price;
+			$altPriceU += $p->UniquePrice + $p->ActivationPrice;
+		}
+		$gainM = (($this->Price / $altPrice) - 1) * 100;
+		$gainU = ((($this->Price + $this->ActivationPrice)/ $altPriceU) - 1) * 100;
+		return new ArrayData(['gainM' => $gainM, 'gainU' => $gainU]);
+	}
 }
 
