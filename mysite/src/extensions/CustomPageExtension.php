@@ -31,6 +31,10 @@ class CustomPageExtension extends DataExtension
         
     }
 
+    public function ConfiguratorPage(){
+        return ConfiguratorPage::get()->first();
+    }
+
     public function ShopPage(){
         return ShopPage::get()->first();
     }
