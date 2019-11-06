@@ -1,5 +1,5 @@
 <strong class="uk-text-small">Monatliche Kosten</strong>
-<% if Package.exists %><p>Sie sparen $PriceGain.gainM</p><% end_if %>
+<% if Package.exists %><p>Sie sparen $Package.PriceGain.gainM</p><% end_if %>
 <table id="monthly-costs" class="uk-table uk-table-small uk-table-justify">
 	<tbody>
 		<% if Package.exists %>
@@ -19,7 +19,7 @@
 	</tfoot>
 </table>
 <strong class="uk-text-small">Einmalige Kosten</strong>
-<% if Package.exists %><p>Sie sparen $PriceGain.gainU</p><% end_if %>
+<% if Package.exists %><p>Sie sparen $Package.PriceGain.gainU</p><% end_if %>
 <table id="unique-costs" class="uk-table uk-table-small uk-table-justify">
 	<tbody>
 		<% if Package %>
