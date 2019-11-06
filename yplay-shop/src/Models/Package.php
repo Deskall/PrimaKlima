@@ -5,6 +5,7 @@ use SilverStripe\ORM\FieldType\DBText;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Assets\Image;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use SilverStripe\View\ArrayData;
 
 class Package extends Product {
 	private static $singular_name = 'Paket';
