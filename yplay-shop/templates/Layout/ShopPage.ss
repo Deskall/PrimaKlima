@@ -4,19 +4,23 @@
 			<h1>$Title</h1>
 			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
-
+				<form>
 					<ul data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: true" uk-tab>
-					    <li><a href="#">Item</a></li>
-					    <li><a href="#">Item</a></li>
-					    <li><a href="#">Item</a></li>
+					    <li><a href="#">1</a></li>
+					    <li><a href="#">2</a></li>
+					    <li><a href="#">3</a></li>
 					</ul>
 
 					<ul class="uk-switcher uk-margin">
-					    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+					    <li>
+					    	<h2><%t ShopPage.CustomerSectionTitle 'Sind Sie bereits Kunde?' %></h2>
+					    	<label><input type="radio" name="customer" class="uk-radio" value="Ja">Ja</label>
+					    	<label><input type="radio" name="customer" class="uk-radio" value="Nein">Nein</label>
+						</li>
 					    <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
 					    <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
 					</ul>
-					
+				</form>
 				</div>
 				<div class="uk-width-expand uk-visible@m">
 					<div data-uk-sticky="media:@m;bottom:true;">
