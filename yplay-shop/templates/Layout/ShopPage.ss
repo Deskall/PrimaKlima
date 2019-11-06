@@ -4,13 +4,6 @@
 			<h1>$Title</h1>
 			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
-					
-
-					<ul class="uk-switcher uk-margin">
-					    <li>Hello! <a href="#" uk-switcher-item="2">Switch to item 3</a></li>
-					    <li>Hello again! <a href="#" uk-switcher-item="next">Next item</a></li>
-					    <li>Bazinga! <a href="#" uk-switcher-item="previous">Previous item</a></li>
-					</ul>
 
 					<ul data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: true" uk-tab>
 					    <li><a href="#">Item</a></li>
