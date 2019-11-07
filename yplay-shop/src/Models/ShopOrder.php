@@ -129,7 +129,7 @@ class ShopOrder extends DataObject{
 	public function sendEmail(){
 	   
 	    
-	    $config = $this->getSiteConfig()();
+	    $config = $this->getSiteConfig();
 	    $body = $config->BillEmailBody;
 
 	    $email = new ShopOrderEmail($config,$this,$config->Email,$this->Email,$config->BillEmailSubject, $body);
