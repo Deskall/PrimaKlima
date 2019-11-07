@@ -85,9 +85,9 @@ class ShopOrder extends DataObject{
 	}
 
 	public function getCMSFields(){
-		$fields = FieldList::create();
+		$fields = parent::getCMSFields();
 		
-		$fields->push(LiteralField::create('Order',$html));
+		
 		return $fields;
 	}
 
