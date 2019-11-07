@@ -20,9 +20,9 @@ class OrderItem extends DataObject {
     );
 
     private static $has_one = array(
-        'Order' => 'Order',
-        'Package' => 'Package',
-        'Product' => 'Product'
+        'Order' => ShopOrder::class,
+        'Package' => Package::class,
+        'Product' => Product::class
     );
 
     private static $summary_fields = array(
