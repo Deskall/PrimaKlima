@@ -311,7 +311,7 @@ class OrderItem extends DataObject {
                     break;
             }
         }
-        if($this->ID > 0 && $this->ProductID && $this->Product()->Fees() && $this->Type != "OffProduct"){
+        if($this->ID > 0 && $this->ProductID && $this->Product()->getFees() && $this->Type != "OffProduct"){
             foreach ($this->Product()->Fees() as $fee) {
                 $item = new OrderItem();
                 $item->Type = "Fee";
