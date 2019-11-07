@@ -13,7 +13,7 @@ class ShopConfig extends DataObject
 {
     private static $db = array(
         'Title' => 'Varchar'
-       
+       'OrderNumberOffset' => 'Varchar'
        
     );
 
