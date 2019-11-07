@@ -69,7 +69,7 @@ class ShopCart extends DataObject {
 			foreach ($this->Package()->Products() as $p) {
 				if ($p->Category()->Code == $code){
 					$confirm = true;
-					return false;
+					break;
 				}
 			}
 		}
@@ -77,7 +77,7 @@ class ShopCart extends DataObject {
 			foreach ($this->Products() as $p) {
 				if ($p->Category()->Code == $code){
 					$confirm = true;
-					return false;
+					break;
 				}
 			}
 		}
