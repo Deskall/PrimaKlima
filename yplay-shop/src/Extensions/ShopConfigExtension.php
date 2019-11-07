@@ -71,7 +71,7 @@ class ShopConfigExtension extends DataExtension
 
 
         $variables = array(
-            '$SiteName'       => SiteConfig::current_site_config()->Title,
+            '$SiteName'       => $this->owner->Title,
             '$Datum'          => date('d.m.Y')
             // '$LoginLink'      => Controller::join_links(
             //     $absoluteBaseURL,
