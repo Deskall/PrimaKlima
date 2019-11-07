@@ -96,4 +96,8 @@ class Product extends DataObject {
 	public function getMonthlyPrice(){
 		return $this->Price;
 	}
+
+	public function getPriceUnique(){
+		return $this->UniquePrice;
+	}
 }
