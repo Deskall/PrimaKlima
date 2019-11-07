@@ -81,6 +81,9 @@ class ShopCart extends DataObject {
 	}
 
 	public function isEmpty(){
-		return !$this->Package()->exists() && !$this->Products()->exists();
+		if (!$this->Package()->exists() && !$this->Products()->exists()){
+			return true;
+		}
+		return false;
 	}
 }
