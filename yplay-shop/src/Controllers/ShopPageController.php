@@ -41,10 +41,6 @@ class ShopPageController extends PageController
    }
 
    public function OrderForm(){
-      Requirements::javascript('silverstripe/admin: client/dist/js/vendor.js');
-      Requirements::javascript('silverstripe/admin: client/dist/js/bundle.js');
-
-
 
       $form = new Form(
          $this,
@@ -67,7 +63,7 @@ class ShopPageController extends PageController
                TextField::create('BillPostalCode','PLZ'),
                TextField::create('BillCity','Stadt'),
                DropdownField::create('BillCountry','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch')
-            )->setName('BillFields'))->hideUnless('BillSameAddress')->isNotChecked()->end(),
+            )->setName('BillFields')),
             
             HiddenField::create('isClient')
          ),
@@ -93,8 +89,8 @@ class ShopPageController extends PageController
       if ($cart->hasCategory('yplay-telefonie')){
         
          $form->Fields()->push(OptionSetField::create('PhoneOption','Label',['existing' => 'Bestehende Rufnummer(n) übernehmen', 'new' => 'Neue Rufnummer(n) bestellen', 'wish' => 'Wunschnummer bestellen']));
-         $form->Fields()->push(TextField::create('ExistingPhone','Bei einer Übernahme der Rufnummer die bestehenden Verträge bitte NICHT kündigen. Wir übernehmen dies für Sie.')->displayIf('PhoneOption')->isEqualTo("existing")->end());
-         $form->Fields()->push(TextField::create('WishPhone','Label')->displayIf('PhoneOption')->isEqualTo("wish")->end());
+         $form->Fields()->push(TextField::create('ExistingPhone','Bei einer Übernahme der Rufnummer die bestehenden Verträge bitte NICHT kündigen. Wir übernehmen dies für Sie.'));
+         $form->Fields()->push(TextField::create('WishPhone','Label'));
          
       }
 
