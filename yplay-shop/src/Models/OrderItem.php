@@ -121,7 +121,7 @@ class OrderItem extends DataObject {
         $this->SaleTitle = $package->SaleTitle;
         $this->SaleAddon = $package->SaleAddon;
         $this->SubTitle = $package->SubTitle;
-        $this->MonthlyPrice = ($package->getActionMonthlyPrice() > 0) ? $package->getActionMonthlyPrice() : $package->getMonthlyPrice();
+        $this->MonthlyPrice = $package->getMonthlyPrice();
         $this->UniquePrice = (!$customer ) ? $package->getUniquePrice() + $package->getFees() : $package->getUniquePrice();
         $this->Quantity = 1;
         $this->write();
