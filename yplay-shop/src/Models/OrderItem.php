@@ -1,4 +1,5 @@
 <?php
+use SilverStripe\ORM\DataObject;
 
 class OrderItem extends DataObject {
 
