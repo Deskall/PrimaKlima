@@ -60,6 +60,10 @@ class ShopCart extends DataObject {
 	}
 
 	public function hasCategory($code){
+		ob_start();
+					print_r($code);
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		$confirm = false;
 		if ($this->Package()->exists()){
 			foreach ($this->Package()->Products() as $p) {
@@ -77,10 +81,7 @@ class ShopCart extends DataObject {
 				}
 			}
 		}
-		ob_start();
-					print_r('ici');
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
 		return $confirm;
 	}
 }
