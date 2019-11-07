@@ -311,16 +311,16 @@ class OrderItem extends DataObject {
                     break;
             }
         }
-        if($this->ID > 0 && $this->ProductID && $this->Product()->getFees() && $this->Type != "OffProduct"){
-            foreach ($this->Product()->Fees() as $fee) {
-                $item = new OrderItem();
-                $item->Type = "Fee";
-                $item->Title = $fee->Title. " - " .$this->Product()->Title ;
-                $item->UniquePrice = $fee->Price;
-                $item->write();
-                $this->Order()->Items()->add($item);
-            }
-        }
+        // if($this->ID > 0 && $this->ProductID && $this->Product()->getFees() && $this->Type != "OffProduct"){
+        //     foreach ($this->Product()->getFees() as $fee) {
+        //         $item = new OrderItem();
+        //         $item->Type = "Fee";
+        //         $item->Title = $fee->Title. " - " .$this->Product()->Title ;
+        //         $item->UniquePrice = $fee->Price;
+        //         $item->write();
+        //         $this->Order()->Items()->add($item);
+        //     }
+        // }
     }
 
     public function onAfterWrite(){
