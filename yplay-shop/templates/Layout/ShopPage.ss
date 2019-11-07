@@ -7,7 +7,7 @@
 				<form>
 					<ul data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: true" uk-tab>
 					    <li><a href="#">1</a></li>
-					    <li><a href="#" uk-disabled="disabled">2</a></li>
+					    <li><a href="#" disabled="disabled">2</a></li>
 					    <li><a href="#">3</a></li>
 					</ul>
 
