@@ -40,6 +40,7 @@ class ProductCategory extends DataObject {
 	];
 
 	private static $summary_fields = [
+		'Code',
 		'Title',
 		'Subtitle',
 		'Products.count' => ['title' => 'Produktzahl']
