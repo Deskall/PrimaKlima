@@ -9,11 +9,11 @@ use SilverStripe\Security\Group;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Control\Controller;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
 
 class ShopConfigExtension extends DataExtension
 {
     private static $db = array(
-        'Title' => 'Varchar',
        'OrderNumberOffset' => 'Varchar'
        
     );
@@ -31,13 +31,11 @@ class ShopConfigExtension extends DataExtension
     ];
 
 
-    public function fieldLabels($includerelation = true){
-    $labels = parent::fieldLabels($includerelation);
-    $labels['Title'] = _t(__CLASS__.'.Title','Titel');
+    public function updateFieldLabels(&$labels){
    
-    $labels['AGBFile'] = _t(__CLASS__.'.AGBFile','AGB Datei');
-   
-    return $labels;
+      $labels['AGBFile'] = _t(__CLASS__.'.AGBFile','AGB Datei');
+      $labels['OrderNumberOffset'] = _t(__CLASS__.'.OrderNumberOffset','Bestellung Nummer Format');
+    
     }
 
    
@@ -59,7 +57,8 @@ class ShopConfigExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
        
-       $fields->addFieldToTab('Root.Main',UploadField::create('AGBFile',$this->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
+       $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
+       $fields->addFieldToTab('Root.Shop',TextField::create('OrderNumberOffset',$this->fieldLabels()['OrderNumberOffset']));
       
       
 
