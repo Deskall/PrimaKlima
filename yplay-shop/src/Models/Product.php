@@ -91,4 +91,9 @@ class Product extends DataObject {
 		$fields->addFieldToTab('Root.Items',HTMLEditorField::create('FooterText',$this->fieldLabels()['FooterText'])->setRows(3));
 		return $fields;
 	}
+
+	//To do: elaborate with Actions
+	public function getMonthlyPrice(){
+		return $this->Price;
+	}
 }
