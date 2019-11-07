@@ -49,7 +49,7 @@ class ShopPageController extends PageController
             TextField::create('FirstName','Vorname'),
             EmailField::create('Email','E-Mail'),
             TextField::create('Phone','Tel.'),
-            DateField::create('Birthday','Geburstdatum')
+            DateField::create('Birthday','Geburstdatum'),
             TextField::create('Address','Adresse'),
             TextField::create('PostalCode','PLZ'),
             TextField::create('City','Stadt'),
