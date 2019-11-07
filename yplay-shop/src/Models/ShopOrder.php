@@ -30,7 +30,9 @@ class ShopOrder extends DataObject{
 		'PhoneOption' => 'Varchar',
 		'ExistingPhone' => 'Varchar',
 		'WishPhone' => 'Varchar',
-		'ExistingCustomer' => 'Boolean(0)'
+		'ExistingCustomer' => 'Boolean(0)',
+		'MonthlyPrice' => 'Currency',
+		'UniquePrice' => 'Currency'
 	);
 
 	private static $has_one = array(
@@ -104,30 +106,39 @@ class ShopOrder extends DataObject{
 		return $this->renderWith('Includes/ShopOrderData');
 	}
 
+	public function getTotalMonthlyPrice(){
 
-	public function getOrderPrice(){
-	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$this->Price));
-	}
-
-	public function getOrderSubPrice(){
-	    setlocale(LC_MONETARY, 'de_DE');
-	    $price = $this->Quantity * $this->Product()->currentPrice();
-	    return DBField::create_field('Varchar',money_format('%i',$price));
 	}
 
 
-	public function getOrderPriceNetto(){
-	    $price = $this->Price * 100 / 107.7;
+	public function getNiceMonthlyPrice(){
 	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$price));
+	    return DBField::create_field('Varchar',money_format('%i',$this->MonthlyPrice));
 	}
 
-	public function getOrderMwSt(){
-	    $price = $this->Price - ($this->Price * 100 / 107.7);
+	public function getNiceUniquePrice(){
 	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$price));
+	    return DBField::create_field('Varchar',money_format('%i',$this->UniquePrice));
 	}
+
+	// public function getOrderSubPrice(){
+	//     setlocale(LC_MONETARY, 'de_DE');
+	//     $price = $this->Quantity * $this->Product()->currentPrice();
+	//     return DBField::create_field('Varchar',money_format('%i',$price));
+	// }
+
+
+	// public function getOrderPriceNetto(){
+	//     $price = $this->Price * 100 / 107.7;
+	//     setlocale(LC_MONETARY, 'de_DE');
+	//     return DBField::create_field('Varchar',money_format('%i',$price));
+	// }
+
+	// public function getOrderMwSt(){
+	//     $price = $this->Price - ($this->Price * 100 / 107.7);
+	//     setlocale(LC_MONETARY, 'de_DE');
+	//     return DBField::create_field('Varchar',money_format('%i',$price));
+	// }
 
 
 	public function sendEmail(){
