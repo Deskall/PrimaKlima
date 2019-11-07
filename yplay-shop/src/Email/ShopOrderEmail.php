@@ -67,16 +67,11 @@ class ShopOrderEmail extends Email
 
         $absoluteBaseURL = $this->BaseURL();
         $variables = array(
-            '$SiteName'       => SiteConfig::current_site_config()->Title,
-            '$LoginLink'      => Controller::join_links(
-                $absoluteBaseURL,
-                singleton(Security::class)->Link('login')
-            ),
+            '$SiteName'       => $config->Title,
             '$Customer.printTitle' => $Order->Customer()->printTitle(),
             '$Order.Created' => $createdDateObj->Nice(),
-            '$Order.Data' => $Order->renderWith('Emails/ShopOrderData'),
-            '$Product.Title' => $Order->Product()->Title,
-            '$Product.Data' => $Order->Product()->renderWith('Emails/ProductData')
+            '$Order.Data' => $Order->renderWith('Emails/ShopOrderData')
+            
         );
         
         foreach (array('Company' , 'Email' , 'Address' , 'PostalCode' , 'City' , 'Country', 'Phone', 'Price' ) as $field) {
