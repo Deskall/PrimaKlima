@@ -25,7 +25,7 @@ class OrderItem extends DataObject {
         'Product' => 'Product'
     );
 
-    public static $summary_fields = array(
+    private static $summary_fields = array(
         'NiceType' => 'Typ',
         'Title' => 'Titel',
         'MonthlyPrice' => 'Monatlicherpreis',
