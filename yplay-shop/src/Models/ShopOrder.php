@@ -38,6 +38,10 @@ class ShopOrder extends DataObject{
 		'Customer' => ShopCustomer::class	
 	);
 
+	private static $has_many = [
+		'Items' => OrderItem::class
+	];
+
 	private static $summary_fields = array(
 		'Nummer' => 'Rechnungsnummer',
 		'Customer.printAddress' => 'Kunde',
