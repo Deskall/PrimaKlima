@@ -2,23 +2,20 @@
 
 
 
-use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\DataExtension;
 use SilverStripe\Assets\File;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Security\Group;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Control\Controller;
 
-class ShopConfig extends DataObject
+class ShopConfigExtension extends DataExtension
 {
     private static $db = array(
         'Title' => 'Varchar',
        'OrderNumberOffset' => 'Varchar'
        
     );
-
-    private static $singular_name = "Einstellungen";
-    private static $plural_name = "Einstellungen";
 
     private static $has_one = [
       
@@ -30,10 +27,6 @@ class ShopConfig extends DataObject
        
         'AGBFile'
        
-    ];
-
-    private static $summary_fields = [
-        'Title' => ['title' => 'Titel']
     ];
 
 
@@ -62,14 +55,14 @@ class ShopConfig extends DataObject
 
 
 
-    public function getCMSFields()
+    public function updateCMSFields(FieldList $fields)
     {
-       $fields = parent::getCMSFields();
+       
        $fields->addFieldToTab('Root.Main',UploadField::create('AGBFile',$this->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
       
       
 
-       return $fields;
+       
     }
 
 

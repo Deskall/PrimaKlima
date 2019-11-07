@@ -78,7 +78,7 @@ class ShopOrder extends DataObject{
 	}
 
 	public function generateNummer(){
-		$Config = $this->getProductConfig();
+		$Config = $this->getSiteConfig();
 		$last = ShopOrder::get()->sort('ID','Desc')->first();
 		$increment = ($last) ? ($last->ID + 1) : 1;
 		$this->Nummer = number_format ( $Config->OrderNumberOffset + $increment , 0 ,  "." ,  "." );
@@ -95,9 +95,6 @@ class ShopOrder extends DataObject{
 
 	}
 
-	public function getProductConfig(){
-		return ShopConfig::get()->first();
-	}
 
 	public function getSiteConfig(){
 		return SiteConfig::current_site_config();
@@ -131,12 +128,12 @@ class ShopOrder extends DataObject{
 
 	public function sendEmail(){
 	   
-	    $siteconfig = SiteConfig::current_site_config();
-	    $config = $this->getProductConfig();
+	    
+	    $config = $this->getSiteConfig()();
 	    $body = $config->BillEmailBody;
 
-	    $email = new ShopOrderEmail($config,$this,$siteconfig->Email,$this->Email,$config->BillEmailSubject,  $body);
-	    $email->setBCC($siteconfig->Email);
+	    $email = new ShopOrderEmail($config,$this,$config->Email,$this->Email,$config->BillEmailSubject, $body);
+	    $email->setBCC($config->Email);
 
 	    //Attchments
 	    // $email->addAttachment(dirname(__FILE__).'/../../..'.$this->BillFile()->getURL(),'Rechnung.pdf');
