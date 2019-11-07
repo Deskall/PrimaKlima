@@ -63,7 +63,7 @@ class ShopPageController extends PageController
                TextField::create('BillPostalCode','PLZ'),
                TextField::create('BillCity','Stadt'),
                DropdownField::create('BillCountry','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch')
-            )->setName('BillFields'))->hideIf('BillSameAddress')->isChecked()->end(),
+            )->setName('BillFields'))->hideUnless('BillSameAddress')->isNotChecked()->end(),
             
             HiddenField::create('isClient')
          ),
