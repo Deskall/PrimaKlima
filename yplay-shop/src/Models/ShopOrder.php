@@ -81,7 +81,7 @@ class ShopOrder extends DataObject{
 		$Config = $this->getSiteConfig();
 		$last = ShopOrder::get()->sort('ID','Desc')->first();
 		$increment = ($last) ? ($last->ID + 1) : 1;
-		$this->Nummer = number_format ( $Config->OrderNumberOffset + $increment , 0 ,  "." ,  "." );
+		$this->Nummer = $Config->OrderNumberOffset.$increment;
 	}
 
 	public function getCMSFields(){
