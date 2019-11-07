@@ -145,88 +145,88 @@ class OrderItem extends DataObject {
         return strip_tags($var);
     }
 
-    public function getCMSFields(){
-        $fields = FieldList::create();
-        $fields->push($type = DropdownField::create('Type','Art des Artikel',array ('Package' => 'Pakete','Product' => 'Produkt','Accessory' => 'Zubehör','AccessoryMultiple' => 'Zubehöre (mehrere)','SmartCard' => 'SmartCard','PayTV' => 'PayTV Pakete', 'OffProduct' => 'Artikel entfernen'))->setEmptyString('Bitte Art auswählen'));
-        $fields->push(HiddenField::create('CreatedFromAdmin')->setValue(true));
-         if($this->OrderID > 0 && $this->Type){
-            //if already a package we block adding another one
-            if ($this->Order()->Items()->filter('Type','Package')->count() > 0){
-                $source = $type->getSource();
-                unset( $source['Package']);
-                $type->setSource($source);
-            }
+    // public function getCMSFields(){
+    //     $fields = FieldList::create();
+    //     $fields->push($type = DropdownField::create('Type','Art des Artikel',array ('Package' => 'Pakete','Product' => 'Produkt','Accessory' => 'Zubehör','AccessoryMultiple' => 'Zubehöre (mehrere)','SmartCard' => 'SmartCard','PayTV' => 'PayTV Pakete', 'OffProduct' => 'Artikel entfernen'))->setEmptyString('Bitte Art auswählen'));
+    //     $fields->push(HiddenField::create('CreatedFromAdmin')->setValue(true));
+    //      if($this->OrderID > 0 && $this->Type){
+    //         //if already a package we block adding another one
+    //         if ($this->Order()->Items()->filter('Type','Package')->count() > 0){
+    //             $source = $type->getSource();
+    //             unset( $source['Package']);
+    //             $type->setSource($source);
+    //         }
 
-            $connectionType = $this->Order()->Connectiontype;
-            if (!$connectionType && $this->Order()->TVConnection){
-                $connectionType = ($this->Order()->TVConnection == "GlasfaserDose") ? "FTTH" : "COAX";
-            }
-            $subsiteID = $this->Order()->SubsiteID;
-            $packages = ($connectionType) ? Package::get()->filter(array('Availability' => array('Immer',$connectionType), 'SubsiteID' => $subsiteID)) : Package::get()->filter(array('SubsiteID' => array(0,$subsiteID))) ;
-            if ($this->Type == "OffProduct"){
-                if ($this->Order()->Items()->filter('Type','Package')->count() > 0){
-                    $ids = array();
-                    foreach ($this->Order()->Items()->filter('Type','Package') as $item) {
-                        $ids = ManyManyList::create('Product','Package_Products','ProductID','PackageID',array('Alterable' => 'Boolean(0)','Active' => 'Boolean(0)'))->filter(array('Alterable' => true, 'Active' => true, 'PackageID' => $item->PackageID))->column('ID');
-                    }
-                    $products = Product::get()->filter('ID',$ids);
-                }
-            }
-            else{
-                $assignedProducts = $this->Order()->Items()->filter('Type','Product')->column('ProductID');
-                $products = Product::get()->filter(array('Availability' => array('beide',$connectionType), 'SubsiteID' => $subsiteID))->exclude('ID',$assignedProducts);
+    //         $connectionType = $this->Order()->Connectiontype;
+    //         if (!$connectionType && $this->Order()->TVConnection){
+    //             $connectionType = ($this->Order()->TVConnection == "GlasfaserDose") ? "FTTH" : "COAX";
+    //         }
+    //         $subsiteID = $this->Order()->SubsiteID;
+    //         $packages = ($connectionType) ? Package::get()->filter(array('Availability' => array('Immer',$connectionType), 'SubsiteID' => $subsiteID)) : Package::get()->filter(array('SubsiteID' => array(0,$subsiteID))) ;
+    //         if ($this->Type == "OffProduct"){
+    //             if ($this->Order()->Items()->filter('Type','Package')->count() > 0){
+    //                 $ids = array();
+    //                 foreach ($this->Order()->Items()->filter('Type','Package') as $item) {
+    //                     $ids = ManyManyList::create('Product','Package_Products','ProductID','PackageID',array('Alterable' => 'Boolean(0)','Active' => 'Boolean(0)'))->filter(array('Alterable' => true, 'Active' => true, 'PackageID' => $item->PackageID))->column('ID');
+    //                 }
+    //                 $products = Product::get()->filter('ID',$ids);
+    //             }
+    //         }
+    //         else{
+    //             $assignedProducts = $this->Order()->Items()->filter('Type','Product')->column('ProductID');
+    //             $products = Product::get()->filter(array('Availability' => array('beide',$connectionType), 'SubsiteID' => $subsiteID))->exclude('ID',$assignedProducts);
 
-                //Filtering partner only product/package if relevant
-                if (Member::currentUser() && Member::currentUser()->inGroup('partner-ligh')){
-                    $toExcludeId = ManyManyList::create('Product','Product_Members','ProductID','MemberID')->column('ID');
-                    $toIncludeId = ManyManyList::create('Product','Product_Members','ProductID','MemberID')->filter('MemberID',Member::currentUser()->ID)->column('ID');
-                    $ids = array_diff($toExcludeId, $toIncludeId);
-                    $products = (count($ids) > 0) ? $products->exclude('ID',$ids) : null;
+    //             //Filtering partner only product/package if relevant
+    //             if (Member::currentUser() && Member::currentUser()->inGroup('partner-ligh')){
+    //                 $toExcludeId = ManyManyList::create('Product','Product_Members','ProductID','MemberID')->column('ID');
+    //                 $toIncludeId = ManyManyList::create('Product','Product_Members','ProductID','MemberID')->filter('MemberID',Member::currentUser()->ID)->column('ID');
+    //                 $ids = array_diff($toExcludeId, $toIncludeId);
+    //                 $products = (count($ids) > 0) ? $products->exclude('ID',$ids) : null;
 
-                    $toExcludeId = ManyManyList::create('Package','Package_Members','PackageID','MemberID')->column('ID');
-                    $toIncludeId = ManyManyList::create('Package','Package_Members','PackageID','MemberID')->filter('MemberID',Member::currentUser()->ID)->column('ID');
-                    $ids = array_diff($toExcludeId, $toIncludeId);
-                    $packages = (count($ids) > 0) ? $packages->exclude('ID',$ids) : null;
+    //                 $toExcludeId = ManyManyList::create('Package','Package_Members','PackageID','MemberID')->column('ID');
+    //                 $toIncludeId = ManyManyList::create('Package','Package_Members','PackageID','MemberID')->filter('MemberID',Member::currentUser()->ID)->column('ID');
+    //                 $ids = array_diff($toExcludeId, $toIncludeId);
+    //                 $packages = (count($ids) > 0) ? $packages->exclude('ID',$ids) : null;
 
-                }
-            }
+    //             }
+    //         }
 
-            if ( $packages ){
-                //Removing flashcable only product if not relevant
-                if (Subsite::currentSubsiteID() > 0 || Member::currentUser()->inGroup('partner-ligh')){
-                    $packages = $packages->exclude('onlyForMainSite',1);
-                }
-                $packages = $packages->sort('SortOrder')->map('ID','Title');
-            }
-            if ($products){
-                if (Subsite::currentSubsiteID() > 0 || Member::currentUser()->inGroup('partner-ligh')){
-                    $products = $products->exclude('onlyForMainSite',1);
-                }
-                $products = $products->sort('SortOrder')->map('ID','Title');
-            }
-            $accessories = ProductAccessory::get()->filter(array('Availability' => array('beide',$connectionType)))->sort('SortOrder');
+    //         if ( $packages ){
+    //             //Removing flashcable only product if not relevant
+    //             if (Subsite::currentSubsiteID() > 0 || Member::currentUser()->inGroup('partner-ligh')){
+    //                 $packages = $packages->exclude('onlyForMainSite',1);
+    //             }
+    //             $packages = $packages->sort('SortOrder')->map('ID','Title');
+    //         }
+    //         if ($products){
+    //             if (Subsite::currentSubsiteID() > 0 || Member::currentUser()->inGroup('partner-ligh')){
+    //                 $products = $products->exclude('onlyForMainSite',1);
+    //             }
+    //             $products = $products->sort('SortOrder')->map('ID','Title');
+    //         }
+    //         $accessories = ProductAccessory::get()->filter(array('Availability' => array('beide',$connectionType)))->sort('SortOrder');
 
-            $PayTVPackages = ProductPayTVPackage::get()->sort('SortOrder');
-            $SmartCardOptions = ProductSmartCardOption::get()->sort('SortOrder');
-            $fields->push($packageFields = DropdownField::create('PackageID','Pakete',$packages)->setEmptyString('Bitte Pakete auswählen'));
-            $fields->push($productFields = DropdownField::create('ProductID','Produkt',$products)->setEmptyString('Bitte Produkt auswählen'));
-            $fields->push($accessoryFields = DependentDropDownField::create('AccessoryID','Zubehör', array('OrderItem','getAccessories'))->setDepends($type)->setEmptyString('Bitte Zubehör auswählen'));
-            $fields->push($paytvFields = DropdownField::create('PayTVPackageID','PayTV Pakete',$PayTVPackages->map('ID','Title'))->setEmptyString('Bitte PayTV Pakete auswählen'));
-            $fields->push($smartcardOptionFields = DropdownField::create('ProductSmartCardOptionID','SmartCard Option',$SmartCardOptions->map('ID','Title'))->setEmptyString('Bitte SmartCard Option auswählen'));
-            $fields->push($quantity = NumericField::create('Quantity','Anzahl')->setValue(1));
+    //         $PayTVPackages = ProductPayTVPackage::get()->sort('SortOrder');
+    //         $SmartCardOptions = ProductSmartCardOption::get()->sort('SortOrder');
+    //         $fields->push($packageFields = DropdownField::create('PackageID','Pakete',$packages)->setEmptyString('Bitte Pakete auswählen'));
+    //         $fields->push($productFields = DropdownField::create('ProductID','Produkt',$products)->setEmptyString('Bitte Produkt auswählen'));
+    //         $fields->push($accessoryFields = DependentDropDownField::create('AccessoryID','Zubehör', array('OrderItem','getAccessories'))->setDepends($type)->setEmptyString('Bitte Zubehör auswählen'));
+    //         $fields->push($paytvFields = DropdownField::create('PayTVPackageID','PayTV Pakete',$PayTVPackages->map('ID','Title'))->setEmptyString('Bitte PayTV Pakete auswählen'));
+    //         $fields->push($smartcardOptionFields = DropdownField::create('ProductSmartCardOptionID','SmartCard Option',$SmartCardOptions->map('ID','Title'))->setEmptyString('Bitte SmartCard Option auswählen'));
+    //         $fields->push($quantity = NumericField::create('Quantity','Anzahl')->setValue(1));
            
 
-          //  $fields->push($smartcardFields = GridField::create('PayTVPackageID','PayTV Pakete',$PayTVPackages)->setEmptyString('Bitte PayTV Pakete auswählen'));
+    //       //  $fields->push($smartcardFields = GridField::create('PayTVPackageID','PayTV Pakete',$PayTVPackages)->setEmptyString('Bitte PayTV Pakete auswählen'));
 
-            $packageFields->displayIf('Type')->isEqualTo('Package');
-            $productFields->displayIf('Type')->isEqualTo('Product')->orIf('Type')->isEqualTo('OffProduct');
-            $smartcardOptionFields->displayIf('Type')->isEqualTo('SmartCard');
-            $accessoryFields->displayIf('Type')->isEqualTo('Accessory')->orIf('Type')->isEqualTo('AccessoryMultiple');
-            $quantity->displayIf('Type')->isEqualTo('AccessoryMultiple');
-            $paytvFields->displayIf('Type')->isEqualTo('PayTV');
-        }
-        return $fields;
-    }
+    //         $packageFields->displayIf('Type')->isEqualTo('Package');
+    //         $productFields->displayIf('Type')->isEqualTo('Product')->orIf('Type')->isEqualTo('OffProduct');
+    //         $smartcardOptionFields->displayIf('Type')->isEqualTo('SmartCard');
+    //         $accessoryFields->displayIf('Type')->isEqualTo('Accessory')->orIf('Type')->isEqualTo('AccessoryMultiple');
+    //         $quantity->displayIf('Type')->isEqualTo('AccessoryMultiple');
+    //         $paytvFields->displayIf('Type')->isEqualTo('PayTV');
+    //     }
+    //     return $fields;
+    // }
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
@@ -335,19 +335,19 @@ class OrderItem extends DataObject {
     }
 
 
-    public static function getAccessories($value){
-        switch($value){
-          case "Accessory":
-          $accessories = ProductAccessory::get()->sort('SortOrder')->map('ID','Title')->toArray();
-          break;
-          case "AccessoryMultiple":
-          $accessories = ProductAccessory::get()->filter('canBeMultiple' , 1)->sort('SortOrder')->map('ID','Title')->toArray();
-          break;
-          default:
-          $accessories = null;
-        }
-        return $accessories;
-      }
+    // public static function getAccessories($value){
+    //     switch($value){
+    //       case "Accessory":
+    //       $accessories = ProductAccessory::get()->sort('SortOrder')->map('ID','Title')->toArray();
+    //       break;
+    //       case "AccessoryMultiple":
+    //       $accessories = ProductAccessory::get()->filter('canBeMultiple' , 1)->sort('SortOrder')->map('ID','Title')->toArray();
+    //       break;
+    //       default:
+    //       $accessories = null;
+    //     }
+    //     return $accessories;
+    //   }
 
     //User Rights
     // public function canCreate($member = null){
