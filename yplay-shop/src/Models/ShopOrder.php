@@ -103,7 +103,7 @@ class ShopOrder extends DataObject{
 	}
 
 	public function NiceOrder(){
-		return $this->renderWith('Includes/ShopOrderData');
+		return $this->renderWith('Includes/ShopOrderSummary');
 	}
 
 	public function getTotalMonthlyPrice(){
