@@ -77,6 +77,7 @@ class ShopCart extends DataObject {
 				}
 			}
 		}
+		var_dump($confirm);
 		return $confirm;
 	}
 }
