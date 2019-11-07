@@ -103,12 +103,11 @@ class ShopPageController extends PageController
 
    public function doOrder($data,$form){
 
-      //Link to date
-      if (isset($data['ProductID']) && !empty($data['ProductID'])){
-         $product = Product::get()->byId($data['ProductID']);
-         $quantity = $data['Quantity'];
-         if ($product){
+      //Retrive Cart
+      $cartId = $this->getRequest()->getSession()->get('shopcart_id');
+      $cart = ($cartId) ? ShopCart::get()->byId($cartId) : null;
 
+      if ($cart !$cart->isEmpty()){
             //Create and fill the order
                $order = new ShopOrder();
                $form->saveInto($order);

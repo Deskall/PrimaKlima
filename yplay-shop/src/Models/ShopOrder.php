@@ -30,7 +30,8 @@ class ShopOrder extends DataObject{
 		'Phone'  => 'Varchar',
 		'PhoneOption' => 'Varchar',
 		'ExistingPhone' => 'Varchar',
-		'WishPhone' => 'Varchar'
+		'WishPhone' => 'Varchar',
+		'ExistingCustomer' => 'Boolean(0)'
 	);
 
 	private static $has_one = array(
