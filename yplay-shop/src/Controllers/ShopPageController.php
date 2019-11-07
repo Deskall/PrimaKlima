@@ -89,9 +89,9 @@ class ShopPageController extends PageController
       //1. Phone
       if ($cart->hasCategory('yplay-telefonie')){
         
-         $form->Fields()->push(OptionsetField::create('PhoneOption','Label',['0' => 'Bestehende Rufnummer(n) übernehmen', '1' => 'Neue Rufnummer(n) bestellen', '2' => 'Wunschnummer bestellen']));
-         $form->Fields()->push(TextField::create('ExistingPhone','Bei einer Übernahme der Rufnummer die bestehenden Verträge bitte NICHT kündigen. Wir übernehmen dies für Sie.')->displayIf('PhoneOption')->isEqualTo("0")->end());
-         $form->Fields()->push(TextField::create('WishPhone','Label')->displayIf('PhoneOption')->isEqualTo("2")->end());
+         $form->Fields()->push(OptionsetField::create('PhoneOption','Label',['existing' => 'Bestehende Rufnummer(n) übernehmen', 'new' => 'Neue Rufnummer(n) bestellen', 'wish' => 'Wunschnummer bestellen']));
+         $form->Fields()->push(TextField::create('ExistingPhone','Bei einer Übernahme der Rufnummer die bestehenden Verträge bitte NICHT kündigen. Wir übernehmen dies für Sie.')->displayIf('PhoneOption')->isEqualTo("existing")->end());
+         $form->Fields()->push(TextField::create('WishPhone','Label')->displayIf('PhoneOption')->isEqualTo("wish")->end());
          
       }
 

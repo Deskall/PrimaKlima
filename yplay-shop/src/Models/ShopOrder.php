@@ -28,7 +28,7 @@ class ShopOrder extends DataObject{
 		'City'  => 'Varchar',
 		'Country'  => 'Varchar',
 		'Phone'  => 'Varchar',
-		'PhoneOption' => 'Int',
+		'PhoneOption' => 'Varchar',
 		'ExistingPhone' => 'Varchar',
 		'WishPhone' => 'Varchar'
 	);
