@@ -116,11 +116,7 @@ class ShopPageController extends PageController
                $customer = ShopCustomer::get()->filter('Email',$data['Email'])->first();
                if (!$customer){
                   $customer = new ShopCustomer();
-                  $customer->Gender = $data['Gender'];
-                  $customer->PostalCode = $data['PostalCode'];
-                  $customer->Address = $data['Address'];
-                  $customer->City = ucfirst(strtolower($data['City']));
-                  $customer->Country = strtolower($data['Country']);
+                  $form->saveInto($customer);
                   $customer->write();
                }
                $order->CustomerID = $customer->ID;
