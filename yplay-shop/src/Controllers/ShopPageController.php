@@ -111,58 +111,20 @@ class ShopPageController extends PageController
             //Create and fill the order
                $order = new ShopOrder();
                $form->saveInto($order);
-               $order->Price = $product->currentPrice() * $quantity + $order->getProductConfig()->TransportCost;
-
+               
                //Customer
-               $member = (Security::getCurrentUser()) ? Security::getCurrentUser() : Member::get()->filter('Email',$data['Email'])->first();
-               if (!$member){
-                  $member = new Member();
-                  $member->Surname = $data['Name'];
-                  $member->FirstName = $data['Vorname'];
-                  $member->Email = $data['Email'];
-                  $member->write();
-
+               $customer = ShopCustomer::get()->filter('Email',$data['Email'])->first();
+               if (!$customer){
                   $customer = new ShopCustomer();
                   $customer->Gender = $data['Gender'];
-                  $customer->Company = $data['Company'];
                   $customer->PostalCode = $data['PostalCode'];
                   $customer->Address = $data['Address'];
                   $customer->City = ucfirst(strtolower($data['City']));
                   $customer->Country = strtolower($data['Country']);
-                  $customer->UIDNumber = $data['UIDNumber'];
-                  $customer->MemberID = $member->ID;
                   $customer->write();
-                  $customer->sendLoginData();
                }
-               else{
-                  $customer = ShopCustomer::get()->filter('MemberID',$member->ID)->first();
-                  if ($customer){
-                     $customer->Gender = $data['Gender'];
-                     $customer->UIDNumber = $data['UIDNumber'];
-                     $customer->Company = $data['Company'];
-                     $customer->write();
-                  }
-                  else{
-                     $customer = new ShopCustomer();
-                     $customer->Gender = $data['Gender'];
-                     $customer->Company = $data['Company'];
-                     $customer->PostalCode = $data['PostalCode'];
-                     $customer->Address = $data['Address'];
-                     $customer->City = ucfirst(strtolower($data['City']));
-                     $customer->Country = strtolower($data['Country']);
-                     $customer->UIDNumber = $data['UIDNumber'];
-                     $customer->MemberID = $member->ID;
-                     $customer->write();
-                  }
-               }
-               $member->addToGroupByCode('shop-kunden');
-               $identityStore = Injector::inst()->get(IdentityStore::class);
-               $identityStore->logIn($member, false, $this->getRequest());
                $order->CustomerID = $customer->ID;
-               $order->isPaid = false;
-               $order->PaymentType = 'bill';
-
-
+              
             try {
                //Write order
                $order->write();
@@ -177,12 +139,12 @@ class ShopPageController extends PageController
             }
             
             //Create Receipt
-            $order->generatePDF();
+            // $order->generatePDF();
             //Send Confirmation Email
             $order->sendEmail();
 
             $this->getRequest()->getSession()->set('orderID',$order->ID);
-            $this->getRequest()->getSession()->set('customerID',$member->ID);
+            $this->getRequest()->getSession()->set('customerID',$customer->ID);
 
             return $this->redirect('shop/bestellung-bestaetigt');
 

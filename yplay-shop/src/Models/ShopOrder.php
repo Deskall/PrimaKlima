@@ -129,6 +129,24 @@ class ShopOrder extends DataObject{
 	}
 
 
+	public function sendEmail(){
+	   
+	    $siteconfig = SiteConfig::current_site_config();
+	    $config = $this->getProductConfig();
+	    $body = $config->BillEmailBody;
+
+	    $email = new ShopOrderEmail($config,$this,$siteconfig->Email,$this->Email,$config->BillEmailSubject,  $body);
+	    $email->setBCC($siteconfig->Email);
+
+	    //Attchments
+	    // $email->addAttachment(dirname(__FILE__).'/../../..'.$this->BillFile()->getURL(),'Rechnung.pdf');
+	    $email->addAttachment(dirname(__FILE__).'/../../..'.$config->AGBFile()->getURL(),'AGB.pdf');
+
+	    $email->send();
+
+	}
+
+
 }
 
 
