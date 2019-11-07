@@ -43,6 +43,7 @@ class ShopOrder extends DataObject{
 
 	private static $summary_fields = array(
 		'Nummer' => 'Rechnungsnummer',
+		'NiceOrder' => 'Übersicht',
 		'Customer.printAddress' => 'Kunde',
 		'Email' => 'Email',
 		'Created.Nice' => 'Bestelldatum'
@@ -97,6 +98,10 @@ class ShopOrder extends DataObject{
 
 	public function getSiteConfig(){
 		return SiteConfig::current_site_config();
+	}
+
+	public function NiceOrder(){
+		return $this->renderWith('ShopOrderData');
 	}
 
 
