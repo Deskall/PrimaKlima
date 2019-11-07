@@ -137,6 +137,24 @@ class ShopPageController extends PageController
                $form->sessionMessage($validationMessages, 'bad');
                return $this->redirectBack();
             }
+
+            //Assign items
+            //Package
+            if ($cart->Package()->exists()){
+               $item = new OrderItem();
+               $item->createFromPackage($cart->Package(),$data['ExistingCustomer']);
+               $item->OrderID = $order->ID;
+               $item->write();
+            }
+            //Products
+            if ($cart->Products()->exists()){
+               foreach ($cart->Products() as $p) {
+                  $item = new OrderItem();
+                  $item->createFromProduct($p,$data['ExistingCustomer']);
+                  $item->OrderID = $order->ID;
+                  $item->write();
+               }
+            }
             
             //Create Receipt
             // $order->generatePDF();
