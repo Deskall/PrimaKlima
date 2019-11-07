@@ -231,13 +231,13 @@ class OrderItem extends DataObject {
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        if ($this->CreatedFin){
+        if ($this->CreatedFromAdmin){
             switch ($this->Type) {
                 case 'Package':
                     $this->Title = $this->Package()->Title;
                     $this->SubTitle = $this->Package()->SubTitle;
                     $this->MonthlyPrice = $this->Package()->getMonthlyPrice();
-                    $this->UniquePrice = $this->Package()->getUniquePrice();
+                    $this->UniquePrice = $this->Package()->getPriceUnique();
                     if (!$this->Order()->ExistingCustomer){
                         $this->UniquePrice += $this->Package()->getFees();
                     }
@@ -250,7 +250,7 @@ class OrderItem extends DataObject {
                     $this->Title = $this->Product()->Title;
                     $this->SubTitle = $this->Product()->SubTitle;
                     $this->MonthlyPrice = $this->Product()->getMonthlyPrice();
-                    $this->UniquePrice = $this->Product()->getUniquePrice();
+                    $this->UniquePrice = $this->Product()->getPriceUnique();
                     if (!$this->Order()->ExistingCustomer){
                         $this->UniquePrice += $this->Product()->getFees();
                     }
@@ -303,13 +303,13 @@ class OrderItem extends DataObject {
                     $this->Title = $this->Product()->Title;
                     $this->SubTitle = $this->Product()->SubTitle;
                     $this->MonthlyPrice = - $this->Product()->getMonthlyPrice();
-                    $this->UniquePrice = - $this->Product()->getUniquePrice();
+                    $this->UniquePrice = - $this->Product()->getPriceUnique();
                     $this->Quantity = 1;
                     break;
                 default:
                     # code...
                     break;
-            }Unique
+            }
         }
         if($this->ID > 0 && $this->ProductID && $this->Product()->Fees() && $this->Type != "OffProduct"){
             foreach ($this->Product()->Fees() as $fee) {
