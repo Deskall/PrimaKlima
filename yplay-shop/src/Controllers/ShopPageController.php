@@ -21,7 +21,7 @@ use SilverStripe\ORM\ValidationException;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Control\Director;
-
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class ShopPageController extends PageController
 {
@@ -57,13 +57,13 @@ class ShopPageController extends PageController
             TextField::create('City','Stadt'),
             DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch'),
             CheckboxField::create('BillSameAddress','identische Rechnungsadresse?')->setValue(1),
-            CompositeField::create(
+            Wrapper::create(CompositeField::create(
                HeaderField::create('BillTitle','Rechnungsadresse',3),
                TextField::create('BillAddress','Adresse'),
                TextField::create('BillPostalCode','PLZ'),
                TextField::create('BillCity','Stadt'),
                DropdownField::create('BillCountry','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch')
-            )->setName('BillFields')->displayIf('BillSameAddress')->isChecked()->end(),
+            )->setName('BillFields'))->hideIf('BillSameAddress')->isChecked()->end(),
             
             HiddenField::create('isClient')
          ),
