@@ -46,19 +46,20 @@ class ShopPageController extends PageController
          new FieldList(
             DropdownField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Bitte wählen')),
             TextField::create('Name','Name'),
-            TextField::create('Vorname','Vorname'),
-            HiddenField::create('Email','Email'),
-            TextField::create('Company','Firma'),
+            TextField::create('FirstName','Vorname'),
+            EmailField::create('Email','E-Mail'),
+            TextField::create('Phone','Tel.'),
+            DateField::create('Birthday','Geburstdatum')
             TextField::create('Address','Adresse'),
             TextField::create('PostalCode','PLZ'),
             TextField::create('City','Stadt'),
-            DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),
+            DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch'),
             HiddenField::create('isClient')
          ),
          new FieldList(
-            FormAction::create('doOrder', _t('SHOP.BUYNOW', 'Jetzt bestellen'))->addExtraClass('uk-button PrimaryBackground')
+            FormAction::create('doOrder', _t('SHOP.BUYNOW', 'Jetzt bestellen'))->addExtraClass('uk-button')
          ),
-         RequiredFields::create(['Gender','Name','Vorname','Address','PostalCode','City','Country'])
+         RequiredFields::create(['Gender','Name','FirstName','Birthday','Address','PostalCode','City','Country'])
       );
       // $member = Security::getCurrentUser();
       // if ($member){
