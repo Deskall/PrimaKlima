@@ -83,6 +83,14 @@ class ShopPageController extends PageController
       //    }
       // }
 
+      //Retrive Cart
+      $cart = ShopCart::get()->byId($this->getRequest()->getSession()->get('shopcart_id'));
+      //Add Dependent Fields
+      //1. Phone
+      if ($cart->hasCategory('yplay-telefonie')){
+         $form->Fields()->push(OptionsetField::create('PhoneOption','Label',['0' => 'Bestehende Nummer benutzen', '1' => 'Neu Nummer bestellen', '2' => 'Wunschnummer bestellen']));
+      }
+
       $form->addExtraClass('uk-form-horizontal form-std');
       // if(is_array($this->getRequest()->getSession()->get('BuyBillForm'))) {
       //    $form->loadDataFrom($this->getRequest()->getSession()->get('BuyBillForm'));

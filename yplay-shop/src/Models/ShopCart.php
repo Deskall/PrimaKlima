@@ -58,4 +58,25 @@ class ShopCart extends DataObject {
 		}
 		$this->TotalUniquePrice = "CHF ".number_format($price,2);
 	}
+
+	public function hasCategory($code){
+		$confirm = false;
+		if ($this->Package()->exists()){
+			foreach ($this->Package()->Products() as $p) {
+				if ($p->Category()->Code == $code){
+					$confirm = true;
+					return false;
+				}
+			}
+		}
+		if ($this->Products()->exists() && !$confirm){
+			foreach ($this->Products() as $p) {
+				if ($p->Category()->Code == $code){
+					$confirm = true;
+					return false;
+				}
+			}
+		}
+		return $confirm;
+	}
 }
