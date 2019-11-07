@@ -41,8 +41,11 @@ class ShopPageController extends PageController
    }
 
    public function OrderForm(){
-      Requirements::javascript('silverstripe/admin: client/dist/js/vendor.js');
-      Requirements::javascript('silverstripe/admin: client/dist/js/bundle.js');
+      // Requirements::javascript('silverstripe/admin: client/dist/js/vendor.js');
+      // Requirements::javascript('silverstripe/admin: client/dist/js/bundle.js');
+
+      Requirements::javascript('unclecheese/display-logic: client/dist/js/bundle.js');
+
       $form = new Form(
          $this,
          'OrderForm',
