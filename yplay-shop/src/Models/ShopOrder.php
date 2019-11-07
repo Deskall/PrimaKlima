@@ -18,7 +18,6 @@ class ShopOrder extends DataObject{
 
 	private static $db = array(
 		'Nummer' => 'Varchar(255)',
-		'Price' => 'Currency',
 		'Name' => 'Varchar',
 		'Vorname' => 'Varchar',
 		'Email' => 'Varchar',
