@@ -88,9 +88,9 @@ class ShopPageController extends PageController
       //Add Dependent Fields
       //1. Phone
       if ($cart->hasCategory('yplay-telefonie')){
-         $fields = $form->Fields();
-         $fields->push(OptionsetField::create('PhoneOption','Label',['0' => 'Bestehende Nummer benutzen', '1' => 'Neu Nummer bestellen', '2' => 'Wunschnummer bestellen']));
-         $form->setFields($fields);
+        
+         $form->Fields()->push(OptionsetField::create('PhoneOption','Label',['0' => 'Bestehende Nummer benutzen', '1' => 'Neu Nummer bestellen', '2' => 'Wunschnummer bestellen']));
+         
       }
 
       $form->addExtraClass('uk-form-horizontal form-std');
