@@ -27,7 +27,7 @@ class ShopOrderEmail extends Email
      * @param EventConfig $config
      * @param OrderDate $Order
      */
-    public function __construct(ShopConfig $config,$Order,$sender,$receiver,$subject,$body)
+    public function __construct(SiteConfig $config,$Order,$sender,$receiver,$subject,$body)
     {
         parent::__construct();
 
