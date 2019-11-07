@@ -57,8 +57,8 @@ class ShopConfigExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
        
-       $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
-       $fields->addFieldToTab('Root.Shop',TextField::create('OrderNumberOffset',$this->fieldLabels()['OrderNumberOffset']));
+       $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
+       $fields->addFieldToTab('Root.Shop',TextField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']));
       
       
 
