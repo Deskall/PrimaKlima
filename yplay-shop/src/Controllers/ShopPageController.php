@@ -186,9 +186,9 @@ class ShopPageController extends PageController
 
             return $this->redirect('shop/bestellung-bestaetigt');
 
-         }
-      
       }
+      
+      
 
       return $this->httpError(404);
       
