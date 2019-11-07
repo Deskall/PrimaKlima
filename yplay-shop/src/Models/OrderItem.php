@@ -324,13 +324,12 @@ class OrderItem extends DataObject {
     }
 
     public function onAfterWrite(){
-        $this->Order()->updatePrices();
+        
        
         parent::onAfterWrite();
     }
 
     public function onAfterDelete(){
-        $this->Order()->updatePrices();
        
         parent::onAfterDelete();
     }
