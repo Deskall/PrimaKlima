@@ -81,6 +81,6 @@ class ShopCart extends DataObject {
 	}
 
 	public function isEmpty(){
-		return ($this->PackageID == 0 && $this->Products()->count() == 0);
+		return (!$this->Package()->exists() && !$this->Products()->exists());
 	}
 }

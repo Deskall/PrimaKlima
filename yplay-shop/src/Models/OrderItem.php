@@ -228,99 +228,99 @@ class OrderItem extends DataObject {
     //     return $fields;
     // }
 
-    // public function onBeforeWrite(){
-    //     parent::onBeforeWrite();
-    //     if ($this->CreatedFromAdmin){
-    //         switch ($this->Type) {
-    //             case 'Package':
-    //                 $this->Title = $this->Package()->Title;
-    //                 $this->SubTitle = $this->Package()->SubTitle;
-    //                 $this->MonthlyPrice = $this->Package()->getMonthlyPrice();
-    //                 $this->UniquePrice = $this->Package()->getUniquePrice();
-    //                 if (!$this->Order()->ExistingCustomer){
-    //                     $this->UniquePrice += $this->Package()->getFees();
-    //                 }
-    //                 $this->Quantity = 1;
-    //                 if(!$this->Order()->Title){
-    //                     $this->Order()->Title = $this->Package()->Title;
-    //                 }
-    //                 break;
-    //             case 'Product':
-    //                 $this->Title = $this->Product()->Title;
-    //                 $this->SubTitle = $this->Product()->SubTitle;
-    //                 $this->MonthlyPrice = $this->Product()->getMonthlyPrice();
-    //                 $this->UniquePrice = $this->Product()->getUniquePrice();
-    //                 if (!$this->Order()->ExistingCustomer){
-    //                     $this->UniquePrice += $this->Product()->getFees();
-    //                 }
-    //                 $this->Quantity = 1;
-    //                 //Related Products
-    //                 if($this->ID > 0){
-    //                     if($this->Product()->RelatedProducts()){
-    //                         foreach ($this->Product()->RelatedProducts() as $product) {
-    //                             $item = new OrderItem();
-    //                             $item->createFromProduct($product);
-    //                             $this->Order()->Items()->add($item);
-    //                         }
-    //                     }
-    //                     //Related Accessories
-    //                     if($this->Product()->RelatedAccessories()){
-    //                         foreach ($this->Product()->RelatedAccessories() as $accessory) {
-    //                             $item = new OrderItem();
-    //                             $item->createFromAccessory($accessory);
-    //                             $this->Order()->Items()->add($item);
-    //                         }
-    //                     }
-    //                 }
-    //                 break;
-    //             case 'Accessory':
-    //                 $this->Title = $this->Accessory()->Title;
-    //                 $this->SubTitle = $this->Accessory()->SubTitle;
-    //                 $this->MonthlyPrice = ($this->Accessory()->MonthlyPrice) ? $this->Accessory()->FrontendPrice() : 0;
-    //                 $this->UniquePrice = ($this->Accessory()->MonthlyPrice) ? 0 : $this->Accessory()->FrontendPrice();
-    //                 $this->Quantity = 1;
-    //                 break;
-    //             case 'AccessoryMultiple':
-    //                 $this->Title = $this->Accessory()->Title." * ".$this->Quantity;
-    //                 $this->SubTitle = $this->Accessory()->SubTitle;
-    //                 $this->MonthlyPrice = ($this->Accessory()->MonthlyPrice) ? $this->Accessory()->FrontendPrice() * $this->Quantity : 0;
-    //                 $this->UniquePrice = ($this->Accessory()->MonthlyPrice) ? 0 : $this->Accessory()->FrontendPrice() * $this->Quantity;
-    //                 break;
-    //             case 'SmartCard':
-    //                 $this->Title = $this->ProductSmartCardOption()->Title;
-    //                 $this->SubTitle = $this->ProductSmartCardOption()->SubTitle;
-    //                 $this->UniquePrice = ($this->ProductSmartCardOption()->Price > 0) ? $this->ProductSmartCardOption()->Price : 0;
-    //                 $this->Quantity = 1;
-    //                 break;
-    //             case 'PayTV':
-    //                 $this->Title = $this->PayTVPackage()->Title;
-    //                 $this->SubTitle = $this->PayTVPackage()->SubTitle;
-    //                 $this->MonthlyPrice = ($this->PayTVPackage()->MonthlyPrice > 0) ? $this->PayTVPackage()->MonthlyPrice : 0;
-    //                 $this->Quantity = 1;
-    //                 break;
-    //             case 'OffProduct':
-    //                 $this->Title = $this->Product()->Title;
-    //                 $this->SubTitle = $this->Product()->SubTitle;
-    //                 $this->MonthlyPrice = - $this->Product()->getMonthlyPrice();
-    //                 $this->UniquePrice = - $this->Product()->getUniquePrice();
-    //                 $this->Quantity = 1;
-    //                 break;
-    //             default:
-    //                 # code...
-    //                 break;
-    //         }
-    //     }
-    //     if($this->ID > 0 && $this->ProductID && $this->Product()->Fees() && $this->Type != "OffProduct"){
-    //         foreach ($this->Product()->Fees() as $fee) {
-    //             $item = new OrderItem();
-    //             $item->Type = "Fee";
-    //             $item->Title = $fee->Title. " - " .$this->Product()->Title ;
-    //             $item->UniquePrice = $fee->Price;
-    //             $item->write();
-    //             $this->Order()->Items()->add($item);
-    //         }
-    //     }
-    // }
+    public function onBeforeWrite(){
+        parent::onBeforeWrite();
+        if ($this->CreatedFromAdmin){
+            switch ($this->Type) {
+                case 'Package':
+                    $this->Title = $this->Package()->Title;
+                    $this->SubTitle = $this->Package()->SubTitle;
+                    $this->MonthlyPrice = $this->Package()->getMonthlyPrice();
+                    $this->UniquePrice = $this->Package()->getUniquePrice();
+                    if (!$this->Order()->ExistingCustomer){
+                        $this->UniquePrice += $this->Package()->getFees();
+                    }
+                    $this->Quantity = 1;
+                    if(!$this->Order()->Title){
+                        $this->Order()->Title = $this->Package()->Title;
+                    }
+                    break;
+                case 'Product':
+                    $this->Title = $this->Product()->Title;
+                    $this->SubTitle = $this->Product()->SubTitle;
+                    $this->MonthlyPrice = $this->Product()->getMonthlyPrice();
+                    $this->UniquePrice = $this->Product()->getUniquePrice();
+                    if (!$this->Order()->ExistingCustomer){
+                        $this->UniquePrice += $this->Product()->getFees();
+                    }
+                    $this->Quantity = 1;
+                    //Related Products
+                    if($this->ID > 0){
+                        if($this->Product()->RelatedProducts()){
+                            foreach ($this->Product()->RelatedProducts() as $product) {
+                                $item = new OrderItem();
+                                $item->createFromProduct($product);
+                                $this->Order()->Items()->add($item);
+                            }
+                        }
+                        //Related Accessories
+                        if($this->Product()->RelatedAccessories()){
+                            foreach ($this->Product()->RelatedAccessories() as $accessory) {
+                                $item = new OrderItem();
+                                $item->createFromAccessory($accessory);
+                                $this->Order()->Items()->add($item);
+                            }
+                        }
+                    }
+                    break;
+                case 'Accessory':
+                    $this->Title = $this->Accessory()->Title;
+                    $this->SubTitle = $this->Accessory()->SubTitle;
+                    $this->MonthlyPrice = ($this->Accessory()->MonthlyPrice) ? $this->Accessory()->FrontendPrice() : 0;
+                    $this->UniquePrice = ($this->Accessory()->MonthlyPrice) ? 0 : $this->Accessory()->FrontendPrice();
+                    $this->Quantity = 1;
+                    break;
+                case 'AccessoryMultiple':
+                    $this->Title = $this->Accessory()->Title." * ".$this->Quantity;
+                    $this->SubTitle = $this->Accessory()->SubTitle;
+                    $this->MonthlyPrice = ($this->Accessory()->MonthlyPrice) ? $this->Accessory()->FrontendPrice() * $this->Quantity : 0;
+                    $this->UniquePrice = ($this->Accessory()->MonthlyPrice) ? 0 : $this->Accessory()->FrontendPrice() * $this->Quantity;
+                    break;
+                case 'SmartCard':
+                    $this->Title = $this->ProductSmartCardOption()->Title;
+                    $this->SubTitle = $this->ProductSmartCardOption()->SubTitle;
+                    $this->UniquePrice = ($this->ProductSmartCardOption()->Price > 0) ? $this->ProductSmartCardOption()->Price : 0;
+                    $this->Quantity = 1;
+                    break;
+                case 'PayTV':
+                    $this->Title = $this->PayTVPackage()->Title;
+                    $this->SubTitle = $this->PayTVPackage()->SubTitle;
+                    $this->MonthlyPrice = ($this->PayTVPackage()->MonthlyPrice > 0) ? $this->PayTVPackage()->MonthlyPrice : 0;
+                    $this->Quantity = 1;
+                    break;
+                case 'OffProduct':
+                    $this->Title = $this->Product()->Title;
+                    $this->SubTitle = $this->Product()->SubTitle;
+                    $this->MonthlyPrice = - $this->Product()->getMonthlyPrice();
+                    $this->UniquePrice = - $this->Product()->getUniquePrice();
+                    $this->Quantity = 1;
+                    break;
+                default:
+                    # code...
+                    break;
+            }
+        }
+        if($this->ID > 0 && $this->ProductID && $this->Product()->Fees() && $this->Type != "OffProduct"){
+            foreach ($this->Product()->Fees() as $fee) {
+                $item = new OrderItem();
+                $item->Type = "Fee";
+                $item->Title = $fee->Title. " - " .$this->Product()->Title ;
+                $item->UniquePrice = $fee->Price;
+                $item->write();
+                $this->Order()->Items()->add($item);
+            }
+        }
+    }
 
     public function onAfterWrite(){
         $this->Order()->updatePrices();

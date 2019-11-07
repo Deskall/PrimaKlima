@@ -107,7 +107,7 @@ class ShopPageController extends PageController
       $cartId = $this->getRequest()->getSession()->get('shopcart_id');
       $cart = ($cartId) ? ShopCart::get()->byId($cartId) : null;
 
-      if ($cart !$cart->isEmpty()){
+      if ($cart && !$cart->isEmpty()){
             //Create and fill the order
                $order = new ShopOrder();
                $form->saveInto($order);
