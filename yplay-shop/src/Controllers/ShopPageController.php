@@ -65,7 +65,7 @@ class ShopPageController extends PageController
                DropdownField::create('BillCountry','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch')
             )->setName('BillFields')),
             
-            HiddenField::create('isClient')
+            HiddenField::create('ExistingCustomer')
          ),
          new FieldList(
             FormAction::create('doOrder', _t('SHOP.BUYNOW', 'Jetzt bestellen'))->addExtraClass('uk-button')
