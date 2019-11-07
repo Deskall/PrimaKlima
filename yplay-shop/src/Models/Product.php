@@ -100,4 +100,8 @@ class Product extends DataObject {
 	public function getPriceUnique(){
 		return $this->UniquePrice;
 	}
+
+	public function getFees(){
+		return $this->ActivationPrice;
+	}
 }
