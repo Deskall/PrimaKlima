@@ -101,7 +101,7 @@ class ShopOrder extends DataObject{
 	}
 
 	public function NiceOrder(){
-		return $this->renderWith('ShopOrderData');
+		return $this->renderWith('Includes/ShopOrderData');
 	}
 
 
