@@ -28,8 +28,9 @@ class ShopOrder extends DataObject{
 		'City'  => 'Varchar',
 		'Country'  => 'Varchar',
 		'Phone'  => 'Varchar',
-		'Quantity' => 'Int',
-		'wasSeen' => 'Boolean(0)'
+		'PhoneOption' => 'Int',
+		'ExistingPhone' => 'Varchar',
+		'WishPhone' => 'Varchar'
 	);
 
 	private static $has_one = array(
