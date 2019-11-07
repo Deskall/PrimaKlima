@@ -3,7 +3,7 @@
 	<tbody>
 		<% if Items.exists %>
 			<% loop Items %>
-			<tr><td>$Title</td><td>$PrintPriceString</td></tr>
+			<tr><td>$Title</td><td>$MonthlyPrice</td></tr>
 				<% if Type == "package" %>
 				<tr><td colspan="2"><% loop Products %>$Title<br><% end_loop %></td></tr>
 				<% end_if %>
