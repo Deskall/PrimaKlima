@@ -8,6 +8,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Security\Group;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Control\Controller;
+use SilverStripe\Forms\FieldList;
 
 class ShopConfigExtension extends DataExtension
 {
