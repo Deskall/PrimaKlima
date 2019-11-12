@@ -15,11 +15,11 @@ class EmployerAdmin extends ModelAdmin {
    );
 
 
-   static $menu_priority = 3;
+   private static $menu_priority = 3;
 
    private static $url_segment = 'employer';
    private static $menu_title = 'Arbeitgeber';
-   static $menu_icon = 'deskall-koecheportal/images/icon-employer.png';
+   private static $menu_icon = 'deskall-koecheportal/images/icon-employer.png';
    
    public $showImportForm = false;
 
