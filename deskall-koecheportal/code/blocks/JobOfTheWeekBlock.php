@@ -2,6 +2,8 @@
 use DNADesign\Elemental\Models\BaseElement;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\NumericField;
+use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\ORM\ArrayList;
 
 class JobOfTheWeekBlock extends BaseElement implements Searchable{
 

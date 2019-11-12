@@ -3,7 +3,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-
+use SilverStripe\ORM\FieldType\DBField;
 
 class RegistrationBlock extends BaseElement implements Searchable{
 	private static $db = array(

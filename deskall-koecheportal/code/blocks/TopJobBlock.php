@@ -2,6 +2,7 @@
 use DNADesign\Elemental\Models\BaseElement;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\FieldType\DBField;
 
 class TopJobBlock extends BaseElement implements Searchable{
 

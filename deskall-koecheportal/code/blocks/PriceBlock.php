@@ -5,6 +5,7 @@ use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
+use SilverStripe\ORM\FieldType\DBField;
 
 class PriceBlock extends BaseElement implements Searchable{
 
