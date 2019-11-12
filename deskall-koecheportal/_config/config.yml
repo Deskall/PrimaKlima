@@ -1,3 +1,6 @@
+---
+Name: gastroportal
+---
 BaseBlockExtension:
   blocks:
     - JobOfTheWeekBlock
