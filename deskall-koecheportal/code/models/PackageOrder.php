@@ -39,7 +39,7 @@ class PackageOrder extends DataObject{
 		'buttonInvoice' => 'Rechnung'
 	);
 
-	static $default_sort = "Created DESC";
+	private static $default_sort = "Created DESC";
 
 	public function generateOrderNumber(){
 		$SiteConfig = SiteConfig::current_site_config();
