@@ -49,7 +49,7 @@ class CookEmployment extends DataObject {
 		return true;
 	}
 
-	public function canCreate( $member = NULL, $context = Array ){
+	public function canCreate( $member = NULL, $context = array() ){
 		return true;
 	}
 
