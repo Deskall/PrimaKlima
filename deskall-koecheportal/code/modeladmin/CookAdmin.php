@@ -20,11 +20,11 @@ class CookAdmin extends ModelAdmin {
    );
 
 
-   static $menu_priority = 3;
+   private static $menu_priority = 3;
 
    private static $url_segment = 'cook';
    private static $menu_title = 'Köche';
-   static $menu_icon = 'deskall-koecheportal/images/icon-cooks.png';
+   private static $menu_icon = 'deskall-koecheportal/images/icon-cooks.png';
    
    public $showImportForm = false;
 
