@@ -22,11 +22,11 @@ class SalesAdmin extends ModelAdmin {
    );
 
 
-   static $menu_priority = 3;
+   private static $menu_priority = 3;
 
    private static $url_segment = 'sales';
    private static $menu_title = 'Verkauf';
-   static $menu_icon = 'deskall-koecheportal/images/icon-verkauf.png';
+   private static $menu_icon = 'deskall-koecheportal/images/icon-verkauf.png';
    
    public $showImportForm = false;
 
