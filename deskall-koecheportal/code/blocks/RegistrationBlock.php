@@ -6,6 +6,12 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\FieldType\DBField;
 
 class RegistrationBlock extends BaseElement implements Searchable{
+	private static $menu_icon = 'deskall-koecheportal/images/icon-employer.png';
+	
+	private static $controller_template = 'BlockHolder';
+
+	private static $controller_class = BlockController::class;
+	
 	private static $db = array(
 		'MemberType' => 'Int',
 		'Content'	 => 'HTMLText'

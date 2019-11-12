@@ -9,6 +9,12 @@ use SilverStripe\ORM\FieldType\DBField;
 
 class PriceBlock extends BaseElement implements Searchable{
 
+	private static $menu_icon = 'deskall-koecheportal/images/icon-employer.png';
+	
+	private static $controller_template = 'BlockHolder';
+
+	private static $controller_class = BlockController::class;
+	
 	private static $db = array(
 		'Lead' => 'HTMLText',
 	);

@@ -7,6 +7,12 @@ use SilverStripe\ORM\ArrayList;
 
 class JobOfTheWeekBlock extends BaseElement implements Searchable{
 
+	private static $menu_icon = 'deskall-koecheportal/images/icon-employer.png';
+	
+	private static $controller_template = 'BlockHolder';
+
+	private static $controller_class = BlockController::class;
+	
 	private static $db = array(
 		'NumOfJobs' => 'Int',
 	);
