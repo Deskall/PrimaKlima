@@ -78,14 +78,14 @@ class Employer extends Member {
 	);
 
 
-	static $defaults = array(
+	private static $defaults = array(
 		'ConfigurationSetID' => 1,
 		'BillingAddressIsCompanyAddress' => 1
 	);
 
-	static $singular_name = 'Arbeitgeber';
+	private static $singular_name = 'Arbeitgeber';
 
-	static $plural_name = 'Arbeitgeber';
+	private static $plural_name = 'Arbeitgeber';
 
 
 	public function generateClientNumber(){

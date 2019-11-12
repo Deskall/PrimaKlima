@@ -41,12 +41,12 @@ class EmployerAdvertisement extends DataObject{
 		'Attachements' => array('SortOrder' => 'Int')
 	);
 
-	static $defaults = array(
+	private static $defaults = array(
 		'ContentIntro' => 'Zur Untersützung unseres Teams suchen wir einen/eine',
 		'State' => 'draft'
 	);
 
-	static $default_sort = "Created DESC";
+	private static $default_sort = "Created DESC";
 
 
 	private static $summary_fields = array(
@@ -84,9 +84,9 @@ class EmployerAdvertisement extends DataObject{
 
 
 
-	static $singular_name = 'Inserat';
+	private static $singular_name = 'Inserat';
 
-	static $plural_name = 'Inserate';
+	private static $plural_name = 'Inserate';
 
 
 

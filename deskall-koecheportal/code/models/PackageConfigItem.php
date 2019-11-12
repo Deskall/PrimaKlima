@@ -13,8 +13,8 @@ class PackageConfigItem extends DataObject{
 	);
 
 
-	static $singular_name = 'Feature';
-	static $plural_name = 'Features';
+	private static $singular_name = 'Feature';
+	private static $plural_name = 'Features';
 
 
 }

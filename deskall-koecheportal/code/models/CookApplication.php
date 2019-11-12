@@ -23,11 +23,11 @@ class CookApplication extends DataObject{
 	);
 
 
-	static $singular_name = 'Bewerbung';
-	static $plural_name = 'Bewerbungen';
+	private static $singular_name = 'Bewerbung';
+	private static $plural_name = 'Bewerbungen';
 
 
-	static $default_sort = "Created DESC";
+	private static $default_sort = "Created DESC";
 
 	private static $summary_fields = array(
 		'CookName' => 'Koch',

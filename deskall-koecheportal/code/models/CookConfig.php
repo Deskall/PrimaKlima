@@ -60,8 +60,8 @@ class CookConfig extends DataObject{
 
 
 
-	static $singular_name = 'Konfiguration';
-	static $plural_name = 'Konfigurationen';
+	private static $singular_name = 'Konfiguration';
+	private static $plural_name = 'Konfigurationen';
 
 
 	public function getCMSFields() {

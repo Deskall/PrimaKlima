@@ -48,8 +48,8 @@ class Package extends DataObject {
 		'Title__de_DE' => 'Titel',
 	);
 
-	static $singular_name = 'Paket';
-	static $plural_name = 'Pakete';
+	private static $singular_name = 'Paket';
+	private static $plural_name = 'Pakete';
 
 
 

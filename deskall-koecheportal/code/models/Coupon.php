@@ -49,8 +49,8 @@ class Coupon extends DataObject {
 
 
 
-	static $singular_name = 'Gutschein';
-	static $plural_name = 'Gutshceine';
+	private static $singular_name = 'Gutschein';
+	private static $plural_name = 'Gutshceine';
 
 
 }

@@ -71,7 +71,7 @@ class Cook extends Member {
 		'HealthiInsuranceCard' => array('SortOrder' => 'Int')
 	);
 
-	static $defaults = array('ConfigurationSetID' => 1, 'isCandidate' => true);
+	private static $defaults = array('ConfigurationSetID' => 1, 'isCandidate' => true);
 
 
 
@@ -84,9 +84,9 @@ class Cook extends Member {
 
 
 
-	static $singular_name = 'Koch';
+	private static $singular_name = 'Koch';
 
-	static $plural_name = 'Köche';
+	private static $plural_name = 'Köche';
 
 
 	public function generateClientNumber(){
