@@ -1,0 +1,6 @@
+BaseBlockExtension:
+  blocks:
+    - JobOfTheWeekBlock
+    - PriceBlock
+    - RegistrationBlock
+    - TopJobBlock
