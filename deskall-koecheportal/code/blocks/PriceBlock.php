@@ -143,7 +143,7 @@ class PriceBlock extends BaseElement implements Searchable{
 
     public function getType()
     {
-        return _t(__CLASS__ . '.BlockType', 'Text - Bild');
+        return _t(__CLASS__ . '.BlockType', 'Tarife Block');
     }
 
     /************* SEARCHABLE FUNCTIONS ******************/

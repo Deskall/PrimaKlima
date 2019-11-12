@@ -102,7 +102,7 @@ class JobOfTheWeekBlock extends BaseElement implements Searchable{
 
     public function getType()
     {
-        return _t(__CLASS__ . '.BlockType', 'Text - Bild');
+        return _t(__CLASS__ . '.BlockType', 'Jobs der Woche');
     }
 
     /************* SEARCHABLE FUNCTIONS ******************/
