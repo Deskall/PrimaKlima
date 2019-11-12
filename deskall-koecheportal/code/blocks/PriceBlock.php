@@ -136,6 +136,56 @@ class PriceBlock extends BaseElement implements Searchable{
 
 	}
 
+	 public function getSummary()
+    {
+        return DBField::create_field('HTMLText', $this->HTML)->Summary(20);
+    }
+
+    public function getType()
+    {
+        return _t(__CLASS__ . '.BlockType', 'Text - Bild');
+    }
+
+    /************* SEARCHABLE FUNCTIONS ******************/
+
+
+        /**
+         * Filter array
+         * eg. array('Disabled' => 0);
+         * @return array
+         */
+        public static function getSearchFilter() {
+            return array();
+        }
+
+        /**
+         * FilterAny array (optional)
+         * eg. array('Disabled' => 0, 'Override' => 1);
+         * @return array
+         */
+        public static function getSearchFilterAny() {
+            return array();
+        }
+
+
+        /**
+         * Fields that compose the Title
+         * eg. array('Title', 'Subtitle');
+         * @return array
+         */
+        public function getTitleFields() {
+            return array('Title');
+        }
+
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array('HTML');
+        }
+    /************ END SEARCHABLE ***************************/
 
 }
 
