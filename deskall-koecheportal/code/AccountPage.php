@@ -187,7 +187,7 @@ use SilverStripe\Forms\LiteralField;
     }
 
 
-	class AccountPage_Controller extends Page_Controller {
+	class AccountPage_Controller extends PageController {
 
 		private static $allowed_actions = array ('CookFunctionForm', 'CookPersonalDataForm', 'CookProfessionalDataForm', 'CookDocumentsForm', 'EmployerAddressForm', 'EmployerPortraitForm', 'EmployerAdvertisementsForm', 'RegistrationForm');
     	
