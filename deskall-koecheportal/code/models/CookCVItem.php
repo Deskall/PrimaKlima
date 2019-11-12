@@ -50,7 +50,7 @@ class CookCVItem extends DataObject {
 		return true;
 	}
 
-	public function canCreate( $member = NULL , $context){
+	public function canCreate( $member = NULL, $context = array()){
 		return true;
 	}
 
