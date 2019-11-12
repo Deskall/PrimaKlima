@@ -6,6 +6,7 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Assets\Image;
+use SilverStripe\Assets\File;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\Security\Security;
@@ -35,7 +36,7 @@ class EmployerAdvertisement extends DataObject{
 	);
 
 	private static $many_many = array(
-		'Attachements' => 'File',
+		'Attachements' => File::class,
 	);
 	private static $many_many_extraFields = array(
 		'Attachements' => array('SortOrder' => 'Int')
