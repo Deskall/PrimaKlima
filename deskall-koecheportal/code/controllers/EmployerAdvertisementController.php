@@ -23,7 +23,7 @@ class EmployerAdvertisement_Controller extends PageController {
 
 	private static $allowed_actions = array ('detail', 'listing','login');
 
-    public static $url_handlers = array(
+    private static $url_handlers = array(
         'detail/$ID!' => 'detail',
 
         'listing/postal/$Postal!/position/$Position!' => 'listing',
