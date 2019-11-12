@@ -1,6 +1,8 @@
 <?php
 
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\NumericField;
 
 class OrderSettingsConfig extends DataExtension {     
 
