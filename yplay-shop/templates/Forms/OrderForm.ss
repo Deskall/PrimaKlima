@@ -88,9 +88,11 @@
                         	<% with Fields.FieldByName('PhoneTitle') %>
                         		$FieldHolder 
                         	<% end_with %>
+                        	<div>
                         	<% with Fields.FieldByName('PhoneOption') %>
-                        		$FieldHolder 
+                        		$Field
                         	<% end_with %>
+                        	</div>
                         </div>
                         <div class="uk-margin-small uk-align-center">
                         	<a class="step backwards uk-button uk-button-muted"  data-target="1" data-nav="1">Zurück</a>
