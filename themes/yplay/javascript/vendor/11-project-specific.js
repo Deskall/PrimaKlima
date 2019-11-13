@@ -78,7 +78,8 @@ $(document).ready(function(){
 		UpdateOrderPreview();
 
 		$(document).on("click",".step",function(){
-			UIkit.toggle("#order-form-steps").toggle($(this).attr('data-target'));
+			$("#order-form-steps").find('li.uk-active').removeClass('uk-active');
+			$("#order-form-steps").find('[data-step="'+($(this).attr('data-target')+'"]').addClass('uk-active');
 			$("#order-nav").find('li.uk-active').removeClass('uk-active');
 			var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
 			if (!nav.hasClass('uk-active')){
