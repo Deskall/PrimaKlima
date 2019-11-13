@@ -78,7 +78,7 @@ $(document).ready(function(){
 		UpdateOrderPreview();
 
 		$(document).on("click",".step",function(){
-			UIkit.switcher("#order-form-steps").show($(this).attr('data-target'));
+			UIkit.toggle("#order-form-steps").toggle($(this).attr('data-target'));
 			$("#order-nav").find('li.uk-active').removeClass('uk-active');
 			var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
 			if (!nav.hasClass('uk-active')){
