@@ -47,7 +47,7 @@ class Product extends DataObject {
 	];
 
 	public function onBeforeWrite(){
-	    if (!$this->ProductCode){
+	    if (!$this->ProductCode || $this->ID == 0){
 	    	$this->ProductCode = URLSegmentFilter::create()->filter($this->Title);
 	    }
 		parent::onBeforeWrite();
@@ -82,7 +82,7 @@ class Product extends DataObject {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->removeByName('ProductCode');
+		// $fields->removeByName('ProductCode');
 		$fields->removeByName('CategoryID');
 		$fields->removeByName('FooterText');
 
