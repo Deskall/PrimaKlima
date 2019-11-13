@@ -30,8 +30,8 @@
                         	</div>
                         	<div>
 	                        	<div class="uk-flex uk-flex-around">
-	                        		<button class="uk-button step" data-target="1">Ja</button>
-	                        		<button class="uk-button step" data-target="1">Nein</button>
+	                        		<button class="uk-button step" data-target="2">Ja</button>
+	                        		<button class="uk-button step" data-target="2">Nein</button>
 	                             </div>
 	                         </div>
 	                       <%--   <div id="email-container" hidden>
