@@ -205,8 +205,10 @@
 					</div>
 					<div class="uk-margin">
 						<% if $ElementalArea.ElementControllers %>
-						    <% loop $ElementControllers not $isPrimary %>
-							   $Me
+						    <% loop $ElementControllers %>
+							    <% if not isPrimary %>
+								   $Me
+								<% end_if %>
 						    <% end_loop %>
 						<% end_if %>
 					</div>
