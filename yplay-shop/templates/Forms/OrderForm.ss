@@ -47,6 +47,9 @@
 	                        		<button class="uk-button step" data-target="1" data-nav="1" type="button">Nein</button>
 	                             </div>
 	                         </div>
+	                         <% with Fields.FieldByName('ExistingCustomer') %>
+	                         	$FieldHolder 
+	                         <% end_with %>
 	                       <%--   <div id="email-container" hidden>
 	                         	<p><%t ShopOrderPage.EmailInput 'Geben Sie Ihre E-Mail-Adresse ein.' %></p>
 	                         	<input type="email" class="uk-input" >
