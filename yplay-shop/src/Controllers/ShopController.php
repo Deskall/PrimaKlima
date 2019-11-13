@@ -14,7 +14,7 @@ use SilverStripe\ORM\ArrayList;
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages', 'fetchCart']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
@@ -61,6 +61,40 @@ class ShopController extends PageController
                   $product = Product::get()->filter('ProductCode',$code)->first();
                   if ($product){
                      $cart->Products()->add($product);
+                  }
+               }
+            }
+         }
+      }
+      if ($cart){
+         $cart->write();
+         return $cart->forTemplate();
+      }
+
+      return null;
+      
+   }
+
+   public function updateCartOptions(){
+      //retrieve cart in session
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
+      $options = $this->getRequest()->postVar('options');
+     
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+
+      if ($cart && $options ){
+         //apply options
+         $optionsIds = ($cart->Package()->exists()) ? $cart->Package()->Products()->column('ProductCode') : [];
+         $cart->Options()->removeAll();
+         if ($options){
+            foreach ($options as $code) {
+               if (!in_array($code,$optionsIds)){
+                  $option = ProductOption::get()->filter('ProductCode',$code)->first();
+                  if ($option){
+                     $cart->Options()->add($option);
                   }
                }
             }

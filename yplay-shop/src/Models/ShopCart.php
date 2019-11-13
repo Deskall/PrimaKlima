@@ -20,7 +20,8 @@ class ShopCart extends DataObject {
 	];
 
 	private static $many_many = [
-		'Products' => Product::class
+		'Products' => Product::class,
+		'Options' => ProductOption::class
 	];
 
 	

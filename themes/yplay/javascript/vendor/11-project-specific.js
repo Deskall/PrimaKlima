@@ -37,6 +37,7 @@ $(document).ready(function(){
 		var products = [];
 		//we fetch the packages
 		var packages = [];
+
 		var productsOfPackages = [];
 		var url = window.location.pathname;
 		$.ajax({
@@ -75,6 +76,8 @@ $(document).ready(function(){
 
 	//Shop Page script
 	if ($('body').hasClass('ShopPage')){
+		var options = [];
+		
 		UpdateOrderPreview();
 
 		$(document).on("click",".step",function(){
@@ -94,6 +97,15 @@ $(document).ready(function(){
 			else{
 				$("li[data-step='address']").find('.forward').attr('data-target','2').attr('data-nav','1');
 				$("li[data-step='phone']").find('.backward').attr('data-target','2');
+			}
+		});
+
+		$(document).on("change",".options input",function(){
+			if ($(this).is(':checked')){
+				options.push($(this).attr('data-value'));
+			}
+			else{
+				
 			}
 		});
 	}
@@ -133,6 +145,19 @@ $(document).ready(function(){
 			method: 'POST',
 			dataType: 'html',
 			data: {packageID: packageID, products: products}
+		}).done(function(response){
+			$(".order-preview").each(function(){
+				$(this).empty().append(response);
+			});
+		});
+	}
+
+	function UpdateCart(options){
+		$.ajax({
+			url: '/shop-functions/updateCartOptions',
+			method: 'POST',
+			dataType: 'html',
+			data: {options: options}
 		}).done(function(response){
 			$(".order-preview").each(function(){
 				$(this).empty().append(response);
