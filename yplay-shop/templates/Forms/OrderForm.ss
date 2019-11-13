@@ -32,8 +32,8 @@
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                         
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
-                        	<div>
-                        		<p><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></p>
+                        	<div class="uk-margin">
+                        		<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
                         	</div>
                         	<div>
 	                        	<div class="uk-flex uk-flex-around">
