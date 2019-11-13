@@ -18,7 +18,7 @@
 	   </nav>
 	</div>
     <div id="order-form-content">
-        <form id="order-form" method="post" action="{$Link}SendOrderForm">
+        
             <ul id="pellets-order-container" class="bestellung-container" data-uk-accordion>
                 <li class="uk-open uk-margin" data-step="customer">
                     <div class="uk-accordion-title">1. Kundendaten</div>
@@ -33,6 +33,11 @@
 	                        		<button class="uk-button step backwards" data-target="address">Ja</button>
 	                        		<button class="uk-button step backwards" data-target="address">Nein</button>
 	                             </div>
+	                         </div>
+	                         <div id="email-container" hidden>
+	                         	<p><%t ShopOrderPage.EmailInput 'Geben Sie Ihre E-Mail-Adresse ein.' %></p>
+	                         	<input type="email" class="uk-input" >
+	                         	<button class="uk-button"><%t ShopOrderPage.ButtonEmaillabel 'Konto Prüfen' %></button>
 	                         </div>
                         </div>
                     </div>       
@@ -80,7 +85,5 @@
                     </div>
                 </li>
             </ul>
-        </form>
-    
     </div>
 
