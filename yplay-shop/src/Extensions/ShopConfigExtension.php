@@ -14,7 +14,8 @@ use SilverStripe\Forms\TextField;
 class ShopConfigExtension extends DataExtension
 {
     private static $db = array(
-       'OrderNumberOffset' => 'Varchar'
+       'OrderNumberOffset' => 'Varchar',
+       'Conditions' => 'HTMLText'
        
     );
 
