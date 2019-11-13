@@ -43,7 +43,7 @@
 		<% end_if %>
 		<% if Products.exists %>
 		<% loop Products %>
-			<% if RecurringPrice %>
+			<% if not RecurringPrice %>
 				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
 			<% else %>
 				<% if UniquePrice > 0 %>
@@ -57,7 +57,7 @@
 		<% end_if %>
 		<% if Options.exists %>
 		<% loop Options %>
-			<% if RecurringPrice %>
+			<% if not RecurringPrice %>
 				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
 			<% else %>
 				<% if UniquePrice > 0 %>
