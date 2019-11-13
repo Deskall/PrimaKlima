@@ -15,6 +15,7 @@ class ShopCart extends DataObject {
 	];
 
 	private static $has_one = [
+		'Order' => ShopOrder::class,
 		'Package' => Package::class,
 		'Customer' => ShopCustomer::class
 	];
