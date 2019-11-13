@@ -73,9 +73,13 @@ $(document).ready(function(){
 		});
 	}
 
-	//Shop Page
+	//Shop Page script
 	if ($('body').hasClass('ShopPage')){
 		UpdateOrderPreview();
+
+		$(document).on("click",".step",function(){
+			UIkit.accordion("#order-form-steps").toggle($(this).attr('data-target'));
+		});
 	}
 
 
@@ -121,3 +125,5 @@ $(document).ready(function(){
 	}
 
 });
+
+
