@@ -10,12 +10,16 @@
 		<% end_if %>
 		<% if Products.exists %>
 		<% loop Products %>
-		<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
-		<% end_loop %>
+			<% if RecurringPrice %>
+				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+				<% end_if %>
+			<% end_loop %>
 		<% end_if %>
 		<% if Options.exists %>
 		<% loop Options %>
-		<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+			<% if RecurringPrice %>
+			<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
 	</tbody>
