@@ -56,7 +56,7 @@
             	        </div>
                     </div>
                 </li> --%>
-                <li class="uk-margin" data-step="address" hidden>
+                <li class="uk-margin" data-step="address">
                     <div class="uk-accordion-title">2. Bestellungsdaten</div>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                         
@@ -70,7 +70,7 @@
             	        </div>
                     </div>
                 </li>
-                <li class="uk-margin" data-step="summary"  hidden>
+                <li class="uk-margin" data-step="summary">
                     <div class="uk-accordion-title">3. Überprüfen Sie Ihre Bestellung</div>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                         
