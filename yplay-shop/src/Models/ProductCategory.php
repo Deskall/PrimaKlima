@@ -84,7 +84,10 @@ class ProductCategory extends DataObject {
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Code');
 		$fields->dataFieldByName('Icon')->setFolderName($this->getFolderName());
-		$fields->dataFieldByName('Products')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
+		if ($this->ID > 0){
+			$fields->dataFieldByName('Products')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
+		}
+	
 
 		return $fields;
 	}

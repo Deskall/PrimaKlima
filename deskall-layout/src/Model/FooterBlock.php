@@ -10,7 +10,6 @@ use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridField;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use SilverStripe\Forms\RequiredFields;
 
 class FooterBlock extends LayoutBlock{
 
@@ -60,14 +59,6 @@ class FooterBlock extends LayoutBlock{
 
 		return $fields;
 	}
-
-    public function getCMSValidator()
-        {
-            return new RequiredFields([
-                'Width'
-            ]);
-        }
-
 
 
 
