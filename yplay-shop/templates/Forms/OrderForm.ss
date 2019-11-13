@@ -7,7 +7,7 @@
    <div data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: true">
 	   <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 	       <div class="uk-navbar-center">
-	       		<ul id="order-nav" class="uk-navbar-nav" data-uk-switcher>
+	       		<ul id="order-nav" class="uk-navbar-nav">
 	   	            <li class="uk-active" data-nav="1"><a >1. Kundendaten</a></li>
 	   	            <li  data-nav="2">
 	   	                <a>2. Bestellungsdaten</a>
@@ -26,7 +26,7 @@
     <% else %>
     <p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
     <% end_if %>
-            <ul id="order-form-steps" >
+            <ul id="order-form-steps">
                 <li class="uk-active uk-margin-top" data-step="customer">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<div class="uk-margin">
