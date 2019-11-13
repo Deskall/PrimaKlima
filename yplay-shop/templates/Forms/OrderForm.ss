@@ -132,7 +132,7 @@
                             	<% loop Controller.filteredOptions.groupedBy(CategoryTitle) %>
                             	 <div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-body uk-transition-toggle">
 						           	<h4 class="uk-card-title">$CategoryTitle</h4>
-						           	<table class="uk-table uk-table-small uk-table-striped uk-table-hover">
+						           	<table class="uk-table uk-table-small uk-table-hover">
 						           		<% loop Children %>
 							           		<% if hasOptions %>
 								           		<% loop Options %>
