@@ -16,7 +16,6 @@ class ShopConfigExtension extends DataExtension
     private static $db = array(
        'OrderNumberOffset' => 'Varchar',
        'Conditions' => 'HTMLText'
-       
     );
 
     private static $has_one = [
