@@ -4,6 +4,17 @@
 
 
     <%-- <div id="loading-block" class="uk-flex-middle"><p><span data-uk-spinner class="uk-margin-right"></span>Bitte warten Sie einen Moment, das Formular wird geladen.</p></div> --%>
+   <nav class="uk-navbar-container" data-uk-navbar>
+       <div class="uk-navbar-center">
+       		<ul class="uk-navbar-nav">
+   	            <li class="uk-active"><a href="#">1. Kundendaten</a></li>
+   	            <li>
+   	                <a href="#" disabled="disabled">2. Bestellungsdaten</a>
+   	            </li>
+   	            <li><a href="#" disabled="disabled">3. Überprüfung</a></li>
+   	        </ul>
+       </div>
+   </nav>
     <div id="order-form-content">
         <form id="order-form" method="post" action="{$Link}SendOrderForm">
             <ul id="pellets-order-container" class="bestellung-container" data-uk-accordion>
@@ -53,7 +64,7 @@
                     </div>
                 </li>
                 <li class="uk-margin" data-step="summary"  hidden>
-                    <div class="uk-accordion-title">3. Überprüfen Sie Ihre Bestellung </div>
+                    <div class="uk-accordion-title">3. Überprüfen Sie Ihre Bestellung</div>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                         
                         <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
