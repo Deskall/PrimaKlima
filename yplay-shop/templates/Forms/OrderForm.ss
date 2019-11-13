@@ -2,19 +2,6 @@
     $HTML
 </div>
 
-<ul class="uk-subnav " data-uk-switcher>
-    <li><a href="#">Item</a></li>
-    <li><a href="#">Item</a></li>
-    <li><a href="#">Item</a></li>
-</ul>
-
-<ul class="uk-switcher uk-margin">
-    <li><% with Fields.FieldByName('PhoneOption') %>
-                        		$Field
-                        	<% end_with %></li>
-    <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-    <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
-</ul>
 
     <%-- <div id="loading-block" class="uk-flex-middle"><p><span data-uk-spinner class="uk-margin-right"></span>Bitte warten Sie einen Moment, das Formular wird geladen.</p></div> --%>
    <div data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: true">
