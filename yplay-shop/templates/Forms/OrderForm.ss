@@ -64,6 +64,21 @@
             	        </div>
                     </div>
                 </li>
+                    <li data-step="bill-address">
+                       <%--  <div class="uk-accordion-title">2. Adresse</div> --%>
+                        <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
+                            
+                            <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
+                            	<% with Fields.FieldByName('AddressFields') %>
+                            		$FieldHolder 
+                            	<% end_with %>
+                            </div>
+                            <div class="uk-margin-small uk-flex uk-flex-around">
+                            	<a class="step uk-button uk-button-muted"  data-target="0" data-nav="1">Zurück</a>
+                	            <a class="step uk-button uk-button-primary"  data-target="2" data-nav="2">Weiter</a>
+                	        </div>
+                        </div>
+                    </li>
                 <li class="uk-margin" data-step="phone">
                    <%--  <div class="uk-accordion-title">2. Bestellungsdaten</div> --%>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
@@ -73,7 +88,7 @@
                         		
                         </div>
                         <div class="uk-margin-small uk-align-center">
-                        	<a class="step uk-button uk-button-muted"  data-target="1" data-nav="2">Zurück</a>
+                        	<a class="step uk-button uk-button-muted"  data-target="1" data-nav="1">Zurück</a>
             	            <a class="step uk-button uk-button-primary"  data-target="3" data-nav="2">Weiter</a>
             	        </div>
                     </div>

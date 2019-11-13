@@ -60,7 +60,7 @@ class ShopPageController extends PageController
                TextField::create('PostalCode','PLZ')->setAttribute('class','uk-input'),
                TextField::create('City','Stadt')->setAttribute('class','uk-input'),
                DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch'),
-               CheckboxField::create('BillSameAddress','identische Rechnungsadresse?')->setValue(1)
+               CheckboxField::create('BillSameAddress','identische Rechnungsadresse?')->setAttribute('class','uk-checkbox')->setValue(1)
             )->setName('AddressFields'),
             Wrapper::create(CompositeField::create(
                HeaderField::create('BillTitle','Rechnungsadresse',3),
