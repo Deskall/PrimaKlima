@@ -26,7 +26,7 @@
     <% else %>
     <p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
     <% end_if %>
-            <ul id="order-form-steps" class="uk-switcher">
+            <ul id="order-form-steps" >
                 <li class="uk-active uk-margin-top" data-step="customer">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<div class="uk-margin">
@@ -63,7 +63,7 @@
             	        </div>
                    
                 </li>
-                  <%--   <li class="uk-margin" data-step="bill-address">
+                    <li class="uk-margin" data-step="bill-address">
                      
                         
                             
@@ -100,7 +100,7 @@
                     
                 </li>
                 <% end_if %>
-                <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-mobile') %>
+       <%--          <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-mobile') %>
                 <li class="uk-margin" data-step="mobile">
                         
                             
@@ -114,7 +114,7 @@
                 	        </div>
                         </div>
                 </li>
-                <% end_if %>
+                <% end_if %> --%>
                 <li class="uk-margin" data-step="options">
                     
                         
@@ -146,7 +146,7 @@
 				        	<% end_if %>
             	        </div>
                     
-                </li> --%>
+                </li>
             </ul>
         <% if $IncludeFormTag %>
         </form>
