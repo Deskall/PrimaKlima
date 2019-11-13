@@ -58,13 +58,13 @@
                         		$FieldHolder 
                         	<% end_with %>
                         </div>
-                        <div class="uk-margin-small uk-align-right">
-                        	<a class="step backwards uk-button uk-button-muted" href="#" data-target="need">Zurück</a>
-            	            <a class="step uk-button uk-button-primary" href="#" data-target="delivery">Weiter</a>
+                        <div class="uk-margin-small uk-align-center">
+                        	<a class="step uk-button-muted"  data-target="0">Zurück</a>
+            	            <a class="step uk-button-primary"  data-target="2">Weiter</a>
             	        </div>
                     </div>
                 </li>
-                <li class="uk-margin" data-step="address">
+                <li class="uk-margin" data-step="phone">
                    <%--  <div class="uk-accordion-title">2. Bestellungsdaten</div> --%>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                         
@@ -72,11 +72,40 @@
                         	
                         		
                         </div>
-                        <div class="uk-margin-small uk-align-right">
-                        	<a class="step backwards uk-button uk-button-muted" href="#" data-target="0">Zurück</a>
-            	            <a class="step uk-button uk-button-primary" href="#" data-target="2">Weiter</a>
+                        <div class="uk-margin-small uk-align-center">
+                        	<a class="step uk-button-muted"  data-target="1">Zurück</a>
+            	            <a class="step uk-button-primary"  data-target="3">Weiter</a>
             	        </div>
                     </div>
+                </li>
+                <li class="uk-margin" data-step="mobile">
+                       <%--  <div class="uk-accordion-title">2. Bestellungsdaten</div> --%>
+                        <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
+                            
+                            <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
+                            	
+                            		
+                            </div>
+                            <div class="uk-margin-small uk-align-center">
+                            	<a class="step uk-button-muted"  data-target="2">Zurück</a>
+                	            <a class="step uk-button-primary"  data-target="4">Weiter</a>
+                	        </div>
+                        </div>
+                </li>
+                <li class="uk-margin" data-step="options">
+                       <%--  <div class="uk-accordion-title">2. Bestellungsdaten</div> --%>
+                        <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
+                            
+                            <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
+                            	<% loop activeOptions %>
+                            	$Title
+                            	<% end_loop %>
+                            </div>
+                            <div class="uk-margin-small uk-align-center">
+                            	<a class="step uk-button-muted"  data-target="3">Zurück</a>
+                	            <a class="step uk-button-primary"  data-target="5">Weiter</a>
+                	        </div>
+                        </div>
                 </li>
                 <li class="uk-margin" data-step="summary">
                     <%-- <div class="uk-accordion-title">3. Überprüfen Sie Ihre Bestellung</div> --%>
@@ -87,7 +116,7 @@
                         		
                         </div>
                         <div class="uk-margin-small uk-align-right">
-                        	<a class="step backwards uk-button uk-button-muted" href="#" data-target="1">Zurück</a>
+                        	<a class="step backwards uk-button uk-button-muted" href="#" data-target="4">Zurück</a>
             	            <% if $Actions %>
 	            	            <% loop $Actions %>
 				        			$Field
