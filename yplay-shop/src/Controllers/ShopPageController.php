@@ -178,7 +178,12 @@ class ShopPageController extends PageController
             $this->getRequest()->getSession()->set('orderID',$order->ID);
             $this->getRequest()->getSession()->set('customerID',$customer->ID);
 
-            return $this->redirect('shop/bestellung-bestaetigt');
+            //update and clear cart
+            $cart->Purchased = true;
+            $cart->OrderID = $order->ID;
+            $this->getRequest()->getSession()->clear('shopcart_id');
+
+            return $this->redirect($this->RedirectPage()->Link());
 
       }
       
