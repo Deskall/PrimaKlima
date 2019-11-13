@@ -29,6 +29,13 @@ class ConfiguratorPage extends Page {
 		return ProductCategory::get()->filter('isVisible',1);
 	}
 
+	public function activePackages(){
+		return Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
+		    return ($item->shouldDisplay());
+		});;
+	}
+
+
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->removeByName('BlockTitle');
