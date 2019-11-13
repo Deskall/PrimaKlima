@@ -134,7 +134,7 @@
 						           	<h4 class="uk-card-title">$CategoryTitle</h4>
 						           	<table class="uk-table uk-table-small">
 						           		<% loop Children %>
-						           		<tr><td class="uk-table-expand">$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+						           		<tr><td><input type="checkbox" class="uk-checkbox" name="$ProductCode"></td><td class="uk-table-expand">$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
 						           		<% end_loop %>
 						           	</table>
 						         </div>
