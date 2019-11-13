@@ -360,6 +360,9 @@ body.ShopPage{
 	#order-nav{
 		> li > a {
 			color: @global-color;
+			&.disabled{
+				color: @global-muted-background;
+			}
 		}
 		> li.uk-active{
 			background-color: @global-emphasis-background;
