@@ -1,8 +1,3 @@
-<section class="block-holder job-of-the-week-block <% if $hasBorder %>bottom-border<% end_if %> color-$BGColor <% if $NoPaddingTop %>no-padding-top<% end_if %> <% if $NoPaddingBottom %>no-padding-bottom<% end_if %> <% if $Alignment %>text-align-$Alignment<% end_if %>" id="$PrintURLSegment">
-  <div class="container">
-    <div class="col w-12">
-        <% if $Title %><h2>$Title</h2><% end_if %>
-
 
 
 
@@ -44,8 +39,3 @@
 
 
 
-
-
-    </div>
-  </div>
-</section>
