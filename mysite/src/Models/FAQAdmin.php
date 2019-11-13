@@ -12,7 +12,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class FAQAdmin extends ModelAdmin{
 
-	private static $menu_icon_class = "font-icon-question";
+	private static $menu_icon_class = "font-icon-book";
 	private static $url_segment = "faq";
 	private static $menu_title = "FAQ";
 	
