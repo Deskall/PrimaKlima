@@ -14,7 +14,7 @@
 	   	            </li>
 	   	            <li data-nav="3"><a>3. Überprüfung</a></li>
 	   	        </ul>
-	   	        <ul id="order-nav-switcher" data-uk-switcher="connect:#order-form-steps">
+	   	        <ul id="order-nav-switcher" data-uk-switcher="connect:#order-form-steps" hidden>
 	   	            <li class="uk-active"><a>Kundendaten</a></li>
 	   	            <li><a>Adresse</a></li>
 	   	            <li><a>Rechnug</a></li>
