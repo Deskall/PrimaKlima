@@ -9,10 +9,10 @@
 	       <div class="uk-navbar-center">
 	       		<ul class="uk-navbar-nav">
 	   	            <li class="uk-active"><a >1. Kundendaten</a></li>
-	   	            <li>
+	   	            <li class="uk-disabled">
 	   	                <a  disabled="disabled">2. Bestellungsdaten</a>
 	   	            </li>
-	   	            <li><a  disabled="disabled">3. Überprüfung</a></li>
+	   	            <li class="uk-disabled"><a  disabled="disabled">3. Überprüfung</a></li>
 	   	        </ul>
 	       </div>
 	   </nav>
