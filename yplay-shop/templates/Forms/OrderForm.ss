@@ -18,7 +18,14 @@
 	   </nav>
 	</div>
     <div>
-        
+    <% if $IncludeFormTag %>
+    <form $AttributesHTML>
+    <% end_if %>
+    <% if $Message %>
+    <p id="{$FormName}_error" class="message $MessageType">$Message</p>
+    <% else %>
+    <p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
+    <% end_if %>
             <ul id="order-form-steps" data-uk-accordion>
                 <li class="uk-open uk-margin" data-step="customer">
                    <%--  <div class="uk-accordion-title">1. Kundendaten</div> --%>
@@ -81,10 +88,21 @@
                         </div>
                         <div class="uk-margin-small uk-align-right">
                         	<a class="step backwards uk-button uk-button-muted" href="#" data-target="1">Zurück</a>
-            	            <button class="uk-button" type="submit">Jetzt bestellen</a>
+            	            
             	        </div>
                     </div>
                 </li>
             </ul>
+        	<% if $Actions %>
+        	<div class="btn-toolbar">
+        		<% loop $Actions %>
+        			$Field
+        		<% end_loop %>
+        	</div>
+        	<% end_if %>
+        <% if $IncludeFormTag %>
+        </form>
+        <% end_if %>
+
     </div>
 
