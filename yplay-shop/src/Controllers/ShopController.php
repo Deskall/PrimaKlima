@@ -87,16 +87,15 @@ class ShopController extends PageController
 
       if ($cart && $options ){
          //apply options
-         $optionsIds = ($cart->Package()->exists()) ? $cart->Package()->Products()->column('ProductCode') : [];
          $cart->Options()->removeAll();
          if ($options){
             foreach ($options as $code) {
-               if (!in_array($code,$optionsIds)){
+              
                   $option = ProductOption::get()->filter('ProductCode',$code)->first();
                   if ($option){
                      $cart->Options()->add($option);
                   }
-               }
+               
             }
          }
       }
