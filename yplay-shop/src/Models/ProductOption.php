@@ -12,13 +12,19 @@ class ProductOption extends Product {
 	private static $plural_name = 'Optionen';
 
 	private static $db = [
-	
+		'hasOptions' => 'Boolean(0)'
 	];
+
+	private static $has_one = ['Group' => ProductOption::class];
+
+	private static $has_many = ['Options' => ProductOption::class];
 
 	
 	public function fieldLabels($includerelation = true){
 		$labels = parent::fieldLabels($includerelation);
-		
+		$labels['hasOptions'] = 'ist einen Grupp?';
+		$labels['Group'] = 'Grupp';
+		$labels['Options'] = 'Optionen';
 		return $labels;
 	}
 
@@ -26,7 +32,9 @@ class ProductOption extends Product {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		
+		if ($this->ID > 0){
+			$fields->dataFieldByName('Options')->displayIf('hasOptions')->isChecked();
+		}
 		return $fields;
 	}
 

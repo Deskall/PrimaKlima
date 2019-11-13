@@ -10,7 +10,8 @@ class ShopCart extends DataObject {
 		'IP' => 'Varchar',
 		'TotalMonthlyPrice' => 'Varchar',
 		'TotalUniquePrice' => 'Varchar',
-		'Purchased' => 'Boolean(0)'
+		'Purchased' => 'Boolean(0)',
+		'CurrentStep' => 'Varchar'
 	];
 
 	private static $has_one = [
