@@ -40,7 +40,7 @@ class ProductCategory extends DataObject {
 	];
 
 	private static $summary_fields = [
-		'Icon.Thumbnail(100)',
+		'Thumbnail',
 		'Title',
 		'Subtitle',
 		'Products.count' => ['title' => 'Produktzahl']
@@ -53,6 +53,13 @@ class ProductCategory extends DataObject {
 		
 		return "Uploads/Produkte/tmp";
 		
+	}
+
+	public function Thumbnail(){
+		if ($this->Icon()->exists()){
+			return $this->Icon()->CMSThumbnail();
+		}
+		return '';
 	}
 
 
