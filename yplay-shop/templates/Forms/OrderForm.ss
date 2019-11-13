@@ -171,6 +171,9 @@
                     
                 </li>
             </ul>
+            <% with Fields.FieldByName('SecurityID') %>
+            	$FieldHolder 
+            <% end_with %>
         <% if $IncludeFormTag %>
         </form>
         <% end_if %>
