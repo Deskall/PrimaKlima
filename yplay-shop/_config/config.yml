@@ -1,0 +1,12 @@
+---
+Name: yplay-shop-config
+---
+BaseBlockExtension:
+  blocks:
+    - ProductBlock
+  children_blocks:
+    - ProductBlock
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - ShopConfigExtension
