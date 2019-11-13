@@ -26,7 +26,7 @@
     <% else %>
     <p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
     <% end_if %>
-            <ul id="order-form-steps" class="uk-switcher">
+            <ul id="order-form-steps">
                 <li class="uk-active uk-margin-top" data-step="customer">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<div class="uk-margin">
