@@ -1,0 +1,147 @@
+//FORM
+@form-message-border-color:       #ccc;
+@form-message-background-color:   #eee;
+@form-message-color:              #666;
+
+.form-std, #MemberLoginForm_LoginForm,#CommentForm_CommentsForm, #LostPasswordForm_lostPasswordForm, #ChangePasswordForm_ChangePasswordForm{
+
+	input[type="text"],input[type="email"],input[type="password"],input[type="number"]{
+		.uk-input;
+	}
+	input[type="checkbox"]{
+		margin-right:15px;
+	}
+	input[type="radio"]{
+		margin-right:15px;
+	}
+	input[type="submit"]{
+		.uk-button;
+	}
+	select{
+		.uk-select;
+	}
+	textarea{
+		.uk-textarea;
+	}
+}
+
+#MemberLoginForm_LoginForm,#CommentForm_CommentsForm, #LostPasswordForm_lostPasswordForm, #ChangePasswordForm_ChangePasswordForm{
+	max-width:800px;
+	input[type="submit"],button{
+		.PrimaryBackground;
+	}
+}
+
+fieldset{
+	border: none;
+	padding:0;
+}
+
+.dk-background-white{
+	.uk-input,
+	.uk-select,
+	.uk-textarea{
+		background-color:@form-background-inverse;
+	}
+}
+.uk-button-primary *{
+	color:inherit;
+}
+.dk-button-icon{
+	svg{
+		vertical-align: text-bottom;
+		color:inherit;
+	}
+}
+
+.hook-form-label(){
+	color:@global-color;
+	font-size: @global-font-size;
+}
+
+//STEPS
+.dk-form-step-title{
+	padding: 5px 10px;
+}
+
+input[type="submit"][disabled], button[disabled]{
+	background-color: @global-muted-background;
+	color:@global-muted-color;
+	cursor:not-allowed;
+}
+
+
+
+
+.uk-form-horizontal .form-group--no-label > .uk-form-controls{
+	margin-left:0;
+}
+
+//messages
+form .message {
+	padding:5px 10px;
+	border:1px solid @form-message-border-color;
+	background-color:@form-message-background-color;
+	display:block;
+	color:@form-message-color;
+	&.good{
+		background-color:#cce8cc;
+		border-color:#b8deb8;
+	}
+	&.bad{
+		background-color:#f59fa5;
+		border-color:#e78291;
+	}
+}
+
+.checkboxset, .optionset{
+	padding-left:0;
+	list-style-type: none;
+	li {
+		display: inline-block;
+		width:~"calc(100% - 20px)";
+		padding-left:30px;
+		position:relative;
+		input{
+			position:absolute;
+			left:0;
+			top:9px;
+		}
+	}
+}
+
+.optionset li{
+	width:50%;
+}
+
+.acceptance{
+	display: block;
+	float: left;
+	text-align: left;
+	padding-left: 30px;
+	position: relative;
+	margin-bottom: 30px;
+	font-size: 80%;
+	line-height: 120%;
+}
+.acceptance a{
+	font-size: 100%;
+}
+.acceptance input{
+	position: absolute;
+	left: 0;
+}
+
+
+//fieldtype
+ul.checkboxset{
+	margin:10px 0;
+}
+
+.checkbox label *{
+	display: inline;
+}
+
+.uk-form-controls input + p{
+	display: inline;
+}
