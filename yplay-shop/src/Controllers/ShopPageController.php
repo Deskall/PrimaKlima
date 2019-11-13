@@ -50,6 +50,7 @@ class ShopPageController extends PageController
          'OrderForm',
          new FieldList(
             CompositeField::create(
+               HeaderField::create('AddressTitle','Ihre Angaben',3),
                DropdownField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Bitte wählen')),
                TextField::create('Name','Name')->setAttribute('class','uk-input'),
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
