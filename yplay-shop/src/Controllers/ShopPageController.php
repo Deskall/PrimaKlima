@@ -183,9 +183,9 @@ class ShopPageController extends PageController
    public function filteredOptions(){
       $options = ProductOption::get()->filterByCallback(function($item, $list) {
           return ($item->shouldDisplay());
-      });
+      })->sort('Category.Title');
       
-      return $options;
+      return GroupedList::create($options);
    }
 
    public function activeCart(){

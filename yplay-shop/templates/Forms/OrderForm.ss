@@ -129,8 +129,8 @@
                         
                             
                             <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
-                            	<% loop Controller.filteredOptions %>
-                            	$Title
+                            	<% loop Controller.filteredOptions.groupedBy(Category.Title) %>
+                            	 <h3>$Category.Title</h3>
                             	<% end_loop %>
                             </div>
                             <div class="uk-margin-small uk-align-center">
