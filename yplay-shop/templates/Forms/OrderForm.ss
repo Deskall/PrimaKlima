@@ -126,11 +126,13 @@
                 <% end_if %> --%>
                 <li class="uk-margin" data-step="options" data-index="3">
                     
-                        
+                        <h3>Optionen</h3>
                             
                             <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
                             	<% loop Controller.filteredOptions.groupedBy(CategoryTitle) %>
-                            	 <h3>$CategoryTitle</h3>
+                            	 <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">
+						           	<h4 class="uk-card-title">$CategoryTitle</h4>
+						         </div>
                             	<% end_loop %>
                             </div>
                             <div class="uk-margin-small uk-align-center">
