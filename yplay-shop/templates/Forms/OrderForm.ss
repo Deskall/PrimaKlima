@@ -28,9 +28,6 @@
     <% end_if %>
             <ul id="order-form-steps" class="uk-switcher">
                 <li class="uk-active uk-margin" data-step="customer">
-                  
-                    
-                        
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<div class="uk-margin">
                         		<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
