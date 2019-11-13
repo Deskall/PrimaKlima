@@ -47,11 +47,12 @@ class ProductOption extends Product {
 		if ($this->ID > 0){
 			$fields->dataFieldByName('Options')->displayIf('hasOptions')->isChecked();
 			$fields->dataFieldByName('Options')->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
-			if ($this->GroupID > 0){
-				$fields->removeByName('Options');
-			}
+
 		}
-		
+		if ($this->GroupID > 0){
+			$fields->removeByName('Options');
+			$fields->removeByName('GroupID');
+		}
 		return $fields;
 	}
 
