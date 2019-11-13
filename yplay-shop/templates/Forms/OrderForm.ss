@@ -21,6 +21,7 @@
 	   	            <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %><li><a >Telefon</a></li><% end_if %>
 	   	            <%-- <li><a >Mobile</a></li> --%>
 	   	            <li><a >Optionen</a></li>
+	   	            <li><a >Übersicht</a></li>
 	   	        </ul>
 	       </div>
 	   </nav>
