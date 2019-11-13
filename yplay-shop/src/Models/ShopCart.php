@@ -45,6 +45,11 @@ class ShopCart extends DataObject {
 				$price += $product->Price;
 			}
 		}
+		if ($this->Options()->exists()){
+			foreach ($this->Options() as $product) {
+				$price += $product->Price;
+			}
+		}
 		$this->TotalMonthlyPrice = "CHF ".number_format($price,2)." /Mt.";
 	}
 
@@ -60,6 +65,13 @@ class ShopCart extends DataObject {
 				$price += $product->ActivationPrice;
 			}
 		}
+		if ($this->Options()->exists()){
+			foreach ($this->Options() as $product) {
+				$price += $product->UniquePrice;
+				$price += $product->ActivationPrice;
+			}
+		}
+
 		$this->TotalUniquePrice = "CHF ".number_format($price,2);
 	}
 
