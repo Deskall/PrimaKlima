@@ -65,8 +65,8 @@
                         		
                         </div>
                         <div class="uk-margin-small uk-align-right">
-                        	<a class="step backwards uk-button uk-button-muted" href="#" data-target="need">Zurück</a>
-            	            <a class="step uk-button uk-button-primary" href="#" data-target="delivery">Weiter</a>
+                        	<a class="step backwards uk-button uk-button-muted" href="#" data-target="0">Zurück</a>
+            	            <a class="step uk-button uk-button-primary" href="#" data-target="2">Weiter</a>
             	        </div>
                     </div>
                 </li>
@@ -79,8 +79,8 @@
                         		
                         </div>
                         <div class="uk-margin-small uk-align-right">
-                        	<a class="step backwards uk-button uk-button-muted" href="#" data-target="need">Zurück</a>
-            	            <a class="step uk-button uk-button-primary" href="#" data-target="delivery">Weiter</a>
+                        	<a class="step backwards uk-button uk-button-muted" href="#" data-target="1">Zurück</a>
+            	            <button class="uk-button" type="submit">Jetzt bestellen</a>
             	        </div>
                     </div>
                 </li>
