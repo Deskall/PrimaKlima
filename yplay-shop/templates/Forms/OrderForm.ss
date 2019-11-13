@@ -116,7 +116,7 @@
                         		
                         </div>
                         <div class="uk-margin-small uk-align-right">
-                        	<a class="step backwards uk-button uk-button-muted" href="#" data-target="4">Zurück</a>
+                        	<a class="step backwards uk-button uk-button-muted" href="#" data-target="4" data-nav="2">Zurück</a>
             	            <% if $Actions %>
 	            	            <% loop $Actions %>
 				        			$Field
