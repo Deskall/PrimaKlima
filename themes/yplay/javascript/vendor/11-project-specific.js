@@ -76,7 +76,7 @@ $(document).ready(function(){
 
 	//Shop Page script
 	if ($('body').hasClass('ShopPage')){
-		var options = [];
+		
 		
 		UpdateOrderPreview();
 
@@ -101,9 +101,12 @@ $(document).ready(function(){
 		});
 
 		$(document).on("change",".options input",function(){
-			if ($(this).is(':checked')){
-				options.push($(this).attr('data-value'));
-			}
+			var options = [];
+			$(".options input").each(function(){
+				if ($(this).is(':checked')){
+					options.push($(this).attr('data-value'));
+				}
+			});
 			UpdateCart(options);
 		});
 	}
