@@ -70,7 +70,6 @@ class ShopPageController extends PageController
                TextField::create('BillCity','Stadt'),
                DropdownField::create('BillCountry','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch')
             )->setName('BillFields'),
-            
             HiddenField::create('ExistingCustomer')
          ),
          new FieldList(
@@ -92,7 +91,7 @@ class ShopPageController extends PageController
       $cart = ShopCart::get()->byId($this->getRequest()->getSession()->get('shopcart_id'));
       //Add Dependent Fields
       //1. Phone
-      if ($cart->hasCategory('yplay-telefonie')){
+      if ($cart->hasCategory('yplay-talk')){
         
          $form->Fields()->push(OptionSetField::create('PhoneOption','Label',['existing' => 'Bestehende Rufnummer(n) übernehmen', 'new' => 'Neue Rufnummer(n) bestellen', 'wish' => 'Wunschnummer bestellen']));
          $form->Fields()->push(TextField::create('ExistingPhone','Bei einer Übernahme der Rufnummer die bestehenden Verträge bitte NICHT kündigen. Wir übernehmen dies für Sie.'));
@@ -180,7 +179,7 @@ class ShopPageController extends PageController
       
    }
 
-   
+
    public function filteredOptions(){
       $options = ProductOption::get()->filterByCallback(function($item, $list) {
           return ($item->shouldDisplay());
