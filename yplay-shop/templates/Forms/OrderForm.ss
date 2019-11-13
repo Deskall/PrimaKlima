@@ -79,6 +79,7 @@
                 	        </div>
                         </div>
                     </li>
+                <% if Controller.activeCart && Controller.activeCart.hasPhone %>
                 <li class="uk-margin" data-step="phone">
                    <%--  <div class="uk-accordion-title">2. Bestellungsdaten</div> --%>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
@@ -93,8 +94,9 @@
             	        </div>
                     </div>
                 </li>
+                <% end_if %>
+       <%--          <% if Controller.activeCart && Controller.activeCart.hasMobile %>
                 <li class="uk-margin" data-step="mobile">
-                       <%--  <div class="uk-accordion-title">2. Bestellungsdaten</div> --%>
                         <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                             
                             <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
@@ -107,6 +109,7 @@
                 	        </div>
                         </div>
                 </li>
+                <% end_if %> --%>
                 <li class="uk-margin" data-step="options">
                        <%--  <div class="uk-accordion-title">2. Bestellungsdaten</div> --%>
                         <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
