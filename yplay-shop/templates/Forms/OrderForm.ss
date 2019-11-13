@@ -9,10 +9,10 @@
 	       <div class="uk-navbar-center">
 	       		<ul id="order-nav" class="uk-navbar-nav" data-uk-switcher>
 	   	            <li class="uk-active" data-nav="1"><a >1. Kundendaten</a></li>
-	   	            <li class="uk-disabled" data-nav="2">
-	   	                <a  disabled="disabled">2. Bestellungsdaten</a>
+	   	            <li  data-nav="2">
+	   	                <a>2. Bestellungsdaten</a>
 	   	            </li>
-	   	            <li class="uk-disabled" data-nav="3"><a  disabled="disabled">3. Überprüfung</a></li>
+	   	            <li data-nav="3"><a>3. Überprüfung</a></li>
 	   	        </ul>
 	       </div>
 	   </nav>
@@ -34,8 +34,8 @@
                         	</div>
                         	<div>
 	                        	<div class="uk-flex uk-flex-around">
-	                        		<button class="uk-button step" data-target="1" data-nav="1">Ja</button>
-	                        		<button class="uk-button step" data-target="1" data-nav="1">Nein</button>
+	                        		<a class="uk-button step" data-target="1" data-nav="1">Ja</a>
+	                        		<a class="uk-button step" data-target="1" data-nav="1">Nein</a>
 	                             </div>
 	                         </div>
 	                       <%--   <div id="email-container" hidden>
