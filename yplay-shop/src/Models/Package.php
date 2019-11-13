@@ -41,7 +41,9 @@ class Package extends Product {
 		$fields = parent::getCMSFields();
 		$fields->removeByName('RecurringPrice');
 		$fields->removeByName('Unit');
-		$fields->FieldByName('Root.Products.Products')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction());
+		if ($this->ID > 0){
+			$fields->dataFieldByName('Products')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction());
+		}
 		
 		return $fields;
 	}
