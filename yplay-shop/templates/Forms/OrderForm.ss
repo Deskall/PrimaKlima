@@ -17,8 +17,8 @@
                         	</div>
                         	<div>
 	                        	<div class="uk-flex uk-flex-around">
-	                        		<button class="uk-button">Ja</button>
-	                        		<button class="uk-button">Nein</button>
+	                        		<button class="uk-button step backwards" data-target="address">Ja</button>
+	                        		<button class="uk-button step backwards" data-target="address">Nein</button>
 	                             </div>
 	                         </div>
                         </div>
