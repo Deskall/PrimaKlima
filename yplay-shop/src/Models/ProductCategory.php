@@ -7,6 +7,7 @@ use SilverStripe\Subsites\Extensions\FileSubsites;
 use SilverStripe\Subsites\State\SubsiteState;
 use SilverStripe\Assets\Folder;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ProductCategory extends DataObject {
 
