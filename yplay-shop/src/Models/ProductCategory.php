@@ -40,7 +40,7 @@ class ProductCategory extends DataObject {
 	];
 
 	private static $summary_fields = [
-		'Code',
+		'Icon.Thumbnail',
 		'Title',
 		'Subtitle',
 		'Products.count' => ['title' => 'Produktzahl']
@@ -54,6 +54,7 @@ class ProductCategory extends DataObject {
 		return "Uploads/Produkte/tmp";
 		
 	}
+
 
 	public function onBeforeWrite(){
 		if ($this->ID > 0){
