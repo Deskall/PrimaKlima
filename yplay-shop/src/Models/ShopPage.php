@@ -7,4 +7,12 @@ class ShopPage extends Page {
 		return ShopPage::get()->count() == 0;
 	}
 
+	public function filteredOptions(){
+		$options = ProductOption::get()->filterByCallback(function($item, $list) {
+		    return ($item->shouldDisplay());
+		});
+		
+		return $options;
+	}
+
 }
