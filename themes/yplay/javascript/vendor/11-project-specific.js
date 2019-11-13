@@ -77,7 +77,7 @@ $(document).ready(function(){
 	if ($('body').hasClass('ShopPage')){
 		UpdateOrderPreview();
 
-		var switcher = UIkit.switcher("#order-form-steps");
+		var switcher = UIkit.switcher("#order-nav");
 
 		$(document).on("click",".step",function(){
 			switcher.show($(this).attr('data-target'));
