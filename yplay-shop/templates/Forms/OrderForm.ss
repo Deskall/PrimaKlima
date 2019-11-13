@@ -11,12 +11,16 @@
                     <div class="uk-accordion-title">1. Kundendaten</div>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                         
-                        <div class="uk-grid-small uk-flex uk-flex-bottom" data-uk-grid>
-                        	<p><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></p>
-                        	<div class="uk-flex uk-flex-around">
-                        		<button class="uk-button">Ja</button>
-                        		<button class="uk-button">Nein</button>
-                             </div>
+                        <div class="uk-grid-small" data-uk-grid>
+                        	<div>
+                        		<p><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></p>
+                        	</div>
+                        	<div>
+	                        	<div class="uk-flex uk-flex-around">
+	                        		<button class="uk-button">Ja</button>
+	                        		<button class="uk-button">Nein</button>
+	                             </div>
+	                         </div>
                         </div>
                     </div>       
                 </li>
