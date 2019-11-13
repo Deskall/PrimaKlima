@@ -8,11 +8,11 @@
 	   <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 	       <div class="uk-navbar-center">
 	       		<ul id="order-nav" class="uk-navbar-nav">
-	   	            <li class="uk-active"><a >1. Kundendaten</a></li>
-	   	            <li class="uk-disabled">
+	   	            <li class="uk-active" data-nav="1"><a >1. Kundendaten</a></li>
+	   	            <li class="uk-disabled" data-nav="2">
 	   	                <a  disabled="disabled">2. Bestellungsdaten</a>
 	   	            </li>
-	   	            <li class="uk-disabled"><a  disabled="disabled">3. Überprüfung</a></li>
+	   	            <li class="uk-disabled" data-nav="3"><a  disabled="disabled">3. Überprüfung</a></li>
 	   	        </ul>
 	       </div>
 	   </nav>
@@ -37,8 +37,8 @@
                         	</div>
                         	<div>
 	                        	<div class="uk-flex uk-flex-around">
-	                        		<button class="uk-button step" data-target="1">Ja</button>
-	                        		<button class="uk-button step" data-target="1">Nein</button>
+	                        		<button class="uk-button step" data-target="1" data-nav="1">Ja</button>
+	                        		<button class="uk-button step" data-target="1" data-nav="1">Nein</button>
 	                             </div>
 	                         </div>
 	                       <%--   <div id="email-container" hidden>
@@ -59,8 +59,8 @@
                         	<% end_with %>
                         </div>
                         <div class="uk-margin-small uk-flex uk-flex-around">
-                        	<a class="step uk-button uk-button-muted"  data-target="0">Zurück</a>
-            	            <a class="step uk-button uk-button-primary"  data-target="2">Weiter</a>
+                        	<a class="step uk-button uk-button-muted"  data-target="0" data-nav="1">Zurück</a>
+            	            <a class="step uk-button uk-button-primary"  data-target="2" data-nav="2">Weiter</a>
             	        </div>
                     </div>
                 </li>
@@ -73,8 +73,8 @@
                         		
                         </div>
                         <div class="uk-margin-small uk-align-center">
-                        	<a class="step uk-button uk-button-muted"  data-target="1">Zurück</a>
-            	            <a class="step uk-button uk-button-primary"  data-target="3">Weiter</a>
+                        	<a class="step uk-button uk-button-muted"  data-target="1" data-nav="2">Zurück</a>
+            	            <a class="step uk-button uk-button-primary"  data-target="3" data-nav="2">Weiter</a>
             	        </div>
                     </div>
                 </li>
@@ -87,8 +87,8 @@
                             		
                             </div>
                             <div class="uk-margin-small uk-align-center">
-                            	<a class="step uk-button uk-button-muted"  data-target="2">Zurück</a>
-                	            <a class="step uk-button uk-button-primary"  data-target="4">Weiter</a>
+                            	<a class="step uk-button uk-button-muted"  data-target="2" data-nav="2">Zurück</a>
+                	            <a class="step uk-button uk-button-primary"  data-target="4" data-nav="2">Weiter</a>
                 	        </div>
                         </div>
                 </li>
@@ -102,8 +102,8 @@
                             	<% end_loop %>
                             </div>
                             <div class="uk-margin-small uk-align-center">
-                            	<a class="step uk-button uk-button-muted"  data-target="3">Zurück</a>
-                	            <a class="step uk-button uk-button-primary"  data-target="5">Weiter</a>
+                            	<a class="step uk-button uk-button-muted"  data-target="3" data-nav="2">Zurück</a>
+                	            <a class="step uk-button uk-button-primary"  data-target="5" data-nav="3">Weiter</a>
                 	        </div>
                         </div>
                 </li>

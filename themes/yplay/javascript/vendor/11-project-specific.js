@@ -79,6 +79,11 @@ $(document).ready(function(){
 
 		$(document).on("click",".step",function(){
 			UIkit.accordion("#order-form-steps").toggle($(this).attr('data-target'));
+			$("#order-nav").find('li.uk-active').removeClass('uk-active');
+			var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
+			if (!nav.hasClass('uk-active')){
+				nav.addClass('uk-active');
+			}
 		});
 	}
 
