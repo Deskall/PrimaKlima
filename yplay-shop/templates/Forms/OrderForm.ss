@@ -49,7 +49,7 @@
                         </div>
                         
                 </li>
-                <li data-step="address">
+                <li class="uk-margin" data-step="address">
                   
                     
                         
@@ -58,13 +58,15 @@
                         		$FieldHolder 
                         	<% end_with %>
                         </div>
-                        <div class="uk-margin-small uk-flex uk-flex-around">
-                        	<a class="step backwards uk-button uk-button-muted"  data-target="0" data-nav="1">Zurück</a>
-            	            <a class="step forward uk-button uk-button-primary"  data-target="3" data-nav="2">Weiter</a>
+                        <div>
+	                        <div class="uk-margin uk-flex uk-flex-around">
+	                        	<a class="step backwards uk-button uk-button-muted"  data-target="0" data-nav="1">Zurück</a>
+	            	            <a class="step forward uk-button uk-button-primary"  data-target="3" data-nav="2">Weiter</a>
+	            	        </div>
             	        </div>
                    
                 </li>
-                    <li data-step="bill-address">
+                    <li class="uk-margin" data-step="bill-address">
                      
                         
                             
