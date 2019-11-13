@@ -57,7 +57,7 @@ class ProductCategory extends DataObject {
 
 	public function Thumbnail(){
 		if ($this->Icon()->exists()){
-			return $this->Icon()->CMSThumbnail();
+			return $this->Icon();
 		}
 		return '';
 	}
