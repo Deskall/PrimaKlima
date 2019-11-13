@@ -60,7 +60,7 @@
                         </div>
                         <div class="uk-margin-small uk-flex uk-flex-around">
                         	<a class="step backwards uk-button uk-button-muted"  data-target="0" data-nav="1">Zurück</a>
-            	            <a class="step forward uk-button uk-button-primary"  data-target="3" data-nav="2">Weiter</a>
+            	            <a class="step forward uk-button uk-button-primary"  data-target="2" data-nav="2">Weiter</a>
             	        </div>
                     </div>
                 </li>
@@ -75,7 +75,7 @@
                             </div>
                             <div class="uk-margin-small uk-flex uk-flex-around">
                             	<a class="step backwards uk-button uk-button-muted"  data-target="1" data-nav="1">Zurück</a>
-                	            <a class="step forward uk-button uk-button-primary"  data-target="4" data-nav="2">Weiter</a>
+                	            <a class="step forward uk-button uk-button-primary"  data-target="3" data-nav="2">Weiter</a>
                 	        </div>
                         </div>
                     </li>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="uk-margin-small uk-align-center">
                         	<a class="step backwards uk-button uk-button-muted"  data-target="1" data-nav="1">Zurück</a>
-            	            <a class="step forward uk-button uk-button-primary"  data-target="3" data-nav="2">Weiter</a>
+            	            <a class="step forward uk-button uk-button-primary"  data-target="4" data-nav="2">Weiter</a>
             	        </div>
                     </div>
                 </li>
