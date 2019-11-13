@@ -6,6 +6,8 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Assets\Image;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\View\ArrayData;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 
 class ProductOption extends Product {
 	private static $singular_name = 'Option';
