@@ -43,22 +43,30 @@
 		<% end_if %>
 		<% if Products.exists %>
 		<% loop Products %>
-		<% if UniquePrice > 0 %>
-		<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
-		<% end_if %>
-		<% if ActivationPrice > 0 %>
-		<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
-		<% end_if %>
+			<% if RecurringPrice %>
+				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+			<% else %>
+				<% if UniquePrice > 0 %>
+				<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
+				<% end_if %>
+			<% end_if %>
+			<% if ActivationPrice > 0 %>
+			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
+			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
 		<% if Options.exists %>
 		<% loop Options %>
-		<% if UniquePrice > 0 %>
-		<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
-		<% end_if %>
-		<% if ActivationPrice > 0 %>
-		<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
-		<% end_if %>
+			<% if RecurringPrice %>
+				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+			<% else %>
+				<% if UniquePrice > 0 %>
+				<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
+				<% end_if %>
+			<% end_if %>
+			<% if ActivationPrice > 0 %>
+			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
+			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
 	</tbody>
