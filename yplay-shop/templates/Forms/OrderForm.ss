@@ -8,11 +8,11 @@
 	   <nav class="uk-navbar-container" data-uk-navbar>
 	       <div class="uk-navbar-center">
 	       		<ul class="uk-navbar-nav">
-	   	            <li class="uk-active"><a href="#">1. Kundendaten</a></li>
+	   	            <li class="uk-active"><a >1. Kundendaten</a></li>
 	   	            <li>
-	   	                <a href="#" disabled="disabled">2. Bestellungsdaten</a>
+	   	                <a  disabled="disabled">2. Bestellungsdaten</a>
 	   	            </li>
-	   	            <li><a href="#" disabled="disabled">3. Überprüfung</a></li>
+	   	            <li><a  disabled="disabled">3. Überprüfung</a></li>
 	   	        </ul>
 	       </div>
 	   </nav>
