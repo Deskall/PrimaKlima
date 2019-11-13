@@ -9,7 +9,7 @@ use SilverStripe\Assets\Folder;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
-
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 class ProductCategory extends DataObject {
 
 	private static $singular_name = "Kategorie";
@@ -107,8 +107,8 @@ class ProductCategory extends DataObject {
 		$fields->removeByName('Code');
 		$fields->dataFieldByName('Icon')->setFolderName($this->getFolderName());
 		if ($this->ID > 0){
-			$fields->dataFieldByName('Products')->getConfig()->removeComponentsByType(GridFieldDeleteAction::class)->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
-			$fields->dataFieldByName('Options')->getConfig()->removeComponentsByType(GridFieldDeleteAction::class)->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
+			$fields->dataFieldByName('Products')->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
+			$fields->dataFieldByName('Options')->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
 		}
 	
 
