@@ -63,7 +63,7 @@
             	        </div>
                    
                 </li>
-                    <li class="uk-margin" data-step="bill-address">
+                  <%--   <li class="uk-margin" data-step="bill-address">
                      
                         
                             
@@ -100,7 +100,7 @@
                     
                 </li>
                 <% end_if %>
-       <%--          <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-mobile') %>
+                <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-mobile') %>
                 <li class="uk-margin" data-step="mobile">
                         
                             
@@ -114,7 +114,7 @@
                 	        </div>
                         </div>
                 </li>
-                <% end_if %> --%>
+                <% end_if %>
                 <li class="uk-margin" data-step="options">
                     
                         
@@ -146,7 +146,7 @@
 				        	<% end_if %>
             	        </div>
                     
-                </li>
+                </li> --%>
             </ul>
         <% if $IncludeFormTag %>
         </form>
