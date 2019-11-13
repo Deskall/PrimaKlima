@@ -47,6 +47,8 @@ class ProductCategory extends DataObject {
 		'NiceProducts' => ['title' => 'Produkte']
 	];
 
+	private static $searchable_fields = ['Title'];
+
 	public function getFolderName(){
 		if ($this->Title){
 			return "Uploads/Produkte/".URLSegmentFilter::create()->filter($this->Title);
