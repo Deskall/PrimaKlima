@@ -107,8 +107,8 @@ class ProductCategory extends DataObject {
 		$fields->removeByName('Code');
 		$fields->dataFieldByName('Icon')->setFolderName($this->getFolderName());
 		if ($this->ID > 0){
-			$fields->dataFieldByName('Products')->getConfig()->removeComponentByType(GridFieldDeleteAction::class)->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
-			$fields->dataFieldByName('Options')->getConfig()->removeComponentByType(GridFieldDeleteAction::class)->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
+			$fields->dataFieldByName('Products')->getConfig()->removeComponent(GridFieldDeleteAction::class)->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
+			$fields->dataFieldByName('Options')->getConfig()->removeComponent(GridFieldDeleteAction::class)->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
 		}
 	
 
