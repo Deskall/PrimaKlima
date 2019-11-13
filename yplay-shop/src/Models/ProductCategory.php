@@ -44,7 +44,7 @@ class ProductCategory extends DataObject {
 		'Thumbnail',
 		'Title',
 		'Subtitle',
-		'Products.count' => ['title' => 'Produktzahl']
+		'NiceProducts' => ['title' => 'Produkte']
 	];
 
 	public function getFolderName(){
@@ -60,6 +60,14 @@ class ProductCategory extends DataObject {
 		$html = '';
 		if ($this->Icon()->exists()){
 			$html = '<img src="'.$this->Icon()->URL.'" width="100" >';
+		}
+		return DBHTMLText::create()->setValue($html);
+	}
+
+	public function NiceProducts(){
+		$html = '';
+		foreach ($this->Products() as $p) {
+			$html .= $p->Title."<br>";
 		}
 		return DBHTMLText::create()->setValue($html);
 	}
