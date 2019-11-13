@@ -77,10 +77,8 @@ $(document).ready(function(){
 	if ($('body').hasClass('ShopPage')){
 		UpdateOrderPreview();
 
-		var switcher = UIkit.switcher("#order-nav");
-
 		$(document).on("click",".step",function(){
-			switcher.show($(this).attr('data-target'));
+			UIkit.switcher("#order-nav").show($(this).attr('data-target'));
 			$("#order-nav").find('li.uk-active').removeClass('uk-active');
 			var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
 			if (!nav.hasClass('uk-active')){
