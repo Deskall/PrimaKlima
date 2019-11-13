@@ -28,19 +28,7 @@ class ProductOption extends Product {
 		return $labels;
 	}
 
-	
-	'ProductCode' => 'Varchar',
-	'Title' => 'Varchar',
-	'Subtitle' => 'Text',
-	'BestSeller' => 'Boolean(0)',
-	'RecurringPrice' => 'Boolean(1)',
-	'Price' => 'Currency',
-	'UniquePrice' => 'Currency',
-	'ActivationPrice' => 'Currency',
-	'UniquePriceLabel' => 'Varchar',
-	'ActivationPriceLabel' => 'Varchar',
-	'Unit' => 'Varchar',
-	'FooterText' => 'HTMLText'
+
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->removeByName('GroupID');
