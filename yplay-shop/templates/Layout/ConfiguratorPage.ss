@@ -1,4 +1,4 @@
-$ElementalArea.Elements.first
+$ElementalArea
 
 	<section class="uk-section uk-section-medium" style="background-color:#eee;">
 		<div class="uk-container uk-container-medium">
