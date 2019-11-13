@@ -38,5 +38,7 @@ class ConfiguratorPage extends Page {
 			HTMLEditorField::create('OtherOffersLabel',$this->fieldLabels()['OtherOffersLabel']),
 			HTMLEditorField::create('ConditionsText',$this->fieldLabels()['ConditionsText'])
 		]);
+
+		return $fields;
 	}
 }
