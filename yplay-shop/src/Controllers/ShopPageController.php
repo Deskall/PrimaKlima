@@ -180,4 +180,22 @@ class ShopPageController extends PageController
       
    }
 
+   
+   public function filteredOptions(){
+      $options = ProductOption::get()->filterByCallback(function($item, $list) {
+          return ($item->shouldDisplay());
+      });
+      
+      return $options;
+   }
+
+   public function activeCart(){
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+         return $cart;
+      }
+      return null;
+   }
+
 }
