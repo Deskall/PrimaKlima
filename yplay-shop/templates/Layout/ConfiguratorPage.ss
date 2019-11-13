@@ -204,21 +204,11 @@
 						</ul>
 					</div>
 					<div class="uk-margin">
-						<ol>
-							<li class="uk-text-small">La vitesse disponible dépend de l’extension locale de la fibre optique et du routeur utilisé. Un raccordement Swisscom avec une ligne fibre optique jusque dans le logement est requis pour bénéficier de débits identiques en download.</li>
-							<li class="uk-text-small">La réception des chaînes HD dépend de la puissance du raccordement.</li>
-							<li class="uk-text-small">Valable 24 h/24 vers tous les réseaux fixes et mobiles de tous les pays de l’UE/Europe Ouest, USA (hors zones insulaires des Etats-Unis) et Canada.</li>
-							<li class="uk-text-small">Appels vers le réseau fixe suisse 0.04/min. au tarif réduit, 0.08/min. au tarif normal. Appels vers le réseau mobile Swisscom 0.27/min. au tarif réduit, 0.32/min. au tarif normal. Appels vers le réseau mobile d’autres opérateurs 0.30/min. au tarif réduit, 0.35/min. au tarif normal. La facturation s’effectue par tranches de 10 centimes. Les appels/SMS vers des numéros Business, courts et spéciaux sont payants.</li>
-							<li class="uk-text-small">Téléphonie de la Suisse vers l’UE/l’Europe de l’Ouest facturable séparément.</li>
-							<li class="uk-text-small">Surf dans l’UE/l’Europe de l’Ouest jusqu’à 40 Go max. par mois, puis limitationde la vitesse à 128 kbit/s.</li>
-						 	<li class="uk-text-small">Téléphonie de la Suisse vers l’UE/l’Europe de l’Ouest, les États-Unis, le Canada et d’autres payscomprise dans le prix. Téléphonie au sein de la zone de pays «Monde zone 1» incluse.Liste des pays sur swisscom.ch/roaming.</li>
-						 </ol>
-						<p class="uk-text-small">
-						 Appels/SMS/MMS illimités: les appels/SMS/MMS vers des numéros Business, courts et spéciaux sont payants. Tous les abonnements présentés sont réservés à un usage personnel normal. Si Swisscom démontre que cet emploi diverge sensiblement d’une utilisation normale ou s’il s’avère que le raccordement est utilisé pour des applications spéciales (p. ex. applications de surveillance, liaisons machine, sélections directes ou permanentes), Swisscom se réserve à tout moment le droit d’interrompre ou de limiter la fourniture des prestations, ou de prendre toute autre mesure appropriée.<br>
-						 <br>
-						Prix pour abonnements mobiles sans achat d’appareil<br>
-						Excl. frais de mise en service à 59.–
-						</p>
+						<% if $ElementalArea.ElementControllers %>
+						    <% loop $ElementControllers not $isPrimary %>
+							   $Me
+						    <% end_loop %>
+						<% end_if %>
 					</div>
 				</div>
 				<div class="uk-width-expand uk-visible@m">
