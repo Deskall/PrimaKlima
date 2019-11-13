@@ -78,7 +78,7 @@ $(document).ready(function(){
 		UpdateOrderPreview();
 
 		$(document).on("click",".step",function(){
-			UIkit.accordion("#order-form-steps").toggle($(this).attr('data-target'));
+			UIkit.switcher("#order-form-steps").show($(this).attr('data-target'));
 			$("#order-nav").find('li.uk-active').removeClass('uk-active');
 			var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
 			if (!nav.hasClass('uk-active')){
@@ -88,7 +88,6 @@ $(document).ready(function(){
 
 		$(document).on("change","input[name='BillSameAddress']",function(){
 			if ($(this).is(':checked')){
-				console.log('ici');
 				$("li[data-step='address']").find('.forward').attr('data-target','3').attr('data-nav','2');
 				$("li[data-step='phone']").find('.backward').attr('data-target','1');
 			}
