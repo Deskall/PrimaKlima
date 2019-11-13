@@ -7,7 +7,7 @@
     <div id="order-form-content">
         <form id="order-form" method="post" action="{$Link}SendOrderForm">
             <ul id="pellets-order-container" class="bestellung-container" data-uk-accordion>
-                <li class="uk-open WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin" data-step="customer">
+                <li class="uk-open uk-margin" data-step="customer">
                     <div class="uk-accordion-title">1. Kundendaten</div>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                         
@@ -38,7 +38,7 @@
             	        </div>
                     </div>
                 </li> --%>
-                <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin" data-step="address" hidden>
+                <li class="uk-margin" data-step="address" hidden>
                     <div class="uk-accordion-title">2. Bestellungsdaten</div>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                         
@@ -52,7 +52,7 @@
             	        </div>
                     </div>
                 </li>
-                <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin" data-step="summary"  hidden>
+                <li class="uk-margin" data-step="summary"  hidden>
                     <div class="uk-accordion-title">3. Überprüfen Sie Ihre Bestellung </div>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                         
