@@ -30,6 +30,9 @@ class ProductOption extends Product {
 		return $fields;
 	}
 
+	public function getCategoryTitle(){
+		return $this->Category()->Title;
+	}
 	
 }
 
