@@ -2,7 +2,7 @@
     $HTML
 </div>
 
-<ul class="uk-subnav uk-subnav-pill" uk-switcher>
+<ul class="uk-subnav uk-subnav-pill" data-uk-switcher>
     <li><a href="#">Item</a></li>
     <li><a href="#">Item</a></li>
     <li><a href="#">Item</a></li>
