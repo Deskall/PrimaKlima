@@ -81,7 +81,7 @@
                             		$FieldHolder 
                             	<% end_with %>
                             </div>
-                            <div class="uk-margin-small uk-flex uk-flex-around">
+                            <div class="uk-margin-top uk-flex uk-flex-around">
                             	<a class="step backwards uk-button uk-button-muted"  data-target="1" data-nav="1">Zurück</a>
                 	            <a class="step forward uk-button uk-button-primary"  data-target="3" data-nav="2">Weiter</a>
                 	        </div>
@@ -102,7 +102,7 @@
                         	<% end_with %>
                         	</div>
                         </div>
-                        <div class="uk-margin-small uk-align-center">
+                        <div class="uk-margin-top uk-flex uk-flex-around">
                         	<a class="step backwards uk-button uk-button-muted"  data-target="1" data-nav="1">Zurück</a>
             	            <a class="step forward uk-button uk-button-primary"  data-target="4" data-nav="2">Weiter</a>
             	        </div>
@@ -146,7 +146,7 @@
 						         </div>
                             	<% end_loop %>
                             </div>
-                            <div class="uk-margin-small uk-align-center">
+                            <div class="uk-margin-top uk-flex uk-flex-around">
                             	<a class="step backwards uk-button uk-button-muted"  data-target="3" data-nav="2">Zurück</a>
                 	            <a class="step forward uk-button uk-button-primary"  data-target="5" data-nav="3">Weiter</a>
                 	        </div>
@@ -160,7 +160,7 @@
                         		$FieldHolder 
                         	<% end_with %>
                         </div>
-                        <div class="uk-margin-small uk-align-right">
+                        <div class="uk-margin-top uk-flex uk-flex-around">
                         	<a class="step backwards uk-button uk-button-muted" href="#" data-target="4" data-nav="2">Zurück</a>
             	            <% if $Actions %>
 	            	            <% loop $Actions %>
