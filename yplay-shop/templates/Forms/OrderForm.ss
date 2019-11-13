@@ -58,7 +58,7 @@
                         		$FieldHolder 
                         	<% end_with %>
                         </div>
-                        <div class="uk-margin-small uk-text-center">
+                        <div class="uk-margin-small uk-flex uk-flex-around">
                         	<a class="step uk-button uk-button-muted"  data-target="0">Zurück</a>
             	            <a class="step uk-button uk-button-primary"  data-target="2">Weiter</a>
             	        </div>
