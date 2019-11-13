@@ -22,6 +22,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Control\Director;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
+use SilverStripe\ORM\GroupedList;
 
 class ShopPageController extends PageController
 {
