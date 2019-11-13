@@ -21,7 +21,7 @@
 
 					<p>$ContentIntro</p>
 					<h3>$ContentTitle</h3>
-					<div class="content">
+					<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 					$ContentMain.FirstParagraph
 					</div>
 					<p>$Employer.Company, $Employer.AddressPostalCode $Employer.AddressPlace</p>
