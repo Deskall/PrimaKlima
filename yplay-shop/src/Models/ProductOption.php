@@ -54,6 +54,13 @@ class ProductOption extends Product {
 	public function getCategoryTitle(){
 		return $this->Category()->Title;
 	}
+
+	public function PrintPriceString(){
+		if (!$this->hasOptions){
+			return parent::PrintPriceString();
+		}
+		return null;
+	}
 	
 }
 
