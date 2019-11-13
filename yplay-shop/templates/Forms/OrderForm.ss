@@ -7,7 +7,7 @@
     <div id="order-form-content">
         <form id="order-form" method="post" action="{$Link}SendOrderForm">
             <ul id="pellets-order-container" class="bestellung-container" data-uk-accordion>
-                <li class="uk-open" data-step="customer">
+                <li class="uk-open WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin" data-step="customer">
                     <div class="uk-accordion-title">1. Kundendaten</div>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                         
