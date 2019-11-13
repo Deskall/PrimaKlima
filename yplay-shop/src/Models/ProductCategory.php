@@ -8,6 +8,7 @@ use SilverStripe\Subsites\State\SubsiteState;
 use SilverStripe\Assets\Folder;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 
 class ProductCategory extends DataObject {
 
@@ -106,8 +107,8 @@ class ProductCategory extends DataObject {
 		$fields->removeByName('Code');
 		$fields->dataFieldByName('Icon')->setFolderName($this->getFolderName());
 		if ($this->ID > 0){
-			$fields->dataFieldByName('Products')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
-			$fields->dataFieldByName('Options')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
+			$fields->dataFieldByName('Products')->getConfig()->removeComponentByType(GridFieldDeleteAction::class)->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
+			$fields->dataFieldByName('Options')->getConfig()->removeComponentByType(GridFieldDeleteAction::class)->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
 		}
 	
 
@@ -120,6 +121,7 @@ class ProductCategory extends DataObject {
 		$labels['Subtitle'] = 'Untertitel';
 		$labels['Description'] = 'Beschreibung';
 		$labels['Products'] = 'Produkte';
+		$labels['Options'] = 'Optionen';
 		$labels['Icon'] = 'Bild';
 
 		return $labels;
