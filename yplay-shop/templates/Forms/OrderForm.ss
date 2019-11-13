@@ -128,7 +128,7 @@
                     
                         <h3>Optionen</h3>
                             
-                            <div class="uk-grid-small uk-flex uk-flex-top uk-child-width-1-1" data-uk-grid>
+                            <div class="uk-grid-small uk-flex uk-flex-top uk-child-width-1-1 options" data-uk-grid>
                             	<% loop Controller.filteredOptions.groupedBy(CategoryTitle) %>
                             	 <div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-body uk-transition-toggle">
 						           	<h4 class="uk-card-title">$CategoryTitle</h4>
