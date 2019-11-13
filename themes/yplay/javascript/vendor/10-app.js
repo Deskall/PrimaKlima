@@ -190,7 +190,6 @@ $('a[href$="#ga-optout"]').click(function(){
     return false;
 });
 
-
 //ensure minimum height for main content
 $(document).ready(function(){
   resizeMain();
