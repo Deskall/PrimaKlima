@@ -56,10 +56,11 @@ class ProductCategory extends DataObject {
 	}
 
 	public function Thumbnail(){
+		$html = '';
 		if ($this->Icon()->exists()){
-			return '<img src="'.$this->Icon()->URL.'" width="100" >';
+			$html = '<img src="'.$this->Icon()->URL.'" width="100" >';
 		}
-		return '';
+		return DBHTMLText::create()->setValue($html);
 	}
 
 
