@@ -59,8 +59,8 @@
                         	<% end_with %>
                         </div>
                         <div class="uk-margin-small uk-align-center">
-                        	<a class="step uk-button-muted"  data-target="0">Zurück</a>
-            	            <a class="step uk-button-primary"  data-target="2">Weiter</a>
+                        	<a class="step uk-button uk-button-muted"  data-target="0">Zurück</a>
+            	            <a class="step uk-button uk-button-primary"  data-target="2">Weiter</a>
             	        </div>
                     </div>
                 </li>
@@ -73,8 +73,8 @@
                         		
                         </div>
                         <div class="uk-margin-small uk-align-center">
-                        	<a class="step uk-button-muted"  data-target="1">Zurück</a>
-            	            <a class="step uk-button-primary"  data-target="3">Weiter</a>
+                        	<a class="step uk-button uk-button-muted"  data-target="1">Zurück</a>
+            	            <a class="step uk-button uk-button-primary"  data-target="3">Weiter</a>
             	        </div>
                     </div>
                 </li>
@@ -87,8 +87,8 @@
                             		
                             </div>
                             <div class="uk-margin-small uk-align-center">
-                            	<a class="step uk-button-muted"  data-target="2">Zurück</a>
-                	            <a class="step uk-button-primary"  data-target="4">Weiter</a>
+                            	<a class="step uk-button uk-button-muted"  data-target="2">Zurück</a>
+                	            <a class="step uk-button uk-button-primary"  data-target="4">Weiter</a>
                 	        </div>
                         </div>
                 </li>
@@ -102,8 +102,8 @@
                             	<% end_loop %>
                             </div>
                             <div class="uk-margin-small uk-align-center">
-                            	<a class="step uk-button-muted"  data-target="3">Zurück</a>
-                	            <a class="step uk-button-primary"  data-target="5">Weiter</a>
+                            	<a class="step uk-button uk-button-muted"  data-target="3">Zurück</a>
+                	            <a class="step uk-button uk-button-primary"  data-target="5">Weiter</a>
                 	        </div>
                         </div>
                 </li>
