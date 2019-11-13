@@ -98,15 +98,18 @@ class ShopPageController extends PageController
 
       //Retrive Cart
       $cart = ShopCart::get()->byId($this->getRequest()->getSession()->get('shopcart_id'));
-      //Add Dependent Fields
-      //1. Phone
-      if ($cart->hasCategory('yplay-talk')){
-         $form->Fields()->push(HeaderField::create('PhoneTitle','Ihre Telefonnummer',3));
-         $form->Fields()->push(OptionSetField::create('PhoneOption','Label',['existing' => 'Bestehende Rufnummer(n) übernehmen', 'new' => 'Neue Rufnummer(n) bestellen', 'wish' => 'Wunschnummer bestellen']));
-         $form->Fields()->push(TextField::create('ExistingPhone','Bei einer Übernahme der Rufnummer die bestehenden Verträge bitte NICHT kündigen. Wir übernehmen dies für Sie.'));
-         $form->Fields()->push(TextField::create('WishPhone','Label'));
-         
+      if ($cart){
+         //Add Dependent Fields
+         //1. Phone
+         if ($cart->hasCategory('yplay-talk')){
+            $form->Fields()->push(HeaderField::create('PhoneTitle','Ihre Telefonnummer',3));
+            $form->Fields()->push(OptionSetField::create('PhoneOption','Label',['existing' => 'Bestehende Rufnummer(n) übernehmen', 'new' => 'Neue Rufnummer(n) bestellen', 'wish' => 'Wunschnummer bestellen']));
+            $form->Fields()->push(TextField::create('ExistingPhone','Bei einer Übernahme der Rufnummer die bestehenden Verträge bitte NICHT kündigen. Wir übernehmen dies für Sie.'));
+            $form->Fields()->push(TextField::create('WishPhone','Label'));
+            
+         }
       }
+      
 
       $form->addExtraClass('uk-form-horizontal form-std');
       $form->setTemplate('Forms/OrderForm');
