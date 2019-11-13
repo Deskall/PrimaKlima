@@ -150,7 +150,7 @@
 						</ul>
 					</div>
 					<div class="uk-margin">
-						$ConditionsText
+						<div class="conditions-container">$ConditionsText</div>
 					</div>
 				</div>
 				<div class="uk-width-expand uk-visible@m">
