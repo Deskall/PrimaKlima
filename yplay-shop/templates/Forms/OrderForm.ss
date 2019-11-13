@@ -7,12 +7,20 @@
    <div data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: true">
 	   <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 	       <div class="uk-navbar-center">
-	       		<ul id="order-nav" class="uk-navbar-nav" data-uk-switcher="connect:#order-form-steps">
+	       		<ul id="order-nav" class="uk-navbar-nav">
 	   	            <li class="uk-active" data-nav="1"><a >1. Kundendaten</a></li>
 	   	            <li  data-nav="2">
 	   	                <a>2. Bestellungsdaten</a>
 	   	            </li>
 	   	            <li data-nav="3"><a>3. Überprüfung</a></li>
+	   	        </ul>
+	   	        <ul id="order-nav-switcher" data-uk-switcher="connect:#order-form-steps">
+	   	            <li class="uk-active"><a>Kundendaten</a></li>
+	   	            <li><a>Adresse</a></li>
+	   	            <li><a>Rechnug</a></li>
+	   	            <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %><li><a >Telefon</a></li><% end_if %>
+	   	            <%-- <li><a >Mobile</a></li> --%>
+	   	            <li><a >Optionen</a></li>
 	   	        </ul>
 	       </div>
 	   </nav>
@@ -27,7 +35,7 @@
     <p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
     <% end_if %>
             <ul id="order-form-steps" class="uk-switcher">
-                <li class="uk-active uk-margin-top" data-step="customer">
+                <li class="uk-active uk-margin-top" data-step="customer" data-index="0">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<div class="uk-margin">
                         		<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
@@ -46,7 +54,7 @@
                         </div>
                         
                 </li>
-                <li class="uk-margin" data-step="address">
+                <li class="uk-margin" data-step="address" data-index="1">
                   
                     
                         
@@ -63,7 +71,7 @@
             	        </div>
                    
                 </li>
-                    <li class="uk-margin" data-step="bill-address">
+                <li class="uk-margin" data-step="bill-address" data-index="2">
                      
                         
                             
@@ -77,7 +85,7 @@
                 	            <a class="step forward uk-button uk-button-primary"  data-target="3" data-nav="2">Weiter</a>
                 	        </div>
                        
-                    </li>
+                </li>
                 <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %>
                 <li class="uk-margin" data-step="phone">
                 
@@ -115,7 +123,7 @@
                         </div>
                 </li>
                 <% end_if %> --%>
-                <li class="uk-margin" data-step="options">
+                <li class="uk-margin" data-step="options" data-index="3">
                     
                         
                             
