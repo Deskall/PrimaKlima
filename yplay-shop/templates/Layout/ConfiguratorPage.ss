@@ -1,7 +1,7 @@
-$ElementalArea
 
 	<section class="uk-section uk-section-medium" style="background-color:#eee;">
 		<div class="uk-container uk-container-medium">
+			<h1>$Title</h1>
 			<h2>Kombinieren Sie Selber Ihres Traum-Paket</h2>
 			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
@@ -112,105 +112,45 @@ $ElementalArea
 					<div class="uk-margin">
 						<ul data-uk-accordion>
 						    <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin">
-						        <a class="uk-accordion-title">Weitere Angebote</a>
+						        <a class="uk-accordion-title">$OtherOffersTitle</a>
 						        <div class="uk-accordion-content">
-						            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						           	$OtherOffersLabel
 						            <div class="uk-grid-small uk-grid-match uk-child-width-auto" data-uk-grid>
+						            	<% loop activePackages %>
 						            	<div>
 						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">
-						            		    <h3 class="uk-card-title">Abo S</h3>
-						            		    <strong>CHF 45.- / Mt.</strong>
+						            		    <h3 class="uk-card-title">$Title</h3>
+						            		    <strong>$PrintPriceString</strong>
 						            		    <table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
-						            		    	<tr>
-						            		    		<td><strong>Internet</strong></td>
-						            		    		<td>1Gb/s Download<br><small>100 Mo/s Upload</small></td>
-						            		    	</tr>
-						            		    	<tr>
-						            		    		<td><strong>TV</strong></td>
-						            		    		<td>140 Sender<br>Replay TV</td>
-						            		    	</tr>
-						            		    	<tr>
-						            		    		<td><strong>Telefonie</strong></td>
-						            		    		<td>Flatrate CH<br>Flatrate Europa</td>
-						            		    	</tr>
+						            		    	<% if Items %>
+							            		    	<% loop Items %>
+							            		    	<tr>
+							            		    		<td><strong>$Title</strong></td>
+							            		    		<td>$Content</td>
+							            		    	</tr>
+							            		    	<% end_loop %>
+							            		    <% else_if Products %>
+							            		    	<% loop Products %>
+							            		    	<tr>
+							            		    		<td><strong>$Title</strong></td>
+							            		    		<td>$SubTitle</td>
+							            		    	</tr>
+							            		    	<% end_loop %>
+							            		    <% end_if %>
 						            		    </table>
 						            		    <div class="uk-margin uk-transition-fade">
-						            		    	<a class="uk-button BlackBackground" href="$ShopPage.Link">Bestellen</a>
+						            		    	<a class="uk-button BlackBackground" href="$ShopPage.Link"><%t ConfiguratorPage.Order 'Bestellen' %></a>
 						            		    </div>
 						            		</div>
 						            	</div>
-						            	<div>
-						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">
-						            		    <div class="uk-card-badge uk-label BlackBackground uk-padding-small">Bestseller</div>
-						            		    <h3 class="uk-card-title">Abo M</h3>
-						            		    <strong>CHF 65.- / Mt.</strong>
-						            		    <table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
-						            		    	<tr>
-						            		    		<td><strong>Internet</strong></td>
-						            		    		<td>1Gb/s Download<br><small>100 Mo/s Upload</small></td>
-						            		    	</tr>
-						            		    	<tr>
-						            		    		<td><strong>TV</strong></td>
-						            		    		<td>140 Sender<br>Replay TV</td>
-						            		    	</tr>
-						            		    	<tr>
-						            		    		<td><strong>Telefonie</strong></td>
-						            		    		<td>Flatrate CH<br>Flatrate Europa</td>
-						            		    	</tr>
-						            		    </table>
-						            		    <div class="uk-margin uk-transition-fade">
-						            		    	<a class="uk-button BlackBackground" href="$ShopPage.Link">Bestellen</a>
-						            		    </div>
-						            		</div>
-						            	</div>
-						            	<div>
-						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">
-						            		    <h3 class="uk-card-title">Abo L</h3>
-						            		    <strong>CHF 85.- / Mt.</strong>
-						            		   	<table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
-						            		    	<tr>
-						            		    		<td><strong>Internet</strong></td>
-						            		    		<td>1Gb/s Download<br><small>100 Mo/s Upload</small></td>
-						            		    	</tr>
-						            		    	<tr>
-						            		    		<td><strong>TV</strong></td>
-						            		    		<td>140 Sender<br>Replay TV</td>
-						            		    	</tr>
-						            		    	<tr>
-						            		    		<td><strong>Telefonie</strong></td>
-						            		    		<td>Flatrate CH<br>Flatrate Europa</td>
-						            		    	</tr>
-						            		    </table>
-						            		    <div class="uk-margin uk-transition-fade">
-						            		    	<a class="uk-button BlackBackground" href="$ShopPage.Link">Bestellen</a>
-						            		    </div>
-						            		</div>
-						            	</div>
+						            	<% end_loop %>
 						            </div>
-						        </div>
-						    </li>
-						    <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin">
-						        <a class="uk-accordion-title">Optionen</a>
-						        <div class="uk-accordion-content">
-						            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
-						        </div>
-						    </li>
-						    <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin">
-						        <a class="uk-accordion-title">Aktionen</a>
-						        <div class="uk-accordion-content">
-						            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
 						        </div>
 						    </li>
 						</ul>
 					</div>
 					<div class="uk-margin">
-						<% if $ElementalArea.ElementControllers %>
-						    <% loop $ElementControllers %>
-							    <% if not isPrimary %>
-								   $Me
-								<% end_if %>
-						    <% end_loop %>
-						<% end_if %>
+						$ConditionsText
 					</div>
 				</div>
 				<div class="uk-width-expand uk-visible@m">
@@ -218,7 +158,6 @@ $ElementalArea
 						<div class="uk-card WhiteBackground uk-card-hover uk-box-shadow-medium uk-card-small">
 							<div class="uk-card-header">
 								<h3 class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %></h3>
-								<strong>Abobezeichnung</strong>
 							</div>
 							<div class="uk-card-body order-preview">
 								
