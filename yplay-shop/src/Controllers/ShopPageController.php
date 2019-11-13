@@ -182,7 +182,7 @@ class ShopPageController extends PageController
 
 
    public function filteredOptions(){
-      $options = ProductOption::get()->filterByCallback(function($item, $list) {
+      $options = ProductOption::get()->filter('GroupID',0)->filterByCallback(function($item, $list) {
           return ($item->shouldDisplay());
       })->sort('CategoryTitle');
       

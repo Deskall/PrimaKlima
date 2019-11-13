@@ -136,7 +136,7 @@
 						           		<% loop Children %>
 							           		<% if hasOptions %>
 								           		<% loop Options %>
-								           		<tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox" name="$Group.ProductCode" value="$ProductCode"></td><td class="uk-table-expand">$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+								           		<tr><td class="uk-table-shrink"><input type="radio" class="uk-radio" name="$Group.ProductCode" value="$ProductCode"></td><td class="uk-table-expand">$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
 								           		<% end_loop %>
 								           	<% else %>
 								           	<tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox" name="$ProductCode"></td><td class="uk-table-expand">$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
