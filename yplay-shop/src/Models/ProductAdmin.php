@@ -63,6 +63,9 @@ class ProductAdmin extends ModelAdmin{
 		if($this->modelClass == 'Product') {
 	      $list = $list->filter('ClassName','Product');
 	    }
+	    if($this->modelClass == 'ProductOption') {
+	      $list = $list->filter('GroupID',0);
+	    }
 		return $list;
 	}
 
