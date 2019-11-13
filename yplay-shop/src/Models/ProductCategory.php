@@ -107,6 +107,7 @@ class ProductCategory extends DataObject {
 		$fields->dataFieldByName('Icon')->setFolderName($this->getFolderName());
 		if ($this->ID > 0){
 			$fields->dataFieldByName('Products')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
+			$fields->dataFieldByName('Options')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
 		}
 	
 
