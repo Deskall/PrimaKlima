@@ -14,7 +14,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class ProductAdmin extends ModelAdmin{
 
-	private static $menu_icon_class = "font-icon-database";
+	private static $menu_icon = "../images/icon-verkauf.png";
 	private static $url_segment = "shop";
 	private static $menu_title = "Shop";
 	
