@@ -11,7 +11,7 @@
                     <div class="uk-accordion-title">1. Kundendaten</div>
                     <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                         
-                        <div class="uk-grid-small" data-uk-grid>
+                        <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<div>
                         		<p><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></p>
                         	</div>
