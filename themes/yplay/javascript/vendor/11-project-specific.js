@@ -85,6 +85,17 @@ $(document).ready(function(){
 				nav.addClass('uk-active');
 			}
 		});
+
+		$(document).on("change","input[name='BillSameAddress']",function(){
+			if ($(this).is(':checked')){
+				$("li[data-step='address']").find('.forward').attr('data-target','3').attr('data-nav','2');
+				$("li[data-step='phone']").find('.backward').attr('data-target','2');
+			}
+			else{
+				$("li[data-step='address']").find('.forward').attr('data-target','4').attr('data-nav','1');
+				$("li[data-step='phone']").find('.backward').attr('data-target','2');
+			}
+		});
 	}
 
 
