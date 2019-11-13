@@ -71,6 +71,12 @@ class ShopPageController extends PageController
                TextField::create('BillCity','Stadt'),
                DropdownField::create('BillCountry','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch')
             )->setName('BillFields'),
+            CompositeField::create(
+               HeaderField::create('OtherTitle','Weitere Angaben',3),
+               TextareaField::create('Comments','Bemerkungen'),
+               CheckboxField::create('Newsletter','Ich abonniere den Newsletter'),
+               CheckboxField::create('AGB','Ich bin mit den AGB einverstanden')
+            )->setName('OtherFields'),
             HiddenField::create('ExistingCustomer')
          ),
          new FieldList(

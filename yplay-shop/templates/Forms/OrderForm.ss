@@ -156,8 +156,9 @@
                    
                         
                         <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
-                        	
-                        		
+                        	<% with Fields.FieldByName('OtherFields') %>
+                        		$FieldHolder 
+                        	<% end_with %>
                         </div>
                         <div class="uk-margin-small uk-align-right">
                         	<a class="step backwards uk-button uk-button-muted" href="#" data-target="4" data-nav="2">Zurück</a>
