@@ -132,6 +132,11 @@
                             	<% loop Controller.filteredOptions.groupedBy(CategoryTitle) %>
                             	 <div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-body uk-transition-toggle">
 						           	<h4 class="uk-card-title">$CategoryTitle</h4>
+						           	<table class="uk-table uk-table-small">
+						           		<% loop Children %>
+						           		<tr><td class="uk-table-expand">$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+						           		<% end_loop %>
+						           	</table>
 						         </div>
                             	<% end_loop %>
                             </div>
