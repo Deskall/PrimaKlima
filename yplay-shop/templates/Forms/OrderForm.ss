@@ -34,7 +34,7 @@
                         	</div>
                         	<div>
 	                        	<div class="uk-flex uk-flex-around">
-	                        		<button class="uk-button step" data-target="1" data-nav="1" type="button">Ja</button>
+	                        		<button class="uk-button step" data-target="1" data-nav="1" type="button" data-uk-toggle="[data-step='address']">Ja</button>
 	                        		<button class="uk-button step" data-target="1" data-nav="1" type="button">Nein</button>
 	                             </div>
 	                         </div>
