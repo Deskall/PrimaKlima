@@ -1,7 +1,0 @@
----
-Name: shopcontrollerroutes
-After: '#coreroutes'
----
-SilverStripe\Control\Director:
-  rules:
-    'shop-functions': 'ShopController'
