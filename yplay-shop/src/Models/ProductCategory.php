@@ -57,7 +57,7 @@ class ProductCategory extends DataObject {
 
 	public function Thumbnail(){
 		if ($this->Icon()->exists()){
-			return $this->Icon();
+			return '<img src="'.$this->Icon()->URL'." width="100" >';
 		}
 		return '';
 	}
