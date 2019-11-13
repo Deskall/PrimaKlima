@@ -51,14 +51,14 @@ class ShopPageController extends PageController
          new FieldList(
             CompositeField::create(
                DropdownField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Bitte wählen')),
-               TextField::create('Name','Name'),
-               TextField::create('FirstName','Vorname'),
-               EmailField::create('Email','E-Mail'),
-               TextField::create('Phone','Tel.'),
-               DateField::create('Birthday','Geburstdatum'),
-               TextField::create('Address','Adresse'),
-               TextField::create('PostalCode','PLZ'),
-               TextField::create('City','Stadt'),
+               TextField::create('Name','Name')->setAttribute('class','uk-input'),
+               TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
+               EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
+               TextField::create('Phone','Tel.')->setAttribute('class','uk-input'),
+               DateField::create('Birthday','Geburstdatum')->setAttribute('class','uk-input'),
+               TextField::create('Address','Adresse')->setAttribute('class','uk-input'),
+               TextField::create('PostalCode','PLZ')->setAttribute('class','uk-input'),
+               TextField::create('City','Stadt')->setAttribute('class','uk-input'),
                DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch'),
                CheckboxField::create('BillSameAddress','identische Rechnungsadresse?')->setValue(1)
             )->setName('AddressFields'),
