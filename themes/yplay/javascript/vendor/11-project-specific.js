@@ -104,6 +104,7 @@ $(document).ready(function(){
 			if ($(this).is(':checked')){
 				options.push($(this).attr('data-value'));
 			}
+			UpdateCart(options);
 		});
 	}
 
