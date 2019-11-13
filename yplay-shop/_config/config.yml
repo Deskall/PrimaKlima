@@ -7,6 +7,6 @@ BaseBlockExtension:
   children_blocks:
     - ProductBlock
 
-# SilverStripe\SiteConfig\SiteConfig:
-#   extensions:
-#     - ShopConfigExtension
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - ShopConfigExtension
