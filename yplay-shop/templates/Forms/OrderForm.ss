@@ -97,7 +97,7 @@
                         <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                             
                             <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
-                            	<% loop activeOptions %>
+                            	<% loop filteredOptions %>
                             	$Title
                             	<% end_loop %>
                             </div>
