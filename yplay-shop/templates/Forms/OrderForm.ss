@@ -69,7 +69,7 @@
                         <div class="uk-accordion-content uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
                             
                             <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
-                            	<% with Fields.FieldByName('AddressFields') %>
+                            	<% with Fields.FieldByName('BillFields') %>
                             		$FieldHolder 
                             	<% end_with %>
                             </div>
