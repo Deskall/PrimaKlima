@@ -9,11 +9,13 @@ class ShopCart extends DataObject {
 	private static $db = [
 		'IP' => 'Varchar',
 		'TotalMonthlyPrice' => 'Varchar',
-		'TotalUniquePrice' => 'Varchar'
+		'TotalUniquePrice' => 'Varchar',
+		'Purchased' => 'Boolean(0)'
 	];
 
 	private static $has_one = [
-		'Package' => Package::class
+		'Package' => Package::class,
+		'Customer' => ShopCustomer::class
 	];
 
 	private static $many_many = [
