@@ -88,21 +88,17 @@
                         </div>
                         <div class="uk-margin-small uk-align-right">
                         	<a class="step backwards uk-button uk-button-muted" href="#" data-target="1">Zurück</a>
-            	            
+            	            <% if $Actions %>
+	            	            <% loop $Actions %>
+				        			$Field
+				        		<% end_loop %>
+				        	<% end_if %>
             	        </div>
                     </div>
                 </li>
             </ul>
-        	<% if $Actions %>
-        	<div class="btn-toolbar">
-        		<% loop $Actions %>
-        			$Field
-        		<% end_loop %>
-        	</div>
-        	<% end_if %>
         <% if $IncludeFormTag %>
         </form>
         <% end_if %>
-
     </div>
 
