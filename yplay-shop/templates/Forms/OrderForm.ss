@@ -30,7 +30,7 @@
                         	</div>
                         	<div>
 	                        	<div class="uk-flex uk-flex-around">
-	                        		<button class="uk-button step backwards" data-target="address">Ja</button>
+	                        		<button class="uk-button" data-uk-toggle="#email-container">Ja</button>
 	                        		<button class="uk-button step backwards" data-target="address">Nein</button>
 	                             </div>
 	                         </div>
