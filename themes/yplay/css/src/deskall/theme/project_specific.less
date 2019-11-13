@@ -357,6 +357,18 @@ footer.uk-section{
 
 //ShopPage
 body.ShopPage{
+	#order-nav{
+		> li > a {
+			color: @global-color;
+		}
+		> li.uk-active{
+			background-color: @global-emphasis-background;
+			border-radius:10px;
+			a {
+				color:#fff;
+			}
+		}
+	}
 	#order-form-steps{
 		> li:not(.uk-open){
 			display: none;

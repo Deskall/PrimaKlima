@@ -7,7 +7,7 @@
    <div data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: true">
 	   <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 	       <div class="uk-navbar-center">
-	       		<ul class="uk-navbar-nav">
+	       		<ul id="order-nav" class="uk-navbar-nav">
 	   	            <li class="uk-active"><a >1. Kundendaten</a></li>
 	   	            <li class="uk-disabled">
 	   	                <a  disabled="disabled">2. Bestellungsdaten</a>
