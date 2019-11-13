@@ -88,7 +88,10 @@ class Product extends DataObject {
 
 		$fields->fieldByName('Root.Main.Unit')->displayIf('RecurringPrice')->isNotChecked();
 		$fields->fieldByName('Root.Main.UniquePriceLabel')->displayIf('RecurringPrice')->isChecked();
-		$fields->addFieldToTab('Root.Items',HTMLEditorField::create('FooterText',$this->fieldLabels()['FooterText'])->setRows(3));
+		if ($this->ID > 0){
+			$fields->addFieldToTab('Root.Items',HTMLEditorField::create('FooterText',$this->fieldLabels()['FooterText'])->setRows(3));
+		}
+		
 		return $fields;
 	}
 
