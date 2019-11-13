@@ -32,7 +32,10 @@ class ShopOrder extends DataObject{
 		'WishPhone' => 'Varchar',
 		'ExistingCustomer' => 'Boolean(0)',
 		'MonthlyPrice' => 'Currency',
-		'UniquePrice' => 'Currency'
+		'UniquePrice' => 'Currency',
+		'AGB' => 'Boolean(0)',
+		'AGBMobile' => 'Boolean(0)',
+		'Comments' => 'Text'
 	);
 
 	private static $has_one = array(
