@@ -44,10 +44,11 @@ class ProductOption extends Product {
 
 		if ($this->ID > 0){
 			$fields->dataFieldByName('Options')->displayIf('hasOptions')->isChecked();
+			if ($this->GroupID > 0){
+				$fields->removeByName('Options');
+			}
 		}
-		if ($this->GroupID > 0){
-			$fields->removeByName('Options');
-		}
+		
 		return $fields;
 	}
 
