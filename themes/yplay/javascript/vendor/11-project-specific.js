@@ -132,7 +132,7 @@ $(document).ready(function(){
 			var options = {
 				center: true
 			};
-			UIkit.slider($(this),options).show(index);
+			UIkit.slider($(this),options);
 		});
 	}
 
