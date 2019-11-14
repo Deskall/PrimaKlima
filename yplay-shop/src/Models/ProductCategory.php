@@ -138,28 +138,32 @@ class ProductCategory extends DataObject {
 		return $products;
 	}
 
+	public function getPreselected(){
+		return $this->Products()->filter('Preselected',1)->first();
+	}
+
 
 	public function activeIndex(){
-		// $session = Controller::curr()->getRequest()->getSession();
-		// if ($session->get('shopcart_id')){
-		// 	//fet
+		// // $session = Controller::curr()->getRequest()->getSession();
+		// // if ($session->get('shopcart_id')){
+		// // 	//fet
+		// // }
+		// $cart =  Controller::curr()->activeCart();
+		// if ($cart){
+		// 	//if package take products package
+		// 	if ($cart->Package()->exists()){
+		// 		$p = $cart->Package()->Products()->filter('CategoryID',$this->ID)->first();
+		// 		if ($p){
+		// 			return $p->Sort;
+		// 		}
+		// 	}
+		// 	//else we look for products
+		// 	if ($cart->Products()->exists() && $cart->Products()->filter('CategoryID',$this->ID)->first()){
+		// 		$p = $cart->Products()->filter('CategoryID',$this->ID)->first();
+		// 		return $p->Sort;
+		// 	}
 		// }
-		$cart =  Controller::curr()->activeCart();
-		if ($cart){
-			//if package take products package
-			if ($cart->Package()->exists()){
-				$p = $cart->Package()->Products()->filter('CategoryID',$this->ID)->first();
-				if ($p){
-					return $p->Sort;
-				}
-			}
-			//else we look for products
-			if ($cart->Products()->exists() && $cart->Products()->filter('CategoryID',$this->ID)->first()){
-				$p = $cart->Products()->filter('CategoryID',$this->ID)->first();
-				return $p->Sort;
-			}
-		}
-		return $this->filteredProducts()->filter('Preselected',1)->first()->Sort;
+		return $this->getPreselected()->Sort;
 	}
 
 

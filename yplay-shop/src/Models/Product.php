@@ -14,6 +14,7 @@ class Product extends DataObject {
 	'ProductCode' => 'Varchar',
 	'Title' => 'Varchar',
 	'Subtitle' => 'Text',
+	'Preselected' => 'Boolean(0)',
 	'BestSeller' => 'Boolean(0)',
 	'RecurringPrice' => 'Boolean(1)',
 	'Price' => 'Currency',
@@ -50,6 +51,11 @@ class Product extends DataObject {
 	    if (!$this->ProductCode || $this->ID == 0){
 	    	$this->ProductCode = URLSegmentFilter::create()->filter($this->Title);
 	    }
+	    if ($this->Preselected){
+	    	$previous = $this->Category()->getPreselected();
+	    	$previous->Preselected = false;
+	    	$previous->write();
+	    }
 		parent::onBeforeWrite();
 	}
 
@@ -67,6 +73,7 @@ class Product extends DataObject {
 		$labels['PrintPriceString'] = 'Preis';
 		$labels['BestSeller'] = 'Bestseller?';
 		$labels['FooterText'] = 'Weitere Informationen (wird im Produkt Kart zeigt an boden.)';
+		$labels['Preselected'] = 'standardmäßig ausgewählt?';
 
 		return $labels;
 	}
