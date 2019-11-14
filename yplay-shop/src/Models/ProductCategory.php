@@ -150,16 +150,16 @@ class ProductCategory extends DataObject {
 			if ($cart->Package()->exists()){
 				$p = $cart->Package()->Products()->filter('CategoryID',$this->ID)->first();
 				if ($p){
-					return $p->ID;
+					return $p->Sort;
 				}
 			}
 			//else we look for products
 			if ($cart->Products()->exists() && $cart->Products()->filter('CategoryID',$this->ID)->first()){
 				$p = $cart->Products()->filter('CategoryID',$this->ID)->first();
-				return $p->ID;
+				return $p->Sort;
 			}
 		}
-		return $this->filteredProducts()->filter('Preselected',1)->first()->ID;
+		return $this->filteredProducts()->filter('Preselected',1)->first()->Sort;
 	}
 
 
