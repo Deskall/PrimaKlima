@@ -39,6 +39,8 @@ $(document).ready(function(){
 		var packages = [];
 		var productsOfPackages = [];
 
+		InitSliders();
+
 		//fetch the cart
 		// $.ajax({
 		// 	url: '/shop-functions/getActiveCart',
@@ -120,6 +122,15 @@ $(document).ready(function(){
 	}
 
 
+
+	function InitSliders(){
+		$(".uk-slider-products").each(function(){
+			var options = {
+				center: true
+			};
+			UIkit.slider($(this),options);
+		});
+	}
 
 
 	function UpdateOrder(){
