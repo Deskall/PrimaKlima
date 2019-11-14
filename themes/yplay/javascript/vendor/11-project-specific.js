@@ -124,14 +124,16 @@ $(document).ready(function(){
 
 
 	function InitSliders(){
+		var index;
+		var options;
 		$(".slider-products").each(function(){
-			var index = 1;
+			index = 1;
 			if ($(this).attr('data-index') > 0){
 				index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-index')+'"]').attr('data-index')) - 1;
 			}
-			var options = {
+			options = {
 				center: true,
-				index: index
+				index: index.toString()
 			};
 			UIkit.slider($(this),options);
 		});
