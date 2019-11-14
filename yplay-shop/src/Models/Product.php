@@ -127,7 +127,6 @@ class Product extends DataObject {
 	}
 
 	public function inCart(){
-		var_dump('ici');
 		$request = Injector::inst()->get(HTTPRequest::class);
 		$session = $request->getSession();
 		if ($session->get('shopcart_id')){

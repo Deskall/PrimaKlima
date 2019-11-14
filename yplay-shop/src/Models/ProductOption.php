@@ -66,6 +66,18 @@ class ProductOption extends Product {
 		}
 		return null;
 	}
+
+	public function inCart(){
+		$request = Injector::inst()->get(HTTPRequest::class);
+		$session = $request->getSession();
+		if ($session->get('shopcart_id')){
+			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
+			if ($cart){
+				return $cart->Options()->byId($this->ID);
+			}
+		}
+		return false;
+	}
 	
 }
 
