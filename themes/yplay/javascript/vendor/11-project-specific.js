@@ -114,12 +114,12 @@ $(document).ready(function(){
 		});
 
 		$("li[data-step='options'] tr").on("click",":not(.uk-checkbox)",function(e){
-			
-			if ($(this).find('input').is(":checked")){
-				$(this).find('input').prop("checked",false).trigger("change");
+
+			if ($(this).parent('tr').find('input').is(":checked")){
+				$(this).parent('tr').find('input').prop("checked",false).trigger("change");
 			}
 			else{
-				$(this).find('input').prop("checked",true).trigger("change");
+				$(this).parent('tr').find('input').prop("checked",true).trigger("change");
 			}
 		});
 
