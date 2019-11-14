@@ -194,7 +194,6 @@ $(document).ready(function(){
 	}
 
 	function UpdateCart(options){
-		console.log(options);
 		$.ajax({
 			url: '/shop-functions/updateCartOptions',
 			method: 'POST',

@@ -74,10 +74,11 @@ class ProductOption extends Product {
 		$session = $request->getSession();
 		if ($session->get('shopcart_id')){
 			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
-			if ($this->ProductCode == "fixe-ip"){
-				var_dump($cart->Options()->count());
-			}
+
 			if ($cart){
+				if ($this->ProductCode == "fixe-ip"){
+					var_dump($cart->Options()->byId($this->ID));
+				}
 				if ($cart->Options()->byId($this->ID)){
 					return true;
 				}
