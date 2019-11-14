@@ -77,7 +77,7 @@ class ProductOption extends Product {
 
 			if ($cart){
 				if ($this->ProductCode == "fixe-ip"){
-					var_dump($cart->Options()->byId($this->ID));
+					var_dump($cart->Options()->column('ID'));
 				}
 				if ($cart->Options()->byId($this->ID)){
 					return true;
