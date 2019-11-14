@@ -114,10 +114,12 @@ $(document).ready(function(){
 		});
 
 		$(document).on("click","li[data-step='options'] tr",function(){
-			$(this).find('input').trigger('click');
-			// if ($(this).find('input').is(":checked")){
-			// 	$(this).find('input').prop
-			// }
+			if ($(this).find('input').is(":checked")){
+				$(this).find('input').prop("checked",false).trigger("change");
+			}
+			else{
+				$(this).find('input').prop("checked",true).trigger("change");
+			}
 		});
 
 		$(document).on("change",".options input",function(){
