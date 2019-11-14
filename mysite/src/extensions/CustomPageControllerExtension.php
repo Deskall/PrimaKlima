@@ -65,10 +65,12 @@ class CustomPageControllerExtension extends Extension
         // $plz = $this->owner->getRequest()->getSession()->get('active_plz');
         if ($plz){
             $PostalCode = PostalCode::get()->byId($plz);
-            if (!$this->owner->getRequest()->getSession()->get('active_plz')){
-               $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID); 
+            if ($PostalCode){
+                if (!$this->owner->getRequest()->getSession()->get('active_plz')){
+                   $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID); 
+                }
+                return $PostalCode;
             }
-            return $PostalCode;
         }
         return null;
     }
