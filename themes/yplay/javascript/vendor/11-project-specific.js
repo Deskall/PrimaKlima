@@ -136,7 +136,7 @@ $(document).ready(function(){
 				center: true,
 				index: index
 			};
-			UIkit.slider($(this),options);
+			UIkit.slider("#"+$(this).attr('id'),options);
 		});
 	}
 
