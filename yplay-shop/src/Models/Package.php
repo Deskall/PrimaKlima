@@ -48,6 +48,7 @@ class Package extends Product {
 		return $fields;
 	}
 
+	/* Calculate difference between the sum of all products prices and the Package price */
 	public function PriceGain(){
 		$altPrice = 0;
 		$altPriceU = 0;
@@ -59,5 +60,7 @@ class Package extends Product {
 		$gainU = ($altPriceU > 0) ? number_format( ((($this->Price + $this->ActivationPrice)/ $altPriceU) - 1) * 100,0 ) : 0;
 		return new ArrayData(['gainM' => $gainM, 'gainU' => $gainU]);
 	}
+
+	
 }
 

@@ -107,4 +107,29 @@ class ShopController extends PageController
       return null;
       
    } 
+
+   /* Update the Cart and link to Order Page */
+   public function OrderLink(){
+      //Fetch cart or create if null
+     
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+      if (!$cart){
+         $cart = new ShopCart();  
+      }
+      $cart->IP = $this->getRequest()->getIp();
+
+      //fetch package and link it
+      $packageID = $this->getRequest()->getVar('packageID');
+      $package = Package::get()->byId($packageID);
+      if ($package){
+         $cart->PackageID = $package->ID;
+      }
+      $cart->write();
+      $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+      return $this->redirect($this->ShopPage()->Link(),302);
+   }
 }
