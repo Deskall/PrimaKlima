@@ -70,7 +70,7 @@ class ProductCategory extends DataObject {
 
 	public function NiceProducts(){
 		$html = '';
-		foreach ($this->Products() as $p) {
+		foreach ($this->Products()->filter('ClassName',Product::class) as $p) {
 			$html .= $p->Title."<br>";
 		}
 		return DBHTMLText::create()->setValue($html);
@@ -130,7 +130,7 @@ class ProductCategory extends DataObject {
 	}
 
 	public function filteredProducts(){
-		$products = $this->Products()->filterByCallback(function($item, $list) {
+		$products = $this->Products()->filter('ClassName',Product::class)->filterByCallback(function($item, $list) {
 		    return ($item->shouldDisplay());
 		});
 		// foreach($products as $product){
