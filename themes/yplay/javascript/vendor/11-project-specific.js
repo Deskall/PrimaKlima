@@ -120,7 +120,7 @@ $(document).ready(function(){
 		var options;
 		$(".slider-products").each(function(){
 			index = 1;
-			if ($(this).attr('data-index') > 0){
+			if ($(this).attr('data-id') > 0){
 				index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
 			}
 			console.log(index);
