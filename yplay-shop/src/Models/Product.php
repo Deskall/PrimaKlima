@@ -53,14 +53,14 @@ class Product extends DataObject {
 	    }
 	    if ($this->Preselected){
 	    	$previous = $this->Category()->getPreselected();
-	    	if ($previous){
+	    	if ($previous && $previous->ID != $this->ID){
 	    		$previous->Preselected = false;
 	    		$previous->write();
 	    	}
 	    }
 	    if ($this->BestSeller){
 	    	$previous = $this->Category()->getBestSeller();
-	    	if ($previous){
+	    	if ($previous && $previous->ID != $this->ID){
 	    		$previous->BestSeller = false;
 	    		$previous->write();
 	    	}
