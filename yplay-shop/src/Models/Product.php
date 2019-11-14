@@ -58,6 +58,13 @@ class Product extends DataObject {
 	    		$previous->write();
 	    	}
 	    }
+	    if ($this->BestSeller){
+	    	$previous = $this->Category()->getBestSeller();
+	    	if ($previous){
+	    		$previous->BestSeller = false;
+	    		$previous->write();
+	    	}
+	    }
 		parent::onBeforeWrite();
 	}
 

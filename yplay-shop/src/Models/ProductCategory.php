@@ -142,6 +142,10 @@ class ProductCategory extends DataObject {
 		return $this->Products()->filter('Preselected',1)->first();
 	}
 
+	public function getBestSeller(){
+		return $this->Products()->filter('BestSeller',1)->first();
+	}
+
 
 	public function activeIndex(){
 		// // $session = Controller::curr()->getRequest()->getSession();
