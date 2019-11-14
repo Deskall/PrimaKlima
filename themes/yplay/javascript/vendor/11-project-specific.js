@@ -128,6 +128,7 @@ $(document).ready(function(){
 			var index = 1;
 			console.log($(this).attr('data-index'));
 			if ($(this).attr('data-index') > 0){
+				console.log($(this).find('li[data-product-id="'+$(this).attr('data-index')+'"]').attr('data-index'));
 				index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-index')+'"]').attr('data-index')) - 1;
 			}
 			var options = {
