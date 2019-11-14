@@ -4,6 +4,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBText;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Control\Controller;
 
 class Product extends DataObject {
 
@@ -122,5 +123,16 @@ class Product extends DataObject {
 
 	public function getFees(){
 		return $this->ActivationPrice;
+	}
+
+	public function inCart(){
+		$session = Controller::curr()->getRequest()->getSession();
+		if ($session->get('shopcart_id')){
+			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
+			if ($cart){
+				return $cart->Products()->byId($this->ID);
+			}
+		}
+		return false;
 	}
 }
