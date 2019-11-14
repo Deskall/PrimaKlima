@@ -63,6 +63,7 @@ class YplaYPageControllerExtension extends Extension
          $package = Package::get()->byId($packageID);
          if ($package){
             $cart->PackageID = $package->ID;
+            $cart->Products()->removeAll();
          }
        }
        
