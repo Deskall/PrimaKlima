@@ -197,21 +197,5 @@ class ShopPageController extends PageController
    }
 
 
-   public function filteredOptions(){
-      $options = ProductOption::get()->filter('GroupID',0)->filterByCallback(function($item, $list) {
-          return ($item->shouldDisplay());
-      })->sort('CategoryTitle');
-      
-      return GroupedList::create($options);
-   }
-
-   public function activeCart(){
-      $id = $this->getRequest()->getSession()->get('shopcart_id');
-      if ($id){
-         $cart = ShopCart::get()->byId($id);
-         return $cart;
-      }
-      return null;
-   }
 
 }

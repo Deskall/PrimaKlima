@@ -32,13 +32,21 @@ $(document).ready(function(){
 $(document).ready(function(){
 
 	//Configurator Page
-	if ($('body').hasClass('ConfiguratorPage')){
-		//set up the products
+	if ($('body').hasClass('ConfiguratorPage')){	
+		//Initiate all
+		var cart;
 		var products = [];
-		//we fetch the packages
 		var packages = [];
-
 		var productsOfPackages = [];
+
+		//fetch the cart
+		// $.ajax({
+		// 	url: '/shop-functions/getActiveCart',
+		// 	dataType: 'Json'
+		// }).done(function(response){
+		// 	cart = response;
+		// });
+	
 		var url = window.location.pathname;
 		$.ajax({
 			url: '/shop-functions/fetchPackages',

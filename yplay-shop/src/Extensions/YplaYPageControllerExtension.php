@@ -8,6 +8,7 @@ use SilverStripe\Subsites\Model\Subsite;
 use SilverStripe\Control\Cookie;
 use SilverStripe\Control\Session;
 use SilverStripe\Control\HTTPRequest;
+use SilverStripe\ORM\GroupedList;
 
 class YplaYPageControllerExtension extends Extension
 {   
@@ -42,6 +43,35 @@ class YplaYPageControllerExtension extends Extension
         return $this->owner->redirectBack();
     }
 
+     /* Update the Cart and link to Order Page */
+    public function OrderLink(){
+       //Fetch cart or create if null
+      
+       $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
+       $cart = null;
+       if ($id){
+          $cart = ShopCart::get()->byId($id);
+       }
+       if (!$cart){
+          $cart = new ShopCart();  
+       }
+       $cart->IP = $this->owner->getRequest()->getIp();
+
+       //fetch package and link it
+       $packageID = $this->owner->getRequest()->param('ID');
+       if ($packageID){
+         $package = Package::get()->byId($packageID);
+         if ($package){
+            $cart->PackageID = $package->ID;
+         }
+       }
+       
+       $cart->write();
+       $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+       return $this->owner->redirect($this->owner->ShopPage()->Link(),302);
+    }
+
+//--------- UTILITIES -----------//
     public function activePLZ(){
         //first we check if there is cookie
         $plz = Cookie::get('yplay_plz');
@@ -66,31 +96,23 @@ class YplaYPageControllerExtension extends Extension
        return false;
     }
 
-    /* Update the Cart and link to Order Page */
-   public function OrderLink(){
-      //Fetch cart or create if null
-     
-      $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
-      $cart = null;
-      if ($id){
-         $cart = ShopCart::get()->byId($id);
-      }
-      if (!$cart){
-         $cart = new ShopCart();  
-      }
-      $cart->IP = $this->owner->getRequest()->getIp();
 
-      //fetch package and link it
-      $packageID = $this->owner->getRequest()->param('ID');
-      if ($packageID){
-        $package = Package::get()->byId($packageID);
-        if ($package){
-           $cart->PackageID = $package->ID;
-        }
-      }
-      
-      $cart->write();
-      $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
-      return $this->owner->redirect($this->owner->ShopPage()->Link(),302);
-   }
+    public function filteredOptions(){
+       $options = ProductOption::get()->filter('GroupID',0)->filterByCallback(function($item, $list) {
+           return ($item->shouldDisplay());
+       })->sort('CategoryTitle');
+       
+       return GroupedList::create($options);
+    }
+
+    public function activeCart(){
+       $id = $this->getRequest()->getSession()->get('shopcart_id');
+       if ($id){
+          $cart = ShopCart::get()->byId($id);
+          return $cart;
+       }
+       return null;
+    }
+
+    
 }

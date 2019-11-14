@@ -10,6 +10,8 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Control\Controller;
+
 class ProductCategory extends DataObject {
 
 	private static $singular_name = "Kategorie";
@@ -133,12 +135,32 @@ class ProductCategory extends DataObject {
 		$products = $this->Products()->filter('ClassName',Product::class)->filterByCallback(function($item, $list) {
 		    return ($item->shouldDisplay());
 		});
-		// foreach($products as $product){
-		// 	if (!$product->shouldDisplay()){
-		// 		$products->remove($product);
-		// 	}
-		// }
 		return $products;
 	}
+
+
+	public function activeIndex(){
+		// $session = Controller::curr()->getRequest()->getSession();
+		// if ($session->get('shopcart_id')){
+		// 	//fet
+		// }
+		$cart =  Controller::curr()->activeCart();
+		if ($cart){
+			//if package take products package
+			if ($cart->Package()->exists()){
+				$p = $cart->Package()->Products()->filter('CategoryID',$this->ID)->first();
+				if ($p){
+					return $p->ID;
+				}
+			}
+			//else we look for products
+			if ($cart->Products()->exists() && $cart->Products()->filter('CategoryID',$this->ID)->first()){
+				$p = $cart->Products()->filter('CategoryID',$this->ID)->first();
+				return $p->ID;
+			}
+		}
+		return $this->filteredProducts()->filter('Preselected',1)->first()->ID;
+	}
+
 
 }
