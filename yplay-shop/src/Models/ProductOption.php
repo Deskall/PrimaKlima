@@ -76,7 +76,9 @@ class ProductOption extends Product {
 		if ($session->get('shopcart_id')){
 			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
 			if ($cart){
-				return $cart->Options()->byId($this->ID)->exists();
+				if ($cart->Options()->byId($this->ID)){
+					return true;
+				}
 			}
 		}
 		return false;
