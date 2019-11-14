@@ -70,17 +70,15 @@ class ProductOption extends Product {
 	}
 
 	public function inCart(){
-		var_dump($this->ProductCode);
 		$request = Injector::inst()->get(HTTPRequest::class);
 		$session = $request->getSession();
 		if ($session->get('shopcart_id')){
-			var_dump('ici');
 			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
-			var_dump($cart->Options());
+			if ($this->ProductCode == "fixe-ip"){
+				var_dump($cart->Options()->count());
+			}
 			if ($cart){
-				var_dump('la');
 				if ($cart->Options()->byId($this->ID)){
-					var_dump('oo');
 					return true;
 				}
 			}
