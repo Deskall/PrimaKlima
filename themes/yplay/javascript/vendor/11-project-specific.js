@@ -114,7 +114,7 @@ $(document).ready(function(){
 		});
 
 		$("li[data-step='options'] tr").on("click",":not(.uk-checkbox)",function(e){
-			e.stopPropagation();
+			
 			if ($(this).find('input').is(":checked")){
 				$(this).find('input').prop("checked",false).trigger("change");
 			}
