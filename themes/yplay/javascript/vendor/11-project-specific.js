@@ -116,16 +116,16 @@ $(document).ready(function(){
 
 
 	function InitSliders(){
-		var index;
-		var options;
-		$(".slider-products").each(function(){
-			index = 1;
-			if ($(this).attr('data-index') > 0){
-				index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-index')+'"]').attr('data-index')) - 1;
-			}
-			console.log(index);
-			UIkit.slider("#"+$(this).attr('id'),{center:true});
-		});
+		// var index;
+		// var options;
+		// $(".slider-products").each(function(){
+		// 	index = 1;
+		// 	if ($(this).attr('data-index') > 0){
+		// 		index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-index')+'"]').attr('data-index')) - 1;
+		// 	}
+		// 	console.log(index);
+		// 	UIkit.slider("#"+$(this).attr('id'),{center:true});
+		// });
 
 		//Handle the product slider
 		$(document).on("click",".category:not(.disabled) .uk-slider-items li",function(){
