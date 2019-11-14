@@ -125,7 +125,10 @@ $(document).ready(function(){
 
 	function InitSliders(){
 		$(".slider-products").each(function(){
-			var index = ($(this).attr('data-index') > 0) ? $(this).attr('data-index') : 1;
+			var index = 1;
+			if ($(this).attr('data-index') > 0){
+				index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-index')+'"]').attr('data-index')) - 1;
+			}
 			var options = {
 				center: true,
 				index: index
