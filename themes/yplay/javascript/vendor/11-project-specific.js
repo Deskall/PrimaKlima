@@ -124,7 +124,7 @@ $(document).ready(function(){
 
 
 	function InitSliders(){
-		$(".uk-slider-products").each(function(){
+		$(".slider-products").each(function(){
 			var options = {
 				center: true
 			};
