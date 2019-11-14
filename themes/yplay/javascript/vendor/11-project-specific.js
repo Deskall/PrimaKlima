@@ -115,11 +115,11 @@ $(document).ready(function(){
 
 		$(document).on("click","li[data-step='options'] tr td:not(:first-child)",function(e){
 
-			if ($(this).parent('tr').find('input').is(":checked")){
-				$(this).parent('tr').find('input').prop("checked",false).trigger("change");
+			if ($(this).parents('tr').find('input').is(":checked")){
+				$(this).parents('tr').find('input').prop("checked",false).trigger("change");
 			}
 			else{
-				$(this).parent('tr').find('input').prop("checked",true).trigger("change");
+				$(this).parents('tr').find('input').prop("checked",true).trigger("change");
 			}
 		});
 
