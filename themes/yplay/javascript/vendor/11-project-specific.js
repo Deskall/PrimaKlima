@@ -134,7 +134,7 @@ $(document).ready(function(){
 			console.log(index);
 			options = {
 				center: true,
-				index: index.toString()
+				index: index
 			};
 			UIkit.slider($(this),options);
 		});
