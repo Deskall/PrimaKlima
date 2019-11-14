@@ -130,7 +130,8 @@ $(document).ready(function(){
 				index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-index')+'"]').attr('data-index')) - 1;
 			}
 			var options = {
-				center: true
+				center: true,
+				index: index
 			};
 			UIkit.slider($(this),options);
 		});
