@@ -10,3 +10,7 @@ BaseBlockExtension:
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - ShopConfigExtension
+
+PageController:
+  extensions:
+    - YplaYPageControllerExtension
