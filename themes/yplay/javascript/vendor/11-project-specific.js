@@ -113,6 +113,13 @@ $(document).ready(function(){
 			}
 		});
 
+		$(document).on("click","li[data-step='options'] tr",function(){
+			$(this).find('input').trigger('click');
+			// if ($(this).find('input').is(":checked")){
+			// 	$(this).find('input').prop
+			// }
+		});
+
 		$(document).on("change",".options input",function(){
 			var options = [];
 			$(".options input").each(function(){
