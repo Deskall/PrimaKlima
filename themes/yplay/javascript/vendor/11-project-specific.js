@@ -133,10 +133,9 @@ $(document).ready(function(){
 				console.log(index);
 			}
 			var options = {
-				center: true,
-				index: index
+				center: true
 			};
-			UIkit.slider($(this),options);
+			UIkit.slider($(this),options).show(index);
 		});
 	}
 
