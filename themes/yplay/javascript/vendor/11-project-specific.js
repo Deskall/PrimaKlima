@@ -123,7 +123,7 @@ $(document).ready(function(){
 			if ($(this).attr('data-index') > 0){
 				index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-index')+'"]').attr('data-index')) - 1;
 			}
-			UIkit.slider($(this));
+			UIkit.slider($(this),{center:true, index: index});
 		});
 
 		//Handle the product slider
