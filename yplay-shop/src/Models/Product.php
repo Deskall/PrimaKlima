@@ -53,8 +53,10 @@ class Product extends DataObject {
 	    }
 	    if ($this->Preselected){
 	    	$previous = $this->Category()->getPreselected();
-	    	$previous->Preselected = false;
-	    	$previous->write();
+	    	if ($previous){
+	    		$previous->Preselected = false;
+	    		$previous->write();
+	    	}
 	    }
 		parent::onBeforeWrite();
 	}
