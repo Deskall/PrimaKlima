@@ -124,7 +124,7 @@ $(document).ready(function(){
 				index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
 			}
 			console.log(index);
-			UIkit.slider("#"+$(this).attr('id'),{center:true});
+			UIkit.slider("#"+$(this).attr('id'),{center:true. index:index});
 		});
 
 		//Handle the product slider
