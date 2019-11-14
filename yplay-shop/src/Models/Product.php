@@ -4,7 +4,8 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBText;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-use SilverStripe\Control\Controller;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Core\Injector\Injector;
 
 class Product extends DataObject {
 
@@ -126,7 +127,9 @@ class Product extends DataObject {
 	}
 
 	public function inCart(){
-		$session = Controller::curr()->getRequest()->getSession();
+
+		$request = Injector::inst()->get(HTTPRequest::class);
+		$session = $request->getSession();
 		if ($session->get('shopcart_id')){
 			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
 			if ($cart){
