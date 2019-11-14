@@ -82,4 +82,29 @@ class CustomPageControllerExtension extends Extension
        } 
        return false;
     }
+
+    /* Update the Cart and link to Order Page */
+   public function OrderLink(){
+      //Fetch cart or create if null
+     
+      $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+      if (!$cart){
+         $cart = new ShopCart();  
+      }
+      $cart->IP = $this->owner->getRequest()->getIp();
+
+      //fetch package and link it
+      $packageID = $this->owner->getRequest()->getVar('packageID');
+      $package = Package::get()->byId($packageID);
+      if ($package){
+         $cart->PackageID = $package->ID;
+      }
+      $cart->write();
+      $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+      return $this->owner->redirect($this->owner->ShopPage()->Link(),302);
+   }
 }
