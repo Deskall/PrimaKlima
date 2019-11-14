@@ -39,16 +39,17 @@ $(document).ready(function(){
 		var packages = [];
 		var productsOfPackages = [];
 
-		InitSliders();
+		
 
 		//fetch the cart
-		// $.ajax({
-		// 	url: '/shop-functions/getActiveCart',
-		// 	dataType: 'Json'
-		// }).done(function(response){
-		// 	cart = response;
-		// });
-	
+		$.ajax({
+			url: '/shop-functions/getActiveCart',
+			dataType: 'Json'
+		}).done(function(response){
+			products = response;
+			InitSliders(products);
+		});
+		
 		var url = window.location.pathname;
 		$.ajax({
 			url: '/shop-functions/fetchPackages',
@@ -115,7 +116,8 @@ $(document).ready(function(){
 
 
 
-	function InitSliders(){
+	function InitSliders(products){
+		console.log(products);
 		var index;
 		var options;
 		$(".slider-products").each(function(){
@@ -123,7 +125,6 @@ $(document).ready(function(){
 			if ($(this).attr('data-id') > 0){
 				index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
 			}
-			console.log(index);
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 		});
 

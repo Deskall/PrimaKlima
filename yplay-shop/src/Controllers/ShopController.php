@@ -14,7 +14,7 @@ use SilverStripe\ORM\ArrayList;
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'OrderLink']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'OrderLink', 'getActiveCart']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
@@ -31,6 +31,31 @@ class ShopController extends PageController
    	}
    	return json_encode($array);
    }
+
+   public function getActiveCart(){
+      $array = [];
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+      if ($cart){
+         $products = [];
+         if ($cart->Package()->exists()){
+            foreach ($cart->Package()->Products() as $p) {
+              $products[] = $p->ProductCode; 
+            }
+         }
+         if ($cart->Products()->exists()){
+            foreach ($cart->Products() as $p) {
+              $products[] = $p->ProductCode; 
+            }
+         }
+      }
+      
+      return json_encode($products);
+   }
+
 
    public function fetchCart(){
       // $this->getRequest()->getSession()->clear('shopcart_id');
