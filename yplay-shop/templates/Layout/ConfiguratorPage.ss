@@ -12,13 +12,13 @@
 						$Description
 						
 						
-							<div id="category-{$ID}" class="uk-padding-small <% if Code != "yplay-mobile" %>slider-packages<% end_if %> slider-products uk-padding-remove-bottom" data-index="$activeIndex" data-uk-slider="center:true;" >
+							<div id="category-{$ID}" class="uk-padding-small <% if Code != "yplay-mobile" %>slider-packages<% end_if %> slider-products uk-padding-remove-bottom" data-uk-slider="center:true;" >
 
 							    
 							    	<div class="uk-slider-container">
 								        <ul class="uk-slider-items uk-child-width-1-2 uk-grid-match">
 								            <% loop filteredProducts %>
-								            <li data-product-id="$ID" data-index="$Pos" data-title="$Title" data-value="$ProductCode">
+								            <li data-product-id="$ID" data-title="$Title" data-value="$ProductCode">
 								                <div class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-box-shadow-medium uk-card-small">
 								                    <div class="uk-card-body">
 								                        <h3 class="uk-card-title">$Title</h3>
