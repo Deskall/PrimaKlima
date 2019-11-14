@@ -113,7 +113,7 @@ $(document).ready(function(){
 			}
 		});
 
-		$("li[data-step='options'] tr").on("click",":not(.uk-checkbox):not(.uk-radio)",function(e){
+		$(document).on("click","li[data-step='options'] tr td:not(:first-child)",function(e){
 
 			if ($(this).parent('tr').find('input').is(":checked")){
 				$(this).parent('tr').find('input').prop("checked",false).trigger("change");
