@@ -125,8 +125,10 @@ $(document).ready(function(){
 
 	function InitSliders(){
 		$(".slider-products").each(function(){
+			var index = ($(this).attr('data-index') > 0) ? $(this).attr('data-index') : 1;
 			var options = {
-				center: true
+				center: true,
+				index: index
 			};
 			UIkit.slider($(this),options);
 		});
