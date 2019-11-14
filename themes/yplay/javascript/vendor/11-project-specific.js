@@ -113,7 +113,7 @@ $(document).ready(function(){
 			}
 		});
 
-		$(document).on("click","li[data-step='options'] tr",function(){
+		$("li[data-step='options'] tr").on("click",":not(input)",function(){
 			if ($(this).find('input').is(":checked")){
 				$(this).find('input').prop("checked",false).trigger("change");
 			}
