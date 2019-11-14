@@ -106,7 +106,7 @@ class YplaYPageControllerExtension extends Extension
     }
 
     public function activeCart(){
-       $id = $this->getRequest()->getSession()->get('shopcart_id');
+       $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
        if ($id){
           $cart = ShopCart::get()->byId($id);
           return $cart;
