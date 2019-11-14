@@ -206,6 +206,5 @@ $( window ).resize(function() {
 function resizeMain(){
   var screen = $( window ).height();
   var h = $('header').outerHeight() + $('footer').outerHeight();
-  console.log('fuck you');
   $('main').css({ minHeight: `${screen - h}px` });
 }
