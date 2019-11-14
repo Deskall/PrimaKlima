@@ -33,22 +33,21 @@ class ShopController extends PageController
    }
 
    public function getActiveCart(){
-      $array = [];
+      $products = [];
       $id = $this->getRequest()->getSession()->get('shopcart_id');
       $cart = null;
       if ($id){
          $cart = ShopCart::get()->byId($id);
       }
       if ($cart){
-         $products = [];
          if ($cart->Package()->exists()){
             foreach ($cart->Package()->Products() as $p) {
-              $products[] = $p->ProductCode; 
+              $products[$p->Category()->Code][] = $p->ProductCode; 
             }
          }
          if ($cart->Products()->exists()){
             foreach ($cart->Products() as $p) {
-              $products[] = $p->ProductCode; 
+              $products[$p->Category()->Code][] = $p->ProductCode; 
             }
          }
       }

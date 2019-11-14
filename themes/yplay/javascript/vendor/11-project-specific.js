@@ -117,13 +117,17 @@ $(document).ready(function(){
 
 
 	function InitSliders(products){
-		console.log(products);
 		var index;
 		var options;
 		$(".slider-products").each(function(){
 			index = 1;
-			if ($(this).attr('data-id') > 0){
-				index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
+			if (products[$(this).attr('data-code')]){
+				index = parseInt($(this).find('li[data-value="'+products[$(this).attr('data-code')][0]+'"]').attr('data-index')) - 1;
+			}
+			else{
+				if ($(this).attr('data-id') > 0){
+					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
+				}
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 		});
