@@ -167,7 +167,7 @@ class ProductCategory extends DataObject {
 		// 		return $p->Sort;
 		// 	}
 		// }
-		return $this->getPreselected()->Sort;
+		return ($this->getPreselected()) ? $this->getPreselected()->Sort : 1;
 	}
 
 
