@@ -131,6 +131,7 @@ $(document).ready(function(){
 			if ($(this).attr('data-index') > 0){
 				index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-index')+'"]').attr('data-index')) - 1;
 			}
+			console.log(index);
 			options = {
 				center: true,
 				index: index.toString()
