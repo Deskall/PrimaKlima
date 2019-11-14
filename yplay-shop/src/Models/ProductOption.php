@@ -74,9 +74,12 @@ class ProductOption extends Product {
 		$request = Injector::inst()->get(HTTPRequest::class);
 		$session = $request->getSession();
 		if ($session->get('shopcart_id')){
+			var_dump('ici');
 			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
 			if ($cart){
+				var_dump('la');
 				if ($cart->Options()->byId($this->ID)){
+					var_dump('oo');
 					return true;
 				}
 			}
