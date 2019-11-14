@@ -70,6 +70,7 @@ class ProductOption extends Product {
 	}
 
 	public function inCart(){
+		var_dump($this->ProductCode);
 		$request = Injector::inst()->get(HTTPRequest::class);
 		$session = $request->getSession();
 		if ($session->get('shopcart_id')){
