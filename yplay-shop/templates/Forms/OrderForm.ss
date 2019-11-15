@@ -41,7 +41,7 @@
                         	<div class="uk-margin">
                         		<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
                         	</div>
-                        	<div>
+                        	<div class="uk-margin-large-top">
 	                        	<div class="uk-flex uk-flex-around">
 	                        		<button class="uk-button step" data-target="1" data-nav="1" type="button">Ja</button>
 	                        		<button class="uk-button step" data-target="1" data-nav="1" type="button">Nein</button>
