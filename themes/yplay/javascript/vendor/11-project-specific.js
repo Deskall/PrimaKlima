@@ -114,7 +114,6 @@ $(document).ready(function(){
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 		});
-		UpdateOrderPreview(chosenPackageID, products);
 	}
 
 
@@ -136,6 +135,8 @@ $(document).ready(function(){
 				return false;
 			}
 		});
+
+		UpdateOrderPreview(chosenPackageID, products);
 	}
 
 	function compareArrays(arr1, arr2) {
