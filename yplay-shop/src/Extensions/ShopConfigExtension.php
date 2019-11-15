@@ -10,12 +10,16 @@ use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Control\Controller;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 class ShopConfigExtension extends DataExtension
 {
     private static $db = array(
        'OrderNumberOffset' => 'Varchar',
+       'OrderEmailSender' => 'Varchar',
+       'OrderEmailSubject' => 'Varchar',
        'OrderEmailBody' => 'HTMLText',
        'Conditions' => 'HTMLText'
     );
@@ -37,6 +41,8 @@ class ShopConfigExtension extends DataExtension
    
       $labels['AGBFile'] = _t(__CLASS__.'.AGBFile','AGB Datei');
       $labels['OrderNumberOffset'] = _t(__CLASS__.'.OrderNumberOffset','Bestellung Nummer Format');
+      $labels['OrderEmailSender'] = _t(__CLASS__.'.OrderEmailBody','Bestätigungsemail Sender');
+      $labels['OrderEmailSubject'] = _t(__CLASS__.'.OrderEmailBody','Bestätigungsemail Betreff');
       $labels['OrderEmailBody'] = _t(__CLASS__.'.OrderEmailBody','Bestätigungsemail Text');
     
     }
@@ -62,10 +68,14 @@ class ShopConfigExtension extends DataExtension
        
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',TextField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']));
-       $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('OrderEmailBody',$this->owner->fieldLabels()['OrderEmailBody']));
-      
-      
-
+       $fields->addFieldToTab('Root.Shop',CompositeField::create(
+        [
+          HeaderField::create('OrderEmailTitle','Bestätigunsemail',3),
+          TextField::create('OrderEmailSender',$this->owner->fieldLabels()['OrderEmailSender']),
+          TextField::create('OrderEmailSubject',$this->owner->fieldLabels()['OrderEmailSubject']),
+          HTMLEditorField::create('OrderEmailBody',$this->owner->fieldLabels()['OrderEmailBody'])
+        ]
+      );
        
     }
 
