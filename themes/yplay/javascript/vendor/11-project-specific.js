@@ -57,7 +57,7 @@ $(document).ready(function(){
 		}).done(function(response){
 			packages = response;
 			//Init Order
-			UpdateOrder();
+			// UpdateOrder();
 		});
 
 		
