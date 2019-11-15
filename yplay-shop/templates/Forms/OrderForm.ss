@@ -56,7 +56,7 @@
                         </div>
                         
                 </li>
-                <li class="uk-margin" data-step="address" data-index="1">
+                <li id="address" class="uk-margin" data-step="address" data-index="1">
                         <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
                         	<% with Fields.FieldByName('AddressFields') %>
                         		$FieldHolder 
