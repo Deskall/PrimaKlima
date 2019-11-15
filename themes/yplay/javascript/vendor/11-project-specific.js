@@ -56,8 +56,6 @@ $(document).ready(function(){
 			}).done(function(response){
 				products = response;
 				InitSliders(products);
-				//Init Order
-				UpdateOrder();
 			});
 		});
 
@@ -95,7 +93,6 @@ $(document).ready(function(){
 
 		UIkit.util.on(".slider-products",'itemshown',function(){
 			$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
-			UpdateOrder();
 		});
 	}
 
