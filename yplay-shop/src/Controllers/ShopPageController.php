@@ -188,6 +188,7 @@ class ShopPageController extends PageController
             //update and clear cart
             $cart->Purchased = true;
             $cart->OrderID = $order->ID;
+            $cart->write();
             $this->getRequest()->getSession()->clear('shopcart_id');
 
             return $this->redirect($this->RedirectPage()->Link());
