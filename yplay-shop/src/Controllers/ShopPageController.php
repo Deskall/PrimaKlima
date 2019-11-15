@@ -61,7 +61,7 @@ class ShopPageController extends PageController
                TextField::create('Name','Name')->setAttribute('class','uk-input'),
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
-               TextField::create('Phone','Tel.')->setAttribute('class','uk-input'),
+               TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true),
                DateField::create('Birthday','Geburstdatum')->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$date->format('Y.m.d'))->setAttribute('class','uk-input'),
                TextField::create('Address','Adresse')->setAttribute('class','uk-input'),
                TextField::create('PostalCode','PLZ')->setAttribute('class','uk-input'),
