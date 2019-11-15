@@ -118,8 +118,8 @@ $(document).ready(function(){
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 			if (!$(this).hasClass('initiated')){
 				UIkit.util.on("#"+$(this).attr('id'),'itemshown',function(){
-					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-					$(this).hasClass('initiated');
+					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
+					$(this).addClass('initiated');
 				});
 			}
 		});
