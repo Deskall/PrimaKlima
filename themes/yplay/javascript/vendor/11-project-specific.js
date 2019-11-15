@@ -167,6 +167,7 @@ $(document).ready(function(){
 
 		UpdateOrder();
 		InitStep();
+		var validator = $("#OrderForm").validate();
 		
 		$(document).on("click",".step",function(){
 			UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
@@ -184,7 +185,7 @@ $(document).ready(function(){
 
 			//Check daten && Update Session Data
 			var step = $(this).parents('li');
-			step.validate();
+			validator.element(step);
 			// step.find('[required="required"').each(function(){
 			// 	if ($(this).val() == ""){
 
