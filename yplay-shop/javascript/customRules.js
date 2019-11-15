@@ -1,5 +1,6 @@
 $.validator.addMethod("maxDate", function(value, element) {
-    var maxDate = new Date(element.attr('maxdate'));
+	
+    var maxDate = new Date();
     var inputDate = new Date(value);
     console.log(element);
     if (inputDate > maxDate)
