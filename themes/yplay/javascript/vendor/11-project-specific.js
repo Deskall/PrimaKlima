@@ -132,6 +132,7 @@ $(document).ready(function(){
 		$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
 			products.push($(this).attr('data-value'));
 		});
+		console.log(productsOfPackages);
 		//Compare to see if any package matches the selected products
 		$.each(packages,function(i,v){
 			if (compareArrays(v['Products'],productsOfPackages)){
