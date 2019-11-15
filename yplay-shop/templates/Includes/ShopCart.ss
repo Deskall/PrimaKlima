@@ -9,7 +9,7 @@
 		<% end_with %>
 		<% end_if %>
 		<% if Products.exists %>
-		<% loop Products.sort('Sort') %>
+		<% loop Products %>
 			<% if RecurringPrice %>
 				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
 				<% end_if %>

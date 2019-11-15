@@ -81,6 +81,10 @@ class ShopController extends PageController
          $cart->Products()->removeAll();
          if ($products){
             foreach ($products as $code) {
+               ob_start();
+                        print_r($code);
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
                if (!in_array($code,$productIds)){
                   $product = Product::get()->filter('ProductCode',$code)->first();
                   if ($product){
