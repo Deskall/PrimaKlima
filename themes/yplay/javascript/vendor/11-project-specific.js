@@ -102,6 +102,7 @@ $(document).ready(function(){
 
 
 	function InitSliders(products){
+		console.log(products);
 		var index;
 		var options;
 		$(".slider-products").each(function(){
