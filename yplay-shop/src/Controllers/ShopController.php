@@ -80,15 +80,13 @@ class ShopController extends PageController
          $productIds = ($cart->Package()->exists()) ? $cart->Package()->Products()->column('ProductCode') : [];
          $cart->Products()->removeAll();
          if ($products){
+            $i = 1;
             foreach ($products as $code) {
-               ob_start();
-                        print_r($code." ");
-                        $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
                if (!in_array($code,$productIds)){
                   $product = Product::get()->filter('ProductCode',$code)->first();
                   if ($product){
-                     $cart->Products()->add($product);
+                     $cart->Products()->add($product,['SortOrder' => $i]);
+                     $i++;
                   }
                }
             }

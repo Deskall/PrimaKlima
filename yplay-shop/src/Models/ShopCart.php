@@ -25,6 +25,10 @@ class ShopCart extends DataObject {
 		'Options' => ProductOption::class
 	];
 
+	private static $many_many_extraFields = [
+		'Products' => ['SortOrder' => 'Int']
+	]
+
 	
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
