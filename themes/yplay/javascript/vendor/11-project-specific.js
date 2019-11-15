@@ -41,14 +41,7 @@ $(document).ready(function(){
 
 		
 
-		//fetch the cart
-		$.ajax({
-			url: '/shop-functions/getActiveCart',
-			dataType: 'Json'
-		}).done(function(response){
-			products = response;
-			InitSliders(products);
-		});
+		
 		
 		var url = window.location.pathname;
 		$.ajax({
@@ -56,8 +49,16 @@ $(document).ready(function(){
 			dataType: 'Json'
 		}).done(function(response){
 			packages = response;
-			//Init Order
-			UpdateOrder();
+			//fetch the cart
+			$.ajax({
+				url: '/shop-functions/getActiveCart',
+				dataType: 'Json'
+			}).done(function(response){
+				products = response;
+				InitSliders(products);
+				//Init Order
+				UpdateOrder();
+			});
 		});
 
 		
