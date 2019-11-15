@@ -158,7 +158,7 @@ class ShopOrder extends DataObject{
 
 	    //Attchments
 	    // $email->addAttachment(dirname(__FILE__).'/../../..'.$this->BillFile()->getURL(),'Rechnung.pdf');
-	    $email->addAttachment(dirname(__FILE__).'/../../..'.$config->AGBFile()->getURL(),'AGB.pdf');
+	    // $email->addAttachment(dirname(__FILE__).'/../../..'.$config->AGBFile()->getURL(),'AGB.pdf');
 
 	    $email->send();
 
