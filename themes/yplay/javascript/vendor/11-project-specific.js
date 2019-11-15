@@ -57,7 +57,7 @@ $(document).ready(function(){
 				products = response;
 				InitSliders(products);
 				//Init Order
-				UpdateOrder();
+				//UpdateOrder();
 			});
 		});
 
