@@ -14,7 +14,7 @@ use SilverStripe\ORM\ArrayList;
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'OrderLink', 'getActiveCart']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'OrderLink', 'getActiveCart', 'updateCartStep']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
