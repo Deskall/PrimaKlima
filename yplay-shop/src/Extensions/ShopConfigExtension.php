@@ -36,6 +36,7 @@ class ShopConfigExtension extends DataExtension
    
       $labels['AGBFile'] = _t(__CLASS__.'.AGBFile','AGB Datei');
       $labels['OrderNumberOffset'] = _t(__CLASS__.'.OrderNumberOffset','Bestellung Nummer Format');
+      $labels['OrderEmailBody'] = _t(__CLASS__.'.OrderEmailBody','Bestätigungsemail Text');
     
     }
 
@@ -60,6 +61,7 @@ class ShopConfigExtension extends DataExtension
        
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',TextField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']));
+       $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('OrderEmailBody',$this->owner->fieldLabels()['OrderEmailBody']));
       
       
 
