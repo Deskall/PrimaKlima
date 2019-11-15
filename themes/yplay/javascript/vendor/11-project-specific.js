@@ -66,7 +66,17 @@ $(document).ready(function(){
 			UpdateOrder();
 		});
 
-		$(document).on("load change",".no-category",function(){
+		$(".no-category").each(function(){
+			if ($(this).is(':checked')){
+				$(this).parents('.category').addClass('disabled');
+			}
+			else{
+				$(this).parents('.category').removeClass('disabled');
+			}
+			UpdateOrder();
+		});
+
+		$(document).on("change",".no-category",function(){
 			if ($(this).is(':checked')){
 				$(this).parents('.category').addClass('disabled');
 			}
