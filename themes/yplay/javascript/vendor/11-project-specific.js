@@ -167,7 +167,7 @@ $(document).ready(function(){
 
 		UpdateOrder();
 		InitStep();
-		var validator = $("#OrderForm").validate();
+		var validator = $("#Form_OrderForm").validate();
 		
 		$(document).on("click",".step",function(){
 			UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
