@@ -177,11 +177,19 @@ $(document).ready(function(){
 				//Update cart steps
 				UpdateCartStep(nav.attr('data-nav'));
 			}
-		
 			
 			if (!nav.hasClass('uk-active')){
 				nav.addClass('uk-active');
 			}
+
+			//Check daten && Update Session Data
+			var step = $(this).parents('li');
+			step.validate();
+			// step.find('[required="required"').each(function(){
+			// 	if ($(this).val() == ""){
+
+			// 	}
+			// });
 		});
 
 		$(document).on("click","#order-nav li",function(e){
