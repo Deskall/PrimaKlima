@@ -152,9 +152,8 @@ class ShopOrder extends DataObject{
 	   
 	    
 	    $config = $this->getSiteConfig();
-	    $body = $config->OrderEmailBody;
 
-	    $email = new ShopOrderEmail($config,$this,$config->Email,$this->Email,$config->BillEmailSubject, $body);
+	    $email = new ShopOrderEmail($config,$this,$config->OrderEmailSender,$this->Email,$config->OrderEmailSubject, $config->OrderEmailBody);
 	    $email->setBCC($config->Email);
 
 	    //Attchments
