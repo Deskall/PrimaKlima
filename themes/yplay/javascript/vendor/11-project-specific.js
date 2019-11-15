@@ -169,7 +169,10 @@ $(document).ready(function(){
 			UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
 			$("#order-nav").find('li.uk-active').removeClass('uk-active');
 			var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
-			nav.removeClass('dk-inactive').find('a').prop('disabled',false);
+			nav.removeClass('dk-inactive');
+			//Update cart steps
+			UpdateCartStep(nav.attr('data-nav'));
+			
 			if (!nav.hasClass('uk-active')){
 				nav.addClass('uk-active');
 			}
@@ -235,6 +238,14 @@ $(document).ready(function(){
 			$(".order-preview").each(function(){
 				$(this).empty().append(response);
 			});
+		});
+	}
+
+	function UpdateCartStep(step){
+		$.ajax({
+			url: '/shop-functions/updateCartStep',
+			method: 'POST',
+			data: {step: step}
 		});
 	}
 

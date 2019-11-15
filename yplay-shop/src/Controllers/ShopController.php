@@ -133,5 +133,25 @@ class ShopController extends PageController
       return null;
       
    } 
+
+   public function updateCartStep(){
+      //retrieve cart in session
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
+      $step = $this->getRequest()->postVar('step');
+     
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+
+      if ($cart && $step ){
+         //apply options
+         $cart->CurrentStep = $step;
+          $cart->write();
+      }
+
+      return;
+      
+   } 
    
 }
