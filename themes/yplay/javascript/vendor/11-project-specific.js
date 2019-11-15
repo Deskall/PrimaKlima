@@ -167,20 +167,7 @@ $(document).ready(function(){
 
 		UpdateOrder();
 		InitStep();
-		var validator = $("#Form_OrderForm").validate({
-			rules: {
-				username: {
-					required: true,
-					minlength: 6,
-				},
-				........
-			},
-			messages: {
-				username: {
-					required: "Username required",
-				},
-				........
-			});
+		var validator = $("#Form_OrderForm").validate();
 		
 		$(document).on("click",".step",function(){
 			UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
