@@ -121,6 +121,7 @@ $(document).ready(function(){
 
 
 	function UpdateOrder(){
+		console.log(packages);
 		productsOfPackages = [];
 		products = [];
 		var package;
