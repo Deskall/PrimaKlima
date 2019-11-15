@@ -40,7 +40,7 @@
 							<a data-uk-toggle="#modal-category-{$Code}">Mehr erfahren</a>
 						</div>
 						<div class="not-included-input">
-							<input id="no-{$ID}" name="no-{$ID}" type="checkbox" class="uk-checkbox no-category">
+							<input id="no-{$ID}" name="no-{$ID}" type="checkbox" class="uk-checkbox no-category" <% if not Preselected %>checked="checked"<% end_if %>>
 							<label for="no-{$ID}"><%t Category.NotIncluded 'Keine {title} Angebot' title=$Title %></label>
 						</div>
 						<input type="hidden" name="$Code" data-product-choice>
