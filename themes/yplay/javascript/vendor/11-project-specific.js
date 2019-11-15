@@ -176,7 +176,7 @@ $(document).ready(function(){
 		});
 
 		$(document).on("click","#order-nav li a",function(e){
-			if (!$(this).prop('disabled')){
+			if (!$(this).is(':disabled')){
 				switch($(this).parent().attr('data-nav')){
 					case "1":
 						UIkit.switcher("#order-nav-switcher").show(0);
