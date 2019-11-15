@@ -8,11 +8,11 @@
 	   <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 	       <div class="uk-navbar-center">
 	       		<ul id="order-nav" class="uk-navbar-nav">
-	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "1" || not Controller.activeCart.CurrentStep %>class="uk-active"<% else %>class="dk-inactive"<% end_if %> data-nav="1"><a>1. Kundendaten</a></li>
-	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "2" %>class="uk-active"<% else %>class="dk-inactive"<% end_if %> data-nav="2">
+	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "1" || not Controller.activeCart.CurrentStep %>class="uk-active"<% end_if %> data-nav="1"><a>1. Kundendaten</a></li>
+	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "2" %>class="uk-active"<% else_if Controller.activeCart.CurrentStep < 2 %>class="dk-inactive"<% end_if %> data-nav="2">
 	   	                <a>2. Bestellungsdaten</a>
 	   	            </li>
-	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "3" %>class="uk-active"<% else %>class="dk-inactive"<% end_if %> data-nav="3"><a>3. Überprüfung</a></li>
+	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "3" %>class="uk-active"<% else_if Controller.activeCart.CurrentStep < 3 %>class="dk-inactive"<% end_if %> data-nav="3"><a>3. Überprüfung</a></li>
 	   	        </ul>
 	   	        <ul id="order-nav-switcher" data-uk-switcher="connect:#order-form-steps" hidden>
 	   	            <li class="uk-active"><a>Kundendaten</a></li>
@@ -86,9 +86,6 @@
                 </li>
                 <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %>
                 <li class="uk-margin" data-step="phone">
-                
-                    
-                        
                         <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
                         	<% with Fields.FieldByName('PhoneTitle') %>
                         		$FieldHolder 
@@ -103,10 +100,9 @@
                         	<a class="step backwards uk-button uk-button-muted"  data-target="1" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
             	            <a class="step forward uk-button"  data-target="4" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
             	        </div>
-                    
                 </li>
                 <% end_if %>
-       <%--          <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-mobile') %>
+                <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-mobile') %>
                 <li class="uk-margin" data-step="mobile">
                         
                             
@@ -114,13 +110,12 @@
                             	
                             		
                             </div>
-                            <div class="uk-margin-small uk-align-center">
-                            	<a class="step backwards uk-button uk-button-muted"  data-target="2" data-nav="2">Zurück</a>
-                	            <a class="step forward uk-button"  data-target="4" data-nav="2">Weiter</a>
-                	        </div>
-                        </div>
+                            <div class="uk-margin-large-top uk-flex uk-flex-around">
+                                <a class="step backwards uk-button uk-button-muted"  data-target="1" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
+                                <a class="step forward uk-button"  data-target="4" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+                            </div>
                 </li>
-                <% end_if %> --%>
+                <% end_if %>
                 <li class="uk-margin" data-step="options" data-index="3">
                     
                         <h3>Optionen</h3>
