@@ -120,12 +120,12 @@ class ShopOrder extends DataObject{
 
 	public function getNiceMonthlyPrice(){
 	    setlocale(LC_MONETARY, 'de_DE');
-	    return ($this->MonthlyPrice) ? DBField::create_field('Varchar',money_format('%i',$this->MonthlyPrice)) : null;
+	    return ($this->MonthlyPrice) ? DBField::create_field('Varchar',money_format('%i',floatval($this->MonthlyPrice))) : null;
 	}
 
 	public function getNiceUniquePrice(){
 	    setlocale(LC_MONETARY, 'de_DE');
-	    return ($this->UniquePrice) ? DBField::create_field('Varchar',money_format('%i',$this->UniquePrice)) : null;
+	    return ($this->UniquePrice) ? DBField::create_field('Varchar',money_format('%i',floatval($this->UniquePrice))) : null;
 	}
 
 	// public function getOrderSubPrice(){
