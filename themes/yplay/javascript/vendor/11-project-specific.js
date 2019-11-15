@@ -102,7 +102,6 @@ $(document).ready(function(){
 
 
 	function InitSliders(products){
-		console.log(products);
 		var index;
 		var options;
 		$(".slider-products").each(function(){
@@ -114,7 +113,6 @@ $(document).ready(function(){
 			else{
 				if ($(this).attr('data-id') > 0){
 					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
-					$(this).parents('.category').removeClass('disabled');
 				}
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
@@ -129,6 +127,7 @@ $(document).ready(function(){
 		var package;
 		var chosenPackageID = 0;
 		$('.category:not(.disabled) .slider-packages .uk-slider-items li.uk-active').each(function(){
+			console.log($(this).attr('data-value'));
 			productsOfPackages.push($(this).attr('data-value'));
 		});
 		$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
