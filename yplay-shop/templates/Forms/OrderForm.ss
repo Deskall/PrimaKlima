@@ -38,7 +38,7 @@
             <ul id="order-form-steps" class="uk-switcher">
                 <li class="uk-active uk-margin-top" data-step="customer" data-index="0">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
-                        	<div class="uk-margin-large-top">
+                        	<div class="uk-margin-top">
                         		<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
                         	</div>
                         	<div class="uk-margin-large-top">
