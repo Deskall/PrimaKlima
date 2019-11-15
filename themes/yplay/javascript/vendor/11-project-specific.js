@@ -177,6 +177,8 @@ $(document).ready(function(){
 
 		$(document).on("click","#order-nav li",function(e){
 			if (!$(this).hasClass('dk-inactive')){
+				$("#order-nav li.uk-active").removeClass('uk-active');
+				$(this).addClass('uk-active');
 				switch($(this).attr('data-nav')){
 					case "1":
 						UIkit.switcher("#order-nav-switcher").show(0);
