@@ -62,7 +62,7 @@ $(document).ready(function(){
 		
 
 		$(document).on("change","[data-product-choice]",function(){
-			// UpdateOrder();
+			UpdateOrder();
 		});
 
 		$(".no-category").each(function(){
@@ -113,7 +113,6 @@ $(document).ready(function(){
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 		});
-		UpdateOrder();
 	}
 
 
