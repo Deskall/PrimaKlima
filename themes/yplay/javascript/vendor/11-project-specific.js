@@ -167,7 +167,20 @@ $(document).ready(function(){
 
 		UpdateOrder();
 		InitStep();
-		var validator = $("#Form_OrderForm").validate();
+		var validator = $("#Form_OrderForm").validate({
+			rules: {
+				username: {
+					required: true,
+					minlength: 6,
+				},
+				........
+			},
+			messages: {
+				username: {
+					required: "Username required",
+				},
+				........
+			});
 		
 		$(document).on("click",".step",function(){
 			UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
@@ -185,7 +198,7 @@ $(document).ready(function(){
 
 			//Check daten && Update Session Data
 			var step = $(this).parents('li');
-			validator.element(step);
+			// validator.element(step);
 			console.log(validator.valid());
 			// step.find('[required="required"').each(function(){
 			// 	if ($(this).val() == ""){
