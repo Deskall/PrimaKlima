@@ -184,7 +184,7 @@ $(document).ready(function(){
 			}
 
 			//Check daten && Update Session Data
-			var step = $(this).parents('li');
+			var step = $(this).parents('form');
 			console.log(step.valid());
 			
 		});
