@@ -63,7 +63,7 @@ $(document).ready(function(){
 		
 
 		$(document).on("change","[data-product-choice]",function(){
-			UpdateOrder();
+			// UpdateOrder();
 		});
 
 		$(".no-category").each(function(){
