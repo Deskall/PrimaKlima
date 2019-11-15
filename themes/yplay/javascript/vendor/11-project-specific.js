@@ -95,7 +95,7 @@ $(document).ready(function(){
 		});
 
 		UIkit.util.on(".slider-products",'itemshown',function(){
-			slider.parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
+			$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
 		});
 	}
 
