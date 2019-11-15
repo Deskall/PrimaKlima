@@ -185,7 +185,7 @@ $(document).ready(function(){
 
 			//Check daten && Update Session Data
 			var step = $(this).parents('li');
-			validator.element("#"+step.attr('id'));
+			validator.element(step);
 			console.log(validator.valid());
 			// step.find('[required="required"').each(function(){
 			// 	if ($(this).val() == ""){
