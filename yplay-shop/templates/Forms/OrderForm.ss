@@ -100,7 +100,7 @@
                         	</div>
                         </div>
                         <div class="uk-margin-large-top uk-flex uk-flex-around">
-                        	<a class="step backwards uk-button uk-button-muted"  data-target="1" data-nav="1">Zurück</a>
+                        	<a class="step backwards uk-button uk-button-muted"  data-target="1" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
             	            <a class="step forward uk-button"  data-target="4" data-nav="2">Weiter</a>
             	        </div>
                     
