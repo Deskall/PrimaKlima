@@ -38,7 +38,7 @@
             <ul id="order-form-steps" class="uk-switcher">
                 <li class="uk-active uk-margin-top" data-step="customer" data-index="0">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
-                        	<div class="uk-margin">
+                        	<div class="uk-margin-large-top">
                         		<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
                         	</div>
                         	<div class="uk-margin-large-top">
@@ -59,9 +59,7 @@
                         
                 </li>
                 <li class="uk-margin" data-step="address" data-index="1">
-                  
-                    
-                        
+                    <div class="uk-margin-large-top">
                         <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
                         	<% with Fields.FieldByName('AddressFields') %>
                         		$FieldHolder 
@@ -73,7 +71,7 @@
 	            	            <a class="step forward uk-button"  data-target="3" data-nav="2">Weiter</a>
 	            	        </div>
             	        </div>
-                   
+                    </div>
                 </li>
                 <li class="uk-margin" data-step="bill-address" data-index="2">
                      
