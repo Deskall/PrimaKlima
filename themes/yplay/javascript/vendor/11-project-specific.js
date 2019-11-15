@@ -164,6 +164,7 @@ $(document).ready(function(){
 	if ($('body').hasClass('ShopPage')){
 
 		UpdateOrder();
+		InitStep();
 		
 		$(document).on("click",".step",function(){
 			UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
@@ -247,6 +248,21 @@ $(document).ready(function(){
 			method: 'POST',
 			data: {step: step}
 		});
+	}
+
+	function InitStep(){
+		var li = $("#order-nav li.uk-active");
+		switch(li.attr('data-nav')){
+			case "1":
+				UIkit.switcher("#order-nav-switcher").show(0);
+				break;
+			case "2":
+				UIkit.switcher("#order-nav-switcher").show(3);
+				break;
+			case "3":
+				UIkit.switcher("#order-nav-switcher").show(5);
+				break;
+		}
 	}
 
 });
