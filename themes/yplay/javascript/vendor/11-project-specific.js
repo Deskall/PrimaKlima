@@ -115,7 +115,7 @@ $(document).ready(function(){
 					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
 				}
 			}
-			UIkit.slider("#"+$(this).attr('id'),{center:true}).show(index);
+			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 		});
 		UpdateOrder();
 	}
@@ -125,7 +125,9 @@ $(document).ready(function(){
 		products = [];
 		var package;
 		var chosenPackageID = 0;
+		console.log('la');
 		$('.category:not(.disabled) .slider-packages .uk-slider-items li.uk-active').each(function(){
+			console.log('ici');
 			productsOfPackages.push($(this).attr('data-value'));
 		});
 		$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
