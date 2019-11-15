@@ -204,6 +204,10 @@ $(document).ready(function(){
 			}
 		});
 
+		$(document).on("click",".customer-button",function(){
+			$("input[name='ExistingCustomer']").val($(this).attr('data-value'));
+		});
+
 		$(document).on("change","input[name='BillSameAddress']",function(){
 			if ($(this).is(':checked')){
 				$("li[data-step='address']").find('.forward').attr('data-target','3').attr('data-nav','2');
