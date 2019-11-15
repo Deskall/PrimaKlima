@@ -46,6 +46,7 @@ class ShopPageController extends PageController
    }
 
    public function OrderForm(){
+      Requirements::javascript('yplay-shop/javascript/jquery.validate.min.js');
       $date = new \DateTime();
       $date->modify('-18 years');
       $form = new Form(
