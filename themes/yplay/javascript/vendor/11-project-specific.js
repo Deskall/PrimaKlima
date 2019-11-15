@@ -106,7 +106,7 @@ $(document).ready(function(){
 			index = 1;
 			if (products[$(this).attr('data-code')]){
 				index = parseInt($(this).find('li[data-value="'+products[$(this).attr('data-code')][0]+'"]').attr('data-index')) - 1;
-				$(this).parents('.category').find('.no-category').prop("checked",false).trigger('change');
+				$(this).parents('.category').find('.no-category').prop("checked",false).parents('.category').removeClass('disabled');
 			}
 			else{
 				if ($(this).attr('data-id') > 0){
