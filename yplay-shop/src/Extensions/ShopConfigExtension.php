@@ -74,7 +74,7 @@ class ShopConfigExtension extends DataExtension
           TextField::create('OrderEmailSender',$this->owner->fieldLabels()['OrderEmailSender']),
           TextField::create('OrderEmailSubject',$this->owner->fieldLabels()['OrderEmailSubject']),
           HTMLEditorField::create('OrderEmailBody',$this->owner->fieldLabels()['OrderEmailBody'])
-        ]
+        ])
       );
        
     }
