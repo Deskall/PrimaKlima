@@ -175,9 +175,9 @@ $(document).ready(function(){
 			}
 		});
 
-		$(document).on("click","#order-nav li a",function(e){
-			if (!$(this).is(':disabled')){
-				switch($(this).parent().attr('data-nav')){
+		$(document).on("click","#order-nav li",function(e){
+			if (!$(this).hasClass('dk-inactive')){
+				switch($(this).attr('data-nav')){
 					case "1":
 						UIkit.switcher("#order-nav-switcher").show(0);
 						break;
