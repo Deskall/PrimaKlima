@@ -66,7 +66,7 @@ $(document).ready(function(){
 			UpdateOrder();
 		});
 
-		$(document).on("load,change",".no-category",function(){
+		$(document).on("load change",".no-category",function(){
 			if ($(this).is(':checked')){
 				$(this).parents('.category').addClass('disabled');
 			}
