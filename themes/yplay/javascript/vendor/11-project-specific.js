@@ -169,6 +169,7 @@ $(document).ready(function(){
 			UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
 			$("#order-nav").find('li.uk-active').removeClass('uk-active');
 			var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
+			nav.removeClass('dk-inactive');
 			if (!nav.hasClass('uk-active')){
 				nav.addClass('uk-active');
 			}
