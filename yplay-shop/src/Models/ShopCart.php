@@ -27,7 +27,7 @@ class ShopCart extends DataObject {
 
 	private static $many_many_extraFields = [
 		'Products' => ['SortOrder' => 'Int']
-	]
+	];
 
 	
 	public function onBeforeWrite(){
