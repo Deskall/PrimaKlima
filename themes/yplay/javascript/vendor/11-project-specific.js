@@ -97,6 +97,66 @@ $(document).ready(function(){
 		});
 	}
 
+
+	function InitSliders(products){
+		var index;
+		var options;
+		$(".slider-products").each(function(){
+			index = 1;
+			if (products[$(this).attr('data-code')]){
+				index = parseInt($(this).find('li[data-value="'+products[$(this).attr('data-code')][0]+'"]').attr('data-index')) - 1;
+				$(this).parents('.category').find('.no-category').prop("checked",false).trigger("change");
+			}
+			else{
+				if ($(this).attr('data-id') > 0){
+					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
+				}
+			}
+			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
+		});
+		UpdateOrderPreview(chosenPackageID, products);
+	}
+
+
+	function UpdateOrder(){
+		productsOfPackages = [];
+		products = [];
+		var package;
+		var chosenPackageID = 0;
+		$('.category:not(.disabled) .slider-packages .uk-slider-items li.uk-active').each(function(){
+			productsOfPackages.push($(this).attr('data-value'));
+		});
+		$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
+			products.push($(this).attr('data-value'));
+		});
+		//Compare to see if any package matches the selected products
+		$.each(packages,function(i,v){
+			if (compareArrays(v['Products'],productsOfPackages)){
+				chosenPackageID = v['ID'];
+				return false;
+			}
+		});
+	}
+
+	function compareArrays(arr1, arr2) {
+	    return $(arr1).not(arr2).length == 0 && $(arr2).not(arr1).length == 0
+	};
+
+	function UpdateOrderPreview(packageID, products){
+		console.log(products);
+		$.ajax({
+			url: '/shop-functions/fetchCart',
+			method: 'POST',
+			dataType: 'html',
+			data: {packageID: packageID, products: products}
+		}).done(function(response){
+			$(".order-preview").each(function(){
+				$(this).empty().append(response);
+			});
+		});
+	}
+
+
 	//Shop Page script
 	if ($('body').hasClass('ShopPage')){
 		
@@ -138,67 +198,6 @@ $(document).ready(function(){
 				}
 			});
 			UpdateCart(options);
-		});
-	}
-
-
-
-	function InitSliders(products){
-		var index;
-		var options;
-		$(".slider-products").each(function(){
-			index = 1;
-			if (products[$(this).attr('data-code')]){
-				index = parseInt($(this).find('li[data-value="'+products[$(this).attr('data-code')][0]+'"]').attr('data-index')) - 1;
-				$(this).parents('.category').find('.no-category').prop("checked",false).trigger("change");
-			}
-			else{
-				if ($(this).attr('data-id') > 0){
-					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
-				}
-			}
-			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
-		});
-	}
-
-
-	function UpdateOrder(){
-		productsOfPackages = [];
-		products = [];
-		var package;
-		var chosenPackageID = 0;
-		$('.category:not(.disabled) .slider-packages .uk-slider-items li.uk-active').each(function(){
-			productsOfPackages.push($(this).attr('data-value'));
-		});
-		$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
-			products.push($(this).attr('data-value'));
-		});
-		//Compare to see if any package matches the selected products
-		$.each(packages,function(i,v){
-			if (compareArrays(v['Products'],productsOfPackages)){
-				chosenPackageID = v['ID'];
-				return false;
-			}
-		});
-
-		UpdateOrderPreview(chosenPackageID, products);
-	}
-
-	function compareArrays(arr1, arr2) {
-	    return $(arr1).not(arr2).length == 0 && $(arr2).not(arr1).length == 0
-	};
-
-	function UpdateOrderPreview(packageID, products){
-		console.log(products);
-		$.ajax({
-			url: '/shop-functions/fetchCart',
-			method: 'POST',
-			dataType: 'html',
-			data: {packageID: packageID, products: products}
-		}).done(function(response){
-			$(".order-preview").each(function(){
-				$(this).empty().append(response);
-			});
 		});
 	}
 
