@@ -51,16 +51,16 @@ $(document).ready(function(){
 		}).done(function(response){
 			packages = response;
 			//fetch the cart
-			$.ajax({
-				url: '/shop-functions/getActiveCart',
-				dataType: 'Json'
-			}).done(function(response){
-				products = response;
-				InitSliders(products);
-			});
+			
 		});
 
-		
+		$.ajax({
+			url: '/shop-functions/getActiveCart',
+			dataType: 'Json'
+		}).done(function(response){
+			products = response;
+			InitSliders(products);
+		});
 
 		$(document).on("change","[data-product-choice]",function(){
 			UpdateOrder();
