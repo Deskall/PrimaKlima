@@ -57,7 +57,7 @@ $(document).ready(function(){
 		}).done(function(response){
 			packages = response;
 			//Init Order
-			// UpdateOrder();
+			UpdateOrder();
 		});
 
 		
@@ -115,7 +115,7 @@ $(document).ready(function(){
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 		});
-		
+
 	}
 
 
