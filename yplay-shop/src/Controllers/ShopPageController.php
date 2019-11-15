@@ -82,7 +82,7 @@ class ShopPageController extends PageController
             HiddenField::create('ExistingCustomer')
          ),
          new FieldList(
-            FormAction::create('doOrder', _t('SHOP.BUYNOW', 'Jetzt bestellen'))->addExtraClass('uk-button')
+            FormAction::create('doOrder', _t('SHOP.BUYNOW', 'Bestellung abschicken'))->addExtraClass('uk-button')
          ),
          RequiredFields::create(['Gender','Name','FirstName','Email','Birthday','Address','PostalCode','City','Country'])
       );
