@@ -185,7 +185,7 @@ $(document).ready(function(){
 
 			//Check daten && Update Session Data
 			var step = $(this).parents('li');
-			console.log(step.valid());
+			console.log($("#address").valid());
 			// step.find('[required="required"').each(function(){
 			// 	if ($(this).val() == ""){
 
