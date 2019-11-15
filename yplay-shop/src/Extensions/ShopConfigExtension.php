@@ -12,6 +12,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 class ShopConfigExtension extends DataExtension
@@ -68,7 +69,7 @@ class ShopConfigExtension extends DataExtension
        
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',TextField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']));
-       $fields->addFieldToTab('Root.Shop',CompositeField::create(
+       $fields->addFieldToTab('Root.Shop',FieldGroup::create(
         [
           HeaderField::create('OrderEmailTitle','Bestätigunsemail',3),
           TextField::create('OrderEmailSender',$this->owner->fieldLabels()['OrderEmailSender']),
