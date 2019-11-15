@@ -73,7 +73,7 @@ $(document).ready(function(){
 			else{
 				$(this).parents('.category').removeClass('disabled');
 			}
-			UpdateOrder();
+			// UpdateOrder();
 		});
 
 		$(document).on("change",".no-category",function(){
