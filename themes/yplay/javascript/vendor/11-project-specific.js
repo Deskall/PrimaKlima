@@ -107,11 +107,13 @@ $(document).ready(function(){
 		$(".slider-products").each(function(){
 			index = 1;
 			if (products[$(this).attr('data-code')]){
+				$(this).find('li[data-value="'+products[$(this).attr('data-code')][0]+'"]').addClass('uk-active');
 				index = parseInt($(this).find('li[data-value="'+products[$(this).attr('data-code')][0]+'"]').attr('data-index')) - 1;
 				$(this).parents('.category').find('.no-category').prop("checked",false).parents('.category').removeClass('disabled');
 			}
 			else{
 				if ($(this).attr('data-id') > 0){
+					$(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').addClass('uk-active');
 					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
 				}
 			}
@@ -125,9 +127,7 @@ $(document).ready(function(){
 		products = [];
 		var package;
 		var chosenPackageID = 0;
-		console.log('la');
 		$('.category:not(.disabled) .slider-packages .uk-slider-items li.uk-active').each(function(){
-			console.log('ici');
 			productsOfPackages.push($(this).attr('data-value'));
 		});
 		$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
