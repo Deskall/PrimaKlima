@@ -115,7 +115,7 @@ $(document).ready(function(){
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 		});
-
+		UpdateOrder();
 	}
 
 
