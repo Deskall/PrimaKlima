@@ -10,9 +10,9 @@
 	       		<ul id="order-nav" class="uk-navbar-nav">
 	   	            <li class="uk-active" data-nav="1"><a >1. Kundendaten</a></li>
 	   	            <li class="dk-inactive" data-nav="2">
-	   	                <a>2. Bestellungsdaten</a>
+	   	                <a disabled="disabled">2. Bestellungsdaten</a>
 	   	            </li>
-	   	            <li class="dk-inactive" data-nav="3"><a>3. Überprüfung</a></li>
+	   	            <li class="dk-inactive" data-nav="3"><a disabled="disabled">3. Überprüfung</a></li>
 	   	        </ul>
 	   	        <ul id="order-nav-switcher" data-uk-switcher="connect:#order-form-steps" hidden>
 	   	            <li class="uk-active"><a>Kundendaten</a></li>
