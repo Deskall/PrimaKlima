@@ -59,19 +59,17 @@
                         
                 </li>
                 <li class="uk-margin" data-step="address" data-index="1">
-                    <div class="uk-margin-large-top">
                         <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
                         	<% with Fields.FieldByName('AddressFields') %>
                         		$FieldHolder 
                         	<% end_with %>
                         </div>
-                        <div>
+
 	                        <div class="uk-margin-top uk-flex uk-flex-around">
 	                        	<a class="step backwards uk-button uk-button-muted"  data-target="0" data-nav="1">Zurück</a>
 	            	            <a class="step forward uk-button"  data-target="3" data-nav="2">Weiter</a>
 	            	        </div>
-            	        </div>
-                    </div>
+            	      
                 </li>
                 <li class="uk-margin" data-step="bill-address" data-index="2">
                      
