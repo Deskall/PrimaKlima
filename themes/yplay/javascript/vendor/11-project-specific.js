@@ -59,9 +59,9 @@ $(document).ready(function(){
 			dataType: 'Json'
 		}).done(function(response){
 			products = response;
-			InitSliders(products);
 		});
-
+		
+		InitSliders(products);
 		$(document).on("change","[data-product-choice]",function(){
 			UpdateOrder();
 		});
