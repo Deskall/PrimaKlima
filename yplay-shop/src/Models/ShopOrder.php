@@ -109,6 +109,10 @@ class ShopOrder extends DataObject{
 		return $this->renderWith('Includes/ShopOrderSummary');
 	}
 
+	public function OrderHTML(){
+		return $this->renderWith('Includes/ShopOrderData');
+	}
+
 	public function getTotalMonthlyPrice(){
 
 	}
@@ -148,7 +152,7 @@ class ShopOrder extends DataObject{
 	   
 	    
 	    $config = $this->getSiteConfig();
-	    $body = $config->BillEmailBody;
+	    $body = $config->OrderEmailBody;
 
 	    $email = new ShopOrderEmail($config,$this,$config->Email,$this->Email,$config->BillEmailSubject, $body);
 	    $email->setBCC($config->Email);

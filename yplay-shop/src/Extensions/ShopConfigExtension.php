@@ -15,6 +15,7 @@ class ShopConfigExtension extends DataExtension
 {
     private static $db = array(
        'OrderNumberOffset' => 'Varchar',
+       'OrderEmailBody' => 'HTMLText',
        'Conditions' => 'HTMLText'
     );
 

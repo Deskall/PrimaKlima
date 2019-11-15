@@ -70,7 +70,7 @@ class ShopOrderEmail extends Email
             '$SiteName'       => $config->Title,
             '$Customer.printTitle' => $Order->Customer()->printTitle(),
             '$Order.Created' => $createdDateObj->Nice(),
-            '$Order.Data' => $Order->NiceOrder()
+            '$Order.Data' => $Order->OrderHTML()
             
         );
         
