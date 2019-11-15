@@ -146,7 +146,6 @@ $(document).ready(function(){
 	};
 
 	function UpdateOrderPreview(packageID, products){
-		console.log(products);
 		$.ajax({
 			url: '/shop-functions/fetchCart',
 			method: 'POST',
@@ -162,6 +161,8 @@ $(document).ready(function(){
 
 	//Shop Page script
 	if ($('body').hasClass('ShopPage')){
+
+		UpdateOrder();
 		
 		$(document).on("click",".step",function(){
 			UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
