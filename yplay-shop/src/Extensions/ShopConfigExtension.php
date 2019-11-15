@@ -69,15 +69,15 @@ class ShopConfigExtension extends DataExtension
        
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',TextField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']));
-       $fields->addFieldsToTab('Root.Shop',
+       $fields->addFieldsToTab('Root.Shop',[
         HeaderField::create('OrderEmailTitle','Bestätigunsemail',3),
         CompositeField::create(
         [
-          
           TextField::create('OrderEmailSender',$this->owner->fieldLabels()['OrderEmailSender']),
           TextField::create('OrderEmailSubject',$this->owner->fieldLabels()['OrderEmailSubject']),
           HTMLEditorField::create('OrderEmailBody',$this->owner->fieldLabels()['OrderEmailBody'])
         ])
+      ]
       );
        
     }
