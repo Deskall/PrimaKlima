@@ -100,9 +100,6 @@ $(document).ready(function(){
 	//Shop Page script
 	if ($('body').hasClass('ShopPage')){
 		
-		
-		UpdateOrderPreview();
-
 		$(document).on("click",".step",function(){
 			UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
 			$("#order-nav").find('li.uk-active').removeClass('uk-active');
