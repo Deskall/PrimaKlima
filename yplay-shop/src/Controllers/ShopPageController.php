@@ -108,6 +108,10 @@ class ShopPageController extends PageController
             $form->Fields()->push(TextField::create('WishPhone','Label'));
             
          }
+         //2. Mobile
+         if ($cart->hasCategory('yplay-mobile')){
+            $form->Fields()->insertAfter('AGB',CheckboxField::create('AGBMobile','Ich bin mit den Mobile AGB einverstanden'));
+         }
       }
       
 
