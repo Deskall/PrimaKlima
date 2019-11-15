@@ -114,6 +114,7 @@ $(document).ready(function(){
 			else{
 				if ($(this).attr('data-id') > 0){
 					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
+					$(this).parents('.category').removeClass('disabled');
 				}
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
