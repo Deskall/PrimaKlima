@@ -175,6 +175,22 @@ $(document).ready(function(){
 			}
 		});
 
+		$(document).on("click","#order-nav li a",function(e){
+			if (!$(this).prop('disabled')){
+				swtich($(this).parent().attr('data-nav')){
+					case "1":
+						UIkit.switcher("#order-nav-switcher").show(0);
+						break;
+					case "2":
+						UIkit.switcher("#order-nav-switcher").show(3);
+						break;
+					case "3":
+						UIkit.switcher("#order-nav-switcher").show(5);
+						break;
+				}
+			}
+		});
+
 		$(document).on("change","input[name='BillSameAddress']",function(){
 			if ($(this).is(':checked')){
 				$("li[data-step='address']").find('.forward').attr('data-target','3').attr('data-nav','2');
