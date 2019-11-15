@@ -8,11 +8,11 @@
 	   <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 	       <div class="uk-navbar-center">
 	       		<ul id="order-nav" class="uk-navbar-nav">
-	   	            <li <% Controller.activeCart && Controller.activeCart.CurrentStep == "1" %>class="uk-active"<% else %>class="dk-inactive"<% end_if %> data-nav="1"><a>1. Kundendaten</a></li>
-	   	            <li <% Controller.activeCart && Controller.activeCart.CurrentStep == "1" %>class="uk-active"<% else %>class="dk-inactive"<% end_if %> data-nav="2">
+	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "1" %>class="uk-active"<% else %>class="dk-inactive"<% end_if %> data-nav="1"><a>1. Kundendaten</a></li>
+	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "1" %>class="uk-active"<% else %>class="dk-inactive"<% end_if %> data-nav="2">
 	   	                <a>2. Bestellungsdaten</a>
 	   	            </li>
-	   	            <li <% Controller.activeCart && Controller.activeCart.CurrentStep == "1" %>class="uk-active"<% else %>class="dk-inactive"<% end_if %> data-nav="3"><a>3. Überprüfung</a></li>
+	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "1" %>class="uk-active"<% else %>class="dk-inactive"<% end_if %> data-nav="3"><a>3. Überprüfung</a></li>
 	   	        </ul>
 	   	        <ul id="order-nav-switcher" data-uk-switcher="connect:#order-form-steps" hidden>
 	   	            <li class="uk-active"><a>Kundendaten</a></li>
