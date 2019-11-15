@@ -93,8 +93,8 @@ $(document).ready(function(){
 			UIkit.slider(slider).show(index);
 			
 		});
-		
-		UIkit.util.on(slider,'itemshown',function(){
+
+		UIkit.util.on(".slider-products",'itemshown',function(){
 			slider.parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
 		});
 	}
