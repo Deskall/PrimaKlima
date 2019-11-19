@@ -58,7 +58,7 @@
                         
                 </li>
                 <li id="address" class="uk-margin" data-step="step-1">
-                        <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
+                        <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
                         	<% with Fields.FieldByName('Step1') %>
                         		$FieldHolder 
                         	<% end_with %>
@@ -69,7 +69,7 @@
 	            	  </div>
                 </li>
                 <li class="uk-margin" data-step="step-2">
-                        <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
+                        <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
                             <% with Fields.FieldByName('Step2') %>
                                 $FieldHolder 
                             <% end_with %>
@@ -80,12 +80,12 @@
                       </div>
                 </li>
                 <li class="uk-margin" data-step="step-3">
-                        <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
+                        <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
                             <% with Fields.FieldByName('Step3') %>
                                 $FieldHolder 
                             <% end_with %>
                         </div>
-                        <div id="bill-fields" class="uk-grid-small uk-flex uk-flex-top" data-uk-grid hidden>
+                        <div id="bill-fields" class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid hidden>
                             <% with Fields.FieldByName('BillFields') %>
                                 $FieldHolder 
                             <% end_with %>
@@ -97,7 +97,7 @@
                 </li>
                 <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %>
                 <li class="uk-margin" data-step="phone">
-                        <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
+                        <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
                         	<% with Fields.FieldByName('PhoneTitle') %>
                         		$FieldHolder 
                         	<% end_with %>
@@ -136,7 +136,7 @@
                 <% end_if %>
                 <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-mobile') %>
                 <li class="uk-margin" data-step="mobile">
-                            <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
+                            <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
                                 <h3>$SiteConfig.MobileStepTitle</h3>
                             	<div>
                                     $SiteConfig.MobileStepBody
@@ -152,7 +152,7 @@
                     
                         <h3>Optionen</h3>
                             
-                            <div class="uk-grid-small uk-flex uk-flex-top uk-child-width-1-1 options" data-uk-grid>
+                            <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top uk-child-width-1-1 options" data-uk-grid>
                             	<% loop Controller.filteredOptions.groupedBy(CategoryTitle) %>
                             	 <div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-body uk-transition-toggle">
 						           	<h4 class="uk-card-title">$CategoryTitle</h4>
@@ -179,7 +179,7 @@
                 <li class="uk-margin" data-step="summary">
                    
                         
-                        <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
+                        <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
                         	<% with Fields.FieldByName('OtherFields') %>
                         		$FieldHolder 
                         	<% end_with %>
