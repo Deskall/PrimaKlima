@@ -17,13 +17,11 @@ $.validator.addMethod("minDate", function(value, element,attr) {
 
 $.validator.addMethod("intlTelNumber", function(value, element) {
     phone_number = value.replace( /\s+/g, "" );
-    if(phone_number.match(/^(\+41|0041|0){1}(\(0\))?[0-9]{9}$/)){
+    if(){
         console.log('OK');
     }
     if (phone_number){
-    	return 
-	    // phone_number.match( /^([\+][0-9]{1,3}[ \.\-])?([\(]{1}[0-9]{1,6}[\)])?([0-9 \.\-\/]{3,20})((x|ext|extension)[ ]?[0-9]{1,4})?$/ ) ||
-        phone_number.match(/^(\+?)(\d{2,4})(\s?)(\-?)((\(0\))?)(\s?)(\d{2})(\s?)(\-?)(\d{3})(\s?)(\-?)(\d{2})(\s?)(\-?)(\d{2})/ )
+    	return phone_number.match(/^(\+41|0041|0){1}(\(0\))?[0-9]{9}$/)
 	    // phone_number.match( /^(0|0041|\+41)?[1-9\s][0-9\s]{1,12}$/ )
 	    ;
     }
