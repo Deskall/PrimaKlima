@@ -106,6 +106,12 @@
                         		$Field
                         	<% end_with %>
                         	</div>
+                            <% with Fields.FieldByName('ExistingPhone') %>
+                                $Field
+                            <% end_with %>
+                            <% with Fields.FieldByName('WishPhone') %>
+                                $Field
+                            <% end_with %>
                         </div>
                         <div class="uk-margin-large-top uk-flex uk-flex-around">
                         	<a class="step backwards uk-button uk-button-muted" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
