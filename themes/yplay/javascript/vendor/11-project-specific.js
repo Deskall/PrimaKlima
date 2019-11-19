@@ -163,7 +163,7 @@ $(document).ready(function(){
 	}
 
 	function UpdateCartSummaries(){
-		$(".total-monthly-price").text($("#total-monthly-price"));
+		$(".total-monthly-price").text($("#total-monthly-price").text());
 	}
 
 
