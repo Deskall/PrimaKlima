@@ -34,8 +34,7 @@
 			        </div>
 			    </div>
 			    <div class="uk-flex uk-flex-center uk-flex-right@s uk-flex-wrap uk-flex-middle">
-			        <a class="uk-flex-first@s uk-modal-close uk-margin-small-right">Später eingeben.</a>
-			        <button class="uk-button uk-button-primary uk-flex-first" type="submit">Region wählen</button>
+			        <button class="uk-button uk-button-primary uk-flex-first" type="submit">Region prüfen</button>
 			    </div>
 			</form>
 			<% else %>
