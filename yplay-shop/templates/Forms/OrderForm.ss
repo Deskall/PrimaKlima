@@ -107,13 +107,16 @@
                         	<% end_with %>
                         	</div>
                             <% with Fields.FieldByName('ExistingPhone') %>
-                            <div>
-                                $Title
+                            <div id="existing-phone" hidden>
+                                <i>$Title</i>
                                 $Field
                             </div>
                             <% end_with %>
                             <% with Fields.FieldByName('WishPhone') %>
+                            <div id="wish-phone" hidden>
+                                <i>$Title</i>
                                 $Field
+                            </div>
                             <% end_with %>
                         </div>
                         <div class="uk-margin-large-top uk-flex uk-flex-around">

@@ -246,6 +246,18 @@ $(document).ready(function(){
 			UIkit.toggle($("#bill-fields")).toggle();
 		});
 
+		$(document).on("change","input[name='PhoneOption']",function(){
+			$("#existing-phone,#wish-phone").attr('hidden','hidden');
+			switch($("input[name='PhoneOption']:checked").attr('value')){
+				case "existing":
+					$("#existing-phone").attr('hidden',false);
+					break;
+				case "wish":
+					$("#wish-phone").attr('hidden',false);
+					break;
+			}
+		});
+
 		$(document).on("click","li[data-step='options'] tr td:not(:first-child)",function(e){
 
 			if ($(this).parents('tr').find('input').is(":checked")){
