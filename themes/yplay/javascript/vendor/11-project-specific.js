@@ -191,6 +191,20 @@ $(document).ready(function(){
 					}
 				}
 			}
+			else{
+				UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
+				$("#order-nav").find('li.uk-active').removeClass('uk-active');
+				var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
+				if (nav.hasClass('dk-inactive')){
+					nav.removeClass('dk-inactive');
+					//Update cart steps
+					UpdateCartStep(nav.attr('data-nav'));
+				}
+				
+				if (!nav.hasClass('uk-active')){
+					nav.addClass('uk-active');
+				}
+			}
 			
 		});
 
