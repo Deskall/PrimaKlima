@@ -1,8 +1,43 @@
-
+	<div class="uk-hidden@m">
+		<div class="cart-container">
+			<div class="uk-card uk-box-shadow-medium uk-card-small">
+				<div class="uk-card-header toggle-cart" data-target="#mobile-order-preview">
+					<div class="uk-position-relative">
+						<strong class="uk-card-title"><%t Configurator.CartLabel 'Warenkorb' %> - $activeCart.TotalMonthlyPrice</strong>
+						<div class="uk-position-absolute uk-position-center-right">
+							<button type="button" class="cart-button"><span data-uk-icon="icon:chevron-down;ratio:1.5"></button>
+							<button type="button" class="cart-button uk-hidden"><span data-uk-icon="icon:chevron-up;ratio:1.5"></button>
+						</div>
+					</div>
+				</div>
+				<div id="mobile-order-preview" hidden>
+					<div class="uk-card-body WhiteBackground order-preview">
+					</div>
+					<div class="uk-card-footer BlackBackground">
+					<a href="$ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
+				</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 	<section class="uk-section uk-section-medium" style="background-color:#eee;">
 		<div class="uk-container uk-container-medium">
 			<h1>$Title</h1>
 			<h2>Kombinieren Sie Selber Ihres Traum-Paket</h2>
+			<% if not activePLZ %>
+			<form method="POST" action="{$Link}plz-speichern">
+			    <div class="uk-margin">
+			        <div class="uk-text-large">
+			            <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
+			        </div>
+			    </div>
+			    <div class="uk-flex uk-flex-center uk-flex-right@s uk-flex-wrap uk-flex-middle">
+			        <a class="uk-flex-first@s uk-modal-close uk-margin-small-right">Später eingeben.</a>
+			        <button class="uk-button uk-button-primary uk-flex-first" type="submit">Region wählen</button>
+			    </div>
+			</form>
+			<% else %>
 			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
 					<% loop activeCategories %>
@@ -169,25 +204,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="uk-hidden@m">
-				<div class="uk-position-fixed uk-position-bottom uk-position-z-index">
-					<div class="uk-card uk-box-shadow-medium uk-card-small">
-						<div class="uk-card-header BlackBackground">
-							<div class="uk-position-relative">
-								<strong class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %> - CHF 65.- / Mt.</strong>
-								<div class="uk-position-absolute uk-position-right">
-									<button type="button" data-uk-toggle="target: #mobile-order-preview; animation: uk-animation-slide-up" data-uk-icon="chevron-up"></button>
-								</div>
-							</div>
-						</div>
-						<div id="mobile-order-preview" class="uk-card-body WhiteBackground order-preview" hidden>
-						</div>
-						<div class="uk-card-footer BlackBackground">
-							<a href="$ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
-						</div>
-					</div>
-				</div>
-			</div>
+			
+			<% end_if %>
 			<%-- <% loop activeCategories %>
 				<div class="category uk-text-center $Code uk-margin-large">
 					<div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
