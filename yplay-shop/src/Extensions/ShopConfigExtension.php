@@ -14,6 +14,7 @@ use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\Tab;
 
 class ShopConfigExtension extends DataExtension
 {
@@ -78,6 +79,7 @@ class ShopConfigExtension extends DataExtension
        $fields->addFieldToTab('Root.Shop',TextField::create('PLZModalTitle',$this->owner->fieldLabels()['PLZModalTitle']));
        $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('PLZModalBody',$this->owner->fieldLabels()['PLZModalBody']));
        $fields->addFieldToTab('Root.Shop',TextField::create('ConfiguratorTitle',$this->owner->fieldLabels()['ConfiguratorTitle']));
+       $fields->addFieldToTab('Root.Shop',new Tab('Emails','E-Mails'));
        $fields->addFieldsToTab('Root.Shop.Emails',[
         HeaderField::create('OrderEmailTitle','Bestätigungsemail',3),
         CompositeField::create(
