@@ -239,10 +239,10 @@ $(document).ready(function(){
 
 		$(document).on("change","input[name='BillSameAddress']",function(){
 			if ($(this).is(':checked')){
-				$("#bill-fields").show();
+				$("#bill-fields").hide();
 			}
 			else{
-				$("#bill-fields").hide();
+				$("#bill-fields").show();
 			}
 		});
 
