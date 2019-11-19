@@ -191,7 +191,7 @@
 						           
 						            <div class="uk-grid-small uk-grid-match uk-child-width-auto" data-uk-grid>
 						            	<% loop filteredOptions.groupedBy(CategoryTitle) %>
-		                            	 <div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-body uk-transition-toggle">
+		                            	 <div>
 								           	<h4 class="uk-card-title">$CategoryTitle</h4>
 								           	<table class="uk-table uk-table-small uk-table-hover">
 								           		<% loop Children %>
