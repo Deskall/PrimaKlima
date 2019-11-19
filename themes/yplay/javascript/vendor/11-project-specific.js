@@ -306,7 +306,7 @@ $(document).ready(function(){
 
 	function InitStep(){
 		var i = 0;
-		$("#order-form-steps li").each(function(){
+		$("#order-form-steps > li").each(function(){
 			console.log(i);
 			$(this).attr('data-index',i);
 			$(this).find('.step.forward').attr('data-target',i+1);
