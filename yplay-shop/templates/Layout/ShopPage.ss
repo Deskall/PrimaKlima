@@ -1,7 +1,7 @@
 	<div class="uk-hidden@m">
 		<div class="cart-container">
 			<div class="uk-card uk-box-shadow-medium uk-card-small">
-				<div class="uk-card-header BlackBackground toggle-cart" data-target="#mobile-order-preview">
+				<div class="uk-card-header toggle-cart" data-target="#mobile-order-preview">
 					<div class="uk-position-relative">
 						<strong class="uk-card-title"><%t Configurator.CartLabel 'Warenkorb' %> - $activeCart.TotalMonthlyPrice</strong>
 						<div class="uk-position-absolute uk-position-center-right">
