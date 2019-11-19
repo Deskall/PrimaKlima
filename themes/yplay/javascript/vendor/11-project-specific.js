@@ -211,7 +211,7 @@ $(document).ready(function(){
 
 		$(document).on("click",".toggle-cart",function(){
 			UIkit.toggle($(this).attr('data-target')).toggle();
-			UIkit.toggle($(this).find('button')).toggle();
+			UIkit.toggle($(".cart-button")).toggle();
 		});
 
 
