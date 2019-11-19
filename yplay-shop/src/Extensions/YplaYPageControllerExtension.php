@@ -90,6 +90,9 @@ class YplaYPageControllerExtension extends Extension
     }
 
     public function showModalPLZ(){
+       if($this->owner->ClassName == "ConfiguratorPage"){
+        return false;
+       }
        if (!$this->owner->getRequest()->getSession()->get('active_plz_asked')){
          $this->owner->getRequest()->getSession()->set('active_plz_asked',true);
          return true;
