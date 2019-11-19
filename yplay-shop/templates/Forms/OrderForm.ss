@@ -122,7 +122,7 @@
                                     $Field
                                 </div>
                                 <div>
-                                    <i><i class="icon icon-info uk-margin-small-right"></i>Preisübersicht Wunschnummern Flashcable Festnetztelefonie</i>
+                                    <a data-uk-toggle="#mobile-wish-number"><i><i class="icon icon-info uk-margin-small-right"></i>Preisübersicht Wunschnummern Flashcable Festnetztelefonie</i></a>
                                 </div>
                             </div>
                             <% end_with %>
@@ -131,15 +131,14 @@
                         	<a class="step backwards uk-button uk-button-muted" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
             	            <a class="step forward uk-button" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
             	        </div>
+                        <% include ModalWishNumber %>
                 </li>
                 <% end_if %>
                 <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-mobile') %>
                 <li class="uk-margin" data-step="mobile">
-                        
-                            
                             <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
-                            	
-                            		
+                                <h3>$SiteConfig.MobileStepTitle</h3>
+                            	$SiteConfig.MobileStepBody
                             </div>
                             <div class="uk-margin-large-top uk-flex uk-flex-around">
                                 <a class="step backwards uk-button uk-button-muted" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
@@ -201,4 +200,5 @@
         </form>
         <% end_if %>
     </div>
+
 

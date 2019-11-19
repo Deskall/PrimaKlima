@@ -26,7 +26,11 @@ class ShopConfigExtension extends DataExtension
        'Conditions' => 'HTMLText',
        'PLZModalTitle' => 'Varchar',
        'PLZModalBody' => 'HTMLText',
-       'ConfiguratorTitle' => 'Varchar'
+       'ConfiguratorTitle' => 'Varchar',
+       'MobileStepTitle' => 'Varchar',
+       'MobileStepBody' => 'HTMLText',
+       'WishNumberTitle' => 'Varchar',
+       'WishNumberBody' => 'HTMLText',
     );
 
     private static $has_one = [
