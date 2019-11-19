@@ -84,6 +84,11 @@
                                 $FieldHolder 
                             <% end_with %>
                         </div>
+                        <div id="bill-fields" class="uk-grid-small uk-flex uk-flex-top" data-uk-grid hidden>
+                            <% with Fields.FieldByName('BillFields') %>
+                                $FieldHolder 
+                            <% end_with %>
+                        </div>
                        <div class="uk-margin-top uk-flex uk-flex-around">
                             <a class="step backwards uk-button uk-button-muted" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
                             <a class="step forward uk-button" data-nav="1">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
@@ -93,11 +98,7 @@
                      
                         
                             
-                            <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
-                            	<% with Fields.FieldByName('BillFields') %>
-                            		$FieldHolder 
-                            	<% end_with %>
-                            </div>
+                            
                             <div class="uk-margin-top uk-flex uk-flex-around">
                             	<a class="step backwards uk-button uk-button-muted" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
                 	            <a class="step forward uk-button" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
