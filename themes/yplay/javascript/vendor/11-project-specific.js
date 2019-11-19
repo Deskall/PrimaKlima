@@ -166,12 +166,14 @@ $(document).ready(function(){
 	if ($('body').hasClass('ShopPage')){
 
 		UpdateOrder();
+		InitNav();
 		InitStep();
 		var validator = $("#Form_OrderForm").validate();
 
 		
 		
 		$(document).on("click",".step",function(){
+			var target = ($(this).attr('data-target')) ? $(this).attr('data-target') : $(this).parents('')
 			if (!$(this).hasClass('backwards')){
 				//Check daten && Update Session Data
 				var form = $(this).parents('form');
@@ -289,7 +291,7 @@ $(document).ready(function(){
 		});
 	}
 
-	function InitStep(){
+	function InitNav(){
 		var li = $("#order-nav li.uk-active");
 		switch(li.attr('data-nav')){
 			case "1":
@@ -302,6 +304,15 @@ $(document).ready(function(){
 				UIkit.switcher("#order-nav-switcher").show(5);
 				break;
 		}
+	}
+
+	function InitStep(){
+		var i = 0;
+		$("#order-form-steps li").each(function(){
+			$(this).find('.step forward').attr('data-target',i+1);
+			$(this).find('.step backwards').attr('data-target',i-1);
+			i++;
+		});
 	}
 
 });
