@@ -204,7 +204,7 @@
 					</div>
 				</div>
 			</div>
-			
+			<a href="$ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
 			<% end_if %>
 			<%-- <% loop activeCategories %>
 				<div class="category uk-text-center $Code uk-margin-large">
