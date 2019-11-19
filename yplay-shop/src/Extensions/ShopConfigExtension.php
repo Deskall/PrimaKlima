@@ -24,7 +24,8 @@ class ShopConfigExtension extends DataExtension
        'OrderEmailBody' => 'HTMLText',
        'Conditions' => 'HTMLText',
        'PLZModalTitle' => 'Varchar',
-       'PLZModalBody' => 'HTMLText'
+       'PLZModalBody' => 'HTMLText',
+       'ConfiguratorTitle' => 'Varchar'
     );
 
     private static $has_one = [
@@ -49,6 +50,7 @@ class ShopConfigExtension extends DataExtension
       $labels['OrderEmailBody'] = _t(__CLASS__.'.OrderEmailBody','Bestätigungsemail Text');
       $labels['PLZModalBody'] = _t(__CLASS__.'.PLZModalBody','Text für den PLZ Verfügbarkeit Prüfung');
       $labels['PLZModalTitle'] = _t(__CLASS__.'.PLZModalTitle','Title für den PLZ Verfügbarkeit Prüfung');
+      $labels['ConfiguratorTitle'] = _t(__CLASS__.'.ConfiguratorTitle','Title des Konfigurator');
     
     }
 
