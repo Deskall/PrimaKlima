@@ -209,6 +209,11 @@ $(document).ready(function(){
 			}
 		});
 
+		$(document).on("click",".toggle-card",function(){
+			UIkit.toggle($(this).attr('data-target'),{animation: 'uk-animation-slide-bottom', duration: 500}).toggle();
+		});
+
+
 		$(document).on("click",".customer-button",function(){
 			$("input[name='ExistingCustomer']").val($(this).attr('data-value'));
 		});
