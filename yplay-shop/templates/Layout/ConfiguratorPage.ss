@@ -144,6 +144,9 @@
 					    </div>
 					</div>
 					<% end_loop %>
+					<div class="uk-margin uk-hidden@m">
+						<a href="$ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
+					</div>
 					<div class="uk-margin">
 						<ul data-uk-accordion>
 						    <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin">
@@ -203,9 +206,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="uk-hidden@m">
-				<a href="$ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
 			</div>
 			<% end_if %>
 			<%-- <% loop activeCategories %>
