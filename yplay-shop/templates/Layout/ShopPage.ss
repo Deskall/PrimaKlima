@@ -3,7 +3,7 @@
 			<div class="uk-card uk-box-shadow-medium uk-card-small">
 				<div class="uk-card-header BlackBackground">
 					<div class="uk-position-relative">
-						<strong class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %> - $activeCart.TotalMonthlyPrice</strong>
+						<strong class="uk-card-title"><%t Configurator.CartLabel 'Warenkorb' %> - $activeCart.TotalMonthlyPrice</strong>
 						<div class="uk-position-absolute uk-position-right">
 							<button type="button" data-uk-toggle="target: #mobile-order-preview; animation: uk-animation-slide-up" data-uk-icon="chevron-up"></button>
 						</div>
