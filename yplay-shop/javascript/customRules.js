@@ -17,6 +17,9 @@ $.validator.addMethod("minDate", function(value, element,attr) {
 
 $.validator.addMethod("intlTelNumber", function(value, element) {
     phone_number = value.replace( /\s+/g, "" );
+    if(preg_match('/^(\+41|0041|0){1}(\(0\))?[0-9]{9}$/',phone_number)){
+        console.log('OK');
+    }
     if (phone_number){
     	return 
 	    // phone_number.match( /^([\+][0-9]{1,3}[ \.\-])?([\(]{1}[0-9]{1,6}[\)])?([0-9 \.\-\/]{3,20})((x|ext|extension)[ ]?[0-9]{1,4})?$/ ) ||
