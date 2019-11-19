@@ -20,7 +20,7 @@ $.validator.addMethod("intlTelNumber", function(value, element) {
     if (phone_number){
     	return 
 	    // phone_number.match( /^([\+][0-9]{1,3}[ \.\-])?([\(]{1}[0-9]{1,6}[\)])?([0-9 \.\-\/]{3,20})((x|ext|extension)[ ]?[0-9]{1,4})?$/ ) ||
-        phone_number.match(((( /^\+|^0{2})[1-9]{2})|(^0[1-9]{2})) ?[1-9]{1}[\d ]*$/ )
+        phone_number.match(/^(((\+|^0{2})[1-9]{2})|(^0[1-9]{2})) ?[1-9]{1}[\d ]*$/ )
 	    // phone_number.match( /^(0|0041|\+41)?[1-9\s][0-9\s]{1,12}$/ )
 	    ;
     }
