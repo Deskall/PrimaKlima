@@ -272,7 +272,9 @@ $(document).ready(function(){
 		$(document).on("change",".options input",function(){
 			var options = [];
 			$(".options input").each(function(){
+				console.log($(this).attr('data-value'));
 				if ($(this).is(':checked')){
+					console.log($(this).attr('data-value'));
 					options.push($(this).attr('data-value'));
 				}
 			});
