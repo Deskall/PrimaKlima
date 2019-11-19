@@ -19,7 +19,7 @@
 	   	            <li><a>Adresse</a></li>
 	   	            <li><a>Rechnug</a></li>
 	   	            <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %><li><a >Telefon</a></li><% end_if %>
-	   	            <%-- <li><a >Mobile</a></li> --%>
+	   	            <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-mobile') %><li><a >Mobile</a></li><% end_if %>
 	   	            <li><a >Optionen</a></li>
 	   	            <li><a >Übersicht</a></li>
 	   	        </ul>

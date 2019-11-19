@@ -173,7 +173,6 @@ $(document).ready(function(){
 		
 		
 		$(document).on("click",".step",function(){
-			var target = ($(this).attr('data-target')) ? $(this).attr('data-target') : $(this).parents('')
 			if (!$(this).hasClass('backwards')){
 				//Check daten && Update Session Data
 				var form = $(this).parents('form');
@@ -307,7 +306,6 @@ $(document).ready(function(){
 	function InitStep(){
 		var i = 0;
 		$("#order-form-steps > li").each(function(){
-			console.log(i);
 			$(this).attr('data-index',i);
 			$(this).find('.step.forward').attr('data-target',i+1);
 			$(this).find('.step.backwards').attr('data-target',i-1);
