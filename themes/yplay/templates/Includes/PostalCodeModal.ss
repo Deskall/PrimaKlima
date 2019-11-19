@@ -3,9 +3,8 @@
         <button class="uk-modal-close-default" type="button" data-uk-close></button>
       
         <div class="uk-modal-body">
-            <h2 class="uk-modal-title">$SiteConfig.PLZModalTitle Das perfekte in Ihrer Region</h2>
+            <h2 class="uk-modal-title">$SiteConfig.PLZModalTitle</h2>
             $SiteConfig.PLZModalBody
-            <p>Durch die Eingabe Ihrer Postleitzahl ermöglichen Sie uns die in Ihrer Region verfügbaren Produkte anzuzeigen.</p>
             <form method="POST" action="{$Link}plz-speichern">
                 <div class="uk-margin">
                     <div class="uk-text-large">
