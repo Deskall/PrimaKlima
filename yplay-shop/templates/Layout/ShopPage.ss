@@ -21,7 +21,7 @@
 			</div>
 		</div>
 	</div>
-	<section class="uk-section uk-section-medium">
+	<section class="uk-section">
 		<div class="uk-container uk-container-medium">
 			<h1>$Title</h1>
 			<div class="uk-grid-small" data-uk-grid>
