@@ -30,7 +30,7 @@
 			<form method="POST" action="{$Link}plz-speichern" class="form-std">
 			    <div class="uk-margin">
 			        <div class="uk-text-large">
-			            <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ" autofocus="true">
+			            <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ" autofocus="autofocus">
 			        </div>
 			    </div>
 			    <div class="uk-flex uk-flex-center uk-flex-right@s uk-flex-wrap uk-flex-middle">
