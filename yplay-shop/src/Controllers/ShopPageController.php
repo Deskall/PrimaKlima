@@ -59,16 +59,16 @@ class ShopPageController extends PageController
          new FieldList(
             CompositeField::create(
                HeaderField::create('AddressTitle','Ihre Angaben',3),
-               DropdownField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Bitte wählen')),
+               OptionsetField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
                TextField::create('Name','Name')->setAttribute('class','uk-input'),
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
                TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true),
                DateField::create('Birthday','Geburstdatum')->setValue($date->format('Y-m-d'))->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$max->format('Y.m.d'))->setAttribute('class','uk-input'),
                TextField::create('Address','Adresse')->setAttribute('class','uk-input'),
-               TextField::create('PostalCode','PLZ')->setAttribute('class','uk-input'),
+               TextField::create('PostalCode','PLZ')->setAttribute('class','uk-input')->setValue($this->activePLZ()->Code),
                TextField::create('City','Stadt')->setAttribute('class','uk-input'),
-               DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch'),
+               // DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch'),
                CheckboxField::create('BillSameAddress','identische Rechnungsadresse?')->setAttribute('class','uk-checkbox')->setValue(1)
             )->setName('AddressFields'),
             CompositeField::create(
