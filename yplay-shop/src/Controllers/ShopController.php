@@ -111,7 +111,7 @@ class ShopController extends PageController
          $cart = ShopCart::get()->byId($id);
       }
 
-      if ($cart && $options ){
+      if ($cart ){
          //apply options
          $cart->Options()->removeAll();
          if ($options){
