@@ -50,8 +50,9 @@ class ShopPageController extends PageController
       Requirements::javascript('yplay-shop/javascript/messages_de.min.js');
       Requirements::javascript('yplay-shop/javascript/customRules.js');
       $date = new \DateTime();
-      $val = $date->modify('-18 years');
-      $max = $date->modify('+ 1 day');
+      $max = new \DateTime();
+      $date = $date->modify('-18 years');
+      $max = $max->modify('-18 years + 1 day');
       $form = new Form(
          $this,
          'OrderForm',
