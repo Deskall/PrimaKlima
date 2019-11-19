@@ -108,7 +108,7 @@
                         	</div>
                             <% with Fields.FieldByName('ExistingPhone') %>
                             <div id="existing-phone" hidden>
-                                <div class="uk-form-controls">
+                                <div>
                                     $Field
                                 </div>
                                 <div>
@@ -118,7 +118,7 @@
                             <% end_with %>
                             <% with Fields.FieldByName('WishPhone') %>
                             <div id="wish-phone" hidden>
-                                <div class="uk-form-controls">
+                                <div >
                                     $Field
                                 </div>
                                 <div>
