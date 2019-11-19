@@ -15,9 +15,10 @@
 	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "3" %>class="uk-active"<% else_if Controller.activeCart.CurrentStep < 3 %>class="dk-inactive"<% end_if %> data-nav="3"><a>3. <span class="uk-visible@m">Überprüfung</span></a></li>
 	   	        </ul>
 	   	        <ul id="order-nav-switcher" data-uk-switcher="connect:#order-form-steps" hidden>
-	   	            <li class="uk-active"><a>Kundendaten</a></li>
-	   	            <li><a>Adresse</a></li>
-	   	            <li><a>Rechnug</a></li>
+	   	            <li class="uk-active"><a>ist Kunde?</a></li>
+                    <li><a>Kundendaten</a></li>
+                    <li><a>Kundendaten 2</a></li>
+	   	            <li><a>Adresse / Rechnung</a></li>
 	   	            <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %><li><a >Telefon</a></li><% end_if %>
 	   	            <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-mobile') %><li><a >Mobile</a></li><% end_if %>
 	   	            <li><a >Optionen</a></li>
