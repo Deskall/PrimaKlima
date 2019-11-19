@@ -256,6 +256,7 @@ $(document).ready(function(){
 					$("#wish-phone").attr('hidden',false);
 					break;
 			}
+			UIkit.update(document.body, type = 'update');
 		});
 
 		$(document).on("click","li[data-step='options'] tr td:not(:first-child)",function(e){

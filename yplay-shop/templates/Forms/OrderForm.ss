@@ -107,7 +107,7 @@
                         	<% end_with %>
                         	</div>
                             <% with Fields.FieldByName('ExistingPhone') %>
-                            <div id="existing-phone" hidden>
+                            <div id="existing-phone" class="uk-margin" hidden>
                                 <div>
                                     $Field
                                 </div>
@@ -117,7 +117,7 @@
                             </div>
                             <% end_with %>
                             <% with Fields.FieldByName('WishPhone') %>
-                            <div id="wish-phone" hidden>
+                            <div id="wish-phone" class="uk-margin" hidden>
                                 <div >
                                     $Field
                                 </div>
@@ -131,7 +131,7 @@
                         	<a class="step backwards uk-button uk-button-muted" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
             	            <a class="step forward uk-button" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
             	        </div>
-                        <% include ModalWishNumber %>
+                        <% include Includes/ModalWishNumber %>
                 </li>
                 <% end_if %>
                 <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-mobile') %>

@@ -169,12 +169,12 @@ $(document).ready(function(){
   });
 });
 
-$(document).ready(function(){
-  UIkit.update(document.body, type = 'update');
-});
-$( window ).resize(function() {
-  UIkit.update(document.body, type = 'update');
-});
+// $(document).ready(function(){
+//   UIkit.update(document.body, type = 'update');
+// });
+// $( window ).resize(function() {
+//   UIkit.update(document.body, type = 'update');
+// });
 
 //Anonymize IP
 var gaProperty = 'UA-XXXXXXXX-X';
