@@ -51,7 +51,7 @@ class ShopPageController extends PageController
       Requirements::javascript('yplay-shop/javascript/customRules.js');
       $date = new \DateTime();
       $date->modify('-18 years');
-      $date->modify('+ 1 day');
+      $date->modify('- 1 day');
       $form = new Form(
          $this,
          'OrderForm',
