@@ -4,15 +4,15 @@
 
 
     <%-- <div id="loading-block" class="uk-flex-middle"><p><span data-uk-spinner class="uk-margin-right"></span>Bitte warten Sie einen Moment, das Formular wird geladen.</p></div> --%>
-   <div class="uk-visible@m">
+   
 	   <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 	       <div class="uk-navbar-left">
 	       		<ul id="order-nav" class="uk-navbar-nav">
-	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "1" || not Controller.activeCart.CurrentStep %>class="uk-active"<% end_if %> data-nav="1"><a>1. Kundendaten</a></li>
+	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "1" || not Controller.activeCart.CurrentStep %>class="uk-active"<% end_if %> data-nav="1"><a>1. <span class="uk-visible-m">Kundendaten</span></a></li>
 	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "2" %>class="uk-active"<% else_if Controller.activeCart.CurrentStep < 2 %>class="dk-inactive"<% end_if %> data-nav="2">
-	   	                <a>2. Bestellungsdaten</a>
+	   	                <a>2. <span class="uk-visible-m">Bestellungsdaten</span></a>
 	   	            </li>
-	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "3" %>class="uk-active"<% else_if Controller.activeCart.CurrentStep < 3 %>class="dk-inactive"<% end_if %> data-nav="3"><a>3. Überprüfung</a></li>
+	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "3" %>class="uk-active"<% else_if Controller.activeCart.CurrentStep < 3 %>class="dk-inactive"<% end_if %> data-nav="3"><a>3. <span class="uk-visible-m">Überprüfung</span></a></li>
 	   	        </ul>
 	   	        <ul id="order-nav-switcher" data-uk-switcher="connect:#order-form-steps" hidden>
 	   	            <li class="uk-active"><a>Kundendaten</a></li>
@@ -25,7 +25,7 @@
 	   	        </ul>
 	       </div>
 	   </nav>
-	</div>
+	
     <div>
     <% if $IncludeFormTag %>
     <form $AttributesHTML>
