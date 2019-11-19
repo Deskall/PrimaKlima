@@ -211,6 +211,12 @@ $(document).ready(function(){
 
 		$(document).on("click",".toggle-cart",function(){
 			UIkit.toggle($(this).attr('data-target')).toggle();
+			if ($(this).attr('data-icon') == "chevron-up"){
+				$(this).attr('data-icon','chevron-down');
+			}
+			else{
+				$(this).attr('data-icon','chevron-up');
+			}
 		});
 
 
