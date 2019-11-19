@@ -210,7 +210,7 @@ $(document).ready(function(){
 		});
 
 		$(document).on("click",".toggle-cart",function(){
-			UIkit.toggle($(this).attr('data-target'),{animation: 'uk-animation-slide-up', duration: 500}).toggle();
+			UIkit.toggle($(this).attr('data-target')).toggle();
 		});
 
 
