@@ -90,7 +90,7 @@ class ShopConfigExtension extends DataExtension
         $fields->addFieldToTab('Root.Shop',new Tabset('Main','Main'));
 
         $fields->addFieldToTab('Root.Shop.Main',new Tab('Orders','Bestellung'));
-        $fields->addFieldsToTab('Root.Shop.Orders',[
+        $fields->addFieldsToTab('Root.Shop.Main.Orders',[
           HeaderField::create('OrdersTitle','Bestellung Seite',3),
           CompositeField::create(
           [
@@ -104,7 +104,7 @@ class ShopConfigExtension extends DataExtension
 
 
        $fields->addFieldToTab('Root.Shop.Main',new Tab('Emails','E-Mails'));
-       $fields->addFieldsToTab('Root.Shop.Emails',[
+       $fields->addFieldsToTab('Root.Shop.Main.Emails',[
         HeaderField::create('OrderEmailTitle','Bestätigungsemail',3),
         CompositeField::create(
         [
