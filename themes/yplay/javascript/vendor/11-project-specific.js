@@ -308,6 +308,7 @@ $(document).ready(function(){
 		var i = 0;
 		$("#order-form-steps li").each(function(){
 			console.log(i);
+			$(this).attr('data-index',i);
 			$(this).find('.step.forward').attr('data-target',i+1);
 			$(this).find('.step.backwards').attr('data-target',i-1);
 			i++;

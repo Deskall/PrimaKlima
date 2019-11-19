@@ -36,7 +36,7 @@
     <p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
     <% end_if %>
             <ul id="order-form-steps" class="uk-switcher">
-                <li class="uk-active uk-margin-top" data-step="customer" data-index="0">
+                <li class="uk-active uk-margin-top" data-step="customer">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
                         	<div class="uk-margin-large-top">
@@ -56,7 +56,7 @@
                         </div>
                         
                 </li>
-                <li id="address" class="uk-margin" data-step="step-1" data-index="1">
+                <li id="address" class="uk-margin" data-step="step-1">
                         <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
                         	<% with Fields.FieldByName('Step1') %>
                         		$FieldHolder 
@@ -67,7 +67,7 @@
 	            	        <a class="step forward uk-button" data-nav="1">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
 	            	  </div>
                 </li>
-                <li class="uk-margin" data-step="step-2" data-index="2">
+                <li class="uk-margin" data-step="step-2">
                         <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
                             <% with Fields.FieldByName('Step2') %>
                                 $FieldHolder 
@@ -78,7 +78,7 @@
                             <a class="step forward uk-button" data-nav="1">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
                       </div>
                 </li>
-                <li class="uk-margin" data-step="step-3" data-index="3">
+                <li class="uk-margin" data-step="step-3">
                         <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
                             <% with Fields.FieldByName('Step3') %>
                                 $FieldHolder 
@@ -94,19 +94,8 @@
                             <a class="step forward uk-button" data-nav="1">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
                       </div>
                 </li>
-                <li class="uk-margin" data-step="bill-address" data-index="4">
-                     
-                        
-                            
-                            
-                            <div class="uk-margin-top uk-flex uk-flex-around">
-                            	<a class="step backwards uk-button uk-button-muted" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
-                	            <a class="step forward uk-button" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
-                	        </div>
-                       
-                </li>
                 <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %>
-                <li class="uk-margin" data-step="phone" data-index="5">
+                <li class="uk-margin" data-step="phone">
                         <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
                         	<% with Fields.FieldByName('PhoneTitle') %>
                         		$FieldHolder 
@@ -137,7 +126,7 @@
                             </div>
                 </li>
                 <% end_if %>
-                <li class="uk-margin" data-step="options" data-index="3">
+                <li class="uk-margin" data-step="options">
                     
                         <h3>Optionen</h3>
                             
