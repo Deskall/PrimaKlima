@@ -95,7 +95,7 @@ class ShopPageController extends PageController
          new FieldList(
             FormAction::create('doOrder', _t('SHOP.BUYNOW', 'Bestellung abschicken'))->addExtraClass('uk-button')
          ),
-         RequiredFields::create(['Gender','Name','FirstName','Birthday','Email','Phone','Address'])
+         RequiredFields::create(['Gender','Name','FirstName','Birthday','Email','Phone','Address','AGB'])
       );
       // $member = Security::getCurrentUser();
       // if ($member){
@@ -122,6 +122,7 @@ class ShopPageController extends PageController
          //2. Mobile
          if ($cart->hasCategory('yplay-mobile')){
             $form->Fields()->insertAfter('AGB',CheckboxField::create('AGBMobile','Ich bin mit den Mobile AGB einverstanden'));
+            $form->RequiredFields()->push('AGBMobile');
          }
       }
       
