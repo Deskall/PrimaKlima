@@ -1,4 +1,4 @@
-<div id="modal-wish-number" data-uk-modal>
+<div id="modal-wish-number" class="uk-modal-container" data-uk-modal>
     <div class="uk-modal-dialog">
         <button class="uk-modal-close-default" type="button" data-uk-close></button>
       
