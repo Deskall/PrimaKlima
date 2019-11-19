@@ -57,20 +57,23 @@ class ShopPageController extends PageController
          $this,
          'OrderForm',
          new FieldList(
+            HeaderField::create('AddressTitle','Ihre Angaben',3),
             CompositeField::create(
-               HeaderField::create('AddressTitle','Ihre Angaben',3),
                OptionsetField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
                TextField::create('Name','Name')->setAttribute('class','uk-input'),
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
+               DateField::create('Birthday','Geburstdatum')->setValue($date->format('Y-m-d'))->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$max->format('Y.m.d'))->setAttribute('class','uk-input')
+            )->setName('Step1'),
+            CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
-               TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true),
-               DateField::create('Birthday','Geburstdatum')->setValue($date->format('Y-m-d'))->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$max->format('Y.m.d'))->setAttribute('class','uk-input'),
+               TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true)
+            )->setName('Step2'),
+            CompositeField::create(
                TextField::create('Address','Adresse')->setAttribute('class','uk-input'),
-               TextField::create('PostalCode','PLZ')->setAttribute('class','uk-input')->setValue($this->activePLZ()->Code),
-               TextField::create('City','Stadt')->setAttribute('class','uk-input'),
-               // DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch'),
+               ReadonlyField::create('PostalCode','PLZ')->setAttribute('class','uk-input')->setValue($this->activePLZ()->Code),
+               ReadonlyField::create('City','Stadt')->setAttribute('class','uk-input')->setValue($this->activePLZ()->City),
                CheckboxField::create('BillSameAddress','identische Rechnungsadresse?')->setAttribute('class','uk-checkbox')->setValue(1)
-            )->setName('AddressFields'),
+            )->setName('Step3'),
             CompositeField::create(
                HeaderField::create('BillTitle','Rechnungsadresse',3),
                TextField::create('BillAddress','Adresse'),
@@ -89,7 +92,7 @@ class ShopPageController extends PageController
          new FieldList(
             FormAction::create('doOrder', _t('SHOP.BUYNOW', 'Bestellung abschicken'))->addExtraClass('uk-button')
          ),
-         RequiredFields::create(['Gender','Name','FirstName','Email','Birthday','Address','PostalCode','City','Country'])
+         RequiredFields::create(['Gender','Name','FirstName','Birthday','Email','Phone','Address'])
       );
       // $member = Security::getCurrentUser();
       // if ($member){
