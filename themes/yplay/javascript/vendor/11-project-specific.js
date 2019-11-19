@@ -309,8 +309,8 @@ $(document).ready(function(){
 	function InitStep(){
 		var i = 0;
 		$("#order-form-steps li").each(function(){
-			$(this).find('.step forward').attr('data-target',i+1);
-			$(this).find('.step backwards').attr('data-target',i-1);
+			$(this).find('.step.forward').attr('data-target',i+1);
+			$(this).find('.step.backwards').attr('data-target',i-1);
 			i++;
 		});
 	}
