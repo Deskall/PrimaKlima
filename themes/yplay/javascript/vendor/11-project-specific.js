@@ -238,12 +238,7 @@ $(document).ready(function(){
 		});
 
 		$(document).on("change","input[name='BillSameAddress']",function(){
-			if ($(this).is(':checked')){
-				$("#bill-fields").hide();
-			}
-			else{
-				$("#bill-fields").show();
-			}
+			UIkit.toggle($("#bill-fields")).toggle();
 		});
 
 		$(document).on("click","li[data-step='options'] tr td:not(:first-child)",function(e){
