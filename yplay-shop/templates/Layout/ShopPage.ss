@@ -3,7 +3,7 @@
 			<div class="uk-card uk-box-shadow-medium uk-card-small">
 				<div class="uk-card-header toggle-cart" data-target="#mobile-order-preview">
 					<div class="uk-position-relative">
-						<strong class="uk-card-title"><%t Configurator.CartLabel 'Warenkorb' %> - $activeCart.TotalMonthlyPrice</strong>
+						<strong class="uk-card-title"><%t Configurator.CartLabel 'Warenkorb' %> - <span class="total-monthly-price">$activeCart.TotalMonthlyPrice</span></strong>
 						<div class="uk-position-absolute uk-position-center-right">
 							<button type="button" class="cart-button"><span data-uk-icon="icon:chevron-down;ratio:1.5"></button>
 							<button type="button" class="cart-button uk-hidden"><span data-uk-icon="icon:chevron-up;ratio:1.5"></button>

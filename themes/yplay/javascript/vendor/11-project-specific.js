@@ -157,8 +157,13 @@ $(document).ready(function(){
 		}).done(function(response){
 			$(".order-preview").each(function(){
 				$(this).empty().append(response);
+				UpdateCartSummaries();
 			});
 		});
+	}
+
+	function UpdateCartSummaries(){
+		$(".total-monthly-price").text($("#total-monthly-price"));
 	}
 
 
