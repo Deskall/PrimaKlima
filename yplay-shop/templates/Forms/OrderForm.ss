@@ -64,7 +64,7 @@
                         </div>
 	                   <div class="uk-margin-top uk-flex uk-flex-around">
 	                        <a class="step backwards uk-button uk-button-muted"  data-target="0" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
-	            	        <a class="step forward uk-button"  data-target="3" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+	            	        <a class="step forward uk-button"  data-target="2" data-nav="1">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
 	            	  </div>
                 </li>
                 <li class="uk-margin" data-step="step-2" data-index="2">
@@ -75,7 +75,7 @@
                         </div>
                        <div class="uk-margin-top uk-flex uk-flex-around">
                             <a class="step backwards uk-button uk-button-muted"  data-target="1" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
-                            <a class="step forward uk-button"  data-target="3" data-nav="3">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+                            <a class="step forward uk-button"  data-target="3" data-nav="1">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
                       </div>
                 </li>
                 <li class="uk-margin" data-step="step-3" data-index="3">
@@ -86,7 +86,7 @@
                         </div>
                        <div class="uk-margin-top uk-flex uk-flex-around">
                             <a class="step backwards uk-button uk-button-muted"  data-target="2" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
-                            <a class="step forward uk-button"  data-target="3" data-nav="4">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+                            <a class="step forward uk-button"  data-target="4" data-nav="1">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
                       </div>
                 </li>
                 <li class="uk-margin" data-step="bill-address" data-index="4">
@@ -100,7 +100,7 @@
                             </div>
                             <div class="uk-margin-top uk-flex uk-flex-around">
                             	<a class="step backwards uk-button uk-button-muted"  data-target="3" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
-                	            <a class="step forward uk-button"  data-target="3" data-nav="5">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+                	            <a class="step forward uk-button"  data-target="5" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
                 	        </div>
                        
                 </li>
