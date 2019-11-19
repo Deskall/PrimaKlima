@@ -56,18 +56,38 @@
                         </div>
                         
                 </li>
-                <li id="address" class="uk-margin" data-step="address" data-index="1">
+                <li id="address" class="uk-margin" data-step="step-1" data-index="1">
                         <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
-                        	<% with Fields.FieldByName('AddressFields') %>
+                        	<% with Fields.FieldByName('Step1') %>
                         		$FieldHolder 
                         	<% end_with %>
                         </div>
-
-	                        <div class="uk-margin-top uk-flex uk-flex-around">
-	                        	<a class="step backwards uk-button uk-button-muted"  data-target="0" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
-	            	            <a class="step forward uk-button"  data-target="3" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
-	            	        </div>
-            	      
+	                   <div class="uk-margin-top uk-flex uk-flex-around">
+	                        <a class="step backwards uk-button uk-button-muted"  data-target="0" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
+	            	        <a class="step forward uk-button"  data-target="3" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+	            	  </div>
+                </li>
+                <li class="uk-margin" data-step="step-2" data-index="1">
+                        <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
+                            <% with Fields.FieldByName('Step2') %>
+                                $FieldHolder 
+                            <% end_with %>
+                        </div>
+                       <div class="uk-margin-top uk-flex uk-flex-around">
+                            <a class="step backwards uk-button uk-button-muted"  data-target="0" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
+                            <a class="step forward uk-button"  data-target="3" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+                      </div>
+                </li>
+                <li class="uk-margin" data-step="step-3" data-index="1">
+                        <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
+                            <% with Fields.FieldByName('Step3') %>
+                                $FieldHolder 
+                            <% end_with %>
+                        </div>
+                       <div class="uk-margin-top uk-flex uk-flex-around">
+                            <a class="step backwards uk-button uk-button-muted"  data-target="0" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
+                            <a class="step forward uk-button"  data-target="3" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+                      </div>
                 </li>
                 <li class="uk-margin" data-step="bill-address" data-index="2">
                      
