@@ -190,7 +190,7 @@
 						        <div class="uk-accordion-content">
 						           
 						            <div class="uk-grid-small uk-grid-match uk-child-width-auto" data-uk-grid>
-						            	<% loop Controller.filteredOptions.groupedBy(CategoryTitle) %>
+						            	<% loop filteredOptions.groupedBy(CategoryTitle) %>
 		                            	 <div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-body uk-transition-toggle">
 								           	<h4 class="uk-card-title">$CategoryTitle</h4>
 								           	<table class="uk-table uk-table-small uk-table-hover">
