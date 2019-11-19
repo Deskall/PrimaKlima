@@ -5,7 +5,7 @@
 					<div class="uk-position-relative">
 						<strong class="uk-card-title"><%t Configurator.CartLabel 'Warenkorb' %> - $activeCart.TotalMonthlyPrice</strong>
 						<div class="uk-position-absolute uk-position-right">
-							<button type="button" id="toggle-cart" data-target="#mobile-order-preview" data-uk-icon="chevron-down"></button>
+							<button type="button" class="toggle-cart" data-target="#mobile-order-preview" data-uk-icon="chevron-down"></button>
 						</div>
 					</div>
 				</div>
