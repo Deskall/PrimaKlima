@@ -185,30 +185,6 @@
 						            </div>
 						        </div>
 						    </li>
-						    <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin">
-						        <a class="uk-accordion-title">Optionen</a>
-						        <div class="uk-accordion-content">
-						           
-						            <div class="uk-grid-small uk-grid-match uk-child-width-auto" data-uk-grid>
-						            	<% loop filteredOptions.groupedBy(CategoryTitle) %>
-		                            	 <div>
-								           	<h4 class="uk-card-title">$CategoryTitle</h4>
-								           	<table class="uk-table uk-table-small uk-table-hover">
-								           		<% loop Children %>
-									           		<% if hasOptions %>
-										           		<% loop Options %>
-										           		<tr><td class="uk-table-shrink"><input type="radio" class="uk-radio" name="$Group.ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> ></td><td class="uk-table-expand">$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
-										           		<% end_loop %>
-										           	<% else %>
-										           	<tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox" name="$ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> ></td><td class="uk-table-expand">$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
-										           	<% end_if %>
-									           	<% end_loop %>
-								           	</table>
-								         </div>
-		                            	<% end_loop %>
-						            </div>
-						        </div>
-						    </li>
 						</ul>
 					</div>
 					<div class="uk-margin">
