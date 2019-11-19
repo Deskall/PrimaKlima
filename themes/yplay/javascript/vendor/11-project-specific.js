@@ -247,13 +247,13 @@ $(document).ready(function(){
 		});
 
 		$(document).on("change","input[name='PhoneOption']",function(){
-			$("#existing-phone,#wish-phone").attr('hidden','hidden');
+			$("#existing-phone,#wish-phone").attr('hidden','hidden').find('input').attr('required',false);
 			switch($("input[name='PhoneOption']:checked").attr('value')){
 				case "existing":
-					$("#existing-phone").attr('hidden',false);
+					$("#existing-phone").attr('hidden',false).find('input').attr('required','required');
 					break;
 				case "wish":
-					$("#wish-phone").attr('hidden',false);
+					$("#wish-phone").attr('hidden',false).find('input').attr('required','required');
 					break;
 			}
 			UIkit.update(document.body, type = 'update');
