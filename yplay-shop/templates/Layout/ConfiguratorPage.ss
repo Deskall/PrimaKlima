@@ -26,7 +26,8 @@
 			<h1>$Title</h1>
 			<h2>Kombinieren Sie Selber Ihres Traum-Paket</h2>
 			<% if not activePLZ %>
-			<form method="POST" action="{$Link}plz-speichern">
+			$PLZModalBody
+			<form method="POST" action="{$Link}plz-speichern" class="form-std">
 			    <div class="uk-margin">
 			        <div class="uk-text-large">
 			            <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
