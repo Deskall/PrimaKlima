@@ -58,18 +58,20 @@ class ShopPageController extends PageController
          $this,
          'OrderForm',
          new FieldList(
-            HeaderField::create('AddressTitle','Ihre Angaben',3),
             CompositeField::create(
+               HeaderField::create('AddressTitle','Ihre Angaben',3),
                OptionsetField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
                TextField::create('Name','Name')->setAttribute('class','uk-input'),
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                DateField::create('Birthday','Geburstdatum')->setValue($date->format('Y-m-d'))->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$max->format('Y.m.d'))->setAttribute('class','uk-input')
             )->setName('Step1'),
             CompositeField::create(
+               HeaderField::create('AddressTitle2','Ihre Angaben',3),
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
                TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true)
             )->setName('Step2'),
             CompositeField::create(
+               HeaderField::create('AddressTitle3','Ihre Adresse',3),
                TextField::create('Address','Adresse')->setAttribute('class','uk-input'),
                ReadonlyField::create('PostalCode','PLZ')->setAttribute('class','uk-input')->setValue($this->activePLZ()->Code),
                ReadonlyField::create('City','Stadt')->setAttribute('class','uk-input')->setValue($this->activePLZ()->City),
