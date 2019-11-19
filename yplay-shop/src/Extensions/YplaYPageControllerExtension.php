@@ -100,7 +100,7 @@ class YplaYPageControllerExtension extends Extension
 
     public function filteredOptions(){
        $options = ProductOption::get()->filter('GroupID',0)->filterByCallback(function($item, $list) {
-           return ($item->shouldDisplay() && $this->owner->activeCart()->hasCategory($this->Category()->Code) );
+           return ($item->shouldDisplay() && $this->owner->activeCart()->hasCategory($item->Category()->Code) );
        })->sort('CategoryTitle');
        
        return GroupedList::create($options);
