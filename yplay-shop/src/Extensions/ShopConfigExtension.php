@@ -97,7 +97,7 @@ class ShopConfigExtension extends DataExtension
             TextField::create('MobileStepTitle',$this->owner->fieldLabels()['MobileStepTitle']),
             HTMLEditorField::create('MobileStepBody',$this->owner->fieldLabels()['MobileStepBody']),
             TextField::create('WishNumberTitle',$this->owner->fieldLabels()['WishNumberTitle']),
-            HTMLEditorField::create('MobileStepBody',$this->owner->fieldLabels()['WishNumberBody'])
+            HTMLEditorField::create('WishNumberBody',$this->owner->fieldLabels()['WishNumberBody'])
           ])
         ]
         );
