@@ -21,8 +21,8 @@ $.validator.addMethod("intlTelNumber", function(value, element) {
     //     console.log('OK');
     // }
     if (phone_number){
-    	return phone_number.match(/^(\+41|0041|0){1}(\(0\))?[0-9]{9}$/)
-	    // phone_number.match( /^(0|0041|\+41)?[1-9\s][0-9\s]{1,12}$/ )
+    	return phone_number.match(/^(\+41|0041|0){1}(\(0\))?[0-9]{9}$/) ||
+        phone_number.match(/^((00|\+)49)?(0?[2-9][0-9]{1,})$/)
 	    ;
     }
     return true;
