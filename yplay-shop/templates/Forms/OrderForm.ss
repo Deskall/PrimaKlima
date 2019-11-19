@@ -138,7 +138,9 @@
                 <li class="uk-margin" data-step="mobile">
                             <div class="uk-grid-small uk-flex uk-flex-top" data-uk-grid>
                                 <h3>$SiteConfig.MobileStepTitle</h3>
-                            	$SiteConfig.MobileStepBody
+                            	<div>
+                                    $SiteConfig.MobileStepBody
+                                </div>
                             </div>
                             <div class="uk-margin-large-top uk-flex uk-flex-around">
                                 <a class="step backwards uk-button uk-button-muted" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
