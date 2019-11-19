@@ -122,7 +122,7 @@
                                     $Field
                                 </div>
                                 <div>
-                                    <i>$Title</i>
+                                    <i><i class="icon icon-info uk-margin-small-right"></i>Preisübersicht Wunschnummern Flashcable Festnetztelefonie</i>
                                 </div>
                             </div>
                             <% end_with %>
