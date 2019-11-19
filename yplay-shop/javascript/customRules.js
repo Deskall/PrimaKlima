@@ -22,7 +22,7 @@ $.validator.addMethod("intlTelNumber", function(value, element) {
     // }
     if (phone_number){
     	return phone_number.match(/^(\+41|0041|0){1}(\(0\))?[0-9]{9}$/) ||
-        phone_number.match(/^(\+49|0049|0){1}(0?[2-9][0-9]{1,})$/)
+        phone_number.match(/^(\+49|0049|0){1}(\(0\))?[0-9]{9}$/)
 	    ;
     }
     return true;
