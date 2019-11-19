@@ -209,7 +209,7 @@ $(document).ready(function(){
 			}
 		});
 
-		$(document).on("click",".toggle-card",function(){
+		$(document).on("click",".toggle-cart",function(){
 			UIkit.toggle($(this).attr('data-target'),{animation: 'uk-animation-slide-bottom', duration: 500}).toggle();
 		});
 
