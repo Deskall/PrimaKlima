@@ -15,6 +15,7 @@ use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\Tab;
+use SilverStripe\Forms\Tabset;
 
 class ShopConfigExtension extends DataExtension
 {
@@ -56,7 +57,10 @@ class ShopConfigExtension extends DataExtension
       $labels['PLZModalBody'] = _t(__CLASS__.'.PLZModalBody','Text für den PLZ Verfügbarkeit Prüfung');
       $labels['PLZModalTitle'] = _t(__CLASS__.'.PLZModalTitle','Title für den PLZ Verfügbarkeit Prüfung');
       $labels['ConfiguratorTitle'] = _t(__CLASS__.'.ConfiguratorTitle','Title des Konfigurator');
-    
+      $labels['MobileStepTitle'] = _t(__CLASS__.'.MobileStepTitle','Titel des "Mobile" Schrittes');
+      $labels['PLZModalTitle'] = _t(__CLASS__.'.MobileStepBody','Text des "Mobile" Schrittes');
+      $labels['WishNumberTitle'] = _t(__CLASS__.'.WishNumberTitle','Titel des "Wunschnummer" Modal');
+      $labels['WishNumberBody'] = _t(__CLASS__.'.WishNumberBody','Text des "Wunschnummer" Modal');
     }
 
    
@@ -83,7 +87,23 @@ class ShopConfigExtension extends DataExtension
        $fields->addFieldToTab('Root.Shop',TextField::create('PLZModalTitle',$this->owner->fieldLabels()['PLZModalTitle']));
        $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('PLZModalBody',$this->owner->fieldLabels()['PLZModalBody']));
        $fields->addFieldToTab('Root.Shop',TextField::create('ConfiguratorTitle',$this->owner->fieldLabels()['ConfiguratorTitle']));
-       $fields->addFieldToTab('Root.Shop',new Tab('Emails','E-Mails'));
+        $fields->addFieldToTab('Root.Shop',new Tabset('Main','Main'));
+
+        $fields->addFieldToTab('Root.Shop.Main',new Tab('Orders','Bestellung'));
+        $fields->addFieldsToTab('Root.Shop.Orders',[
+          HeaderField::create('OrdersTitle','Bestellung Seite',3),
+          CompositeField::create(
+          [
+            TextField::create('MobileStepTitle',$this->owner->fieldLabels()['MobileStepTitle']),
+            HTMLEditorField::create('MobileStepBody',$this->owner->fieldLabels()['MobileStepBody']),
+            TextField::create('WishNumberTitle',$this->owner->fieldLabels()['WishNumberTitle']),
+            HTMLEditorField::create('MobileStepBody',$this->owner->fieldLabels()['WishNumberBody'])
+          ])
+        ]
+        );
+
+
+       $fields->addFieldToTab('Root.Shop.Main',new Tab('Emails','E-Mails'));
        $fields->addFieldsToTab('Root.Shop.Emails',[
         HeaderField::create('OrderEmailTitle','Bestätigungsemail',3),
         CompositeField::create(
