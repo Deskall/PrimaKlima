@@ -188,7 +188,7 @@ class ShopPageController extends PageController
 
             $order->MonthlyPrice = $cart->TotalMonthlyPrice;
             $order->UniquePrice = $cart->TotalUniquePrice;
-            
+            $order->write();
             //Create Receipt
             // $order->generatePDF();
             //Send Confirmation Email
