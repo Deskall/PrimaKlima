@@ -172,23 +172,26 @@ $(document).ready(function(){
 		
 		
 		$(document).on("click",".step",function(){
-			//Check daten && Update Session Data
-			var form = $(this).parents('form');
-		
-			if (form.valid()){
-				UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
-				$("#order-nav").find('li.uk-active').removeClass('uk-active');
-				var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
-				if (nav.hasClass('dk-inactive')){
-					nav.removeClass('dk-inactive');
-					//Update cart steps
-					UpdateCartStep(nav.attr('data-nav'));
-				}
-				
-				if (!nav.hasClass('uk-active')){
-					nav.addClass('uk-active');
+			if (!$(this).hasClass('backwards')){
+				//Check daten && Update Session Data
+				var form = $(this).parents('form');
+			
+				if (form.valid()){
+					UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
+					$("#order-nav").find('li.uk-active').removeClass('uk-active');
+					var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
+					if (nav.hasClass('dk-inactive')){
+						nav.removeClass('dk-inactive');
+						//Update cart steps
+						UpdateCartStep(nav.attr('data-nav'));
+					}
+					
+					if (!nav.hasClass('uk-active')){
+						nav.addClass('uk-active');
+					}
 				}
 			}
+			
 		});
 
 		$(document).on("click","#order-nav li",function(e){
