@@ -49,6 +49,8 @@ class ShopPageController extends PageController
             return $this->redirect($this->ConfiguratorPage()->Link(), 302);
          }
       }
+
+      return $this->index();
       
    }
 
