@@ -72,7 +72,9 @@ class ShopPageController extends PageController
         $package = Package::get()->byId($packageID);
         if ($package){
            $cart->PackageID = $package->ID;
-           $cart->Availability = $package->Availability;
+           if ( $cart->Availability != "Immer"){
+              $cart->Availability = $package->Availability;
+           }
            $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
            $cart->Products()->removeAll();
         }
@@ -104,7 +106,9 @@ class ShopPageController extends PageController
             $cart->Products()->removeAll();
             $cart->PackageID = 0;
             $cart->Products()->add($product);
-            $cart->Availability = $product->Availability;
+            if ($product->Availability != "Immer"){
+               $cart->Availability = $product->Availability;
+            }
             $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
         }
       }
