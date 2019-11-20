@@ -38,7 +38,8 @@ class Product extends DataObject {
 		'Sortable',
 		'Activable',
 		'PLZFilterable',
-		'Itemable'
+		'Itemable',
+		'AvailabilityFilterable'
 	];
 
 	private static $summary_fields = [
