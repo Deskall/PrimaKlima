@@ -81,7 +81,7 @@
 	        <div class="product-footer">
 	        	<div class="product-price uk-text-large uk-text-bold">$PrintPriceString</div>
 	        	<div class="uk-margin">
-	        		<a href="{$Top.getPage.ShopPage.Link}paket-bestellen/$ID" class="uk-button btn-order">Bestellen</a>
+	        		<a href="{$Top.getPage.ShopPage.Link}paket/$ID" class="uk-button btn-order">Bestellen</a>
 	        	</div>
 	        	<div class="footer-text">$FooterText</div>
 	    	</div>

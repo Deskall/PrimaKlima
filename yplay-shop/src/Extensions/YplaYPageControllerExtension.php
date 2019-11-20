@@ -12,11 +12,10 @@ use SilverStripe\ORM\GroupedList;
 
 class YplaYPageControllerExtension extends Extension
 {   
-    private static $allowed_actions = ['SavePLZ', 'OrderLink'];
+    private static $allowed_actions = ['SavePLZ'];
 
     private static $url_handlers = [
-        'plz-speichern' => 'SavePLZ',
-        'paket-bestellen/$ID' => 'OrderLink' 
+        'plz-speichern' => 'SavePLZ'
     ];
 
     public function SavePLZ(HTTPRequest $request){
@@ -43,36 +42,7 @@ class YplaYPageControllerExtension extends Extension
         return $this->owner->redirectBack();
     }
 
-     /* Update the Cart and link to Order Page */
-    public function OrderLink(){
-       //Fetch cart or create if null
-      
-       $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
-       $cart = null;
-       if ($id){
-          $cart = ShopCart::get()->byId($id);
-       }
-       if (!$cart){
-          $cart = new ShopCart();  
-       }
-       $cart->IP = $this->owner->getRequest()->getIp();
-
-       //fetch package and link it
-       $packageID = $this->owner->getRequest()->param('ID');
-       if ($packageID){
-         $package = Package::get()->byId($packageID);
-         if ($package){
-            $cart->PackageID = $package->ID;
-            $cart->Availability = $package->Availability;
-            $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
-            $cart->Products()->removeAll();
-         }
-       }
-       
-       $cart->write();
-       $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
-       return $this->owner->redirect($this->owner->ShopPage()->Link(),302);
-    }
+    
 
 //--------- UTILITIES -----------//
     public function activePLZ(){

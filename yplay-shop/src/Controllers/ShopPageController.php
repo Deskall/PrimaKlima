@@ -28,7 +28,12 @@ use SilverStripe\ORM\GroupedList;
 
 class ShopPageController extends PageController
 {
-   private static $allowed_actions = ['OrderForm'];
+   private static $allowed_actions = ['OrderForm','OrderPackageLink'];
+
+   private static $url_handlers = [
+       'paket/$ID' => 'OrderPackageLink' 
+   ];
+
 
    public function init(){
       parent::init();
@@ -44,6 +49,37 @@ class ShopPageController extends PageController
          }
       }
       
+   }
+
+    /* Update the Cart and link to Order Page */
+   public function OrderPackageLink(){
+      //Fetch cart or create if null
+     
+      $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+      if (!$cart){
+         $cart = new ShopCart();  
+      }
+      $cart->IP = $this->owner->getRequest()->getIp();
+
+      //fetch package and link it
+      $packageID = $this->owner->getRequest()->param('ID');
+      if ($packageID){
+        $package = Package::get()->byId($packageID);
+        if ($package){
+           $cart->PackageID = $package->ID;
+           $cart->Availability = $package->Availability;
+           $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
+           $cart->Products()->removeAll();
+        }
+      }
+      
+      $cart->write();
+      $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+      return $this->owner->redirect($this->owner->ShopPage()->Link(),302);
    }
 
    public function OrderForm(){
