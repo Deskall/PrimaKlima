@@ -20,6 +20,7 @@
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
+		<tr><td>Total (monatlich)</td><td style="text-align:right;font-weight:bold">$TotalMonthlyPrice</td></tr>
 		<% if Package %>
 		<% with Package %>
 		<% if UniquePrice > 0 %>
@@ -58,6 +59,6 @@
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
-		<tr><td>Total (einmalig)</td><td id="total-unique-price" class="uk-text-right uk-text-bold">$TotalUniquePrice</td></tr>
+		<tr><td>Total (einmalig)</td><td style="text-align:right;font-weight:bold">$TotalUniquePrice</td></tr>
 	</tbody>
 </table>
