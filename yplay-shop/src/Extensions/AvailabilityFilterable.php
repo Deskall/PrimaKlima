@@ -13,17 +13,19 @@ class AvailabilityFilterable extends DataExtension
 {
     private static $db = ['Availability' => 'Varchar'];
 
+    private static $defaults = ['Availability' => 'Immer'];
+
     public function updateFieldLabels(&$labels){
         $labels['Availability'] = 'Verfügbarkeit';
     }
 
     public function updateCMSFields(FieldList $fields){
        $fields->removeByName('Availability');
-       $fields->insertBefore('Title',DropdownField::create('Availability',$this->owner->fieldLabels()['Availability'],['all' => 'Beide', 'Fiber' => 'Fiber', 'Cable' => 'Cable']));
+       $fields->insertBefore('Title',DropdownField::create('Availability',$this->owner->fieldLabels()['Availability'],['Immer' => 'Immer', 'Fiber' => 'Fiber', 'Cable' => 'Cable']));
     }
 
     public function isAvailable(){
-    	if ($this->owner->Availability == "all"){
+    	if ($this->owner->Availability == "Immer"){
     		return true;
     	}
     	$request = Injector::inst()->get(HTTPRequest::class);
