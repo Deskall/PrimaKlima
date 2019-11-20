@@ -42,6 +42,11 @@ class AvailabilityFilterable extends DataExtension
 	            		$display = true;
 	            	}
 	            	else{
+	            		ob_start();
+	            					print_r($this->owner->ProductCode."\n");
+	            					$result = ob_get_clean();
+	            					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+
 	            		$display = false;
 	            	}
 	            }
@@ -50,6 +55,7 @@ class AvailabilityFilterable extends DataExtension
 	        else{
 	        	 $display = ($this->owner->Availability == "Fiber");
 	        }
+
     	}
     	
     }

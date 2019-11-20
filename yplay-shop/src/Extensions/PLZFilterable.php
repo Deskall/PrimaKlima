@@ -45,15 +45,8 @@ class PLZFilterable extends DataExtension
                 }
             }
         }
-        ob_start();
-                    print_r('before '.$this->owner->ProductCode." ".$display."\n");
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+      
         $this->owner->extend('updateShouldDisplay',$display);
-        ob_start();
-                    print_r('after '.$this->owner->ProductCode." ".$display."\n");
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
         return $display;
     }
