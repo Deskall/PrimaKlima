@@ -8,7 +8,7 @@ use SilverStripe\Control\Cookie;
 
 class AvailabilityFilterable extends DataExtension
 {
-    private static $db = ['Availability'];
+    private static $db = ['Availability' => 'Varchar'];
 
     public function updateFieldLabels(&$labels){
         $labels['Availability'] = 'Verfügbarkeit';
