@@ -43,10 +43,11 @@ class Product extends DataObject {
 	];
 
 	private static $summary_fields = [
+		'Specific' => '',
 		'Availability',
 		'Title',
 		'Subtitle',
-		'Specific',
+		
 		'PrintPriceString'
 	];
 
