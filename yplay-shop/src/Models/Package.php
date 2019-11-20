@@ -6,6 +6,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Assets\Image;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\View\ArrayData;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 
 class Package extends Product {
 	private static $singular_name = 'Paket';
@@ -43,7 +44,7 @@ class Package extends Product {
 		$fields->removeByName('Unit');
 		if ($this->ID > 0){
 			$fields->dataFieldByName('Products')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction());
-			$list = $fields->dataFieldByName('Products')->getList();
+			$list = $fields->dataFieldByName('Products')->getConfig()->getComponentByType(GridFieldAddExistingAutocompleter::class)->getList();
 			$list = $list->filter(['ClassName' => Product::class,'Availability' => ['Immer',$this->Availability]]);
 			$fields->dataFieldByName('Products')->setList($list);
 		}
