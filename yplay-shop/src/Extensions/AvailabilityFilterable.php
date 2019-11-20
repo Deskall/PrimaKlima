@@ -41,6 +41,5 @@ class AvailabilityFilterable extends DataExtension
 	        }
     	}
     	print_r($display);
-        return $display;
     }
 }
