@@ -81,6 +81,9 @@ class ShopController extends PageController
       if ($cart && ($products || $packageID > 0)){
          //apply package and product
          $cart->PackageID = $packageID;
+         if ($cart->PackageID > 0){
+            $cart->Availability = $cart->Package()->Availability;
+         }
          $productIds = ($cart->Package()->exists()) ? $cart->Package()->Products()->column('ProductCode') : [];
          $cart->Products()->removeAll();
          if ($products){
