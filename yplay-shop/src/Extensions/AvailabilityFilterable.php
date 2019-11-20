@@ -39,7 +39,8 @@ class AvailabilityFilterable extends DataExtension
 	            $PostalCode = PostalCode::get()->byId($plz);
 	            if ($PostalCode){
 	            	ob_start();
-	            			print_r($this->owner->ProductCode." ".$display);
+	            			print_r($this->owner->ProductCode." ".$display."\n");
+	            			print_r($this->owner->Availability." ".$PostalCode->StandardOffer."\n");
 	            			$result = ob_get_clean();
 	            			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 	                $display = ($this->owner->Availability == $PostalCode->StandardOffer );
