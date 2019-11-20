@@ -44,6 +44,10 @@ class AvailabilityFilterable extends DataExtension
 	            			$result = ob_get_clean();
 	            			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 	                $display = ($this->owner->Availability == $PostalCode->StandardOffer );
+	                ob_start();
+	            			print_r($display."\n");
+	            			$result = ob_get_clean();
+	            			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 	            }
 	        }
 	        //else we apply fiber
