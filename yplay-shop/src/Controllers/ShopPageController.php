@@ -38,6 +38,7 @@ class ShopPageController extends PageController
 
    public function init(){
       parent::init();
+      print_r($this->getRequest()->routeParams());
       if (!$this->getRequest()->requestVar('CMSPreview')){
          //redirect if empty cart
          $id = $this->getRequest()->getSession()->get('shopcart_id');
