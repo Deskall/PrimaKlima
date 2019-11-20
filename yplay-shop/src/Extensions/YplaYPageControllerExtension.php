@@ -118,5 +118,12 @@ class YplaYPageControllerExtension extends Extension
        return null;
     }
 
+    public function alternativePackages(){
+      $availability = ($this->owner->activePLZ()) ? $this->owner->activePLZ()->AlternateOffer : "Cable";
+      return Package::get()->filter(['isVisible' => 1, 'Availability' => ['Immer',$availability]])->filterByCallback(function($item, $list) {
+          return ($item->shouldDisplay());
+      });;
+    }
+
     
 }
