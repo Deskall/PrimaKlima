@@ -108,7 +108,7 @@ class Product extends DataObject {
 		$fields->removeByName('CategoryID');
 		$fields->removeByName('FooterText');
 		$fields->removeByName('Availability');
-		$fields->insertBefore('Name',DropdownField::create('Availability',$this->fieldLabels()['Availability'],['all' => 'Beide', 'fiber' => 'Fiber', 'cable' => 'Cable']));
+		$fields->insertBefore('Title',DropdownField::create('Availability',$this->fieldLabels()['Availability'],['all' => 'Beide', 'fiber' => 'Fiber', 'cable' => 'Cable']));
 		$fields->fieldByName('Root.Main.Unit')->displayIf('RecurringPrice')->isNotChecked();
 		$fields->fieldByName('Root.Main.UniquePriceLabel')->displayIf('RecurringPrice')->isChecked();
 		if ($this->ID > 0){
