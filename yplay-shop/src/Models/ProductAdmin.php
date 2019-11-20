@@ -55,7 +55,7 @@ class ProductAdmin extends ModelAdmin{
 	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
 	    }
 	    if($this->modelClass == 'ShopCart' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
-	       $gridField->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldDeleteAction());
+	       $gridField->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldDeleteAction())->addComponent(new GridFieldDeleteAllAction('before'));
 	    }
 
 	    return $form;
