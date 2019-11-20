@@ -6,6 +6,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Forms\DropdownField;
 
 class Product extends DataObject {
 
@@ -21,11 +22,12 @@ class Product extends DataObject {
 	'RecurringPrice' => 'Boolean(1)',
 	'Price' => 'Currency',
 	'UniquePrice' => 'Currency',
-	'ActivationPrice' => 'Currency',
 	'UniquePriceLabel' => 'Varchar',
+	'ActivationPrice' => 'Currency',
 	'ActivationPriceLabel' => 'Varchar',
 	'Unit' => 'Varchar',
-	'FooterText' => 'HTMLText'
+	'FooterText' => 'HTMLText',
+	'Availability' => 'Varchar'
 	];
 
 	private static $has_one = [
@@ -86,6 +88,7 @@ class Product extends DataObject {
 		$labels['BestSeller'] = 'Bestseller?';
 		$labels['FooterText'] = 'Weitere Informationen (wird im Produkt Kart zeigt an boden.)';
 		$labels['Preselected'] = 'standardmäßig ausgewählt?';
+		$labels['Availability'] = 'Verfügbarkeit';
 
 		return $labels;
 	}
@@ -104,7 +107,8 @@ class Product extends DataObject {
 		$fields->removeByName('ProductCode');
 		$fields->removeByName('CategoryID');
 		$fields->removeByName('FooterText');
-
+		$fields->removeByName('Availability');
+		$fields->insertBefore('Name',DropdownField::create('Availability',$this->fieldLabels()['Availability'],['all' => 'Beide', 'fiber' => 'Fiber', 'cable' => 'Cable']));
 		$fields->fieldByName('Root.Main.Unit')->displayIf('RecurringPrice')->isNotChecked();
 		$fields->fieldByName('Root.Main.UniquePriceLabel')->displayIf('RecurringPrice')->isChecked();
 		if ($this->ID > 0){
