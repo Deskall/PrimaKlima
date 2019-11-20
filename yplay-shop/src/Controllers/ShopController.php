@@ -18,7 +18,7 @@ class ShopController extends PageController
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
-   		return ($item->shouldDisplay());
+   		return ($item->shouldDisplay() && $item->isAvailable() );
    	});
 	  $array = [];
    	foreach ($packages as $package) {
