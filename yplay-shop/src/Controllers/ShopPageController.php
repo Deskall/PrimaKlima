@@ -129,6 +129,7 @@ class ShopPageController extends PageController
 
       $form->addExtraClass('uk-form-horizontal form-std');
       $form->setTemplate('Forms/OrderForm');
+      $form->loadDataFrom($cart);
       // if(is_array($this->getRequest()->getSession()->get('BuyBillForm'))) {
       //    $form->loadDataFrom($this->getRequest()->getSession()->get('BuyBillForm'));
       // }
