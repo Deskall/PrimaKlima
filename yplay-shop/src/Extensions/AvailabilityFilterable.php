@@ -38,15 +38,12 @@ class AvailabilityFilterable extends DataExtension
 	             //then we check if plz exists
 	            $PostalCode = PostalCode::get()->byId($plz);
 	            if ($PostalCode){
-	            	ob_start();
-	            			print_r($this->owner->ProductCode." before ".$display."\n");
-	            			$result = ob_get_clean();
-	            			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-	                $display = ($this->owner->Availability == $PostalCode->StandardOffer );
-	                ob_start();
-	            			print_r("after ".$display."\n");
-	            			$result = ob_get_clean();
-	            			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+	            	if ($this->owner->Availability == $PostalCode->StandardOffer){
+	            		$display = true;
+	            	}
+	            	else{
+	            		$display = false;
+	            	}
 	            }
 	        }
 	        //else we apply fiber
