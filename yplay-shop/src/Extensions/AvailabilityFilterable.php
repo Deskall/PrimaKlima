@@ -22,21 +22,24 @@ class AvailabilityFilterable extends DataExtension
 
     public function updateShouldDisplay($display){
        if ($display){
-       		ob_start();
-       				print_r($this->owner->ProductCode." ".$display);
-       				$result = ob_get_clean();
-       				file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+       		
 	       	//if always available, we return display
 	       	if ($this->owner->Availability == "all"){
 	       		return $display;
 	       	}
 	       
 	        //first we check if plz is defined
-	        $plz = Cookie::get('yplay_plz');
+	        $request = Injector::inst()->get(HTTPRequest::class);
+	        $session = $request->getSession();
+	        $plz = $session->get('active_plz');
 	        if ($plz){
 	             //then we check if plz exists
 	            $PostalCode = PostalCode::get()->byId($plz);
 	            if ($PostalCode){
+	            	ob_start();
+	            			print_r($this->owner->ProductCode." ".$display);
+	            			$result = ob_get_clean();
+	            			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 	                $display = ($this->owner->Availability == $PostalCode->StandardOffer );
 	            }
 	        }
