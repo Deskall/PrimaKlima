@@ -91,9 +91,9 @@ class PostalCode extends DataObject {
 
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
-		if ($this->SubsiteID == 0){
-			$this->YplaY = false;
-		}
+		// if ($this->SubsiteID == 0){
+		// 	$this->YplaY = false;
+		// }
 	}
 
 
