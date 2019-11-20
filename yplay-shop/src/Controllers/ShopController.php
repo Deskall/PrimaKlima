@@ -167,6 +167,10 @@ class ShopController extends PageController
       if ($cart && $form ){
          $data = array();
          parse_str($form, $data);
+         ob_start();
+                  print_r($data);
+                  $result = ob_get_clean();
+                  file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
          $cart->update($data);
       }
 
