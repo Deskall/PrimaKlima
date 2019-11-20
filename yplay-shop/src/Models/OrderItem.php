@@ -15,7 +15,9 @@ class OrderItem extends DataObject {
         'SubTitle' => 'Varchar(255)',
         'MonthlyPrice' => 'Currency',
         'UniquePrice' => 'Currency',
+        'UniquePriceLabel' => 'Varchar',
         'ActivationPrice' => 'Currency',
+        'ActivationPriceLabel' => 'Varchar',
         'CreatedFromAdmin' => 'Boolean(0)'
     );
 
@@ -80,6 +82,8 @@ class OrderItem extends DataObject {
         $this->MonthlyPrice = $product->getMonthlyPrice();
         $this->UniquePrice = $product->getPriceUnique() );
         $this->ActivationPrice = $product->getFees();
+        $this->UniquePriceLabel = $product->UniquePriceLabel;
+        $this->ActivationPriceLabel = $product->ActivationPriceLabel;
         $this->Quantity = $quantity;
         $this->write();
     }
@@ -125,7 +129,9 @@ class OrderItem extends DataObject {
         $this->SubTitle = $package->SubTitle;
         $this->MonthlyPrice = $package->getMonthlyPrice();
         $this->UniquePrice = $package->getPriceUnique();
+        $this->UniquePriceLabel = $package->UniquePriceLabel;
         $this->ActivationPrice = $package->getFees();
+        $this->ActivationPriceLabel = $package->ActivationPriceLabel;
         $this->Quantity = 1;
         $this->write();
     }
