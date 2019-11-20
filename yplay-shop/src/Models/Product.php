@@ -112,7 +112,7 @@ class Product extends DataObject {
 		if ($this->Preselected){
 			$html .= '<label class="preselected">Standard</label>';
 		}
-		return DBText::create()->setValue($html);
+		return DBHTMLText::create()->setValue($html);
 	}
 
 	public function getCMSFields(){
