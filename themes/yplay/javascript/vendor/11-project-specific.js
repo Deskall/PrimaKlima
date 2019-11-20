@@ -183,6 +183,7 @@ $(document).ready(function(){
 				var form = $(this).parents('form');
 			
 				if (form.valid()){
+					UpdateCartData();
 					UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
 					$("#order-nav").find('li.uk-active').removeClass('uk-active');
 					var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
@@ -281,7 +282,6 @@ $(document).ready(function(){
 	}
 
 	function UpdateCart(options){
-		console.log(options);
 		$.ajax({
 			url: '/shop-functions/updateCartOptions',
 			method: 'POST',
