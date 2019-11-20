@@ -168,15 +168,13 @@ class ProductCategory extends DataObject {
 		if ($session->get('shopcart_id')){
 			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
 			if ($cart){
-				ob_start();
-							print_r("hasCategory: ".$cart->hasCategory($this->Code)."\n");
-							$result = ob_get_clean();
-							file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-				ob_start();
-							print_r("hasPackage or Products: ".$cart->Package()->exists() || $cart->Products()->exists()."\n");
-							$result = ob_get_clean();
-							file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+			
+				
 				if (!$cart->hasCategory($this->Code) && ($cart->Package()->exists() || $cart->Products()->exists())){
+					ob_start();
+								print_r("Cateogry: ".$this->Code."is disabled");
+								$result = ob_get_clean();
+								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 					return "disabled";
 				}
 			}
