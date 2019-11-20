@@ -46,8 +46,6 @@ class PLZFilterable extends DataExtension
             }
         }
       
-        $this->owner->extend('updateShouldDisplay',$display);
-
         return $display;
     }
 }

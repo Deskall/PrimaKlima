@@ -140,8 +140,9 @@ class ProductCategory extends DataObject {
 
 	public function filteredProducts(){
 		$products = $this->Products()->filter('ClassName',Product::class)->filterByCallback(function($item, $list) {
-		    return ($item->shouldDisplay());
+		    return ($item->shouldDisplay() && $item->isAvailable());
 		});
+
 		return $products;
 	}
 

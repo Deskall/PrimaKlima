@@ -22,41 +22,7 @@ class AvailabilityFilterable extends DataExtension
        $fields->insertBefore('Title',DropdownField::create('Availability',$this->owner->fieldLabels()['Availability'],['all' => 'Beide', 'Fiber' => 'Fiber', 'Cable' => 'Cable']));
     }
 
-    public function updateShouldDisplay($display){
-       if ($display){
-       		
-	       	//if always available, we return display
-	       	if ($this->owner->Availability == "all"){
-	       		return $display;
-	       	}
-	       
-	        //first we check if plz is defined
-	        $request = Injector::inst()->get(HTTPRequest::class);
-	        $session = $request->getSession();
-	        $plz = $session->get('active_plz');
-	        if ($plz){
-	             //then we check if plz exists
-	            $PostalCode = PostalCode::get()->byId($plz);
-	            if ($PostalCode){
-	            	if ($this->owner->Availability == $PostalCode->StandardOffer){
-	            		$display = 1;
-	            	}
-	            	else{
-	            		ob_start();
-	            					print_r($this->owner->ProductCode."\n");
-	            					$result = ob_get_clean();
-	            					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-
-	            		$display = 0;
-	            	}
-	            }
-	        }
-	        //else we apply fiber
-	        else{
-	        	 $display = ($this->owner->Availability == "Fiber");
-	        }
-
-    	}
-    	
+    public function isAvailable($offer){
+    	return ($this->owner->Availability == $offer || $this->owner->Availability == "all" );
     }
 }
