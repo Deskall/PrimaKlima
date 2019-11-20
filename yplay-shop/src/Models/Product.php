@@ -109,7 +109,7 @@ class Product extends DataObject {
 	public function Specific(){
 		$html = '';
 		if ($this->BestSeller){
-			$html .= '<label class="bestseller">Bestseller</label><br>';
+			$html .= '<label class="bestseller">Bestseller</label>';
 		}
 		if ($this->Preselected){
 			$html .= '<label class="preselected">Standard</label>';
