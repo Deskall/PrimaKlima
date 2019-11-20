@@ -61,6 +61,7 @@
 	.column tr td,.content{padding:15px}
 	ul.sidebar li a.last{border-bottom-width:0}
 	ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.sidebar li a h5,ul.sidebar li a h6,ul.sidebar li a p{margin-bottom:0!important}
+	.table-products td{padding:5px;}
 	.container{display:block!important;max-width:600px!important;margin:0 auto!important}
 	.content{max-width:600px;margin:0 auto;display:block}
 	.column{width:300px;float:left}
@@ -72,7 +73,6 @@
 		div[class=column]{width:auto!important;float:none!important}
 		table.social div[class=column]{width:auto!important}
 	}
-
 	.uk-text-bold{font-weight: bolder; } 
 	.uk-text-small{font-size: 0.875rem; line-height: 1.5; }
 	.uk-heading-divider {margin: 10px 0; border-bottom: 1px solid #ccc; float: left; width: 100%;}

@@ -1,5 +1,5 @@
-<h5 style="border-bottom:1px solid #EEEEEE;">Monatliche Kosten</h5>
-<table style="width:100%;margin-bottom:20px;">
+<h5 style="border-bottom:1px solid #EEEEEE;padding-bottom:10px;">Monatliche Kosten</h5>
+<table class="table-products" style="width:100%;margin-bottom:20px;">
 	<tbody>
 		<% if Items.exists %>
 			<% loop Items %>
@@ -10,12 +10,12 @@
 			<% end_loop %>
 		<% end_if %>
 	</tbody>
-	<tfoot style="border-top:1px solid #EEEEEE;">
-		<tr><td style="font-weight:bold;">Total (monatlich)</td><td style="font-weight:bold;text-align:right">CHF $MonthlyPrice / Mt.</td></tr>
+	<tfoot>
+		<tr bgcolor="#EEEEEE;"><td style="font-weight:bold;">Total (monatlich)</td><td style="font-weight:bold;text-align:right">CHF $MonthlyPrice / Mt.</td></tr>
 	</tfoot>
 </table>
-<h5 style="border-bottom:1px solid #EEEEEE;">Einmalige Kosten</h5>
-<table style="width:100%;margin-bottom:20px;">
+<h5 style="border-bottom:1px solid #EEEEEE;padding-bottom:10px;">Einmalige Kosten</h5>
+<table class="table-products" style="width:100%;margin-bottom:20px;">
 	<tbody>
 		
 		<% if Items.exists %>
@@ -29,7 +29,7 @@
 			<% end_loop %>
 		<% end_if %>
 	</tbody>
-	<tfoot style="border-top:1px solid #EEEEEE;">
-		<tr ><td style="font-weight:bold;">Total (einmalig)</td><td style="font-weight:bold;text-align:right">CHF $UniquePrice</td></tr>
+	<tfoot>
+		<tr bgcolor="#EEEEEE;"><td style="font-weight:bold;">Total (einmalig)</td><td style="font-weight:bold;text-align:right">CHF $UniquePrice</td></tr>
 	</tfoot>
 </table>
