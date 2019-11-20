@@ -31,7 +31,7 @@ class ShopCart extends DataObject {
 
 	private static $summary_fields = [
 		'OnlineLabel' => '',
-		'Created' => 'Datum',
+		'LastEdited' => 'Datum',
 		'Summary' => 'Enthält',
 		'Customer.printContact' => 'Kunde'
 	];
