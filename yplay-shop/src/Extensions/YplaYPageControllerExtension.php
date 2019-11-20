@@ -63,6 +63,8 @@ class YplaYPageControllerExtension extends Extension
          $package = Package::get()->byId($packageID);
          if ($package){
             $cart->PackageID = $package->ID;
+            $cart->Availability = $package->Availability;
+            $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
             $cart->Products()->removeAll();
          }
        }
@@ -119,7 +121,14 @@ class YplaYPageControllerExtension extends Extension
     }
 
     public function alternativePackages(){
-      $availability = ($this->owner->activePLZ()) ? $this->owner->activePLZ()->AlternateOffer : "Cable";
+      $activeOffer = $this->owner->getRequest()->getSession()->get('active_offer');
+      if ($this->owner->activePLZ()){
+        $availability = ($this->owner->activePLZ()->AlternateOffer == $activeOffer) ? $this->owner->activePLZ()->StandardOffer : $this->owner->activePLZ()->AlternateOffer;
+      }
+      else{
+        $availability = ($activeOffer == "Cable") ? "Fiber" : "Cable";
+      }
+    
       return Package::get()->filter(['isVisible' => 1, 'Availability' => ['Immer',$availability]])->filterByCallback(function($item, $list) {
           return ($item->shouldDisplay());
       });;

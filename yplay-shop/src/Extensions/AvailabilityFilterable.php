@@ -30,15 +30,27 @@ class AvailabilityFilterable extends DataExtension
     	}
     	$request = Injector::inst()->get(HTTPRequest::class);
     	$session = $request->getSession();
-    	$plz = $session->get('active_plz');
-    	if ($plz){
-    	     //then we check if plz exists
-    	    $PostalCode = PostalCode::get()->byId($plz);
-    	    if ($PostalCode){
-    			return ($this->owner->Availability == $PostalCode->StandardOffer );
-    		}
-    	}
-    	//else we return fiber
-		return ($this->owner->Availability == "Fiber" );
+        //First we check if cart availability is defined
+        $id = $session->get('shopcart_id');
+        $cart = null;
+        if ($id){
+           $cart = ShopCart::get()->byId($id);
+        }
+        if ($cart && $cart->Availability ){
+            return ($this->owner->Availability == $cart->Availability );
+        }
+        else{
+           $plz = $session->get('active_plz');
+            if ($plz){
+                 //then we check if plz exists
+                $PostalCode = PostalCode::get()->byId($plz);
+                if ($PostalCode){
+                    return ($this->owner->Availability == $PostalCode->StandardOffer );
+                }
+            }
+            //else we return fiber
+            return ($this->owner->Availability == "Fiber" ); 
+        }
+    	
     }
 }

@@ -31,7 +31,8 @@ class ShopCart extends DataObject {
 		'PhoneOption' => 'Varchar',
 		'ExistingPhone' => 'Varchar',
 		'WishPhone' => 'Varchar',
-		'ExistingCustomer' => 'Boolean(0)'
+		'ExistingCustomer' => 'Boolean(0)',
+		'Availability' => 'Varchar'
 	];
 
 	private static $has_one = [
