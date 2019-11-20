@@ -58,9 +58,10 @@ class Product extends DataObject {
 	    if (!$this->ProductCode || $this->ID == 0){
 	    	//TO DO Increment for doublon
 	    	$code = URLSegmentFilter::create()->filter($this->Title);
-	    	$count = Product::get()->filter('ProductCode',$code)->count();
-	    	if ($count > 0){
-	    		$code = $code."-".$count;
+	    	$i = 1;
+	    	while(Product::get()->filter('ProductCode',$code)->count() > 0){
+	    		$code = $code."-".$i;
+	    		$i++;
 	    	}
 	    	$this->ProductCode = $code;
 	    	
