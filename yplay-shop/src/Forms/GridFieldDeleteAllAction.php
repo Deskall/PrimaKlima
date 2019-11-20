@@ -34,7 +34,7 @@ class GridFieldDeleteAllAction implements GridField_HTMLProvider, GridField_Acti
 			null
 		);
 		$button->setAttribute('data-icon', 'cross-circle');
-		$button->addExtraClass('gridfield-button-delete');
+		$button->addExtraClass('btn action btn-outline-danger');
 		$button->setForm($gridField->getForm());
 		return array(
 			$this->targetFragment => '<p class="grid-csv-button">' . $button->Field() . '</p>',
