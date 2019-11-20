@@ -101,6 +101,7 @@ class ShopPageController extends PageController
       if ($productID){
         $product = Product::get()->byId($productID);
         if ($product){
+           $cart->PackageID = 0;
            $cart->Products()->add($product);
            $cart->Availability = $product->Availability;
            $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
