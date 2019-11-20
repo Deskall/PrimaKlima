@@ -37,7 +37,7 @@ class AvailabilityFilterable extends DataExtension
 	        }
 	        //else we apply fiber
 	        else{
-	        	 $display = ($this->owner->Availability == "fiber");
+	        	 $display = ($this->owner->Availability == "Fiber");
 	        }
     	}
     	ob_start();
