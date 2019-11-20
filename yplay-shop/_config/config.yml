@@ -14,3 +14,7 @@ SilverStripe\SiteConfig\SiteConfig:
 PageController:
   extensions:
     - YplaYPageControllerExtension
+
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css:
+    - yplay-shop/css/yplay_shop.css

@@ -1,0 +1,9 @@
+label.bestseller{
+	padding:5px;
+	background:#368b39;
+	color:#fff;
+}
+label.preselected{
+	padding:5px;
+	background:#eee;
+}
