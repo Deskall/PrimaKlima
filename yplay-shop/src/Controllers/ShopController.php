@@ -14,7 +14,7 @@ use SilverStripe\ORM\ArrayList;
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'OrderLink', 'getActiveCart', 'updateCartStep']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'OrderLink', 'getActiveCart', 'updateCartStep', 'updateCartData']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
@@ -148,6 +148,26 @@ class ShopController extends PageController
          //apply options
          $cart->CurrentStep = $step;
           $cart->write();
+      }
+
+      return;
+      
+   } 
+
+   public function updateCartData(){
+      //retrieve cart in session
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
+      $form = $this->getRequest()->postVar('form');
+     
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+
+      if ($cart && $form ){
+         $data = array();
+         parse_str($form, $data);
+         $cart->update($data);
       }
 
       return;

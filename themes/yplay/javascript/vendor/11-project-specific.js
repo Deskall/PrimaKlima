@@ -303,6 +303,15 @@ $(document).ready(function(){
 		});
 	}
 
+	function UpdateCartData(){
+		var data = $("form#Form_OrderForm").serialize();
+		$.ajax({
+			url: '/shop-functions/updateCartData',
+			method: 'POST',
+			data: {form: data}
+		});
+	}
+
 	function InitNav(){
 		var li = $("#order-nav li.uk-active");
 		switch(li.attr('data-nav')){
