@@ -1,4 +1,3 @@
-
 <?php
 
 use SilverStripe\ORM\DataExtension;
