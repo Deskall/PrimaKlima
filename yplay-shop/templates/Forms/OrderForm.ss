@@ -90,9 +90,19 @@
                 </li>
                 <li class="uk-margin" data-step="step-3">
                         <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
-                            <% with Fields.FieldByName('Step3') %>
+                            <% with Fields.dataFieldByName('Address') %>
                                 $FieldHolder 
                             <% end_with %>
+                            <div class="uk-width-1-2@s uk-width-1-3@m uk-width-1-5@l">
+                                <% with Fields.dataFieldByName('PostalCode') %>
+                                    $FieldHolder 
+                                <% end_with %>
+                            </div>
+                            <div class="uk-width-1-2@s  uk-width-2-3@m uk-width-4-5@l">
+                                <% with Fields.dataFieldByName('City') %>
+                                    $FieldHolder 
+                                <% end_with %>
+                            </div>
                         </div>
                         <div id="bill-fields" class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid hidden>
                             <% with Fields.FieldByName('BillFields') %>
