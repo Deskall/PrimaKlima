@@ -48,7 +48,8 @@ class ShopCart extends DataObject {
 	private static $summary_fields = [
 		'OnlineLabel' => '',
 		'LastEdited' => 'Datum',
-		'Summary' => 'Enthält'
+		'Summary' => 'Enthält',
+		'printContact' => 'Kundendaten'
 	];
 
 	private static $searchable_fields = [
@@ -99,6 +100,22 @@ class ShopCart extends DataObject {
 
 	public function OnlineLabel(){
 		return ($this->isOnline()) ? DBHTMLText::create()->setValue('<div class="btn btn-primary">LIVE</div>') : null;
+	}
+
+	public function printContact(){
+	    $html = '<p>'.$this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
+	   
+	    $html .= $this->Address.'<br/>'
+	    .$this->PostalCode.' - '.$this->City;
+	    if ($this->Country){
+	        $html .= '<br/>'.i18n::getData()->getCountries()[$this->Country];
+	    }
+	    $html .= '</p>'
+	    .'<p><a href="mailto:'.$this->Email.'">'.$this->Email.'</a>'.'<br/>'
+	    .$this->Phone.'</p>';
+	    $o = new DBHTMLText();
+	    $o->setValue($html);
+	    return $o;
 	}
 
 	public function writeTotalMonthlyPrice(){
