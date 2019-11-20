@@ -124,6 +124,13 @@ class ShopPageController extends PageController
             $form->Fields()->insertAfter('AGB',CheckboxField::create('AGBMobile','Ich bin mit den Mobile AGB einverstanden')->setAttribute('required','required'));
             $form->getValidator()->addRequiredField('AGBMobile');
          }
+
+         //3. Glasfaserdose
+         if ($cart->Availability == "Fiber"){
+            $form->Fields()->insertBefore('Comments',TextField::create('Glasfaserdose','Bitte geben Sie Ihre Glasfaserdosen-Nummer ein:')->setAttribute('placeholder','B.110.123.456.X'));
+            $form->Fields()->insertAfter('Glasfaserdose',CheckboxField::create('UknownGlasfaserdose','Ich kenne meine Glasfaserdosen-Nummer nicht.'));
+            $form->getValidator()->addRequiredField('Glasfaserdose');
+         }
       }
       
 
