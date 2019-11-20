@@ -39,7 +39,7 @@ class ShopController extends PageController
       if ($id){
          $cart = ShopCart::get()->byId($id);
          if ($this->activePLZ()->exists()){
-            $cart->PLZ = $this->activePLZ()->Code;
+            $cart->PostalCode = $this->activePLZ()->Code;
             $cart->City = $this->activePLZ()->City;
          }
       }
