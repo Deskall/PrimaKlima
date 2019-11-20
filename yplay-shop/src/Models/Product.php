@@ -27,8 +27,7 @@ class Product extends DataObject {
 	'ActivationPrice' => 'Currency',
 	'ActivationPriceLabel' => 'Varchar',
 	'Unit' => 'Varchar',
-	'FooterText' => 'HTMLText',
-	'Availability' => 'Varchar'
+	'FooterText' => 'HTMLText'
 	];
 
 	private static $has_one = [
@@ -47,7 +46,6 @@ class Product extends DataObject {
 		'Availability',
 		'Title',
 		'Subtitle',
-		
 		'PrintPriceString'
 	];
 
@@ -92,7 +90,6 @@ class Product extends DataObject {
 		$labels['BestSeller'] = 'Bestseller?';
 		$labels['FooterText'] = 'Weitere Informationen (wird im Produkt Kart zeigt an boden.)';
 		$labels['Preselected'] = 'standardmäßig ausgewählt?';
-		$labels['Availability'] = 'Verfügbarkeit';
 
 		return $labels;
 	}
