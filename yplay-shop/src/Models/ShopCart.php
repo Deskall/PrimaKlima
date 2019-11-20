@@ -1,7 +1,7 @@
 <?php
 
 use SilverStripe\ORM\DataObject;
-
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ShopCart extends DataObject {
 
