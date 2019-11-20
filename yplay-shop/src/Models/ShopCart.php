@@ -29,6 +29,12 @@ class ShopCart extends DataObject {
 		'Products' => ['SortOrder' => 'Int']
 	];
 
+	private static $summary_fields = [
+		'Created' => 'Datum',
+		'forTemplate' => 'Enthält',
+		'Customer.printContact' => 'Kunde'
+	];
+
 	
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
