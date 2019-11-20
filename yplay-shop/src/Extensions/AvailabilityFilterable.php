@@ -22,6 +22,10 @@ class AvailabilityFilterable extends DataExtension
 
     public function updateShouldDisplay($display){
        if ($display){
+       		ob_start();
+       				print_r($this->owner->ProductCode." ".$display);
+       				$result = ob_get_clean();
+       				file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 	       	//if always available, we return display
 	       	if ($this->owner->Availability == "all"){
 	       		return $display;
@@ -41,9 +45,6 @@ class AvailabilityFilterable extends DataExtension
 	        	 $display = ($this->owner->Availability == "Fiber");
 	        }
     	}
-    	ob_start();
-    				print_r($display);
-    				$result = ob_get_clean();
-    				file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+    	
     }
 }
