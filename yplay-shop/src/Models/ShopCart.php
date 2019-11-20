@@ -52,6 +52,7 @@ class ShopCart extends DataObject {
 	}
 
 	public function isOnline(){
+		print_r(date('2 minutes ago'));
 		return $this->LastEdited > date('2 minutes ago');
 	}
 
