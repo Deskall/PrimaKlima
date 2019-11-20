@@ -36,6 +36,10 @@ class ShopCart extends DataObject {
 		'Customer.printContact' => 'Kunde'
 	];
 
+	private static $searchable_fields = [
+		'Customer.Email'
+	];
+
 	
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
