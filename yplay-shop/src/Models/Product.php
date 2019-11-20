@@ -117,7 +117,7 @@ class Product extends DataObject {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		// $fields->removeByName('ProductCode');
+		$fields->removeByName('ProductCode');
 		$fields->removeByName('CategoryID');
 		$fields->removeByName('FooterText');
 		
@@ -154,4 +154,5 @@ class Product extends DataObject {
 		}
 		return false;
 	}
+	
 }
