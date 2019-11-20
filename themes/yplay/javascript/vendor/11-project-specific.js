@@ -286,6 +286,7 @@ $(document).ready(function(){
 			}
 			else{
 				$("input[name='Glasfaserdose']").attr('required','required');
+				$("input[name='Glasfaserdose']").next('.error').hide();
 			}
 		});
 	}
