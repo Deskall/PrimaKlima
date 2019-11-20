@@ -154,7 +154,7 @@ class ShopPageController extends PageController
                   $customer->write();
                }
                $order->CustomerID = $customer->ID;
-              
+
             try {
                //Write order
                $order->write();
@@ -197,9 +197,10 @@ class ShopPageController extends PageController
             $this->getRequest()->getSession()->set('orderID',$order->ID);
             $this->getRequest()->getSession()->set('customerID',$customer->ID);
 
-            //update and clear cart
+            //update and clear cart (Delete ?)
             $cart->Purchased = true;
             $cart->OrderID = $order->ID;
+            $cart->CustomerID = $customer->ID;
             $cart->write();
             $this->getRequest()->getSession()->clear('shopcart_id');
 
