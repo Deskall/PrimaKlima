@@ -40,6 +40,9 @@ class AvailabilityFilterable extends DataExtension
 	        	 $display = ($this->owner->Availability == "fiber");
 	        }
     	}
-    	print_r($display);
+    	ob_start();
+    				print_r($display);
+    				$result = ob_get_clean();
+    				file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     }
 }
