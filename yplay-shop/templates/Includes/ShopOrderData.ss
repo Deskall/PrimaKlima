@@ -11,7 +11,7 @@
 		<% end_if %>
 	</tbody>
 	<tfoot>
-		<tr><td>Total (monatlich)</td><td>$getNiceMonthlyPrice</td></tr>
+		<tr><td>Total (monatlich)</td><td>$MonthlyPrice</td></tr>
 	</tfoot>
 </table>
 <h3>Einmalige Kosten</h3>
@@ -30,6 +30,6 @@
 		<% end_if %>
 	</tbody>
 	<tfoot>
-		<tr><td>Total (einmalig)</td><td>$getNiceUniquePrice</td></tr>
+		<tr><td>Total (einmalig)</td><td>$UniquePrice</td></tr>
 	</tfoot>
 </table>
