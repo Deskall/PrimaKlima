@@ -4,6 +4,8 @@ use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Control\Cookie;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Core\Injector\Injector;
 
 class PLZFilterable extends DataExtension
 {
