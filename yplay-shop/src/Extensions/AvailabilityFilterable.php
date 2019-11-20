@@ -39,7 +39,7 @@ class AvailabilityFilterable extends DataExtension
 	            $PostalCode = PostalCode::get()->byId($plz);
 	            if ($PostalCode){
 	            	if ($this->owner->Availability == $PostalCode->StandardOffer){
-	            		$display = true;
+	            		$display = 1;
 	            	}
 	            	else{
 	            		ob_start();
@@ -47,7 +47,7 @@ class AvailabilityFilterable extends DataExtension
 	            					$result = ob_get_clean();
 	            					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
-	            		$display = false;
+	            		$display = 0;
 	            	}
 	            }
 	        }
