@@ -1,9 +1,9 @@
 <h5>Monatliche Kosten</h5>
-<table>
+<table style="width:100%">
 	<tbody>
 		<% if Items.exists %>
 			<% loop Items %>
-			<tr><td>$Title</td><td style="text-align:right">$MonthlyPrice</td></tr>
+			<tr><td>$Title</td><td style="text-align:right">CHF $MonthlyPrice / Mt.</td></tr>
 				<% if Type == "package" %>
 				<tr><td colspan="2"><% loop Products %>$Title<br><% end_loop %></td></tr>
 				<% end_if %>
@@ -11,11 +11,11 @@
 		<% end_if %>
 	</tbody>
 	<tfoot>
-		<tr><td>Total (monatlich)</td><td style="text-align:right">$MonthlyPrice</td></tr>
+		<tr><td>Total (monatlich)</td><td style="text-align:right">CHF $MonthlyPrice / Mt.</td></tr>
 	</tfoot>
 </table>
 <h5>Einmalige Kosten</h5>
-<table>
+<table style="width:100%">
 	<tbody>
 		
 		<% if Items.exists %>
@@ -30,6 +30,6 @@
 		<% end_if %>
 	</tbody>
 	<tfoot>
-		<tr><td>Total (einmalig)</td><td style="text-align:right">$UniquePrice</td></tr>
+		<tr><td>Total (einmalig)</td><td style="text-align:right">CHF $UniquePrice</td></tr>
 	</tfoot>
 </table>
