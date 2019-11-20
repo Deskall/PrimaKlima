@@ -29,9 +29,8 @@ class ConfiguratorPage extends Page {
 		return ProductCategory::get()->filter('isVisible',1);
 	}
 
-	public function alternativePackage(){
+	public function alternativePackages(){
 		$availability = ($this->activePLZ()) ? $this->activePLZ()->AlternateOffer : "Cable";
-		print_r($availability);
 		return Package::get()->filter(['isVisible' => 1, 'Availability' => ['Immer',$availability]])->filterByCallback(function($item, $list) {
 		    return ($item->shouldDisplay());
 		});;
