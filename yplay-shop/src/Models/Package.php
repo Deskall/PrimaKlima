@@ -43,7 +43,9 @@ class Package extends Product {
 		$fields->removeByName('Unit');
 		if ($this->ID > 0){
 			$fields->dataFieldByName('Products')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction());
-			$fields->dataFieldByName('Products')->getList()->filter(['ClassName' => Product::class,'Availability' => ['Immer',$this->Availability]]);
+			$list = $fields->dataFieldByName('Products')->getList();
+			$list->filter(['ClassName' => Product::class,'Availability' => ['Immer',$this->Availability]]);
+			$fields->dataFieldByName('Products')->setList($list);
 		}
 		
 		return $fields;
