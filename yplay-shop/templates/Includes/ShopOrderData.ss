@@ -9,7 +9,7 @@
 				<% end_if %>
 			<% end_loop %>
 		<% end_if %>
-		<tr><td style="font-weight:bold;">Total (monatlich)</td><td style="font-weight:bold;text-align:right">CHF $MonthlyPrice / Mt.</td></tr>
+		<tr style="background-color:#AFCA0C;"><td style="font-weight:bold;">Total (monatlich)</td><td style="font-weight:bold;text-align:right">CHF $MonthlyPrice / Mt.</td></tr>
 	</tbody>
 </table>
 <h5 style="border-bottom:1px solid #EEEEEE;padding-bottom:10px;">Einmalige Kosten</h5>
@@ -27,6 +27,6 @@
 			<% end_loop %>
 		<% end_if %>
 	
-		<tr><td style="font-weight:bold;">Total (einmalig)</td><td style="font-weight:bold;text-align:right">CHF $UniquePrice</td></tr>
+		<tr style="background-color:#AFCA0C;"><td style="font-weight:bold;">Total (einmalig)</td><td style="font-weight:bold;text-align:right">CHF $UniquePrice</td></tr>
 	</tbody>
 </table>
