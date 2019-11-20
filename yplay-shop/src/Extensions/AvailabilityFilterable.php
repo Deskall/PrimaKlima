@@ -6,6 +6,8 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Control\Cookie;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Core\Injector\Injector;
 
 class AvailabilityFilterable extends DataExtension
 {
