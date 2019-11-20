@@ -88,11 +88,11 @@
 
 <body bgcolor="#EEEEEE" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 	<!-- HEADER -->
-	<table class="head-wrap"  bgcolor="#000000">
+	<table class="head-wrap">
 		<tbody>
 			<tr>
 				<td><br /></td>
-				<td class="header container" align=""><!-- /content -->
+				<td class="header container" bgcolor="#000000"><!-- /content -->
 					<div class="content">
 						<table>
 							<tbody>

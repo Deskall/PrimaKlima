@@ -1,5 +1,6 @@
 <h5>Monatliche Kosten</h5>
-<table style="width:100%">
+<hr>
+<table style="width:100%;border-bottom:1px solid #EEEEEE;">
 	<tbody>
 		<% if Items.exists %>
 			<% loop Items %>
@@ -15,7 +16,8 @@
 	</tfoot>
 </table>
 <h5>Einmalige Kosten</h5>
-<table style="width:100%">
+<hr>
+<table style="width:100%;border-bottom:1px solid #EEEEEE;">
 	<tbody>
 		
 		<% if Items.exists %>
