@@ -101,11 +101,11 @@ $(document).ready(function(){
 		var index;
 		var options;
 		$(".slider-products").each(function(){
+			//activate slider
 			index = 1;
 			if (products[$(this).attr('data-code')]){
 				$(this).find('li[data-value="'+products[$(this).attr('data-code')][0]+'"]').addClass('uk-active');
 				index = parseInt($(this).find('li[data-value="'+products[$(this).attr('data-code')][0]+'"]').attr('data-index')) - 1;
-				$(this).parents('.category').find('.no-category').prop("checked",false).parents('.category').removeClass('disabled');
 			}
 			else{
 				if ($(this).attr('data-id') > 0){
@@ -114,6 +114,18 @@ $(document).ready(function(){
 				}
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
+
+			//Manage state
+			if ($(this).parents('.category').attr('data-disabled')){
+				$(this).parents('.category').find('.no-category').prop("checked",true).parents('.category').addClass('disabled');
+			}
+			else{
+				if (products[$(this).attr('data-code')]){
+					$(this).parents('.category').find('.no-category').prop("checked",false).parents('.category').removeClass('disabled');
+				}
+			}
+
+			
 		});
 		UpdateOrder();
 	}
