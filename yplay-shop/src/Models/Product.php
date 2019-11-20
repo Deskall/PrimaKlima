@@ -54,6 +54,10 @@ class Product extends DataObject {
 		'Title'
 	];
 
+	public function getCMSValidator(){
+	    return new RequiredFields(array('Title','Price'));
+	}
+
 	public function onBeforeWrite(){
 	    if (!$this->ProductCode || $this->ID == 0){
 	    	//TO DO Increment for doublon
