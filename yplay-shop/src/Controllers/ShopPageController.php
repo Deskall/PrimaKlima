@@ -28,10 +28,11 @@ use SilverStripe\ORM\GroupedList;
 
 class ShopPageController extends PageController
 {
-   private static $allowed_actions = ['OrderForm','OrderPackageLink'];
+   private static $allowed_actions = ['OrderForm','OrderPackageLink', 'OrderProductLink'];
 
    private static $url_handlers = [
-       'paket/$ID' => 'OrderPackageLink' 
+       'paket/$ID' => 'OrderPackageLink',
+       'produkt/$ID' => 'OrderProductLink'  
    ];
 
 
@@ -74,6 +75,35 @@ class ShopPageController extends PageController
            $cart->Availability = $package->Availability;
            $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
            $cart->Products()->removeAll();
+        }
+      }
+      
+      $cart->write();
+      $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+      return $this->owner->redirect($this->owner->ShopPage()->Link(),302);
+   }
+
+    /* Update the Cart and link to Order Page */
+   public function OrderProductLink(){
+      //Fetch cart or create if null
+      $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+      if (!$cart){
+         $cart = new ShopCart();  
+      }
+      $cart->IP = $this->owner->getRequest()->getIp();
+
+      //fetch package and link it
+      $productID = $this->owner->getRequest()->param('ID');
+      if ($productID){
+        $product = Product::get()->byId($productID);
+        if ($product){
+           $cart->Products()->add($product);
+           $cart->Availability = $product->Availability;
+           $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
         }
       }
       

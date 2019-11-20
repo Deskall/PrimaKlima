@@ -170,4 +170,21 @@ class Product extends DataObject {
 		return false;
 	}
 
+	public function OrderLink(){
+		$shop = ShopPage::get()->first();
+		switch ($this->ClassName){
+			case "Package":
+			 $link = $shop->Link()."paket/".$this->ID;
+			 break;
+			case "Product":
+			 $link = $shop->Link()."produkt/".$this->ID;
+			 break;
+			case "ProductOption":
+			 $link = $shop->Link()."option/".$this->ID;
+			 break;
+		}
+
+		return $link;
+	}
+
 }
