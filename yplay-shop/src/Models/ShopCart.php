@@ -30,6 +30,7 @@ class ShopCart extends DataObject {
 	];
 
 	private static $summary_fields = [
+		'OnlineLabel' => '',
 		'Created' => 'Datum',
 		'Summary' => 'Enthält',
 		'Customer.printContact' => 'Kunde'
@@ -48,6 +49,14 @@ class ShopCart extends DataObject {
 
 	public function Summary(){
 		return $this->renderWith('Includes/ShopCartSummary');
+	}
+
+	public function isOnline(){
+		return $this->LastEdited > date('2 minutes ago');
+	}
+
+	public function OnlineLabel(){
+		return ($this->isOnline()) ? DBHTMLText::create()->setValue('<div class="btn btn-primary">LIVE</div>') : null;
 	}
 
 	public function writeTotalMonthlyPrice(){
