@@ -5,6 +5,7 @@ use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Control\Cookie;
+use SilverStripe\Forms\DropdownField;
 
 class AvailabilityFilterable extends DataExtension
 {
