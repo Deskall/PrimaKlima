@@ -88,14 +88,14 @@
 
 <body bgcolor="#EEEEEE" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 	<!-- HEADER -->
-	<table class="head-wrap">
+	<table class="head-wrap"  bgcolor="#000000">
 		<tbody>
 			<tr>
 				<td><br /></td>
 				<td class="header container" align=""><!-- /content -->
 					<div class="content">
 						<table>
-							<tbody bgcolor="#000000">
+							<tbody>
 								<tr>
 									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="{$AbsoluteBaseURL}{$ThemeDir}/img/logo-email.png" border="0" alt="$SiteConfig.Title"/></a></a></td>
 								</tr>
