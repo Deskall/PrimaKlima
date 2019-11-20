@@ -279,6 +279,15 @@ $(document).ready(function(){
 			});
 			UpdateCart(options);
 		});
+
+		$(document).on("change","input[name='UnknownGlasfaserdose']",function(){
+			if ($(this).is(':checked')){
+				$("input[name='Glasfaserdose']").attr('required',false);
+			}
+			else{
+				$("input[name='Glasfaserdose']").attr('required','required');
+			}
+		});
 	}
 
 	function UpdateCart(options){
