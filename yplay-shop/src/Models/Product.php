@@ -59,7 +59,7 @@ class Product extends DataObject {
 	    	//TO DO Increment for doublon
 	    	$code = URLSegmentFilter::create()->filter($this->Title);
 	    	$i = 1;
-	    	while(Product::get()->filter('ProductCode',$this->ProductCode)->count() > 0){
+	    	while(Product::get()->filter('ProductCode',$code)->count() > 0){
 	    		$code = $code."-".$i;
 	    		$i++;
 	    	}
