@@ -64,6 +64,5 @@ class Package extends Product {
 		return new ArrayData(['gainM' => $gainM, 'gainU' => $gainU]);
 	}
 
-	
 }
 
