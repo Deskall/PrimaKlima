@@ -52,7 +52,8 @@ class ShopCart extends DataObject {
 	}
 
 	public function isOnline(){
-		print_r( DateTime::create('2 minutes ago')->format('d.m.y')."\n"."<br>");
+		$date = new DateTime('2 minutes ago');
+		print_r( $date->format('d.m.y')."\n"."<br>");
 		return date($this->LastEdited) > date('2 minutes ago');
 	}
 
