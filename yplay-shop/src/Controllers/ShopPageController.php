@@ -73,7 +73,7 @@ class ShopPageController extends PageController
             CompositeField::create(
                HeaderField::create('AddressTitle3','Ihre Adresse',3),
                TextField::create('Address','Adresse')->setAttribute('class','uk-input'),
-               ReadonlyField::create('PostalCode','PLZ')->setAttribute('class','uk-input'),
+               ReadonlyField::create('PostalCode','PLZ')->setAttribute('class','uk-input')->addExtraClass('uk-width-1-2@s'),
                ReadonlyField::create('City','Stadt')->setAttribute('class','uk-input'),
                CheckboxField::create('BillSameAddress','identische Rechnungsadresse?')->setAttribute('class','uk-checkbox')
             )->setName('Step3'),
