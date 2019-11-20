@@ -38,10 +38,6 @@ class ShopController extends PageController
       $cart = null;
       if ($id){
          $cart = ShopCart::get()->byId($id);
-         if ($this->activePLZ()->exists()){
-            $cart->PostalCode = $this->activePLZ()->Code;
-            $cart->City = $this->activePLZ()->City;
-         }
       }
       if ($cart){
          if ($cart->Package()->exists()){
@@ -74,6 +70,10 @@ class ShopController extends PageController
       if (!$cart && ($products || $packageID > 0)){
          $cart = new ShopCart();
          $cart->IP = $this->getRequest()->getIp();
+         if ($this->activePLZ()->exists()){
+            $cart->PostalCode = $this->activePLZ()->Code;
+            $cart->City = $this->activePLZ()->City;
+         }
          $cart->write();
          $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
       }
