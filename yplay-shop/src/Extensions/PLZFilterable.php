@@ -28,6 +28,7 @@ class PLZFilterable extends DataExtension
     }
 
     public function shouldDisplay(){
+        $display = true;
         //first we check if plz is defined
         $plz = Cookie::get('yplay_plz');
         // $plz = $this->owner->getRequest()->getSession()->get('active_plz');
@@ -37,13 +38,14 @@ class PLZFilterable extends DataExtension
             if ($PostalCode){
                 //then we apply filter / exclusion
                 if ($this->owner->FilteredPLZ()->exists()){
-                    return $this->owner->FilteredPLZ()->find('ID',$PostalCode->ID);
+                    $display = $this->owner->FilteredPLZ()->find('ID',$PostalCode->ID);
                 }
                 if ($this->owner->ExcludedPLZ()->exists()){
-                    return !$this->owner->ExcludedPLZ()->find('ID',$PostalCode->ID);
+                    $display = !$this->owner->ExcludedPLZ()->find('ID',$PostalCode->ID);
                 }
             }
         }
-        return true;
+        $this->owner->extends('updateShouldDisplay',$display);
+        return $display;
     }
 }

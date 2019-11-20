@@ -61,8 +61,8 @@ class PostalCode extends DataObject {
 	    $fields->FieldByName('Root.Main')->setTitle('Ortschaft Angaben');
 	    $fields->addFieldToTab('Root.Main', DropdownField::create('SubsiteID',$this->fieldLabels()['Subsite'],Subsite::get()->map('ID','Title'))->setEmptyString('YplaY'));
 	  	$fields->addFieldToTab('Root.Main', CheckboxField::create('YplaY',$this->fieldLabels()['YplaY'])->displayIf('SubsiteID')->isNotEmpty()->end());
-	    $fields->addFieldToTab('Root.Main', DropdownField::create('StandardOffer',$this->fieldLabels()['StandardOffer'], array('Coax' => 'Cable', 'FTTH' => 'Fiber'))->setEmptyString('Bitte Typ auswählen'));
-	    $fields->addFieldToTab('Root.Main', DropdownField::create('AlternateOffer',$this->fieldLabels()['AlternateOffer'], array('' => 'Keine','Coax' => 'Cable','FTTH' => 'Fiber', 'DSL' => 'DSL'))->setEmptyString('Bitte Typ auswählen'));
+	    $fields->addFieldToTab('Root.Main', DropdownField::create('StandardOffer',$this->fieldLabels()['StandardOffer'], array('Cable' => 'Cable', 'Fiber' => 'Fiber'))->setEmptyString('Bitte Typ auswählen'));
+	    $fields->addFieldToTab('Root.Main', DropdownField::create('AlternateOffer',$this->fieldLabels()['AlternateOffer'], array('' => 'Keine','Cable' => 'Cable','Fiber' => 'Fiber', 'DSL' => 'DSL'))->setEmptyString('Bitte Typ auswählen'));
 	    $fields->addFieldToTab('Root.Main', DropdownField::create('TVType',$this->fieldLabels()['TVType'], array('DVBC' => 'DVB-C', 'IPTV' => 'IPTV'))->setEmptyString('Bitte Typ auswählen'));
 
 	    
