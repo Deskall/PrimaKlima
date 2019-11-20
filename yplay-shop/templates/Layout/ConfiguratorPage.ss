@@ -154,7 +154,7 @@
 						        <div class="uk-accordion-content">
 						           	$OtherOffersLabel
 						            <div class="uk-grid-small uk-grid-match uk-child-width-auto" data-uk-grid>
-						            	<% loop activePackages %>
+						            	<% loop alternativePackages %>
 						            	<div>
 						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">
 						            		    <h3 class="uk-card-title">$Title</h3>
