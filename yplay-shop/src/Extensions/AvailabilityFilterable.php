@@ -22,7 +22,19 @@ class AvailabilityFilterable extends DataExtension
        $fields->insertBefore('Title',DropdownField::create('Availability',$this->owner->fieldLabels()['Availability'],['all' => 'Beide', 'Fiber' => 'Fiber', 'Cable' => 'Cable']));
     }
 
-    public function isAvailable($offer){
-    	return ($this->owner->Availability == $offer || $this->owner->Availability == "all" );
+    public function isAvailable(){
+    	if ($this->owner->Availability == "all"){
+    		return true;
+    	}
+    	$plz = $this->owner->getRequest()->getSession()->get('active_plz');
+    	if ($plz){
+    	     //then we check if plz exists
+    	    $PostalCode = PostalCode::get()->byId($plz);
+    	    if ($PostalCode){
+    			return ($this->owner->Availability == $PostalCode->StandardOffer );
+    		}
+    	}
+    	//else we return fiber
+		return ($this->owner->Availability == "Fiber" );
     }
 }

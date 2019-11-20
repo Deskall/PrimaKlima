@@ -30,8 +30,8 @@ class PLZFilterable extends DataExtension
     public function shouldDisplay(){
         $display = true;
         //first we check if plz is defined
-        $plz = Cookie::get('yplay_plz');
-        // $plz = $this->owner->getRequest()->getSession()->get('active_plz');
+        // $plz = Cookie::get('yplay_plz');
+        $plz = $this->owner->getRequest()->getSession()->get('active_plz');
         if ($plz){
              //then we check if plz exists
             $PostalCode = PostalCode::get()->byId($plz);
