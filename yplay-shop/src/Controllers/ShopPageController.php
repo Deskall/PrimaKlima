@@ -63,7 +63,7 @@ class ShopPageController extends PageController
                OptionsetField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
                TextField::create('Name','Name')->setAttribute('class','uk-input'),
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
-               DateField::create('Birthday','Geburstdatum')->setValue($date->format('Y-m-d'))->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$max->format('Y.m.d'))->setAttribute('class','uk-input')
+               $date = DateField::create('Birthday','Geburstdatum')->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$max->format('Y.m.d'))->setAttribute('class','uk-input')
             )->setName('Step1'),
             CompositeField::create(
                HeaderField::create('AddressTitle2','Ihre Angaben',3),
@@ -130,6 +130,9 @@ class ShopPageController extends PageController
       $form->addExtraClass('uk-form-horizontal form-std');
       $form->setTemplate('Forms/OrderForm');
       $form->loadDataFrom($cart);
+      if (!$cart->Birthday){
+         $date->setValue($date->format('Y-m-d'));
+      }
       // if(is_array($this->getRequest()->getSession()->get('BuyBillForm'))) {
       //    $form->loadDataFrom($this->getRequest()->getSession()->get('BuyBillForm'));
       // }
