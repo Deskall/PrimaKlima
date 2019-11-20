@@ -41,16 +41,12 @@ $(document).ready(function(){
 		var hasEvent = false;
 
 		
-
-		
-		
 		var url = window.location.pathname;
 		$.ajax({
 			url: '/shop-functions/fetchPackages',
 			dataType: 'Json'
 		}).done(function(response){
 			packages = response;
-			//fetch the cart
 			
 		});
 

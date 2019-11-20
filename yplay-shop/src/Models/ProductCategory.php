@@ -11,6 +11,8 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Control\Controller;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Core\Injector\Injector;
 
 class ProductCategory extends DataObject {
 
@@ -156,26 +158,23 @@ class ProductCategory extends DataObject {
 
 
 	public function activeIndex(){
-		// // $session = Controller::curr()->getRequest()->getSession();
-		// // if ($session->get('shopcart_id')){
-		// // 	//fet
-		// // }
-		// $cart =  Controller::curr()->activeCart();
-		// if ($cart){
-		// 	//if package take products package
-		// 	if ($cart->Package()->exists()){
-		// 		$p = $cart->Package()->Products()->filter('CategoryID',$this->ID)->first();
-		// 		if ($p){
-		// 			return $p->Sort;
-		// 		}
-		// 	}
-		// 	//else we look for products
-		// 	if ($cart->Products()->exists() && $cart->Products()->filter('CategoryID',$this->ID)->first()){
-		// 		$p = $cart->Products()->filter('CategoryID',$this->ID)->first();
-		// 		return $p->Sort;
-		// 	}
-		// }
 		return ($this->getPreselected()) ? $this->getPreselected()->ID : 0;
+	}
+
+	/** Deactivate product slider if cart does not contain the category */
+	public function isDisabled(){
+		$request = Injector::inst()->get(HTTPRequest::class);
+		$session = $request->getSession();
+		if ($session->get('shopcart_id')){
+			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
+			if ($cart){
+				if (!$cart->hasCategory($this->Code) && ($cart->Package()->exists() || $cart->Products()->exists())){
+					return "disabled";
+				}
+			}
+		}
+
+		return false;
 	}
 
 
