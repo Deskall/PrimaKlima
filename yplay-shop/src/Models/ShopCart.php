@@ -31,7 +31,7 @@ class ShopCart extends DataObject {
 
 	private static $summary_fields = [
 		'Created' => 'Datum',
-		'forTemplate' => 'Enthält',
+		'Summary' => 'Enthält',
 		'Customer.printContact' => 'Kunde'
 	];
 
@@ -44,6 +44,10 @@ class ShopCart extends DataObject {
 
 	public function forTemplate(){
 		return $this->renderWith('Includes/ShopCart');
+	}
+
+	public function Summary(){
+		return $this->renderWith('Includes/ShopCartSummary');
 	}
 
 	public function writeTotalMonthlyPrice(){
