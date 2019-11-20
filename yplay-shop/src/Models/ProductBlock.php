@@ -66,7 +66,7 @@ class ProductBlock extends TextBlock
                     return $this->Category()->filteredProducts();
                 }
                 return $this->Products()->filterByCallback(function($item, $list) {
-                    return ($item->shouldDisplay());
+                    return ($item->shouldDisplay() && $item->isAvailable());
                 });
             break;
             case "packages":
@@ -77,7 +77,7 @@ class ProductBlock extends TextBlock
                 //     });
                 // }
                 return Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
-                    return ($item->shouldDisplay());
+                    return ($item->shouldDisplay() && $item->isAvailable());
                 });
             break;
             case "optionen":
