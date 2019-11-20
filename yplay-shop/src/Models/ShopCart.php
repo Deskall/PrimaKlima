@@ -27,7 +27,11 @@ class ShopCart extends DataObject {
 		'BillAddress'  => 'Varchar',
 		'BillPostalCode'  => 'Varchar',
 		'BillCity'  => 'Varchar',
-		'BillCountry'  => 'Varchar'
+		'BillCountry'  => 'Varchar',
+		'PhoneOption' => 'Varchar',
+		'ExistingPhone' => 'Varchar',
+		'WishPhone' => 'Varchar',
+		'ExistingCustomer' => 'Boolean(0)'
 	];
 
 	private static $has_one = [
