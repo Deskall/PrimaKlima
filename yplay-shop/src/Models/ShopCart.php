@@ -11,7 +11,23 @@ class ShopCart extends DataObject {
 		'TotalMonthlyPrice' => 'Varchar',
 		'TotalUniquePrice' => 'Varchar',
 		'Purchased' => 'Boolean(0)',
-		'CurrentStep' => 'Varchar'
+		'CurrentStep' => 'Varchar',
+		//Customer Fields for save
+		'Gender'  => 'Varchar',
+		'Name' => 'Varchar',
+		'FirstName' => 'Varchar',
+		'Email' => 'Varchar',
+		'Birthday' => 'Date',
+		'Address'  => 'Varchar',
+		'PostalCode'  => 'Varchar',
+		'City'  => 'Varchar',
+		'Country'  => 'Varchar',
+		'Phone'  => 'Varchar',
+		'BillSameAddress' => 'Boolean(1)',
+		'BillAddress'  => 'Varchar',
+		'BillPostalCode'  => 'Varchar',
+		'BillCity'  => 'Varchar',
+		'BillCountry'  => 'Varchar'
 	];
 
 	private static $has_one = [
@@ -32,13 +48,33 @@ class ShopCart extends DataObject {
 	private static $summary_fields = [
 		'OnlineLabel' => '',
 		'LastEdited' => 'Datum',
-		'Summary' => 'Enthält',
-		'Customer.printContact' => 'Kunde'
+		'Summary' => 'Enthält'
 	];
 
 	private static $searchable_fields = [
-		'Customer.Email'
+		'Name',
+		'Email'
 	];
+
+	public function fieldLabels($includerelation = true){
+		$labels = parent::fieldLabels($includerelation);
+		$labels['Gender'] = _t(__CLASS__.'.Gender','Anrede');
+		$labels['Name'] = _t(__CLASS__.'.Name','Name');
+		$labels['FirstName'] = _t(__CLASS__.'.FirstName','Vorname');
+		$labels['Email'] = _t(__CLASS__.'.Email','E-Mail');
+		$labels['Address'] = _t(__CLASS__.'.Address','Adresse');
+		$labels['PostalCode'] = _t(__CLASS__.'.PostalCode','PLZ');
+		$labels['City'] = _t(__CLASS__.'.City','Stadt');
+		$labels['Country'] = _t(__CLASS__.'.Country','Land');
+		$labels['BillAddress'] = _t(__CLASS__.'.BillAddress','Adresse (Rechnung)');
+		$labels['BillPostalCode'] = _t(__CLASS__.'.BillPostalCode','PLZ (Rechnung)');
+		$labels['BillCity'] = _t(__CLASS__.'.BillCity','Stadt (Rechnung)');
+		$labels['BillCountry'] = _t(__CLASS__.'.BillCountry','Land (Rechnung)');
+		$labels['Phone'] = _t(__CLASS__.'.Phone','Telefon');
+		$labels['Birthday'] = _t(__CLASS__.'.Birthday','Geburtsdatum');
+
+		return $labels;
+	}
 
 	
 	public function onBeforeWrite(){
