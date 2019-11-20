@@ -77,8 +77,9 @@ class OrderItem extends DataObject {
         $this->ProductID = $product->ID;
         $this->Title = $product->Title;
         $this->SubTitle = $product->SubTitle;
-        $this->MonthlyPrice = ($included) ? 0 : $product->getMonthlyPrice();
-        $this->UniquePrice = ($included) ? 0 : ((!$customer ) ? $product->getPriceUnique() + $product->getFees() : $product->getPriceUnique() );
+        $this->MonthlyPrice = $product->getMonthlyPrice();
+        $this->UniquePrice = $product->getPriceUnique() );
+        $this->ActivationPrice = $product->getFees();
         $this->Quantity = $quantity;
         $this->write();
     }
@@ -90,6 +91,7 @@ class OrderItem extends DataObject {
         $this->SubTitle = $product->SubTitle;
         $this->MonthlyPrice = - $product->getMonthlyPrice();
         $this->UniquePrice = - $product->getPriceUnique();
+        $this->ActivationPrice = - $product->getFees();
         $this->Quantity = 1;
         $this->write();
     }
@@ -122,7 +124,8 @@ class OrderItem extends DataObject {
         $this->SaleAddon = $package->SaleAddon;
         $this->SubTitle = $package->SubTitle;
         $this->MonthlyPrice = $package->getMonthlyPrice();
-        $this->UniquePrice = (!$customer ) ? $package->getPriceUnique() + $package->getFees() : $package->getPriceUnique();
+        $this->UniquePrice = $package->getPriceUnique();
+        $this->ActivationPrice = $package->getFees();
         $this->Quantity = 1;
         $this->write();
     }
