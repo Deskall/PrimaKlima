@@ -134,7 +134,7 @@ class ShopPageController extends PageController
       }
       
 
-      $form->addExtraClass('uk-form-horizontal form-std');
+      $form->addExtraClass('form-std');
       $form->setTemplate('Forms/OrderForm');
       $form->loadDataFrom($cart);
       if (!$cart->Birthday){
