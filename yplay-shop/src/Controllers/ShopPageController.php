@@ -50,7 +50,7 @@ class ShopPageController extends PageController
          }
       }
 
-      return parent::index();
+      return [];
       
    }
 
