@@ -42,8 +42,10 @@ class Product extends DataObject {
 	];
 
 	private static $summary_fields = [
+		'Availability'
 		'Title',
 		'Subtitle',
+		'Specific',
 		'PrintPriceString'
 	];
 
@@ -100,6 +102,17 @@ class Product extends DataObject {
 		else{
 			return DBText::create()->setValue('CHF '.$this->Price);
 		}
+	}
+
+	public function Specific(){
+		$html = '';
+		if ($this->BestSeller){
+			$html .= '<label class="bestseller">Bestseller</label><br>';
+		}
+		if ($this->Preselected){
+			$html .= '<label class="preselected">Standard</label>';
+		}
+		return DBText::create()->setValue($html);
 	}
 
 	public function getCMSFields(){
