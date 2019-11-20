@@ -57,7 +57,14 @@ class Product extends DataObject {
 	public function onBeforeWrite(){
 	    if (!$this->ProductCode || $this->ID == 0){
 	    	//TO DO Increment for doublon
-	    	$this->ProductCode = URLSegmentFilter::create()->filter($this->Title);
+	    	$code = URLSegmentFilter::create()->filter($this->Title);
+	    	$i = 1;
+	    	while(Product::get()->filter('ProductCode',$this->ProductCode)->count() > 0){
+	    		$code = $code."-".$i;
+	    		$i++;
+	    	}
+	    	$this->ProductCode = $code;
+	    	
 	    }
 	    if ($this->Preselected){
 	    	$previous = $this->Category()->getPreselected();
@@ -154,5 +161,5 @@ class Product extends DataObject {
 		}
 		return false;
 	}
-	
+
 }
