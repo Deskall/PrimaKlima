@@ -58,9 +58,9 @@ class ShopPageController extends PageController
          $this,
          'OrderForm',
          new FieldList(
+            HeaderField::create('AddressTitle','Ihre Angaben',3),
+            OptionsetField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
             CompositeField::create(
-               HeaderField::create('AddressTitle','Ihre Angaben',3),
-               OptionsetField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
                TextField::create('Name','Name')->setAttribute('class','uk-input'),
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                $birthday = DateField::create('Birthday','Geburstdatum')->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$max->format('Y.m.d'))->setAttribute('class','uk-input')

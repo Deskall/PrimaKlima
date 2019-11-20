@@ -59,24 +59,18 @@
                 </li>
                 <li id="address" class="uk-margin" data-step="step-1">
                         <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
+                            <% with Fields.dataFieldByName('AddressTitle') %>
+                                $FieldHolder
+                            <% end_with %>
                             <div>
                             <% with Fields.dataFieldByName('Gender') %>
                                 $Field
                             <% end_with %>
                             </div>
-                            <div class="uk-width-1-2@s">
-                                <% with Fields.dataFieldByName('Name') %>
-                                    $FieldHolder
-                                <% end_with %>
-                            </div>
-                            <div class="uk-width-1-2@s">
-                                <% with Fields.dataFieldByName('FirstName') %>
-                                    $FieldHolder
-                                <% end_with %>
-                            </div>
-                        	<%-- <% with Fields.FieldByName('Step1') %>
+                            
+                        	<% with Fields.FieldByName('Step1') %>
                         		$FieldHolder 
-                        	<% end_with %> --%>
+                        	<% end_with %>
                         </div>
 	                   <div class="uk-margin-top uk-flex uk-flex-around">
 	                        <a class="step backwards uk-button uk-button-muted" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
