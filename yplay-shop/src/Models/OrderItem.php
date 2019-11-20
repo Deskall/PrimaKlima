@@ -80,7 +80,7 @@ class OrderItem extends DataObject {
         $this->Title = $product->Title;
         $this->SubTitle = $product->SubTitle;
         $this->MonthlyPrice = $product->getMonthlyPrice();
-        $this->UniquePrice = $product->getPriceUnique() );
+        $this->UniquePrice = $product->getPriceUnique();
         $this->ActivationPrice = $product->getFees();
         $this->UniquePriceLabel = $product->UniquePriceLabel;
         $this->ActivationPriceLabel = $product->ActivationPriceLabel;
