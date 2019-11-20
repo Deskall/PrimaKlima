@@ -26,7 +26,9 @@ class AvailabilityFilterable extends DataExtension
     	if ($this->owner->Availability == "all"){
     		return true;
     	}
-    	$plz = $this->owner->getRequest()->getSession()->get('active_plz');
+    	$request = Injector::inst()->get(HTTPRequest::class);
+    	$session = $request->getSession();
+    	$plz = $session->get('active_plz');
     	if ($plz){
     	     //then we check if plz exists
     	    $PostalCode = PostalCode::get()->byId($plz);
