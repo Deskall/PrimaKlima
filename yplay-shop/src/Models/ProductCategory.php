@@ -36,7 +36,14 @@ class ProductCategory extends DataObject {
 
 	private static $owns = [
 		'Icon',
-		'Products'
+		'Products',
+		'Options'
+	];
+
+	private static $cascade_deletes = [
+	    'Icon',
+		'Products',
+		'Options'
 	];
 
 	private static $extensions = [

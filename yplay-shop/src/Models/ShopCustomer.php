@@ -67,6 +67,10 @@ class ShopCustomer extends DataObject
         'Orders' => ShopOrder::class
     ];
 
+    private static $cascade_deletes = [
+        'Orders'
+    ];
+
     // private static $has_one = [
     //     'Member' => Member::class
     // ];

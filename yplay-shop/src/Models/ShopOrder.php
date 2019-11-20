@@ -54,6 +54,10 @@ class ShopOrder extends DataObject{
 		'Created.Nice' => 'Bestelldatum'
 	);
 
+	private static $cascade_deletes = [
+		'Items'
+	];
+
 	private static $searchable_fields = [
 
 		'Nummer' =>  array(
