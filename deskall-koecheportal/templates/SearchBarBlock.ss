@@ -1,4 +1,4 @@
-<form class="finder-bar uk-flex uk-flex-inline">
+<form class="finder-bar uk-flex uk-flex-inline uk-padding-small">
 				<strong><%t FinderBar.SearchTitle 'Suche' %>:</strong>
 				
 
