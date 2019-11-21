@@ -12,6 +12,10 @@ class JobBranch extends DataObject
     private static $singular_name = "Bereich";
     private static $plural_name = "Bereiche";
 
+    private static $has_many = [
+        'Jobs' => JobReference::class
+    ];
+
 
     public function fieldLabels($includerelation = true){
     $labels = parent::fieldLabels($includerelation);
@@ -19,6 +23,7 @@ class JobBranch extends DataObject
 
     return $labels;
     }
+
 
    
 
