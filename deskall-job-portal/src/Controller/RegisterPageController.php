@@ -40,7 +40,7 @@ class RegisterPageController extends PageController{
 
 	public function RegisterForm(){
 
-		$fields = singleton(Member::class)->getFrontEndFields();
+		$fields = singleton(Member::class)->getMemberFormFields();
 
 		$form = new Form(
 			$this,
