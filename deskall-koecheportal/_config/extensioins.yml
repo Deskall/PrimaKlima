@@ -1,8 +1,0 @@
-Member:
-  extensions:
-    - MemberConfirmationExtension
-
-
-SilverStripe\SiteConfig\SiteConfig:
-  extensions:
-    - OrderSettingsConfig
