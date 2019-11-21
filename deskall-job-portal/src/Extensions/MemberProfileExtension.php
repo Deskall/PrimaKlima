@@ -56,7 +56,7 @@ class MemberProfileExtension extends DataExtension
     
     public function canLogIn(ValidationResult $result)
     {
-        if ($this->owner->inGroups(Group::get()->filter('Code',Config::inst()->get('Cook','groupdcode')))){
+        if ($this->owner->inGroups(Group::get()->filter('Code',['kandidaten','arbeitgeber']))){
             if ($this->owner->NeedsValidation) {
                 $result->addError(_t(
                     'MemberProfiles.NEEDSVALIDATIONTOLOGIN',
@@ -133,10 +133,6 @@ class MemberProfileExtension extends DataExtension
             return MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code',$this->owner->stat('groupcode'))->first()->ID)->first()->Link();
         }
         return "admin/pages";
-    }
-
-    public function getCook(){
-        return Cook::get()->filter('MemberID',$this->owner->ID)->first();
     }
 
 
