@@ -44,7 +44,7 @@ class RegisterPageController extends PageController{
 				$class = 'Candidat';
 				break;
 			case "arbeitgeber":
-				$class = 'JobGiver'
+				$class = 'JobGiver';
 				break;
 		}
 		$fields = singleton($class)->getMemberFormFields();
