@@ -29,7 +29,6 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\Security\Group;
 use SilverStripe\Security\DefaultAdminService;
 use SilverStripe\Forms\RequiredFields;
-use SilverStripe\Security\Member;
 
 class RegisterPageController extends PageController{
 	private static $allowed_actions = ['RegisterForm','afterregistration', 'confirm'];
