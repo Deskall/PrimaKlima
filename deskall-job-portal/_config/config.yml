@@ -45,22 +45,6 @@ SilverStripe\Core\Injector\Injector:
           startDateFormat: 'Y-m-d H:i'
           startTimeString: 0
 
-UserAdmin:
-    menu_icon: 'themes/standard/img/cook-icon.png'
-    url_segment: 'koeche'
-    menu_title: 'Köche'
-
-RegisterPage:
-    groupcodes:
-        - mietkoeche
-        - kunden
-
-MemberProfilePage:
-    groupcodes:
-        - mietkoeche
-        - kunden
-        - mitarbeiter
-
 SilverStripe\AssetAdmin\Forms\FileFormFactory:
   extensions:
     - DocumentFormFactoryExtension

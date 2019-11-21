@@ -22,6 +22,8 @@ class MemberProfilePage extends Page {
 		'Group' => Group::class
 	];
 
+	private static $groupcodes = ['kandidaten','arbeitgeber'];
+
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->addFieldToTab('Root.Profile', DropdownField::create('GroupID',_t(__CLASS__.'.Group','Benutzer Grupp'), Group::get()->filter('Code',$this->stat('groupcodes'))->map('ID','Title'))->setEmptyString('Grupp wählen'));
