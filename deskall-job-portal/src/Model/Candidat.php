@@ -59,7 +59,7 @@ class Candidat extends DataObject
 
     private static $groupcode = 'kandidaten';
 
-    private static $default_sort = ['Created' => 'DESC','isActive' => 'DESC'];
+    private static $default_sort = ['Created' => 'DESC'];
 
     private static $has_one = [
         'Member' => Member::class,
