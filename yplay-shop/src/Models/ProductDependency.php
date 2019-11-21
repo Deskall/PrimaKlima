@@ -8,7 +8,8 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 class ProductDependency extends DataObject {
 	
 	private static $db = [
-		'isGlobal' => 'Boolean(1)'
+		'isGlobal' => 'Boolean(1)',
+		'isSingle' => 'Boolean(1)'
 	];
 
 	private static $has_one = [
@@ -35,6 +36,8 @@ class ProductDependency extends DataObject {
 		$labels['Codes'] = 'betroffene Ortschaften';
 		$labels['ExcludedCodes'] = 'ausgeschlossene Ortschaften';
 		$labels['Categories'] = 'Abhängigkeiten';
+		$labels['isGlobal'] = 'Stimmt für alle Ortschaften';
+		$labels['isSingle'] = 'Kann unabhängig bestellt werden';
 		return $labels;
 	}
 
