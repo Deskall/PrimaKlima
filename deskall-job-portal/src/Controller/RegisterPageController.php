@@ -48,8 +48,7 @@ class RegisterPageController extends PageController{
 			$fields,
 			new FieldList(
 				FormAction::create('register', _t('MemberProfiles.REGISTER', 'Jetzt registrieren'))->addExtraClass('uk-button PrimaryBackground')
-			),
-			[]
+			)
 		);
 
 		$form->addExtraClass('uk-form-horizontal form-std');
