@@ -39,8 +39,8 @@ class RegisterPageController extends PageController{
 	];
 
 	public function RegisterForm(){
-		$fields = singleton(Cook::class)->getRegisterFields();
-		$requiredFields = singleton(Cook::class)->getRequiredRegisterFields();
+
+		$fields = singleton('Member')->getFrontEndFields();
 
 		$form = new Form(
 			$this,
@@ -49,7 +49,7 @@ class RegisterPageController extends PageController{
 			new FieldList(
 				FormAction::create('register', _t('MemberProfiles.REGISTER', 'Jetzt registrieren'))->addExtraClass('uk-button PrimaryBackground')
 			),
-			$requiredFields
+			[]
 		);
 
 		$form->addExtraClass('uk-form-horizontal form-std');
