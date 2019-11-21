@@ -17,6 +17,9 @@ class SecurityAdminExtension extends Extension {
 		$idsEmployer = ($groupEmployer  && $groupEmployer ->Members()->exists()) ? $groupEmployer->Members()->column('ID') : [];
 	
 		$ids = array_merge($idsCandidat,$idsEmployer);
-		$members->setList(Member::get()->exclude('ID',$ids));
+		if (!empty($ids)){
+			$members->setList(Member::get()->exclude('ID',$ids));
+		}
+		
 	}
 }
