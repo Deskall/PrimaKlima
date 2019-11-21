@@ -16,7 +16,7 @@ class JobPortalAdmin extends ModelAdmin{
 	private static $url_segment = 'jobportal';
 	private static $menu_title = 'Gastroportal';
 	private static $menu_icon = 'deskall-job-portal/img/icon-employer.png';
-	private static $menu_priority = 1;
+	private static $menu_priority = 2;
 	
 	private static $managed_models = [
 		'Mission' => [
