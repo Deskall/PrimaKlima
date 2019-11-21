@@ -12,7 +12,7 @@ class ProductDependency extends DataObject {
 	];
 
 	private static $has_one = [
-		'Parent' => Category::class
+		'Parent' => ProductCategory::class
 	];
 
 	private static $has_many = [
