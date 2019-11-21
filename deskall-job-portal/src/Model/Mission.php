@@ -99,15 +99,8 @@ class Mission extends DataObject
 
 
     private static $summary_fields = [
-        'Created' => ['title' => 'Erstellt am'],
-        'Customer.NiceAddress' => ['title' => 'Kunde' ],
-        'Job.Title' => ['title' => 'Position'],
-        'Period' => ['title' => 'Zeitraum'],
-        'CountCandidatures' => ['title' => 'Bewerbungen'],
-        'CustomerPrice' => ['title' => 'Preis (Kunde)'],
-        'Price' => ['title' => 'Preis (Koch)'],
-        'NiceStatus' => ['title' => 'Status'],
-        'NiceInfos' => ['title' => 'Infos']
+        'Created' => ['title' => 'Erstellt am']
+        
     ];
 
     private static $searchable_fields = [
@@ -256,62 +249,63 @@ class Mission extends DataObject
 
     public function getCMSFields()
     {
-       $fields = FieldList::create(
-            Tabset::create('Root',
-                Tab::create('Main','Aufrage Daten',
-                    HiddenField::create('backend')->setValue(true),
-                    HiddenField::create('Status'),
-                    CompositeField::create(
-                        // TextField::create('Title',$this->fieldLabels(true)['Title']),
-                        DropdownField::create('JobID',$this->fieldLabels(true)['Job'], JobReference::get()->map('ID','Title'))->setEmptyString('Position Wählen'),
-                        TextField::create('Place',$this->fieldLabels(true)['Place']),
-                        TextField::create('URL',$this->fieldLabels(true)['URL']),
-                        FieldGroup::create(
-                            $start = DateField::create('Start',$this->fieldLabels()['Start']),
-                            DateField::create('End',$this->fieldLabels()['End'])
-                        ),
-                        HTMLEditorField::create('Access',$this->fieldLabels(true)['Access'])->setRows(3),
-                        HTMLEditorField::create('Others',$this->fieldLabels(true)['Others'])->setRows(3)
-                    )->setName('MissionDaten')->setTitle('Auftrag Angaben'),
-                    CompositeField::create(
-                        TextField::create('Company',$this->fieldLabels(true)['Company']),
-                        TextField::create('Surname',$this->fieldLabels(true)['Surname']),
-                        TextField::create('FirstName',$this->fieldLabels(true)['FirstName']),
-                        EmailField::create('Email',$this->fieldLabels(true)['Email']),
-                        TextField::create('Address',$this->fieldLabels(true)['Address']),
-                        TextField::create('PostalCode',$this->fieldLabels(true)['PostalCode']),
-                        TextField::create('City',$this->fieldLabels(true)['City']),
-                        DropdownField::create('Country',$this->fieldLabels(true)['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),
-                        TextField::create('Phone',$this->fieldLabels(true)['Phone']),
-                        TextField::create('Fax',$this->fieldLabels(true)['Fax'])
-                    )->setName('CustomerDaten')->setTitle('Kunde Angaben'),
-                    HTMLEditorField::create('AdminComments',$this->fieldLabels(true)['AdminComments'])->setRows(5)
-               ),
-                Tab::create('Candidatures',$this->fieldLabels(true)['Candidatures']),
-                Tab::create('Weeks',$this->fieldLabels(true)['Weeks'])
-            )
-        );
-       if ($this->ID > 0){
-        //Options
-        if ($this->Job()->Options()->exists()){
-            $options = CheckboxSetField::create('Options-'.$this->Job()->ID,'Optionen',$this->Job()->Options()->map('ID','Title')->toArray(), $this->Options());
-            $fields->insertAfter('JobID',$options);
-        }
-        //Candidatures
-          $Candidatures = GridField::create('Candidatures',$this->fieldLabels(true)['Candidatures'],$this->Candidatures(),GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldApproveCandidatAction()));
-           $fields->addFieldToTab('Root.Candidatures',$Candidatures);
+        $fields = parent::getCMSFields();
+       // $fields = FieldList::create(
+       //      Tabset::create('Root',
+       //          Tab::create('Main','Aufrage Daten',
+       //              HiddenField::create('backend')->setValue(true),
+       //              HiddenField::create('Status'),
+       //              CompositeField::create(
+       //                  // TextField::create('Title',$this->fieldLabels(true)['Title']),
+       //                  DropdownField::create('JobID',$this->fieldLabels(true)['Job'], JobReference::get()->map('ID','Title'))->setEmptyString('Position Wählen'),
+       //                  TextField::create('Place',$this->fieldLabels(true)['Place']),
+       //                  TextField::create('URL',$this->fieldLabels(true)['URL']),
+       //                  FieldGroup::create(
+       //                      $start = DateField::create('Start',$this->fieldLabels()['Start']),
+       //                      DateField::create('End',$this->fieldLabels()['End'])
+       //                  ),
+       //                  HTMLEditorField::create('Access',$this->fieldLabels(true)['Access'])->setRows(3),
+       //                  HTMLEditorField::create('Others',$this->fieldLabels(true)['Others'])->setRows(3)
+       //              )->setName('MissionDaten')->setTitle('Auftrag Angaben'),
+       //              CompositeField::create(
+       //                  TextField::create('Company',$this->fieldLabels(true)['Company']),
+       //                  TextField::create('Surname',$this->fieldLabels(true)['Surname']),
+       //                  TextField::create('FirstName',$this->fieldLabels(true)['FirstName']),
+       //                  EmailField::create('Email',$this->fieldLabels(true)['Email']),
+       //                  TextField::create('Address',$this->fieldLabels(true)['Address']),
+       //                  TextField::create('PostalCode',$this->fieldLabels(true)['PostalCode']),
+       //                  TextField::create('City',$this->fieldLabels(true)['City']),
+       //                  DropdownField::create('Country',$this->fieldLabels(true)['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),
+       //                  TextField::create('Phone',$this->fieldLabels(true)['Phone']),
+       //                  TextField::create('Fax',$this->fieldLabels(true)['Fax'])
+       //              )->setName('CustomerDaten')->setTitle('Kunde Angaben'),
+       //              HTMLEditorField::create('AdminComments',$this->fieldLabels(true)['AdminComments'])->setRows(5)
+       //         ),
+       //          Tab::create('Candidatures',$this->fieldLabels(true)['Candidatures']),
+       //          Tab::create('Weeks',$this->fieldLabels(true)['Weeks'])
+       //      )
+       //  );
+       // if ($this->ID > 0){
+       //  //Options
+       //  if ($this->Job()->Options()->exists()){
+       //      $options = CheckboxSetField::create('Options-'.$this->Job()->ID,'Optionen',$this->Job()->Options()->map('ID','Title')->toArray(), $this->Options());
+       //      $fields->insertAfter('JobID',$options);
+       //  }
+       //  //Candidatures
+       //    $Candidatures = GridField::create('Candidatures',$this->fieldLabels(true)['Candidatures'],$this->Candidatures(),GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldApproveCandidatAction()));
+       //     $fields->addFieldToTab('Root.Candidatures',$Candidatures);
 
-        //Weeks
-          $Weeks = GridField::create('Weeks',$this->fieldLabels(true)['Weeks'],$this->Weeks(),GridFieldConfig_Base::create()->addComponent(new GridFieldBillWeekAction()));
-           $fields->addFieldToTab('Root.Weeks',$Weeks);
-       }
-       if ($this->OfferFile()->exists()){
-        $fields->insertBefore('MissionDaten',LiteralField::create('OfferDownload','<a href="'.$this->OfferFile()->getURL().'" target="_blank" class="btn action btn btn-primary font-icon-print">Angebot herunterladen</a>'));
-       }
+       //  //Weeks
+       //    $Weeks = GridField::create('Weeks',$this->fieldLabels(true)['Weeks'],$this->Weeks(),GridFieldConfig_Base::create()->addComponent(new GridFieldBillWeekAction()));
+       //     $fields->addFieldToTab('Root.Weeks',$Weeks);
+       // }
+       // if ($this->OfferFile()->exists()){
+       //  $fields->insertBefore('MissionDaten',LiteralField::create('OfferDownload','<a href="'.$this->OfferFile()->getURL().'" target="_blank" class="btn action btn btn-primary font-icon-print">Angebot herunterladen</a>'));
+       // }
 
-       if ($this->Start && $this->Start < date('Y-m-d')){
-        $fields->replaceField('Start', $start->performReadonlyTransformation());
-       }
+       // if ($this->Start && $this->Start < date('Y-m-d')){
+       //  $fields->replaceField('Start', $start->performReadonlyTransformation());
+       // }
        
 
        return $fields;
