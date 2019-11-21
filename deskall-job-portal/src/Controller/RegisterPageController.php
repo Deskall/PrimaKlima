@@ -44,6 +44,7 @@ class RegisterPageController extends PageController{
 				$class = 'Candidat';
 				break;
 			case "arbeitgeber":
+			default:
 				$class = 'JobGiver';
 				break;
 		}
