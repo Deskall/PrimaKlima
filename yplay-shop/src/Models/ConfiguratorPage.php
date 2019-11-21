@@ -29,7 +29,6 @@ class ConfiguratorPage extends Page {
 		return ProductCategory::get()->filter('isVisible',1);
 	}
 
-
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->removeByName('BlockTitle');

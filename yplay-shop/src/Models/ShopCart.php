@@ -184,6 +184,39 @@ class ShopCart extends DataObject {
 		return $confirm;
 	}
 
+	// public function requireCategory($code){
+	// 	$required = false;
+		
+	// 	if ($this->Products()->exists()){
+	// 		$categories = DataList::create();
+	// 		foreach ($this->Products() as $p) {
+	// 			$categories->add($p->Category());
+	// 		}
+			
+	// 		$dependencies = ProductDependency::create()->filter('ParentID',$categories->column('ID'));
+	// 		//First check global dependencies
+	// 		$globalDependencies = $dependencies->filter('isGlobal',1);
+	// 		if ($globalDependencies->exists()){
+	// 			foreach ($globalDependencies as $gd){
+					
+	// 			}
+	// 		}
+			
+
+	// 		$request = Injector::inst()->get(HTTPRequest::class);
+	// 		$session = $request->getSession();
+	// 		$plzID = $session->get('active_plz')
+		
+			
+				
+	// 			$p->Category()->Dependencies()->filter()
+	// 		}
+	// 	}
+		
+	// 	return $required;
+		
+	// }
+
 	public function isEmpty(){
 		return (!$this->Package()->exists() && !$this->Products()->exists());
 	}

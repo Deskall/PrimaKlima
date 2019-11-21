@@ -170,6 +170,7 @@ class ProductCategory extends DataObject {
 			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
 			if ($cart){
 				if (!$cart->hasCategory($this->Code) && ($cart->Package()->exists() || $cart->Products()->exists())){
+					
 					return true;
 				}
 			}
