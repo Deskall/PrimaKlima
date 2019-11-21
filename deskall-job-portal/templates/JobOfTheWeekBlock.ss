@@ -25,7 +25,7 @@
 					$ContentMain.FirstParagraph
 					</div>
 					<p>$Employer.Company, $Employer.AddressPostalCode $Employer.AddressPlace</p>
-					<a class="link-more" href="/ad/detail/$ID" >Zum Inserat <% include DefaultIcon %></a>
+					<a class="link-more" href="/ad/detail/$ID" >Zum Inserat</a>
 
 
 				</div>
