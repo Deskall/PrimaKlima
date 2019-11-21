@@ -17,7 +17,7 @@ class ProductDependency extends DataObject {
 	];
 
 	private static $many_many = [
-		'Categories' => ProductCategory::class
+		'Categories' => ProductCategory::class,
 		'Codes' => PostalCode::class,
 		'ExcludedCodes' => PostalCode::class
 	];
