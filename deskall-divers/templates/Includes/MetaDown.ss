@@ -6,5 +6,5 @@
  <% if isLive %>
  $BodyCss
  <% else %>
- <link rel="stylesheet" type="text/css" href="$ThemeDir/css/body.min.css" />
+ <link rel="stylesheet" type="text/css" href="$CurrentThemeDir/css/body.min.css" />
  <% end_if %>
