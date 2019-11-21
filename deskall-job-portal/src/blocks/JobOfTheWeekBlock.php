@@ -37,59 +37,59 @@ class JobOfTheWeekBlock extends BaseElement implements Searchable{
 
 	public function Jobs(){
 
-		$Advertisements = EmployerAdvertisement::get()->filter(array(
-			'isPaid' => true, 
-			'State'  => 'live',
-			'PackageID' => 3,
-			'JobOfTheWeekdEndDate:GreaterThanOrEqual' =>  date("Y-m-d"),
-		))->sort('StartDate')->Limit( $this->NumOfJobs );
+		// $Advertisements = EmployerAdvertisement::get()->filter(array(
+		// 	'isPaid' => true, 
+		// 	'State'  => 'live',
+		// 	'PackageID' => 3,
+		// 	'JobOfTheWeekdEndDate:GreaterThanOrEqual' =>  date("Y-m-d"),
+		// ))->sort('StartDate')->Limit( $this->NumOfJobs );
 
-		$JobOfTheWeekAdvertisements = new ArrayList;
-
-
-		foreach( $Advertisements as $ad){$JobOfTheWeekAdvertisements->push($ad);}
+		// $JobOfTheWeekAdvertisements = new ArrayList;
 
 
-		if( $this->NumOfJobs > sizeof( $JobOfTheWeekAdvertisements->toArray() ) ){
+		// foreach( $Advertisements as $ad){$JobOfTheWeekAdvertisements->push($ad);}
 
-			$NewAdds = EmployerAdvertisement::get()->where("\"JobOfTheWeekdEndDate\" IS NULL OR \"JobOfTheWeekdEndDate\" = ''")
 
-			->filter(array(
-				'isPaid' => true, 
-				'State'  => 'live',
-				'PackageID' => 3,
-				'EndDate:GreaterThanOrEqual' =>  date("Y-m-d"),
+		// if( $this->NumOfJobs > sizeof( $JobOfTheWeekAdvertisements->toArray() ) ){
 
-			))
-			->sort('StartDate ASC')->Limit( $this->NumOfJobs - sizeof( $Advertisements->toArray() ) );
+		// 	$NewAdds = EmployerAdvertisement::get()->where("\"JobOfTheWeekdEndDate\" IS NULL OR \"JobOfTheWeekdEndDate\" = ''")
 
-			foreach ($NewAdds->toArray() as $Ad) {
-				$date = new DateTime($this->StartDate);
-				$date->modify("+ 7 days");
-				$Ad->JobOfTheWeekdEndDate =  $date->format("Y-m-d");
-				$Ad->write();
-				$JobOfTheWeekAdvertisements->push( $Ad );
-			}
-		}
+		// 	->filter(array(
+		// 		'isPaid' => true, 
+		// 		'State'  => 'live',
+		// 		'PackageID' => 3,
+		// 		'EndDate:GreaterThanOrEqual' =>  date("Y-m-d"),
 
-		if( $this->NumOfJobs > sizeof( $JobOfTheWeekAdvertisements->toArray() ) ){
+		// 	))
+		// 	->sort('StartDate ASC')->Limit( $this->NumOfJobs - sizeof( $Advertisements->toArray() ) );
 
-			$NewAdds = EmployerAdvertisement::get()->filter(array(
-				'isPaid' => true, 
-				'State'  => 'live',
-				'PackageID' => 3,
-				'EndDate:GreaterThanOrEqual' =>  date("Y-m-d"),
+		// 	foreach ($NewAdds->toArray() as $Ad) {
+		// 		$date = new DateTime($this->StartDate);
+		// 		$date->modify("+ 7 days");
+		// 		$Ad->JobOfTheWeekdEndDate =  $date->format("Y-m-d");
+		// 		$Ad->write();
+		// 		$JobOfTheWeekAdvertisements->push( $Ad );
+		// 	}
+		// }
 
-			))
-			->sort('StartDate ASC')->Limit( $this->NumOfJobs - sizeof( $Advertisements->toArray() ) );
+		// if( $this->NumOfJobs > sizeof( $JobOfTheWeekAdvertisements->toArray() ) ){
 
-			foreach ($NewAdds->toArray() as $Ad) {
-				$date = new DateTime($this->StartDate);
-				$date->modify("+ 7 days");
-				$Ad->JobOfTheWeekdEndDate =  $date->format("Y-m-d");
-				$Ad->write();
-				$JobOfTheWeekAdvertisements->push( $Ad );
-			}
+		// 	$NewAdds = EmployerAdvertisement::get()->filter(array(
+		// 		'isPaid' => true, 
+		// 		'State'  => 'live',
+		// 		'PackageID' => 3,
+		// 		'EndDate:GreaterThanOrEqual' =>  date("Y-m-d"),
+
+		// 	))
+		// 	->sort('StartDate ASC')->Limit( $this->NumOfJobs - sizeof( $Advertisements->toArray() ) );
+
+		// 	foreach ($NewAdds->toArray() as $Ad) {
+		// 		$date = new DateTime($this->StartDate);
+		// 		$date->modify("+ 7 days");
+		// 		$Ad->JobOfTheWeekdEndDate =  $date->format("Y-m-d");
+		// 		$Ad->write();
+		// 		$JobOfTheWeekAdvertisements->push( $Ad );
+		// 	}
 
 
 		}
