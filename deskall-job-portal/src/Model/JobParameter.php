@@ -77,16 +77,12 @@ class JobParameter extends DataObject
        ->addComponent(new GridFieldDeleteAction())
        ->addComponent(new GridFieldAddNewInlineButton())
        ->addComponent(new GridFieldOrderableRows('Sort'));
-       if (singleton('Features')->hasExtension('Activable')){
+       if (singleton('JobParameterValue')->hasExtension('Activable')){
             $config->addComponent(new GridFieldShowHideAction());
        }
 
-       $featuresField = new GridField('Features',_t(__CLASS__.'.Features','Features'),$this->Features(),$config);
-       $featuresField->addExtraClass('fluent__localised-field');
-       $title = $fields->fieldByName('Root.Main.FeaturesTitle');
-       $title->setTitle(_t(__CLASS__ . '.FeaturesTitle', 'Features List Titel'));
-       $fields->addFieldToTab('Root.Main',$title);
-       $fields->addFieldToTab('Root.Main',$featuresField);
+       $valuesField = new GridField('Values',_t(__CLASS__.'.Values','Werte'),$this->Values(),$config);
+       $fields->addFieldToTab('Root.Main',$valuesField);
 
        return $fields;
     }
