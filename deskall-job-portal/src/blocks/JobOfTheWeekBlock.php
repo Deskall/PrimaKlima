@@ -92,13 +92,13 @@ class JobOfTheWeekBlock extends BaseElement implements Searchable{
 		// 	}
 
 
-		}
+		// }
 
 
 
 
 
-		return $JobOfTheWeekAdvertisements->Limit($this->NumOfJobs)->sort('RAND()');
+		// return $JobOfTheWeekAdvertisements->Limit($this->NumOfJobs)->sort('RAND()');
 	}
 
 
