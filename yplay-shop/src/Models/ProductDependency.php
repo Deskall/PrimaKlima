@@ -41,6 +41,9 @@ class ProductDependency extends DataObject {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
+		$fields->removeByName('Categories');
+		$fields->removeByName('ExcludedCodes');
+		$fields->removeByName('Codes');
 		$fields->removeByName('ParentID');
 		return $fields;
 	}
