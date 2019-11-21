@@ -12,7 +12,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class ProductAdmin extends ModelAdmin{
 
-	private static $menu_icon = 'deskall-job-portal/img/icon-employer.png';
+	private static $menu_icon = 'deskall-job-portal/img/icon-verkauf.png';
 	private static $url_segment = "shop";
 	private static $menu_title = "Shop";
 	private static $menu_priority = 2;
