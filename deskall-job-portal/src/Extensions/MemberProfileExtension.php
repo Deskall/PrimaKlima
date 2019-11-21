@@ -4,6 +4,7 @@
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\DataExtension;
@@ -14,6 +15,7 @@ use SilverStripe\Control\Email\Email;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Permission;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\RequiredFields;
 
 /**
  * Adds validation fields to the Member object, as well as exposing the user's
