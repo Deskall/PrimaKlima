@@ -1,0 +1,10 @@
+---
+Name: gastroportal
+---
+BaseBlockExtension:
+  blocks:
+    - JobOfTheWeekBlock
+    - PriceBlock
+    - RegistrationBlock
+    - TopJobBlock
+    - SearchBarBlock
