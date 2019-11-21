@@ -1,5 +1,5 @@
 ---
-Name: standardtheme
+Name: standard-theme
 ---
 SilverStripe\View\SSViewer:
   themes:
