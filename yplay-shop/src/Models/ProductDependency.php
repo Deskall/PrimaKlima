@@ -16,11 +16,8 @@ class ProductDependency extends DataObject {
 		'Parent' => ProductCategory::class
 	];
 
-	private static $has_many = [
-		'Categories' => ProductCategory::class
-	];
-
 	private static $many_many = [
+		'Categories' => ProductCategory::class
 		'Codes' => PostalCode::class,
 		'ExcludedCodes' => PostalCode::class
 	];
@@ -44,6 +41,7 @@ class ProductDependency extends DataObject {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
+		$fields->removeByName('ParentID');
 		return $fields;
 	}
 }
