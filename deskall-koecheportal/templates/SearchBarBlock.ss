@@ -3,7 +3,7 @@
 				
 
 				<div class="select-holder inline">
-					<select data-chosen-filter name="position" data-placeholder="<%t FinderBar.Position 'Position' %>">
+					<select data-chosen-filter name="position" class="uk-select" data-placeholder="<%t FinderBar.Position 'Position' %>">
 						<option value="" data-empty-value></option>
 						<% loop $getPositions.Sort('Title') %>
 							<% if $Title %>
@@ -16,7 +16,7 @@
 
 
 				<div class="select-holder inline">
-					<select data-chosen-filter name="postal" data-placeholder="<%t FinderBar.Place 'Ort' %>">
+					<select data-chosen-filter class="uk-select" name="postal" data-placeholder="<%t FinderBar.Place 'Ort' %>">
 						<option value="" data-empty-value></option>
 						<% loop $getPostals.Sort('Title') %>
 							<% if $Title %>
