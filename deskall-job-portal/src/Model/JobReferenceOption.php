@@ -2,7 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 
-class CookJobOption extends DataObject
+class JobReferenceOption extends DataObject
 {
     private static $db = array(
         'Title' => 'Varchar',
@@ -10,11 +10,11 @@ class CookJobOption extends DataObject
         'HourPayCustomer' => 'Varchar'
     );
 
-    private static $singular_name = "Küche Beruf Option";
-    private static $plural_name = "Küche Beruf Optionen";
+    private static $singular_name = "Beruf Option";
+    private static $plural_name = "Beruf Optionen";
 
     private static $has_one = [
-        'Job' => CookJob::class
+        'Job' => JobReference::class
     ];
 
     private static $summary_fields = [

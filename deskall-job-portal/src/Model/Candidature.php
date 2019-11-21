@@ -15,22 +15,22 @@ class Candidature extends DataObject
     private static $plural_name = "Bewerbungen";
 
     private static $has_one = [
-        'Cook' => Cook::class,
+        'Candidat' => Candidat::class,
         'Mission' => Mission::class
     ];
 
     private static $summary_fields = [
-        'Cook.Thumbnail' => ['title' => 'Foto'],
-        'Cook.NiceAddress' => ['title' => 'Personal Angaben'],
-        'Cook.NiceJobs' => ['title' => 'Kompetenz / Berufe'],
-        'Cook.NiceTyp' => ['title' => 'Küchen Art']
+        'Candidat.Thumbnail' => ['title' => 'Foto'],
+        'Candidat.NiceAddress' => ['title' => 'Personal Angaben'],
+        'Candidat.NiceJobs' => ['title' => 'Kompetenz / Berufe'],
+        'Candidat.NiceTyp' => ['title' => 'Küchen Art']
     ];
 
 
     public function fieldLabels($includerelation = true){
     $labels = parent::fieldLabels($includerelation);
     $labels['Status'] = _t(__CLASS__.'.Status','Status');
-    $labels['Cook'] = _t(__CLASS__.'.Cook','Koch');
+    $labels['Candidat'] = _t(__CLASS__.'.Candidat','Koch');
     $labels['Mission'] = _t(__CLASS__.'.Mission','Auftrag');
 
     return $labels;
@@ -57,19 +57,19 @@ class Candidature extends DataObject
        $fields = parent::getCMSFields();
        $fields->removeByName('MissionID');
        $fields->removeByName('Status');
-       $fields->addFieldToTab('Root.Main',DropdownField::create('CookID','Koch',Cook::get()->filter('isApproved',1)->map('ID','Title'))->setEmptyString('Koch auswählen'));
+       $fields->addFieldToTab('Root.Main',DropdownField::create('CandidatID','Koch',Candidat::get()->filter('isApproved',1)->map('ID','Title'))->setEmptyString('Koch auswählen'));
        return $fields;
     }
 
     public function approve(){
         $this->Status = "approved";
         $this->write();
-        $this->Mission()->CookID = $this->CookID;
+        $this->Mission()->CandidatID = $this->CandidatID;
         $this->Mission()->createContract();
         $this->Mission()->startMission();
         $this->Mission()->write();
        
-        $this->Mission()->sendEmailToApprovedCook($this->Cook());
+        $this->Mission()->sendEmailToApprovedCandidat($this->Candidat());
     }
 
 

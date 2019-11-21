@@ -36,11 +36,9 @@ use SilverStripe\SiteConfig\SiteConfig;
  * 
  * @package deskall-users
  */
-class Cook extends DataObject
+class JobAppliant extends DataObject
 {
     private static $db = array(
-        'isActive' => 'Boolean(0)',
-        'Company' => 'Varchar',
         'Gender'  => 'Varchar',
         'Birthdate'  => 'Varchar',
         'Address'  => 'Varchar',
@@ -48,24 +46,18 @@ class Cook extends DataObject
         'City'  => 'Varchar',
         'Country'  => 'Varchar',
         'Phone'  => 'Varchar',
-        'Fax'  => 'Varchar',
-        'URL'  => 'Varchar',
         'Experience' => 'HTMLText',
-        'Formation' => 'HTMLText',
-        'Status' => 'Varchar',
-        'oldID' => 'Int',
-        'isApproved' => 'Boolean',
-        'isRefused' => 'Boolean'
+        'Formation' => 'HTMLText'
      );
 
-    private static $singular_name = "Koch";
-    private static $plural_name = "Köche";
+    private static $singular_name = "Kandidat";
+    private static $plural_name = "Kandidaten";
 
     private static $register_fields = ['FirstName','Surname','Email','Password'];
 
     private static $required_profile_fields = ['FirstName','Surname','Email','Gender','Birthdate','Address','PostalCode','City','Country','Phone'];
 
-    private static $groupcode = 'mietkoeche';
+    private static $groupcode = 'kandidaten';
 
     private static $default_sort = ['Created' => 'DESC','isActive' => 'DESC'];
 
@@ -73,17 +65,11 @@ class Cook extends DataObject
         'Member' => Member::class,
         'Picture' => Image::class,
         'CV' => File::class,
-        'Licence' => File::class,
-        'HACCPCertificat' => File::class,
-        'Ausweis' => File::class,
-        'A1Form' => File::class,
-        'TaxResidenceCertificat' => File::class
+        'MotivationLetter' => File::class
     ];
 
     private static $many_many = [
-        'Files' => File::class,
-        'Jobs' => CookJob::class,
-        'Categories' => CookType::class
+        'Files' => File::class
     ];
 
      private static $many_many_extraFields = [
@@ -100,12 +86,10 @@ class Cook extends DataObject
         'City',
         'Country',
         'NiceJobs' => ['title' => 'Berufe'],
-        'NiceTyp' => ['title' => 'Art'],
         'Created' => ['title' => 'Registriert seit']
     ];
 
     private static $searchable_fields = [
-        'isActive',
         'Member.FirstName',
         'Member.Surname',
         'Member.Email',
@@ -143,33 +127,10 @@ class Cook extends DataObject
     return $labels;
     }
 
-    public function canDelete($member = null){
-        if ($this->isActive){
-            return false;
-        }
-        else{
-            return parent::canDelete($member);
-        }
-    }
-
-    public function canApprove(){
-        return Permission::check('ADMIN');
-    }
-
-   
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
         
-        // if ($this->Picture()->exists()){
-        //     $folder = Folder::find_or_make($this->generateFolderName());
-        //     $this->Picture()->ParentID = $folder->ID;
-        //     $this->Picture()->write();
-        //     $this->Picture()->publishSingle();
-        // }
-        // foreach($this->Files() as $file){
-        //     $file->publishSingle();
-        // }
     }
 
     public function onAfterWrite()
@@ -379,7 +340,7 @@ class Cook extends DataObject
     }
 
     public function generateFolderName(){
-        return "Uploads/Koeche/".$this->ID;
+        return "Uploads/Kandidaten/".$this->ID;
     }
 
     public function Approve(){

@@ -30,7 +30,7 @@ use SilverStripe\ORM\DataObject;
  * 
  * @package deskall-users
  */
-class Customer extends DataObject
+class JobGiver extends DataObject
 {
     private static $db = array(
         'Company' => 'Varchar',
@@ -44,10 +44,10 @@ class Customer extends DataObject
         'URL'  => 'Varchar'
      );
 
-    private static $singular_name = "Kunde";
-    private static $plural_name = "Kunden";
+    private static $singular_name = "Arbeitgeber";
+    private static $plural_name = "Arbeitgeber";
 
-    private static $groupcode = 'kunden';
+    private static $groupcode = 'arbeitgeber';
 
     private static $default_sort = ['Created' => 'DESC'];
 
@@ -132,7 +132,7 @@ class Customer extends DataObject
 
 
     public function generateFolderName(){
-        return "Uploads/Mietkock-Kunden/".$this->ID;
+        return "Uploads/Arbeitgeber/".$this->ID;
     }
 
 }

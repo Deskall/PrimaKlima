@@ -14,7 +14,7 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\TextField;
 
-class CookJob extends DataObject
+class JobReference extends DataObject
 {
     private static $db = array(
         'Title' => 'Varchar',
@@ -23,15 +23,12 @@ class CookJob extends DataObject
         'HourPayCustomer' => 'Varchar'
     );
 
-    private static $singular_name = "Küche Beruf";
-    private static $plural_name = "Küche Berufe";
+    private static $singular_name = "Beruf";
+    private static $plural_name = "Berufe";
 
-    private static $belongs_many_many = [
-        'Cooks' => Cook::class
-    ];
 
     private static $has_many = [
-        'Options' => CookJobOption::class
+        'Options' => JobReferenceOption::class
     ];
 
     private static $summary_fields = [
@@ -45,7 +42,6 @@ class CookJob extends DataObject
     $labels = parent::fieldLabels($includerelation);
     $labels['Title'] = _t(__CLASS__.'.Title','Beruf');
     $labels['Subtitle'] = _t(__CLASS__.'.Subtitle','Zusatz');
-    $labels['Cooks'] = _t(__CLASS__.'.Cooks','Köche');
     $labels['HourPay'] = _t(__CLASS__.'.HourPay','Stundensatz (Koch)');
     $labels['HourPayCustomer'] = _t(__CLASS__.'.HourPayCustomer','Stundensatz (Für Kunde im Angebot)');
 
@@ -79,7 +75,6 @@ class CookJob extends DataObject
     public function getCMSFields()
     {
        $fields = parent::getCMSFields();
-       $fields->removeByName('Cooks');
        $fields->removeByName('Options');
        
        if ($this->ID > 0){

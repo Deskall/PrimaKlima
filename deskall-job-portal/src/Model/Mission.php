@@ -74,8 +74,8 @@ class Mission extends DataObject
         'isClosed' => 'Boolean(0)'
     );
 
-    private static $singular_name = "Auftrag";
-    private static $plural_name = "Aufträge";
+    private static $singular_name = "Stelle";
+    private static $plural_name = "Stellen";
 
     private static $default_sort = ['Created' => 'DESC'];
 
@@ -85,9 +85,9 @@ class Mission extends DataObject
     ];
 
     private static $has_one = [
-        'Customer' => Customer::class,
-        'Cook' => Cook::class,
-        'Job' => CookJob::class,
+        'Customer' => JobGiver::class,
+        'Candidat' => Candidat::class,
+        'Job' => JobReference::class,
         'OfferFile' => File::class,
         'ContractFile' => File::class
     ];
@@ -100,7 +100,7 @@ class Mission extends DataObject
     ];
 
     private static $many_many = [
-        'Options' => CookJobOption::class
+        'Options' => JobReferenceOption::class
     ];
 
 

@@ -7,7 +7,7 @@ use SilverStripe\Assets\File;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Security\Group;
 
-class CookConfig extends DataObject
+class JobPortalConfig extends DataObject
 {
     private static $db = array(
         'Title' => 'Varchar',
