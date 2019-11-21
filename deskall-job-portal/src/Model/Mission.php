@@ -91,15 +91,10 @@ class Mission extends DataObject
         'ContractFile' => File::class
     ];
 
-    private static $owns = ['OfferFile','ContractFile','Weeks','Candidatures'];
+    private static $owns = ['OfferFile','ContractFile','Candidatures'];
 
     private static $has_many = [
-        'Candidatures' => Candidature::class,
-        'Weeks' => Week::class
-    ];
-
-    private static $many_many = [
-        'Options' => JobReferenceOption::class
+        'Candidatures' => Candidature::class
     ];
 
 
