@@ -9,7 +9,7 @@ class ProductDependency extends DataObject {
 	
 	private static $db = [
 		'isGlobal' => 'Boolean(1)',
-		'isSingle' => 'Boolean(1)'
+		'notIndenpendent' => 'Boolean(1)'
 	];
 
 	private static $has_one = [
@@ -37,7 +37,7 @@ class ProductDependency extends DataObject {
 		$labels['ExcludedCodes'] = 'ausgeschlossene Ortschaften';
 		$labels['Categories'] = 'Abhängigkeiten';
 		$labels['isGlobal'] = 'Stimmt für alle Ortschaften';
-		$labels['isSingle'] = 'Kann unabhängig bestellt werden';
+		$labels['notIndenpendent'] = 'Kann nicht unabhängig bestellt werden';
 		return $labels;
 	}
 
