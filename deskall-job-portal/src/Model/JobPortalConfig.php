@@ -53,6 +53,10 @@ class JobPortalConfig extends DataObject
         'AGBCookFile' => File::class,
     ];
 
+    private static $has_many = [
+        'Parameters' => JobParameter::class
+    ];
+
     private static $owns = [
         'OfferFile',
         'ContractFile',
