@@ -47,6 +47,8 @@ class RegisterPage extends Page {
 
     private static $has_one = ['Group' => Group::class];
 
+    private static $groupcodes = ['kandidaten','arbeitgeber'];
+
     public function getCMSFields(){
     	$fields = parent::getCMSFields();
     	$fields->addFieldsToTab('Root.Registration',[
