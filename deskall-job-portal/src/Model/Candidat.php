@@ -53,7 +53,7 @@ class Candidat extends DataObject
     private static $singular_name = "Kandidat";
     private static $plural_name = "Kandidaten";
 
-    private static $register_fields = ['FirstName','Surname','Email','Password'];
+   
 
     private static $required_profile_fields = ['FirstName','Surname','Email','Gender','Birthdate','Address','PostalCode','City','Country','Phone'];
 
@@ -260,21 +260,8 @@ class Candidat extends DataObject
         return $o;
     }
 
-    public function getRegisterFields(){
-        $fields = $this->Member()->getMemberFormFields();
-        foreach($fields as $field){
-            if (!in_array($field->Name,$this->stat('register_fields'))){
-                $fields->removeByName($field->Name);
-            }
-            $fields->replaceField('Email',EmailField::create('Email',$this->Member()->fieldLabels()['Email']));
-        }
+    
 
-        return $fields;
-    }
-
-    public function getRequiredRegisterFields(){
-        return new RequiredFields(['FirstName','Surname','Email','Password']);
-    }
 
     public function getProfileFields(){
         $memberfields = $this->Member()->getFrontEndFields();

@@ -28,8 +28,27 @@ class MemberProfileExtension extends DataExtension
         'NeedsValidation' => 'Boolean'
     );
 
+    private static $register_fields = ['FirstName','Surname','Email','Password'];
+
     public function updateFieldLabels(&$labels){
         
+    }
+
+    public function getRegisterFields(){
+        $fields = $this->owner->getMemberFormFields();
+        foreach($fields as $field){
+            if (!in_array($field->Name,$this->owner->stat('register_fields'))){
+                $fields->removeByName($field->Name);
+            }
+            $fields->replaceField('Email',EmailField::create('Email','Email'));
+        }
+
+        return $fields;
+    }
+
+
+    public function getRequiredRegisterFields(){
+        return new RequiredFields(['FirstName','Surname','Email','Password']);
     }
    
     
