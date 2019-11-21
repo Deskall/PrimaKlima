@@ -39,16 +39,8 @@ class RegisterPageController extends PageController{
 	];
 
 	public function RegisterForm(){
-		switch ($this->Group()->Code){
-			case "kandidaten":
-				$class = 'Candidat';
-				break;
-			case "arbeitgeber":
-			default:
-				$class = 'JobGiver';
-				break;
-		}
-		$fields = singleton($class)->getMemberFormFields();
+
+		$fields = singleton(Member::class)->getMemberFormFields();
 
 		$form = new Form(
 			$this,
