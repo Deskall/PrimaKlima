@@ -165,85 +165,85 @@ class Mission extends DataObject
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        if ($this->ID == 0){
-            $this->isVisible = 0;
-        }
-        if (!$this->OfferKey){
-            $this->OfferKey = $this->generateToken();
-        }
-        if ($this->Start && $this->End){
-            $this->Period = _t('Mission.From','von').' '.date('d.m.Y',strtotime($this->Start)).' '._t('Mission.Until','bis').' '.date('d.m.Y',strtotime($this->End));
-        }
-        if ($this->Status == "created" && $this->isVisible){
-            $this->Status = "acceptedByCustomer";
-        }
-        if ($this->backend){
-            if (!$this->Status){
-                $this->Status = "new";
-            }
-            $member = Member::get()->filter('Email' , $this->Email)->first();
-            if (!$member){
-                $member = new Member();
-                $member->Surname = $this->Surname;
-                $member->FirstName = $this->FirstName;
-                $member->Email = $this->Email;
-                $member->write();
-                $member->addToGroupByCode('kunden');
-            }
-            $customer =  Customer::get()->filter('MemberID' , $member->ID)->first();
-            if (!$customer){
-                $customer = Customer::create();
-            }
-                $customer->Surname = $this->Surname;
-                $customer->FirstName = $this->FirstName;
-                $customer->Email = $this->Email;
-                $customer->Company = $this->Company;
-                $customer->Gender = $this->Gender;
-                $customer->Address = $this->Address;
-                $customer->PostalCode = $this->PostalCode;
-                $customer->City = $this->City;
-                $customer->Country = $this->Country;
-                $customer->Phone = $this->Phone;
-                $customer->Fax = $this->Fax;
-                $customer->URL = $this->URL;
-                $customer->MemberID = $member->ID;
-                $customer->write();
+        // if ($this->ID == 0){
+        //     $this->isVisible = 0;
+        // }
+        // if (!$this->OfferKey){
+        //     $this->OfferKey = $this->generateToken();
+        // }
+        // if ($this->Start && $this->End){
+        //     $this->Period = _t('Mission.From','von').' '.date('d.m.Y',strtotime($this->Start)).' '._t('Mission.Until','bis').' '.date('d.m.Y',strtotime($this->End));
+        // }
+        // if ($this->Status == "created" && $this->isVisible){
+        //     $this->Status = "acceptedByCustomer";
+        // }
+        // if ($this->backend){
+        //     if (!$this->Status){
+        //         $this->Status = "new";
+        //     }
+        //     $member = Member::get()->filter('Email' , $this->Email)->first();
+        //     if (!$member){
+        //         $member = new Member();
+        //         $member->Surname = $this->Surname;
+        //         $member->FirstName = $this->FirstName;
+        //         $member->Email = $this->Email;
+        //         $member->write();
+        //         $member->addToGroupByCode('kunden');
+        //     }
+        //     $customer =  Customer::get()->filter('MemberID' , $member->ID)->first();
+        //     if (!$customer){
+        //         $customer = Customer::create();
+        //     }
+        //         $customer->Surname = $this->Surname;
+        //         $customer->FirstName = $this->FirstName;
+        //         $customer->Email = $this->Email;
+        //         $customer->Company = $this->Company;
+        //         $customer->Gender = $this->Gender;
+        //         $customer->Address = $this->Address;
+        //         $customer->PostalCode = $this->PostalCode;
+        //         $customer->City = $this->City;
+        //         $customer->Country = $this->Country;
+        //         $customer->Phone = $this->Phone;
+        //         $customer->Fax = $this->Fax;
+        //         $customer->URL = $this->URL;
+        //         $customer->MemberID = $member->ID;
+        //         $customer->write();
             
-            $this->CustomerID = $customer->ID;
-            $this->Price = $this->calculatePrice();
-            $this->CustomerPrice = $this->calculateCustomerPrice();
-        }
+        //     $this->CustomerID = $customer->ID;
+        //     $this->Price = $this->calculatePrice();
+        //     $this->CustomerPrice = $this->calculateCustomerPrice();
+        // }
     }
 
     public function onAfterWrite()
     {
         parent::onAfterWrite(); 
-        if ($this->isChanged('Start')){
-            //then we reset the weeks
-            foreach ($this->Weeks() as $week) {
-              $week->delete();
-            }
-            $this->Weeks()->removeAll();
-            $this->ManageWeeks();  
-        } 
-        else if ($this->isChanged('End')){
-            $this->ManageWeeks();   
-        }
+        // if ($this->isChanged('Start')){
+        //     //then we reset the weeks
+        //     foreach ($this->Weeks() as $week) {
+        //       $week->delete();
+        //     }
+        //     $this->Weeks()->removeAll();
+        //     $this->ManageWeeks();  
+        // } 
+        // else if ($this->isChanged('End')){
+        //     $this->ManageWeeks();   
+        // }
 
     }
 
     public function onBeforeDelete(){
         parent::onBeforeDelete();
-        if ($this->OfferFile()->exists()){
-            $this->OfferFile()->File->deleteFile();
-            DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($this->OfferFile()->ID));
-            $this->OfferFile()->delete();
-        }
-        //delete folder
-        $folder = Folder::find_or_make("Uploads/Auftraege/".$this->ID);
-        $folder->File->deleteFile();
-        DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($folder->ID));
-        $folder->delete();
+        // if ($this->OfferFile()->exists()){
+        //     $this->OfferFile()->File->deleteFile();
+        //     DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($this->OfferFile()->ID));
+        //     $this->OfferFile()->delete();
+        // }
+        // //delete folder
+        // $folder = Folder::find_or_make("Uploads/Auftraege/".$this->ID);
+        // $folder->File->deleteFile();
+        // DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($folder->ID));
+        // $folder->delete();
     }
 
 
@@ -352,29 +352,7 @@ class Mission extends DataObject
         }
     }
 
-    public function canActivate(){
-        if ($this->isActive){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
-
-    public function canDesactivate(){
-        if ($this->isActive){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
-
-    public function close(){
-        $this->isActive = false;
-        $this->isClosed = true;
-        $this->write();
-    }
+    
 
     public function generateToken(){
         $generator = new RandomGenerator();
@@ -390,77 +368,50 @@ class Mission extends DataObject
         return $this->Candidatures()->count();
     }
 
-    public function NiceStatus(){
-        if ($this->isActive){
-            return DBHTMLText::create()->setValue('<span class="btn btn-primary font-icon-check-mark-circle btn--icon-large">Aktive</span>');
-        }
-        if ($this->isClosed){
-            return DBHTMLText::create()->setValue('<span class="btn font-icon-box btn--icon-large">Geschlossen</span>');
-        }
-        return $this->stat('status_types')[$this->Status];
-    }
+   
 
-    public function NiceInfos(){
-        $html = '';
-        if ($this->Weeks()->filter(['FileID:GreaterThan' => 0, 'isBilled' => 0])->count() > 0){
-            $html .= '<span class="btn btn-primary font-icon-info btn--icon-large">'.$this->Weeks()->filter(['FileID:GreaterThan' => 0, 'isBilled' => 0])->count().' Woche(n) zu verrechnen.</span>';
-        }
-        if ($this->Weeks()->filter(['End:LessThan' => date('Y-m-d'), 'FileID' => 0])->count() > 0){
-           $html .= '<span class="btn btn-danger font-icon-info btn--icon-large">'.$this->Weeks()->filter(['End:LessThan' => date('Y-m-d'), 'FileID' => 0])->count().' fällige Woche(n).</span>';
-        }
-        return DBHTMLText::create()->setValue($html);
-    }
+    // //Price calculation
+    // public function calculatePrice(){
+    //     if ($this->Job()->exists()){
+    //         $hourPay = floatval($this->Job()->HourPay);
+    //         if ($this->Options()->exists()){
+    //             foreach ($this->Options() as $opt) {
+    //                $hourPay += floatval($opt->HourPay);
+    //             }
+    //         }
+    //         $hourPay = (string) $hourPay." €";
+    //         if ($this->Customer()->exists()){
+    //             //To do
+    //            // $hourPayDiscount = XX;
+    //             //$hourPay -= $hourPayDiscount; 
+    //         }
+    //         return $hourPay;
+    //     }
+    //     return null;
+    // }
 
-    public function NiceJobTitle(){
-        $title = $this->Job()->Title;
-        foreach($this->Options() as $opt){
-            $title .= " ".$opt->Title;
-        }
-        return $title;
-    }
+    //  public function calculateCustomerPrice(){
+    //     if ($this->Job()->exists()){
+    //         $hourPay = floatval($this->Job()->HourPayCustomer);
+    //         if ($this->Options()->exists()){
+    //             foreach ($this->Options() as $opt) {
+    //                $hourPay += floatval($opt->HourPayCustomer);
+    //             }
+    //         }
+    //         $hourPay = (string) $hourPay." €";
+    //         if ($this->Customer()->exists()){
+    //             //To do
+    //            // $hourPayDiscount = XX;
+    //             //$hourPay -= $hourPayDiscount; 
+    //         }
+    //         return $hourPay;
+    //     }
+    //     return null;
+    // }
 
-    //Price calculation
-    public function calculatePrice(){
-        if ($this->Job()->exists()){
-            $hourPay = floatval($this->Job()->HourPay);
-            if ($this->Options()->exists()){
-                foreach ($this->Options() as $opt) {
-                   $hourPay += floatval($opt->HourPay);
-                }
-            }
-            $hourPay = (string) $hourPay." €";
-            if ($this->Customer()->exists()){
-                //To do
-               // $hourPayDiscount = XX;
-                //$hourPay -= $hourPayDiscount; 
-            }
-            return $hourPay;
-        }
-        return null;
-    }
-
-     public function calculateCustomerPrice(){
-        if ($this->Job()->exists()){
-            $hourPay = floatval($this->Job()->HourPayCustomer);
-            if ($this->Options()->exists()){
-                foreach ($this->Options() as $opt) {
-                   $hourPay += floatval($opt->HourPayCustomer);
-                }
-            }
-            $hourPay = (string) $hourPay." €";
-            if ($this->Customer()->exists()){
-                //To do
-               // $hourPayDiscount = XX;
-                //$hourPay -= $hourPayDiscount; 
-            }
-            return $hourPay;
-        }
-        return null;
-    }
-
-    public function canChangeStatus(){
-        return true;
-    }
+    // public function canChangeStatus(){
+    //     return true;
+    // }
 
     public function canCandidate(){
         $member = Security::getCurrentUser();
@@ -479,13 +430,13 @@ class Mission extends DataObject
         return (Permission::check('ADMIN') && $this->isVisible);
     }
 
-    public function canChooseCandidat(){
-        return !$this->Candidatures()->filter('Status','approved')->exists();
-    }
+    // public function canChooseCandidat(){
+    //     return !$this->Candidatures()->filter('Status','approved')->exists();
+    // }
 
-    public function canClose(){
-        return !$this->Weeks()->exclude('isBilled',1)->exists();
-    }
+    // public function canClose(){
+    //     return !$this->Weeks()->exclude('isBilled',1)->exists();
+    // }
 
 
     //STEPS
@@ -625,64 +576,7 @@ class Mission extends DataObject
       
     }
 
-    /* Officially start the mission: set up the Weeks and status */
-    public function startMission(){
-        //Create the Week-Periods
-        $this->ManageWeeks();
-        $this->isActive = true;
-        $this->hide();
-        $this->Candidat()->isActive = true;
-        $this->Candidat()->write();
-       
-    }
 
-    /* Manage Weeks creation / update */
-    public function ManageWeeks(){
-        $begin = new \DateTime($this->Start);
-        $end = new \DateTime($this->End);
-
-        $interval = \DateInterval::createFromDateString('1 week');
-        $period = new \DatePeriod($begin, $interval, $end);
-        $i = 0;
-        $total = iterator_count($period);
-        
-        foreach ($period as $dt) {
-             $i++;
-            //create if not existing, else update
-            $week = $this->Weeks()->filter('Start',$dt->format("Y-m-d"))->first();
-            if (!$week){
-                $week = new Week(); 
-                $week->Start = $dt->format("Y-m-d");
-                if ($i == $total){
-                    $week->End = $this->End;
-                }
-                else {
-                    $WeekEnd = $dt->modify('+6 days');
-                    if ($WeekEnd > $end){
-                        $WeekEnd = $end;
-                    }
-                    $week->End = $WeekEnd->format("Y-m-d");
-                }
-                $week->Status = 'nicht angefangen';
-            }
-            $week->Number = $i;
-            $week->write();
-            $this->Weeks()->add($week);
-           
-        }
-        //remove all dates that
-        //Start After mission finish
-        foreach ($this->Weeks()->filter('Start:GreaterThan',$this->End) as $weekAfter) {
-            $this->Weeks()->remove($weekAfter);
-            $weekAfter->delete();
-        }
-        //update all dates that
-        //end After mission finish
-        foreach ($this->Weeks()->filter('End:GreaterThan',$this->End) as $weekUpdate) {
-            $weekUpdate->End = $this->End;
-            $weekUpdate->write();
-        }
-    }
 
     public function getConfig(){
         return JobPortalConfig::get()->first();
@@ -696,13 +590,6 @@ class Mission extends DataObject
         return $this->Candidat()->Gender." ".ucfirst($this->Candidat()->Member()->FirstName)." ".ucfirst($this->Candidat()->Member()->Surname);
     }
 
-    public function CandidatApprovalLink(){
-        $page = MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code','mietkoeche')->first()->ID)->first();
-        $html = '<a href="'.Director::AbsoluteURL($page->Link()).'bestaetigen/auftrag/'.$this->ID.'/'.$this->CandidatID.'" title="'._t('Mission.ApproveContract','Auftrag annehmen').'">'._t('Mission.ApproveContract','Auftrag annehmen').'</a>';
-        $o = new DBHTMLText();
-        $o->setValue($html);
-        return $o;
-    }
 
     public function parseString($string)
     {
