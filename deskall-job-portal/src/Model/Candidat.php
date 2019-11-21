@@ -154,54 +154,54 @@ class Candidat extends DataObject
     public function getCMSFields()
     {
        $fields = parent::getCMSFields();
-       $fields->removeByName('Permissions');
-       $fields->removeByName('Jobs');
-       $fields->removeByName('Categories');
-       $fields->removeByName('isActive');
-       $fields->removeByName('isApproved');
-       $fields->removeByName('isRefused');
-       $fields->removeByName('Password');
-       $fields->removeByName('FailedLoginCount');
-       $fields->removeByName('Locale');
-       $fields->removeByName('BlogPosts');
-       $fields->removeByName('BlogProfileSummary');
-       $fields->removeByName('BlogProfileImage');
-       $fields->removeByName('Status');
-       $fields->removeByName('DirectGroups');
-       $fields->removeByName('oldID');
-       $fields->removeByName('DirectGroups');
-       $fields->removeByName('Files');
-       $fields->removeByName('CV');
-       $fields->removeByName('Ausweis');
-       $fields->removeByName('Licence');
-       $fields->removeByName('A1Form');
-       $fields->removeByName('HACCPCertificat');
-       $fields->removeByName('TaxResidenceCertificat');
-       // $fields->insertBefore('FirstName',$fields->FieldByName('Root.Main.Picture'));
-       $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.MainTab','Persönliche Daten'));
-       $fields->FieldByName('Root.Main.Picture')->setIsMultiUpload(false)->setFolderName($this->generateFolderName());
+       // $fields->removeByName('Permissions');
+       // $fields->removeByName('Jobs');
+       // $fields->removeByName('Categories');
+       // $fields->removeByName('isActive');
+       // $fields->removeByName('isApproved');
+       // $fields->removeByName('isRefused');
+       // $fields->removeByName('Password');
+       // $fields->removeByName('FailedLoginCount');
+       // $fields->removeByName('Locale');
+       // $fields->removeByName('BlogPosts');
+       // $fields->removeByName('BlogProfileSummary');
+       // $fields->removeByName('BlogProfileImage');
+       // $fields->removeByName('Status');
+       // $fields->removeByName('DirectGroups');
+       // $fields->removeByName('oldID');
+       // $fields->removeByName('DirectGroups');
+       // $fields->removeByName('Files');
+       // $fields->removeByName('CV');
+       // $fields->removeByName('Ausweis');
+       // $fields->removeByName('Licence');
+       // $fields->removeByName('A1Form');
+       // $fields->removeByName('HACCPCertificat');
+       // $fields->removeByName('TaxResidenceCertificat');
+       // // $fields->insertBefore('FirstName',$fields->FieldByName('Root.Main.Picture'));
+       // $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.MainTab','Persönliche Daten'));
+       // $fields->FieldByName('Root.Main.Picture')->setIsMultiUpload(false)->setFolderName($this->generateFolderName());
        
-       $fields->replaceField('Birthdate',DateField::create('Birthdate'));
-       $fields->replaceField('Gender',DropdownField::create('Gender',$this->fieldLabels()['Gender'],['Herr' => _t(__CLASS__.'.GenderH', 'Herr'),'Frau' => _t(__CLASS__.'.GenderF', 'Frau')])->setEmptyString(_t(__CLASS__.'.GenderLabel','Anrede wählen')));
-       $fields->replaceField('Country',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
+       // $fields->replaceField('Birthdate',DateField::create('Birthdate'));
+       // $fields->replaceField('Gender',DropdownField::create('Gender',$this->fieldLabels()['Gender'],['Herr' => _t(__CLASS__.'.GenderH', 'Herr'),'Frau' => _t(__CLASS__.'.GenderF', 'Frau')])->setEmptyString(_t(__CLASS__.'.GenderLabel','Anrede wählen')));
+       // $fields->replaceField('Country',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
         
-       $fields->addFieldsToTab('Root.Berufserfahrung',[
-        CheckboxSetField::create('Jobs',$this->fieldLabels()['Jobs'],CookJob::get()->map('ID','Title')),
-        CheckboxSetField::create('Categories',$this->fieldLabels()['Categories'],CookType::get()->map('ID','Title')),
-        $fields->FieldByName('Root.Main.Experience'),
-        $fields->FieldByName('Root.Main.Formation')
-       ]);
+       // $fields->addFieldsToTab('Root.Berufserfahrung',[
+       //  CheckboxSetField::create('Jobs',$this->fieldLabels()['Jobs'],CookJob::get()->map('ID','Title')),
+       //  CheckboxSetField::create('Categories',$this->fieldLabels()['Categories'],CookType::get()->map('ID','Title')),
+       //  $fields->FieldByName('Root.Main.Experience'),
+       //  $fields->FieldByName('Root.Main.Formation')
+       // ]);
 
-       $fields->addFieldsToTab('Root.Unterlagen',[
-        UploadField::create('CV',$this->fieldLabels()['CV'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
-        UploadField::create('Ausweis',$this->fieldLabels()['Ausweis'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
-        UploadField::create('Licence',$this->fieldLabels()['Licence'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
-        UploadField::create('HACCPCertificat',$this->fieldLabels()['HACCPCertificat'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
-        UploadField::create('A1Form',$this->fieldLabels()['A1Form'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
-        UploadField::create('TaxResidenceCertificat',$this->fieldLabels()['TaxResidenceCertificat'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
-        SortableUploadField::create('Files',$this->fieldLabels(true)['Files'])->setIsMultiUpload(true)->setFolderName($this->generateFolderName()),
+       // $fields->addFieldsToTab('Root.Unterlagen',[
+       //  UploadField::create('CV',$this->fieldLabels()['CV'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
+       //  UploadField::create('Ausweis',$this->fieldLabels()['Ausweis'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
+       //  UploadField::create('Licence',$this->fieldLabels()['Licence'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
+       //  UploadField::create('HACCPCertificat',$this->fieldLabels()['HACCPCertificat'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
+       //  UploadField::create('A1Form',$this->fieldLabels()['A1Form'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
+       //  UploadField::create('TaxResidenceCertificat',$this->fieldLabels()['TaxResidenceCertificat'])->setIsMultiUpload(false)->setFolderName($this->generateFolderName()),
+       //  SortableUploadField::create('Files',$this->fieldLabels(true)['Files'])->setIsMultiUpload(true)->setFolderName($this->generateFolderName()),
 
-       ]);
+       // ]);
 
 
 
