@@ -37,6 +37,11 @@ class JobParameter extends DataObject
        'Title'
     ];
 
+    private static $extensions = [
+        'Sortable',
+        'Activable'
+    ];
+
 
     public function fieldLabels($includerelation = true){
     $labels = parent::fieldLabels($includerelation);
