@@ -87,7 +87,6 @@ class Mission extends DataObject
     private static $has_one = [
         'Customer' => JobGiver::class,
         'Candidat' => Candidat::class,
-        'Job' => JobReference::class,
         'OfferFile' => File::class,
         'ContractFile' => File::class
     ];
@@ -128,8 +127,8 @@ class Mission extends DataObject
         "acceptedByCustomer" => "Angebot bestätigt",
         "refusedByCustomer" => "bei Kunde abgelehnt",
         "refused" => 'abgelehnt',
-        "sentToCook" => 'an Köche gesendet',
-        "chooseCook" => 'Koch wählen',
+        "sentToCandidat" => 'an Köche gesendet',
+        "chooseCandidat" => 'Koch wählen',
         "contractSent" => 'Vertrage gesendet',
         "approved" => 'Genehmigt'
     ];
@@ -147,7 +146,7 @@ class Mission extends DataObject
     $labels['CostAndHousing'] = _t(__CLASS__.'.CostAndHousing','Kosten und Logis');
     $labels['Others'] = _t(__CLASS__.'.Others','Bemerkungen / Sondernwünsche');
     $labels['Status'] = _t(__CLASS__.'.Status','Status');
-    $labels['Cook'] = _t(__CLASS__.'.Cook','Mietkoch');
+    $labels['Candidat'] = _t(__CLASS__.'.Candidat','Mietkoch');
     $labels['Candidatures'] = _t(__CLASS__.'.Candidatures','Bewerbungen');
     $labels['AdminComments'] = _t(__CLASS__.'.AdminComments','Bemerkungen (Admin)');
     $labels['Price'] = _t(__CLASS__.'.Price','Preis');
@@ -269,7 +268,7 @@ class Mission extends DataObject
                     HiddenField::create('Status'),
                     CompositeField::create(
                         // TextField::create('Title',$this->fieldLabels(true)['Title']),
-                        DropdownField::create('JobID',$this->fieldLabels(true)['Job'], CookJob::get()->map('ID','Title'))->setEmptyString('Position Wählen'),
+                        DropdownField::create('JobID',$this->fieldLabels(true)['Job'], JobReference::get()->map('ID','Title'))->setEmptyString('Position Wählen'),
                         TextField::create('Place',$this->fieldLabels(true)['Place']),
                         TextField::create('URL',$this->fieldLabels(true)['URL']),
                         FieldGroup::create(
@@ -304,7 +303,7 @@ class Mission extends DataObject
             $fields->insertAfter('JobID',$options);
         }
         //Candidatures
-          $Candidatures = GridField::create('Candidatures',$this->fieldLabels(true)['Candidatures'],$this->Candidatures(),GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldApproveCookAction()));
+          $Candidatures = GridField::create('Candidatures',$this->fieldLabels(true)['Candidatures'],$this->Candidatures(),GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldApproveCandidatAction()));
            $fields->addFieldToTab('Root.Candidatures',$Candidatures);
 
         //Weeks
@@ -477,9 +476,9 @@ class Mission extends DataObject
     public function canCandidate(){
         $member = Security::getCurrentUser();
         if ($member){
-            $cook = Cook::get()->filter('MemberID',$member->ID)->first();
-            if ($cook && $cook->Status == "approved"){
-              if (!Candidature::get()->filter(['CookID' => $cook->ID, 'MissionID' => $this->ID])->first()){
+            $Candidat = Candidat::get()->filter('MemberID',$member->ID)->first();
+            if ($Candidat && $Candidat->Status == "approved"){
+              if (!Candidature::get()->filter(['CandidatID' => $Candidat->ID, 'MissionID' => $this->ID])->first()){
                     return true;
                 }  
             }
@@ -491,7 +490,7 @@ class Mission extends DataObject
         return (Permission::check('ADMIN') && $this->isVisible);
     }
 
-    public function canChooseCook(){
+    public function canChooseCandidat(){
         return !$this->Candidatures()->filter('Status','approved')->exists();
     }
 
@@ -503,12 +502,12 @@ class Mission extends DataObject
     //STEPS
     public function confirmedByCustomer(){
         $this->Status = "acceptedByCustomer";
-        //$this->sendEmailToCooks();
-        //$this->Status = "sentToCook";
+        //$this->sendEmailToCandidats();
+        //$this->Status = "sentToCandidat";
         $this->write();
     }
 
-    public function confirmedByCook(){
+    public function confirmedByCandidat(){
         $this->sendEndConfirmationEmails();
         $this->Status = "approved";
         $this->write();
@@ -516,7 +515,7 @@ class Mission extends DataObject
     
 
     public function createOffer(){
-      $config = CookConfig::get()->first();
+      $config = JobPortalConfig::get()->first();
 
       $pdf = new Fpdi();
       $src = dirname(__FILE__).'/../../..'.$config->OfferFile()->getURL();
@@ -597,7 +596,7 @@ class Mission extends DataObject
 
     /* create Contract as PDF */
     public function createContract(){
-      $config = CookConfig::get()->first();
+      $config = JobPortalConfig::get()->first();
 
       $pdf = new Fpdi();
       $src = dirname(__FILE__).'/../../..'.$config->ContractFile()->getURL();
@@ -613,7 +612,7 @@ class Mission extends DataObject
             $pdf->useTemplate($templateId);
             $pdf->SetFont('Lato','',8);
             $pdf->setXY(8,60);
-            $pdf->WriteHTML($this->parseString($config->ChosenCookEmailBody));
+            $pdf->WriteHTML($this->parseString($config->ChosenCandidatEmailBody));
             $y = $pdf->GetY();
             $pdf->setXY(10,$y + 20);
             $pdf->WriteHtml("Datum: ".date('d.m.Y'));
@@ -643,8 +642,8 @@ class Mission extends DataObject
         $this->ManageWeeks();
         $this->isActive = true;
         $this->hide();
-        $this->Cook()->isActive = true;
-        $this->Cook()->write();
+        $this->Candidat()->isActive = true;
+        $this->Candidat()->write();
        
     }
 
@@ -696,21 +695,21 @@ class Mission extends DataObject
         }
     }
 
-    public function getCookConfig(){
-        return CookConfig::get()->first();
+    public function getConfig(){
+        return JobPortalConfig::get()->first();
     }
 
     public function CustomerTitle(){
         return $this->Customer()->Gender." ".ucfirst($this->Customer()->Member()->FirstName)." ".ucfirst($this->Customer()->Member()->Surname);
     }
 
-    public function CookTitle(){
-        return $this->Cook()->Gender." ".ucfirst($this->Cook()->Member()->FirstName)." ".ucfirst($this->Cook()->Member()->Surname);
+    public function CandidatTitle(){
+        return $this->Candidat()->Gender." ".ucfirst($this->Candidat()->Member()->FirstName)." ".ucfirst($this->Candidat()->Member()->Surname);
     }
 
-    public function CookApprovalLink(){
+    public function CandidatApprovalLink(){
         $page = MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code','mietkoeche')->first()->ID)->first();
-        $html = '<a href="'.Director::AbsoluteURL($page->Link()).'bestaetigen/auftrag/'.$this->ID.'/'.$this->CookID.'" title="'._t('Mission.ApproveContract','Auftrag annehmen').'">'._t('Mission.ApproveContract','Auftrag annehmen').'</a>';
+        $html = '<a href="'.Director::AbsoluteURL($page->Link()).'bestaetigen/auftrag/'.$this->ID.'/'.$this->CandidatID.'" title="'._t('Mission.ApproveContract','Auftrag annehmen').'">'._t('Mission.ApproveContract','Auftrag annehmen').'</a>';
         $o = new DBHTMLText();
         $o->setValue($html);
         return $o;
@@ -722,9 +721,9 @@ class Mission extends DataObject
         $variables = array(
             '$Customer.Title' => $this->CustomerTitle(),
             '$SentDate' => $date->Format('d.m.Y'),
-            '$Cook.Title' => $this->CookTitle(),
+            '$Candidat.Title' => $this->CandidatTitle(),
             '$Customer.Data' => $this->renderWith('Emails/CustomerData'),
-            '$Cook.ApprovalLink' => $this->CookApprovalLink(),
+            '$Candidat.ApprovalLink' => $this->CandidatApprovalLink(),
             '$Mission.Data' => $this->renderWith('Emails/MissionData')
         );
         
@@ -739,7 +738,7 @@ class Mission extends DataObject
       
         $siteconfig = SiteConfig::current_site_config();
         $emailAdmin = $siteconfig->Email;
-        $config = CookConfig::get()->first();
+        $config = JobPortalConfig::get()->first();
         $body = $config->CustomerOfferEmailBody;
 
         $email = new MissionEmail($config,$this,$siteconfig->Email,$this->Email,"Unser Angebot für Ihre Auftrag",  $body);
@@ -771,34 +770,34 @@ class Mission extends DataObject
         $email->send();
     }
 
-    public function sendEmailToCooks(){
+    public function sendEmailToCandidats(){
 
         $siteconfig = SiteConfig::current_site_config();
-        $config = CookConfig::get()->first();
-        $body = $config->CookOffersEmailBody;
+        $config = JobPortalConfig::get()->first();
+        $body = $config->CandidatOffersEmailBody;
 
         $email = new MissionEmail($config,$this,$siteconfig->Email,null,"Neue Auftrag verfügbar",  $body);
         
-        foreach(Cook::get()->filter('Status','approved') as $cook){
-           $email->setTo($cook->Member()->Email);
+        foreach(Candidat::get()->filter('Status','approved') as $Candidat){
+           $email->setTo($Candidat->Member()->Email);
            $email->send();
         }
        
     }
 
-     public function sendEmailToApprovedCook($cook){
+     public function sendEmailToApprovedCandidat($Candidat){
         $siteconfig = SiteConfig::current_site_config();
         $emailAdmin = $siteconfig->Email;
-        $config = CookConfig::get()->first();
-        $body = $config->ChosenCookEmailBody;
+        $config = JobPortalConfig::get()->first();
+        $body = $config->ChosenCandidatEmailBody;
 
-        $email = new MissionEmail($config,$this,$siteconfig->Email,$cook->Member()->Email,"Ihre Bewerbung wurde genehmigt",  $body);
+        $email = new MissionEmail($config,$this,$siteconfig->Email,$Candidat->Member()->Email,"Ihre Bewerbung wurde genehmigt",  $body);
         $email->setBCC($siteconfig->Email);
         
 
         //Auftrag
         $email->addAttachment(dirname(__FILE__).'/../../..'.$this->ContractFile()->getURL(),'Auftrag.pdf');
-        $email->addAttachment(dirname(__FILE__).'/../../..'.$config->AGBCookFile()->getURL(),'AGB.pdf');
+        $email->addAttachment(dirname(__FILE__).'/../../..'.$config->AGBCandidatFile()->getURL(),'AGB.pdf');
         $email->send();
         $this->Status = "contractSent";
         $this->SentContractDate = date('Y-m-d');
@@ -812,7 +811,7 @@ class Mission extends DataObject
         $emailAdmin = $config->Email;
         
         $body = "<p>Eine neue Bewerbung wurde gesendet.</p>";
-        // $body .= '<p><strong>Koch :</strong><br>'.$this->Cook()->FirstName.' '.$this->Cook()->Surname.'</p>';
+        // $body .= '<p><strong>Koch :</strong><br>'.$this->Candidat()->FirstName.' '.$this->Candidat()->Surname.'</p>';
         $body .= '<p><strong>Kunde :</strong><br>'.$this->Customer()->Member()->getTitle().'</p>';
         $body .= '<p><strong>Auftrag :</strong><br>'.$this->Title.'</p>';
         $body .= '<p><a href="'.Director::absoluteBaseUrl().'admin/'.Config::inst()->get('UserAdmin','url_segment').'/Mission">'._t('Mission.CheckCandidature','Bewerbung prüfen').'</a></p>';
@@ -824,13 +823,13 @@ class Mission extends DataObject
     public function sendEndConfirmationEmails(){
         $siteconfig = SiteConfig::current_site_config();
         $emailAdmin = $siteconfig->Email;
-        $config = CookConfig::get()->first();
+        $config = JobPortalConfig::get()->first();
         $body = $config->CustomerContractSignedEmailBody;
 
         $email = new MissionEmail($config,$this,$siteconfig->Email,$this->Customer()->Member()->Email,"Annahme Ihres Angebotes",  $body);
 
         $email->addCC($siteconfig->Email);
-        $email->addCC($this->Cook()->Member()->Email);
+        $email->addCC($this->Candidat()->Member()->Email);
 
         $email->send();
 
