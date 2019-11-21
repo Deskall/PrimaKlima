@@ -60,5 +60,5 @@
 
 
 
-				<button data-search-ads class="uk-button uk-button-pimary"><%t FinderBar.SearchAction 'Suchen' %><i class="icon icon-chevron-right uk-margin-small"></i></button>
+				<button data-search-ads class="uk-button PrimaryBackground"><%t FinderBar.SearchAction 'Suchen' %><i class="icon icon-chevron-right uk-margin-small"></i></button>
 			</form>
