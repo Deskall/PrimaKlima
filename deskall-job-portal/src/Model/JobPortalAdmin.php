@@ -28,9 +28,6 @@ class JobPortalAdmin extends ModelAdmin{
 		'Candidat' => [
 			'title' => 'Kandidaten'
 		],
-		'JobBranch' => [
-			'title' => 'Bereiche'
-		],
 		'JobPortalConfig' => [
 			'title' => 'Einstellungen'
 		]
