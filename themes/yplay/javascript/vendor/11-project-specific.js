@@ -124,8 +124,6 @@ $(document).ready(function(){
 					$(this).parents('.category').find('.no-category').prop("checked",false).parents('.category').removeClass('disabled');
 				}
 			}
-
-			
 		});
 		UpdateOrder();
 	}
