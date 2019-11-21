@@ -1,0 +1,11 @@
+en:
+  Stakeholder:
+    Quality: Title
+    Phone: 'Phone'
+    Mobile: 'Mobile'
+    Function: 'Function'
+    Organization: 'Organization Name'
+    Address: 'Address'
+    Website: 'Website'
+    AreaInterest: 'Why would you like to join?'
+    OrganizationType: 'Organization Type'

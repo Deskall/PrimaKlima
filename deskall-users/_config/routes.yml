@@ -1,0 +1,10 @@
+---
+Name: userroute
+After:
+  - '#rootroutes'
+  - '#coreroutes'
+---
+SilverStripe\Control\Director:
+  rules:
+    'secure//$Action/$ID/$Name': 'SecureDocumentController'
+    'angebot//$Action/$ID/$Name': 'OfferPageController'

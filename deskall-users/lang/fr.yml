@@ -1,0 +1,100 @@
+fr:
+  Document:
+    AddFolder: 'Ajouter un dossier'
+    AddNew: 'Ajouter un fichier'
+    AllIfEmpty: 'Tous si vide'
+    AvailableFor: 'Disponible pour les partenaires suivants'
+    Description: Description
+    Partners: 'Disponible pour les partenaires suivants'
+    Title: Titre
+    Update: 'Mise à jour'
+    Upload: 'Téléchargement'
+  File:
+    Deleted: 'Supprimé avec succès.'
+    NameUpdated: 'Mis à jour avec succès.'
+    SharedFilesStakeholderFolder: 'Autres parties prenantes'
+  Folder:
+    Name: Nom
+  Global:
+    Cancel: Annuler
+    Create: Créer
+  Member:
+    Cancel: Annuler
+    Change: Modifier
+    ChangePicture: 'Charger une image ou'
+    ChargeFile: 'Télécharger un fichier'
+    CheckProfile: 'Consulter son profil dans le CMS'
+    InvitFriends: 'Inviter des amis'
+    Logout: 'Se déconnecter'
+    MemberArea: 'Espace membre'
+    MemberSince: 'Membre depuis le {time}'
+    MyAccount: 'Mon compte'
+    ProfilPicture: 'Photo de profil'
+    SelectFile: 'ou cliquez ici'
+    SelectPicture: 'sélectionnez en une'
+    StakeHolder: 'Partie prenante'
+    Stakeholder: 'Partie prenante'
+    NoDocuments: 'Vous n''avez pas encore téléchargé de documents'
+  MemberProfilePage:
+    PLURALNAME: 'Pages profil'
+    PLURALS:
+      one: 'Une page profil'
+      other: '{count} pages profil'
+    SINGULARNAME: 'page profil'
+  MemberProfiles:
+    ALREADYCONFIRMED: 'Votre compte est déjà confirmé.'
+    AccessDenied: 'Vous n''avez par accès à cette page.'
+    CANNOTCONFIRMLOGGEDIN: 'Vous êtes déjà connecté'
+    EMAILCONFIRMATION: 'Mail de confirmation'
+    ERRORCONFIRMATION: 'Une erreur inconnue est survenue'
+    MANUALLYCONFIRM: 'Confirmer manuellement cette partie prenante'
+    NEEDSVALIDATIONTOLOGIN: 'Vous devez valider votre email avant de pouvoir vous connecter'
+    NOLOGINTILLCONFIRMED: 'Une partie prenante ne peut pas se connecter tant que son email n''est pas vérifié'
+    NeedToLogin: 'Vous devez être connecté pour accéder à cette page'
+    PROFILEUPDATED: 'Votre profil a été mis à jour'
+    REGISTER: 's''inscrire'
+    RESEND: 'Renvoyer un email de validation'
+    SAVE: Enregistrer
+    UNCONFIRMED: Non confirmé
+  Partner:
+    DOCUMENTUPDATED: 'Le fichier a été mis à jour.'
+  RegisterPage:
+    AfterRegistrationContent: 'Contenu de la page après inscription'
+    AfterRegistrationTitle: 'Titre de la page après inscription'
+    AlreadyConnected: 'Contenu si utilisateur connecté'
+    ApprovalEmailBody: 'Contenu de l''email de validation'
+    ApprovalEmailSender: 'Expéditeur de l''email de validation'
+    ApprovalEmailSubject: 'Sujet de l''email de validation'
+    ConfirmationContent: 'Contenu de la page de confirmation'
+    ConfirmationTitle: 'Titre de la page de confirmation'
+    EmailFrom: 'Adresse d''envoi de l''email de confirmation'
+    EmailSubject: 'Sujet de l''email de confirmation'
+    EmailTemplate: 'Contenu de l''email de confirmation'
+    PLURALNAME: 'Pages d''inscription'
+    PLURALS:
+      one: 'page d''inscription'
+      other: '{count} pages d''inscription'
+    RegistrationTab: 'Paramètres d''inscription'
+    SINGULARNAME: 'Page d''inscription'
+  Sportif:
+    AccountInfo: 'Données de compte'
+    LikedActivities: 'Activités préférées'
+    ProfilInfo: 'Données de profil'
+  Stakeholder:
+    Actu: 'Actualités du projet'
+    Address: Adresse
+    AreaInterest: 'Domaines d''intérêt'
+    DOCUMENTUPLOADED: 'Thank you, your document was uploaded and will be reviewed.'
+    Documents: Documents
+    Email: 'Adresse email'
+    Function: Fonction
+    Mobile: Portable
+    MyDocuments: 'Mes Documents'
+    Organization: 'Nom de l''organisation'
+    OrganizationType: 'Type d''organisation'
+    Phone: Téléphone
+    Profil: Profil
+    Quality: Civilité
+    SharedDocuments: 'Fichiers partagés avec vous'
+    Website: 'Site internet'
+    isApproved: 'Approuver cette partie prenante ?'

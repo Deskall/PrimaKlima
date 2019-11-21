@@ -3,3 +3,68 @@ Name: deskall-users
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-users
+
+SilverStripe\Security\Member:
+  extensions:
+    - MemberProfileExtension
+
+Silverstripe\Admin\SecurityAdmin:
+  extensions:
+    - SecurityAdminExtension
+
+LayoutBlock:
+  extensions:
+    - ProfileMenuBlockExtension
+
+SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
+  extensions:
+    - MissionGridFieldItemRequestExtension
+    - CustomEmailGridFieldItemRequestExtension
+    - WeekGridFieldItemRequestExtension
+
+SilverStripe\Core\Injector\Injector:
+  Symbiote\QueuedJobs\Services\QueuedJobService:
+    properties:
+      defaultJobs:
+        CleanTmpFolder:
+          type: 'CleanTmpFolderJob'
+          filter:
+            JobTitle: 'Delete files in temporary folder'
+          recreate: 1
+          construct:
+          email: 'guillaume.pacilly@gmal.com'
+          startDateFormat: 'Y-m-d H:i'
+          startTimeString: 0
+        DocumentEmail:
+          type: 'SendMissionEmailJob'
+          filter:
+            JobTitle: 'Send emails to administrator and stakeholders regarding new mission'
+          recreate: 1
+          construct:
+          email: 'guillaume.pacilly@gmal.com'
+          startDateFormat: 'Y-m-d H:i'
+          startTimeString: 0
+
+UserAdmin:
+    menu_icon: 'themes/standard/img/cook-icon.png'
+    url_segment: 'koeche'
+    menu_title: 'Köche'
+
+RegisterPage:
+    groupcodes:
+        - mietkoeche
+        - kunden
+
+MemberProfilePage:
+    groupcodes:
+        - mietkoeche
+        - kunden
+        - mitarbeiter
+
+SilverStripe\AssetAdmin\Forms\FileFormFactory:
+  extensions:
+    - DocumentFormFactoryExtension
+
+SilverStripe\Assets\File:
+  extensions:
+    - DocumentExtension
