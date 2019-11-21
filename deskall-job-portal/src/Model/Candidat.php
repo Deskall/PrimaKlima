@@ -36,7 +36,7 @@ use SilverStripe\SiteConfig\SiteConfig;
  * 
  * @package deskall-users
  */
-class JobAppliant extends DataObject
+class Candidat extends DataObject
 {
     private static $db = array(
         'Gender'  => 'Varchar',
