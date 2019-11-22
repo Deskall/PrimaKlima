@@ -12,10 +12,11 @@ use SilverStripe\ORM\GroupedList;
 
 class YplaYPageControllerExtension extends Extension
 {   
-    private static $allowed_actions = ['SavePLZ'];
+    private static $allowed_actions = ['SavePLZ', 'ClearPLZ'];
 
     private static $url_handlers = [
-        'plz-speichern' => 'SavePLZ'
+        'plz-speichern' => 'SavePLZ',
+        'plz-loeschen' => 'ClearPLZ'
     ];
 
     public function SavePLZ(HTTPRequest $request){
@@ -39,6 +40,12 @@ class YplaYPageControllerExtension extends Extension
             }
         }
         //should not happen as plz is mandatory, but redirecting anyway
+        return $this->owner->redirectBack();
+    }
+
+    public function ClearPLZ(HTTPRequest $request){
+        $this->owner->getRequest()->getSession()->clear('active_plz');
+        Cookie::force_expiry('yplay_plz');
         return $this->owner->redirectBack();
     }
 
