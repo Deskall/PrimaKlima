@@ -27,7 +27,7 @@ class YplaYPageControllerExtension extends Extension
             if ($PostalCode){ 
                 //if externe we redirect
                 //if subsite we redirect
-                if ($PostalCode->SubsiteID > 0 || $PostalCode->Extern ){
+                if ($PostalCode->SubsiteID > 0 || $PostalCode->Externe ){
                     return $this->owner->redirect($PostalCode->Link());
                 }
                 Cookie::set('yplay_plz', $PostalCode->ID);
