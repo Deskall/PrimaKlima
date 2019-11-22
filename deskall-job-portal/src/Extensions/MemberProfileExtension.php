@@ -46,7 +46,8 @@ class MemberProfileExtension extends DataExtension
             $fields->replaceField('Email',EmailField::create('Email','Email'));
         }
 
-        $fields->push(EditableHTMLCheckbox::create('AGB','<p class="uk-text-small">Hiermit bestätige ich, dass ich sowohl <a href="/" target="_blank">die Datenschutzerklärung</a> wie auch die AGB gelesen habe und mit beiden einverstanden bin.</p>'));
+        $fields->push(HTMLCheckboxField::create('AGB',DBField::create_field(
+        'HTMLFragment','<p class="uk-text-small">Hiermit bestätige ich, dass ich sowohl <a href="/" target="_blank">die Datenschutzerklärung</a> wie auch die AGB gelesen habe und mit beiden einverstanden bin.</p>')));
 
         return $fields;
     }
