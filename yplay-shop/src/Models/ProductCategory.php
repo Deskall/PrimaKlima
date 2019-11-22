@@ -156,7 +156,7 @@ class ProductCategory extends DataObject {
 		
 		$availaibility = ($session->get('active_plz')) ? PostalCode::get()->byId($session->get('active_plz'))->StandardOffer : "Fiber";
 		
-		return $this->Products()->filter(['Preselected' => 1, 'Availability' => ['Immer',$availaibility])->first();
+		return $this->Products()->filter(['Preselected' => 1, 'Availability' => ['Immer',$availaibility]])->first();
 
 	}
 
