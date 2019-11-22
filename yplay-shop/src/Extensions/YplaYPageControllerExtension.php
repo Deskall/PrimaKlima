@@ -46,6 +46,9 @@ class YplaYPageControllerExtension extends Extension
     public function ClearPLZ(HTTPRequest $request){
         $this->owner->getRequest()->getSession()->clear('active_plz');
         Cookie::force_expiry('yplay_plz');
+        //clear also cart
+        $this->activeCart()->delete();
+        $this->owner->getRequest()->getSession()->clear('shopcart_id');
         return $this->owner->redirectBack();
     }
 
