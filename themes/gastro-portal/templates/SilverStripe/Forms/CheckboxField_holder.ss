@@ -1,5 +1,5 @@
 <div id="$HolderID" class="field<% if extraClass %> $extraClass<% end_if %>">
-	<div class="uk-flex-inline">
+	<div class="uk-flex-inline uk-flex-top">
 		$Field
 		<% if Title.NoHTML != $Title %>
 		$Title
