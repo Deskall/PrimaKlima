@@ -28,7 +28,7 @@
 			<% if not activePLZ %>
 			$SiteConfig.PLZModalBody
 			<form method="POST" action="{$Link}plz-speichern" class="form-std plz-form">
-				<div class="uk-flex-inline uk-flex-top">
+				<div class="uk-flex uk-flex-top">
 				   
 				        <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
 				   
