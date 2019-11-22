@@ -27,10 +27,10 @@
 			<h2>$SiteConfig.ConfiguratorTitle</h2>
 			<% if not activePLZ %>
 			$SiteConfig.PLZModalBody
-			<form method="POST" action="{$Link}plz-speichern" class="form-std">
+			<form method="POST" action="{$Link}plz-speichern" class="form-std uk-form-horizontal plz-form">
 			    <div class="uk-margin">
 			        <div class="uk-text-large">
-			            <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ" autofocus>
+			            <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
 			        </div>
 			    </div>
 			    <div class="uk-flex uk-flex-center uk-flex-right@s uk-flex-wrap uk-flex-middle">
