@@ -78,7 +78,7 @@ class PostalCode extends DataObject {
 	}
 
 	public function getCMSValidator(){
-	    return new RequiredFields(array('Code','City','StandardOffer','TVType'));
+	    return new RequiredFields(array('Code','City'));
 	}
 
 	public function CodeCity(){
