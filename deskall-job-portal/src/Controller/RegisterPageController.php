@@ -48,7 +48,8 @@ class RegisterPageController extends PageController{
 			$fields,
 			new FieldList(
 				FormAction::create('register', _t('MemberProfiles.REGISTER', 'Jetzt registrieren'))->addExtraClass('uk-button uk-button-primary uk-float-right')->setUseButtonTag(true)
-			)
+			),
+			singleton(Member::class)->getRequiredRegisterFields()
 		);
 
 		$form->addExtraClass('uk-form-horizontal form-std');
