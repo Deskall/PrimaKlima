@@ -1,8 +1,8 @@
+<% include Includes\DefaultSlider %>
 
 <% if not Content %>
 $ElementalArea
 <% end_if %>
-
 <div class="element" id="member-section">
 	<section class="uk-section">
 		<div class="uk-container">
