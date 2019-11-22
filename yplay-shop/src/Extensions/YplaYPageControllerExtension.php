@@ -108,6 +108,7 @@ class YplaYPageControllerExtension extends Extension
       else{
         $availability = ($activeOffer == "Cable") ? "Fiber" : "Cable";
       }
+      print_r($availability);
     
       return Package::get()->filter(['isVisible' => 1, 'Availability' => ['Immer',$availability]])->filterByCallback(function($item, $list) {
           return ($item->shouldDisplay());
