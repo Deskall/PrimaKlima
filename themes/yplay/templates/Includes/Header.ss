@@ -12,7 +12,7 @@
 									</li>
 									<% if activePLZ %>
 									<li>
-										<a href="{$Link}plz-loeschen" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a>
+										<a href="{$Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a>
 									</li>
 									<% end_if %>
 								</ul>
