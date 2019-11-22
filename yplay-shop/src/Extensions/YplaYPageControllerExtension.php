@@ -25,9 +25,9 @@ class YplaYPageControllerExtension extends Extension
         if ($plz){
             $PostalCode = PostalCode::get()->filter('Code',$plz)->first();
             if ($PostalCode){ 
-                
+                //if externe we redirect
                 //if subsite we redirect
-                if ($PostalCode->SubsiteID > 0){
+                if ($PostalCode->SubsiteID > 0 || $PostalCode->Extern ){
                     return $this->owner->redirect($PostalCode->Link());
                 }
                 Cookie::set('yplay_plz', $PostalCode->ID);
