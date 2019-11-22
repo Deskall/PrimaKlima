@@ -3,7 +3,7 @@
 	<% if activeCart.exists %>
 	<button class="uk-button" type="button" data-uk-toggle="target: #offcanvas-usage-cart">Warenkorb<span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></button>
 	<div id="offcanvas-usage-cart" data-uk-offcanvas="flip:true;">
-		<div class="uk-offcanvas-bar dk-middle-offcanvas">
+		
 			<button class="uk-offcanvas-close" type="button" data-uk-close></button>
 			<div class="uk-card WhiteBackground uk-card-hover uk-box-shadow-medium uk-card-small">
 				<div class="uk-card-header">
@@ -18,7 +18,7 @@
 					<a href="$ShopPage.Link" class="uk-button BlackBackground"><%t Configurator.Order 'Bestellen' %></a>
 				</div>
 			</div>
-		</div>
+		
 	</div>
 	<% end_if %>
 	<% loop LateralSections %>
