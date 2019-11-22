@@ -76,13 +76,7 @@ class RegisterPageController extends PageController{
 
 		    return $this->redirect($this->Link('bestaetigen-sie-ihre-e-mail-adresse'));
 		}
-		//else no need to validate
-		if (!$member->inGroup('mietkoeche')){
-			$cook = new Cook();
-	       	$cook->isApproved = false;
-	        $cook->MemberID = $member->ID;
-	        $cook->write();
-		}
+		
        
         if ($member->canLogin()) {
 	        Injector::inst()->get(IdentityStore::class)->logIn($member);
@@ -90,7 +84,7 @@ class RegisterPageController extends PageController{
 	        throw new Exception('Permission issue occurred. Was the "$member->validateCanLogin" check above this code block removed?');
 	    }
 
-        return $this->redirect(MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code','mietkoeche')->first()->ID)->first()->Link());
+        return $this->redirect(MemberProfilePage::get()->filter('GroupID',$this->GroupID)->first()->Link());
 
     }
 
