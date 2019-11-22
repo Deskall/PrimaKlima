@@ -47,6 +47,7 @@ $(document).ready(function(){
 			dataType: 'Json'
 		}).done(function(response){
 			packages = response;
+			console.log(packages);
 			
 		});
 
@@ -55,6 +56,7 @@ $(document).ready(function(){
 			dataType: 'Json'
 		}).done(function(response){
 			products = response;
+			console.log(products);
 			InitSliders(products);
 		});
 		

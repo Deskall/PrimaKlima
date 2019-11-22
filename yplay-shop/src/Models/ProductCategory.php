@@ -150,7 +150,14 @@ class ProductCategory extends DataObject {
 	}
 
 	public function getPreselected(){
-		return $this->Products()->filter('Preselected',1)->first();
+		//depend on current availaibility
+		$request = Injector::inst()->get(HTTPRequest::class);
+		$session = $request->getSession();
+		
+		$availaibility = ($session->get('active_plz')) ? PostalCode::get()->byId($session->get('active_plz'))->StandardOffer : "Fiber";
+		
+		return $this->Products()->filter(['Preselected' => 1, 'Availability' => ['Immer',$availaibility])->first();
+
 	}
 
 	public function getBestSeller(){
