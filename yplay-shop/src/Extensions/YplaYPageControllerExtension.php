@@ -31,6 +31,8 @@ class YplaYPageControllerExtension extends Extension
                 if ($PostalCode->SubsiteID > 0 || $PostalCode->Externe ){
                     return $this->owner->redirect($PostalCode->Link());
                 }
+                $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID);
+                $this->owner->getRequest()->getSession()->set('active_offer',$PostalCode->StandardOffer);
                 Cookie::set('yplay_plz', $PostalCode->ID);
                 return $this->owner->redirectBack();
             }
@@ -111,7 +113,6 @@ class YplaYPageControllerExtension extends Extension
        
         $availability = ($activeOffer == "Cable") ? "Fiber" : "Cable";
       }
-      print_r($availability);
     
       return Package::get()->filter(['isVisible' => 1, 'Availability' => ['Immer',$availability]])->filterByCallback(function($item, $list) {
           return ($item->shouldDisplay());
