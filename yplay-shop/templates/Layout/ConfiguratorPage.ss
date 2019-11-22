@@ -37,7 +37,6 @@
 				</div>
 			</form>
 			<% else %>
-			<div class="uk-margin">
 			<div class="uk-grid-small" data-uk-grid>
 				<div class="uk-width-2-3@m">
 					<% loop activeCategories %>
