@@ -17,7 +17,7 @@ class PostalCode extends DataObject {
 	    'AlternateOffer' => 'Varchar(255)',
 	    'TVType' => 'Varchar(255)',
 	    'YplaY' => 'Boolean(0)',
-	    'externe' => 'Boolean(0)',
+	    'Externe' => 'Boolean(0)',
 	    'URL' => 'Varchar'
 	);
 
@@ -52,7 +52,7 @@ class PostalCode extends DataObject {
 	    $labels['TVType'] = 'TV Angebot';
 	    $labels['Subsite'] = 'Website';
 	    $labels['YplaY'] = 'Diese Ortschaft ist auch für YplaY verfügbar';
-	    $labels['externe'] = 'Wird zu einer externe Website weiterleiten';
+	    $labels['Externe'] = 'Wird zu einer externe Website weiterleiten';
 	    $labels['URL'] = 'URL der externe Website';
 	    // $labels['ownedPackages'] = 'Pakete';
 	    // $labels['ownedProducts'] = 'Produkte';
@@ -63,12 +63,13 @@ class PostalCode extends DataObject {
 	public function getCMSFields() {
 	    $fields = parent::getCMSFields();
 	    $fields->FieldByName('Root.Main')->setTitle('Ortschaft Angaben');
-	    $fields->addFieldToTab('Root.Main', DropdownField::create('SubsiteID',$this->fieldLabels()['Subsite'],Subsite::get()->map('ID','Title'))->setEmptyString('YplaY'));
-	    $fields->dataFieldByName('URL')->displayIf('externe')->isChecked()->end();
+	    $fields->addFieldToTab('Root.Main', DropdownField::create('SubsiteID',$this->fieldLabels()['Subsite'],Subsite::get()->map('ID','Title'))->setEmptyString('YplaY')->hideIf('Externe')->isChecked()->end());
+	    $fields->addFieldToTab('Root.Main', CheckboxField::create('Externe',$this->fieldLabels()['Externe']));
+	    $fields->addFieldToTab('Root.Main', TextField::create('URL',$this->fieldLabels()['URL'])->displayIf('Externe')->isChecked()->end());
 	  	$fields->addFieldToTab('Root.Main', CheckboxField::create('YplaY',$this->fieldLabels()['YplaY'])->displayIf('SubsiteID')->isNotEmpty()->end());
-	    $fields->addFieldToTab('Root.Main', DropdownField::create('StandardOffer',$this->fieldLabels()['StandardOffer'], array('Cable' => 'Cable', 'Fiber' => 'Fiber'))->setEmptyString('Bitte Typ auswählen'));
-	    $fields->addFieldToTab('Root.Main', DropdownField::create('AlternateOffer',$this->fieldLabels()['AlternateOffer'], array('' => 'Keine','Cable' => 'Cable','Fiber' => 'Fiber', 'DSL' => 'DSL'))->setEmptyString('Bitte Typ auswählen'));
-	    $fields->addFieldToTab('Root.Main', DropdownField::create('TVType',$this->fieldLabels()['TVType'], array('DVBC' => 'DVB-C', 'IPTV' => 'IPTV'))->setEmptyString('Bitte Typ auswählen'));
+	    $fields->addFieldToTab('Root.Main', DropdownField::create('StandardOffer',$this->fieldLabels()['StandardOffer'], array('Cable' => 'Cable', 'Fiber' => 'Fiber'))->setEmptyString('Bitte Typ auswählen')->hideIf('Externe')->isChecked()->end());
+	    $fields->addFieldToTab('Root.Main', DropdownField::create('AlternateOffer',$this->fieldLabels()['AlternateOffer'], array('' => 'Keine','Cable' => 'Cable','Fiber' => 'Fiber', 'DSL' => 'DSL'))->setEmptyString('Bitte Typ auswählen')->hideIf('Externe')->isChecked()->end());
+	    $fields->addFieldToTab('Root.Main', DropdownField::create('TVType',$this->fieldLabels()['TVType'], array('DVBC' => 'DVB-C', 'IPTV' => 'IPTV'))->setEmptyString('Bitte Typ auswählen')->hideIf('Externe')->isChecked()->end());
 
 	    
 	    // $fields->addFieldToTab('Root.Main', TextField::create('URL','Externe Bestellung URL (Falls es keine Subsite gibt)'));
