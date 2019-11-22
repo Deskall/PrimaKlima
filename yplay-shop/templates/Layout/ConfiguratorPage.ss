@@ -26,7 +26,7 @@
 			<h1>$Title</h1>
 			<h2>$SiteConfig.ConfiguratorTitle</h2>
 			<% if not activePLZ %>
-			$PLZModalBody
+			$SiteConfig.PLZModalBody
 			<form method="POST" action="{$Link}plz-speichern" class="form-std">
 			    <div class="uk-margin">
 			        <div class="uk-text-large">
