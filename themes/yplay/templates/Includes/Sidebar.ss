@@ -6,7 +6,9 @@
 		<div class="uk-offcanvas-bar dk-middle-offcanvas">
 			<button class="uk-offcanvas-close" type="button" data-uk-close></button>
 			<h3>Ihre Warenkorb</h3>
+			<% with activeCart %>
 			<% include ShopCartSummary %>
+			<% end_if %>
 		</div>
 	</div>
 	<% end_if %>
