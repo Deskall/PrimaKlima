@@ -20,7 +20,7 @@ class AvailabilityFilterable extends DataExtension
 
     public function updateCMSFields(FieldList $fields){
        $fields->removeByName('Availability');
-       $fields->insertBefore('Title',DropdownField::create('Availability',$this->owner->fieldLabels()['Availability'],['Immer' => 'Immer', 'Fiber' => 'Fiber', 'Cable' => 'Cable']));
+       $fields->insertBefore('Title',DropdownField::create('Availability',$this->owner->fieldLabels()['Availability'],['Immer' => 'Immer', 'Fiber' => 'Fiber', 'Cable' => 'Cable','DSL' => 'DSL']));
     }
 
     public function isAvailable(){
