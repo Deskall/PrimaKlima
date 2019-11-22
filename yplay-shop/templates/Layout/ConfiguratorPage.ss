@@ -206,7 +206,7 @@
 							            		    <% end_if %>
 						            		    </table>
 						            		    <div class="uk-margin uk-transition-fade">
-						            		    	<a class="uk-button BlackBackground" href="{$Top.ShopPage.Link}paket/$ID"><%t ConfiguratorPage.Order 'Bestellen' %></a>
+						            		    	<a class="uk-button BlackBackground" href="{$Top.ShopPage.Link}produkt/$ID"><%t ConfiguratorPage.Order 'Bestellen' %></a>
 						            		    </div>
 						            		</div>
 						            	</div>
