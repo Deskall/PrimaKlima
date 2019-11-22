@@ -152,6 +152,7 @@
 						        <a class="uk-accordion-title">$OtherOffersTitle</a>
 						        <div class="uk-accordion-content">
 						           	$OtherOffersLabel
+						           	<% if alternativePackages.exists %>
 						            <div class="uk-grid-small uk-grid-match uk-child-width-auto" data-uk-grid>
 						            	<% loop alternativePackages %>
 						            	<div>
@@ -182,6 +183,36 @@
 						            	</div>
 						            	<% end_loop %>
 						            </div>
+						            <% else_if alternativeProducts.exists %>
+						            <div class="uk-grid-small uk-grid-match uk-child-width-auto" data-uk-grid>
+						            	<% loop alternativeProducts %>
+						            	<div>
+						            		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">
+						            		    <h3 class="uk-card-title">$Title</h3>
+						            		    <strong>$PrintPriceString</strong>
+						            		    <table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
+						            		    	<% if SubTitle %>
+						            		    	<tr>
+						            		    		<td colspan="2">$SubTitle</td>
+						            		    	</tr>
+						            		    	<% end_if %>
+						            		    	<% if Items %>
+							            		    	<% loop Items %>
+							            		    	<tr>
+							            		    		<td><strong>$Title</strong></td>
+							            		    		<td>$Content</td>
+							            		    	</tr>
+							            		    	<% end_loop %>
+							            		    <% end_if %>
+						            		    </table>
+						            		    <div class="uk-margin uk-transition-fade">
+						            		    	<a class="uk-button BlackBackground" href="{$Top.ShopPage.Link}paket/$ID"><%t ConfiguratorPage.Order 'Bestellen' %></a>
+						            		    </div>
+						            		</div>
+						            	</div>
+						            	<% end_loop %>
+						            </div>
+						            <% end_if %>
 						        </div>
 						    </li>
 						</ul>
