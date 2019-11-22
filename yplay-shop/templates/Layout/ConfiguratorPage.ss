@@ -191,9 +191,9 @@
 						            		    <h3 class="uk-card-title">$Title</h3>
 						            		    <strong>$PrintPriceString</strong>
 						            		    <table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
-						            		    	<% if SubTitle %>
+						            		    	<% if Subtitle %>
 						            		    	<tr>
-						            		    		<td colspan="2">$SubTitle</td>
+						            		    		<td colspan="2">$Subtitle</td>
 						            		    	</tr>
 						            		    	<% end_if %>
 						            		    	<% if Items %>
