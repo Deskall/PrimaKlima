@@ -32,7 +32,7 @@
 				   
 				        <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
 				   
-				        <button class="uk-button uk-button-primary uk-flex-first" type="submit">Region prüfen</button>
+				        <button class="uk-button uk-button-primary" type="submit">Region prüfen</button>
 				   
 				</div>
 			</form>
