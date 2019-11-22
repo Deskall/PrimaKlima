@@ -106,6 +106,7 @@ class YplaYPageControllerExtension extends Extension
         $availability = ($this->owner->activePLZ()->AlternateOffer == $activeOffer) ? $this->owner->activePLZ()->StandardOffer : $this->owner->activePLZ()->AlternateOffer;
       }
       else{
+        print_r('ici');
         $availability = ($activeOffer == "Cable") ? "Fiber" : "Cable";
       }
       print_r($availability);
