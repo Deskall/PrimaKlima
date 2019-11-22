@@ -74,7 +74,7 @@ class RegisterPageController extends PageController{
 				return $this->redirectBack();
 			}
 
-		    return $this->redirect($this->Link('bestaetigen-sie-ihre-e-mail-adresse'));
+		    return $this->redirect('/bestaetigen-sie-ihre-e-mail-adresse'));
 		}
 		
        
