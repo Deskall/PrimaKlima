@@ -61,21 +61,26 @@
 	        <% end_if %>
 	        <div class="product-body">
 	        	<% if Top.ProductType == "products" %>
-			        <% loop $Items %>
-			        <div class="product-item">
-			       	 <strong>$Title</strong>
-			       	 $Content
-			       	</div>
-			        <% end_loop %>
+	        		<% if Subtitle %>
+	        		$Subtitle
+	        		<% end_if %>
+	        		<% if Items.exist %>
+				        <% loop $Items %>
+				        <div class="product-item">
+				       	 <strong>$Title</strong>
+				       	 $Content
+				       	</div>
+				        <% end_loop %>
+				    <% end_if %>
 		        <% else_if Top.ProductType == "packages" %>
 		        	<% loop Products %>
-		        	 <div class="product-item">
+		        	<div class="product-item">
 		        		 <strong>$Title</strong>
 		        		 <div>
 		        			 $Subtitle
 		        		 </div>
-		        		</div>
-		        		<% end_loop %>
+		        	</div>
+		        	<% end_loop %>
 		        <% end_if %>
 		    </div>
 	        <div class="product-footer">
