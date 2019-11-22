@@ -3,7 +3,7 @@
 		<div>$Field</div>
 		<div>
 			<% if Title.NoHTML != $Title %>
-			$Title
+			<label class="right" for="$ID">$Title</label>
 			<% else %>
 			<label class="right" for="$ID">$Title</label>
 			<% end_if %>
