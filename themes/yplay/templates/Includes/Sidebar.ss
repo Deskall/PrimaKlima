@@ -7,7 +7,7 @@
 			<button class="uk-offcanvas-close" type="button" data-uk-close></button>
 			<h3>Ihre Warenkorb</h3>
 			<% with activeCart %>
-			<% include ShopCartSummary %>
+			<% include ShopCart %>
 			<% end_with %>
 		</div>
 	</div>
