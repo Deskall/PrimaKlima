@@ -248,7 +248,10 @@ class RegisterPageController extends PageController{
 			return null;
 		}
 	       // set after member is created otherwise the member object does not exist
-		$member->addToGroupByCode('mietkoeche');
+		$group = Group::get()->byId($this->GroupID);
+		if ($group){
+			$member->addToGroupByCode($group->Code);
+		}
 
 		$email = MemberEmail::create($this->data(), $member,$this->AfterRegistrationEmailFrom,$member->Email, $this->AfterRegistrationEmailSubject, $this->AfterRegistrationEmailBody);
 		$email->send();
