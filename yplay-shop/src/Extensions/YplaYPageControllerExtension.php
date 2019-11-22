@@ -102,6 +102,11 @@ class YplaYPageControllerExtension extends Extension
        return null;
     }
 
+    public function activeOffer(){
+       
+       return ($this->owner->getRequest()->getSession()->get('active_offer')) ? $this->owner->getRequest()->getSession()->get('active_offer') : "Fiber";
+    }
+
     public function alternativePackages(){
       $activeOffer = $this->owner->getRequest()->getSession()->get('active_offer');
      
