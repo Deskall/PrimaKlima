@@ -106,7 +106,6 @@ class YplaYPageControllerExtension extends Extension
       $activeOffer = $this->owner->getRequest()->getSession()->get('active_offer');
      
       if ($this->owner->activePLZ()){
-        print_r($this->owner->activePLZ()->AlternateOffer == $activeOffer);
         $availability = ($this->owner->activePLZ()->AlternateOffer == $activeOffer) ? $this->owner->activePLZ()->StandardOffer : $this->owner->activePLZ()->AlternateOffer;
       }
       else{
