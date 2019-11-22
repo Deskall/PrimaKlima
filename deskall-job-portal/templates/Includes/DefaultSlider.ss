@@ -5,7 +5,13 @@
 		    	<% loop SiteConfig.activeSlides %>
 		        <li>
 		        	<div class="uk-inline uk-width-1-1 uk-height-1-1">
-					    <img src="$Image.FocusFill(320,250).URL" data-srcset="$Image.FocusFill(320,250).URL 320w, $Image.FocusFill(650,500).URL 650w, $Image.FocusFill(1200,800).URL 1200w, $Image.FocusFill(2500,1500).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
+					    <img data-src="$Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).Link" sizes="100vw"
+                         data-srcset="$Image.FocusFillMax(400,$Top.MaxHeight).Link 400w,
+                         $Image.FocusFillMax(600,$Top.MaxHeight).Link 600w,
+                         $Image.FocusFillMax(800,$Top.MaxHeight).Link 800w,
+                         $Image.FocusFillMax(1200,$Top.MaxHeight).Link 1200w,
+                         $Image.FocusFillMax(1500,$HeightForWidth(1500)).Link 1500w,
+                         $Image.FocusFillMax(2500,$HeightForWidth(2500)).Link 2500w"  alt="$Image.AtlTag($Title)" data-uk-cover data-uk-img="target:<% if First %>!ul > :last-child, !* +*"<% else_if Last %>!* -*, !ul > :first-child<% else %>!.uk-slideshow-items<% end_if %>">
 					    <div class="uk-overlay uk-position-bottom-right uk-text-right">
 					    	<div class="header-slide-title">$Title</div>
 		            		<div class="header-slide-subtitle">$Content</div>
