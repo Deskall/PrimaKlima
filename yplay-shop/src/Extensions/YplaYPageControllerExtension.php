@@ -111,5 +111,19 @@ class YplaYPageControllerExtension extends Extension
       });;
     }
 
+    public function alternativeProducts(){
+      $activeOffer = $this->owner->getRequest()->getSession()->get('active_offer');
+      if ($this->owner->activePLZ()){
+        $availability = ($this->owner->activePLZ()->AlternateOffer == $activeOffer) ? $this->owner->activePLZ()->StandardOffer : $this->owner->activePLZ()->AlternateOffer;
+      }
+      else{
+        $availability = ($activeOffer == "Cable") ? "Fiber" : "Cable";
+      }
+    
+      return Product::get()->filter(['isVisible' => 1, 'Availability' => ['Immer',$availability]])->filterByCallback(function($item, $list) {
+          return ($item->shouldDisplay());
+      });;
+    }
+
     
 }
