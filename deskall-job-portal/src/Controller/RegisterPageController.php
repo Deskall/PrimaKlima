@@ -77,14 +77,17 @@ class RegisterPageController extends PageController{
 		    return $this->redirect('/bestaetigen-sie-ihre-e-mail-adresse');
 		}
 		
-       
-        if ($member->canLogin()) {
-	        Injector::inst()->get(IdentityStore::class)->logIn($member);
-	    } else {
-	        throw new Exception('Permission issue occurred. Was the "$member->validateCanLogin" check above this code block removed?');
-	    }
+		if ($member->validateCanLogin()){
+			if ($member->canLogin()) {
+				Injector::inst()->get(IdentityStore::class)->logIn($member);
+			} else {
+				throw new Exception('Permission issue occurred. Was the "$member->validateCanLogin" check above this code block removed?');
+			}
 
-        return $this->redirect(MemberProfilePage::get()->filter('GroupID',$this->GroupID)->first()->Link());
+        	return $this->redirect(MemberProfilePage::get()->filter('GroupID',$this->GroupID)->first()->Link());
+		}
+       
+        return $this->redirectBack();
 
     }
 
