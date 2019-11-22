@@ -8,7 +8,7 @@
 			<h3>Ihre Warenkorb</h3>
 			<% with activeCart %>
 			<% include ShopCartSummary %>
-			<% end_if %>
+			<% end_with %>
 		</div>
 	</div>
 	<% end_if %>
