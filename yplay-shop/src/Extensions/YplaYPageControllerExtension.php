@@ -22,7 +22,10 @@ class YplaYPageControllerExtension extends Extension
     public function SavePLZ(HTTPRequest $request){
         $this->owner->getRequest()->getSession()->clear('active_plz');
         //clear also cart
-        $this->activeCart()->delete();
+        if ($this->activeCart()){
+          $this->activeCart()->delete();
+        }
+        
         $this->owner->getRequest()->getSession()->clear('shopcart_id');
         
         $plz = $request->postVar('plz-choice');
