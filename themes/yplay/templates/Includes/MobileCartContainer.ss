@@ -14,7 +14,7 @@
 					<div class="uk-card-body WhiteBackground order-preview">
 						<% with activeCart %>
 						<% include ShopCart %>
-						<% end_if %>
+						<% end_with %>
 					</div>
 					<div class="uk-card-footer BlackBackground">
 					<a href="$ConfiguratorPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Change 'Ändern' %></a>
