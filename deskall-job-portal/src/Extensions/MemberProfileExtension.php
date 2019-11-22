@@ -49,7 +49,7 @@ class MemberProfileExtension extends DataExtension
 
         $fields->push(CheckboxField::create('AGB',DBField::create_field(
         'HTMLFragment','<p class="uk-text-small">Hiermit bestätige ich, dass ich sowohl <a href="/" target="_blank">die Datenschutzerklärung</a> wie auch die AGB gelesen habe und mit beiden einverstanden bin.</p>'))
-        ->setTemplate('SilverStripe\\Forms\\FullWidthCheckboxField_holder'));
+        ->setTemplate('SilverStripe/Forms/FullWidthCheckboxField_holder'));
 
         return $fields;
     }
