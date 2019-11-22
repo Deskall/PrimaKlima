@@ -17,6 +17,7 @@ use SilverStripe\Security\Member;
 use SilverStripe\Security\Permission;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\RequiredFields;
+use SilverStripe\ORM\FieldType\DBField;
 
 /**
  * Adds validation fields to the Member object, as well as exposing the user's
@@ -46,7 +47,7 @@ class MemberProfileExtension extends DataExtension
             $fields->replaceField('Email',EmailField::create('Email','Email'));
         }
 
-        $fields->push(HTMLCheckboxField::create('AGB',DBField::create_field(
+        $fields->push(CheckboxField::create('AGB',DBField::create_field(
         'HTMLFragment','<p class="uk-text-small">Hiermit bestätige ich, dass ich sowohl <a href="/" target="_blank">die Datenschutzerklärung</a> wie auch die AGB gelesen habe und mit beiden einverstanden bin.</p>')));
 
         return $fields;
