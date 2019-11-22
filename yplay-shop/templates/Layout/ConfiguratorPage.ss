@@ -29,10 +29,8 @@
 			$SiteConfig.PLZModalBody
 			<form method="POST" action="{$Link}plz-speichern" class="form-std plz-form">
 				<div class="uk-flex-inline uk-flex-top">
-				    <div>
-				        <div class="uk-text-large">
-				            <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
-				        </div>
+				    <div class="uk-text-large">
+				        <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
 				    </div>
 				    <div>
 				        <button class="uk-button uk-button-primary uk-flex-first" type="submit">Region prüfen</button>
