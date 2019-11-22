@@ -15,7 +15,7 @@
 					<% end_with %>
 				</div>
 				<div class="uk-card-footer">
-					<a href="$ShopPage.Link" class="uk-button BlackBackground"><%t Configurator.Order 'Bestellen' %></a>
+					<a href="$ShopPage.Link" class="uk-button"><%t Configurator.Order 'Bestellen' %></a>
 				</div>
 			</div>
 		</div>
