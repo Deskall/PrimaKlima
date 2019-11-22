@@ -4,7 +4,7 @@
 $ElementalArea
 <% end_if %>
 <div class="element" id="member-section">
-	<section class="uk-section">
+	<section class="uk-section uk-padding-remove">
 		<div class="uk-container">
 			<% if Content %>
 			<h1>$Title</h1>
