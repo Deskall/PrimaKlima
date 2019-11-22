@@ -102,13 +102,13 @@ class YplaYPageControllerExtension extends Extension
 
     public function alternativePackages(){
       $activeOffer = $this->owner->getRequest()->getSession()->get('active_offer');
-      print_r($activeOffer);
+     
       if ($this->owner->activePLZ()){
-        print_r($this->owner->activePLZ()->AlternateOffer);
+        print_r($this->owner->activePLZ()->AlternateOffer == $activeOffer);
         $availability = ($this->owner->activePLZ()->AlternateOffer == $activeOffer) ? $this->owner->activePLZ()->StandardOffer : $this->owner->activePLZ()->AlternateOffer;
       }
       else{
-        print_r('ici');
+       
         $availability = ($activeOffer == "Cable") ? "Fiber" : "Cable";
       }
       print_r($availability);
