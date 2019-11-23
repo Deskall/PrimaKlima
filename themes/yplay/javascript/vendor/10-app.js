@@ -1,29 +1,3 @@
-
-
-
-// numeral.language('de-ch', {
-//     delimiters: {
-//         thousands: ' ',
-//         decimal: '.'
-//     },
-//     abbreviations: {
-//         thousand: 'k',
-//         million: 'm',
-//         billion: 'b',
-//         trillion: 't'
-//     },
-//     ordinal: function (number) {
-//         return '.';
-//     },
-//     currency: {
-//         symbol: 'Fr. '
-//     }
-// });
-
-// // switch between languages
-// numeral.language('de-ch');
-
-
 $(document).ready(function(){
   if ($(".flatpickr").length > 0){
     $(".flatpickr").flatpickr({
@@ -122,42 +96,6 @@ $(document).ready(function(){
 	});
 
 
-//Table
-// $(document).ready(function(){
-//   $(".dk-text-content table").each(function(){
-//     $(this).wrap('<div class="uk-overflow-auto"></div>');
-//       $(this).addClass("uk-table uk-table-small");
-//       if ($(this).width() > $(window).width()){
-//           divContainer = $("<div></div>");
-//           divContainer.addClass("uk-overflow-auto");
-//           $(this).detach().appendTo(divContainer);
-//       }
-
-//   });
-// });
-
-//Parent Block
-// $(document).ready(function(){
-//     $(".parentblock .uk-accordion").each(function(){
-//       var options = {content: '.uk-panel', target: 'h3' }; 
-//       UIkit.accordion($(this), options);
-//         $(this).find("h3").each(function(){
-//             var html = $(this).html();
-//             var a = $('<a></a>');
-//             a.addClass("uk-accordion-title uk-width-1-1").html(html);
-//             $(this).html(a);
-//         });
-//         var expandedBlocks = $(this).attr('data-element-expanded');
-//         if (expandedBlocks){
-//             expandedBlocks = $.parseJSON(expandedBlocks);
-//           $.each(expandedBlocks, function(index, value){
-//               $("#e"+value).addClass("uk-open");
-//           });
-//         }
-      
-//     });
-// });
-
 //Scroll links
 $(document).ready(function(){
   $("[href *= '#']").each(function(){
@@ -169,26 +107,19 @@ $(document).ready(function(){
   });
 });
 
-// $(document).ready(function(){
-//   UIkit.update(document.body, type = 'update');
-// });
-// $( window ).resize(function() {
-//   UIkit.update(document.body, type = 'update');
-// });
-
 //Anonymize IP
-var gaProperty = 'UA-XXXXXXXX-X';
-var disableStr = 'ga-disable-' + gaProperty;
-if (document.cookie.indexOf(disableStr + '=true') > -1) {
-  window[disableStr] = true;
-}
+// var gaProperty = 'UA-XXXXXXXX-X';
+// var disableStr = 'ga-disable-' + gaProperty;
+// if (document.cookie.indexOf(disableStr + '=true') > -1) {
+//   window[disableStr] = true;
+// }
 
-$('a[href$="#ga-optout"]').click(function(){
-    document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
-    window[disableStr] = true;
-    alert('Google Analytics wurde deaktiviert');
-    return false;
-});
+// $('a[href$="#ga-optout"]').click(function(){
+//     document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+//     window[disableStr] = true;
+//     alert('Google Analytics wurde deaktiviert');
+//     return false;
+// });
 
 //ensure minimum height for main content
 $(document).ready(function(){
