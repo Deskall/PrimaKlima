@@ -41,6 +41,7 @@ class CustomPageExtension extends DataExtension
     }
 
     public function ativeMenuSections(){
+        print_r($this->MenuSections()->count());
         return $this->MenuSections()->filter(['ClassName' => MenuSection::class, 'isVisible' => 1]);
     }
 }
