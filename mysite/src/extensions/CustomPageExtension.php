@@ -43,4 +43,9 @@ class CustomPageExtension extends DataExtension
     public function activeMenuSections(){
         return $this->owner->MenuSections()->filter(['ClassName' => MenuSection::class, 'isVisible' => 1]);
     }
+
+    public function LastChangeJS(){
+        $file = $this->owner->currentThemeDir().'/javascript/main.min.js';
+        return filemtime($file);
+    }
 }
