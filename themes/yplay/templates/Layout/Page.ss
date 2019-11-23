@@ -15,6 +15,4 @@
 		</section>
 		<% end_if %>
 	<% end_if %>
-	<% if $ID > 0 %> 
-		<% include Sidebar %>
-	<% end_if %>
+

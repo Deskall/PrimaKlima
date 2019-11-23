@@ -10,6 +10,9 @@
       <main class="main-content-wrapper">
           $Layout
       </main>
+      <% if $ID > 0 %> 
+        <% include Sidebar %>
+      <% end_if %>
       <% include Footer %>
       <% include Modals %>
     </div>
