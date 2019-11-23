@@ -187,6 +187,7 @@ class YplaYPageControllerExtension extends Extension
         return Package::get()->byId($this->owner->getRequest()->getSession()->get('chosenPackage'));
       }
       if ($this->owner->getRequest()->getSession()->get('chosenProduct')){
+         print_r('la');
         return Product::get()->byId($this->owner->getRequest()->getSession()->get('chosenProduct'));
       }
       return null;
