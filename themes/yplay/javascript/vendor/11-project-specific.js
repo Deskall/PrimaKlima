@@ -165,7 +165,6 @@ $(document).ready(function(){
 	function UpdateOrder(){
 		productsOfPackages = [];
 		products = [];
-		var package;
 		var chosenPackageID = 0;
 		$('.category:not(.disabled) .slider-packages .uk-slider-items li.uk-active').each(function(){
 			productsOfPackages.push($(this).attr('data-value'));
