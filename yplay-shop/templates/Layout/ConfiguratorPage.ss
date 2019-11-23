@@ -26,6 +26,9 @@
 			<h1>$Title</h1>
 			<h2>$SiteConfig.ConfiguratorTitle</h2>
 			<% if not activePLZ %>
+
+			$choseItem.Title
+
 			$SiteConfig.PLZModalBody
 			<form method="POST" action="{$Link}plz-speichern" class="form-std plz-form">
 				<div class="uk-flex uk-flex-left uk-flex-top">
