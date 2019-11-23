@@ -58,7 +58,6 @@ class YplaYPageControllerExtension extends Extension
                        $cart->Availability = $cart->Package()->Availability;
                     }
                     $cart->write();
-                    $this->owner->getRequest()->getSession()->clear('chosen_package');
                   }
                   else if ($this->owner->getRequest()->getSession()->get('chosen_product')){
                     $product = Product::get()->byId($this->owner->getRequest()->getSession()->get('chosen_product'));
@@ -67,7 +66,6 @@ class YplaYPageControllerExtension extends Extension
                        $cart->Availability = $product->Availability;
                        $cart->write();
                     }
-                    $this->owner->getRequest()->getSession()->clear('chosen_product');
                   }
                 }
 
