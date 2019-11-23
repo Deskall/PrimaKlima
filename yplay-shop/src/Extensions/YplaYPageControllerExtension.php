@@ -67,12 +67,16 @@ class YplaYPageControllerExtension extends Extension
                   else if ($this->owner->getRequest()->getSession()->get('chosen_product')){
                     $product = Product::get()->byId($this->owner->getRequest()->getSession()->get('chosen_product'));
                     if ($product){
-                      //If available
-                      if (in_array($product->Availability, ["Immer",$PostalCode->StandardOffer,$PostalCode->AlternateOffer])){
+                      //If not available we take the fallback
+                      if (!in_array($product->Availability, ["Immer",$PostalCode->StandardOffer,$PostalCode->AlternateOffer])){
+                        $product = $product->Category()->getPreselected();
+                      }
+                      
                        $cart->Products()->add($product);
                        $cart->Availability = $product->Availability;
                        $cart->write();
                        $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
+                      
                     }
                   }
                 }
