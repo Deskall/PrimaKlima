@@ -40,6 +40,37 @@ class YplaYPageControllerExtension extends Extension
                 $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID);
                 $this->owner->getRequest()->getSession()->set('active_offer',$PostalCode->StandardOffer);
                 Cookie::set('yplay_plz', $PostalCode->ID);
+
+
+                //In case no PLZ defined yet and customer has chosen a package or a product, we redirect to Configurator and save this chosen Product. 
+                //for that we create cart and apply chosen element
+                if ($this->owner->getRequest()->getSession()->get('chosenPackage') || $this->owner->getRequest()->getSession()->get('chosenProduct')){
+                  $cart = new ShopCart();
+                  $cart->IP = $this->owner->getRequest()->getIp();
+                  $cart->PostalCode = $PostalCode->Code;
+                  $cart->City = $PostalCode->City;
+                  $cart->write();
+                  $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+                  if ($this->owner->getRequest()->getSession()->get('chosenPackage')){
+                    //apply package
+                    $cart->PackageID = $this->owner->getRequest()->getSession()->get('chosenPackage');
+                    if ($cart->Package()->exists()){
+                       $cart->Availability = $cart->Package()->Availability;
+                    }
+                    $cart->write();
+                    $this->owner->getRequest()->getSession()->clear('chosenPackage');
+                  }
+                  else if ($this->owner->getRequest()->getSession()->get('chosenProduct')){
+                    $product = Product::get()->byId($this->owner->getRequest()->getSession()->get('chosenProduct'));
+                    if ($product){
+                       $cart->Products()->add($product);
+                       $cart->Availability = $product->Availability;
+                       $cart->write();
+                    }
+                    $this->owner->getRequest()->getSession()->clear('chosenProduct');
+                  }
+                }
+
                 return $this->owner->redirectBack();
             }
             else{
@@ -149,6 +180,4 @@ class YplaYPageControllerExtension extends Extension
           return ($item->shouldDisplay());
       });;
     }
-
-    
 }

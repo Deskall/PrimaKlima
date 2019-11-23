@@ -56,7 +56,7 @@ class ShopPageController extends PageController
 
     /* Update the Cart and link to Order Page */
    public function OrderPackageLink(){ 
-      $this->owner->getRequest()->getSession()->clear('productID');
+      $this->owner->getRequest()->getSession()->clear('chosenProduct');
       $packageID = $this->owner->getRequest()->param('ID');
       //If no active PLZ we redirect to Configurator
       if (!$this->owner->activePLZ()){
@@ -101,7 +101,7 @@ class ShopPageController extends PageController
 
     /* Update the Cart and link to Order Page */
    public function OrderProductLink(){
-      $this->owner->getRequest()->getSession()->clear('packageID');
+      $this->owner->getRequest()->getSession()->clear('chosenpackage');
       $productID = $this->owner->getRequest()->param('ID');
       //If no active PLZ we redirect to Configurator
       if (!$this->owner->activePLZ()){
