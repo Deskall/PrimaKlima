@@ -24,10 +24,12 @@
 	<section class="uk-section uk-section-medium" style="background-color:#eee;">
 		<div class="uk-container uk-container-medium">
 			<h1>$Title</h1>
-			<h2>$SiteConfig.ConfiguratorTitle</h2>
+			<%-- <h2>$SiteConfig.ConfiguratorTitle</h2> --%>
 			<% if not activePLZ %>
 
-			$chosenItem.Title
+			<% if $chosenItem %>
+			<strong>Ihre Auswahl: $chosenItem.Title</strong>
+			<% end_if %>
 
 			$SiteConfig.PLZModalBody
 			<form method="POST" action="{$Link}plz-speichern" class="form-std plz-form">
