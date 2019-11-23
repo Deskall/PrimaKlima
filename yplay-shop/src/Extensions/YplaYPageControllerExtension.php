@@ -183,11 +183,9 @@ class YplaYPageControllerExtension extends Extension
 
     public function chosenItem(){
       if ($this->owner->getRequest()->getSession()->get('chosen_package')){
-        print_r('la');
         return Package::get()->byId($this->owner->getRequest()->getSession()->get('chosen_package'));
       }
       if ($this->owner->getRequest()->getSession()->get('chosen_product')){
-         print_r('la');
         return Product::get()->byId($this->owner->getRequest()->getSession()->get('chosen_product'));
       }
       return null;
