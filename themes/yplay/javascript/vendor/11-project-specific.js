@@ -387,6 +387,7 @@ $(document).ready(function(){
 
 //Mobile related
 $(document).ready(function(){
+	console.log(isMobile);
 	if (!isMobile){
 		$(".dk-transition-toggle-not-mobile").addClass('uk-transition-toggle');
 	}
