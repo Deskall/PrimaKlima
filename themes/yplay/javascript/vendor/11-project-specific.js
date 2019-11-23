@@ -1,3 +1,30 @@
+var screensize = $(window).width();
+if (screensize < 768){
+    var mobilescreen = true;
+}
+
+var isMobile = {
+    Android: function() {
+        return (navigator.userAgent.match(/Android/i) && mobilescreen);
+    },
+    BlackBerry: function() {
+        return (navigator.userAgent.match(/BlackBerry/i) && mobilescreen);
+    },
+    iOS: function() {
+        return (navigator.userAgent.match(/iPhone|iPad|iPod/i) && mobilescreen);
+    },
+    Opera: function() {
+        return (navigator.userAgent.match(/Opera Mini/i) && mobilescreen);
+    },
+    Windows: function() {
+        return ((navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i)) && mobilescreen);
+    },
+    any: function() {
+        return ((isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()) && mobilescreen);
+    }
+};
+
+
 $(document).ready(function(){
 	if ($(".sidebar-menu").length > 0){
 		var sidebarWidth = Math.ceil($(".sidebar-menu").width()) / 4;
@@ -358,3 +385,9 @@ $(document).ready(function(){
 });
 
 
+//Mobile related
+$(document).ready(function(){
+	if (!isMobile){
+		$(".dk-transition-toggle-not-mobile").addClass('uk-transition-toggle');
+	}
+});
