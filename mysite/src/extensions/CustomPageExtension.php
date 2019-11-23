@@ -45,7 +45,7 @@ class CustomPageExtension extends DataExtension
     }
 
     public function LastChangeJS(){
-        $file = $this->owner->currentThemeDir().'/javascript/main.min.js';
+        $file = $this->owner->CurrentThemeDir().'/javascript/main.min.js';
         return filemtime($file);
     }
 }
