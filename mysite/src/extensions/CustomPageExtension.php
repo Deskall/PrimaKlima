@@ -21,7 +21,7 @@ class CustomPageExtension extends DataExtension
         $fields->removeByName('MenuSections');
         if ($this->owner->ShowInMainMenu){
             $fields->addFieldToTab('Root.Menu',
-                GridField::create('MenuSections','Menu Sektionen',$this->owner->MenuSections()->filter('ClassName',MenuSection::class),GridFieldConfig_RelationEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction()))
+                GridField::create('MenuSections','Menu Sektionen',$this->owner->MenuSections()->filter('ClassName',MenuSection::class),GridFieldConfig_RelationEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDeleteAction()))
             );
         }
 
