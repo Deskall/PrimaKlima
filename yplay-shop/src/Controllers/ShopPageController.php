@@ -56,8 +56,13 @@ class ShopPageController extends PageController
 
     /* Update the Cart and link to Order Page */
    public function OrderPackageLink(){ 
+      $packageID = $this->owner->getRequest()->param('ID');
       //If no active PLZ we redirect to Configurator
       if (!$this->owner->activePLZ()){
+         //First we save the selected package in session
+         if ($packageID){
+             $this->owner->getRequest()->getSession()->set('chosenpackage',$packageID);
+         }
         return $this->owner->redirect($this->owner->ConfiguratorPage()->Link(),302); 
       }
 
@@ -73,7 +78,7 @@ class ShopPageController extends PageController
       $cart->IP = $this->owner->getRequest()->getIp();
 
       //fetch package and link it
-      $packageID = $this->owner->getRequest()->param('ID');
+      
       if ($packageID){
         $package = Package::get()->byId($packageID);
         if ($package){
@@ -95,11 +100,16 @@ class ShopPageController extends PageController
 
     /* Update the Cart and link to Order Page */
    public function OrderProductLink(){
+      $productID = $this->owner->getRequest()->param('ID');
       //If no active PLZ we redirect to Configurator
       if (!$this->owner->activePLZ()){
+         //First we save the selected package in session
+         if ($productID){
+             $this->owner->getRequest()->getSession()->set('chosenproduct',$productID);
+         }
         return $this->owner->redirect($this->owner->ConfiguratorPage()->Link(),302); 
       }
-      
+
       //Fetch cart or create if null
       $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
       $cart = null;
@@ -112,7 +122,7 @@ class ShopPageController extends PageController
       $cart->IP = $this->owner->getRequest()->getIp();
 
       //fetch package and link it
-      $productID = $this->owner->getRequest()->param('ID');
+      
       if ($productID){
         $product = Product::get()->byId($productID);
         if ($product){
