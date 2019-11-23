@@ -38,4 +38,8 @@ class CustomPageExtension extends DataExtension
     public function ShopPage(){
         return ShopPage::get()->first();
     }
+
+    public function ativeMenuSections(){
+        return $this->MenuSections()->filter(['ClassName' => MenuSection::class, 'isVisible' => 1]);
+    }
 }
