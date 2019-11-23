@@ -2,6 +2,7 @@
 
 
 $filename = basename($_SERVER['REQUEST_URI'],".js").".js";
+print_r($filename);
 $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".js", ".min.js", $filename_full);
 
