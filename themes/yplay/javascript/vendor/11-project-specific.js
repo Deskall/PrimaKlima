@@ -2,7 +2,6 @@ var screensize = $(window).width();
 if (screensize < 768){
     var mobilescreen = true;
 }
-
 var isMobile = {
     Android: function() {
         return (navigator.userAgent.match(/Android/i) && mobilescreen);
