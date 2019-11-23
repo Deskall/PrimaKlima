@@ -1,7 +1,7 @@
 <?php
 
-$url = $_SERVER['REQUEST_URI'];
-$uri = strtok($url, '?');
+$uri = $_SERVER['REQUEST_URI'];
+$uri = strtok($uri, '?');
 $filename = basename($uri,".js").".js";
 $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".js", ".min.js", $filename_full);
@@ -30,6 +30,11 @@ if($js_compiled){
 		);
 		$context  = stream_context_create($options);
 		$js_minified = file_get_contents($url, false, $context);
+
+		ob_start();
+					print_r($js_minified);
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
 		if ($js_minified === FALSE) {
 			echo "there has been an error.";
