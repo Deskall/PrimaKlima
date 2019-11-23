@@ -17,7 +17,7 @@
 						<ul class="uk-nav uk-navbar-dropdown-nav menu-section-links">
 							<% loop Links %>
 							<li>
-								    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>><% if Label %><span class="uk-label $Background uk-margin-small-right uk-border-rounded">$Label</span><% end_if %>$LinkableLink.Title</a>
+								    <a href="$LinkableLink.LinkURL" {$LinkableLink.TargetAttr} <% if $LinkableLink.hasIcone %>data-uk-icon="icon: $LinkableLink.Icone"<% end_if %>>$LinkableLink.Title<% if Label %><span class="uk-label $Background uk-margin-small-left uk-border-rounded">$Label</span><% end_if %></a>
 							</li>
 							<% end_loop %>
 						</ul>
