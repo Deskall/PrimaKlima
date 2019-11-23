@@ -29,8 +29,9 @@ $(document).ready(function(){
 	if ($(".sidebar-menu").length > 0){
 		console.log($(".sidebar-menu").css('width'));
 		console.log($(".sidebar-menu").width());
+		console.log($(".sidebar-menu").innerWidth());
+		console.log($(".sidebar-menu").outerWidth());
 		var right = ($(".sidebar-menu").outerWidth() / 2 ) - ($(".sidebar-menu").height() / 2 );
-			console.log($(".sidebar-menu").outerWidth());
 		$(".sidebar-menu").css("right", '-'+right+'px');
 		$(".sidebar-menu").show();
 	}
