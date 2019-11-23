@@ -36,6 +36,11 @@ class DeskallPageExtension extends DataExtension
         return SiteConfig::current_site_config()->getCurrentThemeDir();
     }
 
+    public function LastChangeJS(){
+        $file = Director::baseURL($this->owner->ThemeDir().'/javascript/main.min.js');
+        return filemtime($file);
+    }
+
     public function updateCMSFields(FieldList $fields){
         if ($this->owner->ShowInMenus ){
             $field = OptionsetField::create('ShowInMainMenu',_t(__CLASS__.'.ShowInMainMenuLabel','In welchem Menu sollt diese Seite anzeigen ?'), $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
