@@ -56,13 +56,13 @@ class ShopPageController extends PageController
 
     /* Update the Cart and link to Order Page */
    public function OrderPackageLink(){ 
-      $this->owner->getRequest()->getSession()->clear('chosenProduct');
+      $this->owner->getRequest()->getSession()->clear('chosen_product');
       $packageID = $this->owner->getRequest()->param('ID');
       //If no active PLZ we redirect to Configurator
       if (!$this->owner->activePLZ()){
          //First we save the selected package in session
          if ($packageID){
-             $this->owner->getRequest()->getSession()->set('chosenpackage',$packageID);
+             $this->owner->getRequest()->getSession()->set('chosen_package',$packageID);
          }
         return $this->owner->redirect($this->owner->ConfiguratorPage()->Link(),302); 
       }
@@ -101,13 +101,13 @@ class ShopPageController extends PageController
 
     /* Update the Cart and link to Order Page */
    public function OrderProductLink(){
-      $this->owner->getRequest()->getSession()->clear('chosenpackage');
+      $this->owner->getRequest()->getSession()->clear('chosen_package');
       $productID = $this->owner->getRequest()->param('ID');
       //If no active PLZ we redirect to Configurator
       if (!$this->owner->activePLZ()){
          //First we save the selected package in session
          if ($productID){
-             $this->owner->getRequest()->getSession()->set('chosenproduct',$productID);
+             $this->owner->getRequest()->getSession()->set('chosen_product',$productID);
          }
         return $this->owner->redirect($this->owner->ConfiguratorPage()->Link(),302); 
       }

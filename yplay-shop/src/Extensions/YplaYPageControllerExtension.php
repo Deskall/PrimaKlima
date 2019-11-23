@@ -44,30 +44,30 @@ class YplaYPageControllerExtension extends Extension
 
                 //In case no PLZ defined yet and customer has chosen a package or a product, we redirect to Configurator and save this chosen Product. 
                 //for that we create cart and apply chosen element
-                if ($this->owner->getRequest()->getSession()->get('chosenPackage') || $this->owner->getRequest()->getSession()->get('chosenProduct')){
+                if ($this->owner->getRequest()->getSession()->get('chosen_package') || $this->owner->getRequest()->getSession()->get('chosen_product')){
                   $cart = new ShopCart();
                   $cart->IP = $this->owner->getRequest()->getIp();
                   $cart->PostalCode = $PostalCode->Code;
                   $cart->City = $PostalCode->City;
                   $cart->write();
                   $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
-                  if ($this->owner->getRequest()->getSession()->get('chosenPackage')){
+                  if ($this->owner->getRequest()->getSession()->get('chosen_package')){
                     //apply package
-                    $cart->PackageID = $this->owner->getRequest()->getSession()->get('chosenPackage');
+                    $cart->PackageID = $this->owner->getRequest()->getSession()->get('chosen_package');
                     if ($cart->Package()->exists()){
                        $cart->Availability = $cart->Package()->Availability;
                     }
                     $cart->write();
-                    $this->owner->getRequest()->getSession()->clear('chosenPackage');
+                    $this->owner->getRequest()->getSession()->clear('chosen_package');
                   }
-                  else if ($this->owner->getRequest()->getSession()->get('chosenProduct')){
-                    $product = Product::get()->byId($this->owner->getRequest()->getSession()->get('chosenProduct'));
+                  else if ($this->owner->getRequest()->getSession()->get('chosen_product')){
+                    $product = Product::get()->byId($this->owner->getRequest()->getSession()->get('chosen_product'));
                     if ($product){
                        $cart->Products()->add($product);
                        $cart->Availability = $product->Availability;
                        $cart->write();
                     }
-                    $this->owner->getRequest()->getSession()->clear('chosenProduct');
+                    $this->owner->getRequest()->getSession()->clear('chosen_product');
                   }
                 }
 
@@ -182,13 +182,13 @@ class YplaYPageControllerExtension extends Extension
     }
 
     public function chosenItem(){
-      if ($this->owner->getRequest()->getSession()->get('chosenPackage')){
+      if ($this->owner->getRequest()->getSession()->get('chosen_package')){
         print_r('la');
-        return Package::get()->byId($this->owner->getRequest()->getSession()->get('chosenPackage'));
+        return Package::get()->byId($this->owner->getRequest()->getSession()->get('chosen_package'));
       }
-      if ($this->owner->getRequest()->getSession()->get('chosenProduct')){
+      if ($this->owner->getRequest()->getSession()->get('chosen_product')){
          print_r('la');
-        return Product::get()->byId($this->owner->getRequest()->getSession()->get('chosenProduct'));
+        return Product::get()->byId($this->owner->getRequest()->getSession()->get('chosen_product'));
       }
       return null;
     }
