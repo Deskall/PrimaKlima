@@ -103,6 +103,11 @@ class YplaYPageControllerExtension extends Extension
        $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
        if ($id){
           $cart = ShopCart::get()->byId($id);
+          if (!$cart->PLZ && $this->owner->activePLZ()){
+            $cart->PLZ = $this->owner->activePLZ()->PLZ;
+            $cart->City = $this->owner->activePLZ()->City;
+          }
+          $cart->write();
           return $cart;
        }
        return null;
