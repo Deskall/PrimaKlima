@@ -28,6 +28,9 @@ var isMobile = {
 $(document).ready(function(){
 	if ($(".sidebar-menu").length > 0){
 		var right = ($(".sidebar-menu").width() / 2 ) - ($(".sidebar-menu").height() / 2 );
+		console.log($(".sidebar-menu").width() / 2);
+		console.log($(".sidebar-menu").height() / 2 );
+		console.log(right);
 		$(".sidebar-menu").css("right", '-'+right+'px');
 		$(".sidebar-menu").show();
 	}
