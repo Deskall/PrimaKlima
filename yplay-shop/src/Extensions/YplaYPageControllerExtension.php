@@ -52,19 +52,27 @@ class YplaYPageControllerExtension extends Extension
                   $cart->write();
                   $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
                   if ($this->owner->getRequest()->getSession()->get('chosen_package')){
-                    //apply package
-                    $cart->PackageID = $this->owner->getRequest()->getSession()->get('chosen_package');
-                    if ($cart->Package()->exists()){
-                       $cart->Availability = $cart->Package()->Availability;
+                    $package = Package::get()->byId($this->owner->getRequest()->getSession()->get('chosen_package'));
+                    if ($package){
+                      //If available
+                      if (in_array($package->Availability, ["Immer",$PostalCode->StandardOffer,$PostalCode->AlternateOffer])){
+                         //apply package
+                          $cart->PackageID = $package->ID;
+                          $cart->Availability = $cart->Package()->Availability;
+                          $cart->write();
+                          $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
+                      }
                     }
-                    $cart->write();
                   }
                   else if ($this->owner->getRequest()->getSession()->get('chosen_product')){
                     $product = Product::get()->byId($this->owner->getRequest()->getSession()->get('chosen_product'));
                     if ($product){
+                      //If available
+                      if (in_array($product->Availability, ["Immer",$PostalCode->StandardOffer,$PostalCode->AlternateOffer])){
                        $cart->Products()->add($product);
                        $cart->Availability = $product->Availability;
                        $cart->write();
+                       $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
                     }
                   }
                 }
