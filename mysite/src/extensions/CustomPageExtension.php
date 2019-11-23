@@ -12,7 +12,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class CustomPageExtension extends DataExtension
 {
-    private static $has_many = ['MenuSections' => MenuSection::class, 'LateralSections' => LateralSection::class];
+    private static $many_many = ['MenuSections' => MenuSection::class, 'LateralSections' => LateralSection::class];
 
     private static $owns = ['MenuSections', 'LateralSections'];
 
