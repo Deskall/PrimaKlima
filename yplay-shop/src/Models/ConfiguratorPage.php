@@ -42,13 +42,5 @@ class ConfiguratorPage extends Page {
 		return $fields;
 	}
 
-	public function chosenItem(){
-		if ($this->getRequest()->getSession()->get('chosenPackage')){
-			return Package::get()->byId($this->getRequest()->getSession()->get('chosenPackage'));
-		}
-		if ($this->getRequest()->getSession()->get('chosenProduct')){
-			return Product::get()->byId($this->getRequest()->getSession()->get('chosenProduct'));
-		}
-		return null;
-	}
+
 }

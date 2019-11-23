@@ -180,4 +180,14 @@ class YplaYPageControllerExtension extends Extension
           return ($item->shouldDisplay());
       });;
     }
+
+    public function chosenItem(){
+      if ($this->owner->getRequest()->getSession()->get('chosenPackage')){
+        return Package::get()->byId($this->owner->getRequest()->getSession()->get('chosenPackage'));
+      }
+      if ($this->owner->getRequest()->getSession()->get('chosenProduct')){
+        return Product::get()->byId($this->owner->getRequest()->getSession()->get('chosenProduct'));
+      }
+      return null;
+    }
 }
