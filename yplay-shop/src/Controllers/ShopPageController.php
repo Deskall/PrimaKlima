@@ -55,9 +55,13 @@ class ShopPageController extends PageController
    }
 
     /* Update the Cart and link to Order Page */
-   public function OrderPackageLink(){
+   public function OrderPackageLink(){ 
+      //If no active PLZ we redirect to Configurator
+      if (!$this->owner->activePLZ()){
+        return $this->owner->redirect($this->owner->ConfiguratorPage()->Link(),302); 
+      }
+
       //Fetch cart or create if null
-     
       $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
       $cart = null;
       if ($id){
@@ -84,6 +88,8 @@ class ShopPageController extends PageController
       
       $cart->write();
       $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+
+
       return $this->owner->redirect($this->owner->ShopPage()->Link(),302);
    }
 
