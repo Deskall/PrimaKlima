@@ -95,6 +95,11 @@ class ShopPageController extends PageController
 
     /* Update the Cart and link to Order Page */
    public function OrderProductLink(){
+      //If no active PLZ we redirect to Configurator
+      if (!$this->owner->activePLZ()){
+        return $this->owner->redirect($this->owner->ConfiguratorPage()->Link(),302); 
+      }
+      
       //Fetch cart or create if null
       $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
       $cart = null;
