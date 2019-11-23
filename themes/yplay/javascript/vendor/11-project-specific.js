@@ -58,6 +58,12 @@ $(document).ready(function(){
 //Product Choice Scripts
 $(document).ready(function(){
 
+	//Toggle cart (all pages)
+	$(document).on("click",".toggle-cart",function(){
+		UIkit.toggle($(this).attr('data-target')).toggle();
+		$(".cart-button").toggleClass('uk-hidden');
+	});
+
 	//Configurator Page
 	if ($('body').hasClass('ConfiguratorPage')){	
 		//Initiate all
@@ -266,11 +272,6 @@ $(document).ready(function(){
 						break;
 				}
 			}
-		});
-
-		$(document).on("click",".toggle-cart",function(){
-			UIkit.toggle($(this).attr('data-target')).toggle();
-			$(".cart-button").toggleClass('uk-hidden');
 		});
 
 
