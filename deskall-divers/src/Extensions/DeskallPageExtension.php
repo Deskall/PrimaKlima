@@ -37,8 +37,16 @@ class DeskallPageExtension extends DataExtension
     }
 
     public function LastChangeJS(){
-        $file = Director::baseURL($this->owner->ThemeDir().'/javascript/main.min.js');
-        return filemtime($file);
+        $srcDir = Director::baseURL($this->owner->ThemeDir().'/javascript/vendor');
+        $srcFiles = array_diff(scandir($srcDir), array('.', '..'));
+        $filetime = 0;
+        foreach($srcFiles as $key => $file) {
+            if( filemtime($srcDir."/".$file) > $filetime)
+            {
+                $filetime = filemtime($srcDir."/".$file);
+            }
+        }
+        return $filetime;
     }
 
     public function updateCMSFields(FieldList $fields){
