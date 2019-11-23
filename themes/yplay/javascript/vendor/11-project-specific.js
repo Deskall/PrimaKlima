@@ -28,7 +28,7 @@ var isMobile = {
 $(document).ready(function(){
 	if ($(".sidebar-menu").length > 0){
 		var right = Math.ceil(($(".sidebar-menu").width() / 2 ) - ($(".sidebar-menu").height() / 2 ));
-		$(".sidebar-menu").css("right", right+'px');
+		$(".sidebar-menu").css("right", '-'+right+'px');
 		$(".sidebar-menu").show();
 	}
 
