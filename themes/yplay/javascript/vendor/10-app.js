@@ -18,6 +18,9 @@ $(document).ready(function(){
     $.cachedScript( 'thirdparty/04-flatpicker.min.js' ).done(function( script, textStatus ) {
 
       $(".flatpickr").flatpickr({
+          defaultDate: $(this).attr('value'),
+          minDate: $(this).attr('minDate'),
+          maxDate: $(this).attr('maxDate'),
           dateFormat: "d.m.Y",
           altInput: true,
           locale: {
