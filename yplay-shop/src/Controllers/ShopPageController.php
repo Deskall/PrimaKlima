@@ -160,7 +160,7 @@ class ShopPageController extends PageController
             CompositeField::create(
                TextField::create('Name','Name')->setAttribute('class','uk-input'),
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
-               $birthday = DateField::create('Birthday','Geburstdatum')->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$max->format('Y.m.d'))->setAttribute('class','uk-input flatpickr')
+               $birthday = DateField::create('Birthday','Geburstdatum')->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$max->format('Y.m.d'))->setAttribute('class','uk-input')
             )->setName('Step1'),
             CompositeField::create(
                HeaderField::create('AddressTitle2','Ihre Angaben',3),
