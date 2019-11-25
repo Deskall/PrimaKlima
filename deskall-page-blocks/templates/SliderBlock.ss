@@ -4,7 +4,7 @@
         <% loop ActiveSlides %>
         <li>
             <% if SlideType == "Video" %>
-                <video src="$File.URL"  autoplay loop muted playslinline data-uk-cover></video>
+                <video src="$File.URL"  autoplay loop muted playslinline ></video>
             <% else %>
            <% if Effect == "kenburns" %><div class="uk-position-cover uk-animation-kenburns $EffectOptions"><% end_if %>
                 <% if $Image.getExtension == "svg" %>
