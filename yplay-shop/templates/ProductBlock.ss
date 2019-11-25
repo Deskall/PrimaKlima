@@ -73,7 +73,7 @@
 				        <% end_loop %>
 				    <% end_if %>
 		        <% else_if Top.ProductType == "packages" %>
-		        	<% loop Products %>
+		        	<% loop activeProducts %>
 		        	<div class="product-item">
 		        		 <strong>$Title</strong>
 		        		 <div>

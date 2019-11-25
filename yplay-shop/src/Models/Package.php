@@ -64,5 +64,9 @@ class Package extends Product {
 		return new ArrayData(['gainM' => $gainM, 'gainU' => $gainU]);
 	}
 
+	public function activeProducts(){
+		return $this->Products()->filter('isVisible',1)->sort('Sort');
+	}
+
 }
 
