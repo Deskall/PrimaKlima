@@ -1,57 +1,75 @@
+$.cachedScript = function( url, options ) {
+ 
+  // Allow user to set any option except for dataType, cache, and url
+  options = $.extend( options || {}, {
+    dataType: "script",
+    cache: true,
+    url: url
+  });
+ 
+  // Use $.ajax() since it is more flexible than $.getScript
+  // Return the jqXHR object so we can chain callbacks
+  return $.ajax( options );
+};
+
 $(document).ready(function(){
   if ($(".flatpickr").length > 0){
-    $(".flatpickr").flatpickr({
-        dateFormat: "d.m.Y",
-        altInput: true,
-        locale: {
-          weekdays: {
-            shorthand: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
-            longhand: [
-              "Sonntag",
-              "Montag",
-              "Dienstag",
-              "Mittwoch",
-              "Donnerstag",
-              "Freitag",
-              "Samstag",
-            ],
-          },
-          months: {
-            shorthand: [
-              "Jan",
-              "Feb",
-              "Mär",
-              "Apr",
-              "Mai",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sep",
-              "Okt",
-              "Nov",
-              "Dez",
-            ],
-            longhand: [
-              "Januar",
-              "Februar",
-              "März",
-              "April",
-              "Mai",
-              "Juni",
-              "Juli",
-              "August",
-              "September",
-              "Oktober",
-              "November",
-              "Dezember",
-            ],
-          },
-          firstDayOfWeek: 1,
-          weekAbbreviation: "KW",
-          rangeSeparator: " bis ",
-          scrollTitle: "Zum ƒndern scrollen",
-          toggleTitle: "Zum Umschalten klicken",
-        }
+    //Include script
+    $.cachedScript( 'thirdparty/04-flatpicker.min.js' ).done(function( script, textStatus ) {
+
+      $(".flatpickr").flatpickr({
+          dateFormat: "d.m.Y",
+          altInput: true,
+          locale: {
+            weekdays: {
+              shorthand: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+              longhand: [
+                "Sonntag",
+                "Montag",
+                "Dienstag",
+                "Mittwoch",
+                "Donnerstag",
+                "Freitag",
+                "Samstag",
+              ],
+            },
+            months: {
+              shorthand: [
+                "Jan",
+                "Feb",
+                "Mär",
+                "Apr",
+                "Mai",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Okt",
+                "Nov",
+                "Dez",
+              ],
+              longhand: [
+                "Januar",
+                "Februar",
+                "März",
+                "April",
+                "Mai",
+                "Juni",
+                "Juli",
+                "August",
+                "September",
+                "Oktober",
+                "November",
+                "Dezember",
+              ],
+            },
+            firstDayOfWeek: 1,
+            weekAbbreviation: "KW",
+            rangeSeparator: " bis ",
+            scrollTitle: "Zum ƒndern scrollen",
+            toggleTitle: "Zum Umschalten klicken",
+          }
+      });
     });
   }
 });
