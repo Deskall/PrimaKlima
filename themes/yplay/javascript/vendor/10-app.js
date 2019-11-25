@@ -12,6 +12,8 @@ $.cachedScript = function( url, options ) {
   return $.ajax( options );
 };
 
+
+//Flatpickr plugin (only if needed)
 $(document).ready(function(){
   if ($(".flatpickr").length > 0){
     //Include script
@@ -114,8 +116,9 @@ $(document).ready(function(){
         });
     }
 	$(document).ready(function(){
-	    if ($(".google-map").length > 0){
-	 		$('<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbrDquBmMxiRMZz6itPir8xKX7HLa7xZE&callback=loadmap"></script>').appendTo($("body"));
+	  if ($(".google-map").length > 0){
+         $.cachedScript( 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCbrDquBmMxiRMZz6itPir8xKX7HLa7xZE&callback=loadmap' ).done(function( script, textStatus ) {
+	 		  });
 	 	}
 	});
 
