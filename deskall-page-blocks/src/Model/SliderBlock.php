@@ -50,7 +50,7 @@ class SliderBlock extends BaseElement implements Searchable
     ];
 
     private static $owns = [
-        'Slides', 'File'
+        'Slides',
     ];
 
     private static $cascade_deletes = [
