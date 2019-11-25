@@ -21,9 +21,6 @@ $CustomStructuredData
 <meta name="msapplication-config" content="$ThemeDir/browserconfig.xml">
 
 <% if isLive %>
-	<!-- UIkit JS -->
-	<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js"></script>
 	<script defer src="$ThemeDir/javascript/main.min.js?v=$LastChangeJS"></script>
 	$HeadCss
 <% else %>
