@@ -109,7 +109,7 @@ class ParentBlock extends ElementList
     ];
 
     private static $block_alignments_vertical = [
-        'uk-flex-top' =>  'Oben'
+        'uk-flex-top' =>  'Oben',
         'uk-flex-middle' => 'Zentriert',
         'uk-flex-bottom' =>  'Boden'
     ];
