@@ -37,7 +37,7 @@ class DeskallPageExtension extends DataExtension
     }
 
     public function LastChangeJS(){
-        $srcDir = Director::baseURL($this->owner->ThemeDir().'/javascript/vendor');
+        $srcDir = Director::baseFolder().$this->owner->ThemeDir().'/javascript/vendor';
          ob_start();
                             print_r($srcDir."\n");
                             $result = ob_get_clean();
