@@ -30,7 +30,8 @@ class ParentBlock extends ElementList
         'ShowDot' => 'Boolean(1)',
         'ShowNav' => 'Boolean(0)',
         'infiniteLoop' => 'Boolean(1)',
-        'BlockAlignment' => 'Varchar'
+        'BlockAlignment' => 'Varchar',
+        'BlockVerticalAlignment' => 'Varchar'
     ];
 
     private static $table_name = 'ParentBlock';
@@ -107,6 +108,11 @@ class ParentBlock extends ElementList
         ]
     ];
 
+    private static $block_alignments_vertical = [
+        'uk-flex-top' =>  'Oben'
+        'uk-flex-middle' => 'Zentriert',
+        'uk-flex-bottom' =>  'Boden'
+    ];
 
 
     private static $defaults = [
@@ -135,6 +141,7 @@ class ParentBlock extends ElementList
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
             HTMLOptionsetField::create('BlockAlignment',_t(__CLASS__.'.BlockAlignment','Blockausrichtung'),$this->owner->stat('block_alignments'))->setDescription(_t(__CLASS__.'.BlockAlignmentLabel','Nur gültig wenn die Blöcke per Linie nehmen nicht die ganze Breite.')),
+            DropdownField::create('BlockVerticalAlignment',_t(__CLASS__.'.BlockVerticalAlignment','Blockausrichtung (Vertical)'),$this->owner->stat('block_alignments_vertical')),
             CheckboxField::create('Slide',_t(__CLASS__.'.Slide','Blöcke als Gallerie einrichten?')),
             CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
             CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
