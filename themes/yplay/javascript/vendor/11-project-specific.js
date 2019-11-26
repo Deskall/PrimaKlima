@@ -393,6 +393,8 @@ $(document).ready(function(){
 		//ScrollUp
 		var screenHeight = $(window).height();
 		$(window).scroll(function(){
+			console.log('ici');
+			console.log($(this).scrollTop());
 			if ($(this).scrollTop() > screenHeight){
 				$(".scrollup-container").show();
 				setTimeout(function(){
