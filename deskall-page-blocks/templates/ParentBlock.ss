@@ -6,7 +6,7 @@
 <% if Slide %>
 	<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
 	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
-	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid uk-padding">
+	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
 	        	 <% loop $Elements.ElementControllers %>
                  <% if $isVisible %>
 				  <li class="$Top.BlockAlignment uk-grid-small uk-flex $Top.BlockVerticalAlignment $ExtraClass">$Me</li>
