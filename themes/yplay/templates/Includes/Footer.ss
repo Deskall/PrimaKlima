@@ -156,7 +156,7 @@
 		<% loop $SiteConfig.activeFooterBlocks.filter('Class','nav-secondary') %>
 			<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 			    <div class="uk-navbar-center">
-			        <div class="uk-navbar-nav uk-flex uk-flex-middle uk-flex-center">
+			        <div class="uk-navbar-nav uk-flex uk-flex-middle uk-flex-center uk-flex-wrap">
 			            <% loop $activeLinks %>
 			           		<div>
 			           			<% with LinkableLink %>
