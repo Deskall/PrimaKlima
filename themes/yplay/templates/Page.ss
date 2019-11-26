@@ -8,14 +8,16 @@
     <div class="uk-offcanvas-content">
       <% include Header %>
       <main class="main-content-wrapper">
-          $Layout
+          $Layout 
+
+          <% include ScrollUp %>
       </main>
       <% if $ID > 0 %> 
         <% include Sidebar %>
       <% end_if %>
       <% include Footer %>
       <% include Modals %>
-      <% include ScrollUp %>
+
     </div>
    <% include MetaDown %>
   </body>
