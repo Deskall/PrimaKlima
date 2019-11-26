@@ -155,7 +155,6 @@ class ShopPageController extends PageController
          $this,
          'OrderForm',
          new FieldList(
-            HeaderField::create('AddressTitle','Ihre Angaben',3),
             OptionsetField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
             CompositeField::create(
                TextField::create('Name','Name')->setAttribute('class','uk-input'),
@@ -163,12 +162,10 @@ class ShopPageController extends PageController
                $birthday = DateField::create('Birthday','Geburstdatum')->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$max->format('Y.m.d'))->setAttribute('class','uk-input')
             )->setName('Step1'),
             CompositeField::create(
-               HeaderField::create('AddressTitle2','Ihre Angaben',3),
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
                TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true)
             )->setName('Step2'),
             CompositeField::create(
-               HeaderField::create('AddressTitle3','Ihre Adresse',3),
                TextField::create('Address','Adresse')->setAttribute('class','uk-input'),
                ReadonlyField::create('PostalCode','PLZ')->setAttribute('class','uk-input'),
                ReadonlyField::create('City','Stadt')->setAttribute('class','uk-input'),
