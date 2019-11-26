@@ -29,7 +29,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
+			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first@s<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
 		<% else %>
 			<div class="uk-width-1-1">
