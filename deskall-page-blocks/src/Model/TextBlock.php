@@ -66,6 +66,11 @@ class TextBlock extends BaseElement implements Searchable
         ],
     ];
 
+    private static $block_alignments_vertical = [
+        'uk-flex-top' =>  'Oben',
+        'uk-flex-middle' => 'Zentriert',
+        'uk-flex-bottom' =>  'Boden'
+    ];
 
    
     private static $table_name = 'TextBlock';
@@ -90,6 +95,7 @@ class TextBlock extends BaseElement implements Searchable
         $fields = parent::getCMSFields();
         $fields->RemoveByName('Layout');
         $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
+        $fields->insertAfter('Layout',DropdownField::create('BlockVerticalAlignment',_t(__CLASS__.'.BlockVerticalAlignment','Blockausrichtung (Vertical)'),$this->owner->stat('block_alignments_vertical')));
         return $fields;
     }
 

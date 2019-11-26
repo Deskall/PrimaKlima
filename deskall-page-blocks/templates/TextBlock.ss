@@ -1,5 +1,5 @@
 
-<div <% if ContentImage %>class="uk-flex" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %>>
+<div <% if ContentImage %>class="uk-flex $BlockVerticalAlignment" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %>>
 	<% if ContentImage %>
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
