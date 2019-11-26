@@ -114,7 +114,7 @@
                         </div>
                        <div class="uk-margin-top uk-flex uk-flex-around">
                             <a class="step backwards uk-button uk-button-muted" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
-                            <a class="step forward uk-button" data-nav="1">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+                            <a class="step forward uk-button" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
                       </div>
                 </li>
                 <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %>
@@ -166,11 +166,12 @@
                                 </div>
                             </div>
                             <div class="uk-margin-large-top uk-flex uk-flex-around">
-                                <a class="step backwards uk-button uk-button-muted" data-nav="1"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
+                                <a class="step backwards uk-button uk-button-muted" data-nav="<% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %>2<% else %>1<% end_if %>"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
                                 <a class="step forward uk-button" data-nav="2">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
                             </div>
                 </li>
                 <% end_if %>
+                <% if Controller.filteredOptions.exists %>
                 <li class="uk-margin" data-step="options">
                     
                         <h3>Optionen</h3>
@@ -194,11 +195,12 @@
                             	<% end_loop %>
                             </div>
                             <div class="uk-margin-top uk-flex uk-flex-around">
-                            	<a class="step backwards uk-button uk-button-muted" data-nav="2"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
+                            	<a class="step backwards uk-button uk-button-muted" data-nav="<% if Controller.activeCart.hasCategory('yplay-talk') || Controller.activeCart.hasCategory('yplay-mobile') %>2<% else %>1<% end_if %>"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
                 	            <a class="step forward uk-button" data-nav="3">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
                 	        </div>
                        
                 </li>
+                <% end_if %>
                 <li class="uk-margin" data-step="summary">
                    
                         
