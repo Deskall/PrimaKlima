@@ -4,7 +4,7 @@
 </div>
 <% end_if %>
 <% if Slide %>
-<div class="uk-padding">
+
 	<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
 	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
 	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
@@ -30,7 +30,7 @@
         <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
         <% end_if %>
 	</div>
-</div>
+
 <% else_if CollapsableChildren %>
 <ul data-uk-accordion="<% if not CanCollapse %>collapsible:false;<% end_if %><% if CollapseMultipe %>multiple:true;<% end_if %>">
     <% loop $Elements.ElementControllers.filter('isVisible',1) %>
