@@ -38,11 +38,15 @@ class DeskallPageExtension extends DataExtension
 
     public function LastChangeJS(){
         $srcDir = Director::baseURL($this->owner->ThemeDir().'/javascript/vendor');
+         ob_start();
+                            print_r($srcDir."\n");
+                            $result = ob_get_clean();
+                            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
         $srcFiles = array_diff(scandir($srcDir), array('.', '..'));
          ob_start();
                             print_r($srcFiles);
                             $result = ob_get_clean();
-                            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+                            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
         $filetime = 0;
         foreach($srcFiles as $key => $file) {
             if( filemtime($srcDir."/".$file) > $filetime)
