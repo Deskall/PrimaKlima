@@ -18,7 +18,8 @@ class TextBlock extends BaseElement implements Searchable
     private static $help_text = "Text und Bild";
 
     private static $db = [
-        'HTML' => 'HTMLText'
+        'HTML' => 'HTMLText',
+        'BlockVerticalAlignment' => 'Varchar'
     ];
 
     private static $has_one = [
