@@ -156,9 +156,9 @@
 		<% loop $SiteConfig.activeFooterBlocks.filter('Class','nav-secondary') %>
 			<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 			    <div class="uk-navbar-center">
-			        <ul class="uk-navbar-nav">
+			        <div class="uk-navbar-nav" data-uk-grid>
 			            <% loop $activeLinks %>
-			           		<li class="uk-text-truncate">
+			           		<div>
 			           			<% with LinkableLink %>
 			           			    <% if $LinkURL %>
 			           			     	<a  href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %> class="<% if $Background %>uk-button button-{$Background}<% end_if %> <% if hasIcone %>dk-link-with-icon<% end_if %>">
@@ -171,9 +171,9 @@
 			           			        </a>
 			           			    <% end_if %>
 			           			<% end_with %>
-			           		</li>
+			           		</div>
 			           	<% end_loop %>
-			        </ul>
+			        </div>
 			    </div>
 			</nav>
 			<% end_loop %>
