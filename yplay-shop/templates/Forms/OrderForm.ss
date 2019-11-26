@@ -103,6 +103,9 @@
                                     $FieldHolder 
                                 <% end_with %>
                             </div>
+                            <% with Fields.dataFieldByName('BillSameAddress') %>
+                                $FieldHolder 
+                            <% end_with %>
                         </div>
                         <div id="bill-fields" class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid hidden>
                             <% with Fields.FieldByName('BillFields') %>
