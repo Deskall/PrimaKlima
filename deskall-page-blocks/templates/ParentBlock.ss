@@ -7,15 +7,17 @@
 
 	<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
 	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
-	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
-	        	 <% loop $Elements.ElementControllers %>
-                 <% if $isVisible %>
-				  <li class="$Top.BlockAlignment uk-grid-small uk-flex $Top.BlockVerticalAlignment $ExtraClass">$Me</li>
-                  <% end_if %>
-			    <% end_loop %>
-	        </ul>
+            <div class="uk-slider-container">
+    	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
+    	        	 <% loop $Elements.ElementControllers %>
+                     <% if $isVisible %>
+    				  <li class="$Top.BlockAlignment uk-grid-small uk-flex $Top.BlockVerticalAlignment $ExtraClass">$Me</li>
+                      <% end_if %>
+    			    <% end_loop %>
+    	        </ul>
+            </div>
         	<% if ShowNav %>
-        	<div class="uk-hidden@l uk-light">
+        	<div class="uk-hidden@l">
         		<a class="uk-position-center-left uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
         		<a class="uk-position-center-right uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
         	</div>
