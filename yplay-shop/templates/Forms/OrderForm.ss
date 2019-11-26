@@ -59,9 +59,7 @@
                 </li>
                 <li id="address" class="uk-margin" data-step="step-1">
                         <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
-                            <% with Fields.dataFieldByName('AddressTitle') %>
-                                $FieldHolder
-                            <% end_with %>
+                           <h3>Ihre Angaben</h3>
                             <div>
                             <% with Fields.dataFieldByName('Gender') %>
                                 $Field
@@ -79,6 +77,7 @@
                 </li>
                 <li class="uk-margin" data-step="step-2">
                         <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
+                            <h3>Ihre Angaben</h3>
                             <% with Fields.FieldByName('Step2') %>
                                 $FieldHolder 
                             <% end_with %>
@@ -90,6 +89,7 @@
                 </li>
                 <li class="uk-margin" data-step="step-3">
                         <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
+                            <h3>Ihre Adresse</h3>
                             <% with Fields.dataFieldByName('Address') %>
                                 $FieldHolder 
                             <% end_with %>
@@ -117,6 +117,7 @@
                 <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %>
                 <li class="uk-margin" data-step="phone">
                         <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
+                            <h3>Ihre Telefonnummer</h3>
                         	<% with Fields.FieldByName('PhoneTitle') %>
                         		$FieldHolder 
                         	<% end_with %>
