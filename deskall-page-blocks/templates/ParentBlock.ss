@@ -4,8 +4,8 @@
 </div>
 <% end_if %>
 <% if Slide %>
-	<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>" class="uk-padding">
-	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
+	<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
+	    <div class="uk-position-relative uk-visible-toggle uk-padding" tabindex="-1">
 	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
 	        	 <% loop $Elements.ElementControllers %>
                  <% if $isVisible %>
