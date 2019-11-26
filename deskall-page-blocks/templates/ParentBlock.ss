@@ -9,7 +9,7 @@
 	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
 	        	 <% loop $Elements.ElementControllers %>
                  <% if $isVisible %>
-				  <li class="$Top.BlockAlignment uk-grid-small uk-flex $Top.BlockVerticalAlignment $Layout">$Me</li>
+				  <li class="$Top.BlockAlignment uk-grid-small uk-flex $Top.BlockVerticalAlignment $ExtraClass">$Me</li>
                   <% end_if %>
 			    <% end_loop %>
 	        </ul>
@@ -32,7 +32,7 @@
 <% else_if CollapsableChildren %>
 <ul data-uk-accordion="<% if not CanCollapse %>collapsible:false;<% end_if %><% if CollapseMultipe %>multiple:true;<% end_if %>">
     <% loop $Elements.ElementControllers.filter('isVisible',1) %>
-    <li id="$Element.Anchor" class="uk-margin <% if not Element.collapsed %>uk-open<% end_if %>">
+    <li id="$Element.Anchor" class="uk-margin <% if not Element.collapsed %>uk-open<% end_if %> $Element.ExtraClass">
        <a class="uk-accordion-title"><h3>$Element.Title</h3></a>
         <div id="panel-{$Element.ID}" class="uk-accordion-content element $Element.SimpleClassName.LowerCase uk-margin-remove-top">
         <% if $Element.BackgroundImage.exists %>
