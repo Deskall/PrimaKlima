@@ -390,11 +390,18 @@ $(document).ready(function(){
 		$(".dk-transition-toggle-not-mobile").addClass('uk-transition-toggle');
 	}
 	if (isMobile.any()){
+		//ScrollUp
+		var screenHeight = $(window).height();
 		$(window).scroll(function(){
-			$(".scrollup-container").show();
-			setTimeout(function(){
+			if ($(this).scrollTop() > screenHeight){
+				$(".scrollup-container").show();
+				setTimeout(function(){
+					$(".scrollup-container").hide();
+				},2000);
+			}
+			else{
 				$(".scrollup-container").hide();
-			},2000);
+			}
 		});
 	}
 });
