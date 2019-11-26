@@ -388,6 +388,8 @@ $(document).ready(function(){
 $(document).ready(function(){
 	if (!isMobile.any()){
 		$(".dk-transition-toggle-not-mobile").addClass('uk-transition-toggle');
+	}
+	if (isMobile.any()){
 		$(window).scroll(function(){
 			$(".scrollup-container").show();
 			setTimeout(function(){
@@ -395,5 +397,4 @@ $(document).ready(function(){
 			},2000);
 		});
 	}
-
 });
