@@ -61,7 +61,7 @@
 
 				</a>
 			</div>
-			<div class="countdown-container uk-margin">
+			<div class="countdown-container uk-margin $TextAlign">
 				<div class="uk-grid-collapse uk-text-center uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
 				    <div>
 				        <div class="uk-countdown-number uk-countdown-days"></div>
