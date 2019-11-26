@@ -5,7 +5,7 @@
 <% end_if %>
 <% if Slide %>
 
-	<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
+	<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:<% if $Interval %>$Interval<% else %>7000<% end_if %>;<% end_if %>">
 	    <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
             <div class="uk-slider-container">
     	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">

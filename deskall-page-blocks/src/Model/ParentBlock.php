@@ -9,6 +9,7 @@ use SilverStripe\Core\Config\Config;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\View\Requirements;
 use SilverStripe\Forms\CompositeField;
@@ -27,6 +28,7 @@ class ParentBlock extends ElementList
         'HTML' => 'HTMLText',
         'Slide' => 'Boolean(0)',
         'Autoplay' => 'Boolean(0)',
+        'Interval' => 'Int',
         'ShowDot' => 'Boolean(1)',
         'ShowNav' => 'Boolean(0)',
         'infiniteLoop' => 'Boolean(1)',
@@ -138,6 +140,7 @@ class ParentBlock extends ElementList
         $fields->removeByName('infiniteLoop');
         $fields->removeByName('BlockAlignment');
         $fields->removeByName('BlockVerticalAlignment');
+        $fields->removeByName('Interval');
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
@@ -147,6 +150,7 @@ class ParentBlock extends ElementList
             CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
             CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
             CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches abspielen?')),
+            NumericField::create('Interval',_t(__CLASS__.'.Interval','Interval (millisekunden)')),
             CheckboxField::create('infiniteLoop',_t(__CLASS__.'.inifite','unendlish abspielen?')),
             CheckboxField::create('Border',_t(__CLASS__.'.Border','Border zwischen Blöcke anzeigen')),
             CheckboxField::create('matchHeight',_t(__CLASS__.'.SameHeight','gleiche Höhe für alle Blöcke benutzen'))
