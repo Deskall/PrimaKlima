@@ -15,6 +15,7 @@
       <% end_if %>
       <% include Footer %>
       <% include Modals %>
+      <% include ScrollUp %>
     </div>
    <% include MetaDown %>
   </body>
