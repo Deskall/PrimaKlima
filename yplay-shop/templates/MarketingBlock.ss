@@ -5,7 +5,7 @@
 				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" >
 					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)">
 				</a>
-				<div class="countdown-container uk-margin">
+				<div class="countdown-container uk-margin $TextAlign">
 					<div class="uk-grid-collapse uk-text-center uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
 					    <div>
 					        <div class="uk-countdown-number uk-countdown-days"></div>
