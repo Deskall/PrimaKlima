@@ -31,6 +31,7 @@ class ParentBlock extends ElementList
         'Interval' => 'Int',
         'ShowDot' => 'Boolean(1)',
         'ShowNav' => 'Boolean(0)',
+        'ShowNavMobile' => 'Boolean(0)',
         'infiniteLoop' => 'Boolean(1)',
         'BlockAlignment' => 'Varchar',
         'BlockVerticalAlignment' => 'Varchar'
@@ -137,6 +138,7 @@ class ParentBlock extends ElementList
         $fields->removeByName('Autoplay');
         $fields->removeByName('ShowDot');
         $fields->removeByName('ShowNav');
+        $fields->removeByName('ShowNavMobile');
         $fields->removeByName('infiniteLoop');
         $fields->removeByName('BlockAlignment');
         $fields->removeByName('BlockVerticalAlignment');
@@ -149,6 +151,7 @@ class ParentBlock extends ElementList
             CheckboxField::create('Slide',_t(__CLASS__.'.Slide','Blöcke als Gallerie einrichten?')),
             CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
             CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
+            CheckboxField::create('ShowNavMobile',_t(__CLASS__.'.ShowNavMobile','Navigation für Mobile anzeigen?')),
             CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches abspielen?')),
             NumericField::create('Interval',_t(__CLASS__.'.Interval','Interval (millisekunden)')),
             CheckboxField::create('infiniteLoop',_t(__CLASS__.'.inifite','unendlish abspielen?')),
