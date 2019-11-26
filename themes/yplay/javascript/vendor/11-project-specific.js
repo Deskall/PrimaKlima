@@ -395,9 +395,6 @@ $(document).ready(function(){
 		$(window).scroll(function(){
 			if ($(this).scrollTop() > screenHeight){
 				$(".scrollup-container").show();
-				setTimeout(function(){
-					$(".scrollup-container").hide();
-				},6000);
 			}
 			else{
 				$(".scrollup-container").hide();
