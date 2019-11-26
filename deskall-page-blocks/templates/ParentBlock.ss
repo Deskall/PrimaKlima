@@ -9,7 +9,7 @@
 	        <ul class="uk-slider-items list-element__container $BlocksPerLine uk-grid">
 	        	 <% loop $Elements.ElementControllers %>
                  <% if $isVisible %>
-				  <li class="$Top.BlockAlignment uk-grid-small uk-flex $Top.BlockVerticalAlignment">$Me</li>
+				  <li class="$Top.BlockAlignment uk-grid-small uk-flex $Top.BlockVerticalAlignment $Layout">$Me</li>
                   <% end_if %>
 			    <% end_loop %>
 	        </ul>
