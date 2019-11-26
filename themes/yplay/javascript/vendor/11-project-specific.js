@@ -388,5 +388,12 @@ $(document).ready(function(){
 $(document).ready(function(){
 	if (!isMobile.any()){
 		$(".dk-transition-toggle-not-mobile").addClass('uk-transition-toggle');
+		$(window).scroll(function(){
+			$(".scrollup-container").show();
+			setTimeout(function(){
+				$(".scrollup-container").hide();
+			},2000);
+		});
 	}
+
 });
