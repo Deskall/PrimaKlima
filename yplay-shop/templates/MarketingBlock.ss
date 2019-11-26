@@ -1,33 +1,33 @@
-<div class="countdown-container uk-margin">
-	<div class="uk-grid-collapse uk-text-center uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
-	    <div>
-	        <div class="uk-countdown-number uk-countdown-days"></div>
-	        <div class="uk-countdown-label  uk-text-center">Tage</div>
-	    </div>
-	    <div class="uk-countdown-separator">:</div>
-	    <div>
-	        <div class="uk-countdown-number uk-countdown-hours"></div>
-	        <div class="uk-countdown-label  uk-text-center">Stunden</div>
-	    </div>
-	    <div class="uk-countdown-separator">:</div>
-	    <div>
-	        <div class="uk-countdown-number uk-countdown-minutes"></div>
-	        <div class="uk-countdown-label  uk-text-center">Minuten</div>
-	    </div>
-	    <div class="uk-countdown-separator">:</div>
-	    <div>
-	        <div class="uk-countdown-number uk-countdown-seconds"></div>
-	        <div class="uk-countdown-label  uk-text-center">Sekunden</div>
-	    </div>
-	</div>
-</div>
 <div <% if ContentImage %>class="uk-flex" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %>>
-	<% if ContentImage %>
+	<% if ContentImage || Countdown %>
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
 				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" >
 					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)">
 				</a>
+				<div class="countdown-container uk-margin">
+					<div class="uk-grid-collapse uk-text-center uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
+					    <div>
+					        <div class="uk-countdown-number uk-countdown-days"></div>
+					        <div class="uk-countdown-label  uk-text-center">Tage</div>
+					    </div>
+					    <div class="uk-countdown-separator">:</div>
+					    <div>
+					        <div class="uk-countdown-number uk-countdown-hours"></div>
+					        <div class="uk-countdown-label  uk-text-center">Stunden</div>
+					    </div>
+					    <div class="uk-countdown-separator">:</div>
+					    <div>
+					        <div class="uk-countdown-number uk-countdown-minutes"></div>
+					        <div class="uk-countdown-label  uk-text-center">Minuten</div>
+					    </div>
+					    <div class="uk-countdown-separator">:</div>
+					    <div>
+					        <div class="uk-countdown-number uk-countdown-seconds"></div>
+					        <div class="uk-countdown-label  uk-text-center">Sekunden</div>
+					    </div>
+					</div>
+				</div>
 			</div>
 			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
@@ -60,6 +60,29 @@
 					<% end_if %>
 
 				</a>
+			</div>
+			<div class="countdown-container uk-margin">
+				<div class="uk-grid-collapse uk-text-center uk-child-width-auto" uk-grid uk-countdown="date: $Countdown">
+				    <div>
+				        <div class="uk-countdown-number uk-countdown-days"></div>
+				        <div class="uk-countdown-label  uk-text-center">Tage</div>
+				    </div>
+				    <div class="uk-countdown-separator">:</div>
+				    <div>
+				        <div class="uk-countdown-number uk-countdown-hours"></div>
+				        <div class="uk-countdown-label  uk-text-center">Stunden</div>
+				    </div>
+				    <div class="uk-countdown-separator">:</div>
+				    <div>
+				        <div class="uk-countdown-number uk-countdown-minutes"></div>
+				        <div class="uk-countdown-label  uk-text-center">Minuten</div>
+				    </div>
+				    <div class="uk-countdown-separator">:</div>
+				    <div>
+				        <div class="uk-countdown-number uk-countdown-seconds"></div>
+				        <div class="uk-countdown-label  uk-text-center">Sekunden</div>
+				    </div>
+				</div>
 			</div>
 			<div class="dk-text-content uk-width-1-1 <% if Layout == "above" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
