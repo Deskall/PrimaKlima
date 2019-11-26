@@ -518,6 +518,20 @@ label.error{
 	}
 }
 
+//marketing product block
+.internet-block{
+	.fill-block(@internet);
+}
+.tv-block{
+	.fill-block(@tv);
+}
+.phone-block{
+	.fill-block(@phone);
+}
+.mobile-block{
+	.fill-block(@mobile);
+}
+
 
 //Apply category style
 body{
@@ -550,5 +564,17 @@ body{
 	}
 }
 
+.fill-block(@color){
+	h1,h2{
+		color:@color;
+	}
+	a:not(.uk-button){
+		color:@color;
+	}
+	.uk-button{
+		background-color: @color;
+		color:@white-background;
+	}
+}
 
 
