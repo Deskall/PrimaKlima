@@ -562,17 +562,17 @@ body{
 		background-color: @color;
 		color:@white-background;
 	}
-	
-	.hook-dotnav-item(){
+	.uk-dotnav > * > *{
 		background: fade(@color, 20%);
 	}
-	.hook-dotnav-item-hover(){
+	.uk-dotnav > * > :hover,
+	.uk-dotnav > * > :focus {
 		background: fade(@color, 60%);
 	}
-	.hook-dotnav-item-onclick(){
+	.uk-dotnav > * > :active {
 		background: fade(@color, 20%);
 	}
-	.hook-dotnav-item-active(){
+	.uk-dotnav > .uk-active > * {
 		background: fade(@color, 60%);
 	}
 }
