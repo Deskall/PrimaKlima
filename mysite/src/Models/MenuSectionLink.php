@@ -4,7 +4,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\SiteConfig\SiteConfig;
 
 
-class MenuSectionLink extends MenuLink{
+class MenuSectionLink extends LayoutLink{
 	private static $db = [
 		'Label' => 'Varchar',
 		'Background' => 'Varchar'
