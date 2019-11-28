@@ -10,7 +10,7 @@ class MenuSectionLink extends LayoutLink{
 		'Background' => 'Varchar'
 	];
 
-	private static $has_one = ['Parent' => MenuSection::class ];
+	private static $has_one = ['MenuParent' => MenuSection::class ];
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
