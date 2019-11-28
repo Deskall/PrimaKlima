@@ -9,7 +9,7 @@
 					<% loop MenuSections %>
 					<li class="menu-section">
 						<div class="uk-grid-small" data-uk-grid>
-							<div class="uk-width-1-5"><img width="60" height="60" src="$Image.URL" ></div>
+							<div class="uk-width-1-5"><img width="60" height="60" src="$Image.URL" class="menu-icon"></div>
 							<div class="uk-width-4-5">
 								<div class="menu-section-title">$Title</div>
 								<div class="menu-section-text">$Text</div>
