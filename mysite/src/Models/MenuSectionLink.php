@@ -15,11 +15,11 @@ class MenuSectionLink extends DataObject{
 	];
 
 	private static $summary_fields = [
-
 		'NiceLinkType',
 		'NiceTitle',
 		'NiceURL'
 	];
+
 	private static $db = [
 		'Type' => 'Varchar(255)',
 		'Label' => 'Varchar',
@@ -48,10 +48,6 @@ class MenuSectionLink extends DataObject{
 		// $fields->FieldByName('Background')->displayIf('Label')->isNotNull()->end();
 		return $fields;
 	}
-}
-
-
-
 
 
 	public function NiceLinkType(){
