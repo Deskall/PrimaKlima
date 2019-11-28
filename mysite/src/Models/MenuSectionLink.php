@@ -70,7 +70,5 @@ class MenuSectionLink extends DataObject{
     	return DBField::create_field('HTMLText', $html)->Summary(20);
     }
 
-    public function forTemplate(){
-    	return $this->renderWith('Includes/'.__CLASS__);
-    }
+    
 }
