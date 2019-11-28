@@ -53,6 +53,7 @@ class MenuSection extends DataObject{
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Links');
 		$fields->removeByName('PageID');
+		$fields->removeByName('Image');
 		$fields->insertAfter('Title',HTMLEditorField::create('Text',_t(__CLASS__.'.Text','Einstiegstext'))->setRows(3));
 		
 		
