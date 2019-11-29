@@ -244,7 +244,10 @@ class ShopPageController extends PageController
    }
 
    public function doOrder($data,$form){
-
+      ob_start();
+               print_r($data);
+               $result = ob_get_clean();
+               file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
       //Retrive Cart
       $cartId = $this->getRequest()->getSession()->get('shopcart_id');
       $cart = ($cartId) ? ShopCart::get()->byId($cartId) : null;
