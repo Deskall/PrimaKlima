@@ -126,6 +126,17 @@ $(document).ready(function(){
 				});
 			}
 		});
+
+		//Handle the category Switcher
+		$(document).on("click",".category .switch",function(){
+			var input = $(this).parents('.category').find('.no-category');
+			if (input.is(':checked')){
+				input.prop('checked',false).trigger('change');
+			}
+			if (input.is(':checked')){
+				input.prop('checked',true).trigger('change');
+			}
+		});
 	}
 
 
