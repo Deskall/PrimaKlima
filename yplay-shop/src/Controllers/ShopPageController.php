@@ -230,7 +230,7 @@ class ShopPageController extends PageController
          }
       }
       
-      $form->enableSpamProtection();
+     
       $form->addExtraClass('form-std');
       $form->setTemplate('Forms/OrderForm');
       $form->loadDataFrom($cart);
