@@ -185,7 +185,7 @@ class ShopPageController extends PageController
                TextareaField::create('Comments','Bemerkungen'),
                // CheckboxField::create('Newsletter','Ich abonniere den Newsletter'),
                CheckboxField::create('AGB','Ich bin mit den AGB einverstanden'),
-               NocaptchaField::create('NoCaptcha')
+               NocaptchaField::create('Captcha')
             )->setName('OtherFields'),
             HiddenField::create('ExistingCustomer')
          ),
