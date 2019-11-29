@@ -158,10 +158,10 @@ $(document).ready(function(){
 			}
 		});
 		UpdateOrder();
-		setTimeout(function(){
-			$("#loading-block").remove();
-			$("#products-hidden-container-block").slideDown();
-		},1000);
+		
+		$("#loading-block").remove();
+		$("#products-hidden-container-block").slideDown();
+		
 		
 	}
 
