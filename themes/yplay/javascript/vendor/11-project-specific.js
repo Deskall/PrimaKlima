@@ -71,7 +71,7 @@ $(document).ready(function(){
 		var packages = [];
 		var productsOfPackages = [];
 		var hasEvent = false;
-		
+
 		
 		var url = window.location.pathname;
 		$.ajax({
@@ -79,18 +79,16 @@ $(document).ready(function(){
 			dataType: 'Json'
 		}).done(function(response){
 			packages = response;
-			console.log(packages);
-			
+			$.ajax({
+				url: '/shop-functions/getActiveCart',
+				dataType: 'Json'
+			}).done(function(response){
+				products = response;
+				InitSliders(products);
+			});
 		});
 
-		$.ajax({
-			url: '/shop-functions/getActiveCart',
-			dataType: 'Json'
-		}).done(function(response){
-			products = response;
-			console.log(products);
-			InitSliders(products);
-		});
+		
 		
 		
 		$(document).on("change","[data-product-choice]",function(){
@@ -160,6 +158,8 @@ $(document).ready(function(){
 			}
 		});
 		UpdateOrder();
+		$("#loading-block").remove();
+		$("#products-hidden-container-block").slideDown();
 	}
 
 	function UpdateOrder(){
