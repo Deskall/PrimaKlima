@@ -291,13 +291,7 @@ footer.uk-section{
   transition: .4s;
 }
 
-input:checked + .slider {
-  background-color: @mainColor;
-}
 
-input:focus + .slider {
-  box-shadow: 0 0 1px @mainColor;
-}
 
 input:checked + .slider:before {
   -webkit-transform: translateX(17px);
@@ -406,6 +400,13 @@ input:checked + .slider:before {
 		&:hover,&:active,:focus{
 			background-color: darken(@color,20%);
 		}
+	}
+	.slider {
+	  background-color: @color;
+	}
+
+	.slider {
+	  box-shadow: 0 0 1px @color;
 	}
 }
 .chosen-product{
