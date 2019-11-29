@@ -12,7 +12,7 @@ class PriceVariation extends DataObject {
 		'Unit' => 'Varchar',
 		'Value' => 'Decimal',
 		'Type' => 'Varchar',
-		'Duration' => 'Varchar'
+		'ApplyTo' => 'Varchar'
 	];
 
 	private static $has_one = ['Action' => ShopAction::class];
@@ -37,9 +37,9 @@ class PriceVariation extends DataObject {
 		$labels = parent::fieldLabels($includerelation);
 		$labels['Label'] = _t(__CLASS__.'.Label','Label');
 		$labels['Unit'] = _t(__CLASS__.'.Unit','Einheit');
-		$labels['Value'] = _t(__CLASS__.'.Value','Discount');
+		$labels['Value'] = _t(__CLASS__.'.Value','Discount / Neu Preis');
 		$labels['Type'] = _t(__CLASS__.'.Type','Type');
-		$labels['Duration'] = _t(__CLASS__.'.Duration','Dauern');
+		$labels['ApplyTo'] = _t(__CLASS__.'.ApplyTo','gelten für');
 		$labels['Products'] = _t(__CLASS__.'.Products','Produkte');
 		$labels['Packages'] = _t(__CLASS__.'.Packages','Pakete');
 		$labels['Options'] = _t(__CLASS__.'.Options','Optionen');
@@ -59,10 +59,10 @@ class PriceVariation extends DataObject {
 		$fields->removeByName('Packages');
 		$fields->removeByName('Options');
 		$fields->removeByName('Codes');
-
-		$fields->addFieldsToTab('Root.Main',[
+		$fields->insertAfter('Label',[
 			DropdownField::create('Type',$this->fieldLabels()['Type'],['discount' => 'Rabatt', 'replace' => 'Preis ersetzung']),
-			DropdownField::create('Unit',$this->fieldLabels()['Unit'],['percent' => 'Prozentsatz', 'discount' => 'CHF'])->displayIf('Type')->isEqualTo('discount')->end()
+			DropdownField::create('Unit',$this->fieldLabels()['Unit'],['percent' => 'Prozentsatz', 'discount' => 'CHF'])->displayIf('Type')->isEqualTo('discount')->end(),
+			DropdownField::create('ApplyTo',$this->fieldLabels()['ApplyTo'],['MonthlyPrice' => 'den monatlichen Preis', 'UniquePrice' => 'den einmaligen Preis', 'Fee' => 'den gebühren Preis'])
 		]);
 
 		return $fields;
