@@ -9,7 +9,7 @@ class PriceVariation extends DataObject {
 
 	
 	private static $db = [
-		'Label' => 'Varchar',
+		'Title' => 'Varchar',
 		'Unit' => 'Varchar',
 		'Value' => 'Decimal',
 		'Type' => 'Varchar',
@@ -36,7 +36,7 @@ class PriceVariation extends DataObject {
 
 	public function fieldLabels($includerelation = true){
 		$labels = parent::fieldLabels($includerelation);
-		$labels['Label'] = _t(__CLASS__.'.Label','Label');
+		$labels['Title'] = _t(__CLASS__.'.Title','Label');
 		$labels['Unit'] = _t(__CLASS__.'.Unit','Einheit');
 		$labels['Value'] = _t(__CLASS__.'.Value','Discount / Neu Preis');
 		$labels['Type'] = _t(__CLASS__.'.Type','Type');
@@ -61,9 +61,9 @@ class PriceVariation extends DataObject {
 		$fields->removeByName('Packages');
 		$fields->removeByName('Options');
 		$fields->removeByName('Codes');
-		$fields->insertAfter('Label',DropdownField::create('Type',$this->fieldLabels()['Type'],['discount' => 'Rabatt', 'replace' => 'Preis ersetzung']));
-		$fields->insertAfter('Label',DropdownField::create('Unit',$this->fieldLabels()['Unit'],['percent' => 'Prozentsatz', 'discount' => 'CHF'])->displayIf('Type')->isEqualTo('discount')->end());
-		$fields->insertAfter('Label',DropdownField::create('ApplyTo',$this->fieldLabels()['ApplyTo'],['MonthlyPrice' => 'den monatlichen Preis', 'UniquePrice' => 'den einmaligen Preis', 'Fee' => 'den gebühren Preis']));
+		$fields->insertAfter('Title',DropdownField::create('Type',$this->fieldLabels()['Type'],['discount' => 'Rabatt', 'replace' => 'Preis ersetzung']));
+		$fields->insertAfter('Title',DropdownField::create('Unit',$this->fieldLabels()['Unit'],['percent' => 'Prozentsatz', 'discount' => 'CHF'])->displayIf('Type')->isEqualTo('discount')->end());
+		$fields->insertAfter('Title',DropdownField::create('ApplyTo',$this->fieldLabels()['ApplyTo'],['MonthlyPrice' => 'den monatlichen Preis', 'UniquePrice' => 'den einmaligen Preis', 'Fee' => 'den gebühren Preis']));
 
 		$fields->push(ListboxField::create('Codes',$this->fieldLabels(true)['Codes'],PostalCode::get()->map('ID','Code'),$this->Codes()));
 		$fields->push(ListboxField::create('Products',$this->fieldLabels(true)['Products'],Product::get()->map('ID','Title'),$this->Products()));
