@@ -46,7 +46,7 @@ class ProductDependency extends DataObject {
 		$fields->removeByName('ExcludedCodes');
 		$fields->removeByName('Codes');
 		$fields->removeByName('ParentID');
-		$fields->push(ListboxField::create('Categories',$this->fieldLabels(true)['Categories']), ProductCategory::get()->exclude('ID',$this->ParentID)->map('ID','Title'),$this->Categories()->map('ID','Title'));
+		$fields->push(ListboxField::create('Categories',$this->fieldLabels(true)['Categories']), ProductCategory::get()->exclude('ID',$this->ParentID)->map('ID','Title')->toArray(),$this->Categories()->map('ID','Title'));
 		return $fields;
 	}
 }
