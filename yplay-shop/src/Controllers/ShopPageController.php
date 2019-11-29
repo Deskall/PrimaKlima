@@ -142,7 +142,7 @@ class ShopPageController extends PageController
       
       $cart->write();
       $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
-      return $this->owner->redirect($this->owner->ShopPage()->Link(),302);
+      return $this->owner->redirect($this->owner->ConfiguratorPage()->Link(),302);
    }
 
    public function OrderForm(){
