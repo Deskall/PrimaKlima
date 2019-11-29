@@ -18,7 +18,7 @@ class ProductDependency extends DataObject {
 	];
 
 	private static $many_many = [
-		'Categories' => ProductCategory::class,
+		'RequiredCategories' => ProductCategory::class,
 		'Codes' => PostalCode::class,
 		'ExcludedCodes' => PostalCode::class
 	];
@@ -33,7 +33,7 @@ class ProductDependency extends DataObject {
 		$labels['Parent'] = 'Kategorie';
 		$labels['Codes'] = 'betroffene Ortschaften';
 		$labels['ExcludedCodes'] = 'ausgeschlossene Ortschaften';
-		$labels['Categories'] = 'Abhängigkeiten';
+		$labels['RequiredCategories'] = 'Abhängigkeiten';
 		$labels['isGlobal'] = 'Stimmt für alle Ortschaften';
 		$labels['notIndenpendent'] = 'Kann nicht unabhängig bestellt werden';
 		return $labels;
@@ -42,11 +42,11 @@ class ProductDependency extends DataObject {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->removeByName('Categories');
+		$fields->removeByName('RequiredCategories');
 		$fields->removeByName('ExcludedCodes');
 		$fields->removeByName('Codes');
 		$fields->removeByName('ParentID');
-		$fields->push(ListboxField::create('Categories',$this->fieldLabels(true)['Categories']), ProductCategory::get()->map('ID','Title')->toArray(),$this->Categories()->map('ID','Title'));
+		$fields->push(ListboxField::create('RequiredCategories',$this->fieldLabels(true)['RequiredCategories']), ProductCategory::get()->map('ID','Title')->toArray(),$this->RequiredCategories()->map('ID','Title'));
 		return $fields;
 	}
 }
