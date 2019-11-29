@@ -158,8 +158,11 @@ $(document).ready(function(){
 			}
 		});
 		UpdateOrder();
-		$("#loading-block").remove();
-		$("#products-hidden-container-block").slideDown();
+		setTimeout(function(){
+			$("#loading-block").remove();
+			$("#products-hidden-container-block").slideDown();
+		},1000);
+		
 	}
 
 	function UpdateOrder(){
