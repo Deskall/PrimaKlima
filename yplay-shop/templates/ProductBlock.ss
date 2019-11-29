@@ -59,6 +59,9 @@
 	        <% if BestSeller %>
 	        <div class="bestseller">Bestseller</div>
 	        <% end_if %>
+	        <% if hasActions %>
+	        <div class="discount"><i class="icon icon-percent"></i></div>
+	        <% end_if %>
 	        <div class="product-body">
 	        	<% if Top.ProductType == "products" %>
 	        		<% if Subtitle %>
