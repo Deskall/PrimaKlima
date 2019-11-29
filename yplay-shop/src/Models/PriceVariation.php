@@ -55,6 +55,7 @@ class PriceVariation extends DataObject {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
+		$fields->removeByName('ActionID');
 		$fields->removeByName('Products');
 		$fields->removeByName('Packages');
 		$fields->removeByName('Options');
@@ -63,6 +64,7 @@ class PriceVariation extends DataObject {
 		$fields->insertAfter('Label',DropdownField::create('Unit',$this->fieldLabels()['Unit'],['percent' => 'Prozentsatz', 'discount' => 'CHF'])->displayIf('Type')->isEqualTo('discount')->end());
 		$fields->insertAfter('Label',DropdownField::create('ApplyTo',$this->fieldLabels()['ApplyTo'],['MonthlyPrice' => 'den monatlichen Preis', 'UniquePrice' => 'den einmaligen Preis', 'Fee' => 'den gebühren Preis']));
 
+		$fields->push(ListboxField::create('Codes',$this->fieldLabels(true)['Codes'],PostalCode::get()->map('ID','Code'),$this->Codes()));
 		return $fields;
 	}
 
