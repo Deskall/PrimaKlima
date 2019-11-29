@@ -12,7 +12,7 @@ class ShopAction extends DataObject {
 		'Description' => 'HTMLText',
 		'Start' => 'Date',
 		'End' => 'Date',
-		'isGlobal' => 'Boolean(0)'
+		'isGlobal' => 'Boolean(0)',
 		'Conditions' => 'HTMLText'
 	];
 
