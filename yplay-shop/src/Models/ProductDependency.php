@@ -4,6 +4,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBText;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\Forms\ListboxField;
 
 class ProductDependency extends DataObject {
 	
@@ -45,6 +46,7 @@ class ProductDependency extends DataObject {
 		$fields->removeByName('ExcludedCodes');
 		$fields->removeByName('Codes');
 		$fields->removeByName('ParentID');
+		$fields->addFieldToTab('Root.Main',ListboxField::create('Categories',$this->fieldLabels(true)['Categories']), ProductCategory::get()->exclude('ID',$this->ParentID)->map('ID','Title'),$this->Categories());
 		return $fields;
 	}
 }
