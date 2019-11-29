@@ -35,6 +35,10 @@ class Product extends DataObject {
 		'Category' => ProductCategory::class
 	];
 
+	private static $belongs_many_many= [
+	    'Actions' => 'PriceVariation'
+	];
+
 	private static $extensions = [
 		'Sortable',
 		'Activable',
