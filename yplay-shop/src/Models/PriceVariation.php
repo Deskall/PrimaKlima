@@ -13,7 +13,8 @@ class PriceVariation extends DataObject {
 		'Unit' => 'Varchar',
 		'Value' => 'Decimal',
 		'Type' => 'Varchar',
-		'ApplyTo' => 'Varchar'
+		'ApplyTo' => 'Varchar',
+		'AllCodes' => 'Boolean(0)'
 	];
 
 	private static $has_one = ['Action' => ShopAction::class];
@@ -45,13 +46,19 @@ class PriceVariation extends DataObject {
 		$labels['Packages'] = _t(__CLASS__.'.Packages','Pakete');
 		$labels['Options'] = _t(__CLASS__.'.Options','Optionen');
 		$labels['Codes'] = _t(__CLASS__.'.Codes','Ortschaften');
-	
+
 		return $labels;
 	}
 
 	
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
+		if ($this->Codes()->count()){
+			$this->AllCodes = 1; 
+		}
+		else{
+			$this->AllCodes = 0; 
+		}
 	}
 
 	public function getCMSFields(){
@@ -61,6 +68,8 @@ class PriceVariation extends DataObject {
 		$fields->removeByName('Packages');
 		$fields->removeByName('Options');
 		$fields->removeByName('Codes');
+		$fields->removeByName('AllCodes');
+
 		$fields->insertAfter('Title',DropdownField::create('Type',$this->fieldLabels()['Type'],['discount' => 'Rabatt', 'replace' => 'Preis ersetzung']));
 		$fields->insertAfter('Title',DropdownField::create('Unit',$this->fieldLabels()['Unit'],['percent' => 'Prozentsatz', 'discount' => 'CHF'])->displayIf('Type')->isEqualTo('discount')->end());
 		$fields->insertAfter('Title',DropdownField::create('ApplyTo',$this->fieldLabels()['ApplyTo'],['MonthlyPrice' => 'den monatlichen Preis', 'UniquePrice' => 'den einmaligen Preis', 'Fee' => 'den gebühren Preis']));

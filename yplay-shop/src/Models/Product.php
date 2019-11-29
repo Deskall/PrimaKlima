@@ -191,4 +191,16 @@ class Product extends DataObject {
 		return $link;
 	}
 
+	//Check if a discount apply for this product
+	public function hasAction(){
+		$request = Injector::inst()->get(HTTPRequest::class);
+		$session = $request->getSession();
+		$plz = $session->get('active_plz');
+		if (!$plz){
+			// we check only global
+			return $this->Actions();
+		}
+		return false;
+	}
+
 }
