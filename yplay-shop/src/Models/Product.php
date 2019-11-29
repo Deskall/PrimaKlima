@@ -193,7 +193,7 @@ class Product extends DataObject {
 
 	//Check if a discount apply for this product
 	public function hasAction(){
-		
+		print_r('ici');
 		if ($this->Actions()->filter('AllCodes',1)->count() > 0){
 			return true;
 		}
