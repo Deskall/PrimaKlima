@@ -55,5 +55,4 @@ class ShopAction extends DataObject {
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
 	}
-
 }

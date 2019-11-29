@@ -52,4 +52,11 @@ class PriceVariation extends DataObject {
 		parent::onBeforeWrite();
 	}
 
+	public function getCMSFields(){
+		$fields = parent::getCMSFields();
+		$fields->dataFieldByName('Type')->replaceWith(DropdownField::create('Type',$this->fieldLabels()['Type'],['discount' => 'Rabatt', 'replace' => 'Preis ersetzung']));
+		$fields->dataFieldByName('Unit')->replaceWith(DropdownField::create('Unit',$this->fieldLabels()['Unit'],['percent' => 'Prozentsatz', 'discount' => 'CHF'])->displayIf('Type')->isEqualTo('discount')->end());
+	}
+
+
 }
