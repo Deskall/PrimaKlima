@@ -6,9 +6,9 @@ $filename = basename($uri,".js").".js";
 $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".js", ".min.js", $filename_full);
 
-$srcDir = ($filename_full == "main") ? 'vendor' : 'project';
+$srcDir = ($filename_full == "main.js") ? 'vendor' : 'project';
 
-print_r($filename_full);
+print_r($srcDir);
 // $js_compiled = autoCompileJs($srcDir,$filename);
 
 // if($js_compiled){
