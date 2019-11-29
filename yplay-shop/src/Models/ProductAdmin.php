@@ -43,9 +43,9 @@ class ProductAdmin extends ModelAdmin{
 
 	public function getEditForm($id = null, $fields = null) {
 	    $form = parent::getEditForm($id, $fields);
-
-	    if($this->modelClass == 'ShopCart' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
-	       $gridField->getConfig()->removeComponentsByType([GridFieldAddNewButton::class, GridFieldDeleteAction::class]);
+	   
+	    if($this->modelClass == 'ShopOrder' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+	       $gridField->getConfig()->removeComponentsByType([GridFieldAddNewButton::class])->addComponent(new GridFieldDeleteAllAction('before'));
 	    }
 
 	    if($this->modelClass == 'ProductCategory' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
