@@ -66,6 +66,7 @@ class PriceVariation extends DataObject {
 		$fields->insertAfter('Label',DropdownField::create('ApplyTo',$this->fieldLabels()['ApplyTo'],['MonthlyPrice' => 'den monatlichen Preis', 'UniquePrice' => 'den einmaligen Preis', 'Fee' => 'den gebühren Preis']));
 
 		$fields->push(ListboxField::create('Codes',$this->fieldLabels(true)['Codes'],PostalCode::get()->map('ID','Code'),$this->Codes()));
+		$fields->push(ListboxField::create('Products',$this->fieldLabels(true)['Products'],Product::get()->map('ID','Title'),$this->Products()));
 		return $fields;
 	}
 
