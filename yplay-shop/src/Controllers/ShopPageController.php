@@ -181,7 +181,7 @@ class ShopPageController extends PageController
             CompositeField::create(
                HeaderField::create('OtherTitle','Weitere Angaben',3),
                TextareaField::create('Comments','Bemerkungen'),
-               CheckboxField::create('Newsletter','Ich abonniere den Newsletter'),
+               // CheckboxField::create('Newsletter','Ich abonniere den Newsletter'),
                CheckboxField::create('AGB','Ich bin mit den AGB einverstanden')
             )->setName('OtherFields'),
             HiddenField::create('ExistingCustomer')
