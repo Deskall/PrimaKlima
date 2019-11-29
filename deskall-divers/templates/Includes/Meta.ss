@@ -21,6 +21,7 @@ $CustomStructuredData
 <meta name="msapplication-config" content="$ThemeDir/browserconfig.xml">
 
 <% if isLive %>
+	<script src="$ThemeDir/javascript/plugins.min.js?v=$LastChangeJS"></script>
 	<script defer src="$ThemeDir/javascript/main.min.js?v=$LastChangeJS"></script>
 	$HeadCss
 <% else %>
