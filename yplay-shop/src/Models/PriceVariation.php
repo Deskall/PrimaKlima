@@ -18,8 +18,8 @@ class PriceVariation extends DataObject {
 
 	private static $many_many = [
 		'Products' => Product::class,
-		'Packages' => Package::class
-		'Options' => ProductOption::class
+		'Packages' => Package::class,
+		'Options' => ProductOption::class,
 		'Codes' => PostalCode::class
 	];
 
