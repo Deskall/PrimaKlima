@@ -5,7 +5,7 @@
 			<% loop Items %>
 			<tr><td>$Title</td><td style="text-align:right">CHF $MonthlyPrice / Mt.</td></tr>
 				<% if Type == "package" %>
-				<tr><td colspan="2"><% loop Products %>$Title<br><% end_loop %></td></tr>
+				<tr><td colspan="2"><% loop $Package.Products %>$Title<br><% end_loop %></td></tr>
 				<% end_if %>
 			<% end_loop %>
 		<% end_if %>
