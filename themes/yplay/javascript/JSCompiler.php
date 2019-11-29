@@ -8,7 +8,7 @@ $filename_min = str_replace(".js", ".min.js", $filename_full);
 
 $srcDir = ($filename_full == "main") ? 'vendor' : 'project';
 
-print_r($srcDir);
+print_r($filename_full);
 // $js_compiled = autoCompileJs($srcDir,$filename);
 
 // if($js_compiled){
