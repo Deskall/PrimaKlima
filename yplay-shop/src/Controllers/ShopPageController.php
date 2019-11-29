@@ -230,7 +230,7 @@ class ShopPageController extends PageController
          }
       }
       
-      // $form->enableSpamProtection();
+      $form->enableSpamProtection();
       $form->addExtraClass('form-std');
       $form->setTemplate('Forms/OrderForm');
       $form->loadDataFrom($cart);
@@ -244,11 +244,7 @@ class ShopPageController extends PageController
    }
 
    public function doOrder($data,$form){
-      $form->Fields()->dataFieldByName('Captcha')->validate($form->getValidator());
-      ob_start();
-               print_r($form->getValidator());
-               $result = ob_get_clean();
-               file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+      
       //Retrive Cart
       $cartId = $this->getRequest()->getSession()->get('shopcart_id');
       $cart = ($cartId) ? ShopCart::get()->byId($cartId) : null;
