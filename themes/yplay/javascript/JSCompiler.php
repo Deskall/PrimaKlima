@@ -6,8 +6,7 @@ $filename = basename($uri,".js").".js";
 $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".js", ".min.js", $filename_full);
 
-$srcDir = ($filename_full == "main.js") ? 'vendor' : 'project';
-
+$srcDir = 'vendor';
 
 $js_compiled = autoCompileJs($srcDir,$filename);
 
@@ -31,7 +30,6 @@ if($js_compiled){
 		);
 		$context  = stream_context_create($options);
 		$js_minified = file_get_contents($url, false, $context);
-
 
 		if ($js_minified === FALSE) {
 			echo "there has been an error.";

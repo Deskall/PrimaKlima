@@ -3,6 +3,5 @@
 	RewriteEngine on
 	RewriteRule (main.min.js) JSCompiler.php
 	RewriteRule (main.js) JSCompiler.php
-	RewriteRule (project.min.js) JSCompiler.php
 </IfModule>
 
