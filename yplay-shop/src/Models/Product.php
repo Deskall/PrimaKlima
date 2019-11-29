@@ -193,12 +193,12 @@ class Product extends DataObject {
 
 	//Check if a discount apply for this product
 	public function hasAction(){
-		$request = Injector::inst()->get(HTTPRequest::class);
-		$session = $request->getSession();
-		$plz = $session->get('active_plz');
-		if (!$plz){
-			// we check only global
-			return $this->Actions()->filter('AllCodes',1);
+		
+		if ($this->Actions()->filter('AllCodes',1)->count() > 0){
+			return true;
+		}
+		else{
+			//TO DO
 		}
 		return false;
 	}
