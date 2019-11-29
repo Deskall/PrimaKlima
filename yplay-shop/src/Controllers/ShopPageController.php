@@ -26,6 +26,8 @@ use SilverStripe\Control\Director;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\ORM\GroupedList;
 
+use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
+
 class ShopPageController extends PageController
 {
    private static $allowed_actions = ['OrderForm','OrderPackageLink', 'OrderProductLink'];
@@ -182,7 +184,8 @@ class ShopPageController extends PageController
                HeaderField::create('OtherTitle','Weitere Angaben',3),
                TextareaField::create('Comments','Bemerkungen'),
                // CheckboxField::create('Newsletter','Ich abonniere den Newsletter'),
-               CheckboxField::create('AGB','Ich bin mit den AGB einverstanden')
+               CheckboxField::create('AGB','Ich bin mit den AGB einverstanden'),
+               NocaptchaField::create('NoCaptcha')
             )->setName('OtherFields'),
             HiddenField::create('ExistingCustomer')
          ),
