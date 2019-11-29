@@ -160,7 +160,7 @@ $(document).ready(function(){
 		UpdateOrder();
 		
 		$("#loading-block").remove();
-		$("#products-hidden-container-block").slideDown();
+		$("#products-hidden-container").slideDown();
 		
 		
 	}
