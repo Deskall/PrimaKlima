@@ -45,7 +45,7 @@
 			<div id="loading-block" class="uk-text-left">
 				<p><span data-uk-spinner="ratio: 2" class="uk-margin-right"></span>Produkte wird geladen, ein Moment bitte...</p>
 			</div>
-			<div id="products-hidden-container" hidden>
+			<div id="products-hidden-container">
 				<div class="uk-grid-small" data-uk-grid>
 					<div class="uk-width-2-3@m">
 						<% loop activeCategories %>
