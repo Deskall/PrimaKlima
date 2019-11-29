@@ -43,7 +43,7 @@
 			</form>
 			<% else %>
 			<div id="loading-block" class="uk-text-center">
-				<span uk-spinner="ratio: 4.5"></span>
+				<p><span data-uk-spinner="ratio: 2" class="uk-margin-right"></span>Produkte wird geladen, ein Moment bitte...</p>
 			</div>
 			<div hidden>
 				<div class="uk-grid-small" data-uk-grid>
