@@ -198,7 +198,7 @@ class Product extends DataObject {
 		$plz = $session->get('active_plz');
 		if (!$plz){
 			// we check only global
-			return $this->Actions();
+			return $this->Actions()->filter('AllCodes',1);
 		}
 		return false;
 	}
