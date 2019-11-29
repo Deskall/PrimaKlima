@@ -60,7 +60,7 @@
 	        <div class="bestseller">Bestseller</div>
 	        <% end_if %>
 	        <% if hasAction %>
-	        <div class="discount"><img src="$ThemeDir/img/percent-solid.svg" data-uk-svg="stroke-animation: true;"></div>
+	        <div class="discount"><img src="$ThemeDir/img/percent-solid.svg"></div>
 	        <% end_if %>
 	        <div class="product-body">
 	        	<% if Top.ProductType == "products" %>
