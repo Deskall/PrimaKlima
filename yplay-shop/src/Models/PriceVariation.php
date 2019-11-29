@@ -3,6 +3,7 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\ListboxField;
 
 class PriceVariation extends DataObject {
 
