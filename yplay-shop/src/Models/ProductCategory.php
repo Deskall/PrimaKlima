@@ -24,7 +24,8 @@ class ProductCategory extends DataObject {
 	'Title' => 'Varchar',
 	'Subtitle' => 'Text',
 	'Description' => 'HTMLText',
-	'Code' => 'Varchar'
+	'Code' => 'Varchar',
+	'Mandatory' => 'Boolean(0)'
 	];
 
 	private static $has_one = [
@@ -138,6 +139,7 @@ class ProductCategory extends DataObject {
 		$labels['Options'] = 'Optionen';
 		$labels['Icon'] = 'Bild';
 		$labels['Dependencies'] = 'Abhängigkeiten';
+		$labels['Mandatory'] = 'Pflicht?';
 		return $labels;
 	}
 
