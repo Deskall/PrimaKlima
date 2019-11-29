@@ -68,7 +68,7 @@ class PriceVariation extends DataObject {
 		$fields->removeByName('Packages');
 		$fields->removeByName('Options');
 		$fields->removeByName('Codes');
-		$fields->removeByName('AllCodes');
+		// $fields->removeByName('AllCodes');
 
 		$fields->insertAfter('Title',DropdownField::create('Type',$this->fieldLabels()['Type'],['discount' => 'Rabatt', 'replace' => 'Preis ersetzung']));
 		$fields->insertAfter('Title',DropdownField::create('Unit',$this->fieldLabels()['Unit'],['percent' => 'Prozentsatz', 'discount' => 'CHF'])->displayIf('Type')->isEqualTo('discount')->end());
