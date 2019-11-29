@@ -53,7 +53,7 @@ class PriceVariation extends DataObject {
 	
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
-		if ($this->Codes()->count()){
+		if ($this->Codes()->count() == 0){
 			$this->AllCodes = 1; 
 		}
 		else{
