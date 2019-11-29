@@ -291,14 +291,6 @@ footer.uk-section{
   transition: .4s;
 }
 
-
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(17px);
-  -ms-transform: translateX(17px);
-  transform: translateX(17px);
-}
-
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
@@ -317,6 +309,11 @@ input:checked + .slider:before {
 	&.disabled{
 		-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
 	  	filter: grayscale(100%);
+	  	.slider:before {
+	  	  -webkit-transform: translateX(17px);
+	  	  -ms-transform: translateX(17px);
+	  	  transform: translateX(17px);
+	  	}
 	}
 	.uk-card{
 		border-bottom:2px solid @global-color;
