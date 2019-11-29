@@ -42,11 +42,10 @@ class ProductDependency extends DataObject {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->removeByName('RequiredCategories');
+		// $fields->dataFieldByName('RequiredCategories')->setConfig(GridField);
 		$fields->removeByName('ExcludedCodes');
 		$fields->removeByName('Codes');
 		$fields->removeByName('ParentID');
-		$fields->push(ListboxField::create('RequiredCategories',$this->fieldLabels(true)['RequiredCategories']), $this->RequiredCategories(), ProductCategory::get()->exclude('ID',$this->ParentID)->map('ID','Title'));
 		return $fields;
 	}
 }
