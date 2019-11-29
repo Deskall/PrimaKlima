@@ -71,7 +71,7 @@ $(document).ready(function(){
 		var packages = [];
 		var productsOfPackages = [];
 		var hasEvent = false;
-
+		
 		
 		var url = window.location.pathname;
 		$.ajax({
