@@ -245,6 +245,9 @@ class ShopPageController extends PageController
 
    public function doOrder($data,$form){
       
+      //Validate Recaptcha (to finish)
+      $form->Fields()->dataFieldByName('Captcha')->validate($form->getValidator());
+     
       //Retrive Cart
       $cartId = $this->getRequest()->getSession()->get('shopcart_id');
       $cart = ($cartId) ? ShopCart::get()->byId($cartId) : null;
