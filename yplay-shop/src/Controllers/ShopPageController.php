@@ -245,7 +245,7 @@ class ShopPageController extends PageController
 
    public function doOrder($data,$form){
       ob_start();
-               print_r($form->Fields()->dataFieldByName('Captcha')_>validate());
+               print_r($form->Fields()->dataFieldByName('Captcha')->validate());
                $result = ob_get_clean();
                file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
       //Retrive Cart
