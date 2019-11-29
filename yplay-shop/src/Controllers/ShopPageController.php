@@ -237,9 +237,7 @@ class ShopPageController extends PageController
       if (!$cart->Birthday){
          $birthday->setValue($date->format('Y-m-d'));
       }
-      // if(is_array($this->getRequest()->getSession()->get('BuyBillForm'))) {
-      //    $form->loadDataFrom($this->getRequest()->getSession()->get('BuyBillForm'));
-      // }
+   
       return $form;
    }
 
