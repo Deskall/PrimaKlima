@@ -25,7 +25,7 @@ $CustomStructuredData
 	$HeadCss
 <% else %>
     <script src="$ThemeDir/javascript/main.js"></script>
-	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/body.min.css" />
+	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/head.min.css" />
 <% end_if %>
 
 <% if headScripts %>
