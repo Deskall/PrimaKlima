@@ -15,7 +15,7 @@ BaseBlockExtension:
 #  extensions:
 #    - 'DeskallCommentingControllerExtension'
 
-Page:  
+#Page:  
 #  comments:
 #    enabled: false
 
