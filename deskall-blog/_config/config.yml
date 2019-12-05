@@ -11,13 +11,13 @@ BaseBlockExtension:
   blocks:
     - SummaryBlogBlock
 
-SilverStripe\Comments\Controllers\CommentingController:
-  extensions:
-    - 'DeskallCommentingControllerExtension'
+#SilverStripe\Comments\Controllers\CommentingController:
+#  extensions:
+#    - 'DeskallCommentingControllerExtension'
 
 Page:  
-  comments:
-    enabled: false
+#  comments:
+#    enabled: false
 
 SilverStripe\Blog\Model\Blog:
   extensions:
@@ -26,9 +26,9 @@ SilverStripe\Blog\Model\Blog:
 SilverStripe\Blog\Model\BlogPost:
   extensions:
     - BlogPostExtension
-    - SilverStripe\Comments\Extensions\CommentsExtension
-  comments:
-    enabled: true
+#    - SilverStripe\Comments\Extensions\CommentsExtension
+#  comments:
+#    enabled: true
 
 SilverStripe\Blog\Model\BlogCategory:
   extensions:
@@ -38,13 +38,13 @@ SilverStripe\Blog\Model\BlogTag:
   extensions:
     - BlogTagExtension
 
-SilverStripe\Comments\Extensions\CommentsExtension:
-  comments:
-    nested_comments: true
-    nested_depth: 2
-    require_moderation_cms: false
-    require_moderation: true
-    require_moderation_nonmembers: true
-    frontend_moderation: false
+# SilverStripe\Comments\Extensions\CommentsExtension:
+#   comments:
+#     nested_comments: true
+#     nested_depth: 2
+#     require_moderation_cms: false
+#     require_moderation: true
+#     require_moderation_nonmembers: true
+#     frontend_moderation: false
 
 
