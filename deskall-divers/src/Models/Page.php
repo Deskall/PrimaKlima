@@ -4,6 +4,9 @@ use SilverStripe\CMS\Model\SiteTree;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Control\Session;
+use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Subsites\Extensions\SiteTreeSubsites;
 
 class Page extends SiteTree implements Searchable
 {
@@ -29,6 +32,26 @@ class Page extends SiteTree implements Searchable
       $fields->addFieldToTab('Root.Layout',TextField::create('ExtraHeaderClass',$this->fieldLabels()['ExtraHeaderClass']));
       $fields->addFieldToTab('Root.Layout',TextField::create('ExtraMenuClass',$this->fieldLabels()['ExtraMenuClass']));
       return $fields;
+    }
+
+    public function generateFolderName(){
+        if ($this->ID > 0){
+            if ($this->ParentID > 0){
+                return $this->Parent()->generateFolderName()."/".$this->URLSegment;
+            }
+            else{
+                if ($this->hasExtension(SiteTreeSubsites::class)){
+                    $config = SiteConfig::current_site_config();
+                    $prefix = URLSegmentFilter::create()->filter($config->Title);
+                    return "Uploads/".$prefix.'/'.$this->URLSegment;
+                }
+                return "Uploads/".$this->URLSegment;
+            }
+        }
+        else{
+            return "Uploads/tmp";
+        }
+        
     }
 
      /**
