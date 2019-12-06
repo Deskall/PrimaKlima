@@ -141,4 +141,9 @@ class JobGiver extends DataObject
         return $fields;
     }
 
+    public function getRequiredProfileFields(){
+       
+        return new RequiredFields(['Company']);
+    }
+
 }
