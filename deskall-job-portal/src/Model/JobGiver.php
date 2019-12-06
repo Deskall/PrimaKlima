@@ -182,8 +182,9 @@ class JobGiver extends DataObject
     public function getProfileFields(){
         $fields = $this->getFrontEndFields();
         $fields->removeByName('MemberID');
+        $fields->removeByName('Logo');
         $fields->replaceField('Country',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
-        $fields->FieldByName('Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg'));
+        $fields->push(UploadField::create('Logo','Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg'));
         return $fields;
     }
 
