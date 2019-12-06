@@ -207,7 +207,7 @@ class JobGiver extends DataObject
 
             // ListboxField::create('Offers', _t('ARBEITGEBER.Offers', 'Was wir bieten'), $Employer->ConfigurationSet()->Offers()->map('ID','Title__de_DE')->toArray())->setMultiple(true)->setAttribute('data-placeholder', _t('ARBEITGEBER.Choose', 'Bitte wählen'))->setAttribute("data-chosen", 'true'), 
             // ListboxField::create('Infrastructure', _t('ARBEITGEBER.Infrastructure', 'Infrastruktur'), $Employer->ConfigurationSet()->Infrastructure()->map('ID','Title__de_DE')->toArray())->setMultiple(true)->setAttribute('data-placeholder', _t('ARBEITGEBER.Choose', 'Bitte wählen'))->setAttribute("data-chosen", 'true'), 
-            HTMLTextEditorField::create('ReasonWhy', _t('ARBEITGEBER.ReasonWhy', 'Warum sollten Sie bei uns arbeiten?'))->setRows(8)
+            HTMLEditorField::create('ReasonWhy', _t('ARBEITGEBER.ReasonWhy', 'Warum sollten Sie bei uns arbeiten?'))->setRows(8)
         );
 
         // $fields->replaceField('Country',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
