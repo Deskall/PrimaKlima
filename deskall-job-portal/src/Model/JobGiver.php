@@ -132,7 +132,15 @@ class JobGiver extends DataObject
 
     public function onAfterWrite()
     {
-
+        if ($this->isChanged('LogoID')){
+            $changedFields = $this->getChangedFields();
+            $oldPicture = Image::get()->byId($changedFields['LogoID']['before']);
+            if ($oldPicture){
+                $oldPicture->File->deleteFile();
+                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($oldPicture->ID));
+                $oldPicture->delete();
+            }
+        }
         parent::onAfterWrite();
        
     }
