@@ -37,6 +37,7 @@
 							<div class="uk-panel">
 								<h2 class="uk-heading-divider"><%t JobGiver.Account 'Ihr Konto' %></h2>
 								<div class="member-section-container">
+									$AccountForm
 								</div>
 							</div>
 						</li>
