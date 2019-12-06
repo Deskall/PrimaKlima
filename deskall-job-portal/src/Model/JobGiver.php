@@ -138,6 +138,9 @@ class JobGiver extends DataObject
 
     public function getProfileFields(){
         $fields = $this->getFrontEndFields();
+        $fields->removeByName('MemberID');
+        $fields->replaceField('Country',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
+
         return $fields;
     }
 
