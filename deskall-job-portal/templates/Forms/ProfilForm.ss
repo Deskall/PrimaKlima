@@ -6,9 +6,9 @@
 	<% else %>
 	<p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
 	<% end_if %>
-	<div class="uk-child-width-1-1 data-uk-grid>
+	<div class="uk-child-width-1-1" data-uk-grid>
 		
-			<div class="uk-card uk-card-default uk-card-body ">
+			<div class="uk-card uk-card-default uk-card-body">
 			<% with Fields.FieldByName('Logo') %>
 			$FieldHolder
 			<% end_with %>
