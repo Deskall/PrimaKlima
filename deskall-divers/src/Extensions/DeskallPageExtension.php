@@ -36,6 +36,19 @@ class DeskallPageExtension extends DataExtension
         return SiteConfig::current_site_config()->getCurrentThemeDir();
     }
 
+    public function LastChangeJS(){
+        $srcDir = Director::baseFolder().$this->owner->ThemeDir().'/javascript/vendor';
+        $srcFiles = array_diff(scandir($srcDir), array('.', '..'));
+        $filetime = 0;
+        foreach($srcFiles as $key => $file) {
+            if( filemtime($srcDir."/".$file) > $filetime)
+            {
+                $filetime = filemtime($srcDir."/".$file);
+            }
+        }
+        return $filetime;
+    }
+
     public function updateCMSFields(FieldList $fields){
         if ($this->owner->ShowInMenus ){
             $field = OptionsetField::create('ShowInMainMenu',_t(__CLASS__.'.ShowInMainMenuLabel','In welchem Menu sollt diese Seite anzeigen ?'), $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
