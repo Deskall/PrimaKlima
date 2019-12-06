@@ -181,9 +181,6 @@ class MemberProfilePageController extends PageController{
 	}
 
 	public function AccountForm(){
-		Requirements::javascript("deskall-job-portal/javascript/tinymce/tinymce.min.js");
-
-
 
 		$actions = new FieldList(FormAction::create('save', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="fa fa-save uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
 		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
