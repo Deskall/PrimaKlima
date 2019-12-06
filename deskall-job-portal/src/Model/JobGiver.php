@@ -30,6 +30,8 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
+use SilverStripe\Forms\CompositeField;
+
 /**
  * Custom extension to adjust to project specific need
  * 
