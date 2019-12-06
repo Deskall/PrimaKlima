@@ -55,7 +55,7 @@
 					<% end_with %>	
 				</div>
 			</div>
-			<% end_with %>
+			
 		</div>
 		<div>
 			<div class="uk-card uk-card-default uk-card-body">
