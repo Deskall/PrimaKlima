@@ -48,6 +48,7 @@ class JobGiver extends DataObject
         'Phone'  => 'Varchar',
         'Fax'  => 'Varchar',
         'URL'  => 'Varchar',
+        'Description' => 'HTMLText',
         'SocialFacebook' => 'Varchar(255)',
         'SocialTwitter' => 'Varchar(255)',
         'SocialInstagram' => 'Varchar(255)',
@@ -189,13 +190,14 @@ class JobGiver extends DataObject
     public function getProfileFields(){
         $fields = FieldList::create(
             UploadField::create('Logo','Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg')),
+            HTMLEditorField::create('Description',$this->fieldLabels()['Description']))->setRows(8),
             CompositeField::create(
                 HeaderField::create('TitleSocial', _t('ARBEITGEBER.TitleSocial', 'Online Kanäle'), 3), 
                 TextField::create('URL', $this->fieldLabels()['URL']), 
-                TextField::create('SocialFacebook', $this->fieldLabels()['URL']), 
-                TextField::create('SocialTwitter', $this->fieldLabels()['URL']), 
-                TextField::create('SocialInstagram', $this->fieldLabels()['URL']), 
-                TextField::create('SocialPinterest') 
+                TextField::create('SocialFacebook', $this->fieldLabels()['SocialFacebook']), 
+                TextField::create('SocialTwitter', $this->fieldLabels()['SocialTwitter']), 
+                TextField::create('SocialInstagram', $this->fieldLabels()['SocialInstagram']), 
+                TextField::create('SocialPinterest',$this->fieldLabels()['SocialPinterest']) 
             )->setname('OnlineFields'),
             
 
