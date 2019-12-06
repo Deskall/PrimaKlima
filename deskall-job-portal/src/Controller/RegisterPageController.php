@@ -29,6 +29,7 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\Security\Group;
 use SilverStripe\Security\DefaultAdminService;
 use SilverStripe\Forms\RequiredFields;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class RegisterPageController extends PageController{
 	private static $allowed_actions = ['RegisterForm','afterregistration', 'confirm'];
@@ -146,7 +147,10 @@ class RegisterPageController extends PageController{
 		    if (!$member->NeedsValidation) {
 		        return [
 		            'Title'   => $this->data()->dbObject('ConfirmationTitle'),
-		            'Content' => 'Ihr konto wurde bereits bestätigt. Klicken Sie <a href="'.$member->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen'
+		            'Content' =>  _t(
+			            'MemberProfiles.ALREADYCONFIRMED',
+			            DBHTMLText::create()->setValue('Ihr konto wurde bereits bestätigt. Klicken Sie <a href="'.$member->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen')
+			        )
 			     ];
 		    }
 		    if (!$member->ValidationKey) {
