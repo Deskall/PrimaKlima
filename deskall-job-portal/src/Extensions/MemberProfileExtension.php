@@ -135,8 +135,11 @@ class MemberProfileExtension extends DataExtension
 
 
     public function MemberPageLink(){
-        if ($this->owner->stat('groupcode')){
-            return MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code',$this->owner->stat('groupcode'))->first()->ID)->first()->Link();
+        if ($this->owner->inGroup('arbeitgeber')){
+            return MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code','arbeitgeber')->first()->ID)->first()->Link();
+        }
+        if ($this->owner->inGroup('kandidaten')){
+            return MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code','kandidaten')->first()->ID)->first()->Link();
         }
         return "admin/pages";
     }
