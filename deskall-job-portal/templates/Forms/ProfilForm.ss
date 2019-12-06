@@ -26,7 +26,9 @@
 			<% end_with %>
 			</div>
 	</div>
-
+	<% with Fields.FieldByName('SecurityID') %>
+	$FieldHolder
+	<% end_with %>
 	<% if $Actions %>
 	<div class="btn-toolbar">
 		<% loop $Actions %>
