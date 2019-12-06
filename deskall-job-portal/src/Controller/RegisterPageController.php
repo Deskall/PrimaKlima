@@ -188,7 +188,7 @@ class RegisterPageController extends PageController{
 
 	        return [
 	            'Title'   => $this->data()->dbObject('AfterConfirmationTitle'),
-	            'Content' => $config->parseString($this->data()->dbObject('AfterConfirmationContent'))
+	            'Content' => DBHTMLText::create()->setValue($config->parseString($this->data()->dbObject('AfterConfirmationContent')))
 	        ];
 	       
     }
