@@ -117,9 +117,9 @@ class MemberProfilePageController extends PageController{
 	{
 
 		$member = Security::getCurrentUser();
-		$cook = Cook::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$form->saveInto($member);
-		$form->saveInto($cook);
+		$form->saveInto($JobGiver);
 
 		//Files
 		if(isset($data['TempFiles'])){
@@ -127,11 +127,11 @@ class MemberProfilePageController extends PageController{
 			$keys = [];
 
 			foreach ($data['TempFiles'] as $id) {
-				$p = $cook->Files()->byId($id);
+				$p = $JobGiver->Files()->byId($id);
 				if(!$p){ 
 					$p = File::get()->byId($id);
 					if ($p){
-						$folder = Folder::find_or_make($cook->generateFolderName());
+						$folder = Folder::find_or_make($JobGiver->generateFolderName());
 						$p->ParentID = $folder->ID;
 						$p->write();
 						$p->publishSingle();
@@ -139,19 +139,19 @@ class MemberProfilePageController extends PageController{
 					
 				}
 				if ($p){
-					$cook->Files()->add($p,['SortOrder' => $i]);
+					$JobGiver->Files()->add($p,['SortOrder' => $i]);
 				}
 				$keys[] = $id;
 				$i++;
 			}
-			foreach($cook->Files()->exclude('ID',$keys) as $p){
+			foreach($JobGiver->Files()->exclude('ID',$keys) as $p){
 				$p->File->deleteFile();
                 DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
 				$p->delete();
 			}
 		}
 		else{
-			foreach($cook->Files() as $p){
+			foreach($JobGiver->Files() as $p){
 				$p->File->deleteFile();
                 DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
 				$p->delete();
@@ -161,7 +161,7 @@ class MemberProfilePageController extends PageController{
 	
 		try {
 			$member->write();
-			$cook->write();
+			$JobGiver->write();
 		} catch (ValidationException $e) {
 			$validationMessages = '';
 			foreach($e->getResult()->getMessages() as $error){
