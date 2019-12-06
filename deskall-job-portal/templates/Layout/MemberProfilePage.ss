@@ -11,7 +11,7 @@
 				<div class="uk-width-auto@m">
 					<ul class="uk-tab-left uk-margin-large-bottom" data-uk-tab="connect: #component-tab-left; animation: uk-animation-fade">
 						<li><a><%t JobGiver.Offers 'Ihre Stellenanzeigen' %></a></li>
-						<li><a><%t JobGiver.Profil 'Firmen Porträt' %></a></li>
+						<li class="uk-active"><a><%t JobGiver.Profil 'Firmen Porträt' %></a></li>
 						<li><a><%t JobGiver.Account 'Ihr Konto' %></a></li>
 					</ul>
 				</div>

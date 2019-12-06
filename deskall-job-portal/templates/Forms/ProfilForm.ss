@@ -13,6 +13,12 @@
 			$FieldHolder
 			<% end_with %>
 			</div>
+
+			<div class="uk-card uk-card-default uk-card-body">
+			<% with Fields.FieldByName('Description') %>
+			$FieldHolder
+			<% end_with %>
+			</div>
 		
 			<div class="uk-card uk-card-default uk-card-body ">
 			<% with Fields.FieldByName('OnlineFields') %>
