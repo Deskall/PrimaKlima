@@ -4,6 +4,7 @@
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\DropdownField;
