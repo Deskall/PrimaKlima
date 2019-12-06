@@ -12,7 +12,7 @@
 					<ul class="uk-tab-left uk-margin-large-bottom" data-uk-tab="connect: #component-tab-left; animation: uk-animation-fade">
 						<li><a><%t JobGiver.Profil 'Ihre Profil' %></a></li>
 						<li><a><%t JobGiver.Offers 'Ihre Stellenanzeigen' %></a></li>
-						<li><a><%t JobGiver.Account 'Ihre Konto' %></a></li>
+						<li><a><%t JobGiver.Account 'Ihr Konto' %></a></li>
 					</ul>
 				</div>
 				<div class="uk-width-expand@m">
@@ -35,7 +35,7 @@
 						</li>
 						<li class="account-tab">
 							<div class="uk-panel">
-								<h2 class="uk-heading-divider"><%t JobGiver.Account 'Ihre Konto' %></h2>
+								<h2 class="uk-heading-divider"><%t JobGiver.Account 'Ihr Konto' %></h2>
 								<div class="member-section-container">
 								</div>
 							</div>
