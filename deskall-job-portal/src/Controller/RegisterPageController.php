@@ -184,9 +184,11 @@ class RegisterPageController extends PageController{
 		        throw new Exception('Permission issue occurred. Was the "$member->validateCanLogin" check above this code block removed?');
 		    }
 
+		    $config = JobPortalConfig::get()->first();
+
 	        return [
 	            'Title'   => $this->data()->dbObject('AfterConfirmationTitle'),
-	            'Content' => $this->data()->dbObject('AfterConfirmationContent')
+	            'Content' => $config->parseString($this->data()->dbObject('AfterConfirmationContent'))
 	        ];
 	       
     }

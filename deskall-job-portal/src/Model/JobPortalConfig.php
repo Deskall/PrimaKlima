@@ -6,6 +6,9 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\File;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Security\Group;
+use SilverStripe\Security\Security;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Control\Controller;
 
 class JobPortalConfig extends DataObject
 {
@@ -140,9 +143,28 @@ class JobPortalConfig extends DataObject
 
     public function parseString($string)
     {
-        $variables = array(
-            '$CookAccountLink' => MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code','mietkoeche')->first()->ID)->first()->Link()
+        $member = Security::getCurrentUser();
+
+       $variables = array(
+            '$SiteName'       => SiteConfig::current_site_config()->Title,
+            '$LoginLink'      => Controller::join_links(
+                $absoluteBaseURL,
+                singleton(Security::class)->Link('login')
+            ),
+            '$ConfirmLink'    => Controller::join_links(
+                $this->page->AbsoluteLink('confirmation'),
+                $member->ID,
+                "?key={$member->ValidationKey}"
+            ),
+            '$LostPasswordLink' => Controller::join_links(
+                $absoluteBaseURL,
+                singleton(Security::class)->Link('lostpassword')
+            ),
+            '$AccountLink' => $member->MemberPageLink();
         );
+        foreach (array('Name', 'FirstName', 'Surname', 'Email') as $field) {
+            $variables["\$Member.$field"] = $member->$field;
+        }
         
 
         return str_replace(array_keys($variables), array_values($variables), $string);
