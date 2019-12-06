@@ -135,4 +135,10 @@ class JobGiver extends DataObject
         return "Uploads/Arbeitgeber/".$this->ID;
     }
 
+
+    public function getProfilFields(){
+        $fields = $this->getFrontEndFields();
+        return $fields;
+    }
+
 }
