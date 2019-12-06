@@ -15,7 +15,7 @@
 			</div>
 
 			<div class="uk-card uk-card-default uk-card-body">
-			<% with Fields.FieldByName('Description') %>
+			<% with Fields.FieldByName('CompanyFields') %>
 			$FieldHolder
 			<% end_with %>
 			</div>
