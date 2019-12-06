@@ -109,7 +109,7 @@ class MemberProfilePageController extends PageController{
 		);
 		
 		$form->setTemplate('Forms/ProfilForm');
-		$form->addExtraClass('uk-form-horizontal form-std');
+		$form->addExtraClass('uk-form-horizontal form-std company-form');
 		$form->loadDataFrom($JobGiver);
 
 		return $form;
