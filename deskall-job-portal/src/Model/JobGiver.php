@@ -180,11 +180,29 @@ class JobGiver extends DataObject
 
 
     public function getProfileFields(){
-        $fields = $this->getFrontEndFields();
-        $fields->removeByName('MemberID');
-        $fields->removeByName('Logo');
-        $fields->replaceField('Country',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
-        $fields->push(UploadField::create('Logo','Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg')));
+        $fields = FieldList::create();
+        $fields->push(CompositeField::create(
+            UploadField::create('Logo','Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg'))),
+            HeaderField::create('TitleSocial', _t('ARBEITGEBER.TitleSocial', 'Online Kanäle'), 3), 
+            TextField::create('URL', _t('ARBEITGEBER.Homepage', 'Homepage')), 
+            TextField::create('SocialFacebook', _t('ARBEITGEBER.SocialFacebook', 'Facebook')), 
+            TextField::create('SocialTwitter', _t('ARBEITGEBER.SocialTwitter', 'Twitter')), 
+            TextField::create('SocialInstagram', _t('ARBEITGEBER.SocialInstagram', 'Instagram')), 
+            TextField::create('SocialPinterest', _t('ARBEITGEBER.SocialPinterest', 'Pinterest')), 
+
+
+
+            HeaderField::create('TitleOffers', _t('ARBEITGEBER.TitleOffers', 'Angebot'), 3), 
+
+
+
+            // ListboxField::create('Offers', _t('ARBEITGEBER.Offers', 'Was wir bieten'), $Employer->ConfigurationSet()->Offers()->map('ID','Title__de_DE')->toArray())->setMultiple(true)->setAttribute('data-placeholder', _t('ARBEITGEBER.Choose', 'Bitte wählen'))->setAttribute("data-chosen", 'true'), 
+            // ListboxField::create('Infrastructure', _t('ARBEITGEBER.Infrastructure', 'Infrastruktur'), $Employer->ConfigurationSet()->Infrastructure()->map('ID','Title__de_DE')->toArray())->setMultiple(true)->setAttribute('data-placeholder', _t('ARBEITGEBER.Choose', 'Bitte wählen'))->setAttribute("data-chosen", 'true'), 
+            TextareaField::create('ReasonWhy', _t('ARBEITGEBER.ReasonWhy', 'Warum sollten Sie bei uns arbeiten?'))->setAttribute('data-tinymce', true)
+        ));
+
+        // $fields->replaceField('Country',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
+        
         return $fields;
     }
 
