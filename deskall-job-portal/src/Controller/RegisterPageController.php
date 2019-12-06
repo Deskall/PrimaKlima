@@ -148,7 +148,7 @@ class RegisterPageController extends PageController{
 		            'Title'   => $this->data()->dbObject('ConfirmationTitle'),
 		            'Content' =>  _t(
 			            'MemberProfiles.ALREADYCONFIRMED',
-			            'Ihr konto wurde bereits bestätigt.'
+			            'Ihr konto wurde bereits bestätigt. Klicken Sie <a href="'.$member->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen'
 			        )
 			     ];
 		    }
