@@ -117,7 +117,7 @@ class JobGiver extends DataObject
     $labels['ContactPersonEmail'] = _t(__CLASS__.'.ContactPersonEmail','E-Mail');
 
     $labels['ContactPersonTelephone'] = _t(__CLASS__.'.ContactPersonTelephone','Telefon');
-    $labels['ContactPersonMobile'] = _t(__CLASS__.'.ContactPersonMobile','Mobil');
+    $labels['Description'] = _t(__CLASS__.'.Description','Firmenpräsentation');
     $labels['ReasonWhy'] = _t('ARBEITGEBER.ReasonWhy', 'Warum sollten Sie bei uns arbeiten?');
 
     return $labels;
