@@ -153,15 +153,6 @@ class JobPortalConfig extends DataObject
                 $absoluteBaseURL,
                 singleton(Security::class)->Link('login')
             ),
-            '$ConfirmLink'    => Controller::join_links(
-                $this->page->AbsoluteLink('confirmation'),
-                $member->ID,
-                "?key={$member->ValidationKey}"
-            ),
-            '$LostPasswordLink' => Controller::join_links(
-                $absoluteBaseURL,
-                singleton(Security::class)->Link('lostpassword')
-            ),
             '$AccountLink' => $member->MemberPageLink()
         );
         foreach (array('Name', 'FirstName', 'Surname', 'Email') as $field) {
