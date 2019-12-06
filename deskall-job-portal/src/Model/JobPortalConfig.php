@@ -160,7 +160,7 @@ class JobPortalConfig extends DataObject
                 $absoluteBaseURL,
                 singleton(Security::class)->Link('lostpassword')
             ),
-            '$AccountLink' => $member->MemberPageLink();
+            '$AccountLink' => $member->MemberPageLink()
         );
         foreach (array('Name', 'FirstName', 'Surname', 'Email') as $field) {
             $variables["\$Member.$field"] = $member->$field;
