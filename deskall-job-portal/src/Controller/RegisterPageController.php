@@ -172,10 +172,9 @@ class RegisterPageController extends PageController{
 	        }
 	        $member->write();
 
-	            $cook = new Cook();
-	        	$cook->isApproved = false;
-	        	$cook->MemberID = $member->ID;
-	        	$cook->write();
+	            $JobGiver = new JobGiver();
+	        	$JobGiver->MemberID = $member->ID;
+	        	$JobGiver->write();
 	         
 	        $this->extend('onConfirm', $member);
 
