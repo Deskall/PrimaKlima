@@ -192,7 +192,7 @@ class JobGiver extends DataObject
             UploadField::create('Logo','Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg')),
             CompositeField::create(
                 HTMLEditorField::create('Description',$this->fieldLabels()['Description'])->setRows(8),
-                HTMLEditorField::create('ReasonWhy', _t('ARBEITGEBER.ReasonWhy', 'Warum sollten Sie bei uns arbeiten?'))->setRows(8)
+                HTMLEditorField::create('ReasonWhy',$this->fieldLabels()['ReasonWhy'])->setRows(8)
             )->setName('CompanyFields'),
             CompositeField::create(
                 HeaderField::create('TitleSocial', _t('ARBEITGEBER.TitleSocial', 'Online Kanäle'), 3), 
@@ -206,7 +206,7 @@ class JobGiver extends DataObject
 
 
 
-            HeaderField::create('TitleOffers', _t('ARBEITGEBER.TitleOffers', 'Angebot'), 3), 
+            HeaderField::create('TitleOffers', _t('ARBEITGEBER.TitleOffers', 'Angebot'), 3)
 
 
 
