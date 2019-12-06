@@ -136,7 +136,7 @@ class JobGiver extends DataObject
     }
 
 
-    public function getProfilFields(){
+    public function getProfileFields(){
         $fields = $this->getFrontEndFields();
         return $fields;
     }
