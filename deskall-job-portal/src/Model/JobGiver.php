@@ -181,7 +181,7 @@ class JobGiver extends DataObject
 
     public function getProfileFields(){
         $fields = FieldList::create(
-            UploadField::create('Logo','Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg'))),
+            UploadField::create('Logo','Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg')),
             HeaderField::create('TitleSocial', _t('ARBEITGEBER.TitleSocial', 'Online Kanäle'), 3), 
             TextField::create('URL', _t('ARBEITGEBER.Homepage', 'Homepage')), 
             TextField::create('SocialFacebook', _t('ARBEITGEBER.SocialFacebook', 'Facebook')), 
