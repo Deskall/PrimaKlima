@@ -146,10 +146,7 @@ class RegisterPageController extends PageController{
 		    if (!$member->NeedsValidation) {
 		        return [
 		            'Title'   => $this->data()->dbObject('ConfirmationTitle'),
-		            'Content' =>  _t(
-			            'MemberProfiles.ALREADYCONFIRMED',
-			            'Ihr konto wurde bereits bestätigt. Klicken Sie <a href="'.$member->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen'
-			        )
+		            'Content' => 'Ihr konto wurde bereits bestätigt. Klicken Sie <a href="'.$member->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen'
 			     ];
 		    }
 		    if (!$member->ValidationKey) {
