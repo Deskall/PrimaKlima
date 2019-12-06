@@ -107,6 +107,11 @@ class JobGiver extends DataObject
     $labels['ContactPersonTelephone'] = _t(__CLASS__.'.ContactPersonTelephone','Telefon');
     $labels['ContactPersonMobile'] = _t(__CLASS__.'.ContactPersonMobile','Mobil');
     $labels['ContactPersonEmail'] = _t(__CLASS__.'.ContactPersonEmail','E-Mail');
+
+    $labels['ContactPersonTelephone'] = _t(__CLASS__.'.ContactPersonTelephone','Telefon');
+    $labels['ContactPersonMobile'] = _t(__CLASS__.'.ContactPersonMobile','Mobil');
+    $labels['ReasonWhy'] = _t('ARBEITGEBER.ReasonWhy', 'Warum sollten Sie bei uns arbeiten?');
+
     return $labels;
     }
 
@@ -178,7 +183,9 @@ class JobGiver extends DataObject
         $fields = $this->getFrontEndFields();
         $fields->removeByName('MemberID');
         $fields->replaceField('Country',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
-        $fields->FieldByName('Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg');
+        $fields->FieldByName('Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg'))->setThumbnailHeight(100)->setThumbnailWidth(100)->setPermissions(array(
+                        'delete' => false,
+                        'detach' => true));
         return $fields;
     }
 
