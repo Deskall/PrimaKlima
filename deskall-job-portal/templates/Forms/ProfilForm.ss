@@ -14,7 +14,7 @@
 					<div class="uk-form-controls">
 						<% if $Top.Record.LogoID > 0 %>
 						<div class="switch-container-{$Top.Record.ID} original-container-{$Top.Record.ID} uk-position-relative">
-							<img src="$Top.Record.Logo.FocusFill(300,200).URL" class="switch-this">
+							<img src="<% if $Top.Record.Logo.getExtension == "svg" %>$Top.Record.Logo.URL<% else %>$Top.Record.Logo.setWidth(300).URL<% end_if %>" class="switch-this">
 							<div class="uk-position-top-right uk-text-center switch-this"><a data-uk-toggle="target:.switch-this" class="uk-text-large uk-display-block uk-padding-small uk-padding-remove-top"><i class="fa fa-edit"></i></a></div>
 							<div id="upload-photo-container-{$Top.Record.ID}" class="js-upload with-preview uk-placeholder uk-text-center uk-margin-remove switch-this" data-container=".original-container-{$Top.Record.ID}" data-field-name="LogoID" hidden>
 								<div class="form-field">
