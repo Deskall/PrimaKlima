@@ -220,7 +220,7 @@ class JobGiver extends DataObject
                 TextField::create('BillingAddressStreet', _t('ARBEITGEBER.BillingAddressStreet', 'Adresse')),
                 TextField::create('BillingAddressPostalCode', _t('ARBEITGEBER.BillingAddressPostalCode', 'PLZ')),
                 TextField::create('BillingAddressPlace', _t('ARBEITGEBER.BillingAddressPlace', 'Ort')),
-                CountryDropdownField::create('BillingAddressCountry', _t('ARBEITGEBER.BillingAddressCountry', 'Land'))->setAttribute("data-chosen", 'true') 
+                DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('de')
             )
             ->hideIf("BillingAddressIsCompanyAddress")->isChecked()->end();
 
@@ -231,7 +231,7 @@ class JobGiver extends DataObject
                 TextField::create('AddressStreet', _t('ARBEITGEBER.AddressStreet', 'Adresse')),
                 TextField::create('AddressPostalCode', _t('ARBEITGEBER.AddressPostalCode', 'PLZ')),
                 TextField::create('AddressPlace', _t('ARBEITGEBER.AddressPlace', 'Ort')),
-                DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('de') ,
+                DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('de'),
 
                 TextField::create('Email', _t('ARBEITGEBER.Email', 'E-Mail')),
                 TextField::create('Telephone', _t('ARBEITGEBER.Telephone', 'Telefon')),
