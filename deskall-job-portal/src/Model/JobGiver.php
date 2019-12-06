@@ -27,6 +27,8 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\SiteConfig\SiteConfig;
+use UncleCheese\DisplayLogic\Forms;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 /**
  * Custom extension to adjust to project specific need
  * 
@@ -210,6 +212,46 @@ class JobGiver extends DataObject
     public function getRequiredProfileFields(){
        
         return new RequiredFields(['Company','Address','City','PostalCode','Land']);
+    }
+
+    public function getAccountFields(){
+        $billingaddresssection = Wrapper::create(
+                TextField::create('BillingAddressCompany', _t('ARBEITGEBER.BillingAddressCompany', 'Firma')),
+                TextField::create('BillingAddressStreet', _t('ARBEITGEBER.BillingAddressStreet', 'Adresse')),
+                TextField::create('BillingAddressPostalCode', _t('ARBEITGEBER.BillingAddressPostalCode', 'PLZ')),
+                TextField::create('BillingAddressPlace', _t('ARBEITGEBER.BillingAddressPlace', 'Ort')),
+                CountryDropdownField::create('BillingAddressCountry', _t('ARBEITGEBER.BillingAddressCountry', 'Land'))->setAttribute("data-chosen", 'true') 
+            )
+            ->hideIf("BillingAddressIsCompanyAddress")->isChecked()->end();
+
+
+            $fields = new FieldList(
+                HeaderField::create('AdressTitle', _t('ARBEITGEBER.AdressTitle', 'Firmenadresse'), 3),
+                TextField::create('Company', _t('ARBEITGEBER.Company', 'Firma')),
+                TextField::create('AddressStreet', _t('ARBEITGEBER.AddressStreet', 'Adresse')),
+                TextField::create('AddressPostalCode', _t('ARBEITGEBER.AddressPostalCode', 'PLZ')),
+                TextField::create('AddressPlace', _t('ARBEITGEBER.AddressPlace', 'Ort')),
+                CountryDropdownField::create('AddressCountry', _t('ARBEITGEBER.AddressCountry', 'Land'))->setAttribute("data-chosen", 'true') ,
+
+                TextField::create('Email', _t('ARBEITGEBER.Email', 'E-Mail')),
+                TextField::create('Telephone', _t('ARBEITGEBER.Telephone', 'Telefon')),
+                TextField::create('Cipher', _t('ARBEITGEBER.Cipher', 'Chiffre')),
+                HeaderField::create('BillingAdressTitle', _t('ARBEITGEBER.BillingAdressTitle', 'Rechnungsadresse'), 3),
+                CheckboxField::create('BillingAddressIsCompanyAddress', _t('ARBEITGEBER.BillingAddressIsCompanyAddress', 'Rechnungsadresse ist Firmenadresse')),
+                $billingaddresssection,
+                HeaderField::create('ContactPersonTitle', _t('ARBEITGEBER.ContactPersonTitle', 'Ansprechparter'), 3),
+                TextField::create('FirstName', _t('ARBEITGEBER.FirstName', 'Vorname')),
+                TextField::create('Surname', _t('ARBEITGEBER.SurName', 'Nachname')),
+                TextField::create('ContactPersonTelephone', _t('ARBEITGEBER.ContactPersonTelephone', 'Telefon')),
+                TextField::create('ContactPersonMobile', _t('ARBEITGEBER.ContactPersonMobile', 'Mobil'))
+            );
+
+        return $fields;
+    }
+
+    public function getRequiredAccountFields(){
+       
+        return new RequiredFields(['Email']);
     }
 
 }
