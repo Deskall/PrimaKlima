@@ -122,42 +122,42 @@ class MemberProfilePageController extends PageController{
 		$form->saveInto($JobGiver);
 
 		//Files
-		if(isset($data['TempFiles'])){
-			$i = 0;
-			$keys = [];
+		// if(isset($data['TempFiles'])){
+		// 	$i = 0;
+		// 	$keys = [];
 
-			foreach ($data['TempFiles'] as $id) {
-				$p = $JobGiver->Files()->byId($id);
-				if(!$p){ 
-					$p = File::get()->byId($id);
-					if ($p){
-						$folder = Folder::find_or_make($JobGiver->generateFolderName());
-						$p->ParentID = $folder->ID;
-						$p->write();
-						$p->publishSingle();
-					}
+		// 	foreach ($data['TempFiles'] as $id) {
+		// 		$p = $JobGiver->Files()->byId($id);
+		// 		if(!$p){ 
+		// 			$p = File::get()->byId($id);
+		// 			if ($p){
+		// 				$folder = Folder::find_or_make($JobGiver->generateFolderName());
+		// 				$p->ParentID = $folder->ID;
+		// 				$p->write();
+		// 				$p->publishSingle();
+		// 			}
 					
-				}
-				if ($p){
-					$JobGiver->Files()->add($p,['SortOrder' => $i]);
-				}
-				$keys[] = $id;
-				$i++;
-			}
-			foreach($JobGiver->Files()->exclude('ID',$keys) as $p){
-				$p->File->deleteFile();
-                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
-				$p->delete();
-			}
-		}
-		else{
-			foreach($JobGiver->Files() as $p){
-				$p->File->deleteFile();
-                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
-				$p->delete();
+		// 		}
+		// 		if ($p){
+		// 			$JobGiver->Files()->add($p,['SortOrder' => $i]);
+		// 		}
+		// 		$keys[] = $id;
+		// 		$i++;
+		// 	}
+		// 	foreach($JobGiver->Files()->exclude('ID',$keys) as $p){
+		// 		$p->File->deleteFile();
+  //               DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
+		// 		$p->delete();
+		// 	}
+		// }
+		// else{
+		// 	foreach($JobGiver->Files() as $p){
+		// 		$p->File->deleteFile();
+  //               DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
+		// 		$p->delete();
 
-			}
-		}
+		// 	}
+		// }
 	
 		try {
 			$member->write();
