@@ -98,7 +98,15 @@ class JobGiver extends DataObject
     $labels['Phone'] = _t(__CLASS__.'.Phone','Telefon');
     $labels['Fax'] = _t(__CLASS__.'.Fax','Fax');
     $labels['URL'] = _t(__CLASS__.'.URL','Website');
-    $labels['Missions'] = _t(__CLASS__.'.Missions','Aufträge');
+    $labels['Missions'] = _t(__CLASS__.'.Missions','Stellenangebote');
+
+    $labels['SocialFacebook'] = _t(__CLASS__.'.SocialFacebook','Facebook');
+    $labels['SocialTwitter'] = _t(__CLASS__.'.SocialTwitter','Twitter');
+    $labels['SocialInstagram'] = _t(__CLASS__.'.SocialInstagram','Instagram');
+    $labels['SocialPinterest'] = _t(__CLASS__.'.SocialPinterest','Pinterest');
+    $labels['ContactPersonTelephone'] = _t(__CLASS__.'.ContactPersonTelephone','Telefon');
+    $labels['ContactPersonMobile'] = _t(__CLASS__.'.ContactPersonMobile','Mobil');
+    $labels['ContactPersonEmail'] = _t(__CLASS__.'.ContactPersonEmail','E-Mail');
     return $labels;
     }
 
@@ -170,7 +178,7 @@ class JobGiver extends DataObject
         $fields = $this->getFrontEndFields();
         $fields->removeByName('MemberID');
         $fields->replaceField('Country',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
-        $fields->FieldByName('Logo')->setFolderName($this->generateFolderName());
+        $fields->FieldByName('Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg');
         return $fields;
     }
 
