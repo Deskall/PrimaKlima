@@ -69,7 +69,8 @@ class JobGiver extends DataObject
     private static $default_sort = ['Created' => 'DESC'];
 
     private static $has_one = [
-        'Member' => Member::class
+        'Member' => Member::class,
+        'Logo' => Image::class
     ];
 
     private static $has_many = [
@@ -90,7 +91,6 @@ class JobGiver extends DataObject
     $labels = parent::fieldLabels($includerelation);
      $labels['Created'] = _t(__CLASS__.'.Created','Erstellt am');
     $labels['Company'] = _t(__CLASS__.'.Company','Firma');
-    $labels['Gender'] = _t(__CLASS__.'.Gender','Anrede');
     $labels['Address'] = _t(__CLASS__.'.Address','Adresse');
     $labels['PostalCode'] = _t(__CLASS__.'.PostalCode','PLZ');
     $labels['City'] = _t(__CLASS__.'.City','Stadt');
@@ -170,7 +170,7 @@ class JobGiver extends DataObject
         $fields = $this->getFrontEndFields();
         $fields->removeByName('MemberID');
         $fields->replaceField('Country',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
-
+        $fields->FieldByName('Logo')->setFolderName($this->generateFolderName());
         return $fields;
     }
 
