@@ -9,6 +9,7 @@ use SilverStripe\Security\Group;
 use SilverStripe\Security\Security;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Control\Controller;
+use SilverStripe\Control\Director;
 
 class JobPortalConfig extends DataObject
 {
@@ -144,6 +145,7 @@ class JobPortalConfig extends DataObject
     public function parseString($string)
     {
         $member = Security::getCurrentUser();
+        $absoluteBaseURL = Director::absoluteBaseURL();
 
        $variables = array(
             '$SiteName'       => SiteConfig::current_site_config()->Title,
