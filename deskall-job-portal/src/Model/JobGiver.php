@@ -187,12 +187,15 @@ class JobGiver extends DataObject
     public function getProfileFields(){
         $fields = FieldList::create(
             UploadField::create('Logo','Logo')->setFolderName($this->generateFolderName())->setAllowedExtensions(array('jpg', 'jpeg', 'png', 'gif', 'svg')),
-            HeaderField::create('TitleSocial', _t('ARBEITGEBER.TitleSocial', 'Online Kanäle'), 3), 
-            TextField::create('URL', _t('ARBEITGEBER.Homepage', 'Homepage')), 
-            TextField::create('SocialFacebook', _t('ARBEITGEBER.SocialFacebook', 'Facebook')), 
-            TextField::create('SocialTwitter', _t('ARBEITGEBER.SocialTwitter', 'Twitter')), 
-            TextField::create('SocialInstagram', _t('ARBEITGEBER.SocialInstagram', 'Instagram')), 
-            TextField::create('SocialPinterest', _t('ARBEITGEBER.SocialPinterest', 'Pinterest')), 
+            CompositeField::create(
+                HeaderField::create('TitleSocial', _t('ARBEITGEBER.TitleSocial', 'Online Kanäle'), 3), 
+                TextField::create('URL', $this->fieldLabels()['URL']), 
+                TextField::create('SocialFacebook', $this->fieldLabels()['URL']), 
+                TextField::create('SocialTwitter', $this->fieldLabels()['URL']), 
+                TextField::create('SocialInstagram', $this->fieldLabels()['URL']), 
+                TextField::create('SocialPinterest') 
+            )->setname('OnlineFields'),
+            
 
 
 
@@ -202,7 +205,7 @@ class JobGiver extends DataObject
 
             // ListboxField::create('Offers', _t('ARBEITGEBER.Offers', 'Was wir bieten'), $Employer->ConfigurationSet()->Offers()->map('ID','Title__de_DE')->toArray())->setMultiple(true)->setAttribute('data-placeholder', _t('ARBEITGEBER.Choose', 'Bitte wählen'))->setAttribute("data-chosen", 'true'), 
             // ListboxField::create('Infrastructure', _t('ARBEITGEBER.Infrastructure', 'Infrastruktur'), $Employer->ConfigurationSet()->Infrastructure()->map('ID','Title__de_DE')->toArray())->setMultiple(true)->setAttribute('data-placeholder', _t('ARBEITGEBER.Choose', 'Bitte wählen'))->setAttribute("data-chosen", 'true'), 
-            TextareaField::create('ReasonWhy', _t('ARBEITGEBER.ReasonWhy', 'Warum sollten Sie bei uns arbeiten?'))->setAttribute('data-tinymce', true)
+            HTMLTextEditorField::create('ReasonWhy', _t('ARBEITGEBER.ReasonWhy', 'Warum sollten Sie bei uns arbeiten?'))->setRows(8)
         );
 
         // $fields->replaceField('Country',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
