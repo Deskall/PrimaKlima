@@ -24,7 +24,7 @@ use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\ORM\DataObject;
-
+use SilverStripe\SiteConfig\SiteConfig;
 /**
  * Custom extension to adjust to project specific need
  * 
@@ -34,14 +34,31 @@ class JobGiver extends DataObject
 {
     private static $db = array(
         'Company' => 'Varchar',
-        'Gender'  => 'Varchar',
         'Address'  => 'Varchar',
         'PostalCode'  => 'Varchar',
         'City'  => 'Varchar',
         'Country'  => 'Varchar',
         'Phone'  => 'Varchar',
         'Fax'  => 'Varchar',
-        'URL'  => 'Varchar'
+        'URL'  => 'Varchar',
+        'SocialFacebook' => 'Varchar(255)',
+        'SocialTwitter' => 'Varchar(255)',
+        'SocialInstagram' => 'Varchar(255)',
+        'SocialPinterest' => 'Varchar(255)',
+
+        'ContactPersonTelephone' => 'Varchar(255)',
+        'ContactPersonMobile' => 'Varchar(255)',
+        'ContactPersonEmail' => 'Varchar(255)',
+
+        'BillingAddressIsCompanyAddress' => 'Boolean',
+        'BillingAddressCompany' => 'Varchar(255)',
+        'BillingAddressStreet' => 'Varchar(255)',
+        'BillingAddressPostalCode' => 'Varchar(255)',
+        'BillingAddressPlace' => 'Varchar(255)',
+        'BillingAddressCountry' => 'Varchar(255)',      
+        'Cipher' => 'Varchar(255)', 
+        'ReasonWhy' => 'HTMLText',  
+        'FlatrateEndDate' => 'Date',
      );
 
     private static $singular_name = "Arbeitgeber";
@@ -59,16 +76,15 @@ class JobGiver extends DataObject
         'Missions' => Mission::class
     ];
 
-    private static $summary_fields = [
-        'Created',
-        'Member.FirstName' => ['title' => 'Vorname'],
-        'Member.Surname' => ['title' => 'Name'],
-        'Member.Email' => ['title' => 'Email'],
-        'Company',
-        'City',
-        'Country'
+    private static $defaults = [
+        'BillingAddressIsCompanyAddress' => 1
     ];
 
+   private static $summary_fields = array(
+        'generateClientNumber' => 'Kundennummer',
+        'Company' => 'Firma',
+        'City' => 'Ort',
+    );
 
     public function fieldLabels($includerelation = true){
     $labels = parent::fieldLabels($includerelation);
@@ -100,8 +116,14 @@ class JobGiver extends DataObject
        
     }
 
+    public function generateClientNumber(){
+        $config = SiteConfig::current_site_config();
+        return number_format ( $this->ID + $SiteConfig->ClientNumberOffset , 0 ,  "." ,  "." );
+    }   
+
+
     public function NiceAddress(){
-        $html = '<p>'.$this->Member()->getTitle().'<br/>';
+        $html = '<p>';
         if ($this->Company){
             $html .= $this->Company.'<br/>';
         }
@@ -135,6 +157,14 @@ class JobGiver extends DataObject
         return "Uploads/Arbeitgeber/".$this->ID;
     }
 
+    public function getTitle(){
+        $str = $this->Company;
+        if( $this->City ){
+            $str .= ', '.$this->City;
+        }
+        return $str;
+    }
+
 
     public function getProfileFields(){
         $fields = $this->getFrontEndFields();
@@ -146,7 +176,7 @@ class JobGiver extends DataObject
 
     public function getRequiredProfileFields(){
        
-        return new RequiredFields(['Company']);
+        return new RequiredFields(['Company','Address','City','PostalCode','Land']);
     }
 
 }
