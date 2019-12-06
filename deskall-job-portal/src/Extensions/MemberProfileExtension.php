@@ -56,7 +56,7 @@ class MemberProfileExtension extends DataExtension
 
 
     public function getRequiredRegisterFields(){
-        return new RequiredFields(['FirstName','Surname','Email','Password']);
+        return new RequiredFields(['FirstName','Surname','Email','Password','AGB']);
     }
    
     
