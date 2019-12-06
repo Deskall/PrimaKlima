@@ -86,9 +86,9 @@ class MemberProfilePageController extends PageController{
 		Requirements::javascript('silverstripe/admin: client/dist/js/vendor.js');
 		Requirements::javascript('silverstripe/admin: client/dist/js/bundle.js');
 		$actions = new FieldList(FormAction::create('save', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="fa fa-save uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
-		$cook = Cook::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
-		$cook = ($cook) ? $cook : new Cook();
-		$status = $cook->Status;
+		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$JobGiver = ($JobGiver) ? $JobGiver : new JobGiver();
+		$status = $JobGiver->Status;
 		if (!$status){
 			$actions->push(FormAction::create('requireApproval', _t('MemberProfiles.REQUIREAPPROVAL', 'Genehmigung erfordern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="fa fa-check uk-margin-small-right"></i>'. _t('MemberProfiles.REQUIREAPPROVAL', 'Genehmigung erfordern')));
 		}
@@ -101,14 +101,14 @@ class MemberProfilePageController extends PageController{
 		$form = new Form(
 			$this,
 			'ProfilForm',
-			$cook->getProfileFields(),
+			$JobGiver->getProfileFields(),
 			$actions,
-			$cook->getRequiredProfileFields()
+			$JobGiver->getRequiredProfileFields()
 		);
 		
 		$form->setTemplate('Forms/ProfilCookForm');
 		$form->addExtraClass('uk-form-horizontal form-std');
-		$form->loadDataFrom($cook);
+		$form->loadDataFrom($JobGiver);
 
 		return $form;
 	}
