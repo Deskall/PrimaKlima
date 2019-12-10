@@ -36,7 +36,7 @@ class Package extends DataObject {
     );
 
     private static $many_many = array(
-        'Features' => 'PackageConfigItem',
+        'Features' => PackageConfigItem::class,
     );
 
     private static $has_many = array(
@@ -73,7 +73,7 @@ class Package extends DataObject {
         )));
 
 
-        $fields->addFieldToTab('Root.Global', ListboxField::create('Features', _t('Package.Features', 'Features'), PackageConfigItem::get()->map('ID','Title__de_DE')->toArray())->setMultiple(true)->setAttribute('data-placeholder', _t('Package.Choose', 'Bitte Wählen')) );
+        $fields->addFieldToTab('Root.Global', ListboxField::create('Features', _t('Package.Features', 'Features'), PackageConfigItem::get()->map('ID','Title__de_DE')->toArray())->setAttribute('data-placeholder', _t('Package.Choose', 'Bitte Wählen')) );
 
         $OptionField = new GridField(
             'PackegeOptions',

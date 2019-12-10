@@ -18,14 +18,15 @@ class ProductAdmin extends ModelAdmin{
 	private static $menu_priority = 2;
 	
 	private static $managed_models = [
-		'ShopOrder' => [
-			'title' => 'Bestellungen'
-		],
+		
 		'Package' => [
 			'title' => 'Pakete'
 		],
 		'PackageConfigItem' => [
 			'title' => 'Pakete-Features'
+		],
+		'ShopOrder' => [
+			'title' => 'Bestellungen'
 		],
 		'Coupon' => [
 			'title' => 'Gutscheine'
