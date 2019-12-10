@@ -13,3 +13,7 @@ SilverStripe\SiteConfig\SiteConfig:
 SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
   extensions:
     - ShopOrderItemRequestExtension
+
+BaseBlockExtension:
+  blocks:
+    - PriceBlock
