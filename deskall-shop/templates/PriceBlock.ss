@@ -9,9 +9,9 @@
 	<div>
 		<div class="uk-card uk-card-body">
 			<h3 class="uk-card-title">&nbsp;</h3>
-			<div class="product-body">
+			<div class="product-body uk-text-right">
 			    <% loop activeParameters %>
-				<div class="uk-margin">$Title</div>
+				<div class="uk-margin uk-text-small">$Title</div>
 				<% end_loop %>   	
 			</div>
 		</div>
