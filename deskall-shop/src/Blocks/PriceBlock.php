@@ -36,7 +36,7 @@ class PriceBlock extends BaseElement implements Searchable{
         return Package::get()->filter('isVisible',1);
     }
 
-    public function activePackages(){
+    public function activeParameters(){
         return PackageConfigItem::get()->filter('isVisible',1);
     }
 
