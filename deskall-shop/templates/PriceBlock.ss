@@ -25,7 +25,7 @@
 	        <div class="product-body">
 	        	<% loop $Parameters %>
 	        	<% if included %>
-	        	<div>v</div>
+	        	<div><i class="icon icon-check"></i></div>
 	        	<% else %>
 	        	<div>-</div>
 	        	<% end_if %>
