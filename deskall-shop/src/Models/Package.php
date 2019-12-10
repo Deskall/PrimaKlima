@@ -150,7 +150,7 @@ class Package extends DataObject {
         $parameters = [];
         $features = PackageConfigItem::get()->filter('isVisible',1);
         foreach ($features as $f) {
-            $parameters[] = ['title' => $f->Title, 'included' => $this->Features()->byId($f->ID)];
+            $parameters[$f->ID] = ['title' => $f->Title, 'included' => $this->Features()->byId($f->ID)];
         }
         return new ArrayList(new ArrayData($parameters));
     }
