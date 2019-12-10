@@ -152,7 +152,7 @@ class Package extends DataObject {
         foreach ($features as $f) {
             $parameters[$f->ID] = ['title' => $f->Title, 'included' => $this->Features()->byId($f->ID)];
         }
-        return new ArrayList(new ArrayData($parameters));
+        return new ArrayList($parameters);
     }
 
 }
