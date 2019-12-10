@@ -7,7 +7,6 @@ $ElementalArea
 <div class="element uk-background-cover" id="member-section">
 	<section class="uk-section uk-section-xsmall">
 		<div class="uk-container">
-			<h1>$Title</h1>
 			<div data-uk-grid>
 				<div class="uk-width-auto@m">
 					<ul class="uk-tab-left uk-margin-large-bottom" data-uk-tab="connect: #component-tab-left; animation: uk-animation-fade">
