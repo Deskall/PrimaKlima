@@ -49,6 +49,12 @@ class RegisterPageController extends PageController{
 					'Sie dürfen diesen Bereich nicht betreten.'
 				));
 			}
+			else{
+				return Security::permissionFailure($this, _t(
+					'MemberProfiles.AlreadyRegistered',
+					DBHTMLText::create()->setValue('Sie sind bereits registriert. Klicken Sie <a href="'.Security::getCurrentUser()->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen')
+				));
+			}
 		}
 		
 		
