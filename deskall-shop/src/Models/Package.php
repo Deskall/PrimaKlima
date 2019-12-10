@@ -20,7 +20,7 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\i18n\i18n;
 use SilverStripe\ORM\ArrayList;
-use SilverStripe\Views\ArrayData;
+use SilverStripe\View\ArrayData;
 
 class Package extends DataObject {
 
