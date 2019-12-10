@@ -21,17 +21,14 @@ class ProductAdmin extends ModelAdmin{
 		'ShopOrder' => [
 			'title' => 'Bestellungen'
 		],
-		'Product' => [
-			'title' => 'Produkte'
+		'Package' => [
+			'title' => 'Pakete'
 		],
-		'ProductCategory' => [
-			'title' => 'Kategorien'
+		'PackageConfigItem' => [
+			'title' => 'Pakete-Features'
 		],
-		'ShopCustomer' => [
-			'title' => 'Kunden'
-		],
-		'ProductConfig' => [
-			'title' => 'Einstellungen'
+		'Coupon' => [
+			'title' => 'Gutscheine'
 		]
 	];
 
@@ -40,22 +37,17 @@ class ProductAdmin extends ModelAdmin{
 	public function getEditForm($id = null, $fields = null) {
 	    $form = parent::getEditForm($id, $fields);
 
-	    if($this->modelClass == 'Product' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
-	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
-	    }
+	    // if($this->modelClass == 'Product' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+	    //    $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
+	    // }
 
-	    if($this->modelClass == 'ProductCategory' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
-	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
-	    }
-
+	
 	    return $form;
 	}
 
 	public function getList(){
 		$list = parent::getList();
-		 if($this->modelClass == 'ProductCategory'){
-		 	$list = $list->filter('ParentID',0);
-		 }
+		
 		return $list;
 	}
 
