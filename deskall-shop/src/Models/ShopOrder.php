@@ -41,9 +41,8 @@ class ShopOrder extends DataObject{
 		'Customer' => ShopCustomer::class,
 		'BillFile'  => File::class,
 		'ReceiptFile' => File::class,
-		'Voucher' => Voucher::class,
-		'Product' => Product::class,
-		'CertificatFile' => File::class
+		'Voucher' => Coupon::class,
+		'Product' => Package::class
 	);
 
 	private static $summary_fields = array(
