@@ -16,7 +16,7 @@ use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridFieldButtonRow;
 use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
-use SilverStripe\Forms\GridField\GridFieldAddNewInlineButton;
+use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use SilverStripe\i18n\i18n;
 
 class Package extends DataObject {
