@@ -38,9 +38,9 @@ class ProductAdmin extends ModelAdmin{
 	public function getEditForm($id = null, $fields = null) {
 	    $form = parent::getEditForm($id, $fields);
 
-	    // if($this->modelClass == 'Product' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
-	    //    $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
-	    // }
+	    if($this->modelClass == 'PackageConfigItem' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
+	    }
 
 	
 	    return $form;
