@@ -2,6 +2,7 @@
 <% include DefaultSlide %>
 <% end_if %>
 
+$ElementalArea
 
 <div class="element uk-background-cover" id="member-section">
 	<section class="uk-section uk-section-xsmall">
