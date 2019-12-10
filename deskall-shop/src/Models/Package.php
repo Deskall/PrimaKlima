@@ -144,6 +144,15 @@ class Package extends DataObject {
         }
     }
 
+    public function getParameters(){
+        $parameters = new ArrayData();
+        $features = PackageConfigItem::get()->filter('isActive',1);
+        foreach ($features as $f) {
+            $parameters->push(['title'] => $f->Title, ['included'] => $this->Features()->find($f->ID));
+        }
+        return new ArrayList($parameters);
+    }
+
 }
 
 
