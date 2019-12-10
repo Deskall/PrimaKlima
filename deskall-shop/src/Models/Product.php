@@ -63,7 +63,7 @@ class Product extends DataObject{
     private static $many_many = [
         'Files' => File::class,
         'Images' => Image::class,
-        'Features' => ProductFeature
+        'Features' => ProductFeature::class
     ];
 
     private static $many_many_extraFields = [
