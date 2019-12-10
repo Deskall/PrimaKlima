@@ -24,7 +24,7 @@
 	        <h3 class="uk-card-title">$Title</h3>
 	        <div class="product-body">
 	        	<% loop Top.activeParameters %>
-	        	$Up.Title
+	        	$Up.Up.Title
 	        	<% if Up.Features.find($ID) %>
 	        	<div><i class="icon ion-check"></i></div>
 	        	<% else %>
