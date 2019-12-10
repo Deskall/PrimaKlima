@@ -19,6 +19,8 @@ use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\i18n\i18n;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Views\ArrayData;
 
 class Package extends DataObject {
 
