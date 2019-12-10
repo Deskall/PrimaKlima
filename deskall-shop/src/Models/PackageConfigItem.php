@@ -3,12 +3,12 @@ use SilverStripe\ORM\DataObject;
 
 class PackageConfigItem extends DataObject{
 	private static $db = array(
-		'Title__de_DE' => 'Varchar(255)',
-		'Description__de_DE' => 'HTMLText'
+		'Title' => 'Varchar(255)',
+		'Description' => 'HTMLText'
 	);
 
 	private static $summary_fields = array(
-		'Title__de_DE' => 'Titel',
+		'Title' => 'Titel',
 	);
 
 	private static $extensions = [
@@ -22,8 +22,8 @@ class PackageConfigItem extends DataObject{
 
 	public function fieldLabels($includerelation = true){
 		$labels = parent::fieldLabels($includerelation);
-		$labels['Title__de_DE'] = 'Titel';
-		$labels['Description__de_DE'] = 'Beschreibung';
+		$labels['Title'] = 'Titel';
+		$labels['Description'] = 'Beschreibung';
 		return $labels;
 	}
 

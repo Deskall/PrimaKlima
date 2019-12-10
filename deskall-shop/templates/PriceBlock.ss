@@ -8,7 +8,7 @@
 <div class="uk-child-width-1-4@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
 	<div>
 		<% loop activeParameters %>
-		<div>$Title_de_DE</div>
+		<div>$Title</div>
 		<% end_loop %>
 	</div>
 <% loop activePackages %>
