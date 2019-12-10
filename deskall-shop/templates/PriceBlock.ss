@@ -32,7 +32,14 @@
 	        	<% end_loop %>   
 		    </div>
 	        <div class="product-footer">
-	        	<div class="product-price uk-text-large uk-text-bold">$Price</div>
+	        	<% if PackegeOptions %>
+	        	<table><% loop PackegeOptions %>
+	        		<tr><td>$Title</td><td>$Price €</td></tr>
+	        		<% end_loop %>
+	        	</table>
+	        	<% else %>
+	        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
+	        	<% end_if %>
 	        	<div class="uk-margin">
 	        		<a href="$OrderLink" class="uk-button btn-order">Bestellen</a>
 	        	</div>

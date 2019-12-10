@@ -3,7 +3,7 @@ use SilverStripe\ORM\DataObject;
 
 class PackageOption extends DataObject{
 	private static $db = array(
-		'Title__de_DE' => 'Varchar(255)',
+		'Title' => 'Varchar(255)',
 		'Price' => 'Currency',
 		'SortOrder' => 'Int',
 		'RunTime' => 'Int',
@@ -15,7 +15,7 @@ class PackageOption extends DataObject{
 	);
 
 	private static $summary_fields = array(
-		'Title__de_DE' => 'Titel',
+		'Title' => 'Titel',
 	);
 }
 
