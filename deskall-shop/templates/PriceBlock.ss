@@ -11,7 +11,7 @@
 			<h3 class="uk-card-title">&nbsp;</h3>
 			<div class="product-body">
 			    <% loop activeParameters %>
-				<div>$Title</div>
+				<div class="uk-margin">$Title</div>
 				<% end_loop %>   	
 			</div>
 		</div>
@@ -25,9 +25,9 @@
 	        <div class="product-body">
 	        	<% loop $Parameters %>
 	        	<% if included %>
-	        	<div><i class="icon icon-checkmark"></i></div>
+	        	<div class="uk-margin"><i class="icon icon-checkmark"></i></div>
 	        	<% else %>
-	        	<div>-</div>
+	        	<div class="uk-margin">-</div>
 	        	<% end_if %>
 	        	<% end_loop %>   
 		    </div>
