@@ -39,6 +39,21 @@ class RegisterPageController extends PageController{
 		'confirmation/$ID' => 'confirm'
 	];
 
+	public function init(){
+		parent::init();
+
+		if (!$this->getRequest()->getVar('CMSPreview')){
+			if(Security::getCurrentUser() && !Security::getCurrentUser()->inGroup($this->Group()->Code)){
+				return Security::permissionFailure($this, _t(
+					'MemberProfiles.AccessDenied',
+					'Sie dürfen diesen Bereich nicht betreten.'
+				));
+			}
+		}
+		
+		
+	}
+
 	public function RegisterForm(){
 
 		$fields = singleton(Member::class)->getRegisterFields();
