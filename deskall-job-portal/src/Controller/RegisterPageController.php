@@ -43,17 +43,19 @@ class RegisterPageController extends PageController{
 		parent::init();
 
 		if (!$this->getRequest()->getVar('CMSPreview')){
-			if(Security::getCurrentUser() && !Security::getCurrentUser()->inGroup($this->Group()->Code)){
-				return Security::permissionFailure($this, _t(
-					'MemberProfiles.AccessDenied',
-					'Sie dürfen diesen Bereich nicht betreten.'
-				));
-			}
-			else{
-				return Security::permissionFailure($this, _t(
-					'MemberProfiles.AlreadyRegistered',
-					DBHTMLText::create()->setValue('Sie sind bereits registriert. Klicken Sie <a href="'.Security::getCurrentUser()->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen')
-				));
+			if(Security::getCurrentUser()){
+				if(!Security::getCurrentUser()->inGroup($this->Group()->Code)){
+					return Security::permissionFailure($this, _t(
+						'MemberProfiles.AccessDenied',
+						'Sie dürfen diesen Bereich nicht betreten.'
+					));
+				}
+				else{
+					return Security::permissionFailure($this, _t(
+						'MemberProfiles.AlreadyRegistered',
+						DBHTMLText::create()->setValue('Sie sind bereits registriert. Klicken Sie <a href="'.Security::getCurrentUser()->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen')
+					));
+				}
 			}
 		}
 		
