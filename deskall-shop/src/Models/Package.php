@@ -23,15 +23,14 @@ use SilverStripe\i18n\i18n;
 class Package extends DataObject {
 
     private static $db = array(
-        'Title__de_DE' => 'Varchar(255)',
-        'SortOrder' => 'Int',
-        'Description__de_DE' => 'HTMLText',
+        'Title' => 'Varchar(255)',
+        'Description' => 'HTMLText',
         'NumOfAds' => 'Int',
-        'NumOfAdsTitle__de_DE' => 'Varchar(255)',
+        'NumOfAdsTitle' => 'Varchar(255)',
         'Price' => 'Currency',
         'SalePrice' => 'Currency',
         'RunTime' => 'Int',
-        'RunTimeTitle__de_DE' => 'Varchar(255)',
+        'RunTimeTitle' => 'Varchar(255)',
         'RunTimeCurrency' => 'Varchar(255)',
         'isFlatrate' => 'Boolean'
     );
@@ -46,11 +45,16 @@ class Package extends DataObject {
 
 
     private static $summary_fields = array(
-        'Title__de_DE' => 'Titel',
+        'Title' => 'Titel',
     );
 
     private static $singular_name = 'Paket';
     private static $plural_name = 'Pakete';
+
+    private static $extensions = [
+        'Activable',
+        'Sortable'
+    ];
 
 
 
@@ -58,7 +62,7 @@ class Package extends DataObject {
         $fields = new FieldList();
         $fields->push(new TabSet('Root'));
 
-        $fields->addFieldToTab('Root.Global', TextField::create('Title__de_DE', _t('Package.Title', 'Titel')) );
+        $fields->addFieldToTab('Root.Global', TextField::create('Title', _t('Package.Title', 'Titel')) );
         $fields->addFieldToTab('Root.Global', NumericField::create('Price', _t('Package.Price', 'Preis')) );
         $fields->addFieldToTab('Root.Global', NumericField::create('SalePrice', _t('Package.SalePrice', 'Aktionspreis')) );
 
@@ -123,20 +127,14 @@ class Package extends DataObject {
         $fields->addFieldToTab('Root.Global', $OptionField );
 
 
-        $fields->addFieldToTab('Root.Deutsch', HTMLEditorField::create('Description__de_DE', _t('Package.Beschreibung', 'Beschreibung'))->setRows(5) );
-        $fields->addFieldToTab('Root.Deutsch', TextField::create('NumOfAdsTitle__de_DE', _t('Package.NumOfAds', 'Anzahl Stellenanzeigen')) );
-        $fields->addFieldToTab('Root.Deutsch', TextField::create('RunTimeTitle__de_DE', _t('Package.RunTime', 'Laufzeit Anzeige')) );
+        $fields->addFieldToTab('Root.Global', HTMLEditorField::create('Description', _t('Package.Beschreibung', 'Beschreibung'))->setRows(5) );
+        $fields->addFieldToTab('Root.Global', TextField::create('NumOfAdsTitle', _t('Package.NumOfAds', 'Anzahl Stellenanzeigen')) );
+        $fields->addFieldToTab('Root.Global', TextField::create('RunTimeTitle', _t('Package.RunTime', 'Laufzeit Anzeige')) );
 
 
 
         return $fields;
     }
-
-
-    public function getLocaledField( $fieldName ){
-        return $this->{ $fieldName.'__'.i18n::get_locale() };
-    }
-
 
     public function GetFinalPrice(){
         if( $this->SalePrice > 0 ){
