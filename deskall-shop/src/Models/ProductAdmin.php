@@ -41,8 +41,10 @@ class ProductAdmin extends ModelAdmin{
 	    if($this->modelClass == 'PackageConfigItem' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
 	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction());
 	    }
+	    if($this->modelClass == 'Package' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction()->addComponent(new GridFieldDuplicateAction());
+	    }
 
-	// ->addComponent(new GridFieldDuplicateAction()
 	    return $form;
 	}
 
