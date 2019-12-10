@@ -33,7 +33,7 @@
 		    </div>
 	        <div class="product-footer">
 	        	<% if PackegeOptions %>
-	        	<table><% loop PackegeOptions %>
+	        	<table class="uk-text-small"><% loop PackegeOptions %>
 	        		<tr><td>$Title</td><td>$Price €</td></tr>
 	        		<% end_loop %>
 	        	</table>
