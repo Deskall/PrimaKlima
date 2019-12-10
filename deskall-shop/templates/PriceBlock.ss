@@ -23,7 +23,13 @@
 	        
 	        <h3 class="uk-card-title">$Title</h3>
 	        <div class="product-body">
-	        	
+	        	<% loop Top.activeParameters %>
+	        	<% if Up.Features.find($ID) %>
+	        	<div>v</div>
+	        	<% else %>
+	        	<div>x</div>
+	        	<% end_if %>
+	        	<% end_loop %>   
 		    </div>
 	        <div class="product-footer">
 	        	<div class="product-price uk-text-large uk-text-bold">$Price</div>
