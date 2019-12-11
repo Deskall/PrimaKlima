@@ -14,4 +14,8 @@ class ShopPage extends Page {
 		return Package::get()->filter('isVisible',1);
 	}
 
+	public function activeParameters(){
+	    return PackageConfigItem::get()->filter('isVisible',1);
+	}
+
 }
