@@ -73,7 +73,9 @@ $ElementalArea
 					</div>
 				</div>
 				<div id="bill-form-container" class="uk-margin" >
-					$BuyBillForm
+					<div class="uk-panel uk-background-muted uk-padding-small">
+						$BuyBillForm
+					</div>
 				</div>
 			</li>
 			<li class="account-tab">
