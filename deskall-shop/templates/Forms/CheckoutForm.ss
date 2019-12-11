@@ -108,7 +108,7 @@
 						<div class="details">
 							<div class="uk-margin">$RunTimeTitle</div>
 							<div class="uk-margin">$NumOfAdsTitle</div>
-							<% loop $Parameters %>
+							<% loop $Controller.Parameters %>
 							<% if included %>
 							<div class="uk-margin"><i class="icon icon-checkmark"></i></div>
 							<% end_if %>
