@@ -100,13 +100,15 @@
 				$FieldHolder
 				<% end_with %>
 				<div id="paypal-button-container"></div>
-				<% if $Actions %>
-					<div class="btn-toolbar">
+				<div class="uk-flex uk-flex-between">
+					<a class="uk-button uk-button-muted" data-step="backward"><%t Global.Back 'Zurück' %></a>
+					<% if $Actions %>
 						<% loop $Actions %>
 							$Field
 						<% end_loop %>
-					</div>
-				<% end_if %>
+					<% end_if %>
+				</div>
+				
 			</li>
 		</ul>
 	</div>
