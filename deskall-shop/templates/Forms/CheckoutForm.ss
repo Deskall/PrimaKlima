@@ -30,9 +30,9 @@
 						</div>
 					</div>
 					<% loop Controller.activePackages %>
-					    <div class="dk-transition-toggle-not-mobile">
+					    <div class="uk-transition-toggle">
 					    	
-					        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
+					        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-position-relative">
 						        
 						        <h3 class="uk-card-title">$Title</h3>
 						        <div class="product-body">
@@ -57,7 +57,7 @@
 						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 						        	<% end_if %>
 						        	<div class="uk-margin">
-						        		<a data-step="forward" class="uk-button uk-button-primary">Bestellen<span class"uk-margin-small-left"><i class="icon icon-chevron-right"></i></span></a>
+						        		<a data-step="forward" class="uk-button uk-button-primary">Bestellen<span class"uk-margin-small-left uk-text-small uk-transition-fade" hidden><i class="icon icon-chevron-right"></i></span></a>
 						        	</div>
 						        	<div class="footer-text">$FooterText</div>
 						    	</div>
@@ -91,7 +91,7 @@
 				</div>
 				<div class="uk-flex uk-flex-between">
 					<a class="uk-button uk-button-muted" data-step="backward"><i class"uk-margin-small-right icon icon-chevron-right"></i><%t Global.Back 'Zurück' %></a>
-					<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %><i class"uk-margin-small-left icon icon-chevron-left"></i></a>
+					<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %><span class"uk-margin-small-left uk-text-small uk-transition-fade" hidden><i class="icon icon-chevron-right"></i></span></a>
 				</div>
 			</li>
 			<li class="account-tab" data-index="2">
