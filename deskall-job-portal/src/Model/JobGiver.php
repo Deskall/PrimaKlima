@@ -111,7 +111,7 @@ class JobGiver extends DataObject
     $labels['BillingAddressCompany'] = _t(__CLASS__.'.BillingAddressCompany','Firma');
     $labels['BillingAddressStreet'] = _t(__CLASS__.'.BillingAddressStreet','Adresse');
     $labels['BillingAddressPostalCode'] = _t(__CLASS__.'.BillingAddressPostalCode','PLZ');
-    $labels['BillingAddressCity'] = _t(__CLASS__.'.BillingAddressCity','Stadt');
+    $labels['BillingAddressPlace'] = _t(__CLASS__.'.BillingAddressPlace','Stadt');
     $labels['BillingAddressCountry'] = _t(__CLASS__.'.BillingAddressCountry','Land');
     $labels['Phone'] = _t(__CLASS__.'.Phone','Telefon');
     $labels['Fax'] = _t(__CLASS__.'.Fax','Fax');

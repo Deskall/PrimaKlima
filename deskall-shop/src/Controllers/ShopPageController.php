@@ -58,11 +58,11 @@ class ShopPageController extends PageController{
 			HiddenField::create('PackageID'),
 			HiddenField::create('PaymentType'),
 			CompositeField::create(
-				TextField::create('BillingAddressCompany'),
-				TextField::create('BillingAddressStreet'),
-				TextField::create('BillingAddressPostalCode'),
-				TextField::create('BillingAddressPlace'),
-				DropdownField::create('BillingAddressCountry','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))
+				TextField::create('BillingAddressCompany',_t(__CLASS__.'.BillingAddressCompany','Firma')),
+				TextField::create('BillingAddressStreet',_t(__CLASS__.'.BillingAddressStreet','Adresse')),
+				TextField::create('BillingAddressPostalCode',_t(__CLASS__.'.BillingAddressPostalCode','PLZ')),
+				TextField::create('BillingAddressPlace',_t(__CLASS__.'.BillingAddressPlace','Ort')),
+				DropdownField::create('BillingAddressCountry',_t(__CLASS__.'.BillingAddressCountry','Land'))->setSource(i18n::getData()->getCountries())->setValue('de')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))
 			)->setName('BillFields'),
 			CompositeField::create(
 				CheckboxField::create('AGB','AGB'),
