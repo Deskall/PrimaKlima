@@ -65,10 +65,10 @@ $ElementalArea
 				<div class="uk-margin">
 					<div class="uk-width-1-2@s" data-uk-grid>
 						<div>
-							<label><input class="uk-radio" type="radio" name="paymentmethod" value="bill"><%t Shop.BillPayLabel 'Ich zahle mit Rechnung' %></label>
+							<label class="uk-button uk-button-primary"><input class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><%t Shop.BillPayLabel 'Ich zahle mit Rechnung' %></label>
 						</div>
 						<div>
-							<label><input class="uk-radio" type="radio" name="paymentmethod" value="bill"><%t Shop.BillPayLabel 'Ich zahle Online mit Kredit Kard oder meinem paypal Konto' %></label>
+							<label class="uk-button uk-button-primary"><input class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><%t Shop.BillPayLabel 'Ich zahle Online mit Kredit Kard oder meinem paypal Konto' %></label>
 						</div>
 					</div>
 				</div>
