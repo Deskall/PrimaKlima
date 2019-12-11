@@ -16,7 +16,7 @@ $ElementalArea
 					</ul>
 				
 					<ul id="component-tab" class="uk-switcher" data-uk-height-match="target: .account-tab;row: false;">
-						<li class="account-tab">
+						<li class="account-tab uk-background-muted">
 							<div class="uk-panel">
 								<h2><%t JobGiver.AccountTitle 'Adressangaben' %></h2>
 								<div class="member-section-container">
