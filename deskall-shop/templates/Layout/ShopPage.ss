@@ -60,6 +60,12 @@ $ElementalArea
 					<% end_loop %>
 				</div>
 			</li>
+			<li class="account-tab">
+				<h3>Wählen Sie Ihre Zahlungsmethod</h3>
+			</li>
+			<li class="account-tab">
+				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>
+			</li>
 		</ul>
 	</div>
 </section>
