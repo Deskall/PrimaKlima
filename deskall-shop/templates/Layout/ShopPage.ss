@@ -1,6 +1,6 @@
 $ElementalArea
 
-<section class="uk-section no-bg uk-padding-remove">
+<section class="uk-section no-bg uk-padding-remove-top">
 	<div class="uk-container">
 		<ul data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePackage '1. Paket wählen' %></a></li>
