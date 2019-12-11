@@ -53,6 +53,10 @@ class MemberProfilePageController extends PageController{
 		'wochen-zeiten-loeschen' => 'DeleteTimeSheet',
 	];
 
+	public function activeTab(){
+		return $this->getRequest()->getSession()->get('active_tab');
+	}
+
 	public function init(){
 		parent::init();
 
@@ -191,7 +195,7 @@ class MemberProfilePageController extends PageController{
 			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
 			'good'
 		);
-		$this->getRequest()->getSession()->set('active_tab','profil');
+		$this->getRequest()->getSession()->set('active_tab','account');
 		
 		return $this->redirectBack();
 	}
