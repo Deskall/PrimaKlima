@@ -26,7 +26,7 @@
 									</div>
 								</div>
 								<div class="uk-position-top-right uk-dark uk-text-center">
-									<a class="uk-text-large uk-display-block uk-padding-small uk-padding-remove-top" data-uk-toggle="target:.switch-this" ><i class="fa fa-times"></i></a>
+									<a class="uk-text-large uk-display-block uk-padding-small uk-padding-remove-top" data-uk-toggle="target:.switch-this" ><i class="icon icon-close"></i></a>
 								</div>
 							</div>
 						</div>
