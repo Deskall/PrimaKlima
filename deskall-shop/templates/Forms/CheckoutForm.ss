@@ -101,7 +101,7 @@
 				<h3><%t Checkout.ReviewAndPay 'Prüfen und bestätigen Sie Ihre Bestellung' %></h3>
 				<div class="uk-panel uk-background-muted uk-padding-small">
 					<h4>Ihr Paket</h4>
-					<% loop activePackages %>
+					<% loop Controller.activePackages %>
 					<div id="summary-package-{$ID}" hidden>
 						<strong>$Title</strong>
 						<div class="price">$Price €</div>
