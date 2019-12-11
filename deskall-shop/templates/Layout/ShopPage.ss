@@ -51,7 +51,7 @@ $ElementalArea
 						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 						        	<% end_if %>
 						        	<div class="uk-margin">
-						        		<a data-package-choice class="uk-button uk-button-primary">Bestellen</a>
+						        		<a data-step="forward" class="uk-button uk-button-primary">Bestellen</a>
 						        	</div>
 						        	<div class="footer-text">$FooterText</div>
 						    	</div>

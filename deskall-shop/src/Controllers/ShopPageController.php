@@ -27,7 +27,7 @@ use SilverStripe\Security\MemberAuthenticator\MemberLoginForm;
 use SilverStripe\Security\MemberAuthenticator\MemberAuthenticator;
 
 class ShopPageController extends PageController{
-	private static $allowed_actions = ['ProductDetails','CategoryDetails','CreateTransaction','TransactionCompleted','Checkout','BuyBillForm','PaymentSuccessfull','CustomerForm','CustomerAccount','OnlineDelivery','CertificateForm','DownloadCertificat','VideoSeen','OrderLoginForm'];
+	private static $allowed_actions = ['ProductDetails','CategoryDetails','CreateTransaction','TransactionCompleted','Checkout','BuyBillForm','PaymentSuccessfull','CustomerForm','CustomerAccount','OnlineDelivery','CertificateForm','DownloadCertificat','VideoSeen','OrderLoginForm', 'CheckoutForm'];
 
 	private static $url_handlers = [
 		'produkte/$URLSegment' => 'ProductDetails',
@@ -45,6 +45,26 @@ class ShopPageController extends PageController{
 	public function init(){
 		parent::init();
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".SiteConfig::current_site_config()->PayPalClientID."&currency=EUR&locale=de_DE");
+	}
+
+	public function CheckoutForm(){
+
+		$fields = FieldList::create();
+		$actions = new FieldList(FormAction::create('payBill', _t('SHOP.BUY', 'Jetzt kaufen'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-cart uk-margin-small-right"></i>'._t('SHOP.BUY', 'Jetzt kaufen')));
+
+		$form = new Form(
+			$this,
+			'CheckoutForm',
+			$fields,
+			$actions,
+			$JobGiver->getRequiredProfileFields()
+		);
+		
+		$form->setTemplate('Forms/ProfilForm');
+		$form->addExtraClass('uk-form-horizontal form-std company-form');
+		$form->loadDataFrom($JobGiver);
+
+		return $form;
 	}
 
 	public function ProductDetails(HTTPRequest $request){
