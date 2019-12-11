@@ -61,23 +61,23 @@ class ParentBlock extends ElementList
     }
 
     private static $blocks_per_line = [
-        'uk-child-width-1-1@s' => [
-            'value' => 'uk-child-width-1-1@s',
+        'uk-child-width-1-1' => [
+            'value' => 'uk-child-width-1-1',
             'title' => '1 Spalte',
             'icon' => '/deskall-page-blocks/images/icon-parent-1-columns.svg'
         ],
-        'uk-child-width-1-1@s uk-child-width-1-2@m' => [
-            'value' => 'uk-child-width-1-1@s uk-child-width-1-2@m',
+        'uk-child-width-1-2@m' => [
+            'value' => 'uk-child-width-1-2@m',
             'title' => '2 Spalten',
             'icon' => '/deskall-page-blocks/images/icon-parent-2-columns.svg'
         ],
-        'uk-child-width-1-1@s uk-child-width-1-3@m' => [
-            'value' => 'uk-child-width-1-1@s uk-child-width-1-3@m',
+        'uk-child-width-1-3@m' => [
+            'value' => 'uk-child-width-1-3@m',
             'title' => '3 Spalten',
             'icon' => '/deskall-page-blocks/images/icon-parent-3-columns.svg'
         ],
-        'uk-child-width-1-1@s uk-child-width-1-4@m' => [
-            'value' => 'uk-child-width-1-1@s uk-child-width-1-4@m',
+        'uk-child-width-1-4@m' => [
+            'value' => 'uk-child-width-1-4@m',
             'title' => '4 Spalten',
             'icon' => '/deskall-page-blocks/images/icon-parent-4-columns.svg'
         ]
@@ -119,7 +119,7 @@ class ParentBlock extends ElementList
 
 
     private static $defaults = [
-        'BlocksPerLine' => 'uk-child-width-1-1@s uk-child-width-1-2@m' 
+        'BlocksPerLine' => 'uk-child-width-1-2@m' 
     ];
 
     private static $allowed_collapsed_blocks = ['TextBlock','GalleryBlock','ParentBlock'];
