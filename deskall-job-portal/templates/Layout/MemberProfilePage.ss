@@ -39,6 +39,9 @@ $ElementalArea
 								<h2><%t JobGiver.PaymentTitle 'Pakete' %></h2>
 								<div class="member-section-container">
 									$PaymentTabHTML
+									<div class="uk-margin">
+										<a class="uk-button uk-button-primary" href="$ShopPage.Link"><%t Payment.OrderPackage 'jetzt Paket bestellen' %></a>
+									</div>
 								</div>
 							</div>
 						</li>
