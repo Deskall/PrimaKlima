@@ -54,7 +54,8 @@ class JobGiver extends DataObject
         'SocialTwitter' => 'Varchar(255)',
         'SocialInstagram' => 'Varchar(255)',
         'SocialPinterest' => 'Varchar(255)',
-
+        'ContactPersonFirstName' => 'Varchar(255)',
+        'ContactPersonSurname' => 'Varchar(255)',
         'ContactPersonTelephone' => 'Varchar(255)',
         'ContactPersonMobile' => 'Varchar(255)',
         'ContactPersonEmail' => 'Varchar(255)',
@@ -101,6 +102,8 @@ class JobGiver extends DataObject
      $labels['Created'] = _t(__CLASS__.'.Created','Erstellt am');
     $labels['Company'] = _t(__CLASS__.'.Company','Firma');
     $labels['CompanyEmail'] = _t(__CLASS__.'.CompanyEmail','E-Mail-Adresse der Firma');
+    $labels['ContactPersonFirstName'] = _t(__CLASS__.'.ContactPersonFirstName','Ansprechparter Vorname');
+    $labels['ContactPersonSurname'] = _t(__CLASS__.'.ContactPersonSurname','Ansprechparter Name');
     $labels['Address'] = _t(__CLASS__.'.Address','Adresse');
     $labels['PostalCode'] = _t(__CLASS__.'.PostalCode','PLZ');
     $labels['City'] = _t(__CLASS__.'.City','Stadt');
@@ -261,8 +264,8 @@ class JobGiver extends DataObject
                 CheckboxField::create('BillingAddressIsCompanyAddress', _t('ARBEITGEBER.BillingAddressIsCompanyAddress', 'Rechnungsadresse ist Firmenadresse'))->setAttribute('class','uk-checkbox'),
                 $billingaddresssection,
                 HeaderField::create('ContactPersonTitle', _t('ARBEITGEBER.ContactPersonTitle', 'Ansprechparter'), 3),
-                TextField::create('FirstName', _t('ARBEITGEBER.FirstName', 'Vorname')),
-                TextField::create('Surname', _t('ARBEITGEBER.SurName', 'Nachname')),
+                TextField::create('ContactPersonFirstName', _t('ARBEITGEBER.ContactPersonFirstName', 'Vorname')),
+                TextField::create('ContactPersonSurname', _t('ARBEITGEBER.ContactPersonSurname', 'Nachname')),
                 TextField::create('ContactPersonTelephone', _t('ARBEITGEBER.ContactPersonTelephone', 'Telefon')),
                 TextField::create('ContactPersonMobile', _t('ARBEITGEBER.ContactPersonMobile', 'Mobil'))
             );
@@ -272,7 +275,7 @@ class JobGiver extends DataObject
 
     public function getRequiredAccountFields(){
        
-        return new RequiredFields(['Email']);
+        return new RequiredFields(['CompanyEmail']);
     }
 
 }
