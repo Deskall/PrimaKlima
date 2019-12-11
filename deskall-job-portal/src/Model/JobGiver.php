@@ -240,7 +240,7 @@ class JobGiver extends DataObject
                 TextField::create('BillingAddressPostalCode', _t('ARBEITGEBER.BillingAddressPostalCode', 'PLZ')),
                 TextField::create('BillingAddressPlace', _t('ARBEITGEBER.BillingAddressPlace', 'Ort')),
                 DropdownField::create('BillingAddressCountry',$this->fieldLabels()['BillingAddressCountry'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('de')
-            )
+            )->setAttribute('class','uk-margin-top')
             ->hideIf("BillingAddressIsCompanyAddress")->isChecked()->end();
 
 
@@ -256,7 +256,7 @@ class JobGiver extends DataObject
                 TextField::create('Telephone', _t('ARBEITGEBER.Telephone', 'Telefon')),
                 TextField::create('Cipher', _t('ARBEITGEBER.Cipher', 'Chiffre')),
                 HeaderField::create('BillingAdressTitle', _t('ARBEITGEBER.BillingAdressTitle', 'Rechnungsadresse'), 3),
-                CheckboxField::create('BillingAddressIsCompanyAddress', _t('ARBEITGEBER.BillingAddressIsCompanyAddress', 'Rechnungsadresse ist Firmenadresse'))->setAttribute('class','uk-checkbox uk-margin-small'),
+                CheckboxField::create('BillingAddressIsCompanyAddress', _t('ARBEITGEBER.BillingAddressIsCompanyAddress', 'Rechnungsadresse ist Firmenadresse'))->setAttribute('class','uk-checkbox'),
                 $billingaddresssection,
                 HeaderField::create('ContactPersonTitle', _t('ARBEITGEBER.ContactPersonTitle', 'Ansprechparter'), 3),
                 TextField::create('FirstName', _t('ARBEITGEBER.FirstName', 'Vorname')),
