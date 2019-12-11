@@ -77,7 +77,7 @@
 							<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="bill-choice"><%t Shop.BillPayLabel 'Ich zahle mit Rechnung' %></label>
 						</div>
 						<div>
-							<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="online-choice"><%t Shop.BillPayLabel 'Ich zahle Online mit Kredit Kard oder meinem paypal Konto' %></label>
+							<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online"><label for="online-choice"><%t Shop.BillPayLabel 'Ich zahle Online mit Kredit Kard oder meinem paypal Konto' %></label>
 						</div>
 					</div>
 				</div>
