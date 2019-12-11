@@ -15,7 +15,7 @@
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
 			<li class="account-tab" data-index="0">
-				<h3>Wählen Sie Ihre Paket nach Mass</h3>
+				<h3><%t Checkout.ChoosePackage 'Wählen Sie Ihre Paket nach Mass' %></h3>
 				<div class="uk-child-width-1-4@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
 					<div>
 						<div class="uk-card uk-card-body">
@@ -57,7 +57,7 @@
 						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 						        	<% end_if %>
 						        	<div class="uk-margin">
-						        		<a data-step="forward" class="uk-button uk-button-primary">Bestellen</a>
+						        		<a data-step="forward" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %></a>
 						        	</div>
 						        	<div class="footer-text">$FooterText</div>
 						    	</div>
@@ -70,20 +70,20 @@
 				<% end_with %>
 			</li>
 			<li class="account-tab" data-index="1">
-				<h3>Wählen Sie Ihre Zahlungsmethod</h3>
+				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
 				<div class="uk-margin">
 					<div class="uk-child-width-1-2@s" data-uk-grid>
 						<div>
-							<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="bill-choice"><%t Shop.BillPayLabel 'Ich zahle mit Rechnung' %></label>
+							<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="bill-choice"><%t Shop.BillPayLabel 'Ich bezahle per Rechnung' %></label>
 						</div>
 						<div>
-							<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online"><label for="online-choice"><%t Shop.BillPayLabel 'Ich zahle Online mit Kredit Kard oder meinem paypal Konto' %></label>
+							<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online"><label for="online-choice"><%t Shop.BillPayLabel 'Ich bezahle online mit meiner Kreditkarte oder meinem PayPal-Konto' %></label>
 						</div>
 					</div>
 				</div>
 				<div id="bill-form-container" class="uk-margin" hidden>
 					<div class="uk-panel uk-background-muted uk-padding-small">
-						<h4>Rechnungsadresse</h4>
+						<h4><%t Checkout.BillAddress 'Rechnungsadresse' %></h4>
 						<% with Fields.FieldByName('BillFields') %>
 							$FieldHolder
 						<% end_with %>
@@ -98,7 +98,7 @@
 				<% end_with %>
 			</li>
 			<li class="account-tab" data-index="2">
-				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>
+				<h3><%t Checkout.ReviewAndPay 'Prüfen und bestätigen Sie Ihre Bestellung' %></h3>
 				<div class="uk-panel uk-background-muted uk-padding-small">
 					<% with Fields.FieldByName('SummaryFields') %>
 					$FieldHolder
