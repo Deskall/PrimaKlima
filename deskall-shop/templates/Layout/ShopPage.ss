@@ -63,7 +63,7 @@ $ElementalArea
 			<li class="account-tab">
 				<h3>Wählen Sie Ihre Zahlungsmethod</h3>
 				<div class="uk-margin">
-					<div class="uk-width-1-2@s" data-uk-grid>
+					<div class="uk-child-width-1-2@s" data-uk-grid>
 						<div>
 							<label class="uk-button uk-button-primary"><input class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><%t Shop.BillPayLabel 'Ich zahle mit Rechnung' %></label>
 						</div>
