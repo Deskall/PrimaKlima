@@ -108,7 +108,7 @@ class MemberProfilePageController extends PageController{
 			$JobGiver->getRequiredProfileFields()
 		);
 		
-		// $form->setTemplate('Forms/ProfilForm');
+		$form->setTemplate('Forms/ProfilForm');
 		$form->addExtraClass('uk-form-horizontal form-std company-form');
 		$form->loadDataFrom($JobGiver);
 

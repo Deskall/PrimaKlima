@@ -8,7 +8,7 @@
 	<% end_if %>
 	<div class="uk-child-width-1-1" data-uk-grid>
 		<div>
-			<div class="uk-card uk-card-default uk-card-body">
+			
 				<div id="Form_ProfilForm_Logo_Holder" class="field uk-margin-small">
 					<label class="uk-form-label">Logo</label>
 					<div class="uk-form-controls">
@@ -50,21 +50,21 @@
 						<% end_with %>	
 					</div>
 				</div>
-			</div> 
+			
 		</div>
 		<div>
-			<div class="uk-card uk-card-default uk-card-body">
+			
 			<% with Fields.FieldByName('CompanyFields') %>
 			$FieldHolder
 			<% end_with %>
-			</div>
+			
 		</div>
 		<div>
-			<div class="uk-card uk-card-default uk-card-body ">
+			
 			<% with Fields.FieldByName('OnlineFields') %>
 			$FieldHolder
 			<% end_with %>
-			</div>
+			
 		</div>
 	</div>
 	<% with Fields.FieldByName('SecurityID') %>
