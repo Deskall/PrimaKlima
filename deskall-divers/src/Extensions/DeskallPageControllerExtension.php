@@ -4,6 +4,7 @@ use SilverStripe\Core\Extension;
 use SilverStripe\Control\Director;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Security\Security;
 
 class DeskallPageControllerExtension extends Extension
 {
@@ -24,5 +25,9 @@ class DeskallPageControllerExtension extends Extension
         $css = new DBHTMLText();
         $css->setValue($css_compiled);
         return $css;
+    }
+
+    public function CurrentUser(){
+        return Security::getCurrentUser();
     }
 }
