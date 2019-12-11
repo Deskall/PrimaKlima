@@ -8,6 +8,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class Box extends DataObject
 {
@@ -17,6 +18,7 @@ class Box extends DataObject
         'Content' => 'HTMLText',
         'Effect' => 'Varchar(255)',
         'EffectOptions' => 'Varchar(255)',
+        'Layout' => 'Varchar(255)'
     ];
 
     private static $has_one = [
@@ -71,6 +73,7 @@ class Box extends DataObject
         $fields->addFieldToTab('Root.Settings',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
         $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.Main','Inhalt'));
         $fields->FieldByName('Root.Settings')->setTitle(_t(__CLASS__.'.Settings','Einstellungen'));
+       $fields->replaceField('Layout', HTMLDropdownField::create('Layout',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'));
         return $fields;
     }
 
