@@ -54,7 +54,9 @@ class MemberProfilePageController extends PageController{
 	];
 
 	public function activeTab(){
-		return $this->getRequest()->getSession()->get('active_tab');
+		$activeTab = $this->getRequest()->getSession()->get('active_tab');
+		$this->getRequest()->getSession()->clear('active_tab');
+		return $activeTab;
 	}
 
 	public function init(){
