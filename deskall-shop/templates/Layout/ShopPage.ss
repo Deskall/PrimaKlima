@@ -22,8 +22,8 @@ $ElementalArea
 			        
 			        <h3 class="uk-card-title">$Title</h3>
 			        <div class="product-body">
-			        	<div class="uk-margin">$RunTime $RunTimeTitle</div>
-			        	<div class="uk-margin">$NumOfAds $NumOfAdsTitle</div>
+			        	<div class="uk-margin">$RunTimeTitle</div>
+			        	<div class="uk-margin">$NumOfAdsTitle</div>
 			        	<% loop $Parameters %>
 			        	<% if included %>
 			        	<div class="uk-margin"><i class="icon icon-checkmark"></i></div>
