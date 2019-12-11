@@ -49,9 +49,9 @@ class ShopPageController extends PageController{
 		
 	}
 
-	public function RegisterForm(){
-		$controller =  RegisterPageController::create($this->getRequest());
-		return $controller->RegisterForm();
+	public function RegisterController(){
+		$controller =  RegisterPageController::create();
+		return $controller;
 	}
 
 	public function CheckoutForm(){

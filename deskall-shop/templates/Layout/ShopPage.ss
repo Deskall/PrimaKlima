@@ -13,7 +13,9 @@ $ElementalArea
 			<li>$LoginForm
 			</li>
 			<li>
+				<% with $RegisterController %>
 				$RegisterForm
+				<% end_with %>
 			</li> 
 		</ul>
 	</div>
