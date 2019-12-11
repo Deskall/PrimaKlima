@@ -14,6 +14,7 @@ $ElementalArea
 			</li>
 			<li>
 				<% with $RegisterPage.Controller %>
+				$ID
 				$RegisterForm
 				<% end_with %>
 			</li> 
