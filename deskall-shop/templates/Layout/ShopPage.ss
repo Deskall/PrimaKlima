@@ -7,6 +7,8 @@ $ElementalArea
 				<div class="uk-card uk-card-body">
 					<h3 class="uk-card-title">&nbsp;</h3>
 					<div class="product-body uk-text-right">
+						<div class="uk-margin uk-text-small"><%t Package.RunTime 'Laufzeit' %></div>
+						<div class="uk-margin uk-text-small"><%t Package.OfferQuota 'Anzahl Stelleninserate' %></div>
 					    <% loop activeParameters %>
 						<div class="uk-margin uk-text-small">$Title</div>
 						<% end_loop %>   	
@@ -20,6 +22,8 @@ $ElementalArea
 			        
 			        <h3 class="uk-card-title">$Title</h3>
 			        <div class="product-body">
+			        	<div class="uk-margin">$RunTime $RunTimeTitle</div>
+			        	<div class="uk-margin">$NumOfAds $NumOfAdsTitle</div>
 			        	<% loop $Parameters %>
 			        	<% if included %>
 			        	<div class="uk-margin"><i class="icon icon-checkmark"></i></div>
