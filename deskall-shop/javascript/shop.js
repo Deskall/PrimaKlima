@@ -14,6 +14,12 @@ $(document).ready(function(){
 		}
 	});
 
+	//Package Selection
+	$(document).on("click","[data-package-choice]",function(){
+		$("#Form_CheckoutForm_PackageID").val($(this).attr('data-package-choice'));
+		UIkit.tab('#tab-switcher').show(1);
+	});
+
 	//Bill Fields
 	$(document).on("change","input[name='paymentmethod']",function(){
 		if ($("input[name='paymentmethod']:checked").val() == "bill"){

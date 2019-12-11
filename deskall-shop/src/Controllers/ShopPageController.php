@@ -56,6 +56,7 @@ class ShopPageController extends PageController{
 		Requirements::javascript("deskall-shop/javascript/messages_de.min.js");
 		$fields = FieldList::create(
 			HiddenField::create('PackageID'),
+			HiddenField::create('PackageOptionID'),
 			HiddenField::create('PaymentType'),
 			CompositeField::create(
 				TextField::create('BillingAddressCompany',_t(__CLASS__.'.BillingAddressCompany','Firma')),

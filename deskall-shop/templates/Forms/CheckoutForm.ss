@@ -57,7 +57,7 @@
 						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 						        	<% end_if %>
 						        	<div class="uk-margin">
-						        		<a data-step="forward" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %></a>
+						        		<a data-package-choice="$ID" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %></a>
 						        	</div>
 						        	<div class="footer-text">$FooterText</div>
 						    	</div>
