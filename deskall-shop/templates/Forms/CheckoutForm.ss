@@ -23,13 +23,13 @@
 							<div class="product-body uk-text-right">
 								<div class="uk-margin"><%t Package.RunTime 'Laufzeit' %></div>
 								<div class="uk-margin"><%t Package.OfferQuota 'Anzahl Stelleninserate' %></div>
-							    <% loop activeParameters %>
+							    <% loop Controller.activeParameters %>
 								<div class="uk-margin">$Title</div>
 								<% end_loop %>   	
 							</div>
 						</div>
 					</div>
-					<% loop activePackages %>
+					<% loop Controller.activePackages %>
 					    <div class="dk-transition-toggle-not-mobile">
 					    	
 					        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
@@ -88,6 +88,13 @@
 			<li class="account-tab">
 				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>
 				<div id="paypal-button-container"></div>
+				<% if $Actions %>
+					<div class="btn-toolbar">
+						<% loop $Actions %>
+							$Field
+						<% end_loop %>
+					</div>
+				<% end_if %>
 			</li>
 		</ul>
 	</div>
@@ -95,13 +102,7 @@
 	<% with Fields.FieldByName('SecurityID') %>
 	$FieldHolder
 	<% end_with %>
-	<% if $Actions %>
-	<div class="btn-toolbar">
-		<% loop $Actions %>
-			$Field
-		<% end_loop %>
-	</div>
-	<% end_if %>
+	
 <% if $IncludeFormTag %>
 </form>
 <% end_if %>
