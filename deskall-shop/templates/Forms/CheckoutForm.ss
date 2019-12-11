@@ -102,7 +102,7 @@
 					<% end_with %>
 					<div id="paypal-button-container"></div>
 				</div>
-				<div class="uk-flex uk-flex-between">
+				<div class="uk-margin uk-flex uk-flex-between">
 					<a class="uk-button uk-button-muted" data-step="backward"><%t Global.Back 'Zurück' %></a>
 					<% if $Actions %>
 						<% loop $Actions %>
