@@ -192,7 +192,7 @@ class MemberProfilePageController extends PageController{
 		
 		$form = new Form(
 			$this,
-			'ProfilForm',
+			'AccountForm',
 			$JobGiver->getAccountFields(),
 			$actions,
 			$JobGiver->getRequiredAccountFields()
