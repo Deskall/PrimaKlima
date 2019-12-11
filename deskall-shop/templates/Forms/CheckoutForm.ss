@@ -57,7 +57,7 @@
 						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 						        	<% end_if %>
 						        	<div class="uk-margin">
-						        		<a data-step="forward" class="uk-button uk-button-primary">Bestellen<i class"uk-margin-small-left icon icon-chevron-left"></i></a>
+						        		<a data-step="forward" class="uk-button uk-button-primary">Bestellen<span class"uk-margin-small-left"><i class="icon icon-chevron-left"></i></span></a>
 						        	</div>
 						        	<div class="footer-text">$FooterText</div>
 						    	</div>
