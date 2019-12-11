@@ -74,6 +74,7 @@ $ElementalArea
 				</div>
 				<div id="bill-form-container" class="uk-margin" >
 					<div class="uk-panel uk-background-muted uk-padding-small">
+						<h4>Rechnungsadresse</h4>
 						$BuyBillForm
 					</div>
 				</div>
