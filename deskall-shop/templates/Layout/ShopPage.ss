@@ -30,7 +30,7 @@ $ElementalArea
 				    </div>
 			        <div class="product-footer">
 			        	<% if PackegeOptions %>
-			        	<select name="package-option">
+			        	<select name="package-option" class="uk-select">
 			        		<% loop PackegeOptions %>
 			        		<option value="$ID">$Title $Price €</option>
 			        		<% end_loop %>
