@@ -73,12 +73,12 @@ $ElementalArea
 					<ul class="uk-switcher uk-margin">
 					    <li>
 					    	<h4><%t Event.PayBill 'Zahlen mit Rechnung' %></h4>
-					    	$ProductConfig.BillPayLabel
+					    	$BillPayLabel
 					    	$BuyBillForm
 					    </li>
 					    <li>
 					    	<h4><%t Event.PayOnline 'Online Zahlen (Paypal / Kreditkarte)' %></h4>
-					    	$ProductConfig.OnlinePayLabel
+					    	$OnlinePayLabel
 					    	<div id="paypal-button-container"></div>
 					    </li>
 					</ul>
