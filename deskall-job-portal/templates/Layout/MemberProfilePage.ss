@@ -9,14 +9,14 @@ $ElementalArea
 		<div class="uk-container">
 			<div data-uk-grid>
 				<div class="uk-width-auto@m">
-					<ul class="uk-tab-left uk-margin-large-bottom" data-uk-tab="connect: #component-tab-left; animation: uk-animation-fade">
+					<ul class="uk-margin-large-bottom" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 						<li><a><%t JobGiver.Offers 'Ihre Stellenanzeigen' %></a></li>
 						<li class="uk-active"><a><%t JobGiver.Profil 'Firmen Porträt' %></a></li>
 						<li><a><%t JobGiver.Account 'Ihr Konto' %></a></li>
 					</ul>
 				</div>
 				<div class="uk-width-expand@m">
-					<ul id="component-tab-left" class="uk-switcher" data-uk-height-match="target: .account-tab;row: false;">
+					<ul id="component-tab" class="uk-switcher" data-uk-height-match="target: .account-tab;row: false;">
 						<li class="account-tab">
 							<div class="uk-panel">
 								<h2 class="uk-heading-divider"><%t JobGiver.Offers 'Ihre Stellenanzeigen' %></h2>
