@@ -18,7 +18,7 @@ $ElementalArea
 					<ul id="component-tab" class="uk-switcher" data-uk-height-match="target: .account-tab;row: false;">
 						<li class="account-tab">
 							<div class="uk-panel">
-								<h2 class="uk-heading-divider"><%t JobGiver.AccountTitle 'Adressangaben' %></h2>
+								<h2><%t JobGiver.AccountTitle 'Adressangaben' %></h2>
 								<div class="member-section-container">
 									$AccountForm
 								</div>
@@ -26,7 +26,7 @@ $ElementalArea
 						</li>
 						<li class="account-tab personal-data-tab">
 							<div class="uk-panel">
-								<h2 class="uk-heading-divider"><%t JobGiver.ProfilTitle 'Firmenporträt' %></h2>
+								<h2><%t JobGiver.ProfilTitle 'Firmenporträt' %></h2>
 								<div class="member-section-container">
 								$ProfilForm
 								</div>
@@ -34,7 +34,7 @@ $ElementalArea
 						</li>
 						<li class="account-tab">
 							<div class="uk-panel">
-								<h2 class="uk-heading-divider"><%t JobGiver.PaymentTitle 'Pakete' %></h2>
+								<h2><%t JobGiver.PaymentTitle 'Pakete' %></h2>
 								<div class="member-section-container">
 									
 								</div>
@@ -42,7 +42,7 @@ $ElementalArea
 						</li>
 						<li class="account-tab">
 							<div class="uk-panel">
-								<h2 class="uk-heading-divider"><%t JobGiver.OffersTitle 'Inserate' %></h2>
+								<h2><%t JobGiver.OffersTitle 'Inserate' %></h2>
 								<div class="member-section-container">
 									
 								</div>
@@ -50,7 +50,7 @@ $ElementalArea
 						</li>
 						<li class="account-tab">
 							<div class="uk-panel">
-								<h2 class="uk-heading-divider"><%t JobGiver.AdsTitle 'Bewerbungen' %></h2>
+								<h2><%t JobGiver.AdsTitle 'Bewerbungen' %></h2>
 								<div class="member-section-container">
 									
 								</div>
