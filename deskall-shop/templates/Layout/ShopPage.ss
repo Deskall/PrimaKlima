@@ -63,29 +63,19 @@ $ElementalArea
 			<li class="account-tab">
 				<h3>Wählen Sie Ihre Zahlungsmethod</h3>
 				<div class="uk-margin">
-					
-						<ul data-uk-tab>
-							<li><a><%t Event.PayBill 'Zahlen mit Rechnung' %></a></li>
-							<li><a><%t Event.PayOnline 'Online Zahlen (Paypal / Kreditkarte)' %></a></li>
-						</ul>
-					
-				
-					<ul class="uk-switcher uk-margin">
-					    <li>
-					    	<h4><%t Event.PayBill 'Zahlen mit Rechnung' %></h4>
-					    	$BillPayLabel
-					    	$BuyBillForm
-					    </li>
-					    <li>
-					    	<h4><%t Event.PayOnline 'Online Zahlen (Paypal / Kreditkarte)' %></h4>
-					    	$OnlinePayLabel
-					    	<div id="paypal-button-container"></div>
-					    </li>
-					</ul>
+					<div class="uk-width-1-2@s" data-uk-grid>
+						<div>
+							<label><input class="uk-radio" type="radio" name="paymentmethod" value="bill"><%t Shop.BillPayLabel 'Ich zahle mit Rechnung' %></label>
+						</div>
+						<div>
+							<label><input class="uk-radio" type="radio" name="paymentmethod" value="bill"><%t Shop.BillPayLabel 'Ich zahle Online mit Kredit Kard oder meinem paypal Konto' %></label>
+						</div>
+					</div>
 				</div>
 			</li>
 			<li class="account-tab">
 				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>
+				<div id="paypal-button-container"></div>
 			</li>
 		</ul>
 	</div>
