@@ -56,10 +56,10 @@ class ShopPageController extends PageController{
 			HiddenField::create('PaymentType'),
 			CompositeField::create(
 				TextField::create('BillingAddressCompany'),
-				TextField::create('BillingAddressStreet' ),
+				TextField::create('BillingAddressStreet'),
 				TextField::create('BillingAddressPostalCode'),
 				TextField::create('BillingAddressPlace'),
-				DropdownField::create('BillingAddressCountry','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),    
+				DropdownField::create('BillingAddressCountry','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))
 			)->setName('BillFields'),
 			CompositeField::create(
 				CheckboxField::create('AGB','AGB'),
