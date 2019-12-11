@@ -69,7 +69,6 @@ class ShopPageController extends PageController{
 				CheckboxField::create('AGB','AGB'),
 				TextareaField::create('Comments','Bemerkungen')
 			)->setName('SummaryFields')
-
 		);
 		$actions = new FieldList(FormAction::create('payBill', _t('SHOP.BUY', 'Jetzt kaufen'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-cart uk-margin-small-right"></i>'._t('SHOP.BUY', 'Jetzt kaufen')));
 		$required = RequiredFields::create([]);
