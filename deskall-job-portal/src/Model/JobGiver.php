@@ -255,7 +255,7 @@ class JobGiver extends DataObject
                 TextField::create('AddressStreet', _t('ARBEITGEBER.AddressStreet', 'Adresse')),
                 TextField::create('AddressPostalCode', _t('ARBEITGEBER.AddressPostalCode', 'PLZ')),
                 TextField::create('AddressPlace', _t('ARBEITGEBER.AddressPlace', 'Ort')),
-                DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('de'),
+                DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setValue('de')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),
 
                 TextField::create('CompanyEmail', _t('ARBEITGEBER.Email', 'E-Mail')),
                 TextField::create('Telephone', _t('ARBEITGEBER.Telephone', 'Telefon')),
