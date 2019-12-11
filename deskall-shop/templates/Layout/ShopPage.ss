@@ -72,6 +72,9 @@ $ElementalArea
 						</div>
 					</div>
 				</div>
+				<div id="bill-form-container" class="uk-margin" hidden>
+					$BillForm
+				</div>
 			</li>
 			<li class="account-tab">
 				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>
