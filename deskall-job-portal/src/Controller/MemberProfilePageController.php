@@ -182,7 +182,7 @@ class MemberProfilePageController extends PageController{
 
 	public function AccountForm(){
 
-		$actions = new FieldList(FormAction::create('save', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="fa fa-save uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
+		$actions = new FieldList(FormAction::create('save', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
 		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$JobGiver = ($JobGiver) ? $JobGiver : new JobGiver();
 
