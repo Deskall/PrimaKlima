@@ -88,10 +88,10 @@
 							$FieldHolder
 						<% end_with %>
 					</div>
-					<div class="uk-margin uk-flex uk-flex-between">
-						<a class="uk-button uk-button-muted" data-step="backward"><%t Global.Back 'Zurück' %></a>
-						<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %></a>
-					</div>
+				</div>
+				<div class="uk-flex uk-flex-between" hidden>
+					<a class="uk-button uk-button-muted" data-step="backward"><%t Global.Back 'Zurück' %></a>
+					<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 				</div>
 				<% with Fields.FieldByName('PaymentType') %>
 				$FieldHolder

@@ -19,10 +19,10 @@ $(document).ready(function(){
 			$("#bill-form-container").attr('hidden',false).find('input').attr('required',true);
 		}
 		else{
-			console.log('ici');
 			$("#bill-form-container").attr('hidden','hidden').find('input').attr('required',false);
 			UIkit.tab('#tab-switcher').show(2);
 		}
+		$("#bill-form-container").next('div').attr('hidden',false);
 		$("#Form_CheckoutForm_PaymentType").val($("input[name='paymentmethod']:checked").val());
 	});
 
