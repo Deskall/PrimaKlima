@@ -93,7 +93,9 @@
 						<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 					</div>
 				</div>
-				
+				<% with Fields.FieldByName('PaymentType') %>
+				$FieldHolder
+				<% end_with %>
 			</li>
 			<li class="account-tab" data-index="2">
 				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>
