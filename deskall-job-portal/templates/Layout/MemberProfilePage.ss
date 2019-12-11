@@ -8,23 +8,25 @@ $ElementalArea
 	<section class="uk-section uk-section-xsmall">
 		<div class="uk-container">
 					<ul data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
-						<li><a><%t JobGiver.Offers 'Ihre Stellenanzeigen' %></a></li>
-						<li class="uk-active"><a><%t JobGiver.Profil 'Firmen Porträt' %></a></li>
-						<li><a><%t JobGiver.Account 'Ihr Konto' %></a></li>
+						<li><a><%t JobGiver.Account '1. Adressangaben erfassen' %></a></li>
+						<li class="uk-active"><a><%t JobGiver.Profil '2. Firmenporträt erstellen' %></a></li>
+						<li class="uk-active"><a><%t JobGiver.Payment '3. Paket bestellen' %></a></li>
+						<li><a><%t JobGiver.Offers '4. Inserate erstellen' %></a></li>
+						<li><a><%t JobGiver.Ads '4. Bewerbungen verwalten' %></a></li>
 					</ul>
 				
 					<ul id="component-tab" class="uk-switcher" data-uk-height-match="target: .account-tab;row: false;">
 						<li class="account-tab">
 							<div class="uk-panel">
-								<h2 class="uk-heading-divider"><%t JobGiver.Offers 'Ihre Stellenanzeigen' %></h2>
+								<h2 class="uk-heading-divider"><%t JobGiver.AccountTitle 'Adressangaben' %></h2>
 								<div class="member-section-container">
-									
+									$AccountForm
 								</div>
 							</div>
 						</li>
 						<li class="account-tab personal-data-tab">
 							<div class="uk-panel">
-								<h2 class="uk-heading-divider"><%t JobGiver.Profil 'Ihre Profil' %></h2>
+								<h2 class="uk-heading-divider"><%t JobGiver.ProfilTitle 'Firmenporträt' %></h2>
 								<div class="member-section-container">
 								$ProfilForm
 								</div>
@@ -32,14 +34,29 @@ $ElementalArea
 						</li>
 						<li class="account-tab">
 							<div class="uk-panel">
-								<h2 class="uk-heading-divider"><%t JobGiver.Account 'Ihr Konto' %></h2>
+								<h2 class="uk-heading-divider"><%t JobGiver.PaymentTitle 'Pakete' %></h2>
 								<div class="member-section-container">
-									$AccountForm
+									
+								</div>
+							</div>
+						</li>
+						<li class="account-tab">
+							<div class="uk-panel">
+								<h2 class="uk-heading-divider"><%t JobGiver.OffersTitle 'Inserate' %></h2>
+								<div class="member-section-container">
+									
+								</div>
+							</div>
+						</li>
+						<li class="account-tab">
+							<div class="uk-panel">
+								<h2 class="uk-heading-divider"><%t JobGiver.AdsTitle 'Bewerbungen' %></h2>
+								<div class="member-section-container">
+									
 								</div>
 							</div>
 						</li>
 					</ul>
-				
 		</div>
 	</section>
 </div>
