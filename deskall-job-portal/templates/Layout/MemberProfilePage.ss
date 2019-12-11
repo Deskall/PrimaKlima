@@ -30,7 +30,7 @@ $ElementalArea
 								<h2><%t JobGiver.ProfilTitle 'Firmenporträt' %></h2>
 								<div class="member-section-container">
 									$ProfilTabHTML
-								$ProfilForm
+									$ProfilForm
 								</div>
 							</div>
 						</li>
