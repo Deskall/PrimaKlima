@@ -44,6 +44,7 @@ class ShopPageController extends PageController{
 
 	public function init(){
 		parent::init();
+		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".$config->PayPalClientID."&currency=EUR&locale=de_DE");
 	}
 
 	public function ProductDetails(HTTPRequest $request){
