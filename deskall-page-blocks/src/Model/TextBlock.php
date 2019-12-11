@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TextareaField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
@@ -89,6 +90,7 @@ class TextBlock extends BaseElement implements Searchable
         });
         $fields = parent::getCMSFields();
         $fields->RemoveByName('Layout');
+        $fields->replaceField('Title',TextareaField::create('Title','Titel')->setRows(2));
         $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
         return $fields;
     }
