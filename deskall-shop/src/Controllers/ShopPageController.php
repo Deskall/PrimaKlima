@@ -51,18 +51,19 @@ class ShopPageController extends PageController{
 
 		$fields = FieldList::create();
 		$actions = new FieldList(FormAction::create('payBill', _t('SHOP.BUY', 'Jetzt kaufen'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-cart uk-margin-small-right"></i>'._t('SHOP.BUY', 'Jetzt kaufen')));
+		$required = RequiredFields::create([]);
 
 		$form = new Form(
 			$this,
 			'CheckoutForm',
 			$fields,
 			$actions,
-			$JobGiver->getRequiredProfileFields()
+			$required
 		);
 		
-		$form->setTemplate('Forms/ProfilForm');
-		$form->addExtraClass('uk-form-horizontal form-std company-form');
-		$form->loadDataFrom($JobGiver);
+		$form->setTemplate('Forms/CheckoutForm');
+		$form->addExtraClass('uk-form-horizontal form-std');
+		// $form->loadDataFrom($JobGiver);
 
 		return $form;
 	}
