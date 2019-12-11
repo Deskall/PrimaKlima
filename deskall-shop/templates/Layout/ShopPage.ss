@@ -62,6 +62,27 @@ $ElementalArea
 			</li>
 			<li class="account-tab">
 				<h3>Wählen Sie Ihre Zahlungsmethod</h3>
+				<div class="uk-margin">
+					
+						<ul data-uk-tab>
+							<li><a><%t Event.PayBill 'Zahlen mit Rechnung' %></a></li>
+							<li><a><%t Event.PayOnline 'Online Zahlen (Paypal / Kreditkarte)' %></a></li>
+						</ul>
+					
+				
+					<ul class="uk-switcher uk-margin">
+					    <li>
+					    	<h4><%t Event.PayBill 'Zahlen mit Rechnung' %></h4>
+					    	$ProductConfig.BillPayLabel
+					    	$BuyBillForm
+					    </li>
+					    <li>
+					    	<h4><%t Event.PayOnline 'Online Zahlen (Paypal / Kreditkarte)' %></h4>
+					    	$ProductConfig.OnlinePayLabel
+					    	<div id="paypal-button-container"></div>
+					    </li>
+					</ul>
+				</div>
 			</li>
 			<li class="account-tab">
 				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>
