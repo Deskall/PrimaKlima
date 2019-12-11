@@ -81,6 +81,7 @@
 					    <% if Top.FullLink && LinkableLinkID > 0 && $LinkableLink.LinkURL%>
 						</a>
 						<% end_if %>
+						<div class="box-border $Layout"></div>
 					</div>
 					
 					<% end_loop %>
