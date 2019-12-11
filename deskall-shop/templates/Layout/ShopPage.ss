@@ -72,7 +72,7 @@ $ElementalArea
 						</div>
 					</div>
 				</div>
-				<div id="bill-form-container" class="uk-margin" hidden>
+				<div id="bill-form-container" class="uk-margin" >
 					$BillForm
 				</div>
 			</li>
