@@ -10,7 +10,7 @@
 			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
 		<% else %>
-			<div class="uk-width-1-1">
+			<div class="uk-width-1-1 uk-height-1-1">
 				<%-- <a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description"> --%>
 					<% if $FullWidth %>
 						<% if ContentImage.getExtension == "svg" %>
