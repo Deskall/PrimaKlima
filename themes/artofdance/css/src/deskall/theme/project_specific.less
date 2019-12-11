@@ -7,11 +7,14 @@
 @italic-font-family:                            @global-font-family;
 
 .block-slider{
-	* {
-		font-size:72px;
-		line-height: 120%;
+	@media only screen and (min-width:@breakpoint-medium){
+		* {
+			font-size:72px;
+			line-height: 120%;
+		}
+		.calltoaction-container *{
+			font-size: 40px;
+		}
 	}
-	.calltoaction-container *{
-		font-size: 40px;
-	}
+	
 }
