@@ -1,6 +1,6 @@
 $ElementalArea
 
-<section class="uk-section no-bg uk-section-small">
+<section class="uk-section no-bg uk-padding-remove">
 	<div class="uk-container">
 		<ul data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePackage '1. Paket wählen' %></a></li>
@@ -9,6 +9,7 @@ $ElementalArea
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
 			<li class="account-tab">
+				<h3>Wählen Sie Ihre Paket nach Mass</h3>
 				<div class="uk-child-width-1-4@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
 					<div>
 						<div class="uk-card uk-card-body">
