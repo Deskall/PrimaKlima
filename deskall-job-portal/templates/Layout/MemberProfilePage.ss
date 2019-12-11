@@ -7,7 +7,7 @@ $ElementalArea
 <div class="element uk-background-cover" id="member-section">
 	<section class="uk-section uk-section-xsmall">
 		<div class="uk-container">
-					<ul class="uk-margin-large-bottom" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
+					<ul data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 						<li><a><%t JobGiver.Offers 'Ihre Stellenanzeigen' %></a></li>
 						<li class="uk-active"><a><%t JobGiver.Profil 'Firmen Porträt' %></a></li>
 						<li><a><%t JobGiver.Account 'Ihr Konto' %></a></li>
