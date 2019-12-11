@@ -256,7 +256,7 @@ class JobGiver extends DataObject
                 TextField::create('Telephone', _t('ARBEITGEBER.Telephone', 'Telefon')),
                 TextField::create('Cipher', _t('ARBEITGEBER.Cipher', 'Chiffre')),
                 HeaderField::create('BillingAdressTitle', _t('ARBEITGEBER.BillingAdressTitle', 'Rechnungsadresse'), 3),
-                CheckboxField::create('BillingAddressIsCompanyAddress', _t('ARBEITGEBER.BillingAddressIsCompanyAddress', 'Rechnungsadresse ist Firmenadresse')),
+                CheckboxField::create('BillingAddressIsCompanyAddress', _t('ARBEITGEBER.BillingAddressIsCompanyAddress', 'Rechnungsadresse ist Firmenadresse'))->setAttribute('class','uk-checkbox'),
                 $billingaddresssection,
                 HeaderField::create('ContactPersonTitle', _t('ARBEITGEBER.ContactPersonTitle', 'Ansprechparter'), 3),
                 TextField::create('FirstName', _t('ARBEITGEBER.FirstName', 'Vorname')),
