@@ -49,7 +49,7 @@ class ShopPageController extends PageController{
 		
 	}
 
-	public function RegisterPage(){
+	public function getRegisterPage(){
 		
 		return RegisterPage::get()->first();
 	}

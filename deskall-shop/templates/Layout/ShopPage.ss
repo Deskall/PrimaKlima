@@ -13,7 +13,7 @@ $ElementalArea
 			<li>$LoginForm
 			</li>
 			<li>
-				<% with $RegisterPage.Controller %>
+				<% with $getRegisterPage %>
 				$ID
 				$RegisterForm
 				<% end_with %>
