@@ -45,6 +45,7 @@ class JobGiver extends DataObject
         'PostalCode'  => 'Varchar',
         'City'  => 'Varchar',
         'Country'  => 'Varchar',
+        'CompanyEmail' => 'Varchar',
         'Phone'  => 'Varchar',
         'Fax'  => 'Varchar',
         'URL'  => 'Varchar',
@@ -99,6 +100,7 @@ class JobGiver extends DataObject
     $labels = parent::fieldLabels($includerelation);
      $labels['Created'] = _t(__CLASS__.'.Created','Erstellt am');
     $labels['Company'] = _t(__CLASS__.'.Company','Firma');
+    $labels['CompanyEmail'] = _t(__CLASS__.'.CompanyEmail','E-Mail-Adresse der Firma');
     $labels['Address'] = _t(__CLASS__.'.Address','Adresse');
     $labels['PostalCode'] = _t(__CLASS__.'.PostalCode','PLZ');
     $labels['City'] = _t(__CLASS__.'.City','Stadt');
@@ -252,7 +254,7 @@ class JobGiver extends DataObject
                 TextField::create('AddressPlace', _t('ARBEITGEBER.AddressPlace', 'Ort')),
                 DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('de'),
 
-                TextField::create('Email', _t('ARBEITGEBER.Email', 'E-Mail')),
+                TextField::create('CompanyEmail', _t('ARBEITGEBER.Email', 'E-Mail')),
                 TextField::create('Telephone', _t('ARBEITGEBER.Telephone', 'Telefon')),
                 TextField::create('Cipher', _t('ARBEITGEBER.Cipher', 'Chiffre')),
                 HeaderField::create('BillingAdressTitle', _t('ARBEITGEBER.BillingAdressTitle', 'Rechnungsadresse'), 3),
