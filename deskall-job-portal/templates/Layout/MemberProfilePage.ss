@@ -15,9 +15,9 @@ $ElementalArea
 						<li><a><%t JobGiver.Ads '4. Bewerbungen verwalten' %></a></li>
 					</ul>
 				
-					<ul id="component-tab" class="uk-switcher" data-uk-height-match="target: .account-tab;row: false;">
-						<li class="account-tab uk-background-muted">
-							<div class="uk-panel">
+					<ul id="component-tab" class="uk-switcher">
+						<li class="account-tab">
+							<div class="uk-panel uk-background-muted">
 								<h2><%t JobGiver.AccountTitle 'Adressangaben' %></h2>
 								<div class="member-section-container">
 									$AccountForm
