@@ -17,3 +17,7 @@ SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
 BaseBlockExtension:
   blocks:
     - PriceBlock
+
+Page:
+  extensions:
+    - DeskallShopPageExtension
