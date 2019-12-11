@@ -4,11 +4,12 @@ $(document).ready(function(){
 	$(document).on("click","[data-step]",function(){
 		var switcher = $('#tab-switcher');
 		var tab = $(this).parents('li.account-tab');
+		var form = $(this).parents('form');
 		var index = parseInt(tab.attr('data-index'));
 		if ($(this).attr('data-step') == "backward"){
 			UIkit.tab(switcher).show(index-1);
 		}
-		if ($(this).attr('data-step') == "forward"){
+		if (form.valid() && $(this).attr('data-step') == "forward"){
 			UIkit.tab(switcher).show(index+1);
 		}
 	});
@@ -16,10 +17,10 @@ $(document).ready(function(){
 	//Bill Fields
 	$(document).on("change","input[name='paymentmethod']",function(){
 		if ($("input[name='paymentmethod']:checked").val() == "bill"){
-			$("#bill-form-container").attr('hidden',false).find('input').attr('required',true);
+			$("#bill-form-container").attr('hidden',false).find('input,select').attr('required',true);
 		}
 		else{
-			$("#bill-form-container").attr('hidden','hidden').find('input').attr('required',false);
+			$("#bill-form-container").attr('hidden','hidden').find('input, select').attr('required',false);
 			UIkit.tab('#tab-switcher').show(2);
 		}
 		$("#bill-form-container").next('div').attr('hidden',false);

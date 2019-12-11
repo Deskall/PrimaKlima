@@ -52,6 +52,8 @@ class ShopPageController extends PageController{
 	public function CheckoutForm(){
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".SiteConfig::current_site_config()->PayPalClientID."&currency=EUR&locale=de_DE");
 		Requirements::javascript("deskall-shop/javascript/shop.js");
+		Requirements::javascript("deskall-shop/javascript/jquery.validate.min.js");
+		Requirements::javascript("deskall-shop/javascript/messages_de.min.js");
 		$fields = FieldList::create(
 			HiddenField::create('PackageID'),
 			HiddenField::create('PaymentType'),
