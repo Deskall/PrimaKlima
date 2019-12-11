@@ -74,10 +74,10 @@
 				<div class="uk-margin">
 					<div class="uk-child-width-1-2@s" data-uk-grid>
 						<div>
-							<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="bill-choice" class="uk-button uk-button-primary"><%t Shop.BillPayLabel 'Ich zahle mit Rechnung' %></label>
+							<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="bill-choice"><%t Shop.BillPayLabel 'Ich zahle mit Rechnung' %></label>
 						</div>
 						<div>
-							<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="online-choice" class="uk-button uk-button-primary"><%t Shop.BillPayLabel 'Ich zahle Online mit Kredit Kard oder meinem paypal Konto' %></label>
+							<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="online-choice"><%t Shop.BillPayLabel 'Ich zahle Online mit Kredit Kard oder meinem paypal Konto' %></label>
 						</div>
 					</div>
 				</div>
@@ -96,10 +96,12 @@
 			</li>
 			<li class="account-tab" data-index="2">
 				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>
-				<% with Fields.FieldByName('SummaryFields') %>
-				$FieldHolder
-				<% end_with %>
-				<div id="paypal-button-container"></div>
+				<div class="uk-panel uk-background-muted uk-padding-small">
+					<% with Fields.FieldByName('SummaryFields') %>
+					$FieldHolder
+					<% end_with %>
+					<div id="paypal-button-container"></div>
+				</div>
 				<div class="uk-flex uk-flex-between">
 					<a class="uk-button uk-button-muted" data-step="backward"><%t Global.Back 'Zurück' %></a>
 					<% if $Actions %>
