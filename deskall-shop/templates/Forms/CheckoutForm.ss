@@ -57,7 +57,7 @@
 						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 						        	<% end_if %>
 						        	<div class="uk-margin">
-						        		<a data-step="forward" class="uk-button uk-button-primary">Bestellen<span class"uk-margin-small-left uk-text-small uk-transition-fade" hidden><i class="icon icon-chevron-right"></i></span></a>
+						        		<a data-step="forward" class="uk-button uk-button-primary">Bestellen<span class"uk-margin-small-left uk-text-small uk-transition-fade"><i class="icon icon-chevron-right"></i></span></a>
 						        	</div>
 						        	<div class="footer-text">$FooterText</div>
 						    	</div>
@@ -91,7 +91,7 @@
 				</div>
 				<div class="uk-flex uk-flex-between">
 					<a class="uk-button uk-button-muted" data-step="backward"><i class"uk-margin-small-right icon icon-chevron-right"></i><%t Global.Back 'Zurück' %></a>
-					<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %><span class"uk-margin-small-left uk-text-small uk-transition-fade" hidden><i class="icon icon-chevron-right"></i></span></a>
+					<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %><span class"uk-margin-small-left uk-text-small uk-transition-fade"><i class="icon icon-chevron-right"></i></span></a>
 				</div>
 			</li>
 			<li class="account-tab" data-index="2">
