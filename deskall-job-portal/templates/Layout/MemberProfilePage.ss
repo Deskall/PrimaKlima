@@ -25,7 +25,7 @@ $ElementalArea
 							</div>
 						</li>
 						<li class="account-tab personal-data-tab">
-							<div class="uk-panel">
+							<div class="uk-panel uk-background-muted uk-padding-small">
 								<h2><%t JobGiver.ProfilTitle 'Firmenporträt' %></h2>
 								<div class="member-section-container">
 								$ProfilForm
@@ -33,7 +33,7 @@ $ElementalArea
 							</div>
 						</li>
 						<li class="account-tab">
-							<div class="uk-panel">
+							<div class="uk-panel uk-background-muted uk-padding-small">
 								<h2><%t JobGiver.PaymentTitle 'Pakete' %></h2>
 								<div class="member-section-container">
 									
@@ -41,7 +41,7 @@ $ElementalArea
 							</div>
 						</li>
 						<li class="account-tab">
-							<div class="uk-panel">
+							<div class="uk-panel uk-background-muted uk-padding-small">
 								<h2><%t JobGiver.OffersTitle 'Inserate' %></h2>
 								<div class="member-section-container">
 									
@@ -49,7 +49,7 @@ $ElementalArea
 							</div>
 						</li>
 						<li class="account-tab">
-							<div class="uk-panel">
+							<div class="uk-panel uk-background-muted uk-padding-small">
 								<h2><%t JobGiver.AdsTitle 'Bewerbungen' %></h2>
 								<div class="member-section-container">
 									
