@@ -88,6 +88,11 @@ class MemberProfilePageController extends PageController{
 		
 		
 	}
+
+	public function index(){
+		$this->getRequest()->getSession()->clear('active_tab');
+		return [];
+	}
 	
 	public function ProfilForm(){
 
