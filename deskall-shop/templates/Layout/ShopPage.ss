@@ -1,29 +1,51 @@
+$ElementalArea
+
 <section class="uk-section no-bg uk-section-small">
 	<div class="uk-container">
-		<div data-uk-grid>
-			<div class="uk-width-1-4@m uk-visible@m">
-				<% include ProductSidebar %>
-			</div>
-			<div class="uk-hidden@m uk-margin">
-				<div class="uk-child-width-1-2 uk-flex uk-flex-center uk-flex-middle uk-grid-match" data-uk-grid>
-					<% loop activeCategories %>
-					<div>
-						<div class="uk-card uk-card-body uk-card-default uk-padding-small">
-						    <a href="$Link" title="$Title"><div class="uk-text-center">$MenuTitle</div></a>
-						</div>
+		<div class="uk-child-width-1-4@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
+			<div>
+				<div class="uk-card uk-card-body">
+					<h3 class="uk-card-title">&nbsp;</h3>
+					<div class="product-body uk-text-right">
+					    <% loop activeParameters %>
+						<div class="uk-margin uk-text-small">$Title</div>
+						<% end_loop %>   	
 					</div>
-					<% end_loop %>
 				</div>
 			</div>
-			<div class="uk-width-3-4@m">
-				<div class="uk-child-width-1-1 uk-child-width-1-2@l" data-uk-grid>
-					<% loop activeProducts %>
-					<div>
-				        <% include ProductCard %>
-					</div>
-					<% end_loop %>
-				</div>
-			</div>
+		<% loop activePackages %>
+		    <div class="dk-transition-toggle-not-mobile">
+		    	
+		        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
+			        
+			        <h3 class="uk-card-title">$Title</h3>
+			        <div class="product-body">
+			        	<% loop $Parameters %>
+			        	<% if included %>
+			        	<div class="uk-margin"><i class="icon icon-checkmark"></i></div>
+			        	<% else %>
+			        	<div class="uk-margin">-</div>
+			        	<% end_if %>
+			        	<% end_loop %>   
+				    </div>
+			        <div class="product-footer">
+			        	<% if PackegeOptions %>
+			        	<table><% loop PackegeOptions %>
+			        		<tr><td>$Title</td><td>$Price €</td></tr>
+			        		<% end_loop %>
+			        	</table>
+			        	<% else %>
+			        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
+			        	<% end_if %>
+			        	<div class="uk-margin">
+			        		<a href="$OrderLink" class="uk-button btn-order">Bestellen</a>
+			        	</div>
+			        	<div class="footer-text">$FooterText</div>
+			    	</div>
+			    </div>
+		    </div>
+		<% end_loop %>
 		</div>
+
 	</div>
 </section>
