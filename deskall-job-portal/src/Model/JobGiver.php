@@ -258,7 +258,7 @@ class JobGiver extends DataObject
                 DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setValue('de')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),
 
                 TextField::create('CompanyEmail', _t('ARBEITGEBER.Email', 'E-Mail')),
-                TextField::create('Telephone', _t('ARBEITGEBER.Telephone', 'Telefon')),
+                TextField::create('Phone', _t('ARBEITGEBER.Telephone', 'Telefon')),
                 TextField::create('Cipher', _t('ARBEITGEBER.Cipher', 'Chiffre')),
                 HeaderField::create('BillingAdressTitle', _t('ARBEITGEBER.BillingAdressTitle', 'Rechnungsadresse'), 3),
                 CheckboxField::create('BillingAddressIsCompanyAddress', _t('ARBEITGEBER.BillingAddressIsCompanyAddress', 'Rechnungsadresse ist Firmenadresse'))->setAttribute('class','uk-checkbox'),
