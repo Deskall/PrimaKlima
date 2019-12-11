@@ -48,6 +48,10 @@ class ShopPageController extends PageController{
 		parent::init();
 		
 	}
+	public function RegisterForm(){
+		$controller =  RegisterPageController::create();
+		return $controller->RegisterForm();
+	}
 
 	public function CheckoutForm(){
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".SiteConfig::current_site_config()->PayPalClientID."&currency=EUR&locale=de_DE");
