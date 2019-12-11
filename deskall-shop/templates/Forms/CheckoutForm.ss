@@ -65,6 +65,9 @@
 					    </div>
 					<% end_loop %>
 				</div>
+				<% with Fields.FieldByName('PackageID') %>
+				$FieldHolder
+				<% end_with %>
 			</li>
 			<li class="account-tab">
 				<h3>Wählen Sie Ihre Zahlungsmethod</h3>
@@ -81,12 +84,17 @@
 				<div id="bill-form-container" class="uk-margin" >
 					<div class="uk-panel uk-background-muted uk-padding-small">
 						<h4>Rechnungsadresse</h4>
-						$BuyBillForm
+						<% with Fields.FieldByName('BillFields') %>
+							$FieldHolder
+						<% end_with %>
 					</div>
 				</div>
 			</li>
 			<li class="account-tab">
 				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>
+				<% with Fields.FieldByName('SummaryFields') %>
+				$FieldHolder
+				<% end_with %>
 				<div id="paypal-button-container"></div>
 				<% if $Actions %>
 					<div class="btn-toolbar">
@@ -102,6 +110,7 @@
 	<% with Fields.FieldByName('SecurityID') %>
 	$FieldHolder
 	<% end_with %>
+
 	
 <% if $IncludeFormTag %>
 </form>

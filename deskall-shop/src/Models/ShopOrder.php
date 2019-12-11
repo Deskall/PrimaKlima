@@ -34,7 +34,8 @@ class ShopOrder extends DataObject{
 		'UIDNumber' => 'Varchar',
 		'OrderID' => 'Varchar',
 		'Quantity' => 'Int',
-		'wasSeen' => 'Boolean(0)'
+		'wasSeen' => 'Boolean(0)',
+		'AGB' => 'Boolean(0)'
 	);
 
 	private static $has_one = array(

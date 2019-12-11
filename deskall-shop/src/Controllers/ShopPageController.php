@@ -6,9 +6,11 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\HiddenField;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\OptionsetField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\DateField;
 use SilverStripe\i18n\i18n;
@@ -49,7 +51,17 @@ class ShopPageController extends PageController{
 
 	public function CheckoutForm(){
 
-		$fields = FieldList::create();
+		$fields = FieldList::create(
+			HiddenField::create('PackageID'),
+			HiddenField::create('PaymentType'),
+			CompositeField::create(
+			)->setName('BillFields'),
+			CompositeField::create(
+				CheckboxField::create('AGB','AGB'),
+				TextareaField::create('Comments','Bemerkungen')
+			)->setName('SummaryFields')
+
+		);
 		$actions = new FieldList(FormAction::create('payBill', _t('SHOP.BUY', 'Jetzt kaufen'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-cart uk-margin-small-right"></i>'._t('SHOP.BUY', 'Jetzt kaufen')));
 		$required = RequiredFields::create([]);
 
