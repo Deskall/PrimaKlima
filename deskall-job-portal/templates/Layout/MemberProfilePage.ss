@@ -17,7 +17,7 @@ $ElementalArea
 				
 					<ul id="component-tab" class="uk-switcher">
 						<li class="account-tab">
-							<div class="uk-panel uk-background-muted">
+							<div class="uk-panel uk-background-muted uk-padding-small">
 								<h2><%t JobGiver.AccountTitle 'Adressangaben' %></h2>
 								<div class="member-section-container">
 									$AccountForm
