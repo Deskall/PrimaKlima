@@ -100,6 +100,22 @@
 			<li class="account-tab" data-index="2">
 				<h3><%t Checkout.ReviewAndPay 'Prüfen und bestätigen Sie Ihre Bestellung' %></h3>
 				<div class="uk-panel uk-background-muted uk-padding-small">
+					<h4>Ihr Paket</h4>
+					<% loop activePackages %>
+					<div id="summary-package-{$ID}" hidden>
+						<strong>$Title</strong>
+						<div class="price">$Price €</div>
+						<div class="details">
+							<div class="uk-margin">$RunTimeTitle</div>
+							<div class="uk-margin">$NumOfAdsTitle</div>
+							<% loop $Parameters %>
+							<% if included %>
+							<div class="uk-margin"><i class="icon icon-checkmark"></i></div>
+							<% end_if %>
+							<% end_loop %>   
+						</div>
+					</div>
+					<% end_loop %>
 					<% with Fields.FieldByName('SummaryFields') %>
 					$FieldHolder
 					<% end_with %>
