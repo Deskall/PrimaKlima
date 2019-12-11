@@ -90,8 +90,8 @@
 					</div>
 				</div>
 				<div class="uk-flex uk-flex-between">
-					<a class="uk-button uk-button-default" data-step="backward"><%t Global.Back 'Zurück' %></a>
-					<a class="uk-button uk-button-primary" data-step="backward"><%t Global.Back 'Zurück' %></a>
+					<a class="uk-button uk-button-muted" data-step="backward"><%t Global.Back 'Zurück' %></a>
+					<a class="uk-button uk-button-primary" data-step="backward"><%t Global.Forward 'Weiter' %></a>
 				</div>
 			</li>
 			<li class="account-tab">
