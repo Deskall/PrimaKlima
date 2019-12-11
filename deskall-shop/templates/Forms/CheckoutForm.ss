@@ -89,6 +89,10 @@
 						<% end_with %>
 					</div>
 				</div>
+				<div class="uk-flex uk-flex-between">
+					<a class="uk-button uk-button-default" data-step="backward"><%t Global.Back 'Zurück' %></a>
+					<a class="uk-button uk-button-primary" data-step="backward"><%t Global.Back 'Zurück' %></a>
+				</div>
 			</li>
 			<li class="account-tab">
 				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>
