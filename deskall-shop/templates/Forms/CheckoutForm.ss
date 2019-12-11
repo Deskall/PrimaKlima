@@ -77,22 +77,23 @@
 							<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="bill-choice"><%t Shop.BillPayLabel 'Ich zahle mit Rechnung' %></label>
 						</div>
 						<div>
-							<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="online-choice"><%t Shop.BillPayLabel 'Ich zahle Online mit Kredit Kard oder meinem paypal Konto' %></label>
+							<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="online-choice" data-step="forward"><%t Shop.BillPayLabel 'Ich zahle Online mit Kredit Kard oder meinem paypal Konto' %></label>
 						</div>
 					</div>
 				</div>
-				<div id="bill-form-container" class="uk-margin" >
+				<div id="bill-form-container" class="uk-margin" hidden>
 					<div class="uk-panel uk-background-muted uk-padding-small">
 						<h4>Rechnungsadresse</h4>
 						<% with Fields.FieldByName('BillFields') %>
 							$FieldHolder
 						<% end_with %>
 					</div>
+					<div class="uk-margin uk-flex uk-flex-between">
+						<a class="uk-button uk-button-muted" data-step="backward"><%t Global.Back 'Zurück' %></a>
+						<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %></a>
+					</div>
 				</div>
-				<div class="uk-flex uk-flex-between">
-					<a class="uk-button uk-button-muted" data-step="backward"><%t Global.Back 'Zurück' %></a>
-					<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %></a>
-				</div>
+				
 			</li>
 			<li class="account-tab" data-index="2">
 				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>

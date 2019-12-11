@@ -13,6 +13,17 @@ $(document).ready(function(){
 		}
 	});
 
+	//Bill Fields
+	$(document).on("change","input[name='paymentmethod']",function(){
+		if ($("input[name='paymentmethod']:checked").val() == "bill"){
+			$("#bill-form-container").attr('hidden',false).find('input').attr('required',true);
+		}
+		else{
+			$("#bill-form-container").attr('hidden','hidden').find('input').attr('required',false);
+		}
+		$("#Form_CheckoutForm_PaymentType").val($("input[name='paymentmethod']:checked").val());
+	});
+
 
 
 	//PayPal
