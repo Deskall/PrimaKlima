@@ -11,7 +11,7 @@
 			</div>
 		<% else %>
 			<div class="uk-width-1-1">
-				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description">
+				<%-- <a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description"> --%>
 					<% if $FullWidth %>
 						<% if ContentImage.getExtension == "svg" %>
 							<img src="$ContentImage.URL" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)">
@@ -37,7 +37,7 @@
 						<% end_if %>
 					<% end_if %>
 
-				</a>
+				<%-- </a> --%>
 			</div>
 			<div class="dk-text-content uk-width-1-1 <% if Layout == "above" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
