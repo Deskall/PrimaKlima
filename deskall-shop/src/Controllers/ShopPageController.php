@@ -48,9 +48,10 @@ class ShopPageController extends PageController{
 		parent::init();
 		
 	}
+
 	public function RegisterForm(){
 		$controller =  RegisterPageController::create();
-		return $controller->RegisterForm();
+		return $controller->RegisterForm($this->getRequest());
 	}
 
 	public function CheckoutForm(){
