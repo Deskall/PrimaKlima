@@ -14,7 +14,7 @@
 			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a><%t Shop.Confirm '3. Bestätigung' %></a></li>
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
-			<li class="account-tab">
+			<li class="account-tab" data-index="0">
 				<h3>Wählen Sie Ihre Paket nach Mass</h3>
 				<div class="uk-child-width-1-4@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
 					<div>
@@ -69,7 +69,7 @@
 				$FieldHolder
 				<% end_with %>
 			</li>
-			<li class="account-tab">
+			<li class="account-tab" data-index="1">
 				<h3>Wählen Sie Ihre Zahlungsmethod</h3>
 				<div class="uk-margin">
 					<div class="uk-child-width-1-2@s" data-uk-grid>
@@ -94,7 +94,7 @@
 					<a class="uk-button uk-button-primary" data-step="backward"><%t Global.Forward 'Weiter' %></a>
 				</div>
 			</li>
-			<li class="account-tab">
+			<li class="account-tab" data-index="2">
 				<h3>Prüfen und bestätigen Sie Ihre Bestellung</h3>
 				<% with Fields.FieldByName('SummaryFields') %>
 				$FieldHolder

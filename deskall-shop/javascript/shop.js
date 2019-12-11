@@ -1,4 +1,20 @@
 $(document).ready(function(){
+
+	//Steps
+	$(document).on("click","[data-step]",function(){
+		var switcher = $(this).parents('.uk-switcher');
+		var tab = $(this).parents('li.account-tab');
+		var index = parseInt(tab.attr('data-index'));
+		if ($(this).attr('data-step') == "backward"){
+			UIkit.switcher(switcher).show(index-1);
+		}
+		if ($(this).attr('data-step') == "forward"){
+			UIkit.switcher(switcher).show(index+1);
+		}
+	});
+
+
+
 	//PayPal
 	if ($('#paypal-button-container').length > 0){
 		paypal.Buttons({
