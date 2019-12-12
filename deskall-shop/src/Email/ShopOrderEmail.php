@@ -72,7 +72,7 @@ class ShopOrderEmail extends Email
                 $absoluteBaseURL,
                 singleton(Security::class)->Link('login')
             ),
-            '$Customer.printTitle' => $Order->Customer()->printTitle(),
+            '$Customer.printTitle' => $Order->Customer()->getTitle(),
             '$Order.Created' => $createdDateObj->Nice(),
             '$Order.Data' => $Order->renderWith('Emails/ShopOrderData'),
             '$Product.Title' => $Order->Product()->Title,
