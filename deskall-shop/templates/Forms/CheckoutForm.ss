@@ -89,7 +89,7 @@
 						<% end_with %>
 					</div>
 				</div>
-				<div class="uk-flex uk-flex-between" hidden>
+				<div class="uk-flex uk-flex-between">
 					<a class="uk-button uk-button-muted" data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<a class="uk-button uk-button-primary" data-step="forward" data-uk-icon="chevron-right"><%t Global.Forward 'Weiter' %></a>
 				</div>

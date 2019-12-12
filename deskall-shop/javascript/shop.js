@@ -29,7 +29,7 @@ $(document).ready(function(){
 		else{
 			$("#bill-form-container").attr('hidden','hidden').find('input, select').attr('required',false);
 		}
-		$("#bill-form-container").next('div').attr('hidden',false);
+	
 		$("#Form_CheckoutForm_PaymentType").val($("input[name='paymentmethod']:checked").val());
 	});
 
