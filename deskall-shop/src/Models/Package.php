@@ -138,7 +138,7 @@ class Package extends DataObject {
         return $fields;
     }
 
-    public function GetFinalPrice(){
+    public function currentPrice(){
         if( $this->SalePrice > 0 ){
             return $this->SalePrice;
         }else{

@@ -113,7 +113,7 @@ class ShopPageController extends PageController{
 		Requirements::javascript("deskall-shop/javascript/jquery.validate.min.js");
 		Requirements::javascript("deskall-shop/javascript/messages_de.min.js");
 		$fields = FieldList::create(
-			HiddenField::create('PackageID'),
+			HiddenField::create('ProductID'),
 			HiddenField::create('PackageOptionID'),
 			HiddenField::create('PaymentType'),
 			HiddenField::create('CustomerID')->setValue($customer->ID),
@@ -153,8 +153,8 @@ class ShopPageController extends PageController{
 	public function payBill($data,$form){
 
 		//Link to date
-		if (isset($data['PackageID']) && !empty($data['PackageID'])){
-			$package = Package::get()->byId($data['PackageID']);
+		if (isset($data['ProductID']) && !empty($data['ProductID'])){
+			$package = Package::get()->byId($data['ProductID']);
 			if ($package){
 				//Create and fill the order
 					$order = new ShopOrder();
