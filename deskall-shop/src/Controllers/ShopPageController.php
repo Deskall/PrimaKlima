@@ -144,7 +144,7 @@ class ShopPageController extends PageController{
 		
 		$form->setTemplate('Forms/CheckoutForm');
 		$form->addExtraClass('uk-form-horizontal form-std');
-		$form->loadDataFrom($JobGiver);
+		$form->loadDataFrom($customer);
 
 		return $form;
 	}
