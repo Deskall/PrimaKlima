@@ -5,6 +5,7 @@ use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Assets\File;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 class SiteConfigPayPalExtension extends DataExtension 
 {
@@ -58,6 +59,11 @@ class SiteConfigPayPalExtension extends DataExtension
       
       TextField::create('PayPalClientID'),
       TextField::create('PayPalSecret'),
+      TextField::create('BillEmailSubject',$this->owner->fieldLabels()['BillEmailSubject']),
+      HTMLEditorField::create('BillEmailBody',$this->owner->fieldLabels()['BillEmailBody'])->setRows(5),
+      TextField::create('PaymentEmailSubject',$this->owner->fieldLabels()['PaymentEmailSubject']),
+      HTMLEditorField::create('BillEmailBody',$this->owner->fieldLabels()['BillEmailBody'])->setRows(5),
+
       UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setFolderName('Uploads/Vorlagen'),
       UploadField::create('BillFile',$this->owner->fieldLabels()['BillFile'])->setFolderName('Uploads/Vorlagen'),
       UploadField::create('ReceiptFile',$this->owner->fieldLabels()['ReceiptFile'])->setFolderName('Uploads/Vorlagen')
