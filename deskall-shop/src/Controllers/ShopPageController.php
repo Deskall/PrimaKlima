@@ -116,7 +116,7 @@ class ShopPageController extends PageController{
 			HiddenField::create('PackageID'),
 			HiddenField::create('PackageOptionID'),
 			HiddenField::create('PaymentType'),
-			HiddenField::create('CustomerID')->setValue($customer->ID);
+			HiddenField::create('CustomerID')->setValue($customer->ID),
 			CompositeField::create(
 				TextField::create('BillingAddressCompany',_t(__CLASS__.'.BillingAddressCompany','Firma')),
 				TextField::create('BillingAddressStreet',_t(__CLASS__.'.BillingAddressStreet','Adresse')),
