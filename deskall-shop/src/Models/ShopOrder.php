@@ -189,7 +189,7 @@ class ShopOrder extends DataObject{
 	}
 
 	public function generatePDF(){
-		$config = $this->getProductConfig();
+		$config = $this->getSiteConfig();
 		$pdf = new Fpdi();
       	$src = dirname(__FILE__).'/../../..'.$config->BillFile()->getURL();
       	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/rechnung_'.$this->ID.'.pdf';
