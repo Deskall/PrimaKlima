@@ -9,6 +9,7 @@ use SilverStripe\Core\Config\Config;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\View\Requirements;
 use SilverStripe\Forms\CompositeField;
@@ -27,10 +28,13 @@ class ParentBlock extends ElementList
         'HTML' => 'HTMLText',
         'Slide' => 'Boolean(0)',
         'Autoplay' => 'Boolean(0)',
+        'Interval' => 'Int',
         'ShowDot' => 'Boolean(1)',
         'ShowNav' => 'Boolean(0)',
+        'ShowNavMobile' => 'Boolean(0)',
         'infiniteLoop' => 'Boolean(1)',
-        'BlockAlignment' => 'Varchar'
+        'BlockAlignment' => 'Varchar',
+        'BlockVerticalAlignment' => 'Varchar'
     ];
 
     private static $table_name = 'ParentBlock';
@@ -107,6 +111,11 @@ class ParentBlock extends ElementList
         ]
     ];
 
+    private static $block_alignments_vertical = [
+        'uk-flex-top' =>  'Oben',
+        'uk-flex-middle' => 'Zentriert',
+        'uk-flex-bottom' =>  'Boden'
+    ];
 
 
     private static $defaults = [
@@ -129,16 +138,22 @@ class ParentBlock extends ElementList
         $fields->removeByName('Autoplay');
         $fields->removeByName('ShowDot');
         $fields->removeByName('ShowNav');
+        $fields->removeByName('ShowNavMobile');
         $fields->removeByName('infiniteLoop');
         $fields->removeByName('BlockAlignment');
+        $fields->removeByName('BlockVerticalAlignment');
+        $fields->removeByName('Interval');
 
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('BlocksPerLine',_t(__CLASS__.'.BlocksPerLine','Blöcke per Linie'),$this->stat('blocks_per_line')),
             HTMLOptionsetField::create('BlockAlignment',_t(__CLASS__.'.BlockAlignment','Blockausrichtung'),$this->owner->stat('block_alignments'))->setDescription(_t(__CLASS__.'.BlockAlignmentLabel','Nur gültig wenn die Blöcke per Linie nehmen nicht die ganze Breite.')),
+            DropdownField::create('BlockVerticalAlignment',_t(__CLASS__.'.BlockVerticalAlignment','Blockausrichtung (Vertical)'),$this->owner->stat('block_alignments_vertical')),
             CheckboxField::create('Slide',_t(__CLASS__.'.Slide','Blöcke als Gallerie einrichten?')),
             CheckboxField::create('ShowDot',_t(__CLASS__.'.ShowDot','dots anzeigen?')),
             CheckboxField::create('ShowNav',_t(__CLASS__.'.ShowNav','Navigation anzeigen?')),
+            CheckboxField::create('ShowNavMobile',_t(__CLASS__.'.ShowNavMobile','Navigation für Mobile anzeigen?')),
             CheckboxField::create('Autoplay',_t(__CLASS__.'.Autoplay','automatiches abspielen?')),
+            NumericField::create('Interval',_t(__CLASS__.'.Interval','Interval (millisekunden)')),
             CheckboxField::create('infiniteLoop',_t(__CLASS__.'.inifite','unendlish abspielen?')),
             CheckboxField::create('Border',_t(__CLASS__.'.Border','Border zwischen Blöcke anzeigen')),
             CheckboxField::create('matchHeight',_t(__CLASS__.'.SameHeight','gleiche Höhe für alle Blöcke benutzen'))
