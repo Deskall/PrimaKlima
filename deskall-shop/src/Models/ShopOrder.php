@@ -39,7 +39,7 @@ class ShopOrder extends DataObject{
 	);
 
 	private static $has_one = array(
-		'Customer' => ShopCustomer::class,
+		'Customer' => JobGiver::class,
 		'BillFile'  => File::class,
 		'ReceiptFile' => File::class,
 		'Voucher' => Coupon::class,
@@ -275,7 +275,6 @@ class ShopOrder extends DataObject{
       	$src = dirname(__FILE__).'/../../..'.$config->CertificatFile()->getURL();
       	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/zertifikat_'.$this->ID.'.pdf';
 
-      	$pdf->Addfont('Stone sans ITC','','stonesansitc.php');
       	$pdf->Addfont('lato','','lato.php');
       	$pdf->Addfont('latob','','latob.php');
       	$pageCount = $pdf->setSourceFile($src);

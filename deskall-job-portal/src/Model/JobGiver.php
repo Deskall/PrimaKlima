@@ -84,12 +84,15 @@ class JobGiver extends DataObject
     ];
 
     private static $has_many = [
-        'Missions' => Mission::class
+        'Missions' => Mission::class,
+        'Orders' => ShopOrder::class
     ];
 
     private static $defaults = [
         'BillingAddressIsCompanyAddress' => 1
     ];
+
+    private static $cascade_deletes = ['Member','Logo','Missions','Orders'];
 
    private static $summary_fields = array(
         'generateClientNumber' => 'Kundennummer',
