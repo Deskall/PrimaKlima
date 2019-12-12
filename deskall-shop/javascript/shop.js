@@ -28,7 +28,6 @@ $(document).ready(function(){
 		}
 		else{
 			$("#bill-form-container").attr('hidden','hidden').find('input, select').attr('required',false);
-			UIkit.tab('#tab-switcher').show(2);
 		}
 		$("#bill-form-container").next('div').attr('hidden',false);
 		$("#Form_CheckoutForm_PaymentType").val($("input[name='paymentmethod']:checked").val());

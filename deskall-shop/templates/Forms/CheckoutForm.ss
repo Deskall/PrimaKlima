@@ -90,8 +90,8 @@
 					</div>
 				</div>
 				<div class="uk-flex uk-flex-between" hidden>
-					<a class="uk-button uk-button-muted" data-step="backward"><%t Global.Back 'Zurück' %></a>
-					<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %></a>
+					<a class="uk-button uk-button-muted" data-step="backward" data-uk-icon="chevron-left"><%t Global.Back 'Zurück' %></a>
+					<a class="uk-button uk-button-primary" data-step="forward" data-uk-icon="chevron-right"><%t Global.Forward 'Weiter' %></a>
 				</div>
 				<% with Fields.FieldByName('PaymentType') %>
 				$FieldHolder
