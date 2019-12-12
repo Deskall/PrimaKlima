@@ -303,12 +303,11 @@ class ShopOrder extends DataObject{
 
 	public function sendEmail(){
 	   
-	    $siteconfig = SiteConfig::current_site_config();
 	    $config = $this->getSiteConfig();
 	    $body = $config->BillEmailBody;
 
-	    $email = new ShopOrderEmail($config,$this,$siteconfig->Email,$this->Email,$config->BillEmailSubject,  $body);
-	    $email->setBCC($siteconfig->Email);
+	    $email = new ShopOrderEmail($config,$this,$config->Email,$this->Email,$config->BillEmailSubject,  $body);
+	    $email->setBCC($config->Email);
 
 	    //Attchments
 	    $email->addAttachment(dirname(__FILE__).'/../../..'.$this->BillFile()->getURL(),'Rechnung.pdf');
@@ -320,12 +319,11 @@ class ShopOrder extends DataObject{
 
 	public function sendConfirmationEmail(){
 	   
-	    $siteconfig = SiteConfig::current_site_config();
 	    $config = $this->getSiteConfig();
 	    $body = $config->PaymentEmailBody;
 
-	    $email = new ShopOrderEmail($config,$this,$siteconfig->Email,$this->Email,$config->PaymentEmailSubject,  $body);
-	    $email->setBCC($siteconfig->Email);
+	    $email = new ShopOrderEmail($config,$this,$config->Email,$this->Email,$config->PaymentEmailSubject,  $body);
+	    $email->setBCC($config->Email);
 
 	    //Attachments : TO DO : Lageplan mit data
 	    $email->addAttachment(dirname(__FILE__).'/../../..'.$this->ReceiptFile()->getURL(),'Quittung.pdf');
