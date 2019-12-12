@@ -105,6 +105,9 @@ class ShopPageController extends PageController{
     }
 
 	public function CheckoutForm(){
+		$member =  Security::getCurrentUser();
+		$customer = JobGiver::get()->filter('MemberID',$member->ID)->first();
+
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".SiteConfig::current_site_config()->PayPalClientID."&currency=EUR&locale=de_DE");
 		Requirements::javascript("deskall-shop/javascript/shop.js");
 		Requirements::javascript("deskall-shop/javascript/jquery.validate.min.js");
@@ -113,6 +116,7 @@ class ShopPageController extends PageController{
 			HiddenField::create('PackageID'),
 			HiddenField::create('PackageOptionID'),
 			HiddenField::create('PaymentType'),
+			HiddenField::create('CustomerID')->setValue($customer->ID);
 			CompositeField::create(
 				TextField::create('BillingAddressCompany',_t(__CLASS__.'.BillingAddressCompany','Firma')),
 				TextField::create('BillingAddressStreet',_t(__CLASS__.'.BillingAddressStreet','Adresse')),
@@ -144,6 +148,50 @@ class ShopPageController extends PageController{
 
 		return $form;
 	}
+
+
+	public function payBill($data,$form){
+
+		//Link to date
+		if (isset($data['PackageID']) && !empty($data['PackageID'])){
+			$package = Package::get()->byId($data['PackageID']);
+			if ($package){
+				//Create and fill the order
+					$order = new ShopOrder();
+					$form->saveInto($order);
+					$order->Price = $package->Price;
+					$order->isPaid = false;
+					try {
+						//Write order
+						$order->write();
+						
+					} catch (ValidationException $e) {
+						$validationMessages = '';
+						foreach($e->getResult()->getMessages() as $error){
+							$validationMessages .= $error['message']."\n";
+						}
+						$form->sessionMessage($validationMessages, 'bad');
+						return $this->redirectBack();
+					}
+				
+				//Create Receipt
+				$order->generatePDF();
+				//Send Confirmation Email
+				$order->sendEmail();
+
+				$this->getRequest()->getSession()->set('orderID',$order->ID);
+				
+				return $this->Link('danke-fuer-ihre-bestellung');
+
+			}
+		
+		}
+
+		return $this->httpError(404);
+		
+	}
+
+
 
 	public function ProductDetails(HTTPRequest $request){
 		$url = $request->param('URLSegment');
