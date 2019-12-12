@@ -11,7 +11,7 @@ $ElementalArea
 		</ul>
 		<ul class="uk-switcher">
 			<li class="account-tab">
-				<div class="uk-panel uk-background-muted uk-padding-small">
+				<div class="uk-panel PrimaryBackground uk-padding-small">
 					<p><%t Checkout.LoginLabel 'Melden Sie sich hier mit Ihren persönlichen Zugangsdaten an.' %></p>
 					$LoginForm
 				</div>
