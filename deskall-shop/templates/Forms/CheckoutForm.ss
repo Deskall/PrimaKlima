@@ -57,7 +57,7 @@
 						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 						        	<% end_if %>
 						        	<div class="uk-margin">
-						        		<a data-package-choice="$ID" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %></a>
+						        		<a data-package-choice="$ID" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
 						        	</div>
 						        	<div class="footer-text">$FooterText</div>
 						    	</div>
@@ -91,7 +91,7 @@
 				</div>
 				<div class="uk-flex uk-flex-between">
 					<a class="uk-button uk-button-muted" data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
-					<a class="uk-button uk-button-primary" data-step="forward" data-uk-icon="chevron-right"><%t Global.Forward 'Weiter' %></a>
+					<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
 				</div>
 				<% with Fields.FieldByName('PaymentType') %>
 				$FieldHolder
@@ -120,7 +120,7 @@
 					</div>
 				
 				<div class="uk-margin uk-flex uk-flex-between">
-					<a class="uk-button uk-button-muted" data-step="backward"><%t Global.Back 'Zurück' %></a>
+					<a class="uk-button uk-button-muted" data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<% if $Actions %>
 						<% loop $Actions %>
 							$Field
