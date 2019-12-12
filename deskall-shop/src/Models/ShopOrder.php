@@ -85,7 +85,7 @@ class ShopOrder extends DataObject{
 	}
 
 	public function generateNummer(){
-		$Config = $this->getProductConfig();
+		$Config = $this->getSiteConfig();
 		$last = ShopOrder::get()->sort('ID','Desc')->first();
 		$increment = ($last) ? ($last->ID + 1) : 1;
 		$this->Nummer = number_format ( $Config->OrderNumberOffset + $increment , 0 ,  "." ,  "." );
@@ -142,10 +142,6 @@ class ShopOrder extends DataObject{
 
 	public function getOrderStatus(){
 
-	}
-
-	public function getProductConfig(){
-		return ProductConfig::get()->first();
 	}
 
 	public function getSiteConfig(){
