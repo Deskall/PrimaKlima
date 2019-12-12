@@ -110,14 +110,15 @@
 					</div>
 
 					<% end_loop %>
-					<hr>
+				</div>
+				<hr>
 					<div class="uk-text-right">
 						<% with Fields.FieldByName('SummaryFields') %>
 						$FieldHolder
 						<% end_with %>
 						<div id="paypal-button-container"></div>
 					</div>
-				</div>
+				
 				<div class="uk-margin uk-flex uk-flex-between">
 					<a class="uk-button uk-button-muted" data-step="backward"><%t Global.Back 'Zurück' %></a>
 					<% if $Actions %>
