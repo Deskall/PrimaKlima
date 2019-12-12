@@ -28,6 +28,7 @@ use SilverStripe\Control\Director;
 use SilverStripe\Security\MemberAuthenticator\MemberLoginForm;
 use SilverStripe\Security\MemberAuthenticator\MemberAuthenticator;
 use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ShopPageController extends PageController{
 	private static $allowed_actions = ['ProductDetails','CategoryDetails','CreateTransaction','TransactionCompleted','Checkout','BuyBillForm','PaymentSuccessfull','CustomerForm','CustomerAccount','OnlineDelivery','CertificateForm','DownloadCertificat','VideoSeen','OrderLoginForm', 'CheckoutForm', 'RegisterForm'];
@@ -121,7 +122,7 @@ class ShopPageController extends PageController{
 			)->setName('BillFields'),
 			CompositeField::create(
 				TextareaField::create('Comments','Bemerkungen'),
-				CheckboxField::create('AGB',_t(__CLASS__.'.AGB','Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin. *', ['link' => 'services/datenschutzerklaerung', 'link2' => 'services/agb'])),
+				CheckboxField::create('AGB',DBHTMLText::create()->setValue(_t(__CLASS__.'.AGB','Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin. *', ['link' => 'services/datenschutzerklaerung', 'link2' => 'services/agb']))),
 				NocaptchaField::create('Captcha')
 				
 			)->setName('SummaryFields')
