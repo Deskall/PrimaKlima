@@ -108,7 +108,9 @@
 							<tbody><tr><td><strong>$Title</strong></td><td>$RunTimeTitle</td><td>$NumOfAdsTitle</td><td class="price uk-text-bold">$Price €</td></tr></tbody>
 						</table>
 					</div>
+
 					<% end_loop %>
+					<hr>
 					<% with Fields.FieldByName('SummaryFields') %>
 					$FieldHolder
 					<% end_with %>
