@@ -27,7 +27,7 @@ class ShopOrderEmail extends Email
      * @param EventConfig $config
      * @param OrderDate $Order
      */
-    public function __construct(ProductConfig $config,$Order,$sender,$receiver,$subject,$body)
+    public function __construct(SiteConfig $config,$Order,$sender,$receiver,$subject,$body)
     {
         parent::__construct();
 
@@ -67,7 +67,7 @@ class ShopOrderEmail extends Email
 
         $absoluteBaseURL = $this->BaseURL();
         $variables = array(
-            '$SiteName'       => SiteConfig::current_site_config()->Title,
+            '$SiteName'       => $config->Title,
             '$LoginLink'      => Controller::join_links(
                 $absoluteBaseURL,
                 singleton(Security::class)->Link('login')

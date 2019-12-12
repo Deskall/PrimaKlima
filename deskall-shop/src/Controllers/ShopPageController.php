@@ -151,10 +151,6 @@ class ShopPageController extends PageController{
 
 
 	public function payBill($data,$form){
-		ob_start();
-					print_r($data);
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		//retrieve customer
 		if (isset($data['CustomerID']) && !empty($data['CustomerID'])){
 			$customer = JobGiver::get()->byId($data['CustomerID']);
@@ -181,6 +177,8 @@ class ShopPageController extends PageController{
 							try {
 								//Write order
 								$order->write();
+								//Write customer
+								$customer->write();
 								
 							} catch (ValidationException $e) {
 								$validationMessages = '';
