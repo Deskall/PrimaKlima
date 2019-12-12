@@ -16,7 +16,12 @@ $ElementalArea
 					$LoginForm
 				</div>
 			</li>
-			<li class="account-tab">$RegisterForm</li>
+			<li class="account-tab">
+				<div class="uk-panel uk-background-muted uk-padding-small">
+					<p><%t Checkout.RegisterLabel 'Erstellen Sie hier ein neues Profil, um Zugriff auf Ihren persönlcihen Bereich zu erhalten.' %></p>
+					$RegisterForm
+				</div>
+			</li>
 		</ul>
 			
 		
