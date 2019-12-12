@@ -194,7 +194,7 @@ class ShopOrder extends DataObject{
       	$src = dirname(__FILE__).'/../../..'.$config->BillFile()->getURL();
       	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/rechnung_'.$this->ID.'.pdf';
 
-      	$pdf->Addfont('Stone sans ITC','','stonesansitc.php');
+      	
       	$pdf->Addfont('Lato','','lato.php');
       	$pageCount = $pdf->setSourceFile($src);
       	for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
