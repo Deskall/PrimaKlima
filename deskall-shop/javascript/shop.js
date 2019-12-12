@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	//if form not valid we go to correct tab
 	if ($("Form_CheckoutForm").length > 0 && $("Form_CheckoutForm").attr('novalidate')){
+		alert('error');
 		//search for errors
 		var switcher = $('#tab-switcher');
 		var errorMessage = $("Form_CheckoutForm").find('.message.validation');
