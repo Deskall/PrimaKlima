@@ -181,7 +181,7 @@ class ShopPageController extends PageController{
 
 				$this->getRequest()->getSession()->set('orderID',$order->ID);
 				
-				return $this->Link('danke-fuer-ihre-bestellung');
+				return $this->Redirect('danke-fuer-ihre-bestellung');
 
 			}
 		
