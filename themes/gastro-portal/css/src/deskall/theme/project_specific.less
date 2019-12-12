@@ -54,14 +54,15 @@
 }
 .member-tab{
 	margin-bottom:0;
+	&:before{
+		border:none;
+	}
 	> li{
 		*{
 			text-align: left!important;
 		}
 		&.uk-active{
-			&:before{
-				border:none;
-			}
+			
 			> a{
 				background:@global-muted-background;
 			}
