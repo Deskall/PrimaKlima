@@ -62,7 +62,7 @@ class SiteConfigPayPalExtension extends DataExtension
       TextField::create('BillEmailSubject',$this->owner->fieldLabels()['BillEmailSubject']),
       HTMLEditorField::create('BillEmailBody',$this->owner->fieldLabels()['BillEmailBody'])->setRows(5),
       TextField::create('PaymentEmailSubject',$this->owner->fieldLabels()['PaymentEmailSubject']),
-      HTMLEditorField::create('BillEmailBody',$this->owner->fieldLabels()['BillEmailBody'])->setRows(5),
+      HTMLEditorField::create('PaymentEmailBody',$this->owner->fieldLabels()['PaymentEmailBody'])->setRows(5),
 
       UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setFolderName('Uploads/Vorlagen'),
       UploadField::create('BillFile',$this->owner->fieldLabels()['BillFile'])->setFolderName('Uploads/Vorlagen'),
