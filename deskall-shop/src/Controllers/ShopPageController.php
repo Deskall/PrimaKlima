@@ -144,7 +144,22 @@ class ShopPageController extends PageController{
 		
 		$form->setTemplate('Forms/CheckoutForm');
 		$form->addExtraClass('uk-form-horizontal form-std');
-		$form->loadDataFrom($customer);
+		//Pre-fill Address fields
+		$fields = $form->Fields();
+		if ($customer->BillingAddressIsCompanyAddress){
+			$fields->dataFieldByName('BillingAddressCompany')->setValue($customer->Company);
+			$fields->dataFieldByName('BillingAddressStreet')->setValue($customer->Address);
+			$fields->dataFieldByName('BillingAddressPostalCode')->setValue($customer->PostalCode);
+			$fields->dataFieldByName('BillingAddressPlace')->setValue($customer->City);
+			$fields->dataFieldByName('BillingAddressCountry')->setValue($customer->Country);
+		}
+		else{
+			$fields->dataFieldByName('BillingAddressCompany')->setValue($customer->BillingAddressCompany);
+			$fields->dataFieldByName('BillingAddressStreet')->setValue($customer->BillingAddressStreet);
+			$fields->dataFieldByName('BillingAddressPostalCode')->setValue($customer->BillingAddressPostalCode);
+			$fields->dataFieldByName('BillingAddressPlace')->setValue($customer->BillingAddressPlace);
+			$fields->dataFieldByName('BillingAddressCountry')->setValue($customer->BillingAddressCountry);
+		}
 
 		return $form;
 	}
