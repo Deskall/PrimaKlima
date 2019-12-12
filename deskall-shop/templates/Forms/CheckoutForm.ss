@@ -65,7 +65,7 @@
 					    </div>
 					<% end_loop %>
 				</div>
-				<% with Fields.FieldByName('PackageID') %>
+				<% with Fields.FieldByName('ProductID') %>
 				$FieldHolder
 				<% end_with %>
 			</li>
