@@ -71,24 +71,25 @@
 			</li>
 			<li class="account-tab" data-index="1">
 				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
-				<div class="uk-margin">
-					<div class="uk-child-width-1-2@s" data-uk-grid>
-						<div>
-							<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="bill-choice"><%t Shop.BillPayLabel 'Ich bezahle per Rechnung' %></label>
-						</div>
-						<div>
-							<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online"><label for="online-choice"><%t Shop.BillPayLabel 'Ich bezahle online mit meiner Kreditkarte oder meinem PayPal-Konto' %></label>
+				<div class="uk-panel uk-background-muted uk-padding-small">
+					<div class="uk-margin">
+						<div class="uk-child-width-1-2@s" data-uk-grid>
+							<div>
+								<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill"><label for="bill-choice"><%t Shop.BillPayLabel 'Ich bezahle per Rechnung' %></label>
+							</div>
+							<div>
+								<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online"><label for="online-choice"><%t Shop.BillPayLabel 'Ich bezahle online mit meiner Kreditkarte oder meinem PayPal-Konto' %></label>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div id="bill-form-container" class="uk-margin" hidden>
-					<div class="uk-panel uk-background-muted uk-padding-small">
+					<div id="bill-form-container" class="uk-margin" hidden>
 						<h4><%t Checkout.BillAddress 'Rechnungsadresse' %></h4>
 						<% with Fields.FieldByName('BillFields') %>
 							$FieldHolder
 						<% end_with %>
 					</div>
 				</div>
+
 				<div class="uk-flex uk-flex-between" hidden>
 					<a class="uk-button uk-button-muted" data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<a class="uk-button uk-button-primary" data-step="forward" data-uk-icon="chevron-right"><%t Global.Forward 'Weiter' %></a>
