@@ -103,7 +103,7 @@
 					<h4>Ihr Paket</h4>
 					<% loop Controller.activePackages %>
 					<div id="summary-package-{$ID}" hidden>
-						<table>
+						<table class="uk-table uk-table-small">
 							<thead><th>Paket</th><th>Preis</th><th>Laufzeit</th><th>Anzahl Anzeige</th></thead>
 							<tbody><tr><td><strong>$Title</strong></td><td class="price">$Price €</td><td>$RunTimeTitle</td><td>$NumOfAdsTitle</td></tr></tbody>
 						</table>
