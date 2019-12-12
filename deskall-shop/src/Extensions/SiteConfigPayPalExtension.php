@@ -3,6 +3,7 @@
 use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\NumericField;
 use SilverStripe\Assets\File;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
@@ -21,6 +22,7 @@ class SiteConfigPayPalExtension extends DataExtension
     'BillEmailBody' => 'HTMLText',
     'PaymentEmailSubject' => 'Varchar',
     'PaymentEmailBody' =>  'HTMLText',
+    'ClientNumberOffset' => 'Int',
     'OrderNumberOffset' => 'Int',
     'BuySuccessfullMessage' => 'HTMLText'
   ];
@@ -41,6 +43,8 @@ class SiteConfigPayPalExtension extends DataExtension
   	 $labels['PayPalClientID'] = _t(__CLASS__.'.PayPalClientID','PayPal Kunden ID');
      $labels['PayPalSecret'] = _t(__CLASS__.'.PayPalSecret','PayPal Kunden Secret');
      $labels['CustomerAccountLabel'] = _t(__CLASS__.'.CustomerAccountLabel','Text für das Kundenkonto Label');
+     $labels['ClientNumberOffset'] = _t(__CLASS__.'.ClientNumberOffset','Increment für Kundennummer');
+     $labels['OrderNumberOffset'] = _t(__CLASS__.'.OrderNumberOffset','Increment für Bestellungsnummer');
      $labels['BillFile'] = _t(__CLASS__.'.BillFile','Rechnung Vorlage');
      $labels['BillPayLabel'] = _t(__CLASS__.'.BillPayLabel','Text für die Zahlung mit Rechnung');
      $labels['OnlinePayLabel'] = _t(__CLASS__.'.OnlinePayLabel','Text für die Zahlung mit PayPal oder Kreditkarte');
@@ -59,6 +63,8 @@ class SiteConfigPayPalExtension extends DataExtension
       
       TextField::create('PayPalClientID'),
       TextField::create('PayPalSecret'),
+      NumericField::create('ClientNumberOffset',$this->owner->fieldLabels()['ClientNumberOffset']),
+      NumericField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']),
       TextField::create('BillEmailSubject',$this->owner->fieldLabels()['BillEmailSubject']),
       HTMLEditorField::create('BillEmailBody',$this->owner->fieldLabels()['BillEmailBody'])->setRows(5),
       TextField::create('PaymentEmailSubject',$this->owner->fieldLabels()['PaymentEmailSubject']),
