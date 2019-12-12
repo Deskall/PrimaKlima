@@ -52,3 +52,7 @@ SilverStripe\AssetAdmin\Forms\FileFormFactory:
 SilverStripe\Assets\File:
   extensions:
     - DocumentExtension
+
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Security\MemberAuthenticator\LoginHandler:
+    class: JobPortalLoginHandler
