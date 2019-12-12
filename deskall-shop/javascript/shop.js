@@ -25,9 +25,11 @@ $(document).ready(function(){
 	$(document).on("change","input[name='paymentmethod']",function(){
 		if ($("input[name='paymentmethod']:checked").val() == "bill"){
 			$("#bill-form-container").attr('hidden',false).find('input,select').attr('required',true);
+			$("#paypal-button-container").attr('hidden','hidden');
 		}
 		else{
 			$("#bill-form-container").attr('hidden','hidden').find('input, select').attr('required',false);
+			$("#paypal-button-container").attr('hidden',false);
 		}
 	
 		$("#Form_CheckoutForm_PaymentType").val($("input[name='paymentmethod']:checked").val());
