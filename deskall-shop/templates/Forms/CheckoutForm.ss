@@ -103,17 +103,10 @@
 					<h4>Ihr Paket</h4>
 					<% loop Controller.activePackages %>
 					<div id="summary-package-{$ID}" hidden>
-						<strong>$Title</strong>
-						<div class="price">$Price €</div>
-						<div class="details">
-							<div class="uk-margin">$RunTimeTitle</div>
-							<div class="uk-margin">$NumOfAdsTitle</div>
-							<% loop $Controller.Parameters %>
-							<% if included %>
-							<div class="uk-margin"><i class="icon icon-checkmark"></i></div>
-							<% end_if %>
-							<% end_loop %>   
-						</div>
+						<table>
+							<thead><th>Paket</th><th>Preis</th><th>Laufzeit</th><th>Anzahl Anzeige</th></thead>
+							<tbody><tr><td><strong>$Title</strong></td><td class="price">$Price €</td><td>$RunTimeTitle</td><td>$NumOfAdsTitle</td></tr></tbody>
+						</table>
 					</div>
 					<% end_loop %>
 					<% with Fields.FieldByName('SummaryFields') %>
