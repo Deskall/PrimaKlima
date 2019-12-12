@@ -221,7 +221,7 @@ class ShopOrder extends DataObject{
 	}
 
 	public function generateQuittungPDF(){
-			$config = $this->getProductConfig();
+			$config = $this->getSiteConfig();
 			$pdf = new Fpdi();
 	      	$src = dirname(__FILE__).'/../../..'.$config->ReceiptFile()->getURL();
 	      	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/quittung_'.$this->ID.'.pdf';
@@ -265,7 +265,7 @@ class ShopOrder extends DataObject{
 	}
 
 	public function generateCertificat(){
-		$config = $this->getProductConfig();
+		$config = $this->getSiteConfig();
 		$pdf = new Fpdi();
       	$src = dirname(__FILE__).'/../../..'.$config->CertificatFile()->getURL();
       	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/zertifikat_'.$this->ID.'.pdf';
@@ -304,7 +304,7 @@ class ShopOrder extends DataObject{
 	public function sendEmail(){
 	   
 	    $siteconfig = SiteConfig::current_site_config();
-	    $config = $this->getProductConfig();
+	    $config = $this->getSiteConfig();
 	    $body = $config->BillEmailBody;
 
 	    $email = new ShopOrderEmail($config,$this,$siteconfig->Email,$this->Email,$config->BillEmailSubject,  $body);
@@ -321,7 +321,7 @@ class ShopOrder extends DataObject{
 	public function sendConfirmationEmail(){
 	   
 	    $siteconfig = SiteConfig::current_site_config();
-	    $config = $this->getProductConfig();
+	    $config = $this->getSiteConfig();
 	    $body = $config->PaymentEmailBody;
 
 	    $email = new ShopOrderEmail($config,$this,$siteconfig->Email,$this->Email,$config->PaymentEmailSubject,  $body);
