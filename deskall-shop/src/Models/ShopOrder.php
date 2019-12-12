@@ -160,7 +160,7 @@ class ShopOrder extends DataObject{
 
 	public function getOrderSubPrice(){
 	    setlocale(LC_MONETARY, 'de_DE');
-	    $price = $this->Quantity * $this->Product()->currentPrice();
+	    $price = $this->Product()->currentPrice();
 	    return DBField::create_field('Varchar',money_format('%i',$price));
 	}
 
