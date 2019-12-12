@@ -151,43 +151,59 @@ class ShopPageController extends PageController{
 
 
 	public function payBill($data,$form){
-
-		//Link to date
-		if (isset($data['ProductID']) && !empty($data['ProductID'])){
-			$package = Package::get()->byId($data['ProductID']);
-			if ($package){
-				//Create and fill the order
-					$order = new ShopOrder();
-					$form->saveInto($order);
-					$order->Price = $package->Price;
-					$order->isPaid = false;
-					try {
-						//Write order
-						$order->write();
+		//retrieve customer
+		if (isset($data['CustomerID']) && !empty($data['CustomerID'])){
+			$customer = JobGiver::get()->byId($data['CustomerID']);
+			if ($customer){
+				//Link to package
+				if (isset($data['ProductID']) && !empty($data['ProductID'])){
+					$package = Package::get()->byId($data['ProductID']);
+					if ($package){
+						$form->saveInto($customer);
+						//Create and fill the order
+							$order = new ShopOrder();
+							$form->saveInto($order);
+							$order->Price = $package->currentPrice();
+							$order->isPaid = false;
+							$order->Name = $customer->ContactPersonSurname;
+							$order->Vorname = $customer->ContactPersonFirstName;
+							$order->Email = $customer->CompanyEmail;
+							$order->Address = $customer->BillingAddressStreet;
+							$order->PostalCode = $customer->BillingAddressPostalCode;
+							$order->City = $customer->BillingAddressPlace;
+							$order->Country = $customer->BillingAddressCountry;
+							$order->Phone = $customer->ContactPersonTelephone;
+							
+							try {
+								//Write order
+								$order->write();
+								
+							} catch (ValidationException $e) {
+								$validationMessages = '';
+								foreach($e->getResult()->getMessages() as $error){
+									$validationMessages .= $error['message']."\n";
+								}
+								$form->sessionMessage($validationMessages, 'bad');
+								return $this->redirectBack();
+							}
 						
-					} catch (ValidationException $e) {
-						$validationMessages = '';
-						foreach($e->getResult()->getMessages() as $error){
-							$validationMessages .= $error['message']."\n";
-						}
-						$form->sessionMessage($validationMessages, 'bad');
-						return $this->redirectBack();
+						//Create Receipt
+						$order->generatePDF();
+						//Send Confirmation Email
+						$order->sendEmail();
+
+						$this->getRequest()->getSession()->set('orderID',$order->ID);
+						
+						return $this->Redirect('danke-fuer-ihre-bestellung');
+
 					}
 				
-				//Create Receipt
-				$order->generatePDF();
-				//Send Confirmation Email
-				$order->sendEmail();
-
-				$this->getRequest()->getSession()->set('orderID',$order->ID);
-				
-				return $this->Redirect('danke-fuer-ihre-bestellung');
-
+				}
 			}
-		
 		}
 
-		return $this->httpError(404);
+		//unguilty request, go back
+		return $this->redirectBack();
 		
 	}
 

@@ -25,16 +25,11 @@ class ShopOrder extends DataObject{
 		'Vorname' => 'Varchar',
 		'Email' => 'Varchar',
 		'Company' => 'Varchar',
-		'Gender'  => 'Varchar',
 		'Address'  => 'Varchar',
 		'PostalCode'  => 'Varchar',
 		'City'  => 'Varchar',
 		'Country'  => 'Varchar',
 		'Phone'  => 'Varchar',
-		'UIDNumber' => 'Varchar',
-		'OrderID' => 'Varchar',
-		'Quantity' => 'Int',
-		'wasSeen' => 'Boolean(0)',
 		'AGB' => 'Boolean(0)'
 	);
 
