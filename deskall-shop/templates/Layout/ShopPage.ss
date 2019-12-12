@@ -12,7 +12,8 @@ $ElementalArea
 		<ul class="uk-switcher">
 			<li class="account-tab">
 				<div class="uk-panel uk-background-muted uk-padding-small">
-				$LoginForm
+					<p><%t Checkout.LoginLabel 'Melden Sie sich hier mit Ihren persönlichen Zugangsdaten an.' %></p>
+					$LoginForm
 				</div>
 			</li>
 			<li class="account-tab">$RegisterForm</li>
