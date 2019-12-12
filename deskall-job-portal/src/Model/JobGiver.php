@@ -120,6 +120,7 @@ class JobGiver extends DataObject
     $labels['Fax'] = _t(__CLASS__.'.Fax','Fax');
     $labels['URL'] = _t(__CLASS__.'.URL','Website');
     $labels['Missions'] = _t(__CLASS__.'.Missions','Stellenangebote');
+    $labels['Orders'] = _t(__CLASS__.'.Orders','Bestellungen');
 
     $labels['SocialFacebook'] = _t(__CLASS__.'.SocialFacebook','Facebook');
     $labels['SocialTwitter'] = _t(__CLASS__.'.SocialTwitter','Twitter');
