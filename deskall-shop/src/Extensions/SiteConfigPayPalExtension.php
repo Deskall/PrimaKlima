@@ -58,9 +58,9 @@ class SiteConfigPayPalExtension extends DataExtension
       
       TextField::create('PayPalClientID'),
       TextField::create('PayPalSecret'),
-      UploadField::create('AGBFile',$this->fieldLabels()['AGBFile'])->setFolderName('Uploads/Vorlagen'),
-      UploadField::create('BillFile',$this->fieldLabels()['BillFile'])->setFolderName('Uploads/Vorlagen'),
-      UploadField::create('ReceiptFile',$this->fieldLabels()['ReceiptFile'])->setFolderName('Uploads/Vorlagen')
+      UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setFolderName('Uploads/Vorlagen'),
+      UploadField::create('BillFile',$this->owner->fieldLabels()['BillFile'])->setFolderName('Uploads/Vorlagen'),
+      UploadField::create('ReceiptFile',$this->owner->fieldLabels()['ReceiptFile'])->setFolderName('Uploads/Vorlagen')
     ]);
    
   }
