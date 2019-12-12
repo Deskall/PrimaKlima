@@ -121,7 +121,7 @@ class ShopPageController extends PageController{
 				DropdownField::create('BillingAddressCountry',_t(__CLASS__.'.BillingAddressCountry','Land'))->setSource(i18n::getData()->getCountries())->setValue('de')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))
 			)->setName('BillFields'),
 			CompositeField::create(
-				TextareaField::create('Comments','Bemerkungen'),
+				// TextareaField::create('Comments','Bemerkungen'),
 				CheckboxField::create('AGB',DBHTMLText::create()->setValue(_t(__CLASS__.'.AGB','Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin. *', ['link' => 'services/datenschutzerklaerung', 'link2' => 'services/agb'])))->setAttribute('class','uk-checkbox'),
 				NocaptchaField::create('Captcha')
 				
