@@ -151,6 +151,10 @@ class ShopPageController extends PageController{
 
 
 	public function payBill($data,$form){
+		ob_start();
+					print_r($data);
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		//retrieve customer
 		if (isset($data['CustomerID']) && !empty($data['CustomerID'])){
 			$customer = JobGiver::get()->byId($data['CustomerID']);
@@ -173,7 +177,7 @@ class ShopPageController extends PageController{
 							$order->City = $customer->BillingAddressPlace;
 							$order->Country = $customer->BillingAddressCountry;
 							$order->Phone = $customer->ContactPersonTelephone;
-							
+
 							try {
 								//Write order
 								$order->write();
