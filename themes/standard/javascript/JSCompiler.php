@@ -2,6 +2,7 @@
 
 $url = $_SERVER['REQUEST_URI'];
 $uri = strtok($url, '?');
+print_r($uri);
 $filename = basename($uri,".js").".js";
 $filename = basename($_SERVER['REQUEST_URI'],".js").".js";
 $filename_full = str_replace(".min", "", $filename);
