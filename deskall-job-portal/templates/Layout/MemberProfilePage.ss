@@ -39,14 +39,20 @@ $ElementalArea
 								<h2><%t JobGiver.PaymentTitle 'Pakete' %></h2>
 								<div class="member-section-container">
 									$PaymentTabHTML
+									<% if activeOrder %>
+									
+									<% else %>
 									<div class="uk-margin">
+										<h4><%t MemberPage.NoMoreTitle 'Keine Inserate verfügbar' %></h4>
+										<p><%t MemberPage.NoMore 'Achtung, Sie können derzeit keine neuen Inserate mehr schalten, da Sie noch unbezahlte Rechnungen offen haben.<br>Sobald diese bezahlt sind, können Sie Ihre Inserate freischatlen.' %></p>
 										<a class="uk-button uk-button-primary" href="$ShopPage.Link"><%t Payment.OrderPackage 'jetzt Paket bestellen' %></a>
 									</div>
+									<% end_if %>
 									<div class="uk-margin uk-overflow-auto">
 										<h4><%t MemberPage.OrdersTitle 'Meine Bestellungen' %></h4>
 										<table class="uk-table uk-table-small uk-table-justify">
 											<% loop CurrentCustomer.Orders %>
-											<tr><td class="uk-table-shrink">$Created.Date</td><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td>$Product.RunTimeTitle</td><td>$Product.NumOfAdsTitle</td></tr>
+											<tr><td class="uk-table-shrink">$Created.Date</td><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td>$Product.RunTimeTitle</td><td>$Product.NumOfAdsTitle</td><td>$Status</td></tr>
 											<% end_loop %>
 										</table>
 									</div>
