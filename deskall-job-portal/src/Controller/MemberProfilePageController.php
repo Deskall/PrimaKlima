@@ -216,8 +216,6 @@ class MemberProfilePageController extends PageController{
 		// }
 
 		$offer = new Mission();
-
-		
 		
 		$form = new Form(
 			$this,
@@ -236,14 +234,9 @@ class MemberProfilePageController extends PageController{
 	public function saveOffer($data, Form $form)
 	{
 
-		$member = Security::getCurrentUser();
-		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
-		$form->saveInto($member);
-		$form->saveInto($JobGiver);
-	
+		$form->saveInto($offer);
 		try {
-			$member->write();
-			$JobGiver->write();
+			$offer->write();
 		} catch (ValidationException $e) {
 			$validationMessages = '';
 			foreach($e->getResult()->getMessages() as $error){
@@ -253,10 +246,10 @@ class MemberProfilePageController extends PageController{
 			return $this->redirectBack();
 		}
 		$form->sessionMessage(
-			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
+			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Inserate wurde gespeichert.'),
 			'good'
 		);
-		$this->getRequest()->getSession()->set('active_tab','profil');
+		$this->getRequest()->getSession()->set('active_tab','offer');
 		
 		return $this->redirectBack();
 	}
