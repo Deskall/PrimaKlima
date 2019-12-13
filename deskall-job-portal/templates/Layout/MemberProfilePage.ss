@@ -42,6 +42,15 @@ $ElementalArea
 									<div class="uk-margin">
 										<% if CurrentCustomer.activeOrder %>
 										<h4><%t MemberPage.MoreTitle 'Inserate verfügbar' %></h4>
+										<p><%t MemberPage.OffersAvailable 'Ihr Abonnement ist aktiv, Sie durfen Inserate jetzt freischalten!' %></p>
+										<table class="uk-table uk-table-small uk-table-justify">
+											<thead></th><th><%t MemberPage.OrdersTableTH2 'Paket' %></th><th><%t MemberPage.OrdersTableTH2 'Laufzeit' %></th><th><%t MemberPage.OrdersTableTH3 'Anzahl Anzeige' %></th><th><%t MemberPage.OrdersTableTH1 'Zeitraums' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
+											<tbody>
+											<% with CurrentCustomer.activeOrder %>
+											<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td>$Product.RunTimeTitle</td><td>$Product.NumOfAdsTitle</td><td>$Period</td><td><% if isPaid %>bezahlt<% else %>nicht bezahlt<% end_if %></td><td>$Status</td><td>$Documents</td></tr>
+											<% end_with %>
+											</tbody>
+										</table>
 										<% else %>
 											<h4><%t MemberPage.NoMoreTitle 'Keine Inserate verfügbar' %></h4>
 											<% if CurrentCustomer.stagedOrder %>
