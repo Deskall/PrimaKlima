@@ -56,10 +56,10 @@ $ElementalArea
 									<div class="uk-margin uk-overflow-auto">
 										<h4><%t MemberPage.OrdersTitle 'Meine Bestellungen' %></h4>
 										<table class="uk-table uk-table-small uk-table-justify">
-											<thead><th><%t MemberPage.OrdersTableTH1 'Bestellt am' %></th><th><%t MemberPage.OrdersTableTH2 'Paket' %></th><th><%t MemberPage.OrdersTableTH2 'Laufzeit' %></th><th><%t MemberPage.OrdersTableTH3 'Anzahl Anzeige' %></th><th>&nbsp;</th><th>&nbsp;</th></thead>
+											<thead></th><th><%t MemberPage.OrdersTableTH2 'Paket' %></th><th><%t MemberPage.OrdersTableTH2 'Laufzeit' %></th><th><%t MemberPage.OrdersTableTH3 'Anzahl Anzeige' %></th><th><%t MemberPage.OrdersTableTH1 'Zeitraums' %><th>&nbsp;</th><th>&nbsp;</th></thead>
 											<tbody>
 											<% loop CurrentCustomer.Orders %>
-											<tr><td class="uk-table-shrink">$Created.Date</td><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td>$Product.RunTimeTitle</td><td>$Product.NumOfAdsTitle</td><td><% if isPaid %>bezahlt<% else %>nicht bezahlt<% end_if %></td><td>$Status</td></tr>
+											<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td>$Product.RunTimeTitle</td><td>$Product.NumOfAdsTitle</td><td>$Period</td><td><% if isPaid %>bezahlt<% else %>nicht bezahlt<% end_if %></td><td>$Status</td></tr>
 											<% end_loop %>
 											</tbody>
 										</table>

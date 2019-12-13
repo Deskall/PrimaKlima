@@ -125,6 +125,13 @@ class ShopOrder extends DataObject{
 		$this->sendConfirmationEmail();
 	}
 
+	public function getPeriod(){
+		if ($this->isPaid){
+			$period = "vom ".$this->StartValidity." bis ".$this->EndValidity;
+		}
+		return null;
+	}
+
 	public function OnlineDeliveryLink(){
 	    return 'shop/online-lieferung/'.$this->ID.'/';
 	}
