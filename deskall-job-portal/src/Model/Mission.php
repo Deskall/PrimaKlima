@@ -35,6 +35,7 @@ use SilverStripe\i18n\i18n;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Control\Controller;
 use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Forms\RequiredFields;
 
 class Mission extends DataObject
 {
