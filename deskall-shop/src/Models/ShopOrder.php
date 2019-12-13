@@ -92,6 +92,7 @@ class ShopOrder extends DataObject{
 			$start = new \DateTime();
 			$this->StartValidity = $start->format('d.m.Y');
 			$modify = "+ ".$this->Product()->RunTime." ".$this->Product()->RunTimeCurrency."s";
+			print_r($modify);
 			$this->EndValidity = $start->modify($modify)->format('d.m.Y');
 			$this->isActive = true;
 		}
@@ -107,6 +108,7 @@ class ShopOrder extends DataObject{
 
 	public function getCMSFields(){
 		$fields = FieldList::create();
+		$this->Initiate();
 		$html = $this->renderWith('ShopOrderCMS');
 		$fields->push(LiteralField::create('Order',$html));
 		return $fields;
