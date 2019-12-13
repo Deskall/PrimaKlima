@@ -83,7 +83,7 @@ $ElementalArea
 								<div class="member-section-container">
 									$OffersTabHTML
 								</div>
-								<div class="toogle-new-offer">
+								<div class="toggle-new-offer">
 									<% if CurrentCustomer.activeOrder %>
 									<a class="uk-button uk-button-primary" data-uk-toggle=".toggle-new-offer"><%t Offer.Create 'jetzt neu Inserat erfassen' %></a>
 									<% else %>
@@ -91,7 +91,7 @@ $ElementalArea
 									<% end_if %>
 								</div>
 								<div id="offer-form-container" class="toggle-new-offer" hidden>
-									<a class="uk-button uk-button-muted" data-uk-toggle=".toggle-new-offer"><%t Global.Back 'Zurück' %></a>
+									<a class="uk-button uk-button-muted" data-uk-toggle="target:.toggle-new-offer"><%t Global.Back 'Zurück' %></a>
 									$JobOfferFrom
 								</div>
 							</div>
