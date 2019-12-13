@@ -83,11 +83,17 @@ $ElementalArea
 								<div class="member-section-container">
 									$OffersTabHTML
 								</div>
-								<% if CurrentCustomer.activeOrder %>
-								<a class="uk-button uk-button-primary" href="$ShopPage.Link"><%t Offer.Create 'jetzt neu Inserat erfassen' %></a>
-								<% else %>
-								<p><%t MemberPage.CannotPublish 'Sie können derzeit keine Inserate freischalten. Sie können aber dennoch Inserate als Entwurf erfassen und zu einem späteren Zeitpunkt freischalten.' %></p>
-								<% end_if %>
+								<div class="toogle-new-offer">
+									<% if CurrentCustomer.activeOrder %>
+									<a class="uk-button uk-button-primary" data-uk-toggle=".toggle-new-offer"><%t Offer.Create 'jetzt neu Inserat erfassen' %></a>
+									<% else %>
+									<p><%t MemberPage.CannotPublish 'Sie können derzeit keine Inserate freischalten. Sie können aber dennoch Inserate als Entwurf erfassen und zu einem späteren Zeitpunkt freischalten.' %></p>
+									<% end_if %>
+								</div>
+								<div id="offer-form-container" class="toggle-new-offer" hidden>
+									<a class="uk-button uk-button-muted" data-uk-toggle=".toggle-new-offer"><%t Global.Back 'Zurück' %></a>
+									$JobOfferFrom
+								</div>
 							</div>
 						</li>
 						<li class="account-tab">
