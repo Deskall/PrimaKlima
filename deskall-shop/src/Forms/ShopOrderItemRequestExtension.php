@@ -42,11 +42,7 @@ class ShopOrderItemRequestExtension extends DataExtension
     {
        
         $record = $this->owner->getRecord();
-        $record->isPaid = true;
-        $record->generateQuittungPDF();
-        $record->write();
-
-        $record->sendConfirmationEmail();
+        $record->MarkAsPaid()
 
         $message = _t(
             __CLASS__ . '.MarkAsPaid',
