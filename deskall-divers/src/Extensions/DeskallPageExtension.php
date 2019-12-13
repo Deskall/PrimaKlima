@@ -58,7 +58,7 @@ class DeskallPageExtension extends DataExtension
     }
 
     public function CurrentMember(){
-        return Security::currentUser();
+        return Security::getCurrentUser();
     }
 
 
