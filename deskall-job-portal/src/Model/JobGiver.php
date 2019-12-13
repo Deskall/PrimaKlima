@@ -167,7 +167,7 @@ class JobGiver extends DataObject
 
     public function generateClientNumber(){
         $config = SiteConfig::current_site_config();
-        return number_format ( $this->ID + $config->ClientNumberOffset , 0 ,  "." ,  "." );
+        return number_format ( $this->ID + intval($config->ClientNumberOffset) , 0 ,  "." ,  "." );
     }   
 
 
