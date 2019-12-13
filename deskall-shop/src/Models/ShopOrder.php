@@ -260,7 +260,7 @@ class ShopOrder extends DataObject{
 	            $pdf->setXY(30,86.5);
 	            $pdf->Write(0,$this->Nummer);
 	           
-	            $pdf->WriteHtmlCell(100,30,30,105.5,$this->Customer()->ContactPersonFirstName.' '.$this->Customer()->ContactPersonSurname);
+	            $pdf->WriteHtmlCell(100,30,30,105.5,$this->Customer()->printAddress());
 	            $pdf->WriteHtmlCell(100,30,30,126.5,"Paket ".$this->Product()->Title);
 	            $pdf->setXY(10,145);
 	            $pdf->WriteHtml($this->getSiteConfig()->Code.' - '.$this->getSiteConfig()->City.' / '.DBField::create_field('Date',$this->Created)->format('dd.MM.Y'));
