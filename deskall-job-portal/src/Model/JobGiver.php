@@ -176,13 +176,16 @@ class JobGiver extends DataObject
         if ($this->Company){
             $html .= $this->Company.'<br/>';
         }
+        if ($this->ContactPersonSurname){
+            $html .= $this->ContactPersonFirstName.' '.$this->ContactPersonSurname.'<br/>';
+        }
         if ($this->Address){
             $html .= $this->Address.'<br/>';
         }
         
         $html .= $this->PostalCode.' - '.$this->City.'</p>';
         if ($full){
-            $html .= '<p><a href="mailto:'.$this->Member()->Email.'">'.$this->Member()->Email.'</a>'.'<br/>'
+            $html .= '<p><a href="mailto:'.$this->CompanyEmail.'">'.$this->CompanyEmail.'</a>'.'<br/>'
         .$this->Telefon.'</p>';
         }
         $o = new DBHTMLText();
