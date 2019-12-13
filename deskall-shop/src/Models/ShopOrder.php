@@ -121,8 +121,8 @@ class ShopOrder extends DataObject{
 	
 	public function MarkAsPaid(){
 		$this->isPaid = true;
-		$this->generateQuittungPDF();
 		$this->Initiate();
+		$this->generateQuittungPDF();
 		$this->write();
 		$this->sendConfirmationEmail();
 	}
