@@ -42,6 +42,14 @@ $ElementalArea
 									<div class="uk-margin">
 										<a class="uk-button uk-button-primary" href="$ShopPage.Link"><%t Payment.OrderPackage 'jetzt Paket bestellen' %></a>
 									</div>
+									<div class="uk-margin uk-overflow-auto">
+										<h4><%t MemberPage.OrdersTitle 'Meine Bestellungen' %></h4>
+										<table class="uk-table uk-table-small">
+											<% loop Orders %>
+											<tr><td><%t MemberPage.Package 'Paket' %>$Product.Title</td><td>$Product.RunTimeTitle</td><td>$Product.NumOfAdsTitle</td></tr>
+											<% end_loop %>
+										</table>
+									</div>
 								</div>
 							</div>
 						</li>
