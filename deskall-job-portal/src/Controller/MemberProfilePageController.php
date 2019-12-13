@@ -233,7 +233,7 @@ class MemberProfilePageController extends PageController{
 
 	public function saveOffer($data, Form $form)
 	{
-
+		$offer = new Mission();
 		$form->saveInto($offer);
 		try {
 			$offer->write();
