@@ -96,7 +96,7 @@ class JobGiver extends DataObject
     private static $cascade_deletes = ['Member','Logo','Missions','Orders'];
 
    private static $summary_fields = array(
-        'generateClientNumber' => 'Kundennummer',
+        'Nummer' => 'Kundennummer',
         'Company' => 'Firma',
         'City' => 'Ort',
     );
