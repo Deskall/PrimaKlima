@@ -46,7 +46,7 @@ $ElementalArea
 										<h4><%t MemberPage.OrdersTitle 'Meine Bestellungen' %></h4>
 										<table class="uk-table uk-table-small uk-table-justify">
 											<% loop CurrentCustomer.Orders %>
-											<tr><td>$Created.Nice</td><td><%t MemberPage.Package 'Paket' %> $Product.Title</td><td>$Product.RunTimeTitle</td><td>$Product.NumOfAdsTitle</td></tr>
+											<tr><td>$Created.Date</td><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td>$Product.RunTimeTitle</td><td>$Product.NumOfAdsTitle</td></tr>
 											<% end_loop %>
 										</table>
 									</div>
