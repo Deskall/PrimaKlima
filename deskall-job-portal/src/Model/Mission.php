@@ -45,7 +45,7 @@ class Mission extends DataObject
         'Start' => 'Date',
         'End' => 'Date',
         'Position' => 'Varchar',
-        'Description' => 'HTMLText'
+        'Description' => 'HTMLText',
         'Status' => 'Varchar',
         'AdminComments' => 'HTMLText',
         'OfferKey' => 'Varchar',
