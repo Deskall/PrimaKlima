@@ -30,7 +30,11 @@ class ShopOrder extends DataObject{
 		'City'  => 'Varchar',
 		'Country'  => 'Varchar',
 		'Phone'  => 'Varchar',
-		'AGB' => 'Boolean(0)'
+		'AGB' => 'Boolean(0)',
+		'StartValidity' => 'Date',
+		'EndValidity' => 'Date',
+		'RemainingOffers' => 'Int'
+
 	);
 
 	private static $has_one = array(
@@ -77,6 +81,19 @@ class ShopOrder extends DataObject{
 		if (!$this->Nummer){
 			$this->generateNummer();
 		}
+		if ($this->ID == 0){
+			$this->Initiate();
+		}
+	}
+
+	public function Initiate(){
+		if ($this->isPaid){
+			$start = new \DateTime();
+			$this->StartValidity = $start->format('d.m.Y');
+			$modify = "+ ".$this->Product()->RunTime." ".$this->Product()->RunTimeCurrency."s";
+			$this->EndValidity = $start->modify($modify)->format('d.m.Y');
+		}
+		$this->RemainingOffers = $this->Product()->NumOfAds;
 	}
 
 	public function generateNummer(){
