@@ -74,7 +74,7 @@ class Mission extends DataObject
 
     private static $extensions = [
         Activable::class,
-        Sortable::class
+        Sortable::class,
         SubObjectPermission::class
     ];
 
