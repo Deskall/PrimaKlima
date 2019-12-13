@@ -94,6 +94,7 @@ class ShopOrder extends DataObject{
 			$modify = "+ ".$this->Product()->RunTime." ".$this->Product()->RunTimeCurrency."s";
 			print_r($this->StartValidity);
 			$this->EndValidity = $start->modify($modify)->format('d.m.Y');
+			print_r($this->EndValidity);
 			$this->isActive = true;
 		}
 		$this->RemainingOffers = $this->Product()->NumOfAds;
