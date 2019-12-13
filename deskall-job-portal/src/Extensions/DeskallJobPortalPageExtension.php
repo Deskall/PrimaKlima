@@ -14,8 +14,8 @@ class DeskallJobPortalPageExtension extends DataExtension
     }
 
     public function CurrentCustomer(){
-    	if ($this->owner->CurrentMember()->Customer()){
-    		return $this->owner->CurrentMember()->Customer();
+    	if ($this->owner->CurrentMember()){
+    		return JobGiver::get()->filter('MemberID',$this->owner->CurrentMember()->ID)->first();
     	}
         return null;
     }
