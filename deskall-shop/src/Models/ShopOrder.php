@@ -92,7 +92,7 @@ class ShopOrder extends DataObject{
 			$start = new \DateTime();
 			$this->StartValidity = $start->format('d.m.Y');
 			$modify = "+ ".$this->Product()->RunTime." ".$this->Product()->RunTimeCurrency."s";
-			print_r($modify);
+			print_r($this->StartValidity);
 			$this->EndValidity = $start->modify($modify)->format('d.m.Y');
 			$this->isActive = true;
 		}
