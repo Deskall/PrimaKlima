@@ -296,6 +296,9 @@ class Mission extends DataObject
         $customer = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
         $fields = FieldList::create(
             HiddenField::create('CustomerID')->setValue($customer->ID),
+            TextField::create('Title',$this->fieldLabels()['Title']),
+            DateField::create('Start',$this->fieldLabels()['Start'])),
+            DateField::create('End',$this->fieldLabels()['End'])),
             HTMLEditorField::create('Description',$this->fieldLabels()['Description'])
         );
 
@@ -303,7 +306,7 @@ class Mission extends DataObject
     }
 
     public function getRequiredFields(){
-        return new RequiredFields(['Description']);
+        return new RequiredFields(['Title','Description']);
     }
 
     /**
