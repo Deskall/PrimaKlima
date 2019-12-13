@@ -45,7 +45,7 @@ $ElementalArea
 									<div class="uk-margin uk-overflow-auto">
 										<h4><%t MemberPage.OrdersTitle 'Meine Bestellungen' %></h4>
 										<table class="uk-table uk-table-small uk-table-justify">
-											<% loop CurrentMember.Orders %>
+											<% loop CurrentCustomer.Orders %>
 											<tr><td><%t MemberPage.Package 'Paket' %>$Product.Title</td><td>$Product.RunTimeTitle</td><td>$Product.NumOfAdsTitle</td></tr>
 											<% end_loop %>
 										</table>

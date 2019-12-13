@@ -12,4 +12,11 @@ class DeskallJobPortalPageExtension extends DataExtension
     	}
         return null;
     }
+
+    public function CurrentCustomer(){
+    	if ($this->owner->CurrentMember()->Customer()){
+    		return $this->owner->CurrentMember()->Customer();
+    	}
+        return null;
+    }
 }
