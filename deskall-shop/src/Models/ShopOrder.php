@@ -63,7 +63,7 @@ class ShopOrder extends DataObject{
           "filter" => "PartialMatchFilter",
           "title" => 'Rechnungsnummer'
         ),
-		'Customer.Member.Surname' => array(
+		'Customer.ContactPersonSurname' => array(
           "field" => TextField::class,
           "filter" => "PartialMatchFilter",
           "title" => 'Kunden Name'
@@ -131,14 +131,6 @@ class ShopOrder extends DataObject{
 			$period = "vom ".$this->StartValidity." bis ".$this->EndValidity;
 		}
 		return "-";
-	}
-
-	public function OnlineDeliveryLink(){
-	    return 'shop/online-lieferung/'.$this->ID.'/';
-	}
-
-	public function generateCertificatLink(){
-	    return 'shop/zertifikat/'.$this->ID.'/';
 	}
 
 	public function getPaymentResource(){
@@ -268,8 +260,8 @@ class ShopOrder extends DataObject{
 	            $pdf->setXY(30,86.5);
 	            $pdf->Write(0,$this->Nummer);
 	           
-	            $pdf->WriteHtmlCell(100,30,30,105.5,$this->Customer()->Member()->FirstName.' '.$this->Customer()->Member()->Surname);
-	            $pdf->WriteHtmlCell(100,30,30,126.5,$this->Quantity." * ".$this->Product()->Title);
+	            $pdf->WriteHtmlCell(100,30,30,105.5,$this->Customer()->ContactPersonFirstName.' '.$this->Customer()->ContactPersonSurname);
+	            $pdf->WriteHtmlCell(100,30,30,126.5,"Paket ".$this->Product()->Title);
 	            $pdf->setXY(10,145);
 	            $pdf->WriteHtml($this->getSiteConfig()->Code.' - '.$this->getSiteConfig()->City.' / '.DBField::create_field('Date',$this->Created)->format('dd.MM.Y'));
 			}	
@@ -290,42 +282,6 @@ class ShopOrder extends DataObject{
 			$this->write();
 	}
 
-	public function generateCertificat(){
-		$config = $this->getSiteConfig();
-		$pdf = new Fpdi();
-      	$src = dirname(__FILE__).'/../../..'.$config->CertificatFile()->getURL();
-      	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/zertifikat_'.$this->ID.'.pdf';
-
-      	$pdf->Addfont('lato','','lato.php');
-      	$pdf->Addfont('latob','','latob.php');
-      	$pageCount = $pdf->setSourceFile($src);
-      	for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
-      		$pdf->SetPrintHeader(false);
-            $pdf->AddPage();
-            $templateId = $pdf->importPage($pageNo);
-            $size = $pdf->getTemplateSize($templateId);
-            $pdf->useTemplate($templateId);
-            $pdf->SetFont('Lato','',8);
-
-            $pdf->setXY(8,40);
-            $pdf->WriteHtml($config->parseString($config->CertificatHTML,$this));
-		}	
-
-		$pdf->Output($output,'F');
-		
-
-
-		$tmpFolder = "Uploads/Zertifikate/".$this->ID;
-		$folder = Folder::find_or_make($tmpFolder);
-		$file = ($this->CertificatFile()->exists()) ? $this->CertificatFile() : File::create();
-		$file->ParentID = $folder->ID;
-		$file->setFromLocalFile($output, 'Uploads/Zertifikate/'.$this->ID.'/Zertifikat.pdf');
-		$file->write();
-		$file->publishSingle();
-
-		$this->CertificatFileID = $file->ID;
-		$this->write();
-	}
 
 	public function sendEmail(){
 	   
