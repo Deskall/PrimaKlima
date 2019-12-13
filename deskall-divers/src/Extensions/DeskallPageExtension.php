@@ -16,6 +16,7 @@ use SilverStripe\Subsites\Extensions\SiteTreeSubsites;
 use SilverStripe\Subsites\Extensions\FileSubsites;
 use SilverStripe\Subsites\Model\Subsite;
 use SilverStripe\Subsites\State\SubsiteState;
+use SilverStripe\Security\Security;
 
 class DeskallPageExtension extends DataExtension
 {
@@ -54,6 +55,10 @@ class DeskallPageExtension extends DataExtension
             $field = OptionsetField::create('ShowInMainMenu',_t(__CLASS__.'.ShowInMainMenuLabel','In welchem Menu sollt diese Seite anzeigen ?'), $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
             $fields->insertAfter($field,'MenuTitle');
         }
+    }
+
+    public function CurrentMember(){
+        return Security::currentUser();
     }
 
 
