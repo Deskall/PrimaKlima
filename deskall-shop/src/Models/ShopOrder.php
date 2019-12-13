@@ -129,7 +129,7 @@ class ShopOrder extends DataObject{
 		if ($this->isPaid){
 			$period = "vom ".$this->StartValidity." bis ".$this->EndValidity;
 		}
-		return null;
+		return "-";
 	}
 
 	public function OnlineDeliveryLink(){
