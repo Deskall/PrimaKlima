@@ -83,7 +83,7 @@ $ElementalArea
 								<div class="member-section-container">
 									$OffersTabHTML
 								</div>
-								<% if CurrentCustomer.canPublishOffer %>
+								<% if CurrentCustomer.activeOrder %>
 								<a class="uk-button uk-button-primary" href="$ShopPage.Link"><%t Offer.Create 'jetzt neu Inserat erfassen' %></a>
 								<% else %>
 								<p><%t MemberPage.CannotPublish 'Sie können derzeit keine Inserate freischalten. Sie können aber dennoch Inserate als Entwurf erfassen und zu einem späteren Zeitpunkt freischalten.' %></p>
