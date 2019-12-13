@@ -207,7 +207,6 @@ class MemberProfilePageController extends PageController{
 
 		$actions = new FieldList(FormAction::create('saveOffer', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
 		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
-		$JobGiver = ($JobGiver) ? $JobGiver : new JobGiver();
 		$status = $JobGiver->Status;
 		// if (!$status){
 		// 	$actions->push(FormAction::create('requireApproval', _t('MemberProfiles.REQUIREAPPROVAL', 'Genehmigung erfordern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="fa fa-check uk-margin-small-right"></i>'. _t('MemberProfiles.REQUIREAPPROVAL', 'Genehmigung erfordern')));
@@ -216,20 +215,21 @@ class MemberProfilePageController extends PageController{
 		// 	$actions->push(FormAction::create('requireApproval', _t('MemberProfiles.APPROVALCHECK', 'Genehmigung in Bearbeitung'))->setDisabled(true)->setButtonContent('<i class="fa fa-check uk-margin-small-right"></i>Genehmigung in Bearbeitung')->addExtraClass('uk-button'));
 		// }
 
+		$offer = new Mission();
+
 		
 		
 		$form = new Form(
 			$this,
-			'ProfilForm',
-			$JobGiver->getProfileFields(),
+			'JobOfferForm',
+			$offer->getFormFields(),
 			$actions,
-			$JobGiver->getRequiredProfileFields()
+			$offer->getRequiredFields()
 		);
 		
-		$form->setTemplate('Forms/ProfilForm');
-		$form->addExtraClass('uk-form-horizontal form-std company-form');
-		$form->loadDataFrom($JobGiver);
-
+		$form->setTemplate('Forms/OfferForm');
+		$form->addExtraClass('uk-form-horizontal form-std');
+		
 		return $form;
 	}
 

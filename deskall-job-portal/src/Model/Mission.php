@@ -44,17 +44,10 @@ class Mission extends DataObject
         'Period' => 'Varchar',
         'Start' => 'Date',
         'End' => 'Date',
-        'Access' => 'HTMLText',
-        'HourPay' => 'Varchar',
-        'HourPayCustomer' => 'Varchar',
         'Position' => 'Varchar',
-        'TransportCost' => 'Varchar',
-        'CostAndHousing' => 'Varchar',
-        'Others' => 'HTMLText',
+        'Description' => 'HTMLText'
         'Status' => 'Varchar',
         'AdminComments' => 'HTMLText',
-        'Price' => 'Varchar',
-        'CustomerPrice' => 'Varchar',
         'OfferKey' => 'Varchar',
         'Company' => 'Varchar',
         'Surname' => 'Varchar',
@@ -82,6 +75,7 @@ class Mission extends DataObject
     private static $extensions = [
         Activable::class,
         Sortable::class
+        SubObjectPermission::class
     ];
 
     private static $has_one = [
@@ -109,16 +103,10 @@ class Mission extends DataObject
     ];
 
     private static $status_types = [
-        "new" => "neu",
-        "created" => "Angebot erstellt",
-        "sentToCustomer" => "an Kunde gesendet",
-        "acceptedByCustomer" => "Angebot bestätigt",
-        "refusedByCustomer" => "bei Kunde abgelehnt",
-        "refused" => 'abgelehnt',
-        "sentToCandidat" => 'an Köche gesendet',
-        "chooseCandidat" => 'Koch wählen',
-        "contractSent" => 'Vertrage gesendet',
-        "approved" => 'Genehmigt'
+        "new" => "Neu",
+        "draft" => "Entwurf",
+        "published" => "Veröffentlicht",
+        "archived" => "Archiviert"
     ];
 
 
@@ -126,19 +114,12 @@ class Mission extends DataObject
     $labels = parent::fieldLabels($includerelation);
     $labels['Title'] = _t(__CLASS__.'.Title','Titel');
     $labels['Customer'] = _t(__CLASS__.'.Customer','Kunde');
-    $labels['Access'] = _t(__CLASS__.'.Access','Anreise');
-    $labels['HourPay'] = _t(__CLASS__.'.HourPay','Stundensatz (Koch)');
-    $labels['HourPayCustomer'] = _t(__CLASS__.'.HourPayCustomer','Stundensatz (Kunde)');
     $labels['Position'] = _t(__CLASS__.'.Position','Position');
-    $labels['TransportCost'] = _t(__CLASS__.'.TransportCost','Anfahrt');
-    $labels['CostAndHousing'] = _t(__CLASS__.'.CostAndHousing','Kosten und Logis');
-    $labels['Others'] = _t(__CLASS__.'.Others','Bemerkungen / Sondernwünsche');
+    $labels['Description'] = _t(__CLASS__.'.Description','Beschreibung');
     $labels['Status'] = _t(__CLASS__.'.Status','Status');
     $labels['Candidat'] = _t(__CLASS__.'.Candidat','Mietkoch');
     $labels['Candidatures'] = _t(__CLASS__.'.Candidatures','Bewerbungen');
     $labels['AdminComments'] = _t(__CLASS__.'.AdminComments','Bemerkungen (Admin)');
-    $labels['Price'] = _t(__CLASS__.'.Price','Preis');
-    $labels['CustomerPrice'] = _t(__CLASS__.'.Price','Preis');
     $labels['Place'] = _t(__CLASS__.'.Place','Ort / Einrichtung');
     $labels['Company'] = _t(__CLASS__.'.Company','Firma');
     $labels['Address'] = _t(__CLASS__.'.Address','Adresse');
@@ -156,7 +137,6 @@ class Mission extends DataObject
     $labels['End'] = _t(__CLASS__.'.End','Ende');
     $labels['Surname'] = _t(__CLASS__.'.Surname','Name');
     $labels['FirstName'] = _t(__CLASS__.'.FirstName','Vorname');
-    $labels['Weeks'] = _t(__CLASS__.'.Weeks','Arbeitszeiten');
 
     return $labels;
     }
@@ -311,6 +291,20 @@ class Mission extends DataObject
        return $fields;
     }
 
+    public function getFormFields(){
+        $customer = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+        $fields = FieldList::create(
+            HiddenField::create('CustomerID')->setValue($customer->ID),
+            HTMLEditorField::create('Description',$this->fieldLabels()['Description'])
+        );
+
+        return $fields;
+    }
+
+    public function getRequiredFields(){
+        return new RequiredFields(['Description']);
+    }
+
     /**
      * @return null|string
      * @throws \Psr\Container\NotFoundExceptionInterface
@@ -455,13 +449,12 @@ class Mission extends DataObject
     
 
     public function createOffer(){
-      $config = JobPortalConfig::get()->first();
+      $config = $this->getConfig();
 
       $pdf = new Fpdi();
       $src = dirname(__FILE__).'/../../..'.$config->OfferFile()->getURL();
       $output = dirname(__FILE__).'/../../../assets/Uploads/tmp/angebot_'.$this->ID.'.pdf';
 
-      $pdf->Addfont('Stone sans ITC','','stonesansitc.php');
       $pdf->Addfont('Lato','','lato.php');
       $pageCount = $pdf->setSourceFile($src);
       for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
@@ -536,7 +529,7 @@ class Mission extends DataObject
 
     /* create Contract as PDF */
     public function createContract(){
-      $config = JobPortalConfig::get()->first();
+      $config = $this->getConfig();
 
       $pdf = new Fpdi();
       $src = dirname(__FILE__).'/../../..'.$config->ContractFile()->getURL();
@@ -614,7 +607,7 @@ class Mission extends DataObject
       
         $siteconfig = SiteConfig::current_site_config();
         $emailAdmin = $siteconfig->Email;
-        $config = JobPortalConfig::get()->first();
+        $config = $this->getConfig();
         $body = $config->CustomerOfferEmailBody;
 
         $email = new MissionEmail($config,$this,$siteconfig->Email,$this->Email,"Unser Angebot für Ihre Auftrag",  $body);
@@ -649,7 +642,7 @@ class Mission extends DataObject
     public function sendEmailToCandidats(){
 
         $siteconfig = SiteConfig::current_site_config();
-        $config = JobPortalConfig::get()->first();
+        $config = $this->getConfig();
         $body = $config->CandidatOffersEmailBody;
 
         $email = new MissionEmail($config,$this,$siteconfig->Email,null,"Neue Auftrag verfügbar",  $body);
@@ -664,7 +657,7 @@ class Mission extends DataObject
      public function sendEmailToApprovedCandidat($Candidat){
         $siteconfig = SiteConfig::current_site_config();
         $emailAdmin = $siteconfig->Email;
-        $config = JobPortalConfig::get()->first();
+        $config = $this->getConfig();
         $body = $config->ChosenCandidatEmailBody;
 
         $email = new MissionEmail($config,$this,$siteconfig->Email,$Candidat->Member()->Email,"Ihre Bewerbung wurde genehmigt",  $body);
@@ -699,7 +692,7 @@ class Mission extends DataObject
     public function sendEndConfirmationEmails(){
         $siteconfig = SiteConfig::current_site_config();
         $emailAdmin = $siteconfig->Email;
-        $config = JobPortalConfig::get()->first();
+        $config = $this->getConfig();
         $body = $config->CustomerContractSignedEmailBody;
 
         $email = new MissionEmail($config,$this,$siteconfig->Email,$this->Customer()->Member()->Email,"Annahme Ihres Angebotes",  $body);
