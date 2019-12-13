@@ -192,7 +192,7 @@ class JobGiver extends DataObject
 
     //Fallback compartiblity
     public function printAddress($full = true){
-        return $this->NiceAddress();
+        return $this->NiceAddress($full);
     }
 
 
