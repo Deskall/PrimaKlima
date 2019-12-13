@@ -14,7 +14,7 @@ class DeskallJobPortalPageExtension extends DataExtension
     }
 
     public function CurrentCustomer(){
-    	print-r('ici');
+    	
     	if ($this->owner->CurrentMember()){
     		return JobGiver::get()->filter('MemberID',$this->owner->CurrentMember()->ID)->first();
     	}
