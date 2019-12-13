@@ -52,6 +52,7 @@ $ElementalArea
 											<% end_if %>
 										<% end_if %>
 									</div>
+									<% if CurrentCustomer.Orders.exists %>
 									<div class="uk-margin uk-overflow-auto">
 										<h4><%t MemberPage.OrdersTitle 'Meine Bestellungen' %></h4>
 										<table class="uk-table uk-table-small uk-table-justify">
@@ -60,6 +61,7 @@ $ElementalArea
 											<% end_loop %>
 										</table>
 									</div>
+									<% end_if %>
 								</div>
 							</div>
 						</li>
