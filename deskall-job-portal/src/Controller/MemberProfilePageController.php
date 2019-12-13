@@ -42,7 +42,7 @@ use SilverStripe\Security\DefaultAdminService;
 
 class MemberProfilePageController extends PageController{
 
-	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm'];
+	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm'.'JobOfferForm'];
 
 	private static $url_handlers = [
 		'delete-object/$ID/$OBJECT' => 'DeleteObject',
@@ -203,88 +203,65 @@ class MemberProfilePageController extends PageController{
 		return $this->redirectBack();
 	}
 
-	public function requireApproval($data, Form $form)
+	public function JobOfferForm(){
+
+		$actions = new FieldList(FormAction::create('saveOffer', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
+		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$JobGiver = ($JobGiver) ? $JobGiver : new JobGiver();
+		$status = $JobGiver->Status;
+		// if (!$status){
+		// 	$actions->push(FormAction::create('requireApproval', _t('MemberProfiles.REQUIREAPPROVAL', 'Genehmigung erfordern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="fa fa-check uk-margin-small-right"></i>'. _t('MemberProfiles.REQUIREAPPROVAL', 'Genehmigung erfordern')));
+		// }
+		// if (Security::getCurrentUser()->Status == "waitForApproval"){
+		// 	$actions->push(FormAction::create('requireApproval', _t('MemberProfiles.APPROVALCHECK', 'Genehmigung in Bearbeitung'))->setDisabled(true)->setButtonContent('<i class="fa fa-check uk-margin-small-right"></i>Genehmigung in Bearbeitung')->addExtraClass('uk-button'));
+		// }
+
+		
+		
+		$form = new Form(
+			$this,
+			'ProfilForm',
+			$JobGiver->getProfileFields(),
+			$actions,
+			$JobGiver->getRequiredProfileFields()
+		);
+		
+		$form->setTemplate('Forms/ProfilForm');
+		$form->addExtraClass('uk-form-horizontal form-std company-form');
+		$form->loadDataFrom($JobGiver);
+
+		return $form;
+	}
+
+	public function saveOffer($data, Form $form)
 	{
 
 		$member = Security::getCurrentUser();
-		$cook = Cook::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$form->saveInto($member);
-		$form->saveInto($cook);
-		$requiredFiles = ['CV','Licence','HACCPCertificat','Ausweis'];
-		$missingFiles = [];
-
-		foreach ($requiredFiles as $file) {
-			
-			if (!$cook->{$file}()->exists()){
-				$missingFiles[] = $file;
+		$form->saveInto($JobGiver);
+	
+		try {
+			$member->write();
+			$JobGiver->write();
+		} catch (ValidationException $e) {
+			$validationMessages = '';
+			foreach($e->getResult()->getMessages() as $error){
+				$validationMessages .= $error['message']."\n";
 			}
+			$form->sessionMessage($validationMessages, 'bad');
+			return $this->redirectBack();
 		}
-
-		if (!empty($missingFiles)){
-			$data = "\n";
-			foreach ($missingFiles as $key => $value) {
-				$data .= ' - '.$cook->fieldLabels(true)[$value]."\n";
-			}
-			$form->sessionMessage(
-				_t('MemberProfiles.MISSINGDATA', 'Bitte legen Sie folgende Unterlagen vor: {data}', ['data' => $data]),
-				'bad'
-			);
-		}
-		else{
-			//Files
-			if(isset($data['TempFiles'])){
-				$i = 0;
-				$keys = [];
-
-				foreach ($data['TempFiles'] as $id) {
-					$p = $cook->Files()->byId($id);
-					if(!$p){
-						$p = Image::get()->byId($id);
-						$folder = Folder::find_or_make($cook->generateFolderName());
-						$p->ParentID = $folder->ID;
-						$p->write();
-						$p->publishSingle();
-					}
-					$cook->Files()->add($p,['SortOrder' => $i]);
-					$keys[] = $id;
-					$i++;
-				}
-				foreach($cook->Files()->exclude('ID',$keys) as $p){
-					$p->File->deleteFile();
-	                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
-					$p->delete();
-				}
-			}
-			else{
-				foreach($cook->Files() as $p){
-					$p->File->deleteFile();
-	                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
-					$p->delete();
-
-				}
-			}
-
-			try {
-				$member->Status = "waitForApproval";
-				$member->write();
-				$cook->write();
-				$this->sendApprovalEmail($member);
-			} catch (ValidationException $e) {
-				$validationMessages = '';
-				foreach($e->getResult()->getMessages() as $error){
-					$validationMessages .= $error['message']."\n";
-				}
-				$form->sessionMessage($validationMessages, 'bad');
-				return $this->redirectBack();
-			}
-			$form->sessionMessage(
-				_t('MemberProfiles.PROFILEESEND', 'Ihre Profil wurde für Genehmigung gesendet.'),
-				'good'
-			);
-		}
-
+		$form->sessionMessage(
+			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
+			'good'
+		);
+		$this->getRequest()->getSession()->set('active_tab','profil');
+		
 		return $this->redirectBack();
 	}
+
+	
 
 	public function sendApprovalEmail($member){
 		$page = RegisterPage::get()->first();
@@ -354,63 +331,6 @@ class MemberProfilePageController extends PageController{
 	}
 
 	
-	public function SessionData($key){
-		$data = $this->getRequest()->getSession()->get($key);
-		$this->getRequest()->getSession()->set($key,'');
-		return $data;
-	}
 
-	public function acceptContract(HTTPRequest $request){
-		$config = CookConfig::get()->first();
-		if ($request->param('ID') && $request->param('CookID')){
-			$mission = Mission::get()->byId($request->param('ID'));
-			$cook = Cook::get()->byId($request->param('CookID'));
-			if ($mission && $cook){
-				if ( $cook->canApproveContract($mission)){
-					$mission->confirmedByCook();
-					return ['Title' => 'Auftrag genehmigt', 'Content' =>  $mission->parseString($config->CookContractSignedText)];
-				}
-				return $this->redirectBack();
-			}
-		}
-		
-		return $this->httpError(404);
-	}
-
-	public function SaveTimeSheet(HTTPRequest $request){
-		$vars = $request->postVars();
-
-		$cook = Cook::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
-		if ($cook && isset($vars['WeekId']) && isset($vars['fileId'])){
-			$week = Week::get()->byId($vars['WeekId']);
-			$file = File::get()->byId($vars['fileId']);
-			if ($week && $file){
-				$week->{'File.ID'} = $file->ID;
-				$week->FileID = $file->ID;
-				$week->write();
-				$folder = Folder::find_or_make($cook->generateFolderName().'/Auftraege/'.$week->MissionID);
-				$file->ParentID = $folder->ID;
-				$file->write();
-
-				return json_encode(['status' => 'OK']);
-			}
-		}
-		return json_encode(['status' => 'not found']);
-	}
-
-	public function DeleteTimeSheet(HTTPRequest $request){
-		$vars = $request->postVars();
-		if (isset($vars['fileId'])){
-			$file = File::get()->byId($vars['fileId']);
-			if ($file){
-				$file->File->deleteFile();
-				DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($file->ID));
-				$file->delete();
-
-				return json_encode(['status' => 'OK']);
-			}
-		}
-		return json_encode(['status' => 'not found']);
-	}
 
 }

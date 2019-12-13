@@ -27,7 +27,11 @@ class DeskallPageControllerExtension extends Extension
         return $css;
     }
 
-    public function CurrentUser(){
-        return Security::getCurrentUser();
+    public function SessionData($key,$clear = false){
+        $data = $this->getRequest()->getSession()->get($key);
+        if ($clear){
+            $this->getRequest()->getSession()->clear($key);
+        }
+        return $data;
     }
 }
