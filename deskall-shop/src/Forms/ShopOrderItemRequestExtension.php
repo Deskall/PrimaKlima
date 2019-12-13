@@ -42,7 +42,7 @@ class ShopOrderItemRequestExtension extends DataExtension
     {
        
         $record = $this->owner->getRecord();
-        $record->MarkAsPaid()
+        $record->MarkAsPaid();
 
         $message = _t(
             __CLASS__ . '.MarkAsPaid',
