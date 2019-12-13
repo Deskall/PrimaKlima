@@ -171,7 +171,7 @@ class JobGiver extends DataObject
     }   
 
 
-    public function NiceAddress(){
+    public function NiceAddress($full = true){
         $html = '<p>';
         if ($this->Company){
             $html .= $this->Company.'<br/>';
@@ -180,16 +180,18 @@ class JobGiver extends DataObject
             $html .= $this->Address.'<br/>';
         }
         
-        $html .= $this->PostalCode.' - '.$this->City.'</p>'
-        .'<p><a href="mailto:'.$this->Member()->Email.'">'.$this->Member()->Email.'</a>'.'<br/>'
+        $html .= $this->PostalCode.' - '.$this->City.'</p>';
+        if ($full){
+            $html .= '<p><a href="mailto:'.$this->Member()->Email.'">'.$this->Member()->Email.'</a>'.'<br/>'
         .$this->Telefon.'</p>';
+        }
         $o = new DBHTMLText();
         $o->setValue($html);
         return $o;
     }
 
     //Fallback compartiblity
-    public function printAddress(){
+    public function printAddress($full = true){
         return $this->NiceAddress();
     }
 
