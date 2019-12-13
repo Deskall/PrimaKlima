@@ -69,6 +69,7 @@ class JobGiver extends DataObject
         'Cipher' => 'Varchar(255)', 
         'ReasonWhy' => 'HTMLText',  
         'FlatrateEndDate' => 'Date',
+        'Nummer' => 'Varchar'
      );
 
     private static $singular_name = "Arbeitgeber";
@@ -133,6 +134,8 @@ class JobGiver extends DataObject
     $labels['ContactPersonTelephone'] = _t(__CLASS__.'.ContactPersonTelephone','Telefon');
     $labels['Description'] = _t(__CLASS__.'.Description','Firmenpräsentation');
     $labels['ReasonWhy'] = _t('ARBEITGEBER.ReasonWhy', 'Warum sollten Sie bei uns arbeiten?');
+    $labels['Nummer'] = _t('ARBEITGEBER.Nummer', 'Kunden-Nr.');
+
 
     return $labels;
     }
@@ -141,6 +144,9 @@ class JobGiver extends DataObject
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
+        if (!$this->Nummer){
+            $this->Nummer = $this->generateClientNumber();
+        }
         
     }
 
@@ -180,6 +186,11 @@ class JobGiver extends DataObject
         $o = new DBHTMLText();
         $o->setValue($html);
         return $o;
+    }
+
+    //Fallback compartiblity
+    public function printAdress(){
+        return $this->NiceAddress();
     }
 
 

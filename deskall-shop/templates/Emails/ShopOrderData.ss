@@ -16,11 +16,3 @@
 	</tbody>
 </table>
 <br/><br/><br/>
-<% if not Product.Online %>
-<h4>Lieferung</h4>
-$ProductConfig.TransportLabel
-<br/>
-<strong>Lieferungsadresse</strong>
-<br/>
-$Customer.printAddress
-<% end_if %>
