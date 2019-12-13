@@ -208,6 +208,14 @@ class JobGiver extends DataObject
         return $str;
     }
 
+    public function activeOrder(){
+        return $this->Orders()->filter('isActive',1)->first();
+    }
+
+    public function stagedOrder(){
+        return $this->Orders()->filter('isPaid',0)->first();
+    }
+
 
     public function getProfileFields(){
         $fields = FieldList::create(

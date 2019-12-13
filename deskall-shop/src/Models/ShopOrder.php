@@ -33,7 +33,8 @@ class ShopOrder extends DataObject{
 		'AGB' => 'Boolean(0)',
 		'StartValidity' => 'Date',
 		'EndValidity' => 'Date',
-		'RemainingOffers' => 'Int'
+		'RemainingOffers' => 'Int',
+		'isActive' => 'Boolean(0)'
 
 	);
 
