@@ -92,7 +92,7 @@ $ElementalArea
 								</div>
 								<div id="offer-form-container" class="toggle-new-offer" hidden>
 									<a class="uk-button uk-button-muted" data-uk-toggle="target:.toggle-new-offer"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
-									$JobOfferFrom
+									$JobOfferForm
 								</div>
 							</div>
 						</li>
