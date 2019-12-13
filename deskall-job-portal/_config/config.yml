@@ -56,3 +56,7 @@ SilverStripe\Assets\File:
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Security\MemberAuthenticator\LoginHandler:
     class: JobPortalLoginHandler
+
+Page:
+  extensions:
+    - DeskallJobPortalPageExtension
