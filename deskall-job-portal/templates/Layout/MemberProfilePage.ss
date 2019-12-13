@@ -52,7 +52,7 @@ $ElementalArea
 										<h4><%t MemberPage.OrdersTitle 'Meine Bestellungen' %></h4>
 										<table class="uk-table uk-table-small uk-table-justify">
 											<% loop CurrentCustomer.Orders %>
-											<tr><td class="uk-table-shrink">$Created.Date</td><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td>$Product.RunTimeTitle</td><td>$Product.NumOfAdsTitle</td><td>$Status</td></tr>
+											<tr><td class="uk-table-shrink">$Created.Date</td><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td>$Product.RunTimeTitle</td><td>$Product.NumOfAdsTitle</td><td><% if isPaid %>bezahlt<% else %>nicht bezahlt<% end_if %></td><td>$Status</td></tr>
 											<% end_loop %>
 										</table>
 									</div>
