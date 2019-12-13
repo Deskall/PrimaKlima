@@ -39,22 +39,19 @@ $ElementalArea
 								<h2><%t JobGiver.PaymentTitle 'Pakete' %></h2>
 								<div class="member-section-container">
 									$PaymentTabHTML
-									<% if activeOrder %>
-									
-									<% else %>
 									<div class="uk-margin">
 										<% if CurrentCustomer.activeOrder %>
 										<h4><%t MemberPage.MoreTitle 'Inserate verfügbar' %></h4>
 										<% else %>
-										<h4><%t MemberPage.NoMoreTitle 'Keine Inserate verfügbar' %></h4>
-										<% if CurrentCustomer.stagedOrder %>
-										<p><%t MemberPage.waitingPayment 'Achtung, Sie können derzeit keine neuen Inserate mehr schalten, da Sie noch unbezahlte Rechnungen offen haben.<br>Sobald diese bezahlt sind, können Sie Ihre Inserate freischatlen.' %></p>
-										<% else %>
-										<p><%t MemberPage.NoMore 'Achtung, Sie können derzeit keine neuen Inserate mehr schalten.<br>Bestellen Sie ein neues Paket, um neuen Inserate zu freischatlen.' %></p>
-										<a class="uk-button uk-button-primary" href="$ShopPage.Link"><%t Payment.OrderPackage 'jetzt Paket bestellen' %></a>
+											<h4><%t MemberPage.NoMoreTitle 'Keine Inserate verfügbar' %></h4>
+											<% if CurrentCustomer.stagedOrder %>
+											<p><%t MemberPage.waitingPayment 'Achtung, Sie können derzeit keine neuen Inserate mehr schalten, da Sie noch unbezahlte Rechnungen offen haben.<br>Sobald diese bezahlt sind, können Sie Ihre Inserate freischatlen.' %></p>
+											<% else %>
+											<p><%t MemberPage.NoMore 'Achtung, Sie können derzeit keine neuen Inserate mehr schalten.<br>Bestellen Sie ein neues Paket, um neuen Inserate zu freischatlen.' %></p>
+											<a class="uk-button uk-button-primary" href="$ShopPage.Link"><%t Payment.OrderPackage 'jetzt Paket bestellen' %></a>
+											<% end_if %>
 										<% end_if %>
 									</div>
-									<% end_if %>
 									<div class="uk-margin uk-overflow-auto">
 										<h4><%t MemberPage.OrdersTitle 'Meine Bestellungen' %></h4>
 										<table class="uk-table uk-table-small uk-table-justify">
