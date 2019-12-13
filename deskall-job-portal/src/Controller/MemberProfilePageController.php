@@ -249,7 +249,7 @@ class MemberProfilePageController extends PageController{
 			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Inserate wurde gespeichert.'),
 			'good'
 		);
-		$this->getRequest()->getSession()->set('active_tab','offer');
+		$this->getRequest()->getSession()->set('active_tab','offers');
 		
 		return $this->redirectBack();
 	}

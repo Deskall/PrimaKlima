@@ -89,6 +89,19 @@ $ElementalArea
 									<% else %>
 									<p><%t MemberPage.CannotPublish 'Sie können derzeit keine Inserate freischalten. Sie können aber dennoch Inserate als Entwurf erfassen und zu einem späteren Zeitpunkt freischalten.' %></p>
 									<% end_if %>
+									<% if CurrentCustomer.Offers.exists %>
+									<div class="uk-margin uk-overflow-auto">
+										<h4><%t MemberPage.OffersTitle 'Meine Inserate' %></h4>
+										<table class="uk-table uk-table-small uk-table-justify">
+											<thead></th><th><%t MemberPage.OffersTableTH2 'Titel' %></th><th><%t MemberPage.OffersTableTH2 'Schaltungsdauer' %></th><th><%t MemberPage.OffersTableTH3 'Anzahl Bewerbungen' %></th><th><%t MemberPage.OffersTableTH1 'Status' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
+											<tbody>
+											<% loop CurrentCustomer.Offers %>
+											<tr><td class="uk-table-expand">$Title</td><td>$RunTimeTitle</td><td>$Candidatures.count</td><td>$Status</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+											<% end_loop %>
+											</tbody>
+										</table>
+									</div>
+									<% end_if %>
 								</div>
 								<div id="offer-form-container" class="toggle-new-offer" hidden>
 									<a class="uk-button uk-button-muted" data-uk-toggle="target:.toggle-new-offer"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
