@@ -91,7 +91,7 @@ $ElementalArea
 									<% end_if %>
 								</div>
 								<div id="offer-form-container" class="toggle-new-offer" hidden>
-									<a class="uk-button uk-button-muted" data-uk-toggle="target:.toggle-new-offer"><%t Global.Back 'Zurück' %></a>
+									<a class="uk-button uk-button-muted" data-uk-toggle="target:.toggle-new-offer"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 									$JobOfferFrom
 								</div>
 							</div>
