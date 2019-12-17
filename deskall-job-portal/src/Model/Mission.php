@@ -299,8 +299,15 @@ class Mission extends DataObject
             TextField::create('Title',$this->fieldLabels()['Title']),
             DateField::create('Start',$this->fieldLabels()['Start']),
             DateField::create('End',$this->fieldLabels()['End']),
-            HTMLEditorField::create('Description',$this->fieldLabels()['Description'])
+            HTMLEditorField::create('Description',$this->fieldLabels()['Description']),
+            $parameters = CompositeField::create()->setName('ParametersFields')
         );
+
+        $config = $this->getJobConfig();
+        foreach ($config->Parameters() as $p) {
+           $field = DropdownField::create($p->Title,$p->Title,$p->Values()->map('ID','Title'));
+           $parameters->push($field);
+        }
 
         return $fields;
     }
@@ -339,6 +346,11 @@ class Mission extends DataObject
     public function getJobsPage(){
         return OfferPage::get()->first();
     }
+
+    public function getJobConfig(){
+        return JobPortalConfig::get()->first();
+    }
+
 
      public function canEdit($member = null){
         if ($this->isClosed){
