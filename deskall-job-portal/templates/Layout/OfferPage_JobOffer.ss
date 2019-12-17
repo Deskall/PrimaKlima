@@ -24,10 +24,11 @@
 				</div>
 				
 				<div class="main-body-offer">
-					<h1>$Title</h1>
-					$Description
-					$Customer.Description
-					$Customer.ReasonWhy
+					<div class="uk-card uk-card-default uk-card-body">
+						$Description
+						$Customer.Description
+						$Customer.ReasonWhy
+					</div>
 				</div>
 				<% end_with %>
 			$Address<br>
