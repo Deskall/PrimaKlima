@@ -20,12 +20,20 @@
 								</div>
 							</div>
 						</div>
-						<div class="uk-flex uk-flex-between uk-flex-middle">
-							<a class="uk-button">Unternehmensprofil</a>
-							<a class="uk-button" data-save><i class="icon icon-heart uk-margin-small-right"></i>Merken</a>
-							<a class="uk-button" data-print><i class="icon icon-print"></i></a>
-							<div class="shariff" data-lang="de" data-url="$AbsoluteLink" data-button-style="icon" data-mail-url="mailto:" data-services="[&quot;facebook&quot;,&quot;twitter&quot;,&quot;linkedin&quot;,&quot;xing&quot;,&quot;whatsapp&quot;,mail&quot;]"></div>
+						<div data-uk-grid>
+							<div class="uk-width-2-3">
+								<div class="uk-flex uk-flex-between uk-flex-middle">
+									<a class="uk-button">Unternehmensprofil</a>
+									<a class="uk-button" data-save><i class="icon icon-heart uk-margin-small-right"></i>Merken</a>
+									<a class="uk-button" data-print><i class="icon icon-print"></i></a>
+									<div class="shariff" data-lang="de" data-url="$AbsoluteLink" data-button-style="icon" data-mail-url="mailto:" data-services="[&quot;facebook&quot;,&quot;twitter&quot;,&quot;linkedin&quot;,&quot;xing&quot;,&quot;whatsapp&quot;,mail&quot;]"></div>
+								</div>
+							</div>
+							<div class="uk-width-1-3">
+								<a class="uk-button uk-button-primary">Bewerben</a>
+							</div>
 						</div>
+						
 					</div>
 				</div>
 				
