@@ -3,9 +3,7 @@ $(document).ready(function(){
 		var id = $(this).attr('data-edit-offer');
 		$.ajax({
 			url: window.location.pathname+'JobOfferForm',
-			dataType: 'html',
-			data: {offerId: id},
-			method: 'GET'
+			dataType: 'html'
 		}).done(function(response){
 			$('.toggle-new-offer').attr('hidden','hidden');
 			$("#edit-form-container").empty().append(response).attr('hidden',false);
