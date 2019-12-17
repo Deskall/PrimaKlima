@@ -72,7 +72,7 @@ class OfferPageController extends PageController{
 		if ($id){
 			$offer = Mission::get()->byId($id);
 			if ($offer){
-				return ['Offer' => $offer];
+				return ['Title' => 'Stellenangebot - '.$offer->Title,'Offer' => $offer];
 			} 
 		}
 		return $this->httpError(404);
