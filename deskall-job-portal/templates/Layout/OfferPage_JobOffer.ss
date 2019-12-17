@@ -9,12 +9,16 @@
 					<div class="uk-flex uk-flex-left uk-flex-middle">
 						<% if Logo %>
 						<div class="company-logo">
+							<img src="$Logo.URL" alt="Logo von $Company">
 						</div>
 						<% end_if %>
 						<div class="company-address">
-							$Title
-							$Address
-							$Place - $City
+							<p>
+								<strong>$Company</strong><br>
+								$Address<br>
+								$PostalCode - $City<br>
+								$Country
+							</p>
 						</div>
 					</div>
 				</div>
