@@ -4,7 +4,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: window.location.pathname+'EditJobOffer',
 			dataType: 'html',
-			data: {offerId: id}
+			data: {OfferId: id}
 		}).done(function(response){
 			$('.toggle-new-offer').attr('hidden','hidden');
 			$("#edit-form-container").empty().append(response).attr('hidden',false);
