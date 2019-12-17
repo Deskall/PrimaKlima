@@ -45,8 +45,8 @@
 					</div>
 				</div>
 				
-				<div class="uk-margin">
-					<a class="uk-button uk-button-primary">Bewerben</a>
+				<div class="uk-margin uk-text-center">
+					<a class="uk-button uk-button-large uk-button-primary">Bewerben</a>
 				</div>
 
 				<div class="uk-margin company-footer">
