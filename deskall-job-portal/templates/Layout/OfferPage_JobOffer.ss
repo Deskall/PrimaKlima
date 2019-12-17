@@ -40,7 +40,7 @@
 				<div class="uk-margin main-body-offer">
 					<div class="uk-card uk-card-default uk-card-body">
 						$Description
-						<h4>Wir bieten</h4>
+						<h4>Wir bieten Ihnen</h4>
 						$Customer.ReasonWhy
 					</div>
 				</div>
