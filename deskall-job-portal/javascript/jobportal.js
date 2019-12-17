@@ -9,7 +9,7 @@ $(document).ready(function(){
 		// 	$('.toggle-new-offer').attr('hidden','hidden');
 		// 	$("#edit-form-container").empty().append(response).attr('hidden',false);
 		// });
-		$("#offer-form-container").load(window.location.pathname+'EditJobOffer #offer-form-container',function(){
+		$("#Form_JobOfferForm").load(window.location.pathname+'EditJobOffer #Form_JobOfferForm',function(){
 			UIkit.toggle('.toggle-new-offer').toggle();
 		});
 	});
