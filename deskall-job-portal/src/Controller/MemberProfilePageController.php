@@ -66,7 +66,7 @@ class MemberProfilePageController extends PageController{
 		Requirements::add_i18n_javascript('deskall-users/javascript/lang');
 		Requirements::javascript('silverstripe/admin: client/dist/js/vendor.js');
 		Requirements::javascript('silverstripe/admin: client/dist/js/bundle.js');
-		
+		Requirements::javascript('deskall-job-portal/javascript/jobportal.js');
 		if (!$this->getRequest()->getVar('CMSPreview')){
 			if (!Security::getCurrentUser()){
 				return Security::permissionFailure($this, _t(
