@@ -40,12 +40,14 @@
 				<div class="uk-margin main-body-offer">
 					<div class="uk-card uk-card-default uk-card-body">
 						$Description
-						
 						<h4>Wir bieten</h4>
 						$Customer.ReasonWhy
 					</div>
 				</div>
 				
+				<div class="uk-margin">
+					<a class="uk-button uk-button-primary">Bewerben</a>
+				</div>
 
 				<div class="uk-margin company-footer">
 					<div class="uk-card uk-card-default uk-card-body">
