@@ -246,7 +246,7 @@ class MemberProfilePageController extends PageController{
 					if ($value){
 						$assignedP = new AssignedJobParameter();
 						$assignedP->Title = $p->Title;
-						$assignedP->Value = $value;
+						$assignedP->Value = $value->Title;
 						$assignedP->MissionID = $offer->ID;
 						$assignedP->write();
 					}
