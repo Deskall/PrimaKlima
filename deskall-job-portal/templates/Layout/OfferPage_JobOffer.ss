@@ -13,10 +13,10 @@
 							<div class="uk-width-expand company-address">
 								<strong>$Customer.Company</strong><br>
 								<h1>$Title</h1>
-								<div class="uk-flex uk-flex-stretch">
+								<div class="uk-flex uk-flex-stretch uk-text-small">
 									<div class="place">$City</div>
 									<div class="type">$Type</div>
-									<div class="start">$Start</div>
+									<div class="start">$Start.Date</div>
 								</div>
 							</div>
 						</div>
