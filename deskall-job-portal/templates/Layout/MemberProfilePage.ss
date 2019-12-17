@@ -107,6 +107,9 @@ $ElementalArea
 									<a class="uk-button uk-button-muted" data-uk-toggle="target:.toggle-new-offer"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 									$JobOfferForm
 								</div>
+								<div id="edit-form-container" hidden>
+									
+								</div>
 							</div>
 						</li>
 						<li class="account-tab">

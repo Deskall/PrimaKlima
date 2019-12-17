@@ -6,7 +6,8 @@ $(document).ready(function(){
 			dataType: 'html',
 			data: {offerId: id}
 		}).done(function(response){
-			$("#edit-form-container").empty().append(response);
+			$('.toggle-new-offer').attr('hidden','hidden');
+			$("#edit-form-container").empty().append(response).attr('hidden',false);
 		});
 	});
 });
