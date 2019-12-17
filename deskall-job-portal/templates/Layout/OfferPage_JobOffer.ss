@@ -1,9 +1,6 @@
 <section class="uk-section uk-section-small">
 	<div class="uk-container">
-		<div data-uk-grid>
-			<div class="uk-width-1-4@m uk-width-1-5@l">
-			</div>
-			<div class="uk-width-3-4@m uk-width-4-5@l">
+
 				<% with Offer.Customer %>
 				<div class="company-header">
 					<div class="uk-flex uk-flex-middle" data-uk-grid>
@@ -31,7 +28,6 @@
 					$Customer.ReasonWhy
 				</div>
 				<% end_with %>
-			</div>
-		</div>
+			
 	</div>
 </section>
