@@ -45,7 +45,7 @@
 						$Customer.ReasonWhy
 					</div>
 				</div>
-				<% end_with %>
+				
 
 				<div class="uk-margin company-footer">
 					<div class="uk-card uk-card-default uk-card-body">
@@ -63,8 +63,6 @@
 							</div>
 						</div>
 				</div>
-			$Address<br>
-									$PostalCode - $City<br>
-									$NiceCountry
+				<% end_with %>
 	</div>
 </section>
