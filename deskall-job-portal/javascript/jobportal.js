@@ -2,7 +2,7 @@ $(document).ready(function(){
 	$(document).on("click","[data-edit-offer]",function(){
 		var id = $(this).attr('data-edit-offer');
 		$.ajax({
-			url: window.location.pathname+'JobofferForm',
+			url: window.location.pathname+'JobOfferForm',
 			dataType: 'html',
 			data: {offerId: id},
 			method: 'GET'
