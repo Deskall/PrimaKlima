@@ -96,7 +96,7 @@ $ElementalArea
 											<thead></th><th><%t MemberPage.OffersTableTH2 'Titel' %></th><th><%t MemberPage.OffersTableTH2 'Schaltungsdauer' %></th><th><%t MemberPage.OffersTableTH3 'Anzahl Bewerbungen' %></th><th><%t MemberPage.OffersTableTH1 'Status' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
 											<tbody>
 											<% loop CurrentCustomer.Missions %>
-											<tr><td class="uk-table-expand">$Title</td><td>$RunTimeTitle</td><td>$Candidatures.count</td><td>$Status</td><td><a data-uk-icon="eye" href="$previewLink" target="_blank"></a></td><td>&nbsp;</td><td>&nbsp;</td></tr>
+											<tr><td class="uk-table-expand">$Title</td><td>$RunTimeTitle</td><td>$Candidatures.count</td><td>$Status</td><td><a href="$previewLink" target="_blank"><i class="icon icon-eye"></i></a></td><td>&nbsp;</td><td>&nbsp;</td></tr>
 											<% end_loop %>
 											</tbody>
 										</table>
