@@ -74,6 +74,7 @@ class OfferPageController extends PageController{
 			if ($offer){
 				return ['Offer' => $offer];
 			} 
+		}
 		return $this->httpError(404);
     }
 	
