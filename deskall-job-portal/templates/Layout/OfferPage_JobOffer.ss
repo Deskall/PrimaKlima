@@ -22,7 +22,7 @@
 						</div>
 						<div data-uk-grid>
 							<div class="uk-width-2-3">
-								<div class="uk-flex uk-flex-between uk-flex-middle">
+								<div class="uk-flex uk-flex-left uk-flex-middle">
 									<a class="uk-button WhiteBackground">Unternehmensprofil</a>
 									<a class="uk-button WhiteBackground" data-save><i class="icon icon-heart uk-margin-small-right"></i>Merken</a>
 									<a class="uk-button WhiteBackground" data-print><i class="icon icon-printer"></i></a>
