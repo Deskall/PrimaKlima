@@ -52,9 +52,9 @@
 						<div class="uk-flex uk-flex-middle" data-uk-grid>
 							<% if Customer.Logo %>
 							<div class="uk-width-auto company-logo">
-								<img src="$Customer.Logo.URL" alt="Logo von $Customer.Company" width="250">
-								<a href="$Customer.Link">Unternehmensprofil</a>
-								<a href"$Customer.JobsLink">Jobs $Customer.Offers.count</a>
+								<div><img src="$Customer.Logo.URL" alt="Logo von $Customer.Company" width="250"></div>
+								<div><a href="$Customer.Link">Unternehmensprofil</a></div>
+								<div><a href"$Customer.JobsLink">Jobs $Customer.Offers.count</a></div>
 							</div>
 							<% end_if %>
 							<div class="uk-width-expand company-address">
