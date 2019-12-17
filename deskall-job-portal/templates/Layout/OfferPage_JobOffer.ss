@@ -11,12 +11,9 @@
 							</div>
 							<% end_if %>
 							<div class="uk-width-expand company-address">
-								<p>
-									<strong>$Company</strong><br>
-									$Address<br>
-									$PostalCode - $City<br>
-									$NiceCountry
-								</p>
+								<strong>$Company</strong><br>
+								<h1>$Title</h1>
+								
 							</div>
 						</div>
 					</div>
@@ -30,6 +27,8 @@
 					$Customer.ReasonWhy
 				</div>
 				<% end_with %>
-			
+			$Address<br>
+									$PostalCode - $City<br>
+									$NiceCountry
 	</div>
 </section>
