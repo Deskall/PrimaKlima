@@ -25,7 +25,8 @@
 				<% end_with %>
 				<% with Offer %>
 				<div class="main-body-offer">
-					
+					<h1>$Title</h1>
+					$Description
 				</div>
 				<% end_with %>
 			</div>
