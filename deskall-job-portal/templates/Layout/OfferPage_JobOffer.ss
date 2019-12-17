@@ -6,7 +6,7 @@
 			<div class="uk-width-3-4@m uk-width-4-5@l">
 				<% with Offer.Customer %>
 				<div class="company-header">
-					<div class="uk-flex uk-flex-left uk-flex-around uk-flex-middle">
+					<div class="uk-flex uk-flex-left uk-flex-between uk-flex-middle">
 						<% if Logo %>
 						<div class="company-logo">
 							<img src="$Logo.URL" alt="Logo von $Company" width="250">
