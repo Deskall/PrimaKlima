@@ -296,16 +296,16 @@ class Mission extends DataObject
         $customer = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
         $fields = FieldList::create(
             HiddenField::create('CustomerID')->setValue($customer->ID),
-            TextField::create('Title',$this->fieldLabels()['Title']),
+            TextField::create('Title',$this->fieldLabels()['Title'])->setAttribute('class','uk-input'),
             $parameters = CompositeField::create()->setName('ParametersFields'),
-            DateField::create('Start',$this->fieldLabels()['Start']),
-            DateField::create('End',$this->fieldLabels()['End']),
+            DateField::create('Start',$this->fieldLabels()['Start'])->setAttribute('class','uk-input'),
+            DateField::create('End',$this->fieldLabels()['End'])->setAttribute('class','uk-input'),
             HTMLEditorField::create('Description',$this->fieldLabels()['Description'])
         );
 
         $config = $this->getJobConfig();
         foreach ($config->Parameters() as $p) {
-           $field = DropdownField::create($p->Title,$p->Title,$p->Values()->map('ID','Title'));
+           $field = DropdownField::create($p->Title,$p->Title,$p->Values()->map('ID','Title'))->setAttribute('class','uk-select');
            $parameters->push($field);
         }
 
