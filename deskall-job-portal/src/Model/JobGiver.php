@@ -193,6 +193,10 @@ class JobGiver extends DataObject
         return $o;
     }
 
+    public function NiceCountry(){
+        return ($this->Country) i18n::getData()->getCountries()[$this->Country] : null;
+    }
+
     //Fallback compartiblity
     public function printAddress($full = true){
         return $this->NiceAddress($full);

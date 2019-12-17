@@ -17,7 +17,7 @@
 								<strong>$Company</strong><br>
 								$Address<br>
 								$PostalCode - $City<br>
-								$Country
+								$NiceCountry
 							</p>
 						</div>
 					</div>
