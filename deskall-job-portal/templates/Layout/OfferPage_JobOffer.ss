@@ -54,7 +54,7 @@
 							<div class="uk-width-auto company-logo">
 								<div><img src="$Customer.Logo.URL" alt="Logo von $Customer.Company" width="250"></div>
 								<div><a href="$Customer.Link">Unternehmensprofil</a></div>
-								<div><a href"$Customer.JobsLink">Jobs $Customer.Offers.count</a></div>
+								<div><a href"$Customer.JobsLink">Jobs $Customer.Missions.count</a></div>
 							</div>
 							<% end_if %>
 							<div class="uk-width-expand company-address">
