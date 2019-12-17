@@ -15,7 +15,7 @@
 								<h1>$Title</h1>
 								<div class="uk-flex uk-flex-stretch uk-text-small">
 									<div class="place">$City</div>
-									<div class="type">$Type</div>
+									<% with Parameters.filter('Title','Anstellung').first %><div class="type">$Value</div><% end_with %>
 									<div class="start">$Start.Nice</div>
 								</div>
 							</div>
