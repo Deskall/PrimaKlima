@@ -20,6 +20,7 @@ class JobParameter extends DataObject
 {
     private static $db = array(
       'Title' => 'Varchar',
+      'FieldType' => 'Varchar(255)',
       'Required' => 'Boolean(0)'
     );
 
@@ -48,6 +49,7 @@ class JobParameter extends DataObject
     $labels = parent::fieldLabels($includerelation);
     $labels['Title'] = _t(__CLASS__.'.Title','Parameter');
     $labels['Values'] = _t(__CLASS__.'.Values','Werte');
+    $labels['FieldType'] = _t(__CLASS__.'.FieldType','Feldtyp');
     $labels['Required'] = _t(__CLASS__.'.Required','Plichtfeld?');
 
     return $labels;
@@ -74,6 +76,7 @@ class JobParameter extends DataObject
        $fields = parent::getCMSFields();
        $fields->removeByName('ConfigID');
        $fields->removeByName('Values');
+       $fields->replace('FieldType',DropdownField::create('FieldType',$this->fieldLabels()['FieldType'],['text' => 'Text', 'dropdown' => 'Dropdown', 'multiple' => 'Mehrere Werte', 'multiple-free' => 'Mehrere Werte (neue Werte erlaubt)']));
 
        $config = 
        GridFieldConfig::create()
