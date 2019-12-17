@@ -42,7 +42,7 @@ use SilverStripe\Security\DefaultAdminService;
 
 class MemberProfilePageController extends PageController{
 
-	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm'];
+	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer'];
 
 	private static $url_handlers = [
 		'delete-object/$ID/$OBJECT' => 'DeleteObject',
@@ -229,6 +229,25 @@ class MemberProfilePageController extends PageController{
 		$form->addExtraClass('uk-form-horizontal form-std');
 		
 		return $form;
+	}
+
+	public function EditJobOffer(HTTPRequest $request){
+		$id = $request->getVar('offerID');
+		if ($id){
+			$offer = Mission::get()->byId($id);
+			$form = new Form(
+				$this,
+				'JobOfferForm',
+				$offer->getFormFields(),
+				$actions,
+				$offer->getRequiredFields()
+			);
+			
+			$form->setTemplate('Forms/OfferForm');
+			$form->addExtraClass('uk-form-horizontal form-std');
+			$form->loadDataFrom($offer);
+		}
+		return $form;		
 	}
 
 	public function saveOffer($data, Form $form)
