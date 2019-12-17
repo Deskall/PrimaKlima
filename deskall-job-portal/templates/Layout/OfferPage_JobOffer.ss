@@ -20,7 +20,7 @@
 								</div>
 							</div>
 						</div>
-						<div data-uk-grid>
+						<div class="uk-flex uk-flex-middle" data-uk-grid>
 							<div class="uk-width-2-3">
 								<div class="uk-flex uk-flex-left uk-flex-middle">
 									<a class="uk-button WhiteBackground">Unternehmensprofil</a>
