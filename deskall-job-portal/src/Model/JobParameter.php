@@ -76,7 +76,8 @@ class JobParameter extends DataObject
        $fields = parent::getCMSFields();
        $fields->removeByName('ConfigID');
        $fields->removeByName('Values');
-       $fields->replace('FieldType',DropdownField::create('FieldType',$this->fieldLabels()['FieldType'],['text' => 'Text', 'dropdown' => 'Dropdown', 'multiple' => 'Mehrere Werte', 'multiple-free' => 'Mehrere Werte (neue Werte erlaubt)']));
+       $fields->removeByName('FieldType');
+       $fields->addFieldToTab('Root.Main',DropdownField::create('FieldType',$this->fieldLabels()['FieldType'],['text' => 'Text', 'dropdown' => 'Dropdown', 'multiple' => 'Mehrere Werte', 'multiple-free' => 'Mehrere Werte (neue Werte erlaubt)']));
 
        $config = 
        GridFieldConfig::create()
