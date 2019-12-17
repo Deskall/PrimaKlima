@@ -235,6 +235,8 @@ class MemberProfilePageController extends PageController{
 		$id = $request->getVar('OfferId');
 		if ($id){
 			$offer = Mission::get()->byId($id);
+			
+			$actions = new FieldList(FormAction::create('saveOffer', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
 			$form = new Form(
 				$this,
 				'JobOfferForm',
