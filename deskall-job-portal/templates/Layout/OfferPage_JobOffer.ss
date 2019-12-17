@@ -27,6 +27,8 @@
 				<div class="main-body-offer">
 					<h1>$Title</h1>
 					$Description
+					$Customer.Description
+					$Customer.ReasonWhy
 				</div>
 				<% end_with %>
 			</div>
