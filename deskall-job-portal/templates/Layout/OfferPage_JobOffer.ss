@@ -9,7 +9,7 @@
 					<div class="uk-flex uk-flex-left uk-flex-middle">
 						<% if Logo %>
 						<div class="company-logo">
-							<img src="$Logo.URL" alt="Logo von $Company">
+							<img src="$Logo.URL" alt="Logo von $Company" width="150">
 						</div>
 						<% end_if %>
 						<div class="company-address">
