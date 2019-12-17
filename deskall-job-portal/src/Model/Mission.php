@@ -20,6 +20,7 @@ use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\HiddenField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\DateField;
 use SilverStripe\Forms\FieldGroup;
@@ -305,7 +306,21 @@ class Mission extends DataObject
 
         $config = $this->getJobConfig();
         foreach ($config->Parameters() as $p) {
-           $field = DropdownField::create($p->Title,$p->Title,$p->Values()->map('ID','Title'))->setAttribute('class','uk-select');
+            switch ($p->FieldType){
+                case "text":
+                    $field = TextField::create($p->Title,$p->Title)->setAttribute('class','uk-input');
+                    break;
+                case "dropdown":
+                    $field = DropdownField::create($p->Title,$p->Title,$p->Values()->map('ID','Title'))->setAttribute('class','uk-select');
+                    break;
+                case "multiple":
+                    $field = CheckboxSetField::create($p->Title,$p->Title,$p->Values()->map('ID','Title'))->setAttribute('class','uk-checkbox');
+                    break;
+                case "multiple-free":
+                    $field = ListboxField::create($p->Title,$p->Title,$p->Values()->map('ID','Title'))->setAttribute('class','uk-input');
+                    break;
+            }
+           
            $parameters->push($field);
         }
 
