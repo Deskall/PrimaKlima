@@ -139,6 +139,8 @@ class JobPortalConfig extends DataObject
        $fields->addFieldToTab('Root.Main',UploadField::create('AGBCustomerFile',$this->fieldLabels()['AGBCustomerFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Vorlagen'));
        $fields->addFieldToTab('Root.Main',UploadField::create('AGBCookFile',$this->fieldLabels()['AGBCookFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Vorlagen'));
 
+       $fields->dataFieldByName('Parameters')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
+
        return $fields;
     }
 

@@ -297,10 +297,10 @@ class Mission extends DataObject
         $fields = FieldList::create(
             HiddenField::create('CustomerID')->setValue($customer->ID),
             TextField::create('Title',$this->fieldLabels()['Title']),
+            $parameters = CompositeField::create()->setName('ParametersFields'),
             DateField::create('Start',$this->fieldLabels()['Start']),
             DateField::create('End',$this->fieldLabels()['End']),
-            HTMLEditorField::create('Description',$this->fieldLabels()['Description']),
-            $parameters = CompositeField::create()->setName('ParametersFields')
+            HTMLEditorField::create('Description',$this->fieldLabels()['Description'])
         );
 
         $config = $this->getJobConfig();
