@@ -23,6 +23,11 @@
 					</div>
 				</div>
 				<% end_with %>
+				<% with Offer %>
+				<div class="main-body-offer">
+					
+				</div>
+				<% end_with %>
 			</div>
 		</div>
 	</div>
