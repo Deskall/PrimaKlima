@@ -51,6 +51,7 @@ class MemberProfilePageController extends PageController{
 		'bestaetigen/auftrag/$ID/$CookID' => 'acceptContract',
 		'wochen-zeiten' => 'SaveTimeSheet',
 		'wochen-zeiten-loeschen' => 'DeleteTimeSheet',
+		'inserat-bearbeiten/$ID' => 'EditJobOffer',
 	];
 
 	public function activeTab(){
@@ -236,7 +237,7 @@ class MemberProfilePageController extends PageController{
 	}
 
 	public function EditJobOffer(HTTPRequest $request){
-		$id = $request->getVar('OfferId');
+		$id = $request->param('OfferId');
 		if ($id){
 			$this->getRequest()->getSession()->set('offer_id',$id);
 		}

@@ -369,6 +369,10 @@ class Mission extends DataObject
         return ($this->getJobsPage()->exists()) ? $this->getJobsPage()->Link().'details/'.$this->ID : null;
     }
 
+    public function editLink(){
+        return ($this->getJobsPage()->exists()) ? $this->getJobsPage()->Link().'inserate-bearbeiten/'.$this->ID : null;
+    }
+
     public function getJobsPage(){
         return OfferPage::get()->first();
     }
