@@ -40,11 +40,29 @@
 				<div class="uk-margin main-body-offer">
 					<div class="uk-card uk-card-default uk-card-body">
 						$Description
-						$Customer.Description
+						
+						<h4>Wir bieten</h4>
 						$Customer.ReasonWhy
 					</div>
 				</div>
 				<% end_with %>
+
+				<div class="uk-margin company-footer">
+					<div class="uk-card uk-card-default uk-card-body">
+						<div class="uk-flex uk-flex-middle" data-uk-grid>
+							<% if Customer.Logo %>
+							<div class="uk-width-auto company-logo">
+								<img src="$Customer.Logo.URL" alt="Logo von $Customer.Company" width="250">
+								<a href="$Customer.Link">Unternehmensprofil</a>
+								<a href"$Customer.JobsLink">Jobs $Customer.Offers.count</a>
+							</div>
+							<% end_if %>
+							<div class="uk-width-expand company-address">
+								<h4>$Customer.Company</h4>
+								$Customer.Description
+							</div>
+						</div>
+				</div>
 			$Address<br>
 									$PostalCode - $City<br>
 									$NiceCountry
