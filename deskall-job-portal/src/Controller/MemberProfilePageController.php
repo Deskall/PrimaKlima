@@ -241,7 +241,7 @@ class MemberProfilePageController extends PageController{
 		if ($id){
 			$this->getRequest()->getSession()->set('offer_id',$id);
 		}
-		return $this->redirectBack();
+		return ['Title' => 'Stellenangebot bearbeiten'];
 	}
 
 	public function saveOffer($data, Form $form)
