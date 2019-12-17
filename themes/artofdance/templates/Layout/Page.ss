@@ -1,6 +1,8 @@
 	<div class="uk-grid-small" data-uk-grid>
 		<div class="uk-width-1-4@m uk-width-1-5@l uk-visible@m">
-			<% include SideBar %>
+			<aside class="uk-section-small">
+				<% include SideBar %>
+			</aside>
 		</div>
 		<div class="uk-width-3-4@m uk-width-4-5@l">
 			$ElementalArea
