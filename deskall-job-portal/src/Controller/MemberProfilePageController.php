@@ -232,7 +232,7 @@ class MemberProfilePageController extends PageController{
 	}
 
 	public function EditJobOffer(HTTPRequest $request){
-		$id = $request->getVar('offerID');
+		$id = $request->getVar('OfferID');
 		if ($id){
 			$offer = Mission::get()->byId($id);
 			$form = new Form(
@@ -246,8 +246,9 @@ class MemberProfilePageController extends PageController{
 			$form->setTemplate('Forms/OfferForm');
 			$form->addExtraClass('uk-form-horizontal form-std');
 			$form->loadDataFrom($offer);
+			return $form;	
 		}
-		return $form;		
+		return $this->httpError(404);
 	}
 
 	public function saveOffer($data, Form $form)
