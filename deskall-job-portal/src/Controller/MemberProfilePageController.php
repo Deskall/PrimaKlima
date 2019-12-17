@@ -248,7 +248,7 @@ class MemberProfilePageController extends PageController{
 			$form->loadDataFrom($offer);
 			return $form;	
 		}
-		return $this->httpError(404);
+		return $id;
 	}
 
 	public function saveOffer($data, Form $form)
