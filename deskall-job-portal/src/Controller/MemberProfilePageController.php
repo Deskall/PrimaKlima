@@ -227,6 +227,10 @@ class MemberProfilePageController extends PageController{
 		
 		$form->setTemplate('Forms/OfferForm');
 		$form->addExtraClass('uk-form-horizontal form-std');
+		if ($this->getRequest()->getSession()->get('offer_id')){
+			$offer = Mission::get()->byId($this->getRequest()->getSession()->get('offer_id'));
+			$form->loadDataFrom($offer);
+		}
 		
 		return $form;
 	}
@@ -234,23 +238,9 @@ class MemberProfilePageController extends PageController{
 	public function EditJobOffer(HTTPRequest $request){
 		$id = $request->getVar('OfferId');
 		if ($id){
-			$offer = Mission::get()->byId($id);
-			
-			$actions = new FieldList(FormAction::create('saveOffer', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
-			$form = new Form(
-				$this,
-				'JobOfferForm',
-				$offer->getFormFields(),
-				$actions,
-				$offer->getRequiredFields()
-			);
-			
-			$form->setTemplate('Forms/OfferForm');
-			$form->addExtraClass('uk-form-horizontal form-std');
-			$form->loadDataFrom($offer);
-			return $form;	
+			$this->getRequest()->getSession()->set('offer_id',$id);
 		}
-		return $id;
+		return $this->redirectBack();
 	}
 
 	public function saveOffer($data, Form $form)
