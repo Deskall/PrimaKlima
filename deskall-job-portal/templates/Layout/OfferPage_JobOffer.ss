@@ -13,6 +13,11 @@
 							<div class="uk-width-expand company-address">
 								<strong>$Customer.Company</strong><br>
 								<h1>$Title</h1>
+								<div class="uk-flex uk-flex-stretch">
+									<div class="place">$City</div>
+									<div class="type">$Type</div>
+									<div class="start">$Start</div>
+								</div>
 							</div>
 						</div>
 					</div>
