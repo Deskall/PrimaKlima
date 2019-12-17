@@ -2,7 +2,7 @@
 	<div class="uk-container">
 
 				<% with Offer %>
-				<div class="company-header">
+				<div class="uk-margin company-header">
 					<div class="uk-card uk-card-default uk-card-body">
 						<div class="uk-flex uk-flex-middle" data-uk-grid>
 							<% if Customer.Logo %>
@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				
-				<div class="main-body-offer">
+				<div class="uk-margin main-body-offer">
 					<div class="uk-card uk-card-default uk-card-body">
 						$Description
 						$Customer.Description
