@@ -233,14 +233,19 @@ class MemberProfilePageController extends PageController{
 
 	public function saveOffer($data, Form $form)
 	{
-		ob_start();
-					print_r($data);
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		$offer = new Mission();
 		$form->saveInto($offer);
 		try {
 			$offer->write();
+			
+			//parameters
+			$config = $offer->getJobConfig();
+			foreach ($config->Parameters() as $p) {
+				if(isset($data[$p->Title])){
+
+				}
+			}
+
 		} catch (ValidationException $e) {
 			$validationMessages = '';
 			foreach($e->getResult()->getMessages() as $error){

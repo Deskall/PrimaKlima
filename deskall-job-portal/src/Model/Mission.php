@@ -90,7 +90,8 @@ class Mission extends DataObject
     private static $owns = ['OfferFile','ContractFile','Candidatures'];
 
     private static $has_many = [
-        'Candidatures' => Candidature::class
+        'Candidatures' => Candidature::class,
+        'Parameters' => AssignedJobParameter::class
     ];
 
 
