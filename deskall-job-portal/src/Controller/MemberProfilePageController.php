@@ -242,7 +242,14 @@ class MemberProfilePageController extends PageController{
 			$config = $offer->getJobConfig();
 			foreach ($config->Parameters() as $p) {
 				if(isset($data[$p->Title])){
-
+					$value = JobParameterValue::get()->byId($data[$p->Title]);
+					if ($value){
+						$assignedP = new AssignedJobParameter();
+						$assignedP->Title = $p->Title;
+						$assignedP->Value = $value;
+						$assignedP->MissionID = $offer->ID;
+						$assignedP->write();
+					}
 				}
 			}
 
