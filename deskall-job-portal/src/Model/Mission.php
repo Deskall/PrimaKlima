@@ -333,7 +333,7 @@ class Mission extends DataObject
     }
 
     public function previewLink(){
-        return ($this->getJobsPage()->exists()) ? $this->getJobsPage()->Link().$this->ID : null;
+        return ($this->getJobsPage()->exists()) ? $this->getJobsPage()->Link().'details/'.$this->ID : null;
     }
 
     public function getJobsPage(){
