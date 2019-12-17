@@ -332,6 +332,14 @@ class Mission extends DataObject
         );
     }
 
+    public function previewLink(){
+        return ($this->getJobsPage()->exists()) ? $this->getJobsPage()->Link().$this->ID : null;
+    }
+
+    public function getJobsPage(){
+        return OfferPage::get()->first();
+    }
+
      public function canEdit($member = null){
         if ($this->isClosed){
             return false;
