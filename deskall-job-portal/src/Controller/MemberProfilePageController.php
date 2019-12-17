@@ -232,7 +232,7 @@ class MemberProfilePageController extends PageController{
 	}
 
 	public function EditJobOffer(HTTPRequest $request){
-		$id = $request->getVar('OfferID');
+		$id = $request->getVar('OfferId');
 		if ($id){
 			$offer = Mission::get()->byId($id);
 			$form = new Form(
