@@ -10,6 +10,7 @@ use SilverStripe\Security\Security;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class JobPortalConfig extends DataObject
 {
