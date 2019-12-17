@@ -19,7 +19,8 @@ use SilverStripe\Forms\GridField\GridField;
 class JobParameter extends DataObject
 {
     private static $db = array(
-      'Title' => 'Varchar'
+      'Title' => 'Varchar',
+      'Required' => 'Boolean(0)'
     );
 
     private static $singular_name = "Parameter";
@@ -47,6 +48,7 @@ class JobParameter extends DataObject
     $labels = parent::fieldLabels($includerelation);
     $labels['Title'] = _t(__CLASS__.'.Title','Parameter');
     $labels['Values'] = _t(__CLASS__.'.Values','Werte');
+    $labels['Required'] = _t(__CLASS__.'.Required','Plichtfeld?');
 
     return $labels;
     }

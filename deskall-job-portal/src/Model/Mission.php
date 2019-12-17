@@ -313,7 +313,14 @@ class Mission extends DataObject
     }
 
     public function getRequiredFields(){
-        return new RequiredFields(['Title','Description']);
+        $fields = new RequiredFields(['Title','Description']);
+          $config = $this->getJobConfig();
+        foreach ($config->Parameters() as $p) {
+            if ($p->Required){
+                $fields->push($p->Title);
+            }
+        }
+        return $fields;
     }
 
     /**
