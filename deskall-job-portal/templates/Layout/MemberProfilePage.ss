@@ -93,10 +93,10 @@ $ElementalArea
 									<div class="uk-margin uk-overflow-auto">
 										<h4><%t MemberPage.OffersTitle 'Meine Inserate' %></h4>
 										<table class="uk-table uk-table-small uk-table-justify">
-											<thead></th><th><%t MemberPage.OffersTableTH2 'Titel' %></th><th><%t MemberPage.OffersTableTH2 'Schaltungsdauer' %></th><th><%t MemberPage.OffersTableTH3 'Anzahl Bewerbungen' %></th><th><%t MemberPage.OffersTableTH1 'Status' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
+											<thead></th><th><%t MemberPage.OffersTableTH2 'Titel' %></th><th><%t MemberPage.OffersTableTH2 'Schaltungsdauer' %></th><th><%t MemberPage.OffersTableTH3 'Anzahl Bewerbungen' %></th><th><%t MemberPage.OffersTableTH1 'Status' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
 											<tbody>
 											<% loop CurrentCustomer.Missions %>
-											<tr><td class="uk-table-expand">$Title</td><td>$RunTimeTitle</td><td>$Candidatures.count</td><td>$Status</td><td><a href="$previewLink" target="_blank"><i class="icon icon-eye"></i></a></td><td><a href="{$Top.Link}inserat-bearbeiten/{$ID}"><i class="icon icon-edit"></i></a></td><td><a data-uk-toggle="target: #modal-delete-offer-{$ID}"><i class="icon icon-trash-a"></i></a></td></tr>
+											<tr><td class="uk-table-expand">$Title</td><td>$RunTimeTitle</td><td>$Candidatures.count</td><td>$Status</td><td><a href="$previewLink" target="_blank"><i class="icon icon-eye"></i></a></td><td><a href="{$Top.Link}inserat-bearbeiten/{$ID}"><i class="icon icon-edit"></i></a></td><td><a data-uk-toggle="target: #modal-delete-offer-{$ID}"><i class="icon icon-trash-a"></i></a></td><td><a data-uk-toggle="target: #modal-publish-offer-{$ID}"><i class="icon icon-ios-paperplane"></i></a></td></tr>
 											<div id="modal-delete-offer-{$ID}" data-uk-modal>
 											    <div class="uk-modal-dialog">
 											        <button class="uk-modal-close-default" type="button" data-uk-close></button>
@@ -106,6 +106,19 @@ $ElementalArea
 												        <div class="uk-text-right">
 												        	<button class="uk-button uk-button-default uk-modal-close" type="button"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></button>
 												        	<a href="{$Top.Link}inserat-loeschen/{$ID}" class="uk-button uk-button-danger"><i class="uk-margin-small-right" data-uk-icon="trash"></i><%t MemberPage.DeleteOffer 'Ja, löschen' %></a>
+												        </div>
+												    </div>
+											    </div>
+											</div>
+											<div id="modal-publish-offer-{$ID}" data-uk-modal>
+											    <div class="uk-modal-dialog">
+											        <button class="uk-modal-close-default" type="button" data-uk-close></button>
+											        <div class="uk-modal-body">
+											        	<strong class="uk-modal-title"><%t MemberPage.PublishOfferModalTitle 'Möchten Sie dieses Angebot wirklich veröffentlichen?' %></strong>
+											        	<p><%t MemberPage.PublishOfferModalBody 'Sie können dieses Angebot nach seiner Veröffentlichung nicht mehr ändern.' %></p>
+												        <div class="uk-text-right">
+												        	<button class="uk-button uk-button-default uk-modal-close" type="button"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></button>
+												        	<a href="{$Top.Link}inserat-veroeffentlichen/{$ID}" class="uk-button uk-button-danger"><i class="icon icon-ios-paperplane uk-margin-small-right"></i><%t MemberPage.PublishOffer 'Ja, veröffentlichen' %></a>
 												        </div>
 												    </div>
 											    </div>

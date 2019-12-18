@@ -387,7 +387,7 @@ class Mission extends DataObject
 
 
      public function canEdit($member = null){
-        if ($this->isClosed){
+        if ($this->isClosed || $this->isActive){
             return false;
         }
         else{
@@ -404,7 +404,21 @@ class Mission extends DataObject
         }
     }
 
-    
+    public function canPublish($member = null){
+        if ($this->isClosed || $this->isActive){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    public function publish(){
+        if ($this->canPublish()){
+            $this->isActive = true;
+            $this->write();
+        }
+    }
 
     public function generateToken(){
         $generator = new RandomGenerator();
