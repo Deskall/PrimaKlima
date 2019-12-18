@@ -33,14 +33,14 @@
 			<% end_with %>
 		</div>
 		<div>
-			<%-- <div id="Form_JobOfferForm_Image_Holder" class="field uk-margin-small">
+			<div id="Form_JobOfferForm_Image_Holder" class="field uk-margin-small">
 				<label class="uk-form-label">Bild</label>
 				<div class="uk-form-controls">
 					<% if $Top.Record.ImageID > 0 %>
 					<div class="switch-container-{$Top.Record.ID} original-container-{$Top.Record.ID} uk-position-relative">
 						<img src="<% if $Top.Record.Image.getExtension == "svg" %>$Top.Record.Image.URL<% else %>$Top.Record.Image.setWidth(300).URL<% end_if %>" class="switch-this company-logo">
 						<div class="uk-position-top-right uk-text-center switch-this"><a data-uk-toggle="target:.switch-this" class="uk-text-large uk-display-block uk-padding-small uk-padding-remove-top"><i class="icon icon-edit"></i></a></div>
-						<div id="upload-photo-container-{$Top.Record.ID}" class="js-upload with-preview uk-placeholder uk-text-center uk-margin-remove switch-this" data-container=".original-container-{$Top.Record.ID}" data-field-name="ImageID" hidden>
+						<div id="upload-photo-container-{$Top.Record.ID}" class="js-upload uk-placeholder uk-text-center uk-margin-remove switch-this" data-container=".original-container-{$Top.Record.ID}" data-field-name="ImageID" hidden>
 							<div class="form-field">
 								<span data-uk-icon="icon: cloud-upload"></span>
 								<span class="uk-text-middle"><%t Member.ChangePicture 'Legen Sie ein Bild ab oder' %></span>
@@ -72,7 +72,7 @@
 					<% with Fields.FieldByName('ImageID') %>
 					$FieldHolder 
 					<% end_with %>	
-				</div> --%>
+				</div>
 			</div>
 		</div>
 		<div>
