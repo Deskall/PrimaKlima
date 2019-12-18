@@ -13,7 +13,7 @@
 							<div class="uk-width-expand company-address">
 								<strong>$Customer.Company</strong><br>
 								<h1>$Title</h1>
-								<div class="uk-flex uk-flex-around uk-text-small">
+								<div class="uk-flex uk-grid uk-text-small">
 									<div class="place">$City</div>
 									<% with Parameters.filter('Title','Anstellung').first %><div class="type">$Value</div><% end_with %>
 									<div class="start">$Start.Nice</div>
