@@ -525,9 +525,9 @@ class Mission extends DataObject
     //     return !$this->Candidatures()->filter('Status','approved')->exists();
     // }
 
-    // public function canClose(){
-    //     return !$this->Weeks()->exclude('isBilled',1)->exists();
-    // }
+    public function canClose(){
+        return true;
+    }
 
 
     //STEPS
