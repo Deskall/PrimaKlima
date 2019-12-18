@@ -66,7 +66,8 @@ class Mission extends DataObject
         'SentContractDate' => 'Date',
         'backend' => 'Boolean(0)',
         'isActive' => 'Boolean(0)',
-        'isClosed' => 'Boolean(0)'
+        'isClosed' => 'Boolean(0)',
+        'PublishedDate' => 'Date'
     );
 
     private static $singular_name = "Stelle";

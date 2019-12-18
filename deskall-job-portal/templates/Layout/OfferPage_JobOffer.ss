@@ -17,6 +17,7 @@
 									<div class="place">$City</div>
 									<% with Parameters.filter('Title','Anstellung').first %><div class="type">$Value</div><% end_with %>
 									<div class="start">$Start.Nice</div>
+									<div class="uk-flex-right">$PublishedDate.Ago</div>
 								</div>
 							</div>
 						</div>
