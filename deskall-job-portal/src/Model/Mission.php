@@ -302,7 +302,7 @@ class Mission extends DataObject
             HiddenField::create('CustomerID')->setValue($customer->ID),
             TextField::create('Title',$this->fieldLabels()['Title'])->setAttribute('class','uk-input'),
             $parameters = CompositeField::create()->setName('ParametersFields'),
-            TextField::create('Place',$this->fieldLabels()['City']),
+            TextField::create('City',$this->fieldLabels()['City']),
             DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('de'),
             DateField::create('Start',$this->fieldLabels()['Start'])->setAttribute('class','uk-input'),
             DateField::create('End',$this->fieldLabels()['End'])->setAttribute('class','uk-input'),
