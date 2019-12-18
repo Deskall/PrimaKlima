@@ -432,7 +432,7 @@ class Mission extends DataObject
         }
     }
 
-    public function getStatus(){
+    public function NiceStatus(){
         if ($this->isClosed){
             return _t('Mission.Archived','Archiviert');
         }
