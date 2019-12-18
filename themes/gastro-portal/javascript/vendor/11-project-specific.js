@@ -29,7 +29,6 @@
 			        $('input[name="'+name+'"]').val(image.id);
 			       
 			        container.append('<img src="'+image.url+'" alt="'+image.name+'" class="photo" />');
-			        container.parents('.team-member').find('.uk-dark').removeClass('uk-dark').addClass('uk-light');
 			    },
 
 			  
