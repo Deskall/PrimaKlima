@@ -325,8 +325,8 @@ class Mission extends DataObject
                     $field = ListboxField::create($p->Title,$p->Title,$p->Values()->map('ID','Title'))->setAttribute('class','uk-input');
                     break;
             }
-           if ($this->{$p->Title}){
-               $field->setValue($this->{$p->Title});
+           if ($this->Parameters()->find('Title',$p->Title)){
+               $field->setValue($this->Parameters()->find('Title',$p->Title)->Value);
            }
            $parameters->push($field);
         }
