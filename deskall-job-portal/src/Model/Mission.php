@@ -432,6 +432,16 @@ class Mission extends DataObject
         }
     }
 
+    public function getStatus(){
+        if ($this->isClosed){
+            return _t('Mission.Archived','Archiviert');
+        }
+        if ($this->isActive){
+            return _t('Mission.Active','Veröffentlicht');
+        }
+        return _t('Mission.Draft','Entwurf');
+    }
+
     public function generateToken(){
         $generator = new RandomGenerator();
         $token = $generator->randomToken();
