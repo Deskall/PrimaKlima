@@ -47,7 +47,7 @@
 							$Description
 							<h4><%t OfferPage.WeOffer 'Wir bieten Ihnen' %></h4>
 							$Customer.ReasonWhy
-							<h4><%t OfferPage.MoreInfos 'Weitere Informationen' %></h4>
+							<h5><%t OfferPage.MoreInfos 'Weitere Informationen' %></h5>
 							<% loop Attachments %>
 							<div class="uk-margin">
 								<div  class="uk-text-truncate">
