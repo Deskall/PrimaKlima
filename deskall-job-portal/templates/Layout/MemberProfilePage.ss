@@ -96,7 +96,20 @@ $ElementalArea
 											<thead></th><th><%t MemberPage.OffersTableTH2 'Titel' %></th><th><%t MemberPage.OffersTableTH2 'Schaltungsdauer' %></th><th><%t MemberPage.OffersTableTH3 'Anzahl Bewerbungen' %></th><th><%t MemberPage.OffersTableTH1 'Status' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
 											<tbody>
 											<% loop CurrentCustomer.Missions %>
-											<tr><td class="uk-table-expand">$Title</td><td>$RunTimeTitle</td><td>$Candidatures.count</td><td>$Status</td><td><a href="$previewLink" target="_blank"><i class="icon icon-eye"></i></a></td><td><a href="{$Top.Link}inserat-bearbeiten/{$ID}" target="_blank"><i class="icon icon-edit"></i></a></td><td>&nbsp;</td></tr>
+											<tr><td class="uk-table-expand">$Title</td><td>$RunTimeTitle</td><td>$Candidatures.count</td><td>$Status</td><td><a href="$previewLink" target="_blank"><i class="icon icon-eye"></i></a></td><td><a href="{$Top.Link}inserat-bearbeiten/{$ID}" target="_blank"><i class="icon icon-edit"></i></a></td><td><a href="#modal-delete-offer-{$ID}"><i class="icon icon-trash"></i></a></td></tr>
+											<div id="modal-delete-offer-{$ID}" data-uk-modal>
+											    <div class="uk-modal-dialog">
+											        <button class="uk-modal-close-default" type="button" data-uk-close></button>
+											        <div class="uk-modal-header">
+											            <h2 class="uk-modal-title"><%t MemberPage.DeleteOfferModalTitle 'Möchten Sie dieses Angebot wirklich löschen?' %></h2>
+											        </div>
+											        <div class="uk-modal-body"><p><%t MemberPage.DeleteOfferModalBody 'Diese Löschung ist endgültig.' %></p></div>
+											        <div class="uk-modal-footer uk-text-right">
+											        	<button class="uk-button uk-button-default uk-modal-close" type="button"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></button>
+											        	<a href="{$Top.Link}inserat-loeschen/{$ID}"><i class="uk-margin-small-right" data-uk-icon="trash"></i><%t MemberPage.DeleteOffer 'Ja, löschen' %></a>
+											        </div>
+											    </div>
+											</div>
 											<% end_loop %>
 											</tbody>
 										</table>
@@ -124,3 +137,6 @@ $ElementalArea
 		</div>
 	</section>
 </div>
+
+
+
