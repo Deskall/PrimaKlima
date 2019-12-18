@@ -33,7 +33,7 @@
 			<% end_with %>
 		</div>
 		<div>
-			<div id="Form_JobOfferForm_Image_Holder" class="field uk-margin-small">
+			<%-- <div id="Form_JobOfferForm_Image_Holder" class="field uk-margin-small">
 				<label class="uk-form-label">Bild</label>
 				<div class="uk-form-controls">
 					<% if $Top.Record.ImageID > 0 %>
@@ -72,7 +72,7 @@
 					<% with Fields.FieldByName('ImageID') %>
 					$FieldHolder 
 					<% end_with %>	
-				</div>
+				</div> --%>
 			</div>
 		</div>
 		<div>
