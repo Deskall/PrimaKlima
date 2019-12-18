@@ -51,7 +51,7 @@
 							<% loop Attachments %>
 							<div class="uk-margin">
 								<div  class="uk-text-truncate">
-									<a href="$URL" title="Download $Title" target="_blank"><i class="icon icon-downloaduk-margin-right"></i>$Title</a>
+									<a href="$URL" title="Download $Title" target="_blank"><i class="icon icon-download uk-margin-right"></i>$Title</a>
 								</div>
 							</div>
 							<% end_loop %>
