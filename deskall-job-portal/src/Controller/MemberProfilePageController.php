@@ -219,7 +219,7 @@ class MemberProfilePageController extends PageController{
 		if ($this->getRequest()->getSession()->get('offer_id')){
 			$offer = Mission::get()->byId($this->getRequest()->getSession()->get('offer_id'));
 		}
-		$offer = ($offer) ? $offer : new Mission();
+		$offer = (isset($offer)) ? $offer : new Mission();
 		
 		$form = new Form(
 			$this,
