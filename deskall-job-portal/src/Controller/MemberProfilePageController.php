@@ -40,6 +40,7 @@ use SilverStripe\ORM\DB;
 use SilverStripe\View\ArrayData;
 use SilverStripe\Security\DefaultAdminService;
 
+
 class MemberProfilePageController extends PageController{
 
 	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer'];
@@ -274,6 +275,43 @@ class MemberProfilePageController extends PageController{
 		}
 		$offer = (isset($offer)) ? $offer : new Mission();
 		$form->saveInto($offer);
+		//Files
+		if(isset($data['TempFiles'])){
+			$i = 0;
+			$keys = [];
+
+			foreach ($data['TempFiles'] as $id) {
+				$p = $member->Files()->byId($id);
+				if(!$p){ 
+					$p = File::get()->byId($id);
+					if ($p){
+						$folder = Folder::find_or_make($member->generateFolderName());
+						$p->ParentID = $folder->ID;
+						$p->write();
+						$p->publishSingle();
+					}
+					
+				}
+				if ($p){
+					$member->Files()->add($p,['SortOrder' => $i]);
+				}
+				$keys[] = $id;
+				$i++;
+			}
+			foreach($member->Files()->exclude('ID',$keys) as $p){
+				$p->File->deleteFile();
+                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
+				$p->delete();
+			}
+		}
+		else{
+			foreach($member->Files() as $p){
+				$p->File->deleteFile();
+                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
+				$p->delete();
+
+			}
+		}
 		try {
 			$offer->write();
 			

@@ -37,6 +37,7 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Control\Controller;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Forms\RequiredFields;
+use Bummzack\SortableFile\Forms\SortableUploadField;
 
 class Mission extends DataObject
 {
@@ -85,14 +86,19 @@ class Mission extends DataObject
         'Customer' => JobGiver::class,
         'Candidat' => Candidat::class,
         'OfferFile' => File::class,
-        'ContractFile' => File::class
+        'ContractFile' => File::class,
+        'Image' => Image::class
     ];
 
-    private static $owns = ['OfferFile','ContractFile','Candidatures','Parameters'];
+    private static $owns = ['OfferFile','ContractFile','Candidatures','Parameters','Image'];
 
     private static $has_many = [
         'Candidatures' => Candidature::class,
         'Parameters' => AssignedJobParameter::class
+    ];
+
+    private static $many_many = [
+        'Attachments' => File::class
     ];
 
 
@@ -107,14 +113,8 @@ class Mission extends DataObject
         'Customer.Title'
     ];
 
-    private static $status_types = [
-        "new" => "Neu",
-        "draft" => "Entwurf",
-        "published" => "Veröffentlicht",
-        "archived" => "Archiviert"
-    ];
 
-    private static $cascade_deletes = ['OfferFile','ContractFile','Candidatures','Parameters'];
+    private static $cascade_deletes = ['OfferFile','ContractFile','Candidatures','Parameters','Image'];
 
 
 
@@ -145,6 +145,8 @@ class Mission extends DataObject
     $labels['End'] = _t(__CLASS__.'.End','Ende');
     $labels['Surname'] = _t(__CLASS__.'.Surname','Name');
     $labels['FirstName'] = _t(__CLASS__.'.FirstName','Vorname');
+    $labels['Image'] = _t(__CLASS__.'.Image','Bild');
+    $labels['Attachments'] = _t(__CLASS__.'.Attachments','Anhängen');
 
     return $labels;
     }
@@ -299,6 +301,10 @@ class Mission extends DataObject
        return $fields;
     }
 
+    public function getFolderName(){
+        return 'Uploads/Stellenangebot/'.$this->ID;
+    }
+
     public function getFormFields(){
         $customer = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
         $fields = FieldList::create(
@@ -309,7 +315,9 @@ class Mission extends DataObject
             DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('de'),
             DateField::create('Start',$this->fieldLabels()['Start'])->setAttribute('class','uk-input'),
             DateField::create('End',$this->fieldLabels()['End'])->setAttribute('class','uk-input'),
-            HTMLEditorField::create('Description',$this->fieldLabels()['Description'])
+            HTMLEditorField::create('Description',$this->fieldLabels()['Description']),
+            SortableUploadField::create('Files',$this->fieldLabels()['Files'])->setIsMultiUpload(true),
+            HiddenField::create('ImageID')
         );
 
         $config = $this->getJobConfig();
