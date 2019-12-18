@@ -24,7 +24,7 @@
 							<div class="uk-width-2-3">
 								<div class="uk-flex uk-flex-left uk-flex-middle">
 									<a class="uk-button WhiteBackground uk-margin-small-right">Unternehmensprofil</a>
-									<a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart uk-margin-small-right"></i></a>
+									<a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart"></i></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-print><i class="icon icon-printer"></i></a>
 									<a class="uk-button uk-button-primary">Bewerben</a>
 								</div>
