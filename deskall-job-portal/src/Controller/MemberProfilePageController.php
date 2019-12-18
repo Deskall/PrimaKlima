@@ -42,7 +42,7 @@ use SilverStripe\Security\DefaultAdminService;
 
 class MemberProfilePageController extends PageController{
 
-	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer'];
+	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer'];
 
 	private static $url_handlers = [
 		'delete-object/$ID/$OBJECT' => 'DeleteObject',
@@ -52,6 +52,7 @@ class MemberProfilePageController extends PageController{
 		'wochen-zeiten' => 'SaveTimeSheet',
 		'wochen-zeiten-loeschen' => 'DeleteTimeSheet',
 		'inserat-bearbeiten/$ID' => 'EditJobOffer',
+		'inserat-loeschen/$ID' => 'DeleteJobOffer',
 	];
 
 	public function activeTab(){
@@ -242,6 +243,17 @@ class MemberProfilePageController extends PageController{
 			$this->getRequest()->getSession()->set('offer_id',$id);
 		}
 		return ['Title' => 'Stellenangebot bearbeiten'];
+	}
+
+	public function DeleteJobOffer(HTTPRequest $request){
+		$id = $request->param('OfferId');
+		if ($id){
+			$offer = Mission::get()->byId($id);
+			if ($offer){
+				$offer->delete();
+			}
+		}
+		return $this->redirectBack();
 	}
 
 	public function saveOffer($data, Form $form)
