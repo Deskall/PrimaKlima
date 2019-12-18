@@ -246,7 +246,7 @@ class MemberProfilePageController extends PageController{
 	}
 
 	public function DeleteJobOffer(HTTPRequest $request){
-		$id = $request->param('OfferId');
+		$id = $request->param('ID');
 		if ($id){
 			$offer = Mission::get()->byId($id);
 			if ($offer){
