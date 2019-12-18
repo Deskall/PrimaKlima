@@ -39,10 +39,15 @@
 				</div>
 				
 				<div class="uk-margin main-body-offer">
-					<div class="uk-card uk-card-default uk-card-body">
-						$Description
-						<h4>Wir bieten Ihnen</h4>
-						$Customer.ReasonWhy
+					<div class="uk-card uk-card-default">
+						<div class="uk-card-media-top">
+						    <img src="images/light.jpg" alt="">
+						</div>
+						<div class="uk-card-body">
+							$Description
+							<h4>Wir bieten Ihnen</h4>
+							$Customer.ReasonWhy
+						</div>
 					</div>
 				</div>
 				
