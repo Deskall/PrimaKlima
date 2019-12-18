@@ -24,10 +24,10 @@
 						<div class="uk-flex uk-flex-middle" data-uk-grid>
 							<div class="uk-width-2-3">
 								<div class="uk-flex uk-flex-left uk-flex-middle">
-									<a class="uk-button WhiteBackground uk-margin-small-right">Unternehmensprofil</a>
+									<a class="uk-button WhiteBackground uk-margin-small-right"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart"></i></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-print><i class="icon icon-printer"></i></a>
-									<a class="uk-button uk-button-primary">Bewerben</a>
+									<a class="uk-button uk-button-primary"><%t OfferPage.Candidate 'Bewerben' %></a>
 								</div>
 							</div>
 							<div class="uk-width-1-3">
@@ -45,14 +45,22 @@
 						</div>
 						<div class="uk-card-body">
 							$Description
-							<h4>Wir bieten Ihnen</h4>
+							<h4><%t OfferPage.WeOffer 'Wir bieten Ihnen' %></h4>
 							$Customer.ReasonWhy
+							<h4><%t OfferPage.MoreInfos 'Weitere Informationen' %></h4>
+							<div class="uk-flex">
+								<% loop Attachments %>
+								<div  class="uk-text-truncate">
+									<a href="$URL" title="Download $Title" target="_blank">$Title</a>
+								</div>
+								<% end_loop %>
+							</div>
 						</div>
 					</div>
 				</div>
 				
 				<div class="uk-margin uk-text-center">
-					<a class="uk-button uk-button-large uk-button-primary">Bewerben</a>
+					<a class="uk-button uk-button-large uk-button-primary"><%t OfferPage.Candidate 'Bewerben' %></a>
 				</div>
 
 				<div class="uk-margin company-footer">
@@ -61,8 +69,8 @@
 							<% if Customer.Logo %>
 							<div class="uk-width-auto company-logo">
 								<div><img src="$Customer.Logo.URL" alt="Logo von $Customer.Company" width="250"></div>
-								<div><a href="$Customer.Link">Unternehmensprofil</a></div>
-								<div><a href"$Customer.JobsLink">Jobs $Customer.Missions.count</a></div>
+								<div><a href="$Customer.Link"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a></div>
+								<div><a href"$Customer.JobsLink"><%t OfferPage.Jobs 'Jobs' %> $Customer.Missions.count</a></div>
 							</div>
 							<% end_if %>
 							<div class="uk-width-expand company-address">
