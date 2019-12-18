@@ -376,12 +376,6 @@ class MemberProfilePageController extends PageController{
 		
 		$tmpFiles = $request->postVar('files');
 
-		ob_start();
-					print_r($tmpFiles);
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-
-
 		if (is_array($tmpFiles['name'])){
 			$tmpFile = [];
 			foreach($tmpFiles as $key => $array){
@@ -392,7 +386,6 @@ class MemberProfilePageController extends PageController{
 			$tmpFile = $tmpFiles;
 		}
 		
-
 		$tmpFolder = "Uploads/tmp";
 		Folder::find_or_make($tmpFolder);
 		
@@ -404,11 +397,6 @@ class MemberProfilePageController extends PageController{
 		}
 		
 		$upload = Upload::create();
-
-		ob_start();
-					print_r($tmpFile);
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
 		$upload->loadIntoFile($tmpFile, $file, $tmpFolder);
 
