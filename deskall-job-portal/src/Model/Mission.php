@@ -321,7 +321,7 @@ class Mission extends DataObject
             // DateField::create('Start',$this->fieldLabels()['Start'])->setAttribute('class','uk-input'),
             // DateField::create('End',$this->fieldLabels()['End'])->setAttribute('class','uk-input'),
             HTMLEditorField::create('Description',$this->fieldLabels()['Description']),
-            SortableUploadField::create('Attachments',$this->fieldLabels()['Attachments'])->setIsMultiUpload(true),
+            SortableUploadField::create('Attachments',$this->fieldLabels()['Attachments']),
             HiddenField::create('ImageID')
         );
 
