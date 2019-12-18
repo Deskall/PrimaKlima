@@ -48,15 +48,14 @@
 							<h4>Wir bieten Ihnen</h4>
 							$Customer.ReasonWhy
 						</div> --%>
-						<div class="uk-card-body uk-flex">
-							<div class="uk-flex-left">
+						<div class="uk-card-body uk-flex uk-flex-left">
+							
 								<img src="$Image.FitMax(700,350).URL" alt="$Image.Description">
-							</div>
-							<div>
+							
 							$Description
 							<h4>Wir bieten Ihnen</h4>
 							$Customer.ReasonWhy
-							</div>
+							
 						</div>
 					</div>
 				</div>
