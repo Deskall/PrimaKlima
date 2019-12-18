@@ -40,13 +40,23 @@
 				
 				<div class="uk-margin main-body-offer">
 					<div class="uk-card uk-card-default">
-						<div class="uk-card-media-top">
+						<%-- <div class="uk-card-media-top">
 						    <img src="$Image.FitMax(700,350).URL" alt="$Image.Description">
 						</div>
 						<div class="uk-card-body">
 							$Description
 							<h4>Wir bieten Ihnen</h4>
 							$Customer.ReasonWhy
+						</div> --%>
+						<div class="uk-card-body uk-flex">
+							<div class="uk-flex-left">
+								<img src="$Image.FitMax(700,350).URL" alt="$Image.Description">
+							</div>
+							<div>
+							$Description
+							<h4>Wir bieten Ihnen</h4>
+							$Customer.ReasonWhy
+							</div>
 						</div>
 					</div>
 				</div>
