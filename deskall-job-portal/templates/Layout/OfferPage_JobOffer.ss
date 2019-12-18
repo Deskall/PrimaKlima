@@ -41,7 +41,7 @@
 				<div class="uk-margin main-body-offer">
 					<div class="uk-card uk-card-default">
 						<div class="uk-card-media-top">
-						    <img src="images/light.jpg" alt="">
+						    <img src="$Image.FitMax(700,350).URL" alt="$Image.Description">
 						</div>
 						<div class="uk-card-body">
 							$Description
