@@ -216,8 +216,10 @@ class MemberProfilePageController extends PageController{
 		// if (Security::getCurrentUser()->Status == "waitForApproval"){
 		// 	$actions->push(FormAction::create('requireApproval', _t('MemberProfiles.APPROVALCHECK', 'Genehmigung in Bearbeitung'))->setDisabled(true)->setButtonContent('<i class="fa fa-check uk-margin-small-right"></i>Genehmigung in Bearbeitung')->addExtraClass('uk-button'));
 		// }
-
-		$offer = new Mission();
+		if ($this->getRequest()->getSession()->get('offer_id')){
+			$offer = Mission::get()->byId($this->getRequest()->getSession()->get('offer_id'));
+		}
+		$offer = ($offer) ? $offer : new Mission();
 		
 		$form = new Form(
 			$this,
@@ -229,10 +231,7 @@ class MemberProfilePageController extends PageController{
 		
 		$form->setTemplate('Forms/OfferForm');
 		$form->addExtraClass('uk-form-horizontal form-std');
-		if ($this->getRequest()->getSession()->get('offer_id')){
-			$offer = Mission::get()->byId($this->getRequest()->getSession()->get('offer_id'));
-			$form->loadDataFrom($offer);
-		}
+		$form->loadDataFrom($offer);
 		
 		return $form;
 	}
