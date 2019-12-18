@@ -97,7 +97,9 @@ class Mission extends DataObject
 
 
     private static $summary_fields = [
-        'Created' => ['title' => 'Erstellt am']
+        'NiceStatus' => ['title' => 'Status'],
+        'Title',
+        'Customer.NiceAddress' => ['title' => 'Kunde']
     ];
 
     private static $searchable_fields = [
