@@ -111,6 +111,9 @@ class Mission extends DataObject
         "archived" => "Archiviert"
     ];
 
+    private static $cascade_deletes = ['OfferFile','ContractFile','Candidatures','Parameters'];
+    
+
 
     public function fieldLabels($includerelation = true){
     $labels = parent::fieldLabels($includerelation);
