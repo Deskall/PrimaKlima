@@ -92,7 +92,7 @@ $ElementalArea
 									<% if CurrentCustomer.Missions.exists %>
 									<div class="uk-margin uk-overflow-auto">
 										<h4><%t MemberPage.OffersTitle 'Meine Inserate' %></h4>
-										<table class="uk-table uk-table-small uk-table-justify">
+										<table class="uk-table uk-table-small uk-table-striped uk-table-justify">
 											<thead></th><th><%t MemberPage.OffersTableTH2 'Titel' %></th><th><%t MemberPage.OffersTableTH2 'Schaltungsdauer' %></th><th><%t MemberPage.OffersTableTH3 'Anzahl Bewerbungen' %></th><th><%t MemberPage.OffersTableTH1 'Status' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
 											<tbody>
 											<% loop CurrentCustomer.Missions %>
