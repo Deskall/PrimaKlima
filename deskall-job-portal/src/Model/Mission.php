@@ -391,6 +391,10 @@ class Mission extends DataObject
             return false;
         }
         else{
+            $member = Security::getCurrentUser();
+            if ($this->Customer()->MemberID == $member->ID){
+                return true;
+            }
             return parent::canEdit($member);
         }
     }
@@ -400,6 +404,10 @@ class Mission extends DataObject
             return false;
         }
         else{
+            $member = Security::getCurrentUser();
+            if ($this->Customer()->MemberID == $member->ID){
+                return true;
+            }
             return parent::canDelete($member);
         }
     }
@@ -409,7 +417,11 @@ class Mission extends DataObject
             return false;
         }
         else{
-            return true;
+            $member = Security::getCurrentUser();
+            if ($this->Customer()->MemberID == $member->ID){
+                return true;
+            }
+            return parent::canEdit($member);
         }
     }
 
