@@ -326,7 +326,7 @@ class Mission extends DataObject
                     break;
             }
            if ($this->Parameters()->filter('Title',$p->Title)->first()){
-               $field->setValue($this->Parameters()->filter('Title',$p->Title)->first()->Value);
+               $field->setValue($p->Values()->filter('Title',$this->Parameters()->filter('Title',$p->Title)->first())->first()->ID);
            }
            $parameters->push($field);
         }
