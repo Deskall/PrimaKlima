@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\File;
+use SilverStripe\Assets\Image;
 use SilverStripe\Assets\Folder;
 use SilverStripe\Security\DefaultAdminService;
 use SilverStripe\SiteConfig\SiteConfig;
