@@ -112,7 +112,7 @@ class Mission extends DataObject
     ];
 
     private static $cascade_deletes = ['OfferFile','ContractFile','Candidatures','Parameters'];
-    
+
 
 
     public function fieldLabels($includerelation = true){
@@ -325,7 +325,9 @@ class Mission extends DataObject
                     $field = ListboxField::create($p->Title,$p->Title,$p->Values()->map('ID','Title'))->setAttribute('class','uk-input');
                     break;
             }
-           
+           if ($this->{$p->Title}){
+               $field->setValue($this->{$p->Title});
+           }
            $parameters->push($field);
         }
 
