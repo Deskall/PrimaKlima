@@ -317,8 +317,8 @@ class Mission extends DataObject
             $parameters = CompositeField::create()->setName('ParametersFields'),
             TextField::create('City',$this->fieldLabels()['City']),
             DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('de'),
-            DateField::create('Start',$this->fieldLabels()['Start'])->setAttribute('class','uk-input'),
-            DateField::create('End',$this->fieldLabels()['End'])->setAttribute('class','uk-input'),
+            // DateField::create('Start',$this->fieldLabels()['Start'])->setAttribute('class','uk-input'),
+            // DateField::create('End',$this->fieldLabels()['End'])->setAttribute('class','uk-input'),
             HTMLEditorField::create('Description',$this->fieldLabels()['Description']),
             SortableUploadField::create('Attachments',$this->fieldLabels()['Attachments'])->setIsMultiUpload(true),
             HiddenField::create('ImageID')
@@ -350,7 +350,7 @@ class Mission extends DataObject
     }
 
     public function getRequiredFields(){
-        $fields = ['Title','Description','Start','City','Country'];
+        $fields = ['Title','Description','City','Country'];
         $config = $this->getJobConfig();
         foreach ($config->Parameters() as $p) {
             if ($p->Required){
