@@ -97,6 +97,7 @@ class MemberProfilePageController extends PageController{
 
 	public function index(){
 		$this->getRequest()->getSession()->clear('offer_id');
+		return parent::index();
 	}
 
 	
