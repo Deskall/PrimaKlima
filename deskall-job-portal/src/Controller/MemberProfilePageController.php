@@ -257,7 +257,10 @@ class MemberProfilePageController extends PageController{
 
 	public function saveOffer($data, Form $form)
 	{
-		$offer = new Mission();
+		if ($this->getRequest()->getSession()->get('offer_id')){
+			$offer = Mission::get()->byId($this->getRequest()->getSession()->get('offer_id'));
+		}
+		$offer = (isset($offer)) ? $offer : new Mission();
 		$form->saveInto($offer);
 		try {
 			$offer->write();
@@ -290,7 +293,7 @@ class MemberProfilePageController extends PageController{
 			'good'
 		);
 		$this->getRequest()->getSession()->set('active_tab','offers');
-		
+		$this->getRequest()->getSession()->clear('offer_id');
 		return $this->redirectBack();
 	}
 
