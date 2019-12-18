@@ -237,7 +237,7 @@ class MemberProfilePageController extends PageController{
 	}
 
 	public function EditJobOffer(HTTPRequest $request){
-		$id = $request->param('OfferId');
+		$id = $request->param('ID');
 		if ($id){
 			$this->getRequest()->getSession()->set('offer_id',$id);
 		}
