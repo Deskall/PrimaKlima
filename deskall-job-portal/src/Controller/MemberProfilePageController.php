@@ -71,26 +71,26 @@ class MemberProfilePageController extends PageController{
 		Requirements::javascript('silverstripe/admin: client/dist/js/vendor.js');
 		Requirements::javascript('silverstripe/admin: client/dist/js/bundle.js');
 		Requirements::javascript('deskall-job-portal/javascript/jobportal.js');
-		// if (!$this->getRequest()->getVar('CMSPreview')){
-		// 	if (!Security::getCurrentUser()){
-		// 		return Security::permissionFailure($this, _t(
-		// 			'MemberProfiles.NeedToLogin',
-		// 			'Sie müssen sich anmelden, um auf diese Seite zugreifen zu können'
-		// 		));
-		// 	}
-		// 	if(!Security::getCurrentUser()->inGroup($this->Group()->Code)){
-		// 		return Security::permissionFailure($this, _t(
-		// 			'MemberProfiles.AccessDenied',
-		// 			'Sie dürfen diesen Bereich nicht betreten.'
-		// 		));
-		// 	}
-		// 	if(Security::getCurrentUser()->isRefused){
-		// 		return Security::permissionFailure($this, _t(
-		// 			'MemberProfiles.AccessDenied',
-		// 			'Sie dürfen diesen Bereich nicht betreten.'
-		// 		));
-		// 	}
-		// }
+		if (!$this->getRequest()->getVar('CMSPreview')){
+			if (!Security::getCurrentUser()){
+				return Security::permissionFailure($this, _t(
+					'MemberProfiles.NeedToLogin',
+					'Sie müssen sich anmelden, um auf diese Seite zugreifen zu können'
+				));
+			}
+			if(!Security::getCurrentUser()->inGroup($this->Group()->Code)){
+				return Security::permissionFailure($this, _t(
+					'MemberProfiles.AccessDenied',
+					'Sie dürfen diesen Bereich nicht betreten.'
+				));
+			}
+			if(Security::getCurrentUser()->isRefused){
+				return Security::permissionFailure($this, _t(
+					'MemberProfiles.AccessDenied',
+					'Sie dürfen diesen Bereich nicht betreten.'
+				));
+			}
+		}
 		
 		
 	}
@@ -394,6 +394,11 @@ class MemberProfilePageController extends PageController{
 		$upload = Upload::create();
 
 		$upload->loadIntoFile($tmpFile, $file, $tmpFolder);
+
+		ob_start();
+					print_r($upload);
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
                     // Upload check
 		if ($upload->isError()) {
