@@ -105,7 +105,7 @@ $ElementalArea
 											        	<p><%t MemberPage.DeleteOfferModalBody 'Diese Löschung ist endgültig.' %></p>
 												        <div class="uk-text-right">
 												        	<button class="uk-button uk-button-default uk-modal-close" type="button"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></button>
-												        	<a href="{$Top.Link}inserat-loeschen/{$ID}"><i class="uk-margin-small-right" data-uk-icon="trash"></i><%t MemberPage.DeleteOffer 'Ja, löschen' %></a>
+												        	<a href="{$Top.Link}inserat-loeschen/{$ID}" class="uk-button uk-button-danger"><i class="uk-margin-small-right" data-uk-icon="trash"></i><%t MemberPage.DeleteOffer 'Ja, löschen' %></a>
 												        </div>
 												    </div>
 											    </div>
