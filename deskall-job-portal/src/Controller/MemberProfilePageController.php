@@ -376,6 +376,10 @@ class MemberProfilePageController extends PageController{
 		
 		$tmpFiles = $request->postVar('files');
 
+		ob_start();
+					print_r($tmpFiles);
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
 
 		
@@ -399,7 +403,7 @@ class MemberProfilePageController extends PageController{
 		ob_start();
 					print_r($tmpFile);
 					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
 		$upload->loadIntoFile($tmpFile, $file, $tmpFolder);
 
