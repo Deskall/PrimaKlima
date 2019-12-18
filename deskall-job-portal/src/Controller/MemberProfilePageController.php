@@ -231,7 +231,7 @@ class MemberProfilePageController extends PageController{
 			$offer->getRequiredFields()
 		);
 		
-		$form->setTemplate('Forms/OfferForm');
+		$form->setTemplate('Forms/MissionForm');
 		$form->addExtraClass('uk-form-horizontal form-std');
 		$form->loadDataFrom($offer);
 		
