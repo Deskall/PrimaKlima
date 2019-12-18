@@ -98,10 +98,10 @@
 			       var data = $.parseJSON(arguments[0].response);
 			       var image = data[0];
 			       if (type == "image"){
-			       	container.find('tr:last').empty().append('<td><span class="fa fa-ellipsis-v"></span></td><td><img src="'+image.smallThumbnail+'" alt="'+image.name+'" class="thumbnail" width="80" height="80" /></td><td>'+image.name+'</td><td><a data-delete-row><span class="fa fa-trash"></span></a></td><td><input type="hidden" name="'+name+'" value="'+image.id+'" /></td>');
+			       	container.find('tr:last').empty().append('<td><span class="icon icon-android-more-vertical"></span></td><td><img src="'+image.smallThumbnail+'" alt="'+image.name+'" class="thumbnail" width="80" height="80" /></td><td>'+image.name+'</td><td><a data-delete-row><span class="icon icon-trash-a"></span></a></td><td><input type="hidden" name="'+name+'" value="'+image.id+'" /></td>');
 			       }
 			       else{
-			       	container.find('tr:last').empty().append('<td><span class="fa fa-ellipsis-v"></span></td><td><i class="fa fa-file uk-text-large"></i></td><td>'+image.name+'</td><td><a data-delete-row><span class="fa fa-trash"></span></a></td><td><input type="hidden" name="'+name+'" value="'+image.id+'" /></td>');
+			       	container.find('tr:last').empty().append('<td><span class="icon icon-android-more-vertical"></span></td><td><i class="icon icon-file uk-text-large"></i></td><td>'+image.name+'</td><td><a data-delete-row><span class="icon icon-trash-a"></span></a></td><td><input type="hidden" name="'+name+'" value="'+image.id+'" /></td>');
 			       }
 			    },
 
