@@ -48,7 +48,7 @@
 							<h4><%t OfferPage.WeOffer 'Wir bieten Ihnen' %></h4>
 							$Customer.ReasonWhy
 							<h4><%t OfferPage.MoreInfos 'Weitere Informationen' %></h4>
-							<div class="uk-flex">
+							<div class="uk-flex uk-flex-left">
 								<% loop Attachments %>
 								<div  class="uk-text-truncate">
 									<a href="$URL" title="Download $Title" target="_blank">$Title</a>
