@@ -233,7 +233,9 @@ class MemberProfilePageController extends PageController{
 		
 		$form->setTemplate('Forms/MissionForm');
 		$form->addExtraClass('uk-form-horizontal form-std');
-		$form->loadDataFrom($offer);
+		if ($this->getRequest()->getSession()->get('offer_id')){
+			$form->loadDataFrom($offer);
+		}
 		
 		return $form;
 	}
