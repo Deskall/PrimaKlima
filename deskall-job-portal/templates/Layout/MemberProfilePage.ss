@@ -100,14 +100,14 @@ $ElementalArea
 											<div id="modal-delete-offer-{$ID}" data-uk-modal>
 											    <div class="uk-modal-dialog">
 											        <button class="uk-modal-close-default" type="button" data-uk-close></button>
-											        <div class="uk-modal-header">
-											            <h2 class="uk-modal-title"><%t MemberPage.DeleteOfferModalTitle 'Möchten Sie dieses Angebot wirklich löschen?' %></h2>
-											        </div>
-											        <div class="uk-modal-body"><p><%t MemberPage.DeleteOfferModalBody 'Diese Löschung ist endgültig.' %></p></div>
-											        <div class="uk-modal-footer uk-text-right">
-											        	<button class="uk-button uk-button-default uk-modal-close" type="button"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></button>
-											        	<a href="{$Top.Link}inserat-loeschen/{$ID}"><i class="uk-margin-small-right" data-uk-icon="trash"></i><%t MemberPage.DeleteOffer 'Ja, löschen' %></a>
-											        </div>
+											        <div class="uk-modal-body">
+											        	<strong class="uk-modal-title"><%t MemberPage.DeleteOfferModalTitle 'Möchten Sie dieses Angebot wirklich löschen?' %></strong>
+											        	<p><%t MemberPage.DeleteOfferModalBody 'Diese Löschung ist endgültig.' %></p>
+												        <div class="uk-text-right">
+												        	<button class="uk-button uk-button-default uk-modal-close" type="button"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></button>
+												        	<a href="{$Top.Link}inserat-loeschen/{$ID}"><i class="uk-margin-small-right" data-uk-icon="trash"></i><%t MemberPage.DeleteOffer 'Ja, löschen' %></a>
+												        </div>
+												    </div>
 											    </div>
 											</div>
 											<% end_loop %>
