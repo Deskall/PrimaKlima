@@ -12,7 +12,7 @@
 				<div id="Form_ProfilForm_Logo_Holder" class="field uk-margin-small">
 					<label class="uk-form-label">Logo</label>
 					<div class="uk-form-controls">
-						$Top.Record.Logo.URL
+						$Top.Record.Logo.setWidth(300).URL
 						<% if $Top.Record.LogoID > 0 %>
 						<div class="switch-container-{$Top.Record.ID} original-container-{$Top.Record.ID} uk-position-relative">
 							<img src="<% if $Top.Record.Logo.getExtension == "svg" %>$Top.Record.Logo.URL<% else %>$Top.Record.Logo.setWidth(300).URL<% end_if %>" class="switch-this company-logo">
