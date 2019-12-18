@@ -370,7 +370,7 @@ class Mission extends DataObject
     }
 
     public function editLink(){
-        return ($this->getJobsPage()->exists()) ? $this->getJobsPage()->Link().'inserate-bearbeiten/'.$this->ID : null;
+        return ($this->Customer()->Member()->MemberPage->exists()) ? $this->getJobsPage()->Link().'inserate-bearbeiten/'.$this->ID : null;
     }
 
     public function getJobsPage(){
