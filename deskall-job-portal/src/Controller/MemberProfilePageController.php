@@ -375,6 +375,12 @@ class MemberProfilePageController extends PageController{
 	public function upload(HTTPRequest $request){
 		
 		$tmpFiles = $request->postVar('files');
+
+		ob_start();
+					print_r($tmpFiles);
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
 		
 		$tmpFile = [];
 		foreach($tmpFiles as $key => $array){
@@ -395,10 +401,6 @@ class MemberProfilePageController extends PageController{
 
 		$upload->loadIntoFile($tmpFile, $file, $tmpFolder);
 
-		ob_start();
-					print_r($upload);
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
                     // Upload check
 		if ($upload->isError()) {
