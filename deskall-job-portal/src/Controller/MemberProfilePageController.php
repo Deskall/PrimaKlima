@@ -281,31 +281,30 @@ class MemberProfilePageController extends PageController{
 			$keys = [];
 
 			foreach ($data['TempFiles'] as $id) {
-				$p = $member->Files()->byId($id);
+				$p = $offer->Attachments()->byId($id);
 				if(!$p){ 
 					$p = File::get()->byId($id);
 					if ($p){
-						$folder = Folder::find_or_make($member->generateFolderName());
+						$folder = Folder::find_or_make($offer->getFolderName());
 						$p->ParentID = $folder->ID;
 						$p->write();
 						$p->publishSingle();
 					}
-					
 				}
 				if ($p){
-					$member->Files()->add($p,['SortOrder' => $i]);
+					$offer->Attachments()->add($p,['SortOrder' => $i]);
 				}
 				$keys[] = $id;
 				$i++;
 			}
-			foreach($member->Files()->exclude('ID',$keys) as $p){
+			foreach($offer->Attachments()->exclude('ID',$keys) as $p){
 				$p->File->deleteFile();
                 DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
 				$p->delete();
 			}
 		}
 		else{
-			foreach($member->Files() as $p){
+			foreach($offer->Attachments() as $p){
 				$p->File->deleteFile();
                 DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
 				$p->delete();

@@ -101,6 +101,10 @@ class Mission extends DataObject
         'Attachments' => File::class
     ];
 
+    private static $many_many_extraFields = [
+        'Attachments' => ['SortOrder' => 'Int']
+    ];
+
 
     private static $summary_fields = [
         'NiceStatus' => ['title' => 'Status'],
@@ -316,7 +320,7 @@ class Mission extends DataObject
             DateField::create('Start',$this->fieldLabels()['Start'])->setAttribute('class','uk-input'),
             DateField::create('End',$this->fieldLabels()['End'])->setAttribute('class','uk-input'),
             HTMLEditorField::create('Description',$this->fieldLabels()['Description']),
-            SortableUploadField::create('Files',$this->fieldLabels()['Files'])->setIsMultiUpload(true),
+            SortableUploadField::create('Attachments',$this->fieldLabels()['Attachments'])->setIsMultiUpload(true),
             HiddenField::create('ImageID')
         );
 
