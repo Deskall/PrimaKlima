@@ -96,7 +96,7 @@ $ElementalArea
 											<thead></th><th><%t MemberPage.OffersTableTH2 'Titel' %></th><th><%t MemberPage.OffersTableTH2 'Schaltungsdauer' %></th><th><%t MemberPage.OffersTableTH3 'Anzahl Bewerbungen' %></th><th><%t MemberPage.OffersTableTH1 'Status' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
 											<tbody>
 											<% loop CurrentCustomer.Missions %>
-											<tr><td class="uk-table-expand">$Title</td><td>$RunTimeTitle</td><td>$Candidatures.count</td><td>$Status</td><td><a href="$previewLink" target="_blank"><i class="icon icon-eye"></i></a></td><td><a href="{$Top.Link}inserat-bearbeiten/{$ID}" target="_blank"><i class="icon icon-edit"></i></a></td><td><a href="#modal-delete-offer-{$ID}"><i class="icon icon-trash-a"></i></a></td></tr>
+											<tr><td class="uk-table-expand">$Title</td><td>$RunTimeTitle</td><td>$Candidatures.count</td><td>$Status</td><td><a href="$previewLink" target="_blank"><i class="icon icon-eye"></i></a></td><td><a href="{$Top.Link}inserat-bearbeiten/{$ID}" target="_blank"><i class="icon icon-edit"></i></a></td><td><a href="#modal-delete-offer-{$ID}" data-uk-toggle><i class="icon icon-trash-a"></i></a></td></tr>
 											<div id="modal-delete-offer-{$ID}" data-uk-modal>
 											    <div class="uk-modal-dialog">
 											        <button class="uk-modal-close-default" type="button" data-uk-close></button>
