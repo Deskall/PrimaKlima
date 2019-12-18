@@ -382,11 +382,16 @@ class MemberProfilePageController extends PageController{
 					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
 
-		
-		$tmpFile = [];
-		foreach($tmpFiles as $key => $array){
-			$tmpFile[$key] = $array[0];
+		if (is_array($tmpFiles['name'])){
+			$tmpFile = [];
+			foreach($tmpFiles as $key => $array){
+				$tmpFile[$key] = $array[0];
+			}
 		}
+		else{
+			$tmpFile = $tmpFiles;
+		}
+		
 
 		$tmpFolder = "Uploads/tmp";
 		Folder::find_or_make($tmpFolder);
