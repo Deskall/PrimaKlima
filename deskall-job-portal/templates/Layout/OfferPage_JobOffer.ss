@@ -47,6 +47,7 @@
 							$Description
 							<h4><%t OfferPage.WeOffer 'Wir bieten Ihnen' %></h4>
 							$Customer.ReasonWhy
+							<% if Attachments.exists %>
 							<h5><%t OfferPage.MoreInfos 'Weitere Informationen' %></h5>
 							<% loop Attachments %>
 							<div class="uk-margin">
@@ -55,6 +56,7 @@
 								</div>
 							</div>
 							<% end_loop %>
+							<% end_if %>
 						</div>
 					</div>
 				</div>
