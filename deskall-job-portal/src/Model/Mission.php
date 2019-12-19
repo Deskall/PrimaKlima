@@ -448,8 +448,7 @@ class Mission extends DataObject
             $this->write();
             //update order
             $order = $this->Customer()->activeOrder();
-            $offers = $order->RemainingOffers - 1;
-            $order->RemainingOffers = 2;
+            $order->RemainingOffers = $order->RemainingOffers - 1;
             $order->write(); 
         }
     }
