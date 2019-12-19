@@ -71,6 +71,12 @@
 							<% if Customer.Logo %>
 							<div class="uk-width-auto company-logo">
 								<div class="uk-margin-small"><img src="$Customer.Logo.URL" alt="Logo von $Customer.Company" width="250"></div>
+								<div class="uk-margin-small">
+									<ul data-uk-nav>
+										<li><a href="$Customer.Link"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a></li>
+										<li><a href"$Customer.JobsLink"><%t OfferPage.Jobs 'Jobs' %> $Customer.Missions.count</a></li>
+									</ul>
+								</div>
 								<div class="uk-margin-small"><a href="$Customer.Link"><i class="icon icon-chevron-right uk-margin-small-right uk-text-small"></i><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a></div>
 								<div class="uk-margin-small"><a href"$Customer.JobsLink"><i class="icon icon-chevron-right uk-margin-small-right uk-text-small"></i><%t OfferPage.Jobs 'Jobs' %> $Customer.Missions.count</a></div>
 							</div>
