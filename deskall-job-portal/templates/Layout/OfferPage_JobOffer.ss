@@ -85,6 +85,25 @@
 							<% if $Customer.URL %>
 							<a href="$Customer.URL" target="_blank" rel="nofollow" title="Website von $Customer.Company"><i data-uk-icon="world"></i></a>
 							<% end_if %>
+							<% if $Customer.SocialFacebook %>
+							<a href="$Customer.SocialFacebook" target="_blank" rel="nofollow" title="Facebook von $Customer.Company"><i data-uk-icon="facebook"></i></a>
+							<% end_if %>
+							<% if $Customer.SocialTwitter %>
+							<a href="$Customer.SocialTwitter" target="_blank" rel="nofollow" title="Twitter von $Customer.Company"><i data-uk-icon="twitter"></i></a>
+							<% end_if %>
+							<% if $Customer.SocialXing %>
+							<a href="$Customer.SocialXing" target="_blank" rel="nofollow" title="Xing von $Customer.Company"><i data-uk-icon="xing"></i></a>
+							<% end_if %>
+							<% if $Customer.SocialLinkedin %>
+							<a href="$Customer.SocialLinkedin" target="_blank" rel="nofollow" title="Linkedin von $Customer.Company"><i data-uk-icon="linkedin"></i></a>
+							<% end_if %>
+							<% if $Customer.SocialInstagram %>
+							<a href="$Customer.SocialInstagram" target="_blank" rel="nofollow" title="Instagram von $Customer.Company"><i data-uk-icon="instagram"></i></a>
+							<% end_if %>
+							<% if $Customer.SocialPinterest %>
+							<a href="$Customer.SocialPinterest" target="_blank" rel="nofollow" title="Pinterest von $Customer.Company"><i data-uk-icon="pinterest"></i></a>
+							<% end_if %>
+							
 						</div>
 					</div>
 				</div>
