@@ -54,6 +54,8 @@ class JobGiver extends DataObject
         'SocialTwitter' => 'Varchar(255)',
         'SocialInstagram' => 'Varchar(255)',
         'SocialPinterest' => 'Varchar(255)',
+        'SocialXing' => 'Varchar(255)',
+        'SocialLinkedin' => 'Varchar(255)',
         'ContactPersonFirstName' => 'Varchar(255)',
         'ContactPersonSurname' => 'Varchar(255)',
         'ContactPersonTelephone' => 'Varchar(255)',
@@ -127,6 +129,8 @@ class JobGiver extends DataObject
     $labels['SocialTwitter'] = _t(__CLASS__.'.SocialTwitter','Twitter');
     $labels['SocialInstagram'] = _t(__CLASS__.'.SocialInstagram','Instagram');
     $labels['SocialPinterest'] = _t(__CLASS__.'.SocialPinterest','Pinterest');
+    $labels['SocialXing'] = _t(__CLASS__.'.SocialXing','Xing');
+    $labels['SocialLinkedin'] = _t(__CLASS__.'.SocialLinkedin','Linkedin');
     $labels['ContactPersonTelephone'] = _t(__CLASS__.'.ContactPersonTelephone','Telefon');
     $labels['ContactPersonMobile'] = _t(__CLASS__.'.ContactPersonMobile','Mobil');
     $labels['ContactPersonEmail'] = _t(__CLASS__.'.ContactPersonEmail','E-Mail');
@@ -250,7 +254,9 @@ class JobGiver extends DataObject
                 TextField::create('SocialFacebook', $this->fieldLabels()['SocialFacebook']), 
                 TextField::create('SocialTwitter', $this->fieldLabels()['SocialTwitter']), 
                 TextField::create('SocialInstagram', $this->fieldLabels()['SocialInstagram']), 
-                TextField::create('SocialPinterest',$this->fieldLabels()['SocialPinterest']) 
+                TextField::create('SocialPinterest',$this->fieldLabels()['SocialPinterest']),
+                TextField::create('SocialXing', $this->fieldLabels()['SocialXing']), 
+                TextField::create('SocialLinkedin',$this->fieldLabels()['SocialLinkedin'])  
             )->setname('OnlineFields'),
             
 
