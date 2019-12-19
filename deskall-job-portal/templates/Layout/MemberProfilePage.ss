@@ -47,6 +47,7 @@ $ElementalArea
 											<thead></th><th><%t MemberPage.OrdersTableTH2 'Paket' %></th><th><%t MemberPage.OrdersTableTH2 'Gültig bis' %></th><th><%t MemberPage.OrdersTableTH3 'Verbleibende Anzeige' %></th></thead>
 											<tbody>
 											<% with CurrentCustomer.activeOrder %>
+											$LastEdited
 											<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td>$EndValidity.Nice</td><td>$RemainingOffers</td></tr>
 											<% end_with %>
 											</tbody>
