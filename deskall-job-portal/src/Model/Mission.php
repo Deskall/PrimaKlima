@@ -444,7 +444,7 @@ class Mission extends DataObject
     public function publish(){
         if ($this->canPublish()){
             $this->isActive = true;
-            $this->PublishedDate = date('d.m.Y');
+            $this->PublishedDate = date('d.m.Y H:i');
             $this->write();
             //update order
             $this->Customer()->activeOrder()->RemainingOffers = $this->Customer()->activeOrder()->RemainingOffers - 1;
