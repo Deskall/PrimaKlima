@@ -447,9 +447,10 @@ class Mission extends DataObject
             $this->PublishedDate = date('d.m.Y H:i');
             $this->write();
             //update order
-            $offers = $this->Customer()->activeOrder()->RemainingOffers - 1;
-            $this->Customer()->activeOrder()->RemainingOffers = $offers;
-            $this->Customer()->activeOrder()->write(); 
+            $order = $this->Customer()->activeOrder();
+            $offers = $order->RemainingOffers - 1;
+            $order->RemainingOffers = 2;
+            $order->write(); 
         }
     }
 
