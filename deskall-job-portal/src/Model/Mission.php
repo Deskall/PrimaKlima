@@ -444,6 +444,7 @@ class Mission extends DataObject
     public function publish(){
         if ($this->canPublish()){
             $this->isActive = true;
+            $this->PublishedDate = new \DateTime();
             $this->write();
         }
     }
