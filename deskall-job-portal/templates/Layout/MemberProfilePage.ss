@@ -40,7 +40,7 @@ $ElementalArea
 								<div class="member-section-container">
 									$PaymentTabHTML
 									<div class="uk-margin">
-										<% if CurrentCustomer.activeOrder %>
+										<%-- <% if CurrentCustomer.activeOrder %>
 										<h4><%t MemberPage.MoreTitle 'Inserate verfügbar' %></h4>
 										<p><%t MemberPage.OffersAvailable 'Ihr Abonnement ist aktiv, Sie durfen Inserate jetzt freischalten!' %></p>
 										<table class="uk-table uk-table-small uk-table-justify">
@@ -59,7 +59,7 @@ $ElementalArea
 											<p><%t MemberPage.NoMore 'Achtung, Sie können derzeit keine neuen Inserate mehr schalten.<br>Bestellen Sie ein neues Paket, um neuen Inserate zu freischatlen.' %></p>
 											<a class="uk-button uk-button-primary" href="$ShopPage.Link"><%t Payment.OrderPackage 'jetzt Paket bestellen' %></a>
 											<% end_if %>
-										<% end_if %>
+										<% end_if %> --%>
 									</div>
 									<% if CurrentCustomer.Orders.exists %>
 									<div class="uk-margin uk-overflow-auto">
@@ -84,11 +84,11 @@ $ElementalArea
 									$OffersTabHTML
 								</div>
 								<div class="toggle-new-offer">
-									<% if CurrentCustomer.activeOrder %>
+									<%-- <% if CurrentCustomer.activeOrder %>
 									<a id="new-offer" class="uk-button uk-button-primary" data-uk-toggle=".toggle-new-offer"><%t Offer.Create 'jetzt neu Inserat erfassen' %></a>
 									<% else %>
 									<p><%t MemberPage.CannotPublish 'Sie können derzeit keine Inserate freischalten. Sie können aber dennoch Inserate als Entwurf erfassen und zu einem späteren Zeitpunkt freischalten.' %></p>
-									<% end_if %>
+									<% end_if %> --%>
 									<% if CurrentCustomer.Missions.exists %>
 									<div class="uk-margin uk-overflow-auto">
 										<h4><%t MemberPage.OffersTitle 'Meine Inserate' %></h4>
