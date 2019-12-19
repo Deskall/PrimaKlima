@@ -81,6 +81,12 @@
 								$Customer.Description
 							</div>
 						</div>
+						<div class="uk-flex uk-flex-center" data-uk-grid>
+							<% if $Customer.URL %>
+							<a href="$Customer.URL" target="_blank" rel="nofollow" title="Website von $Customer.Company"><i data-uk-icon="world"></i></a>
+							<% end_if %>
+						</div>
+					</div>
 				</div>
 				<% end_with %>
 	</div>
