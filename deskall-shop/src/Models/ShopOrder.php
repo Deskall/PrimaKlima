@@ -85,6 +85,9 @@ class ShopOrder extends DataObject{
 		if ($this->ID == 0){
 			$this->Initiate();
 		}
+		if ($this->RemainingOffers == 0){
+			$this->isActive = false;
+		}
 	}
 
 	public function Initiate(){
