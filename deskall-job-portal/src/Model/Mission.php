@@ -432,6 +432,9 @@ class Mission extends DataObject
         if ($this->isClosed || $this->isActive){
             return false;
         }
+        else if (!$this->Customer()->activeOrder()){
+          return false;
+        }
         else{
             $member = Security::getCurrentUser();
             if ($this->Customer()->MemberID == $member->ID){
