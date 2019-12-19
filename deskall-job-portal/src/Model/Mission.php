@@ -447,10 +447,19 @@ class Mission extends DataObject
             $this->PublishedDate = date('d.m.Y H:i');
             $this->write();
             //update order
+            ob_start();
+                  print_r($this->Customer()->activeOrder()->ID."\n");
+                  print_r($this->Customer()->activeOrder()->RemainingOffers."\n");
+                 
             $offers = $this->Customer()->activeOrder()->RemainingOffers;
+
             $offers--;
+            print_r($offers."\n");
             $this->Customer()->activeOrder()->RemainingOffers = $offers;
-            $this->Customer()->activeOrder()->write();
+            $this->Customer()->activeOrder()->write(); 
+            print_r($this->Customer()->activeOrder()->RemainingOffers."\n");
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         }
     }
 
