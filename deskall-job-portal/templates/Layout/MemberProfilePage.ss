@@ -21,7 +21,7 @@ $ElementalArea
 								<h2><%t JobGiver.AccountTitle 'Adressangaben' %></h2>
 								<div class="member-section-container">
 									$AccountTabHTML
-									<%-- $AccountForm --%>
+									$AccountForm
 								</div>
 							</div>
 						</li>
@@ -30,7 +30,7 @@ $ElementalArea
 								<h2><%t JobGiver.ProfilTitle 'Firmenporträt' %></h2>
 								<div class="member-section-container">
 									$ProfilTabHTML
-									<%-- $ProfilForm --%>
+									$ProfilForm
 								</div>
 							</div>
 						</li>
@@ -131,7 +131,7 @@ $ElementalArea
 								</div>
 								<div id="offer-form-container" class="toggle-new-offer" hidden>
 									<a class="uk-button uk-button-muted" data-uk-toggle="target:.toggle-new-offer"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
-									<%-- $JobOfferForm --%>
+									$JobOfferForm
 								</div>
 								<div id="edit-form-container" hidden>
 									
