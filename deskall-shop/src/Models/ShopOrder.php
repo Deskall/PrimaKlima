@@ -91,6 +91,10 @@ class ShopOrder extends DataObject{
 	}
 
 	public function Initiate(){
+		ob_start();
+					print_r('is inititated');
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 		if ($this->isPaid){
 			$start = new \DateTime();
 			$this->StartValidity = $start->format('d.m.Y');
