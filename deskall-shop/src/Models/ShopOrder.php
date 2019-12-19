@@ -79,10 +79,7 @@ class ShopOrder extends DataObject{
 
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
-		ob_start();
-					print_r('is written');
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+	
 		if (!$this->Nummer){
 			$this->generateNummer();
 		}
