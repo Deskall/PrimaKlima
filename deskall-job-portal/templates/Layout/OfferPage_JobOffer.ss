@@ -70,9 +70,9 @@
 						<div class="uk-flex uk-flex-middle" data-uk-grid>
 							<% if Customer.Logo %>
 							<div class="uk-width-auto company-logo">
-								<div><img src="$Customer.Logo.URL" alt="Logo von $Customer.Company" width="250"></div>
-								<div><a href="$Customer.Link"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a></div>
-								<div><a href"$Customer.JobsLink"><%t OfferPage.Jobs 'Jobs' %> $Customer.Missions.count</a></div>
+								<div class="uk-margin-small"><img src="$Customer.Logo.URL" alt="Logo von $Customer.Company" width="250"></div>
+								<div class="uk-margin-small"><a href="$Customer.Link" data-uk-icon="chevron-right"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a></div>
+								<div class="uk-margin-small"><a href"$Customer.JobsLink" data-uk-icon="chevron-right"><%t OfferPage.Jobs 'Jobs' %> $Customer.Missions.count</a></div>
 							</div>
 							<% end_if %>
 							<div class="uk-width-expand company-address">
