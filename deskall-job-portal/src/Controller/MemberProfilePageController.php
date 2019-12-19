@@ -270,10 +270,6 @@ class MemberProfilePageController extends PageController{
 			$offer = Mission::get()->byId($id);
 			if ($offer){
 				$offer->publish();
-				//update order
-				$offers = $offer->Customer()->activeOrder()->RemainingOffers - 1;
-				$offer->Customer()->activeOrder()->RemainingOffers = $offers;
-				$offer->Customer()->activeOrder()->write(); 
 			}
 		}
 		return $this->redirectBack();
