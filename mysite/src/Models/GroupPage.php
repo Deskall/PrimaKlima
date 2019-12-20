@@ -4,7 +4,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\ArrayList;
 
-// include_once(Director::baseFolder( ).'/beyond-api/beyond_jsonKurse.php');
+include_once('../../../beyond-api/beyond_jsonKurse.php');
 
 
 class GroupPage extends Page {
