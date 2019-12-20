@@ -1,0 +1,3 @@
+BaseBlockExtension:
+  blocks:
+    - CourseListBlock
