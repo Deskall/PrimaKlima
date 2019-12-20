@@ -6,7 +6,7 @@
 				<% if Children %>
 				<ul class="uk-nav-default uk-nav uk-nav-parent-icon" data-uk-nav>
 					<% loop $Children %>
-					<li class="$LinkingMode <% if Children.exists %>uk-parent<% end_if %> <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %> $ExtraMenuClass" >
+					<li class="$LinkingMode <% if Children.exists %>uk-parent<% end_if %> <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active uk-open<% end_if %> $ExtraMenuClass" >
 						<a href="$Link" title="$Title.XML" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %>>$MenuTitle.XML</a>
 						<% if Children %>
 						<ul class="uk-nav-sub">
