@@ -18,7 +18,7 @@ class CourseListBlock extends BaseElement implements Searchable
 
     private static $help_text = "Kurse List";
 
-    private static $table_name = 'CourseListBlock';
+    private static $table_name = 'CourseInfoBlock';
 
     private static $singular_name = 'Kurse List Block';
 
@@ -72,5 +72,13 @@ class CourseListBlock extends BaseElement implements Searchable
             return array('Title');
         }
 
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array('Title');
+        }
     /************ END SEARCHABLE ***************************/
 }
