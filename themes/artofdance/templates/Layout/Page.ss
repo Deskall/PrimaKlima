@@ -1,3 +1,4 @@
+	<% if $ID > 0 %>
 	<section class="uk-section uk-section-small">
 		<div class="uk-container">
 			<div class="uk-grid-small uk-grid-match" data-uk-grid>
@@ -12,8 +13,7 @@
 			</div>
 		</div>
 	</section>
-	
-	<% if $ID < 0 %> 
+	<% else %>
 		<% if Form || Content %>
 		<section class="uk-section">
 			<div class="uk-container">
