@@ -1,4 +1,4 @@
-	<section class="uk-section-small uk-padding-remove-top">
+	<section class="uk-section uk-section-small">
 		<div class="uk-container">
 			<div class="uk-grid-small uk-grid-match" data-uk-grid>
 				<div class="uk-width-1-4@m uk-width-1-5@l uk-visible@m">
