@@ -24,7 +24,7 @@ class CoursePageController extends Extension
      			);
      		}
     }
-        return $this->httpError(404);
+        return $this->owner->httpError(404);
 	}
 
 }
