@@ -1,6 +1,6 @@
              <div class="dk-text-content $TextAlign  $TextColumns  uk-overflow-auto <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
               <% if getLessons %>
-              <table class="kurse-table uk-table">
+              <table class="kurse-table">
                <thead>
                  <tr>
                    <th>Kurs-Nr.</th>
