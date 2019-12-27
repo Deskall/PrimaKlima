@@ -1,11 +1,8 @@
 <?php
 
-use SilverStripe\Core\Extension;
-use SilverStripe\Control\Director;
-use SilverStripe\ORM\FieldType\DBHTMLText;
-use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\View\ArrayData;
 
-class CoursePageControllerExtension extends Extension
+class CoursePageController extends PageController
 {
    private static $allowed_actions = ['kursDetails','SendKurseForm'];
 
