@@ -10,7 +10,7 @@
 				<div class="uk-width-3-4@m uk-width-4-5@l">
 					   <div class="uk-flex uk-flex-left"><a href="$Parent.Link" class="uk-link uk-margin-small-right">$Parent.MenuTitle</a>»<a href="$Link" class="uk-link uk-margin-small-right uk-margin-small-left">$kursData.GruppenTitel</a>»<span class="uk-margin-small-left">$kursData.KursIDTitelDatumVonDatumBis</span></div>
 					      <h1>$Title</h1>
-					      <table class="uk-table uk-table-small">
+					      <table class="uk-table uk-table-small uk-table-striped">
 					      	<% if $kursData.DatumVonDatumBis %><tr><td class="uk-table-shrink"><i class="icon icon-calendar"></i></td><td>$kursData.DatumVonDatumBis (<% if $kursData.AnzahlLektionen > 0 %>$kursData.AnzahlLektionen * <% end_if %>$kursData.DauerMinuten min)</td></tr>
 					      	<% end_if %>
 					      	<% if $kursData.ZeitVonZeitBis %><tr><td class="uk-table-shrink"><i class="icon icon-clock"></i></td><td>$kursData.WochentagLang - $kursData.ZeitVonZeitBis</td></tr>
