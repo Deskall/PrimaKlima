@@ -14,7 +14,6 @@ class CoursePageController extends Extension
 
 	public function kursDetails(HTTPRequest $request){
 		$KursID = $request->param('ID');
-    print_r('ici');
 		if ($KursID){
       		$Api = new beyond_jsonKurse();
      		$data = $Api->getKurse(null,$KursID);
@@ -24,7 +23,7 @@ class CoursePageController extends Extension
      				'Title' => $data[0]->Titel
      			);
      		}
-      	}
+    }
         return $this->httpError(404);
 	}
 
