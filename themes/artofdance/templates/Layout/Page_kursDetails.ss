@@ -8,7 +8,7 @@
 					</aside>
 				</div>
 				<div class="uk-width-3-4@m uk-width-4-5@l">
-					    $MainGroup.Bezeichnung / <a href="$Link">$kursData.GruppenTitel</a> / $kursData.KursIDTitelDatumVonDatumBis
+					   <div class="uk-flex uk-flex-left">$MainGroup.Bezeichnung / <a href="$Link">$kursData.GruppenTitel</a> / $kursData.KursIDTitelDatumVonDatumBis</div>
 					      <h1>$Title</h1>
 					      <div class="main-data">
 					        <% if $kursData.DatumVonDatumBis %>
