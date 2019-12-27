@@ -22,44 +22,14 @@
 					      	<% if $kursData.SaalID %><tr><td class="uk-table-shrink"><i class="icon icon-location"></i></td><td>Saal: $kursData.SaalBezeichnung</td></tr>
 					      	<% end_if %>
 					      </table>
-					      <div class="main-data">
-					        <% if $kursData.DatumVonDatumBis %>
-					      	<div class="item">
-					      		<i class="icon icon-calendar"></i> 
-					      		$kursData.DatumVonDatumBis (<% if $kursData.AnzahlLektionen > 0 %>$kursData.AnzahlLektionen * <% end_if %>$kursData.DauerMinuten min)
-					      	</div>
-					        <% end_if %>
-					        <% if $kursData.ZeitVonZeitBis %>
-					        <div class="item">
-					          <i class="icon icon-clock"></i> 
-					          $kursData.WochentagLang - $kursData.ZeitVonZeitBis
-					        </div>
-					        <% end_if %>
-					        <% if $kursData.PreisPaarPerson %>
-					        <div class="item">
-					          <i class="icon icon-cash"></i> 
-					          Kosten: $kursData.PreisPaarPerson
-					        </div>
-					        <% end_if %>
-					        <% if $kursData.LehrerID %>
-					      	<div class="item">
-					      		<i class="icon icon-ios-people"></i> 
-					      		Kursleitung: $kursData.LehrerVorname $kursData.LehrerNachname
-					      	</div>
-					        <% end_if %>
-					        <% if $kursData.SaalID %>
-					      	<div class="item">
-					      		<i class="icon icon-location"></i> 
-					      		Saal: $kursData.SaalBezeichnung
-					      	</div>
-					        <% end_if %>
+					     
 					      	<div class="lead-block">
 					      		<p>$kursData.GruppenText</p>
 					      	</div>
 					      	<div>
 					      		<p>$kursData.KursText</p>
 					      	</div>
-					    </div>
+					   
 					    <% if $kursData.Text %>
 					    <div class="text-block">
 					      $kursData.Text
