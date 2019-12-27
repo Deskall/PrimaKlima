@@ -8,7 +8,7 @@
 					</aside>
 				</div>
 				<div class="uk-width-3-4@m uk-width-4-5@l">
-					   <div class="uk-flex uk-flex-left"><a href="$Parent.Link" class="uk-link uk-margin-small-right">$Parent.MenuTitle</a>»<a href="$Link" class="uk-link uk-margin-small-right uk-margin-small-left">$kursData.GruppenTitel</a>»$kursData.KursIDTitelDatumVonDatumBis</div>
+					   <div class="uk-flex uk-flex-left"><a href="$Parent.Link" class="uk-link uk-margin-small-right">$Parent.MenuTitle</a>»<a href="$Link" class="uk-link uk-margin-small-right uk-margin-small-left">$kursData.GruppenTitel</a>»<span class="uk-margin-small-left">$kursData.KursIDTitelDatumVonDatumBis</span></div>
 					      <h1>$Title</h1>
 					      <div class="main-data">
 					        <% if $kursData.DatumVonDatumBis %>
