@@ -1,6 +1,7 @@
 <?php
 
 use SilverStripe\View\ArrayData;
+use SilverStripe\Control\HTTPRequest;
 
 class CoursePageController extends PageController
 {
@@ -10,7 +11,7 @@ class CoursePageController extends PageController
 	    'kurs-details/$ID' => 'kursDetails'
 	];
 
-	public function kursDetails(SS_HTTPRequest $request){
+	public function kursDetails(HTTPRequest $request){
 		$KursID = $request->param('ID');
 		if ($KursID){
       		$Api = new beyond_jsonKurse();
