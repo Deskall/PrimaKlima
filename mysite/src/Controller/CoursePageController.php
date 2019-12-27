@@ -2,8 +2,9 @@
 
 use SilverStripe\View\ArrayData;
 use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Core\Extension;
 
-class CoursePageController extends PageController
+class CoursePageController extends Extension
 {
    private static $allowed_actions = ['kursDetails','SendKurseForm'];
 

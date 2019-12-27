@@ -1,3 +1,7 @@
 BaseBlockExtension:
   blocks:
     - CourseListBlock
+
+PageController:
+  extensions:
+    - CoursePageController
