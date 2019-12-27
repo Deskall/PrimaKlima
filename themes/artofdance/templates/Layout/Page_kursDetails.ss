@@ -55,7 +55,7 @@
 					    <% end_if %>
 					    <% if ${kursData.istAnmeldungMöglich} %>
 							  <div class="form-block">
-					        <form action="{$Link}SendKurseForm" method="post" class="form-std uk-form-horizontal uk-background-muted">
+					        <form action="{$Link}SendKurseForm" method="post" class="form-std uk-form-horizontal uk-background-muted uk-padding-small">
 					          <div class="col w-12">
 					            <h2>Kursanmeldung</h2>
 					            <div><p>Die Online-Anmeldung ist verbindlich.</p></div>
