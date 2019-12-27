@@ -114,7 +114,7 @@
 					          </div>
 					          <div class="col w-12">
 					            <div class="g-recaptcha" data-sitekey="6LdIp6gUAAAAANwnrU-l3IF5ukVbEIDH7L5UpKKu" data-size="invisible"></div>
-					    			  <button><% if TextButton %>$TextButton<% else %><%t FormKursBlock.SEND 'Jetzt anmelden' %><% end_if %><% include DefaultIcon %></button>
+					    			  <button><% if TextButton %>$TextButton<% else %><%t FormKursBlock.SEND 'Jetzt anmelden' %><% end_if %></button>
 					          </div>
 								</form>
 							</div>
