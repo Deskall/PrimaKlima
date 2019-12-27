@@ -113,7 +113,7 @@
 					              <label><input type="checkbox" class="uk-checkbox" name="acceptance" required />Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der Datenschutzerklärung. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt.</label>
 					            </div>
 					          </div>
-					          <div class="col w-12">
+					          <div class="uk-text-right">
 					            <div class="g-recaptcha" data-sitekey="6LdIp6gUAAAAANwnrU-l3IF5ukVbEIDH7L5UpKKu" data-size="invisible"></div>
 					    			  <button class="uk-button uk-button-primary"><% if TextButton %>$TextButton<% else %><%t FormKursBlock.SEND 'Jetzt anmelden' %><% end_if %></button>
 					          </div>
