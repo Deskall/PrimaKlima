@@ -11,15 +11,15 @@
 					   <div class="uk-flex uk-flex-left"><a href="$Parent.Link" class="uk-link uk-margin-small-right">$Parent.MenuTitle</a>»<a href="$Link" class="uk-link uk-margin-small-right uk-margin-small-left">$kursData.GruppenTitel</a>»<span class="uk-margin-small-left">$kursData.KursIDTitelDatumVonDatumBis</span></div>
 					      <h1>$Title</h1>
 					      <table class="uk-table uk-table-small">
-					      	<% if $kursData.DatumVonDatumBis %><tr><td><i class="icon icon-calendar"></i></td><td>$kursData.DatumVonDatumBis (<% if $kursData.AnzahlLektionen > 0 %>$kursData.AnzahlLektionen * <% end_if %>$kursData.DauerMinuten min)</td></tr>
+					      	<% if $kursData.DatumVonDatumBis %><tr><td class="uk-table-shrink"><i class="icon icon-calendar"></i></td><td>$kursData.DatumVonDatumBis (<% if $kursData.AnzahlLektionen > 0 %>$kursData.AnzahlLektionen * <% end_if %>$kursData.DauerMinuten min)</td></tr>
 					      	<% end_if %>
-					      	<% if $kursData.ZeitVonZeitBis %><tr><td><i class="icon icon-clock"></i></td><td>$kursData.WochentagLang - $kursData.ZeitVonZeitBis</td></tr>
+					      	<% if $kursData.ZeitVonZeitBis %><tr><td class="uk-table-shrink"><i class="icon icon-clock"></i></td><td>$kursData.WochentagLang - $kursData.ZeitVonZeitBis</td></tr>
 					      	<% end_if %>
-					      	<% if $kursData.PreisPaarPerson %><tr><td><i class="icon icon-cash"></i></td><td>Kosten: $kursData.PreisPaarPerson</td></tr>
+					      	<% if $kursData.PreisPaarPerson %><tr><td class="uk-table-shrink"><i class="icon icon-cash"></i></td><td>Kosten: $kursData.PreisPaarPerson</td></tr>
 					      	<% end_if %>
-					      	<% if $kursData.LehrerID %><tr><td><i class="icon icon-ios-people"></i></td><td>Kursleitung: $kursData.LehrerVorname $kursData.LehrerNachname</td></tr>
+					      	<% if $kursData.LehrerID %><tr><td class="uk-table-shrink"><i class="icon icon-ios-people"></i></td><td>Kursleitung: $kursData.LehrerVorname $kursData.LehrerNachname</td></tr>
 					      	<% end_if %>
-					      	<% if $kursData.SaalID %><tr><td><i class="icon icon-location"></i></td><td>Saal: $kursData.SaalBezeichnung</td></tr>
+					      	<% if $kursData.SaalID %><tr><td class="uk-table-shrink"><i class="icon icon-location"></i></td><td>Saal: $kursData.SaalBezeichnung</td></tr>
 					      	<% end_if %>
 					      </table>
 					      <div class="main-data">
