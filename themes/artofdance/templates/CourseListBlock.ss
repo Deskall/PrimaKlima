@@ -23,7 +23,7 @@
                    <td><% if $AnzahlLektionen > 0 %>$AnzahlLektionen * <% end_if %>$DauerMinuten min</td>
                    <td>Fr. $PreisPerson</td>
                    <td>$LehrerVorname $LehrerNachname</td>
-                   <td><a href="{$Top.Level(1).Link}kurs-details/$KursID.URLATT">Hier Clicken</a></td>
+                   <td><a href="{$Top.getPage.Link}kurs-details/$KursID.URLATT">Hier Clicken</a></td>
                  </tr>
                  <% end_loop %>
                </tbody>
