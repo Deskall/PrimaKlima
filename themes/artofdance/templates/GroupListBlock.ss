@@ -8,6 +8,7 @@
 		        	<% loop Children %>
 		        	    <div class="list-item uk-margin-top">
 		        	        <a class="$TitleAlign">$Title</a>
+		        	        $ElementalArea.ID
 		        	        <% with ElementalArea.Elements.first %>
 		        	        $ID
 		        	        <div>
