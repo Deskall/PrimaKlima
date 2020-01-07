@@ -50,7 +50,7 @@ class CoursePageController extends Extension
     public function RegisterForm(){
         $KurseID = $this->owner->getRequest()->getSession()->get('course_id');
 
-        $actions = new FieldList(FormAction::create('doRegister', _t('CourseRegistration.Register', 'Jetzt anmelden'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent(_t('CourseRegistration.Register', 'Jetzt anmelden')));
+        $actions = new FieldList(FormAction::create('doRegister', _t('CourseRegistration.Register', 'Jetzt anmelden'))->addExtraClass('uk-button PrimaryBackground uk-button-large')->setUseButtonTag(true)->setButtonContent(_t('CourseRegistration.Register', 'Jetzt anmelden')));
 
         $fields = FieldList::create(
             CompositeField::create(
@@ -87,7 +87,7 @@ class CoursePageController extends Extension
 
     public function RegisterCoupleForm(){
         $KurseID = $this->owner->getRequest()->getSession()->get('course_id');
-        $actions = new FieldList(FormAction::create('doRegisterCouple', _t('CourseRegistration.Register', 'Jetzt anmelden'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent(_t('CourseRegistration.Register', 'Jetzt anmelden')));
+        $actions = new FieldList(FormAction::create('doRegisterCouple', _t('CourseRegistration.Register', 'Jetzt anmelden'))->addExtraClass('uk-button PrimaryBackground uk-button-large')->setUseButtonTag(true)->setButtonContent(_t('CourseRegistration.Register', 'Jetzt anmelden')));
 
         $agb = new DBHTMLText();
         $agb->setValue('<a href="ueber-uns/agb" target="_blank">AGB</a>\'s gelesen');
