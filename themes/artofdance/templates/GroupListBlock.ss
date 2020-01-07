@@ -5,7 +5,7 @@
 		    <li>
 		        <a class="uk-accordion-title">$Title</a>
 		        <div class="uk-accordion-content">
-		        	<% with Elements.Elements.first %>
+		        	<% with ElementalArea.Elements.first %>
 		        	    <div class="list-item uk-margin-top">
 		        	        <a class="$TitleAlign">$Title</a>
 		        	        $ID
