@@ -48,7 +48,7 @@ class CoursePageController extends Extension
 	}
 
     public function RegisterForm(){
-        $KurseID = $this->getRequest()->getSession()->get('course_id');
+        $KurseID = $this->owner->getRequest()->getSession()->get('course_id');
 
         $actions = new FieldList(FormAction::create('doRegister', _t('CourseRegistration.Register', 'Jetzt anmelden'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('CourseRegistration.Register', 'Jetzt anmelden')));
 
@@ -86,7 +86,7 @@ class CoursePageController extends Extension
     }
 
     public function RegisterCoupleForm(){
-        $KurseID = $this->getRequest()->getSession()->get('course_id');
+        $KurseID = $this->owner->getRequest()->getSession()->get('course_id');
         $actions = new FieldList(FormAction::create('doRegisterCouple', _t('CourseRegistration.Register', 'Jetzt anmelden'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('CourseRegistration.Register', 'Jetzt anmelden')));
 
         $agb = new DBHTMLText();
