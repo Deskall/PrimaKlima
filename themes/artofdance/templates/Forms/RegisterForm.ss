@@ -6,8 +6,8 @@
 	<% else %>
 	<p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
 	<% end_if %>
-	<div class="uk-grid-small" data-uk-grid>
-		<div class="uk-width-1-1">
+	<div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
+		<div>
 		   	<h2>Kursanmeldung</h2>
 		    <div><p>Die Online-Anmeldung ist verbindlich.</p></div>
 		    <div><p><small>* = Pflichtfeld.</small></p></div>
