@@ -1,7 +1,6 @@
 <div class="sidebar" data-uk-sticky="bottom:true;bottom-offset:50;offset:100">
-	$ClassName
 	<% if $ClassName == SilverStripe\ErrorPage\ErrorPage %>
-		<a href="/" title="Home">Home</a>
+		<a href="/" title="Home" data-uk-icon="home">Home</a>
 	<% else %>
 		<% with Level(1) %>
 			<a href="$Link" title="$Title.XML" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %>>$MenuTitle.XML</a>
