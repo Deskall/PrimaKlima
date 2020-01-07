@@ -38,7 +38,7 @@ class CoursePageController extends Extension
       		$Api = new beyond_jsonKurse();
      		$data = $Api->getKurse(null,$KursID);
             ob_start();
-            print_r($data);
+            print_r($KursID);
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
      		if (is_array($data) and isset($data[0])){
