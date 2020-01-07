@@ -19,7 +19,7 @@ class CoursePageController extends Extension
 	];
 
 	public function kursDetails(HTTPRequest $request){
-        Requirements::javascript('https://www.google.com/recaptcha/api.js?render=explicit&hl=de-CH&onload=Callback');
+        Requirements::javascript('https://www.google.com/recaptcha/api.js?render=explicit&hl=de-CH&onload=CaptchaCallback');
 		$KursID = $request->param('ID');
 		if ($KursID){
       		$Api = new beyond_jsonKurse();
