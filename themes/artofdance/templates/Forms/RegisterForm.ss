@@ -13,7 +13,7 @@
 		    <div><p><small>* = Pflichtfeld.</small></p></div>
 		</div>
 		<fieldset>
-			<legend>Ihre Angaben</legend><% end_if %>
+			<legend>Ihre Angaben</legend>
 			<% loop $Fields %>
 				$FieldHolder
 			<% end_loop %>
