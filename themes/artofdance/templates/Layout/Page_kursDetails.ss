@@ -110,7 +110,7 @@
 							<% if $kursData.istPaarTanz %>
 								$RegisterCoupleForm
 							<% else %>
-								$RegisterCoupleForm
+								$RegisterForm
 							<% end_if %>
 					    <% end_if %>
 				</div>
