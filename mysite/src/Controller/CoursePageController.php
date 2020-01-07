@@ -113,7 +113,8 @@ class CoursePageController extends Extension
                 TextField::create('telephone2','Telefon')->setAttribute('class','uk-input')
             )->setName('SecondPerson'),
             CheckboxField::create('agb',$agb)->setAttribute('class','uk-checkbox'),
-            CheckboxField::create('acceptance',$acceptance)->setAttribute('class','uk-checkbox')
+            CheckboxField::create('acceptance',$acceptance)->setAttribute('class','uk-checkbox'),
+            NoCaptchaField::create('Captcha')
         ); 
         $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday','anrede2','name2','vorname2','email2','birthday2','agb','acceptance']);
 
