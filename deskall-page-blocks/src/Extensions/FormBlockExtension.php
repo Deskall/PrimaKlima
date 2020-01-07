@@ -18,7 +18,7 @@ use SilverStripe\Forms\TextField;
 class FormBlockExtension extends DataExtension 
 {
 
-    private static $controller_template = 'BlockHolder';
+    private static $controller_template = 'ElementHolder';
 
     private static $description = 'Formular';
 
