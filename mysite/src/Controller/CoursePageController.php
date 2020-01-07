@@ -33,14 +33,11 @@ class CoursePageController extends Extension
 
 	public function kursDetails(HTTPRequest $request){
 		$KursID = $request->param('ID');
-        $request->getSession()->set('course_id',$KursID);
 		if ($KursID){
+            $KursID = str_replace('+',' ',$KursID);
+            $request->getSession()->set('course_id',$KursID);
       		$Api = new beyond_jsonKurse();
-     		$data = $Api->getKurse(null,'194 GK1');
-            ob_start();
-            print_r($KursID);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+     		$data = $Api->getKurse(null,$KursID);
      		if (is_array($data) and isset($data[0])){
      			return array(
      				'kursData' => new ArrayData($data[0]),
