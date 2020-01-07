@@ -70,7 +70,7 @@ class CoursePageController extends Extension
         
         $form = new Form(
             $this->owner,
-            'SendKurseForm',
+            'RegisterForm',
             $fields,
             $actions,
             $requiredFields
@@ -123,7 +123,7 @@ class CoursePageController extends Extension
         
         $form = new Form(
             $this->owner,
-            'SendKurseForm',
+            'RegisterCoupleForm',
             $fields,
             $actions,
             $requiredFields
