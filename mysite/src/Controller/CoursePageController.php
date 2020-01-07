@@ -19,7 +19,7 @@ use SilverStripe\ORM\ValidationException;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\RequiredFields;
-
+use SilverStripe\Forms\DateField;
 class CoursePageController extends Extension
 {
    private static $allowed_actions = ['kursDetails','SendKurseForm'];
