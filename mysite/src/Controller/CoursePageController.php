@@ -8,6 +8,7 @@ use SilverStripe\Control\Email\Email;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\View\SSViewer;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\View\Requirements;
 
 class CoursePageController extends Extension
 {
@@ -18,6 +19,7 @@ class CoursePageController extends Extension
 	];
 
 	public function kursDetails(HTTPRequest $request){
+        Requirements::javascript('https://www.google.com/recaptcha/api.js?render=explicit&hl=de-CH&onload=Callback');
 		$KursID = $request->param('ID');
 		if ($KursID){
       		$Api = new beyond_jsonKurse();
