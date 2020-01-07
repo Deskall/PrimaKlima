@@ -21,6 +21,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\DateField;
 use SilverStripe\Forms\CompositeField;
+use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 
 class CoursePageController extends Extension
 {
@@ -114,7 +115,7 @@ class CoursePageController extends Extension
             )->setName('SecondPerson'),
             CheckboxField::create('agb',$agb)->setAttribute('class','uk-checkbox'),
             CheckboxField::create('acceptance',$acceptance)->setAttribute('class','uk-checkbox'),
-            NoCaptchaField::create('Captcha')
+            NocaptchaField::create('Captcha')
         ); 
         $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday','anrede2','name2','vorname2','email2','birthday2','agb','acceptance']);
 
