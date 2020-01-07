@@ -1,10 +1,8 @@
 <div class="sidebar" data-uk-sticky="bottom:true;bottom-offset:50;offset:100">
 	$ClassName
 	<% if $ClassName == SilverStripe\ErrorPage\ErrorPage %>
-	ici
 		<a href="/" title="Home">Home</a>
 	<% else %>
-	la
 		<% with Level(1) %>
 			<a href="$Link" title="$Title.XML" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %>>$MenuTitle.XML</a>
 			<% if LinkingMode == "current" || LinkingMode == "section" %>
@@ -28,5 +26,5 @@
 				<% end_if %>
 			<% end_if %>
 		<% end_with %>
-	<% end_with %>
+	<% end_if %>
 </div>
