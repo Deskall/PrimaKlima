@@ -12,13 +12,16 @@
 		    <div><p>Die Online-Anmeldung ist verbindlich.</p></div>
 		    <div><p><small>* = Pflichtfeld.</small></p></div>
 		</div>
-		<fieldset>
-			<legend>Ihre Angaben</legend>
-			<% loop $Fields %>
-				$FieldHolder
-			<% end_loop %>
-			<div class="clear"><!-- --></div>
-		</fieldset>
+		<% loop $Fields %>
+			<% if Name == "FirstPerson" %>
+			<fieldset>
+				<legend>Ihre Angaben</legend>
+					$FieldHolder
+			</fieldset>
+			<% else %>
+			$FieldHolder
+			<% end_if %>
+		<% end_loop %>
 	</div>
 	<% if $Actions %>
 	<div class="btn-toolbar">
