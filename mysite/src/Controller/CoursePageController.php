@@ -108,7 +108,7 @@ class CoursePageController extends Extension
                 TextField::create('ort2','Ort')->setAttribute('class','uk-input'),
                 TextField::create('telephone2','Telefon')->setAttribute('class','uk-input')
             )->setName('SecondPerson'),
-            CheckboxField::create('agb',DBHTMLText::create('<a href="ueber-uns/agb" target="_blank">AGB</a>\'s gelesen'))->setAttribute('class','uk-checkbox'),
+            CheckboxField::create('agb',DBHTMLText::create('<a href="ueber-uns/agb" target="_blank">AGB</a>\'s gelesen')->getValue())->setAttribute('class','uk-checkbox'),
             CheckboxField::create('acceptance','Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der href="services/datenschutzerklaerung" target="_blank">Datenschutzerklärung</a>. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt.')->setAttribute('class','uk-checkbox')
         ); 
         $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday','anrede2','name2','vorname2','email2','birthday2','agb','acceptance']);
