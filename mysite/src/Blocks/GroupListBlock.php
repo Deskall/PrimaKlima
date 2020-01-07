@@ -18,15 +18,15 @@ class GroupListBlock extends BaseElement implements Searchable
 
     private static $controller_class = BlockController::class;
 
-    private static $help_text = "Kurse List";
+    private static $help_text = "Tanztyp List";
 
     private static $table_name = 'GroupListBlock';
 
-    private static $singular_name = 'Kurse List Block';
+    private static $singular_name = 'Tanztyp List Block';
 
-    private static $plural_name = 'Kurse List Blöcke';
+    private static $plural_name = 'Tanztyp List Blöcke';
 
-    private static $description = 'Kurse List';
+    private static $description = 'Tanztyp List';
 
     public function getCMSFields(){
         $fields = parent::getCMSFields();
@@ -38,7 +38,7 @@ class GroupListBlock extends BaseElement implements Searchable
 
     public function getType()
     {
-        return _t(__CLASS__ . '.BlockType', 'Kurse List');
+        return _t(__CLASS__ . '.BlockType', 'Tanztyp List');
     }
 
     /************* SEARCHABLE FUNCTIONS ******************/

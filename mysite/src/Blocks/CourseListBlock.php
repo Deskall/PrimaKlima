@@ -22,11 +22,11 @@ class CourseListBlock extends BaseElement implements Searchable
 
     private static $table_name = 'CourseInfoBlock';
 
-    private static $singular_name = 'Kurse List Block';
+    private static $singular_name = 'Kurse Information Block';
 
-    private static $plural_name = 'Kurse List Blöcke';
+    private static $plural_name = 'Kurse Information Blöcke';
 
-    private static $description = 'Kurse List';
+    private static $description = 'Kurse Information List';
 
     private static $db = array(
         'GroupID' => 'Varchar(255)'
@@ -111,7 +111,7 @@ class CourseListBlock extends BaseElement implements Searchable
 
     public function getType()
     {
-        return _t(__CLASS__ . '.BlockType', 'Kurse List');
+        return _t(__CLASS__ . '.BlockType', 'Kurse Information List');
     }
 
     /************* SEARCHABLE FUNCTIONS ******************/
