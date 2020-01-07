@@ -24,7 +24,7 @@
 		<% end_loop %>
 	</div>
 	<% if $Actions %>
-	<div class="btn-toolbar uk-text-right uk-margin">
+	<div class="btn-toolbar uk-margin">
 		<% loop $Actions %>
 			$Field
 		<% end_loop %>
