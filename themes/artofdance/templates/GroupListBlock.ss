@@ -7,9 +7,6 @@
 		        <div class="uk-accordion-content">
 		        	<% with ElementalArea.Elements.first %>
 		        	    <div class="list-item uk-margin-top">
-		        	        <a class="$TitleAlign">$Title</a>
-		        	        $ID
-		        	        <div>
 		        	        	<div class="uk-grid-small uk-flex uk-flex-middle <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
 		        		        	    <% if ContentImage %>
 		        		        	    <div class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l">
@@ -29,11 +26,9 @@
 		        		        		    <% end_if %>
 		        		        		 </div>
 		        		        </div>
-
-		        	        </div>
-		        	        
-		        		    <hr class="uk-width-1-1">
+		        		    </div>
 		        	    </div>
+		        	    <hr class="uk-width-1-1">
 		        	<% end_with %>
 		        </div>
 		    </li>
