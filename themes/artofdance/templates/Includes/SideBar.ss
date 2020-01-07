@@ -1,9 +1,9 @@
 <div class="sidebar" data-uk-sticky="bottom:true;bottom-offset:50;offset:100">
 	<% if $ClassName == SilverStripe\ErrorPage\ErrorPage %>
-		<a href="/" title="Home" class="uk-flex uk-flex-middle"><span data-uk-icon="home" class="uk-margin-small-right"></span><span>Home</span></a>
+		<a href="/" title="Home" class="uk-flex uk-flex-middle uk-text-bold"><span data-uk-icon="home" class="uk-margin-small-right"></span><span>Home</span></a>
 	<% else %>
 		<% with Level(1) %>
-			<a href="$Link" title="$Title.XML" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %>>$MenuTitle.XML</a>
+			<a href="$Link" class="uk-text-bold" title="$Title.XML" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %>>$MenuTitle.XML</a>
 			<% if LinkingMode == "current" || LinkingMode == "section" %>
 				<% if Children %>
 				<ul class="uk-nav-default uk-nav uk-nav-parent-icon" data-uk-nav>
