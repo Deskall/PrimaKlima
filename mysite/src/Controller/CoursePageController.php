@@ -295,6 +295,8 @@ class CoursePageController extends Extension
 
     public function doRegisterCouple($data,$form){
 
+        $anmeldungID = null;
+
         ob_start();
                     print_r($data);
                     $result = ob_get_clean();
@@ -368,10 +370,10 @@ class CoursePageController extends Extension
                         $rowId2 = $address2[0]->rowguid;
                        }
                        //Proceed registration
-                       $register = new beyond_jsonAnmeldungen();
-                       $registration = $register->addAnmeldungen($AnmeldungsRowguid = null,$KursID = $course->KursID,$Geschlecht1 = $geschlecht1,$Geschlecht2 = $geschlecht2,$AdressenRowguid1 = $rowId1, $AdressenRowguid2 = $rowId2);
+                       // $register = new beyond_jsonAnmeldungen();
+                       // $registration = $register->addAnmeldungen($AnmeldungsRowguid = null,$KursID = $course->KursID,$Geschlecht1 = $geschlecht1,$Geschlecht2 = $geschlecht2,$AdressenRowguid1 = $rowId1, $AdressenRowguid2 = $rowId2);
                         
-                        $anmeldungID = $registration[0];
+                       //  $anmeldungID = $registration[0];
                     }
                     else{
                    //   First we check if address exists
@@ -387,9 +389,9 @@ class CoursePageController extends Extension
                         $rowId = $address[0]->rowguid;
                        }
                        //Proceed registration
-                       $register = new beyond_jsonAnmeldungen();
-                        $registration = $register->addAnmeldungen($AnmeldungsRowguid = null,$KursID = $course->KursID,$Geschlecht1 = $geschlecht1,$Geschlecht2 = null,$AdressenRowguid1 = $rowId);
-                        $anmeldungID = $registration[0];
+                       // $register = new beyond_jsonAnmeldungen();
+                       //  $registration = $register->addAnmeldungen($AnmeldungsRowguid = null,$KursID = $course->KursID,$Geschlecht1 = $geschlecht1,$Geschlecht2 = null,$AdressenRowguid1 = $rowId);
+                       //  $anmeldungID = $registration[0];
                     
                     }
 
