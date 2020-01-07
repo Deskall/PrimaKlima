@@ -256,7 +256,7 @@ class CoursePageController extends Extension
                    '</table>';
                    }
 
-                   $orderData = $courseData.$personData.$anmeldungData;
+                   $orderData = $anmeldungData.$courseData.$personData;
 
                     //Email preparation and sending
                     $AbsoluteThemeDir = Director::AbsoluteBaseURL()."themes/".SiteConfig::current_site_config()->Theme;
