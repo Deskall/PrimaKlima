@@ -8,7 +8,7 @@
 		        	<% loop Children %>
 		        	    <div class="list-item uk-margin-top">
 		        	        <a class="$TitleAlign">$Title</a>
-		        	        <% with Elements.Elements.first %>
+		        	        <% with Elements.first %>
 		        	        $ID
 		        	        <div>
 		        	        	<div class="uk-grid-small uk-flex uk-flex-middle <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
