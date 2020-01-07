@@ -95,7 +95,8 @@
 						           
 						          </div>
 						          <div class="uk-text-right">
-						          	<div class="g-recaptcha" id="Nocaptcha-$ID" data-sitekey="6LdIp6gUAAAAANwnrU-l3IF5ukVbEIDH7L5UpKKu" data-size="invisible"></div>
+						          	<%-- <div class="g-recaptcha" id="Nocaptcha-$ID" data-sitekey="6LdIp6gUAAAAANwnrU-l3IF5ukVbEIDH7L5UpKKu" data-size="invisible"></div> --%>
+						          	<div class="g-recaptcha" id="Nocaptcha-$ID" data-sitekey="6LchV0kUAAAAAO933jAsFfyjanFlxT2nbRd1s5Tc" data-size="invisible"></div>
 						          	<noscript>
 						          	    <p><%t UndefinedOffset\\NoCaptcha\\Forms\\NocaptchaField.NOSCRIPT "Sie müssen JavaScript aktivieren, um dieses Formular abschicken zu können" %></p>
 						          	</noscript>
