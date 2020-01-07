@@ -3,12 +3,12 @@
 	<ul data-uk-accordion>
 		<% loop Children %>
 		    <li>
-		        <a class="uk-accordion-title" href="#">$Title</a>
+		        <a class="uk-accordion-title">$Title</a>
 		        <div class="uk-accordion-content">
 		        	<% loop Children %>
 		        	    <div class="list-item uk-margin-top">
 		        	        <a class="$TitleAlign">$Title</a>
-		        	        <% with Elements.first %>
+		        	        <% with ElementalArea.Elements.first %>
 		        	        <div>
 		        	        	<div class="uk-grid-small uk-flex uk-flex-middle <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
 		        		        	    <% if ContentImage %>
