@@ -87,6 +87,8 @@ class CoursePageController extends Extension
 
         $agb = new DBHTMLText();
         $agb->setValue('<a href="ueber-uns/agb" target="_blank">AGB</a>\'s gelesen');
+        $acceptance = new DBHTMLText();
+        $acceptance->setValue('Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der href="services/datenschutzerklaerung" target="_blank">Datenschutzerklärung</a>. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt.');
         $fields = FieldList::create(
             CompositeField::create(
                 DropdownField::create('anrede','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString('Bitte wählen'),
@@ -111,7 +113,7 @@ class CoursePageController extends Extension
                 TextField::create('telephone2','Telefon')->setAttribute('class','uk-input')
             )->setName('SecondPerson'),
             CheckboxField::create('agb',$agb)->setAttribute('class','uk-checkbox'),
-            CheckboxField::create('acceptance','Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der href="services/datenschutzerklaerung" target="_blank">Datenschutzerklärung</a>. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt.')->setAttribute('class','uk-checkbox')
+            CheckboxField::create('acceptance',$acceptance)->setAttribute('class','uk-checkbox')
         ); 
         $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday','anrede2','name2','vorname2','email2','birthday2','agb','acceptance']);
 
