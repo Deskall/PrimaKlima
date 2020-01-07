@@ -85,12 +85,12 @@
 					          <% end_if %>
 					          <input type="hidden" name="course" value="$kursData.KursID" />
 					          
-					          <div class="uk-margin-small">
+					          <div class="uk-form-controls uk-margin-small">
 					           
 					             <label><input type="checkbox" name="agb" class="uk-checkbox" required /><a href="ueber-uns/agb" target="_blank">AGB</a>'s gelesen</label>
 					           
 					          </div>
-					           <div class="uk-margin-small">
+					           <div class="uk-form-controls uk-margin-small">
 					              <label><input type="checkbox" class="uk-checkbox" name="acceptance" required />Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der Datenschutzerklärung. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt.</label>
 					           
 					          </div>
