@@ -281,7 +281,7 @@ class CoursePageController extends Extension
                     // Send E-Mail
                     $confirmation = new Email( SiteConfig::current_site_config()->AddressEmail , $data['email'] , $SubjectConfirmationEmail, $BodyConfirmation);
                     $email = new Email( SiteConfig::current_site_config()->AddressEmail , SiteConfig::current_site_config()->AddressEmail,$SubjectNotificationEmail , $BodyNotification);
-                    $email->addCustomHeader('Reply-To', $data['email']);
+                    $email->setReplyTo($data['email']);
 
                     $email->send();
                     $confirmation->send();
@@ -437,7 +437,7 @@ class CoursePageController extends Extension
                     // Send E-Mail
                     $confirmation = new Email( SiteConfig::current_site_config()->AddressEmail , $data['email'] , $SubjectConfirmationEmail, $BodyConfirmation);
                     $email = new Email( SiteConfig::current_site_config()->AddressEmail , SiteConfig::current_site_config()->AddressEmail,$SubjectNotificationEmail , $BodyNotification);
-                    $email->addCustomHeader('Reply-To', $data['email']);
+                    $email->setReplyTo($data['email']);
 
                     $email->send();
                     $confirmation->send();
