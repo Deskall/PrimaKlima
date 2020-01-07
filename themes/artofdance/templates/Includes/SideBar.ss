@@ -4,6 +4,7 @@
 	ici
 		<a href="/" title="Home">Home</a>
 	<% else %>
+	la
 		<% with Level(1) %>
 			<a href="$Link" title="$Title.XML" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %>>$MenuTitle.XML</a>
 			<% if LinkingMode == "current" || LinkingMode == "section" %>
