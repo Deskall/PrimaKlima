@@ -1,5 +1,5 @@
 <% if isVisible %>
-	<div class="form-element__form $ExtraClass">
+	
 		<% if $BackgroundImage.exists %>
 		<section class="uk-section $Background uk-cover-container dk-overlay uk-section-large with-background" <% if $BackgroundImage.getExtension == "svg" %>data-src="$BackgroundImage.URL"<% else %>data-src="$BackgroundImage.ScaleWidth(1200).URL" data-srcset="$BackgroundImage.ScaleWidth(650).URL 650w,$BackgroundImage.ScaleWidth(1200).URL 1200w, $BackgroundImage.ScaleWidth(1600).URL 1600w, $BackgroundImage.URL 2500w" data-sizes="100vw" data-uk-img<% end_if %>>
 	<% else %>
@@ -29,6 +29,6 @@
 			    <% end_if %>
 			</div>
 		</section>
-	</div>
+	
 	<div style="clear: both"></div>
 <% end_if %>
