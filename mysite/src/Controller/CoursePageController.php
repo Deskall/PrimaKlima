@@ -51,7 +51,7 @@ class CoursePageController extends Extension
 
         $fields = FieldList::create(
             CompositeField::create(
-                DropdownField::create('anrede','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select'),
+                DropdownField::create('anrede','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString('Bitte wählen'),
                 TextField::create('name','Name')->setAttribute('class','uk-input'),
                 TextField::create('vorname','Vorname')->setAttribute('class','uk-input'),
                 EmailField::create('email','E-Mail-Adresse')->setAttribute('class','uk-input'),
@@ -85,7 +85,7 @@ class CoursePageController extends Extension
 
         $fields = FieldList::create(
             CompositeField::create(
-                DropdownField::create('anrede','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select'),
+                DropdownField::create('anrede','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString('Bitte wählen'),
                 TextField::create('name','Name')->setAttribute('class','uk-input'),
                 TextField::create('vorname','Vorname')->setAttribute('class','uk-input'),
                 EmailField::create('email','E-Mail-Adresse')->setAttribute('class','uk-input'),
@@ -96,7 +96,7 @@ class CoursePageController extends Extension
                 TextField::create('telephone','Telefon')->setAttribute('class','uk-input')
             )->setName('FirstPerson'),
             CompositeField::create(
-                DropdownField::create('anrede2','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select'),
+                DropdownField::create('anrede2','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString('Bitte wählen'),
                 TextField::create('name2','Name')->setAttribute('class','uk-input'),
                 TextField::create('vorname2','Vorname')->setAttribute('class','uk-input'),
                 EmailField::create('email2','E-Mail-Adresse')->setAttribute('class','uk-input'),
