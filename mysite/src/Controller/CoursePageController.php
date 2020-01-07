@@ -52,6 +52,11 @@ class CoursePageController extends Extension
         $KurseID = $this->owner->getRequest()->getSession()->get('course_id');
 
         $actions = new FieldList(FormAction::create('doRegister', _t('CourseRegistration.Register', 'Jetzt anmelden'))->addExtraClass('uk-button PrimaryBackground uk-button-large uk-text-large')->setUseButtonTag(true)->setButtonContent(_t('CourseRegistration.Register', 'Jetzt anmelden')));
+       
+        $agb = new DBHTMLText();
+        $agb->setValue('<a href="ueber-uns/agb" target="_blank">AGB</a>\'s gelesen');
+        $acceptance = new DBHTMLText();
+        $acceptance->setValue('Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der <a href="services/datenschutzerklaerung" target="_blank">Datenschutzerklärung</a>. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt.');
 
         $fields = FieldList::create(
             CompositeField::create(
@@ -65,8 +70,9 @@ class CoursePageController extends Extension
                 TextField::create('ort','Ort')->setAttribute('class','uk-input'),
                 TextField::create('telephone','Telefon')->setAttribute('class','uk-input')
             )->setName('FirstPerson'),
-            CheckboxField::create('agb','<a href="ueber-uns/agb" target="_blank">AGB</a>\'s gelesen')->setAttribute('class','uk-checkbox'),
-            CheckboxField::create('acceptance','Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der href="services/datenschutzerklaerung" target="_blank">Datenschutzerklärung</a>. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt.')->setAttribute('class','uk-checkbox'),
+            CheckboxField::create('agb',$agb)->setAttribute('class','uk-checkbox'),
+            CheckboxField::create('acceptance',$acceptance)->setAttribute('class','uk-checkbox'),
+            NocaptchaField::create('Captcha'),
             HiddenField::create('course')->setValue($KurseID)
         ); 
         $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday','agb','acceptance']);

@@ -14,7 +14,7 @@
 		</div>
 		<% loop $Fields %>
 			<% if Name == "FirstPerson" %>
-			<fieldset>
+			<fieldset class="uk-width-1-2@s">
 				<legend><h3>Ihre Angaben</h3></legend>
 					$FieldHolder
 			</fieldset>
@@ -24,7 +24,7 @@
 		<% end_loop %>
 	</div>
 	<% if $Actions %>
-	<div class="btn-toolbar">
+	<div class="btn-toolbar uk-text-right uk-margin">
 		<% loop $Actions %>
 			$Field
 		<% end_loop %>
