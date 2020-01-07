@@ -143,20 +143,7 @@ class CoursePageController extends Extension
                     $result = ob_get_clean();
                     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
-        
-        //Recaptcha validation
-        if (!array_key_exists('g-recaptcha-response', $data) || empty($data['g-recaptcha-response'])) {
-          return $this->owner->redirectBack();
-        }
-
-        $response = $this->recaptchaHTTPPost($data['g-recaptcha-response']);
-        $response = json_decode($response, true);
-       
-       
-
-        if (!$response['success']) {
-          return $this->owner->redirectBack();
-        }
+   
         if (isset($data['course'])){
             $Api = new beyond_jsonKurse();
             $course = $Api->getKurse(null,$data['course']);
@@ -310,19 +297,7 @@ class CoursePageController extends Extension
                     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
         
-        //Recaptcha validation
-        if (!array_key_exists('g-recaptcha-response', $data) || empty($data['g-recaptcha-response'])) {
-          return $this->owner->redirectBack();
-        }
-
-        $response = $this->recaptchaHTTPPost($data['g-recaptcha-response']);
-        $response = json_decode($response, true);
        
-       
-
-        if (!$response['success']) {
-          return $this->owner->redirectBack();
-        }
         if (isset($data['course'])){
             $Api = new beyond_jsonKurse();
             $course = $Api->getKurse(null,$data['course']);
