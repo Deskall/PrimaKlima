@@ -33,6 +33,7 @@ class CoursePageController extends Extension
 
 	public function kursDetails(HTTPRequest $request){
 		$KursID = $request->param('ID');
+        $request->getSession()->set('course_id',$KursID);
 		if ($KursID){
       		$Api = new beyond_jsonKurse();
      		$data = $Api->getKurse(null,$KursID);
@@ -47,6 +48,7 @@ class CoursePageController extends Extension
 	}
 
     public function RegisterForm(){
+        $KurseID = $this->getRequest()->getSession()->get('course_id');
 
         $actions = new FieldList(FormAction::create('doRegister', _t('CourseRegistration.Register', 'Jetzt anmelden'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('CourseRegistration.Register', 'Jetzt anmelden')));
 
@@ -63,7 +65,8 @@ class CoursePageController extends Extension
                 TextField::create('telephone','Telefon')->setAttribute('class','uk-input')
             )->setName('FirstPerson'),
             CheckboxField::create('agb','<a href="ueber-uns/agb" target="_blank">AGB</a>\'s gelesen')->setAttribute('class','uk-checkbox'),
-            CheckboxField::create('acceptance','Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der href="services/datenschutzerklaerung" target="_blank">Datenschutzerklärung</a>. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt.')->setAttribute('class','uk-checkbox')
+            CheckboxField::create('acceptance','Sie erklären sich damit einverstanden, dass Ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der href="services/datenschutzerklaerung" target="_blank">Datenschutzerklärung</a>. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt.')->setAttribute('class','uk-checkbox'),
+            HiddenField::create('course')->setValue($KurseID)
         ); 
         $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday','agb','acceptance']);
 
@@ -83,7 +86,7 @@ class CoursePageController extends Extension
     }
 
     public function RegisterCoupleForm(){
-
+        $KurseID = $this->getRequest()->getSession()->get('course_id');
         $actions = new FieldList(FormAction::create('doRegisterCouple', _t('CourseRegistration.Register', 'Jetzt anmelden'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('CourseRegistration.Register', 'Jetzt anmelden')));
 
         $agb = new DBHTMLText();
@@ -115,7 +118,8 @@ class CoursePageController extends Extension
             )->setName('SecondPerson'),
             CheckboxField::create('agb',$agb)->setAttribute('class','uk-checkbox'),
             CheckboxField::create('acceptance',$acceptance)->setAttribute('class','uk-checkbox'),
-            NocaptchaField::create('Captcha')
+            NocaptchaField::create('Captcha'),
+            HiddenField::create('course')->setValue($KurseID)
         ); 
         $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday','anrede2','name2','vorname2','email2','birthday2','agb','acceptance']);
 
