@@ -17,12 +17,10 @@
 		        		        	    <% end_if %>
 		        		        	    <div class="<% if ContentImage %>uk-width-1-2 uk-width-2-3@s uk-width-3-4@m uk-width-4-5@l<% else %>uk-width-1-1<% end_if %>">
 		        		        		    <div class="dk-text-content $TextAlign  $TextColumns <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
-		        		        		    	$Content
+		        		        		    	$HTML
 		        		        		    </div>
-		        		        		    <% if LinkableLinkID > 0 %>
-		        		        		    	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-		        		        		    <% end_if %>
-		        		        		 </div>
+		        		        		   <a href="$getPage.Link" class="uk-button PrimaryBackground">Zum Kursangebot</a>
+		        		        		</div>
 		        		        </div>
 		        		</div>
 		        	    <hr class="uk-width-1-1">
