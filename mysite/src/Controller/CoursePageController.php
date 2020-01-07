@@ -40,7 +40,7 @@ class CoursePageController extends Extension
         
         //Recaptcha validation
         if (!array_key_exists('g-recaptcha-response', $data) || empty($data['g-recaptcha-response'])) {
-          return $this->redirectBack();
+          return $this->owner->redirectBack();
         }
 
         $response = $this->recaptchaHTTPPost($data['g-recaptcha-response']);
@@ -49,7 +49,7 @@ class CoursePageController extends Extension
        
 
         if (!$response['success']) {
-          return $this->redirectBack();
+          return $this->owner->redirectBack();
         }
         if (isset($data['course'])){
             $Api = new beyond_jsonKurse();
@@ -189,11 +189,11 @@ class CoursePageController extends Extension
                     $email->send();
                     $confirmation->send();
 
-                    return $this->redirect('/kontakt/anmeldung-bestaetigt');
+                    return $this->owner->redirect('/kontakt/anmeldung-bestaetigt');
                 
             }
         }
-        return $this->redirectBack();
+        return $this->owner->redirectBack();
     }
 
 }
