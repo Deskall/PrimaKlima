@@ -14,12 +14,17 @@
 		</div>
 		<% loop $Fields %>
 			<% if Name == "FirstPerson" %>
-			<fieldset>
-				<legend><h3>Ihre Angaben</h3></legend>
-					$FieldHolder
-			</fieldset>
+				<fieldset class="uk-width-1-2@s">
+					<legend><h3>Ihre Angaben</h3></legend>
+						$FieldHolder
+				</fieldset>
+			<% else_if Name == "SecondPerson" %>
+				<fieldset class="uk-width-1-2@s">
+					<legend><h3>Ihre Partner</h3></legend>
+						$FieldHolder
+				</fieldset>
 			<% else %>
-			$FieldHolder
+				$FieldHolder
 			<% end_if %>
 		<% end_loop %>
 	</div>

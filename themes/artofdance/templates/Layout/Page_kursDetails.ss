@@ -107,7 +107,11 @@
 						          </div>
 							</form>
 						</div> --%>
-						$SendKurseForm
+							<% if $kursData.istPaarTanz %>
+								$RegisterCoupleForm
+							<% else %>
+								$RegisterCoupleForm
+							<% end_if %>
 					    <% end_if %>
 				</div>
 			</div>
