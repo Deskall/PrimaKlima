@@ -35,7 +35,7 @@ class CourseListBlock extends BaseElement implements Searchable
     public function getCMSFields(){
         $fields = parent::getCMSFields();
         $fields->addFieldToTab('Root.Main', TextField::create('GroupID', 'Beyond GruppID'), 'TitleAndDisplayed');
-      
+        $fields->removeByName('Layout');
         return $fields;
     }
 

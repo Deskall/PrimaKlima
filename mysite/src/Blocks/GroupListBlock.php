@@ -30,7 +30,7 @@ class GroupListBlock extends BaseElement implements Searchable
 
     public function getCMSFields(){
         $fields = parent::getCMSFields();
-      
+        $fields->removeByName('Layout');
       
         return $fields;
     }
