@@ -39,6 +39,11 @@ class CoursePageController extends Extension
 
         $data = $request->postVars();
 
+        ob_start();
+                    print_r($data);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
         
         //Recaptcha validation
         if (!array_key_exists('g-recaptcha-response', $data) || empty($data['g-recaptcha-response'])) {
