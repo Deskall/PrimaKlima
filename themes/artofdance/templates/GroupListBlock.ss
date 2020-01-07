@@ -1,10 +1,8 @@
 
 	<% with getPage %>
-	<ul data-uk-accordion>
 		<% loop Children %>
-		    <li>
-		        <a class="uk-accordion-title">$Title</a>
-		        <div class="uk-accordion-content">
+		    <div class="uk-margin">
+		        <h3>$Title</h3>
 		        	<% with ElementalArea.Elements.first %>
 		        	    <div class="list-item uk-margin-top">
 		        	        	<div class="uk-grid-small uk-flex uk-flex-middle <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
@@ -26,12 +24,10 @@
 		        		        		    <% end_if %>
 		        		        		 </div>
 		        		        </div>
-		        		    </div>
-		        	    </div>
+		        		</div>
 		        	    <hr class="uk-width-1-1">
 		        	<% end_with %>
-		        </div>
-		    </li>
+		    </div>
 		<% end_loop %>
 	</ul>
 	<% end_with %>
