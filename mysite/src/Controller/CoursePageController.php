@@ -266,7 +266,7 @@ class CoursePageController extends Extension
                     $HTMLNotification->setValue($orderData);
                     $BodyNotificationEmail = $HTMLNotification;
 
-                    $BodyNotification = $this->renderWith('base_email',array('Subject' => $SubjectNotificationEmail,'Lead' => $LeadNotification, 'Body' => $BodyNotificationEmail, 'Footer' =>'','AbsoluteThemeDir' => $AbsoluteThemeDir ));
+                    $BodyNotification = $this->owner->renderWith('base_email',array('Subject' => $SubjectNotificationEmail,'Lead' => $LeadNotification, 'Body' => $BodyNotificationEmail, 'Footer' =>'','AbsoluteThemeDir' => $AbsoluteThemeDir ));
 
                     $SubjectConfirmationEmail = "Ihre Anmeldung ist bestätigt";
                     $LeadConfirmation = new DBHTMLText();
@@ -275,7 +275,7 @@ class CoursePageController extends Extension
                     $HTMLConfirmation->setValue($orderData);
                     $BodyConfirmationEmail = $HTMLConfirmation;
 
-                    $BodyConfirmation = $this->renderWith('base_email',array('Subject' => $SubjectConfirmationEmail,'Lead' => $LeadConfirmation, 'Body' => $BodyConfirmationEmail, 'Footer' => '','AbsoluteThemeDir' => $AbsoluteThemeDir ));
+                    $BodyConfirmation = $this->owner->renderWith('base_email',array('Subject' => $SubjectConfirmationEmail,'Lead' => $LeadConfirmation, 'Body' => $BodyConfirmationEmail, 'Footer' => '','AbsoluteThemeDir' => $AbsoluteThemeDir ));
 
 
                     // Send E-Mail
@@ -422,7 +422,7 @@ class CoursePageController extends Extension
                     $HTMLNotification->setValue($orderData);
                     $BodyNotificationEmail = $HTMLNotification;
 
-                    $BodyNotification = $this->renderWith('base_email',array('Subject' => $SubjectNotificationEmail,'Lead' => $LeadNotification, 'Body' => $BodyNotificationEmail, 'Footer' =>'','AbsoluteThemeDir' => $AbsoluteThemeDir ));
+                    $BodyNotification = $this->owner->renderWith('base_email',array('Subject' => $SubjectNotificationEmail,'Lead' => $LeadNotification, 'Body' => $BodyNotificationEmail, 'Footer' =>'','AbsoluteThemeDir' => $AbsoluteThemeDir ));
 
                     $SubjectConfirmationEmail = "Ihre Anmeldung ist bestätigt";
                     $LeadConfirmation = new DBHTMLText();
@@ -431,7 +431,7 @@ class CoursePageController extends Extension
                     $HTMLConfirmation->setValue($orderData);
                     $BodyConfirmationEmail = $HTMLConfirmation;
 
-                    $BodyConfirmation = $this->renderWith('base_email',array('Subject' => $SubjectConfirmationEmail,'Lead' => $LeadConfirmation, 'Body' => $BodyConfirmationEmail, 'Footer' => '','AbsoluteThemeDir' => $AbsoluteThemeDir ));
+                    $BodyConfirmation = $this->owner->renderWith('base_email',array('Subject' => $SubjectConfirmationEmail,'Lead' => $LeadConfirmation, 'Body' => $BodyConfirmationEmail, 'Footer' => '','AbsoluteThemeDir' => $AbsoluteThemeDir ));
 
 
                     // Send E-Mail
