@@ -69,8 +69,8 @@ class CoursePageController extends Extension
             $requiredFields
         );
         
-        // $form->setTemplate('Forms/RegisterForm');
-        $form->addExtraClass('form-std');
+        $form->setTemplate('Forms/RegisterForm');
+        $form->addExtraClass('form-std uk-background-muted uk-padding-small');
 
         return $form;
     }
