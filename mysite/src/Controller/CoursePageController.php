@@ -258,7 +258,7 @@ class CoursePageController extends Extension
                    $orderData = $courseData.$personData.$anmeldungData;
 
                     //Email preparation and sending
-                    $AbsoluteThemeDir = Director::AbsoluteBaseURL()."themes/".SSViewer::current_theme();
+                    $AbsoluteThemeDir = Director::AbsoluteBaseURL()."themes/".SiteConfig::current_site_config()->Theme;
                     $SubjectNotificationEmail = "Neue Kurs Anmeldung";
                     $LeadNotification =  new DBHTMLText();
                     $LeadNotification->setValue(nl2br("Sie haben eine neue Kurs Anmeldung erhalten."));
@@ -412,7 +412,7 @@ class CoursePageController extends Extension
                    $orderData = $courseData.$personData.$anmeldungData;
 
                     //Email preparation and sending
-                    $AbsoluteThemeDir = Director::AbsoluteBaseURL()."themes/".SSViewer::current_theme();
+                    $AbsoluteThemeDir = Director::AbsoluteBaseURL()."themes/".SiteConfig::current_site_config()->Theme;
                     $SubjectNotificationEmail = "Neue Kurs Anmeldung";
                     $LeadNotification =  new DBHTMLText();
                     $LeadNotification->setValue(nl2br("Sie haben eine neue Kurs Anmeldung erhalten."));
