@@ -62,7 +62,7 @@ class CoursePageController extends Extension
         $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday']);
         
         $form = new Form(
-            $this,
+            $this->owner,
             'SendKurseForm',
             $fields,
             $actions,
