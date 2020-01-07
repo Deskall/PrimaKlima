@@ -87,7 +87,7 @@ class CoursePageController extends Extension
         );
         
         $form->setTemplate('Forms/RegisterForm');
-        $form->addExtraClass('form-std uk-background-muted uk-padding-small');
+        $form->addExtraClass('form-std uk-background-muted uk-padding-small dk-text-content');
 
         return $form;
     }
@@ -141,7 +141,7 @@ class CoursePageController extends Extension
         );
         
         $form->setTemplate('Forms/RegisterCoupleForm');
-        $form->addExtraClass('form-std uk-background-muted uk-padding-small');
+        $form->addExtraClass('form-std uk-background-muted uk-padding-small dk-text-content');
 
         return $form;
     }
