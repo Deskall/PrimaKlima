@@ -5,11 +5,9 @@
 		    <li>
 		        <a class="uk-accordion-title">$Title</a>
 		        <div class="uk-accordion-content">
-		        	<% loop Children %>
+		        	<% with Elements.Elements.first %>
 		        	    <div class="list-item uk-margin-top">
 		        	        <a class="$TitleAlign">$Title</a>
-		        	        $ElementalArea.ID
-		        	        <% with ElementalArea.Elements.first %>
 		        	        $ID
 		        	        <div>
 		        	        	<div class="uk-grid-small uk-flex uk-flex-middle <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
@@ -33,10 +31,10 @@
 		        		        </div>
 
 		        	        </div>
-		        	        <% end_with %>
+		        	        
 		        		    <hr class="uk-width-1-1">
 		        	    </div>
-		        	<% end_loop %>
+		        	<% end_with %>
 		        </div>
 		    </li>
 		<% end_loop %>
