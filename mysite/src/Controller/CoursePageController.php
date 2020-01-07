@@ -20,6 +20,8 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\DateField;
+use SilverStripe\Forms\CompositeField;
+
 class CoursePageController extends Extension
 {
    private static $allowed_actions = ['kursDetails','SendKurseForm'];
@@ -48,15 +50,17 @@ class CoursePageController extends Extension
         $actions = new FieldList(FormAction::create('doRegister', _t('CourseRegistration.Register', 'Jetzt anmelden'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('CourseRegistration.Register', 'Jetzt anmelden')));
 
         $fields = FieldList::create(
-            DropdownField::create('anrede','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
-            TextField::create('name','Name'),
-            TextField::create('vorname','Vorname'),
-            EmailField::create('email','E-Mail-Adresse'),
-            DateField::create('birthday','Geburstdatum'),
-            TextField::create('strasse','Strasse'),
-            TextField::create('plz','PLZ'),
-            TextField::create('ort','Ort'),
-            TextField::create('telephone','Telefon')
+            CompositeField::create(
+                DropdownField::create('anrede','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
+                TextField::create('name','Name'),
+                TextField::create('vorname','Vorname'),
+                EmailField::create('email','E-Mail-Adresse'),
+                DateField::create('birthday','Geburstdatum'),
+                TextField::create('strasse','Strasse'),
+                TextField::create('plz','PLZ'),
+                TextField::create('ort','Ort'),
+                TextField::create('telephone','Telefon')
+            )->setName('FirstPerson')
         );
 
         $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday']);
