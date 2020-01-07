@@ -107,7 +107,7 @@
 						          </div>
 							</form>
 						</div> --%>
-						<div class="uk-padding-small">
+						<div class="uk-padding-bottom-small">
 							<% if $kursData.istPaarTanz %>
 								$RegisterCoupleForm
 							<% else %>
