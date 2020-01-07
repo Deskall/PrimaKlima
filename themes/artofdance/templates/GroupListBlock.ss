@@ -19,7 +19,7 @@
 		        		        		    <div class="dk-text-content $TextAlign  $TextColumns <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 		        		        		    	$HTML
 		        		        		    </div>
-		        		        		   <a href="$getPage.Link" class="uk-button uk-button-primary">Zum Kursangebot<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+		        		        		   <a href="$getPage.Link" class="uk-button uk-button-primary uk-button-small">Zum Kursangebot<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
 		        		        		</div>
 		        		        </div>
 		        		</div>
