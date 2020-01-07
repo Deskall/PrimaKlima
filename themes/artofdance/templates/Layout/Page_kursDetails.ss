@@ -36,7 +36,7 @@
 					    </div>
 					    <% end_if %>
 					    <% if ${kursData.istAnmeldungMöglich} %>
-						<div class="form-block">
+						<%-- <div class="form-block">
 					        <form action="{$Link}SendKurseForm" method="post" class="form-std uk-background-muted uk-padding-small">
 						        <div class="col w-12">
 						           	<h2>Kursanmeldung</h2>
@@ -95,8 +95,7 @@
 						           
 						          </div>
 						          <div class="uk-text-right">
-						          	<%-- <div class="g-recaptcha" id="Nocaptcha-$ID" data-sitekey="6LdIp6gUAAAAANwnrU-l3IF5ukVbEIDH7L5UpKKu" data-size="invisible"></div> --%>
-						          	<div class="g-recaptcha" id="Nocaptcha-$ID" data-sitekey="6LchV0kUAAAAAO933jAsFfyjanFlxT2nbRd1s5Tc" data-size="invisible"></div>
+						          	<div class="g-recaptcha" id="Nocaptcha-$ID" data-sitekey="6LdIp6gUAAAAANwnrU-l3IF5ukVbEIDH7L5UpKKu" data-size="invisible"></div>
 						          	<noscript>
 						          	    <p><%t UndefinedOffset\\NoCaptcha\\Forms\\NocaptchaField.NOSCRIPT "Sie müssen JavaScript aktivieren, um dieses Formular abschicken zu können" %></p>
 						          	</noscript>
@@ -107,7 +106,8 @@
 							    	</div>
 						          </div>
 							</form>
-						</div>
+						</div> --%>
+						$SendKurseForm
 					    <% end_if %>
 				</div>
 			</div>

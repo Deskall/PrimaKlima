@@ -141,24 +141,3 @@
 		$(this).parents('tr').remove();
 	});
 });
- function CaptchaCallback() {
-        $('.g-recaptcha').each(function(index, el) {
-            if (!$(this).hasClass("activated")){
-                ActivateCaptcha(el,$(this).parents('form'));
-            }
-        });
-    }
-
-    function ActivateCaptcha(el,form){
-        var callBackFn = function(token) {
-                form.find('.g-recaptcha-response').val(token);
-                if($.trim(token) == ''){
-                    grecaptcha.reset(widget);
-                }
-                else{
-                    form.addClass("to-submit").find("button").trigger("click");
-                }
-        };
-        var widget_id = grecaptcha.render(el, {'sitekey' : $(el).attr('data-sitekey'), 'callback' : callBackFn });
-        $(el).attr('data-captcha-id',widget_id).addClass("activated");
-    }

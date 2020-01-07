@@ -9,6 +9,16 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\View\SSViewer;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\View\Requirements;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\HiddenField;
+use SilverStripe\ORM\ValidationException;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\RequiredFields;
 
 class CoursePageController extends Extension
 {
@@ -19,7 +29,6 @@ class CoursePageController extends Extension
 	];
 
 	public function kursDetails(HTTPRequest $request){
-        Requirements::javascript('https://www.google.com/recaptcha/api.js?render=explicit&hl=de-CH&onload=CaptchaCallback');
 		$KursID = $request->param('ID');
 		if ($KursID){
       		$Api = new beyond_jsonKurse();
@@ -34,10 +43,40 @@ class CoursePageController extends Extension
         return $this->owner->httpError(404);
 	}
 
+    public function SendKurseForm(){
 
-    public function SendKurseForm(HTTPRequest $request){
+        $actions = new FieldList(FormAction::create('doRegister', _t('CourseRegistration.Register', 'Jetzt anmelden'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('CourseRegistration.Register', 'Jetzt anmelden')));
 
-        $data = $request->postVars();
+        $fields = FieldList::create(
+            DropdownField::create('anrede','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
+            TextField::create('name','Name'),
+            TextField::create('vorname','Vorname'),
+            EmailField::create('email','E-Mail-Adresse'),
+            DateField::create('birthday','Geburstdatum'),
+            TextField::create('strasse','Strasse'),
+            TextField::create('plz','PLZ'),
+            TextField::create('ort','Ort'),
+            TextField::create('telephone','Telefon')
+        );
+
+        $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday']);
+        
+        $form = new Form(
+            $this,
+            'SendKurseForm',
+            $fields,
+            $actions,
+            $requiredFields
+        );
+        
+        // $form->setTemplate('Forms/RegisterForm');
+        $form->addExtraClass('form-std');
+
+        return $form;
+    }
+
+
+    public function doRegister($data,$form){
 
         ob_start();
                     print_r($data);
