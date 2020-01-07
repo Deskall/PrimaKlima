@@ -1,5 +1,5 @@
 <div class="sidebar" data-uk-sticky="bottom:true;bottom-offset:50;offset:100">
-	<% if ClassName == "SilverStripe\ErrorPag\ErrorPage" %>
+	<% if ClassName == "SilverStripe\ErrorPage\ErrorPage" %>
 	ici
 		<a href="/" title="Home">Home</a>
 	<% else %>
