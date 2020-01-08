@@ -9,7 +9,7 @@
 							<div class="parameter uk-margin">
 								<strong class="parameter-title">$Title</strong>
 								<% loop $Values %>
-								<div>$Title</div>
+								<div>$Title <span class="uk-flex-right">$activeOffers.count</span></div>
 								<% end_loop %>
 							</div>
 						<% end_loop %>
