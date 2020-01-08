@@ -42,7 +42,8 @@
 									</div>
 									<div class="uk-width-1-5">
 									</div>
-							<strong>$Title</strong>
+								</div>
+							</div>
 						</div>
 						<% end_loop %>
 					</div>
