@@ -16,7 +16,7 @@ class OfferPage extends Page {
 	}
 
 	public function getCookConfig(){
-		return CookConfig::get()->first();
+		return JobPortalConfig::get()->first();
 	}
 
 	public function activeOffers(){

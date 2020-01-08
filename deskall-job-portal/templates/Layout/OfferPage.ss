@@ -5,7 +5,7 @@
 				<div class="uk-visible@m uk-width-1-4@m uk-width-1-5@l">
 					<div class="sidebar">
 						<h1 class="uk-h3">$Title</h1>
-						<% loop $getCookConfig.Parameters %>
+						<% loop $CookConfig.Parameters %>
 							<div class="parameter">
 								<strong class="parameter-title">$Title</strong>
 								<hr>
