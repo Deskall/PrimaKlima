@@ -69,7 +69,7 @@ class Mission extends DataObject
         'backend' => 'Boolean(0)',
         'isActive' => 'Boolean(0)',
         'isClosed' => 'Boolean(0)',
-        'PublishedDate' => 'DateTime'
+        'PublishedDate' => 'Date'
     );
 
     private static $singular_name = "Stelle";
