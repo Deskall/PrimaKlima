@@ -177,10 +177,7 @@ class JobPortalConfig extends DataObject
 
     public function activeCountries(){
         $activeOffers = Mission::get()->filter('isActive',1);
-        if ($activeOffers->exists()){
-            $countries = $activeOffers->column('Country');
-        }
-        return new ArrayData(['values' => array_unique($countries)]);
+        return GroupedList::create($activeOffers)->groupedBy('Country');
     }
     
 
