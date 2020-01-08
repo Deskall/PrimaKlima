@@ -53,11 +53,7 @@ class LeadBlock extends BaseElement implements Searchable
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
                 ->setRows(8);
-                // $fields->removeByName('isPrimary');
-                if ($this->isPrimary){
-                   // $fields->removeByName('TitleAndDisplayed');
-                    $fields->insertBefore('HTML',$fields->FieldByName('Root.Main.TitleIcon'));
-                }
+               
         });
         return parent::getCMSFields();
     }

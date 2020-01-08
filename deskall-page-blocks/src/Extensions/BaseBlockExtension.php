@@ -22,7 +22,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
 
     private static $db = [
-        'TitleIcon' => 'Varchar',
         'isPrimary' => 'Boolean(0)',
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
@@ -197,7 +196,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('ExtraClass');
 
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Diese Block enthalt den Haupttitel der Seite (h1)")),'TitleAndDisplayed');
-        $fields->addFieldToTab('Root.Main',TextField::create('TitleIcon',_t(__CLASS__.".TitleIcon","Icon (Class font awesome)")),'TitleAndDisplayed');
       
      
         if (Permission::check('ADMIN') && $extracss){
