@@ -209,17 +209,17 @@ class Candidat extends DataObject
        return $fields;
     }
 
-    public function NiceJobs(){
-        $jobs = '';
-        $i = 1;
-        foreach($this->Jobs() as $job){
-            $jobs .= $job->Title;
-            if ($i != $this->jobs()->count() ){
-                $jobs .= ', ';
-            } 
-        }
-        return $jobs;
-    }
+    // public function NiceJobs(){
+    //     $jobs = '';
+    //     $i = 1;
+    //     foreach($this->Jobs() as $job){
+    //         $jobs .= $job->Title;
+    //         if ($i != $this->jobs()->count() ){
+    //             $jobs .= ', ';
+    //         } 
+    //     }
+    //     return $jobs;
+    // }
 
     public function Thumbnail(){
         if ($this->Picture()->exists()){
@@ -233,17 +233,17 @@ class Candidat extends DataObject
         return $o;
     }
 
-    public function NiceTyp(){
-        $types = '';
-        $i = 1;
-        foreach($this->Categories() as $type){
-            $types .= $type->Title;
-            if ($i != $this->Categories()->count() ){
-                $types .= ', ';
-            } 
-        }
-        return $types;
-    }
+    // public function NiceTyp(){
+    //     $types = '';
+    //     $i = 1;
+    //     foreach($this->Categories() as $type){
+    //         $types .= $type->Title;
+    //         if ($i != $this->Categories()->count() ){
+    //             $types .= ', ';
+    //         } 
+    //     }
+    //     return $types;
+    // }
 
     public function NiceAddress(){
         $html = '<p>'.$this->Member()->getTitle().'<br/>';

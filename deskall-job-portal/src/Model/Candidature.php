@@ -22,8 +22,8 @@ class Candidature extends DataObject
     private static $summary_fields = [
         'Candidat.Thumbnail' => ['title' => 'Foto'],
         'Candidat.NiceAddress' => ['title' => 'Personal Angaben'],
-        'Candidat.NiceJobs' => ['title' => 'Kompetenz / Berufe'],
-        'Candidat.NiceTyp' => ['title' => 'Küchen Art']
+        // 'Candidat.NiceJobs' => ['title' => 'Kompetenz / Berufe'],
+        // 'Candidat.NiceTyp' => ['title' => 'Küchen Art']
     ];
 
 
