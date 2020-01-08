@@ -96,7 +96,12 @@ class ShopOrder extends DataObject{
 		if ($this->isPaid){
 			$start = new \DateTime();
 			$this->StartValidity = $start->format('d.m.Y');
-			$modify = "+ ".$this->Product()->RunTime." ".$this->Product()->RunTimeCurrency."s";
+			if ($this->Option()->exists()){
+				$modify = "+ ".$this->Option()->RunTime." ".$this->Option()->RunTimeCurrency."s";
+			}
+			else{
+				$modify = "+ ".$this->Product()->RunTime." ".$this->Product()->RunTimeCurrency."s";
+			}
 			$this->EndValidity = $start->modify($modify)->format('d.m.Y');
 			$this->isActive = true;
 		}
