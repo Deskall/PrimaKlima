@@ -86,7 +86,7 @@ class ShopOrder extends DataObject{
 		if ($this->Created == $this->LastEdited){
 			$this->Initiate();
 		}
-		if ($this->RemainingOffers == 0){
+		if ($this->RemainingOffers == 0 && $this->Product()->NumOfAds > 0){
 			$this->isActive = false;
 		}
 	}
