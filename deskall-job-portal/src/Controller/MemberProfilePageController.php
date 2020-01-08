@@ -277,6 +277,10 @@ class MemberProfilePageController extends PageController{
 
 	public function saveOffer($data, Form $form)
 	{
+		ob_start();
+			print_r($data);
+			$result = ob_get_clean();
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		if ($this->getRequest()->getSession()->get('offer_id')){
 			$offer = Mission::get()->byId($this->getRequest()->getSession()->get('offer_id'));
 		}
@@ -325,7 +329,18 @@ class MemberProfilePageController extends PageController{
 			$config = $offer->getJobConfig();
 			foreach ($config->Parameters() as $p) {
 				if(isset($data[$p->Title])){
-					$value = JobParameterValue::get()->byId($data[$p->Title]);
+					if ($p->FieldType == "text"){
+						$value = JobParameterValue::get()->filter('Title',$data[$p->Title])->first();
+						if (!$value){
+							$value = new JobParameterValue();
+							$value->Title = $data[$p->Title];
+							$value->write();
+							$p->add($value);
+						}
+					}
+					else{
+						$value = JobParameterValue::get()->byId($data[$p->Title]);
+					}
 					if ($value){
 						$assignedP = new AssignedJobParameter();
 						$assignedP->Title = $p->Title;
