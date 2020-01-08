@@ -184,7 +184,7 @@ class ShopPageController extends PageController{
 						//Create and fill the order
 							$order = new ShopOrder();
 							$form->saveInto($order);
-							$order->Price = ($packageOption) ? $packageOption->currentPrice() : $package->currentPrice();
+							$order->Price = ($packageOption) ? $packageOption->Price : $package->currentPrice();
 							$order->isPaid = false;
 							$order->Name = $customer->ContactPersonSurname;
 							$order->Vorname = $customer->ContactPersonFirstName;
