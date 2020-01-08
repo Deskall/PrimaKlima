@@ -31,7 +31,7 @@
 										</div>
 									</div>
 									<div class="uk-width-3-5">
-										<div class="uk-text-bold">$Title</div>
+										<div><strong>$Title</strong></div>
 										<div><i>$Customer.Company</i></div>
 										<div class="uk-flex uk-grid uk-text-small">
 											<div class="place">$City</div>
