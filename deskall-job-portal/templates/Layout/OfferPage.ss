@@ -23,7 +23,7 @@
 						<div class="uk-child-width-1-1" data-uk-grid>
 						<% loop activeOffers %>
 						<div>
-							<div class="uk-card uk-card-hover uk-card-body">
+							<div class="uk-card uk-card-hover uk-card-body offer-snippet">
 								<div class="uk-grid-small" data-uk-grid>
 									<div class="uk-width-1-5">
 										<div class="firma-logo">
