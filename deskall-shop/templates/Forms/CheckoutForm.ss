@@ -74,13 +74,13 @@
 				<div class="uk-margin">
 					<div class="uk-child-width-1-2@s" data-uk-grid>
 						<div>
-							<div class="uk-card uk-card-body uk-card-default">
-								<i class="icon icon-ios-paper"></i>
+							<div class="uk-card uk-card-body uk-card-default uk-text-center">
+								<div class="icon-large"><i class="icon icon-ios-paper"></i></div>
 								<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill" required="required"><label for="bill-choice"><%t Shop.BillPayLabel 'Ich bezahle per Rechnung' %></label>
 							</div>
 						</div>
 						<div>
-							<div class="uk-card uk-card-body uk-card-default">
+							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-card"></i></div>
 								<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online" required="required"><label for="online-choice"><%t Shop.BillPayLabel 'Ich bezahle online mit meiner Kreditkarte oder meinem PayPal-Konto' %></label>
 							</div>
