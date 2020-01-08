@@ -11,6 +11,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use SilverStripe\View\ArrayData;
 
 class JobPortalConfig extends DataObject
 {
@@ -164,6 +165,22 @@ class JobPortalConfig extends DataObject
         
 
         return str_replace(array_keys($variables), array_values($variables), $string);
+    }
+
+    public function activePlaces(){
+        $activeOffers = Mission::get()->filter('isActive',1);
+        if ($activeOffers->exists()){
+            $places = $activeOffers->column('City');
+        }
+        return array_unique($places);
+    }
+
+    public function activeCountries(){
+        $activeOffers = Mission::get()->filter('isActive',1);
+        if ($activeOffers->exists()){
+            $countries = $activeOffers->column('Country');
+        }
+        return new ArrayData(array_unique($countries));
     }
     
 
