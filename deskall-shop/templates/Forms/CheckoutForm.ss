@@ -72,7 +72,7 @@
 			<li class="account-tab" data-index="1">
 				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
 				<div class="uk-margin">
-					<div class="uk-child-width-1-2@s" data-uk-grid>
+					<div class="uk-child-width-1-2@s" data-uk-grid data-uk-height-match=".uk-card">
 						<div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-ios-paper"></i></div>
