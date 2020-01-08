@@ -54,7 +54,7 @@
 						</div>
 						
 						<% if $activeOffers.MoreThanOnePage %>
-						<ul class="uk-pagination">
+						<ul class="uk-pagination uk-flex-center">
 						    <% if $activeOffers.NotFirstPage %>
 						        <li><a class="prev" href="$activeOffers.PrevLink"><span data-uk-pagination-previous></span></a></li>
 						    <% end_if %>
