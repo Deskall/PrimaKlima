@@ -180,7 +180,7 @@ class JobPortalConfig extends DataObject
         if ($activeOffers->exists()){
             $countries = $activeOffers->column('Country');
         }
-        return new ArrayData(array_unique($countries));
+        return new ArrayData(['values' => array_unique($countries)]);
     }
     
 
