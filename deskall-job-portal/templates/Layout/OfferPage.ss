@@ -51,6 +51,26 @@
 							</div>
 						</div>
 						<% end_loop %>
+						</div>
+						<% if $PaginatedPages.MoreThanOnePage %>
+						    <% if $PaginatedPages.NotFirstPage %>
+						        <a class="prev" href="$PaginatedPages.PrevLink">Prev</a>
+						    <% end_if %>
+						    <% loop $PaginatedPages.PaginationSummary %>
+						        <% if $CurrentBool %>
+						            $PageNum
+						        <% else %>
+						            <% if $Link %>
+						                <a href="$Link">$PageNum</a>
+						            <% else %>
+						                ...
+						            <% end_if %>
+						        <% end_if %>
+						    <% end_loop %>
+						    <% if $PaginatedPages.NotLastPage %>
+						        <a class="next" href="$PaginatedPages.NextLink">Next</a>
+						    <% end_if %>
+						<% end_if %>
 					</div>
 				</div>
 			</div>
