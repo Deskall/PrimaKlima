@@ -179,9 +179,7 @@ class ShopPageController extends PageController{
 						$packageOption = null;
 						if (isset($data['OptionID']) && !empty($data['OptionID'])){
 							$packageOption = PackageOption::get()->byId($data['OptionID']);
-							if ($packageOption){
-								$order->OptionID = $packageOption->ID;
-							}
+							
 						}
 						//Create and fill the order
 							$order = new ShopOrder();
