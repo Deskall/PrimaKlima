@@ -17,7 +17,7 @@
 						<% end_loop %>
 						<div class="parameter uk-margin">
 							<strong class="parameter-title"><%t JobSearch.Places 'Ort' %></strong>
-							<% loop $CookConfig.activeCountries %>
+							<% loop $CookConfig.activeCountries.GroupedBy('Country') %>
 								<div class="uk-flex uk-flex-between"><span class="uk-text-truncate">$Title</span><span>$Children.count</span></div>
 							<% end_loop %>
 						</div>
