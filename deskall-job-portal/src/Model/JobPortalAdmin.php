@@ -35,11 +35,15 @@ class JobPortalAdmin extends ModelAdmin{
 
 	public function getList(){
 		$list = parent::getList();
+
 		return $list;
 	}
 
 	public function getEditForm($id = null, $fields = null) {
 	    $form = parent::getEditForm($id, $fields);
+	     if($this->modelClass == 'Mission' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+	       $gridField->getConfig()->addComponent(new GridFieldDuplicateAction());
+	    }
 	    return $form;
 	}
 
