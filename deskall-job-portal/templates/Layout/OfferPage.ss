@@ -17,8 +17,8 @@
 						<% end_loop %>
 						<div class="parameter uk-margin">
 							<strong class="parameter-title"><%t JobSearch.Places 'Ort' %></strong>
-							<% loop $CookConfig.activeCountries %>
-								<div class="uk-flex uk-flex-between"><span class="uk-text-truncate">$Me</span><span></span></div>
+							<% loop $CookConfig.activeCountries.values %>
+								<div class="uk-flex uk-flex-between"><span class="uk-text-truncate">$me</span><span></span></div>
 							<% end_loop %>
 						</div>
 					</div>
