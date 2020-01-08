@@ -9,7 +9,9 @@
 							<div class="parameter uk-margin">
 								<strong class="parameter-title">$Title</strong>
 								<% loop $Values %>
-								<div>$Title <span class="uk-flex-right">$activeOffers.count</span></div>
+								<% if $activeOffers.exists %>
+								<div class="uk-flex uk-flex-between"><span>$Title</span><span>$activeOffers.count</span></div>
+								<% end_if %>
 								<% end_loop %>
 							</div>
 						<% end_loop %>
