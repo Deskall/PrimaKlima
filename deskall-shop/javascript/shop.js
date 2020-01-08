@@ -30,6 +30,10 @@ $(document).ready(function(){
 		$("#Form_CheckoutForm_ProductID").val($(this).attr('data-package-choice'));
 		$(".summary-package").attr('hidden','hidden');
 		$("#summary-package-"+$(this).attr('data-package-choice')).attr('hidden',false);
+		if ($(this).attr('data-package-choice') == 3){
+			var option = $("select[name='package-option'] option:selected");
+			$("#summary-package-"+$(this).attr('data-package-choice')).find('td.price').text(option.text());
+		}
 		UIkit.tab('#tab-switcher').show(1);
 	});
 
