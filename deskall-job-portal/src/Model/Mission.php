@@ -404,7 +404,7 @@ class Mission extends DataObject
 
      public function canEdit($member = null){
         if ($this->isClosed || $this->isActive){
-            return false;
+             return Permission::check('ADMIN');
         }
         else{
             $member = Security::getCurrentUser();
