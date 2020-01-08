@@ -36,8 +36,7 @@
 										<div class="uk-flex uk-grid uk-text-small uk-margin-small-top">
 											<div class="place"><i class="icon icon-location"></i>$City</div>
 											<% with Parameters.filter('Title','Anstellung').first %><div class="type"><i class="icon icon-information"></i>$Value</div><% end_with %>
-											<div class="start"><i class="icon icon-calendar"></i>$Start.Nice</div>
-											<div class="uk-flex-right">$PublishedDate.NiceDate</div>
+											<div class="start"><i class="icon icon-calendar"></i>$PublishedDate.Nice</div>
 										</div>
 									</div>
 									<div class="uk-width-1-5">
