@@ -29,7 +29,7 @@
 						<div class="uk-child-width-1-1 uk-grid-small" data-uk-grid>
 						<% loop activeOffers %>
 						<div>
-							<div class="uk-card uk-card-hover uk-card-body uk-card-small offer-snippet">
+							<div class="uk-card uk-card-body uk-card-small offer-snippet">
 								<div class="uk-grid-small" data-uk-grid>
 									<div class="uk-width-1-5">
 										<div class="firma-logo">
@@ -37,7 +37,7 @@
 										</div>
 									</div>
 									<div class="uk-width-3-5">
-										<div><strong>$Title</strong></div>
+										<div><a href="$previewLink" title="Stelle ansehen"><strong>$Title</strong></a></div>
 										<div><i>$Customer.Company</i></div>
 										<div class="uk-flex uk-grid uk-text-small uk-margin-small-top">
 											<div class="place"><i class="icon icon-location"></i>$City</div>
