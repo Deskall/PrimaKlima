@@ -56,7 +56,7 @@
 						<% if $activeOffers.MoreThanOnePage %>
 						<ul class="uk-pagination">
 						    <% if $activeOffers.NotFirstPage %>
-						        <li><a class="prev" href="$activeOffers.PrevLink">Prev</a></li>
+						        <li><a class="prev" href="$activeOffers.PrevLink"><span data-uk-pagination-previous></span></a></li>
 						    <% end_if %>
 						    <% loop $activeOffers.PaginationSummary %>
 						        <% if $CurrentBool %>
@@ -70,7 +70,7 @@
 						        <% end_if %>
 						    <% end_loop %>
 						    <% if $activeOffers.NotLastPage %>
-						        <li><a class="next" href="$activeOffers.NextLink">Next</a></li>
+						        <li><a class="next" href="$activeOffers.NextLink"><span data-uk-pagination-next></span></a></li>
 						    <% end_if %>
 						</ul>
 						<% end_if %>
