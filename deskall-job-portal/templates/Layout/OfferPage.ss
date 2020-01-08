@@ -10,7 +10,7 @@
 								<strong class="parameter-title">$Title</strong>
 								<% loop $Values %>
 								<% if $activeOffers.exists %>
-								<div class="uk-flex uk-flex-between"><span>$Title</span><span>$activeOffers.count</span></div>
+								<div class="uk-flex uk-flex-between uk-text-truncate"><span>$Title</span><span>$activeOffers.count</span></div>
 								<% end_if %>
 								<% end_loop %>
 							</div>
