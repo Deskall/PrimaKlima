@@ -17,6 +17,10 @@ class PackageOption extends DataObject{
 	private static $summary_fields = array(
 		'Title' => 'Titel',
 	);
+
+	public function currentPrice(){
+		return $this->Price;
+	}
 }
 
 
