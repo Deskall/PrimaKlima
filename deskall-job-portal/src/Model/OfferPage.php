@@ -18,4 +18,8 @@ class OfferPage extends Page {
 	public function getCookConfig(){
 		return CookConfig::get()->first();
 	}
+
+	public function activeOffers(){
+		return Mission::get()->filter('isActive',1);
+	}
 }
