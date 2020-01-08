@@ -81,7 +81,7 @@ class OfferPageController extends PageController{
 
     public function activeOffers(){
 		$offers =  new PaginatedList(Mission::get()->filter('isActive',1),$this->getRequest());
-		$offers->setPageLength(25);
+		$offers->setPageLength(4);
 		return $offers;
 	}
 	
