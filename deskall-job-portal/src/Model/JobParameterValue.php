@@ -61,6 +61,6 @@ class JobParameterValue extends DataObject
 
     public function activeOffers(){
       $missionIds = AssignedJobParameter::get()->filter(['Title' => $this->Parameter()->Title,'Value' => $this->Title])->column('MissionID');
-      return Mission::get()->filter(['isActive' => 1, 'ID' => $missionIds]);
+      return ($missionIds) ? Mission::get()->filter(['isActive' => 1, 'ID' => $missionIds]) : null;
     }
 }
