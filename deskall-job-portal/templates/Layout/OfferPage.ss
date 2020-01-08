@@ -1,4 +1,4 @@
-<div class="element">
+<div class="element offer-page">
 	<section class="uk-section uk-section-small">
 		<div class="uk-container">
 			<div class="uk-grid-match" data-uk-grid>
@@ -6,9 +6,8 @@
 					<div class="sidebar">
 						<h1 class="uk-h3">$Title</h1>
 						<% loop $CookConfig.Parameters %>
-							<div class="parameter">
+							<div class="parameter uk-margin">
 								<strong class="parameter-title">$Title</strong>
-								<hr>
 								<% loop $Values %>
 								<div>$Title</div>
 								<% end_loop %>
