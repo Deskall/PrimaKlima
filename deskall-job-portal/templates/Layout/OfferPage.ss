@@ -27,7 +27,7 @@
 								<div class="uk-grid-small" data-uk-grid>
 									<div class="uk-width-1-5">
 										<div class="firma-logo">
-											<img src="$Customer.Logo.FitMax(150,150).URL" alt="Logo von $Company" width="150" height="150">
+											<img src="$Customer.Logo.Fit(150,150).URL" alt="Logo von $Company" width="150" height="150">
 										</div>
 									</div>
 									<div class="uk-width-3-5">
