@@ -52,24 +52,27 @@
 						</div>
 						<% end_loop %>
 						</div>
+						
 						<% if $activeOffers.MoreThanOnePage %>
+						<ul class="uk-pagination">
 						    <% if $activeOffers.NotFirstPage %>
-						        <a class="prev" href="$activeOffers.PrevLink">Prev</a>
+						        <li><a class="prev" href="$activeOffers.PrevLink">Prev</a></li>
 						    <% end_if %>
 						    <% loop $activeOffers.PaginationSummary %>
 						        <% if $CurrentBool %>
-						            $PageNum
+						             <li class="uk-active"><span>$PageNum</span></li>
 						        <% else %>
 						            <% if $Link %>
-						                <a href="$Link">$PageNum</a>
+						                <li><a href="$Link">$PageNum</a></li>
 						            <% else %>
-						                ...
+						                 <li class="uk-disabled"><span>...</span></li>
 						            <% end_if %>
 						        <% end_if %>
 						    <% end_loop %>
 						    <% if $activeOffers.NotLastPage %>
-						        <a class="next" href="$activeOffers.NextLink">Next</a>
+						        <li><a class="next" href="$activeOffers.NextLink">Next</a></li>
 						    <% end_if %>
+						</ul>
 						<% end_if %>
 					</div>
 				</div>
