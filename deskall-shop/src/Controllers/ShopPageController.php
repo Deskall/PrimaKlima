@@ -114,7 +114,7 @@ class ShopPageController extends PageController{
 		Requirements::javascript("deskall-shop/javascript/messages_de.min.js");
 		$fields = FieldList::create(
 			HiddenField::create('ProductID'),
-			HiddenField::create('PackageOptionID'),
+			HiddenField::create('OptionID'),
 			HiddenField::create('PaymentType'),
 			HiddenField::create('CustomerID')->setValue($customer->ID),
 			CompositeField::create(
@@ -175,10 +175,18 @@ class ShopPageController extends PageController{
 					$package = Package::get()->byId($data['ProductID']);
 					if ($package){
 						$form->saveInto($customer);
+						//Option if any
+						$packageOption = null;
+						if (isset($data['OptionID']) && !empty($data['OptionID'])){
+							$packageOption = PackageOption::get()->byId($data['OptionID']);
+							if ($packageOption){
+								$order->OptionID = $packageOption->ID;
+							}
+						}
 						//Create and fill the order
 							$order = new ShopOrder();
 							$form->saveInto($order);
-							$order->Price = $package->currentPrice();
+							$order->Price = ($packageOption) ? $packageOption->currentPrice() : $package->currentPrice();
 							$order->isPaid = false;
 							$order->Name = $customer->ContactPersonSurname;
 							$order->Vorname = $customer->ContactPersonFirstName;
@@ -188,6 +196,8 @@ class ShopPageController extends PageController{
 							$order->City = $customer->BillingAddressPlace;
 							$order->Country = $customer->BillingAddressCountry;
 							$order->Phone = $customer->ContactPersonTelephone;
+
+
 
 							try {
 								//Write order

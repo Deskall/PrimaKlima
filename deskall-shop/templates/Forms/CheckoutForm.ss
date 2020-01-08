@@ -68,6 +68,9 @@
 				<% with Fields.FieldByName('ProductID') %>
 				$FieldHolder
 				<% end_with %>
+				<% with Fields.FieldByName('OptionID') %>
+				$FieldHolder
+				<% end_with %>
 			</li>
 			<li class="account-tab" data-index="1">
 				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
