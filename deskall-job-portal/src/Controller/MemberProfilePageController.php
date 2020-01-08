@@ -335,7 +335,7 @@ class MemberProfilePageController extends PageController{
 							$value = new JobParameterValue();
 							$value->Title = $data[$p->Title];
 							$value->write();
-							$p->add($value);
+							$p->Values()->add($value);
 						}
 					}
 					else{
