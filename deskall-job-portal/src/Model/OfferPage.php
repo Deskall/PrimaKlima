@@ -19,7 +19,5 @@ class OfferPage extends Page {
 		return JobPortalConfig::get()->first();
 	}
 
-	public function activeOffers(){
-		return Mission::get()->filter('isActive',1);
-	}
+	
 }

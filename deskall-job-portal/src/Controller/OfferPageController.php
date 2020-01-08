@@ -44,6 +44,7 @@ use SilverStripe\Admin\ModalController;
 use SilverStripe\i18n\i18n;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\ORM\PaginatedList;
 
 class OfferPageController extends PageController{
 
@@ -77,6 +78,12 @@ class OfferPageController extends PageController{
 		}
 		return $this->httpError(404);
     }
+
+    public function activeOffers(){
+		$offers =  new PaginatedList(Mission::get()->filter('isActive',1),$this->getRequest());
+		$offers->setPageLength(25);
+		return $offers;
+	}
 	
 	// public function OfferForm(){
 	// 	Requirements::javascript('silverstripe/admin: client/dist/js/vendor.js');
