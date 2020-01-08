@@ -417,7 +417,7 @@ class Mission extends DataObject
 
     public function canDelete($member = null){
         if ($this->isActive){
-            return false;
+            return Permission::check('ADMIN');
         }
         else{
             $member = Security::getCurrentUser();
