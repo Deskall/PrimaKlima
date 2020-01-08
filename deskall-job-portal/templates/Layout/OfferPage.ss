@@ -23,6 +23,25 @@
 						<div class="uk-child-width-1-1" data-uk-grid>
 						<% loop activeOffers %>
 						<div>
+							<div class="uk-card uk-card-hover uk-card-body">
+								<div class="uk-grid-small" data-uk-grid>
+									<div class="uk-width-1-5">
+										<div class="firma-logo">
+											<img src="$Customer.Logo.Fit(150,150).URL" alt="Logo von $Company" width="150" height="150">
+										</div>
+									</div>
+									<div class="uk-width-3-5">
+										<div class="uk-text-bold">$Title</div>
+										<div><i>$Place</i></div>
+										<div class="uk-flex uk-grid uk-text-small">
+											<div class="place">$City</div>
+											<% with Parameters.filter('Title','Anstellung').first %><div class="type">$Value</div><% end_with %>
+											<div class="start">$Start.Nice</div>
+											<div class="uk-flex-right">$PublishedDate.NiceDate</div>
+										</div>
+									</div>
+									<div class="uk-width-1-5">
+									</div>
 							<strong>$Title</strong>
 						</div>
 						<% end_loop %>
