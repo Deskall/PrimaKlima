@@ -480,6 +480,10 @@ class Mission extends DataObject
         return $this->Candidatures()->count();
     }
 
+    public function getCountryTitle(){
+      return i18n::getData()->getCountries()[$this->Country];
+    }
+
    
 
     // //Price calculation
