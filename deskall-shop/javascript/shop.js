@@ -32,7 +32,8 @@ $(document).ready(function(){
 		$("#summary-package-"+$(this).attr('data-package-choice')).attr('hidden',false);
 		if ($(this).attr('data-package-choice') == 3){
 			var option = $("select[name='package-option'] option:selected");
-			$("#summary-package-"+$(this).attr('data-package-choice')).find('td.price').text(option.text());
+			$("#summary-package-"+$(this).attr('data-package-choice')).find('td.price').text(option.attr('data-price')+' €');
+			$("#summary-package-"+$(this).attr('data-package-choice')).find('td.runtime').text(option.attr('data-runtime'));
 		}
 		UIkit.tab('#tab-switcher').show(1);
 	});
