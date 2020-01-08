@@ -5,6 +5,15 @@
 				<div class="uk-visible@m uk-width-1-4@m uk-width-1-5@l">
 					<div class="sidebar">
 						<h1 class="uk-h3">$Title</h1>
+						<% loop $CookConfig.Parameters %>
+							<div class="parameter">
+								<strong class="parameter-title">$Title</strong>
+								<hr>
+								<% loop $Values %>
+								<div>$Title</div>
+								<% end_loop %>
+							</div>
+						<% end_loop %>
 					</div>
 				</div>
 				<div class="uk-width-1-1 uk-width-3-4@m uk-width-4-5@l">
