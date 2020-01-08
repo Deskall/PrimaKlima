@@ -28,6 +28,7 @@ $(document).ready(function(){
 	//Package Selection
 	$(document).on("click","[data-package-choice]",function(){
 		$("#Form_CheckoutForm_ProductID").val($(this).attr('data-package-choice'));
+		$(".summary-package").attr('hidden','hidden');
 		$("#summary-package-"+$(this).attr('data-package-choice')).attr('hidden',false);
 		UIkit.tab('#tab-switcher').show(1);
 	});
