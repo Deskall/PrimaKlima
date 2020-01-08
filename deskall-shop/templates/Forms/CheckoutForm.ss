@@ -80,7 +80,10 @@
 							</div>
 						</div>
 						<div>
-							<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online" required="required"><label for="online-choice"><%t Shop.BillPayLabel 'Ich bezahle online mit meiner Kreditkarte oder meinem PayPal-Konto' %></label>
+							<div class="uk-card uk-card-body uk-card-default">
+								<i class="icon icon-card"></i>
+								<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online" required="required"><label for="online-choice"><%t Shop.BillPayLabel 'Ich bezahle online mit meiner Kreditkarte oder meinem PayPal-Konto' %></label>
+							</div>
 						</div>
 					</div>
 				</div>
