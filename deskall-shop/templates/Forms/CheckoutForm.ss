@@ -81,7 +81,7 @@
 						</div>
 						<div>
 							<div class="uk-card uk-card-body uk-card-default">
-								<i class="icon icon-card"></i>
+								<div class="icon-large"><i class="icon icon-card"></i></div>
 								<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online" required="required"><label for="online-choice"><%t Shop.BillPayLabel 'Ich bezahle online mit meiner Kreditkarte oder meinem PayPal-Konto' %></label>
 							</div>
 						</div>
