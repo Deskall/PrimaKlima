@@ -20,7 +20,7 @@
 				<div class="uk-width-1-1 uk-width-3-4@m uk-width-4-5@l">
 					<div class="offers-container">
 						<p id="count-offers">$activeOffers.count</p>
-						<div class="uk-child-width-1-1" data-uk-grid>
+						<div class="uk-child-width-1-1 uk-grid-small" data-uk-grid>
 						<% loop activeOffers %>
 						<div>
 							<div class="uk-card uk-card-hover uk-card-body offer-snippet">
