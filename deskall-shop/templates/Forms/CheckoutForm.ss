@@ -50,7 +50,7 @@
 						        	<% if PackegeOptions %>
 						        	<select name="package-option" class="uk-select">
 						        		<% loop PackegeOptions %>
-						        		<option value="$ID" data-price="$Price" data-runtime="$RuntimeTitle">$Title $Price €</option>
+						        		<option value="$ID" data-price="$Price" data-runtime="$Title">$Title $Price €</option>
 						        		<% end_loop %>
 						        	</select>
 						        	<% else %>
