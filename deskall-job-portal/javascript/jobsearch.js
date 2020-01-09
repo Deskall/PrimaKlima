@@ -23,7 +23,7 @@ function ApplyFilter(){
 	$(".offers-container .spinner").show();
 	$("[data-filter].uk-active").each(function(){
 		filters.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
-		$(".sidebar .filters").append('<button class="uk-button button-SecondaryBackground">'+$(this).attr('data-filter-value')+'</button>');
+		$(".sidebar .filters").append('<button class="uk-button" data-uk-close>'+$(this).attr('data-filter-value')+'</button>');
 	});
 	if (filters.length > 0){
 		$(".sidebar .filters").attr('hidden',false);
