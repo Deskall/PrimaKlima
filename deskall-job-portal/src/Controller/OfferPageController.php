@@ -91,7 +91,7 @@ class OfferPageController extends PageController{
 			$filteredIDS = [];
 			$offers = Mission::get()->filter('isActive',1);
 			foreach($filters as $key => $filter){
-				$arrayFilters[] = ['Title' => $filter['filter'], 'Value' => $filter['value']];
+				$arrayFilters[] = new ArrayData(['Title' => $filter['filter'], 'Value' => $filter['value']]);
 				$ids = AssignedJobParameter::get()->filter(['Title' => $filter['filter'], 'Value' => $filter['value']])->column('MissionID');
 				$filteredIDS = array_merge($ids,$filteredIDS);
 			}
@@ -116,7 +116,7 @@ class OfferPageController extends PageController{
 		print_r($arrayFilters);
 		return [
 			     'activeOffers' => $offers,
-			     'filters' => new ArrayList(new ArrayData($arrayFilters))
+			     'filters' => new ArrayList($arrayFilters)
 			];
 	}
 	
