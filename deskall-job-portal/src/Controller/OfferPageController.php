@@ -116,7 +116,7 @@ class OfferPageController extends PageController{
 		print_r($arrayFilters);
 		return [
 			     'activeOffers' => $offers,
-			     'filters' => new ArrayList($arrayFilters)
+			     'filters' => new ArrayList(new ArrayData($arrayFilters))
 			];
 	}
 	
