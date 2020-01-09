@@ -7,7 +7,7 @@ $(document).ready(function(){
 			$(this).addClass('uk-active');
 			ApplyFilter();
 		});
-		$(document).on("click",'.filter button',function(){
+		$(document).on("click",'.filters button',function(){
 			var filter = $("[data-filter='"+$(this).attr('data-filter')+"'][data-filter-value='"+$(this).text()+"']");
 			filter.removeClass('uk-active');
 			ApplyFilter();
@@ -28,7 +28,7 @@ function ApplyFilter(){
 	$(".offers-container .spinner").show();
 	$("[data-filter].uk-active").each(function(){
 		filters.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
-		$(".sidebar .filters").append('<button class="uk-button" data-uk-close>'+$(this).attr('data-filter-value')+'</button>');
+		$(".sidebar .filters").append('<button class="uk-button" data-uk-close data-filter="'+$(this).attr('data-filter')+'">'+$(this).attr('data-filter-value')+'</button>');
 	});
 	if (filters.length > 0){
 		$(".sidebar .filters").attr('hidden',false);
