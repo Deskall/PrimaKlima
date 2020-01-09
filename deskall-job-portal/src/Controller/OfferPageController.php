@@ -100,7 +100,7 @@ class OfferPageController extends PageController{
 					$ids = AssignedJobParameter::get()->filter(['Title' => $filter['filter'], 'Value' => $filter['value']])->column('MissionID');
 				}
 				if ($filter['dataType'] == "data"){
-					$ids = Mission::get()->filter($filter['filter'], $filter['value'])->column('ID');
+					$ids = Mission::get()->filter($filter['filter'], array_search($filter['value'],i18n::getData()->getCountries()))->column('ID');
 				}
 				
 				$filteredIDS = array_merge($ids,$filteredIDS);
