@@ -117,6 +117,10 @@ class OfferPageController extends PageController{
 				$offers->setPageLength(4);
 			}
 			else{
+				ob_start();
+							print_r('no offers');
+							$result = ob_get_clean();
+							file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 				$offers = null;
 			}
 			
