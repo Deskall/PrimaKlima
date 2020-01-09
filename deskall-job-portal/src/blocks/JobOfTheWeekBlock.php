@@ -36,7 +36,10 @@ class JobOfTheWeekBlock extends BaseElement implements Searchable{
 
 
 	public function Jobs(){
-
+		$date = new DateTime();
+		$date->modify('-1 Week');
+		$Advertisements = Mission::get()->filter(['isActive' => 1, 'PublishedDate:GreaterThanOrEqual' => $date->format("Y-m-d")])->sort('PublishedDate','DESC')->Limit($this->NumOfJobs);
+		return $Advertisements;
 		// $Advertisements = EmployerAdvertisement::get()->filter(array(
 		// 	'isPaid' => true, 
 		// 	'State'  => 'live',
