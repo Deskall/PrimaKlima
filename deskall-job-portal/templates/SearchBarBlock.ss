@@ -1,8 +1,6 @@
-<form class="finder-bar uk-flex uk-flex-around uk-flex-middle">
-				<strong><%t FinderBar.SearchTitle 'Suche' %>:</strong>
-				
+<form class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
 
-				<div class="select-holder inline">
+				<div class="uk-width-2-5">
 					<input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
 					<datalist id="positions">
 						<% loop $getPositions %>
@@ -13,7 +11,7 @@
 
 
 
-				<div class="select-holder inline">
+				<div class="uk-width-2-5">
 					<input list="places" name="place" class="uk-input" placeholder="<%t FinderBar.Position 'Ort' %>">
 					<datalist id="places">
 						<% loop $getCities.groupedBy(City) %>
@@ -22,5 +20,5 @@
 					</datalist>
 				</div>
 
-				<button class="uk-button uk-button-primary uk-flex uk-flex-middle"><span><%t FinderBar.SearchAction 'Suchen' %></span><i class="icon icon-chevron-right uk-margin-small-left uk-text-small"></i></button>
+				<button class="uk-button uk-button-secondary uk-flex uk-flex-middle uk-width-1-5"><span><%t FinderBar.SearchAction 'Suchen' %></span><i class="icon icon-chevron-right uk-margin-small-left uk-text-small"></i></button>
 			</form>
