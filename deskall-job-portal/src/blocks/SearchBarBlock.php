@@ -17,8 +17,12 @@ class SearchBarBlock extends BaseElement {
 	    return _t(__CLASS__ . '.BlockType', 'Job Suche');
 	}
 
+	public function getConfig(){
+		return JobPortalConfig::get()->first();
+	}
+
 	public function getPositions(){
-		$param = JobParameter::get()->filter('Title','Position')->first();
+		$param = $this->getConfig()->Parameters()->filter('Title','Position')->first();
 		if ($param){
 			return $param->Values()->sort('Title');
 		}

@@ -6,7 +6,7 @@
 					<select data-chosen-filter name="position" class="uk-select" data-placeholder="<%t FinderBar.Position 'Position' %>">
 						<option value="" data-empty-value></option>
 						<% loop $getPositions %>
-							<option value="$Value" <% if $Selected %>selected<% end_if %>>$Value</option>
+							<option value="$Title" <% if $Selected %>selected<% end_if %>>$Title</option>
 						<% end_loop %>
 					</select>
 				</div>
@@ -18,7 +18,7 @@
 						<option value="" data-empty-value></option>
 						<% loop $getPostals.Sort('Title') %>
 							<% if $Title %>
-							<option value="$Value" <% if $Selected %>selected<% end_if %>>$Title</option>
+							<option value="$Title" <% if $Selected %>selected<% end_if %>>$Title</option>
 							<% end_if %>
 						<% end_loop %>
 					</select>
