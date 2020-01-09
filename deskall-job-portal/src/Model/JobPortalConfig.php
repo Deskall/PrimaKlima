@@ -13,6 +13,7 @@ use SilverStripe\Control\Director;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\GroupedList;
+use SilverStripe\i18n\i18n;
 
 class JobPortalConfig extends DataObject
 {
