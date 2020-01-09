@@ -12,3 +12,11 @@ $(document).ready(function(){
 		});
 	});
 });
+
+
+//Job search Page
+$(document).ready(function(){
+	if ($("body").hasClass("OfferPage")){
+
+	}
+});
