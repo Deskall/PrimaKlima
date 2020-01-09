@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 function ApplyFilter(){
 	var filter = [];
-	$(document).each("[data-filter].uk-active", function(){
+	$("[data-filter].uk-active").each(function(){
 		filter.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
 	});
 	console.log(filter);
