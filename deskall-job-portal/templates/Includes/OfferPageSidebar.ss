@@ -10,17 +10,17 @@
 		<strong class="parameter-title">$Title</strong>
 		<% loop $Values %>
 		<% if $activeOffers.exists %>
-		<div><a class="uk-flex uk-flex-between" data-filter="$Up.Title" data-filter-value="$Title"><span class="uk-text-truncate">$Title</span><span>$activeOffers.count</span></a></div>
+		<div><a class="uk-flex uk-flex-between" data-filter="$Up.Title" data-filter-value="$Title" data-type="parameter"><span class="uk-text-truncate">$Title</span><span>$activeOffers.count</span></a></div>
 		<% end_if %>
 		<% end_loop %>
 	</div>
 	<% end_loop %>
-	<div class="data uk-margin">
-		<strong class="data-title"><%t JobSearch.Places 'Ort' %></strong>
+	<div class="parameter uk-margin">
+		<strong class="parameter-title"><%t JobSearch.Places 'Ort' %></strong>
 		<% loop $CookConfig.activeCountries.GroupedBy(CountryTitle) %>
-		<div><a class="uk-flex uk-flex-between" data-filter="Country" data-filter-value="$CountryTitle"><span class="uk-text-truncate">$CountryTitle</span><span>$Children.count</span></a></div>
-		<div class="sub-data uk-margin">
-			<strong class="data-title"><%t JobSearch.Cities 'Stadt' %></strong>
+		<div><a class="uk-flex uk-flex-between" data-filter="Country" data-filter-value="$CountryTitle" data-type="data"><span class="uk-text-truncate">$CountryTitle</span><span>$Children.count</span></a></div>
+		<div class="sub-parameter uk-margin">
+			<strong class="parameter-title"><%t JobSearch.Cities 'Stadt' %></strong>
 			<% loop $Top.CookConfig.activeCities($CountryTitle).GroupedBy(CityTitle) %>
 			<div class="uk-flex uk-flex-between"><span class="uk-text-truncate">$CityTitle</span><span>$Children.count</span></div>
 			<% end_loop %>
