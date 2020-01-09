@@ -7,6 +7,11 @@ $(document).ready(function(){
 			$(this).addClass('uk-active');
 			ApplyFilter();
 		});
+		$(document).on("click",'.filter button',function(){
+			var filter = $("[data-filter='"+$(this).attr('data-filter')+"'][data-filter-value='"+$(this).text()+"']");
+			filter.removeClass('uk-active');
+			ApplyFilter();
+		});
 	}
 });
 
