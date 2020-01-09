@@ -17,7 +17,7 @@
 					<input list="places" name="place" class="uk-input" data-placeholder="<%t FinderBar.Position 'Position' %>">
 					<datalist id="places">
 						<% loop $getCities %>
-							<option value="$Me" <% if $Selected %>selected<% end_if %>>$Me</option>
+							<option value="$value" <% if $Selected %>selected<% end_if %>>$value</option>
 						<% end_loop %>
 					</datalist>
 				</div>

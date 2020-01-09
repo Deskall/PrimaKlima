@@ -31,8 +31,9 @@ class SearchBarBlock extends BaseElement {
 	}
 
 	public function getCities(){
-		$activeOffersCities = Mission::get()->filter('isActive',1)->map('City','City');
-
+		$cities = [];
+		$activeOffersCities = Mission::get()->filter('isActive',1)->column('City');
+		array_unique($activeOffersCities);
 		return new ArrayList(array_unique($activeOffersCities));
 	}
 }
