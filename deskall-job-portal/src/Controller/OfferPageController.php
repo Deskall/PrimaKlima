@@ -107,6 +107,10 @@ class OfferPageController extends PageController{
 				}
 				
 			}
+			ob_start();
+						print_r($filteredIDS);
+						$result = ob_get_clean();
+						file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 			if (!empty($filteredIDS)){
 				$offers = $offers->filter('ID',$filteredIDS);
 				$offers = new PaginatedList($offers,$this->getRequest());
