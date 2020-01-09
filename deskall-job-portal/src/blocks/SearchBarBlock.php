@@ -2,6 +2,7 @@
 
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\ORM\ArrayList;
 
 class SearchBarBlock extends BaseElement {
 	private static $icon = 'font-icon-search';
@@ -27,5 +28,11 @@ class SearchBarBlock extends BaseElement {
 			return $param->Values()->sort('Title');
 		}
 		return null;
+	}
+
+	public function getCities(){
+		$activeOffersCities = Mission::get()->filter('isActive')->column('City');
+
+		return new ArrayList(array_unique($activeOffersCities));
 	}
 }
