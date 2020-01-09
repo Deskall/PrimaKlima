@@ -111,7 +111,8 @@ class OfferPageController extends PageController{
 			]))->renderWith('Includes/FilteredOffers');
 		}
 		return [
-			     'activeOffers' => $offers
+			     'activeOffers' => $offers,
+			     'filters' => $filters
 			];
 	}
 	
