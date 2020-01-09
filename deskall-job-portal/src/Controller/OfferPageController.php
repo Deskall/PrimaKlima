@@ -78,19 +78,18 @@ class OfferPageController extends PageController{
 		return $this->httpError(404);
     }
 
-    public function activeOffers(){
-		$offers =  new PaginatedList(Mission::get()->filter('isActive',1),$this->getRequest());
-		$offers->setPageLength(4);
-		return $offers;
-	}
+ //    public function activeOffers(){
+	// 	$offers =  new PaginatedList(Mission::get()->filter('isActive',1),$this->getRequest());
+	// 	$offers->setPageLength(4);
+	// 	return $offers;
+	// }
 
 	public function index(HTTPRequest $request){
 		$filters = $request->getVar('filters');
 		$arrayFilters = [];
-		
+		$offers = Mission::get()->filter('isActive',1);
 		if (!empty($filters)){
 			$filteredIDS = [];
-			$offers = Mission::get()->filter('isActive',1);
 			foreach($filters as $key => $filter){
 				$arrayFilters[] = new ArrayData(['Title' => $filter['filter'], 'Value' => $filter['value']]);
 				if ($filter['dataType'] == "parameter"){
@@ -107,26 +106,11 @@ class OfferPageController extends PageController{
 				}
 				
 			}
-			if (!empty($filteredIDS)){
-				ob_start();
-							print_r($filters);
-							$result = ob_get_clean();
-							file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-				$offers = $offers->filter('ID',$filteredIDS);
-				$offers = new PaginatedList($offers,$this->getRequest());
-				$offers->setPageLength(4);
-			}
-			else{
-				ob_start();
-							print_r('no offers');
-							$result = ob_get_clean();
-							file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-				$offers = null;
-			}
-			
+			$offers = (!empty($filteredIDS)) ? $offers->filter('ID',$filteredIDS) : null;
 		}
-		else{
-			$offers = $this->activeOffers();
+		$offers = ($offers) ? new PaginatedList($offers,$this->getRequest()) : null;
+		if ($offers){
+			$offers->setPageLength(4);
 		}
 		if ($request->isAjax()){
 			return $this->customise(new ArrayData([
