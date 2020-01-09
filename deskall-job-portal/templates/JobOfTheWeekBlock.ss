@@ -29,9 +29,6 @@
             <% end_loop %>
         </ul>
 
-        <a class="uk-position-center-left-out uk-position-small uk-hidden-hover" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-        <a class="uk-position-center-right-out uk-position-small uk-hidden-hover" data-uk-slidenav-next data-uk-slider-item="next"></a>
-
     </div>
 
     <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
