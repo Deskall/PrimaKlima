@@ -86,13 +86,21 @@ class OfferPageController extends PageController{
 
 	public function FilterOffers(HTTPRequest $request){
 		$filters = $request->getVar('filters');
-		$offers = Mission::get()->filter('isActive',1);
-		$filteredIDS = [];
-		foreach($filters as $key => $value){
-			$ids = AssignedJobParameter::get()->filter(['Title' => $key, 'Value' => $value])->column('MissionID');
-			array_merge($filteredIDS,$ids);
+		if ($filters){
+			$filteredIDS = [];
+			$offers = Mission::get()->filter('isActive',1);
+			foreach($filters as $key => $value){
+				$ids = AssignedJobParameter::get()->filter(['Title' => $key, 'Value' => $value])->column('MissionID');
+				array_merge($filteredIDS,$ids);
+			}
+			$offers = $offers->filter('ID',$filteredIDS);
+			$offers = new PaginatedList($offers,$this->getRequest());
+			$offers->setPageLength(4);
 		}
-		$offers = $offers->filter('ID',$filteredIDS);
+		else{
+			$offers = $this->activeOffers();
+		}
+		
 		return $this->customise(new ArrayData([
 		        'activeOffers' => $offers
 		]))->renderWith('Includes/FilteredOffers');
