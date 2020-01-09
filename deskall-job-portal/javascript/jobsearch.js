@@ -1,7 +1,7 @@
 //Job search Page
 $(document).ready(function(){
 	if ($("body").hasClass("OfferPage")){
-		ApplyFilter();
+		
 		$(document).on("click",'[data-filter]',function(){
 			$(this).parents('.parameter').find('[data-filter]').removeClass('uk-active');
 			$(this).addClass('uk-active');
