@@ -113,6 +113,7 @@ class OfferPageController extends PageController{
 			        'activeOffers' => $offers
 			]))->renderWith('Includes/FilteredOffers');
 		}
+		print_r($arrayFilters);
 		return [
 			     'activeOffers' => $offers,
 			     'filters' => new ArrayList($arrayFilters)
