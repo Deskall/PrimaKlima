@@ -113,7 +113,7 @@ class OfferPageController extends PageController{
 		}
 		return $this->customise(new ArrayData([
 			        'activeOffers' => $offers
-			]))->renderWith('OfferPage');
+			]))->renderWith('Layout/OfferPage');
 	}
 	
 	// public function OfferForm(){
