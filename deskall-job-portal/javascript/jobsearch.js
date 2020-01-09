@@ -24,7 +24,7 @@ function ApplyFilter(){
 	});
 	if (filters.length > 0){
 		$.ajax({
-			url: cleanUrl(window.location.pathname)+'/stellenangebote-filtern/',
+			url: window.location.pathname,
 			data: {filters: filters},
 			dataType:'html'
 		}).done(function(response){

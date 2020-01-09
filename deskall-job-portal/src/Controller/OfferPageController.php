@@ -48,13 +48,12 @@ use SilverStripe\ORM\PaginatedList;
 
 class OfferPageController extends PageController{
 
-	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','FilterOffers'];
+	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer'];
 
 	private static $url_handlers = [
 		'details/$ID' => 'JobOffer',
 		'bestaetigung/$ID' => 'confirmMission',
-		'bewerben/$ID' => 'candidate',
-		'stellenangebote-filtern' => 'FilterOffers'
+		'bewerben/$ID' => 'candidate'
 	];
 
 	public function init(){
@@ -84,7 +83,7 @@ class OfferPageController extends PageController{
 		return $offers;
 	}
 
-	public function FilterOffers(HTTPRequest $request){
+	public function index(HTTPRequest $request){
 		$filters = $request->getVar('filters');
 		if ($filters){
 			$filteredIDS = [];
@@ -111,9 +110,9 @@ class OfferPageController extends PageController{
 			        'activeOffers' => $offers
 			]))->renderWith('Includes/FilteredOffers');
 		}
-		return $this->customise(new ArrayData([
-			        'activeOffers' => $offers
-			]))->renderWith('Layout/OfferPage');
+		return [
+			     'activeOffers' => $offers
+			];
 	}
 	
 	// public function OfferForm(){
