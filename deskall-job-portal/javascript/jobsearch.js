@@ -41,7 +41,5 @@ function ApplyFilter(){
 	}).fail(function(response){
 		console.log(response);
 	});
-	UIkit.update(element = document.body, type = 'update');
-	
 	
 }
