@@ -19,6 +19,7 @@ function cleanUrl(url){
 
 function ApplyFilter(){
 	var filters = [];
+	$(".offers-container").attr('data-uk-spinner',true);
 	$("[data-filter].uk-active").each(function(){
 		filters.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
 	});
