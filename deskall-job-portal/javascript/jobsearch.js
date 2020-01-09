@@ -20,7 +20,7 @@ function cleanUrl(url){
 function ApplyFilter(){
 	var filters = [];
 	$(".sidebar .filters").empty().attr('hidden','hidden');
-	$(".offers-container").attr('data-uk-spinner',true);
+	$(".offers-container .spinner").show();
 	$("[data-filter].uk-active").each(function(){
 		filters.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
 		$(".sidebar .filters").append('<button class="uk-button button-SecondaryBackground">'+$(this).attr('data-filter-value')+'</button>');
