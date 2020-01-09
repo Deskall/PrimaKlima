@@ -1,7 +1,7 @@
 <form class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
 
 				<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
-					<strong class="uk-margin-small-right"><i class="icon icon-people"></i><%t FinderBar.PositionLabel 'Was?' %></strong>
+					<strong class="uk-margin-small-right"><i class="icon icon-person"></i><%t FinderBar.PositionLabel 'Was?' %></strong>
 					<input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
 					<datalist id="positions">
 						<% loop $getPositions %>
