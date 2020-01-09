@@ -1,11 +1,19 @@
 //Job search Page
 $(document).ready(function(){
 	if ($("body").hasClass("OfferPage")){
-		var filter = [];
+		ApplyFilter();
 		$(document).on("click",'[data-filter]',function(){
-			filter.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
-			console.log(filter);
+			$(this).parents('.parameter').find('[data-filter]').removeClass('uk-active');
+			$(this).addClass('uk-active');
+			ApplyFilter();
 		});
-
 	}
 });
+
+function ApplyFilter(){
+	var filter = [];
+	$(document).each("[data-filter].uk-active", function(){
+		filter.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
+	});
+	console.log(filter);
+}
