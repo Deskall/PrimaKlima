@@ -5,7 +5,7 @@
 		<strong class="parameter-title">$Title</strong>
 		<% loop $Values %>
 		<% if $activeOffers.exists %>
-		<div><a class="uk-flex uk-flex-between uk-display-block" data-filter="Up.Title" data-filter-value="$Title"><span class="uk-text-truncate">$Title</span><span>$activeOffers.count</span></a></div>
+		<div><a class="uk-flex uk-flex-between" data-filter="Up.Title" data-filter-value="$Title"><span class="uk-text-truncate">$Title</span><span>$activeOffers.count</span></a></div>
 		<% end_if %>
 		<% end_loop %>
 	</div>
