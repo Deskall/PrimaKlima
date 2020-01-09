@@ -87,10 +87,7 @@ class OfferPageController extends PageController{
 	public function index(HTTPRequest $request){
 		$filters = $request->getVar('filters');
 		$arrayFilters = [];
-		ob_start();
-			print_r($filters);
-			$result = ob_get_clean();
-			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+		
 		if (!empty($filters)){
 			$filteredIDS = [];
 			$offers = Mission::get()->filter('isActive',1);
