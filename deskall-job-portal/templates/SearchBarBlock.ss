@@ -1,7 +1,7 @@
 <form class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
 
 				<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
-					<strong class="uk-margin-small-right"><i class="icon icon-person"></i><%t FinderBar.PositionLabel 'Was?' %></strong>
+					<strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
 					<input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
 					<datalist id="positions">
 						<% loop $getPositions %>
@@ -13,7 +13,7 @@
 
 
 				<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
-					<strong class="uk-margin-small-right"><i class="icon icon-location"></i><%t FinderBar.PlaceLabel 'Wo?' %></strong>
+					<strong class="uk-margin-small-right"><%t FinderBar.PlaceLabel 'Wo?' %></strong>
 					<input list="places" name="place" class="uk-input" placeholder="<%t FinderBar.Position 'Ort' %>">
 					<datalist id="places">
 						<% loop $getCities.groupedBy(City) %>
