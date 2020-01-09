@@ -180,6 +180,11 @@ class JobPortalConfig extends DataObject
         $activeOffers = Mission::get()->filter('isActive',1)->sort('Country','ASC');
         return GroupedList::create($activeOffers);
     }
+
+    public function activeCities($country){
+        $activeOffers = Mission::get()->filter(['isActive' => 1, 'Country' => $country)->sort('City','ASC');
+        return GroupedList::create($activeOffers);
+    }
     
 
 

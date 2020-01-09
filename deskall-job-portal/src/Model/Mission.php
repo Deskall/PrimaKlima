@@ -484,6 +484,10 @@ class Mission extends DataObject
       return i18n::getData()->getCountries()[$this->Country];
     }
 
+    public function getCityTitle(){
+      return ucfirst($this->City);
+    }
+
    
 
     // //Price calculation
