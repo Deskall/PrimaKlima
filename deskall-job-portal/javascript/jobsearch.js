@@ -24,7 +24,7 @@ function cleanUrl(url){
 
 function ApplyFilter(){
 	var filters = [];
-	
+	$(".sidebar .filters").empty();
 	$(".offers-container .spinner").show();
 	$("[data-filter].uk-active").each(function(){
 		filters.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
