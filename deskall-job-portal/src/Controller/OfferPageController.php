@@ -48,12 +48,13 @@ use SilverStripe\ORM\PaginatedList;
 
 class OfferPageController extends PageController{
 
-	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer'];
+	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','FilterOffers'];
 
 	private static $url_handlers = [
 		'details/$ID' => 'JobOffer',
 		'bestaetigung/$ID' => 'confirmMission',
-		'bewerben/$ID' => 'candidate'
+		'bewerben/$ID' => 'candidate',
+		'stellenangebot-filtern' => 'FilterOffers'
 	];
 
 	public function init(){
@@ -81,6 +82,20 @@ class OfferPageController extends PageController{
 		$offers =  new PaginatedList(Mission::get()->filter('isActive',1),$this->getRequest());
 		$offers->setPageLength(4);
 		return $offers;
+	}
+
+	public function FilterOffers(HTTPRequest $request){
+		$filters = $request->getVar('filters');
+		$offers = Mission::get()->filter('isActive',1);
+		$filteredIDS = [];
+		foreach($filters as $key => $value){
+			$ids = AssignedJobParameter::get()->filter(['Title' => $key, 'Value' => $value])->column('MissionID');
+			array_merge($filteredIDS,$ids);
+		}
+		$offers = $offers->filter('ID',$filteredIDS);
+		return $this->customise(new ArrayData([
+		        'activeOffers' => $offers
+		]))->renderWith('Includes/FilteredOffers');
 	}
 	
 	// public function OfferForm(){
