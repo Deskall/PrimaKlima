@@ -60,3 +60,9 @@ SilverStripe\Core\Injector\Injector:
 Page:
   extensions:
     - DeskallJobPortalPageExtension
+
+BaseBlockExtension:
+  blocks:
+    - JobOfTheWeekBlock
+    - SearchBarBlock
+    - TopJobBlock
