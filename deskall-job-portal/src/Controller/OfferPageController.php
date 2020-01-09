@@ -95,6 +95,10 @@ class OfferPageController extends PageController{
 			$offers = Mission::get()->filter('isActive',1);
 			foreach($filters as $key => $filter){
 				$ids = AssignedJobParameter::get()->filter(['Title' => $filter['filter'], 'Value' => $filter['value']])->column('MissionID');
+				ob_start();
+				print_r($ids);
+				$result = ob_get_clean();
+				file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 				array_merge($filteredIDS,$ids);
 			}
 			ob_start();
