@@ -8,7 +8,7 @@ $(document).ready(function(){
 			ApplyFilter();
 		});
 		$(document).on("click",'.filters button',function(){
-			var filter = $("[data-filter-title='"+$(this).attr('data-filter')+"'][data-filter-value='"+$(this).text()+"']");
+			var filter = $("[data-filter='"+$(this).attr('data-filter-title')+"'][data-filter-value='"+$(this).text()+"']");
 			filter.removeClass('uk-active');
 			ApplyFilter();
 		});
