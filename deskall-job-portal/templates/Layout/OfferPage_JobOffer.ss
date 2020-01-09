@@ -14,10 +14,9 @@
 								<strong>$Customer.Company</strong><br>
 								<h1>$Title</h1>
 								<div class="uk-flex uk-grid uk-text-small">
-									<div class="place">$City</div>
-									<% with Parameters.filter('Title','Anstellung').first %><div class="type">$Value</div><% end_with %>
-									<div class="start">$Start.Nice</div>
-									<div class="uk-flex-right">$PublishedDate.Ago</div>
+									<div class="place"><i class="icon icon-location uk-margin-small-right"></i>$City</div>
+									<% with Parameters.filter('Title','Anstellung').first %><div class="type"><i class="icon icon-information uk-margin-small-right"></i>$Value</div><% end_with %>
+									<div class="start"><i class="icon icon-calendar uk-margin-small-right"></i>$PublishedDate.Nice</div>
 								</div>
 							</div>
 						</div>
