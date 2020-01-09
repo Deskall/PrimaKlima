@@ -86,6 +86,10 @@ class OfferPageController extends PageController{
 
 	public function FilterOffers(HTTPRequest $request){
 		$filters = $request->getVar('filters');
+		ob_start();
+			print_r($filters);
+			$result = ob_get_clean();
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		if ($filters){
 			$filteredIDS = [];
 			$offers = Mission::get()->filter('isActive',1);
@@ -93,6 +97,10 @@ class OfferPageController extends PageController{
 				$ids = AssignedJobParameter::get()->filter(['Title' => $key, 'Value' => $value])->column('MissionID');
 				array_merge($filteredIDS,$ids);
 			}
+			ob_start();
+				print_r($filteredIDS);
+				$result = ob_get_clean();
+				file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 			$offers = $offers->filter('ID',$filteredIDS);
 			$offers = new PaginatedList($offers,$this->getRequest());
 			$offers->setPageLength(4);
