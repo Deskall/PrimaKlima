@@ -20,7 +20,9 @@
                         	<% with Parameters.filter('Title','Anstellung').first %><div class="type"><i class="icon icon-information uk-margin-small-right"></i>$Value</div><% end_with %>
                         	<div class="start"><i class="icon icon-calendar uk-margin-small-right"></i>$PublishedDate.Nice</div>
                         </div>
-                        <a class="uk-button button-PrimaryBackground" href="$previewLink">Zum Inserat</a>
+                        <div class="uk-margin-top">
+                        	<a class="uk-button button-PrimaryBackground" href="$previewLink">Zum Inserat</a>
+                        </div>
                     </div>
                 </div>
             </li>
