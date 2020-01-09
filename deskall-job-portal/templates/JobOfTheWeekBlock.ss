@@ -5,7 +5,7 @@
 
     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
-        <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
+        <ul class="uk-slider-items uk-child-width-1-2@s uk-grid uk-grid-match">
             <% loop Jobs %>
             <li>
                 <div class="uk-card uk-card-default">
