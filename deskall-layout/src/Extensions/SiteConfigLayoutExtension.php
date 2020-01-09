@@ -500,7 +500,7 @@ class SiteConfigLayoutExtension extends DataExtension
       /** global background element and font color **/
       file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';.dk-text-content a, .calltoaction-container *{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}&:after{background-color:#'.$c->LinkHoverColor.';}}}*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
-      file_put_contents($fullpath, "\n".".uk-button.button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->LinkColor.';*{color:#'.$c->LinkColor.';}&:hover,&:focus,&:active{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}}&:hover{background-color:darken(#'.$c->Color.', 5%);}&:active{background-color:darken(#'.$c->Color.', 10%);}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".uk-button.button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';}&:hover,&:focus,&:active{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}}&:hover{background-color:darken(#'.$c->Color.', 5%);}&:active{background-color:darken(#'.$c->Color.', 10%);}}',FILE_APPEND);
       /** CSS Class for Call To Form Button **/
       file_put_contents($fullpath, "\n".".userform .button-".$c->Code.' .uk-button{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /*** Css class for Slideshow controls **/
