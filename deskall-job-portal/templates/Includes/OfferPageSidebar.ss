@@ -2,7 +2,7 @@
 	<h1 class="uk-h3">$Title</h1>
 	<div class="filters uk-margin" hidden>
 		<% loop filters %>
-		<button class="uk-button uk-margin-small" data-filter-title="$filter">$value<span class="uk-margin-small-left" data-uk-close></span></button>
+		<button class="uk-button uk-margin-small" data-filter-title="$Title">$Value<span class="uk-margin-small-left" data-uk-close></span></button>
 		<% end_loop %>
 	</div>
 	<% loop $CookConfig.Parameters %>

@@ -85,10 +85,12 @@ class OfferPageController extends PageController{
 
 	public function index(HTTPRequest $request){
 		$filters = $request->getVar('filters');
+		$arrayFilters = [];
 		if ($filters){
 			$filteredIDS = [];
 			$offers = Mission::get()->filter('isActive',1);
 			foreach($filters as $key => $filter){
+				$arrayFilters[$key] = ['Title' => $filter['filter'], 'Value' => $filter['value']];
 				$ids = AssignedJobParameter::get()->filter(['Title' => $filter['filter'], 'Value' => $filter['value']])->column('MissionID');
 				$filteredIDS = array_merge($ids,$filteredIDS);
 			}
@@ -112,7 +114,7 @@ class OfferPageController extends PageController{
 		}
 		return [
 			     'activeOffers' => $offers,
-			     'filters' => $filters
+			     'filters' => new ArrayList($arrayFilters)
 			];
 	}
 	
