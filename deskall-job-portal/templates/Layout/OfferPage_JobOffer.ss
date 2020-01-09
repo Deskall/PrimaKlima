@@ -1,6 +1,7 @@
 <section class="uk-section uk-section-small">
 	<div class="uk-container">
-
+		<div class="uk-margin">
+			<div><button class="uk-button uk-button-primary" onclick="window.history.back()"><i class="icon icon-chevron-left uk-margin-small-right"></i><%t Global.Back 'Zurück' %></button></div>
 				<% with Offer %>
 				<div class="uk-margin company-header">
 					<div class="uk-card uk-card-default uk-card-body">
