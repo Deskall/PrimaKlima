@@ -101,9 +101,15 @@ class OfferPageController extends PageController{
 				print_r($filteredIDS);
 				$result = ob_get_clean();
 				file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-			$offers = $offers->filter('ID',$filteredIDS);
-			$offers = new PaginatedList($offers,$this->getRequest());
-			$offers->setPageLength(4);
+			if (!empty($filteredIDS)){
+				$offers = $offers->filter('ID',$filteredIDS);
+				$offers = new PaginatedList($offers,$this->getRequest());
+				$offers->setPageLength(4);
+			}
+			else{
+				$offers = null;
+			}
+			
 		}
 		else{
 			$offers = $this->activeOffers();
