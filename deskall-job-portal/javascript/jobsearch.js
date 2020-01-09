@@ -30,6 +30,7 @@ function ApplyFilter(){
 		filters.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
 		$(".sidebar .filters").append('<button class="uk-button" data-uk-close data-filter="'+$(this).attr('data-filter')+'">'+$(this).attr('data-filter-value')+'</button>');
 	});
+	console.log(filters);
 	if (filters.length > 0){
 		$(".sidebar .filters").attr('hidden',false);
 		$.ajax({
