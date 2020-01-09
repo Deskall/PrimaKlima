@@ -22,13 +22,16 @@ function ApplyFilter(){
 	$("[data-filter].uk-active").each(function(){
 		filters.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
 	});
-	$.ajax({
-		url: cleanUrl(window.location.pathname)+'/stellenangebote-filtern/',
-		data: {filters: filters},
-		dataType:'html'
-	}).done(function(response){
-		$(".element.offer-page").replaceWith(response);
-	}).fail(function(response){
-		console.log(response);
-	});
+	if (filters.length > 0){
+		$.ajax({
+			url: cleanUrl(window.location.pathname)+'/stellenangebote-filtern/',
+			data: {filters: filters},
+			dataType:'html'
+		}).done(function(response){
+			$(".element.offer-page").replaceWith(response);
+		}).fail(function(response){
+			console.log(response);
+		});
+	}
+	
 }
