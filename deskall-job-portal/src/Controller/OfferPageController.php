@@ -86,10 +86,6 @@ class OfferPageController extends PageController{
 
 	public function FilterOffers(HTTPRequest $request){
 		$filters = $request->getVar('filters');
-		ob_start();
-			print_r($filters);
-			$result = ob_get_clean();
-			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		if ($filters){
 			$filteredIDS = [];
 			$offers = Mission::get()->filter('isActive',1);
@@ -97,10 +93,6 @@ class OfferPageController extends PageController{
 				$ids = AssignedJobParameter::get()->filter(['Title' => $filter['filter'], 'Value' => $filter['value']])->column('MissionID');
 				$filteredIDS = array_merge($ids,$filteredIDS);
 			}
-			ob_start();
-				print_r($filteredIDS);
-				$result = ob_get_clean();
-				file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 			if (!empty($filteredIDS)){
 				$offers = $offers->filter('ID',$filteredIDS);
 				$offers = new PaginatedList($offers,$this->getRequest());
@@ -114,10 +106,15 @@ class OfferPageController extends PageController{
 		else{
 			$offers = $this->activeOffers();
 		}
-		
+		if ($request->isAjax()){
+			return $this->customise(new ArrayData([
+			        'activeOffers' => $offers
+			]))->renderWith('Includes/FilteredOffers');
+		}
 		return $this->customise(new ArrayData([
-		        'activeOffers' => $offers
-		]))->renderWith('Includes/FilteredOffers');
+			        'activeOffers' => $offers
+			]))->renderWith('OfferPage');
+		}
 	}
 	
 	// public function OfferForm(){
