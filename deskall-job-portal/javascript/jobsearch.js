@@ -18,9 +18,9 @@ function cleanUrl(url){
 }
 
 function ApplyFilter(){
-	var filter = [];
+	var filters = [];
 	$("[data-filter].uk-active").each(function(){
-		filter.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
+		filters.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
 	});
 	$.ajax({
 		url: cleanUrl(window.location.pathname)+'/stellenangebote-filtern/',
