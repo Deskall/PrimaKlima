@@ -102,8 +102,10 @@ class OfferPageController extends PageController{
 				if ($filter['dataType'] == "data"){
 					$ids = Mission::get()->filter($filter['filter'], array_search($filter['value'],i18n::getData()->getCountries()))->column('ID');
 				}
+				if (!empty($filteredIDS)){
+					$filteredIDS = array_intersect($ids,$filteredIDS);
+				}
 				
-				$filteredIDS = array_merge($ids,$filteredIDS);
 			}
 			if (!empty($filteredIDS)){
 				$offers = $offers->filter('ID',$filteredIDS);
