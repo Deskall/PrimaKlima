@@ -28,7 +28,7 @@ function ApplyFilter(){
 		dataType:'html'
 	}).done(function(response){
 		$(".element.offer-page").replaceWith(response);
-	}).fail(function(response)){
+	}).fail(function(response){
 		console.log(response);
-	}
+	});
 }
