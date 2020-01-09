@@ -3,7 +3,7 @@
 				
 
 				<div class="select-holder inline">
-					<input list="positions" name="position" class="uk-input" data-placeholder="<%t FinderBar.Position 'Position' %>">
+					<input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
 					<datalist id="positions">
 						<% loop $getPositions %>
 							<option value="$Title">$Title</option>
@@ -14,7 +14,7 @@
 
 
 				<div class="select-holder inline">
-					<input list="places" name="place" class="uk-input" data-placeholder="<%t FinderBar.Position 'Position' %>">
+					<input list="places" name="place" class="uk-input" placeholder="<%t FinderBar.Position 'Ort' %>">
 					<datalist id="places">
 						<% loop $getCities.groupedBy(City) %>
 							<option value="$City" <% if $Selected %>selected<% end_if %>>$City</option>
