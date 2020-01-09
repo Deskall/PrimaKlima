@@ -22,5 +22,5 @@
 					</datalist>
 				</div>
 
-				<button data-search-ads class="uk-button PrimaryBackground"><%t FinderBar.SearchAction 'Suchen' %><i class="icon icon-chevron-right uk-margin-small"></i></button>
+				<button class="uk-button uk-button-primary"><%t FinderBar.SearchAction 'Suchen' %><i class="icon icon-chevron-right uk-margin-small uk-text-small"></i></button>
 			</form>
