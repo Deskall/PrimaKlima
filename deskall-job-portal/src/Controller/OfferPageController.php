@@ -109,7 +109,7 @@ class OfferPageController extends PageController{
 			}
 			if (!empty($filteredIDS)){
 				ob_start();
-							print_r('ici');
+							print_r($filters);
 							$result = ob_get_clean();
 							file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 				$offers = $offers->filter('ID',$filteredIDS);
