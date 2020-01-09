@@ -105,6 +105,9 @@ class OfferPageController extends PageController{
 				if (!empty($filteredIDS)){
 					$filteredIDS = array_intersect($ids,$filteredIDS);
 				}
+				else {
+					$filteredIDS = $ids;
+				}
 				
 			}
 			if (!empty($filteredIDS)){
