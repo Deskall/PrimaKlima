@@ -27,8 +27,8 @@
             <% end_loop %>
         </ul>
 
-        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+        <a class="uk-position-center-left-out uk-position-small uk-hidden-hover" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+        <a class="uk-position-center-right-out uk-position-small uk-hidden-hover" data-uk-slidenav-next data-uk-slider-item="next"></a>
 
     </div>
 
