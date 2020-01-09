@@ -16,7 +16,7 @@
 				<div class="select-holder inline">
 					<input list="places" name="place" class="uk-input" data-placeholder="<%t FinderBar.Position 'Position' %>">
 					<datalist id="places">
-						<% loop $getCities %>
+						<% loop $getCities.groupedBy(City) %>
 							<option value="$City" <% if $Selected %>selected<% end_if %>>$City</option>
 						<% end_loop %>
 					</datalist>

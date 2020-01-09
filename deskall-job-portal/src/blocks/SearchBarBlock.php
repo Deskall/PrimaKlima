@@ -3,6 +3,7 @@
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\GroupedList;
 
 class SearchBarBlock extends BaseElement {
 	private static $icon = 'font-icon-search';
@@ -31,9 +32,6 @@ class SearchBarBlock extends BaseElement {
 	}
 
 	public function getCities(){
-		$cities = [];
-		return Mission::get()->filter('isActive',1)->distinct('City');
-		array_unique($activeOffersCities);
-		return new ArrayList(array_unique($activeOffersCities));
+		return GroupedList::create(Mission::get()->filter('isActive',1)->sort('City'));
 	}
 }
