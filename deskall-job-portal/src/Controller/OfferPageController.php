@@ -54,7 +54,7 @@ class OfferPageController extends PageController{
 		'details/$ID' => 'JobOffer',
 		'bestaetigung/$ID' => 'confirmMission',
 		'bewerben/$ID' => 'candidate',
-		'stellenangebot-filtern' => 'FilterOffers'
+		'stellenangebote-filtern' => 'FilterOffers'
 	];
 
 	public function init(){
