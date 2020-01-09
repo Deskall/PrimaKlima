@@ -15,12 +15,12 @@
 		<% end_loop %>
 	</div>
 	<% end_loop %>
-	<div class="parameter uk-margin">
-		<strong class="parameter-title"><%t JobSearch.Places 'Ort' %></strong>
+	<div class="data uk-margin">
+		<strong class="data-title"><%t JobSearch.Places 'Ort' %></strong>
 		<% loop $CookConfig.activeCountries.GroupedBy(CountryTitle) %>
 		<div><a class="uk-flex uk-flex-between" data-filter="Country" data-filter-value="$CountryTitle"><span class="uk-text-truncate">$CountryTitle</span><span>$Children.count</span></a></div>
-		<div class="sub-parameter uk-margin">
-			<strong class="parameter-title"><%t JobSearch.Cities 'Stadt' %></strong>
+		<div class="sub-data uk-margin">
+			<strong class="data-title"><%t JobSearch.Cities 'Stadt' %></strong>
 			<% loop $Top.CookConfig.activeCities($CountryTitle).GroupedBy(CityTitle) %>
 			<div class="uk-flex uk-flex-between"><span class="uk-text-truncate">$CityTitle</span><span>$Children.count</span></div>
 			<% end_loop %>
