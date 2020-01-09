@@ -33,7 +33,7 @@ function ApplyFilter(){
 		$(".sidebar .filters").append('<button class="uk-button uk-margin-small" data-filter-title="'+$(this).attr('data-filter')+'">'+$(this).attr('data-filter-value')+'<span class="uk-margin-small-left" data-uk-close></span></button>');
 	});
 	
-	console.log(filters);
+	
 	$.ajax({
 		url: window.location.pathname,
 		data: {filters: filters},
