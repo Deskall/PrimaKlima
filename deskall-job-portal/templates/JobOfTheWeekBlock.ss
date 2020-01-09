@@ -1,7 +1,7 @@
 
 
 
-<div data-uk-slider="center: true;autoplay:true;autoplay-interval:5000;">
+<div data-uk-slider="center: true;autoplay:true;autoplay-interval:5000;finite:false;">
 
     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
