@@ -1,6 +1,6 @@
 <div class="sidebar">
 	<h1 class="uk-h3">$Title</h1>
-	<div class="filters uk-margin uk-flex uk-flex-left" hidden>
+	<div class="filters uk-margin uk-flex uk-flex-around" hidden>
 	</div>
 	<% loop $CookConfig.Parameters %>
 	<div class="parameter uk-margin">
