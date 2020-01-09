@@ -19,11 +19,14 @@ function cleanUrl(url){
 
 function ApplyFilter(){
 	var filters = [];
+	$(".sidebar .filters").empty().attr('hidden','hidden');
 	$(".offers-container").attr('data-uk-spinner',true);
 	$("[data-filter].uk-active").each(function(){
 		filters.push({filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
+		$(".sidebar .filters").append('<button class="uk-button button-SecondaryBackground">'+$(this).attr('data-filter-value')+'</button>');
 	});
 	if (filters.length > 0){
+		$(".sidebar .filters").attr('hidden',false);
 		$.ajax({
 			url: window.location.pathname,
 			data: {filters: filters},
