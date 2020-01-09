@@ -1,41 +1,33 @@
 
 
 
-	<div class="job-of-the-week-block-gallery">
-	  <div class="owl-job-of-the-week owl-carousel owl-theme">
-	    <% loop $Jobs %>
-			<div class="box-large clearfix">
-				<div class="col-left">
-					<% if $Employer.Picture %>
+<div data-uk-slider="center: true">
 
-					<div class="img-content">
-					<a href="/ad/detail/$ID" $RelatedPage.TargetAttr>
-					<img src="$Employer.Picture.setWidth(300).URL" alt="$ContentTitle"/>
-					</a>
-				</div>
-					<% end_if %>
-				</div>
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
 
-				<div class="col-right">
-					
+        <ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
+            <% loop Jobs %>
+            <li>
+                <div class="uk-card uk-card-default">
+                    <div class="uk-card-media-top">
+                        <img src="$Customer.Logo" alt="">
+                    </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title">$Title</h3>
+                        $Description.LimitWordCount(25)
+                    </div>
+                </div>
+            </li>
+            <% end_loop %>
+        </ul>
 
-					<p>$ContentIntro</p>
-					<h3>$ContentTitle</h3>
-					<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
-					$ContentMain.FirstParagraph
-					</div>
-					<p>$Employer.Company, $Employer.AddressPostalCode $Employer.AddressPlace</p>
-					<a class="link-more" href="/ad/detail/$ID" >Zum Inserat</a>
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
+    </div>
 
-				</div>
+    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 
-
-			</div>
-
-		<% end_loop %>
-	  </div>
-	</div>
-
+</div>
 
 
