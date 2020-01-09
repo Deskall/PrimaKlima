@@ -6,7 +6,7 @@
 					<% include OfferPageSidebar %>
 				</div>
 				<div class="uk-width-1-1 uk-width-3-4@m uk-width-4-5@l">
-					<div class="offers-container"></div>
+					<% include FilteredOffers %>
 				</div>
 			</div>
 		</div>
