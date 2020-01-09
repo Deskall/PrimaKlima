@@ -3,12 +3,12 @@
 				
 
 				<div class="select-holder inline">
-					<select data-chosen-filter name="position" class="uk-select" data-placeholder="<%t FinderBar.Position 'Position' %>">
-						<option value="" data-empty-value></option>
+					<input list="positions" name="position" class="uk-input" data-placeholder="<%t FinderBar.Position 'Position' %>">
+					<datalist id="positions">
 						<% loop $getPositions %>
-							<option value="$Title" <% if $Selected %>selected<% end_if %>>$Title</option>
+							<option value="$Title">$Title</option>
 						<% end_loop %>
-					</select>
+					</datalist>
 				</div>
 
 
