@@ -58,9 +58,7 @@ class OfferPageController extends PageController{
 
 	public function init(){
 		parent::init();
-		Requirements::javascript('silverstripe/admin:client/dist/js/i18n.js');
-		Requirements::add_i18n_javascript('deskall-users/javascript/lang');
-		
+		Requirements::javascript('deskall-job-portal/javascript/jobsearch.js');
 	}
 
 	public function Modals() 
