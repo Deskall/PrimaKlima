@@ -5,10 +5,8 @@
 				<div class="select-holder inline">
 					<select data-chosen-filter name="position" class="uk-select" data-placeholder="<%t FinderBar.Position 'Position' %>">
 						<option value="" data-empty-value></option>
-						<% loop $getPositions.Sort('Title') %>
-							<% if $Title %>
-							<option value="$Value" <% if $Selected %>selected<% end_if %>>$Title</option>
-							<% end_if %>
+						<% loop $getPositions %>
+							<option value="$Value" <% if $Selected %>selected<% end_if %>>$Value</option>
 						<% end_loop %>
 					</select>
 				</div>
