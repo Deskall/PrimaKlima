@@ -9,7 +9,7 @@
             <% loop Jobs %>
             <li>
                 <div class="uk-card uk-card-default">
-                    <div class="uk-card-media-top">
+                    <div class="uk-card-media-top uk-flex uk-flex-middle">
                         <img <% if $Customer.Logo.getExtension == "svg" %>src="$Customer.Logo.URL"<% else %>src="$Customer.Logo.Fit(250,150).URL"<% end_if %> alt="Logo von $Company" width="250" height="150">
                     </div>
                     <div class="uk-card-body">
