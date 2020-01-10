@@ -1,3 +1,11 @@
+---
+Name: "gastroportal"
+After:
+    - '#deskall-divers'
+    - '#siteconfiglayout'
+---
+
 Page:
   extensions:
     - GastroPortalPageExtension
+
