@@ -37,8 +37,8 @@
 		    </ul>
 		</div>
 </div>
-<div class="uk-container">
-	<div class="uk-background-muted uk-padding-small">
+<div class="uk-background-muted uk-padding-small">
+	<div class="uk-container">
 		<form class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
 
 					<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
