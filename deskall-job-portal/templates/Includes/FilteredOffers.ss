@@ -1,6 +1,6 @@
 
 					<div class="offers-container">
-						<p id="count-offers">$activeOffers.count</p>
+						<p id="count-offers" class="uk-text-small"><i>$activeOffers.count Treffer</i></p>
 						<div class="uk-child-width-1-1 uk-grid-small" data-uk-grid>
 							<% if activeOffers.exists %>
 								<% loop activeOffers %>
