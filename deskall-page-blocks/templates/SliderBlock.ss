@@ -1,6 +1,6 @@
 
 <div data-uk-slideshow="<% if Height != "viewport" %><% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %><% end_if %> <% if Autoplay %>autoplay: true;<% end_if %>animation: {$Animation};" class="dk-slider uk-visible-toggle uk-position-relative">
-    <ul class="uk-slideshow-items" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
+    <ul style="height:300px" class="uk-slideshow-items" <% if Height == "viewport" %>data-uk-height-viewport="<% if MinHeight > 0 %>min-height:$MinHeight;<% end_if %> <% if MaxHeight > 0 %>max-height:$MaxHeight;<% end_if %>"<% end_if %>>
         <% loop ActiveSlides %>
         <li>
             <% if SlideType == "Video" %>
@@ -11,13 +11,13 @@
                 <img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-cover />
                 <% else %>
                     <% if Image.exists %> 
-                    <img src="$Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).URL" data-src="$Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).URL" sizes="100vw"
+                    <img style="width:100%" src="$Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).URL" data-src="$Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).URL" sizes="100vw"
                          data-srcset="$Image.FocusFillMax(400,$Top.MinHeight).URL 400w,
                          $Image.FocusFillMax(600,$Top.MinHeight).URL 600w,
                          $Image.FocusFillMax(800,$Top.MinHeight).URL 800w,
                          $Image.FocusFillMax(1200,$Top.MinHeight).URL 1200w,
                          $Image.FocusFillMax(1500,$HeightForWidth(1500)).URL 1500w,
-                         $Image.FocusFillMax(2500,$HeightForWidth(2500)).URL 2500w"  alt="$Image.AtlTag($Title)" data-uk-cover>
+                         $Image.FocusFillMax(2500,$HeightForWidth(2500)).URL 2500w"  alt="$Image.AtlTag($Title)" data-uk-cover data-uk-img="target:<% if First %>!ul > :last-child, !* +*"<% else_if Last %>!* -*, !ul > :first-child<% else %>!.uk-slideshow-items<% end_if %>">
                     <% end_if %>
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
