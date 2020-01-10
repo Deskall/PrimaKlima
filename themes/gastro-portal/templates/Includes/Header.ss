@@ -35,7 +35,7 @@
 			    </ul>
 			</div>
 	</div>
-	<div class="uk-background-primary uk-padding-small">
+	<div class="PrimaryBackground uk-padding-small">
 		<div class="uk-container">
 			<form class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
 
