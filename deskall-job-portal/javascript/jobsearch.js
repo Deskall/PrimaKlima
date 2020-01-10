@@ -25,6 +25,7 @@ function cleanUrl(url){
 function ApplyFilter(){
 	var filters = [];
 	$(".sidebar .filters").empty();
+	$(".parameter").show();
 	$(".sub-parameter.active").removeClass('active');
 	$(".offers-container .spinner").show();
 	$("[data-filter].uk-active").each(function(){
