@@ -55,7 +55,7 @@
 							<strong class="uk-margin-small-right"><%t FinderBar.PlaceLabel 'Wo?' %></strong>
 							<input list="places" name="place" class="uk-input" placeholder="<%t FinderBar.Position 'Ort' %>">
 							<datalist id="places">
-								<% loop $Portal.activeCities.groupedBy(City) %>
+								<% loop $Portal.getCities.groupedBy(City) %>
 									<option value="$City" <% if $Selected %>selected<% end_if %>>$City</option>
 								<% end_loop %>
 							</datalist>
