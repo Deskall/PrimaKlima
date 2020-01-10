@@ -489,13 +489,19 @@ class Mission extends DataObject
     }
 
     public function getPublishedPeriod(){
-      $date = new \DateTime('2010-01-08');
+      $date = new \DateTime($this->PublishedDate);
       $now = new \DateTime();
       $diff = $now->diff($date)->format("%a");
-      ob_start();
-            print_r($diff);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+      if ($diff < 3){
+        return _t('Mission.PublishedPeriod1','< 3 Tage');
+      }
+      if ($diff >= 3 && $diff < 7){
+        return _t('Mission.PublishedPeriod2','3 - 7 Tage');
+      }
+      if ($diff >= 7 && $diff < 14){
+        return _t('Mission.PublishedPeriod3','7 - 14 Tage');
+      }
+      return _t('Mission.PublishedPeriod4','> 14 Tage');
     }
 
    
