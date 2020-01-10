@@ -27,7 +27,6 @@ $CustomStructuredData
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.6/dist/js/uikit-icons.min.js"></script>
 
 <% if isLive %>
-	<script async defer src="$ThemeDir/javascript/main.min.js?v=$LastChangeJS"></script>
 	$HeadCss
 	<!--[if IE]>
 	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/ie-styles.css" />
