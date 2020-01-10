@@ -489,7 +489,7 @@ class Mission extends DataObject
     }
 
     public function getPublishedPeriod(){
-      $date = new \DateTime($this->PublishedDate);
+      $date = new \DateTime('2010-01-08');
       $now = new \DateTime();
       $diff = $now->diff($date)->format("%a");
       ob_start();
