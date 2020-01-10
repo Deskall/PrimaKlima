@@ -193,5 +193,17 @@ class JobPortalConfig extends DataObject
         return GroupedList::create($activeOffers);
     }
 
+    public function getPositions(){
+        $param = $this->Parameters()->filter('Title','Position')->first();
+        if ($param){
+            return $param->Values()->sort('Title');
+        }
+        return null;
+    }
+
+    public function getCities(){
+        return GroupedList::create(Mission::get()->filter('isActive',1)->sort('City'));
+    }
+
 
 }
