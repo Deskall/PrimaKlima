@@ -136,7 +136,7 @@ class OfferPageController extends PageController{
 			}
 			$offers = (!empty($filteredIDS)) ? $offers->filter('ID',$filteredIDS) : null;
 		}
-		$offers = ($offers) ? new PaginatedList($offers,$this->getRequest()) : null;
+		$offers = ($offers) ? new PaginatedList($offers->sort('PublishedDate','DESC'),$this->getRequest()) : null;
 		if ($offers){
 			$offers->setPageLength(4);
 		}
