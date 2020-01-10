@@ -118,7 +118,7 @@ class OfferPageController extends PageController{
 						}
 						if ($filter['value'] == _t('Mission.PublishedPeriod4','> 14 Tage')){
 							$end->modify('- 14 days');
-							$ids = Mission::get()->filter('PublishedDate:LesserThan', $end->format('Y-m-d'))->column('ID');
+							$ids = Mission::get()->filter('PublishedDate:LessThan', $end->format('Y-m-d'))->column('ID');
 						}
 					}
 					else{
