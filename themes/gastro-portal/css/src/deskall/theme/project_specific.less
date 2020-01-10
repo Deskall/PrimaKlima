@@ -146,6 +146,9 @@ label.error{
 			}
 		}
 	}
+	.spinner{
+		display:none;
+	}
 	.offers-container{
 		.offer-snippet{
 			border:1px solid #eee;
@@ -153,8 +156,13 @@ label.error{
 				background-color:#E6E6E7;
 			}
 		}
+
 		&.blurry{
 			filter: blur(4px);
+			+ .spinner{
+				display: block;
+			}
 		}
 	}
+	
 }

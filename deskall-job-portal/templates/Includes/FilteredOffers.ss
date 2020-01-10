@@ -53,8 +53,9 @@
 						    <% end_if %>
 						</ul>
 						<% end_if %>
-						<div class="spinner" hidden>
-							<div data-uk-spinner="ratio: 3"></div>
-						</div>
+						
+					</div>
+					<div class="spinner">
+						<div data-uk-spinner="ratio: 3"></div>
 					</div>
 			
