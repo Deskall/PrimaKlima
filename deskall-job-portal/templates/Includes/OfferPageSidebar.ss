@@ -29,4 +29,10 @@
 		<% end_loop %>
 	</div>
 	<% end_loop %>
+	<div class="parameter uk-margin">
+		<strong class="parameter-title"><%t JobSearch.Places 'Ort' %></strong>
+		<% loop $CookConfig.activeCountries.GroupedBy(CountryTitle) %>
+		<div><a class="uk-flex uk-flex-between" data-filter="Country" data-filter-value="$CountryTitle" data-type="data" data-sub="$CountryTitle"><span class="uk-text-truncate">$CountryTitle</span><span>$Children.count</span></a></div>
+		<% end_loop %>
+	</div>
 </div>

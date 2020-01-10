@@ -488,6 +488,16 @@ class Mission extends DataObject
       return ucfirst($this->City);
     }
 
+    public function getPublishedPeriod(){
+      $date = new \DateTime($this->PublishedDate);
+      $now = new \DateTime();
+      $diff = $now->diff($date)->format("%a");
+      ob_start();
+            print_r($diff);
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+    }
+
    
 
     // //Price calculation
