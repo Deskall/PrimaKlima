@@ -23,6 +23,9 @@ $CustomStructuredData
 <% if isLive %>
 	<script async defer src="$ThemeDir/javascript/main.min.js?v=$LastChangeJS"></script>
 	$HeadCss
+	<!--[if IE]>
+	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/ie-styles.css" />
+	<![endif]-->
 <% else %>
     <script src="$ThemeDir/javascript/main.js"></script>
 	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/head.min.css" />
