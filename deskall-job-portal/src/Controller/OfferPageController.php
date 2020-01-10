@@ -104,21 +104,21 @@ class OfferPageController extends PageController{
 						$end = new \DateTime();
 						if ($filter['value'] == _t('Mission.PublishedPeriod1','< 3 Tage')){
 							$end->modify('- 3 days');
-							$ids = Mission::get()->filter('PublishedDate::GreaterThan', $end->format('Y-m-d'))->column('ID');
+							$ids = Mission::get()->filter('PublishedDate:GreaterThan', $end->format('Y-m-d'))->column('ID');
 						}
 						if ($filter['value'] == _t('Mission.PublishedPeriod2','3 - 7 Tage')){
 							$start->modify('-3 days');
 							$end->modify('- 7 days');
-							$ids = Mission::get()->filter(['PublishedDate::LessThanOrEqual' => $start->format('Y-m-d'),'PublishedDate::GreaterThan' => $end->format('Y-m-d')])->column('ID');
+							$ids = Mission::get()->filter(['PublishedDate:LessThanOrEqual' => $start->format('Y-m-d'),'PublishedDate:GreaterThan' => $end->format('Y-m-d')])->column('ID');
 						}
 						if ($filter['value'] == _t('Mission.PublishedPeriod3','7 - 14 Tage')){
 							$start->modify('-7 days');
 							$end->modify('- 14 days');
-							$ids = Mission::get()->filter(['PublishedDate::LessThanOrEqual' => $start->format('Y-m-d'),'PublishedDate::GreaterThan' => $end->format('Y-m-d')])->column('ID');
+							$ids = Mission::get()->filter(['PublishedDate:LessThanOrEqual' => $start->format('Y-m-d'),'PublishedDate:GreaterThan' => $end->format('Y-m-d')])->column('ID');
 						}
 						if ($filter['value'] == _t('Mission.PublishedPeriod4','> 14 Tage')){
 							$end->modify('- 14 days');
-							$ids = Mission::get()->filter('PublishedDate::LesserThan', $end->format('Y-m-d'))->column('ID');
+							$ids = Mission::get()->filter('PublishedDate:LesserThan', $end->format('Y-m-d'))->column('ID');
 						}
 					}
 					else{
