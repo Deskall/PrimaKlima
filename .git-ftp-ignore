@@ -17,9 +17,6 @@ log.txt
 *.cache
 *.zip
 /cache/!.gitkeep
-/mysite/
-mysite/
-mysite/_config.php
 
 themes/standard/css/src/deskall/theme/project_specific.less
 themes/standard/css/src/deskall/theme/user_defined.less
