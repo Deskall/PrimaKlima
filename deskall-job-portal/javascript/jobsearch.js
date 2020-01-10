@@ -28,7 +28,7 @@ function ApplyFilter(){
 	$(".parameter.active").removeClass('active');
 	$(".offers-container .spinner").show();
 	$("[data-filter].uk-active").each(function(){
-		$(this).parents('.parameter').addClass('active');
+		$(this).parents('.parameter').find('.sub-parameter').addClass('active');
 		filters.push({dataType: $(this).attr('data-type'), filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
 		$(".sidebar .filters").append('<button class="uk-button uk-margin-small" data-filter-title="'+$(this).attr('data-filter')+'">'+$(this).attr('data-filter-value')+'<span class="uk-margin-small-left" data-uk-close></span></button>');
 	});
