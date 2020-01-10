@@ -99,6 +99,28 @@ class OfferPageController extends PageController{
 					if ($filter['filter'] == "Country"){
 						$ids = Mission::get()->filter($filter['filter'], array_search($filter['value'],i18n::getData()->getCountries()))->column('ID');
 					}
+					else if ($filter['filter'] == "Date"){
+						$start = new \DateTime();
+						$end = new \DateTime();
+						if ($filter['value'] == _t('Mission.PublishedPeriod1','< 3 Tage')){
+							$end->modify('- 3 days');
+							$ids = Mission::get()->filter('PublishedDate::GreaterThan', $end->format('Y-m-d'))->column('ID');
+						}
+						if ($filter['value'] == _t('Mission.PublishedPeriod2','3 - 7 Tage')){
+							$start->modify('-3 days');
+							$end->modify('- 7 days');
+							$ids = Mission::get()->filter(['PublishedDate::LessThanOrEqual' => $start->format('Y-m-d'),'PublishedDate::GreaterThan' => $end->format('Y-m-d')])->column('ID');
+						}
+						if ($filter['value'] == _t('Mission.PublishedPeriod3','7 - 14 Tage')){
+							$start->modify('-7 days');
+							$end->modify('- 14 days');
+							$ids = Mission::get()->filter(['PublishedDate::LessThanOrEqual' => $start->format('Y-m-d'),'PublishedDate::GreaterThan' => $end->format('Y-m-d')])->column('ID');
+						}
+						if ($filter['value'] == _t('Mission.PublishedPeriod4','> 14 Tage')){
+							$end->modify('- 14 days');
+							$ids = Mission::get()->filter('PublishedDate::LesserThan', $end->format('Y-m-d'))->column('ID');
+						}
+					}
 					else{
 						$ids = Mission::get()->filter($filter['filter'], $filter['value'])->column('ID');
 					}
