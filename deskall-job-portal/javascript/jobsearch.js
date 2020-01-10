@@ -28,7 +28,10 @@ function ApplyFilter(){
 	$(".sub-parameter.active").removeClass('active');
 	$(".offers-container .spinner").show();
 	$("[data-filter].uk-active").each(function(){
-		$(this).parent().next('.sub-parameter').addClass('active');
+		if ($(this).is('[data-sub]')){
+			$(".sub-parameter[data-parameter='"+$(this).attr('data-filter-value')+"']").addClass('active');
+			$(this).parents('.parameter').hide();
+		}
 		filters.push({dataType: $(this).attr('data-type'), filter: $(this).attr('data-filter'), value: $(this).attr('data-filter-value')});
 		$(".sidebar .filters").append('<button class="uk-button uk-margin-small" data-filter-title="'+$(this).attr('data-filter')+'">'+$(this).attr('data-filter-value')+'<span class="uk-margin-small-left" data-uk-close></span></button>');
 	});
