@@ -32,7 +32,7 @@
 	<div class="parameter uk-margin">
 		<strong class="parameter-title"><%t JobSearch.Date 'Datum' %></strong>
 		<% loop $CookConfig.activeDates.GroupedBy(PublishedPeriod) %>
-		<div><a class="uk-flex uk-flex-between" data-filter="date" data-filter-value="$PublishedPeriod" data-type="data"><span class="uk-text-truncate">$PublishedPeriod</span><span>$Children.count</span></a></div>
+		<div><a class="uk-flex uk-flex-between" data-filter="Date" data-filter-value="$PublishedPeriod" data-type="data"><span class="uk-text-truncate">$PublishedPeriod</span><span>$Children.count</span></a></div>
 		<% end_loop %>
 	</div>
 </div>
