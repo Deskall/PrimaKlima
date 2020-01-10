@@ -24,6 +24,7 @@ function cleanUrl(url){
 }
 
 function ApplyFilter(){
+	(".offers-container").addClass("blurry");
 	var filters = [];
 	$(".sidebar .filters").empty();
 	$(".parameter").show();
