@@ -1,5 +1,4 @@
 <div class="sidebar">
-	<h1>$Title</h1>
 	<div class="uk-margin">
 		<strong><%t JobSearch.FilterTitle 'Ergebnisse filtern' %></strong>
 		<div class="filters">
