@@ -25,7 +25,7 @@
 	<div data-parameter="$CountryTitle" class="sub-parameter uk-margin">
 		<strong class="parameter-title"><%t JobSearch.Cities 'Stadt' %></strong>
 		<% loop $Top.CookConfig.activeCities($CountryTitle).GroupedBy(CityTitle) %>
-		<div class="uk-flex uk-flex-between"><span class="uk-text-truncate">$CityTitle</span><span>$Children.count</span></div>
+		<div class="uk-flex uk-flex-between"><a class="uk-flex uk-flex-between" data-filter="City" data-filter-value="$CityTitle" data-type="data"><span class="uk-text-truncate">$CityTitle</span><span>$Children.count</span></a></div>
 		<% end_loop %>
 	</div>
 	<% end_loop %>
