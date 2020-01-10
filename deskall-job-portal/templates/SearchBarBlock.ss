@@ -14,7 +14,7 @@
 
 				<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
 					<strong class="uk-margin-small-right"><%t FinderBar.PlaceLabel 'Wo?' %></strong>
-					<input list="places" name="place" class="uk-input" placeholder="<%t FinderBar.Position 'Ort' %>">
+					<input list="places" name="ort" class="uk-input" placeholder="<%t FinderBar.Position 'Ort' %>">
 					<datalist id="places">
 						<% loop $getCities.groupedBy(City) %>
 							<option value="$City" <% if $Selected %>selected<% end_if %>>$City</option>
