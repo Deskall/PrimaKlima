@@ -4,6 +4,7 @@ $(document).ready(function(){
 		
 		$(document).on("click",'[data-filter]',function(){
 			$(this).parents('.parameter').find('[data-filter]').removeClass('uk-active');
+			$(this).parents('.sub-parameter').find('[data-filter]').removeClass('uk-active');
 			$(this).addClass('uk-active');
 			ApplyFilter();
 		});
