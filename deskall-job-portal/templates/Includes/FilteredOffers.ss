@@ -4,7 +4,6 @@
 						<div class="uk-child-width-1-1 uk-grid-small" data-uk-grid>
 							<% if activeOffers.exists %>
 								<% loop activeOffers %>
-								$getPublishedPeriod
 								<div>
 									<div class="uk-card uk-card-body uk-card-small offer-snippet">
 										<div class="uk-grid-small" data-uk-grid>
