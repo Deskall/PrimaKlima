@@ -1,6 +1,3 @@
----
-Name: gastro-portal
----
 Page:
   extensions:
     - GastroPortalPageExtension
