@@ -11,7 +11,7 @@
                 <img src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name,$Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-cover />
                 <% else %>
                     <% if Image.exists %> 
-                    <img style="width:100%" src="$Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).URL" data-src="$Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).URL" sizes="100vw"
+                    <img style="width:100%;height:300px;" src="$Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).URL" data-src="$Image.FocusFillMax(1500,$Image.HeightForWidth(1500)).URL" sizes="100vw"
                          data-srcset="$Image.FocusFillMax(400,$Top.MinHeight).URL 400w,
                          $Image.FocusFillMax(600,$Top.MinHeight).URL 600w,
                          $Image.FocusFillMax(800,$Top.MinHeight).URL 800w,
