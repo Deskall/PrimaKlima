@@ -24,6 +24,7 @@ $CustomStructuredData
 	<script async defer src="$ThemeDir/javascript/main.min.js?v=$LastChangeJS"></script>
 	$HeadCss
 <% else %>
+$ThemeDir
     <script src="$ThemeDir/javascript/main.js"></script>
 	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/head.min.css" />
 <% end_if %>
