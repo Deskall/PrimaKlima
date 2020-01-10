@@ -86,6 +86,12 @@ class OfferPageController extends PageController{
 
 	public function index(HTTPRequest $request){
 		$filters = $request->getVar('filters');
+		if ($request->getVar('position')){
+			$filters[] = ['dataType' => 'parameter','filter' => 'Position','value' => $request->getVar('position') ];
+		}
+		if ($request->getVar('ort')){
+			$filters[] = ['dataType' => 'data','filter' => 'City','value' => $request->getVar('ort') ];
+		}
 		$arrayFilters = [];
 		$offers = Mission::get()->filter('isActive',1);
 		if (!empty($filters)){

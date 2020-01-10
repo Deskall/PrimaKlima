@@ -37,7 +37,7 @@
 	</div>
 	<div class="PrimaryBackground uk-padding-small">
 		<div class="uk-container">
-			<form class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
+			<form method="GET" action="$OfferPage.Link" class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
 
 						<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
 							<strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
@@ -53,7 +53,7 @@
 
 						<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
 							<strong class="uk-margin-small-right"><%t FinderBar.PlaceLabel 'Wo?' %></strong>
-							<input list="places" name="place" class="uk-input" placeholder="<%t FinderBar.Position 'Ort' %>">
+							<input list="places" name="ort" class="uk-input" placeholder="<%t FinderBar.Position 'Ort' %>">
 							<datalist id="places">
 								<% loop $Portal.getCities.groupedBy(City) %>
 									<option value="$City" <% if $Selected %>selected<% end_if %>>$City</option>
