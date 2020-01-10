@@ -188,6 +188,10 @@ class JobPortalConfig extends DataObject
         return GroupedList::create($activeOffers);
     }
     
+    public function activeDates(){
+        $activeOffers = Mission::get()->filter('isActive',1)->sort('PublishedDate','DESC');
+        return GroupedList::create($activeOffers);
+    }
 
 
 }
