@@ -1,6 +1,7 @@
 <div class="sidebar">
 	<h1>$Title</h1>
 	<div class="filters uk-margin">
+		<strong><%t JobSearch.FilterTitle 'Ergebnisse filtern' %></strong>
 		<% loop filters %>
 		<button class="uk-button uk-margin-small" data-filter-title="$Title">$Value<span class="uk-margin-small-left" data-uk-close></span></button>
 		<% end_loop %>
