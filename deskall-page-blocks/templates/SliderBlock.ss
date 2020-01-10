@@ -17,7 +17,7 @@
                          $Image.FocusFillMax(800,$Top.MinHeight).URL 800w,
                          $Image.FocusFillMax(1200,$Top.MinHeight).URL 1200w,
                          $Image.FocusFillMax(1500,$HeightForWidth(1500)).URL 1500w,
-                         $Image.FocusFillMax(2500,$HeightForWidth(2500)).URL 2500w"  alt="$Image.AtlTag($Title)" data-uk-cover data-uk-img="target:<% if First %>!ul > :last-child, !* +*"<% else_if Last %>!* -*, !ul > :first-child<% else %>!.uk-slideshow-items<% end_if %>">
+                         $Image.FocusFillMax(2500,$HeightForWidth(2500)).URL 2500w"  alt="$Image.AtlTag($Title)" data-uk-cover>
                     <% end_if %>
                 <% end_if %>
             <% if Effect == "kenburns" %></div><% end_if %>
