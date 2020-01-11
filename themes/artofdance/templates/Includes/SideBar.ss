@@ -4,8 +4,6 @@
 	<% else %>
 		<% with Level(1) %>
 			<a href="$Link" class="uk-text-bold" title="$Title.XML" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %>>$MenuTitle.XML</a>
-			$LinkingMode
-			$BlogPosts.count
 			<% if LinkingMode == "current" || LinkingMode == "section" %>
 				<% if Children %>
 				<ul class="uk-nav-default uk-nav uk-nav-parent-icon" data-uk-nav>
