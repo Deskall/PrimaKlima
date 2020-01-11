@@ -20,6 +20,7 @@ class PageBlocksExtension extends DataExtension {
 	];
 
 
+
 	// public function requireDefaultRecords(){
 	// 	parent::requireDefaultRecords();
 	// 	foreach (Page::get() as $page){
@@ -28,6 +29,7 @@ class PageBlocksExtension extends DataExtension {
 	// 		}
 	// 	}
 	// }
+
 
 	public function updateCMSFields(FieldList $fields){
 		$fields->insertBefore('ElementalArea',HeaderField::create('BlockTitle',_t('PAGEBLOCKS.BLOCKSTITLE','Inhaltblöcke'), 3));
