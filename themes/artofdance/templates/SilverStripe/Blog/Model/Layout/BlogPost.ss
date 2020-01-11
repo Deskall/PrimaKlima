@@ -12,7 +12,7 @@
 		<div class="uk-grid-small uk-grid-match" data-uk-grid>
 			<div class="uk-width-1-4@m uk-width-1-5@l uk-visible@m">
 				<aside class="uk-padding-small uk-background-muted">
-					<% include SilverStripe\\Blog\\BlogSidebar %>
+					<% include SilverStripe\\Blog\\BlogSideBar %>
 				</aside>
 			</div>
 			<div class="uk-width-3-4@m uk-width-4-5@l">
