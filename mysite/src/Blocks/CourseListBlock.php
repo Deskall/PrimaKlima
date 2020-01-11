@@ -77,8 +77,8 @@ class CourseListBlock extends BaseElement implements Searchable
                     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
   
         $list = array();
-        if (is_array($KursStruktur)){
-            foreach ($KursStruktur as $key => $group) {
+        if (is_array($KursStruktur->items)){
+            foreach ($KursStruktur->items as $key => $group) {
                 $data = $Api->getKurse(null,null,null,null,$group->GruppenID);
                 if (is_array($data)){
                     foreach ($data as $row)
