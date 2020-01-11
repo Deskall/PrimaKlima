@@ -1,10 +1,4 @@
-<div class="uk-background-muted uk-padding-small">
-	<div class="uk-container">
-		<div class="uk-margin-small">
-			$BreadCrumbs
-		</div>
-	</div>
-</div>
+
 	<% if $ID > 0 %>
 	<section class="uk-section uk-padding-remove">
 		<div class="uk-container">
