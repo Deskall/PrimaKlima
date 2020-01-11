@@ -1,4 +1,4 @@
-<div class="uk-background-muted uk-padding-small">
+<div class="uk-background-muted uk-padding-small uk-hidden@m">
 	<div class="uk-container">
 		<div class="uk-margin-small">
 			$BreadCrumbs
@@ -24,12 +24,12 @@
 						<h1 class="uk-article-title">$Title</h1>
 						<% include SilverStripe\\Blog\\EntryMeta %>
 
-						
+
 
 						$ElementalArea
 
 						<% include SilverStripe\\Blog\\BlogPostFooter %>
-						
+
 					</article>
 					<hr/>
 					<div class="uk-padding-small">
