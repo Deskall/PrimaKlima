@@ -21,13 +21,11 @@
 						<% if $FeaturedImage %>
 						<img data-src="$FeaturedImage.FocusFillMax(850,450).URL" alt="" data-uk-img>
 						<% end_if %>
-						<% include SilverStripe\\Blog\\EntryMeta %>
-
+						
 
 
 						$ElementalArea
 
-						<% include SilverStripe\\Blog\\BlogPostFooter %>
 
 					</article>
 					<hr/>
