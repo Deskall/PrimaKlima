@@ -71,22 +71,19 @@ class CourseListBlock extends BaseElement implements Searchable
     public function getLessons(){
         $Api = new beyond_jsonKurse();
         $KursStruktur = $this->getKursStruktur(); 
-
-       
-       
+  
         $list = array();
-        foreach ($KursStruktur as $key => $group) {
-            $data = $Api->getKurse(null,null,null,null,$group->GruppenID);
-            if (is_array($data)){
-                foreach ($data as $row)
-                $list[] = new ArrayData($row);
+        if (is_array($KursStruktur)){
+            foreach ($KursStruktur as $key => $group) {
+                $data = $Api->getKurse(null,null,null,null,$group->GruppenID);
+                if (is_array($data)){
+                    foreach ($data as $row)
+                    $list[] = new ArrayData($row);
+                }
             }
         }
-      
-            
             
         return new ArrayList($list);
-      
     }
 
     public function getKursStruktur(){
