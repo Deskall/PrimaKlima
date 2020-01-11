@@ -21,7 +21,6 @@
 						<% if $FeaturedImage %>
 						<img data-src="$FeaturedImage.FocusFillMax(850,450).URL" alt="" data-uk-img>
 						<% end_if %>
-						<h1 class="uk-article-title">$Title</h1>
 						<% include SilverStripe\\Blog\\EntryMeta %>
 
 
