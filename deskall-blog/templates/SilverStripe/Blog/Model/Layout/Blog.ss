@@ -1,5 +1,3 @@
-<% include DefaultSlide %>
-
 $ElementalArea
 
 <section class="uk-section uk-padding-remove-top">
@@ -53,7 +51,7 @@ $ElementalArea
 										                		$SummaryFromBlocks.LimitWordCount(30)
 										                	<% end_if %>
 														</div>
-										                <div class="uk-position-bottom-right uk-position-medium"><%t SilverStripe\\Blog\\Model\\Blog.ReadPost "Lesen" %><i class="fa fa-chevron-right uk-margin-small-left"></i></div>
+										                <div class="uk-position-bottom-right uk-position-medium"><%t SilverStripe\\Blog\\Model\\Blog.ReadPost "Lesen" %><i class="icon icon-chevron-right uk-margin-small-left"></i></div>
 										            </div>
 										        </div>
 									        </div>
