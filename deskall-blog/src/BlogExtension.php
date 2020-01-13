@@ -36,5 +36,6 @@ class BlogExtension extends DataExtension{
 
 	public function updateGetBlogPosts($blogPosts){
 		$blogPosts = $blogPosts->sort('Sort');
+		return $blogPosts;
 	}
 }
