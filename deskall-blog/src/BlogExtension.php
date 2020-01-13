@@ -4,6 +4,7 @@ use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class BlogExtension extends DataExtension{
 
@@ -26,6 +27,7 @@ class BlogExtension extends DataExtension{
 			CheckboxField::create('displayShareButtons',$this->owner->fieldLabels(false)['displayShareButtons'])
 		]);
 		$fields->FieldByName('Root.PostOptions')->setTitle(_t('Blog.TabOptions','Optionen'));
+		$fields->FieldByName('BlogPosts')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
 	}
 
 	public function checkLead(){
