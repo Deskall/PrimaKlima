@@ -33,4 +33,8 @@ class BlogExtension extends DataExtension{
 	public function checkLead(){
 		return false;
 	}
+
+	public function updateGetBlogPosts($blogPosts){
+		$blogPosts->sort('Sort','ASC');
+	}
 }
