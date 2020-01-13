@@ -12,6 +12,8 @@ class BlogPostExtension extends DataExtension{
 	
 	];
 
+	private static $default_sorts = ['Sort'];
+
 	public function updateFieldLabels(&$labels){
 		
 	}
