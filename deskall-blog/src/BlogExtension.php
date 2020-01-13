@@ -33,8 +33,4 @@ class BlogExtension extends DataExtension{
 	public function checkLead(){
 		return false;
 	}
-
-	public function updateGetBlogPosts(){
-		return $blogPosts = BlogPost::get()->filter('ParentID', $this->owner->ID)->sort('Sort');
-	}
 }
