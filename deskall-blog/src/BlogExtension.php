@@ -5,7 +5,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-
+use SilverStripe\Blog\Model\BlogPost;
 class BlogExtension extends DataExtension{
 
 	private static $db = [
