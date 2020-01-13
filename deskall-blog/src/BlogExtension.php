@@ -35,6 +35,6 @@ class BlogExtension extends DataExtension{
 	}
 
 	public function updateGetBlogPosts($blogPosts){
-		$blogPosts = BlogPost::get()->filter('ParentID', $this->ID)->sort('Sort');
+		$blogPosts = BlogPost::get()->filter('ParentID', $this->owner->ID)->sort('Sort');
 	}
 }
