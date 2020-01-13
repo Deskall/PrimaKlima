@@ -35,7 +35,6 @@ class BlogExtension extends DataExtension{
 	}
 
 	public function updateGetBlogPosts($blogPosts){
-		print_r('hey');
-		$blogPosts = $blogPosts->sort('Sort','ASC');
+		$blogPosts->sort('Sort','ASC');
 	}
 }
