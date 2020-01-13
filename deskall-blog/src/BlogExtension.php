@@ -27,7 +27,7 @@ class BlogExtension extends DataExtension{
 			CheckboxField::create('displayShareButtons',$this->owner->fieldLabels(false)['displayShareButtons'])
 		]);
 		$fields->FieldByName('Root.PostOptions')->setTitle(_t('Blog.TabOptions','Optionen'));
-		$fields->FieldByName('Posts')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
+		// $fields->FieldByName('Posts')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
 	}
 
 	public function checkLead(){
