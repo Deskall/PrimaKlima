@@ -72,8 +72,8 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
         );
 
         $form->addExtraClass('uk-form-horizontal form-std');
-        if(is_array($this->getRequest()->getSession()->get('RegisterForm'))) {
-            $form->loadDataFrom($this->getRequest()->getSession()->get('RegisterForm'));
+        if(is_array($this->owner->getRequest()->getSession()->get('RegisterForm'))) {
+            $form->loadDataFrom($this->owner->getRequest()->getSession()->get('RegisterForm'));
         }
 
         return $form;
@@ -85,15 +85,15 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
         */
     public function register($data, Form $form)
     {
-        $this->getRequest()->getSession()->set('RegisterForm',$data);
+        $this->owner->getRequest()->getSession()->set('RegisterForm',$data);
         $member = Member::get()->filter('Email' , $data['Email'])->first();
         if (!$member){
-            $member = $this->addMember($form);
+            $member = $this->owner->addMember($form);
             if (!$member) {
-                return $this->redirectBack();
+                return $this->owner->redirectBack();
             }
 
-            return $this->redirect('/bestaetigen-sie-ihre-e-mail-adresse');
+            return $this->owner->redirect('/bestaetigen-sie-ihre-e-mail-adresse');
         }
         
         if ($member->validateCanLogin()){
@@ -103,10 +103,10 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
                 throw new Exception('Permission issue occurred. Was the "$member->validateCanLogin" check above this code block removed?');
             }
 
-            return $this->redirect(MemberProfilePage::get()->filter('GroupID',$this->GroupID)->first()->Link());
+            return $this->owner->redirect(MemberProfilePage::get()->filter('GroupID',$this->owner->GroupID)->first()->Link());
         }
        
-        return $this->redirectBack();
+        return $this->owner->redirectBack();
 
     }
 
