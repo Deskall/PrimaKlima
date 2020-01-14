@@ -142,18 +142,18 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
         $currentMember = Member::currentUser();
         $id = (int)$request->param('ID');
         $key = $request->getVar('key');
-        if ($currentMember) {
-            if ($currentMember->ID == $id) {
-                return Security::permissionFailure($this->owner, _t(
-                    'MemberProfiles.ALREADYCONFIRMED',
-                    'Your account is already confirmed.'
-                ));
-            }
-            return Security::permissionFailure($this->owner, _t(
-                'MemberProfiles.CANNOTCONFIRMLOGGEDIN',
-                'You cannot confirm account while you are logged in.'
-            ));
-        }
+        // if ($currentMember) {
+        //     if ($currentMember->ID == $id) {
+        //         return Security::permissionFailure($this->owner, _t(
+        //             'MemberProfiles.ALREADYCONFIRMED',
+        //             'Your account is already confirmed.'
+        //         ));
+        //     }
+        //     return Security::permissionFailure($this->owner, _t(
+        //         'MemberProfiles.CANNOTCONFIRMLOGGEDIN',
+        //         'You cannot confirm account while you are logged in.'
+        //     ));
+        // }
         if (!$id ||
             !$key) {
             return $this->owner->httpError(404);
