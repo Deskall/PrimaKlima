@@ -14,6 +14,14 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\GroupedList;
 use SilverStripe\i18n\i18n;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\HeaderField;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class JobPortalConfig extends DataObject
 {
