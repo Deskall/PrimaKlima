@@ -110,5 +110,166 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
 
     }
 
+       /**
+     * Returns the after registration content to the user.
+     *
+     * @return array
+     */
+    public function afterregistration()
+    {
+        $this->getRequest()->getSession()->set('RegisterForm',null);
+        return array (
+            'Title'   => $this->obj('AfterRegistrationTitle'),
+            'Content' => $this->obj('AfterRegistrationContent'),
+            'noform' => true
+        );
+    }
+
+    /**
+     * Allows the user to confirm their account by clicking on the validation link in
+     * the confirmation email.
+     *
+     * @param HTTPRequest $request
+     * @return array|HTTPResponse
+     */
+    public function confirm(HTTPRequest $request)
+    {
+        $currentMember = Member::currentUser();
+        $id = (int)$request->param('ID');
+        $key = $request->getVar('key');
+        if ($currentMember) {
+            if ($currentMember->ID == $id) {
+                return Security::permissionFailure($this, _t(
+                    'MemberProfiles.ALREADYCONFIRMED',
+                    'Your account is already confirmed.'
+                ));
+            }
+            return Security::permissionFailure($this, _t(
+                'MemberProfiles.CANNOTCONFIRMLOGGEDIN',
+                'You cannot confirm account while you are logged in.'
+            ));
+        }
+        if (!$id ||
+            !$key) {
+            return $this->httpError(404);
+        }   
+
+        $confirmationTitle = $this->data()->dbObject('ConfirmationTitle');
+            /**
+             * @var Member|null $member
+             */
+            $member = DataObject::get_by_id(Member::class, $id);
+            if (!$member) {
+                return $this->invalidRequest('Member #'.$id.' does not exist.');
+            }
+            if (!$member->NeedsValidation) {
+                return [
+                    'Title'   => $this->data()->dbObject('ConfirmationTitle'),
+                    'Content' =>  
+                        DBHTMLText::create()->setValue('Ihr konto wurde bereits bestätigt. Klicken Sie <a href="'.$member->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen')
+                    
+                 ];
+            }
+            if (!$member->ValidationKey) {
+                return $this->invalidRequest('Benutzer #'.$id.' hat keine Validierungsschlüssel.');
+            }
+            if ($member->ValidationKey !== $key) {
+                return $this->invalidRequest('Der Validierungsschlüssel stimmt nicht überein.');
+            }
+            // Allow member to login
+            $member->NeedsValidation = 0;
+            $member->ValidationKey = null;
+            $validationResult = $member->validateCanLogin();
+            if (!$validationResult->isValid()) {
+                $this->getResponse()->setStatusCode(500);
+                $validationMessages = $validationResult->getMessages();
+                return [
+                    'Title'   => $confirmationTitle,
+                    'Content' => $validationMessages ? $validationMessages[0]['message'] : _t('MemberProfiles.ERRORCONFIRMATION', 'Ein unbekannter Fehler ist aufgetreten.'),
+                ];
+            }
+            $member->write();
+
+                $JobGiver = new JobGiver();
+                $JobGiver->MemberID = $member->ID;
+                $JobGiver->write();
+             
+            $this->extend('onConfirm', $member);
+
+            if ($member->canLogin()) {
+                Injector::inst()->get(IdentityStore::class)->logIn($member);
+            } else {
+                throw new Exception('Permission issue occurred. Was the "$member->validateCanLogin" check above this code block removed?');
+            }
+
+            $config = JobPortalConfig::get()->first();
+
+            return [
+                'Title'   => $this->data()->dbObject('AfterConfirmationTitle'),
+                'Content' => DBHTMLText::create()->setValue($config->parseString($this->data()->dbObject('AfterConfirmationContent')))
+            ];
+           
+    }
+
+    /**
+     * @return array
+     */
+    protected function invalidRequest($debugText)
+    {
+        $additionalText = '';
+        if (Director::isDev()) {
+            // NOTE(Jake): 2018-05-02
+            //
+            // Only expose additional information in 'dev' mode.
+            //
+            $additionalText .= ' '.$debugText;
+        }
+        $this->getResponse()->setStatusCode(500);
+        return [
+            'Title'   => $this->data()->dbObject('ConfirmationTitle'),
+            'Content' => _t(
+                'MemberProfiles.ERRORCONFIRMATION',
+                'Ein unbekannter Fehler ist aufgetreten'
+            ).$additionalText
+        ];
+    }
+
+
+    /**
+        * Attempts to save either a registration or add member form submission
+        * into a new member object, returning NULL on validation failure.
+        *
+        * @return Member|null
+        */
+    protected function addMember($form)
+    {   
+        $member = new Member();
+        $form->saveInto($member);
+        $member->NeedsValidation = true;
+        $member->Locale = $this->Locale;
+        $member->ValidationKey = sha1(mt_rand() . mt_rand());
+
+        
+        try {
+            $member->write();
+            
+        } catch (ValidationException $e) {
+            $validationMessages = '';
+            foreach($e->getResult()->getMessages() as $error){
+                $validationMessages .= $error['message']."\n";
+            }
+            
+            
+            $form->sessionMessage($validationMessages, 'bad');
+            return null;
+        }
+      
+
+        $email = MemberEmail::create($this->owner->data(), $member,$this->getPortal()->AfterRegistrationEmailFrom,$member->Email, $this->getPortal()->AfterRegistrationEmailSubject, $this->getPortal()->AfterRegistrationEmailBody);
+        $email->send();
+        
+        return $member;
+    }
+
   
 }
