@@ -194,7 +194,6 @@ class JobPortalConfig extends DataObject
             $fields->addFieldsToTab('Root.Registration',[
                    DropdownField::create('GroupID',_t(__CLASS__.'.Group','Benutzer Grupp'), Group::get()->filter('Code',$this->stat('groupcodes'))->map('ID','Title'))->setEmptyString('Grupp wählen'),
                    CheckboxField::create('EmailValidationRequired',_t(__CLASS__.'.EmailValidationRequired','Email Prüfung erfordert?')),
-                   CheckboxField::create('ApprovalRequired',_t(__CLASS__.'.ApprovalRequired','Genehmigung erfordert?')),
                    HeaderField::create('InscriptionTitle',_t(__CLASS__.".BackInscriptionTitle","Inscription - Step 1"),3),
                    CompositeField::create([    
                        TextField::create('AfterRegistrationTitle',_t(__CLASS__.".AfterRegistrationTitle", 'Page title (after first step registration)')),
