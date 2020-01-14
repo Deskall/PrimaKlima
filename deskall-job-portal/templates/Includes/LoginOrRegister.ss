@@ -13,9 +13,9 @@
 			<li class="account-tab">
 				<div class="uk-panel uk-background-muted uk-padding-small">
 					<p><%t Checkout.RegisterLabel 'Erstellen Sie hier ein neues Profil, um Zugriff auf Ihren persönlcihen Bereich zu erhalten.' %></p>
-					<% with $RegisterPage.Controller %>
+					$RegisterPage.ID
 					$RegisterForm
-					<% end_with %>
+					
 				</div>
 			</li>
 		</ul>
