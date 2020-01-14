@@ -147,7 +147,7 @@ $ElementalArea
 	</section>
 </div>
 <% else %>
-<section class="uk-section no-bg uk-padding-remove-top">
+<section class="uk-section no-bg">
 <% include LoginOrRegister %>
 </section>
 <% end_if %>
