@@ -147,7 +147,7 @@ $ElementalArea
 	</section>
 </div>
 <% else %>
-blabla
+<% include LoginOrRegister %>
 <% end_if %>
 
 
