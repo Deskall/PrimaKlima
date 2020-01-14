@@ -64,7 +64,7 @@
 		</div>
 	</div>
 	<% loop activePackages %>
-	    <div class="dk-transition-toggle-not-mobile" data-uk-height-match="target: .product-price-container">
+	    <div class="dk-transition-toggle-not-mobile" data-dk-height-match="target: .product-price-container">
 	    	
 	        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
 		        
