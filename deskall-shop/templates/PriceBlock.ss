@@ -64,7 +64,7 @@
 		</div>
 	</div>
 	<% loop activePackages %>
-	    <div class="dk-transition-toggle-not-mobile" data-dk-height-match=".product-price-container">
+	    <div class="dk-transition-toggle-not-mobile">
 	    	
 	        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
 		        
@@ -78,19 +78,17 @@
 		        	<% else %>
 		        	<div class="uk-margin">-</div>
 		        	<% end_if %>
-		        	<% end_loop %>   
+		        	<% end_loop %> 
+		        	<% if PackegeOptions %>
+		        	<table><% loop PackegeOptions %>
+		        		<tr><td>$Title</td><td>$Price €</td></tr>
+		        		<% end_loop %>
+		        	</table>
+		        	<% else %>
+		        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
+		        	<% end_if %>
 			    </div>
 		        <div class="product-footer">
-		        	<div class="product-price-container">
-			        	<% if PackegeOptions %>
-			        	<table><% loop PackegeOptions %>
-			        		<tr><td>$Title</td><td>$Price €</td></tr>
-			        		<% end_loop %>
-			        	</table>
-			        	<% else %>
-			        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
-			        	<% end_if %>
-			        </div>
 			        <div class="uk-margin">
 		        		<a href="$OrderLink" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
 		        	</div>
