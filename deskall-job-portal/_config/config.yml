@@ -65,10 +65,6 @@ PageController:
   extensions:
     - DeskallJobPortalPageControllerExtension
 
-MemberPageController:
-  extensions:
-    - DeskallJobPortalPageControllerExtension
-
 BaseBlockExtension:
   blocks:
     - JobOfTheWeekBlock
