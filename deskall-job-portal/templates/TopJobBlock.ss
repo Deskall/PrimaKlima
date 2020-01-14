@@ -8,7 +8,7 @@
         <ul class="uk-slider-items uk-child-width-1-2@s uk-grid uk-grid-match">
             <% loop Jobs %>
             <li>
-                <div class="uk-card">
+                <div class="uk-card uk-card-default">
                     <div class="uk-card-media-top uk-padding-small">
                         <img <% if $Customer.Logo.getExtension == "svg" %>src="$Customer.Logo.URL"<% else %>src="$Customer.Logo.Fit(250,150).URL"<% end_if %> alt="Logo von $Company" width="250" height="150">
                     </div>
