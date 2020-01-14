@@ -106,7 +106,7 @@ class MemberProfilePageController extends PageController{
 		$fields = singleton(Member::class)->getRegisterFields();
 		$arbeitgeberId = Group::get()->filter('Code','arbeitgeber')->first();
 		$candidateId = Group::get()->filter('Code','kandidaten')->first();
-		$fields->add(DropdownField::create('GroupID',_t('Member.RegisterGroupLabel','Warum wollen Sie registrieren?'),[$arbeitgeberId => _t('Member.RegisterGroupLabel1','Ich bin Arbeitgeber und suche Mitarbeiter'), $candidateId => _t('Member.RegisterGroupLabel2','Ich suche einen Job')])->setEmptyString('Bitte wählen'));
+		$fields->insertBefore('FirstName',DropdownField::create('GroupID',_t('Member.RegisterGroupLabel','Warum wollen Sie registrieren?'),[$arbeitgeberId => _t('Member.RegisterGroupLabel1','Ich bin Arbeitgeber und suche Mitarbeiter'), $candidateId => _t('Member.RegisterGroupLabel2','Ich suche einen Job')])->setEmptyString('Bitte wählen'));
 
 		$form = new Form(
 			$this,
