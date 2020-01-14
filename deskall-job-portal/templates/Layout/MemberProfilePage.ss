@@ -12,6 +12,7 @@
 			<section class="uk-section uk-section-xsmall">
 				<div class="uk-container">
 					<% if CurrentUser.inGroup('kandidaten') %>
+						<% include ProfilJobSucher %>
 					<% else_if CurrentUser.inGroup('arbeitgeber') %>
 						<% include ProfilJobGiver %>
 					<% end_if %>
