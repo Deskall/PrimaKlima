@@ -76,19 +76,18 @@ class JobPortalConfig extends DataObject
         'AfterConfirmationEmailBody'            => 'HTMLText',
 
         //Step 3
-        'AfterCheckEmailFrom'                => 'Varchar(255)',
-        'AfterAcceptationEmailSubject'             => 'Varchar(255)',
-        'AfterAcceptationEmailBody'            => 'HTMLText',
-        'AfterRefusalEmailSubject'             => 'Varchar(255)',
-        'AfterRefusalEmailBody'            => 'HTMLText',
+        // 'AfterCheckEmailFrom'                => 'Varchar(255)',
+        // 'AfterAcceptationEmailSubject'             => 'Varchar(255)',
+        // 'AfterAcceptationEmailBody'            => 'HTMLText',
+        // 'AfterRefusalEmailSubject'             => 'Varchar(255)',
+        // 'AfterRefusalEmailBody'            => 'HTMLText',
 
-        'EmailFrom'                => 'Varchar(255)',
-       
+      
         'AlreadyConnected'         => 'HTMLText',
-        'ApprovalEmailSender'      => 'Varchar',
-        'ApprovalEmailReceiver'      => 'Varchar',
-        'ApprovalEmailSubject'     => 'Varchar',
-        'ApprovalEmailBody'        => 'HTMLText',
+        // 'ApprovalEmailSender'      => 'Varchar',
+        // 'ApprovalEmailReceiver'      => 'Varchar',
+        // 'ApprovalEmailSubject'     => 'Varchar',
+        // 'ApprovalEmailBody'        => 'HTMLText',
         
     );
 
@@ -177,9 +176,20 @@ class JobPortalConfig extends DataObject
 
     public function getCMSFields()
     {
-        
-
-        $this->beforeUpdateCMSFields(function ($fields) {
+        $fields = parent::getCMSFields();
+        $fields->removeByName('GroupID');
+        $fields->removeByName('EmailValidationRequired');
+        $fields->removeByName('AfterRegistrationContent');
+        $fields->removeByName('AfterRegistrationTitle');
+        $fields->removeByName('AfterRegistrationEmailFrom');
+        $fields->removeByName('AfterRegistrationEmailSubject');
+        $fields->removeByName('AfterRegistrationEmailBody');
+        $fields->removeByName('AfterConfirmationTitle');
+        $fields->removeByName('AfterConfirmationContent');
+        $fields->removeByName('AfterConfirmationEmailFrom');
+        $fields->removeByName('AfterConfirmationEmailSubject');
+        $fields->removeByName('AfterConfirmationEmailBody');
+        $fields->removeByName('EmailFrom');
 
             $fields->addFieldsToTab('Root.Registration',[
                    DropdownField::create('GroupID',_t(__CLASS__.'.Group','Benutzer Grupp'), Group::get()->filter('Code',$this->stat('groupcodes'))->map('ID','Title'))->setEmptyString('Grupp wählen'),
@@ -201,31 +211,17 @@ class JobPortalConfig extends DataObject
                        TextField::create('AfterConfirmationEmailSubject',_t(__CLASS__.".AfterConfirmationEmailSubject", 'Confirmation email subject')),
                        HTMLEditorField::create('AfterConfirmationEmailBody',_t(__CLASS__.".AfterConfirmationContent", 'Confirmation email body')),
                    ]))->displayIf('EmailValidationRequired')->isChecked()->end(),
-                   Wrapper::create(HeaderField::create('InscriptionTitle3',_t(__CLASS__.".BackInscriptionTitle","Inscription - Step 3"),3))->displayIf('ApprovalRequired')->isChecked()->end(),
-                   Wrapper::create(CompositeField::create([
-                       TextField::create('ApprovalEmailSender',_t(__CLASS__.".ApprovalEmailSender", 'Approval request email sender')),
-                       TextField::create('ApprovalEmailReceiver',_t(__CLASS__.".ApprovalEmailSReceiver", 'Approval request email receiver')),
-                       TextField::create('ApprovalEmailSubject',_t(__CLASS__.".ApprovalEmailSubject", 'Approval request email subject')),
-                       HTMLEditorField::create('ApprovalEmailBody',_t(__CLASS__.".ApprovalEmailBody", 'Approval request email body'))
-                   ]))->displayIf('ApprovalRequired')->isChecked()->end(),
-                   Wrapper::create(HeaderField::create('InscriptionTitle4',_t(__CLASS__.".BackInscriptionTitle","Inscription - Step 4"),3))->displayIf('ApprovalRequired')->isChecked()->end(),
-                   Wrapper::create(CompositeField::create([
-                       TextField::create('EmailFrom',_t(__CLASS__.".EmailFrom", 'Sender')),
-                       TextField::create('AfterAcceptationEmailSubject',_t(__CLASS__.".AfterAcceptationEmailSubject", 'Email subject (approval)')),
-                       HTMLEditorField::create('AfterAcceptationEmailBody',_t(__CLASS__.".AfterAcceptationEmailBody", 'Email body (approval)')),
-                        TextField::create('AfterRefusalEmailSubject',_t(__CLASS__.".AfterRefusalEmailSubject", 'Email subject (refusal)')),
-                       HTMLEditorField::create('AfterRefusalEmailBody',_t(__CLASS__.".AfterRefusalEmailBody", 'Email body (refusal)'))
-                   ]))->displayIf('ApprovalRequired')->isChecked()->end(),
+                  
                 
                    HTMLEditorField::create('AlreadyConnected',_t(__CLASS__.".AlreadyConnected", 'Content to show for connected User')),
                    
                 ]
             );
 
-            $fields->FieldByName('Root.Registration')->setTitle(_t(__CLASS__.".RegistrationTab",'Registration Parameters'));
-        });
+        $fields->FieldByName('Root.Registration')->setTitle(_t(__CLASS__.".RegistrationTab",'Registration Parameters'));
+       
 
-        $fields = parent::getCMSFields();
+    
        $fields->addFieldToTab('Root.Main',UploadField::create('OfferFile',$this->fieldLabels()['OfferFile'])->setFolderName('Uploads/Vorlagen'));
        $fields->addFieldToTab('Root.Main',UploadField::create('ContractFile',$this->fieldLabels()['ContractFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Vorlagen'));
        $fields->addFieldToTab('Root.Main',UploadField::create('AGBCustomerFile',$this->fieldLabels()['AGBCustomerFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Vorlagen'));
