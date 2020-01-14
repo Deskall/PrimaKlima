@@ -276,10 +276,6 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
             return null;
         }
 
-        ob_start();
-                    print_r($form->getData());
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         if ($form->getData()['GroupID']){
             $group = Group::get()->byId($form->getData()['GroupID']);
             if ($group){
