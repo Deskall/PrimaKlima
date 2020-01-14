@@ -70,7 +70,7 @@
 		        
 		        <h3 class="uk-card-title">$Title</h3>
 		        <div class="product-body">
-		        	<div class="uk-margin">$RunTimeTitle</div>
+		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right"><%t Package.RunTime 'Laufzeit' %></span>$RunTimeTitle</div>
 		        	<div class="uk-margin">$NumOfAdsTitle</div>
 		        	<% loop $Parameters %>
 		        	<% if included %>
