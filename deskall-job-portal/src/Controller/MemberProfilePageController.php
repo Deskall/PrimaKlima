@@ -43,7 +43,7 @@ use SilverStripe\Security\DefaultAdminService;
 
 class MemberProfilePageController extends PageController{
 
-	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer'];
+	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer','RegisterForm'];
 
 	private static $url_handlers = [
 		'delete-object/$ID/$OBJECT' => 'DeleteObject',
@@ -99,6 +99,59 @@ class MemberProfilePageController extends PageController{
 		$this->getRequest()->getSession()->clear('offer_id');
 		return [];
 	}
+
+	public function RegisterForm(){
+
+		$fields = singleton(Member::class)->getRegisterFields();
+
+		$form = new Form(
+			$this,
+			'RegisterForm',
+			$fields,
+			new FieldList(
+				FormAction::create('register', _t('MemberProfiles.REGISTER', 'Jetzt registrieren'))->addExtraClass('uk-button uk-button-primary uk-float-right')->setUseButtonTag(true)
+			),
+			singleton(Member::class)->getRequiredRegisterFields()
+		);
+
+		$form->addExtraClass('uk-form-horizontal form-std');
+		if(is_array($this->getRequest()->getSession()->get('RegisterForm'))) {
+			$form->loadDataFrom($this->getRequest()->getSession()->get('RegisterForm'));
+		}
+
+		return $form;
+	}
+
+	
+	/**
+	    * Handles validation and saving new Member objects, as well as sending out validation emails.
+	    */
+	public function register($data, Form $form)
+	{
+		$this->getRequest()->getSession()->set('RegisterForm',$data);
+		$member = Member::get()->filter('Email' , $data['Email'])->first();
+		if (!$member){
+			$member = $this->addMember($form);
+			if (!$member) {
+				return $this->redirectBack();
+			}
+
+		    return $this->redirect('/bestaetigen-sie-ihre-e-mail-adresse');
+		}
+		
+		if ($member->validateCanLogin()){
+			if ($member->canLogin()) {
+				Injector::inst()->get(IdentityStore::class)->logIn($member);
+			} else {
+				throw new Exception('Permission issue occurred. Was the "$member->validateCanLogin" check above this code block removed?');
+			}
+
+        	return $this->redirect(MemberProfilePage::get()->filter('GroupID',$this->GroupID)->first()->Link());
+		}
+       
+        return $this->redirectBack();
+
+    }
 
 	
 	public function ProfilForm(){
