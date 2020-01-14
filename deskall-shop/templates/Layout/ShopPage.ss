@@ -2,7 +2,11 @@ $ElementalArea
 
 <section class="uk-section no-bg uk-padding-remove-top">
 	<% if CurrentUser %>
-		$CheckoutForm
+		<% if CurrentUser.activeOrder %>
+		active
+		<% else %>
+			$CheckoutForm
+			<% end_if %>
 	<% else %>
 	<div class="uk-container">
 		<ul class="member-tab uk-child-width-expand" data-uk-tab>
