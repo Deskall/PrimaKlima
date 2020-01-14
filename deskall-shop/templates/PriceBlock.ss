@@ -76,7 +76,7 @@
 		        	<% if included %>
 		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right">$title</span><i class="icon icon-checkmark"></i></div>
 		        	<% else %>
-		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right">$title</span>-</div>
+		        	<div class="uk-margin uk-visible@m">-</div>
 		        	<% end_if %>
 		        	<% end_loop %> 
 		        	<% if PackegeOptions %>
