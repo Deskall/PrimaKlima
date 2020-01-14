@@ -1,5 +1,5 @@
 $ElementalArea
-
+$TestExtension
 <section class="uk-section no-bg uk-padding-remove-top">
 	<% if CurrentCustomer %>
 		<% if CurrentCustomer.activeOrder %>
