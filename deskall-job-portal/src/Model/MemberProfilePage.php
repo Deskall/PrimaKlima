@@ -18,32 +18,16 @@ use SilverStripe\Subsite\Subsite;
 
 class MemberProfilePage extends Page {
 	
-	public function getCMSFields(){
-		$fields = parent::getCMSFields();
-		$fields->addFieldToTab('Root.Profile', DropdownField::create('GroupID',_t(__CLASS__.'.Group','Benutzer Grupp'), Group::get()->filter('Code',$this->stat('groupcodes'))->map('ID','Title'))->setEmptyString('Grupp wählen'));
-		
-
-		return $fields;
-	}
-
 	public function canCreate( $member = null, $context = []){
-	    // if (!MemberProfilePage::get()->filter('SubsiteID',Subsite::currentSubsiteID())->first()){
-	    // 	return true;
-	    // }
-	    // return false;
-	    return true;
+	    if (MemberProfilePage::get()->count() == 0){
+	    	return true;
+	    }
+	    return false;
 	}
-
-
-    public function getCookConfig(){
-    	return CookConfig::get()->first();
-    }
-
 
 
 	public function Missions(){
 		return Mission::get()->filter('isVisible',1)->sort('Sort');
-		// return Mission::get()->filter('Status','sentToCook');
 	}
 
 	
