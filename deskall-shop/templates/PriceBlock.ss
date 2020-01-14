@@ -80,12 +80,10 @@
 		        	<% end_if %>
 		        	<% end_loop %> 
 		        	<% if PackegeOptions %>
-		        	<div class="uk-text-center">
-			        	<table><% loop PackegeOptions %>
+			        	<table class="uk-text-center"><% loop PackegeOptions %>
 			        		<tr><td>$Title</td><td>$Price €</td></tr>
 			        		<% end_loop %>
 			        	</table>
-			        </div>
 		        	<% else %>
 		        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 		        	<% end_if %>
