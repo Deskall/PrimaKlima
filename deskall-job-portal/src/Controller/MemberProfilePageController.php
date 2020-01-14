@@ -102,28 +102,28 @@ class MemberProfilePageController extends PageController{
 	}
 
 	public function RegisterForm(){
+		return RegisterPageController::get()->first()->RegisterForm();
+		// $fields = singleton(Member::class)->getRegisterFields();
+		// $arbeitgeberId = Group::get()->filter('Code','arbeitgeber')->first()->ID;
+		// $candidateId = Group::get()->filter('Code','kandidaten')->first()->ID;
+		// $fields->insertBefore('FirstName',DropdownField::create('GroupID',_t('Member.RegisterGroupLabel','Warum wollen Sie registrieren?'),[$arbeitgeberId => _t('Member.RegisterGroupLabel1','Ich bin Arbeitgeber und suche Mitarbeiter'), $candidateId => _t('Member.RegisterGroupLabel2','Ich suche einen Job')])->setEmptyString('Bitte wählen')->setAttribute('class','uk-select')->addExtraClass('uk-clearfix'));
 
-		$fields = singleton(Member::class)->getRegisterFields();
-		$arbeitgeberId = Group::get()->filter('Code','arbeitgeber')->first()->ID;
-		$candidateId = Group::get()->filter('Code','kandidaten')->first()->ID;
-		$fields->insertBefore('FirstName',DropdownField::create('GroupID',_t('Member.RegisterGroupLabel','Warum wollen Sie registrieren?'),[$arbeitgeberId => _t('Member.RegisterGroupLabel1','Ich bin Arbeitgeber und suche Mitarbeiter'), $candidateId => _t('Member.RegisterGroupLabel2','Ich suche einen Job')])->setEmptyString('Bitte wählen')->setAttribute('class','uk-select')->addExtraClass('uk-clearfix'));
+		// $form = new Form(
+		// 	$this,
+		// 	'RegisterForm',
+		// 	$fields,
+		// 	new FieldList(
+		// 		FormAction::create('register', _t('MemberProfiles.REGISTER', 'Jetzt registrieren'))->addExtraClass('uk-button uk-button-primary uk-float-right')->setUseButtonTag(true)
+		// 	),
+		// 	singleton(Member::class)->getRequiredRegisterFields()
+		// );
 
-		$form = new Form(
-			$this,
-			'RegisterForm',
-			$fields,
-			new FieldList(
-				FormAction::create('register', _t('MemberProfiles.REGISTER', 'Jetzt registrieren'))->addExtraClass('uk-button uk-button-primary uk-float-right')->setUseButtonTag(true)
-			),
-			singleton(Member::class)->getRequiredRegisterFields()
-		);
+		// $form->addExtraClass('uk-form-horizontal form-std');
+		// if(is_array($this->getRequest()->getSession()->get('RegisterForm'))) {
+		// 	$form->loadDataFrom($this->getRequest()->getSession()->get('RegisterForm'));
+		// }
 
-		$form->addExtraClass('uk-form-horizontal form-std');
-		if(is_array($this->getRequest()->getSession()->get('RegisterForm'))) {
-			$form->loadDataFrom($this->getRequest()->getSession()->get('RegisterForm'));
-		}
-
-		return $form;
+		// return $form;
 	}
 
 	
