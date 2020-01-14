@@ -12,8 +12,8 @@ class TopJobBlock extends BaseElement implements Searchable{
 	private static $controller_class = BlockController::class;
 
 	public function Jobs(){
-        $Advertisements = Mission::get()->filter('isActive' => 1)->sort('PublishedDate','DESC');
-        
+        $Advertisements = Mission::get()->filter('isActive' , 1)->sort('PublishedDate','DESC');
+
         return $Advertisements;
 
 		// $AllAdvertisements = EmployerAdvertisement::get()->filter(array(
