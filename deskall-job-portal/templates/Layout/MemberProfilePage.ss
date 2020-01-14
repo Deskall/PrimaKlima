@@ -3,7 +3,7 @@
 	<section class="uk-section uk-section-small no-bg">
 		<div class="uk-container">
 			<h1>$Title</h1>
-			$Content
+			<div class="dk-text-content">$Content</div>
 		</div>
 	</section>
 	<% else %>
