@@ -75,19 +75,14 @@ class JobPortalConfig extends DataObject
         'AfterConfirmationEmailSubject'             => 'Varchar(255)',
         'AfterConfirmationEmailBody'            => 'HTMLText',
 
-        //Step 3
-        // 'AfterCheckEmailFrom'                => 'Varchar(255)',
-        // 'AfterAcceptationEmailSubject'             => 'Varchar(255)',
-        // 'AfterAcceptationEmailBody'            => 'HTMLText',
-        // 'AfterRefusalEmailSubject'             => 'Varchar(255)',
-        // 'AfterRefusalEmailBody'            => 'HTMLText',
-
-      
         'AlreadyConnected'         => 'HTMLText',
-        // 'ApprovalEmailSender'      => 'Varchar',
-        // 'ApprovalEmailReceiver'      => 'Varchar',
-        // 'ApprovalEmailSubject'     => 'Varchar',
-        // 'ApprovalEmailBody'        => 'HTMLText',
+   
+
+        'AccountTabHTML' => 'HTMLText',
+        'ProfilTabHTML' => 'HTMLText',
+        'OffersTabHTML' => 'HTMLText',
+        'PaymentTabHTML' => 'HTMLText',
+        'AdsTabHTML' => 'HTMLText'
         
     );
 
@@ -189,7 +184,11 @@ class JobPortalConfig extends DataObject
         $fields->removeByName('AfterConfirmationEmailFrom');
         $fields->removeByName('AfterConfirmationEmailSubject');
         $fields->removeByName('AfterConfirmationEmailBody');
-        $fields->removeByName('EmailFrom');
+        $fields->removeByName('AccountTabHTML');
+        $fields->removeByName('ProfilTabHTML');
+        $fields->removeByName('OffersTabHTML');
+        $fields->removeByName('AdsTabHTML');
+
 
             $fields->addFieldsToTab('Root.Registration',[
                    DropdownField::create('GroupID',_t(__CLASS__.'.Group','Benutzer Grupp'), Group::get()->filter('Code',$this->stat('groupcodes'))->map('ID','Title'))->setEmptyString('Grupp wählen'),
@@ -219,6 +218,14 @@ class JobPortalConfig extends DataObject
             );
 
         $fields->FieldByName('Root.Registration')->setTitle(_t(__CLASS__.".RegistrationTab",'Registration Parameters'));
+
+        $fields->addFieldToTab('Root.Profile', CompositeField::create(
+            HTMLEditorField::create('AccountTabHTML',_t(__CLASS__.'.AccountTabHTML','Text für den Bereich "Adressangaben"'))->setRows(3),
+            HTMLEditorField::create('ProfilTabHTML',_t(__CLASS__.'.ProfilTabHTML','Text für den Bereich "Firmenporträt"'))->setRows(3),
+            HTMLEditorField::create('OffersTabHTML',_t(__CLASS__.'.OffersTabHTML','Text für den Bereich "Inserate"'))->setRows(3),
+            HTMLEditorField::create('PaymentTabHTML',_t(__CLASS__.'.PaymentTabHTML','Text für den Bereich "Pakete"'))->setRows(3),
+            HTMLEditorField::create('AdsTabHTML',_t(__CLASS__.'.AdsTabHTML','Text für den Bereich "Bewerbungen"'))->setRows(3)
+        ));
        
 
     

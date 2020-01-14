@@ -5,9 +5,6 @@ use SilverStripe\ORM\DataExtension;
 
 class DeskallJobPortalPageExtension extends DataExtension
 {
-    public function RegisterPage(){
-    	return RegisterPage::get()->first();
-    }
 
     public function CurrentCustomer(){
     	
