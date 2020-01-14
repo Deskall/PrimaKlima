@@ -102,7 +102,7 @@ class MemberProfilePageController extends PageController{
 	}
 
 	public function RegisterForm(){
-		return RegisterPageController::create()->RegisterForm();
+		return RegisterPageController::create()->RegisterForm($this->getRequest());
 		// $fields = singleton(Member::class)->getRegisterFields();
 		// $arbeitgeberId = Group::get()->filter('Code','arbeitgeber')->first()->ID;
 		// $candidateId = Group::get()->filter('Code','kandidaten')->first()->ID;
