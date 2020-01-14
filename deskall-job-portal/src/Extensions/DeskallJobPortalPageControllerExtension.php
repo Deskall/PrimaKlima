@@ -51,7 +51,7 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
         'bestaetigen-sie-ihre-e-mail-adresse' => 'afterregistration',
         'confirmation/$ID' => 'confirm'
     ];
-    
+
     public function getPortal(){
        return JobPortalConfig::get()->first();
     }
@@ -93,7 +93,7 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
         $this->owner->getRequest()->getSession()->set('RegisterForm',$data);
         $member = Member::get()->filter('Email' , $data['Email'])->first();
         if (!$member){
-            $member = $this->owner->addMember($form);
+            $member = $this->addMember($form);
             if (!$member) {
                 return $this->owner->redirectBack();
             }
