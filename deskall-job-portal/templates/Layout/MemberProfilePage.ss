@@ -1,6 +1,11 @@
 <% if CurrentCustomer %>
 	<% if Content %>
-	$Content
+	<section class="uk-section no-bg">
+		<div class="uk-container">
+			<h1>$Title</h1>
+			$Content
+		</div>
+	</section>
 	<% else %>
 		$ElementalArea
 		<div class="element uk-background-cover" id="member-section">
