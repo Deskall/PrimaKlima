@@ -101,61 +101,7 @@ class MemberProfilePageController extends PageController{
 		return [];
 	}
 
-	public function RegisterForm(){
-		return RegisterPageController::create()->RegisterForm($this->getRequest());
-		// $fields = singleton(Member::class)->getRegisterFields();
-		// $arbeitgeberId = Group::get()->filter('Code','arbeitgeber')->first()->ID;
-		// $candidateId = Group::get()->filter('Code','kandidaten')->first()->ID;
-		// $fields->insertBefore('FirstName',DropdownField::create('GroupID',_t('Member.RegisterGroupLabel','Warum wollen Sie registrieren?'),[$arbeitgeberId => _t('Member.RegisterGroupLabel1','Ich bin Arbeitgeber und suche Mitarbeiter'), $candidateId => _t('Member.RegisterGroupLabel2','Ich suche einen Job')])->setEmptyString('Bitte wählen')->setAttribute('class','uk-select')->addExtraClass('uk-clearfix'));
-
-		// $form = new Form(
-		// 	$this,
-		// 	'RegisterForm',
-		// 	$fields,
-		// 	new FieldList(
-		// 		FormAction::create('register', _t('MemberProfiles.REGISTER', 'Jetzt registrieren'))->addExtraClass('uk-button uk-button-primary uk-float-right')->setUseButtonTag(true)
-		// 	),
-		// 	singleton(Member::class)->getRequiredRegisterFields()
-		// );
-
-		// $form->addExtraClass('uk-form-horizontal form-std');
-		// if(is_array($this->getRequest()->getSession()->get('RegisterForm'))) {
-		// 	$form->loadDataFrom($this->getRequest()->getSession()->get('RegisterForm'));
-		// }
-
-		// return $form;
-	}
-
 	
-	/**
-	    * Handles validation and saving new Member objects, as well as sending out validation emails.
-	    */
-	public function register($data, Form $form)
-	{
-		$this->getRequest()->getSession()->set('RegisterForm',$data);
-		$member = Member::get()->filter('Email' , $data['Email'])->first();
-		if (!$member){
-			$member = $this->addMember($form);
-			if (!$member) {
-				return $this->redirectBack();
-			}
-
-		    return $this->redirect('/bestaetigen-sie-ihre-e-mail-adresse');
-		}
-		
-		if ($member->validateCanLogin()){
-			if ($member->canLogin()) {
-				Injector::inst()->get(IdentityStore::class)->logIn($member);
-			} else {
-				throw new Exception('Permission issue occurred. Was the "$member->validateCanLogin" check above this code block removed?');
-			}
-
-        	return $this->redirect(MemberProfilePage::get()->filter('GroupID',$this->GroupID)->first()->Link());
-		}
-       
-        return $this->redirectBack();
-
-    }
 
 	
 	public function ProfilForm(){

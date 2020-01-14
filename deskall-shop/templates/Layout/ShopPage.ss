@@ -1,5 +1,5 @@
 $ElementalArea
-$TestExtension
+
 <section class="uk-section no-bg uk-padding-remove-top">
 	<% if CurrentCustomer %>
 		<% if CurrentCustomer.activeOrder %>
@@ -11,6 +11,6 @@ $TestExtension
 			$CheckoutForm
 			<% end_if %>
 	<% else %>
-	<% include LoginOrRegister %>
+		<% include LoginOrRegister %>
 	<% end_if %>
 </section>
