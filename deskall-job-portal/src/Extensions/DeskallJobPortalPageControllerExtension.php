@@ -144,19 +144,19 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
         $key = $request->getVar('key');
         if ($currentMember) {
             if ($currentMember->ID == $id) {
-                return Security::permissionFailure($this, _t(
+                return Security::permissionFailure($this->owner, _t(
                     'MemberProfiles.ALREADYCONFIRMED',
                     'Your account is already confirmed.'
                 ));
             }
-            return Security::permissionFailure($this, _t(
+            return Security::permissionFailure($this->owner, _t(
                 'MemberProfiles.CANNOTCONFIRMLOGGEDIN',
                 'You cannot confirm account while you are logged in.'
             ));
         }
         if (!$id ||
             !$key) {
-            return $this->httpError(404);
+            return $this->owner->httpError(404);
         }   
 
         $confirmationTitle = $this->owner->data()->dbObject('ConfirmationTitle');
