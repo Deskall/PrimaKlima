@@ -11,7 +11,7 @@
 									<div class="uk-panel uk-background-muted uk-padding-small">
 										<h2><%t JobGiver.AccountTitle 'Adressangaben' %></h2>
 										<div class="member-section-container">
-											$AccountTabHTML
+											$Portal.AccountTabHTML
 											$AccountForm
 										</div>
 									</div>
@@ -20,7 +20,7 @@
 									<div class="uk-panel uk-background-muted uk-padding-small">
 										<h2><%t JobGiver.ProfilTitle 'Firmenporträt' %></h2>
 										<div class="member-section-container">
-											$ProfilTabHTML
+											$Portal.ProfilTabHTML
 											$ProfilForm
 										</div>
 									</div>
@@ -29,7 +29,7 @@
 									<div class="uk-panel uk-background-muted uk-padding-small">
 										<h2><%t JobGiver.PaymentTitle 'Pakete' %></h2>
 										<div class="member-section-container">
-											$PaymentTabHTML
+											$Portal.PaymentTabHTML
 											<div class="uk-margin">
 												<% if CurrentCustomer.activeOrder %>
 												<h4><%t MemberPage.MoreTitle 'Inserate verfügbar' %></h4>
@@ -72,7 +72,7 @@
 									<div class="uk-panel uk-background-muted uk-padding-small">
 										<h2><%t JobGiver.OffersTitle 'Inserate' %></h2>
 										<div class="member-section-container">
-											$OffersTabHTML
+											$Portal.OffersTabHTML
 										</div>
 										<div class="toggle-new-offer">
 											<% if CurrentCustomer.activeOrder %>
@@ -133,7 +133,7 @@
 									<div class="uk-panel uk-background-muted uk-padding-small">
 										<h2><%t JobGiver.AdsTitle 'Bewerbungen' %></h2>
 										<div class="member-section-container">
-											$AdsTabHTML
+											$Portal.AdsTabHTML
 										</div>
 									</div>
 								</li>
