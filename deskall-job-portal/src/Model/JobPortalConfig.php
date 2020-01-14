@@ -177,7 +177,7 @@ class JobPortalConfig extends DataObject
 
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
+        
 
         $this->beforeUpdateCMSFields(function ($fields) {
 
@@ -225,7 +225,7 @@ class JobPortalConfig extends DataObject
             $fields->FieldByName('Root.Registration')->setTitle(_t(__CLASS__.".RegistrationTab",'Registration Parameters'));
         });
 
-
+        $fields = parent::getCMSFields();
        $fields->addFieldToTab('Root.Main',UploadField::create('OfferFile',$this->fieldLabels()['OfferFile'])->setFolderName('Uploads/Vorlagen'));
        $fields->addFieldToTab('Root.Main',UploadField::create('ContractFile',$this->fieldLabels()['ContractFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Vorlagen'));
        $fields->addFieldToTab('Root.Main',UploadField::create('AGBCustomerFile',$this->fieldLabels()['AGBCustomerFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Vorlagen'));
