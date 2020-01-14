@@ -50,7 +50,7 @@
 	<% end_loop %>
 </div> --%>
 
-<div class="uk-child-width-1-4@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
+<div class="uk-child-width-1-4@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid>
 	<div>
 		<div class="uk-card uk-card-body">
 			<h3 class="uk-card-title">&nbsp;</h3>
@@ -88,7 +88,7 @@
 		        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 		        	<% end_if %>
 			    </div>
-		        <div class="product-footer">
+		        <div class="product-footer uk-position-bottom">
 			        <div class="uk-margin">
 		        		<a href="$OrderLink" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
 		        	</div>
