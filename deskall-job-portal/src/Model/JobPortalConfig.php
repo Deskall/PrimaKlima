@@ -188,6 +188,7 @@ class JobPortalConfig extends DataObject
         $fields->removeByName('ProfilTabHTML');
         $fields->removeByName('OffersTabHTML');
         $fields->removeByName('AdsTabHTML');
+        $fields->removeByName('PaymentTabHTML');
 
 
             $fields->addFieldsToTab('Root.Registration',[
