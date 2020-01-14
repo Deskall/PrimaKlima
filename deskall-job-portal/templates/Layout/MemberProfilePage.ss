@@ -1,6 +1,6 @@
 <% if CurrentCustomer %>
 	<% if Content %>
-	<section class="uk-section no-bg">
+	<section class="uk-section uk-section-small no-bg">
 		<div class="uk-container">
 			<h1>$Title</h1>
 			$Content
@@ -156,7 +156,7 @@
 		</div>
 	<% end_if %>
 <% else %>
-	<section class="uk-section no-bg">
+	<section class="uk-section uk-section-small no-bg">
 	<% include LoginOrRegister %>
 	</section>
 <% end_if %>
