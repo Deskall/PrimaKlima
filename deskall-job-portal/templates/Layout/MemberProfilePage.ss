@@ -1,9 +1,5 @@
-<% if ID < 0 || $firstBlockSlide %>
-<% include DefaultSlide %>
-<% end_if %>
-
+<% if CurrentCustomer %>
 $ElementalArea
-
 <div class="element uk-background-cover" id="member-section">
 	<section class="uk-section uk-section-xsmall">
 		<div class="uk-container">
@@ -150,6 +146,8 @@ $ElementalArea
 		</div>
 	</section>
 </div>
-
+<% else %>
+blabla
+<% end_if %>
 
 
