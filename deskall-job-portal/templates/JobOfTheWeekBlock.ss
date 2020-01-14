@@ -13,7 +13,7 @@
                         <img <% if $Customer.Logo.getExtension == "svg" %>src="$Customer.Logo.URL"<% else %>src="$Customer.Logo.Fit(250,150).URL"<% end_if %> alt="Logo von $Company" width="250" height="150">
                     </div>
                     <div class="uk-card-body">
-                        <h3 class="uk-card-title">$Title</h3>
+                        <h3 class="uk-card-title uk-text-truncate">$Title</h3>
                         <div><i>$Customer.Company</i></div>
                         <div class="uk-flex uk-flex-center uk-grid uk-text-small uk-margin-small-top">
                         	<div class="place"><i class="icon icon-location uk-margin-small-right"></i>$City</div>
