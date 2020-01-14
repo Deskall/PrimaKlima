@@ -80,7 +80,7 @@
 		        	<% end_if %>
 		        	<% end_loop %> 
 		        	<% if PackegeOptions %>
-			        	<table class="uk-text-center uk-width-1-1"><% loop PackegeOptions %>
+			        	<table class="uk-flex uk-flex-center"><% loop PackegeOptions %>
 			        		<tr><td>$Title</td><td>$Price €</td></tr>
 			        		<% end_loop %>
 			        	</table>
