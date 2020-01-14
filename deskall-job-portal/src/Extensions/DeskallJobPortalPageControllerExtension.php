@@ -62,7 +62,7 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
         $fields->insertBefore('FirstName',DropdownField::create('GroupID',_t('Member.RegisterGroupLabel','Warum wollen Sie registrieren?'),[$arbeitgeberId => _t('Member.RegisterGroupLabel1','Ich bin Arbeitgeber und suche Mitarbeiter'), $candidateId => _t('Member.RegisterGroupLabel2','Ich suche einen Job')])->setEmptyString('Bitte wählen')->setAttribute('class','uk-select')->addExtraClass('uk-clearfix'));
 
         $form = new Form(
-            $this,
+            $this->owner,
             'RegisterForm',
             $fields,
             new FieldList(
