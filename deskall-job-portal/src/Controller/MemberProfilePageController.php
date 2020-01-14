@@ -27,6 +27,7 @@ use SilverStripe\Core\Extension;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Assets\Folder;
 use SilverStripe\Assets\Upload;
