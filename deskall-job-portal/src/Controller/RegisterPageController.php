@@ -42,16 +42,16 @@ class RegisterPageController extends PageController{
 	public function init(){
 		parent::init();
 
-		// if (!$this->getRequest()->getVar('CMSPreview')){
+		// if (!$this->owner->getRequest()->getVar('CMSPreview')){
 		// 	if(Security::getCurrentUser()){
-		// 		if(!Security::getCurrentUser()->inGroup($this->Group()->Code)){
-		// 			return Security::permissionFailure($this, _t(
+		// 		if(!Security::getCurrentUser()->inGroup($this->owner->Group()->Code)){
+		// 			return Security::permissionFailure($this->owner, _t(
 		// 				'MemberProfiles.AccessDenied',
 		// 				'Sie dürfen diesen Bereich nicht betreten.'
 		// 			));
 		// 		}
 		// 		else{
-		// 			return Security::permissionFailure($this, _t(
+		// 			return Security::permissionFailure($this->owner, _t(
 		// 				'MemberProfiles.AlreadyRegistered',
 		// 				DBHTMLText::create()->setValue('Sie sind bereits registriert. Klicken Sie <a href="'.Security::getCurrentUser()->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen')
 		// 			));
@@ -67,7 +67,7 @@ class RegisterPageController extends PageController{
 		$fields = singleton(Member::class)->getRegisterFields();
 
 		$form = new Form(
-			$this,
+			$this->owner,
 			'RegisterForm',
 			$fields,
 			new FieldList(
@@ -77,8 +77,8 @@ class RegisterPageController extends PageController{
 		);
 
 		$form->addExtraClass('uk-form-horizontal form-std');
-		if(is_array($this->getRequest()->getSession()->get('RegisterForm'))) {
-			$form->loadDataFrom($this->getRequest()->getSession()->get('RegisterForm'));
+		if(is_array($this->owner->getRequest()->getSession()->get('RegisterForm'))) {
+			$form->loadDataFrom($this->owner->getRequest()->getSession()->get('RegisterForm'));
 		}
 
 		return $form;
@@ -90,15 +90,15 @@ class RegisterPageController extends PageController{
 	    */
 	public function register($data, Form $form)
 	{
-		$this->getRequest()->getSession()->set('RegisterForm',$data);
+		$this->owner->getRequest()->getSession()->set('RegisterForm',$data);
 		$member = Member::get()->filter('Email' , $data['Email'])->first();
 		if (!$member){
-			$member = $this->addMember($form);
+			$member = $this->owner->addMember($form);
 			if (!$member) {
-				return $this->redirectBack();
+				return $this->owner->redirectBack();
 			}
 
-		    return $this->redirect('/bestaetigen-sie-ihre-e-mail-adresse');
+		    return $this->owner->redirect('/bestaetigen-sie-ihre-e-mail-adresse');
 		}
 		
 		if ($member->validateCanLogin()){
@@ -108,10 +108,10 @@ class RegisterPageController extends PageController{
 				throw new Exception('Permission issue occurred. Was the "$member->validateCanLogin" check above this code block removed?');
 			}
 
-        	return $this->redirect(MemberProfilePage::get()->filter('GroupID',$this->GroupID)->first()->Link());
+        	return $this->owner->redirect(MemberProfilePage::get()->filter('GroupID',$this->owner->GroupID)->first()->Link());
 		}
        
-        return $this->redirectBack();
+        return $this->owner->redirectBack();
 
     }
 
@@ -122,10 +122,10 @@ class RegisterPageController extends PageController{
      */
     public function afterregistration()
     {
-    	$this->getRequest()->getSession()->set('RegisterForm',null);
+    	$this->owner->getRequest()->getSession()->set('RegisterForm',null);
         return array (
-            'Title'   => $this->obj('AfterRegistrationTitle'),
-            'Content' => $this->obj('AfterRegistrationContent'),
+            'Title'   => $this->owner->obj('AfterRegistrationTitle'),
+            'Content' => $this->owner->obj('AfterRegistrationContent'),
             'noform' => true
         );
     }
@@ -144,49 +144,49 @@ class RegisterPageController extends PageController{
 		$key = $request->getVar('key');
 		if ($currentMember) {
 			if ($currentMember->ID == $id) {
-				return Security::permissionFailure($this, _t(
+				return Security::permissionFailure($this->owner, _t(
 					'MemberProfiles.ALREADYCONFIRMED',
 					'Your account is already confirmed.'
 				));
 			}
-			return Security::permissionFailure($this, _t(
+			return Security::permissionFailure($this->owner, _t(
 				'MemberProfiles.CANNOTCONFIRMLOGGEDIN',
 				'You cannot confirm account while you are logged in.'
 			));
 		}
 		if (!$id ||
 			!$key) {
-			return $this->httpError(404);
+			return $this->owner->httpError(404);
 		}	
 
-		$confirmationTitle = $this->data()->dbObject('ConfirmationTitle');
+		$confirmationTitle = $this->owner->data()->dbObject('ConfirmationTitle');
 		    /**
 		     * @var Member|null $member
 		     */
 		    $member = DataObject::get_by_id(Member::class, $id);
 		    if (!$member) {
-		    	return $this->invalidRequest('Member #'.$id.' does not exist.');
+		    	return $this->owner->invalidRequest('Member #'.$id.' does not exist.');
 		    }
 		    if (!$member->NeedsValidation) {
 		        return [
-		            'Title'   => $this->data()->dbObject('ConfirmationTitle'),
+		            'Title'   => $this->owner->data()->dbObject('ConfirmationTitle'),
 		            'Content' =>  
 			            DBHTMLText::create()->setValue('Ihr konto wurde bereits bestätigt. Klicken Sie <a href="'.$member->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen')
 			        
 			     ];
 		    }
 		    if (!$member->ValidationKey) {
-		    	return $this->invalidRequest('Benutzer #'.$id.' hat keine Validierungsschlüssel.');
+		    	return $this->owner->invalidRequest('Benutzer #'.$id.' hat keine Validierungsschlüssel.');
 		    }
 		    if ($member->ValidationKey !== $key) {
-		    	return $this->invalidRequest('Der Validierungsschlüssel stimmt nicht überein.');
+		    	return $this->owner->invalidRequest('Der Validierungsschlüssel stimmt nicht überein.');
 		    }
 		    // Allow member to login
 	        $member->NeedsValidation = 0;
 	        $member->ValidationKey = null;
 	        $validationResult = $member->validateCanLogin();
 	        if (!$validationResult->isValid()) {
-	            $this->getResponse()->setStatusCode(500);
+	            $this->owner->getResponse()->setStatusCode(500);
 	            $validationMessages = $validationResult->getMessages();
 	            return [
 	                'Title'   => $confirmationTitle,
@@ -199,7 +199,7 @@ class RegisterPageController extends PageController{
 	        	$JobGiver->MemberID = $member->ID;
 	        	$JobGiver->write();
 	         
-	        $this->extend('onConfirm', $member);
+	        $this->owner->extend('onConfirm', $member);
 
 	        if ($member->canLogin()) {
 		        Injector::inst()->get(IdentityStore::class)->logIn($member);
@@ -210,8 +210,8 @@ class RegisterPageController extends PageController{
 		    $config = JobPortalConfig::get()->first();
 
 	        return [
-	            'Title'   => $this->data()->dbObject('AfterConfirmationTitle'),
-	            'Content' => DBHTMLText::create()->setValue($config->parseString($this->data()->dbObject('AfterConfirmationContent')))
+	            'Title'   => $this->owner->data()->dbObject('AfterConfirmationTitle'),
+	            'Content' => DBHTMLText::create()->setValue($config->parseString($this->owner->data()->dbObject('AfterConfirmationContent')))
 	        ];
 	       
     }
@@ -229,9 +229,9 @@ class RegisterPageController extends PageController{
 	        //
 	        $additionalText .= ' '.$debugText;
 	    }
-	    $this->getResponse()->setStatusCode(500);
+	    $this->owner->getResponse()->setStatusCode(500);
 	    return [
-	        'Title'   => $this->data()->dbObject('ConfirmationTitle'),
+	        'Title'   => $this->owner->data()->dbObject('ConfirmationTitle'),
 	        'Content' => _t(
 	            'MemberProfiles.ERRORCONFIRMATION',
 	            'Ein unbekannter Fehler ist aufgetreten'
@@ -251,7 +251,7 @@ class RegisterPageController extends PageController{
 		$member = new Member();
 		$form->saveInto($member);
 		$member->NeedsValidation = true;
-		$member->Locale = $this->Locale;
+		$member->Locale = $this->owner->Locale;
 		$member->ValidationKey = sha1(mt_rand() . mt_rand());
 
 		
@@ -270,10 +270,10 @@ class RegisterPageController extends PageController{
 		}
 	       // set after member is created otherwise the member object does not exist
 		
-		$member->addToGroupByCode($this->Group()->Code);
+		$member->addToGroupByCode($this->owner->Group()->Code);
 		$member->write();
 
-		$email = MemberEmail::create($this->data(), $member,$this->AfterRegistrationEmailFrom,$member->Email, $this->AfterRegistrationEmailSubject, $this->AfterRegistrationEmailBody);
+		$email = MemberEmail::create($this->owner->data(), $member,$this->owner->AfterRegistrationEmailFrom,$member->Email, $this->owner->AfterRegistrationEmailSubject, $this->owner->AfterRegistrationEmailBody);
 		$email->send();
 		
 		return $member;
