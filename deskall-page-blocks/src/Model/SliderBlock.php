@@ -67,8 +67,8 @@ class SliderBlock extends BaseElement implements Searchable
         'Layout' => 'slideshow',
         'FullWidth' => 1,
         'MinHeight' => '250',
-        'Height' => 'viewport'
-       
+        'Height' => 'viewport',
+       'SectionPadding' => 'uk-padding-remove'
     ];
 
     private static $block_layouts = [
