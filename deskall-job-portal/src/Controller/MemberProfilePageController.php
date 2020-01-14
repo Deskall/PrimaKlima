@@ -44,7 +44,7 @@ use SilverStripe\Security\DefaultAdminService;
 
 class MemberProfilePageController extends PageController{
 
-	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer','RegisterForm'];
+	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer'];
 
 	private static $url_handlers = [
 		'delete-object/$ID/$OBJECT' => 'DeleteObject',
@@ -101,7 +101,7 @@ class MemberProfilePageController extends PageController{
 		return [];
 	}
 
-	
+
 
 	
 	public function ProfilForm(){
