@@ -45,8 +45,13 @@ use SilverStripe\Security\DefaultAdminService;
 
 class DeskallJobPortalPageControllerExtension extends DataExtension
 {
-    private static $allowed_actions = ['RegisterForm'];
+    private static $allowed_actions = ['RegisterForm','afterregistration', 'confirm'];
 
+    private static $url_handlers = [
+        'bestaetigen-sie-ihre-e-mail-adresse' => 'afterregistration',
+        'confirmation/$ID' => 'confirm'
+    ];
+    
     public function getPortal(){
        return JobPortalConfig::get()->first();
     }
