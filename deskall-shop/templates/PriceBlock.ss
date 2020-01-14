@@ -82,15 +82,17 @@
 			    </div>
 		        <div class="product-footer">
 		        	<% if PackegeOptions %>
-		        	<select name="package-option" class="uk-select">
-		        		<% loop PackegeOptions %>
-		        		<option value="$ID" data-price="$Price" data-runtime="$Title">$Title $Price €</option>
+		        	<table><% loop PackegeOptions %>
+		        		<tr><td>$Title</td><td>$Price €</td></tr>
 		        		<% end_loop %>
-		        	</select>
+		        	</table>
 		        	<% else %>
 		        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 		        	<% end_if %>
 		        	<div class="uk-margin">
+		        		<a href="$OrderLink" class="uk-button btn-order">Bestellen</a>
+		        	</div>
+			        <div class="uk-margin">
 		        		<a data-package-choice="$ID" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
 		        	</div>
 		        	<div class="footer-text">$FooterText</div>
