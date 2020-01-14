@@ -159,34 +159,34 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
             return $this->httpError(404);
         }   
 
-        $confirmationTitle = $this->data()->dbObject('ConfirmationTitle');
+        $confirmationTitle = $this->owner->data()->dbObject('ConfirmationTitle');
             /**
              * @var Member|null $member
              */
             $member = DataObject::get_by_id(Member::class, $id);
             if (!$member) {
-                return $this->invalidRequest('Member #'.$id.' does not exist.');
+                return $this->owner->invalidRequest('Member #'.$id.' does not exist.');
             }
             if (!$member->NeedsValidation) {
                 return [
-                    'Title'   => $this->data()->dbObject('ConfirmationTitle'),
+                    'Title'   => $this->owner->data()->dbObject('ConfirmationTitle'),
                     'Content' =>  
                         DBHTMLText::create()->setValue('Ihr konto wurde bereits bestätigt. Klicken Sie <a href="'.$member->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen')
                     
                  ];
             }
             if (!$member->ValidationKey) {
-                return $this->invalidRequest('Benutzer #'.$id.' hat keine Validierungsschlüssel.');
+                return $this->owner->invalidRequest('Benutzer #'.$id.' hat keine Validierungsschlüssel.');
             }
             if ($member->ValidationKey !== $key) {
-                return $this->invalidRequest('Der Validierungsschlüssel stimmt nicht überein.');
+                return $this->owner->invalidRequest('Der Validierungsschlüssel stimmt nicht überein.');
             }
             // Allow member to login
             $member->NeedsValidation = 0;
             $member->ValidationKey = null;
             $validationResult = $member->validateCanLogin();
             if (!$validationResult->isValid()) {
-                $this->getResponse()->setStatusCode(500);
+                $this->owner->getResponse()->setStatusCode(500);
                 $validationMessages = $validationResult->getMessages();
                 return [
                     'Title'   => $confirmationTitle,
@@ -194,12 +194,19 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
                 ];
             }
             $member->write();
-
+            if ($member->inGroup('arbeitgeber')){
                 $JobGiver = new JobGiver();
                 $JobGiver->MemberID = $member->ID;
-                $JobGiver->write();
+                $JobGiver->write(); 
+            }
+            if ($member->inGroup('kandidaten')){
+                $candidat = new Candidat();
+                $candidat->MemberID = $member->ID;
+                $candidat->write(); 
+            }
+           
              
-            $this->extend('onConfirm', $member);
+            $this->owner->extend('onConfirm', $member);
 
             if ($member->canLogin()) {
                 Injector::inst()->get(IdentityStore::class)->logIn($member);
@@ -210,8 +217,8 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
             $config = JobPortalConfig::get()->first();
 
             return [
-                'Title'   => $this->data()->dbObject('AfterConfirmationTitle'),
-                'Content' => DBHTMLText::create()->setValue($config->parseString($this->data()->dbObject('AfterConfirmationContent')))
+                'Title'   => $this->owner->data()->dbObject('AfterConfirmationTitle'),
+                'Content' => DBHTMLText::create()->setValue($config->parseString($this->owner->data()->dbObject('AfterConfirmationContent')))
             ];
            
     }
@@ -251,7 +258,7 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
         $member = new Member();
         $form->saveInto($member);
         $member->NeedsValidation = true;
-        $member->Locale = $this->Locale;
+        $member->Locale = $this->owner->Locale;
         $member->ValidationKey = sha1(mt_rand() . mt_rand());
 
         
