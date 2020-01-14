@@ -1,8 +1,8 @@
 $ElementalArea
 
 <section class="uk-section no-bg uk-padding-remove-top">
-	<% if CurrentUser %>
-		<% if CurrentUser.activeOrder %>
+	<% if CurrentCustomer %>
+		<% if CurrentCustomer.activeOrder %>
 		active
 		<% else %>
 			$CheckoutForm
