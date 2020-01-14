@@ -74,9 +74,9 @@
 		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right"><%t Package.OfferQuota 'Anzahl Stelleninserate' %></span>$NumOfAdsTitle</div>
 		        	<% loop $Parameters %>
 		        	<% if included %>
-		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right">$Title</span><i class="icon icon-checkmark"></i></div>
+		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right">$title</span><i class="icon icon-checkmark"></i></div>
 		        	<% else %>
-		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right">$Title</span>-</div>
+		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right">$title</span>-</div>
 		        	<% end_if %>
 		        	<% end_loop %> 
 		        	<% if PackegeOptions %>
