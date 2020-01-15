@@ -309,18 +309,16 @@ class Candidat extends DataObject
     }
 
     public function getAccountFields(){
-       
-
 
             $fields = new FieldList(
-                HeaderField::create('AdressTitle', _t('ARBEITGEBER.AdressTitle', 'Ihre Adresse'), 3),
-                TextField::create('Address', _t('ARBEITGEBER.AddressStreet', 'Adresse')),
-                TextField::create('PostalCode', _t('ARBEITGEBER.AddressPostalCode', 'PLZ')),
-                TextField::create('City', _t('ARBEITGEBER.AddressPlace', 'Ort')),
+                DropdownField::create('Gender',$this->fieldLabels()['Gender'], ['Sir' => _t(__CLASS__.'.GenderH', 'Herr'),'Miss' => _t(__CLASS__.'.GenderF', 'Frau')])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Anrede wählen')),
+                TextField::create('Address', _t('ARBEITGEBER.AddressStreet', 'Adresse'))->setAttribute('class','uk-input'),
+                TextField::create('PostalCode', _t('ARBEITGEBER.AddressPostalCode', 'PLZ'))->setAttribute('class','uk-input'),
+                TextField::create('City', _t('ARBEITGEBER.AddressPlace', 'Ort'))->setAttribute('class','uk-input'),
                 DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setValue('de')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),
 
-                TextField::create('ContactEmail', _t('ARBEITGEBER.Email', 'E-Mail')),
-                TextField::create('Phone', _t('ARBEITGEBER.Telephone', 'Telefon'))
+                EmailField::create('Email', _t('ARBEITGEBER.Email', 'E-Mail'))->setAttribute('class','uk-input'),
+                TextField::create('Phone', _t('ARBEITGEBER.Telephone', 'Telefon'))->setAttribute('class','uk-input')
             );
 
         return $fields;
