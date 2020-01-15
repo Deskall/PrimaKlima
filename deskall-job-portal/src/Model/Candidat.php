@@ -28,6 +28,7 @@ use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
 use SilverStripe\SiteConfig\SiteConfig;
