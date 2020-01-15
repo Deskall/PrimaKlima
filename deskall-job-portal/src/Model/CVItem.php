@@ -27,8 +27,8 @@ class CVItem extends DataObject {
 		'Description' => 'Job',
 	);
 
-	static $singular_name = 'Job';
-	static $plural_name = 'Jobs';
+	private static $singular_name = 'Job';
+	private static $plural_name = 'Jobs';
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
