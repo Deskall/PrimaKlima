@@ -271,12 +271,16 @@ class Candidat extends DataObject
 
     public function getProfileFields(){
        $fields = new FieldList(
-            FileAttachmentField::create('Picture', _t('KOCH.Picture', 'Porträt'))
-                    ->setThumbnailHeight(100)
-                    ->setThumbnailWidth(100)
-                    ->setPermissions(array(
-                        'delete' => false,
-                        'detach' => true)),
+            HiddenField::create('PictureID','Picture'),
+            CompositeField::create(
+                HeaderField::create('ExperienceTitle','Ihre beruflichen Erfahrungen'),3)
+            )->setName('ExperienceFields'),
+            CompositeField::create(
+             HeaderField::create('FormationTitle','Ihre Ausbildungen'),3)
+            )->setName('FormationFields'),
+            CompositeField::create(
+             HeaderField::create('FileTitle','Ihre Unterlagen'),3)
+            )->setName('FileFields')
         );
         // //Files
         // $fields->push(HiddenField::create('CVID'));
