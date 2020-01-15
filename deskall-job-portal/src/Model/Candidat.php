@@ -29,6 +29,7 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\TextareaField;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
 use SilverStripe\SiteConfig\SiteConfig;
