@@ -30,6 +30,7 @@ use SilverStripe\Forms\EmailField;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
 use SilverStripe\SiteConfig\SiteConfig;
+use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 /**
  * Custom extension to adjust to project specific need
