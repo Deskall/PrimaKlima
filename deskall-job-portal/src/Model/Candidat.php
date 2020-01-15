@@ -295,7 +295,7 @@ class Candidat extends DataObject
                 ->addComponent(new GridFieldEditableColumns())
                 ->addComponent(new GridFieldDeleteAction())
                 ->addComponent(new GridFieldAddNewInlineButton())
-                ->addComponent(new GridFieldOrderableRows('SortOrder'))
+                ->addComponent(new GridFieldOrderableRows('Sort'))
         );
         $CVField->getConfig()->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
             'StartDate' => array(
