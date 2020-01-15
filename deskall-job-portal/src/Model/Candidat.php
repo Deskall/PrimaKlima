@@ -324,7 +324,7 @@ class Candidat extends DataObject
                 TextField::create('City', _t('ARBEITGEBER.AddressPlace', 'Ort'))->setAttribute('class','uk-input'),
                 DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setValue('de')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),
 
-                EmailField::create('Email', _t('ARBEITGEBER.Email', 'E-Mail'))->setAttribute('class','uk-input')),
+                EmailField::create('Email', _t('ARBEITGEBER.Email', 'E-Mail'))->setAttribute('class','uk-input'),
                 TextField::create('Phone', _t('ARBEITGEBER.Telephone', 'Telefon'))->setAttribute('class','uk-input')
             );
 
