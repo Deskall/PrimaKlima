@@ -297,7 +297,7 @@ class Candidat extends DataObject
                 ->addComponent(new GridFieldAddNewInlineButton())
                 ->addComponent(new GridFieldOrderableRows('SortOrder'))
         );
-        $CVField->getConfig()->getComponentByType('GridFieldEditableColumns')->setDisplayFields(array(
+        $CVField->getConfig()->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
             'StartDate' => array(
                 'title' => _t('KOCH.StartDate', 'Von'),
                 'callback' => function ($record, $column, $holiDayGridfield){
