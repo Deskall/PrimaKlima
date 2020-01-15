@@ -10,7 +10,7 @@
 										<h2><%t JobSucher.AccountTitle 'Ihr Konto' %></h2>
 										<div class="member-section-container">
 											<div class="uk-margin">
-												<a href="$PasswordResetLink"><%t Member.ChangePassword 'Passwort ändern' %></a>
+												<a href="$ChangePasswordLink"><%t Member.ChangePassword 'Passwort ändern' %></a>
 											</div>
 											$CandidatAccountForm
 										</div>
