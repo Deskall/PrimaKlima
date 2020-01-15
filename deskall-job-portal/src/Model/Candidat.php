@@ -316,6 +316,9 @@ class Candidat extends DataObject
 
             $fields = new FieldList(
                 DropdownField::create('Gender',$this->fieldLabels()['Gender'], ['Sir' => _t(__CLASS__.'.GenderH', 'Herr'),'Miss' => _t(__CLASS__.'.GenderF', 'Frau')])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Anrede wählen')),
+                TextField::create('Surname', _t('ARBEITGEBER.Surname', 'Name'))->setAttribute('class','uk-input'),
+                TextField::create('FirstName', _t('ARBEITGEBER.FirstName', 'Vorname'))->setAttribute('class','uk-input'),
+                DateField::create('Birthdate',$this->fieldLabels()['Birthdate'])->setAttribute('class','uk-input'),
                 TextField::create('Address', _t('ARBEITGEBER.AddressStreet', 'Adresse'))->setAttribute('class','uk-input'),
                 TextField::create('PostalCode', _t('ARBEITGEBER.AddressPostalCode', 'PLZ'))->setAttribute('class','uk-input'),
                 TextField::create('City', _t('ARBEITGEBER.AddressPlace', 'Ort'))->setAttribute('class','uk-input'),
@@ -330,7 +333,7 @@ class Candidat extends DataObject
 
     public function getRequiredAccountFields(){
        
-        return new RequiredFields(['ContactEmail']);
+        return new RequiredFields(['Gender','Surname','FirstName','Birthdate','Email']);
     }
 
     public function profileCompletion(){
