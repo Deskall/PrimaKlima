@@ -273,13 +273,13 @@ class Candidat extends DataObject
        $fields = new FieldList(
             HiddenField::create('PictureID','Picture'),
             CompositeField::create(
-                HeaderField::create('ExperienceTitle','Ihre beruflichen Erfahrungen'),3)
+                HeaderField::create('ExperienceTitle','Ihre beruflichen Erfahrungen',3)
             )->setName('ExperienceFields'),
             CompositeField::create(
-             HeaderField::create('FormationTitle','Ihre Ausbildungen'),3)
+             HeaderField::create('FormationTitle','Ihre Ausbildungen',3)
             )->setName('FormationFields'),
             CompositeField::create(
-             HeaderField::create('FileTitle','Ihre Unterlagen'),3)
+             HeaderField::create('FileTitle','Ihre Unterlagen',3)
             )->setName('FileFields')
         );
         // //Files
