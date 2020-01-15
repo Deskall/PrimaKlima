@@ -33,6 +33,13 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
 use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldButtonRow;
+use SilverStripe\Forms\GridField\GridFieldTitleHeader;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 /**
  * Custom extension to adjust to project specific need
@@ -271,10 +278,42 @@ class Candidat extends DataObject
 
 
     public function getProfileFields(){
+        $CVField = new GridField(
+            'CVItmes',
+            _t('KOCH.ProfessionalExperiences', 'Berufliche Erfahrungen'),
+            $this->CVItems(),
+            GridFieldConfig::create()
+                ->addComponent(new GridFieldButtonRow('before'))
+                ->addComponent(new GridFieldTitleHeader())
+                ->addComponent(new GridFieldEditableColumns())
+                ->addComponent(new GridFieldDeleteAction())
+                ->addComponent(new GridFieldAddNewInlineButton())
+                ->addComponent(new GridFieldOrderableRows('SortOrder'))
+        );
+        DateField::set_default_config('showcalendar', true);
+        $CVField->getConfig()->getComponentByType('GridFieldEditableColumns')->setDisplayFields(array(
+            'StartDate' => array(
+                'title' => _t('KOCH.StartDate', 'Von'),
+                'callback' => function ($record, $column, $holiDayGridfield){
+                    return DateField::create('StartDate', _t('KOCH.StartDate', 'Von'))->setConfig('showcalendar', true)->setConfig('dateformat', 'yyyy/MM')->setAttribute('placeholder', 'YYYY/MM');
+                }
+            ),
+            'EndDate' => array(
+                'title' => _t('KOCH.EndDate', 'Bis'),
+                'callback' => function ($record, $column, $holiDayGridfield){
+                    return DateField::create('EndDate', _t('KOCH.EndDate', 'Bis'))->setConfig('showcalendar', true)->setConfig('dateformat', 'yyyy/MM')->setAttribute('placeholder', 'YYYY/MM');
+                }
+            ),
+            'Description' => array (
+                'title' => _t('KOCH.Description', 'Job-Beschreibung'),
+                'field' => 'TextareaField'),
+        ));
+
        $fields = new FieldList(
             HiddenField::create('PictureID','Picture'),
             CompositeField::create(
-                HeaderField::create('ExperienceTitle','Ihre beruflichen Erfahrungen',3)
+                HeaderField::create('ExperienceTitle','Ihre beruflichen Erfahrungen',3),
+                $CVField
             )->setName('ExperienceFields'),
             CompositeField::create(
              HeaderField::create('FormationTitle','Ihre Ausbildungen',3)
