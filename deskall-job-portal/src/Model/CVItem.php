@@ -16,7 +16,10 @@ class CVItem extends DataObject {
 		'Candidat' => Candidat::class
 	);
 
-	private static $extensions = ['Sortable'];
+	private static $extensions = [
+		'Sortable',
+		'SubObjectPermission'
+	];
 
 	private static $summary_fields = array(
 		'StartDate' => 'Von',
@@ -35,34 +38,4 @@ class CVItem extends DataObject {
 		$fields->addFieldToTab('Root.Main', TextareaField::create('Description', _t('KOCH.Description', 'Job-Beschreibung')) );
 		return $fields;
 	}
-
-
-	public function canView( $member = NULL ){
-		return true;
-	}
-
-	public function canEdit( $member = NULL ){
-		return true;
-	}
-
-
-	public function canDelete( $member = NULL ){
-		return true;
-	}
-
-	public function canCreate( $member = NULL ){
-		return true;
-	}
-
-	public function canPublish( $member = NULL ){
-		return true;
-	}
-
-	public function canUnpublish( $member = NULL ){
-		return true;
-	}
-
-
-
-
 }
