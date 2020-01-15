@@ -207,7 +207,7 @@ class MemberProfilePageController extends PageController{
 			return $this->redirectBack();
 		}
 		$form->sessionMessage(
-			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
+			_t('MemberProfiles.PROFILEUPDATED', 'Ihr Konto wurde aktualisiert.'),
 			'good'
 		);
 		$this->getRequest()->getSession()->set('active_tab','account');
@@ -388,7 +388,7 @@ class MemberProfilePageController extends PageController{
 //Job Sucher
 	public function CandidatAccountForm(){
 
-		$actions = new FieldList(FormAction::create('saveCandidatProfil', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
+		$actions = new FieldList(FormAction::create('saveCandidatAccount', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
 		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$candidat = ($candidat) ? $candidat : new Candidat();
 		

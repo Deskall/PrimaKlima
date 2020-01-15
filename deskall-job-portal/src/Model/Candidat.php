@@ -262,6 +262,10 @@ class Candidat extends DataObject
         return $o;
     }
 
+    public function getEmail(){
+        return $this->Member()->Email;
+    }
+
     
 
 
