@@ -450,7 +450,7 @@ class MemberProfilePageController extends PageController{
 		);
 		
 		$form->setTemplate('Forms/CandidatProfilForm');
-		$form->addExtraClass('uk-form-horizontal form-std');
+		$form->addExtraClass('uk-form-horizontal form-std candidat-form');
 		$form->loadDataFrom($candidat);
 
 		return $form;

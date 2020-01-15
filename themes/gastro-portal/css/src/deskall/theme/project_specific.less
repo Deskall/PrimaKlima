@@ -185,3 +185,380 @@ label.error{
 .product-body{
 	padding-bottom:50px;
 }
+
+
+//Candidat Profil
+.candidat-form{
+	&.frontendgrid{
+		background-color: transparent;
+		margin-bottom: 10px;
+		padding: 0;
+
+		.new{
+			background: none;
+			background-color: @blue;
+
+			border: none;
+			.btn-round-edges;
+			padding-left: 10px;
+			padding-right:10px;
+			cursor: pointer;
+
+			margin-top: 20px;
+			margin-bottom: 30px;
+			font-size: 16px;
+			color: @lightergray;
+
+
+			&:before{
+				margin-right: 5px;
+				content: "\eb4a";
+				font-family: 'icomoon' !important;
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				font-size: 85%;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+
+			}
+
+			.ui-button-icon-primary{
+				display: none;
+			}
+
+			.ui-button-text{
+			.strong-font;
+			display: initial;
+			padding: 0;
+			color: @lightergray;
+			}
+
+
+		}
+
+		table{
+			width: 100%;
+			border-collapse: collapse; border-spacing: 0; 
+			*{
+				color: @blue;
+			}
+
+			tbody{
+				background: none;
+			}
+
+			.ss-gridfield-inline-new{
+				background: none  !important;
+			}
+
+			tr{
+				cursor: initial;
+
+				&.even{
+					background-color: #efefef;
+				}
+			}
+
+			tr:hover{
+				background-color: #e1e1e1;
+
+				td{
+					&.col-buttons{
+						.edit-link{
+							&:before{
+								color: @yellow;
+							}
+						}
+					}
+				}
+			}
+
+			tr:not(:last-child){
+				td{
+					border-bottom: 1px solid #eee;
+				}
+			}
+
+			th{
+				.strong-font;
+				color: @blue;
+				border: none;
+				background: none;
+				padding-left: 0;
+			}
+
+			td{
+				vertical-align: top;
+				border: none;
+				background: none;
+				padding-left: 0;
+				&:first-child{
+					padding-left: 5px;
+				}
+
+
+				&.col-buttons{
+					vertical-align: middle;
+
+					.edit-link{
+						background: no-repeat;
+						text-indent: 0;
+						line-height: 20px;
+						&:before{
+							content:"\e9d6";
+							font-family: 'icomoon' !important;
+							speak: none;
+							font-style: normal;
+							font-weight: normal;
+							font-variant: normal;
+							text-transform: none;
+							line-height: 1;
+							font-size: 85%;
+							-webkit-font-smoothing: antialiased;
+							-moz-osx-font-smoothing: grayscale;
+						}
+
+						&.open-preview{
+							&:before{
+								content:"\e9dd";
+							}
+						}
+					}
+				}
+
+			}
+		}
+
+	}
+
+	&.ss-gridfield-orderable{
+
+		background-color: transparent;
+		margin-bottom: 10px;
+		padding: 0;
+
+
+		.col-reorder {
+			.handle{
+				height: 34px;
+			}
+		}
+
+		.ss-gridfield-add-new-inline, .new{
+			background: none;
+			background-color: @blue;
+			.strong-font;
+			font-size: 14px;
+			color: @lightergray;
+			border: none;
+			.btn-round-edges;
+			padding-left: 10px;
+			padding-right:10px;
+			cursor: pointer;
+
+			margin-top: 20px;
+			margin-bottom: 30px;
+
+			&:before{
+				margin-right: 5px;
+				content: "\eb4a";
+				font-family: 'icomoon' !important;
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				font-size: 85%;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+
+			}
+		}
+
+
+		table{
+			width: ~"calc(100% + 46px)";
+			margin-left: -16px;
+			border-collapse: collapse; border-spacing: 0; 
+			*{
+				color: @blue;
+			}
+
+
+			.ss-gridfield-inline-new{
+				background: none  !important;
+			}
+
+			th{
+				.strong-font;
+				color: @blue;
+			}
+
+			td{
+				vertical-align: top;
+
+
+				&.col-reorder{
+					width: 16px;
+				}
+
+				&.col-buttons{
+					width: 30px;
+				}
+
+				&.col-StartDate{
+					width: 85px;
+
+					position: relative;
+
+					@media only screen and (min-width:@tabletscreen){
+						width: 135px;
+					}	
+
+				}
+
+				&.col-EndDate{
+					width: 85px;
+
+					position: relative;
+
+					@media only screen and (min-width:@tabletscreen){
+						width: 135px;
+					}	
+				}
+
+				&.col-Description{
+					position: relative;
+				}
+
+				textarea{
+					margin: 0 0 4px 0 ! important;
+					padding: 5px 10px;
+					width: 100%;
+					border: none;
+					background-color: fade(@white, 30);
+					height: 34px;
+					min-height: 34px ! important;
+				}
+
+
+				input{
+
+					margin: 0;
+					padding: 0;
+					border: none;
+					background-color: fade(@white, 30);
+
+					position: absolute;
+					left: 0;
+					top: 0;
+					padding: 5px 10px;
+					@media only screen and (min-width:@tabletscreen){
+						width: ~"calc( 100% - 10px )";
+					}
+
+				}
+
+
+				.gridfield-button-delete{
+					background: none;
+					border: none;
+					width: 15px;
+					height: 34px;
+					display: block;
+					cursor: pointer;
+					position: relative;
+
+					&:after{
+						content: "\ea3e";
+						font-family: 'icomoon' !important;
+						speak: none;
+						font-style: normal;
+						font-weight: normal;
+						font-variant: normal;
+						text-transform: none;
+						line-height: 1;
+						font-size: 90%;
+						-webkit-font-smoothing: antialiased;
+						-moz-osx-font-smoothing: grayscale;
+						position: absolute;
+						left: 5px;
+						top: 50%;
+						transform: translateY(-50%);
+						color: @blue;
+					}
+
+
+
+				}
+
+			}
+		}
+
+	}
+
+
+	&.fileattachment{
+		label{
+			.strong-font;
+			display: block;
+
+			padding: 5px 20px 5px 0;
+
+
+			@media only screen and (min-width:@tabletscreen){
+				white-space: nowrap;
+			}
+
+
+
+			color: @blue;
+			&:after{
+				content: ":";
+			}	
+		}
+
+		.dropzone-holder{
+			margin-bottom: 5px;
+		}
+	}
+
+
+	&.textarea{
+		label{
+			.strong-font;
+			display: block;
+			padding: 5px 20px 5px 0;
+			white-space: nowrap;
+			color: @blue;
+		}
+
+		.mce-btn{
+			background-color: transparent;
+			border: none;
+
+		}
+
+		.mce-panel{
+			background-color: transparent;
+			border: none;
+		}
+		.mce-tinymce{
+			box-shadow: none;
+			margin-top: 10px;
+		}
+		div.mce-edit-area{
+			background-color: transparent;
+		}
+
+		.mce-top-part::before{
+			box-shadow: none;
+		}
+
+	}
+}
