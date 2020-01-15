@@ -54,14 +54,22 @@
 		</div>
 		<div>
 			
-			<% with Fields.FieldByName('CompanyFields') %>
+			<% with Fields.FieldByName('ExperienceFields') %>
 			$FieldHolder
 			<% end_with %>
 			
 		</div>
 		<div>
 			
-			<% with Fields.FieldByName('OnlineFields') %>
+			<% with Fields.FieldByName('FormationFields') %>
+			$FieldHolder
+			<% end_with %>
+			
+		</div>
+
+		<div>
+			
+			<% with Fields.FieldByName('FileFields') %>
 			$FieldHolder
 			<% end_with %>
 			
