@@ -102,7 +102,7 @@ class MemberProfilePageController extends PageController{
 	}
 
 
-
+//Arbeitgeber
 	
 	public function ProfilForm(){
 
@@ -280,10 +280,6 @@ class MemberProfilePageController extends PageController{
 
 	public function saveOffer($data, Form $form)
 	{
-		ob_start();
-			print_r($data);
-			$result = ob_get_clean();
-			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		if ($this->getRequest()->getSession()->get('offer_id')){
 			$offer = Mission::get()->byId($this->getRequest()->getSession()->get('offer_id'));
 		}
@@ -387,6 +383,104 @@ class MemberProfilePageController extends PageController{
 	        	$email = new MemberEmail($this->data(),$member,$page->ApprovalEmailSender, $emailAdmin,$page->ApprovalEmailSubject,  $body);
 	        	
 	        	$email->send(); 
+	}
+
+//Job Sucher
+	public function CandidatAccountForm(){
+
+		$actions = new FieldList(FormAction::create('saveCandidatProfil', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
+		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$candidat = ($candidat) ? $candidat : new Candidat();
+		
+		$form = new Form(
+			$this,
+			'CandidatAccountForm',
+			$candidat->getAccountFields(),
+			$actions,
+			$candidat->getRequiredAccountFields()
+		);
+		
+		$form->addExtraClass('uk-form-horizontal form-std');
+		$form->loadDataFrom($candidat);
+
+		return $form;
+	}
+
+	public function saveCandidatAccount($data, Form $form)
+	{
+
+		$member = Security::getCurrentUser();
+		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$form->saveInto($member);
+		$form->saveInto($candidat);
+	
+		try {
+			$member->write();
+			$candidat->write();
+		} catch (ValidationException $e) {
+			$validationMessages = '';
+			foreach($e->getResult()->getMessages() as $error){
+				$validationMessages .= $error['message']."\n";
+			}
+			$form->sessionMessage($validationMessages, 'bad');
+			return $this->redirectBack();
+		}
+		$form->sessionMessage(
+			_t('MemberProfiles.PROFILEUPDATED', 'Ihr Konto wurde aktualisiert.'),
+			'good'
+		);
+		$this->getRequest()->getSession()->set('active_tab','account');
+		
+		return $this->redirectBack();
+	}
+
+	public function CandidatProfilForm(){
+
+		$actions = new FieldList(FormAction::create('saveCandidatProfil', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
+		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$candidat = ($candidat) ? $candidat : new Candidat();
+		
+		$form = new Form(
+			$this,
+			'CandidatProfilForm',
+			$candidat->getProfileFields(),
+			$actions,
+			$candidat->getRequiredProfileFields()
+		);
+		
+		$form->setTemplate('Forms/CandidatProfilForm');
+		$form->addExtraClass('uk-form-horizontal form-std');
+		$form->loadDataFrom($candidat);
+
+		return $form;
+	}
+
+	public function saveCandidatProfil($data, Form $form)
+	{
+
+		$member = Security::getCurrentUser();
+		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$form->saveInto($member);
+		$form->saveInto($candidat);
+	
+		try {
+			$member->write();
+			$candidat->write();
+		} catch (ValidationException $e) {
+			$validationMessages = '';
+			foreach($e->getResult()->getMessages() as $error){
+				$validationMessages .= $error['message']."\n";
+			}
+			$form->sessionMessage($validationMessages, 'bad');
+			return $this->redirectBack();
+		}
+		$form->sessionMessage(
+			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
+			'good'
+		);
+		$this->getRequest()->getSession()->set('active_tab','profil');
+		
+		return $this->redirectBack();
 	}
 
 

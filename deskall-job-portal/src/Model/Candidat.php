@@ -306,6 +306,38 @@ class Candidat extends DataObject
         return new RequiredFields($this->stat('required_profile_fields'));
     }
 
+    public function getAccountFields(){
+        $billingaddresssection = Wrapper::create(
+                TextField::create('BillingAddressStreet', _t('ARBEITGEBER.BillingAddressStreet', 'Adresse')),
+                TextField::create('BillingAddressPostalCode', _t('ARBEITGEBER.BillingAddressPostalCode', 'PLZ')),
+                TextField::create('BillingAddressPlace', _t('ARBEITGEBER.BillingAddressPlace', 'Ort')),
+                DropdownField::create('BillingAddressCountry',$this->fieldLabels()['BillingAddressCountry'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('de')
+            )->addExtraClass('uk-margin-top')
+            ->hideIf("BillingAddressIsCompanyAddress")->isChecked()->end();
+
+
+            $fields = new FieldList(
+                HeaderField::create('AdressTitle', _t('ARBEITGEBER.AdressTitle', 'Ihre Adresse'), 3),
+                TextField::create('Address', _t('ARBEITGEBER.AddressStreet', 'Adresse')),
+                TextField::create('PostalCode', _t('ARBEITGEBER.AddressPostalCode', 'PLZ')),
+                TextField::create('City', _t('ARBEITGEBER.AddressPlace', 'Ort')),
+                DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setValue('de')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),
+
+                TextField::create('ContactEmail', _t('ARBEITGEBER.Email', 'E-Mail')),
+                TextField::create('Phone', _t('ARBEITGEBER.Telephone', 'Telefon')),
+                HeaderField::create('BillingAdressTitle', _t('ARBEITGEBER.BillingAdressTitle', 'Rechnungsadresse'), 3),
+                CheckboxField::create('BillingAddressIsCompanyAddress', _t('ARBEITGEBER.BillingAddressIsCompanyAddress', 'Rechnungsadresse ist Ihre Adresse'))->setAttribute('class','uk-checkbox'),
+                $billingaddresssection
+            );
+
+        return $fields;
+    }
+
+    public function getRequiredAccountFields(){
+       
+        return new RequiredFields(['ContactEmail']);
+    }
+
     public function profileCompletion(){
         $i = 0;
         $j = 0;

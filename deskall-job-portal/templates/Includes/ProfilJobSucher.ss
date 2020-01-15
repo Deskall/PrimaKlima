@@ -7,17 +7,17 @@
 							<ul id="component-tab" class="uk-switcher">
 								<li class="account-tab">
 									<div class="uk-panel uk-background-muted uk-padding-small">
-										<h2><%t JobSucher.AccountTitle 'Adressangaben' %></h2>
+										<h2><%t JobSucher.AccountTitle 'Ihr Konto' %></h2>
 										<div class="member-section-container">
-											
+											$CandidatAccountForm
 										</div>
 									</div>
 								</li>
 								<li class="account-tab personal-data-tab">
 									<div class="uk-panel uk-background-muted uk-padding-small">
-										<h2><%t JobSucher.ProfilTitle 'Ihr Porträt' %></h2>
+										<h2><%t JobSucher.ProfilTitle 'Ihr Profil' %></h2>
 										<div class="member-section-container">
-											
+											$CandidatProfilForm
 										</div>
 									</div>
 								</li>
