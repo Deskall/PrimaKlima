@@ -297,7 +297,6 @@ class Candidat extends DataObject
                 ->addComponent(new GridFieldAddNewInlineButton())
                 ->addComponent(new GridFieldOrderableRows('SortOrder'))
         );
-        DateField::set_default_config('showcalendar', true);
         $CVField->getConfig()->getComponentByType('GridFieldEditableColumns')->setDisplayFields(array(
             'StartDate' => array(
                 'title' => _t('KOCH.StartDate', 'Von'),
