@@ -301,13 +301,13 @@ class Candidat extends DataObject
             'StartDate' => array(
                 'title' => _t('KOCH.StartDate', 'Von'),
                 'callback' => function ($record, $column, $holiDayGridfield){
-                    return DateField::create('StartDate', _t('KOCH.StartDate', 'Von'))->setConfig('showcalendar', true)->setConfig('dateformat', 'yyyy/MM')->setAttribute('placeholder', 'YYYY/MM');
+                    return DateField::create('StartDate', _t('KOCH.StartDate', 'Von'))->setDateFormat('yyyy/MM')->setAttribute('placeholder', 'YYYY/MM');
                 }
             ),
             'EndDate' => array(
                 'title' => _t('KOCH.EndDate', 'Bis'),
                 'callback' => function ($record, $column, $holiDayGridfield){
-                    return DateField::create('EndDate', _t('KOCH.EndDate', 'Bis'))->setConfig('showcalendar', true)->setConfig('dateformat', 'yyyy/MM')->setAttribute('placeholder', 'YYYY/MM');
+                    return DateField::create('EndDate', _t('KOCH.EndDate', 'Bis'))->setDateFormat('yyyy/MM')->setAttribute('placeholder', 'YYYY/MM');
                 }
             ),
             'Description' => array (
