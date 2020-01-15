@@ -31,6 +31,9 @@ class MemberProfilePage extends Page {
 	}
 
 	
+	public function changePasswordLink(){
+		return Security::changePassword();
+	}
 
 	
 
