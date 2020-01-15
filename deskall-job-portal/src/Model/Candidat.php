@@ -314,7 +314,9 @@ class Candidat extends DataObject
             ),
             'Description' => array (
                 'title' => _t('KOCH.Description', 'Job-Beschreibung'),
-                'field' => TextareaField::class),
+                'callback' => function ($record, $column){
+                    return Textarea::create('Description', _t('KOCH.Description', 'Job-Beschreibung'))->setAttribute('class','tiny-mce');
+                }
         ));
 
        $fields = new FieldList(
