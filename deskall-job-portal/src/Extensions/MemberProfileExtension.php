@@ -18,6 +18,7 @@ use SilverStripe\Security\Permission;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\Security\Security;
 
 /**
  * Adds validation fields to the Member object, as well as exposing the user's
