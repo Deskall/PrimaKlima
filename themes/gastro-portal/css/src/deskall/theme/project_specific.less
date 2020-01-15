@@ -199,7 +199,6 @@ label.error{
 			background-color: blue;
 
 			border: none;
-			.btn-round-edges;
 			padding-left: 10px;
 			padding-right:10px;
 			cursor: pointer;
@@ -270,7 +269,7 @@ label.error{
 					&.col-buttons{
 						.edit-link{
 							&:before{
-								color: @yellow;
+								color: yellow;
 							}
 						}
 					}
@@ -355,7 +354,6 @@ label.error{
 			font-size: 14px;
 			color: #eee;
 			border: none;
-			.btn-round-edges;
 			padding-left: 10px;
 			padding-right:10px;
 			cursor: pointer;
@@ -441,7 +439,7 @@ label.error{
 					padding: 5px 10px;
 					width: 100%;
 					border: none;
-					background-color: fade(@white, 30);
+					background-color: fade(@white-background, 30);
 					height: 34px;
 					min-height: 34px ! important;
 				}
@@ -452,13 +450,13 @@ label.error{
 					margin: 0;
 					padding: 0;
 					border: none;
-					background-color: fade(@white, 30);
+					background-color: fade(@white-background, 30);
 
 					position: absolute;
 					left: 0;
 					top: 0;
 					padding: 5px 10px;
-					@media only screen and (min-width:@tabletscreen){
+					@media only screen and (min-width:@breakpoint-medium){
 						width: ~"calc( 100% - 10px )";
 					}
 
