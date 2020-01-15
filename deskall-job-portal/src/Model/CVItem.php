@@ -50,7 +50,7 @@ class CVItem extends DataObject {
 		return true;
 	}
 
-	public function canCreate( $member = NULL ){
+	public function canCreate( $member = NULL, $context = [] ){
 		return true;
 	}
 
