@@ -270,20 +270,24 @@ class Candidat extends DataObject
 
 
     public function getProfileFields(){
-       $fields = new FieldList();
-        //Files
-        $fields->push(HiddenField::create('CVID'));
-        $fields->push(HiddenField::create('LicenceID'));
-        $fields->push(HiddenField::create('HACCPCertificatID'));
-        $fields->push(HiddenField::create('AusweisID'));
-        $fields->push(HiddenField::create('A1FormID'));
-        $fields->push(HiddenField::create('TaxResidenceCertificatID'));
+       $fields = new FieldList(
+            FileAttachmentField::create('Picture', _t('KOCH.Picture', 'Porträt'))
+                    ->setThumbnailHeight(100)
+                    ->setThumbnailWidth(100)
+                    ->setPermissions(array(
+                        'delete' => false,
+                        'detach' => true)),
+        );
+        // //Files
+        // $fields->push(HiddenField::create('CVID'));
+        // $fields->push(HiddenField::create('LicenceID'));
+        // $fields->push(HiddenField::create('HACCPCertificatID'));
+        // $fields->push(HiddenField::create('AusweisID'));
+        // $fields->push(HiddenField::create('A1FormID'));
+        // $fields->push(HiddenField::create('TaxResidenceCertificatID'));
 
-        $fields->push(SortableUploadField::create('Files',$this->fieldLabels()['Files'])->setIsMultiUpload(true)->setFolderName($this->generateFolderName()));
-        $fields->push(HTMLEditorField::create('Experience',$this->fieldLabels()['Experience'])->setRows(5));
-        $fields->push(HTMLEditorField::create('Formation',$this->fieldLabels()['Formation'])->setRows(5));
-        $fields->push(CheckboxSetField::create('Jobs',$this->fieldLabels()['Jobs'],CookJob::get()->map('ID','Title'))->setAttribute('class','optionset checkboxset uk-column-1-2@s uk-column-1-3@l'));
-        $fields->push(CheckboxSetField::create('Categories',$this->fieldLabels()['Categories'],CookType::get()->map('ID','Title'))->setAttribute('class','optionset checkboxset uk-column-1-2@s uk-column-1-3@l'));
+        // $fields->push(SortableUploadField::create('Files',$this->fieldLabels()['Files'])->setIsMultiUpload(true)->setFolderName($this->generateFolderName()));
+        
         return $fields;
     }
 
