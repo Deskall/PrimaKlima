@@ -30,14 +30,4 @@ class MemberProfilePage extends Page {
 		return Mission::get()->filter('isVisible',1)->sort('Sort');
 	}
 
-	
-	public function ChangePasswordLink(){
-		$Security = new Security();
-		return $Security->changePassword();
-	}
-
-	
-
-
-
 }

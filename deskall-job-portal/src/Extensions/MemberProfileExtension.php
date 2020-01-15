@@ -141,5 +141,9 @@ class MemberProfileExtension extends DataExtension
         return "admin/pages";
     }
 
+    public function ResetPassword(){
+        return Security::singleton()->Link('changepassword');
+    }
+
 
 }
