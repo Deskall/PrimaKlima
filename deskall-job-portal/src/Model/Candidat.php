@@ -270,28 +270,7 @@ class Candidat extends DataObject
 
 
     public function getProfileFields(){
-        $memberfields = $this->Member()->getFrontEndFields();
-        //Fields not needed
-        $memberfields->removeByName(['TempIDHash','TempIDExpired','Password','AutoLoginHash','AutoLoginExpired','PasswordEncryption','Salt','PasswordExpiry','LockedOutUntil','Locale','FailedLoginCount','ValidationKey','NeedsValidation','isApproved','isRefused','URLSegment','BlogProfileSummary','BlogProfileImage','isActive']);
-        $fields = $this->getFrontEndFields();
-
-        foreach($memberfields as $field){
-            $field->setValue($this->Member()->{$field->getName()});
-            $fields->push($field);
-        }
-        //fields to replace
-        $fields->removeByName(['Gender','Country','Picture','MemberID']);
-        $fields->insertBefore('FirstName',DropdownField::create('Gender',$this->fieldLabels()['Gender'], ['Sir' => _t(__CLASS__.'.GenderH', 'Herr'),'Miss' => _t(__CLASS__.'.GenderF', 'Frau')])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Anrede wählen')));
-        $fields->push(HiddenField::create('PictureID'));
-        $fields->insertBefore('Phone',DropdownField::create('Country',$this->fieldLabels()['Country'])->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')));
-
-
-        //Fields to adapt
-        $fields->fieldByName('Birthdate')->setAttribute('class','flatpickr');
-        $fields->fieldByName('Email')->setAttribute('type','email');
-        $fields->fieldByName('URL')->setAttribute('type','url')->setAttribute('class','uk-input');
-
-
+       $fields = new FieldList();
         //Files
         $fields->push(HiddenField::create('CVID'));
         $fields->push(HiddenField::create('LicenceID'));
@@ -309,7 +288,7 @@ class Candidat extends DataObject
     }
 
     public function getRequiredProfileFields(){
-        return new RequiredFields($this->stat('required_profile_fields'));
+        return new RequiredFields([]);
     }
 
     public function getAccountFields(){
