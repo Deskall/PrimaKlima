@@ -78,6 +78,12 @@ class Candidat extends DataObject
         'MotivationLetter' => File::class
     ];
 
+    private static $has_many = [
+        'CVItems' => CVItem::class
+    ];
+
+
+
     private static $many_many = [
         'Files' => File::class
     ];
