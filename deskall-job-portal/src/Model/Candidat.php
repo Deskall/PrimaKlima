@@ -313,7 +313,7 @@ class Candidat extends DataObject
             ),
             'Description' => array (
                 'title' => _t('KOCH.Description', 'Job-Beschreibung'),
-                'field' => 'TextareaField'),
+                'field' => TextareaField::class),
         ));
 
        $fields = new FieldList(
