@@ -17,7 +17,7 @@
 									<div class="uk-panel uk-background-muted uk-padding-small">
 										<h2><%t JobSucher.ProfilTitle 'Ihr Profil' %></h2>
 										<div class="member-section-container">
-											$CandidatProfilForm
+											<%-- $CandidatProfilForm --%>
 										</div>
 									</div>
 								</li>
