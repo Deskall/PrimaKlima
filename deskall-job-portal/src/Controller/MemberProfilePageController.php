@@ -401,6 +401,7 @@ class MemberProfilePageController extends PageController{
 		);
 		
 		$form->addExtraClass('uk-form-horizontal form-std');
+		$form->loadDataFrom($candidat->Member());
 		$form->loadDataFrom($candidat);
 
 		return $form;
