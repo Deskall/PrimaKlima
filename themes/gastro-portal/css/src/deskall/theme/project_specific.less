@@ -344,7 +344,9 @@ label.error{
 		.col-reorder {
 			.handle{
 				height: 34px;
-				.font-icon-drag-handle{
+				position:relative;
+				&:after{
+					position:absolute;
 					font-family: 'icomoon';
 					content: '\e9d3';
 				}
