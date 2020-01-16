@@ -29,6 +29,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\HeaderField;
 use SilverStripe\Assets\Folder;
 use SilverStripe\Assets\Upload;
 use SilverStripe\Assets\File;
