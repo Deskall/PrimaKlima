@@ -27,7 +27,7 @@
 									<a class="uk-button WhiteBackground uk-margin-small-right"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart"></i></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-print><i class="icon icon-printer"></i></a>
-									<a class="uk-button uk-button-primary" href="#candidate-modal"><%t OfferPage.Candidate 'Bewerben' %></a>
+									<a class="uk-button uk-button-primary" data-uk-toggle="#candidate-modal"><%t OfferPage.Candidate 'Bewerben' %></a>
 								</div>
 							</div>
 							<div class="uk-width-1-3">
