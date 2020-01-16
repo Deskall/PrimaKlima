@@ -274,10 +274,16 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     public function getRealPage(){
         $parent = $this->owner->getPage();
-        while($parent && !in_array('SilverStripe\CMS\Model\SiteTree',$parent->getClassAncestry())){
-            $parent = $parent->getPage();
+        if ($parent->exists()){
+            while($parent && !in_array('SilverStripe\CMS\Model\SiteTree',$parent->getClassAncestry())){
+                $parent = $parent->getPage();
+            }
+            return $parent; 
         }
-        return $parent;
+        else{
+            $this->owner->delete();
+        }
+        return null;
     }
 
     public function isChildren(){
