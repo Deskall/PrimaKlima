@@ -132,7 +132,7 @@ class Candidat extends DataObject
     $labels['Fax'] = _t(__CLASS__.'.Fax','Fax');
     $labels['URL'] = _t(__CLASS__.'.URL','Website');
     $labels['Picture'] = _t(__CLASS__.'.Picture','Bild');
-    $labels['Files'] = _t(__CLASS__.'.Files','Andere Dateien');
+    $labels['Files'] = _t(__CLASS__.'.Files','Laden Sie hier Ihre Dateien hoch.');
     $labels['Experience'] = _t(__CLASS__.'.Experience','Erfahrungen');
     $labels['Formation'] = _t(__CLASS__.'.Formation','Ausbildungen');
     $labels['Jobs'] = _t(__CLASS__.'.Jobs','Berufe');
