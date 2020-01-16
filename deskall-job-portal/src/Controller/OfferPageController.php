@@ -172,7 +172,7 @@ class OfferPageController extends PageController{
 
 	public function ApplicationForm(){
 
-		$actions = new FieldList(FormAction::create('saveApplication', _t('APPLICATION.SEND', 'Bewerben'))->addExtraClass('uk-button button-PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-paperplane uk-margin-small-right"></i>'._t('APPLICATION.SEND', 'Bewerben')));
+		$actions = new FieldList(FormAction::create('saveApplication', _t('APPLICATION.SEND', 'Bewerben'))->addExtraClass('uk-button button-PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-ios-paperplane uk-margin-small-right"></i>'._t('APPLICATION.SEND', 'Bewerben')));
 		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		
 		$form = new Form(
@@ -199,54 +199,28 @@ class OfferPageController extends PageController{
 
 	public function saveApplication($data, Form $form)
 	{
-
-		$member = Security::getCurrentUser();
-		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
-		$form->saveInto($member);
-		$form->saveInto($JobGiver);
 		
 		$config = JobPortalConfig::get()->first();
 		$member = Security::getCurrentUser();
 		if ($member){
 			$candidat = Candidat::get()->filter('MemberID',$member->ID)->first();
 			
-				if ($mission && $mission->isVisible){
-					if (Candidature::get()->filter(['CandidatID' => $candidat->ID, 'MissionID' => $id])->first()){
-						return ['Title' => 'Bewerbung bereits gesendet', 'Content' => DBHTMLText::create()->setValue($config->parseString($config->CandidatureAlreadySentText))];
-					}
-					else{
-						$cd = new Candidature();
-						$cd->CandidatID = $candidat->ID;
-						$cd->MissionID = $id;
-						$cd->Status = "created";
-						$cd->write();
-						$cd->createPDF();
-						$mission->Status = "chooseCook";
-						$mission->Candidatures()->add($cd);
-						$mission->write();
-						$mission->notifyAdminEmail();
-						return ['Title' => 'Bewerbung gesendet', 'Content' =>  DBHTMLText::create()->setValue($config->parseString($config->CandidatureSentText))];
-					}
-					
+			try {
+				$cd = new Candidature();
+				$form->saveInto($cd);
+				$cd->Status = "created";
+				$cd->write();
+				$cd->createPDF();
+				return ['Title' => 'Bewerbung gesendet', 'Content' =>  DBHTMLText::create()->setValue($config->parseString($config->CandidatureSentText))];
+			} catch (ValidationException $e) {
+				$validationMessages = '';
+				foreach($e->getResult()->getMessages() as $error){
+					$validationMessages .= $error['message']."\n";
 				}
+				$form->sessionMessage($validationMessages, 'bad');
+				return $this->redirectBack();
 			}
-		try {
-			$member->write();
-			$JobGiver->write();
-		} catch (ValidationException $e) {
-			$validationMessages = '';
-			foreach($e->getResult()->getMessages() as $error){
-				$validationMessages .= $error['message']."\n";
-			}
-			$form->sessionMessage($validationMessages, 'bad');
-			return $this->redirectBack();
 		}
-		$form->sessionMessage(
-			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
-			'good'
-		);
-		$this->getRequest()->getSession()->set('active_tab','profil');
-		
 		return $this->redirectBack();
 	}
 
