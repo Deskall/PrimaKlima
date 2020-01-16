@@ -319,7 +319,7 @@ class Mission extends DataObject
 
     public function ShortDescription(){
       $html = '<p>';
-      $html .= $this->Nummer.'<br>';
+      $html .= '#'.$this->Nummer.'<br>';
       $html .= '<strong class="uk-text-truncate">'.$this->Title.'.</strong><br>';
       $html .= $this->City;
       $html .= '</p>';
