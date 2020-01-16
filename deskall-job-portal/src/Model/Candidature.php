@@ -11,7 +11,8 @@ use SilverStripe\Assets\Folder;
 class Candidature extends DataObject
 {
     private static $db = array(
-      'Status' => 'Varchar'
+        'Content' => 'Text',
+        'Status' => 'Varchar'
     );
 
     private static $singular_name = "Bewerbung";
@@ -20,6 +21,7 @@ class Candidature extends DataObject
     private static $has_one = [
         'Candidat' => Candidat::class,
         'Mission' => Mission::class,
+        'CV' => File::class,
         'File' => File::class
     ];
 

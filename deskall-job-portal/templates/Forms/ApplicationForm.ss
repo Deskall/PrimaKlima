@@ -1,0 +1,99 @@
+<% if $IncludeFormTag %>
+<form $AttributesHTML>
+<% end_if %>
+	<% if $Message %>
+	<p id="{$FormName}_error" class="message $MessageType">$Message</p>
+	<% else %>
+	<p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
+	<% end_if %>
+	<div class="uk-child-width-1-1" data-uk-grid>
+		<div class="uk-width-1-2@s uk-width-1-3@m uk-width-1-4@l">
+			
+				<div id="Form_ApplicationForm_CV_Holder" class="field text uk-margin-small">
+					<label class="uk-form-label"><%t APPLICATION.CVLabel 'Ihr CV' %></label>
+					<div class="uk-form-controls">
+						<div class="uk-margin-small">
+							<div id="upload-CV" class="js-upload simple uk-placeholder uk-text-center" data-container="#cv-file" data-field-name="CVID" data-type="file">
+								<div class="form-field">
+									<span data-uk-icon="icon: cloud-upload"></span>
+									<span class="uk-text-middle"><%t Member.AddFiles 'Legen Sie Dateien ab oder' %></span>
+									<div data-uk-form-custom>
+										<% with Fields.FieldByName('CVID') %>
+										$Field
+										<% end_with %>
+										<span class="uk-link"><%t Member.SelectPicture 'Klicken Sie hier an' %></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+		</div>
+		<div class="uk-width-1-2@s uk-width-2-3@m uk-width-3-4@l">
+			<% with Fields.FieldByName('Description') %>
+			$FieldHolder
+			<% end_with %>
+		</div>
+		<div>
+			
+			<% with Fields.FieldByName('ExperienceFields') %>
+			$FieldHolder
+			<% end_with %>
+			
+		</div>
+		<div>
+			
+			<% with Fields.FieldByName('FormationFields') %>
+			$FieldHolder
+			<% end_with %>
+			
+		</div>
+
+		<div>
+			<h3><%t JobSucher.FilesTitle 'Ihre Unterlagen' %></h3>
+			<div id="Form_CandidatProfilForm_Files_Holder" class="field uk-margin-small">
+				<label class="uk-form-label"><%t JobSucher.Files 'Laden Sie hier Ihre Dateien' %></label>
+				<div class="uk-form-controls">
+					<table class="uk-table uk-table-striped uk-table-small uk-table-middle">
+
+						<tbody id="cook-files" data-uk-sortable>
+							<% if $Top.Record.Files %>
+							<% loop  $Top.Record.Files.sort('SortOrder') %>
+							<tr><td class="uk-drag"><span class="icon icon-android-more-vertical"></span></td><td><i class="icon icon-file uk-text-large"></i></td><td>$Name</td><td><a data-delete-row><span class="icon icon-trash-a"></span></a></td><td><input type="hidden" name="TempFiles[]" value="$ID"/></td></tr>
+							<% end_loop %>
+							<% end_if %>
+						</tbody>
+					</table>
+					<div class="uk-margin-small">
+						<div id="upload-photos" class="js-upload multiple uk-placeholder uk-text-center" data-container="#cook-files" data-field-name="TempFiles[]" data-type="file">
+							<div class="form-field">
+								<span data-uk-icon="icon: cloud-upload"></span>
+								<span class="uk-text-middle"><%t Member.AddFiles 'Legen Sie Dateien ab oder' %></span>
+								<div data-uk-form-custom>
+									<% with Fields.FieldByName('Files') %>
+									$Field
+									<% end_with %>
+									<span class="uk-link"><%t Member.SelectPicture 'Klicken Sie hier an' %></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<% with Fields.FieldByName('SecurityID') %>
+	$FieldHolder
+	<% end_with %>
+	<% if $Actions %>
+	<div class="btn-toolbar">
+		<% loop $Actions %>
+			$Field
+		<% end_loop %>
+	</div>
+	<% end_if %>
+<% if $IncludeFormTag %>
+</form>
+<% end_if %>
