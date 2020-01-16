@@ -172,7 +172,7 @@ class OfferPageController extends PageController{
 
 	public function ApplicationForm(){
 
-		$actions = new FieldList(FormAction::create('saveApplication', _t('APPLICATION.SEND', 'Bewerben'))->addExtraClass('uk-button button-PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-rocket uk-margin-small-right"></i>'._t('APPLICATION.SEND', 'Bewerben')));
+		$actions = new FieldList(FormAction::create('saveApplication', _t('APPLICATION.SEND', 'Bewerben'))->addExtraClass('uk-button button-PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-paperplane uk-margin-small-right"></i>'._t('APPLICATION.SEND', 'Bewerben')));
 		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		
 		$form = new Form(
