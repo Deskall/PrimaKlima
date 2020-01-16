@@ -27,7 +27,7 @@
 									<a class="uk-button WhiteBackground uk-margin-small-right"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart"></i></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-print><i class="icon icon-printer"></i></a>
-									<% if canCandidate %><a class="uk-button uk-button-primary" href="{$Link}bewerben/$Offer.ID"><%t OfferPage.Candidate 'Bewerben' %></a><% end_if %>
+									<% if canCandidate %><a class="uk-button uk-button-primary" href="{$Top.Link}bewerben/$ID"><%t OfferPage.Candidate 'Bewerben' %></a><% end_if %>
 								</div>
 							</div>
 							<div class="uk-width-1-3">
