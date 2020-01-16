@@ -327,7 +327,7 @@ class Candidat extends DataObject
             'Description' => array (
                 'title' => _t('KOCH.Description', 'Job-Beschreibung'),
                 'callback' => function ($record, $column){
-                    return HTMLEditorField::create('Description', _t('KOCH.Description', 'Job-Beschreibung'))->setRows(3);
+                    return TextareaField::create('Description', _t('KOCH.Description', 'Job-Beschreibung'))->setRows(3);
                 }
             )
         ));
