@@ -3,7 +3,7 @@
 								<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t JobGiver.Profil '2. Firmenporträt erstellen' %></a></li>
 								<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a><%t JobGiver.Payment '3. Paket bestellen' %></a></li>
 								<li <% if $activeTab == "offers" %>class="uk-active"<% end_if %>><a><%t JobGiver.Offers '4. Inserate erstellen' %></a></li>
-								<li <% if $activeTab == "ads" %>class="uk-active"<% end_if %>><a><%t JobGiver.Ads '4. Bewerbungen verwalten' %></a></li>
+								<li <% if $activeTab == "ads" %>class="uk-active"<% end_if %>><a><%t JobGiver.Ads '5. Bewerbungen verwalten' %></a></li>
 							</ul>
 						
 							<ul id="component-tab" class="uk-switcher">
@@ -134,9 +134,9 @@
 										<h2><%t JobGiver.AdsTitle 'Bewerbungen' %></h2>
 										<div class="member-section-container">
 											$Portal.AdsTabHTML
-											<% if $Candidatures.exists %>
+											<% if CurrentCustomer.Candidatures.exists %>
 											<table class="uk-table uk-table-small uk-table-divider">
-												<% loop $CurrentCandidat.Candidatures %>
+												<% loop CurrentCustomer.Candidatures %>
 												<tr><td>$Mission.Title</td><td>$Mission.Company</td><td>$Mission.City</td><td>$Created.Ago</td><td>$NiceStatus</td></tr>
 												<% end_loop %>
 											</table>

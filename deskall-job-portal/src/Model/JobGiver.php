@@ -321,4 +321,13 @@ class JobGiver extends DataObject
         return new RequiredFields(['CompanyEmail']);
     }
 
+
+    public function getCandidatures(){
+        $ids = $this->Missions()->column('ID');
+        if ($ids){
+            return Candidature::get()->filter('MissionID',$ids);
+        }
+        return null;
+    }
+
 }
