@@ -7,7 +7,7 @@
 	<p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
 	<% end_if %>
 	<div class="uk-child-width-1-1" data-uk-grid>
-		<div>
+		<div class="uk-width-1-2@s">
 			
 				<div id="Form_ProfilForm_Picture_Holder" class="field uk-margin-small">
 					<label class="uk-form-label"><%t Candidat.PictureLabel 'Ihre Foto' %></label>
@@ -51,6 +51,11 @@
 					</div>
 				</div>
 			
+		</div>
+		<div class="uk-width-1-2-@s">
+			<% with Fields.FieldByName('Description') %>
+			$FieldHolder
+			<% end_with %>
 		</div>
 		<div>
 			

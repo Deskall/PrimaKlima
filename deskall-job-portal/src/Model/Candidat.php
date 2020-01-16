@@ -378,6 +378,7 @@ class Candidat extends DataObject
 
        $fields = new FieldList(
             HiddenField::create('PictureID','Picture'),
+            TextareaField::create('Description','Stellen Sie sich in wenigen Worten vor'),
             CompositeField::create(
                 HeaderField::create('ExperienceTitle','Ihre beruflichen Erfahrungen',3),
                 $CVField
