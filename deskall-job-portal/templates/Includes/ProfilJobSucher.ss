@@ -29,7 +29,7 @@
 										<h2><%t JobSucher.AdsTitle 'Ihre Bewerbungen' %></h2>
 										<div class="member-section-container">
 											<% if $CurrentCandidat.Candidatures.exists %>
-											<table class="uk-table uk-table-small">
+											<table class="uk-table uk-table-small uk-table-divider">
 												<% loop $CurrentCandidat.Candidatures %>
 												<tr><td>$Mission.Title</td><td>$Mission.Company</td><td>$Mission.City</td><td>$NiceStatus</td></tr>
 												<% end_loop %>
