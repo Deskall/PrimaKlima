@@ -17,6 +17,9 @@
 							<% with Parameters.filter('Title','Anstellung').first %><div class="type"><i class="icon icon-information uk-margin-small-right"></i>$Value</div><% end_with %>
 							<div class="start"><i class="icon icon-calendar uk-margin-small-right"></i>$PublishedDate.Nice</div>
 						</div>
+						<div class="dk-text-content">
+							$Description.LimitWordCount(150)
+						</div>
 					</div>
 				</div>
 				
