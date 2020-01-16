@@ -31,7 +31,7 @@
 									<span data-uk-icon="icon: cloud-upload"></span>
 									<span class="uk-text-middle"><%t Member.AddCV 'Legen Sie Ihr CV ab oder' %></span>
 									<div data-uk-form-custom>
-										<% with Fields.FieldByName('CVID') %>
+										<% with Fields.FieldByName('File') %>
 										$Field
 										<% end_with %>
 										<span class="uk-link"><%t Member.SelectPicture 'Klicken Sie hier an' %></span>
@@ -61,6 +61,9 @@
 	$FieldHolder
 	<% end_with %>
 	<% with Fields.FieldByName('CandidatID') %>
+	$FieldHolder
+	<% end_with %>
+	<% with Fields.FieldByName('CVID') %>
 	$FieldHolder
 	<% end_with %>
 	<% if $Actions %>

@@ -186,6 +186,7 @@ class OfferPageController extends PageController{
 				TextareaField::create('Content', _t('APPLICATION.Content', 'Bewerbungtext')),
 				CheckboxField::create('UseData',_t('APPLICATION.Content','Bewerben Sie sich mit Ihrem Profil Lebenslauf'))->setValue(true),
 				HiddenField::create('CVID'),
+				UploadField::create('File','File'),
 				CheckboxField::create('Acceptance',DBHTMLText::create()->setValue(_t('APPLICATION.Acceptance','<div class="dk-text-content">Wenn Sie dieses Kontrollkästchen aktivieren und auf "Bewerben" klicken, stimmen Sie unseren <a href="services/agb" target="_blank">Nutzungsbedingungen</a> zu und ermächtigen uns, Ihnen ähnliche Ankündigungen per E-Mail zu senden. Sie können diese Entscheidung jederzeit widerrufen, indem Sie sich abmelden oder das in unseren Nutzungsbedingungen beschriebene Verfahren befolgen.</div>')))
 			),
 			$actions,
