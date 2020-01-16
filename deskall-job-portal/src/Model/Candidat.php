@@ -388,7 +388,8 @@ class Candidat extends DataObject
              $CursusField
             )->setName('FormationFields'),
             CompositeField::create(
-             HeaderField::create('FileTitle','Ihre Unterlagen',3)
+             HeaderField::create('FileTitle','Ihre Unterlagen',3),
+             SortableUploadField::create('Files',$this->fieldLabels()['Files'])->setIsMultiUpload(true)->setFolderName($this->generateFolderName())
             )->setName('FileFields')
         );
         // //Files
