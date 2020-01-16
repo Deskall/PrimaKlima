@@ -461,6 +461,44 @@ class MemberProfilePageController extends PageController{
 		$member = Security::getCurrentUser();
 		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$form->saveInto($candidat);
+
+		//Files
+		if(isset($data['TempFiles'])){
+			$i = 0;
+			$keys = [];
+
+			foreach ($data['TempFiles'] as $id) {
+				$p = $candidat->Files()->byId($id);
+				if(!$p){ 
+					$p = File::get()->byId($id);
+					if ($p){
+						$folder = Folder::find_or_make($candidat->generateFolderName());
+						$p->ParentID = $folder->ID;
+						$p->write();
+						$p->publishSingle();
+					}
+					
+				}
+				if ($p){
+					$candidat->Files()->add($p,['SortOrder' => $i]);
+				}
+				$keys[] = $id;
+				$i++;
+			}
+			foreach($candidat->Files()->exclude('ID',$keys) as $p){
+				$p->File->deleteFile();
+                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
+				$p->delete();
+			}
+		}
+		else{
+			foreach($candidat->Files() as $p){
+				$p->File->deleteFile();
+                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
+				$p->delete();
+
+			}
+		}
 	
 		try {
 			$candidat->write();
