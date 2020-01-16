@@ -50,7 +50,7 @@ use SilverStripe\ORM\ArrayList;
 
 class OfferPageController extends PageController{
 
-	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm'];
+	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm','upload'];
 
 	private static $url_handlers = [
 		'details/$ID' => 'JobOffer',
@@ -411,7 +411,61 @@ class OfferPageController extends PageController{
 	}
 
 
+	public function upload(HTTPRequest $request){
+		
+		$tmpFiles = $request->postVar('files');
 
+		if (is_array($tmpFiles['name'])){
+			$tmpFile = [];
+			foreach($tmpFiles as $key => $array){
+				$tmpFile[$key] = $array[0];
+			}
+		}
+		else{
+			$tmpFile = $tmpFiles;
+		}
+		
+		$tmpFolder = "Uploads/tmp";
+		Folder::find_or_make($tmpFolder);
+		
+		if(in_array($tmpFile['type'], ['image/png','image/jpg','image/jpeg','image/svg+xml','image/gif'])){
+			$file = Image::create();
+		}
+		else{
+			$file = File::create();
+		}
+		
+		$upload = Upload::create();
+
+		$upload->loadIntoFile($tmpFile, $file, $tmpFolder);
+
+
+                    // Upload check
+		if ($upload->isError()) {
+			$result = [
+                'message' => [
+                    'type' => 'error',
+                    'value' => 'erreur',
+                ]
+            ];
+            
+            return (new HTTPResponse(json_encode($result), 400))
+                ->addHeader('Content-Type', 'application/json');
+		} else {
+			$file->publishSingle();
+                    $result = [
+                        AssetAdmin::singleton()->getObjectFromData($file)
+                    ];
+
+                    // Don't discard pre-generated client side canvas thumbnail
+                    if ($result[0]['category'] === 'image') {
+                        unset($result[0]['thumbnail']);
+                    }
+                  
+                    return (new HTTPResponse(json_encode($result)))
+                        ->addHeader('Content-Type', 'application/json');
+		}
+	}
 	
 
 
