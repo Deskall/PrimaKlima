@@ -156,7 +156,7 @@ class OfferPageController extends PageController{
 			     'filters' => new ArrayList($arrayFilters)
 			];
 	}
-	
+
 	// public function OfferForm(){
 	// 	Requirements::javascript('silverstripe/admin: client/dist/js/vendor.js');
 	// 	Requirements::javascript('silverstripe/admin: client/dist/js/bundle.js');
@@ -360,6 +360,7 @@ class OfferPageController extends PageController{
 						$cd->MissionID = $id;
 						$cd->Status = "created";
 						$cd->write();
+						$cd->createPDF();
 						$mission->Status = "chooseCook";
 						$mission->Candidatures()->add($cd);
 						$mission->write();

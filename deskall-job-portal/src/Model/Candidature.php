@@ -4,6 +4,9 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Assets\File;
+use setasign\Fpdi\Tcpdf\Fpdi;
+use SilverStripe\Assets\Folder;
 
 class Candidature extends DataObject
 {
@@ -16,7 +19,8 @@ class Candidature extends DataObject
 
     private static $has_one = [
         'Candidat' => Candidat::class,
-        'Mission' => Mission::class
+        'Mission' => Mission::class,
+        'File' => File::class
     ];
 
     private static $summary_fields = [
@@ -51,6 +55,10 @@ class Candidature extends DataObject
     }
 
 
+    public function getFolderName(){
+        return $this->Mission()->getFolderName().'/bewerbungen';
+    }
+
 
     public function getCMSFields()
     {
@@ -59,6 +67,10 @@ class Candidature extends DataObject
        $fields->removeByName('Status');
        $fields->addFieldToTab('Root.Main',DropdownField::create('CandidatID','Koch',Candidat::get()->filter('isApproved',1)->map('ID','Title'))->setEmptyString('Koch auswählen'));
        return $fields;
+    }
+
+    public function getConfig(){
+        return JobPortalConfig::get()->first();
     }
 
     public function approve(){
@@ -72,8 +84,35 @@ class Candidature extends DataObject
         $this->Mission()->sendEmailToApprovedCandidat($this->Candidat());
     }
 
-    public function previewLink(){
-        return OfferPage::get()->first()->Link().$this->Mission()->Nummer.'/bewerbungen/'.$this->ID;
+    public function createPDF(){
+        $config = $this->getConfig();
+
+      $pdf = new Fpdi();
+      $src = dirname(__FILE__).'/../../..'.$config->OfferFile()->getURL();
+      $output = dirname(__FILE__).'/../../../assets/Uploads/tmp/angebot_'.$this->ID.'.pdf';
+
+      $pdf->Addfont('Lato','','lato.php');
+      $pageCount = $pdf->setSourceFile($src);
+      for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
+            $pdf->AddPage();
+            $templateId = $pdf->importPage($pageNo);
+            $size = $pdf->getTemplateSize($templateId);
+            $pdf->useTemplate($templateId);
+            $pdf->SetFont('Lato','',8);
+            $pdf->setXY(8,60);
+            $pdf->WriteHTML('<p>Hello</p>');
+            
+      }
+      $pdf->Output($output,'F');
+      
+      $folder = Folder::find_or_make($this->getFolderName());
+      $file = File::create();
+      $file->ParentID = $folder->ID;
+      $file->setFromLocalFile($output, $this->getFolderName().'/Bewerbung_'.$this->ID.'.pdf');
+      $file->write();
+      $file->publishSingle();
+      $this->FileID = $file->ID;
+      $this->write();
     }
 
 
