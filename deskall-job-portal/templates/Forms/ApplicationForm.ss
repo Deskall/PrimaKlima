@@ -47,9 +47,7 @@
 						</div>
 					</div>
 				</div>
-			
 		</div>
-		
 	</div>
 	<% with Fields.FieldByName('SecurityID') %>
 	$FieldHolder
