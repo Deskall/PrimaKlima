@@ -27,7 +27,7 @@
 			<% with Fields.FieldByName('UseData') %>
 			$FieldHolder
 			<% end_with %>
-			<div hidden>
+			<div id="cv-container" hidden>
 				<div id="Form_ApplicationForm_CV_Holder" class="field text uk-margin-small">
 					<div class="uk-form-controls">
 						<div class="uk-margin-small">

@@ -11,4 +11,13 @@ $(document).ready(function(){
 			});
 		});
 	});
+
+	$(document).on("change","input[name='UseData']",function(){
+		if ($(this).is(':checked')){
+			$("#cv-container").attr('hidden','hidden');
+		}
+		else{
+			$("#cv-container").attr('hidden',false);
+		}
+	});
 });
