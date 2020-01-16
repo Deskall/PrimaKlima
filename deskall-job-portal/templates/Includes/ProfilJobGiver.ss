@@ -136,6 +136,12 @@
 											$Portal.AdsTabHTML
 											<% if CurrentCustomer.Candidatures.exists %>
 											<table class="uk-table uk-table-small uk-table-divider">
+												<thead>
+													<th colspan="2"><%t Candidature.Candidat 'Bewerber' %></th>
+													<th><%t Candidature.Mission 'Stelle' %></th>
+													<th><%t Candidature.Date 'Datum' %></th>
+													<th>&nbsp;</th>
+												</thead>
 												<% loop CurrentCustomer.Candidatures %>
 												<tr><td>$Candidat.Thumbnail</td><td>$Candidat.NiceAddress</td><td>$Mission.ShortDescription</td><td>$Created.Ago</td><td></td></tr>
 												<% end_loop %>
