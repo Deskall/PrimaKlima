@@ -49,7 +49,7 @@ use SilverStripe\ORM\ArrayList;
 
 class OfferPageController extends PageController{
 
-	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer'];
+	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm'];
 
 	private static $url_handlers = [
 		'details/$ID' => 'JobOffer',
@@ -155,6 +155,59 @@ class OfferPageController extends PageController{
 			     'activeOffers' => $offers,
 			     'filters' => new ArrayList($arrayFilters)
 			];
+	}
+
+	public function ApplicationForm(){
+
+		$actions = new FieldList(FormAction::create('saveApplication', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
+		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$JobGiver = ($JobGiver) ? $JobGiver : new JobGiver();
+		
+		$form = new Form(
+			$this,
+			'ApplicationForm',
+			FieldList::create(
+				HeaderField::create('FormTitle', 'Jetzt für Stelle bewerben'),
+				LiteralField::create('FormCaption', '<p>Füllen Sie unten stehendes Formular aus, um sich ganz schnell und einfach für ihre Traumstelle zu bewerben.</p>'),
+				TextareaField::create('Content', _t('APPLICATION.Content', 'Bewerbungtext')),
+				CheckboxField::create('Acceptance',_t('APPLICATION.Acceptance',DBHTMLText::create()->setValue('Wenn Sie dieses Kontrollkästchen aktivieren und auf "Bewerben" klicken, stimmen Sie unseren <a href="services/agb" target="_blank">Nutzungsbedingungen</a> zu und ermächtigen uns, Ihnen ähnliche Ankündigungen per E-Mail zu senden. Sie können diese Entscheidung jederzeit widerrufen, indem Sie sich abmelden oder das in unseren Nutzungsbedingungen beschriebene Verfahren befolgen.')))
+			),
+			$actions,
+			new RequiredFields(['Content','Acceptance'])
+		);
+		
+		$form->addExtraClass('uk-form-horizontal form-std company-form');
+		$form->loadDataFrom($JobGiver);
+
+		return $form;
+	}
+
+	public function saveApplication($data, Form $form)
+	{
+
+		$member = Security::getCurrentUser();
+		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$form->saveInto($member);
+		$form->saveInto($JobGiver);
+	
+		try {
+			$member->write();
+			$JobGiver->write();
+		} catch (ValidationException $e) {
+			$validationMessages = '';
+			foreach($e->getResult()->getMessages() as $error){
+				$validationMessages .= $error['message']."\n";
+			}
+			$form->sessionMessage($validationMessages, 'bad');
+			return $this->redirectBack();
+		}
+		$form->sessionMessage(
+			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
+			'good'
+		);
+		$this->getRequest()->getSession()->set('active_tab','profil');
+		
+		return $this->redirectBack();
 	}
 
 	// public function OfferForm(){
