@@ -17,6 +17,7 @@ use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Core\ClassInfo;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -273,16 +274,14 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
     public function getRealPage(){
-        if ($this->owner->Parent()->OwnerClassName != "RegisterPage"){
+        if (ClassInfo::exists($this->owner->Parent()->OwnerClassName) ){
             $parent = $this->owner->getPage();
                 while($parent && !in_array('SilverStripe\CMS\Model\SiteTree',$parent->getClassAncestry())){
                     $parent = $parent->getPage();
                 }
             return $parent; 
         }
-        else{
-            $this->owner->delete();
-        }
+       
         return null;
     }
 
