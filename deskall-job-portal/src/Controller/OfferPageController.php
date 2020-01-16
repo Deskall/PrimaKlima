@@ -184,7 +184,7 @@ class OfferPageController extends PageController{
 				HeaderField::create('FormTitle', 'Jetzt für Stelle bewerben'),
 				LiteralField::create('FormCaption', '<p>Füllen Sie unten stehendes Formular aus, um sich ganz schnell und einfach für ihre Traumstelle zu bewerben.</p>'),
 				TextareaField::create('Content', _t('APPLICATION.Content', 'Bewerbungtext')),
-				CheckboxField::create('UseData',_t('APPLICATION.Content','Bewerben Sie sich mit Ihrem Profil Lebenslauf')),
+				CheckboxField::create('UseData',_t('APPLICATION.Content','Bewerben Sie sich mit Ihrem Profil Lebenslauf'))->setValue(true),
 				HiddenField::create('CVID'),
 				CheckboxField::create('Acceptance',DBHTMLText::create()->setValue(_t('APPLICATION.Acceptance','<div class="dk-text-content">Wenn Sie dieses Kontrollkästchen aktivieren und auf "Bewerben" klicken, stimmen Sie unseren <a href="services/agb" target="_blank">Nutzungsbedingungen</a> zu und ermächtigen uns, Ihnen ähnliche Ankündigungen per E-Mail zu senden. Sie können diese Entscheidung jederzeit widerrufen, indem Sie sich abmelden oder das in unseren Nutzungsbedingungen beschriebene Verfahren befolgen.</div>')))
 			),
