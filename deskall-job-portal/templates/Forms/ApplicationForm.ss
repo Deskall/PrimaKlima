@@ -59,7 +59,7 @@
 	$FieldHolder
 	<% end_with %>
 	<% if $Actions %>
-	<div class="btn-toolbar">
+	<div class="btn-toolbar uk-margin">
 		<% loop $Actions %>
 			$Field
 		<% end_loop %>
