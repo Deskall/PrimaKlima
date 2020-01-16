@@ -400,7 +400,7 @@ class MemberProfilePageController extends PageController{
 			$candidat->getRequiredAccountFields()
 		);
 		
-		$form->addExtraClass('uk-form-horizontal form-std');
+		$form->addExtraClass('form-std');
 		$form->loadDataFrom($candidat->Member());
 		$form->loadDataFrom($candidat);
 
