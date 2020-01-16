@@ -52,6 +52,7 @@ class Candidat extends DataObject
 {
     private static $db = array(
         'Gender'  => 'Varchar',
+        'Description' => 'Text',
         'Birthdate'  => 'Varchar',
         'Address'  => 'Varchar',
         'PostalCode'  => 'Varchar',
@@ -81,7 +82,8 @@ class Candidat extends DataObject
     ];
 
     private static $has_many = [
-        'CVItems' => CVItem::class
+        'CVItems' => CVItem::class,
+        'CursusItems' => CursusItem::class
     ];
 
 
@@ -142,6 +144,8 @@ class Candidat extends DataObject
     $labels['A1Form'] = _t(__CLASS__.'.A1Form','A1 Formular von der Krankenkasse');
     $labels['TaxResidenceCertificat'] = _t(__CLASS__.'.TaxResidenceCertificat','Steueransässigkeitsbescheinigung vom Finanzamt');
     $labels['isApproved'] = _t('CustomUser.isApproved','diese Benutzer genehmigen?');
+    $labels['CVItems'] = _t('CustomUser.CVItems','Erfahrungen');
+    $labels['CursusItems'] = _t('CustomUser.CursusItems','Ausbildungen');
     return $labels;
     }
 
@@ -287,7 +291,7 @@ class Candidat extends DataObject
 
     public function getProfileFields(){
         $CVField = new GridField(
-            'CVItmes',
+            'CVItems',
             _t('KOCH.ProfessionalExperiences', 'Berufliche Erfahrungen'),
             $this->CVItems(),
             GridFieldConfig::create()
@@ -332,6 +336,46 @@ class Candidat extends DataObject
             )
         ));
 
+        $CursusField = new GridField(
+            'CursusItems',
+            $this->fieldLabels()['CursusItems'],
+            $this->CursusItems(),
+            GridFieldConfig::create()
+                ->addComponent(new GridFieldButtonRow('before'))
+                ->addComponent(new GridFieldTitleHeader())
+                ->addComponent(new GridFieldEditableColumns())
+                ->addComponent(new GridFieldDeleteAction())
+                ->addComponent(new GridFieldAddNewInlineButton())
+                ->addComponent(new GridFieldOrderableRows('Sort'))
+        );
+        $CursusField->addExtraClass('frontendgrid');
+        $CursusField->getConfig()->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
+            'StartDate' => array(
+                'title' => _t('KOCH.StartDate', 'Von'),
+                'callback' => function ($record, $column, $holiDayGridfield){
+                    return DateField::create('StartDate', _t('KOCH.StartDate', 'Von'));
+                }
+            ),
+            'EndDate' => array(
+                'title' => _t('KOCH.EndDate', 'Bis'),
+                'callback' => function ($record, $column, $holiDayGridfield){
+                    return DateField::create('EndDate', _t('KOCH.EndDate', 'Bis'));
+                }
+            ),
+            'School' => array (
+                'title' => _t('KOCH.School', 'Schule'),
+                'callback' => function ($record, $column){
+                    return TextField::create('School', _t('KOCH.School', 'Schule'));
+                }
+            ),
+            'Diplom' => array (
+                'title' => _t('KOCH.Diplom', 'Ausbildung'),
+                'callback' => function ($record, $column){
+                    return TextField::create('Diplom', _t('KOCH.Diplom', 'Ausbildung'));
+                }
+            )
+        ));
+
        $fields = new FieldList(
             HiddenField::create('PictureID','Picture'),
             CompositeField::create(
@@ -339,7 +383,8 @@ class Candidat extends DataObject
                 $CVField
             )->setName('ExperienceFields'),
             CompositeField::create(
-             HeaderField::create('FormationTitle','Ihre Ausbildungen',3)
+             HeaderField::create('FormationTitle','Ihre Ausbildungen',3),
+             $CursusField
             )->setName('FormationFields'),
             CompositeField::create(
              HeaderField::create('FileTitle','Ihre Unterlagen',3)
