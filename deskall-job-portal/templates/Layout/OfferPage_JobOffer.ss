@@ -114,8 +114,8 @@
 <!-- Candidate modal -->
 	<div id="candidate-modal" data-uk-modal>
 	    <div class="uk-modal-dialog uk-modal-body">
-	        <h2 class="uk-modal-title">$CookConfig.CandidatureHelpTitle</h2>
-	        $CookConfig.CandidatureHelpText
+	        <h2 class="uk-modal-title">$PortalConfig.CandidatureHelpTitle</h2>
+	        $PortalConfig.CandidatureHelpText
 	        <p class="uk-text-right">
 	            <button class="uk-button uk-button-default uk-modal-close" type="button"><%t Global.Cancel 'Abbrechen' %></button>
 	            <a href class="uk-button uk-button-primary" title="<%t Mission.Candidate 'Bewerben' %>"><%t Mission.Candidate 'Bewerben' %></a>

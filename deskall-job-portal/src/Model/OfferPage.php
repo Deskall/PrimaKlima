@@ -15,7 +15,12 @@ class OfferPage extends Page {
 		return $fields;
 	}
 
+	//Fallback for old codes
 	public function getCookConfig(){
+		return $this->getPortalConfig();
+	}
+
+	public function getPortalConfig(){
 		return JobPortalConfig::get()->first();
 	}
 
