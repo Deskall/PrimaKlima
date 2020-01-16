@@ -28,7 +28,7 @@
 			$FieldHolder
 			<% end_with %>
 		</div>
-		<div>
+		<div hidden>
 				<div id="Form_ApplicationForm_CV_Holder" class="field text uk-margin-small">
 					<div class="uk-form-controls">
 						<div class="uk-margin-small">
