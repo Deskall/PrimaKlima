@@ -73,6 +73,7 @@
 		</div>
 
 		<div>
+			<h3><%t JobSucher.FilesTitle 'Ihre Unterlagen' %></h3>
 			<div id="Form_CandidatProfilForm_Files_Holder" class="field uk-margin-small">
 				<label class="uk-form-label"><%t JobSucher.Files 'Laden Sie hier Ihre Dateien' %></label>
 				<div class="uk-form-controls">
