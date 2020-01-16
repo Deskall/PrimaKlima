@@ -80,8 +80,8 @@
 					<table class="uk-table uk-table-striped uk-table-small uk-table-middle">
 
 						<tbody id="cook-files" data-uk-sortable>
-							<% if $CurrentUser.Candidat.Files %>
-							<% loop  $CurrentUser.Candidat.Files.sort('SortOrder') %>
+							<% if $Top.Record.Files %>
+							<% loop  $Top.Record.Files.sort('SortOrder') %>
 							<tr><td class="uk-drag"><span class="fa fa-ellipsis-v"></span></td><td><i class="fa fa-file uk-text-large"></i></td><td>$Name</td><td><a data-delete-row><span class="icon icon-trash"></span></a></td><td><input type="hidden" name="TempFiles[]" value="$ID"/></td></tr>
 							<% end_loop %>
 							<% end_if %>
