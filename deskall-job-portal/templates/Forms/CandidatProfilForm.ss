@@ -73,6 +73,35 @@
 		</div>
 
 		<div>
+			<div id="Form_CandidatProfilForm_Files_Holder" class="field uk-margin-small">
+				<label class="uk-form-label"><%t JobSucher.Files 'Laden Sie hier Ihre Dateien' %></label>
+				<div class="uk-form-controls">
+					<table class="uk-table uk-table-striped uk-table-small uk-table-middle">
+
+						<tbody id="cook-files" data-uk-sortable>
+							<% if $CurrentUser.Candidat.Files %>
+							<% loop  $CurrentUser.Candidat.Files.sort('SortOrder') %>
+							<tr><td class="uk-drag"><span class="fa fa-ellipsis-v"></span></td><td><i class="fa fa-file uk-text-large"></i></td><td>$Name</td><td><a data-delete-row><span class="icon icon-trash"></span></a></td><td><input type="hidden" name="TempFiles[]" value="$ID"/></td></tr>
+							<% end_loop %>
+							<% end_if %>
+						</tbody>
+					</table>
+					<div class="uk-margin-small">
+						<div id="upload-photos" class="js-upload multiple uk-placeholder uk-text-center" data-container="#cook-files" data-field-name="TempFiles[]" data-type="file">
+							<div class="form-field">
+								<span data-uk-icon="icon: cloud-upload"></span>
+								<span class="uk-text-middle"><%t Member.AddFiles 'Legen Sie Dateien ab oder' %></span>
+								<div data-uk-form-custom>
+									<% with Fields.FieldByName('Files') %>
+									$Field
+									<% end_with %>
+									<span class="uk-link"><%t Member.SelectPicture 'Klicken Sie hier an' %></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			
 			<% with Fields.FieldByName('FileFields') %>
 			$FieldHolder
