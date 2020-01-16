@@ -52,7 +52,7 @@
 				</div>
 			
 		</div>
-		<div class="uk-width-1-2-@s">
+		<div class="uk-width-1-2@s">
 			<% with Fields.FieldByName('Description') %>
 			$FieldHolder
 			<% end_with %>
