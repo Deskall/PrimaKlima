@@ -9,6 +9,8 @@ class CVItem extends DataObject {
 	private static $db = array(
 		'StartDate' => 'Date',
 		'EndDate' => 'Date',
+		'Company' => 'Varchar',
+		'Position' => 'Varchar',
 		'Description' => 'Text'		
 	);
 
@@ -21,6 +23,8 @@ class CVItem extends DataObject {
 	private static $summary_fields = array(
 		'StartDate' => 'Von',
 		'EndDate' => 'Bis',
+		'Company' => 'Firma',
+		'Position' => 'Position',
 		'Description' => 'Job',
 	);
 

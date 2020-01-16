@@ -312,10 +312,22 @@ class Candidat extends DataObject
                     return DateField::create('EndDate', _t('KOCH.EndDate', 'Bis'));
                 }
             ),
+            'Company' => array (
+                'title' => _t('KOCH.Company', 'Firma'),
+                'callback' => function ($record, $column){
+                    return TextField::create('Company', _t('KOCH.Company', 'Firma'));
+                }
+            ),
+            'Position' => array (
+                'title' => _t('KOCH.Position', 'Position'),
+                'callback' => function ($record, $column){
+                    return TextField::create('Position', _t('KOCH.Position', 'Position'));
+                }
+            ),
             'Description' => array (
                 'title' => _t('KOCH.Description', 'Job-Beschreibung'),
                 'callback' => function ($record, $column){
-                    return TextareaField::create('Description', _t('KOCH.Description', 'Job-Beschreibung'))->setAttribute('class','tiny-mce');
+                    return HTMLEditorField::create('Description', _t('KOCH.Description', 'Job-Beschreibung'))->setRows(3);
                 }
             )
         ));
