@@ -22,7 +22,10 @@
 			$FieldHolder
 			<% end_with %>
 			<div id="cv-container" hidden class="uk-margin-small">
-				<div id="Form_ApplicationForm_CV_Holder" class="field text uk-margin-small">
+				<% with Fields.FieldByName('CV') %>
+				$FieldHolder
+				<% end_with %>
+				<%-- <div id="Form_ApplicationForm_CV_Holder" class="field text uk-margin-small">
 					<label class="uk-form-label"><%t APPLICATION.CVLabel2 'Oder laden Sie hier Ihr CV' %></label>
 					<div class="uk-form-controls">
 						<div class="uk-margin-small">
@@ -40,7 +43,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --%>
 			</div>
 		</div>
 		<div>
@@ -63,9 +66,7 @@
 	<% with Fields.FieldByName('CandidatID') %>
 	$FieldHolder
 	<% end_with %>
-	<% with Fields.FieldByName('CVID') %>
-	$FieldHolder
-	<% end_with %>
+	
 	<% if $Actions %>
 	<div class="btn-toolbar uk-margin">
 		<% loop $Actions %>
