@@ -352,7 +352,7 @@ class OfferPageController extends PageController{
 				$mission = Mission::get()->byId($id);
 				if ($mission && $mission->isVisible){
 					if (Candidature::get()->filter(['CandidatID' => $candidat->ID, 'MissionID' => $id])->first()){
-						return ['Title' => 'Bewerbung bereits gesendet', 'Content' => $config->parseString($config->CandidatureAlreadySentText)];
+						return ['Title' => 'Bewerbung bereits gesendet', 'Content' => DBHTMLText::create()->setValue($config->parseString($config->CandidatureAlreadySentText))];
 					}
 					else{
 						$cd = new Candidature();
