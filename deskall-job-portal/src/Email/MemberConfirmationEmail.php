@@ -96,7 +96,7 @@ class MemberConfirmationEmail extends Email
      * @param MemberProfilePage $page
      * @param Member $member
      */
-    public function __construct(RegisterPage $page, $member)
+    public function __construct(MemberProfilePage $page, $member)
     {
         parent::__construct();
 

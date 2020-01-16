@@ -480,16 +480,17 @@ class Candidat extends DataObject
         return ($mission->Candidatures()->filter('status','approved')->first()->CookID == $this->ID && $mission->Status != "approved");
     }
 
+    //To delete or update
     public function sendApprovalEmail(){
-        $GroupID = Group::get()->filter('Code',$this->stat('groupcode'))->first()->ID; 
-        $page = RegisterPage::get()->filter('GroupID',$GroupID)->first();
-        $from = ($page && $page->EmailFrom) ? $page->EmailFrom : SiteConfig::current_site_config()->Email;
-        $body = new DBHTMLText();
-        $body->setValue($page->AfterAcceptationEmailBody);
+        // $GroupID = Group::get()->filter('Code',$this->stat('groupcode'))->first()->ID; 
+        // $page = RegisterPage::get()->filter('GroupID',$GroupID)->first();
+        // $from = ($page && $page->EmailFrom) ? $page->EmailFrom : SiteConfig::current_site_config()->Email;
+        // $body = new DBHTMLText();
+        // $body->setValue($page->AfterAcceptationEmailBody);
         
         
-        $mail = new MemberEmail($page,$this->Member(),$from,$this->Email,$page->AfterAcceptationEmailSubject, $body);
-        $mail->send();
+        // $mail = new MemberEmail($page,$this->Member(),$from,$this->Email,$page->AfterAcceptationEmailSubject, $body);
+        // $mail->send();
     }
 
     public function sendRefusalEmail(){

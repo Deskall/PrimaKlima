@@ -368,21 +368,21 @@ class MemberProfilePageController extends PageController{
 	}
 
 	
-
+	//To delete / update
 	public function sendApprovalEmail($member){
-		$page = RegisterPage::get()->first();
-	        	$emailAdmin = $page->ApprovalEmailReceiver;
-	        	if (!$emailAdmin){
-	        		$config = SiteConfig::current_site_config();
-	        		$emailAdmin = $config->Email;
-	        	}
+		// $page = RegisterPage::get()->first();
+	 //        	$emailAdmin = $page->ApprovalEmailReceiver;
+	 //        	if (!$emailAdmin){
+	 //        		$config = SiteConfig::current_site_config();
+	 //        		$emailAdmin = $config->Email;
+	 //        	}
 	        	
-	        	$body = $page->ApprovalEmailBody;
-	        	$body .= '<p><strong>'._t('Member.UserType','Koch').' :</strong><br>'.$member->getTitle().'</p>';
-	        	$body .= '<p><a href="'.Director::absoluteBaseUrl().'admin/'.Config::inst()->get('UserAdmin','url_segment').'">'._t('Member.CheckProfile','Profil prüfen').'</a></p>';
-	        	$email = new MemberEmail($this->data(),$member,$page->ApprovalEmailSender, $emailAdmin,$page->ApprovalEmailSubject,  $body);
+	 //        	$body = $page->ApprovalEmailBody;
+	 //        	$body .= '<p><strong>'._t('Member.UserType','Koch').' :</strong><br>'.$member->getTitle().'</p>';
+	 //        	$body .= '<p><a href="'.Director::absoluteBaseUrl().'admin/'.Config::inst()->get('UserAdmin','url_segment').'">'._t('Member.CheckProfile','Profil prüfen').'</a></p>';
+	 //        	$email = new MemberEmail($this->data(),$member,$page->ApprovalEmailSender, $emailAdmin,$page->ApprovalEmailSubject,  $body);
 	        	
-	        	$email->send(); 
+	 //        	$email->send(); 
 	}
 
 //Job Sucher

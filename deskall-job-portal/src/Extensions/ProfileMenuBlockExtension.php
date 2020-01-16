@@ -10,7 +10,7 @@ class ProfileMenuBlockExtension extends DataExtension{
 
 
 	public function ProfilPages(){
-	    return Page::get()->filter('ClassName',['MemberProfilePage','RegisterPage'])->sort('Sort');
+	    return Page::get()->filter('ClassName',['MemberProfilePage'])->sort('Sort');
 	}
 
 }
