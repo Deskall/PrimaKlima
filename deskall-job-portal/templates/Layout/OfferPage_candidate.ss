@@ -19,9 +19,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="dk-text-content">
-					$Description.LimitWordCount(50)
-				</div>
 			</div>
 		</div>
 		<% end_with %>
