@@ -164,7 +164,7 @@ class OfferPageController extends PageController{
 			$mission = Mission::get()->byId($id);
 			if ($mission){
 				$this->getRequest()->getSession()->set('mission_id',$id);
-				return ['Title' => 'Bewerben'];
+				return ['Title' => 'Bewerben', 'Offer' => $mission];
 			}
 		}
 		return $this->httpError(404);
