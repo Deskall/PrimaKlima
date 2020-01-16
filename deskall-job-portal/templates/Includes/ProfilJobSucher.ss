@@ -34,6 +34,9 @@
 											<% else %>
 												<p><i><%t JobSucher.noCandidatures 'Sie haben momentan keine Bewerbung' %></i></p>
 											<% end_if %>
+											<div class="uk-margin">
+												<a href="$OfferPage.Link" target="_blank" class="uk-button PrimaryBackground">Zum Job Suche</a>
+											</div>
 										</div>
 									</div>
 								</li>
