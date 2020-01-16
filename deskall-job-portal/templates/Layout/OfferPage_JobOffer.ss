@@ -27,7 +27,7 @@
 									<a class="uk-button WhiteBackground uk-margin-small-right"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart"></i></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-print><i class="icon icon-printer"></i></a>
-									<a class="uk-button uk-button-primary"><%t OfferPage.Candidate 'Bewerben' %></a>
+									<a class="uk-button uk-button-primary" href="#candidate-modal"><%t OfferPage.Candidate 'Bewerben' %></a>
 								</div>
 							</div>
 							<div class="uk-width-1-3">
@@ -110,3 +110,15 @@
 				<% end_with %>
 	</div>
 </section>
+
+<!-- Candidate modal -->
+	<div id="candidate-modal" data-uk-modal>
+	    <div class="uk-modal-dialog uk-modal-body">
+	        <h2 class="uk-modal-title">$CookConfig.CandidatureHelpTitle</h2>
+	        $CookConfig.CandidatureHelpText
+	        <p class="uk-text-right">
+	            <button class="uk-button uk-button-default uk-modal-close" type="button"><%t Global.Cancel 'Abbrechen' %></button>
+	            <a href class="uk-button uk-button-primary" title="<%t Mission.Candidate 'Bewerben' %>"><%t Mission.Candidate 'Bewerben' %></a>
+	        </p>
+	    </div>
+	</div>
