@@ -35,7 +35,7 @@
 							<div id="upload-CV" class="js-upload simple uk-placeholder uk-text-center" data-container="#cv-file" data-field-name="CVID" data-type="file">
 								<div class="form-field">
 									<span data-uk-icon="icon: cloud-upload"></span>
-									<span class="uk-text-middle"><%t Member.AddFiles 'Legen Sie Dateien ab oder' %></span>
+									<span class="uk-text-middle"><%t Member.AddCV 'Legen Sie Ihr CV ab oder' %></span>
 									<div data-uk-form-custom>
 										<% with Fields.FieldByName('CVID') %>
 										$Field
