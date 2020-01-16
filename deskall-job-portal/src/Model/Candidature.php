@@ -72,5 +72,9 @@ class Candidature extends DataObject
         $this->Mission()->sendEmailToApprovedCandidat($this->Candidat());
     }
 
+    public function previewLink(){
+        return OfferPage::get()->first()->Link().'stellen/'.$this->Mission()->Nummer.'/bewerbungen/'.$this->ID;
+    }
+
 
 }
