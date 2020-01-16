@@ -73,7 +73,7 @@ class Candidature extends DataObject
     }
 
     public function previewLink(){
-        return OfferPage::get()->first()->Link().'stellen/'.$this->Mission()->Nummer.'/bewerbungen/'.$this->ID;
+        return OfferPage::get()->first()->Link().$this->Mission()->Nummer.'/bewerbungen/'.$this->ID;
     }
 
 
