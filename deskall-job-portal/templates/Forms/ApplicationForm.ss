@@ -23,6 +23,11 @@
 			<% end_with %>
 		</div>
 		<div>
+			<% with Fields.FieldByName('UseData') %>
+			$FieldHolder
+			<% end_with %>
+		</div>
+		<div>
 			
 				<div id="Form_ApplicationForm_CV_Holder" class="field text uk-margin-small">
 					<label class="uk-form-label"><%t APPLICATION.CVLabel 'Ihr CV' %></label>
