@@ -118,7 +118,7 @@
 	        $PortalConfig.CandidatureHelpText
 	        <p class="uk-text-right">
 	            <button class="uk-button uk-button-default uk-modal-close" type="button"><%t Global.Cancel 'Abbrechen' %></button>
-	            <a href class="uk-button uk-button-primary" title="<%t Mission.Candidate 'Bewerben' %>"><%t Mission.Candidate 'Bewerben' %></a>
+	            <a href="{$Link}bewerben/$ID" class="uk-button uk-button-primary" title="<%t Mission.Candidate 'Bewerben' %>"><%t Mission.Candidate 'Bewerben' %></a>
 	        </p>
 	    </div>
 	</div>
