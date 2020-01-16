@@ -152,7 +152,12 @@ class Candidat extends DataObject
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        
+        if ($this->Picture()->exists()){
+            $folder = Folder::find_or_make($this->generateFolderName());
+            $this->Picture()->ParentID = $folder->ID;
+            $this->Picture()->write();
+            $this->Picture()->publishSingle();
+        }
     }
 
     public function onAfterWrite()
