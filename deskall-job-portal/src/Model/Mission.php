@@ -69,7 +69,8 @@ class Mission extends DataObject
         'backend' => 'Boolean(0)',
         'isActive' => 'Boolean(0)',
         'isClosed' => 'Boolean(0)',
-        'PublishedDate' => 'Date'
+        'PublishedDate' => 'Date',
+        'Nummer' => 'Varchar'
     );
 
     private static $singular_name = "Stelle";
@@ -162,6 +163,9 @@ class Mission extends DataObject
         parent::onBeforeWrite();
         if ($this->Customer()->exists() && !$this->Company){
           $this->Company = $this->Customer()->Company;
+        }
+        if ($this->Customer()->exists() && !$this->Nummer){
+          $this->Nummer = $this->Customer()->Nummer.'-'.str_pad($this->ID, 4, '0', STR_PAD_LEFT);
         }
         // if ($this->ID == 0){
         //     $this->isVisible = 0;
