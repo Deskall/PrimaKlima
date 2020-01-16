@@ -145,7 +145,7 @@
 													<th>&nbsp;</th>
 												</thead>
 												<% loop CurrentCustomer.Candidatures %>
-												<tr><td>$Candidat.Thumbnail</td><td>$Candidat.NiceAddress</td><td>$Mission.ShortDescription</td><td>$Created.Ago</td><td><a href="$previewLink" class="icon icon-eye"></a></td><td><a href="$respondLink" class="icon ios-paperplane"></a></td><td><a data-delete class="icon icon-trash-a"></a></td></tr>
+												<tr><td>$Candidat.Thumbnail</td><td>$Candidat.NiceAddress</td><td>$Mission.ShortDescription</td><td>$Created.Ago</td><td><a href="$previewLink" class="icon icon-eye"></a></td><td><a href="$respondLink" class="icon icon-ios-paperplane"></a></td><td><a data-delete class="icon icon-trash-a"></a></td></tr>
 												<% end_loop %>
 											</table>
 											<% else %>
