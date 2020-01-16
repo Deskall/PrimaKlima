@@ -134,6 +134,15 @@
 										<h2><%t JobGiver.AdsTitle 'Bewerbungen' %></h2>
 										<div class="member-section-container">
 											$Portal.AdsTabHTML
+											<% if $Candidatures.exists %>
+											<table class="uk-table uk-table-small uk-table-divider">
+												<% loop $CurrentCandidat.Candidatures %>
+												<tr><td>$Mission.Title</td><td>$Mission.Company</td><td>$Mission.City</td><td>$Created.Ago</td><td>$NiceStatus</td></tr>
+												<% end_loop %>
+											</table>
+											<% else %>
+											<p><i><%t JobGiver.noCandidatures 'Sie haben momentan keine Bewerbung' %></i></p>
+											<% end_if %>
 										</div>
 									</div>
 								</li>
