@@ -160,6 +160,9 @@ class Mission extends DataObject
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
+        if ($this->Customer()->exists() && !$this->Company){
+          $this->Company = $this->Customer()->Company;
+        }
         // if ($this->ID == 0){
         //     $this->isVisible = 0;
         // }
