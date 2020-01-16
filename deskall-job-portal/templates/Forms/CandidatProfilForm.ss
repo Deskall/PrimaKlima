@@ -82,7 +82,7 @@
 						<tbody id="cook-files" data-uk-sortable>
 							<% if $Top.Record.Files %>
 							<% loop  $Top.Record.Files.sort('SortOrder') %>
-							<tr><td class="uk-drag"><span class="fa fa-ellipsis-v"></span></td><td><i class="fa fa-file uk-text-large"></i></td><td>$Name</td><td><a data-delete-row><span class="icon icon-trash"></span></a></td><td><input type="hidden" name="TempFiles[]" value="$ID"/></td></tr>
+							<tr><td class="uk-drag"><span class="icon icon-android-more-vertical"></span></td><td><i class="icon icon-file uk-text-large"></i></td><td>$Name</td><td><a data-delete-row><span class="icon icon-trash-a"></span></a></td><td><input type="hidden" name="TempFiles[]" value="$ID"/></td></tr>
 							<% end_loop %>
 							<% end_if %>
 						</tbody>
