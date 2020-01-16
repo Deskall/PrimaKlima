@@ -343,20 +343,20 @@ class OfferPageController extends PageController{
 	}
 
 	public function candidate(HTTPRequest $request){
-		$config = CookConfig::get()->first();
+		$config = JobPortalConfig::get()->first();
 		$member = Security::getCurrentUser();
 		if ($member){
-			$cook = Cook::get()->filter('MemberID',$member->ID)->first();
+			$candidat = Candidat::get()->filter('MemberID',$member->ID)->first();
 			$id = $request->param('ID');
 			if ($id){
 				$mission = Mission::get()->byId($id);
 				if ($mission && $mission->isVisible){
-					if (Candidature::get()->filter(['CookID' => $cook->ID, 'MissionID' => $id])->first()){
+					if (Candidature::get()->filter(['CandidatID' => $candidat->ID, 'MissionID' => $id])->first()){
 						return ['Title' => 'Bewerbung bereits gesendet', 'Content' => $config->parseString($config->CandidatureAlreadySentText)];
 					}
 					else{
 						$cd = new Candidature();
-						$cd->CookID = $cook->ID;
+						$cd->CandidatID = $candidat->ID;
 						$cd->MissionID = $id;
 						$cd->Status = "created";
 						$cd->write();
