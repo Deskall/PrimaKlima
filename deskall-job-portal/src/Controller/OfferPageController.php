@@ -361,9 +361,10 @@ class OfferPageController extends PageController{
 						$cd->Status = "created";
 						$cd->write();
 						$mission->Status = "chooseCook";
+						$mission->Candidatures()->add($cd);
 						$mission->write();
 						$mission->notifyAdminEmail();
-						return ['Title' => 'Bewerbung gesendet', 'Content' =>  $config->parseString($config->CandidatureSentText)];
+						return ['Title' => 'Bewerbung gesendet', 'Content' =>  DBHTMLText::create()->setValue($config->parseString($config->CandidatureSentText))];
 					}
 					
 				}
