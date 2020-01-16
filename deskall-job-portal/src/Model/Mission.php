@@ -320,7 +320,7 @@ class Mission extends DataObject
     public function ShortDescription(){
       $html = '<p>';
       $html .= '#'.$this->Nummer.'<br>';
-      $html .= '<strong class="uk-text-truncate">'.$this->Title.'.</strong><br>';
+      $html .= '<a href="'.$this->previewLink().'" title="'._t('Mission.See','Stelleangebot ansehen').'" target="_blank" data-uk-tooltip><strong class="uk-text-truncate">'.$this->Title.'.</strong></a><br>';
       $html .= $this->City;
       $html .= '</p>';
       return DBHTMLText::create()->setValue($html);
