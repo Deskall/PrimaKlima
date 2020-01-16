@@ -22,13 +22,12 @@
 			$FieldHolder
 			<% end_with %>
 		</div>
-		<div><h4><%t APPLICATION.CVLabel 'Ihr CV' %></h4></div>
-		<div>
+		<div></div>
+		<div><h4><%t APPLICATION.CVLabel 'Ihr CV' %></h4>
 			<% with Fields.FieldByName('UseData') %>
 			$FieldHolder
 			<% end_with %>
-		</div>
-		<div hidden>
+			<div hidden>
 				<div id="Form_ApplicationForm_CV_Holder" class="field text uk-margin-small">
 					<div class="uk-form-controls">
 						<div class="uk-margin-small">
@@ -47,6 +46,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
 	<% with Fields.FieldByName('SecurityID') %>
