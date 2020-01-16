@@ -19,19 +19,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="uk-flex uk-flex-middle" data-uk-grid>
-					<div class="uk-width-2-3">
-						<div class="uk-flex uk-flex-left uk-flex-middle">
-							<a class="uk-button WhiteBackground uk-margin-small-right"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a>
-							<a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart"></i></a>
-							<a class="uk-button WhiteBackground uk-margin-small-right" data-print><i class="icon icon-printer"></i></a>
-							<% if canCandidate %><a class="uk-button uk-button-primary" href="{$Top.Link}bewerben/$ID"><%t OfferPage.Candidate 'Bewerben' %></a><% end_if %>
-						</div>
-					</div>
-					<div class="uk-width-1-3">
-						<div class="shariff" data-lang="de" data-url="$AbsoluteLink" data-button-style="icon" data-mail-url="mailto:" data-services="[&quot;facebook&quot;,&quot;twitter&quot;,&quot;linkedin&quot;,&quot;xing&quot;,&quot;whatsapp&quot;,mail&quot;]"></div>
-					</div>
-				</div>
+				
 				
 			</div>
 		</div>
