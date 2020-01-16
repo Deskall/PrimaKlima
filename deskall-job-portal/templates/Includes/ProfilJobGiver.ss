@@ -137,7 +137,7 @@
 											<% if CurrentCustomer.Candidatures.exists %>
 											<table class="uk-table uk-table-small uk-table-divider">
 												<% loop CurrentCustomer.Candidatures %>
-												<tr><td>$Candidat.Thumbnail</td><td>$Candidat.NiceAddress</td><td>$Mission.Title</td><td>$Mission.Company</td><td>$Mission.City</td><td>$Created.Ago</td><td>$NiceStatus</td></tr>
+												<tr><td>$Candidat.Thumbnail</td><td>$Candidat.NiceAddress</td><td>$Mission.ShortDescription</td><td>$Created.Ago</td><td></td></tr>
 												<% end_loop %>
 											</table>
 											<% else %>

@@ -313,6 +313,15 @@ class Mission extends DataObject
         return 'Uploads/Stellenangebot/'.$this->ID;
     }
 
+    public function ShortDescription(){
+      $html = '<p>';
+      $html .= $this->Nummer.'<br>';
+      $html .= '<strong class="uk-text-truncate">'.$this->Title.'.</strong><br>';
+      $html .= $this->City;
+      $html .= '</p>';
+      return DBHTMLText::create()->setValue($html);
+    }
+
     public function getFormFields(){
         $customer = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
         $fields = FieldList::create(
