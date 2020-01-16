@@ -460,7 +460,7 @@ class MemberProfilePageController extends PageController{
 
 		$member = Security::getCurrentUser();
 		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
-		$form->saveInto($member);
+		// $form->saveInto($member);
 		$form->saveInto($candidat);
 	
 		try {
