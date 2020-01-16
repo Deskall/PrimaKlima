@@ -28,8 +28,8 @@
 									<div class="uk-panel uk-background-muted uk-padding-small">
 										<h2><%t JobSucher.AdsTitle 'Ihre Bewerbungen' %></h2>
 										<div class="member-section-container">
-											<% if $CurrentUser.Candidat.Candidatures.exists %>
-												<% loop $CurrentUser.Candidat.Candidatures %>
+											<% if $CurrentCandidat.Candidatures.exists %>
+												<% loop $CurrentCandidat.Candidatures %>
 												$Title
 												<% end_loop %>
 											<% else %>

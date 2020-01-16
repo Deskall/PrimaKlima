@@ -56,10 +56,6 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
        return JobPortalConfig::get()->first();
     }
 
-    public function TestExtension(){
-        return 'OK';
-    }
-
     public function RegisterForm(){
         $fields = singleton(Member::class)->getRegisterFields();
         $arbeitgeberId = Group::get()->filter('Code','arbeitgeber')->first()->ID;

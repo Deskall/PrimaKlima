@@ -14,6 +14,14 @@ class DeskallJobPortalPageExtension extends DataExtension
         return null;
     }
 
+    public function CurrentCandidat(){
+        
+        if ($this->owner->CurrentMember()){
+            return Candidat::get()->filter('MemberID',$this->owner->CurrentMember()->ID)->first();
+        }
+        return null;
+    }
+
     public function getPortal(){
        return JobPortalConfig::get()->first();
     }
