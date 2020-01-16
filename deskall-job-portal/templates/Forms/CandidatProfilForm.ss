@@ -103,10 +103,6 @@
 				</div>
 			</div>
 			
-			<% with Fields.FieldByName('FileFields') %>
-			$FieldHolder
-			<% end_with %>
-			
 		</div>
 	</div>
 	<% with Fields.FieldByName('SecurityID') %>

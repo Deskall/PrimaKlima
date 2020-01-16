@@ -387,10 +387,7 @@ class Candidat extends DataObject
              HeaderField::create('FormationTitle','Ihre Ausbildungen',3),
              $CursusField
             )->setName('FormationFields'),
-            CompositeField::create(
-             HeaderField::create('FileTitle','Ihre Unterlagen',3),
-             SortableUploadField::create('Files',$this->fieldLabels()['Files'])->setIsMultiUpload(true)->setFolderName($this->generateFolderName())
-            )->setName('FileFields')
+            SortableUploadField::create('Files',$this->fieldLabels()['Files'])->setIsMultiUpload(true)->setFolderName($this->generateFolderName())
         );
         // //Files
         // $fields->push(HiddenField::create('CVID'));
