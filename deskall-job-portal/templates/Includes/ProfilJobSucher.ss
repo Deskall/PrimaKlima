@@ -28,8 +28,9 @@
 									<div class="uk-panel uk-background-muted uk-padding-small">
 										<h2><%t JobSucher.AdsTitle 'Ihre Bewerbungen' %></h2>
 										<div class="member-section-container">
-											<% if $Candidatures.exists %>
-												<% loop $Candidatures %>
+											<% if $CurrentUser.Candidat.Candidatures.exists %>
+												<% loop $CurrentUser.Candidat.Candidatures %>
+												$Title
 												<% end_loop %>
 											<% else %>
 												<p><i><%t JobSucher.noCandidatures 'Sie haben momentan keine Bewerbung' %></i></p>
