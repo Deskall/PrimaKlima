@@ -68,7 +68,7 @@ class MemberProfilePageController extends PageController{
 		parent::init();
 
 		Requirements::javascript('silverstripe/admin:client/dist/js/i18n.js');
-		Requirements::add_i18n_javascript('deskall-users/javascript/lang');
+		Requirements::add_i18n_javascript('deskall-job-portal/javascript/lang');
 		Requirements::javascript('silverstripe/admin: client/dist/js/vendor.js');
 		Requirements::javascript('silverstripe/admin: client/dist/js/bundle.js');
 		Requirements::javascript('deskall-job-portal/javascript/jobportal.js');
