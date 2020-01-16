@@ -157,16 +157,29 @@ class OfferPageController extends PageController{
 			];
 	}
 
+	public function candidate(HTTPRequest $request){
+		$id = $request->param('ID');
+		if ($id){
+			$mission = Mission::get()->byId($id);
+			if ($mission){
+				$this->getRequest()->getSession()->set('mission_id',$id);
+				return ['Title' => 'Bewerben'];
+			}
+		}
+		return $this->httpError(404);
+	}
+
 	public function ApplicationForm(){
 
 		$actions = new FieldList(FormAction::create('saveApplication', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
-		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
-		$JobGiver = ($JobGiver) ? $JobGiver : new JobGiver();
+		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		
 		$form = new Form(
 			$this,
 			'ApplicationForm',
 			FieldList::create(
+				HiddenField::create('MissionID')->setValue($this->getRequest()->getSession()->get('mission_id')),
+				HiddenField::create('CandidatID')->setValue($candidat->ID),
 				HeaderField::create('FormTitle', 'Jetzt für Stelle bewerben'),
 				LiteralField::create('FormCaption', '<p>Füllen Sie unten stehendes Formular aus, um sich ganz schnell und einfach für ihre Traumstelle zu bewerben.</p>'),
 				TextareaField::create('Content', _t('APPLICATION.Content', 'Bewerbungtext')),
@@ -176,8 +189,7 @@ class OfferPageController extends PageController{
 			new RequiredFields(['Content','Acceptance'])
 		);
 		
-		$form->addExtraClass('uk-form-horizontal form-std company-form');
-		$form->loadDataFrom($JobGiver);
+		$form->addExtraClass('form-std');
 
 		return $form;
 	}
@@ -189,7 +201,32 @@ class OfferPageController extends PageController{
 		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$form->saveInto($member);
 		$form->saveInto($JobGiver);
-	
+		
+		$config = JobPortalConfig::get()->first();
+		$member = Security::getCurrentUser();
+		if ($member){
+			$candidat = Candidat::get()->filter('MemberID',$member->ID)->first();
+			
+				if ($mission && $mission->isVisible){
+					if (Candidature::get()->filter(['CandidatID' => $candidat->ID, 'MissionID' => $id])->first()){
+						return ['Title' => 'Bewerbung bereits gesendet', 'Content' => DBHTMLText::create()->setValue($config->parseString($config->CandidatureAlreadySentText))];
+					}
+					else{
+						$cd = new Candidature();
+						$cd->CandidatID = $candidat->ID;
+						$cd->MissionID = $id;
+						$cd->Status = "created";
+						$cd->write();
+						$cd->createPDF();
+						$mission->Status = "chooseCook";
+						$mission->Candidatures()->add($cd);
+						$mission->write();
+						$mission->notifyAdminEmail();
+						return ['Title' => 'Bewerbung gesendet', 'Content' =>  DBHTMLText::create()->setValue($config->parseString($config->CandidatureSentText))];
+					}
+					
+				}
+			}
 		try {
 			$member->write();
 			$JobGiver->write();
@@ -395,38 +432,7 @@ class OfferPageController extends PageController{
 		return $this->httpError(404);
 	}
 
-	public function candidate(HTTPRequest $request){
-		$config = JobPortalConfig::get()->first();
-		$member = Security::getCurrentUser();
-		if ($member){
-			$candidat = Candidat::get()->filter('MemberID',$member->ID)->first();
-			$id = $request->param('ID');
-			if ($id){
-				$mission = Mission::get()->byId($id);
-				if ($mission && $mission->isVisible){
-					if (Candidature::get()->filter(['CandidatID' => $candidat->ID, 'MissionID' => $id])->first()){
-						return ['Title' => 'Bewerbung bereits gesendet', 'Content' => DBHTMLText::create()->setValue($config->parseString($config->CandidatureAlreadySentText))];
-					}
-					else{
-						$cd = new Candidature();
-						$cd->CandidatID = $candidat->ID;
-						$cd->MissionID = $id;
-						$cd->Status = "created";
-						$cd->write();
-						$cd->createPDF();
-						$mission->Status = "chooseCook";
-						$mission->Candidatures()->add($cd);
-						$mission->write();
-						$mission->notifyAdminEmail();
-						return ['Title' => 'Bewerbung gesendet', 'Content' =>  DBHTMLText::create()->setValue($config->parseString($config->CandidatureSentText))];
-					}
-					
-				}
-			}
-		}
-		
-		return $this->httpError(404);
-	}
+
 
 	
 
