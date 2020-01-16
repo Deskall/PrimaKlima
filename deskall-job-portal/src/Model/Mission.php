@@ -817,14 +817,14 @@ class Mission extends DataObject
     }
 
      public function notifyAdminEmail(){
-        $page = MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code','kunden')->first()->ID)->first();
+        $page = MemberProfilePage::get()->first();
         $config = SiteConfig::current_site_config();
         $emailAdmin = $config->Email;
         
         $body = "<p>Eine neue Bewerbung wurde gesendet.</p>";
         // $body .= '<p><strong>Koch :</strong><br>'.$this->Candidat()->FirstName.' '.$this->Candidat()->Surname.'</p>';
         $body .= '<p><strong>Kunde :</strong><br>'.$this->Customer()->Member()->getTitle().'</p>';
-        $body .= '<p><strong>Auftrag :</strong><br>'.$this->Title.'</p>';
+        $body .= '<p><strong>Stellenangebot :</strong><br>'.$this->Title.'</p>';
         $body .= '<p><a href="'.Director::absoluteBaseUrl().'admin/'.Config::inst()->get('UserAdmin','url_segment').'/Mission">'._t('Mission.CheckCandidature','Bewerbung prüfen').'</a></p>';
         $email = new MemberEmail($page,$this->Customer()->Member(),$config->Email, $emailAdmin,"Eine neue Bewerbung wurde gesendet",  $body);
         
