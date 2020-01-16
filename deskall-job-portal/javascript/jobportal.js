@@ -11,7 +11,4 @@ $(document).ready(function(){
 			});
 		});
 	});
-	tinymce.init({
-        selector: '.tiny-mce'
-    });
 });
