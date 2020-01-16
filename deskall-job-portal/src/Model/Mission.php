@@ -569,7 +569,7 @@ class Mission extends DataObject
         $member = Security::getCurrentUser();
         if ($member){
             $Candidat = Candidat::get()->filter('MemberID',$member->ID)->first();
-            if ($Candidat && $Candidat->Status == "approved"){
+            if ($Candidat){
               if (!Candidature::get()->filter(['CandidatID' => $Candidat->ID, 'MissionID' => $this->ID])->first()){
                     return true;
                 }  
