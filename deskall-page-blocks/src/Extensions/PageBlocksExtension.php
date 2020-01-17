@@ -61,6 +61,11 @@ class PageBlocksExtension extends DataExtension {
 		$this->owner->checkLead();
 	}
 
+	public function onBeforeDelete(){
+		parent::onBeforeDelete();
+		$this->owner->ElementalArea()->delete();
+	}
+
 	public function firstBlockSlide(){
 		if ($this->owner->ID < 0){
 			return false;
