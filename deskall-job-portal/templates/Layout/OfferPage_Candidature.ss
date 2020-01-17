@@ -29,7 +29,7 @@
 		<div class="uk-margin">
 			<div class="uk-card uk-card-body">
 				<h2><%t Candidature.Text 'Bewerbungstext' %></h2>
-				$Content
+				<i>$Content</i>
 			</div>
 		</div>
 		<% end_if %>
