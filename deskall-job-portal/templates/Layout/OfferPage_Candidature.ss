@@ -24,6 +24,14 @@
 				</div>
 			</div>
 		</div>
+		<% if $Content %>
+		<div class="uk-margin">
+			<div class="uk-card uk-card-body">
+				<h2><%t Candidature.Text 'Bewerbungstext' %></h2>
+				$Content
+			</div>
+		</div>
+		<% end_if %>
 		<hr>
 		<div class="uk-margin">
 			<div class="uk-card uk-card-body">
