@@ -72,7 +72,7 @@
 		<div class="uk-margin">
 			<div class="uk-flex uk-flex-center uk-flex-around">
 				<a href="mailto:{$Candidat.Email}?subject=<%t Candidature.ContactMailTilte 'Ihre Bewerbung für die Stellenangebot' %> {$Mission.Nummer}  - $Top.SiteConfig.Title" class="uk-button button-PrimaryBackground"><i class="icon icon-ios-paperplane uk-margin-small-right"></i><%t Candidature.Answer 'Kontakt aufnehmen' %></a>
-				<a data-uk-toggle="#decline-modal" class="uk-button uk-button-default"><i class="icon icon-ios-close-outline uk-margin-small-right"></i><%t Candidature.Decline 'Bewerbung ablehnen' %></a>
+				<% if canDecline %><a data-uk-toggle="#decline-modal" class="uk-button uk-button-default"><i class="icon icon-ios-close-outline uk-margin-small-right"></i><%t Candidature.Decline 'Bewerbung ablehnen' %></a><% end_if %>
 			</div>
 		</div>
 		<% end_with %>

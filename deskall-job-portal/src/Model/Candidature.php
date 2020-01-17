@@ -79,6 +79,16 @@ class Candidature extends DataObject
       return OfferPage::get()->first()->Link().'bewerbung/'.$this->ID;
     }
 
+    public function canDecline(){
+      $member = Security::currentUser();
+      if ($member){
+        if($this->Mission()->Customer()->MemberID && $this->Status != "declined"){
+          return true;
+        }
+      }
+      return false;
+    }
+
     public function approve(){
         $this->Status = "approved";
         $this->write();

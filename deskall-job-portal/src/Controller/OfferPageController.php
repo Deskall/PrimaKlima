@@ -188,7 +188,10 @@ class OfferPageController extends PageController{
 			$id = $request->postVar('CandidatureID');
 			$Candidature = Candidature::get()->byId($id);
 			if ($Candidature){
+				$Candidature->Status = 'declined';
+				$Candidature->write();
 				$Candidature->sendDeclineEmail($request->postVar('message'));
+				return $this->redirect(MemberProfilePage::get()->first()->Link());
 			}
 			return $this->httpError(404);
 		}
