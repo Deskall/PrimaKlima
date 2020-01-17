@@ -72,10 +72,27 @@
 		<div class="uk-margin">
 			<div class="uk-flex uk-flex-center uk-flex-around">
 				<a href="mailto:{$Candidat.Email}?subject=<%t Candidature.ContactMailTilte 'Ihre Bewerbung für die Stellenangebot' %> {$Mission.Nummer}  - $Top.SiteConfig.Title" class="uk-button button-PrimaryBackground"><i class="icon icon-ios-paperplane uk-margin-small-right"></i><%t Candidature.Answer 'Kontakt aufnehmen' %></a>
-				<a data-uk-toggle="#refusal-modal" class="uk-button uk-button-default"><i class="icon icon-ios-close-outline uk-margin-small-right"></i><%t Candidature.Decline 'Bewerbung ablehnen' %></a>
+				<a data-uk-toggle="#decline-modal" class="uk-button uk-button-default"><i class="icon icon-ios-close-outline uk-margin-small-right"></i><%t Candidature.Decline 'Bewerbung ablehnen' %></a>
 			</div>
 		</div>
 		<% end_with %>
 	</div>
 </section>
-
+<!-- Candidate modal -->
+	<div id="decline-modal" data-uk-modal>
+	    <div class="uk-modal-dialog uk-modal-body">
+	        <h2 class="uk-modal-title"><%t Candidature.DeclineModalTitle 'Möchten Sie wirklich diese Bewerbung ablehnen?' %></h2>
+	        <p><%t Candidature.DeclineModalBody 'Der Bewerber wird umgehend per E-Mail informiert.' %></p>
+	        <form method="POST" action="{$Top.Link}bewerben-ablehnen" class="form-std">
+	        	<div>
+	        		<label class="uk-form-label"><%t Candidature.DeclineReason 'Ihre Nachricht an den Bewerber (fakultative)' %></label>
+	        		<div class="uk-form-controls">
+	        			<textarea class="uk-textarea" name="message"><%t Candidature.DeclineReasonBody 'Vielen Dank für Ihre Bewerbung, die Sie an uns gesendet haben. Nach sorgfältiger Prüfung müssen wir Ihnen leider mitteilen, dass wir keine Maßnahmen ergreifen.' %></textarea>
+	        		</div>
+	        	</div> 
+	        <p class="uk-text-right">
+	            <button class="uk-button uk-button-default uk-modal-close" type="button"><%t Global.Cancel 'Abbrechen' %></button>
+	            <a href="{$Link}bewerben/$Offer.ID" class="uk-button uk-button-primary" title="<%t Mission.Candidate 'Bewerben' %>"><%t Mission.Candidate 'Bewerben' %></a>
+	        </p>
+	    </div>
+	</div>
