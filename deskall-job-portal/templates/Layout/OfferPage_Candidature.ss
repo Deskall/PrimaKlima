@@ -34,6 +34,12 @@
 		</div>
 		<% end_if %>
 		<hr>
+		<% if Candidature.CV.exists %>
+		<div class="uk-margin">
+			<p><%t Candidature.ShowCV 'Konsultieren Sie das Lebenslauf' %></p>
+			<a href="$Candidature.CV.URL" target="_blank">$Candidature.CV.Name</a>
+		</div>
+		<% else %>
 		<div class="uk-margin">
 			<div class="uk-card uk-card-body">
 				<h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2>
@@ -68,6 +74,7 @@
 				<% end_loop %>
 			</div>
 		</div>
+		<% end_if %>
 		<hr>
 		<div class="uk-margin">
 			<div class="uk-flex uk-flex-center uk-flex-around">
