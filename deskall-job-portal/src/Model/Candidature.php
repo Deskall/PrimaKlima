@@ -8,6 +8,7 @@ use SilverStripe\Assets\File;
 use setasign\Fpdi\Tcpdf\Fpdi;
 use SilverStripe\Assets\Folder;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class Candidature extends DataObject
 {
