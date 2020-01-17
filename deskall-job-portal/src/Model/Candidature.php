@@ -46,6 +46,23 @@ class Candidature extends DataObject
     return $labels;
     }
 
+    public function NiceStatus(){
+      switch($this->Status){
+        case "created":
+          return _t('Candidature.Open','Offen');
+        break;
+        case "contacted":
+          return _t('Candidature.Contacted','Kontaktiert');
+        break;
+        case "declined":
+          return _t('Candidature.Declined','Abgelehnt');
+        break;
+        default:
+        return null;
+        break;
+      }
+    }
+
    
 
     public function onBeforeWrite(){
