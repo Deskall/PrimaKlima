@@ -83,7 +83,7 @@ class Candidature extends DataObject
     }
 
     public function canDecline(){
-      $member = Security::currentUser();
+      $member = Security::getCurrentUser();
       if ($member){
         if($this->Mission()->Customer()->MemberID && $this->Status != "declined"){
           return true;
