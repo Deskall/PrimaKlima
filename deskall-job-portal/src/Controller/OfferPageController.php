@@ -50,12 +50,13 @@ use SilverStripe\ORM\ArrayList;
 
 class OfferPageController extends PageController{
 
-	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm','upload'];
+	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm','upload','Candidature'];
 
 	private static $url_handlers = [
 		'details/$ID' => 'JobOffer',
 		'bestaetigung/$ID' => 'confirmMission',
-		'bewerben/$ID' => 'candidate'
+		'bewerben/$ID' => 'candidate',
+		'bewerbung/$ID' => 'Candidature'
 	];
 
 	public function init(){
@@ -165,6 +166,17 @@ class OfferPageController extends PageController{
 			if ($mission){
 				$this->getRequest()->getSession()->set('mission_id',$id);
 				return ['Title' => 'Bewerben', 'Offer' => $mission];
+			}
+		}
+		return $this->httpError(404);
+	}
+
+	public function Candidature(HTTPRequest $request){
+		$id = $request->param('ID');
+		if ($id){
+			$Candidature = Candidature::get()->byId($id);
+			if ($Candidature){
+				return ['Title' => 'Bewerbung für die Stellenangebot '.$Candidature->Mission()->Nummer, 'Candidature' => $Candidature];
 			}
 		}
 		return $this->httpError(404);
