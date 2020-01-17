@@ -82,7 +82,7 @@ class Candidature extends DataObject
       return OfferPage::get()->first()->Link().'bewerbung/'.$this->ID;
     }
 
-    public function canView(){
+    public function canView($member = null){
       $member = Security::getCurrentUser();
       if ($member){
         if(Permission::check('ADMIN') || $this->Mission()->Customer()->MemberID == $member->ID || $this->CandidatID == $member->ID){
