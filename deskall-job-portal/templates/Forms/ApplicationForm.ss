@@ -26,7 +26,7 @@
 					<label class="uk-form-label"><%t APPLICATION.CVLabel2 'Oder laden Sie hier Ihr CV' %></label>
 					<div class="uk-form-controls">
 						<div class="uk-margin-small">
-							<div id="upload-CV" class="js-upload simple uk-placeholder uk-text-center" data-container="#cv-container" data-field-name="CVID" data-type="file">
+							<div id="upload-CV" class="js-upload simple uk-placeholder uk-text-center" data-container="#cv-container" data-field-name="CVID" data-type="file" data-url="$Top.Link">
 								<div class="form-field">
 									<span data-uk-icon="icon: cloud-upload"></span>
 									<span class="uk-text-middle"><%t Member.AddCV 'Legen Sie Ihr CV ab oder' %></span>
