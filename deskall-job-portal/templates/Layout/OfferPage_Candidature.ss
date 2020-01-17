@@ -39,7 +39,7 @@
 			<div class="uk-card uk-card-body">
 				<h2><%t Candidature.CVTitle 'Lebenslauf' %></h2>
 				<p><%t Candidature.ShowCV 'Konsultieren Sie das Lebenslauf' %></p>
-				<a href="$CV.URL" target="_blank" class="uk-button uk-button-muted"><i class="icon icon-file uk-margin-small-right"></i>$CV.Name</a>
+				<a href="$CV.URL" target="_blank" class="uk-button uk-background-muted"><i class="icon icon-file-pdf-o uk-margin-small-right"></i>$CV.Name</a>
 			</div>
 		</div>
 		<% else %>
