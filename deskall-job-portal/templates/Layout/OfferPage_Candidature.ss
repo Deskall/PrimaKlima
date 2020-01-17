@@ -33,6 +33,7 @@
 							<p>$Company</p>
 						</div>
 						<div class="uk-width-2-3 uk-width-3-4@m uk-width-4-5@l">
+							<strong>$Position</strong>
 							$Description
 						</div>
 					</div>
