@@ -64,8 +64,8 @@
 	$FieldHolder
 	<% end_with %>
 	<% with Fields.FieldByName('CVID') %>
-				$FieldHolder
-				<% end_with %>
+		$FieldHolder
+	<% end_with %>
 	<% if $Actions %>
 	<div class="btn-toolbar uk-margin">
 		<% loop $Actions %>

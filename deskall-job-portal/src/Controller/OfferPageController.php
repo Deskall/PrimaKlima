@@ -219,6 +219,7 @@ class OfferPageController extends PageController{
 			FieldList::create(
 				HiddenField::create('MissionID')->setValue($this->getRequest()->getSession()->get('mission_id')),
 				HiddenField::create('CandidatID')->setValue($candidat->ID),
+				HiddenField::create('CVID'),
 				HeaderField::create('FormTitle', 'Jetzt für Stelle bewerben'),
 				LiteralField::create('FormCaption', '<p>Füllen Sie unten stehendes Formular aus, um sich ganz schnell und einfach für ihre Traumstelle zu bewerben.</p>'),
 				TextareaField::create('Content', _t('APPLICATION.Content', 'Bewerbungtext')),
