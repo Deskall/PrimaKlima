@@ -5,7 +5,19 @@
 		<div class="uk-container">
 			<div class="uk-text-center">
 				<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
-				$forTemplate
+				<a href="/" class="uk-navbar-item uk-logo">
+						<% if Logo.exists %>
+							<% if $Logo.getExtension == "svg" %>
+							<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo"  />
+							<% else %>
+								<% if $Top.SiteConfig.HeaderLogoHeight > 0 %>
+								<img src="$Logo.ScaleHeight($Top.SiteConfig.IntVal($Top.SiteConfig.HeaderLogoHeight)).URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>"/>
+								<% else %>
+								<img src="$Logo.ScaleHeight(80).URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>"/>
+								<% end_if %>
+							<% end_if %>
+						<% end_if %>
+					</a>
 				<% end_with %>
 			</div>
 			<form method="GET" action="$OfferPage.Link" class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
