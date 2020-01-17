@@ -110,7 +110,7 @@ class MemberEmail extends Email
         $html = new DBHTMLText();
         $html->setValue($this->getParsedString($body));
      
-        $Body = $this->renderWith('Emails/base_email',array('Subject' => $this->getParsedString($subject),'Lead' => '', 'Body' => $html, 'Footer' => '', 'SiteConfig' => SiteConfig::current_site_config()));
+        $Body = $this->renderWith('emails/base_email',array('Subject' => $this->getParsedString($subject),'Lead' => '', 'Body' => $html, 'Footer' => '', 'SiteConfig' => SiteConfig::current_site_config()));
         $this->setBody($Body);
     }
 
