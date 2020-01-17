@@ -26,7 +26,7 @@
 		<div class="uk-margin">
 			<div class="uk-card uk-card-body">
 				<h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2>
-				<% loop CVItems %>
+				<% loop $Candidat.CVItems %>
 					<div data-uk-grid>
 						<div class="uk-width-1-3 uk-width-1-4@m uk-width-1-5@l">
 							<p>$Start - $End</p>
