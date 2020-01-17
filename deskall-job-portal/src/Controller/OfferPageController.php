@@ -184,7 +184,7 @@ class OfferPageController extends PageController{
 	}
 
 	public function DeclineCandidature(HTTPRequest $request){
-		if ($request->getMethod() == "POST"){
+		if ($request->isPost()){
 			$id = $request->postVar('CandidatureID');
 			$Candidature = Candidature::get()->byId($id);
 			if ($Candidature){
