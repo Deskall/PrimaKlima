@@ -71,8 +71,8 @@
 		<hr>
 		<div class="uk-margin">
 			<div class="uk-flex uk-flex-center">
-				<a href="mailto:$Email" class="uk-button button-WhiteBackground"><%t Candidature.Answer 'Kontakt aufnehmen' %></a>
-				<a data-uk-toggle="#refusal-modal" class="uk-button button-WhiteBackground"><%t Candidature.Decline 'Bewerbung ablehnen' %></a>
+				<a href="mailto:$Email" class="uk-button button-PrimaryBackground"><%t Candidature.Answer 'Kontakt aufnehmen' %></a>
+				<a data-uk-toggle="#refusal-modal" class="uk-button button-PrimaryBackground"><%t Candidature.Decline 'Bewerbung ablehnen' %></a>
 			</div>
 		</div>
 		<% end_with %>
