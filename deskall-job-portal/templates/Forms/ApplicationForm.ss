@@ -22,7 +22,7 @@
 			$FieldHolder
 			<% end_with %>
 			<div id="cv-container" hidden class="uk-margin-small">
-				<% with Fields.FieldByName('CV') %>
+				<% with Fields.FieldByName('CVID') %>
 				$FieldHolder
 				<% end_with %>
 				<%-- <div id="Form_ApplicationForm_CV_Holder" class="field text uk-margin-small">
