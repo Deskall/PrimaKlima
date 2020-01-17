@@ -51,7 +51,7 @@ use SilverStripe\ORM\ArrayList;
 
 class OfferPageController extends PageController{
 
-	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm','upload','Candidature', 'DeclineCandidature', 'DeleteCandidature'];
+	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm','upload','Candidature', 'DeclineCandidature'];
 
 	private static $url_handlers = [
 		'details/$ID' => 'JobOffer',
@@ -59,7 +59,7 @@ class OfferPageController extends PageController{
 		'bewerben/$ID' => 'candidate',
 		'bewerbung/$ID' => 'Candidature',
 		'bewerbung-ablehnen' => 'DeclineCandidature',
-		'bewerbung-loeschen/$ID' => 'DeleteCandidature'
+		
 	];
 
 	public function init(){
@@ -206,19 +206,7 @@ class OfferPageController extends PageController{
 		return $this->httpError(400);
 	}
 
-	public function DeleteCandidature(HTTPRequest $request){
-		$id = $request->param('ID');
-		if ($id){
-			$Candidature = Candidature::get()->byId($id);
-			if ($Candidature && $Candidature->canDelete()){
-				$Candidature->Status = 'deleted';
-				$Candidature->write();
-				return $this->redirect(MemberProfilePage::get()->first()->Link());
-			}
-		}
-		
-		return $this->httpError(400);
-	}
+	
 
 	public function ApplicationForm(){
 

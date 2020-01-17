@@ -44,7 +44,7 @@ use SilverStripe\Security\DefaultAdminService;
 
 class MemberProfilePageController extends PageController{
 
-	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer', 'CandidatProfilForm','CandidatAccountForm'];
+	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer', 'CandidatProfilForm','CandidatAccountForm', 'DeleteCandidature'];
 
 	private static $url_handlers = [
 		'delete-object/$ID/$OBJECT' => 'DeleteObject',
@@ -56,6 +56,7 @@ class MemberProfilePageController extends PageController{
 		'inserat-bearbeiten/$ID' => 'EditJobOffer',
 		'inserat-loeschen/$ID' => 'DeleteJobOffer',
 		'inserat-veroeffentlichen/$ID' => 'PublishJobOffer',
+		'bewerbung-loeschen/$ID' => 'DeleteCandidature',
 	];
 
 	public function activeTab(){
@@ -365,6 +366,20 @@ class MemberProfilePageController extends PageController{
 		$this->getRequest()->getSession()->set('active_tab','offers');
 		$this->getRequest()->getSession()->clear('offer_id');
 		return $this->redirectBack();
+	}
+
+	public function DeleteCandidature(HTTPRequest $request){
+		$id = $request->param('ID');
+		if ($id){
+			$Candidature = Candidature::get()->byId($id);
+			if ($Candidature && $Candidature->canDelete()){
+				$Candidature->Status = 'deleted';
+				$Candidature->write();
+				return $this->redirect(MemberProfilePage::get()->first()->Link());
+			}
+		}
+		
+		return $this->httpError(400);
 	}
 
 	
