@@ -41,6 +41,22 @@
 				<% end_loop %>
 			</div>
 		</div>
+		<div class="uk-margin">
+			<div class="uk-card uk-card-body">
+				<h2><%t Candidature.FormationTitle 'Ausbildungen' %></h2>
+				<% loop $Candidat.CursusItems %>
+					<div data-uk-grid>
+						<div class="uk-width-1-3 uk-width-1-4@m uk-width-1-5@l">
+							<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
+						</div>
+						<div class="uk-width-2-3 uk-width-3-4@m uk-width-4-5@l">
+							<strong>$Diplom</strong>
+							<p>$School</p>
+						</div>
+					</div>
+				<% end_loop %>
+			</div>
+		</div>
 		<% end_with %>
 	</div>
 </section>
