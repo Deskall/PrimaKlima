@@ -96,8 +96,8 @@
 				</nav>
 			</div>
 		</div>
-		<div class="header-slider-logo uk-position-center">
-			<a href="/" title="home"><img src="$ThemeDir/img/logo.svg" class="header-logo" /></a>
+		<div class="header-logo uk-position-center">
+			<a href="/" title="home" class="uk-logo"><img src="$ThemeDir/img/logo.svg"  /></a>
 		</div>
 
 		<div class="uk-position-center-right dk-service-links uk-visible@m">
