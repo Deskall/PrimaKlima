@@ -423,7 +423,7 @@ class Candidat extends DataObject
             $date = new \DateTime();
             $date->modify('-18 years');
             $fields = new FieldList(
-                DropdownField::create('Gender',$this->fieldLabels()['Gender'], ['Sir' => _t(__CLASS__.'.GenderH', 'Herr'),'Miss' => _t(__CLASS__.'.GenderF', 'Frau')])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Anrede wählen')),
+                DropdownField::create('Gender',$this->fieldLabels()['Gender'], ['Herr' => _t(__CLASS__.'.GenderH', 'Herr'),'Frau' => _t(__CLASS__.'.GenderF', 'Frau')])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Anrede wählen')),
                 TextField::create('Surname', _t('ARBEITGEBER.Surname', 'Name'))->setAttribute('class','uk-input'),
                 TextField::create('FirstName', _t('ARBEITGEBER.FirstName', 'Vorname'))->setAttribute('class','uk-input'),
                 DateField::create('Birthdate',$this->fieldLabels()['Birthdate'])->setAttribute('class','uk-input')->setMaxDate($date->format('Y-m-d')),
