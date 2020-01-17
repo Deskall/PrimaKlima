@@ -236,6 +236,10 @@ class JobGiver extends DataObject
         return $this->Orders()->filter('isActive',1)->first();
     }
 
+    public function activeCandidatures(){
+        return $this->Candidatures()->exclude('Status','deleted')->sort('Status','DESC');
+    }
+
     public function stagedOrder(){
         return $this->Orders()->filter('isPaid',0)->first();
     }

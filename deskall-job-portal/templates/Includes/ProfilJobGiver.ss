@@ -134,7 +134,7 @@
 										<h2><%t JobGiver.AdsTitle 'Bewerbungen' %></h2>
 										<div class="member-section-container">
 											$Portal.AdsTabHTML
-											<% if CurrentCustomer.Candidatures.exists %>
+											<% if CurrentCustomer.activeCandidatures.exists %>
 											<table class="uk-table uk-table-small uk-table-divider">
 												<thead>
 													<th colspan="2"><%t Candidature.Candidat 'Bewerber' %></th>
@@ -144,7 +144,7 @@
 													<th>&nbsp;</th>
 													<th>&nbsp;</th>
 												</thead>
-												<% loop CurrentCustomer.Candidatures %>
+												<% loop CurrentCustomer.activeCandidatures %>
 												<tr><td>$Candidat.Thumbnail</td><td>$Candidat.NiceAddress</td><td>$Mission.ShortDescription</td><td>$Created.Ago</td><td><a href="$Link" title="<%t Candidature.SeeCandidat 'Bewerbung ansehen' %>" class="icon icon-eye" data-uk-tooltip></a></td><td><a data-delete="$ID" data-uk-tooltip title="<%t Candidature.Decline 'Bewerbung ablehnen' %>" class="icon icon-trash-a"></a></td><td>$NiceStatus</td></tr>
 												<% end_loop %>
 											</table>
