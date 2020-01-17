@@ -57,6 +57,9 @@ class Candidature extends DataObject
         case "declined":
           return _t('Candidature.Declined','Abgelehnt');
         break;
+        case "deleted":
+          return _t('Candidature.Deleted','Gelöscht');
+        break;
         default:
         return null;
         break;

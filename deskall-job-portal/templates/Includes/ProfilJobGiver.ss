@@ -142,9 +142,10 @@
 													<th><%t Candidature.Date 'Datum' %></th>
 													<th>&nbsp;</th>
 													<th>&nbsp;</th>
+													<th>&nbsp;</th>
 												</thead>
 												<% loop CurrentCustomer.Candidatures %>
-												<tr><td>$Candidat.Thumbnail</td><td>$Candidat.NiceAddress</td><td>$Mission.ShortDescription</td><td>$Created.Ago</td><td><a href="$Link" title="<%t Candidature.SeeCandidat 'Bewerbung ansehen' %>" class="icon icon-eye" data-uk-tooltip></a></td><td>$NiceStatus</td></tr>
+												<tr><td>$Candidat.Thumbnail</td><td>$Candidat.NiceAddress</td><td>$Mission.ShortDescription</td><td>$Created.Ago</td><td><a href="$Link" title="<%t Candidature.SeeCandidat 'Bewerbung ansehen' %>" class="icon icon-eye" data-uk-tooltip></a></td><td><a data-delete="$ID" data-uk-tooltip title="<%t Candidature.Decline 'Bewerbung ablehnen' %>" class="icon icon-trash-a"></a></td><td>$NiceStatus</td></tr>
 												<% end_loop %>
 											</table>
 											<% else %>
@@ -152,5 +153,18 @@
 											<% end_if %>
 										</div>
 									</div>
+									<!-- delete modal -->
+										<div id="candidate-modal" data-uk-modal>
+										    <div class="uk-modal-dialog uk-modal-body">
+										        <h2 class="uk-modal-title"><%t Candidature.DeleteModalTitle 'Möchten Sie wirklich diese Bewerbung löschen?' %></h2>
+										        <p class="uk-text-right">
+										            <button class="uk-button uk-button-default uk-modal-close" type="button"><%t Global.Back 'Zurück' %></button>
+										            <a class="uk-button uk-button-primary" title="<%t Candidature.Delete 'Ja, löschen' %>"><%t Candidature.Delete 'Ja, löschen' %></a>
+										        </p>
+										    </div>
+										</div>
 								</li>
 							</ul>
+
+
+

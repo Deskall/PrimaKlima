@@ -11,4 +11,10 @@ $(document).ready(function(){
 			});
 		});
 	});
+	$(document).on("click","[data-delete]",function(){
+		var id = $(this).attr('data-delete');
+		var modal = $("#delete-modal");
+		modal.find('a').attr('href',window.location.pathname+'/bewerbung-loeschen/'+id);
+		UIkit.modal(modal).show();
+	});
 });
