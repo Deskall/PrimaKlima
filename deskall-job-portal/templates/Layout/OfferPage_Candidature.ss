@@ -29,7 +29,7 @@
 				<% loop $Candidat.CVItems %>
 					<div data-uk-grid>
 						<div class="uk-width-1-3 uk-width-1-4@m uk-width-1-5@l">
-							<p><small>$StartDate.Nice - $EndDate.Nice</small></p>
+							<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
 							<p>$Company</p>
 						</div>
 						<div class="uk-width-2-3 uk-width-3-4@m uk-width-4-5@l">
