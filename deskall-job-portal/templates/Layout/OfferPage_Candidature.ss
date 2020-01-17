@@ -15,7 +15,7 @@
 					<% end_if %>
 					<div class="uk-width-expand">
 						<strong>$Candidat.Gender $Candidat.Member.FirstName $Candidat.Member.Surname</strong><br/>
-						<span>$Candidat.Age</span>
+						<% if $Candidat.Birthdate %><span>$Candidat.Age</span><% end_if %>
 						$Description
 					</div>
 					<div class="uk-width-auto candidat-address uk-text-right">
