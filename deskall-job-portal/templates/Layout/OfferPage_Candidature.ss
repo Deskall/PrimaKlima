@@ -92,7 +92,7 @@
 	        	</div> 
 	        <p class="uk-text-right">
 	            <button class="uk-button uk-button-default uk-modal-close" type="button"><%t Global.Cancel 'Abbrechen' %></button>
-	            <a href="{$Link}bewerben/$Offer.ID" class="uk-button uk-button-primary" title="<%t Candidature.Decline 'Bewerbung ablehnen' %>"><%t Candidature.Decline 'Bewerbung ablehnen' %></a>
+	            <button type="submit" class="uk-button uk-button-primary"><%t Candidature.Decline 'Bewerbung ablehnen' %></button>
 	        </p>
 	    </div>
 	</div>
