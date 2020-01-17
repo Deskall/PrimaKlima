@@ -34,10 +34,10 @@
 		</div>
 		<% end_if %>
 		<hr>
-		<% if Candidature.CV.exists %>
+		<% if CV.exists %>
 		<div class="uk-margin">
 			<p><%t Candidature.ShowCV 'Konsultieren Sie das Lebenslauf' %></p>
-			<a href="$Candidature.CV.URL" target="_blank">$Candidature.CV.Name</a>
+			<a href="$CV.URL" target="_blank">$CV.Name</a>
 		</div>
 		<% else %>
 		<div class="uk-margin">
