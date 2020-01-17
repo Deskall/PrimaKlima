@@ -154,7 +154,7 @@
 										</div>
 									</div>
 									<!-- delete modal -->
-										<div id="candidate-modal" data-uk-modal>
+										<div id="delete-modal" data-uk-modal>
 										    <div class="uk-modal-dialog uk-modal-body">
 										        <h2 class="uk-modal-title"><%t Candidature.DeleteModalTitle 'Möchten Sie wirklich diese Bewerbung löschen?' %></h2>
 										        <p class="uk-text-right">
