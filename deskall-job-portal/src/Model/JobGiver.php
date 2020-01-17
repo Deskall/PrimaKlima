@@ -325,7 +325,7 @@ class JobGiver extends DataObject
     public function getCandidatures(){
         $ids = $this->Missions()->column('ID');
         if ($ids){
-            return Candidature::get()->filter('MissionID',$ids)->exclude('Status','deleted')->sort('Status');
+            return Candidature::get()->filter('MissionID',$ids)->exclude('Status','deleted')->sort(['Status', 'Created' => 'DESC']);
         }
         return null;
     }
