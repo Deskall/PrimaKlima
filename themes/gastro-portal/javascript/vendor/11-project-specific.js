@@ -64,7 +64,73 @@
 				$(".js-upload").find('.form-field').show();
 			});
 		});
+		$(".js-upload.simple").each(function(){
+			var container = $($(this).attr('data-container'));
+			var url = (window.location.pathname.substr(window.location.pathname.length-1,1) == "/") ? window.location.pathname+"upload" : window.location.pathname+"/upload";
+			var bar = $('<progress id="js-progressbar" class="uk-progress" value="0" max hidden></progress>');
+			var form = $(this).parents('form');
+			var name = $(this).attr('data-field-name');
+			var type = $(this).attr('data-type');
+			var id = $(this).attr('id');
+			UIkit.upload('#'+id, {
 
+			    url: url,
+			    multiple: false,
+
+			    beforeSend: function () {
+			    	
+			    	var tr = $('<tr></tr>');
+			    	var td = $('<td colspan="5"></td>');
+			    	td.append(bar);
+			    	tr.append(td);
+			    	container.append(tr);
+			    },
+			    beforeAll: function () {
+			    },
+			    load: function () {
+			    },
+			    error: function () {
+			    },
+			    complete: function () {
+			    	
+			       var data = $.parseJSON(arguments[0].response);
+			       var image = data[0];
+			       if (type == "image"){
+			       	container.find('tr:last').empty().append('<td><span class="icon icon-android-more-vertical"></span></td><td><img src="'+image.smallThumbnail+'" alt="'+image.name+'" class="thumbnail" width="80" height="80" /></td><td>'+image.name+'</td><td><a data-delete-row><span class="icon icon-trash-a"></span></a></td><td><input type="hidden" name="'+name+'" value="'+image.id+'" /></td>');
+			       }
+			       else{
+			       	container.find('tr:last').empty().append('<td><span class="icon icon-android-more-vertical"></span></td><td><i class="icon icon-file uk-text-large"></i></td><td>'+image.name+'</td><td><a data-delete-row><span class="icon icon-trash-a"></span></a></td><td><input type="hidden" name="'+name+'" value="'+image.id+'" /></td>');
+			       }
+			    },
+
+			    loadStart: function (e) {
+
+			        bar.attr('hidden',false);
+			        bar.attr('max', e.total);
+			        bar.attr('value',e.loaded);
+			    },
+
+			    progress: function (e) {
+
+			        bar.attr('max', e.total);
+			        bar.attr('value',e.loaded);
+			    },
+
+			    loadEnd: function (e) {
+					bar.attr('max', e.total);
+			        bar.attr('value',e.loaded);
+			        
+			    },
+
+			    completeAll: function () {
+
+			        setTimeout(function () {
+			            bar.attr('hidden', 'hidden');
+			        }, 1000);
+			    }
+
+			});
+		});
 		$(".js-upload.multiple").each(function(){
 			var container = $($(this).attr('data-container'));
 			var url = (window.location.pathname.substr(window.location.pathname.length-1,1) == "/") ? window.location.pathname+"upload" : window.location.pathname+"/upload";

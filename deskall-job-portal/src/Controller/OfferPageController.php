@@ -223,7 +223,7 @@ class OfferPageController extends PageController{
 				LiteralField::create('FormCaption', '<p>Füllen Sie unten stehendes Formular aus, um sich ganz schnell und einfach für ihre Traumstelle zu bewerben.</p>'),
 				TextareaField::create('Content', _t('APPLICATION.Content', 'Bewerbungtext')),
 				CheckboxField::create('UseData',_t('APPLICATION.Content','Bewerben Sie sich mit Ihrem Profil Lebenslauf'))->setValue(true),
-				UploadField::create('CVID',_t('APPLICATION.CVLabel2', 'Oder laden Sie hier Ihr CV'))->setFolderName('Uploads/tmp'),
+				UploadField::create('Files',_t('APPLICATION.CVLabel2', 'Oder laden Sie hier Ihr CV'))->setFolderName('Uploads/tmp'),
 				CheckboxField::create('Acceptance',DBHTMLText::create()->setValue(_t('APPLICATION.Acceptance','<div class="dk-text-content">Wenn Sie dieses Kontrollkästchen aktivieren und auf "Bewerben" klicken, stimmen Sie unseren <a href="services/agb" target="_blank">Nutzungsbedingungen</a> zu und ermächtigen uns, Ihnen ähnliche Ankündigungen per E-Mail zu senden. Sie können diese Entscheidung jederzeit widerrufen, indem Sie sich abmelden oder das in unseren Nutzungsbedingungen beschriebene Verfahren befolgen.</div>')))
 			),
 			$actions,
