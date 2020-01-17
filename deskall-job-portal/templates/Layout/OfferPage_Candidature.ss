@@ -10,11 +10,11 @@
 				<div class="uk-flex uk-flex-middle" data-uk-grid>
 					<% if $Candidat.Picture %>
 					<div class="uk-width-auto company-logo">
-						<img src="$Candidat.Picture.ScaleWidth(150).URL" alt="Foto von $Candidat.Title" width="150">
+						$Candidat.Thumbnail
 					</div>
 					<% end_if %>
 					<div class="uk-width-expand company-address">
-						<strong>$Candidat.Title</strong><br>
+						<strong>$Candidat.Member.Title</strong><br>
 					</div>
 				</div>
 			</div>
