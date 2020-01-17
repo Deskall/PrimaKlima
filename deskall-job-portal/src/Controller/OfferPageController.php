@@ -215,7 +215,6 @@ class OfferPageController extends PageController{
 				$Candidature->write();
 				return $this->redirect(MemberProfilePage::get()->first()->Link());
 			}
-			return $this->httpError(404);
 		}
 		
 		return $this->httpError(400);
