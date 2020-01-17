@@ -66,7 +66,7 @@
 		});
 		$(".js-upload.simple").each(function(){
 			var container = $($(this).attr('data-container'));
-			var url = (($(this).attr('data-url'))) ? $(this).attr('data-url') : ( (window.location.pathname.substr(window.location.pathname.length-1,1) == "/") ? window.location.pathname+"upload" : window.location.pathname+"/upload");
+			var url = (($(this).attr('data-url'))) ? $(this).attr('data-url')+'upload' : ( (window.location.pathname.substr(window.location.pathname.length-1,1) == "/") ? window.location.pathname+"upload" : window.location.pathname+"/upload");
 			var bar = $('<progress id="js-progressbar" class="uk-progress" value="0" max hidden></progress>');
 			var form = $(this).parents('form');
 			var name = $(this).attr('data-field-name');
