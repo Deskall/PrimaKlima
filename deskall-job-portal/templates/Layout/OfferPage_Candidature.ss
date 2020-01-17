@@ -24,6 +24,7 @@
 				</div>
 			</div>
 		</div>
+		<hr>
 		<div class="uk-margin">
 			<div class="uk-card uk-card-body">
 				<h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2>
@@ -41,6 +42,7 @@
 				<% end_loop %>
 			</div>
 		</div>
+		<hr>
 		<div class="uk-margin">
 			<div class="uk-card uk-card-body">
 				<h2><%t Candidature.FormationTitle 'Ausbildungen' %></h2>
