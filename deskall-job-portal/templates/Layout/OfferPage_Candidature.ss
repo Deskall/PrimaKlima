@@ -13,8 +13,12 @@
 						$Candidat.Thumbnail
 					</div>
 					<% end_if %>
-					<div class="uk-width-expand company-address">
-						<strong>$Candidat.Member.Title</strong><br>
+					<div class="uk-width-expand">
+						<strong>$Candidat.Member.Title</strong>
+						$Description
+					</div>
+					<div class="uk-width-auto candidat-address uk-text-right">
+						$Candidat.NiceAddress
 					</div>
 				</div>
 			</div>
