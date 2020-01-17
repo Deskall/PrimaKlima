@@ -51,14 +51,15 @@ use SilverStripe\ORM\ArrayList;
 
 class OfferPageController extends PageController{
 
-	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm','upload','Candidature', 'DeclineCandidature'];
+	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm','upload','Candidature', 'DeclineCandidature', 'DeleteCandidature'];
 
 	private static $url_handlers = [
 		'details/$ID' => 'JobOffer',
 		'bestaetigung/$ID' => 'confirmMission',
 		'bewerben/$ID' => 'candidate',
 		'bewerbung/$ID' => 'Candidature',
-		'bewerbung-ablehnen' => 'DeclineCandidature'
+		'bewerbung-ablehnen' => 'DeclineCandidature',
+		'bewerbung-loeschen/$ID' => 'DeleteCandidature'
 	];
 
 	public function init(){
@@ -197,6 +198,20 @@ class OfferPageController extends PageController{
 				$Candidature->Status = 'declined';
 				$Candidature->write();
 				$Candidature->sendDeclineEmail($request->postVar('message'));
+				return $this->redirect(MemberProfilePage::get()->first()->Link());
+			}
+			return $this->httpError(404);
+		}
+		
+		return $this->httpError(400);
+	}
+
+	public function DeleteCandidature(HTTPRequest $request){
+			$id = $request->param('ID');
+			$Candidature = Candidature::get()->byId($id);
+			if ($Candidature && $Candidature->canDelete()){
+				$Candidature->Status = 'deleted';
+				$Candidature->write();
 				return $this->redirect(MemberProfilePage::get()->first()->Link());
 			}
 			return $this->httpError(404);
