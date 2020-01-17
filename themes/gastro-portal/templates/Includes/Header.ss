@@ -100,6 +100,7 @@
 							</div>
 				</form>
 			</div>
+		</div>
 		<div class="uk-position-top">
 			<div class="uk-container uk-container-medium">
 				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
