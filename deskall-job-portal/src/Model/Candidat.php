@@ -277,9 +277,11 @@ class Candidat extends DataObject
         $html = '<p>'.$this->Member()->FirstName.' '.$this->Member()->Surname.'<br/>';
         
         $html .= $this->Address.'<br/>'
-        .$this->PostalCode.' - '.$this->City.'<br/>'
-        .i18n::getData()->getCountries()[$this->Country].'<br/>'
-        .'<a href="mailto:'.$this->getEmail().'">'.$this->getEmail().'</a>'.'<br/>';
+        .$this->PostalCode.' - '.$this->City.'<br/>';
+        if ($this->Country){
+           $html .=  i18n::getData()->getCountries()[$this->Country].'<br/>';
+        }
+        $html .= '<a href="mailto:'.$this->getEmail().'">'.$this->getEmail().'</a>'.'<br/>';
         if ($this->Telefon){
             $html .= $this->Telefon;
         }
