@@ -173,6 +173,12 @@ class OfferPageController extends PageController{
 	}
 
 	public function Candidature(HTTPRequest $request){
+		if (!Security::getCurrentUser()){
+			return Security::permissionFailure($this, _t(
+				'MemberProfiles.NeedToLogin',
+				'Sie müssen sich anmelden, um auf diese Seite zugreifen zu können'
+			));
+		}
 		$id = $request->param('ID');
 		if ($id){
 			$Candidature = Candidature::get()->byId($id);
