@@ -293,6 +293,12 @@ class Candidat extends DataObject
         return $this->Member()->Email;
     }
 
+    public function getAge(){
+        $Birthdate = new \DateTime($this->Birthdate);
+        $today = new \DateTime();
+        return $today->diff($Birthdate)->format('%y');
+    }
+
     
 
 

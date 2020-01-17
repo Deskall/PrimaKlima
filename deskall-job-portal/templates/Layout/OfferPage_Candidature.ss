@@ -14,7 +14,8 @@
 					</div>
 					<% end_if %>
 					<div class="uk-width-expand">
-						<strong>$Candidat.Member.Title</strong>
+						<strong>$Candidat.Gender $Candidat.Member.FirstName $Candidat.Member.Surname</strong><br/>
+						<span>$Candidat.Age</span>
 						$Description
 					</div>
 					<div class="uk-width-auto candidat-address uk-text-right">
