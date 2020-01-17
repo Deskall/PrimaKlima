@@ -36,8 +36,11 @@
 		<hr>
 		<% if CV.exists %>
 		<div class="uk-margin">
-			<p><%t Candidature.ShowCV 'Konsultieren Sie das Lebenslauf' %></p>
-			<a href="$CV.URL" target="_blank">$CV.Name</a>
+			<div class="uk-card uk-card-body">
+				<h2><%t Candidature.CVTitle 'Lebenslauf' %></h2>
+				<p><%t Candidature.ShowCV 'Konsultieren Sie das Lebenslauf' %></p>
+				<a href="$CV.URL" target="_blank">$CV.Name</a>
+			</div>
 		</div>
 		<% else %>
 		<div class="uk-margin">
