@@ -10,6 +10,7 @@ use SilverStripe\Assets\Folder;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Security\Security;
+use SilverStripe\Security\Permission;
 
 class Candidature extends DataObject
 {
