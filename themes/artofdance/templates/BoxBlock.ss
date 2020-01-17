@@ -19,9 +19,9 @@
 								<div class="uk-margin-top dk-box-content">
 							    	<div class="box-text">$Content</div>
 							  		<div class="box-link">
-							    	<% if LinkableLinkID > 0 %>
+							    	
 										<% include CallToActionLink c=r,pos=center %>
-									<% end_if %>
+									
 									</div>
 							    </div>
 							    <% if Image %>
@@ -55,9 +55,9 @@
 							    <div class="uk-margin-top dk-box-content">
 							    	<div class="box-text">$Content</div>
 							    	<div class="box-link">
-							    	<% if LinkableLinkID > 0 %>
+							    	
 										<% include CallToActionLink c=r,pos=center %>
-									<% end_if %>
+									
 									</div>
 							    </div>
 						    <% else %>
@@ -78,9 +78,9 @@
 							    <div class="uk-margin-top dk-box-content">
 							    	<div class="box-text">$Content</div>
 							  		<div class="box-link">
-							    	<% if LinkableLinkID > 0 %>
+							    	
 										<% include CallToActionLink c=r,pos=center %>
-									<% end_if %>
+									
 									</div>
 							    </div>
 						    <% end_if %>
