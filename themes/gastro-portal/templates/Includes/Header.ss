@@ -1,4 +1,4 @@
-<%-- <header <% if $SiteConfig.StickyHeader %>class="dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
+<header <% if $SiteConfig.StickyHeader %>class="dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
 	<div class="uk-container uk-container-medium uk-position-relative">
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 			
@@ -67,9 +67,9 @@
 		</div>
 	</div>
 	<% end_if %>
-</header> --%>
+</header>
 
-<div class="header-slider uk-position-relative">
+<%-- <div class="header-slider uk-position-relative">
 		<div class="PrimaryBackground uk-padding-small">
 			<div class="uk-container">
 				<form method="GET" action="$OfferPage.Link" class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
@@ -144,4 +144,4 @@
 		</nav>
 				
 	</div>
-</header>
+</header> --%>
