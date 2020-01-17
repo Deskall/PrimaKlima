@@ -23,6 +23,22 @@
 				</div>
 			</div>
 		</div>
+		<div class="uk-margin">
+			<div class="uk-card uk-card-body">
+				<h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2>
+				<% loop CVItems %>
+					<div data-uk-grid>
+						<div class="uk-width-1-3 uk-width-1-4@m uk-width-1-5@l">
+							<p>$Start - $End</p>
+							<p>$Company</p>
+						</div>
+						<div class="uk-width-2-3 uk-width-3-4@m uk-width-4-5@l">
+							$Description
+						</div>
+					</div>
+				<% end_loop %>
+			</div>
+		</div>
 		<% end_with %>
 	</div>
 </section>
