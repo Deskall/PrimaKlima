@@ -85,7 +85,7 @@
 	        <p><%t Candidature.DeclineModalBody 'Der Bewerber wird umgehend per E-Mail informiert.' %></p>
 	        <form method="POST" action="{$Top.Link}bewerben-ablehnen" class="form-std">
 	        	<div>
-	        		<label class="uk-form-label"><i><%t Candidature.DeclineReason 'Ihre Nachricht an den Bewerber' %></i></label>
+	        		<label class="uk-form-label"><strong><%t Candidature.DeclineReason 'Ihre Nachricht an den Bewerber' %></strong></label>
 	        		<div class="uk-form-controls">
 	        			<textarea class="uk-textarea" rows="5" name="message"><%t Candidature.DeclineReasonBody 'Vielen Dank für Ihre Bewerbung, die Sie an uns gesendet haben. Nach sorgfältiger Prüfung müssen wir Ihnen leider mitteilen, dass wir keine Maßnahmen ergreifen.' %></textarea>
 	        		</div>
