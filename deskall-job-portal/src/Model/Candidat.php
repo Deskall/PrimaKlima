@@ -296,7 +296,7 @@ class Candidat extends DataObject
     public function getAge(){
         $Birthdate = new \DateTime($this->Birthdate);
         $today = new \DateTime();
-        return $today->diff($Birthdate)->format('%y');
+        return $today->diff($Birthdate)->format('%y').' '._t('Candidat.Years','Jahre alt') ;
     }
 
     
