@@ -31,7 +31,7 @@
 											<% if $CurrentCandidat.Candidatures.exists %>
 											<table class="uk-table uk-table-small uk-table-divider">
 												<% loop $CurrentCandidat.Candidatures %>
-												<tr><td>$Mission.Title</td><td>$Mission.Company</td><td>$Mission.City</td><td>$Created.Ago</td><td>$NiceStatus</td></tr>
+												<tr><td>$Mission.Title</td><td>$Mission.Company</td><td>$Mission.City</td><td>$Created.Ago</td><td>$NiceStatus</td><td>$CV</td></tr>
 												<% end_loop %>
 											</table>
 											<% else %>
