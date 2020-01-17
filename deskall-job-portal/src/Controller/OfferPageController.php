@@ -177,7 +177,9 @@ class OfferPageController extends PageController{
 		if ($id){
 			$Candidature = Candidature::get()->byId($id);
 			if ($Candidature){
-				return ['Title' => 'Bewerbung für die Stellenangebot '.$Candidature->Mission()->Nummer, 'Candidature' => $Candidature];
+				if ($Candidature->canView()){
+					return ['Title' => 'Bewerbung für die Stellenangebot '.$Candidature->Mission()->Nummer, 'Candidature' => $Candidature];
+				}
 			}
 		}
 		return $this->httpError(404);

@@ -82,10 +82,20 @@ class Candidature extends DataObject
       return OfferPage::get()->first()->Link().'bewerbung/'.$this->ID;
     }
 
+    public function canView(){
+      $member = Security::getCurrentUser();
+      if ($member){
+        if(Permission::check('ADMIN') || $this->Mission()->Customer()->MemberID == $member->ID || $this->CandidatID == $member->ID){
+          return true;
+        }
+      }
+      return false;
+    }
+
     public function canDecline(){
       $member = Security::getCurrentUser();
       if ($member){
-        if($this->Mission()->Customer()->MemberID && $this->Status != "declined"){
+        if($this->Mission()->Customer()->MemberID == $member->ID && $this->Status != "declined"){
           return true;
         }
       }
