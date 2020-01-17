@@ -8,13 +8,13 @@
 		<div class="uk-margin">
 			<div class="uk-card uk-card-body">
 				<div class="uk-flex uk-flex-middle" data-uk-grid>
-					<% if Candidature.Candidat.Picture %>
+					<% if $Candidat.Picture %>
 					<div class="uk-width-auto company-logo">
-						<img src="$Candidature.Candidat.Picture.ScaleWidth(150).URL" alt="Foto von $Candidature.Candidat.Title" width="150">
+						<img src="$Candidat.Picture.ScaleWidth(150).URL" alt="Foto von $Candidat.Title" width="150">
 					</div>
 					<% end_if %>
 					<div class="uk-width-expand company-address">
-						<strong>$Candidature.Candidat.Title</strong><br>
+						<strong>$Candidat.Title</strong><br>
 					</div>
 				</div>
 			</div>
