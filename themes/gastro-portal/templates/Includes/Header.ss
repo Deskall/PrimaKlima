@@ -1,7 +1,7 @@
 <header <% if $SiteConfig.StickyHeader %>class="dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
 	
 	
-	<div class="uk-padding-small">
+	<div class="BodyBackground uk-padding-small">
 		<div class="uk-container">
 			<div class="uk-text-center uk-margin-bottom">
 				<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
