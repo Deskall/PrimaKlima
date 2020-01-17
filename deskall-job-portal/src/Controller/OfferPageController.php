@@ -237,7 +237,10 @@ class OfferPageController extends PageController{
 
 	public function saveApplication($data, Form $form)
 	{
-		
+		ob_start();
+					print_r($data);
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		$config = JobPortalConfig::get()->first();
 		$member = Security::getCurrentUser();
 		if ($member){
