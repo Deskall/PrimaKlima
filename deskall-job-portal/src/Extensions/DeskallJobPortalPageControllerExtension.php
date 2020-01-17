@@ -155,7 +155,9 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
             return $this->owner->httpError(404);
         }   
 
-        $confirmationTitle = $this->owner->data()->dbObject('ConfirmationTitle');
+        $config = $this->getPortal();
+
+        $confirmationTitle = $config->dbObject('ConfirmationTitle');
             /**
              * @var Member|null $member
              */
@@ -165,7 +167,7 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
             }
             if (!$member->NeedsValidation) {
                 return [
-                    'Title'   => $this->owner->data()->dbObject('ConfirmationTitle'),
+                    'Title'   => $config->dbObject('ConfirmationTitle'),
                     'Content' =>  
                         DBHTMLText::create()->setValue('Ihr konto wurde bereits bestätigt. Klicken Sie <a href="'.$member->MemberPageLink().'">hier</a> an, um auf Ihrem Konto zu zugreiffen')
                     
@@ -213,8 +215,8 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
             $config = JobPortalConfig::get()->first();
 
             return [
-                'Title'   => $this->owner->data()->dbObject('AfterConfirmationTitle'),
-                'Content' => DBHTMLText::create()->setValue($config->parseString($this->owner->data()->dbObject('AfterConfirmationContent')))
+                'Title'   => $config->dbObject('AfterConfirmationTitle'),
+                'Content' => DBHTMLText::create()->setValue($config->parseString($config->dbObject('AfterConfirmationContent')))
             ];
            
     }
