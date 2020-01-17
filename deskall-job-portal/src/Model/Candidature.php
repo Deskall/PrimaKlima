@@ -81,11 +81,11 @@ class Candidature extends DataObject
     {
         if ($this->isChanged('CVID')){
             $changedFields = $this->getChangedFields();
-            $$oldFile = File::get()->byId($changedFields['CVID']['before']);
-            if ($$oldFile){
-                $$oldFile->File->deleteFile();
-                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($$oldFile->ID));
-                $$oldFile->delete();
+            $oldFile = File::get()->byId($changedFields['CVID']['before']);
+            if ($oldFile){
+                $oldFile->File->deleteFile();
+                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($oldFile->ID));
+                $oldFile->delete();
             }
         }
         
