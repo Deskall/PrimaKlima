@@ -48,6 +48,7 @@ use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\ORM\PaginatedList;
 use SilverStripe\ORM\ArrayList;
 
+
 class OfferPageController extends PageController{
 
 	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm','upload','Candidature', 'DeclineCandidature'];
@@ -174,10 +175,7 @@ class OfferPageController extends PageController{
 
 	public function Candidature(HTTPRequest $request){
 		if (!Security::getCurrentUser()){
-			return Security::permissionFailure($this, _t(
-				'MemberProfiles.NeedToLogin',
-				'Sie müssen sich anmelden, um auf diese Seite zugreifen zu können'
-			));
+			return Security::permissionFailure($this, null);
 		}
 		$id = $request->param('ID');
 		if ($id){
