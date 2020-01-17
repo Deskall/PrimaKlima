@@ -66,16 +66,29 @@ class Candidature extends DataObject
       }
     }
 
-   
 
-    public function onBeforeWrite(){
+  public function onBeforeWrite(){
         parent::onBeforeWrite();
-       
+        if ($this->CV()->exists()){
+            $folder = Folder::find_or_make($this->getFolderName());
+            $this->CV()->ParentID = $folder->ID;
+            $this->CV()->write();
+            $this->CV()->publishSingle();
+        }
     }
 
     public function onAfterWrite()
     {
-       
+        if ($this->isChanged('CVID')){
+            $changedFields = $this->getChangedFields();
+            $$oldFile = File::get()->byId($changedFields['CVID']['before']);
+            if ($$oldFile){
+                $$oldFile->File->deleteFile();
+                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($$oldFile->ID));
+                $$oldFile->delete();
+            }
+        }
+        
         parent::onAfterWrite();
        
     }
