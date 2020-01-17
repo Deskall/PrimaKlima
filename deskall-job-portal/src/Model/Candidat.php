@@ -274,15 +274,16 @@ class Candidat extends DataObject
     // }
 
     public function NiceAddress(){
-        $html = '<p>'.$this->Member()->getTitle().'<br/>';
-        if ($this->Company){
-            $html .= $this->Company.'<br/>';
-        }
+        $html = '<p>'.$this->Member()->FirstName.' '.$this->Member()->Surname.'<br/>';
+        
         $html .= $this->Address.'<br/>'
         .$this->PostalCode.' - '.$this->City.'<br/>'
-        .$this->Country.'</p>'
-        .'<p><a href="mailto:'.$this->Email.'">'.$this->Email.'</a>'.'<br/>'
-        .$this->Telefon.'</p>';
+        .i18n::getData()->getCountries()[$this->Country].'</p>'
+        .'<p><a href="mailto:'.$this->getEmail().'">'.$this->getEmail().'</a>'.'<br/>';
+        if ($this->Telefon){
+            $html .= $this->Telefon;
+        }
+        $html .= '</p>';
         $o = new DBHTMLText();
         $o->setValue($html);
         return $o;
