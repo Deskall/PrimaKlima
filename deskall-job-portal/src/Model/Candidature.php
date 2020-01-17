@@ -121,5 +121,16 @@ class Candidature extends DataObject
       $this->write();
     }
 
+    public function sendDeclineEmail($message){
+        $config = $this->getConfig();
+        $page = MemberProfilePage::get()->first();
+        $from = ($config->EmailFrom) ? $config->EmailFrom : SiteConfig::current_site_config()->Email;
+        $body = new DBHTMLText();
+        $body->setValue($config->AfterRefusalCandidatureEmailBody.$message);
+        
+        $mail = new MemberEmail($page,$this->Candidat()->Member(),$from,$this->Candidat()->getEmail(),$config->AfterRefusalCandidatureEmailSubject,$body);
+        $mail->send();
+    }
+
 
 }

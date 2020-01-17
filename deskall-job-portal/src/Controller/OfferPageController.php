@@ -50,13 +50,14 @@ use SilverStripe\ORM\ArrayList;
 
 class OfferPageController extends PageController{
 
-	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm','upload','Candidature'];
+	private static $allowed_actions = ['OfferForm','confirmMission','candidate','JobOffer','ApplicationForm','upload','Candidature', 'DeclineCandidature'];
 
 	private static $url_handlers = [
 		'details/$ID' => 'JobOffer',
 		'bestaetigung/$ID' => 'confirmMission',
 		'bewerben/$ID' => 'candidate',
-		'bewerbung/$ID' => 'Candidature'
+		'bewerbung/$ID' => 'Candidature',
+		'bewerbung-ablehnen' => 'DeclineCandidature'
 	];
 
 	public function init(){
@@ -180,6 +181,19 @@ class OfferPageController extends PageController{
 			}
 		}
 		return $this->httpError(404);
+	}
+
+	public function DeclineCandidature(HTTPRequest $request){
+		if ($request->getMethod() == "POST"){
+			$id = $request->postVar('CandidatureID');
+			$Candidature = Candidature::get()->byId($id);
+			if ($Candidature){
+				$Candidature->sendDecline($request->postVar('message'));
+			}
+			return $this->httpError(404);
+		}
+		
+		return $this->httpError(400);
 	}
 
 	public function ApplicationForm(){

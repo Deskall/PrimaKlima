@@ -83,16 +83,18 @@
 	    <div class="uk-modal-dialog uk-modal-body">
 	        <h2 class="uk-modal-title"><%t Candidature.DeclineModalTitle 'Möchten Sie wirklich diese Bewerbung ablehnen?' %></h2>
 	        <p><%t Candidature.DeclineModalBody 'Der Bewerber wird umgehend per E-Mail informiert.' %></p>
-	        <form method="POST" action="{$Top.Link}bewerben-ablehnen" class="form-std">
+	        <form method="POST" action="{$Top.Link}bewerbung-ablehnen" class="form-std">
 	        	<div>
 	        		<label class="uk-form-label"><strong><%t Candidature.DeclineReason 'Ihre Nachricht an den Bewerber' %></strong></label>
 	        		<div class="uk-form-controls">
 	        			<textarea class="uk-textarea" rows="5" name="message"><%t Candidature.DeclineReasonBody 'Vielen Dank für Ihre Bewerbung, die Sie an uns gesendet haben. Nach sorgfältiger Prüfung müssen wir Ihnen leider mitteilen, dass wir keine Maßnahmen ergreifen.' %></textarea>
+	        			<input type="hidden" name="CandidatureID" value="$Candidature.ID">
 	        		</div>
 	        	</div> 
-	        <p class="uk-text-right">
-	            <button class="uk-button uk-button-default uk-modal-close" type="button"><%t Global.Cancel 'Abbrechen' %></button>
-	            <button type="submit" class="uk-button uk-button-primary"><%t Candidature.Decline 'Bewerbung ablehnen' %></button>
-	        </p>
+		        <p class="uk-text-right">
+		            <button class="uk-button uk-button-default uk-modal-close" type="button"><%t Global.Cancel 'Abbrechen' %></button>
+		            <button type="submit" class="uk-button uk-button-primary"><%t Candidature.Decline 'Bewerbung ablehnen' %></button>
+		        </p>
+		    </form>
 	    </div>
 	</div>

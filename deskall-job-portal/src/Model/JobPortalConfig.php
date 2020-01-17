@@ -82,7 +82,10 @@ class JobPortalConfig extends DataObject
         'ProfilTabHTML' => 'HTMLText',
         'OffersTabHTML' => 'HTMLText',
         'PaymentTabHTML' => 'HTMLText',
-        'AdsTabHTML' => 'HTMLText'
+        'AdsTabHTML' => 'HTMLText',
+
+        'AfterRefusalCandidatureEmailSubject'             => 'Varchar(255)',
+        'AfterRefusalCandidatureEmailBody'            => 'HTMLText',
         
     );
 
@@ -148,7 +151,8 @@ class JobPortalConfig extends DataObject
     $labels['AGBCookFile'] = _t(__CLASS__.'.AGBCookFile','AGB Datei (Koch)');
     $labels['EmailSignature'] = _t(__CLASS__.'.EmailSignature','E-Mail Signatur');
     $labels['AutoOffer'] = _t(__CLASS__.'.AutoOffer','E-Mail mit Angebot an Kunde nach Anfrage senden?');
-
+    $labels['AfterRefusalCandidatureEmailBody'] = _t(__CLASS__.'.AfterRefusalCandidatureEmailBody','Inhalt der Email - Bewerbung abgelehnt');
+    $labels['AfterRefusalCandidatureEmailSubject'] = _t(__CLASS__.'.AfterRefusalCandidatureEmailSubject','Titel der Email - Bewerbung abgelehnt');
     
     return $labels;
     }
