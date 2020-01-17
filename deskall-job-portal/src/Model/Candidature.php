@@ -75,6 +75,10 @@ class Candidature extends DataObject
         return JobPortalConfig::get()->first();
     }
 
+    public function Link(){
+      return OfferPage::get()->first()->Link().'bewerbung/'.$this->ID;
+    }
+
     public function approve(){
         $this->Status = "approved";
         $this->write();
