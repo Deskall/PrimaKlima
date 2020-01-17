@@ -123,7 +123,7 @@ class Candidature extends DataObject
       return false;
     }
 
-    public function canDelete(){
+    public function canDelete($member = null){
       $member = Security::getCurrentUser();
       if ($member){
         if(Permission::check('ADMIN') || $this->Mission()->Customer()->MemberID == $member->ID){

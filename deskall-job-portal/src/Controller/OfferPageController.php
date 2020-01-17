@@ -207,7 +207,8 @@ class OfferPageController extends PageController{
 	}
 
 	public function DeleteCandidature(HTTPRequest $request){
-			$id = $request->param('ID');
+		$id = $request->param('ID');
+		if ($id){
 			$Candidature = Candidature::get()->byId($id);
 			if ($Candidature && $Candidature->canDelete()){
 				$Candidature->Status = 'deleted';
