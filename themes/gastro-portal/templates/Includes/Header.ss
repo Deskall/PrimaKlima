@@ -1,8 +1,13 @@
 <header <% if $SiteConfig.StickyHeader %>class="dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
 	
 	
-	<div class="PrimaryBackground uk-padding-small">
+	<div class="PrimaryBackground uk-padding-small uk-height-small">
 		<div class="uk-container">
+			<div class="uk-text-center">
+				<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
+				$forTemplate
+				<% end_with %>
+			</div>
 			<form method="GET" action="$OfferPage.Link" class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
 
 						<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
@@ -35,7 +40,7 @@
 	<div class="uk-container uk-container-medium uk-position-relative">
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 			
-			<% loop SiteConfig.activeMenuBlocks %>
+			<% loop SiteConfig.activeMenuBlocks.exclude('type','Logo') %>
 				<% if Type == 'form' %>
 					<div class="$Layout $Width uk-visible@l $Class">$Top.SearchForm</div>
 				<% else_if Type == "Languages" %>
