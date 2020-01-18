@@ -68,14 +68,8 @@
 	<div class="uk-container uk-container-medium uk-position-relative">
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 			
-			<% loop SiteConfig.activeMenuBlocks.exclude('type','Logo') %>
-				<% if Type == 'form' %>
-					<div class="$Layout $Width uk-visible@l $Class">$Top.SearchForm</div>
-				<% else_if Type == "Languages" %>
-					<% include MenuBlock_Languages Locales=Top.Locales %>
-				<% else %>
-					$forTemplate
-				<% end_if %>
+			<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-main') %>
+				$forTemplate
 			<% end_loop %>
 			<div class="uk-navbar-right uk-hidden@l">
 	            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
