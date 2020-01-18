@@ -34,8 +34,8 @@
 								<% end_if %>
 							<% end_loop %>
 						</nav>
-						<div class="uk-text-right">
-							<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
+						
+							<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-right uk-flex-middle" data-uk-grid>
 
 										<div class="uk-width-1-3 uk-flex uk-flex-left uk-flex-middle">
 											<strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
@@ -62,7 +62,7 @@
 											<button class="uk-button button-PrimaryBackground uk-flex uk-flex-middle"><span><%t FinderBar.SearchAction 'Jobs suchen' %></span><i class="icon icon-chevron-right uk-margin-small-left uk-text-small"></i></button>
 										</div>
 							</form>
-						</div>
+						
 				</div>
 			</div>
 		</div>
