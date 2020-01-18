@@ -1,5 +1,5 @@
 <% if $ClassName == "HomePage" %>
-<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-uk-slideshow="ratio: false;autoplay:true;autoplayInterval:5000;animation:fade">
+<div class="uk-position-relative" tabindex="-1" data-uk-slideshow="ratio: false;autoplay:true;autoplayInterval:5000;animation:fade">
     <ul class="uk-slideshow-items" data-uk-height-viewport="">
     	<% loop SiteConfig.activeSlides %>
         <li>
