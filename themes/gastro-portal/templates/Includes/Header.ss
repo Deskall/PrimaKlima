@@ -4,9 +4,14 @@
     	<% loop SiteConfig.activeSlides %>
         <li>
              <img src="$Image.FocusFill(320,250).URL" data-srcset="$Image.FocusFill(320,250).URL 320w, $Image.FocusFill(650,500).URL 650w, $Image.FocusFill(1200,800).URL 1200w, $Image.FocusFillMax(2500,1500).URL 2500w" alt="" data-uk-cover data-uk-img>
+
         </li>
         <% end_loop %>
     </ul>
+    <div class="uk-position-center uk-position-small">
+    	<div class="uk-background-muted uk-height-large uk-width-small">
+    	</div>
+    </div>
 </div>
 <% else %>
 <header <% if $SiteConfig.StickyHeader %>class="uk-box-shadow-medium dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="uk-box-shadow-mediul dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
