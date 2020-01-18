@@ -8,7 +8,7 @@
         </li>
         <% end_loop %>
     </ul>
-    <div class="uk-position-center-left uk-position-small">
+    <div class="uk-position-center-left uk-position-medium">
     	<div class="uk-background-muted uk-padding uk-text-center uk-box-shadow-large">
     		<div class="uk-width-auto uk-align-center">
     			<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
@@ -28,7 +28,7 @@
     		<h2>$SiteConfig.Tagline</h2>
     		<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-right uk-flex-middle" data-uk-grid>
 
-    					<div class="uk-width-1-3 uk-flex uk-flex-left uk-flex-middle">
+    					<div class="uk-flex uk-flex-left uk-flex-middle">
     						<strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
     						<input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
     						<datalist id="positions">
@@ -40,7 +40,7 @@
 
 
 
-    					<div class="uk-width-1-3 uk-flex uk-flex-left uk-flex-middle">
+    					<div class="uk-flex uk-flex-left uk-flex-middle">
     						<strong class="uk-margin-small-right"><%t FinderBar.PlaceLabel 'Wo?' %></strong>
     						<input list="places" name="ort" class="uk-input" placeholder="<%t FinderBar.Place 'Ort' %>">
     						<datalist id="places">
@@ -49,7 +49,7 @@
     							<% end_loop %>
     						</datalist>
     					</div>
-    					<div class="uk-width-1-3">
+    					<div>
     						<button class="uk-button button-PrimaryBackground uk-flex uk-flex-middle"><span><%t FinderBar.SearchAction 'Jobs suchen' %></span><i class="icon icon-chevron-right uk-margin-small-left uk-text-small"></i></button>
     					</div>
     		</form>
