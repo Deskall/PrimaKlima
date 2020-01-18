@@ -1,46 +1,17 @@
 <% if Class == "HomePage" %>
-<div class="header-slider uk-position-relative">
-	
-		<div data-uk-slideshow="autoplay: true;animation: fade;autoplay-interval:5000;min-height: 300; max-height:300">
-		    <ul class="uk-slideshow-items">
-		    	<% loop SiteConfig.activeSlides %>
-		        <li>
-		        	<div class="uk-inline uk-width-1-1 uk-height-1-1">
-					    <img src="$Image.FocusFill(320,250).URL" data-srcset="$Image.FocusFill(320,250).URL 320w, $Image.FocusFill(650,500).URL 650w, $Image.FocusFill(1200,800).URL 1200w, $Image.FocusFill(2500,1500).URL 2500w" alt="" data-uk-cover data-sizes="100vw" data-uk-img>
-					    <div class="uk-overlay uk-position-bottom-right uk-text-right">
-					    	<div class="header-slide-title">$Title</div>
-		            		<div class="header-slide-subtitle">$Content</div>
-		            	</div>
-					</div>
-		        </li>
-		        <% end_loop %>
-		    </ul>
-		</div>
-		<div class="uk-position-top">
-			<div class="uk-container uk-container-medium">
-				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-					
-					<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top') %>
-						$forTemplate
-					<% end_loop %>
-				</nav>
-			</div>
-		</div>
-		<div class="header-slider-logo uk-position-center uk-text-center">
-			<a href="/" title="home"><img src="$ThemeDir/img/logo.svg" class="header-logo" /></a>
-			<a href="/angebot-anfordern" title="<%t General.MissionButtonTitle '2 Schritten zum Sofort-Angebot' %>" class="uk-button mission-button uk-border-rounded uk-box-shadow-large uk-button-large"><i class="fa fa-arrow-alt-circle-right uk-margin-small-right"></i><%t General.MissionButton 'Jetzt Mietköche anfragen!' %></a>
-		</div>
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="ratio: false">
 
-		<div class="uk-position-center-right dk-service-links uk-visible@m">
-	        <a data-share class="item share" ></a>
+    <ul class="uk-slideshow-items" uk-height-viewport="offset-top: true; offset-bottom: 30">
+    	<% loop SiteConfig.activeSlides %>
+        <li>
+             <img src="$Image.FocusFill(320,250).URL" data-srcset="$Image.FocusFill(320,250).URL 320w, $Image.FocusFill(650,500).URL 650w, $Image.FocusFill(1200,800).URL 1200w, $Image.FocusFillMax(2500,1500).URL 2500w" alt="" data-uk-cover data-uk-img>
+        </li>
+        <% end_loop %>
+    </ul>
 
-			<div class="service-share"  id="service-share">
-				<a data-close-share class="close-share" ></a>
-				<div class="shariff" data-button-style="icon" data-mail-url="mailto:$SiteConfig.Email" data-services="[&quot;facebook&quot;,&quot;twitter&quot;,&quot;linkedin&quot;,&quot;googleplus&quot;,&quot;xing&quot;,&quot;whatsapp&quot;,mail&quot;]"></div>
-			</div>
-	    </div>
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
 
-	
 </div>
 <% else %>
 <header <% if $SiteConfig.StickyHeader %>class="uk-box-shadow-medium dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="uk-box-shadow-mediul dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
