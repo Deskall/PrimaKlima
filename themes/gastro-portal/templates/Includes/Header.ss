@@ -10,7 +10,7 @@
     </ul>
     <div class="uk-position-center uk-position-small">
     	<div class="uk-background-muted uk-padding uk-text-center">
-    		<div class="uk-width-small">
+    		<div class="uk-width-small uk-text-center">
     			<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
     				<% if Logo.exists %>
     					<% if $Logo.getExtension == "svg" %>
