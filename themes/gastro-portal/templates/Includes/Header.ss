@@ -10,7 +10,8 @@
     </ul>
     <div class="uk-position-center uk-position-small">
     	<div class="uk-background-muted uk-padding">
-    		<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
+    		<div class="uk-width-small">
+    			<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
     				<% if Logo.exists %>
     					<% if $Logo.getExtension == "svg" %>
     					<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo"  />
@@ -22,7 +23,8 @@
     						<% end_if %>
     					<% end_if %>
     				<% end_if %>
-    		<% end_with %>
+    			<% end_with %>
+    		</div>
     		<h2>$SiteConfig.Tagline</h2>
     		<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-right uk-flex-middle" data-uk-grid>
 
