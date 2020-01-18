@@ -24,7 +24,7 @@
 					</div>
 				</div>
 				<div class="uk-width-4-5">
-					<form method="GET" action="$OfferPage.Link" class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
+					<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
 
 								<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
 									<strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
