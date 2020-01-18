@@ -9,7 +9,7 @@
         <% end_loop %>
     </ul>
     <div class="uk-position-center uk-position-small">
-    	<div class="uk-background-muted uk-height-large uk-width-small">
+    	<div class="uk-background-muted uk-padding">
     		<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
     				<% if Logo.exists %>
     					<% if $Logo.getExtension == "svg" %>
@@ -23,6 +23,34 @@
     					<% end_if %>
     				<% end_if %>
     		<% end_with %>
+    		<h2>$SiteConfig.Tagline</h2>
+    		<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-right uk-flex-middle" data-uk-grid>
+
+    					<div class="uk-width-1-3 uk-flex uk-flex-left uk-flex-middle">
+    						<strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
+    						<input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
+    						<datalist id="positions">
+    							<% loop $Portal.getPositions %>
+    								<option value="$Title">$Title</option>
+    							<% end_loop %>
+    						</datalist>
+    					</div>
+
+
+
+    					<div class="uk-width-1-3 uk-flex uk-flex-left uk-flex-middle">
+    						<strong class="uk-margin-small-right"><%t FinderBar.PlaceLabel 'Wo?' %></strong>
+    						<input list="places" name="ort" class="uk-input" placeholder="<%t FinderBar.Place 'Ort' %>">
+    						<datalist id="places">
+    							<% loop $Portal.getCities.groupedBy(City) %>
+    								<option value="$City" <% if $Selected %>selected<% end_if %>>$City</option>
+    							<% end_loop %>
+    						</datalist>
+    					</div>
+    					<div class="uk-width-1-3">
+    						<button class="uk-button button-PrimaryBackground uk-flex uk-flex-middle"><span><%t FinderBar.SearchAction 'Jobs suchen' %></span><i class="icon icon-chevron-right uk-margin-small-left uk-text-small"></i></button>
+    					</div>
+    		</form>
     	</div>
     </div>
 </div>
