@@ -1,4 +1,5 @@
 <% if Class == "HomePage" %>
+ici
 <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="ratio: false">
 
     <ul class="uk-slideshow-items" uk-height-viewport="offset-top: true; offset-bottom: 30">
