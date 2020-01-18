@@ -1,5 +1,5 @@
 <% if $ClassName == "HomePage" %>
-<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-uk-slideshow="ratio: false">
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-uk-slideshow="ratio: false;autoplay:true;autoplayInterval:5000">
     <ul class="uk-slideshow-items" data-uk-height-viewport="">
     	<% loop SiteConfig.activeSlides %>
         <li>
@@ -9,7 +9,7 @@
         <% end_loop %>
     </ul>
     <div class="uk-position-center uk-position-small">
-    	<div class="uk-background-muted uk-padding uk-text-center uk-box-shadow-medium">
+    	<div class="uk-background-muted uk-padding uk-text-center uk-box-shadow-large">
     		<div class="uk-width-auto uk-align-center">
     			<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
     				<% if Logo.exists %>
