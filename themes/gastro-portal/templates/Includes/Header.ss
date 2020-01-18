@@ -3,50 +3,56 @@
 	
 	<div class="header-top uk-padding-small">
 		<div class="uk-container">
-			<div class="uk-text-center uk-margin-bottom">
-				<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
-				<a href="/" class="uk-navbar-item uk-logo">
-						<% if Logo.exists %>
-							<% if $Logo.getExtension == "svg" %>
-							<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo"  />
-							<% else %>
-								<% if $Top.SiteConfig.HeaderLogoHeight > 0 %>
-								<img src="$Logo.ScaleHeight($Top.SiteConfig.IntVal($Top.SiteConfig.HeaderLogoHeight)).URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>"/>
-								<% else %>
-								<img src="$Logo.ScaleHeight(80).URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>"/>
+			<div data-uk-grid>
+				<div class="uk-width-1-5">
+					<div class="uk-text-center uk-margin-bottom">
+						<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
+						<a href="/" class="uk-navbar-item uk-logo">
+								<% if Logo.exists %>
+									<% if $Logo.getExtension == "svg" %>
+									<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo"  />
+									<% else %>
+										<% if $Top.SiteConfig.HeaderLogoHeight > 0 %>
+										<img src="$Logo.ScaleHeight($Top.SiteConfig.IntVal($Top.SiteConfig.HeaderLogoHeight)).URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>"/>
+										<% else %>
+										<img src="$Logo.ScaleHeight(80).URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>"/>
+										<% end_if %>
+									<% end_if %>
 								<% end_if %>
-							<% end_if %>
-						<% end_if %>
-					</a>
-				<% end_with %>
+							</a>
+						<% end_with %>
+					</div>
+				</div>
+				<div class="uk-width-4-5">
+					<form method="GET" action="$OfferPage.Link" class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
+
+								<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
+									<strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
+									<input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
+									<datalist id="positions">
+										<% loop $Portal.getPositions %>
+											<option value="$Title">$Title</option>
+										<% end_loop %>
+									</datalist>
+								</div>
+
+
+
+								<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
+									<strong class="uk-margin-small-right"><%t FinderBar.PlaceLabel 'Wo?' %></strong>
+									<input list="places" name="ort" class="uk-input" placeholder="<%t FinderBar.Position 'Ort' %>">
+									<datalist id="places">
+										<% loop $Portal.getCities.groupedBy(City) %>
+											<option value="$City" <% if $Selected %>selected<% end_if %>>$City</option>
+										<% end_loop %>
+									</datalist>
+								</div>
+								<div class="uk-width-1-5">
+									<button class="uk-button button-PrimaryBackground uk-flex uk-flex-middle"><span><%t FinderBar.SearchAction 'Jobs suchen' %></span><i class="icon icon-chevron-right uk-margin-small-left uk-text-small"></i></button>
+								</div>
+					</form>
+				</div>
 			</div>
-			<form method="GET" action="$OfferPage.Link" class="finder-bar uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
-
-						<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
-							<strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
-							<input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
-							<datalist id="positions">
-								<% loop $Portal.getPositions %>
-									<option value="$Title">$Title</option>
-								<% end_loop %>
-							</datalist>
-						</div>
-
-
-
-						<div class="uk-width-2-5 uk-flex uk-flex-left uk-flex-middle">
-							<strong class="uk-margin-small-right"><%t FinderBar.PlaceLabel 'Wo?' %></strong>
-							<input list="places" name="ort" class="uk-input" placeholder="<%t FinderBar.Position 'Ort' %>">
-							<datalist id="places">
-								<% loop $Portal.getCities.groupedBy(City) %>
-									<option value="$City" <% if $Selected %>selected<% end_if %>>$City</option>
-								<% end_loop %>
-							</datalist>
-						</div>
-						<div class="uk-width-1-5">
-							<button class="uk-button button-PrimaryBackground uk-flex uk-flex-middle"><span><%t FinderBar.SearchAction 'Jobs suchen' %></span><i class="icon icon-chevron-right uk-margin-small-left uk-text-small"></i></button>
-						</div>
-			</form>
 		</div>
 	</div>
 	<div class="uk-container uk-container-medium uk-position-relative">
