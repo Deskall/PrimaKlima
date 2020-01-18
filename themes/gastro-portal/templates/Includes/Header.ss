@@ -34,7 +34,7 @@
 								<% end_if %>
 							<% end_loop %>
 						</nav>
-						<div class="uk-flex uk-flex-right">
+						<div class="uk-text-right">
 							<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-around uk-flex-middle" data-uk-grid>
 
 										<div class="uk-width-1-3 uk-flex uk-flex-left uk-flex-middle">
