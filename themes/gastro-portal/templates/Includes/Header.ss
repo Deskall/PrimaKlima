@@ -9,7 +9,7 @@
         <% end_loop %>
     </ul>
     <div class="uk-position-center-left uk-position-medium">
-    	<div class="uk-background-muted uk-padding uk-text-center uk-box-shadow-large uk-width-large uk-border-rounded">
+    	<div class="PrimaryBackground uk-padding uk-text-center uk-box-shadow-large uk-width-large uk-border-rounded">
     		<div class="uk-width-auto uk-align-center">
     			<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
     				<% if Logo.exists %>
