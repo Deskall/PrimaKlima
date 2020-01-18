@@ -55,6 +55,16 @@
     		</form>
     	</div>
     </div>
+    <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+    	
+    	<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
+    		<% if Type == "Languages" %>
+    			<% include MenuBlock_Languages Locales=Top.Locales %>
+    		<% else %>
+    			$forTemplate
+    		<% end_if %>
+    	<% end_loop %>
+    </nav>
 </div>
 <% else %>
 <header <% if $SiteConfig.StickyHeader %>class="uk-box-shadow-medium dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="uk-box-shadow-mediul dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
