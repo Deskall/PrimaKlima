@@ -57,7 +57,7 @@
     </div>
     <div class="uk-position-top-right">
 	    <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-	    	<% loop SiteConfig.activeMenuBlocks.exclude('class','dk-nav-top') %>
+	    	<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
 	    		<% if Type == "Languages" %>
 	    			<% include MenuBlock_Languages Locales=Top.Locales %>
 	    		<% else %>
