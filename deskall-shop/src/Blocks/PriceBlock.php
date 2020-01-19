@@ -40,6 +40,10 @@ class PriceBlock extends BaseElement implements Searchable{
         return PackageConfigItem::get()->filter('isVisible',1);
     }
 
+    public function OrderLink(){
+        return ShopPage::get()->first()->Link();
+    }
+
 
 
 // 	public function PackageData() {
