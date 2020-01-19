@@ -147,7 +147,7 @@
 				$forTemplate
 			<% end_loop %>
 			<div class="uk-navbar-right uk-hidden@l">
-	            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
+	            <button class="uk-button uk-flex uk-flex-middle uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
 	        </div>
 		</nav>
 				
