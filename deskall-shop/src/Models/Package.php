@@ -155,6 +155,10 @@ class Package extends DataObject {
         return new ArrayList($parameters);
     }
 
+    public function OrderLink(){
+        return ShopPage::get()->first()->Link();
+    }
+
 }
 
 
