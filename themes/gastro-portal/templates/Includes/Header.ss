@@ -75,7 +75,7 @@
 		<div class="uk-container uk-container-medium uk-position-relative">
 			<div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
 				<div class="uk-width-1-5">
-					<div class="uk-text-center uk-margin-bottom">
+					<div class="uk-text-center">
 						<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
 						<a href="/" class="uk-navbar-item uk-logo">
 								<% if Logo.exists %>
