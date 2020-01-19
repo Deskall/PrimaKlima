@@ -72,7 +72,7 @@
 	
 	
 	<div class="header-top uk-padding-small">
-		<div class="uk-container uk-position-relative">
+		<div class="uk-container uk-container-medium uk-position-relative">
 			<div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
 				<div class="uk-width-1-5">
 					<div class="uk-text-center uk-margin-bottom">
@@ -94,18 +94,7 @@
 					</div>
 				</div>
 				<div class="uk-width-4-5">
-					<div class="uk-position-top-right">
-						<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-							
-							<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
-								<% if Type == "Languages" %>
-									<% include MenuBlock_Languages Locales=Top.Locales %>
-								<% else %>
-									$forTemplate
-								<% end_if %>
-							<% end_loop %>
-						</nav>
-					</div>
+					
 							<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-right uk-flex-middle" data-uk-grid>
 
 										<div class="uk-width-1-3 uk-flex uk-flex-left uk-flex-middle">
@@ -135,6 +124,18 @@
 							</form>
 						
 				</div>
+			</div>
+			<div class="uk-position-top-right">
+				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+					
+					<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
+						<% if Type == "Languages" %>
+							<% include MenuBlock_Languages Locales=Top.Locales %>
+						<% else %>
+							$forTemplate
+						<% end_if %>
+					<% end_loop %>
+				</nav>
 			</div>
 		</div>
 	</div>
