@@ -26,7 +26,7 @@
     			<% end_with %>
     		</div>
     		<h2>$SiteConfig.Tagline</h2>
-    		<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-right uk-flex-middle uk-child-width-1-1" data-uk-grid>
+    		<form method="GET" action="$OfferPage.Link" class="finder-bar form-std uk-form-horizontal">
 
     					<div class="uk-flex uk-flex-left uk-flex-middle">
     						<strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
