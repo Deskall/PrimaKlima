@@ -1,4 +1,4 @@
-<%-- <% if $ClassName == "HomePage" %>
+<% if $ClassName == "HomePage" %>
 <div class="uk-position-relative" tabindex="-1" data-uk-slideshow="ratio: false;autoplay:true;autoplayInterval:5000;animation:fade">
     <ul class="uk-slideshow-items" data-uk-height-viewport="">
     	<% loop SiteConfig.activeSlides %>
@@ -67,7 +67,7 @@
 	    </nav>
 	</div>
 </div>
-<% else %> --%>
+<% else %>
 <header <% if $SiteConfig.StickyHeader %>class="uk-box-shadow-medium dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="uk-box-shadow-mediul dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
 	
 	
@@ -154,7 +154,7 @@
 	</div>
 	
 </header>
-<%-- <% end_if %> --%>
+<% end_if %>
 <%-- <div class="header-slider uk-position-relative">
 		<div class="PrimaryBackground uk-padding-small">
 			<div class="uk-container">
