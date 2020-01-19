@@ -72,7 +72,7 @@
 	
 	
 	<div class="header-top uk-padding-small">
-		<div class="uk-container">
+		<div class="uk-container uk-position-relative">
 			<div class="uk-grid-small uk-flex uk-flex-middle" data-uk-grid>
 				<div class="uk-width-1-5">
 					<div class="uk-text-center uk-margin-bottom">
