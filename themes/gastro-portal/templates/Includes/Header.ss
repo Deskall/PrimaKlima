@@ -25,7 +25,7 @@
     				<% end_if %>
     			<% end_with %>
     		</div>
-    		<h2>$SiteConfig.Tagline</h2>
+    		<h2 class="uk-text-primary">$SiteConfig.Tagline</h2>
     		<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-right uk-flex-middle uk-child-width-1-1" data-uk-grid>
 
     					<div class="uk-flex uk-flex-left uk-flex-middle">
