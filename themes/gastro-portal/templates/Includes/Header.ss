@@ -74,7 +74,7 @@
 	<div class="header-top uk-padding-small">
 		<div class="uk-container uk-container-medium uk-position-relative">
 			<div class="uk-grid-small uk-flex uk-flex-bottom" data-uk-grid>
-				<div class="uk-width-1-5">
+				<div class="uk-width-1-5@m">
 					<div class="uk-text-center">
 						<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
 						<a href="/" class="uk-navbar-item uk-logo">
@@ -93,7 +93,7 @@
 						<% end_with %>
 					</div>
 				</div>
-				<div class="uk-width-4-5">
+				<div class="uk-width-4-5 uk-visible@m">
 					
 							<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-right uk-flex-middle" data-uk-grid>
 
