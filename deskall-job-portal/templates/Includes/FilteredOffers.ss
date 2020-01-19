@@ -5,7 +5,7 @@
 							<% if activeOffers.exists %>
 								<% loop activeOffers %>
 								<div>
-									<div class="uk-card uk-card-body uk-card-small offer-snippet">
+									<div class="uk-card uk-card-default uk-card-body uk-card-small offer-snippet">
 										<div class="uk-grid-small" data-uk-grid>
 											<div class="uk-width-1-5">
 												<div class="firma-logo">
