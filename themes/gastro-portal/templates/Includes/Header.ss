@@ -124,19 +124,20 @@
 							</form>
 						
 				</div>
+				<div class="uk-position-top-right">
+					<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+						
+						<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
+							<% if Type == "Languages" %>
+								<% include MenuBlock_Languages Locales=Top.Locales %>
+							<% else %>
+								$forTemplate
+							<% end_if %>
+						<% end_loop %>
+					</nav>
+				</div>
 			</div>
-			<div class="uk-position-top-right">
-				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-					
-					<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
-						<% if Type == "Languages" %>
-							<% include MenuBlock_Languages Locales=Top.Locales %>
-						<% else %>
-							$forTemplate
-						<% end_if %>
-					<% end_loop %>
-				</nav>
-			</div>
+			
 		</div>
 	</div>
 	<div class="uk-container uk-container-medium uk-position-relative">
