@@ -26,18 +26,9 @@
     			<% end_with %>
     		</div>
     		<h2>$SiteConfig.Tagline</h2>
-    		<form method="GET" action="$OfferPage.Link" class="finder-bar form-std uk-form-horizontal">
-    			<label class="uk-form-label"><%t FinderBar.PositionLabel 'Was?' %></label>
-    			<div class="uk-form-controls">
-    				<input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
-    				<datalist id="positions">
-    					<% loop $Portal.getPositions %>
-    						<option value="$Title">$Title</option>
-    					<% end_loop %>
-    				</datalist>
-    			</div>
-    			
-    			<%-- 		<div class="uk-flex uk-flex-left uk-flex-middle">
+    		<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-right uk-flex-middle uk-child-width-1-1" data-uk-grid>
+
+    					<div class="uk-flex uk-flex-left uk-flex-middle">
     						<strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
     						<input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
     						<datalist id="positions">
@@ -60,7 +51,7 @@
     					</div>
     					<div>
     						<button class="uk-button button-PrimaryBackground uk-flex uk-flex-middle"><span><%t FinderBar.SearchAction 'Jobs suchen' %></span><i class="icon icon-chevron-right uk-margin-small-left uk-text-small"></i></button>
-    					</div> --%>
+    					</div>
     		</form>
     	</div>
     </div>
