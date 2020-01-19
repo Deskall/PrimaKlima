@@ -94,6 +94,7 @@
 					</div>
 				</div>
 				<div class="uk-width-4-5">
+					<div class="uk-position-top-right">
 						<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 							
 							<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
@@ -104,7 +105,7 @@
 								<% end_if %>
 							<% end_loop %>
 						</nav>
-						
+					</div>
 							<form method="GET" action="$OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-right uk-flex-middle" data-uk-grid>
 
 										<div class="uk-width-1-3 uk-flex uk-flex-left uk-flex-middle">
