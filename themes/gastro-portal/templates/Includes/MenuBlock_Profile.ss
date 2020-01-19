@@ -7,7 +7,7 @@
 			            	<a href="$CurrentMember.MemberPageLink"><span class="uk-button button-PrimaryBackground uk-border-rounded"><i data-uk-icon="lock" class="uk-margin-small-right"></i><%t MenuProfile.Portal 'Portal' %></span></a>
 			            	<div class="uk-padding-small" data-uk-dropdown="animation: uk-animation-slide-bottom-small; duration: 500">
 			            	    <ul class="uk-nav uk-dropdown-nav">
-			            	    	<li><a class="uk-padding-small uk-text-small" href="$CurrentMember.MemberPageLink"><span class="uk-button button-PrimaryBackground uk-border-rounded"><%t MenuProfile.Portal 'Portal' %></span></a></li>
+			            	    	<li><a class="uk-padding-small uk-text-small" href="$CurrentMember.MemberPageLink"><%t Member.MyAccount 'Meine Konto' %></a></li>
 			            	    	<li><a class="uk-padding-small uk-text-small" href="{$LogoutURL}&BackURL=$CurrentMember.MemberPageLink"><%t Member.Logout 'Abmelden' %></a></li>
 			            	    </ul>
 			            	</div>
@@ -15,7 +15,7 @@
 			            <% else %>
 				            <% loop ProfilPages.filter('ShowInMenus',1) %>
 				            <li>
-				            	<a href="$Link"><i <% if ClassName == "MemberProfilePage" %>data-uk-icon="lock"<% else %>data-uk-icon="sign-in"<% end_if %> class="uk-margin-small-right"></i>$MenuTitle.XML</a>
+				            	<a href="$Link"><span class="uk-button button-PrimaryBackground uk-border-rounded"><i <% if ClassName == "MemberProfilePage" %>data-uk-icon="lock"<% else %>data-uk-icon="sign-in"<% end_if %> class="uk-margin-small-right"></i>$MenuTitle.XML</span></a>
 				            </li>
 				           <% end_loop %>
 
