@@ -65,7 +65,6 @@ class OfferPageController extends PageController{
 	public function init(){
 		parent::init();
 		Requirements::javascript('deskall-job-portal/javascript/jobsearch.js',[
-        	"async" => true,
         	"defer" => true,
     	]);
 	}
