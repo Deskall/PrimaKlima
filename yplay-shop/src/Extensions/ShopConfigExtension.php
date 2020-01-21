@@ -16,6 +16,8 @@ use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\Tabset;
+use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\CMS\Model\SiteTree;
 
 class ShopConfigExtension extends DataExtension
 {
@@ -36,7 +38,9 @@ class ShopConfigExtension extends DataExtension
 
     private static $has_one = [
       
-       'AGBFile' => File::class
+       'AGBFile' => File::class,
+       'AGBPage' => SiteTree::class,
+       'MobileAGBPage' => SiteTree::class,
        
     ];
 
@@ -61,6 +65,8 @@ class ShopConfigExtension extends DataExtension
       $labels['PLZModalTitle'] = _t(__CLASS__.'.MobileStepBody','Text des "Mobile" Schrittes');
       $labels['WishNumberTitle'] = _t(__CLASS__.'.WishNumberTitle','Titel des "Wunschnummer" Modal');
       $labels['WishNumberBody'] = _t(__CLASS__.'.WishNumberBody','Text des "Wunschnummer" Modal');
+      $labels['AGBPage'] = _t(__CLASS__.'.AGBPage','AGB Seite');
+      $labels['MobileAGBPage'] = _t(__CLASS__.'.MobileAGBPage','Mobile AGB Seite');
     }
 
    
@@ -97,7 +103,9 @@ class ShopConfigExtension extends DataExtension
             TextField::create('MobileStepTitle',$this->owner->fieldLabels()['MobileStepTitle']),
             HTMLEditorField::create('MobileStepBody',$this->owner->fieldLabels()['MobileStepBody']),
             TextField::create('WishNumberTitle',$this->owner->fieldLabels()['WishNumberTitle']),
-            HTMLEditorField::create('WishNumberBody',$this->owner->fieldLabels()['WishNumberBody'])
+            HTMLEditorField::create('WishNumberBody',$this->owner->fieldLabels()['WishNumberBody']),
+            TreeDropdownField::create('AGBPageID',$this->owner->fieldLabels()['AGBPage'], SiteTree::class),
+            TreeDropdownField::create('MobileAGBPageID',$this->owner->fieldLabels()['MobileAGBPage'], SiteTree::class)
           ])
         ]
         );
