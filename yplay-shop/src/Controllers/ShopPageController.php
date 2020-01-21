@@ -235,7 +235,7 @@ class ShopPageController extends PageController
       $form->setTemplate('Forms/OrderForm');
       $form->loadDataFrom($cart);
       if (!$cart->Birthday){
-         $birthday->setValue(null);
+         $birthday->setValue($date->format('Y-m-d'));
       }
    
       return $form;
