@@ -171,7 +171,7 @@ $(document).ready(function(){
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
 		if (!hasEvent){
-			$(document).each(".slider-products",function(){
+			$(".slider-products").each(function(){
 				UIkit.util.on($(this),'itemshown',function(){
 					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
 				});
