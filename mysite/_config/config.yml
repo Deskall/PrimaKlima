@@ -3,8 +3,8 @@ Name: yplay-config
 ---
 
 UndefinedOffset\NoCaptcha\Forms\NocaptchaField:
-    site_key: "6LchV0kUAAAAAO933jAsFfyjanFlxT2nbRd1s5Tc" #Your site key (required)
-    secret_key: "6LchV0kUAAAAAHKpjpvSU8RRv7GgtSvGd7DunxFu" #Your secret key (required)
+    site_key: "6LdUrl8UAAAAABu20XIulQ4Tcvn8bujn2aUWXYP_" #Your site key (required)
+    secret_key: "6LdUrl8UAAAAANcovcXCC2yHJBAIsUxezeuMRWE3" #Your secret key (required)
     verify_ssl: true #Allows you to disable php-curl's SSL peer verification by setting this to false (optional, defaults to true)
     default_theme: "light" #Default theme color (optional, light or dark, defaults to light)
     default_type: "image" #Default captcha type (optional, image or audio, defaults to image)
