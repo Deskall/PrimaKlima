@@ -186,7 +186,7 @@ class ShopPageController extends PageController
                HeaderField::create('OtherTitle','Weitere Angaben',3),
                TextareaField::create('Comments','Bemerkungen'),
                // CheckboxField::create('Newsletter','Ich abonniere den Newsletter'),
-               CheckboxField::create('AGB',DBHTMLText::create()->setValue('Ich bin mit den <a href="'.$agbpage->Link().'" target="_blank" title="AGB anschauen">AGB</a> einverstanden')),
+               CheckboxField::create('AGB',DBHTMLText::create()->setValue('<label for="Form_OrderForm_AGB">Ich bin mit den <a href="'.$agbpage->Link().'" target="_blank" title="AGB anschauen">AGB</a> einverstanden</label>')),
                NocaptchaField::create('Captcha')
             )->setName('OtherFields'),
             HiddenField::create('ExistingCustomer')
