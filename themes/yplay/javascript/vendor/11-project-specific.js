@@ -165,12 +165,7 @@ $(document).ready(function(){
 		//add event
 		$(".slider-products").each(function(){
 			UIkit.util.on($(this),'itemshown',function(){
-				console.log($(this).attr('id'));
 				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
-				if (hasEvent){
-					console.log('change ici');
-					$(this).parents('.category').find('[data-product-choice]').trigger('change');
-				}
 			});
 		});
 		
