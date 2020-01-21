@@ -151,13 +151,7 @@ $(document).ready(function(){
 			}
 
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
-			//add event
-			UIkit.util.on("#"+$(this).attr('id'),'itemshown',function(){
-				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
-				if (!hasEvent){
-					$(this).parents('.category').find('[data-product-choice]').trigger('change');
-				}
-			});
+			
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
 				$(this).parents('.category').find('.no-category').prop("checked",true).parents('.category').addClass('disabled');
@@ -166,6 +160,13 @@ $(document).ready(function(){
 				if (products[$(this).attr('data-code')]){
 					$(this).parents('.category').find('.no-category').prop("checked",false).parents('.category').removeClass('disabled');
 				}
+			}
+		});
+		//add event
+		UIkit.util.on(".slider-products",'itemshown',function(){
+			$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
+			if (!hasEvent){
+				$(this).parents('.category').find('[data-product-choice]').trigger('change');
 			}
 		});
 		hasEvent  = true;
