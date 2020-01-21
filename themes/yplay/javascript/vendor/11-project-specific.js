@@ -171,10 +171,12 @@ $(document).ready(function(){
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
 		if (!hasEvent){
-				UIkit.util.on(".slider-products",'itemshown',function(){
-				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-				hasEvent  = true;
+			$(document).each(".slider-products",function(){
+				UIkit.util.on($(this),'itemshown',function(){
+					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+				});
 			});
+			hasEvent  = true;
 		}
 	
 		
