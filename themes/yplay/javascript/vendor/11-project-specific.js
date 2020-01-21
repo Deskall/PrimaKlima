@@ -90,6 +90,7 @@ $(document).ready(function(){
 		
 		
 		$(document).on("change","[data-product-choice]",function(){
+			console.log('change');
 			UpdateOrder();
 		});
 
