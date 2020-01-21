@@ -90,7 +90,6 @@ $(document).ready(function(){
 		
 		
 		$(document).on("change","[data-product-choice]",function(){
-			console.log('change');
 			UpdateOrder();
 		});
 
@@ -118,6 +117,21 @@ $(document).ready(function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
+			if (!hasEvent){
+				UIkit.util.on(".slider-products",'itemshown',function(){
+					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+					hasEvent  = true;
+				});
+			}
+		});
+		$(document).on("click",".category:not(.disabled) .uk-slider-nav li",function(){
+			var slider = $(this).parents('.uk-slider');
+			if (!hasEvent){
+				UIkit.util.on(slider,'itemshown',function(){
+					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+					hasEvent  = true;
+				});
+			}
 		});
 
 		//Handle the category Switcher
@@ -149,9 +163,8 @@ $(document).ready(function(){
 					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
 				}
 			}
-
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
-			
+
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
 				$(this).parents('.category').find('.no-category').prop("checked",true).parents('.category').addClass('disabled');
@@ -162,14 +175,6 @@ $(document).ready(function(){
 				}
 			}
 		});
-		//add event
-		$(".slider-products").each(function(){
-			UIkit.util.on($(this),'itemshown',function(){
-				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
-			});
-		});
-		
-		hasEvent  = true;
 		UpdateOrder();
 		
 		$("#loading-block").remove();
