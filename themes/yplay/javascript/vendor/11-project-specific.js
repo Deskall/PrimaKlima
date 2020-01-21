@@ -117,12 +117,6 @@ $(document).ready(function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
-			if (!hasEvent){
-				UIkit.util.on(".slider-products",'itemshown',function(){
-					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-					hasEvent  = true;
-				});
-			}
 		});
 
 		//Handle the category Switcher
@@ -154,8 +148,15 @@ $(document).ready(function(){
 					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
 				}
 			}
-			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 
+			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
+			//add event
+			UIkit.util.on("#"+$(this).attr('id'),'itemshown',function(){
+				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
+				if (!hasEvent){
+					$(this).parents('.category').find('[data-product-choice]').trigger('change');
+				}
+			});
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
 				$(this).parents('.category').find('.no-category').prop("checked",true).parents('.category').addClass('disabled');
@@ -166,6 +167,7 @@ $(document).ready(function(){
 				}
 			}
 		});
+		hasEvent  = true;
 		UpdateOrder();
 		
 		$("#loading-block").remove();
@@ -230,7 +232,6 @@ $(document).ready(function(){
 		
 		
 		$(document).on("click",".step",function(){
-			console.log('ici');
 			if (!$(this).hasClass('backwards')){
 				//Check daten && Update Session Data
 				var form = $(this).parents('form');
