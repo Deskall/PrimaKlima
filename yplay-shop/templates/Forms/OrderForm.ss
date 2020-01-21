@@ -145,7 +145,7 @@
                                     $Field
                                 </div>
                                 <div>
-                                    <a data-uk-toggle="#modal-wish-number"><i><i class="icon icon-information-circled uk-margin-small-right"></i>Preisübersicht Wunschnummern Flashcable Festnetztelefonie</i></a>
+                                    <a data-uk-toggle="#modal-wish-number"><i><i class="icon icon-information-circled uk-margin-small-right"></i>$SiteConfig.WishNumberTitle</i></a>
                                 </div>
                             </div>
                             <% end_with %>

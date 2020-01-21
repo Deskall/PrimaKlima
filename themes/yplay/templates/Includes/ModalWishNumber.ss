@@ -5,7 +5,7 @@
         <div class="uk-modal-body">
             <h2 class="uk-modal-title">$SiteConfig.WishNumberTitle</h2>
             $SiteConfig.WishNumberBody
-            <button class="uk-modal-close">Schliessen</button>
+            <button class="uk-modal-close uk-button uk-button-primary">Schliessen</button>
         </div>
     </div>
 </div>
