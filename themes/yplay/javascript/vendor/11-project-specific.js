@@ -164,6 +164,7 @@ $(document).ready(function(){
 		});
 		//add event
 		UIkit.util.on(".slider-products",'itemshown',function(){
+			console.log($(this).attr('id'));
 			$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
 			if (!hasEvent){
 				$(this).parents('.category').find('[data-product-choice]').trigger('change');
