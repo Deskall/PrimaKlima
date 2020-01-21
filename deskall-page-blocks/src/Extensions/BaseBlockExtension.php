@@ -17,12 +17,12 @@ use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Core\ClassInfo;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
 
     private static $db = [
-        'TitleIcon' => 'Varchar',
         'isPrimary' => 'Boolean(0)',
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
@@ -197,7 +197,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('ExtraClass');
 
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Diese Block enthalt den Haupttitel der Seite (h1)")),'TitleAndDisplayed');
-        $fields->addFieldToTab('Root.Main',TextField::create('TitleIcon',_t(__CLASS__.".TitleIcon","Icon (Class font awesome)")),'TitleAndDisplayed');
       
      
         if (Permission::check('ADMIN') && $extracss){
@@ -205,7 +204,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         } 
     	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
-            DropdownField::create('SectionPadding',_t(__CLASS__.'.SectionPadding','Vertical Abstand'),['uk-padding-remove' => 'keine','uk-section-small' => 'klein', 'uk-section-medium' => 'standard','uk-section-large' => 'gross']),
+            DropdownField::create('SectionPadding',_t(__CLASS__.'.SectionPadding','Vertical Abstand'),['uk-padding-remove' => 'Keine','uk-section-small' => 'klein', 'uk-section-medium' => 'medium','uk-section-large' => 'gross']),
             HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
             UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()),
             CheckboxField::create('BackgroundImageEffect',_t(__CLASS__.'.BackgroundImageEffect','Behobenes Scrollen des Bildes?')),
@@ -275,9 +274,12 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
     public function getRealPage(){
-        $parent = $this->owner->getPage();
-        while($parent && !in_array('SilverStripe\CMS\Model\SiteTree',$parent->getClassAncestry())){
-            $parent = $parent->getPage();
+        $parent = null;
+        if (ClassInfo::exists($this->owner->Parent()->OwnerClassName)){
+            $parent = $this->owner->getPage();
+            while($parent && !in_array('SilverStripe\CMS\Model\SiteTree',$parent->getClassAncestry())){
+                $parent = $parent->getPage();
+            }
         }
         return $parent;
     }

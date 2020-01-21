@@ -3,7 +3,7 @@
   <head>
      <% include Meta %>
   </head>
-  <body class="$ClassName $ExtraHeaderClass">
+  <body class="$ClassName">
     $SiteConfig.BodyScripts
     <div class="uk-offcanvas-content">
       <% include Header %>
@@ -13,5 +13,6 @@
       <% include Footer %>
     </div>
    <% include MetaDown %>
+   <% include NavMobile %>
   </body>
 </html>

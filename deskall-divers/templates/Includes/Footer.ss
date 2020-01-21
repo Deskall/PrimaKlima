@@ -85,11 +85,13 @@
 		    	<% else_if Type == "logo" %>
 		    	<div>
 		    		<a href="/" class="uk-navbar-item uk-logo">
+		    		<% if Logo.exists %>
 		    			<% if $Logo.getExtension == "svg" %>
 		    			<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo" width="$Top.SiteConfig.FooterLogoWidth" />
 		    			<% else %>
 		    			<img src="$Logo.ScaleMaxWidth($Top.SiteConfig.IntVal($Top.SiteConfig.FooterLogoWidth)).URL" alt="$Top.SiteConfig.Title Logo" />
 		    			<% end_if %>
+		    		<% end_if %>
 		    		</a>
 		    	</div>
 		    	<% else_if Type == "items" %>

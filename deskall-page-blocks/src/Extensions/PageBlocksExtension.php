@@ -20,15 +20,6 @@ class PageBlocksExtension extends DataExtension {
 	];
 
 
-	public function requireDefaultRecords(){
-		parent::requireDefaultRecords();
-		foreach (Page::get() as $page){
-			if (ClassInfo::exists($page->ClassName)){
-				$page->checkLead();
-			}
-		}
-	}
-
 	public function updateCMSFields(FieldList $fields){
 		$fields->insertBefore('ElementalArea',HeaderField::create('BlockTitle',_t('PAGEBLOCKS.BLOCKSTITLE','Inhaltblöcke'), 3));
 	}
@@ -57,6 +48,11 @@ class PageBlocksExtension extends DataExtension {
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
 		$this->owner->checkLead();
+	}
+
+	public function onBeforeDelete(){
+		parent::onBeforeDelete();
+		$this->owner->ElementalArea()->delete();
 	}
 
 	public function firstBlockSlide(){
