@@ -220,7 +220,7 @@ class ShopPageController extends PageController
          //2. Mobile
          if ($cart->hasCategory('yplay-mobile')){
             $mobileAGB = $config->MobileAGBPage(); 
-            $form->Fields()->insertAfter('AGB',CheckboxField::create('AGBMobile',DBHTMLText::create()->setValue('<label for="Form_OrderForm_AGBMobile">Ich bin mit den <a href="'.$mobileAGB->Link().'" target="_blank" title="Mobile AGB anschauen">Mobile AGB</a> einverstanden</label>'))->setAttribute('required','required')->setAttribute('class','uk-checkbox'));
+            $form->Fields()->insertAfter('AGB',CheckboxField::create('AGBMobile',DBHTMLText::create()->setValue('<label for="AGBMobile">Ich bin mit den <a href="'.$mobileAGB->Link().'" target="_blank" title="Mobile AGB anschauen">Mobile AGB</a> einverstanden</label>'))->setAttribute('required','required')->setAttribute('class','uk-checkbox'));
             $form->getValidator()->addRequiredField('AGBMobile');
          }
 
