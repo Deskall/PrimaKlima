@@ -117,12 +117,12 @@ $(document).ready(function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
-			if (!hasEvent){
-				UIkit.util.on(".slider-products",'itemshown',function(){
-					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-					hasEvent  = true;
-				});
-			}
+			// if (!hasEvent){
+			// 	UIkit.util.on(".slider-products",'itemshown',function(){
+			// 		$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+			// 		hasEvent  = true;
+			// 	});
+			// }
 		});
 
 		//Handle the category Switcher
@@ -170,11 +170,13 @@ $(document).ready(function(){
 		
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
-		
-		UIkit.util.on(".slider-products",'itemshown',function(){
-			$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-			hasEvent  = true;
-		});
+		if (!hasEvent){
+				UIkit.util.on(".slider-products",'itemshown',function(){
+				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+				hasEvent  = true;
+			});
+		}
+	
 		
 	}
 
