@@ -25,7 +25,7 @@ use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Control\Director;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\ORM\GroupedList;
-
+use SilverStripe\ORM\FieldType\DBHTMLText;
 use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 
 class ShopPageController extends PageController
