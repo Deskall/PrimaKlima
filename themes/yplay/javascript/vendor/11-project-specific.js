@@ -155,6 +155,10 @@ $(document).ready(function(){
 				}
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
+			UIkit.util.on(".slider-products",'itemshown',function(){
+				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+				hasEvent  = true;
+			});
 
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
