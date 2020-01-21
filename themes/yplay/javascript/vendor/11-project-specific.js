@@ -224,11 +224,12 @@ $(document).ready(function(){
 		UpdateOrder();
 		InitNav();
 		InitStep();
-		// var validator = $("#Form_OrderForm").validate();
+		var validator = $("#Form_OrderForm").validate();
 
 		
 		
 		$(document).on("click",".step",function(){
+			console.log('ici');
 			if (!$(this).hasClass('backwards')){
 				//Check daten && Update Session Data
 				var form = $(this).parents('form');
