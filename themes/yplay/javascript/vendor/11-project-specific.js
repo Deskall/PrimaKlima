@@ -53,8 +53,6 @@ $(document).ready(function(){
 });
 
 
-
-//Product Choice Scripts
 $(document).ready(function(){
 
 	//Toggle cart (all pages)
@@ -226,7 +224,7 @@ $(document).ready(function(){
 		UpdateOrder();
 		InitNav();
 		InitStep();
-		var validator = $("#Form_OrderForm").validate();
+		// var validator = $("#Form_OrderForm").validate();
 
 		
 		
