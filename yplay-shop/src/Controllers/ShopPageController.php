@@ -186,7 +186,7 @@ class ShopPageController extends PageController
                HeaderField::create('OtherTitle','Weitere Angaben',3),
                TextareaField::create('Comments','Bemerkungen'),
                // CheckboxField::create('Newsletter','Ich abonniere den Newsletter'),
-               CheckboxField::create('AGB',DBHTMLText::create()->setValue('<label for="Form_OrderForm_AGB">Ich bin mit den <a href="'.$agbpage->Link().'" target="_blank" title="AGB anschauen">AGB</a> einverstanden</label>')),
+               CheckboxField::create('AGB',DBHTMLText::create()->setValue('<label for="Form_OrderForm_AGB">Ich bin mit den <a href="'.$agbpage->Link().'" target="_blank" title="AGB anschauen">AGB</a> einverstanden</label>'))->setAttribute('class','uk-checkbox'),
                NocaptchaField::create('Captcha')
             )->setName('OtherFields'),
             HiddenField::create('ExistingCustomer')
@@ -220,7 +220,7 @@ class ShopPageController extends PageController
          //2. Mobile
          if ($cart->hasCategory('yplay-mobile')){
             $mobileAGB = $config->MobileAGBPage(); 
-            $form->Fields()->insertAfter('AGB',CheckboxField::create('AGBMobile',DBHTMLText::create()->setValue('Ich bin mit den <a href="'.$mobileAGB->Link().'" target="_blank" title="Mobile AGB anschauen">Mobile AGB</a> einverstanden'))->setAttribute('required','required'));
+            $form->Fields()->insertAfter('AGB',CheckboxField::create('AGBMobile',DBHTMLText::create()->setValue('<label for="Form_OrderForm_MobileAGB">Ich bin mit den <a href="'.$mobileAGB->Link().'" target="_blank" title="Mobile AGB anschauen">Mobile AGB</a> einverstanden</label>'))->setAttribute('required','required')->setAttribute('class','uk-checkbox'));
             $form->getValidator()->addRequiredField('AGBMobile');
          }
 
