@@ -529,6 +529,7 @@ label.error{
 
 //Productblock
 .productblock{
+	
 	.products-container{
 		.uk-card{
 			&:hover{
@@ -544,6 +545,15 @@ label.error{
 				transform: translate(-50%,25px);
 				padding:5px 10px;
 				color:@white-background;
+			}
+			.discount{
+				position:absolute;
+				right: 10px;
+				top:10px;
+				width:40px;
+				svg *{
+					color:@global-emphasis-background;
+				}
 			}
 			.uk-button{
 				color:@white-background;

@@ -59,6 +59,9 @@
 	        <% if BestSeller %>
 	        <div class="bestseller">Bestseller</div>
 	        <% end_if %>
+	        <% if hasAction %>
+	        <div class="discount"><img src="$ThemeDir/img/percent-solid.svg" data-uk-svg></div>
+	        <% end_if %>
 	        <div class="product-body">
 	        	<% if Top.ProductType == "products" %>
 	        		<% if Subtitle %>

@@ -35,6 +35,10 @@ class Product extends DataObject {
 		'Category' => ProductCategory::class
 	];
 
+	private static $belongs_many_many= [
+	    'Actions' => 'PriceVariation'
+	];
+
 	private static $extensions = [
 		'Sortable',
 		'Activable',
@@ -185,6 +189,17 @@ class Product extends DataObject {
 		}
 
 		return $link;
+	}
+
+	//Check if a discount apply for this product
+	public function hasAction(){
+		if ($this->Actions()->filter('AllCodes',1)->count() > 0){
+			return true;
+		}
+		else{
+			//TO DO
+		}
+		return false;
 	}
 
 }

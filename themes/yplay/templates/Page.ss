@@ -13,10 +13,11 @@
           <% include ScrollUp %>
       </main>
       <% if $ID > 0 %> 
-        <% include Sidebar %>
+        <% include Sidebar %> 
+        <% include Modals %>
       <% end_if %>
       <% include Footer %>
-      <% include Modals %>
+     
 
     </div>
    <% include MetaDown %>

@@ -37,6 +37,9 @@ class ProductAdmin extends ModelAdmin{
 		'PostalCode' => [
 			'title' => 'Ortschaften'
 		],
+		'ShopAction' => [
+			'title' => 'Aktionen'
+		],
 	];
 
 	

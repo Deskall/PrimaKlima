@@ -35,11 +35,9 @@ class PostalCode extends DataObject {
 	    'Subsite'=> Subsite::class
 	];
 
-	// private static $belongs_many_many= [
-	//     'unavailableProducts' => 'Product.unavailableCodes',
-	//     'ownedProducts' => 'Product.PostalCodes',
-	//     'ownedPackages' => 'Package'
-	// ];
+	private static $belongs_many_many= [
+	    'Actions' => 'PriceVariation'
+	];
 
 	private static $default_sort = 'Code';
 
