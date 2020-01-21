@@ -133,6 +133,15 @@ $(document).ready(function(){
 				});
 			}
 		});
+		$(document).on("click",".category:not(.disabled) [data-uk-slider-item]",function(){
+			var slider = $(this).parents('.uk-slider');
+			if (!hasEvent){
+				UIkit.util.on(slider,'itemshown',function(){
+					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+					hasEvent  = true;
+				});
+			}
+		});
 
 		//Handle the category Switcher
 		$(document).on("click",".category .switch",function(){
