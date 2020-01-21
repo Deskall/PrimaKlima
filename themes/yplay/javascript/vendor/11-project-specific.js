@@ -118,10 +118,7 @@ $(document).ready(function(){
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
 			if (!hasEvent){
-				UIkit.util.on(".slider-products",'itemshown',function(){
-					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-					hasEvent  = true;
-				});
+				
 			}
 		});
 
@@ -139,6 +136,12 @@ $(document).ready(function(){
 
 
 	function InitSliders(products){
+		console.log('init slider');
+		UIkit.util.on(".slider-products",'itemshown',function(){
+			console.log($(this).attr('id'));
+					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+					hasEvent  = true;
+				});
 		var index;
 		var options;
 		$(".slider-products").each(function(){
