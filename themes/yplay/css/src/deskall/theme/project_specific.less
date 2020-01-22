@@ -547,10 +547,12 @@ label.error{
 				color:@global-color;
 			}
 			.bestseller{
-				position:absolute;
-				top:-50px;
-				left:50%;
-				transform: translate(-50%,25px);
+				@media only screen and (min-width:@breakpoint-medium){
+					position:absolute;
+					top:-50px;
+					left:50%;
+					transform: translate(-50%,25px);
+				}
 				padding:5px 10px;
 				color:@white-background;
 			}
