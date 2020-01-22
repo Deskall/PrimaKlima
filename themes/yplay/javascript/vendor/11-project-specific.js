@@ -228,7 +228,7 @@ $(document).ready(function(){
 				$(this).empty().append(response);
 				UpdateCartSummaries();
 			});
-			$("#mobile-cart-container").attr('hidden',false);
+			// $("#mobile-cart-container").attr('hidden',false);
 		});
 	}
 
