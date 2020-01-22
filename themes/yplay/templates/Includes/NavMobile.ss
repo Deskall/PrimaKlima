@@ -1,8 +1,6 @@
 <div id="modal-nav-mobile" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
-	    <div class="uk-modal-dialog">
-	    	<div class="uk-margin">
-		        <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-		    </div>
+	    <div class="uk-modal-dialog uk-padding-small-top">
+	    	<button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
 	        <div class="uk-margin">
 	        	<% if $ID > 0 %>
 	        	<div class="uk-navbar-right">
