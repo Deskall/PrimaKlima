@@ -72,23 +72,7 @@
 	</div>
 	<div class="uk-navbar-dropbar"></div>
 
-	<div id="modal-nav-mobile" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
-	    <div class="uk-modal-dialog">
-	         <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-           <% loop SiteConfig.activeMobileMenuBlocks %>
-				<% if Type == 'form' %>
-					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
-				<% else_if Type == "Languages" %>
-					<% include MenuBlock_Languages Locales=Top.Locales %>
-				<% else %>
-					$forTemplate
-				<% end_if %>
-			<% end_loop %>
-			<div class="copyright uk-text-center uk-margin-top">
-				© $Now.Year flashcable, GIB-Solutions AG
-			</div>
-	    </div>
-	</div>
+	<% include NavMobile %>
 
 	<div id="modal-search" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
 	    <div class="uk-modal-dialog" data-uk-height-viewport>
