@@ -133,7 +133,7 @@ class ShopCart extends DataObject {
 				$price += $product->Price;
 			}
 		}
-		if ($this->Options()->exists()){
+		if ($this->Options()->filter('RecurringPrice',1)->exists()){
 			foreach ($this->Options() as $product) {
 				$price += $product->Price;
 			}
@@ -155,6 +155,9 @@ class ShopCart extends DataObject {
 		}
 		if ($this->Options()->exists()){
 			foreach ($this->Options() as $product) {
+				if (!$product->RecurringPrice){
+					$price += $product->Price;
+				}
 				$price += $product->UniquePrice;
 				$price += $product->ActivationPrice;
 			}
