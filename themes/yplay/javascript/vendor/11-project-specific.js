@@ -310,9 +310,9 @@ $(document).ready(function(){
 			$("input[name='ExistingCustomer']").val($(this).attr('data-value'));
 		});
 
-		$(document).on("change","input[name='BillSameAddress']",function(){
-			UIkit.toggle($("#bill-fields")).toggle();
-		});
+		// $(document).on("change","input[name='BillSameAddress']",function(){
+		// 	UIkit.toggle($("#bill-fields")).toggle();
+		// });
 
 		$(document).on("change","input[name='PhoneOption']",function(){
 			$("#existing-phone,#wish-phone").attr('hidden','hidden').find('input').attr('required',false);
