@@ -5,13 +5,8 @@
 	        	<% if $ID > 0 %>
 	        	<div class="uk-hidden@m">
 	        		<ul class="dk-nav-mobile uk-nav" data-uk-nav>
-	        			<li><a id="toggle-modal-postal-code" data-uk-tooltip="<%t PLZ.CHANGE 'Region ändern' %>" data-active="<% if activePLZ %>true<% else %>false<% end_if %>" data-trigger="<% if showModalPLZ %>true<% else %>false<% end_if %>" title="Ihrer PLZ auswählen / Ändern" data-uk-toggle="#modal-postal-code"><% if activePLZ %>Ihre Region: $activePLZ.CodeCity ($activeOffer)<% else %> Region unbekannt<% end_if %></a>
+	        			<li><a id="toggle-modal-postal-code" data-uk-tooltip="<%t PLZ.CHANGE 'Region ändern' %>" data-active="<% if activePLZ %>true<% else %>false<% end_if %>" data-trigger="<% if showModalPLZ %>true<% else %>false<% end_if %>" title="Ihrer PLZ auswählen / Ändern" data-uk-toggle="#modal-postal-code"><% if activePLZ %>Ihre Region: $activePLZ.CodeCity ($activeOffer)<% else %> Region unbekannt<% end_if %><% if activePLZ %></a><a href="{$Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a><% end_if %>
 	        			</li>
-	        			<% if activePLZ %>
-	        			<li>
-	        				<a href="{$Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a>
-	        			</li>
-	        			<% end_if %>
 	        		</ul>
 	        	</div>
 	        	<% end_if %>
