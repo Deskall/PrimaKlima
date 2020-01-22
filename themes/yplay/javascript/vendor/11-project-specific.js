@@ -228,7 +228,9 @@ $(document).ready(function(){
 				$(this).empty().append(response);
 				UpdateCartSummaries();
 			});
-			// $("#mobile-cart-container").attr('hidden',false);
+			if (packageID > 0 || products.length > 0 ){
+				$("#mobile-cart-container").attr('hidden',false);
+			}
 		});
 	}
 
