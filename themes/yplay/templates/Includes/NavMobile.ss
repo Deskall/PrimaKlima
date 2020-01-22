@@ -1,5 +1,5 @@
 <div id="modal-nav-mobile" class="uk-modal-full dk-nav-mobile-container" data-uk-modal>
-	    <div class="uk-modal-dialog uk-padding-small-top uk-padding-remove-bottom	">
+	    <div class="uk-modal-dialog uk-padding uk-padding-remove-bottom uk-padding-remove-horizontal">
 	    	<button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
 	        <div class="uk-margin">
 	        	<% if $ID > 0 %>
