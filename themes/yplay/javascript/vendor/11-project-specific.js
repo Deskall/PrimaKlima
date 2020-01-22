@@ -312,10 +312,10 @@ $(document).ready(function(){
 
 		$(document).on("change","input[name='BillSameAddress']",function(){
 			if ($(this).is(':checked')){
-				$("#bill-fields").attr('hidden',false);
+				$("#bill-fields").attr('hidden','hidden');
 			}
 			else{
-				$("#bill-fields").attr('hidden','hidden');
+				$("#bill-fields").attr('hidden',false);
 			}
 		});
 
