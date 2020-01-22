@@ -3,8 +3,8 @@
 	    	<button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
 	        <div class="uk-margin">
 	        	<% if $ID > 0 %>
-	        	<div class="uk-navbar-right">
-	        		<ul class="uk-navbar-nav">
+	        	<div class="uk-hidden@m">
+	        		<ul class="dk-nav-mobile uk-nav" data-uk-nav>
 	        			<li><a id="toggle-modal-postal-code" data-uk-tooltip="<%t PLZ.CHANGE 'Region ändern' %>" data-active="<% if activePLZ %>true<% else %>false<% end_if %>" data-trigger="<% if showModalPLZ %>true<% else %>false<% end_if %>" title="Ihrer PLZ auswählen / Ändern" data-uk-toggle="#modal-postal-code"><% if activePLZ %>Ihre Region: $activePLZ.CodeCity ($activeOffer)<% else %> Region unbekannt<% end_if %></a>
 	        			</li>
 	        			<% if activePLZ %>
