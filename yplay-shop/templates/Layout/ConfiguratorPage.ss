@@ -1,4 +1,4 @@
-	<div id="mobile-cart-container" class="uk-hidden@m" <% if not activeCart %>hidden<% end_if %>>
+	<div id="mobile-cart-container" class="uk-hidden@m" $activeCart.ID <% if not activeCart %>hidden<% end_if %>>
 		<div class="cart-container">
 			<div class="uk-card uk-box-shadow-medium uk-card-small">
 				<div class="uk-card-header toggle-cart" data-target="#mobile-order-preview">
