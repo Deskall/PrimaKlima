@@ -2,7 +2,7 @@
 	<div class="uk-form-controls">
 		$Field
 		<% if Title.NoHTML != $Title %>
-		$Title
+		$Title ici
 		<% else %>
 		<label class="right" for="$ID">$Title</label>
 		<% end_if %>
