@@ -308,15 +308,6 @@ footer.uk-section{
 	}
 }
 .category{
-	&.disabled{
-		.category-fill(#666);
-		
-	  	.slider:before {
-	  	  -webkit-transform: translateX(17px);
-	  	  -ms-transform: translateX(17px);
-	  	  transform: translateX(17px);
-	  	}
-	}
 	.uk-card{
 		border-bottom:2px solid @global-color;
 		@media only screen and (min-width:@breakpoint-medium){
@@ -339,6 +330,14 @@ footer.uk-section{
 	}
 	&.yplay-mobile{
 		.category-fill(@mobile);
+	}
+	&.disabled{
+		.category-fill(#666);
+	  	.slider:before {
+	  	  -webkit-transform: translateX(17px);
+	  	  -ms-transform: translateX(17px);
+	  	  transform: translateX(17px);
+	  	}
 	}
 }
 .category-modal{
