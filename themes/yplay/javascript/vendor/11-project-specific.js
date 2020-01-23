@@ -113,7 +113,7 @@ $(document).ready(function(){
 		});
 
 		//Handle the product slider
-		$(document).on("click change",".category:not(.disabled) .uk-slider-items",function(){
+		$(document).on("click change",".category:not(.disabled) .uk-slider-items li",function(){
 			console.log('ici');
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
