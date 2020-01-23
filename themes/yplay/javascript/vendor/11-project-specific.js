@@ -345,6 +345,7 @@ $(document).ready(function(){
 
 		$(document).on("change","input[name='BirthMonth'],input[name='Birthday'],input[name='BirthYear']",function(){
 			$("#birthdate-error").attr('hidden','hidden');
+			$("#birthdate-empty").attr('hidden','hidden');
 			$("input[name='Birthdate']").removeClass('error');
 			var day = parseInt($("input[name='Birthday']").val());
 			var month = parseInt($("input[name='BirthMonth']").val());
