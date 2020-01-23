@@ -341,7 +341,7 @@ $(document).ready(function(){
 				var setDate = new Date(year + 18, month - 1, day);
 				var today = new Date();
 				if (setDate > today){
-					$("#birthdate-error").attr('hidden',false).find('label').show();
+					$("#birthdate-error").attr('hidden',false);
 				}
 				else{
 					$("input[name='Birthdate']").val(day+'.'+month+'.'+year);
