@@ -81,6 +81,9 @@
                             <% with Fields.FieldByName('BirthYear') %>
                                 $FieldHolder 
                             <% end_with %>
+                            <div id="birthdate-error" hidden="hidden">
+                                <p class="error">Sie müssen mindestens 18 Jahre alt sein, um auf unserer Website bestellen zu können</p>
+                            </div>
                             
                             <% with Fields.FieldByName('Birthdate') %>
                                 $FieldHolder 

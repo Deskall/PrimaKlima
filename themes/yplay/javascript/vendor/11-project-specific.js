@@ -332,16 +332,19 @@ $(document).ready(function(){
 		});
 
 		$(document).on("change","input[name='BirthMonth'],input[name='Birthday'],input[name='BirthYear']",function(){
+			$("#birthdate-error").attr('hidden','hidden');
 			var day = parseInt($("input[name='Birthday']").val());
 			var month = parseInt($("input[name='BirthMonth']").val());
 			var year = parseInt($("input[name='BirthYear']").val());
 			if (day && month && year){
 				var birthdate = new Date(year, month - 1, day);
 				var setDate = new Date(year + 18, month - 1, day);
-				console.log(setDate);
 				var today = new Date();
 				if (setDate > today){
-					console.log('too young');
+					$("#birthdate-error").attr('hidden',false);
+				}
+				else{
+					$("input[name='Birthdate']").val(birthdate.format('dd.mm.YYYY'));
 				}
 			}
 		});
