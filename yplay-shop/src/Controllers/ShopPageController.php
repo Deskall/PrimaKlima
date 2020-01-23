@@ -165,9 +165,9 @@ class ShopPageController extends PageController
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                TextField::create('Name','Nachname')->setAttribute('class','uk-input')
             )->setName('Step1'),
-            NumericField::create('Birthday','Tag')->setAttribute('class','uk-input day-field')->setAttribute('placeholder','DD'),
-            NumericField::create('BirthMonth','Monat')->setAttribute('class','uk-input month-field')->setAttribute('placeholder','MM'),
-            NumericField::create('BirthYear','Jahr')->setAttribute('placeholder','YYYY'),
+            NumericField::create('Birthday','Tag')->addExtraClass('day-field')->setAttribute('class','uk-input')->setAttribute('placeholder','DD'),
+            NumericField::create('BirthMonth','Monat')->addExtraClass('day-field')->setAttribute('class','uk-input')->setAttribute('placeholder','MM'),
+            NumericField::create('BirthYear','Jahr')->addExtraClass('day-field')->setAttribute('class','uk-input')->setAttribute('placeholder','YYYY'),
             CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
                TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true)

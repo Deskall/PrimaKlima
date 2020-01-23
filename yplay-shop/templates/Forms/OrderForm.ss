@@ -69,22 +69,19 @@
                         	<% with Fields.FieldByName('Step1') %>
                         		$FieldHolder 
                         	<% end_with %>
-                            <div class="uk-child-width-auto" data-uk-grid>
-                                <div>
-                                    <% with Fields.FieldByName('Birthday') %>
-                                        $FieldHolder 
-                                    <% end_with %>
-                                </div>
-                                <div>
-                                    <% with Fields.FieldByName('BirthMonth') %>
-                                        $FieldHolder 
-                                    <% end_with %>
-                                </div>
-                                <div>
-                                    <% with Fields.FieldByName('BirthYear') %>
-                                        $FieldHolder 
-                                    <% end_with %>
-                                </div>
+                           
+                            <% with Fields.FieldByName('Birthday') %>
+                                $FieldHolder 
+                            <% end_with %>
+                        
+                            <% with Fields.FieldByName('BirthMonth') %>
+                                $FieldHolder 
+                            <% end_with %>
+                        
+                            <% with Fields.FieldByName('BirthYear') %>
+                                $FieldHolder 
+                            <% end_with %>
+                                
                             </div>
                         </div>
 	                   <div class="uk-margin-top uk-flex uk-flex-around">
