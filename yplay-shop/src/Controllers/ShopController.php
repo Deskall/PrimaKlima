@@ -62,6 +62,13 @@ class ShopController extends PageController
       $id = $this->getRequest()->getSession()->get('shopcart_id');
       $products = $this->getRequest()->postVar('products');
       $packageID = $this->getRequest()->postVar('packageID');
+
+      ob_start();
+               print_r($id);
+               print_r($products);
+               print_r($packageID);
+               $result = ob_get_clean();
+               file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
      
       $cart = null;
       if ($id){
