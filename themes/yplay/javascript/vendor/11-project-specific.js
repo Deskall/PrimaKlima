@@ -250,8 +250,7 @@ $(document).ready(function(){
 		//Check if form error
 		if ($(".message.required").length > 0){
 			var tab = $(".message.required").parents('li');
-			var previous = tab.prev('li').find('.step.forward').trigger('click');
-			// UIkit.switcher("#order-nav-switcher").show(tab.attr('data-index'));
+			UIkit.switcher("#order-nav-switcher").show(tab.attr('data-index'));
 			
 		}
 
@@ -320,7 +319,6 @@ $(document).ready(function(){
 						break;
 					case "3":
 						var count = parseInt($("#order-form-steps > li").length - 1);
-						console.log(count);
 						UIkit.switcher("#order-nav-switcher").show(count);
 						break;
 				}
@@ -460,10 +458,11 @@ $(document).ready(function(){
 				UIkit.switcher("#order-nav-switcher").show(0);
 				break;
 			case "2":
-				UIkit.switcher("#order-nav-switcher").show(3);
+				UIkit.switcher("#order-nav-switcher").show(4);
 				break;
 			case "3":
-				UIkit.switcher("#order-nav-switcher").show(5);
+				var count = parseInt($("#order-form-steps > li").length - 1);
+				UIkit.switcher("#order-nav-switcher").show(count);
 				break;
 		}
 	}
