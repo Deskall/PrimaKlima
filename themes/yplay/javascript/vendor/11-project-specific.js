@@ -319,14 +319,14 @@ $(document).ready(function(){
 			}
 		});
 
-		$(document).on("change","input[name='Birthday']", function(){
+		$(document).on("change keypress keyup","input[name='Birthday']", function(){
 
 			if($(this).val().length == 2){
 				console.log('ici');
 				$("input[name='BirthMonth']").focus();
 			}
 		});
-		$(document).on("change","input[name='BirthMonth']", function(){
+		$(document).on("change keypress keyup","input[name='BirthMonth']", function(){
 			if($(this).val().length == 2){
 				$("input[name='BirthYear']").focus();
 			}
