@@ -338,9 +338,10 @@ $(document).ready(function(){
 			if (day && month && year){
 				var birthdate = new Date(year, month - 1, day);
 				var setDate = new Date(year + 18, month - 1, day);
+				console.log(setDate);
 				var today = new Date();
 				if (setDate > today){
-					alert('too young');
+					console.log('too young');
 				}
 			}
 		});
