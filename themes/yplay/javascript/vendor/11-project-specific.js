@@ -127,7 +127,7 @@ $(document).ready(function(){
 		$(document).on("click",".category:not(.disabled) .uk-slider-nav li",function(){
 			var slider = $(this).parents('.uk-slider');
 			if (!hasEvent){
-				UIkit.util.on(slider,'itemshown',function(){
+				UIkit.util.on(".slider-products",'itemshown',function(){
 					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
 				});
 				hasEvent  = true;
@@ -136,7 +136,7 @@ $(document).ready(function(){
 		$(document).on("click",".category:not(.disabled) [data-uk-slider-item]",function(){
 			var slider = $(this).parents('.uk-slider');
 			if (!hasEvent){
-				UIkit.util.on(slider,'itemshown',function(){
+				UIkit.util.on(".slider-products",'itemshown',function(){
 					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
 				});
 				hasEvent  = true;
