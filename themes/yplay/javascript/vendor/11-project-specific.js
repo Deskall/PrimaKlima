@@ -172,6 +172,7 @@ $(document).ready(function(){
 				UpdateOrder('Slider item shown');
 			}
 		});
+		UpdateOrder('Init');
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
 		
