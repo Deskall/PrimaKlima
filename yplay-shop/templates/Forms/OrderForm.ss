@@ -70,20 +70,22 @@
                         		$FieldHolder 
                         	<% end_with %>
                             <div><label>Ihre Geburstdatum</label></div>
-                            <div class="uk-width-1-3">
-                                    <% with Fields.FieldByName('Birthday') %>
-                                        $FieldHolder 
-                                    <% end_with %>
-                            </div>
-                            <div class="uk-width-1-3">
-                                    <% with Fields.FieldByName('BirthMonth') %>
-                                        $FieldHolder 
-                                    <% end_with %>
-                            </div>
-                            <div class="uk-width-1-3">  
-                                    <% with Fields.FieldByName('BirthYear') %>
-                                        $FieldHolder 
-                                    <% end_with %>
+                            <div>
+                                <div class="uk-display-inline-block">
+                                        <% with Fields.FieldByName('Birthday') %>
+                                            $FieldHolder 
+                                        <% end_with %>
+                                </div>
+                                <div class="uk-display-inline-block">
+                                        <% with Fields.FieldByName('BirthMonth') %>
+                                            $FieldHolder 
+                                        <% end_with %>
+                                </div>
+                                <div class="uk-display-inline-block">  
+                                        <% with Fields.FieldByName('BirthYear') %>
+                                            $FieldHolder 
+                                        <% end_with %>
+                                </div>
                             </div>
                             <div id="birthdate-error" hidden="hidden">
                                 <p class="error">Sie müssen mindestens 18 Jahre alt sein, um auf unserer Website bestellen zu können</p>
