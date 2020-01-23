@@ -320,6 +320,7 @@ $(document).ready(function(){
 		});
 
 		$(document).on("change","input[name='Birthday']", function(){
+			console.log($(this).val().length );
 			if($(this).val().length == 2){
 				$("input[name='BirthMonth']").focus();
 			}
