@@ -158,7 +158,7 @@ class ShopOrder extends DataObject{
 	    $config = $this->getSiteConfig();
 
 	    $email = new ShopOrderEmail($config,$this,$config->OrderEmailSender,$this->Email,$config->OrderEmailSubject, $config->OrderEmailBody);
-	    $email->setBCC($config->Email);
+	    // $email->setBCC($config->Email);
 
 	    //Attchments
 	    // $email->addAttachment(dirname(__FILE__).'/../../..'.$this->BillFile()->getURL(),'Rechnung.pdf');
