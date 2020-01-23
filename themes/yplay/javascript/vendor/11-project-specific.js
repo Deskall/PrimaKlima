@@ -123,19 +123,21 @@ $(document).ready(function(){
 		});
 		$(document).on("click",".category:not(.disabled) .uk-slider-nav li",function(){
 			var slider = $(this).parents('.uk-slider');
-			
-			UIkit.util.on(slider,'itemshown',function(){
-				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-			});
+			if (!hasEvent){
+				UIkit.util.on(slider,'itemshown',function(){
+					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+					hasEvent  = true;
+				});
+			}
 		});
 		$(document).on("click",".category:not(.disabled) [data-uk-slider-item]",function(){
 			var slider = $(this).parents('.uk-slider');
-			
+			if (!hasEvent){
 				UIkit.util.on(slider,'itemshown',function(){
 					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-					
+					hasEvent  = true;
 				});
-			
+			}
 		});
 
 		//Handle the category Switcher
@@ -213,7 +215,7 @@ $(document).ready(function(){
 	};
 
 	function UpdateOrderPreview(packageID, products){
-		//ici ajouter un spinner
+		//ici ajouter un
 		$.ajax({
 			url: '/shop-functions/fetchCart',
 			method: 'POST',
