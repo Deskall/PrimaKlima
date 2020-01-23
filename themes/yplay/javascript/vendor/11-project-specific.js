@@ -252,6 +252,7 @@ $(document).ready(function(){
 		$(document).on("click",".step",function(){
 			if (!$(this).hasClass('backwards')){
 				//Special case for birthdate
+				console.log($(this).parents('[data-step]').attr('data-step'));
 				if ($(this).parents('[data-step]').attr('data-step') == "step-1" && $("input[Birthdate]").hasClass("error")){
 					console.log('ici');
 					return false;
