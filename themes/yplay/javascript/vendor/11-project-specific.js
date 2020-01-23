@@ -252,9 +252,7 @@ $(document).ready(function(){
 		$(document).on("click",".step",function(){
 			if (!$(this).hasClass('backwards')){
 				//Special case for birthdate
-				console.log($(this).parents('[data-step]').attr('data-step'));
-				if ($(this).parents('[data-step]').attr('data-step') == "step-1" && $("input[Birthdate]").hasClass("error")){
-					console.log('ici');
+				if ($(this).parents('[data-step]').attr('data-step') == "step-1" && $("input[name='Birthdate']").hasClass("error")){
 					return false;
 				}
 				else{
@@ -357,6 +355,10 @@ $(document).ready(function(){
 				else{
 					$("input[name='Birthdate']").val(year+'/'+month+'/'+day);
 				}
+			}
+			else{
+				$("#birthdate-empty").attr('hidden',false);
+				$("input[name='Birthdate']").addClass('error');
 			}
 		});
 

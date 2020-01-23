@@ -90,6 +90,9 @@
                             <div id="birthdate-error" hidden="hidden">
                                 <p class="error">Sie müssen mindestens 18 Jahre alt sein, um auf unserer Website bestellen zu können</p>
                             </div>
+                            <div id="birthdate-empty" hidden="hidden">
+                                <p class="error">Dieses Feld ist ein Pflichtfeld.</p>
+                            </div>
                             
                             <% with Fields.FieldByName('Birthdate') %>
                                 $FieldHolder 
