@@ -90,7 +90,7 @@ $(document).ready(function(){
 		
 		
 		$(document).on("change","[data-product-choice]",function(){
-			UpdateOrder();
+			UpdateOrder('Change Product Choice');
 		});
 
 		$(".no-category").each(function(){
@@ -109,7 +109,7 @@ $(document).ready(function(){
 			else{
 				$(this).parents('.category').removeClass('disabled').addClass('activated');
 			}
-			UpdateOrder();
+			UpdateOrder('Change no Category');
 		});
 
 		//Handle the product slider
@@ -173,14 +173,14 @@ $(document).ready(function(){
 				$(this).parents('.category').find('[data-product-choice]').val(active.attr('data-value')).trigger('change');
 			}
 		});
-		UpdateOrder();
+		UpdateOrder('InitSliders');
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
 		
 		
 	}
 
-	function UpdateOrder(){
+	function UpdateOrder(context){
 		productsOfPackages = [];
 		products = [];
 		var chosenPackageID = 0;
@@ -198,20 +198,20 @@ $(document).ready(function(){
 			}
 		});
 
-		UpdateOrderPreview(chosenPackageID, products);
+		UpdateOrderPreview(chosenPackageID, products,context);
 	}
 
 	function compareArrays(arr1, arr2) {
 	    return $(arr1).not(arr2).length == 0 && $(arr2).not(arr1).length == 0
 	};
 
-	function UpdateOrderPreview(packageID, products){
+	function UpdateOrderPreview(packageID, products,context){
 		//ici ajouter un
 		$.ajax({
 			url: '/shop-functions/fetchCart',
 			method: 'POST',
 			dataType: 'html',
-			data: {packageID: packageID, products: products}
+			data: {packageID: packageID, products: products,context: context}
 		}).done(function(response){
 			$(".order-preview").each(function(){
 				$(this).empty().append(response);
@@ -231,7 +231,7 @@ $(document).ready(function(){
 	//Shop Page script
 	if ($('body').hasClass('ShopPage')){
 
-		UpdateOrder();
+		UpdateOrder('ShopPage');
 		InitNav();
 		InitStep();
 		var validator = $("#Form_OrderForm").validate();
