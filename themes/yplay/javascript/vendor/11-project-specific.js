@@ -164,7 +164,7 @@ $(document).ready(function(){
 		});
 		 UIkit.util.on(".slider-products",'itemshown',function(){
 		 	console.log('ici');
-		 }
+		 });
 		// UIkit.util.on(".slider-products",'itemshown',function(){
 		// 	if ($(this).parents('.category').hasClass('activated')){
 		// 		$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
