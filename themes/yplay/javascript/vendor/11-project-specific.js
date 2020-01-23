@@ -150,7 +150,7 @@ $(document).ready(function(){
 					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
 				}
 			}
-			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
+			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index, draggable:false});
 
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
