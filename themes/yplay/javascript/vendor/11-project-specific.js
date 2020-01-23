@@ -250,7 +250,8 @@ $(document).ready(function(){
 		//Check if form error
 		if ($(".message.required").length > 0){
 			var tab = $(".message.required").parents('li');
-			UIkit.switcher("#order-nav-switcher").show(tab.attr('data-index'));
+			var previous = tab.prev('li').find('.step.forward').trigger('click');
+			// UIkit.switcher("#order-nav-switcher").show(tab.attr('data-index'));
 			
 		}
 
