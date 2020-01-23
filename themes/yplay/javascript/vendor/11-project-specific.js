@@ -151,7 +151,9 @@ $(document).ready(function(){
 				}
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
-
+			UIkit.util.on("#"+$(this).attr('id'),'itemshown',function(){
+				UpdateOrder('Slider item shown');
+			});
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
 				$(this).parents('.category').find('.no-category').prop("checked",true).parents('.category').addClass('disabled');
@@ -162,21 +164,9 @@ $(document).ready(function(){
 				}
 			}
 		});
-		UIkit.util.on(".slider-products",'itemhidden',function(){
-			$(this).addClass("activated");
-		});
-		UIkit.util.on(".slider-products",'itemshown',function(){
-			if ($(this).hasClass("activated")){
-				// var active = $(this).find('li.uk-active');
-				// $(this).parents('.category').find('[data-product-choice]').val(active.attr('data-value'));
-				UpdateOrder('Slider item shown');
-			}
-		});
-		UpdateOrder('InitSliders');
+		
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
-		
-		
 	}
 
 	function UpdateOrder(context){
