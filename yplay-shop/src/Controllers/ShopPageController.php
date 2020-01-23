@@ -168,6 +168,7 @@ class ShopPageController extends PageController
             NumericField::create('Birthday','Tag')->addExtraClass('day-field')->setAttribute('class','uk-input')->setAttribute('placeholder','DD')->setHTML5(true)->setAttribute('min',1)->setAttribute('max',31),
             NumericField::create('BirthMonth','Monat')->addExtraClass('month-field')->setAttribute('class','uk-input')->setAttribute('placeholder','MM')->setHTML5(true)->setAttribute('min',1)->setAttribute('max',12),
             NumericField::create('BirthYear','Jahr')->addExtraClass('year-field')->setAttribute('class','uk-input')->setAttribute('placeholder','YYYY')->setHTML5(true)->setAttribute('min',1900)->setAttribute('max',2002),
+            HiddenField::create('Birthdate'),
             CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
                TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true)
@@ -197,7 +198,7 @@ class ShopPageController extends PageController
          new FieldList(
             FormAction::create('doOrder', _t('SHOP.BUYNOW', 'Bestellung abschicken'))->addExtraClass('uk-button')
          ),
-         RequiredFields::create(['Gender','Name','FirstName','Birthday','Email','Phone','Address','AGB'])
+         RequiredFields::create(['Gender','Name','FirstName','Email','Phone','Address','AGB'])
       );
       // $member = Security::getCurrentUser();
       // if ($member){
