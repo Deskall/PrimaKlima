@@ -117,30 +117,13 @@ $(document).ready(function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
-			if (!hasEvent){
-				UIkit.util.on(".slider-products",'itemshown',function(){
-					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-				});
-				hasEvent  = true;
-			}
+			$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
 		});
 		$(document).on("click",".category:not(.disabled) .uk-slider-nav li",function(){
-			var slider = $(this).parents('.uk-slider');
-			if (!hasEvent){
-				UIkit.util.on(".slider-products",'itemshown',function(){
-					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-				});
-				hasEvent  = true;
-			}
+			$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
 		});
 		$(document).on("click",".category:not(.disabled) [data-uk-slider-item]",function(){
-			var slider = $(this).parents('.uk-slider');
-			if (!hasEvent){
-				UIkit.util.on(".slider-products",'itemshown',function(){
-					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-				});
-				hasEvent  = true;
-			}
+			$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
 		});
 
 		//Handle the category Switcher
@@ -183,6 +166,9 @@ $(document).ready(function(){
 					$(this).parents('.category').find('.no-category').prop("checked",false).parents('.category').removeClass('disabled');
 				}
 			}
+		});
+		UIkit.util.on(".slider-products",'itemshown',function(){
+			$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
 		});
 		UpdateOrder();
 		$("#loading-block").remove();
