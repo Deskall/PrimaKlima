@@ -164,9 +164,9 @@ class ShopPageController extends PageController
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                TextField::create('Name','Nachname')->setAttribute('class','uk-input'),
                CompositeField::create(
-                  TextField::create('Birthday','')->setAttribute('class','uk-input day-field')->setAttribute('placeholder','DD'),
-                  TextField::create('BirthMonth','')->setAttribute('class','uk-input month-field')>setAttribute('placeholder','MM'),
-                  TextField::create('BirthYear','')->setAttribute('placeholder','YYYY')
+                  TextField::create('Birthday','Tag')->setAttribute('class','uk-input day-field')->setAttribute('placeholder','DD'),
+                  TextField::create('BirthMonth','Monat')->setAttribute('class','uk-input month-field')->setAttribute('placeholder','MM'),
+                  TextField::create('BirthYear','Jahr')->setAttribute('placeholder','YYYY')
                )->setName('BirthDate')->setTitle('Geburstdatum')
             )->setName('Step1'),
             CompositeField::create(
