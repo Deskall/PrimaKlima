@@ -165,9 +165,9 @@ class ShopPageController extends PageController
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                TextField::create('Name','Nachname')->setAttribute('class','uk-input')
             )->setName('Step1'),
-            NumericField::create('Birthday','Tag')->addExtraClass('day-field')->setAttribute('class','uk-input')->setAttribute('placeholder','DD')->setHTML5(true)->setMin(1)->setMax(31),
-            NumericField::create('BirthMonth','Monat')->addExtraClass('month-field')->setAttribute('class','uk-input')->setAttribute('placeholder','MM')->setHTML5(true)->setMin(1)->setMax(12),
-            NumericField::create('BirthYear','Jahr')->addExtraClass('year-field')->setAttribute('class','uk-input')->setAttribute('placeholder','YYYY')->setHTML5(true)->setMin(1900)->setMax(2002),
+            NumericField::create('Birthday','Tag')->addExtraClass('day-field')->setAttribute('class','uk-input')->setAttribute('placeholder','DD')->setHTML5(true)->setAttribute('min',1)->setAttribute('max',31),
+            NumericField::create('BirthMonth','Monat')->addExtraClass('month-field')->setAttribute('class','uk-input')->setAttribute('placeholder','MM')->setHTML5(true)->setAttribute('min',1)->setAttribute('max',12),
+            NumericField::create('BirthYear','Jahr')->addExtraClass('year-field')->setAttribute('class','uk-input')->setAttribute('placeholder','YYYY')->setHTML5(true)->setAttribute('min',1900)->setAttribute('max',2002),
             CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
                TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true)
