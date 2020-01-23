@@ -162,7 +162,7 @@ class ShopPageController extends PageController
             OptionsetField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
             CompositeField::create( 
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
-               TextField::create('Name','Nachname')->setAttribute('class','uk-input'),
+               TextField::create('Name','Nachname')->setAttribute('class','uk-input')
             )->setName('Step1'),
             TextField::create('Birthday','Tag')->setAttribute('class','uk-input day-field')->setAttribute('placeholder','DD'),
             TextField::create('BirthMonth','Monat')->setAttribute('class','uk-input month-field')->setAttribute('placeholder','MM'),
