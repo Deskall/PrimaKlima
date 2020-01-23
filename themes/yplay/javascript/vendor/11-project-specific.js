@@ -326,10 +326,12 @@ $(document).ready(function(){
 						UIkit.switcher("#order-nav-switcher").show(0);
 						break;
 					case "2":
-						UIkit.switcher("#order-nav-switcher").show(3);
+						UIkit.switcher("#order-nav-switcher").show(4);
 						break;
 					case "3":
-						UIkit.switcher("#order-nav-switcher").show(5);
+						var count = parseInt($("#order-form-steps li").length - 1);
+						console.log(count);
+						UIkit.switcher("#order-nav-switcher").show(count);
 						break;
 				}
 			}
