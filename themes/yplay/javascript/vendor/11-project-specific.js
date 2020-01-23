@@ -344,7 +344,7 @@ $(document).ready(function(){
 					$("#birthdate-error").attr('hidden',false);
 				}
 				else{
-					$("input[name='Birthdate']").val(day+'.'+month+'.'+year);
+					$("input[name='Birthdate']").val(year+'/'+month+'/'+day);
 				}
 			}
 		});
