@@ -252,7 +252,7 @@ $(document).ready(function(){
 		$(document).on("click",".step",function(){
 			if (!$(this).hasClass('backwards')){
 				//Special case for birthdate
-				if ($(this).parents('[data-step]').attr('data-step') == "step-1" && $("input[name='Birthdate']").hasClass("error")){
+				if ($(this).parents('[data-step]').attr('data-step') == "step-1" && ($("input[name='Birthdate']").hasClass("error") || $("input[name='Birthdate']").val() == "")){
 					return false;
 				}
 				else{
