@@ -113,7 +113,7 @@ $(document).ready(function(){
 		});
 
 		//Handle the product slider
-		$(document).on("click",".category:not(.disabled) .uk-slider-items li",function(){
+		$(document).on("click swipeleft swiperight",".category:not(.disabled) .uk-slider-items li",function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
@@ -150,7 +150,7 @@ $(document).ready(function(){
 					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
 				}
 			}
-			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index, draggable:false});
+			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
@@ -162,12 +162,14 @@ $(document).ready(function(){
 				}
 			}
 		});
-		setTimeout(function(){
-			UIkit.util.on(".slider-products",'itemshown',function(){
-				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-			});
-		},2000);
-		
+		// UIkit.util.on(".slider-products",'itemshown',function(){
+		// 	if ($(this).parents('.category').hasClass('activated')){
+		// 		$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+		// 	}
+		// 	else{
+		// 		$(this).parents('.category').addClass("activated");
+		// 	}
+		// });
 		UpdateOrder();
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
