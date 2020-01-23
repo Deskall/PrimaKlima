@@ -332,9 +332,9 @@ $(document).ready(function(){
 		});
 
 		$(document).on("change","input[name='BirthMonth'],input[name='Birthday'],input[name='BirthYear']",function(){
-			var day = $("input[name='Birthday']").val();
-			var month = $("input[name='BirthMonth']").val();
-			var year = $("input[name='BirthYear']").val();
+			var day = parseInt($("input[name='Birthday']").val());
+			var month = parseInt($("input[name='BirthMonth']").val());
+			var year = parseInt($("input[name='BirthYear']").val());
 			if (day && month && year){
 				var birthdate = new Date(year, month - 1, day);
 				var setDate = new Date(year + 18, month - 1, day);
