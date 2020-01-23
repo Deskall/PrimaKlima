@@ -265,6 +265,8 @@ class ShopPageController extends PageController
             //Create and fill the order
                $order = new ShopOrder();
                $form->saveInto($order);
+               $order->PostalCode = $cart->PostalCode;
+               $order->City = $cart->City;
                
                //Customer
                $customer = ShopCustomer::get()->filter('Email',$data['Email'])->first();
