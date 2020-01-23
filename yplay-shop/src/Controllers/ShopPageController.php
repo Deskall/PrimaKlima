@@ -163,7 +163,11 @@ class ShopPageController extends PageController
             CompositeField::create( 
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                TextField::create('Name','Nachname')->setAttribute('class','uk-input'),
-               TextField::create('Birthday','Geburstdatum')->setAttribute('minDate','1900.01.01')->setAttribute('maxDate',$max->format('Y.m.d'))->setAttribute('class','uk-input flatpickr')
+               CompositeField::create(
+                  TextField::create('Birthday','')->setAttribute('class','uk-input day-field')->setAttribute('placeholder','DD'),
+                  TextField::create('BirthMonth','')->setAttribute('class','uk-input month-field')>setAttribute('placeholder','MM'),
+                  TextField::create('BirthYear','')->setAttribute('placeholder','YYYY')
+               )->setName('BirthDate')->setTitle('Geburstdatum')
             )->setName('Step1'),
             CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
