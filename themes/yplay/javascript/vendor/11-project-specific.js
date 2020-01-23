@@ -251,6 +251,10 @@ $(document).ready(function(){
 		
 		$(document).on("click",".step",function(){
 			if (!$(this).hasClass('backwards')){
+				//Special case for birthdate
+				if ($(this).parents('[data-step]').attr('data-step') == "step-1" && $("input[Birthdate]").hasClass("error")){
+					return false;
+				}
 				//Check daten && Update Session Data
 				var form = $(this).parents('form');
 			
@@ -333,6 +337,7 @@ $(document).ready(function(){
 
 		$(document).on("change","input[name='BirthMonth'],input[name='Birthday'],input[name='BirthYear']",function(){
 			$("#birthdate-error").attr('hidden','hidden');
+			$("input[name='Birthdate']").removeClass('error');
 			var day = parseInt($("input[name='Birthday']").val());
 			var month = parseInt($("input[name='BirthMonth']").val());
 			var year = parseInt($("input[name='BirthYear']").val());
@@ -342,6 +347,7 @@ $(document).ready(function(){
 				var today = new Date();
 				if (setDate > today){
 					$("#birthdate-error").attr('hidden',false);
+					$("input[name='Birthdate']").addClass('error');
 				}
 				else{
 					$("input[name='Birthdate']").val(year+'/'+month+'/'+day);
