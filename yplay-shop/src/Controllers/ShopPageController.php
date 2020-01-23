@@ -165,9 +165,9 @@ class ShopPageController extends PageController
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                TextField::create('Name','Nachname')->setAttribute('class','uk-input')
             )->setName('Step1'),
-            NumericField::create('Birthday','Tag')->addExtraClass('day-field')->setAttribute('class','uk-input')->setAttribute('placeholder','DD')->setHTML5(true)->setAttribute('min',1)->setAttribute('max',31),
-            NumericField::create('BirthMonth','Monat')->addExtraClass('month-field')->setAttribute('class','uk-input')->setAttribute('placeholder','MM')->setHTML5(true)->setAttribute('min',1)->setAttribute('max',12),
-            NumericField::create('BirthYear','Jahr')->addExtraClass('year-field')->setAttribute('class','uk-input')->setAttribute('placeholder','YYYY')->setHTML5(true),
+            $day = NumericField::create('Birthday','Tag')->addExtraClass('day-field')->setAttribute('class','uk-input')->setAttribute('placeholder','DD')->setHTML5(true)->setAttribute('min',1)->setAttribute('max',31),
+            $month = NumericField::create('BirthMonth','Monat')->addExtraClass('month-field')->setAttribute('class','uk-input')->setAttribute('placeholder','MM')->setHTML5(true)->setAttribute('min',1)->setAttribute('max',12),
+            $year = NumericField::create('BirthYear','Jahr')->addExtraClass('year-field')->setAttribute('class','uk-input')->setAttribute('placeholder','YYYY')->setHTML5(true),
             HiddenField::create('Birthdate'),
             CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
@@ -241,6 +241,12 @@ class ShopPageController extends PageController
       $form->addExtraClass('form-std');
       $form->setTemplate('Forms/OrderForm');
       $form->loadDataFrom($cart);
+      if ($cart->Birthdate){
+         $birthdate = new \DateTime($cart->Birthdate);
+         $day->setValue($birthdate->getDay());
+         $month->setValue($birthdate->getMonth());
+         $year->setValue($birthdate->getYear());
+      }
 
    
       return $form;
