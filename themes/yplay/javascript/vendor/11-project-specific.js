@@ -166,7 +166,7 @@ $(document).ready(function(){
 		 	console.log('ici');
 		 });
 		 UIkit.util.on(".slider-products",'itemhidden',function(){
-		 	console.log('ici');
+		 	console.log('la');
 		 });
 		// UIkit.util.on(".slider-products",'itemshown',function(){
 		// 	if ($(this).parents('.category').hasClass('activated')){
