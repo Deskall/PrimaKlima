@@ -249,8 +249,8 @@ $(document).ready(function(){
 
 		//Check if form error
 		if ($(".message.required").length > 0){
-			console.log('ici');
 			var tab = $(".message.required").parents('li');
+			console.log(tab.attr('id'));
 			UIkit.switcher("#order-nav-switcher").show(tab);
 			
 		}
