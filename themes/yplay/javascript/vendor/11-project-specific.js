@@ -164,13 +164,12 @@ $(document).ready(function(){
 		});
 		UIkit.util.on(".slider-products",'itemhidden',function(){
 			$(this).addClass("activated");
-			
-			// $(this).parents('.category').find('[data-product-choice]').val(active.attr('data-value')).trigger('change');
 		});
 		UIkit.util.on(".slider-products",'itemshown',function(){
 			if ($(this).hasClass("activated")){
 				var active = $(this).find('li.uk-active');
-				$(this).parents('.category').find('[data-product-choice]').val(active.attr('data-value')).trigger('change');
+				$(this).parents('.category').find('[data-product-choice]').val(active.attr('data-value'));
+				UpdateOrder('Slider item shown');
 			}
 		});
 		UpdateOrder('InitSliders');
