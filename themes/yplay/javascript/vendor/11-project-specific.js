@@ -329,7 +329,7 @@ $(document).ready(function(){
 						UIkit.switcher("#order-nav-switcher").show(4);
 						break;
 					case "3":
-						var count = parseInt($("#order-form-steps li").length - 1);
+						var count = parseInt($("#order-form-steps > li").length - 1);
 						console.log(count);
 						UIkit.switcher("#order-nav-switcher").show(count);
 						break;
