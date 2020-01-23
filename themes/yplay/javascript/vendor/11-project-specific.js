@@ -184,11 +184,10 @@ $(document).ready(function(){
 				}
 			}
 		});
-		UpdateOrder();
 		UIkit.util.on(".slider-products",'itemshown',function(){
-			$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+			$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value'));
 		});
-		hasEvent  = true;
+		UpdateOrder();
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
 		
