@@ -107,7 +107,7 @@ $(document).ready(function(){
 				$(this).parents('.category').addClass('disabled');
 			}
 			else{
-				$(this).parents('.category').removeClass('disabled');
+				$(this).parents('.category').removeClass('disabled').addClass('activated');
 			}
 			UpdateOrder();
 		});
