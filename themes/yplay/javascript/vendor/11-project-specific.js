@@ -113,8 +113,7 @@ $(document).ready(function(){
 		});
 
 		//Handle the product slider
-		$(document).on("click change",".category:not(.disabled) .uk-slider-items li",function(){
-			console.log('ici');
+		$(document).on("click swipeleft swiperight",".category:not(.disabled) .uk-slider-items li",function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
@@ -185,7 +184,11 @@ $(document).ready(function(){
 				}
 			}
 		});
-
+		UIkit.util.on(".slider-products",'itemshown',function(){
+			if ($(this).parents('.category').hasClass('activated')){
+				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+			}
+		});
 		UpdateOrder();
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
