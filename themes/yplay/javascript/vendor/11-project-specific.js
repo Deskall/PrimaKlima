@@ -252,29 +252,34 @@ $(document).ready(function(){
 		$(document).on("click",".step",function(){
 			if (!$(this).hasClass('backwards')){
 				//Special case for birthdate
-				if ($(this).parents('[data-step]').attr('data-step') == "step-1" && ($("input[name='Birthdate']").hasClass("error") || $("input[name='Birthdate']").val() == "")){
-					return false;
-				}
-				else{
-					//Check daten && Update Session Data
-					var form = $(this).parents('form');
-				
-					if (form.valid()){
-						UpdateCartData();
-						UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
-						$("#order-nav").find('li.uk-active').removeClass('uk-active');
-						var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
-						if (nav.hasClass('dk-inactive')){
-							nav.removeClass('dk-inactive');
-							//Update cart steps
-							UpdateCartStep(nav.attr('data-nav'));
-						}
-						
-						if (!nav.hasClass('uk-active')){
-							nav.addClass('uk-active');
-						}
+				if ($(this).parents('[data-step]').attr('data-step') == "step-1"){
+					if ($("input[name='Birthdate']").val() == ""){
+						$("#birthdate-empty").attr('hidden',false);
+						return false;
+					}
+					if ($("input[name='Birthdate']").hasClass("error")){
+						return false;
 					}
 				}
+				//Check daten && Update Session Data
+				var form = $(this).parents('form');
+			
+				if (form.valid()){
+					UpdateCartData();
+					UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
+					$("#order-nav").find('li.uk-active').removeClass('uk-active');
+					var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
+					if (nav.hasClass('dk-inactive')){
+						nav.removeClass('dk-inactive');
+						//Update cart steps
+						UpdateCartStep(nav.attr('data-nav'));
+					}
+					
+					if (!nav.hasClass('uk-active')){
+						nav.addClass('uk-active');
+					}
+				}
+				
 				
 			}
 			else{
