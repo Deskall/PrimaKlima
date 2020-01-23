@@ -81,7 +81,10 @@
                             <% with Fields.FieldByName('BirthYear') %>
                                 $FieldHolder 
                             <% end_with %>
-                                
+                            
+                            <% with Fields.FieldByName('Birthdate') %>
+                                $FieldHolder 
+                            <% end_with %>
                             
                         </div>
 	                   <div class="uk-margin-top uk-flex uk-flex-around">

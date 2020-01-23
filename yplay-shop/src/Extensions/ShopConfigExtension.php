@@ -147,7 +147,7 @@ class ShopConfigExtension extends DataExtension
 
 
         if ($order->Customer()){
-           foreach (array('Gender','Name','FirstName','Email', 'Birthday','Address','City','PostalCode') as $field) {
+           foreach (array('Gender','Name','FirstName','Email', 'Birthdate','Address','City','PostalCode') as $field) {
               $variables["\$Customer.$field"] = $order->Customer()->$field;
            }
         
