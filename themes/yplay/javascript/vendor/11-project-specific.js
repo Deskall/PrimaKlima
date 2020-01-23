@@ -166,7 +166,7 @@ $(document).ready(function(){
 			UIkit.util.on(".slider-products",'itemshown',function(){
 				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
 			});
-		},1000);
+		},2000);
 		
 		UpdateOrder();
 		$("#loading-block").remove();
