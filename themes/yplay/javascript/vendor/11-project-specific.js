@@ -163,9 +163,14 @@ $(document).ready(function(){
 			}
 		});
 		UIkit.util.on(".slider-products",'itemhidden',function(){
-			var active = $(this).find('.uk-slider-items > li.uk-active');
-			console.log(active.attr('data-value'));
+			$(this).addClass("activated");
+			
 			// $(this).parents('.category').find('[data-product-choice]').val(active.attr('data-value')).trigger('change');
+		});
+		UIkit.util.on(".slider-products",'itemshown',function(){
+			if ($(this).hasClass("activated")){
+				$(this).parents('.category').find('[data-product-choice]').val(active.attr('data-value')).trigger('change');
+			}
 		});
 		UpdateOrder();
 		$("#loading-block").remove();
