@@ -13,7 +13,6 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\NumericField;
-use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\DateField;
