@@ -12,7 +12,7 @@
 	*{margin:0;font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;color: #666;}
 	img{max-width:100%}
 	.logo img{max-width: 150px;height:auto;}
-	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%}
+	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%;background-color:#EEEEEE;}
 	.content table,table.body-wrap,table.footer-wrap,table.head-wrap{width:100%}
 	a{color:#666}
 	.btn,.social .soc-btn{color:#FFF;text-align:center;font-weight:700;text-decoration:none}
