@@ -12,6 +12,8 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\NumericField;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\DateField;
@@ -164,9 +166,9 @@ class ShopPageController extends PageController
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                TextField::create('Name','Nachname')->setAttribute('class','uk-input')
             )->setName('Step1'),
-            TextField::create('Birthday','Tag')->setAttribute('class','uk-input day-field')->setAttribute('placeholder','DD'),
-            TextField::create('BirthMonth','Monat')->setAttribute('class','uk-input month-field')->setAttribute('placeholder','MM'),
-            TextField::create('BirthYear','Jahr')->setAttribute('placeholder','YYYY'),
+            NumericField::create('Birthday','Tag')->setAttribute('class','uk-input day-field')->setAttribute('placeholder','DD'),
+            NumericField::create('BirthMonth','Monat')->setAttribute('class','uk-input month-field')->setAttribute('placeholder','MM'),
+            NumericField::create('BirthYear','Jahr')->setAttribute('placeholder','YYYY'),
             CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
                TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true)
