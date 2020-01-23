@@ -163,8 +163,8 @@ $(document).ready(function(){
 			}
 		});
 		UIkit.util.on(".slider-products",'itemhidden',function(){
-			var active = $(this).parents('.uk-slider-items').find('li.uk-active');
-			console.log($(this));
+			var active = $(this).find('.uk-slider-items > li.uk-active');
+			console.log(active.attr('data-value'));
 			$(this).parents('.category').find('[data-product-choice]').val(active.attr('data-value')).trigger('change');
 		});
 		UpdateOrder();
