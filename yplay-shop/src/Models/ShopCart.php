@@ -17,7 +17,7 @@ class ShopCart extends DataObject {
 		'Name' => 'Varchar',
 		'FirstName' => 'Varchar',
 		'Email' => 'Varchar',
-		'Birthday' => 'Date',
+		'Birthdate' => 'Date',
 		'Address'  => 'Varchar',
 		'PostalCode'  => 'Varchar',
 		'City'  => 'Varchar',
@@ -77,7 +77,7 @@ class ShopCart extends DataObject {
 		$labels['BillCity'] = _t(__CLASS__.'.BillCity','Stadt (Rechnung)');
 		$labels['BillCountry'] = _t(__CLASS__.'.BillCountry','Land (Rechnung)');
 		$labels['Phone'] = _t(__CLASS__.'.Phone','Telefon');
-		$labels['Birthday'] = _t(__CLASS__.'.Birthday','Geburtsdatum');
+		$labels['Birthdate'] = _t(__CLASS__.'.Birthdate','Geburtsdatum');
 
 		return $labels;
 	}

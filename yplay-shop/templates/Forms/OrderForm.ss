@@ -69,7 +69,7 @@
                         	<% with Fields.FieldByName('Step1') %>
                         		$FieldHolder 
                         	<% end_with %>
-                            <div><label>Geburstdatum</label></div>
+                            <div><label>Geburstdatum *</label></div>
                             <% with Fields.FieldByName('Birthday') %>
                                 $FieldHolder 
                             <% end_with %>
