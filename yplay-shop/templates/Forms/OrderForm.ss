@@ -82,7 +82,7 @@
                                 $FieldHolder 
                             <% end_with %>
                             <div id="birthdate-error" hidden="hidden">
-                                <label class="error">Sie müssen mindestens 18 Jahre alt sein, um auf unserer Website bestellen zu können</label>
+                                <p class="error">Sie müssen mindestens 18 Jahre alt sein, um auf unserer Website bestellen zu können</p>
                             </div>
                             
                             <% with Fields.FieldByName('Birthdate') %>
