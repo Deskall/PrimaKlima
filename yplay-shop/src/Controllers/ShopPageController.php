@@ -163,12 +163,10 @@ class ShopPageController extends PageController
             CompositeField::create( 
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                TextField::create('Name','Nachname')->setAttribute('class','uk-input'),
-               CompositeField::create(
-                  TextField::create('Birthday','Tag')->setAttribute('class','uk-input day-field')->setAttribute('placeholder','DD'),
-                  TextField::create('BirthMonth','Monat')->setAttribute('class','uk-input month-field')->setAttribute('placeholder','MM'),
-                  TextField::create('BirthYear','Jahr')->setAttribute('placeholder','YYYY')
-               )->setName('BirthDate')->setTitle('Geburstdatum')
             )->setName('Step1'),
+            TextField::create('Birthday','Tag')->setAttribute('class','uk-input day-field')->setAttribute('placeholder','DD'),
+            TextField::create('BirthMonth','Monat')->setAttribute('class','uk-input month-field')->setAttribute('placeholder','MM'),
+            TextField::create('BirthYear','Jahr')->setAttribute('placeholder','YYYY'),
             CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
                TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true)
