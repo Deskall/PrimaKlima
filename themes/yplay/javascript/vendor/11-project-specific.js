@@ -188,6 +188,9 @@ $(document).ready(function(){
 			if ($(this).parents('.category').hasClass('activated')){
 				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
 			}
+			else{
+				$(this).parents('.category').addClass("activated");
+			}
 		});
 		UpdateOrder();
 		$("#loading-block").remove();
