@@ -344,7 +344,7 @@ $(document).ready(function(){
 					$("#birthdate-error").attr('hidden',false);
 				}
 				else{
-					$("input[name='Birthdate']").val(birthdate.format('dd.mm.YYYY'));
+					$("input[name='Birthdate']").val(birthdate);
 				}
 			}
 		});
