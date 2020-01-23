@@ -243,9 +243,9 @@ class ShopPageController extends PageController
       $form->loadDataFrom($cart);
       if ($cart->Birthdate){
          $birthdate = new \DateTime($cart->Birthdate);
-         $day->setValue($birthdate->getDay());
-         $month->setValue($birthdate->getMonth());
-         $year->setValue($birthdate->getYear());
+         $day->setValue($birthdate->format('d'));
+         $month->setValue($birthdate->format('m'));
+         $year->setValue($birthdate->format('Y'));
       }
 
    
