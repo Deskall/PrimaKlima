@@ -322,13 +322,26 @@ $(document).ready(function(){
 		$(document).on("change keypress keyup","input[name='Birthday']", function(){
 
 			if($(this).val().length == 2){
-				console.log('ici');
 				$("input[name='BirthMonth']").focus();
 			}
 		});
 		$(document).on("change keypress keyup","input[name='BirthMonth']", function(){
 			if($(this).val().length == 2){
 				$("input[name='BirthYear']").focus();
+			}
+		});
+
+		$(document).on("change","input[name='BirthMonth'],input[name='Birthday'],input[name='BirthYear']",function(){
+			var day = $("input[name='Birthday']").val();
+			var month = $("input[name='BirthMonth']").val();
+			var year = $("input[name='BirthYear']").val();
+			if (day && month && year){
+				var birthdate = new Date(year, month - 1, day);
+				var setDate = new Date(year + 18, month - 1, day);
+				var today = new Date();
+				if (setDate > today){
+					alert('too young');
+				}
 			}
 		});
 
