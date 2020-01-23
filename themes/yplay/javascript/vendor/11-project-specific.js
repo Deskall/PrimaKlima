@@ -319,6 +319,17 @@ $(document).ready(function(){
 			}
 		});
 
+		$(document).on("change","input[name='Birthday']", function(){
+			if($(this).val().length == 2){
+				$("input[name='BirthMonth']").focus();
+			}
+		});
+		$(document).on("change","input[name='BirthMonth']", function(){
+			if($(this).val().length == 2){
+				$("input[name='BirthYear']").focus();
+			}
+		});
+
 		$(document).on("change","input[name='PhoneOption']",function(){
 			$("#existing-phone,#wish-phone").attr('hidden','hidden').find('input').attr('required',false);
 			switch($("input[name='PhoneOption']:checked").attr('value')){
