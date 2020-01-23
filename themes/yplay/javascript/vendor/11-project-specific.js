@@ -151,7 +151,14 @@ $(document).ready(function(){
 				}
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
-
+			UIkit.util.on($(this),'itemshown',function(){
+				if ($(this).parents('.category').hasClass('activated')){
+					$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
+				}
+				else{
+					$(this).parents('.category').addClass("activated");
+				}
+			});
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
 				$(this).parents('.category').find('.no-category').prop("checked",true).parents('.category').addClass('disabled');
@@ -162,14 +169,7 @@ $(document).ready(function(){
 				}
 			}
 		});
-		UIkit.util.on(".slider-products",'itemshown',function(){
-			if ($(this).parents('.category').hasClass('activated')){
-				$(this).parents('.category').find('[data-product-choice]').val($(this).attr('data-value')).trigger('change');
-			}
-			else{
-				$(this).parents('.category').addClass("activated");
-			}
-		});
+		
 		UpdateOrder();
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
