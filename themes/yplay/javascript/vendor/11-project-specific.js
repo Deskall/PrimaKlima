@@ -113,7 +113,8 @@ $(document).ready(function(){
 		});
 
 		//Handle the product slider
-		$(document).on("click swipeleft swiperight",".category:not(.disabled) .uk-slider-items li",function(){
+		$(document).on("click change",".category:not(.disabled) .uk-slider-items",function(){
+			console.log('ici');
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
@@ -184,7 +185,7 @@ $(document).ready(function(){
 				}
 			}
 		});
-		
+
 		UpdateOrder();
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
