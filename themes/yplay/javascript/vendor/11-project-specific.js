@@ -249,6 +249,7 @@ $(document).ready(function(){
 
 		//Check if form error
 		if ($(".message.required").length > 0){
+			console.log('ici');
 			var tab = $(".message.required").parents('li');
 			UIkit.switcher("#order-nav-switcher").show(tab.attr('data-target'));
 			$("#order-nav").find('li.uk-active').removeClass('uk-active');
