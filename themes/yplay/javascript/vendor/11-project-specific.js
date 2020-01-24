@@ -150,7 +150,7 @@ $(document).ready(function(){
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 			UIkit.util.on("#"+$(this).attr('id'), 'itemshown', function () {
-			   console.log('ici');
+			   console.log($(this).attr('id'));
 			});
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
