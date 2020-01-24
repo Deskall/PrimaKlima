@@ -257,7 +257,7 @@ $(document).ready(function(){
 				if (form.valid()){
 					UpdateCartData();
 					UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
-					UIkit.scroll("#Form_OrderForm");
+					// UIkit.scroll("#Form_OrderForm");
 					$("#order-nav").find('li.uk-active').removeClass('uk-active');
 					var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
 					if (nav.hasClass('dk-inactive')){
@@ -275,7 +275,7 @@ $(document).ready(function(){
 			}
 			else{
 				UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
-				UIkit.scroll("#Form_OrderForm");
+				// UIkit.scroll("#Form_OrderForm");
 				$("#order-nav").find('li.uk-active').removeClass('uk-active');
 				var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
 				if (nav.hasClass('dk-inactive')){
