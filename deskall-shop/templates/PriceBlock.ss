@@ -72,7 +72,7 @@
 		        <div class="product-body">
 		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right"><%t Package.RunTime 'Laufzeit' %></span>$RunTimeTitle</div>
 		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right"><%t Package.OfferQuota 'Anzahl Stelleninserate' %></span>$NumOfAdsTitle</div>
-		        	<% loop $Parameters %>
+		        	<% loop $Features %>
 		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right">$title</span>$Title</div>
 		        	<% end_loop %> 
 		        	<% if PackegeOptions %>
