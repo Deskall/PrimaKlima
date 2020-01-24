@@ -128,7 +128,6 @@ $(document).ready(function(){
 
 
 	function InitSliders(products){
-		console.log($.now());
 		var index;
 		var options;
 		$(".slider-products").each(function(){
@@ -160,7 +159,6 @@ $(document).ready(function(){
 			}
 		});
 		
-		UpdateOrder();
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
 		
