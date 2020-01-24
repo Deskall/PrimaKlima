@@ -10,15 +10,16 @@
 						</div>
 					</div>
 				</div>
-				<div id="mobile-order-preview" hidden>
-					<div class="uk-card-body WhiteBackground order-preview">
-					</div>
-					<div class="uk-card-footer BlackBackground">
-					<a href="$ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
-				</div>
-				</div>
+				
 				
 			</div>
+		</div>
+	</div>
+	<div id="mobile-order-preview" hidden>
+		<div class="uk-card-body WhiteBackground order-preview">
+		</div>
+		<div class="uk-card-footer BlackBackground">
+			<a href="$ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
 		</div>
 	</div>
 	<section class="uk-section uk-section-medium" style="background-color:#eee;">
