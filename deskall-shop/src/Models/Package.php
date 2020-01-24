@@ -80,7 +80,7 @@ class Package extends DataObject {
         )));
 
 
-        $fields->addFieldToTab('Root.Global', ListboxField::create('Features', _t('Package.Features', 'Features'), PackageConfigItem::get()->map('ID','Title__de_DE')->toArray())->setAttribute('data-placeholder', _t('Package.Choose', 'Bitte Wählen')) );
+        $fields->addFieldToTab('Root.Global', ListboxField::create('Features', _t('Package.Features', 'Features'), PackageConfigItem::get()->map('ID','Title')->toArray())->setAttribute('data-placeholder', _t('Package.Choose', 'Bitte Wählen')) );
 
         $OptionField = new GridField(
             'PackegeOptions',
