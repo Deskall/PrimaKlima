@@ -64,6 +64,7 @@ $(document).ready(function(){
 	//Sticky Cart for mobile
 	UIkit.util.on("#mobile-cart-container", 'active',function(){
 		console.log('sticky active');
+		$("#mobile-order-review").attr('hidden','hidden');
 	});
 
 	//Configurator Page
