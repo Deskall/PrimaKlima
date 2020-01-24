@@ -124,15 +124,15 @@ $(document).ready(function(){
 
 
 //Scroll links
-// $(document).ready(function(){
-//   $("[href *= '#']").each(function(){
-//     var target = $(this).attr("href");
-//     target = target.substr(0,target.indexOf("#"));
-//     if (window.location.pathname == target){
-//       UIkit.scroll($(this),{offset: 100});
-//     }
-//   });
-// });
+$(document).ready(function(){
+  $("[href *= '#']").each(function(){
+    var target = $(this).attr("href");
+    target = target.substr(0,target.indexOf("#"));
+    if (window.location.pathname == target){
+      UIkit.scroll($(this),{offset: 100});
+    }
+  });
+});
 
 //Anonymize IP
 // var gaProperty = 'UA-XXXXXXXX-X';

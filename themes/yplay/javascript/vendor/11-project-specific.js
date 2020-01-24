@@ -59,9 +59,7 @@ $(document).ready(function(){
 	$(document).on("click",".toggle-cart",function(){
 		UIkit.toggle($(this).attr('data-target')).toggle();
 		$(".cart-button").toggleClass('uk-hidden');
-		if ($('body').hasClass('ConfiguratorPage')){
-			UIkit.scroll("#mobile-cart-container");
-		}
+		UIkit.scroll("#mobile-cart-container");
 	});
 
 	//Sticky Cart for mobile
@@ -229,7 +227,7 @@ $(document).ready(function(){
 		UpdateOrder();
 		InitNav();
 		InitStep();
-		var validator = $("#Form_OrderForm").validate();
+		// var validator = $("#Form_OrderForm").validate();
 
 		//Check if form error
 		if ($(".message.required").length > 0){
