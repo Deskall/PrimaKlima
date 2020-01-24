@@ -1,6 +1,6 @@
 <header <% if $SiteConfig.StickyHeader %>class="uk-box-shadow-medium dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="uk-box-shadow-mediul dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
 <% if $ClassName == "HomePage" %>
-<div class="uk-position-relative" tabindex="-1" data-uk-slideshow="ratio: false;autoplay:true;autoplayInterval:5000;animation:fade">
+<div class="uk-position-relative" tabindex="-1" data-uk-slideshow="ratio: false;autoplay:true;autoplayInterval:5000;animation:fade;minHeight:550">
     <ul class="uk-slideshow-items" data-uk-height-viewport="offset-top: true; offset-bottom: 30">
     	<% loop SiteConfig.activeSlides %>
         <li>
