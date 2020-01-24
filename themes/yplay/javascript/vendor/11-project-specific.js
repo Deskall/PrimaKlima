@@ -448,6 +448,10 @@ $(document).ready(function(){
 				UIkit.switcher("#order-nav-switcher").show(count);
 				break;
 		}
+		UIkit.util.on("#order-nav-switcher","shown",function(){
+			console.log('shown, scroll');
+			UIkit.scroll("#Form_OrderForm");
+		});
 	}
 
 	function InitStep(){
