@@ -50,7 +50,7 @@
 	<% end_loop %>
 </div> --%>
 
-<div class="uk-child-width-auto uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid>
+<div class="uk-child-width-auto uk-child-width-1-6@l uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid>
 <%-- 	<div>
 		<div class="uk-card uk-card-body uk-padding-remove-horizontal">
 			<h3 class="uk-card-title">&nbsp;</h3>
