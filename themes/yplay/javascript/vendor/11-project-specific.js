@@ -62,11 +62,11 @@ $(document).ready(function(){
 	});
 
 	//Sticky Cart for mobile
-	UIkit.util.on("#mobile-cart-container", 'active',function(){
-		console.log('sticky active');
-		$("#mobile-order-preview").attr('hidden','hidden');
-		$(this).$emit(type = 'update');
-	});
+	// UIkit.util.on("#mobile-cart-container", 'active',function(){
+	// 	console.log('sticky active');
+	// 	$("#mobile-order-preview").attr('hidden','hidden');
+	// 	$(this).$emit(type = 'update');
+	// });
 
 	//Configurator Page
 	if ($('body').hasClass('ConfiguratorPage')){	
