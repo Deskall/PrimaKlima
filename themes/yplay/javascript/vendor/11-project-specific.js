@@ -58,7 +58,8 @@ $(document).ready(function(){
 	//Toggle cart (all pages)
 	$(document).on("click",".toggle-cart",function(){
 		UIkit.toggle($(this).attr('data-target')).toggle();
-		$(".cart-button").toggleClass('uk-hidden');
+		$(".cart-button").removeClass('uk-hidden');
+		$(".cart-button.hide").addClass('uk-hidden');
 		UIkit.scroll("#mobile-cart-container");
 	});
 
