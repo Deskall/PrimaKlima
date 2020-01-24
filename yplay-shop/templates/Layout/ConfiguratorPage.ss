@@ -1,6 +1,6 @@
-	<div id="mobile-cart-container" class="" <% if not $activeCart %>hidden="hidden"<% end_if %> data-uk-sticky>
+	<div id="mobile-cart-container" class="uk-hidden@m" <% if not $activeCart %>hidden="hidden"<% end_if %> data-uk-sticky>
 		<div class="cart-container">
-			<div class="uk-card uk-box-shadow-medium uk-card-small">
+			<div class="uk-card uk-box-shadow-medium uk-card-small uk-padding-remove-horizontal">
 				<div class="uk-card-header toggle-cart" data-target="#mobile-order-preview">
 					<div class="uk-position-relative">
 						<strong class="uk-card-title"><%t Configurator.CartLabel 'Warenkorb' %> - <span class="total-monthly-price">$activeCart.TotalMonthlyPrice</span></strong>
