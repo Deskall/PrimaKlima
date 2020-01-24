@@ -86,7 +86,7 @@
 
 </head>
 
-<body bgcolor="#EEEEEE" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<body bgcolor="#EEEEEE" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#EEEEEE">
 	<!-- HEADER -->
 	<table class="head-wrap">
 		<tbody>
