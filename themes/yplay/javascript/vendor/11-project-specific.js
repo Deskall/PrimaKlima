@@ -133,6 +133,7 @@ $(document).ready(function(){
 
 
 	function InitSliders(products){
+		console.log(now());
 		var index;
 		var options;
 		$(".slider-products").each(function(){
