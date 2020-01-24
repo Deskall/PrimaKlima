@@ -65,6 +65,7 @@ $(document).ready(function(){
 	UIkit.util.on("#mobile-cart-container", 'active',function(){
 		console.log('sticky active');
 		$("#mobile-order-preview").attr('hidden','hidden');
+		$(this).$emit(type = 'update');
 	});
 
 	//Configurator Page
