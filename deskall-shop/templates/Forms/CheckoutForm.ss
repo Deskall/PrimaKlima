@@ -16,19 +16,7 @@
 		<ul id="component-tab" class="uk-switcher">
 			<li class="account-tab" data-index="0">
 				<h3><%t Checkout.ChoosePackage 'Wählen Sie Ihre Paket nach Mass' %></h3>
-				<div class="uk-child-width-1-4@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
-					<div>
-						<div class="uk-card uk-card-body">
-							<h3 class="uk-card-title">&nbsp;</h3>
-							<div class="product-body uk-text-right">
-								<div class="uk-margin"><%t Package.RunTime 'Laufzeit' %></div>
-								<div class="uk-margin"><%t Package.OfferQuota 'Anzahl Stelleninserate' %></div>
-							    <% loop Controller.activeParameters %>
-								<div class="uk-margin">$Title</div>
-								<% end_loop %>   	
-							</div>
-						</div>
-					</div>
+				<div class="uk-child-width-auto uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
 					<% loop Controller.activePackages %>
 					    <div class="dk-transition-toggle-not-mobile">
 					    	
@@ -38,12 +26,8 @@
 						        <div class="product-body">
 						        	<div class="uk-margin">$RunTimeTitle</div>
 						        	<div class="uk-margin">$NumOfAdsTitle</div>
-						        	<% loop $Parameters %>
-						        	<% if included %>
-						        	<div class="uk-margin"><i class="icon icon-checkmark"></i></div>
-						        	<% else %>
-						        	<div class="uk-margin">-</div>
-						        	<% end_if %>
+						        	<% loop $Features %>
+						        		<div class="uk-margin">$Title</div>
 						        	<% end_loop %>   
 							    </div>
 						        <div class="product-footer">
