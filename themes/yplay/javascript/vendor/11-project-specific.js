@@ -104,9 +104,9 @@ $(document).ready(function(){
 			}
 			UpdateOrder();
 		});
-		
+
 		//Handle the product slider
-		$(document).on("click",".category:not(.disabled) .uk-slider-items li",function(){
+		$(document).on("click swipe",".category:not(.disabled) .uk-slider-items li",function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
