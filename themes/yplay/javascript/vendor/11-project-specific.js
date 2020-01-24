@@ -61,6 +61,11 @@ $(document).ready(function(){
 		$(".cart-button").toggleClass('uk-hidden');
 	});
 
+	//Sticky Cart for mobile
+	UIkit.util.on("#mobile-cart-container", 'active',function(){
+		UIkit.toggle("#mobile-cart-container").hide();
+	});
+
 	//Configurator Page
 	if ($('body').hasClass('ConfiguratorPage')){	
 		//Initiate all
