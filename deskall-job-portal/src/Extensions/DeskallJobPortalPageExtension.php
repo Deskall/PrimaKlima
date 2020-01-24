@@ -29,4 +29,8 @@ class DeskallJobPortalPageExtension extends DataExtension
     public function OfferPage(){
         return OfferPage::get()->first();
     }
+
+    public function MemberPage(){
+        return MemberProfilePage::get()->first();
+    }
 }
