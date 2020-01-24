@@ -45,6 +45,8 @@ class Package extends DataObject {
         'PackegeOptions' => 'PackageOption',
     );
 
+    private static $cascade_duplicates = ['Features'];
+
 
     private static $summary_fields = array(
         'Title' => 'Titel',

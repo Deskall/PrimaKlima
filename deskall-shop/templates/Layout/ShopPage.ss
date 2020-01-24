@@ -9,7 +9,7 @@ $ElementalArea
 			</div>
 		<% else %>
 			$CheckoutForm
-			<% end_if %>
+		<% end_if %>
 	<% else %>
 		<% include LoginOrRegister %>
 	<% end_if %>
