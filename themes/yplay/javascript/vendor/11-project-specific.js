@@ -449,7 +449,7 @@ $(document).ready(function(){
 				break;
 		}
 		
-		UIkit.util.on("#order-nav-switcher","shown",function(){
+		UIkit.util.on("#order-form-steps","shown",function(){
 			console.log('shown, scroll');
 			UIkit.scroll("#Form_OrderForm");
 		});
