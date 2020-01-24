@@ -104,7 +104,7 @@ $(document).ready(function(){
 			}
 			UpdateOrder();
 		});
-
+		
 		//Handle the product slider
 		$(document).on("click",".category:not(.disabled) .uk-slider-items li",function(){
 			var slider = $(this).parents('.uk-slider');
@@ -119,7 +119,6 @@ $(document).ready(function(){
 			updateRun = setTimeout(UpdateOrder,1000);
 		});
 		
-
 		//Handle the category Switcher
 		$(document).on("click",".category .switch",function(){
 			var input = $(this).parents('.category').find('.no-category');
