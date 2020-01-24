@@ -114,10 +114,6 @@ $(document).ready(function(){
 			updateRun = setTimeout(UpdateOrder,1000);
 		});
 
-		$(document).on("swipe",".category:not(.disabled) .uk-slider-items",function(){
-			console.log('ici');
-		});
-
 		$(document).on("click",".category:not(.disabled) [data-uk-slider-item], .category:not(.disabled) .uk-slider-nav > li",function(){
 			clearTimeout(updateRun);
 			updateRun = setTimeout(UpdateOrder,1000);
@@ -152,7 +148,13 @@ $(document).ready(function(){
 					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
 				}
 			}
-			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
+			UIkit.slider("#"+$(this).attr('id'),{
+				center:true,
+				index:index,
+				itemshown: function(){
+					console.log('ici');
+				}
+			});
 			
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
