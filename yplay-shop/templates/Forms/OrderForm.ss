@@ -6,7 +6,6 @@
     <%-- <div id="loading-block" class="uk-flex-middle"><p><span data-uk-spinner class="uk-margin-right"></span>Bitte warten Sie einen Moment, das Formular wird geladen.</p></div> --%>
    
 	   <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-	       <div class="uk-navbar-left">
 	       		<ul id="order-nav" class="uk-navbar-nav uk-flex uk-flex-between">
 	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "1" || not Controller.activeCart.CurrentStep %>class="uk-active"<% end_if %> data-nav="1"><a>1. <span class="uk-visible@m">Kundendaten</span></a></li>
 	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "2" %>class="uk-active"<% else_if Controller.activeCart.CurrentStep < 2 %>class="dk-inactive"<% end_if %> data-nav="2">
@@ -24,7 +23,6 @@
 	   	            <li><a >Optionen</a></li>
 	   	            <li><a >Übersicht</a></li>
 	   	        </ul>
-	       </div>
 	   </nav>
 	
     <div>
