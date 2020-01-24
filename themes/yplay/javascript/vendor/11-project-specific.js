@@ -59,7 +59,7 @@ $(document).ready(function(){
 	$(document).on("click",".toggle-cart",function(){
 		UIkit.toggle($(this).attr('data-target')).toggle();
 		$(".cart-button").toggleClass('uk-hidden');
-		UIkit.scroll("#mobile-cart-container");
+		// UIkit.scroll("#mobile-cart-container");
 	});
 
 	//Sticky Cart for mobile
@@ -227,7 +227,7 @@ $(document).ready(function(){
 		UpdateOrder();
 		InitNav();
 		InitStep();
-		// var validator = $("#Form_OrderForm").validate();
+		var validator = $("#Form_OrderForm").validate();
 
 		//Check if form error
 		if ($(".message.required").length > 0){
@@ -256,7 +256,7 @@ $(document).ready(function(){
 				if (form.valid()){
 					UpdateCartData();
 					UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
-					UIkit.scroll("#Form_OrderForm");
+					// UIkit.scroll("#Form_OrderForm");
 					$("#order-nav").find('li.uk-active').removeClass('uk-active');
 					var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
 					if (nav.hasClass('dk-inactive')){
@@ -274,7 +274,7 @@ $(document).ready(function(){
 			}
 			else{
 				UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
-				UIkit.scroll("#Form_OrderForm");
+				// UIkit.scroll("#Form_OrderForm");
 				$("#order-nav").find('li.uk-active').removeClass('uk-active');
 				var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
 				if (nav.hasClass('dk-inactive')){
