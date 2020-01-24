@@ -236,8 +236,8 @@
                         		$FieldHolder 
                         	<% end_with %>
                         </div>
-                        <div class="uk-margin-top uk-flex uk-flex-around uk-flex-wrap-reverse uk-flex-wrap-between">
-                        	<a class="step backwards uk-button uk-button-muted" href="#" data-nav="2"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
+                        <div class="uk-margin-top uk-flex uk-flex-around uk-flex-wrap">
+                        	<a class="step backwards uk-button uk-button-muted uk-flex-last@s" href="#" data-nav="2"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
             	            <% if $Actions %>
 	            	            <% loop $Actions %>
 				        			$Field
