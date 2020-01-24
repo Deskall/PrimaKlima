@@ -59,6 +59,7 @@ $(document).ready(function(){
 	$(document).on("click",".toggle-cart",function(){
 		UIkit.toggle($(this).attr('data-target')).toggle();
 		$(".cart-button").toggleClass('uk-hidden');
+		UIkit.scroll("#mobile-cart-container");
 	});
 
 	//Sticky Cart for mobile
