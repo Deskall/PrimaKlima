@@ -64,11 +64,11 @@ $(document).ready(function(){
 	//Configurator Page
 	if ($('body').hasClass('ConfiguratorPage')){	
 		//Initiate all
-		var cart;
-		var products = [];
-		var packages = [];
-		var productsOfPackages = [];
-		var hasEvent = false;
+		var cart,
+		products = [],
+		packages = [],
+		productsOfPackages = [],
+		updateRun;
 
 		
 		var url = window.location.pathname;
@@ -85,14 +85,7 @@ $(document).ready(function(){
 				InitSliders(products);
 			});
 		});
-
 		
-		
-		
-		$(document).on("change","[data-product-choice]",function(){
-			UpdateOrder('Change Product Choice');
-		});
-
 		$(".no-category").each(function(){
 			if ($(this).is(':checked')){
 				$(this).parents('.category').addClass('disabled');
@@ -109,7 +102,7 @@ $(document).ready(function(){
 			else{
 				$(this).parents('.category').removeClass('disabled').addClass('activated');
 			}
-			UpdateOrder('Change no Category');
+			UpdateOrder();
 		});
 
 		//Handle the product slider
@@ -117,11 +110,13 @@ $(document).ready(function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
-			setTimeout(UpdateOrder,500);
+			clearTimeout(updateRun);
+			updateRun = setTimeout(UpdateOrder,1000);
 		});
 
 		$(document).on("click",".category:not(.disabled) [data-uk-slider-item], .category:not(.disabled) .uk-slider-nav > li",function(){
-			setTimeout(UpdateOrder,500);
+			clearTimeout(updateRun);
+			updateRun = setTimeout(UpdateOrder,1000);
 		});
 		
 
@@ -155,16 +150,7 @@ $(document).ready(function(){
 				}
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
-			// UIkit.util.on("#"+$(this).attr('id'),'itemhidden',function(){
-			// 	$(this).addClass("activated");
-			// });
-			// UIkit.util.on("#"+$(this).attr('id'),'itemshown',function(){
-			// 	if ($(this).hasClass("activated")){
-			// 		// var active = $(this).find('li.uk-active');
-			// 		// $(this).parents('.category').find('[data-product-choice]').val(active.attr('data-value'));
-			// 		UpdateOrder('Slider item shown');
-			// 	}
-			// });
+			
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
 				$(this).parents('.category').find('.no-category').prop("checked",true).parents('.category').addClass('disabled');
@@ -176,14 +162,14 @@ $(document).ready(function(){
 			}
 		});
 		
-		UpdateOrder('Init');
+		UpdateOrder();
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
 		
 		
 	}
 
-	function UpdateOrder(context){
+	function UpdateOrder(){
 		productsOfPackages = [];
 		products = [];
 		var chosenPackageID = 0;
