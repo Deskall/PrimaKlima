@@ -10,15 +10,14 @@
 						</div>
 					</div>
 				</div>
-				<div id="mobile-order-preview" hidden>
-					<div class="uk-card-body WhiteBackground order-preview">
-					</div>
-					<div class="uk-card-footer BlackBackground">
-					<a href="$ConfiguratorPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Change 'Ändern' %></a>
-				</div>
-				</div>
-				
 			</div>
+		</div>
+	</div>
+	<div id="mobile-order-preview" hidden>
+		<div class="uk-card-body WhiteBackground order-preview">
+		</div>
+		<div class="uk-card-footer BlackBackground">
+			<a href="$ConfiguratorPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Change 'Ändern' %></a>
 		</div>
 	</div>
 	<section class="uk-section">
