@@ -122,6 +122,11 @@ $(document).ready(function(){
 			},500);
 		});
 
+		$(document).on("click",".category:not(.disabled) [data-uk-slider-item], .category:not(.disabled) .uk-slider-nav > li",function(){
+			setTimeout(function(){
+				UpdateOrder('click slider');
+			},500);
+		});
 		
 
 		//Handle the category Switcher
