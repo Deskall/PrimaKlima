@@ -67,6 +67,18 @@
 	    </nav>
 	</div>
 </div>
+<div class="uk-container uk-container-medium uk-position-relative">
+	<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+		
+		<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-main') %>
+			$forTemplate
+		<% end_loop %>
+		<div class="uk-navbar-right uk-hidden@l">
+            <button class="uk-button uk-flex uk-flex-middle uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
+        </div>
+	</nav>
+			
+</div>
 <% else %>
 <header <% if $SiteConfig.StickyHeader %>class="uk-box-shadow-medium dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="uk-box-shadow-mediul dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
 	
