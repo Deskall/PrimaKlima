@@ -58,15 +58,15 @@ $(document).ready(function(){
 	//Toggle cart (all pages)
 	$(document).on("click",".toggle-cart",function(){
 		UIkit.toggle($(this).attr('data-target')).toggle();
-		$(".cart-button").removeClass('uk-hidden');
-		$(".cart-button.hide").addClass('uk-hidden');
+		$(".cart-button").toggleClass('uk-hidden');
 		UIkit.scroll("#mobile-cart-container");
 	});
 
 	//Sticky Cart for mobile
 	UIkit.util.on("#mobile-cart-container", 'active',function(){
 		$("#mobile-order-preview").attr('hidden','hidden');
-		$(".cart-button").toggleClass('uk-hidden');
+		$(".cart-button").removeClass('uk-hidden');
+		$(".cart-button.hide").addClass('uk-hidden');
 	});
 
 	//Configurator Page
