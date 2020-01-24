@@ -51,7 +51,7 @@
 </div> --%>
 
 <div class="uk-child-width-1-4@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid>
-	<div>
+<%-- 	<div>
 		<div class="uk-card uk-card-body uk-padding-remove-horizontal">
 			<h3 class="uk-card-title">&nbsp;</h3>
 			<div class="product-body uk-text-right">
@@ -62,7 +62,7 @@
 				<% end_loop %>   	
 			</div>
 		</div>
-	</div>
+	</div> --%>
 	<% loop activePackages %>
 	    <div class="dk-transition-toggle-not-mobile">
 	    	
@@ -73,11 +73,7 @@
 		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right"><%t Package.RunTime 'Laufzeit' %></span>$RunTimeTitle</div>
 		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right"><%t Package.OfferQuota 'Anzahl Stelleninserate' %></span>$NumOfAdsTitle</div>
 		        	<% loop $Parameters %>
-		        	<% if included %>
-		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right">$title</span><i class="icon icon-checkmark"></i></div>
-		        	<% else %>
-		        	<div class="uk-margin uk-visible@m">-</div>
-		        	<% end_if %>
+		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right">$title</span>$Title</div>
 		        	<% end_loop %> 
 		        	<% if PackegeOptions %>
 			        	<table class="uk-flex uk-flex-center"><% loop PackegeOptions %>
