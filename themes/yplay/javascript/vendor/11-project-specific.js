@@ -114,10 +114,10 @@ $(document).ready(function(){
 			updateRun = setTimeout(UpdateOrder,1000);
 		});
 
-		$(document).on("click",".category:not(.disabled) [data-uk-slider-item], .category:not(.disabled) .uk-slider-nav > li",function(){
-			clearTimeout(updateRun);
-			updateRun = setTimeout(UpdateOrder,1000);
-		});
+		// $(document).on("click",".category:not(.disabled) [data-uk-slider-item], .category:not(.disabled) .uk-slider-nav > li",function(){
+		// 	clearTimeout(updateRun);
+		// 	updateRun = setTimeout(UpdateOrder,1000);
+		// });
 		
 		//Handle the category Switcher
 		$(document).on("click",".category .switch",function(){
@@ -152,6 +152,8 @@ $(document).ready(function(){
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 			UIkit.util.on("#"+$(this).attr('id'), 'itemshown', function () {
 			   console.log($(this).attr('id'));
+			   clearTimeout(updateRun);
+			   updateRun = setTimeout(UpdateOrder,1000);
 			});
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
