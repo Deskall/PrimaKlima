@@ -106,12 +106,16 @@ $(document).ready(function(){
 		});
 
 		//Handle the product slider
-		$(document).on("click swipe",".category:not(.disabled) .uk-slider-items li",function(){
+		$(document).on("click",".category:not(.disabled) .uk-slider-items li",function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
 			clearTimeout(updateRun);
 			updateRun = setTimeout(UpdateOrder,1000);
+		});
+
+		$(document).on("swipe",".category:not(.disabled) .uk-slider-items",function(){
+			console.log('ici');
 		});
 
 		$(document).on("click",".category:not(.disabled) [data-uk-slider-item], .category:not(.disabled) .uk-slider-nav > li",function(){
