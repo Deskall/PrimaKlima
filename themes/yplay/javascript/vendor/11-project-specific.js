@@ -119,7 +119,7 @@ $(document).ready(function(){
 			UIkit.slider(slider).show(index);
 			setTimeout(function(){
 				UpdateOrder('click slider');
-			,500});
+			},500);
 		});
 
 		
