@@ -110,8 +110,8 @@ $(document).ready(function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
-			clearTimeout(updateRun);
-			updateRun = setTimeout(UpdateOrder,1000);
+			// clearTimeout(updateRun);
+			// updateRun = setTimeout(UpdateOrder,1000);
 		});
 
 		// $(document).on("click",".category:not(.disabled) [data-uk-slider-item], .category:not(.disabled) .uk-slider-nav > li",function(){
@@ -151,8 +151,7 @@ $(document).ready(function(){
 			}
 			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
 			UIkit.util.on("#"+$(this).attr('id'), 'itemshown', function () {
-			   console.log($(this).attr('id'));
-			   clearTimeout(updateRun);
+				clearTimeout(updateRun);
 			   updateRun = setTimeout(UpdateOrder,1000);
 			});
 			//Manage state
