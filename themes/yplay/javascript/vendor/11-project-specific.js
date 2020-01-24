@@ -117,7 +117,9 @@ $(document).ready(function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
-			UpdateOrder('click slider');
+			setTimeout(function(){
+				UpdateOrder('click slider');
+			,500});
 		});
 
 		
