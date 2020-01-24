@@ -187,7 +187,7 @@ $(document).ready(function(){
 			}
 		});
 
-		UpdateOrderPreview(chosenPackageID, products,context);
+		UpdateOrderPreview(chosenPackageID, products);
 	}
 
 	function compareArrays(arr1, arr2) {
@@ -200,7 +200,7 @@ $(document).ready(function(){
 			url: '/shop-functions/fetchCart',
 			method: 'POST',
 			dataType: 'html',
-			data: {packageID: packageID, products: products,context: context}
+			data: {packageID: packageID, products: products}
 		}).done(function(response){
 			$(".order-preview").each(function(){
 				$(this).empty().append(response);
