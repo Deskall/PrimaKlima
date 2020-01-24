@@ -148,14 +148,10 @@ $(document).ready(function(){
 					index = parseInt($(this).find('li[data-product-id="'+$(this).attr('data-id')+'"]').attr('data-index')) - 1;
 				}
 			}
-			UIkit.slider("#"+$(this).attr('id'),{
-				center:true,
-				index:index,
-				itemshown: function(){
-					console.log('ici');
-				}
+			UIkit.slider("#"+$(this).attr('id'),{center:true, index:index});
+			UIkit.util.on("#"+$(this).attr('id'), 'itemshown', function () {
+			   console.log('ici');
 			});
-			
 			//Manage state
 			if ($(this).parents('.category').attr('data-disabled')){
 				$(this).parents('.category').find('.no-category').prop("checked",true).parents('.category').addClass('disabled');
