@@ -104,7 +104,7 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
                 throw new Exception('Permission issue occurred. Was the "$member->validateCanLogin" check above this code block removed?');
             }
 
-            return $this->owner->redirect(MemberProfilePage::get()->filter('GroupID',$this->owner->GroupID)->first()->Link());
+            return $this->owner->redirect(MemberProfilePage::get()->first()->Link());
         }
        
         return $this->owner->redirectBack();
