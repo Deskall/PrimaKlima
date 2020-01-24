@@ -75,9 +75,8 @@
 											$Portal.OffersTabHTML
 										</div>
 										<div class="toggle-new-offer">
-											<% if CurrentCustomer.activeOrder %>
 											<a id="new-offer" class="uk-button uk-button-primary" data-uk-toggle=".toggle-new-offer"><%t Offer.Create 'jetzt neu Inserat erfassen' %></a>
-											<% else %>
+											<% if not CurrentCustomer.activeOrder %>
 											<p><%t MemberPage.CannotPublish 'Sie können derzeit keine Inserate freischalten. Sie können aber dennoch Inserate als Entwurf erfassen und zu einem späteren Zeitpunkt freischalten.' %></p>
 											<% end_if %>
 											<% if CurrentCustomer.Missions.exists %>
