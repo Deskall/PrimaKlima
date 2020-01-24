@@ -15,7 +15,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="mobile-order-preview" hidden>
+	<div id="mobile-order-preview" hidden  data-uk-sticky>
 		<div class="uk-card-body WhiteBackground order-preview">
 		</div>
 		<div class="uk-card-footer BlackBackground">
