@@ -117,11 +117,11 @@ $(document).ready(function(){
 			var slider = $(this).parents('.uk-slider');
 			var index = parseInt($(this).attr('data-index')) - 1;
 			UIkit.slider(slider).show(index);
-			setTimeout(UpdateOrder('click slider'),500);
+			setTimeout(UpdateOrder,500);
 		});
 
 		$(document).on("click",".category:not(.disabled) [data-uk-slider-item], .category:not(.disabled) .uk-slider-nav > li",function(){
-			setTimeout(UpdateOrder('click slider'),500);
+			setTimeout(UpdateOrder,500);
 		});
 		
 
