@@ -1,5 +1,5 @@
 <form method="GET" action="$Link" class="finder-bar uk-child-width-auto uk-grid-small uk-flex $Align" data-uk-grid>
-
+      <div><%t SearchForm.Label 'Sie suchen...' %></div>
          <div class="uk-flex uk-flex-left uk-flex-middle">
               <strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
               <input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
