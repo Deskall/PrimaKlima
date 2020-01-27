@@ -21,7 +21,7 @@
 						<% end_with %>
 					</div>
 				</div>
-				<div class="uk-width-4-5 uk-visible@m uk-text-center">
+				<div class="uk-width-4-5 uk-visible@m">
 					<h2 class="">$SiteConfig.Tagline</h2>
 					<% include SearchForm %>	
 				</div>
