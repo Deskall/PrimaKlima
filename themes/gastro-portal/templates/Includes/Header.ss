@@ -22,10 +22,10 @@
 					</div>
 				</div>
 				<div class="uk-width-4-5 uk-visible@m">
-					<h2>$SiteConfig.Tagline</h2>
+					<h2 class="uk-text-center">$SiteConfig.Tagline</h2>
 					<% include SearchForm %>	
 				</div>
-				<div class="uk-position-top-right">
+				<%-- <div class="uk-position-top-right">
 					<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 						
 						<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
@@ -36,7 +36,7 @@
 							<% end_if %>
 						<% end_loop %>
 					</nav>
-				</div>
+				</div> --%>
 			</div>
 			
 		</div>
