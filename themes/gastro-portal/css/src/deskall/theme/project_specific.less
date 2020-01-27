@@ -72,8 +72,17 @@ header .uk-slideshow-items{
 		width: 100%;
 	    }
 	}
-}
 
+}
+.dk-nav-main .uk-navbar-nav > li:first-of-type > a, .dk-nav-main .uk-navbar-nav > li:last-of-type > a{
+	padding:0 @nav-item-padding-small;
+	@media only screen and (min-width:@breakpoint-large){
+		padding:0 @nav-item-padding-large;
+	}
+	@media only screen and (min-width:@breakpoint-xlarge){
+		padding:0 @nav-item-padding-xlarge;
+	}
+}
 .finder-bar{
 	strong{
 		width:50px;
