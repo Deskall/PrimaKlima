@@ -21,8 +21,8 @@
 						<% end_with %>
 					</div>
 				</div>
-				<div class="uk-width-4-5 uk-visible@m">
-					<h2 class="uk-text-center">$SiteConfig.Tagline</h2>
+				<div class="uk-width-4-5 uk-visible@m uk-text-center">
+					<h2 class="">$SiteConfig.Tagline</h2>
 					<% include SearchForm %>	
 				</div>
 				<%-- <div class="uk-position-top-right">
@@ -96,10 +96,10 @@
         </li>
         <% end_loop %>
     </ul>
-    <div class="uk-position-center-left uk-position-medium">
+    <%-- <div class="uk-position-center-left uk-position-medium">
     	
-    </div>
-    <div class="uk-position-top-right uk-position-small">
+    </div> --%>
+    <%-- <div class="uk-position-top-right uk-position-small">
 	    <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 	    	<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
 	    		<% if Type == "Languages" %>
@@ -109,7 +109,7 @@
 	    		<% end_if %>
 	    	<% end_loop %>
 	    </nav>
-	</div>
+	</div> --%>
 </div>
 <div class="uk-container uk-container-medium uk-position-relative">
 	<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
