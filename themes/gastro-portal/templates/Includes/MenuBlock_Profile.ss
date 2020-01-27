@@ -1,5 +1,5 @@
 
-<div class="$Layout <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class uk-margin-large-left">
+<div class="$Layout <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
 	
 			        <ul class="uk-navbar-nav $CurrentMember.ClassName">
 			        	<% if CurrentMember %>
