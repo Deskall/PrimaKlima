@@ -33,7 +33,7 @@
 						<% end_loop %>
 					</nav>
 					<% if ClassName == "HomePage" %>
-					<h2 class="">$SiteConfig.Tagline</h2>
+					<h2 class="uk-text-right">$SiteConfig.Tagline</h2>
 					<% else %>
 					<% include SearchForm Link=$Link,Position=$Portal.getPositions,Cities=$Portal.getCities.groupedBy(City) %>
 					<% end_if %>
