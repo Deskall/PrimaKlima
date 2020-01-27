@@ -1,1 +1,1 @@
-<% include SearchForm Link=$getPage.OfferPage.Link,Positions=$getPositions,Cities=$getCities.groupedBy(City) %>
+<% include SearchForm Link=$getPage.OfferPage.Link,Positions=$getPositions,Cities=$getCities.groupedBy(City),Align=uk-flex-center %>

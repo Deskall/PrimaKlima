@@ -36,7 +36,7 @@
 					<h2 class="uk-text-right">$SiteConfig.Tagline</h2>
 					<% else %>
 					<div class="uk-margin-top">
-					<% include SearchForm Link=$Link,Position=$Portal.getPositions,Cities=$Portal.getCities.groupedBy(City) %>
+					<% include SearchForm Link=$Link,Position=$Portal.getPositions,Cities=$Portal.getCities.groupedBy(City),Align=uk-flex-right %>
 					</div>
 					<% end_if %>
 				</div>

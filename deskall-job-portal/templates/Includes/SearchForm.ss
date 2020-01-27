@@ -1,4 +1,4 @@
-<form method="GET" action="$Link" class="finder-bar uk-child-width-auto uk-grid-small uk-flex uk-flex-center" data-uk-grid>
+<form method="GET" action="$Link" class="finder-bar uk-child-width-auto uk-grid-small uk-flex $Align" data-uk-grid>
 
          <div class="uk-flex uk-flex-left uk-flex-middle">
               <strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
