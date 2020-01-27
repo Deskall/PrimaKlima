@@ -50,7 +50,24 @@ header .uk-slideshow-items{
 		}
 	}
 }
-
+.dk-nav-main > li > a{
+	&:after {
+	    background-color: inherit;
+	    content: '';
+	    height: 1px;
+	    position: absolute;
+	    bottom: 2px;
+	    left: 0;
+	    transition: width 0.3s ease-in-out;
+	    width: 0;
+	}
+	&:hover {
+	    &:after {
+	    background-color: inherit;
+		width: 100%;
+	    }
+	}
+}
 
 .finder-bar{
 	strong{
