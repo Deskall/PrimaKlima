@@ -35,7 +35,7 @@
 					<% if ClassName == "HomePage" %>
 					<h2 class="">$SiteConfig.Tagline</h2>
 					<% else %>
-					<% include SearchForm %>
+					<% include SearchForm Link=$Link,Position=$Portal.getPositions,Cities=$Portal.getCities.groupedBy(City) %>
 					<% end_if %>
 				</div>
 			</div>
