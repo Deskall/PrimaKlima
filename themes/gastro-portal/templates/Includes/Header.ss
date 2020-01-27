@@ -22,6 +22,7 @@
 					</div>
 				</div>
 				<div class="uk-width-4-5 uk-visible@m">
+					<h2>$SiteConfig.Tagline</h2>
 					<% include SearchForm %>	
 				</div>
 				<div class="uk-position-top-right">
