@@ -1,6 +1,6 @@
-<form method="GET" action="$getPage.OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-center uk-flex-middle $TextAlign" data-uk-grid>
+<form method="GET" action="$getPage.OfferPage.Link" class="finder-bar uk-grid-small uk-flex uk-flex-right uk-flex-middle $TextAlign" data-uk-grid>
 
-         <div class="uk-width-1-3@s">
+         <div class="uk-width-1-3@s uk-flex uk-flex-left uk-flex-middle">
               <strong class="uk-margin-small-right"><%t FinderBar.PositionLabel 'Was?' %></strong>
               <input list="positions" name="position" class="uk-input" placeholder="<%t FinderBar.Position 'Beruf,Position' %>">
               <datalist id="positions">
@@ -12,7 +12,7 @@
 
 
 
-       <div class="uk-width-1-3@s">
+       <div class="uk-width-1-3@s uk-flex uk-flex-left uk-flex-middle">
         <strong class="uk-margin-small-right"><%t FinderBar.PlaceLabel 'Wo?' %></strong>
         <input list="places" name="ort" class="uk-input" placeholder="<%t FinderBar.Place 'Ort' %>">
         <datalist id="places">
