@@ -22,6 +22,16 @@
 					</div>
 				</div>
 				<div class="uk-width-4-5 uk-visible@m">
+					<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+						
+						<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
+							<% if Type == "Languages" %>
+								<% include MenuBlock_Languages Locales=Top.Locales %>
+							<% else %>
+								$forTemplate
+							<% end_if %>
+						<% end_loop %>
+					</nav>
 					<% if ClassName == "HomePage" %>
 					<h2 class="">$SiteConfig.Tagline</h2>
 					<% else %>
