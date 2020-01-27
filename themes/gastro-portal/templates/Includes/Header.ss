@@ -35,7 +35,9 @@
 					<% if ClassName == "HomePage" %>
 					<h2 class="uk-text-right">$SiteConfig.Tagline</h2>
 					<% else %>
+					<div class="uk-margin-top">
 					<% include SearchForm Link=$Link,Position=$Portal.getPositions,Cities=$Portal.getCities.groupedBy(City) %>
+					</div>
 					<% end_if %>
 				</div>
 			</div>
