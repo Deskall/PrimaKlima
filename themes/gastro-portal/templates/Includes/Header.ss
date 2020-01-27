@@ -1,5 +1,46 @@
 <header <% if $SiteConfig.StickyHeader %>class="uk-box-shadow-medium dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="uk-box-shadow-mediul dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
-	<div class="uk-background-muted uk-padding uk-text-center uk-box-shadow-large home-slider-form-container uk-border-rounded">
+	<div class="header-top uk-padding-small">
+		<div class="uk-container uk-container-medium uk-position-relative">
+			<div class="uk-grid-small uk-flex uk-flex-bottom" data-uk-grid>
+				<div class="uk-width-1-5@m">
+					<div class="uk-text-center">
+						<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
+						<a href="/" class="uk-navbar-item uk-logo">
+								<% if Logo.exists %>
+									<% if $Logo.getExtension == "svg" %>
+									<img src="$Logo.URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>" class="svg-logo"  />
+									<% else %>
+										<% if $Top.SiteConfig.HeaderLogoHeight > 0 %>
+										<img src="$Logo.ScaleHeight($Top.SiteConfig.IntVal($Top.SiteConfig.HeaderLogoHeight)).URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>"/>
+										<% else %>
+										<img src="$Logo.ScaleHeight(80).URL" alt="$Top.SiteConfig.Title Logo" title="<%t Global.Home 'Home' %>"/>
+										<% end_if %>
+									<% end_if %>
+								<% end_if %>
+							</a>
+						<% end_with %>
+					</div>
+				</div>
+				<div class="uk-width-4-5 uk-visible@m">
+					<% include SearchForm %>	
+				</div>
+				<div class="uk-position-top-right">
+					<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+						
+						<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
+							<% if Type == "Languages" %>
+								<% include MenuBlock_Languages Locales=Top.Locales %>
+							<% else %>
+								$forTemplate
+							<% end_if %>
+						<% end_loop %>
+					</nav>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+<%-- 	<div class="uk-background-muted uk-padding uk-text-center uk-box-shadow-large uk-border-rounded">
 		<div class="uk-width-auto uk-align-center">
 			<% with SiteConfig.activeMenuBlocks.filter('type','Logo').first %>
 				<% if Logo.exists %>
@@ -43,7 +84,7 @@
 						<button class="uk-button button-PrimaryBackground uk-width-1-1 uk-flex uk-flex-center uk-flex-middle"><span><%t FinderBar.SearchAction 'Jobs suchen' %></span><i class="icon icon-chevron-right uk-margin-small-left uk-text-small"></i></button>
 					</div>
 		</form>
-	</div>
+	</div> --%>
 <% if $ClassName == "HomePage" %>
 <div class="uk-position-relative" tabindex="-1" data-uk-slideshow="ratio: false;autoplay:true;autoplayInterval:5000;animation:fade;">
     <ul class="uk-slideshow-items" data-uk-height-viewport="offset-top: true; offset-bottom: 60px;min-height:600">
