@@ -22,8 +22,11 @@
 					</div>
 				</div>
 				<div class="uk-width-4-5 uk-visible@m">
+					<% if ClassName == "HomePage" %>
 					<h2 class="">$SiteConfig.Tagline</h2>
-					<% include SearchForm %>	
+					<% else %>
+					<% include SearchForm %>
+					<% end_if %>
 				</div>
 				<%-- <div class="uk-position-top-right">
 					<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
