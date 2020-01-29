@@ -34,7 +34,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'Width' => 'Varchar',
         'Animation' => 'Varchar',
         'BackgroundImageEffect' => 'Boolean(0)',
-        'SectionPadding' => 'Varchar'
+        'SectionPadding' => 'Varchar',
         'AnchorTitle' => 'Varchar'
     ];
 
