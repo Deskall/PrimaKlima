@@ -240,14 +240,36 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     }
 
-    public function generateAnchorTitle(){
-        if ($this->owner->AnchorTitle){
-            return $this->owner->AnchorTitle;
+    public function generateAnchorTitle()
+    {
+
+        $anchorTitle = '';
+
+        if (!$this->owner->config()->disable_pretty_anchor_name) {
+            if ($this->owner->hasMethod('getAnchorTitle')) {
+                $anchorTitle = $this->owner->getAnchorTitle();
+            } elseif ($this->owner->config()->enable_title_in_template) {
+                $anchorTitle = $this->owner->getField('Title');
+            }
         }
-        if ($this->owner->Title){
-            return $this->owner->Title;
+
+        if (!$anchorTitle) {
+            $anchorTitle = $this->owner->Title;
         }
-        return 'e-'.$this->owner->ClassName.'-'.$this->owner->ID;
+
+        $filter = URLSegmentFilter::create();
+        $titleAsURL = $filter->filter($anchorTitle);
+
+        // Ensure that this anchor name isn't already in use
+        // ie. If two elemental blocks have the same title, it'll append '-2', '-3'
+        $result = $titleAsURL;
+        $count = 1;
+        while (isset(self::$used_anchors[$result]) && self::$used_anchors[$result] !== $this->owner->ID) {
+            ++$count;
+            $result = $titleAsURL . '-' . $count;
+        }
+        self::$used_anchors[$result] = $this->owner->ID;
+        return $this->owner->anchor = $result;
     }
 
     public function getFolderName(){
