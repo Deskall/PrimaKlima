@@ -35,6 +35,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'Animation' => 'Varchar',
         'BackgroundImageEffect' => 'Boolean(0)',
         'SectionPadding' => 'Varchar'
+        'AnchorTitle' => 'Varchar'
     ];
 
 
@@ -239,7 +240,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     }
 
-    public function getAnchorTitle(){
+    public function generateAnchorTitle(){
+        if ($this->owner->AnchorTitle){
+            return $this->owner->AnchorTitle;
+        }
         if ($this->owner->Title){
             return $this->owner->Title;
         }
@@ -260,6 +264,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         if (!$this->owner->Sort){
             $last = $this->owner->Parent()->Elements()->sort('Sort','DESC')->first();
             $this->owner->Sort = ($last) ? $last->Sort + 1 : 1;
+        }
+        if (!$this->owner->AnchorTitle){
+            $this->owner->AnchorTitle = $this->generateAnchorTitle();
         }
         if ($this->owner->isPrimary){
             foreach(BaseElement::get()->filter('isPrimary',1)->exclude('ID',$this->owner->ID) as $primary){
