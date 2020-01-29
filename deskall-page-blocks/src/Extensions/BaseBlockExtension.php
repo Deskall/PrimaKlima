@@ -178,6 +178,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
        
     }
 
+    public function updateFieldLabels($labels){
+        $labels['AnchorTitle'] = 'Anker';
+    }
+
 
     public function updateCMSFields(FieldList $fields){
         $fields->removeByName('Background');
