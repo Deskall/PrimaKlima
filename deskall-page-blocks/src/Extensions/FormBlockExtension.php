@@ -101,6 +101,14 @@ class FormBlockExtension extends DataExtension
     }
   }
 
+  public function onBeforeDelete(){
+    parent::onBeforeDelete();
+    $recipients = EmailRecipient::get()->filter('FormID',$this->owner->ID);
+    foreach($recipients as $recipient){
+      $recipient->delete();
+    }
+  }
+
 
   /**
      * @return UserForm
