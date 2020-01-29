@@ -56,6 +56,8 @@ class FormBlockExtension extends DataExtension
         ]
     ];
 
+  private static $cascade_duplicates = ['Recipients'];
+
    private static $controller_class = DeskallFormController::class;
 
    public function updateCMSFields(FieldList $fields){
