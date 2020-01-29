@@ -178,7 +178,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
        
     }
 
-    public function updateFieldLabels($labels){
+    public function updateFieldLabels(&$labels){
         $labels['AnchorTitle'] = 'Anker';
     }
 
