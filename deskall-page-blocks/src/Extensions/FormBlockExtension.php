@@ -13,7 +13,7 @@ use DNADesign\ElementalUserForms\Control\ElementFormController;
 use SilverStripe\Forms\RequiredFields;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\TextField;
-
+use SilverStripe\UserForms\Model\Recipient\EmailRecipient;
 
 class FormBlockExtension extends DataExtension 
 {
@@ -56,7 +56,6 @@ class FormBlockExtension extends DataExtension
         ]
     ];
 
-  private static $cascade_duplicates = ['Recipients'];
 
    private static $controller_class = DeskallFormController::class;
 
@@ -91,6 +90,15 @@ class FormBlockExtension extends DataExtension
   public function getType()
   {
     return _t(__CLASS__ . '.BlockType', 'Formular');
+  }
+
+  public function onAfterDuplicate($origin){
+    $recipients = EmailRecipient::get()->filter('FormID',$origin->ID);
+    foreach($recipients as $recipient){
+      $newR = $recipient->duplicate(false);
+      $newR->FormID = $this->owner->ID;
+      $newR->write();
+    }
   }
 
 
