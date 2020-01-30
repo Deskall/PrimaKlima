@@ -14,7 +14,7 @@
 				<% if LightBox %><a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description"><% end_if %>
 					<% if $FullWidth %>
 						<% if ContentImage.getExtension == "svg" %>
-							<img src="$ContentImage.URL" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" data-uk-svg>
+							<img src="$ContentImage.URL" data-uk-svg>
 						<% else %>
 							<%-- $ContentImage.Content($ContentImage.ID,2500,$Title) --%>
 							<img src="$ContentImage.FitMax(1500,1500).URL" data-src="$ContentImage.FitMax(500,500).URL"
@@ -26,7 +26,7 @@
 						<% end_if %>
 					<% else %>
 						<% if ContentImage.getExtension == "svg" %>
-							<img src="$ContentImage.URL" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" data-uk-svg>
+							<img src="$ContentImage.URL" data-uk-svg>
 						<% else %>
 							<%-- $ContentImage.Content($ContentImage.ID,1200,$Title) --%>
 							<img src="$ContentImage.FitMax(1500,1500).URL" data-src="$ContentImage.FitMax(500,500).URL"
