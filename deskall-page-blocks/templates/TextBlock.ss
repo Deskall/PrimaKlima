@@ -7,7 +7,12 @@
 					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" <% if ContentImage.getExtension == "svg" %>data-uk-svg<% end_if %>>
 				<% if LightBox %></a><% end_if %>
 			</div>
-			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
+			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+				$HTML
+
+				<% if LinkableLinkID > 0 %>
+					<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+				<% end_if %>
 			</div>
 		<% else %>
 			<div class="uk-width-1-1">
@@ -39,16 +44,21 @@
 
 				<% if LightBox %></a><% end_if %>
 			</div>
-			<div class="dk-text-content uk-width-1-1 <% if Layout == "above" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
+			<div class="dk-text-content uk-width-1-1 <% if Layout == "above" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+				$HTML
+				<% if LinkableLinkID > 0 %>
+					<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+				<% end_if %>
 			</div>
 		<% end_if %>
 	<% else %>
 	<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 		$HTML
 	</div>
+	
+	<% if LinkableLinkID > 0 %>
+		<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+	<% end_if %>
 	<% end_if %>
 </div>
 
-<% if LinkableLinkID > 0 %>
-	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-<% end_if %>
