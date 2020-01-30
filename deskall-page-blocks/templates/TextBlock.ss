@@ -1,17 +1,17 @@
 
-<div <% if ContentImage %>class="uk-flex" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %>>
+<div <% if ContentImage %>class="uk-flex" data-uk-grid <% if LightBox %>data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %><% end_if %>>
 	<% if ContentImage %>
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
-				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" >
+				<% if LightBox %><a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" ><% end_if %>
 					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" <% if ContentImage.getExtension == "svg" %>data-uk-svg<% end_if %>>
-				</a>
+				<% if LightBox %></a><% end_if %>
 			</div>
 			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
 		<% else %>
 			<div class="uk-width-1-1">
-				<a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description">
+				<% if LightBox %><a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description"><% end_if %>
 					<% if $FullWidth %>
 						<% if ContentImage.getExtension == "svg" %>
 							<img src="$ContentImage.URL" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" data-uk-svg>
@@ -37,7 +37,7 @@
 						<% end_if %>
 					<% end_if %>
 
-				</a>
+				<% if LightBox %></a><% end_if %>
 			</div>
 			<div class="dk-text-content uk-width-1-1 <% if Layout == "above" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">$HTML
 			</div>
