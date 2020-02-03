@@ -229,7 +229,7 @@ $(document).ready(function(){
 		InitStep();
 		var validator = $("#Form_OrderForm").validate({
 			errorPlacement: function(error, element) {
-				console.log(element.data());
+				console.log(element);
 			    error.appendTo( element.parent(".field") );
 			}
 		});
