@@ -286,7 +286,7 @@ class SiteConfigLayoutExtension extends DataExtension
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
         TextField::create('GlobalFontSize',_t(__CLASS__.'.GlobalFontSize','Standard Schriftgrösse')),
         TextField::create('H1FontSize',_t(__CLASS__.'.H1FontSize','H1 Schriftgrösse')),
-         TextField::create('H1FontColor',_t(__CLASS__.'.H1FontColor','H1 Titel Farbe'))->addExtraClass('jscolor'),
+         TextField::create('H1FontColor',_t(__CLASS__.'.H1FontColor','H* Titel Farbe'))->addExtraClass('jscolor'),
         TextField::create('H1MobileFontSize',_t(__CLASS__.'.H1MobileFontSize','H1 Mobile Schriftgrösse')),
         TextField::create('H2FontSize',_t(__CLASS__.'.H2FontSize','H2 Schriftgrösse')),
         TextField::create('H3FontSize',_t(__CLASS__.'.H3FontSize','H3 Schriftgrösse')),
@@ -506,7 +506,7 @@ class SiteConfigLayoutExtension extends DataExtension
       /** global background element and font color **/
       file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';.dk-text-content a, .calltoaction-container *{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}&:after{background-color:#'.$c->LinkHoverColor.';}}}*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
-      file_put_contents($fullpath, "\n".".calltoaction-container .uk-button.button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->LinkColor.';*{color:#'.$c->LinkColor.';}&:hover,&:focus,&:active{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".uk-button.button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.'!important;*{color:#'.$c->FontColor.'!important;}&:hover,&:focus,&:active{color:#'.$c->LinkHoverColor.'!important;*{color:#'.$c->LinkHoverColor.'!important;}}&:hover{background-color:darken(#'.$c->Color.', 5%);}&:active{background-color:darken(#'.$c->Color.', 10%);}}',FILE_APPEND);
       /** CSS Class for Call To Form Button **/
       file_put_contents($fullpath, "\n".".userform .button-".$c->Code.' .uk-button{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /*** Css class for Slideshow controls **/

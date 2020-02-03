@@ -17,6 +17,8 @@ use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -34,7 +36,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'Width' => 'Varchar',
         'Animation' => 'Varchar',
         'BackgroundImageEffect' => 'Boolean(0)',
-        'SectionPadding' => 'Varchar'
+        'SectionPadding' => 'Varchar',
+        'AnchorTitle' => 'Varchar'
     ];
 
 
@@ -177,6 +180,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
        
     }
 
+    public function updateFieldLabels(&$labels){
+        $labels['AnchorTitle'] = 'Anker';
+    }
+
 
     public function updateCMSFields(FieldList $fields){
         $fields->removeByName('Background');
@@ -240,11 +247,36 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     }
 
-    public function getAnchorTitle(){
-        if ($this->owner->Title){
-            return $this->owner->Title;
+    public function generateAnchorTitle()
+    {
+
+        $anchorTitle = '';
+
+        if (!$this->owner->config()->disable_pretty_anchor_name) {
+            if ($this->owner->hasMethod('getAnchorTitle')) {
+                $anchorTitle = $this->owner->getAnchorTitle();
+            } elseif ($this->owner->config()->enable_title_in_template) {
+                $anchorTitle = $this->owner->getField('Title');
+            }
         }
-        return 'e-'.$this->owner->ClassName.'-'.$this->owner->ID;
+
+        if (!$anchorTitle) {
+            $anchorTitle = $this->owner->Title;
+        }
+
+        $filter = URLSegmentFilter::create();
+        $titleAsURL = $filter->filter($anchorTitle);
+
+        // Ensure that this anchor name isn't already in use
+        // ie. If two elemental blocks have the same title, it'll append '-2', '-3'
+        $result = $titleAsURL;
+        $count = 1;
+        while (BaseElement::get()->filter('AnchorTitle',$result)->exists()) {
+            ++$count;
+            $result = $titleAsURL . '-' . $count;
+        }
+       
+        return $this->owner->anchor = $result;
     }
 
     public function getFolderName(){
@@ -261,6 +293,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         if (!$this->owner->Sort){
             $last = $this->owner->Parent()->Elements()->sort('Sort','DESC')->first();
             $this->owner->Sort = ($last) ? $last->Sort + 1 : 1;
+        }
+        if (!$this->owner->AnchorTitle){
+            $this->owner->AnchorTitle = $this->generateAnchorTitle();
         }
         if ($this->owner->isPrimary){
             foreach(BaseElement::get()->filter('isPrimary',1)->exclude('ID',$this->owner->ID) as $primary){

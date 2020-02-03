@@ -2,6 +2,7 @@
 
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
@@ -20,6 +21,7 @@ class TextBlock extends BaseElement implements Searchable
     private static $db = [
         'HTML' => 'HTMLText',
         'BlockVerticalAlignment' => 'Varchar'
+        'LightBox' => 'Boolean(1)'
     ];
 
     private static $has_one = [
@@ -31,7 +33,8 @@ class TextBlock extends BaseElement implements Searchable
     ];
 
     private static $defaults = [
-        'Layout' => 'left'
+        'Layout' => 'left',
+        'LightBox' => 1
     ];
 
     private static $cascade_duplicates = [];
@@ -95,8 +98,11 @@ class TextBlock extends BaseElement implements Searchable
         });
         $fields = parent::getCMSFields();
         $fields->RemoveByName('Layout');
+        $fields->RemoveByName('LightBox');
         $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
+
         $fields->insertAfter('Layout',DropdownField::create('BlockVerticalAlignment',_t(__CLASS__.'.BlockVerticalAlignment','Blockausrichtung (Vertical)'),$this->owner->stat('block_alignments_vertical')));
+        $fields->insertAfter('Layout',CheckboxField::create('LightBox','Bild vergrößern wenn klickten?'));
         return $fields;
     }
 
