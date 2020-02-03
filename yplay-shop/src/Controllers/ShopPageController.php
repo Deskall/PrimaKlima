@@ -152,8 +152,10 @@ class ShopPageController extends PageController
       Requirements::javascript('yplay-shop/javascript/customRules.js');
       $date = new \DateTime();
       $max = new \DateTime();
+      $min = new \DateTime();
       $date = $date->modify('-18 years');
       $max = $max->modify('-18 years + 1 day');
+      $min = $min->modify('-100 years');
       $config = SiteConfig::current_site_config();
       $agbpage = $config->AGBPage();
       $form = new Form(
@@ -167,7 +169,7 @@ class ShopPageController extends PageController
             )->setName('Step1'),
             $day = NumericField::create('Birthday','Tag')->addExtraClass('day-field')->setAttribute('class','uk-input')->setAttribute('placeholder','DD')->setHTML5(true)->setAttribute('min',1)->setAttribute('max',31),
             $month = NumericField::create('BirthMonth','Monat')->addExtraClass('month-field')->setAttribute('class','uk-input')->setAttribute('placeholder','MM')->setHTML5(true)->setAttribute('min',1)->setAttribute('max',12),
-            $year = NumericField::create('BirthYear','Jahr')->addExtraClass('year-field')->setAttribute('class','uk-input')->setAttribute('placeholder','YYYY')->setHTML5(true)->setAttribute('min',1900),
+            $year = NumericField::create('BirthYear','Jahr')->addExtraClass('year-field')->setAttribute('class','uk-input')->setAttribute('placeholder','YYYY')->setHTML5(true)->setAttribute('min',$min->format('Y')),
             HiddenField::create('Birthdate'),
             CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
