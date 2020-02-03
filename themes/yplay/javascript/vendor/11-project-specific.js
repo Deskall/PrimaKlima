@@ -228,14 +228,8 @@ $(document).ready(function(){
 		InitNav();
 		InitStep();
 		var validator = $("#Form_OrderForm").validate({
-			errorPlacement: function (error, element) {
-				console.log(element.data());
-			    //check whether chosen plugin is initialized for the element
-			    if (element.data().chosen) { //or if (element.next().hasClass('chosen-container')) {
-			        element.next().after(error);
-			    } else {
-			        element.after(error);
-			    }
+			errorPlacement: function(error, element) {
+			    error.appendTo( element.parent("div").next("div") );
 			}
 		});
 
