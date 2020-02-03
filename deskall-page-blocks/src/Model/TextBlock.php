@@ -20,7 +20,7 @@ class TextBlock extends BaseElement implements Searchable
 
     private static $db = [
         'HTML' => 'HTMLText',
-        'BlockVerticalAlignment' => 'Varchar'
+        'BlockVerticalAlignment' => 'Varchar',
         'LightBox' => 'Boolean(1)'
     ];
 
