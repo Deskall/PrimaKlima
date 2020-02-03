@@ -26,6 +26,7 @@
 										    	$LinkableLink.Title
 										    </a>
 										</div>
+									</div>
 								</li>
 								<% end_loop %>
 							</ul>
