@@ -117,12 +117,12 @@
                 <li class="uk-margin" data-step="step-3">
                         <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
                             <h3>Ihre Adresse</h3>
-                            <div class="uk-width-3-4 uk-width-5-6@m">
+                            <div class="uk-width-3-4 uk-width-4-5@m">
                                 <% with Fields.dataFieldByName('Address') %>
                                     $FieldHolder 
                                 <% end_with %>
                             </div>
-                            <div class="uk-width-1-4 uk-width-1-6@m">
+                            <div class="uk-width-1-4 uk-width-1-5@m">
                                 <% with Fields.dataFieldByName('HouseNumber') %>
                                     $FieldHolder 
                                 <% end_with %>
