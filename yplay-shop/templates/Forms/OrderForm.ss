@@ -58,12 +58,6 @@
                 <li id="address" class="uk-margin" data-step="step-1">
                         <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
                            <h3>Ihre Angaben</h3>
-                            <div>
-                            <% with Fields.dataFieldByName('Gender') %>
-                                $Field
-                            <% end_with %>
-                            </div>
-                            
                         	<% with Fields.FieldByName('Step1') %>
                         		$FieldHolder 
                         	<% end_with %>

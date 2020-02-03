@@ -162,8 +162,8 @@ class ShopPageController extends PageController
          $this,
          'OrderForm',
          new FieldList(
-            OptionsetField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
             CompositeField::create( 
+               OptionsetField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
                TextField::create('FirstName','Vorname')->setAttribute('class','uk-input'),
                TextField::create('Name','Nachname')->setAttribute('class','uk-input')
             )->setName('Step1'),
