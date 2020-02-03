@@ -23,6 +23,7 @@ class ShopOrder extends DataObject{
 		'Email' => 'Varchar',
 		'Gender'  => 'Varchar',
 		'Address'  => 'Varchar',
+		'HouseNumber' => 'Int',
 		'PostalCode'  => 'Varchar',
 		'City'  => 'Varchar',
 		'Country'  => 'Varchar',

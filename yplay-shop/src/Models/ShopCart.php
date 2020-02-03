@@ -19,6 +19,7 @@ class ShopCart extends DataObject {
 		'Email' => 'Varchar',
 		'Birthdate' => 'Date',
 		'Address'  => 'Varchar',
+		'HouseNumber' => 'Int',
 		'PostalCode'  => 'Varchar',
 		'City'  => 'Varchar',
 		'Country'  => 'Varchar',
@@ -78,7 +79,8 @@ class ShopCart extends DataObject {
 		$labels['BillCountry'] = _t(__CLASS__.'.BillCountry','Land (Rechnung)');
 		$labels['Phone'] = _t(__CLASS__.'.Phone','Telefon');
 		$labels['Birthdate'] = _t(__CLASS__.'.Birthdate','Geburtsdatum');
-
+		$labels['HouseNumber'] = _t(__CLASS__.'.HouseNumber','Haus-Nr.');
+		
 		return $labels;
 	}
 
@@ -110,7 +112,7 @@ class ShopCart extends DataObject {
 	public function printContact(){
 	    $html = '<p>'.$this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
 	   
-	    $html .= $this->Address.'<br/>'
+	    $html .= $this->Address.' '.$this->HouseNumber.'<br/>'
 	    .$this->PostalCode.' - '.$this->City;
 	    if ($this->Country){
 	        $html .= '<br/>'.i18n::getData()->getCountries()[$this->Country];

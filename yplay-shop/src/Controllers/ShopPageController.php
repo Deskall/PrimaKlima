@@ -175,6 +175,7 @@ class ShopPageController extends PageController
             )->setName('Step2'),
             CompositeField::create(
                TextField::create('Address','Adresse')->setAttribute('class','uk-input'),
+               NumericField::create('HouseNumber','Hausnummer')->setAttribute('class','uk-input')->setHTML5(true)->setAttribute('min',1),
                ReadonlyField::create('PostalCode','PLZ')->setAttribute('class','uk-input'),
                ReadonlyField::create('City','Stadt')->setAttribute('class','uk-input'),
                CheckboxField::create('BillSameAddress','identische Rechnungsadresse?')->setAttribute('class','uk-checkbox')
@@ -198,7 +199,7 @@ class ShopPageController extends PageController
          new FieldList(
             FormAction::create('doOrder', _t('SHOP.BUYNOW', 'Bestellung abschicken'))->setUseButtonTag(true)->addExtraClass('uk-button')
          ),
-         RequiredFields::create(['Gender','Name','FirstName','Email','Phone','Address','AGB'])
+         RequiredFields::create(['Gender','Name','FirstName','Email','Phone','Address','HouseNumber','AGB'])
       );
       // $member = Security::getCurrentUser();
       // if ($member){

@@ -43,12 +43,14 @@ class ShopCustomer extends DataObject
         'Email' => 'Varchar',
         'Birthdate' => 'Date',
         'Address'  => 'Varchar',
+        'HouseNumber' => 'Int',
         'PostalCode'  => 'Varchar',
         'City'  => 'Varchar',
         'Country'  => 'Varchar',
         'Phone'  => 'Varchar',
         'BillSameAddress' => 'Boolean(1)',
         'BillAddress'  => 'Varchar',
+        'BillHouseNumber' => 'Int',
         'BillPostalCode'  => 'Varchar',
         'BillCity'  => 'Varchar',
         'BillCountry'  => 'Varchar'
@@ -94,6 +96,8 @@ class ShopCustomer extends DataObject
     $labels['Phone'] = _t(__CLASS__.'.Phone','Telefon');
     $labels['Birthdate'] = _t(__CLASS__.'.Birthdate','Geburtsdatum');
     $labels['printAddress'] = _t(__CLASS__.'.printAddress','Adresse');
+    $labels['HouseNumber'] = _t(__CLASS__.'.HouseNumber','Haus-Nr.');
+    $labels['BillHouseNumber'] = _t(__CLASS__.'.BillHouseNumber','Haus-Nr. (Rechnung)');
     return $labels;
     }
 
@@ -119,7 +123,7 @@ class ShopCustomer extends DataObject
     public function printAddress(){
         $html = '<p>'.$this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
       
-        $html .= $this->Address.'<br/>'
+        $html .= $this->Address.' '.$this->HouseNumber.'<br/>'
         .$this->PostalCode.' - '.$this->City.'<br/>';
         if ($this->Country){
             $html .= i18n::getData()->getCountries()[strtolower($this->Country)];
@@ -134,7 +138,7 @@ class ShopCustomer extends DataObject
     public function printContact(){
         $html = '<p>'.$this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
        
-        $html .= $this->Address.'<br/>'
+        $html .= $this->Address.' '.$this->HouseNumber.'<br/>'
         .$this->PostalCode.' - '.$this->City;
         if ($this->Country){
             $html .= '<br/>'.i18n::getData()->getCountries()[$this->Country];
