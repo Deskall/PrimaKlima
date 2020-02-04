@@ -4,6 +4,7 @@ Name: yplay-shop-config
 BaseBlockExtension:
   blocks:
     - ProductBlock
+    - ShopFinderBlock
   children_blocks:
     - ProductBlock
 
