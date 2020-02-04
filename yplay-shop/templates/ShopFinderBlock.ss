@@ -6,7 +6,6 @@
    <% if LinkableLinkID > 0 %>
       <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
    <% end_if %>
-   <% end_if %>
 
    <div class="shop-map-container clearfix">
       <div class="map-block">
