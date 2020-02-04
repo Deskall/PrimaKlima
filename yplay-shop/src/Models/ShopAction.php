@@ -7,7 +7,10 @@ use SilverStripe\Forms\DropdownField;
 
 class ShopAction extends DataObject {
 
-	
+	private static $singular_name = 'Aktion';
+
+	private static $plural_name = 'Aktionen';
+
 	private static $db = [
 		'Title' => 'Varchar',
 		'Lead' => 'Text',
