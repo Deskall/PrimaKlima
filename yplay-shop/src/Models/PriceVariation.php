@@ -29,7 +29,9 @@ class PriceVariation extends DataObject {
 
 
 	private static $summary_fields = [
-		'Title'
+		'Title',
+		'NiceProducts' => ['title' => 'Produkte'],
+		'NiceCodes' => ['title' => 'Ortschaften']
 	];
 
 	private static $searchable_fields = [
@@ -87,6 +89,34 @@ class PriceVariation extends DataObject {
 		$fields->push(CheckboxField::create('AllProducts',$this->fieldLabels(true)['AllProducts']));
 		$fields->push(ListboxField::create('Products',$this->fieldLabels(true)['Products'],Product::get()->map('ID','Title'),$this->Products())->hideIf('AllProducts')->isChecked(true)->end());
 		return $fields;
+	}
+
+	public function NiceProducts(){
+		$html = '<p>';
+		if ($this->AllProducts){
+			$html .=  'Alle';
+		}
+		else {
+			foreach ($this->Products() as $p) {
+				$html .=  $p->Title.'<br>';
+			}
+		}
+		$html .= '</p>';
+		return DBHTMLText::create()->setValue($html);
+	}
+
+	public function NiceCodes(){
+		$html = '<p>';
+		if ($this->AllCodes){
+			$html .=  'Alle';
+		}
+		else {
+			foreach ($this->Codes() as $c) {
+				$html .=  $c->Code.'<br>';
+			}
+		}
+		$html .= '</p>';
+		return DBHTMLText::create()->setValue($html);
 	}
 
 

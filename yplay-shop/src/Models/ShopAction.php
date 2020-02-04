@@ -81,36 +81,6 @@ class ShopAction extends DataObject {
 		return $fields;
 	}
 
-	public function Products(){
-		$html = '<p>';
-		$products = [];
-		foreach ($this->Variations() as $v) {
-			foreach ($v->Products() as $p) {
-				if (!in_array($p->Title,$products)){
-					$html .=  $p->Title.'<br>';
-					$products[] = $p->Title;
-				}
-			}
-		}
-		$html .= '</p>';
-		return DBHTMLText::create()->setValue($html);
-	}
-
-	public function Codes(){
-		$html = '<p>';
-		$codes = [];
-		foreach ($this->Variations() as $v) {
-			foreach ($v->Codes() as $c) {
-				if (!in_array($c->Code,$codes)){
-					$html .=  $c->Code.'<br>';
-					$codes[] = $c->Code;
-				}
-			}
-		}
-		$html .= '</p>';
-		return DBHTMLText::create()->setValue($html);
-	}
-
 	public function isCumulative(){
 		return ($this->Cumulative) ? 'Ja' : 'Nein';
 	}
