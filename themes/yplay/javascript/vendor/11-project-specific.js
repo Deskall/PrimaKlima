@@ -579,7 +579,7 @@ $(document).ready(function(){
 	
 
     if ($(".shop-map-container").length > 0){
-        $('body').append('<script async defer src="//maps.google.com/maps/api/js?key=AIzaSyCbrDquBmMxiRMZz6itPir8xKX7HLa7xZE&libraries=geometry&callback=initShopsMap"></script>');
+        $('body').append('<script src="//maps.google.com/maps/api/js?key=AIzaSyCbrDquBmMxiRMZz6itPir8xKX7HLa7xZE&libraries=geometry&callback=initShopsMap"></script>');
     }
 
     $(document).on("click","[data-search]",function(){
