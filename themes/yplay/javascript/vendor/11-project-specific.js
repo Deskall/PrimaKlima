@@ -473,8 +473,10 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$(document).on("change",".pseudo-radio",function(){
 		var value = $(this).val();
-		console.log('ici');
+		console.log(value);
+		console.log($(this).attr('name'));
 		$("input[name='"+$(this).attr('name')+"']").each(function(){
+			console.log($(this).val());
 			if ($(this).val() != value){
 				console.log($(this).val());
 				$(this).prop('checked',false);
