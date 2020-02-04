@@ -211,6 +211,7 @@
 						           	<table class="uk-table uk-table-small uk-table-hover">
 						           		<% loop Children %>
 							           		<% if hasOptions %>
+                                                <tr><td colspan="3"><strong>$Title</strong></td></tr>
 								           		<% loop Options %>
 								           		<tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox pseudo-radio" name="$Group.ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> ></td><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
 								           		<% end_loop %>
