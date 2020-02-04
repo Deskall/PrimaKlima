@@ -14,7 +14,8 @@ class PriceVariation extends DataObject {
 		'Value' => 'Decimal',
 		'Type' => 'Varchar',
 		'ApplyTo' => 'Varchar',
-		'AllCodes' => 'Boolean(0)'
+		'AllCodes' => 'Boolean(0)',
+		'AllProducts' => 'Boolean(0)'
 	];
 
 	private static $has_one = ['Action' => ShopAction::class];
@@ -46,6 +47,8 @@ class PriceVariation extends DataObject {
 		$labels['Packages'] = _t(__CLASS__.'.Packages','Pakete');
 		$labels['Options'] = _t(__CLASS__.'.Options','Optionen');
 		$labels['Codes'] = _t(__CLASS__.'.Codes','Ortschaften');
+		$labels['AllCodes'] = _t(__CLASS__.'.AllCodes','gilt für alle Ortschaften?');
+		$labels['AllProducts'] = _t(__CLASS__.'.AllProducts','gilt für alle Produkte?');
 
 		return $labels;
 	}
@@ -74,8 +77,9 @@ class PriceVariation extends DataObject {
 		$fields->insertAfter('Title',DropdownField::create('Unit',$this->fieldLabels()['Unit'],['percent' => 'Prozentsatz', 'discount' => 'CHF'])->displayIf('Type')->isEqualTo('discount')->end());
 		$fields->insertAfter('Title',DropdownField::create('ApplyTo',$this->fieldLabels()['ApplyTo'],['MonthlyPrice' => 'den monatlichen Preis', 'UniquePrice' => 'den einmaligen Preis', 'Fee' => 'den gebühren Preis']));
 
-		$fields->push(ListboxField::create('Codes',$this->fieldLabels(true)['Codes'],PostalCode::get()->map('ID','Code'),$this->Codes()));
-		$fields->push(ListboxField::create('Products',$this->fieldLabels(true)['Products'],Product::get()->map('ID','Title'),$this->Products()));
+		$fields->push(ListboxField::create('Codes',$this->fieldLabels(true)['Codes'],PostalCode::get()->map('ID','Code'),$this->Codes())->hideIf('AllProducts')->isChecked(true));
+		$fields->push(CheckboxField::create('AllCodes',$this->fieldLabels(true)['AllCodes']));
+		$fields->push(ListboxField::create('Products',$this->fieldLabels(true)['Products'],Product::get()->map('ID','Title'),$this->Products())->hideIf('AllCodes')->isChecked(true));
 		return $fields;
 	}
 
