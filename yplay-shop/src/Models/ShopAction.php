@@ -41,7 +41,10 @@ class ShopAction extends DataObject {
 	];
 
 	private static $summary_fields = [
-		'Title'
+		'Title',
+		'Variations.Products.Title',
+		'Variations.Codes.Code',
+		'Cumulative'
 	];
 
 	private static $searchable_fields = [
@@ -70,7 +73,7 @@ class ShopAction extends DataObject {
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
 	}
-	
+
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->insertAfter('Title',DropdownField::create('Trigger',$this->fieldLabels()['Trigger'],['always' => 'immer', 'new' => 'neu Kunde']));
