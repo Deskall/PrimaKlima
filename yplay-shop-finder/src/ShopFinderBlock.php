@@ -3,38 +3,45 @@
  * Shop Finder block with map
  * @author Deskall
  */
-class ShopFinderBlock extends Block
+class ShopFinderBlock extends TextBlock
 {
-	private static $db = array(
-		'Content' => 'HTMLText'
-	);
 
-	public function getCMSFields()
-	{
-		$fields = parent::getCMSFields();
+    private static $icon = 'font-icon-block-content';
+    
+    private static $controller_template = 'BlockHolder';
 
-		$tinyMce = HtmlEditorField::create('Content', _t('TextBlock.CONTENT', 'Content'));
-		$fields->addFieldToTab('Root.Main', $tinyMce);
+    private static $controller_class = BlockController::class;
 
-		$this->extend('updateCMSFields', $fields);
-		return $fields;
-	}
+    private static $help_text = "Shop Finder Block";
 
-	public function Shops(){
-		return Shop::get();
-	}
+    private static $table_name = 'ShopFinderBlock';
 
-	public function JsonShops(){
-		$shops = Shop::get();
-		$array = array();
-		foreach ($shops as $shop) {
-			$array[$shop->ID] = $shop->toMap();
-			$array[$shop->ID]['Content'] = $shop->getInfoWindow();
-		}
+    private static $singular_name = 'Shop Finder Block';
 
-		return json_encode($array);
-	}
+    private static $plural_name = 'Shop Finder Blöcke';
 
-	
+    private static $description = 'Shop Liste mit Map und Suchformular';
+
+
+    public function Shops(){
+    	return Shop::get();
+    }
+
+    public function JsonShops(){
+    	$shops = Shop::get();
+    	$array = array();
+    	foreach ($shops as $shop) {
+    		$array[$shop->ID] = $shop->toMap();
+    		$array[$shop->ID]['Content'] = $shop->getInfoWindow();
+    	}
+
+    	return json_encode($array);
+    }
+    
+    public function getType()
+    {
+        return _t(__CLASS__ . '.BlockType', 'Shop Liste mit Map und Suchformular');
+    }
+
+    
 }
-

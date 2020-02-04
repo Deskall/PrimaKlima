@@ -18,7 +18,7 @@ class ShopAdmin extends ModelAdmin {
 
     static $menu_priority = 6;
 //    static $menu_icon = 'deskall-news/img/news-16x16.png';
-    static $menu_icon = 'mysite/images/icon-shop.png';
+    // static $menu_icon = 'yplay-shop-finder/images/icon-shop.png';
     private static $url_segment = 'shop-finder';
     private static $menu_title = 'Shop Finder';
     public $showImportForm = false;
