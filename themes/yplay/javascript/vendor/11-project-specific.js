@@ -471,7 +471,7 @@ $(document).ready(function(){
 
 //handle pseudo-checkbox radio fields
 $(document).on("click",".pseudo-radio",function(){
-	$("input[name='"+$(this).attr('name')+"']:checked")..prop('checked',false);
+	$("input[name='"+$(this).attr('name')+"']:checked").prop('checked',false);
 });
 
 //Mobile related
