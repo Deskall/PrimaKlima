@@ -1,5 +1,5 @@
 <strong class="uk-text-small">Monatliche Kosten</strong>
-<% if Package.exists && $Package.PriceGain.gainM < 0 %><p>Sie sparen {$Package.PriceGain.gainM}%</p><% end_if %>
+<% if Package.exists && $Package.PriceGain.gainM < 0 %><p>Sie sparen mit diesem Kombiabo {$Package.PriceGain.gainM}%</p><% end_if %>
 <table id="monthly-costs" class="uk-table uk-table-small uk-table-justify">
 	<tbody>
 		<% if Package.exists %>
