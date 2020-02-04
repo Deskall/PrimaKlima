@@ -23,7 +23,7 @@
 
    <div class="shop-list link-block clearfix uk-margin-top">
       <% loop Shops %>
-      <div id="shop-{$ID}" class="link-item clearfix dk-text-content">
+      <div id="shop-{$ID}" class="link-item clearfix">
          <strong>$Title</strong><br/>
          <p>$AdresseTitle<br/>
             $Adresse<br/>
