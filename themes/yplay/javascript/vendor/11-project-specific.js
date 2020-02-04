@@ -474,9 +474,9 @@ $(document).on("click",".pseudo-checkbox",function(){
 	if ($(this).is(':checked')){
 		$(this).prop('checked',false).trigger('change');
 	}
-	// $("input[name='"+$(this).attr('name')+"']").each(function(){
-
-	// });
+	$("input[name='"+$(this).attr('name')+"']").each(function(){
+		$(this).prop('indeterminate',false);
+	});
 });
 
 //Mobile related
