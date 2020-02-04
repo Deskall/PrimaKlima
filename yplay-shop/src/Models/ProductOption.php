@@ -10,6 +10,7 @@ use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Forms\RequiredFields;
 
 class ProductOption extends Product {
 	private static $singular_name = 'Option';
