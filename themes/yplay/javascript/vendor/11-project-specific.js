@@ -472,8 +472,11 @@ $(document).ready(function(){
 //handle pseudo-checkbox radio fields
 $(document).on("click",".pseudo-checkbox",function(){
 	if ($(this).is(':checked')){
-		$(this).get(0).reset();
+		$(this).prop('checked',false).trigger('change');
 	}
+	// $("input[name='"+$(this).attr('name')+"']").each(function(){
+
+	// });
 });
 
 //Mobile related
