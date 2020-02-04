@@ -508,7 +508,7 @@ $(document).ready(function(){
 		var markers = [];
 		var infowindow; 
 		var initCenter;
-		$('body').append('<script src="//maps.google.com/maps/api/js?key=AIzaSyCbrDquBmMxiRMZz6itPir8xKX7HLa7xZE&libraries=geometry&callback=initShopsMap"></script>');
+		$('body').append('<script async defer src="//maps.google.com/maps/api/js?key=AIzaSyCbrDquBmMxiRMZz6itPir8xKX7HLa7xZE&libraries=geometry&callback=initShopsMap"></script>');
 
 		function initShopsMap() {
 		  objectsmap = new google.maps.Map(document.getElementById('googlemap_shop-finder'), {
