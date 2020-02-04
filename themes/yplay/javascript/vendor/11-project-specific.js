@@ -421,6 +421,7 @@ $(document).ready(function(){
 	}
 
 	function UpdateCart(options){
+		$(".order-preview").addClass('loading').append('<span data-uk-spinner="ratio: 3"></span>');
 		$.ajax({
 			url: '/shop-functions/updateCartOptions',
 			method: 'POST',
@@ -428,6 +429,7 @@ $(document).ready(function(){
 			data: {options: options}
 		}).done(function(response){
 			$(".order-preview").each(function(){
+				$(this).removeClass('loading');
 				$(this).empty().append(response);
 				UpdateCartSummaries();
 			});

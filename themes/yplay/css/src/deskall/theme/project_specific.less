@@ -452,6 +452,18 @@ footer.uk-section{
 		border-left:2px solid @global-emphasis-background;
 		padding-left:20px;
 	}
+	&.loading{
+		position:relative;
+		&:after{
+			width:100%;
+			height:100%;
+			content:'';
+			position:absolute;
+			top:0;
+			left:0;
+			background-color:rgba(255,255,255,0.8);
+		}
+	}
 }
 .conditions-container{
 	*{
