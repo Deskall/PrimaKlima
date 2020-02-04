@@ -61,6 +61,7 @@ class ShopAction extends DataObject {
 		$labels['Image'] = _t(__CLASS__.'.Image','Bild');
 		$labels['Icon'] = _t(__CLASS__.'.Icon','Icon');
 		$labels['Variations'] = _t(__CLASS__.'.Variations','Discounts');
+		$labels['Cumulative'] = _t(__CLASS__.'.Cumulative','Kann diese Aktion mit anderen kombiniert werden?');
 	
 		return $labels;
 	}
@@ -69,6 +70,7 @@ class ShopAction extends DataObject {
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
 	}
+	
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->insertAfter('Title',DropdownField::create('Trigger',$this->fieldLabels()['Trigger'],['always' => 'immer', 'new' => 'neu Kunde']));

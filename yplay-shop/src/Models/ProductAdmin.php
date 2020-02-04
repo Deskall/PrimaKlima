@@ -60,6 +60,9 @@ class ProductAdmin extends ModelAdmin{
 	    if($this->modelClass == 'ShopCart' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
 	       $gridField->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldDeleteAction())->addComponent(new GridFieldDeleteAllAction('before'));
 	    }
+	    if($this->modelClass == 'ShopAction' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction());
+	    }
 
 	    return $form;
 	}

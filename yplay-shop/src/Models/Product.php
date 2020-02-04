@@ -202,4 +202,8 @@ class Product extends DataObject {
 		return false;
 	}
 
+	public function DiscountPrice(){
+		
+	}
+
 }
