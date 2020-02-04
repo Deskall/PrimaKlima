@@ -90,7 +90,7 @@
 	        	<% if hasAction %>
 	        		<div class="product-price uk-text-large uk-text-bold dk-strike">$PrintPriceString</div>
 	        	<% else %>
-	        		<div class="product-price uk-text-large uk-text-bold dk-strike">$PrintPriceString</div>
+	        		<div class="product-price uk-text-large uk-text-bold">$PrintPriceString</div>
 	        	<% end_if %>
 	        	<div class="uk-margin">
 	        		<a href="$OrderLink" class="uk-button btn-order">Bestellen</a>

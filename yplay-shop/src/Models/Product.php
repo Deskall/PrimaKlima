@@ -202,8 +202,8 @@ class Product extends DataObject {
 		return false;
 	}
 
-	public function DiscountPrice(){
-		
+	public function currentActions(){
+		$actions = $this->Actions();
 	}
 
 }
