@@ -470,14 +470,14 @@ $(document).ready(function(){
 
 
 //handle pseudo-checkbox radio fields
-$(document).on("click",".pseudo-checkbox",function(){
-	if ($(this).is(':checked')){
-		$(this).prop('checked',false).trigger('change');
-	}
-	$("input[name='"+$(this).attr('name')+"']").each(function(){
-		$(this).prop('indeterminate',false);
-	});
-});
+// $(document).on("click",".pseudo-checkbox",function(){
+// 	if ($(this).is(':checked')){
+// 		$(this).prop('checked',false).trigger('change');
+// 	}
+// 	$("input[name='"+$(this).attr('name')+"']").each(function(){
+// 		$(this).prop('indeterminate',false);
+// 	});
+// });
 
 //Mobile related
 $(document).ready(function(){
