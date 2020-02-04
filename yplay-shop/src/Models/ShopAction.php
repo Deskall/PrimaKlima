@@ -42,8 +42,8 @@ class ShopAction extends DataObject {
 
 	private static $summary_fields = [
 		'Title',
-		'Variations.Products.Title',
-		'Variations.Codes.Code',
+		'Products',
+		'Codes',
 		'Cumulative'
 	];
 
@@ -79,5 +79,31 @@ class ShopAction extends DataObject {
 		$fields->insertAfter('Title',DropdownField::create('Trigger',$this->fieldLabels()['Trigger'],['always' => 'immer', 'new' => 'neu Kunde']));
 
 		return $fields;
+	}
+
+	public function Products(){
+		$html = '<p>';
+		foreach ($this->Variations() as $v) {
+			foreach ($v->Products() as $p) {
+				$html .=  $p->Title.'<br>';
+			}
+		}
+		$html .= '</p>';
+		return DBHTMLText::create()->setValue($html);
+	}
+
+	public function Codes(){
+		$html = '<p>';
+		foreach ($this->Variations() as $v) {
+			foreach ($v->Codes() as $c) {
+				$html .=  $c->Code.'<br>';
+			}
+		}
+		$html .= '</p>';
+		return DBHTMLText::create()->setValue($html);
+	}
+
+	public function isCumulative(){
+		return ($this->Cumulative) ? 'Ja' : 'Nein';
 	}
 }
