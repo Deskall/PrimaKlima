@@ -507,10 +507,79 @@ $(document).ready(function(){
 	var markers = [];
 	var infowindow; 
 	var initCenter;
+
+	function initShopsMap() {
+	  objectsmap = new google.maps.Map(document.getElementById('googlemap_shop-finder'), {
+	    center: {lat: 46.8272608, lng: 8.4965408},
+	    zoom: 8
+	  });
+	  AddShops();
+	  
+	     // Try HTML5 geolocation.
+	    if (navigator.geolocation) {
+	      navigator.geolocation.getCurrentPosition(function(position) {
+	        initCenter = {
+	          lat: position.coords.latitude,
+	          lng: position.coords.longitude
+	        };
+	       
+	        objectsmap.setCenter(initCenter);
+	       
+	      }, function() {
+	        initCenter = {
+	          lat: 46.8272608,
+	          lng: 8.4965408
+	        };
+	        objectsmap.setCenter(initCenter);
+	        
+	      });
+	    } else {
+	      // // Browser doesn't support Geolocation
+	      // handleLocationError(false, infoWindow, objectsmap.getCenter());
+	      //On prend Suisse
+	      initCenter = {
+	        lat: 46.8272608,
+	        lng: 8.4965408
+	      };
+	      objectsmap.setCenter(initCenter);
+	    }
+
+	  $("#googlemap_shop-finder").show();
+	 
+	}
+	function AddShops(){
+	  var shops = $.parseJSON($("#googlemap_shop-finder").attr('data-objects'));
+	  infowindow = new google.maps.InfoWindow({maxWidth: 300});
+	  $.each(shops,function(index,value){
+	    
+	    var position = {lat: parseFloat(value.Lat), lng: parseFloat(value.Lng)};
+	    var marker = new google.maps.Marker({
+	      position: position,
+	      map: objectsmap,
+	      title: value.Name,
+	      objectId: value.ID
+	    });
+	   
+
+	    markers.push(marker);
+	    marker.addListener('click', function() {
+	      var contentString = value.Content;
+	      infowindow.setContent(contentString);
+	      infowindow.open(objectsmap, marker);
+	    });
+	    var link = document.getElementById('show-marker-'+value.ID);
+	    google.maps.event.addDomListener(link, 'click', function() {
+	        var contentString = value.Content;
+	        infowindow.setContent(contentString);
+	        infowindow.open(objectsmap, marker);
+	    });
+	   
+	  });
+	}
 	
 
     if ($(".shop-map-container").length > 0){
-        $('body').append('<script defer src="//maps.google.com/maps/api/js?key=AIzaSyCbrDquBmMxiRMZz6itPir8xKX7HLa7xZE&libraries=geometry&callback=initShopsMap"></script>');
+        $('body').append('<script async defer src="//maps.google.com/maps/api/js?key=AIzaSyCbrDquBmMxiRMZz6itPir8xKX7HLa7xZE&libraries=geometry&callback=initShopsMap"></script>');
     }
 
     $(document).on("click","[data-search]",function(){
@@ -571,71 +640,4 @@ $(document).ready(function(){
         });
     });
 });
-function initShopsMap() {
-  objectsmap = new google.maps.Map(document.getElementById('googlemap_shop-finder'), {
-    center: {lat: 46.8272608, lng: 8.4965408},
-    zoom: 8
-  });
-  AddShops();
-  
-     // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        initCenter = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-       
-        objectsmap.setCenter(initCenter);
-       
-      }, function() {
-        initCenter = {
-          lat: 46.8272608,
-          lng: 8.4965408
-        };
-        objectsmap.setCenter(initCenter);
-        
-      });
-    } else {
-      // // Browser doesn't support Geolocation
-      // handleLocationError(false, infoWindow, objectsmap.getCenter());
-      //On prend Suisse
-      initCenter = {
-        lat: 46.8272608,
-        lng: 8.4965408
-      };
-      objectsmap.setCenter(initCenter);
-    }
 
-  $("#googlemap_shop-finder").show();
- 
-}
-function AddShops(){
-  var shops = $.parseJSON($("#googlemap_shop-finder").attr('data-objects'));
-  infowindow = new google.maps.InfoWindow({maxWidth: 300});
-  $.each(shops,function(index,value){
-    
-    var position = {lat: parseFloat(value.Lat), lng: parseFloat(value.Lng)};
-    var marker = new google.maps.Marker({
-      position: position,
-      map: objectsmap,
-      title: value.Name,
-      objectId: value.ID
-    });
-   
-
-    markers.push(marker);
-    marker.addListener('click', function() {
-      var contentString = value.Content;
-      infowindow.setContent(contentString);
-      infowindow.open(objectsmap, marker);
-    });
-    var link = document.getElementById('show-marker-'+value.ID);
-    google.maps.event.addDomListener(link, 'click', function() {
-        var contentString = value.Content;
-        infowindow.setContent(contentString);
-        infowindow.open(objectsmap, marker);
-    });
-   
-  });
-}
