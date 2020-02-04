@@ -471,7 +471,7 @@ $(document).ready(function(){
 
 //handle pseudo-checkbox radio fields
 $(document).ready(function(){
-	$(document).on("click",".pseudo-radio",function(){
+	$(document).on("change",".pseudo-radio",function(){
 		var value = $(this).val();
 		console.log('ici');
 		$("input[name='"+$(this).attr('name')+"']").each(function(){
