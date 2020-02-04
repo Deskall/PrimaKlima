@@ -390,6 +390,17 @@ $(document).ready(function(){
 
 		$(document).on("change",".options input",function(){
 			var options = [];
+			//handle pseudo-checkbox radio fields
+			if ($(this).hasClass('pseudo-radio')){
+				var value = $(this).attr('data-value');
+				$("input[name='"+$(this).attr('name')+"']").each(function(){
+					if ($(this).attr('data-value') != value){
+						$(this).prop('checked',false);
+					}
+				});
+			}
+
+		
 			$(".options input").each(function(){
 				if ($(this).is(':checked')){
 					options.push($(this).attr('data-value'));
@@ -466,20 +477,6 @@ $(document).ready(function(){
 		});
 	}
 
-});
-
-
-//handle pseudo-checkbox radio fields
-$(document).ready(function(){
-	$(document).on("change",".pseudo-radio",function(){
-		var value = $(this).attr('data-value');
-		$("input[name='"+$(this).attr('name')+"']").each(function(){
-			if ($(this).attr('data-value') != value){
-				$(this).prop('checked',false);
-			}
-		});
-		UpdateOrder();
-	});
 });
 
 //Mobile related
