@@ -471,7 +471,13 @@ $(document).ready(function(){
 
 //handle pseudo-checkbox radio fields
 $(document).on("click",".pseudo-radio",function(){
-	$("input[name='"+$(this).attr('name')+"']:checked").prop('checked',false);
+	var value = $(this).val();
+	$("input[name='"+$(this).attr('name')+"']").each(function(){
+		if ($(this).val() != value){
+			console.log($(this).val());
+			$(this).prop('checked',false);
+		}
+	});
 });
 
 //Mobile related
