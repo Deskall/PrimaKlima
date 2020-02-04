@@ -58,6 +58,10 @@ class ProductOption extends Product {
 		return $fields;
 	}
 
+	public function getCMSValidator(){
+	    return new RequiredFields(array('Title'));
+	}
+
 	public function getCategoryTitle(){
 		return $this->Category()->Title;
 	}
