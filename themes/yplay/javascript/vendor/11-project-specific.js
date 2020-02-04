@@ -502,7 +502,7 @@ $(document).ready(function(){
 
 
 //Shopfinder
-$(document).ready(function(){
+
 	if ($(".shop-map-container").length > 0){
 		var objectsmap;
 		var markers = [];
@@ -638,5 +638,5 @@ $(document).ready(function(){
             objectsmap.setZoom(8);
         });
     });
-});
+
 
