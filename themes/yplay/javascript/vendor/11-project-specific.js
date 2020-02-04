@@ -475,7 +475,7 @@ $(document).ready(function(){
 		var value = $(this).attr('data-value');
 		$("input[name='"+$(this).attr('name')+"']").each(function(){
 			if ($(this).attr('data-value') != value){
-				$(this).prop('checked',false);
+				$(this).prop('checked',false).trigger('change');
 			}
 		});
 	});
