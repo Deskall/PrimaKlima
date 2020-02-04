@@ -470,13 +470,16 @@ $(document).ready(function(){
 
 
 //handle pseudo-checkbox radio fields
-$(document).on("click",".pseudo-radio",function(){
-	var value = $(this).val();
-	$("input[name='"+$(this).attr('name')+"']").each(function(){
-		if ($(this).val() != value){
-			console.log($(this).val());
-			$(this).prop('checked',false);
-		}
+$(document).ready(function(){
+	$(document).on("click",".pseudo-radio",function(){
+		var value = $(this).val();
+		console.log('ici');
+		$("input[name='"+$(this).attr('name')+"']").each(function(){
+			if ($(this).val() != value){
+				console.log($(this).val());
+				$(this).prop('checked',false);
+			}
+		});
 	});
 });
 
