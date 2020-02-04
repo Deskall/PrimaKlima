@@ -4,7 +4,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\ListboxField;
-
+use SilverStripe\Forms\CheckboxField;
 class PriceVariation extends DataObject {
 
 	
@@ -76,7 +76,7 @@ class PriceVariation extends DataObject {
 		$fields->insertAfter('Title',DropdownField::create('Type',$this->fieldLabels()['Type'],['discount' => 'Rabatt', 'replace' => 'Preis ersetzung']));
 		$fields->insertAfter('Title',DropdownField::create('Unit',$this->fieldLabels()['Unit'],['percent' => 'Prozentsatz', 'discount' => 'CHF'])->displayIf('Type')->isEqualTo('discount')->end());
 		$fields->insertAfter('Title',DropdownField::create('ApplyTo',$this->fieldLabels()['ApplyTo'],['MonthlyPrice' => 'den monatlichen Preis', 'UniquePrice' => 'den einmaligen Preis', 'Fee' => 'den gebühren Preis']));
-
+		$fields->push(CheckboxField::create('AllProducts',$this->fieldLabels(true)['AllProducts']));
 		$fields->push(ListboxField::create('Codes',$this->fieldLabels(true)['Codes'],PostalCode::get()->map('ID','Code'),$this->Codes())->hideIf('AllProducts')->isChecked(true));
 		$fields->push(CheckboxField::create('AllCodes',$this->fieldLabels(true)['AllCodes']));
 		$fields->push(ListboxField::create('Products',$this->fieldLabels(true)['Products'],Product::get()->map('ID','Title'),$this->Products())->hideIf('AllCodes')->isChecked(true));
