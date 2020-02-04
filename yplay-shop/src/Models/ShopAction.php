@@ -44,7 +44,7 @@ class ShopAction extends DataObject {
 		'Title',
 		'Products',
 		'Codes',
-		'Cumulative'
+		'isCumulative' => ['title' => 'Kann diese Aktion mit anderen kombiniert werden?']
 	];
 
 	private static $searchable_fields = [
