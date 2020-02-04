@@ -193,17 +193,25 @@ class Product extends DataObject {
 
 	//Check if a discount apply for this product
 	public function hasAction(){
-		if ($this->Actions()->filter('AllCodes',1)->count() > 0){
-			return true;
-		}
-		else{
-			//TO DO
-		}
+		// if ($this->Actions()->filter('AllCodes',1)->count() > 0){
+		// 	return true;
+		// }
+		// else{
+		// 	//TO DO
+		// }
 		return false;
 	}
 
 	public function currentActions(){
-		$actions = $this->Actions();
+		// $ids = PriceVariation::get()->filter(['AllCodes' => 1, 'AllProducts' => 1])->column('ID');
+		// $request = Injector::inst()->get(HTTPRequest::class);
+		// $session = $request->getSession();
+		// if ($session->get('active_plz')){
+		// 	$codeIds = PriceVariation::get()->filter(['CodeID' => $session->get('active_plz'), 'AllProducts' => 1])->column('ID');
+		// 	$ids = array_merge($codeIds,$ids);
+		// }
+
+
 	}
 
 }
