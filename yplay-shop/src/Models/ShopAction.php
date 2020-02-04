@@ -83,9 +83,13 @@ class ShopAction extends DataObject {
 
 	public function Products(){
 		$html = '<p>';
+		$products = [];
 		foreach ($this->Variations() as $v) {
 			foreach ($v->Products() as $p) {
-				$html .=  $p->Title.'<br>';
+				if (!in_array($p->Title,$products)){
+					$html .=  $p->Title.'<br>';
+					$products[] = $p->Title;
+				}
 			}
 		}
 		$html .= '</p>';
@@ -94,9 +98,13 @@ class ShopAction extends DataObject {
 
 	public function Codes(){
 		$html = '<p>';
+		$codes = [];
 		foreach ($this->Variations() as $v) {
 			foreach ($v->Codes() as $c) {
-				$html .=  $c->Code.'<br>';
+				if (!in_array($c->Code,$codes)){
+					$html .=  $c->Code.'<br>';
+					$codes[] = $c->Code;
+				}
 			}
 		}
 		$html .= '</p>';
