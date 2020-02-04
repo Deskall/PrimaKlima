@@ -42,8 +42,8 @@ class ShopAction extends DataObject {
 
 	private static $summary_fields = [
 		'Title',
-		'Products',
-		'Codes',
+		'Products' => ['title' => 'Produkte / Pakete'],
+		'Codes' => ['title' => 'Ortschaften'],
 		'isCumulative' => ['title' => 'Kann diese Aktion mit anderen kombiniert werden?']
 	];
 
