@@ -421,7 +421,7 @@ $(document).ready(function(){
 	}
 
 	function UpdateCart(options){
-		$(".order-preview").addClass('loading').append('<div class="uk-position-center"><span data-uk-spinner="ratio: 3"></span></div>');
+		$(".order-preview").addClass('loading').append('<div class="uk-position-center uk-position-z-index"><span data-uk-spinner="ratio: 3"></span></div>');
 		$.ajax({
 			url: '/shop-functions/updateCartOptions',
 			method: 'POST',
