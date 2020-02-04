@@ -472,7 +472,7 @@ $(document).ready(function(){
 //handle pseudo-checkbox radio fields
 $(document).on("click",".pseudo-checkbox",function(){
 	if ($(this).is(':checked')){
-		$(this).prop('checked',false);
+		$(this).get(0).reset();
 	}
 });
 
