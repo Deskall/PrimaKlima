@@ -472,13 +472,9 @@ $(document).ready(function(){
 //handle pseudo-checkbox radio fields
 $(document).ready(function(){
 	$(document).on("change",".pseudo-radio",function(){
-		var value = $(this).val();
-		console.log(value);
-		console.log($(this).attr('name'));
+		var value = $(this).attr('data-value');
 		$("input[name='"+$(this).attr('name')+"']").each(function(){
-			console.log($(this).val());
-			if ($(this).val() != value){
-				console.log($(this).val());
+			if ($(this).attr('data-value') != value){
 				$(this).prop('checked',false);
 			}
 		});
