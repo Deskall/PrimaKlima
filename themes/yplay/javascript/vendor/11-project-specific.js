@@ -469,6 +469,13 @@ $(document).ready(function(){
 });
 
 
+//handle pseudo-checkbox radio fields
+$(document).on("click",".pseudo-checkbox",function(){
+	if ($(this).is(':checked')){
+		$(this).prop('checked',false);
+	}
+});
+
 //Mobile related
 $(document).ready(function(){
 	if (!isMobile.any()){
