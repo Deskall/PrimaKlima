@@ -78,25 +78,25 @@ class ProductAdmin extends ModelAdmin{
 
 	        //Import Shops
 	        
-	        $file = File::get()->byId(101);
-	        if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-	            $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-	            $headers = fgetcsv($handle, 0, $delimiter);
-	            while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-	                $shop = Shop::get()->filter('Ref',$line[0])->first();
-	                if (!$shop){
-	                    $shop = new Shop();
-	                    $shop->Ref = $line[0];
-	                } 
-	                $shop->Title = $line[1];
-	                $shop->AdresseTitle = $line[2];
-	                $shop->Adresse = $line[3];
-	                $shop->PLZ = $line[4];
-	                $shop->City = $line[5];
-	                $shop->Offnungszeiten = $line[6];
-	                $shop->write();
-	            }
-	        }
+	        // $file = File::get()->byId(101);
+	        // if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+	        //     $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+	        //     $headers = fgetcsv($handle, 0, $delimiter);
+	        //     while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+	        //         $shop = Shop::get()->filter('Ref',$line[0])->first();
+	        //         if (!$shop){
+	        //             $shop = new Shop();
+	        //             $shop->Ref = $line[0];
+	        //         } 
+	        //         $shop->Title = $line[1];
+	        //         $shop->AdresseTitle = $line[2];
+	        //         $shop->Adresse = $line[3];
+	        //         $shop->PLZ = $line[4];
+	        //         $shop->City = $line[5];
+	        //         $shop->Offnungszeiten = $line[6];
+	        //         $shop->write();
+	        //     }
+	        // }
 	    }
 
 	    return $form;
