@@ -62,6 +62,12 @@ class PriceVariation extends DataObject {
 		else{
 			$this->AllCodes = 0; 
 		}
+		if ($this->Products()->count() == 0){
+			$this->AllProducts = 1; 
+		}
+		else{
+			$this->AllProducts = 0; 
+		}
 	}
 
 	public function getCMSFields(){
