@@ -18,8 +18,8 @@ class ShopAction extends DataObject {
 		'Start' => 'Date',
 		'End' => 'Date',
 		'Trigger' => 'Varchar',
-		'isGlobal' => 'Boolean(0)',
-		'Conditions' => 'HTMLText'
+		'Conditions' => 'HTMLText',
+		'Cumulative' => 'Boolean(0)'
 	];
 
 	private static $has_one = [
@@ -31,6 +31,14 @@ class ShopAction extends DataObject {
 		'Variations' => PriceVariation::class
 	];
 
+	private static $cascade_deletes = [
+		'Variations'
+	];
+
+	private static $extensions = [
+		'Sortable',
+		'Activable'
+	];
 
 	private static $summary_fields = [
 		'Title'
