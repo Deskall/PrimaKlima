@@ -12,7 +12,7 @@ class MessagePageExtension extends DataExtension {
 		$session = $request->getSession();
 		if ($session->get('active_plz')){
 			// we take only global and related to code
-			$activeNews = $activeNews->filterByCallback(function($item, $list) use ($session) { return $item->PostalCodes()->count() == 0 || $item->PostalCodes()->byId($session->get('active_plz'))->count() > 0; });
+			$activeNews = $activeNews->filterByCallback(function($item, $list) use ($session) { return $item->PostalCodes()->count() == 0 || $item->PostalCodes()->byId($session->get('active_plz')); });
 		}
 		return $activeNews;
 	}
