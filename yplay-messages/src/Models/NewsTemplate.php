@@ -36,28 +36,28 @@ class NewsTemplate extends DataObject {
 		return $fields;
 	}
 
-	// public function canCreate($member = null, $context = []){
-	//     if (Permission::check('ADMIN')){
-	//         return true;
-	//     }
-	//     return false;
-	// }
+	public function canCreate($member = null, $context = []){
+	    if (Permission::check('ADMIN')){
+	        return true;
+	    }
+	    return false;
+	}
 
-	// public function canView($member = null){
-	//     return $this->canCreate($member);
-	// }
+	public function canView($member = null){
+	    return $this->canCreate($member);
+	}
 
-	// public function canEdit($member = null){
-	//     $member = Member::currentUser();
-	//     if ($this->ID == 0 || $this->SubsiteID == $member->SubsiteID){
-	//         return true;
-	//     }
-	//     return false;
-	// }
+	public function canEdit($member = null){
+	    $member = Member::currentUser();
+	    if ($this->ID == 0 || $this->SubsiteID == $member->SubsiteID){
+	        return true;
+	    }
+	    return false;
+	}
 
 
-	// public function canDelete($member = null)
-	// {
-	//     return $this->canEdit($member);
-	// }
+	public function canDelete($member = null)
+	{
+	    return $this->canEdit($member);
+	}
 }

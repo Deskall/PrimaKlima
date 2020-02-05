@@ -12,7 +12,7 @@ class NewsAdmin extends ModelAdmin {
 
    private static $managed_models = array(
        'News' => array ('title' => 'Meldungen'),
-       'NewsTemplate' => array ('title' => 'Meldungsvorlagen'),
+       // 'NewsTemplate' => array ('title' => 'Meldungsvorlagen'),
    );
 
 
