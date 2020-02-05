@@ -17,6 +17,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Subsites\State\SubsiteState;
+use SilverStripe\Subsites\Model\Subsite;
 use SilverStripe\ORM\FieldType\DBText;
 
 class News extends DataObject implements Searchable
@@ -124,7 +125,7 @@ class News extends DataObject implements Searchable
       $fields->addFieldToTab('Root.DetailSeite', HeaderField::create('DetailHeader', 'Erfassen Sie hier Inhalte, wenn die Meldung eine eigene Seite erhalten soll.', 2)); 
 
 
-      $fields->addFieldToTab('Root.Main', DropdownField::create('Template','Von Meldungsvorlage einfügen', NewsTemplate::get()->filter('SubsiteID',array(0,Subsite::currentSubsiteID()))->map('ID','Title'))->setEmptyString('Typ auswählen'));
+      $fields->addFieldToTab('Root.Main', DropdownField::create('Template','Von Meldungsvorlage einfügen', NewsTemplate::get()->filter('SubsiteID',array(0,SubsiteState::singleton()->getSubsiteId()))->map('ID','Title'))->setEmptyString('Typ auswählen'));
 
       $fields->addFieldToTab('Root.Main', TextField::create('Title', 'Titel')); 
       $fields->addFieldToTab('Root.Main', TextareaField::create('Lead', 'Vorschau Text')); 
