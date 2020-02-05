@@ -27,7 +27,7 @@ class NewsAdmin extends ModelAdmin {
         if($this->modelClass=='News' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
         {
             $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
-            $form->Fields()->fieldByName("News")->getConfig()->addComponent(new GridFieldDuplicateAction());
+            $$gridField->getConfig()->addComponent(new GridFieldDuplicateAction());
         }
 
         if($this->modelClass=='NewsTemplate' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
