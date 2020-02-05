@@ -15,8 +15,8 @@ class NewsCategory extends DataObject {
         "News" => News::class
     );
 
-    static $singular_name = 'Kategorie';
-    static $plural_name = 'Kategorien';
+    private static $singular_name = 'Kategorie';
+    private static $plural_name = 'Kategorien';
 
    public function getCMSFields() {
 
