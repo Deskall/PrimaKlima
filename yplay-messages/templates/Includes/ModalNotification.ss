@@ -5,7 +5,7 @@
         		<div class="uk-background-cover uk-visible@m" style="background-image:url('$ThemeDir/img/thomas-q-_fQ6zg_McEU-unsplash.jpg');" data-uk-height-viewport></div>
 	        	<div class="uk-padding-large">
 	        		<h2>Meldungen</h2>
-			       
+			        <div class="uk-margin-large">
 			        	<% loop activeMessages %>
 			            <div class="uk-margin">
 			                <div><strong>$Title</strong></div>
@@ -17,6 +17,7 @@
 			                <% end_if %>
 			            </div>
 			            <% end_loop %>
+			        </div>
 			        <button class="uk-modal-close uk-button-large" type="button">Schliessen</button>
 			    </div>
 	    	</div>
