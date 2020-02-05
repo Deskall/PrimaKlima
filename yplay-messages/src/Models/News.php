@@ -57,7 +57,7 @@ class News extends DataObject implements Searchable
         'PostalCodes'=> PostalCode::class
     ];
 
-    static $summary_fields = array (
+    private static $summary_fields = array (
       'Title' => array('title' => 'Titel'),
       'LastEdited' => 'Zuletzt geändert',
       'showStatus' => 'Status'
