@@ -7,8 +7,8 @@ use SilverStripe\Security\Member;
 use SilverStripe\Security\Permission;
 
 class NewsTemplate extends DataObject {
-	static $singular_name = 'Vorlage';
-	static $plural_name = 'Vorlagen';
+	private static $singular_name = 'Vorlage';
+	private static $plural_name = 'Vorlagen';
 
 	private static $db = array(
 		'Title' => 'Varchar(250)',
@@ -19,7 +19,7 @@ class NewsTemplate extends DataObject {
 	  'Sortable'
 	];
 
-    static $summary_fields = array (
+    private static $summary_fields = array (
       'Title' => array('title' => 'Titel'),
       'Lead' => 'Text'
     );
@@ -37,7 +37,7 @@ class NewsTemplate extends DataObject {
 		return $fields;
 	}
 
-	public function canCreate($member = null){
+	public function canCreate($member = null, $context = []){
 	    if (Permission::check('ADMIN')){
 	        return true;
 	    }
