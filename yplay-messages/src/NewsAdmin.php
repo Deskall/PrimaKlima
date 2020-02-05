@@ -16,8 +16,6 @@ class NewsAdmin extends ModelAdmin {
    );
 
 
-
-    private static $menu_priority = 6;
     private static $menu_icon = 'yplay-messages/img/icon-info.png';
     private static $url_segment = 'notifications';
     private static $menu_title = 'Meldungen';
