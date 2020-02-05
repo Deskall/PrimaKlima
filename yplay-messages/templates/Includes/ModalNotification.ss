@@ -17,7 +17,7 @@
 			                <% end_if %>
 			            </div>
 			            <% end_loop %>
-			        <button class="uk-modal-close-full uk-button-large" type="button">Schliessen</button>
+			        <button class="uk-modal-close uk-button-large" type="button">Schliessen</button>
 			    </div>
 	    	</div>
 	    </div>
