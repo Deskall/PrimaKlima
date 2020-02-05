@@ -11,6 +11,7 @@ class MessagePageExtension extends DataExtension {
 		$request = Injector::inst()->get(HTTPRequest::class);
 		$session = $request->getSession();
 		if ($session->get('active_plz')){
+			print_r($session->get('active_plz'));
 			// we take only global and related to code
 			$activeNews = $activeNews->filterByCallback(function($item, $list) use ($session) { return $item->PostalCodes()->count() == 0 || $item->PostalCodes()->byId($session->get('active_plz')); });
 		}
