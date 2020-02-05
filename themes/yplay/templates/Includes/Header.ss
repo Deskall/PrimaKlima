@@ -90,6 +90,4 @@
 		    </div>
 	    </div>
 	</div>
-
-	<% include ModalNotification %>
 </header>
