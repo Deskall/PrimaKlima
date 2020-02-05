@@ -16,7 +16,8 @@ class NewsTemplate extends DataObject {
 	);
 
 	private static $extensions = [
-	  'Sortable'
+	  'Sortable',
+	  'Subsitable'
 	];
 
     private static $summary_fields = array (
@@ -27,8 +28,6 @@ class NewsTemplate extends DataObject {
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields(); 
-
-		$fields->removeByName('SortOrder');
 
 		$fields->addFieldToTab('Root.Main', TextField::create('Title', 'Titel')); 
 		$fields->addFieldToTab('Root.Main', TextareaField::create('Lead', 'Vorschau Text')); 

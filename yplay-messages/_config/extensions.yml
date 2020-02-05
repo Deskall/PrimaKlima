@@ -1,7 +1,0 @@
-News:
-  extensions:
-    - SubsiteDependentObject
-
-NewsTemplate:
-  extensions:
-    - SubsiteDependentObject

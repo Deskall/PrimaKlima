@@ -2,6 +2,7 @@
 use SilverStripe\Admin\ModelAdmin;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Subsites\Model\Subsite;
+use SilverStripe\Subsites\State\SubsiteState;
 
 class NewsAdmin extends ModelAdmin {
 
@@ -27,13 +28,13 @@ class NewsAdmin extends ModelAdmin {
 
         if($this->modelClass=='News' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
         {
-            $gridField->getConfig()->addComponent(new GridFieldOrderableRows('SortOrder'));
+            $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
             $form->Fields()->fieldByName("News")->getConfig()->addComponent(new GridFieldDuplicateAction());
         }
 
         if($this->modelClass=='NewsTemplate' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
         {
-            $gridField->getConfig()->addComponent(new GridFieldOrderableRows('SortOrder'));
+            $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
         }
 
         return $form;
@@ -41,7 +42,7 @@ class NewsAdmin extends ModelAdmin {
 
     public function getList(){
         $list = parent::getList();
-        $list =  $list->filter('SubsiteID',Subsite::currentSubsiteID());
+        $list =  $list->filter('SubsiteID',SubsiteState::singleton()->getSubsiteId());
         return $list;
     }
 }
