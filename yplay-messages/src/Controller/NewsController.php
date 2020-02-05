@@ -11,7 +11,6 @@ class NewsController extends ContentController {
   private static $allowed_actions = array(
     'index',
     'details',
-    'kategorie',
     'template'
   );
 
@@ -51,13 +50,5 @@ class NewsController extends ContentController {
     return array('News' => $news, 'Title' => $title, 'Blocks' => $blocks);
   }
 
-  public function kategorie(HTTPRequest $request) {
-    $category = NewsCategory::get()->filter('Title',$request->params('ID'))->first();
-    if (!$category){
-      return $this->httpError(404,'Diese Kategorie wurde nicht gefunden.');
-    }
-    $title = $category->Title;
 
-    return array('Category' => $category, 'Title' => $title);
-  }
 }
