@@ -95,7 +95,6 @@ class YplaYPageControllerExtension extends Extension
     public function ClearPLZ(HTTPRequest $request){
         Cookie::force_expiry('yplay_plz');
         $request->getSession()->clear('active_plz');
-        print_r($request->getSession()->get('active_plz'));
         //clear also cart
         if ($this->activeCart()){
            $this->activeCart()->delete();
@@ -110,6 +109,7 @@ class YplaYPageControllerExtension extends Extension
     public function activePLZ(){
         //first we check if there is cookie
         $plz = Cookie::get('yplay_plz');
+        print_r($this->owner->getRequest()->getSession()->get('active_plz'));
         // $plz = $this->owner->getRequest()->getSession()->get('active_plz');
         if ($plz){
             $PostalCode = PostalCode::get()->byId($plz);
