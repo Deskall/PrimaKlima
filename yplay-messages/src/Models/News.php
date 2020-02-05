@@ -43,8 +43,7 @@ class News extends DataObject implements Searchable
       'Sortable',
       'Activable',
       'Subsitable',
-      'Linkable',
-      'Versioned'
+      'Linkable'
     ];
 
     private static $many_many = [
