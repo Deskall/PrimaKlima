@@ -109,6 +109,7 @@ class YplaYPageControllerExtension extends Extension
     public function activePLZ(){
         //first we check if there is cookie
         $plz = Cookie::get('yplay_plz');
+        print_r($plz);
         // $plz = $this->owner->getRequest()->getSession()->get('active_plz');
         if ($plz){
             $PostalCode = PostalCode::get()->byId($plz);
