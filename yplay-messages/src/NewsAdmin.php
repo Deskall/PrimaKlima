@@ -11,8 +11,7 @@ class NewsAdmin extends ModelAdmin {
     }
 
    private static $managed_models = array(
-       'News' => array ('title' => 'Meldungen'),
-       'NewsTemplate' => array ('title' => 'Meldungsvorlagen'),
+       'News' => array ('title' => 'Meldungen')
    );
 
 
@@ -28,11 +27,6 @@ class NewsAdmin extends ModelAdmin {
         {
             $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
             $gridField->getConfig()->addComponent(new GridFieldDuplicateAction());
-        }
-
-        if($this->modelClass=='NewsTemplate' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
-        {
-            $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
         }
 
         return $form;
