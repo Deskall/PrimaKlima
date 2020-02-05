@@ -504,6 +504,7 @@ $(document).ready(function(){
 //Shopfinder
 
 	if ($(".shop-map-container").length > 0){
+		console.log('ici');
 		var objectsmap;
 		var markers = [];
 		var infowindow; 
