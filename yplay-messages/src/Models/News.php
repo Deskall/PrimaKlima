@@ -15,6 +15,7 @@ use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use g4b0\SearchableDataObjects\Searchable;
+use SilverStripe\Forms\RequiredFields;
 
 class News extends DataObject implements Searchable
 { 
@@ -276,3 +277,61 @@ public function generateURL(){
     }
 }
 
+/**
+ * News Validator
+ *
+ * @author deskall
+ */
+class News_Validator extends RequiredFields {
+  protected $customRequired = array('Title');
+
+  /**
+   * Constructor
+   */
+  public function __construct() {
+    $required = func_get_args();
+    if(isset($required[0]) && is_array($required[0])) {
+      $required = $required[0];
+    }
+    $required = array_merge($required, $this->customRequired);
+    parent::__construct($required);
+  }
+
+  /**
+   * Check if the submitted member data is valid (server-side)
+   *
+   * Check if a news publish and archive dates are consistent
+   *
+   * @param array $data Submitted data
+   * @return bool Returns TRUE if the submitted data is valid, otherwise
+   *              FALSE.
+   * @author deskall
+   */
+  function php($data) {
+    if ($data['Status'] == "ToBePublished"){
+       if ($data['PublishDate']){
+        $PublishDate = new \Datetime();
+        $PublishDate->setTimestamp(strtotime($data['PublishDate']));
+      } else {
+        $PublishDate = null;
+      }
+        if ($data['ArchiveDate']){
+           $ArchiveDate = new \Datetime();
+           $ArchiveDate->setTimestamp(strtotime($data['ArchiveDate']));
+        }
+        else {
+          $ArchiveDate = null;
+        }
+    if ( $PublishDate && $PublishDate->format('Y-m-d H:i:s') < date('Y-m-d H:i:s')){
+        $this->validationError("PublishDate", "Das Datum der Veröffentlichung kann nicht in der Vergangenheit sein.", 'error');
+        $valid = false;
+      }
+      if ( $ArchiveDate && $PublishDate && $PublishDate > $ArchiveDate){
+        $this->validationError("ArchiveDate", "Das Datum der Archivierung muss nach dem Datum der Veröffentlichung sein.", 'error');
+        $valid = false;
+      }
+    }
+     $valid = parent::php($data);
+     return $valid;
+  }
+}
