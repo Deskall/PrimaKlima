@@ -61,10 +61,10 @@ class News extends DataObject implements Searchable
     private static $summary_fields = array (
       'Title' => array('title' => 'Titel'),
       'LastEdited' => 'Zuletzt geändert',
-      // 'showStatus' => 'Status'
+      'showStatus' => 'Status'
     );
 
-    protected function showCategories() {
+    public function showCategories() {
       $categories = $this->Categories();
       $str = '';
       foreach ($categories as $category )
@@ -73,7 +73,7 @@ class News extends DataObject implements Searchable
       return $str;
     }
 
-    protected function showStatus() {
+    public function showStatus() {
       $status = $this->Status;
       $str = '';
       switch($status){
