@@ -59,7 +59,7 @@ class News extends DataObject implements Searchable
 
 
     public function getCMSFields() {
-     
+      $fields = parent::getCMSFields();
       $fields->removeByName('PostalCodes');
       $fields->addFieldToTab('Root.Main', TextField::create('Title', 'Titel')); 
       $fields->addFieldToTab('Root.Main', TextareaField::create('Lead', 'Vorschau Text')); 
