@@ -5,14 +5,14 @@
         		<div class="uk-background-cover uk-visible@m" style="background-image:url('$ThemeDir/img/thomas-q-_fQ6zg_McEU-unsplash.jpg');" data-uk-height-viewport></div>
 	        	<div class="uk-padding-large">
 	        		<h2>Meldungen</h2>
-			        <ul data-uk-accordion>
+			       
 			        	<% loop activeMessages %>
-			            <li>
-			                <a class="uk-accordion-title" href="#">$Title</a>
-			                <div class="uk-accordion-content">
+			            <div>
+			                <div><strong>$Title</strong></div>
+			                <div class="dk-text-content">
 			                  $Lead
 			                </div>
-			            </li>
+			            </div>
 			            <% end_loop %>
 			        </ul>
 			    </div>
