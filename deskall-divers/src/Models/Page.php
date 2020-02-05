@@ -6,6 +6,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Control\Session;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Injector\Injector;
+use DNADesign\Elemental\Models\BaseElement;
 
 class Page extends SiteTree implements Searchable
 {

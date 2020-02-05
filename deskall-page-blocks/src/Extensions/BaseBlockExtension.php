@@ -19,7 +19,6 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Core\ClassInfo;
 use SilverStripe\View\Parsers\URLSegmentFilter;
-use DNADesign\Elemental\Models\BaseElement;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
