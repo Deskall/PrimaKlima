@@ -73,6 +73,9 @@ class Page extends SiteTree implements Searchable
 
      //search related
      public function notInListYet( $link ){
+      foreach (BaseElement::get() as $b) {
+        $b->write();
+      }
       $request = Injector::inst()->get(HTTPRequest::class);
       $session = $request->getSession();
 
