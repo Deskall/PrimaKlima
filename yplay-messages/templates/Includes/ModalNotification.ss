@@ -6,18 +6,14 @@
 	        	<div class="uk-padding-large">
 	        		<h2>Meldungen</h2>
 			        <ul data-uk-accordion>
+			        	<% loop activeMessages %>
 			            <li>
-			                <a class="uk-accordion-title" href="#">Meldung 1</a>
+			                <a class="uk-accordion-title" href="#">$Title</a>
 			                <div class="uk-accordion-content">
-			                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			                  $Lead
 			                </div>
 			            </li>
-			            <li>
-			                <a class="uk-accordion-title" href="#">Meldung 2</a>
-			                <div class="uk-accordion-content">
-			                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
-			                </div>
-			            </li>
+			            <% end_loop %>
 			        </ul>
 			    </div>
 	    	</div>
