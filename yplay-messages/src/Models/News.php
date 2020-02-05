@@ -92,7 +92,6 @@ class News extends DataObject implements Searchable
     public function getCMSFields() {
       Requirements::javascript('yplay-messages/js/news.js');
       $fields = parent::getCMSFields(); 
-      $fields->removeByName('Categories');
       $fields->removeByName('PublishDate');
       $fields->removeByName('ArchiveDate');
       $fields->removeByName('PostalCodes');
@@ -104,8 +103,6 @@ class News extends DataObject implements Searchable
       $groupDate = FieldGroup::create($publishDate, $archiveDate)->setTitle('Veröffentlichung')->addExtraClass('handlepublish')->setDescription('Format: tt.mm.jjjj HH:ii');
       $fields->addFieldToTab('Root.Main', $groupDate, 'Title');
 
-
-      $fields->addFieldToTab('Root.Main', DropdownField::create('Template','Von Meldungsvorlage einfügen', NewsTemplate::get()->filter('SubsiteID',array(0,SubsiteState::singleton()->getSubsiteId()))->map('ID','Title'))->setEmptyString('Typ auswählen'));
 
       $fields->addFieldToTab('Root.Main', TextField::create('Title', 'Titel')); 
       $fields->addFieldToTab('Root.Main', TextareaField::create('Lead', 'Vorschau Text')); 
