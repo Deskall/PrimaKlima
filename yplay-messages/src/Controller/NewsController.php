@@ -2,7 +2,6 @@
 
 use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Subsite\Subsite;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Subsites\Model\Subsite;
 use SilverStripe\Subsites\State\SubsiteState;
