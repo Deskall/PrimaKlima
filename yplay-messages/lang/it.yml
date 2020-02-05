@@ -1,0 +1,22 @@
+it:
+  News:
+    BUTTONARCHIVEDESC: archiviare
+    BUTTONDUPLICATEDESC: duplicare    
+    BUTTONPUBLISHDESC: pubblicare 
+    PLURALNAME: comunicato
+    SINGULARNAME: comunicato
+  NewsAdmin:
+    MENUTITLE: comunicato  
+  NewsBlock:
+    PLURALNAME: 'News Blocks'
+    SINGULARNAME: 'News Block'
+  NewsCategory:
+    PLURALNAME: categoria
+    SINGULARNAME: categoria  
+  NewsTemplate:
+    PLURALNAME: il modello    
+    SINGULARNAME: modello  
+  SiteTree:
+    BUTTONARCHIVE: archiviare
+    BUTTONDUPLICATE: duplicare
+    BUTTONPUBLISH: pubblicare

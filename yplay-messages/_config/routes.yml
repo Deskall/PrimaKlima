@@ -1,0 +1,8 @@
+---
+Name: inserateroutes
+After: framework/routes#coreroutes
+---
+Director:
+  rules:
+   'meldungen/$Action!/$ID/$Name': 'News_Controller'
+   'admin/notifications/get//$Action/$ID': 'News_Controller'
