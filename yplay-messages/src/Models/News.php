@@ -152,7 +152,7 @@ class News extends DataObject implements Searchable
      * @return string
      */
     public function Link() {
-        return $this->RelatedPage()->Link();
+        return $this->LinkableLink()->getLinkURL();
     }
 
     /**
