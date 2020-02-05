@@ -3,7 +3,7 @@
 	        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
         	<div class="uk-grid-collapse uk-flex-middle" data-uk-grid>
         		<div class="uk-background-cover uk-visible@m uk-width-1-3@m uk-width-1-4@l" style="background-image:url('$ThemeDir/img/thomas-q-_fQ6zg_McEU-unsplash.jpg');" data-uk-height-viewport></div>
-	        	<div class="uk-padding uk-width-2-3@m uk-width-3-4@l" data-uk-overflow-auto data-uk-height-viewport="offset-bottom:100;offset-top:100">
+	        	<div class="uk-padding uk-width-2-3@m uk-width-3-4@l" data-uk-overflow-auto data-uk-height-viewport>
 	        		<h2>Meldungen</h2>
 			        <div class="uk-margin-large" >
 			        	<% loop activeMessages %>
