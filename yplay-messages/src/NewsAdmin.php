@@ -40,7 +40,7 @@ class NewsAdmin extends ModelAdmin {
 
     public function getList(){
         $list = parent::getList();
-        $list =  $list->filter('SubsiteID',SubsiteState::singleton()->getSubsiteId());
+        // $list =  $list->filter('SubsiteID',SubsiteState::singleton()->getSubsiteId());
         return $list;
     }
 }
