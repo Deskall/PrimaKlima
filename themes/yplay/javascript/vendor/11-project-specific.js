@@ -502,6 +502,11 @@ $(document).ready(function(){
 
 
 //Shopfinder
+var objectsmap;
+var markers = [];
+var infowindow; 
+var initCenter;
+
 function initShopsMap() {
   objectsmap = new google.maps.Map(document.getElementById('googlemap_shop-finder'), {
     center: {lat: 46.8272608, lng: 8.4965408},
@@ -572,10 +577,7 @@ function AddShops(){
 }
 $(document).ready(function(){
 	if ($(".shop-map-container").length > 0){
-		var objectsmap;
-		var markers = [];
-		var infowindow; 
-		var initCenter;
+		
 		$('body').append('<script async defer src="//maps.google.com/maps/api/js?key=AIzaSyCbrDquBmMxiRMZz6itPir8xKX7HLa7xZE&libraries=geometry&callback=initShopsMap"></script>');
 
 		
