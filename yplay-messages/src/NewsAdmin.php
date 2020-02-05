@@ -24,16 +24,7 @@ class NewsAdmin extends ModelAdmin {
     public function getEditForm($id = null, $fields = null) {
         $form = parent::getEditForm($id, $fields);
 
-        if($this->modelClass=='News' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
-        {
-            $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
-            $form->Fields()->fieldByName("News")->getConfig()->addComponent(new GridFieldDuplicateAction());
-        }
-
-        if($this->modelClass=='NewsTemplate' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
-        {
-            $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
-        }
+        
 
         return $form;
     }
