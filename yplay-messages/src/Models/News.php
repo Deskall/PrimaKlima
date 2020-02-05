@@ -19,8 +19,8 @@ use SilverStripe\Forms\RequiredFields;
 
 class News extends DataObject implements Searchable
 { 
-    static $singular_name = 'Meldung';
-    static $plural_name = 'Meldungen';
+    private static $singular_name = 'Meldung';
+    private static $plural_name = 'Meldungen';
 
     private static $db = array(
         'Title' => 'Varchar(250)',
