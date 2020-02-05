@@ -16,6 +16,7 @@ use SilverStripe\Forms\HeaderField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Subsites\State\SubsiteState;
 
 class News extends DataObject implements Searchable
 { 
@@ -154,7 +155,7 @@ class News extends DataObject implements Searchable
 
 
       $postalcodes = DataObject::get("PostalCode")->sort(array('PostalCodes.Code'=>'ASC'));
-      $source = (Subsite::currentSubsiteID() > 0) ? $postalcodes->filter('SubsiteID',Subsite::currentSubsiteID())->map("ID", "Code") : $postalcodes->map("ID", "Code");
+      $source = (SubsiteState::singleton()->getSubsiteId() > 0) ? $postalcodes->filter('SubsiteID',SubsiteState::singleton()->getSubsiteId())->map("ID", "Code") : $postalcodes->map("ID", "Code");
       $postalcodefield = ListboxField::create('PostalCodes', 'Betroffene Gemeinden', $source );
       $postalcodefield->setMultiple(true);
       $postalcodefield->setEmptyString('Alle');

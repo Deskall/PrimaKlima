@@ -1,6 +1,7 @@
 <?php
 use SilverStripe\Admin\ModelAdmin;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use SilverStripe\Subsites\Model\Subsite;
 
 class NewsAdmin extends ModelAdmin {
 

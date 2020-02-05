@@ -4,6 +4,8 @@ use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Subsite\Subsite;
 use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Subsites\Model\Subsite;
+use SilverStripe\Subsites\State\SubsiteState;
 
 class NewsController extends ContentController {
 
@@ -15,7 +17,7 @@ class NewsController extends ContentController {
   );
 
   public function index(){
-    $page = Page::get()->filter(array('SubsiteID' => Subsite::currentSubsiteID(), 'URLSegment' => 'meldungen'))->first();
+    $page = Page::get()->filter(array('SubsiteID' => SubsiteState::singleton()->getSubsiteId(), 'URLSegment' => 'meldungen'))->first();
     if ($page){
       $this->redirect($page->Link());
     }
