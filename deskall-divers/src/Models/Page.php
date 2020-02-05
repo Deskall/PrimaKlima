@@ -6,7 +6,6 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Control\Session;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Injector\Injector;
-use DNADesign\Elemental\Models\BaseElement;
 
 class Page extends SiteTree implements Searchable
 {
@@ -74,9 +73,7 @@ class Page extends SiteTree implements Searchable
 
      //search related
      public function notInListYet( $link ){
-      foreach (BaseElement::get() as $b) {
-        $b->write();
-      }
+
       $request = Injector::inst()->get(HTTPRequest::class);
       $session = $request->getSession();
 
