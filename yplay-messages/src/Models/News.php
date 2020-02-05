@@ -28,8 +28,8 @@ class News extends DataObject implements Searchable
         'Lead' => 'Text',
         'Content' => 'HTMLText',
         'URLSegment' => 'Varchar(250)',
-        'PublishDate' => 'SS_Datetime',
-        'ArchiveDate' => 'SS_Datetime',
+        'PublishDate' => 'Datetime',
+        'ArchiveDate' => 'Datetime',
         'Status' => 'Varchar(250)',
         'BildFormat' => 'Varchar(255)'
     );
