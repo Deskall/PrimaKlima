@@ -29,32 +29,22 @@ class News extends DataObject implements Searchable
     private static $db = array(
         'Title' => 'Varchar(250)',
         'Lead' => 'Text',
-        'Content' => 'HTMLText',
-        'URLSegment' => 'Varchar(250)',
         'PublishDate' => 'Datetime',
         'ArchiveDate' => 'Datetime',
-        'Status' => 'Varchar(250)',
-        'BildFormat' => 'Varchar(255)'
+        'Status' => 'Varchar(250)'
     );
 
     private static $defaults = array(
       'Title' => 'Neuer Eintrag',
-      'URLSegment' => 'neuer-eintrag',
       'Status' => 'ToBePublished',
-    );
-
-    private static $indexes = array(
-      'URLSegment' => true
-    );
-
-    private static $has_one = array(
-      'Image' => Image::class  
     );
 
     private static $extensions = [
       'Sortable',
       'Activable',
-      'Subsitable'
+      'Subsitable',
+      'Linkable',
+      'Versioned'
     ];
 
     private static $many_many = [
@@ -103,17 +93,10 @@ class News extends DataObject implements Searchable
     public function getCMSFields() {
       Requirements::javascript('yplay-messages/js/news.js');
       $fields = parent::getCMSFields(); 
-      $fields->removeByName('URLSegment');
       $fields->removeByName('Categories');
-       $fields->removeByName('SortOrder');
-      $fields->removeByName('NewsBlocks');
-      $fields->removeByName('Blocks');
       $fields->removeByName('PublishDate');
       $fields->removeByName('ArchiveDate');
-
       $fields->removeByName('PostalCodes');
-
-
 
       $fields->addFieldToTab('Root.Main', OptionsetField::create('Status', 'Status', array('ToBePublished' => 'Entwurf', 'Published' => 'Veröffentlicht', 'Archived' => 'Archiviert')),'Title');
       $publishDate = TextField::create('PublishDate','Datum der Veröffentlichung')->addExtraClass('inline-field');
@@ -123,37 +106,11 @@ class News extends DataObject implements Searchable
       $fields->addFieldToTab('Root.Main', $groupDate, 'Title');
 
 
-      $fields->addFieldToTab('Root.DetailSeite', HeaderField::create('DetailHeader', 'Erfassen Sie hier Inhalte, wenn die Meldung eine eigene Seite erhalten soll.', 2)); 
-
-
       $fields->addFieldToTab('Root.Main', DropdownField::create('Template','Von Meldungsvorlage einfügen', NewsTemplate::get()->filter('SubsiteID',array(0,SubsiteState::singleton()->getSubsiteId()))->map('ID','Title'))->setEmptyString('Typ auswählen'));
 
       $fields->addFieldToTab('Root.Main', TextField::create('Title', 'Titel')); 
       $fields->addFieldToTab('Root.Main', TextareaField::create('Lead', 'Vorschau Text')); 
 
-
-
-
-
-
-      $uploadImage = null;
-      $uploadImage = UploadField::create('Image', 'Bild');
-      $uploadImage->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-      $uploadImage->setFolderName("Uploads/meldungen/".$this->URLSegment);
-      $fields->addFieldToTab('Root.DetailSeite', $uploadImage );
-
-
-
-      $fields->insertAfter(DropdownField::create('BildFormat','Bild Format', 
-        array(
-          'normal' => 'Bild links, auf 350x250 px zugeschnitten',
-          'links'=>'Bild links, originale Seitenverhältnisse',
-          'padded'=>'Bild links, mit Weissraum und Rahmen (für Logos geeignet)',
-          'big' =>'Bild auf Inhaltsbreite skalieren' )), 'Image'); 
-
-
-      $fields->addFieldToTab('Root.DetailSeite', HTMLEditorField::create('Content', 'Kurzer Einstieg')); 
-      $fields->fieldByName('Root.DetailSeite.Content')->setTitle('Einstiegstext')->setRows(10);
 
 
 
@@ -176,20 +133,7 @@ class News extends DataObject implements Searchable
         $this->PublishDate = date('d.m.Y H:i:s');
     }
 
-      $oldFolderName =  "Uploads/meldungen/".$this->URLSegment;
-
-      if($this->isChanged('Title')){
-        $newFolderName = "Uploads/meldungen/".singleton('SiteTree')->generateURLSegment($this->Title);
-
-        if ( strcmp($oldFolderName, $newFolderName) != 0)   {
-            $imageFolder = Folder::find($oldFolderName);
-
-            if($imageFolder){
-              $imageFolder->setName(basename($newFolderName));
-              $imageFolder->write();
-            }
-        }
-      }
+      
 
       if ($this->SubsiteID > 0 && $this->PostalCodes()->count() == 0){
         foreach (Subsite::currentSubsite()->PostalCodes() as $code) {
@@ -197,23 +141,10 @@ class News extends DataObject implements Searchable
         }
       }
 
-      $this->URLSegment = $this->generateURL();
+     
 
       parent::onBeforeWrite();
   }
-
-
-public function generateURL(){
-  $publishDate = new Datetime();
-  $publishDate->setTimestamp(strtotime($this->PublishDate));
-  $URL = 'details/'.$publishDate->format('Y').'/'.$publishDate->format('m').'-'.$publishDate->format('d').'-'.singleton('SiteTree')->generateURLSegment($this->Title);
-  return $URL;
-}
-
-  public function hasLink(){
-    return $this->Image()->ID || $this->Content;
-  }
-
 
 
   /**
@@ -221,7 +152,7 @@ public function generateURL(){
      * @return string
      */
     public function Link() {
-        return 'meldungen/'.$this->generateURL();
+        return $this->RelatedPage()->Link();
     }
 
     /**
@@ -255,7 +186,7 @@ public function generateURL(){
 
 
     public function canCreate($member = null, $context = []){
-        if (Permission::check('CMS_ACCESS_NewsAdmin')){
+        if (Permission::check('ADMIN')){
             return true;
         }
         return false;
