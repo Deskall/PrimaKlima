@@ -1,0 +1,7 @@
+----
+Name: yplay-message
+----
+
+Page:
+  extensions:
+    - MessagePageExtension
