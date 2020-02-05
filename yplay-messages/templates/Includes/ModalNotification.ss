@@ -18,7 +18,7 @@
 			            </div>
 			            <% end_loop %>
 			        </div>
-			        <button class="uk-modal-close uk-button uk-button-muted uk-button-large" type="button">Schliessen</button>
+			        <button class="uk-modal-close uk-button uk-button-default uk-button-large" type="button">Schliessen</button>
 			    </div>
 	    	</div>
 	    </div>
