@@ -7,7 +7,7 @@
 	        		<h2>Meldungen</h2>
 			       
 			        	<% loop activeMessages %>
-			            <di class="uk-margin">
+			            <div class="uk-margin">
 			                <div><strong>$Title</strong></div>
 			                <div class="dk-text-content">
 			                  $Lead
