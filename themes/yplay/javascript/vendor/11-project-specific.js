@@ -518,24 +518,24 @@ $(document).ready(function(){
 		  AddShops();
 		  
 		     // Try HTML5 geolocation.
-		    if (navigator.geolocation) {
-		      navigator.geolocation.getCurrentPosition(function(position) {
-		        initCenter = {
-		          lat: position.coords.latitude,
-		          lng: position.coords.longitude
-		        };
+		    // if (navigator.geolocation) {
+		    //   navigator.geolocation.getCurrentPosition(function(position) {
+		    //     initCenter = {
+		    //       lat: position.coords.latitude,
+		    //       lng: position.coords.longitude
+		    //     };
 		       
-		        objectsmap.setCenter(initCenter);
+		    //     objectsmap.setCenter(initCenter);
 		       
-		      }, function() {
-		        initCenter = {
-		          lat: 46.8272608,
-		          lng: 8.4965408
-		        };
-		        objectsmap.setCenter(initCenter);
+		    //   }, function() {
+		    //     initCenter = {
+		    //       lat: 46.8272608,
+		    //       lng: 8.4965408
+		    //     };
+		    //     objectsmap.setCenter(initCenter);
 		        
-		      });
-		    } else {
+		    //   });
+		    // } else {
 		      // // Browser doesn't support Geolocation
 		      // handleLocationError(false, infoWindow, objectsmap.getCenter());
 		      //On prend Suisse
@@ -544,7 +544,7 @@ $(document).ready(function(){
 		        lng: 8.4965408
 		      };
 		      objectsmap.setCenter(initCenter);
-		    }
+		    // }
 
 		  $("#googlemap_shop-finder").show();
 		 
