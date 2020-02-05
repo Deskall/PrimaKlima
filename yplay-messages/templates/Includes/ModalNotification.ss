@@ -9,6 +9,7 @@
 			        	<% loop activeMessages %>
 			            <div class="uk-margin">
 			                <div><strong>$Title</strong></div>
+			                <div><small class="uk-text-muted">Betroffene Orte: <% if PostalCodes.exists %><% loop $PostalCodes %>$Code - $City<% if not Last %>,<% end_if %><% end_loop %><% else %>Alle<% end_if %></small></div>
 			                <div class="dk-text-content">
 			                  $Lead
 			                </div>
