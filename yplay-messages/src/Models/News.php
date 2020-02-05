@@ -157,7 +157,7 @@ class News extends DataObject implements Searchable
 
 
 
-      $postalcodes = DataObject::get("PostalCode")->sort(array('PostalCodes.Code'=>'ASC'));
+      $postalcodes = DataObject::get("PostalCode")->sort(array('Code'=>'ASC'));
       $source = (SubsiteState::singleton()->getSubsiteId() > 0) ? $postalcodes->filter('SubsiteID',SubsiteState::singleton()->getSubsiteId())->map("ID", "Code") : $postalcodes->map("ID", "Code");
       $postalcodefield = ListboxField::create('PostalCodes', 'Betroffene Gemeinden', $source );
       $postalcodefield->setMultiple(true);
