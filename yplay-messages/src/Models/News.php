@@ -17,6 +17,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Subsites\State\SubsiteState;
+use SilverStripe\ORM\FieldType\DBText;
 
 class News extends DataObject implements Searchable
 { 
@@ -89,7 +90,7 @@ class News extends DataObject implements Searchable
 
       }
 
-      return $str;
+      return DBText::create()->setValue($str);
     }
 
     function getCMSValidator(){
