@@ -251,7 +251,7 @@ public function generateURL(){
     }
 
 
-    public function canCreate($member = null){
+    public function canCreate($member = null, $context = []){
         if (Permission::check('CMS_ACCESS_NewsAdmin')){
             return true;
         }
