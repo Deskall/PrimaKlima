@@ -61,7 +61,7 @@ class News extends DataObject implements Searchable
     private static $summary_fields = array (
       'Title' => array('title' => 'Titel'),
       'LastEdited' => 'Zuletzt geändert',
-      'showStatus' => 'Status'
+      // 'showStatus' => 'Status'
     );
 
     protected function showCategories() {
