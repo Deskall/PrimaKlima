@@ -67,7 +67,7 @@
 		<a href="$Link">
 	    	<div class="uk-card uk-card-default uk-card-small uk-card-hover">
 	    	    <div class="uk-card-body"><img src="$Icon.URL" width="100" height="100" data-uk-svg="stroke-animation:true"></div>
-	    	    <div class="uk-card-footer">$Title<i class="uk-margin-small-left icon icon-chevron-right"></i></div>
+	    	    <div class="uk-card-footer">$Title<i class="uk-margin-small-left uk-text-small icon icon-chevron-right"></i></div>
 	    	</div>
     	</a>
     </div>
