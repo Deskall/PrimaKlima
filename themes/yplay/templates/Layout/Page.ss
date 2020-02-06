@@ -1,11 +1,13 @@
 	<% if activeCart.exists %>
 	<% include MobileCartContainer %>
 	<% end_if %>
+	<% if $PageLevel > 1 %>
 	<div class="breadcrumbs-container">
 		<div class="uk-container">
 			$BreadCrumbs
 		</div>
 	</div>
+	<% end_if %>
 
 	$ElementalArea
 	
