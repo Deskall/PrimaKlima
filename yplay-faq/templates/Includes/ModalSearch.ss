@@ -14,7 +14,7 @@
 			        	<ul data-uk-accordion>
 			        		<% loop activeFAQS %>
 			        	    <li>
-			        	        <a class="uk-accordion-title"><strong>$Title</strong></a>
+			        	        <a class="uk-accordion-title uk-text-truncate"><strong>$Title</strong></a>
 			        	        <div class="uk-accordion-content">
 			        	           <% if Summary %>
 			        	           $Summary
