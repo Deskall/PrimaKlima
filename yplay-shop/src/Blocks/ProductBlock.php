@@ -104,7 +104,7 @@ class ProductBlock extends TextBlock
                 $html .= '<ul>';
                 foreach ($packages as $item) {
                     $html .= '<li>';
-                    $html .= $item->Title.' '.$item->SubTitle;
+                    $html .= $item->Title.' '.$item->Subtitle;
                     if ($item->Items()->exists()){
                         foreach ($item->Items() as $i) {
                             $html .= ' '.$i->Title.' '.$i->Content;
