@@ -84,7 +84,7 @@ class ProductCategory extends DataObject {
 	public function NiceProducts(){
 		$html = '';
 		foreach ($this->Products()->filter('ClassName',Product::class) as $p) {
-			$html .= $p->Title."<br>";
+			$html .= $p->Title." (".$p->Availability.")<br>";
 		}
 		return DBHTMLText::create()->setValue($html);
 	}
