@@ -6,3 +6,7 @@ BaseBlockExtension:
     - FAQBlock
   children_blocks:
     - FAQBlock
+
+Page:
+  extensions:
+    - FAQPageExtension
