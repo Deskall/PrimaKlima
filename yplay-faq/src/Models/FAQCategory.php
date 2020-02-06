@@ -41,6 +41,7 @@ class FAQCategory extends DataObject{
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->fieldByName('Root.Main.Icon')->setFolderName($this->getFolderName());
+		$fields->fieldByName('Items')->getConfig()->addComponent(new GridFieldShowHideAction());
 
 		return $fields;
 	}

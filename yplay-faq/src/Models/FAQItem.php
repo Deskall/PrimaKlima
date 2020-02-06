@@ -11,7 +11,8 @@ class FAQItem extends DataObject{
 	private static $db = [
 		'Title' => 'Varchar(255)',
 		'Summary' => 'HTMLText', 
-		'Text' => 'HTMLText'
+		'Text' => 'HTMLText',
+		'DisplayInSearchModal' => 'Boolean(0)'
 	];
 
 	private static $belongs_many_many = [
