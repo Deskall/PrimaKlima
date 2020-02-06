@@ -25,8 +25,9 @@
 			        	    </li>
 			        	    <% end_loop %>
 			        	</ul>
-			        	<p>Finden Sie <a href="$FAQPage.Link">hier</a> alle Antworten für häufig gestellte Fragen über Dienste, Geräte, Zahlungsarten und Vieles mehr.</p>
 			        </div>
+			        <hr>
+			        <p>Finden Sie <a href="$FAQPage.Link">hier</a> alle Antworten für häufig gestellte Fragen über Dienste, Geräte, Zahlungsarten und Vieles mehr.</p>
 			    </div>
 			    <div class="uk-background-cover uk-visible@m" style="background-image:url('$ThemeDir/img/paul-green-mln2ExJIkfc-unsplash.jpg');" data-uk-height-viewport></div>
 		    </div>
