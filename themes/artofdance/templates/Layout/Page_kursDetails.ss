@@ -19,7 +19,7 @@
 					      	<% end_if %>
 					      	<% if $kursData.PreisPaarPerson %><tr><td class="uk-table-shrink"><i class="icon icon-cash"></i></td><td>Kosten: $kursData.PreisPaarPerson</td></tr>
 					      	<% end_if %>
-					      	<% if $kursData.LehrerID %><tr><td class="uk-table-shrink"><i class="icon icon-ios-people"></i></td><td>Kursleitung: $kursData.LehrerVorname $kursData.LehrerNachname</td></tr>
+					      	<% if $kursData.LehrerID %><tr><td class="uk-table-shrink"><i class="icon icon-ios-people"></i></td><td>Kursleitung: $kursData.LehrerVorname</td></tr>
 					      	<% end_if %>
 					      	<% if $kursData.SaalID %><tr><td class="uk-table-shrink"><i class="icon icon-location"></i></td><td>Saal: $kursData.SaalBezeichnung</td></tr>
 					      	<% end_if %>
