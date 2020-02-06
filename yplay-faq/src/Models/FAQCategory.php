@@ -41,7 +41,10 @@ class FAQCategory extends DataObject{
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->fieldByName('Root.Main.Icon')->setFolderName($this->getFolderName());
-		$fields->dataFieldByName('Items')->getConfig()->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDisplayInSearchModalAction());
+		if ($this->ID > 0){
+			$fields->dataFieldByName('Items')->getConfig()->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDisplayInSearchModalAction());
+		}
+		
 
 		return $fields;
 	}
