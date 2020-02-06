@@ -19,8 +19,6 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Core\ClassInfo;
 use SilverStripe\View\Parsers\URLSegmentFilter;
-use SilverStripe\Control\HTTPRequest;
-use SilverStripe\Core\Injector\Injector;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -320,11 +318,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
     public function updateLink(&$link){
-        $request = Injector::inst()->get(HTTPRequest::class);
-         if (! $request->requestVar('CMSPreview')){
-            if ($page = $this->owner->getRealPage()) {
-                $link = $page->Link() . '#' . $this->owner->AnchorTitle;
-            }
+        if ($page = $this->owner->getPage()) {
+            $link = $page->Link() . '#' . $this->owner->AnchorTitle;
         }
     }
 
