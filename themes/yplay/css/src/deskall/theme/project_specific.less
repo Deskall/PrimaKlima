@@ -754,4 +754,13 @@ body{
 	.uk-accordion-title{
 		color:@global-emphasis-background;
 	}
+	.uk-accordion-title:after{
+		content: "\e986";
+		width:40px;
+		position:absolute;
+		right:10px;
+	}
+	&:.uk-open .uk-accordion-title:after{
+		content: "\e99a";
+	}
 }
