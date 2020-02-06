@@ -3,7 +3,7 @@
  * Shop Finder block with map
  * @author Deskall
  */
-class ShopFinderBlock extends TextBlock
+class ShopFinderBlock extends TextBlock implements Searchable
 {
 
     private static $icon = 'font-icon-block-content';
@@ -43,5 +43,31 @@ class ShopFinderBlock extends TextBlock
         return _t(__CLASS__ . '.BlockType', 'Shop Liste mit Map und Suchformular');
     }
 
+    /************* SEARCHABLE FUNCTIONS ******************/
+
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array('HTML','ShopsContent');
+        }
+
+        public function getShopsContent(){
+            $html = '';
+            $shops = Shop::get();
+            if ($shops->count() > 0){
+                $html .= '<ul>';
+                foreach ($shops as $item) {
+                    $html .= '<li>';
+                    $html .= $item->getInfoWindow();
+                    $html .= '</li>';
+                }
+                $html .='</ul>';
+            }
+            return $html;
+        }
+    /************ END SEARCHABLE ***************************/
     
 }

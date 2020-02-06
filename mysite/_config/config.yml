@@ -30,11 +30,3 @@ PageController:
 Page:
   extensions:
     - 'CustomPageExtension'
-
-BaseBlockExtension:
-  blocks:
-    - MarketingBlock
-    - TeasingBlock
-    - FAQBlock
-  children_blocks:
-    - MarketingBlock

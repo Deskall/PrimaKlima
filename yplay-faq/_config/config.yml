@@ -1,0 +1,8 @@
+---
+Name: yplay-faq-config
+---
+BaseBlockExtension:
+  blocks:
+    - FAQBlock
+  children_blocks:
+    - FAQBlock

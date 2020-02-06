@@ -19,3 +19,10 @@ PageController:
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - yplay-shop/css/yplay_shop.css
+
+BaseBlockExtension:
+  blocks:
+    - MarketingBlock
+    - TeasingBlock
+  children_blocks:
+    - MarketingBlock
