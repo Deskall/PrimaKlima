@@ -3,6 +3,9 @@
  * Shop Finder block with map
  * @author Deskall
  */
+
+use g4b0\SearchableDataObjects\Searchable;
+
 class ShopFinderBlock extends TextBlock implements Searchable
 {
 
