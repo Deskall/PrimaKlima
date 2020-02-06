@@ -126,7 +126,7 @@ class ProductAdmin extends ModelAdmin{
 	        //         }
 	        //         $plz->Code = $line[4];
 	        //         $plz->City = $line[7];
-	        //         $plz->URL = $line[8];
+	        //         $plz->URL = ($line[8] != "NULL") ? $line[8] : null;
 	        //         $plz->StandardOffer = ($line[6] == "FTTH") ? 'Fiber' : 'Cable';
 	        //         $plz->TVType = ($line[11] == "ReplayTV") ? 'IPTV' : 'DVBC';
 	        //         $plz->write();
