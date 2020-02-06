@@ -15,5 +15,6 @@ class FAQPageExtension extends DataExtension {
 		if ($mainFAQBlock){
 			return $mainFAQBlock->getRealPage();
 		}
+		return null;
 	}
 }
