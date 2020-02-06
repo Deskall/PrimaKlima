@@ -2,6 +2,8 @@
 	<% include MobileCartContainer %>
 	<% end_if %>
 
+	$BreadCrumbs
+
 	$ElementalArea
 	
 	<% if $ID < 0 %> 
