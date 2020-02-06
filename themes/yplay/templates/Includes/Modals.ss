@@ -4,3 +4,5 @@
 
 
 <% include ModalNotification %>
+
+<% include ModalSearch %>
