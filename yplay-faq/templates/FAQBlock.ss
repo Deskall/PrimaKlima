@@ -50,6 +50,7 @@
 </div>
 
 <% if Category.exists %>
+<div class="faq-container">
 	<ul data-uk-accordion>
 		<% loop activeItems %>
 		<li>
@@ -60,6 +61,7 @@
 	    </li>
 		<% end_loop %>
 	</ul>
+</div>
 <% else %>
 <div class="uk-grid-small uk-child-width-1-4@s uk-flex-center uk-text-center" data-uk-grid>
     <% loop activeCategories %>
