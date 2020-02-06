@@ -10,7 +10,7 @@ class FAQPageExtension extends DataExtension {
 		return $items;
 	}
 
-	public function FQAPage(){
+	public function FQAPageLink(){
 		$mainFAQBlock = FAQBlock::get()->filter('isMain',1)->first();
 		if ($mainFAQBlock){
 			return $mainFAQBlock->Link();
