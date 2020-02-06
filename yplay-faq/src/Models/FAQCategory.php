@@ -3,6 +3,7 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Forms\TreeDropdownField;
 
 class FAQCategory extends DataObject{
 
@@ -43,6 +44,8 @@ class FAQCategory extends DataObject{
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->fieldByName('Root.Main.Icon')->setFolderName($this->getFolderName());
+		$fields->removeByName('RelatedPageID');
+		$fields->addFieldToTab('Root.Main',TreeDropdownField::create('RelatedPageID',$this->fieldLabels()['RelatedPage'], SiteTree::class));
 		if ($this->ID > 0){
 			$fields->dataFieldByName('Items')->getConfig()->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDisplayInSearchModalAction());
 		}
