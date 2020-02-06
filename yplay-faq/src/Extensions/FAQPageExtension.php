@@ -12,6 +12,7 @@ class FAQPageExtension extends DataExtension {
 
 	public function FQAPageLink(){
 		$mainFAQBlock = FAQBlock::get()->filter('isMain',1)->first();
+		print_r($mainFAQBlock->ID);
 		if ($mainFAQBlock){
 			return $mainFAQBlock->Link();
 		}
