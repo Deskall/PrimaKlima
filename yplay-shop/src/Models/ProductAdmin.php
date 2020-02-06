@@ -102,7 +102,16 @@ class ProductAdmin extends ModelAdmin{
 	    if($this->modelClass=='PostalCode' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
 	    {
 	       
-	        
+	        foreach (PostalCode::get() as $c) {
+	        	if ($c->URL && $c->URL != "NULL"){
+	        		$c->Externe = 1;
+	        	}
+	        	else{
+	        		$c->URL = null;
+	        	}
+	        	$c->write();
+
+	        }
 	        //Import Codes
 	        
 	        // $file = File::get()->byId(109);
