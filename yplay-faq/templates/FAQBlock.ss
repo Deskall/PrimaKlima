@@ -64,7 +64,7 @@
 <div class="uk-grid-small uk-child-width-1-4@s uk-flex-center uk-text-center" data-uk-grid>
     <% loop activeCategories %>
 	<div>
-    	<div class="uk-card uk-card-small uk-card-hover">
+    	<div class="uk-card uk-card-default uk-card-small uk-card-hover">
     	    <div class="uk-card-body"><img src="$Icon.URL" width="100" height="100" data-uk-svg="stroke-animation:true"></div>
     	    <div class="uk-card-footer"><a href="$Link">$Title</a></div>
     	</div>
