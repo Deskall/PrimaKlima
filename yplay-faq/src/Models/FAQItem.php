@@ -49,5 +49,15 @@ class FAQItem extends DataObject{
 		return $fields;
 	}
 
+	public function removefromsearch(){
+		$this->DisplayInSearchModal = 0;
+		$this->write();
+	}
+
+	public function showinsearch(){
+		$this->DisplayInSearchModal = 1;
+		$this->show();
+	}
+
 	
 }
