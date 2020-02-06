@@ -26,6 +26,8 @@ class FAQBlock extends TextBlock
 
     private static $description = 'Häufigen Fragen, als Icon oder nach Kategorien';
 
+    private static $db = ['isMain' => 'Boolean(0)'];
+
     private static $has_one = ['Category' => FAQCategory::class];
 
     private static $many_many = ['Items' => FAQItem::class];
@@ -34,6 +36,7 @@ class FAQBlock extends TextBlock
         $labels = parent::fieldLabels($includerelations);
         $labels['Category'] = 'Kategorie';
         $labels['Items'] = 'Fragen';
+        $labels['isMain'] = 'Diese Block ist den Haupt FAQ Block?';
         
         return $labels;
     }
@@ -42,6 +45,7 @@ class FAQBlock extends TextBlock
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+
        
         return $fields;
     }

@@ -9,4 +9,11 @@ class FAQPageExtension extends DataExtension {
 		
 		return $items;
 	}
+
+	public function FQAPage(){
+		$mainFAQBlock = FAQBlock::get()->filter('isMain',1)->first();
+		if ($mainFAQBlock){
+			return $mainFAQBlock->getRealPage();
+		}
+	}
 }
