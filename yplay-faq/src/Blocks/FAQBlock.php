@@ -45,6 +45,10 @@ class FAQBlock extends TextBlock
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+        $fields->fieldByName('Root.Main.CategoryID')->hideIf('isMain')->isChecked();
+        if (FAQBlock::get()->filter('isMain',1)->exists()){
+            $fields->removeByName('isMain');
+        }
 
        
         return $fields;
