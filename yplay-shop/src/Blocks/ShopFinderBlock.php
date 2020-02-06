@@ -6,7 +6,7 @@
 
 use g4b0\SearchableDataObjects\Searchable;
 
-class ShopFinderBlock extends TextBlock implements Searchable
+class ShopFinderBlock extends TextBlock
 {
 
     private static $icon = 'font-icon-block-content';

@@ -84,6 +84,38 @@ class ProductBlock extends TextBlock
                // 
             break;
         }
-        
     }
+
+    /************* SEARCHABLE FUNCTIONS ******************/
+
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array('HTML','PackageContent');
+        }
+
+        public function getPackageContent(){
+            $html = '';
+            $packages = $this->filteredItems();
+            if ($packages->count() > 0){
+                $html .= '<ul>';
+                foreach ($packages as $item) {
+                    $html .= '<li>';
+                    $html .= $item->Title.' '.$item->SubTitle;
+                    if ($item->Items()->exists()){
+                        foreach ($item->Items() as $i) {
+                            $html .= ' '.$i->Title.' '.$i->Content;
+                        }
+                    }
+                    $html .= ' | ';
+                    $html .= '</li>';
+                }
+                $html .='</ul>';
+            }
+            return $html;
+        }
+    /************ END SEARCHABLE ***************************/
 }
