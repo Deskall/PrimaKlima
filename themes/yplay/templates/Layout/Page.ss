@@ -1,7 +1,7 @@
 	<% if activeCart.exists %>
 	<% include MobileCartContainer %>
 	<% end_if %>
-	<div class="uk-background-muted">
+	<div class="breadcrumbs-container">
 		<div class="uk-container">
 			$BreadCrumbs
 		</div>
