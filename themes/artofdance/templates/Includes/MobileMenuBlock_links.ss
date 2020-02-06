@@ -52,7 +52,7 @@
 			<% if Top.ShowSubLevels && Children %>
 			<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
 					<% loop Children %>
-					<li class="$LinkingMode  <% if Children.exists %>uk-parent<% end_if %> <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active uk-open<% end_if %> $ExtraMenuClass"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML"><span class="uk-margin-small-right" data-uk-icon="icon: chevron-right;"></span>$MenuTitle.XML</a>
+					<li class="$LinkingMode  <% if Children.exists %>uk-parent<% end_if %> <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active uk-open<% end_if %> $ExtraMenuClass"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML"><% if not Children.exists %><span class="uk-margin-small-right" data-uk-icon="icon: chevron-right;"></span><% end_if %>$MenuTitle.XML</a>
 						<% if Top.ShowSubLevels && Children %>
 						<ul class="uk-nav-sub">
 								<% loop Children %>
