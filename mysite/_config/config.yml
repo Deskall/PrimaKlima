@@ -1,3 +1,14 @@
+---
+Name: mytheme
+---
+SilverStripe\View\SSViewer:
+  themes:
+    - '$public'
+    - 'artofdance'
+    - '$default'
+SilverStripe\i18n\i18n:
+  default_locale: 'de_DE'
+
 BaseBlockExtension:
   blocks:
     - CourseListBlock
