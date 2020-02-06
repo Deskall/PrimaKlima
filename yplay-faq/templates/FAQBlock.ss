@@ -50,16 +50,23 @@
 </div>
 
 <% if Category.exists %>
-	<% loop activeItems %>
-	$Title
-	<% end_loop %>
+	<ul data-uk-accordion>
+		<% loop activeItems %>
+		<li>
+	        <a class="uk-accordion-title uk-text-truncate">$Title</a>
+	        <div class="uk-accordion-content">
+	           $Text
+	        </div>
+	    </li>
+		<% end_loop %>
+	</ul>
 <% else %>
 <div class="uk-grid-small uk-child-width-1-4@s uk-flex-center uk-text-center" data-uk-grid>
     <% loop activeCategories %>
 	<div>
-        <div class="uk-card uk-card-muted uk-card-body">
-        	<img src="$Icon.URL" width="60" height="60" data-uk-svg>
-    	    $Title
+    	<div class="uk-card uk-card-hover">
+    	    <div class="uk-card-body"><img src="$Icon.URL" width="60" height="60" data-uk-svg></div>
+    	    <div class="uk-card-footer"><a href="$Link">$Title</a></div>
     	</div>
     </div>
 	<% end_loop %>
