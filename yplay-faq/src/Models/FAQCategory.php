@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
+use SilverStripe\CMS\Model\SiteTree;
 
 class FAQCategory extends DataObject{
 
@@ -13,7 +14,7 @@ class FAQCategory extends DataObject{
 		'Summary' => 'HTMLText'
 	];
 
-	private static $has_one = ['Icon' => Image::class];
+	private static $has_one = ['Icon' => Image::class, 'RelatedPage' => SiteTree:class];
 
 	private $owns = ['Icon'];
 
@@ -33,6 +34,7 @@ class FAQCategory extends DataObject{
 	    $labels['Summary'] = 'Einstiegstext';
 	    $labels['Icon'] = 'Icon';
 	    $labels['Items'] = 'verbundene Items';
+	    $labels['RelatedPage'] = 'Seite';
 	    return $labels;
 	}
 
