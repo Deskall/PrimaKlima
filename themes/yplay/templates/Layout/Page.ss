@@ -1,8 +1,11 @@
 	<% if activeCart.exists %>
 	<% include MobileCartContainer %>
 	<% end_if %>
-
-	$BreadCrumbs
+	<div class="uk-background-muted">
+		<div class="uk-container">
+			$BreadCrumbs
+		</div>
+	</div>
 
 	$ElementalArea
 	
