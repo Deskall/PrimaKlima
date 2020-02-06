@@ -29,7 +29,9 @@ class PostalCode extends DataObject {
 	  'Code',
 	  'City',
 	  'StandardOffer',
-	  'TVType' => 'TV-Angebot'
+	  'AlternateOffer',
+	  'TVType' => 'TV-Angebot',
+	  'URL' => 'Externe Weiterleitung'
 	];
 
 	private static $has_one = [
