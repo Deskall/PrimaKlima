@@ -105,24 +105,24 @@ class ProductAdmin extends ModelAdmin{
 	        
 	        //Import Codes
 	        
-	        $file = File::get()->byId(109);
-	        if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-	            $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-	            $headers = fgetcsv($handle, 0, $delimiter);
-	            while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-	                $plz = PostalCode::get()->filter('OldID',$line[0])->first();
-	                if (!$plz){
-	                    $plz = new PostalCode();
-	                    $plz->OldID = $line[0];
-	                }
-	                $plz->Code = $line[4];
-	                $plz->City = $line[7];
-	                $plz->URL = $line[8];
-	                $plz->StandardOffer = ($line[6] == "FTTH") ? 'Fiber' : 'Cable';
-	                $plz->TVType = ($line[11] == "ReplayTV") ? 'IPTV' : 'DVBC';
-	                $plz->write();
-	            }
-	        }
+	        // $file = File::get()->byId(109);
+	        // if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+	        //     $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+	        //     $headers = fgetcsv($handle, 0, $delimiter);
+	        //     while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+	        //         $plz = PostalCode::get()->filter('OldID',$line[0])->first();
+	        //         if (!$plz){
+	        //             $plz = new PostalCode();
+	        //             $plz->OldID = $line[0];
+	        //         }
+	        //         $plz->Code = $line[4];
+	        //         $plz->City = $line[7];
+	        //         $plz->URL = $line[8];
+	        //         $plz->StandardOffer = ($line[6] == "FTTH") ? 'Fiber' : 'Cable';
+	        //         $plz->TVType = ($line[11] == "ReplayTV") ? 'IPTV' : 'DVBC';
+	        //         $plz->write();
+	        //     }
+	        // }
 	    }
 
 	    return $form;
