@@ -25,7 +25,6 @@ class SummaryBlogBlock extends BaseElement
 
 
 
-
     private static $table_name = 'SummaryBlogBlock';
 
     private static $singular_name = 'Blog Summary';

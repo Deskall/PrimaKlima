@@ -25,7 +25,7 @@
 					$ElementalArea
 
 					<% include SilverStripe\\Blog\\BlogPostFooter %>
-					
+
 				</article>
 				<hr/>
 				<div class="uk-padding-small">

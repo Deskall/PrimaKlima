@@ -61,5 +61,4 @@ class BlogPostExtension extends DataExtension{
 
 	    return round($wordCount / $wpm, 0);
 	}
-
 }

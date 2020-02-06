@@ -37,7 +37,6 @@
 			    </div>
 			<% end_loop %>
 		</div>
-	
 </div>
 <% if LinkableLinkID > 0 %>
 	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>

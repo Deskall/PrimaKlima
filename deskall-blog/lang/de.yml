@@ -1,7 +1,6 @@
 de:
   SilverStripe\Blog\Model\Blog:
     LessThanAMinuteToRead: 'Weniger als eine Minute zu lesen'
-
 #COMMENTS
   CommentInterface:
     COMMENT_MESSAGE_REQUIRED: 'Bitte geben Sie Ihren Kommentar ein'

@@ -47,4 +47,3 @@ SilverStripe\Blog\Model\BlogTag:
 #     require_moderation_nonmembers: true
 #     frontend_moderation: false
 
-
