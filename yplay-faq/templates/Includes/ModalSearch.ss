@@ -9,7 +9,7 @@
 			        	<input type="text" class="uk-input" minlength="4" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
 			        	<button type="submit"><i data-uk-icon="search"></i></button>
 			        </form>
-			        <div class="uk-margin-top faq-container" data-uk-overflow-auto>
+			        <div class="uk-margin-top faq-container">
 			        	<ul data-uk-accordion="toggle: .faq-title">
 			        		<% loop activeFAQS %>
 			        	    <li class="uk-open">
