@@ -12,7 +12,7 @@
 			        <div class="uk-margin-top faq-container">
 			        	<ul data-uk-accordion="toggle: .faq-title">
 			        		<% loop activeFAQS %>
-			        	    <li class="uk-open">
+			        	    <li>
 			        	        <a class="faq-title" href="#">$Title</a>
 			        	        <div class="uk-accordion-content">
 			        	           <% if Summary %>
