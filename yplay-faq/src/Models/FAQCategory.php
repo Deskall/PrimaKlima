@@ -14,7 +14,7 @@ class FAQCategory extends DataObject{
 		'Summary' => 'HTMLText'
 	];
 
-	private static $has_one = ['Icon' => Image::class, 'RelatedPage' => SiteTree:class];
+	private static $has_one = ['Icon' => Image::class, 'RelatedPage' => SiteTree::class];
 
 	private $owns = ['Icon'];
 
@@ -53,6 +53,10 @@ class FAQCategory extends DataObject{
 
 	public function getFolderName(){
 	    return "Uploads/FAQ";
+	}
+
+	public function Link(){
+		return ($this->RelatedPage()->exists()) ? $this->RelatedPage()->Link() : null;
 	}
 
 
