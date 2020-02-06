@@ -141,7 +141,7 @@ class Product extends DataObject {
 		// $fields->removeByName('ProductCode');
 		$fields->removeByName('CategoryID');
 		$fields->removeByName('FooterText');
-		if ($this->Category()->Code() == "yplay-watch"){
+		if ($this->Category()->Code == "yplay-watch"){
 			$fields->removeByName('Availability');
 			$fields->addFieldToTab('Root.Main', DropdownField::create('TVOffer',$this->fieldLabels()['TVOffer'], array('DVBC' => 'DVB-C', 'IPTV' => 'IPTV')));
 		}
