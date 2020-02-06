@@ -64,7 +64,7 @@ class ShopFinderBlock extends TextBlock implements Searchable
                 $html .= '<ul>';
                 foreach ($shops as $item) {
                     $html .= '<li>';
-                    $html .= $item->getInfoWindow();
+                    $html .= nl2br($item->getInfoWindow());
                     $html .= '</li>';
                 }
                 $html .='</ul>';
