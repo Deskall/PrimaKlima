@@ -753,12 +753,15 @@ body{
 .faq-container{
 	.uk-accordion-title{
 		color:@global-emphasis-background;
+		position: relative;
 	}
 	.uk-accordion-title:after{
 		content: "\e986";
 		width:40px;
 		position:absolute;
 		right:10px;
+		top:50%;
+		transform: translateY(-50%);
 	}
 	.uk-open .uk-accordion-title:after{
 		content: "\e99a";
