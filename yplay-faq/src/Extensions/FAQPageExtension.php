@@ -13,7 +13,7 @@ class FAQPageExtension extends DataExtension {
 	public function FQAPage(){
 		$mainFAQBlock = FAQBlock::get()->filter('isMain',1)->first();
 		if ($mainFAQBlock){
-			return $mainFAQBlock->getRealPage();
+			return $mainFAQBlock->Link();
 		}
 		return null;
 	}
