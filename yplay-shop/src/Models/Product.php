@@ -28,7 +28,8 @@ class Product extends DataObject {
 	'ActivationPrice' => 'Currency',
 	'ActivationPriceLabel' => 'Varchar',
 	'Unit' => 'Varchar',
-	'FooterText' => 'HTMLText'
+	'FooterText' => 'HTMLText',
+	'TVOffer' => 'Varchar'
 	];
 
 	private static $has_one = [
@@ -110,6 +111,7 @@ class Product extends DataObject {
 		$labels['BestSeller'] = 'Bestseller?';
 		$labels['FooterText'] = 'Weitere Informationen (wird im Produkt Kart zeigt an boden.)';
 		$labels['Preselected'] = 'standardmäßig ausgewählt?';
+		$labels['TVOffer'] = 'TV Angebot';
 
 		return $labels;
 	}
@@ -139,6 +141,13 @@ class Product extends DataObject {
 		// $fields->removeByName('ProductCode');
 		$fields->removeByName('CategoryID');
 		$fields->removeByName('FooterText');
+		if ($this->Category()->Code() == "yplay-watch"){
+			$fields->removeByName('Availability');
+			$fields->addFieldToTab('Root.Main', DropdownField::create('TVOffer',$this->fieldLabels()['TVOffer'], array('DVBC' => 'DVB-C', 'IPTV' => 'IPTV')));
+		}
+		else{
+			$fields->removeByName('TVOffer');
+		}
 		
 		$fields->fieldByName('Root.Main.Unit')->displayIf('RecurringPrice')->isNotChecked();
 		$fields->fieldByName('Root.Main.UniquePriceLabel')->displayIf('RecurringPrice')->isChecked();
