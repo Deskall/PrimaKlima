@@ -10,10 +10,10 @@
 			        	<button type="submit"><i data-uk-icon="search"></i></button>
 			        </form>
 			        <div class="uk-margin-top faq-container" data-uk-overflow-auto>
-			        	<ul data-uk-accordion>
+			        	<ul data-uk-accordion="toggle: .faq-title">
 			        		<% loop activeFAQS %>
 			        	    <li class="uk-open">
-			        	        <a class="uk-accordion-title" href="#">$Title</a>
+			        	        <a class="faq-title" href="#">$Title</a>
 			        	        <div class="uk-accordion-content">
 			        	           <% if Summary %>
 			        	           $Summary
