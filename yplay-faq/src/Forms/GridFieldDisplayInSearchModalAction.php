@@ -47,7 +47,7 @@ class GridFieldDisplayInSearchModalAction implements GridField_ColumnProvider, G
                 ['RecordID' => $record->ID]
             )->addExtraClass('grid-field__icon-action font-icon-search icon-primary btn--icon-large action action-detail')
                 ->setAttribute('title', _t('FAQ.REMOVE', 'nicht im Suche Fenster anzeigen'))
-                ->setDescription(_t('Global.BUTTONINACTIVEDESC', 'nicht im Suche Fenster anzeigen'));
+                ->setDescription(_t('FAQ.REMOVE', 'nicht im Suche Fenster anzeigen'));
                 return $field->Field();
         }
         if (!$record->DisplayInSearchModal && $record->canActivate()){
@@ -58,8 +58,8 @@ class GridFieldDisplayInSearchModalAction implements GridField_ColumnProvider, G
             "showinsearch",
             ['RecordID' => $record->ID]
         )->addExtraClass('grid-field__icon-action font-icon-search btn--icon-large action action-detail')
-                ->setAttribute('title', _t('SiteTree.BUTTONACTIVE', 'im Suche Fenster anzeigen'))
-                ->setDescription(_t('Global.BUTTONACTIVEDESC', 'im Suche Fenster anzeigen'));  
+                ->setAttribute('title', _t('FAQ.SHOW', 'im Suche Fenster anzeigen'))
+                ->setDescription(_t('FAQ.SHOW', 'im Suche Fenster anzeigen'));  
                 return $field->Field();
         }
 
