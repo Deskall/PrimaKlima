@@ -9,6 +9,22 @@
 			        	<input type="text" class="uk-input" minlength="4" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
 			        	<button type="submit"><i data-uk-icon="search"></i></button>
 			        </form>
+			        <div class="uk-margin-top faq-container" data-uk-overflow-auto>
+			        	<ul data-uk-accordion>
+			        		<% loop activeFAQS %>
+			        	    <li class="uk-open">
+			        	        <a class="uk-accordion-title" href="#">$Title</a>
+			        	        <div class="uk-accordion-content">
+			        	           <% if Summary %>
+			        	           $Summary
+			        	           <% else %>
+			        	           $Text.limitWordCount(100)
+			        	           <% end_if %>
+			        	        </div>
+			        	    </li>
+			        	    <% end_loop %>
+			        	</ul>
+			        </div>
 			    </div>
 			    <div class="uk-background-cover uk-visible@m" style="background-image:url('$ThemeDir/img/paul-green-mln2ExJIkfc-unsplash.jpg');" data-uk-height-viewport></div>
 		    </div>
