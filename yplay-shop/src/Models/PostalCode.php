@@ -18,7 +18,8 @@ class PostalCode extends DataObject {
 	    'TVType' => 'Varchar(255)',
 	    'YplaY' => 'Boolean(0)',
 	    'Externe' => 'Boolean(0)',
-	    'URL' => 'Varchar'
+	    'URL' => 'Varchar',
+	    'OldID' => 'Int'
 	);
 
 	private static $singular_name = 'Postleitzahl';
