@@ -11,7 +11,7 @@
 					   <div class="uk-flex uk-flex-left uk-margin-small-top"><a href="$Parent.Link" class="uk-link uk-margin-small-right">$Parent.MenuTitle</a>»<a href="$Link" class="uk-link uk-margin-small-right uk-margin-small-left">$kursData.GruppenTitel</a>»<span class="uk-margin-small-left">$kursData.KursID <% if $kursData.istPaarTanz %>$kursData.DatumVonDatumBis<% else %>fortlaufend<% end_if %></span></div>
 					      <h1>$Title</h1>
 					      <% if $kursData.KursID %><h2>Kurs-Nr.: $kursData.KursID</h2><% end_if %>
-					      <table class="uk-table uk-table-small uk-table-striped">
+					      <table class="detail-kurse-table uk-table uk-table-small uk-table-striped">
 
 					      	<% if $kursData.istPaarTanz %>
 						      	<% if $kursData.DatumVonDatumBis %><tr><td class="uk-table-shrink"><i class="icon icon-calendar"></i></td><td>$kursData.DatumVonDatumBis (<% if $kursData.AnzahlLektionen > 0 %>$kursData.AnzahlLektionen * <% end_if %>$kursData.DauerMinuten min)</td></tr>
