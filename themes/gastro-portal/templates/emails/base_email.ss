@@ -11,7 +11,7 @@
 	.container,table.footer-wrap{clear:both!important}
 	*{margin:0;font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;color: #666;}
 	img{max-width:100%}
-	.logo img{max-width: 150px;height:auto;}
+	.logo img{max-width: 250px;height:auto;}
 	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%}
 	.content table,table.body-wrap,table.footer-wrap,table.head-wrap{width:100%}
 	a{color:#666}
