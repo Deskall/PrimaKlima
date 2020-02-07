@@ -1,23 +1,15 @@
 <?php
 
 use SilverStripe\ORM\DataExtension;
-
+use SilverStripe\Security\Security;
 
 class DeskallJobPortalPageExtension extends DataExtension
 {
 
-    public function CurrentCustomer(){
-    	
-    	if ($this->owner->CurrentMember()){
-    		return JobGiver::get()->filter('MemberID',$this->owner->CurrentMember()->ID)->first();
-    	}
-        return null;
-    }
-
     public function CurrentCandidat(){
         
-        if ($this->owner->CurrentMember()){
-            return Candidat::get()->filter('MemberID',$this->owner->CurrentMember()->ID)->first();
+        if (Security::getCurrentUser()){
+            return Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
         }
         return null;
     }
