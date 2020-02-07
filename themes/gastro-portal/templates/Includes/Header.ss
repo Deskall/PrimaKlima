@@ -5,7 +5,7 @@
 			<div class="uk-container uk-container-medium uk-position-relative">
 				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 					
-					<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-main') %>
+					<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
 						$forTemplate
 					<% end_loop %>
 					<div class="uk-navbar-right uk-hidden@l">
