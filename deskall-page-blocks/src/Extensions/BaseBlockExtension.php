@@ -332,9 +332,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         }
 
         ob_start();
-                    print_r($link);
+                    print_r($link."\n");
                     $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
     }
 
     public function isChildren(){
