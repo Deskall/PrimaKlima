@@ -21,7 +21,7 @@
 						    <% end_if %>
 					      	<% if $kursData.ZeitVonZeitBis %><tr><td class="uk-table-shrink"><i class="icon icon-clock"></i></td><td>$kursData.WochentagLang - $kursData.ZeitVonZeitBis</td></tr>
 					      	<% end_if %>
-					      	<% if $kursData.PreisPaarPerson %><tr><td class="uk-table-shrink"><i class="icon icon-cash"></i></td><td>Kosten: $kursData.PreisPaarPerson</td></tr>
+					      	<% if $kursData.PreisPerson %><tr><td class="uk-table-shrink"><i class="icon icon-cash"></i></td><td>Kosten: $kursData.PreisPerson <% if $kursData.istPaarTanz %>pro Person<% else %>pro Lektion<% end_if %></td></tr>
 					      	<% end_if %>
 					      	<% if $kursData.LehrerID %><tr><td class="uk-table-shrink"><i class="icon icon-ios-people"></i></td><td>Kursleitung: $kursData.LehrerVorname</td></tr>
 					      	<% end_if %>
