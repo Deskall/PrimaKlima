@@ -68,7 +68,6 @@
                             <div class="dk-slide-text $TextPosition $TextBackground $TextWidth $TextOffset <% if TextOpacity %>uk-overlay<% end_if %> <% if TextBackground != "no-bg" %>uk-padding-small<% end_if %>">
                                 <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
                                 <h2 class="$TitleAlign uk-h1">$SiteConfig.Tagline</h2>
-                                <% end_if %>
                                 <div class="uk-text-lead $TextAlign  $TextColumns">$Content</div>
                                 <% if Effect == "parallax" %></div><% end_if %>
                                 <% if LinkableLinkID > 0 %>
