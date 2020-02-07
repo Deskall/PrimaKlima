@@ -318,7 +318,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         return $parent;
     }
 
-     public function updateLink(&$link){
+     public function updateLink($link){
         $link = substr($link,0,strpos('#',$link));
         $link =  $link. '#' . $this->owner->AnchorTitle;
         
