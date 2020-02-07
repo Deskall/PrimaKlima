@@ -13,11 +13,15 @@
 					      <% if $kursData.KursID %><h2>Kurs-Nr.: $kursData.KursID</h2><% end_if %>
 					      <table class="uk-table uk-table-small uk-table-striped">
 
-					      	<% if $kursData.DatumVonDatumBis %><tr><td class="uk-table-shrink"><i class="icon icon-calendar"></i></td><td>$kursData.DatumVonDatumBis (<% if $kursData.AnzahlLektionen > 0 %>$kursData.AnzahlLektionen * <% end_if %>$kursData.DauerMinuten min)</td></tr>
-					      	<% end_if %>
+					      	<% if $kursData.istPaarTanz %>
+						      	<% if $kursData.DatumVonDatumBis %><tr><td class="uk-table-shrink"><i class="icon icon-calendar"></i></td><td>$kursData.DatumVonDatumBis (<% if $kursData.AnzahlLektionen > 0 %>$kursData.AnzahlLektionen * <% end_if %>$kursData.DauerMinuten min)</td></tr>
+						      	<% end_if %>
+						    <% else %>
+						    <tr><td class="uk-table-shrink"><i class="icon icon-calendar"></i></td><td>fortlaufend</td></tr>
+						    <% end_if %>
 					      	<% if $kursData.ZeitVonZeitBis %><tr><td class="uk-table-shrink"><i class="icon icon-clock"></i></td><td>$kursData.WochentagLang - $kursData.ZeitVonZeitBis</td></tr>
 					      	<% end_if %>
-					      	<% if $kursData.PreisPaarPerson %><tr><td class="uk-table-shrink"><i class="icon icon-cash"></i></td><td>Kosten: $kursData.PreisPaarPerson</td></tr>
+					      	<% if $kursData.PreisPaarPerson %><tr><td class="uk-table-shrink"><i class="icon icon-cash"></i></td><td>Kosten: $kursData.PreisPaarPerson <% if $kursData.istPaarTanz %>pro Person<% else %>pro Lektion<% end_if %></td></tr>
 					      	<% end_if %>
 					      	<% if $kursData.LehrerID %><tr><td class="uk-table-shrink"><i class="icon icon-ios-people"></i></td><td>Kursleitung: $kursData.LehrerVorname</td></tr>
 					      	<% end_if %>
