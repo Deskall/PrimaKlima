@@ -15,8 +15,8 @@
                  <% loop $getLessons %>
                  <tr>
                    <td class="uk-text-nowrap">$KursID</td>
-                   <td><% if istPaarTanz %>$DatumVonDatumBis<br>
-                   $Wochentag - $ZeitVonZeitBis<% else %>fortlaufend<% end_if %></td>
+                   <td><% if istPaarTanz %>$DatumVonDatumBis<% else %>fortlaufend<% end_if %><br>
+                   $Wochentag - $ZeitVonZeitBis</td>
                    <td class="uk-visible@m"><% if $AnzahlLektionen > 0 %>$AnzahlLektionen * <% end_if %>$DauerMinuten min</td>
                    <td class="uk-visible@m">Fr. $PreisPerson<br><% if istPaarTanz %>(pro Person)<% else %>(pro Lektion)<% end_if %></td>
                    <td class="uk-visible@m">$LehrerVorname</td>
