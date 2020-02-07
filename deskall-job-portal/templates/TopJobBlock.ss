@@ -30,7 +30,6 @@
         </ul>
 
     </div>
-    $Link
     <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 
 </div>
