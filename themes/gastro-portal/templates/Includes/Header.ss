@@ -4,7 +4,9 @@
 			<% if ClassName == "HomePage" %>
 			<div class="uk-container uk-container-medium uk-position-relative">
 				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-					
+					<% loop SiteConfig.activeMenuBlocks.filter('type','logo') %>
+						$forTemplate
+					<% end_loop %>
 					<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
 						$forTemplate
 					<% end_loop %>
