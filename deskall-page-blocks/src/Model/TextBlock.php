@@ -147,9 +147,5 @@ class TextBlock extends BaseElement implements Searchable
         public function getContentFields() {
             return array('HTML');
         }
-
-        public function Link($action = NULL){
-            return $this->CleanLink();
-        }
     /************ END SEARCHABLE ***************************/
 }
