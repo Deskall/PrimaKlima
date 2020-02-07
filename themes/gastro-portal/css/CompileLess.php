@@ -14,10 +14,10 @@ $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".css", ".min.css", $filename_full);
 $filename_less = str_replace(".css", ".less", $filename_full);
 
-
 if ($filename == "editortocompile.css"){
 	$filename_min = "editor.min.css";
 	$filename_less = "editor.less";
+	$filename = "editor.css";
 }
 
 
@@ -55,7 +55,7 @@ if($css_compiled){
 		// }
 
 		// save files
-		if ($filename == "editortocompile.css"){
+		if ($filename == "editor.css"){
 			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/'.$theme.'/css/editor.css',$css_compiled);
 		}
 		else{
