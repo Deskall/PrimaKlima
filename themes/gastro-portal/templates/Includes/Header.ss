@@ -62,11 +62,22 @@
     	<% loop SiteConfig.activeSlides %>
         <li>
              <img src="$Image.FocusFill(320,250).URL" data-srcset="$Image.FocusFill(320,250).URL 320w, $Image.FocusFill(650,500).URL 650w, $Image.FocusFill(1200,800).URL 1200w, $Image.FocusFillMax(2500,1500).URL 2500w" alt="" data-uk-cover data-uk-img>
-             <div class="uk-position-center">
-             	<div class="dk-slide-text">
-             		<h2>$SiteConfig.Tagline</h2>
-             	</div>
-             </div>
+             <div class="dk-slide-text-container dk-overlay $Background uk-height-1-1 ">
+                    <div class="uk-container uk-height-1-1 <% if $Top.FullWidth %>uk-container-expand<% end_if %>">
+                        <div class="uk-position-relative uk-height-1-1">
+                            <div class="dk-slide-text $TextPosition $TextBackground $TextWidth $TextOffset <% if TextOpacity %>uk-overlay<% end_if %> <% if TextBackground != "no-bg" %>uk-padding-small<% end_if %>">
+                                <% if Effect == "parallax" %> <div data-uk-slideshow-parallax="$EffectOptions"><% end_if %>
+                                <h2 class="$TitleAlign uk-h1">$SiteConfig.Tagline</h2>
+                                <% end_if %>
+                                <div class="uk-text-lead $TextAlign  $TextColumns">$Content</div>
+                                <% if Effect == "parallax" %></div><% end_if %>
+                                <% if LinkableLinkID > 0 %>
+                                    <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+                                <% end_if %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </li>
         <% end_loop %>
     </ul>
