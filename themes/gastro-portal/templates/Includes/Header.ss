@@ -2,9 +2,10 @@
 	<div class="header-top uk-padding-small">
 		<div class="uk-container uk-container-medium uk-position-relative">
 			<% if ClassName == "HomePage" %>
-			<div class="uk-container uk-container-medium uk-position-relative">
 				<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
-					
+					<% loop SiteConfig.activeMenuBlocks.filter('type','logo') %>
+						$forTemplate
+					<% end_loop %>	
 					<% loop SiteConfig.activeMenuBlocks.filter('class','dk-nav-top') %>
 						$forTemplate
 					<% end_loop %>
@@ -12,10 +13,6 @@
 			            <button class="uk-button uk-flex uk-flex-middle uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
 			        </div>
 				</nav>
-				<% loop SiteConfig.activeMenuBlocks.filter('type','logo') %>
-						$forTemplate
-					<% end_loop %>		
-			</div>
 			<% else %>
 			<div class="uk-grid-small uk-flex uk-flex-bottom" data-uk-grid>
 				<div class="uk-width-1-5@m">
