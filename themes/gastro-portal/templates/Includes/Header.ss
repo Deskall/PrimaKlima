@@ -49,7 +49,11 @@
     	<% loop SiteConfig.activeSlides %>
         <li>
              <img src="$Image.FocusFill(320,250).URL" data-srcset="$Image.FocusFill(320,250).URL 320w, $Image.FocusFill(650,500).URL 650w, $Image.FocusFill(1200,800).URL 1200w, $Image.FocusFillMax(2500,1500).URL 2500w" alt="" data-uk-cover data-uk-img>
-
+             <div class="uk-position-center">
+             	<div class="dk-slide-text">
+             		<h2>$Title</h2>
+             	</div>
+             </div>
         </li>
         <% end_loop %>
     </ul>
