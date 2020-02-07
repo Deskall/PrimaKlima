@@ -8,7 +8,7 @@
 					</aside>
 				</div>
 				<div class="uk-width-3-4@m uk-width-4-5@l">
-					   <div class="uk-flex uk-flex-left uk-margin-small-top"><a href="$Parent.Link" class="uk-link uk-margin-small-right">$Parent.MenuTitle</a>»<a href="$Link" class="uk-link uk-margin-small-right uk-margin-small-left">$kursData.GruppenTitel</a>»<span class="uk-margin-small-left"><% if $kursData.istPaarTanz %>$kursData.KursIDTitelDatumVonDatumBis<% else %>fortlaufend<% end_if %></span></div>
+					   <div class="uk-flex uk-flex-left uk-margin-small-top"><a href="$Parent.Link" class="uk-link uk-margin-small-right">$Parent.MenuTitle</a>»<a href="$Link" class="uk-link uk-margin-small-right uk-margin-small-left">$kursData.GruppenTitel</a>»<span class="uk-margin-small-left">$kursData.KursID <% if $kursData.istPaarTanz %>$kursData.DatumVonDatumBis<% else %>fortlaufend<% end_if %></span></div>
 					      <h1>$Title</h1>
 					      <% if $kursData.KursID %><h2>Kurs-Nr.: $kursData.KursID</h2><% end_if %>
 					      <table class="uk-table uk-table-small uk-table-striped">
