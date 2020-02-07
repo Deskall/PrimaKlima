@@ -185,6 +185,11 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
 
     public function updateCMSFields(FieldList $fields){
+        // foreach (BaseElement::get() as $b) {
+        //    if(ClassInfo::exists($b->Parent()->OwnerClassName)){
+        //     $b->write();
+        //     }
+        // }
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
@@ -208,7 +213,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         if (Permission::check('ADMIN') && $extracss){
             $fields->addFieldToTab('Root.LayoutTab',$extracss);
         } 
-    	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
             DropdownField::create('SectionPadding',_t(__CLASS__.'.SectionPadding','Vertical Abstand'),['uk-padding-remove' => 'Keine','uk-section-small' => 'klein', 'uk-section-medium' => 'medium','uk-section-large' => 'gross']),
             HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
@@ -259,7 +264,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         }
 
         if (!$anchorTitle) {
-            $anchorTitle = $this->owner->Title;
+            $anchorTitle = ($this->owner->Title) ? $this->owner->Title : $this->owner->ClassName.'-'.$this->owner->ID;
         }
 
         $filter = URLSegmentFilter::create();
@@ -318,11 +323,13 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         return $parent;
     }
 
-     public function updateLink(&$link){
+   public function updateLink(&$link){
         if ($page = $this->owner->getRealPage()) {
-            $link = $page->Link() . '#' . $this->owner->AnchorTitle;
+            $link = substr($link,0,strpos($link,'#'));
+            $link = $link . '#' . $this->owner->AnchorTitle;
         }
     }
+
 
     public function isChildren(){
         return $this->owner->Parent()->OwnerClassName == "ParentBlock";
