@@ -17,7 +17,7 @@
                    <td class="uk-text-nowrap">$KursID</td>
                    <td><% if istPaarTanz %>$DatumVonDatumBis<% else %>fortlaufend<% end_if %><br>
                    $Wochentag - $ZeitVonZeitBis</td>
-                   <td class="uk-visible@m"><% if $AnzahlLektionen > 0 %>$AnzahlLektionen * <% end_if %>$DauerMinuten min</td>
+                   <td class="uk-visible@m"><% if istPaarTanz && $AnzahlLektionen > 0 %>$AnzahlLektionen * <% end_if %>$DauerMinuten min</td>
                    <td class="uk-visible@m">Fr. $PreisPerson<br><% if istPaarTanz %>(pro Person)<% else %>(pro Lektion)<% end_if %></td>
                    <td class="uk-visible@m">$LehrerVorname</td>
                    <td class="uk-table-link uk-text-center"><a href="{$Top.getPage.Link}kurs-details/$KursID.URLATT"><span class="uk-visible@m">Hier Clicken</span><span class="uk-hidden@m"><i class="icon icon-chevron-right"></i></span></a></td>
