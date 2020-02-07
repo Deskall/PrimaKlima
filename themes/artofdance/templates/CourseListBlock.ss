@@ -18,7 +18,7 @@
                    <td>$DatumVonDatumBis<br>
                    $Wochentag - $ZeitVonZeitBis</td>
                    <td class="uk-visible@m"><% if $AnzahlLektionen > 0 %>$AnzahlLektionen * <% end_if %>$DauerMinuten min</td>
-                   <td class="uk-visible@m">Fr. $PreisPerson<br><% if istPaartanz %>(pro Person)<% else %>(pro Lektion)<% end_if %></td>
+                   <td>Fr. $PreisPerson<br><% if istPaartanz %>(pro Person)<% else %>(pro Lektion)<% end_if %></td>
                    <td class="uk-visible@m">$LehrerVorname</td>
                    <td class="uk-table-link uk-text-center"><a href="{$Top.getPage.Link}kurs-details/$KursID.URLATT"><span class="uk-visible@m">Hier Clicken</span><span class="uk-hidden@m"><i class="icon icon-chevron-right"></i></span></a></td>
                  </tr>
