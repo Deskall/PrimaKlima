@@ -185,7 +185,11 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
 
     public function updateCMSFields(FieldList $fields){
-
+        foreach (BaseElement::get() as $b) {
+           if(ClassInfo::exists($b->Parent()->OwnerClassName)){
+            $b->write();
+            }
+        }
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
@@ -260,7 +264,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         }
 
         if (!$anchorTitle) {
-            $anchorTitle = $this->owner->Title;
+            $anchorTitle = ($this->owner->Title) ? $this->owner->Title : $this->owner->ClassName.'-'.$this->owner->ID;
         }
 
         $filter = URLSegmentFilter::create();
