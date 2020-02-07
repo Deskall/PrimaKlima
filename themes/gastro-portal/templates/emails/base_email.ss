@@ -37,7 +37,6 @@
 	.header.container table td.logo img{max-height:50px;width:auto;}
 	.header.container table td.label{padding:15px 15px 15px 0}
 	.footer-wrap .container td.content p{border-top:1px solid #d7d7d7;padding-top:15px;font-size:10px;font-weight:700}
-	h1,h2{font-weight:200}
 	h1,h2,h3,h4,h5,h6{font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;line-height:1.1;margin-bottom:15px;color:#666}
 	h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{font-size:60%;color:#6f6f6f;line-height:0;text-transform:none}
 	h1{margin-top:30px;font-size:44px; color: #E6D091;margin-bottom:20px;}
