@@ -9,13 +9,13 @@
                    <th class="uk-visible@m">Dauer</th>
                    <th class="uk-visible@m">Kosten</th>
                    <th class="uk-visible@m">Kursleitung</th>
-                   <th>Details</th>
+                   <th class="uk-text-nowrap">Details</th>
                  </tr>
                </thead>
                <tbody>
                  <% loop $getLessons %>
                  <tr>
-                   <td>$KursID</td>
+                   <td class="uk-text-nowrap">$KursID</td>
                    <td>$DatumVonDatumBis</td>
                    <td>$Wochentag - $ZeitVonZeitBis</td>
                    <td class="uk-visible@m"><% if $AnzahlLektionen > 0 %>$AnzahlLektionen * <% end_if %>$DauerMinuten min</td>
