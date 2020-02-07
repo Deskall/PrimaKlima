@@ -5,7 +5,6 @@
                  <tr>
                    <th class="uk-text-nowrap">Kurs-Nr.</th>
                    <th>Datum</th>
-                   <th>Tag - Zeit</th>
                    <th class="uk-visible@m">Dauer</th>
                    <th class="uk-visible@m">Kosten</th>
                    <th class="uk-visible@m">Kursleitung</th>
@@ -16,8 +15,8 @@
                  <% loop $getLessons %>
                  <tr>
                    <td class="uk-text-nowrap">$KursID</td>
-                   <td>$DatumVonDatumBis</td>
-                   <td>$Wochentag - $ZeitVonZeitBis</td>
+                   <td>$DatumVonDatumBis<br>
+                   $Wochentag - $ZeitVonZeitBis</td>
                    <td class="uk-visible@m"><% if $AnzahlLektionen > 0 %>$AnzahlLektionen * <% end_if %>$DauerMinuten min</td>
                    <td class="uk-visible@m">Fr. $PreisPerson</td>
                    <td class="uk-visible@m">$LehrerVorname</td>
