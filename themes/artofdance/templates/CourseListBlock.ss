@@ -5,12 +5,11 @@
                  <tr>
                    <th class="uk-visible@m">Kurs-Nr.</th>
                    <th>Datum</th>
-                   <th>Tag</th>
-                   <th>Zeit</th>
+                   <th>Tag - Zeit</th>
                    <th class="uk-visible@m">Dauer</th>
                    <th class="uk-visible@m">Kosten</th>
                    <th class="uk-visible@m">Kursleitung</th>
-                   <th>Info & Anmeldung</th>
+                   <th>Details</th>
                  </tr>
                </thead>
                <tbody>
@@ -18,8 +17,7 @@
                  <tr>
                    <td class="uk-visible@m">$KursID</td>
                    <td>$DatumVonDatumBis</td>
-                   <td>$Wochentag</td>
-                   <td>$ZeitVonZeitBis</td>
+                   <td>$Wochentag - $ZeitVonZeitBis</td>
                    <td class="uk-visible@m"><% if $AnzahlLektionen > 0 %>$AnzahlLektionen * <% end_if %>$DauerMinuten min</td>
                    <td class="uk-visible@m">Fr. $PreisPerson</td>
                    <td class="uk-visible@m">$LehrerVorname</td>
