@@ -324,14 +324,16 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
      public function updateLink(&$link){
-        ob_start();
-                    print_r($link);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
 
         if ($page = $this->owner->getRealPage()) {
             $link = $page->Link() . '#' . $this->owner->AnchorTitle;
         }
+
+        ob_start();
+                    print_r($link);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     }
 
     public function isChildren(){
