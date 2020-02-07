@@ -32,9 +32,7 @@
 							<% end_if %>
 						<% end_loop %>
 					</nav>
-					<% if ClassName == "HomePage" %>
-					<h2 class="uk-text-right">$SiteConfig.Tagline</h2>
-					<% else %>
+					<% if ClassName != "HomePage" %>
 					<div class="uk-margin-top">
 					<% include SearchForm Link=$Link,Position=$Portal.getPositions,Cities=$Portal.getCities.groupedBy(City),Align=uk-flex-right %>
 					</div>
@@ -51,7 +49,7 @@
              <img src="$Image.FocusFill(320,250).URL" data-srcset="$Image.FocusFill(320,250).URL 320w, $Image.FocusFill(650,500).URL 650w, $Image.FocusFill(1200,800).URL 1200w, $Image.FocusFillMax(2500,1500).URL 2500w" alt="" data-uk-cover data-uk-img>
              <div class="uk-position-center">
              	<div class="dk-slide-text">
-             		<h2>$Title</h2>
+             		<h2>$SiteConfig.Tagline</h2>
              	</div>
              </div>
         </li>
