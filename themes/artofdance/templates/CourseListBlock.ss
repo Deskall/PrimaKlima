@@ -8,7 +8,7 @@
                    <th class="uk-visible@m">Dauer</th>
                    <th class="uk-visible@m">Kosten</th>
                    <th class="uk-visible@m">Kursleitung</th>
-                   <th class="uk-text-nowrap">Details</th>
+                   <th class="uk-text-nowrap uk-text-center">Details</th>
                  </tr>
                </thead>
                <tbody>
