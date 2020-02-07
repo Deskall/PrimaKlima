@@ -3,7 +3,7 @@
               <table class="kurse-table uk-table uk-table-small">
                <thead>
                  <tr>
-                   <th class="uk-table-expand">Kurs-Nr.</th>
+                   <th>Kurs-Nr.</th>
                    <th>Datum</th>
                    <th>Tag - Zeit</th>
                    <th class="uk-visible@m">Dauer</th>
