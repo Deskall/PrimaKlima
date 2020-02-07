@@ -70,11 +70,6 @@ small{
 .hook-slider-font() {}
 .hook-text-link(){}
 
-//tynmce
-.mce-content-body{
-	font-size: @global-font-size;
-}
-
 // BUTTONS ///
 .hook-button(){
 	text-transform: none!important;
@@ -84,7 +79,7 @@ small{
 .standard-font{
 	font-family: @global-font-family;
 	font-size:@global-small-font-size;
-	@media (min-width:@breakpoint-medium){
+	@media only screen and (min-width:@breakpoint-medium){
 		font-size:@global-font-size;
 	}
 }
