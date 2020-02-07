@@ -38,6 +38,7 @@ class CoursePageController extends Extension
             $request->getSession()->set('course_id',$KursID);
       		$Api = new beyond_jsonKurse();
      		$data = $Api->getKurse(null,$KursID);
+        print_r($data);
      		if (is_array($data) and isset($data[0])){
      			return array(
      				'kursData' => new ArrayData($data[0]),
