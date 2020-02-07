@@ -1,6 +1,6 @@
              <div class="dk-text-content $TextAlign  $TextColumns  uk-overflow-auto <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
               <% if getLessons %>
-              <table class="kurse-table uk-table uk-table-small">
+              <table class="kurse-table uk-table uk-table-small uk-table-middle">
                <thead>
                  <tr>
                    <th class="uk-text-nowrap">Kurs-Nr.</th>
@@ -20,7 +20,7 @@
                    <td class="uk-visible@m"><% if $AnzahlLektionen > 0 %>$AnzahlLektionen * <% end_if %>$DauerMinuten min</td>
                    <td class="uk-visible@m">Fr. $PreisPerson</td>
                    <td class="uk-visible@m">$LehrerVorname</td>
-                   <td><a href="{$Top.getPage.Link}kurs-details/$KursID.URLATT"><span class="uk-visible@m">Hier Clicken</span><span class="uk-hidden@m"><i class="icon icon-chevron-right"></i></span></a></td>
+                   <td class="uk-table-link uk-text-center"><a href="{$Top.getPage.Link}kurs-details/$KursID.URLATT"><span class="uk-visible@m">Hier Clicken</span><span class="uk-hidden@m"><i class="icon icon-chevron-right"></i></span></a></td>
                  </tr>
                  <% end_loop %>
                </tbody>
