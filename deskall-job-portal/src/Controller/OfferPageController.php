@@ -252,8 +252,9 @@ class OfferPageController extends PageController{
 				$cd->Status = "created";
 				
 				$cd->write();
-
 				$cd->createPDF();
+				$cd->sendCandidature();
+				
 				return ['Title' => 'Bewerbung gesendet', 'Content' =>  DBHTMLText::create()->setValue($config->parseString($config->CandidatureSentText))];
 			} catch (ValidationException $e) {
 				$validationMessages = '';

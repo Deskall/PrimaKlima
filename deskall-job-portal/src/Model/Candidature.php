@@ -188,6 +188,18 @@ class Candidature extends DataObject
       $this->write();
     }
 
+    public function sendCandidature(){
+      $config = $this->getConfig();
+      $page = MemberProfilePage::get()->first();
+      $from = ($config->EmailFrom) ? $config->EmailFrom : SiteConfig::current_site_config()->Email;
+      $body = new DBHTMLText();
+      $message = '<p><strong>'._t('Candidature.Messagelabel','Bewerbungstext').'</strong></p>'.$this->Content;
+      $body->setValue($config->CandidatureEmailBody.$message);
+      $companyEmail = ($this->Mission()->Customer()->ContactPersonEmail) ? $this->Mission()->Customer()->ContactPersonEmail : $this->Mission()->Customer()->CompanyEmail;
+      $mail = new MemberEmail($page,$this->Candidat()->Member(),$from,$companyEmail,$config->CandidatureEmailSubject,$body);
+      $mail->send();
+    }
+
     public function sendDeclineEmail($message){
         $config = $this->getConfig();
         $page = MemberProfilePage::get()->first();

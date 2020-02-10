@@ -84,6 +84,9 @@ class JobPortalConfig extends DataObject
         'PaymentTabHTML' => 'HTMLText',
         'AdsTabHTML' => 'HTMLText',
 
+        //Candidature
+        'CandidatureEmailSubject'             => 'Varchar(255)',
+        'CandidatureEmailBody'            => 'HTMLText',
         'AfterRefusalCandidatureEmailSubject'             => 'Varchar(255)',
         'AfterRefusalCandidatureEmailBody'            => 'HTMLText',
         
