@@ -73,6 +73,9 @@
 										<h2><%t JobGiver.OffersTitle 'Inserate' %></h2>
 										<div class="member-section-container">
 											$Portal.OffersTabHTML
+											<% if $AccountMessage %>
+											<p id="account_message" class="message">$AccountMessage</p>
+											<% end_if %>
 										</div>
 										<div class="toggle-new-offer">
 											<a id="new-offer" class="uk-button uk-button-primary" data-uk-toggle=".toggle-new-offer"><%t Offer.Create 'jetzt neu Inserat erfassen' %></a>

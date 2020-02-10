@@ -65,6 +65,14 @@ class MemberProfilePageController extends PageController{
 		return $activeTab;
 	}
 
+	public function AccountMessage(){
+		if ($message = $this->getRequest()->getSession()->get('account_message')){
+			$this->getRequest()->getSession()->clear('account_message');
+			return $message;
+		}
+		return null;
+	}
+
 	public function init(){
 		parent::init();
 
@@ -274,6 +282,8 @@ class MemberProfilePageController extends PageController{
 			$offer = Mission::get()->byId($id);
 			if ($offer){
 				$offer->publish();
+				$this->getRequest()->getSession()->set('active_tab','offers');
+				$this->getRequest()->getSession()->set('account_message',_t('MemberProfiles.OfferPublished', 'Ihr Angebot wurde veröffentlicht.'));
 			}
 		}
 		return $this->redirectBack();
