@@ -10,17 +10,13 @@ use SilverStripe\Control\Controller;
 use SilverStripe\Control\Email\Email;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Control\Director;
-/**
- * An email sent to the user with a link to validate and activate their account.
- *
- * @package silverstripe-memberprofiles
- */
-class MissionEmail extends Email
+
+class CandidatureEmail extends Email
 {
     /**
      * @var Mission|null
      */
-    private $mission = null;
+    private $candidature = null;
 
     /**
      * @var config
@@ -33,12 +29,12 @@ class MissionEmail extends Email
      * @param CookConfig $config
      * @param Mission $mission
      */
-    public function __construct(JobPortalConfig $config,$mission,$sender,$receiver,$subject,$body)
+    public function __construct(JobPortalConfig $config,$candidature,$sender,$receiver,$subject,$body)
     {
         parent::__construct();
 
         $this->config = $config;
-        $this->mission = $mission;
+        $this->candidature = $candidature;
 
 
         $this->setFrom($sender);
@@ -65,49 +61,38 @@ class MissionEmail extends Email
      */
     public function getParsedString($string)
     {
-        $mission = $this->getMission();
+        $candidature = $this->candidature();
         $config = $this->getConfig();
 
         /**
          * @var \SilverStripe\ORM\FieldType\DBDatetime $createdDateObj
          */
-        $createdDateObj = $mission->obj('Created');
+        $createdDateObj = $candidature->obj('Created');
 
-        $page = MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code','mietkoeche')->first()->ID)->first();
+        $loginPage = MemberProfilePage::get()->first();
 
         $absoluteBaseURL = $this->BaseURL();
         $variables = array(
             '$SiteName'       => SiteConfig::current_site_config()->Title,
             '$LoginLink'      => Controller::join_links(
                 $absoluteBaseURL,
-                singleton(Security::class)->Link('login')
+                $loginPage->Link()
             ),
-            '$ConfirmLink'    => Controller::join_links(
-                $absoluteBaseURL,
-                'angebot/bestaetigung/',
-                $mission->ID,
-                "?key={$mission->OfferKey}"
-            ),
-            '$LostPasswordLink' => Controller::join_links(
-                $absoluteBaseURL,
-                singleton(Security::class)->Link('lostpassword')
-            ),
-            '$Mission.Created' => $createdDateObj->Nice(),
-            '$AccountLink' => $page->AbsoluteLink(),
-            '$Mission.Data' => $mission->renderWith('Emails/MissionData'),
-            '$Offer.Data' => $mission->renderWith('Emails/OfferData'),
-            '$Offer.Validity' => $config->OfferValidityText,
-            '$Customer.Data' => $mission->renderWith('Emails/CustomerData'),
-            '$Cook.Title' => $mission->CookTitle(),
-            '$Cook.Name' => ucfirst($mission->Cook()->Member()->FirstName)." ".ucfirst($mission->Cook()->Member()->Surname),
-            '$Customer.Title' => $mission->CustomerTitle(),
-            '$Cook.ApprovalLink' => $mission->CookApprovalLink(),
-            '$MissionLink' => $mission->OfferFile()->AbsoluteLink(),
-            '$AGBLink' => Director::AbsoluteURL('services/agb/')
+            '$Candidature.Data' => $candidature->renderWith('Emails/CandidatureData'),
+            '$CandidatProfilLink' => $candidature->Link()
         );
         
-        foreach (array('Company' , 'Email' , 'Address' , 'PostalCode' , 'City' , 'Country', 'Phone', 'Fax', 'URL', 'Title' , 'Place' , 'Start', 'End', 'Access', 'HourPay' , 'Position' , 'TransportCost' , 'CostAndHousing' , 'Others', 'Status' , 'AdminComments', 'Price' ) as $field) {
-            $variables["\$Mission.$field"] = $mission->$field;
+        foreach (array('Content' , 'ContentRefusal' , 'Status') as $field) {
+            $variables["\$Candidature.$field"] = $candidature->$field;
+        }
+        foreach (array('Title') as $method) {
+            $variables["\$Customer.$field"] = $candidature->Mission()->$Customer()->{$method}();
+        }
+        foreach (array('Title') as $method) {
+            $variables["\$Candidat.$field"] = $candidature->$Candidat()->{$method}();
+        }
+        foreach (array('Title','Nummer') as $field) {
+            $variables["\$Mission.$field"] = $candidature->$Mission()->$field;
         }
         $this->extend('updateEmailVariables', $variables);
 
@@ -124,13 +109,13 @@ class MissionEmail extends Email
     /**
      * @return Mission
      */
-    public function getMission()
+    public function getCandidature()
     {
-        return $this->mission;
+        return $this->candidature;
     }
 
     /**
-     * @return CookConfig
+     * @return Config
      */
     public function getConfig()
     {

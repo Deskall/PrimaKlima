@@ -16,6 +16,7 @@ class Candidature extends DataObject
 {
     private static $db = array(
         'Content' => 'Text',
+        'ContentRefusal' => 'Text',
         'Status' => 'Varchar'
     );
 
@@ -190,24 +191,24 @@ class Candidature extends DataObject
 
     public function sendCandidature(){
       $config = $this->getConfig();
-      $page = MemberProfilePage::get()->first();
       $from = ($config->EmailFrom) ? $config->EmailFrom : SiteConfig::current_site_config()->Email;
       $body = new DBHTMLText();
       $message = '<p><strong>'._t('Candidature.Messagelabel','Bewerbungstext').'</strong></p>'.$this->Content;
       $body->setValue($config->CandidatureEmailBody.$message);
       $companyEmail = ($this->Mission()->Customer()->ContactPersonEmail) ? $this->Mission()->Customer()->ContactPersonEmail : $this->Mission()->Customer()->CompanyEmail;
-      $mail = new MemberEmail($page,$this->Candidat()->Member(),$from,$companyEmail,$config->CandidatureEmailSubject,$body);
+      $mail = new CandidatureEmail($config,$this,$from,$companyEmail,$config->CandidatureEmailSubject,$body);
       $mail->send();
     }
 
     public function sendDeclineEmail($message){
+        $this->ContentRefusal = $message;
+        $this->write();
         $config = $this->getConfig();
-        $page = MemberProfilePage::get()->first();
         $from = ($config->EmailFrom) ? $config->EmailFrom : SiteConfig::current_site_config()->Email;
         $body = new DBHTMLText();
         $body->setValue($config->AfterRefusalCandidatureEmailBody.$message);
         
-        $mail = new MemberEmail($page,$this->Candidat()->Member(),$from,$this->Candidat()->getEmail(),$config->AfterRefusalCandidatureEmailSubject,$body);
+        $mail = new CandidatureEmail($config,$this,$from,$this->Candidat()->getEmail(),$config->AfterRefusalCandidatureEmailSubject,$body);
         $mail->send();
     }
 
