@@ -28,7 +28,7 @@
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart"></i></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-print><i class="icon icon-printer"></i></a>
 									<% if CurrentMember %>
-										<% if canCandidate %><a class="uk-button uk-button-primary" href="{$Top.Link}bewerben/$ID"><%t OfferPage.Candidate 'Bewerben' %></a><% else_if hasCandidated %><p><i>$hasCandidated.created.Nice</i></p><% end_if %>
+										<% if canCandidate %><a class="uk-button uk-button-primary" href="{$Top.Link}bewerben/$ID"><%t OfferPage.Candidate 'Bewerben' %></a><% else_if hasCandidated %><p><i><%t Mission.hasCandidated 'Sie haben sich am {date} für diese Stelle beworben' date=$hasCandidated.Created.Nice %></i></p><% end_if %>
 									<% else %>
 										<a class="uk-button uk-button-primary" href="$MemberPage.Link"><%t OfferPage.Candidate 'Bewerben' %></a>
 									<% end_if %>
