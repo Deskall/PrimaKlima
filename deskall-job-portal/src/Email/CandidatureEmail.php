@@ -89,7 +89,7 @@ class CandidatureEmail extends Email
         }
       
         foreach (array('Title','Nummer') as $field) {
-            $variables["\$Mission.$field"] = $candidature->$Mission()->$field;
+            $variables["\$Mission.$field"] = $candidature->Mission()->$field;
         }
         $this->extend('updateEmailVariables', $variables);
 
