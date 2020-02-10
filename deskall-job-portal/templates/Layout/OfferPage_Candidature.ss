@@ -1,7 +1,7 @@
 <section class="uk-section uk-section-small">
 	<div class="uk-container">
 		<div class="uk-margin">
-			<div><button class="uk-button uk-button-secondary" onclick="window.history.back()"><i class="icon icon-chevron-left uk-margin-small-right"></i><%t Global.Back 'Zurück' %></button></div>
+			<div><button class="uk-button uk-button-muted" onclick="window.history.back()"><i class="icon icon-chevron-left uk-margin-small-right"></i><%t Global.Back 'Zurück' %></button></div>
 		</div>
 		<h1>$Title</h1>
 		<% with Candidature %>
@@ -12,7 +12,7 @@
 				<% else %>
 				<a href="mailto:{$Candidat.Email}?subject=<%t Candidature.ContactMailTilte 'Ihre Bewerbung für die Stellenangebot' %> {$Mission.Nummer}  - $Top.SiteConfig.Title" class="uk-button button-PrimaryBackground"><i class="icon icon-ios-paperplane uk-margin-small-right"></i><%t Candidature.Answer 'Kontakt aufnehmen' %></a>
 				<a href="$File.URL" class="uk-button WhiteBackground" target="_blank"><i class="icon icon-printer uk-margin-small-right"></i><%t Candidature.Print 'Bewerbung als PDF anzeigen' %></a>
-				<% if canDecline %><a data-uk-toggle="#decline-modal" class="uk-button uk-button-default"><i class="icon icon-ios-close-outline uk-margin-small-right"></i><%t Candidature.Decline 'Bewerbung ablehnen' %></a><% end_if %>
+				<% if canDecline %><a data-uk-toggle="#decline-modal" class="uk-button uk-button-secondary"><i class="icon icon-ios-close-outline uk-margin-small-right"></i><%t Candidature.Decline 'Bewerbung ablehnen' %></a><% end_if %>
 				<% end_if %>
 			</div>
 		</div>
@@ -96,7 +96,7 @@
 				<% else %>
 				<a href="mailto:{$Candidat.Email}?subject=<%t Candidature.ContactMailTilte 'Ihre Bewerbung für die Stellenangebot' %> {$Mission.Nummer}  - $Top.SiteConfig.Title" class="uk-button button-PrimaryBackground"><i class="icon icon-ios-paperplane uk-margin-small-right"></i><%t Candidature.Answer 'Kontakt aufnehmen' %></a>
 				<a href="$File.URL" class="uk-button WhiteBackground" target="_blank"><i class="icon icon-printer uk-margin-small-right"></i><%t Candidature.Print 'Bewerbung als PDF anzeigen' %></a>
-				<% if canDecline %><a data-uk-toggle="#decline-modal" class="uk-button uk-button-default"><i class="icon icon-ios-close-outline uk-margin-small-right"></i><%t Candidature.Decline 'Bewerbung ablehnen' %></a><% end_if %>
+				<% if canDecline %><a data-uk-toggle="#decline-modal" class="uk-button uk-button-secondary"><i class="icon icon-ios-close-outline uk-margin-small-right"></i><%t Candidature.Decline 'Bewerbung ablehnen' %></a><% end_if %>
 				<% end_if %>
 			</div>
 		</div>
@@ -117,7 +117,7 @@
 	        		</div>
 	        	</div> 
 		        <p class="uk-text-right">
-		            <button class="uk-button uk-button-default uk-modal-close" type="button"><%t Global.Cancel 'Abbrechen' %></button>
+		            <button class="uk-button uk-button-secondary uk-modal-close" type="button"><%t Global.Cancel 'Abbrechen' %></button>
 		            <button type="submit" class="uk-button uk-button-primary"><%t Candidature.Decline 'Bewerbung ablehnen' %></button>
 		        </p>
 		    </form>
