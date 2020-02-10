@@ -188,7 +188,10 @@ class OfferPageController extends PageController{
 				if ($Candidature->canView()){
 					return ['Title' => 'Bewerbung für die Stellenangebot '.$Candidature->Mission()->Nummer, 'Candidature' => $Candidature];
 				}
-				return $this->httpError(403);
+				return Security::permissionFailure($this, _t(
+					'MemberProfiles.AccessDenied',
+					'Sie dürfen diese Seite nicht betreten.'
+				));
 			}
 		}
 		return $this->httpError(404);
