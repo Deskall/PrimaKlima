@@ -79,6 +79,7 @@
 											<% if not CurrentCustomer.activeOrder %>
 											<p><%t MemberPage.CannotPublish 'Sie können derzeit keine Inserate freischalten. Sie können aber dennoch Inserate als Entwurf erfassen und zu einem späteren Zeitpunkt freischalten.' %></p>
 											<% end_if %>
+											$CurrentCustomer.ID
 											<% if CurrentCustomer.Missions.exists %>
 											<div class="uk-margin uk-overflow-auto">
 												<h4><%t MemberPage.OffersTitle 'Meine Inserate' %></h4>
