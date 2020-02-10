@@ -47,7 +47,7 @@ use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\ORM\PaginatedList;
 use SilverStripe\ORM\ArrayList;
-
+use SilverStripe\Security\Security;
 
 class OfferPageController extends PageController{
 
