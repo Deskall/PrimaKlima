@@ -107,8 +107,8 @@
 													        	<strong class="uk-modal-title"><%t MemberPage.PublishOfferModalTitle 'Möchten Sie dieses Angebot wirklich veröffentlichen?' %></strong>
 													        	<p><%t MemberPage.PublishOfferModalBody 'Sie können dieses Angebot nach seiner Veröffentlichung nicht mehr ändern.' %></p>
 														        <div class="uk-text-right">
-														        	<button class="uk-button uk-button-default uk-modal-close" type="button"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></button>
-														        	<a href="{$Top.Link}inserat-veroeffentlichen/{$ID}" class="uk-button uk-button-danger"><i class="icon icon-ios-paperplane uk-margin-small-right"></i><%t MemberPage.PublishOffer 'Ja, veröffentlichen' %></a>
+														        	<button class="uk-button uk-button-secondary uk-modal-close" type="button"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></button>
+														        	<a href="{$Top.Link}inserat-veroeffentlichen/{$ID}" class="uk-button uk-button-primary"><i class="icon icon-ios-paperplane uk-margin-small-right"></i><%t MemberPage.PublishOffer 'Ja, veröffentlichen' %></a>
 														        </div>
 														    </div>
 													    </div>
