@@ -154,8 +154,8 @@
 																		<td>
 																			<h5 class=""><%t Email.Contact 'Kontakt' %>:</h5>
 																			<p><strong>$SiteConfig.AddressTitle</strong></p>
-																			<p>$SiteConfig.Address<br/>$SiteConfig.Code - $SiteConfig.City<br/> $SiteConfig.Country</p>
-																			<p><a href="tel:$SiteConfig.PhoneFormatted" target="_blank">$SiteConfig.Phone</a><br /><a href="mailto:$SiteConfig.Email">$SiteConfig.Email</a></p>
+																			<% if $SiteConfig.Address %><p>$SiteConfig.Address<br/>$SiteConfig.Code - $SiteConfig.City<br/> $SiteConfig.Country</p><% end_if %>
+																			<p><% if $SiteConfig.Phone %><a href="tel:$SiteConfig.PhoneFormatted" target="_blank">$SiteConfig.Phone</a><br /><% end_if %><a href="mailto:$SiteConfig.Email">$SiteConfig.Email</a></p>
 																		</td>
 																	</tr>
 																</tbody>
