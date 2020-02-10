@@ -30,7 +30,7 @@
 									<% if CurrentMember %>
 										<% if canCandidate %><a class="uk-button uk-button-primary" href="{$Top.Link}bewerben/$ID"><%t OfferPage.Candidate 'Bewerben' %></a><<% end_if %>
 									<% else %>
-										<a class="uk-button uk-button-primary" href="$MemberPage.Link"><%t OfferPage.Candidate 'Bewerben' %></a>
+										<a class="uk-button uk-button-primary" href="$Top.MemberPage.Link"><%t OfferPage.Candidate 'Bewerben' %></a>
 									<% end_if %>
 								</div>
 							</div>
@@ -70,7 +70,7 @@
 					<% if CurrentMember %>
 						<% if canCandidate %><a class="uk-button uk-button-primary" href="{$Top.Link}bewerben/$ID"><%t OfferPage.Candidate 'Bewerben' %></a><% else_if hasCandidated %><p><i><%t Mission.hasCandidated 'Sie haben sich am {date} für diese Stelle beworben' date=$hasCandidated.Created.Nice %></i></p><% end_if %>
 					<% else %>
-					<a class="uk-button uk-button-large uk-button-primary"><%t OfferPage.Candidate 'Bewerben' %></a>
+					<a class="uk-button uk-button-large uk-button-primary"  href="$Top.MemberPage.Link"><%t OfferPage.Candidate 'Bewerben' %></a>
 					<% end_if %>
 				</div>
 
