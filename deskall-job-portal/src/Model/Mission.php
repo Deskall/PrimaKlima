@@ -478,7 +478,7 @@ class Mission extends DataObject
             return _t('Mission.Archived','Archiviert');
         }
         if ($this->isActive){
-            return _t('Mission.Active','Veröffentlicht');
+            return _t('Mission.Active','Veröffentlicht seit {date}', ['date' => $this->PublishedDate]);
         }
         return _t('Mission.Draft','Entwurf');
     }
