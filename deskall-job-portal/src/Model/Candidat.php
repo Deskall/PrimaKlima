@@ -87,6 +87,10 @@ class Candidat extends DataObject
         'Candidatures' => Candidature::class
     ];
 
+    private static $owns = [
+        'Picture','CV','MotivationLetter','Files'
+    ];
+
 
 
     private static $many_many = [
@@ -117,6 +121,8 @@ class Candidat extends DataObject
         'City',
         'Country'
     ];
+
+    private static $cascade_deletes = ['Member','Picture','CVItems','CursusItems','Candidatures','Files','CV','MotivationLetter'];
 
 
     public function fieldLabels($includerelation = true){
