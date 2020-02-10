@@ -581,9 +581,12 @@ class Mission extends DataObject
     public function hasCandidated(){
       $member = Security::getCurrentUser();
       if ($member && $member->inGroup('kandidaten')){
+        print_r('ici');
           $Candidat = Candidat::get()->filter('MemberID',$member->ID)->first();
           if ($Candidat){
+            print_r('la');
             if ($c = Candidature::get()->filter(['CandidatID' => $Candidat->ID, 'MissionID' => $this->ID])->first()){
+              print_r('lalal');
                   return $c;
               }  
           }

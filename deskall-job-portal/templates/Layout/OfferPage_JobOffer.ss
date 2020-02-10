@@ -24,7 +24,7 @@
 						<div class="uk-flex uk-flex-middle" data-uk-grid>
 							<div class="uk-width-2-3">
 								<div class="uk-flex uk-flex-left uk-flex-middle">
-									<a class="uk-button WhiteBackground uk-margin-small-right"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a>
+									<%-- <a class="uk-button WhiteBackground uk-margin-small-right"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a> --%>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart"></i></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-print><i class="icon icon-printer"></i></a>
 									<% if CurrentMember %>
@@ -80,8 +80,8 @@
 							<div class="uk-width-auto company-logo">
 								<div class="uk-margin-small"><img src="$Customer.Logo.URL" alt="Logo von $Customer.Company" width="250"></div>
 								
-								<div class="uk-margin-small"><a href="$Customer.Link"><i class="icon icon-chevron-right uk-margin-small-right uk-text-small"></i><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a></div>
-								<div class="uk-margin-small"><a href"$Customer.JobsLink"><i class="icon icon-chevron-right uk-margin-small-right uk-text-small"></i><%t OfferPage.Jobs 'Jobs' %> $Customer.Missions.count</a></div>
+								<%-- <div class="uk-margin-small"><a href="$Customer.Link"><i class="icon icon-chevron-right uk-margin-small-right uk-text-small"></i><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a></div>
+								<div class="uk-margin-small"><a href"$Customer.JobsLink"><i class="icon icon-chevron-right uk-margin-small-right uk-text-small"></i><%t OfferPage.Jobs 'Jobs' %> $Customer.Missions.count</a></div> --%>
 							</div>
 							<% end_if %>
 							<div class="uk-width-expand company-address">
