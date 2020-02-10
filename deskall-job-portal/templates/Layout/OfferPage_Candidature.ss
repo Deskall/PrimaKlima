@@ -37,7 +37,6 @@
 				</div>
 			</div>
 			<% if $Content %>
-			<hr>
 			<div class="uk-margin">
 				<div class="uk-card uk-card-body">
 					<h2><%t Candidature.Text 'Bewerbungstext' %></h2>
@@ -45,7 +44,6 @@
 				</div>
 			</div>
 			<% end_if %>
-			<hr>
 			<% if CV.exists %>
 			<div class="uk-margin">
 				<div class="uk-card uk-card-body">
@@ -72,7 +70,6 @@
 					<% end_loop %>
 				</div>
 			</div>
-			<hr>
 			<div class="uk-margin">
 				<div class="uk-card uk-card-body">
 					<h2><%t Candidature.FormationTitle 'Ausbildungen' %></h2>
