@@ -11,6 +11,7 @@
 	.container,table.footer-wrap{clear:both!important}
 	*{margin:0;font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;color: #666;}
 	img{max-width:100%}
+	.logo{text-align: center;}
 	.logo img{max-width: 250px;height:auto;}
 	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%}
 	.content table,table.body-wrap,table.footer-wrap,table.head-wrap{width:100%}
@@ -87,7 +88,7 @@
 
 <body style="background-color:#EEEEEE" bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 	<!-- HEADER -->
-	<table class="head-wrap">
+	<table style="background-color:#E6D091" class="head-wrap">
 		<tbody>
 			<tr>
 				<td><br /></td>
