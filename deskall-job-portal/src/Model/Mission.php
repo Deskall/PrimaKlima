@@ -578,6 +578,19 @@ class Mission extends DataObject
         return false;
     }
 
+    public function hasCandidated(){
+      $member = Security::getCurrentUser();
+      if ($member && $member->inGroup('kandidaten')){
+          $Candidat = Candidat::get()->filter('MemberID',$member->ID)->first();
+          if ($Candidat){
+            if ($c = Candidature::get()->filter(['CandidatID' => $Candidat->ID, 'MissionID' => $this->ID])->first()){
+                  return $c;
+              }  
+          }
+      }
+      return false;
+    }
+
     public function canSendEmail(){
         return (Permission::check('ADMIN') && $this->isVisible);
     }
