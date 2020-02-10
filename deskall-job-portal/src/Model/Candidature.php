@@ -197,6 +197,7 @@ class Candidature extends DataObject
       $body->setValue($config->CandidatureEmailBody.$message);
       $companyEmail = ($this->Mission()->Customer()->ContactPersonEmail) ? $this->Mission()->Customer()->ContactPersonEmail : $this->Mission()->Customer()->CompanyEmail;
       $mail = new CandidatureEmail($config,$this,$from,$companyEmail,$config->CandidatureEmailSubject,$body);
+      $mail->setBCC($from);
       $mail->send();
     }
 
@@ -209,6 +210,7 @@ class Candidature extends DataObject
         $body->setValue($config->AfterRefusalCandidatureEmailBody.$message);
         
         $mail = new CandidatureEmail($config,$this,$from,$this->Candidat()->getEmail(),$config->AfterRefusalCandidatureEmailSubject,$body);
+        $mail->setBCC($from);
         $mail->send();
     }
 
