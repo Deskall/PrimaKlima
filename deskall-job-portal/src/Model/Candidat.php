@@ -288,7 +288,7 @@ class Candidat extends DataObject
             $html .= $this->PostalCode.' - ';
         }
         if ($this->City){
-            $html .= $this->City.'<br/>'
+            $html .= $this->City.'<br/>';
         }
         if ($this->Country){
            $html .=  i18n::getData()->getCountries()[$this->Country].'<br/>';
