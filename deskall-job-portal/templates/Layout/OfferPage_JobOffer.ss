@@ -28,7 +28,7 @@
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart"></i></a>
 									<a class="uk-button WhiteBackground uk-margin-small-right" data-print><i class="icon icon-printer"></i></a>
 									<% if CurrentMember %>
-										<% if canCandidate %><a class="uk-button uk-button-primary" href="{$Top.Link}bewerben/$ID"><%t OfferPage.Candidate 'Bewerben' %></a><% else_if hasCandidated %><p><i><%t Mission.hasCandidated 'Sie haben sich am {date} für diese Stelle beworben' date=$hasCandidated.Created.Nice %></i></p><% end_if %>
+										<% if canCandidate %><a class="uk-button uk-button-primary" href="{$Top.Link}bewerben/$ID"><%t OfferPage.Candidate 'Bewerben' %></a><<% end_if %>
 									<% else %>
 										<a class="uk-button uk-button-primary" href="$MemberPage.Link"><%t OfferPage.Candidate 'Bewerben' %></a>
 									<% end_if %>
@@ -37,6 +37,7 @@
 							<div class="uk-width-1-3">
 								<div class="shariff" data-lang="de" data-url="$AbsoluteLink" data-button-style="icon" data-mail-url="mailto:" data-services="[&quot;facebook&quot;,&quot;twitter&quot;,&quot;linkedin&quot;,&quot;xing&quot;,&quot;whatsapp&quot;,mail&quot;]"></div>
 							</div>
+							<% if hasCandidated %><div><p><i><%t Mission.hasCandidated 'Sie haben sich am {date} für diese Stelle beworben' date=$hasCandidated.Created.Nice %></i></p></i><% end_if %>
 						</div>
 						
 					</div>
