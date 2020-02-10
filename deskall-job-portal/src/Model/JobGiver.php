@@ -233,6 +233,21 @@ class JobGiver extends DataObject
         return $str;
     }
 
+    public function ContactTitle(){
+        $str = '';
+        if ($this->ContactPersonFirstName){
+            $str .= $this->ContactPersonFirstName.' ';
+            if ($this->ContactPersonSurname){
+                $str .= $this->ContactPersonSurname;
+            }
+        }
+        else{
+            $str .= $this->Member()->FirstName.' '.$this->Member()->Surname;
+        }
+
+        return $str;
+    }
+
     public function activeOrder(){
         return $this->Orders()->filter('isActive',1)->first();
     }
