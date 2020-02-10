@@ -16,80 +16,82 @@
 				<% end_if %>
 			</div>
 		</div>
-		<div class="uk-margin">
-			<div class="uk-card uk-card-body">
-				<div class="uk-flex uk-flex-middle" data-uk-grid>
-					<% if $Candidat.Picture %>
-					<div class="uk-width-auto company-logo">
-						$Candidat.Thumbnail
-					</div>
-					<% end_if %>
-					<div class="uk-width-expand">
-						<strong>$Candidat.Gender $Candidat.Member.FirstName $Candidat.Member.Surname</strong><br/>
-						<% if $Candidat.Birthdate %><span>$Candidat.Age</span><% end_if %>
-						$Description
-					</div>
-					<div class="uk-width-auto candidat-address uk-text-right">
-						$Candidat.NiceAddress
+		<div class="uk-background-muted">
+			<div class="uk-margin">
+				<div class="uk-card uk-card-body">
+					<div class="uk-flex uk-flex-middle" data-uk-grid>
+						<% if $Candidat.Picture %>
+						<div class="uk-width-auto company-logo">
+							$Candidat.Thumbnail
+						</div>
+						<% end_if %>
+						<div class="uk-width-expand">
+							<strong>$Candidat.Gender $Candidat.Member.FirstName $Candidat.Member.Surname</strong><br/>
+							<% if $Candidat.Birthdate %><span>$Candidat.Age</span><% end_if %>
+							$Description
+						</div>
+						<div class="uk-width-auto candidat-address uk-text-right">
+							$Candidat.NiceAddress
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<% if $Content %>
-		<hr>
-		<div class="uk-margin">
-			<div class="uk-card uk-card-body">
-				<h2><%t Candidature.Text 'Bewerbungstext' %></h2>
-				<i>$Content</i>
+			<% if $Content %>
+			<hr>
+			<div class="uk-margin">
+				<div class="uk-card uk-card-body">
+					<h2><%t Candidature.Text 'Bewerbungstext' %></h2>
+					<i>$Content</i>
+				</div>
 			</div>
-		</div>
-		<% end_if %>
-		<hr>
-		<% if CV.exists %>
-		<div class="uk-margin">
-			<div class="uk-card uk-card-body">
-				<h2><%t Candidature.CVTitle 'Lebenslauf' %></h2>
-				<p><%t Candidature.ShowCV 'Konsultieren Sie das Lebenslauf' %></p>
-				<a href="$CV.URL" target="_blank" class="uk-button uk-background-muted"><i class="icon icon-file-pdf-o uk-margin-small-right"></i>$CV.Name</a>
+			<% end_if %>
+			<hr>
+			<% if CV.exists %>
+			<div class="uk-margin">
+				<div class="uk-card uk-card-body">
+					<h2><%t Candidature.CVTitle 'Lebenslauf' %></h2>
+					<p><%t Candidature.ShowCV 'Konsultieren Sie das Lebenslauf' %></p>
+					<a href="$CV.URL" target="_blank" class="uk-button uk-background-muted"><i class="icon icon-file-pdf-o uk-margin-small-right"></i>$CV.Name</a>
+				</div>
 			</div>
-		</div>
-		<% else %>
-		<div class="uk-margin">
-			<div class="uk-card uk-card-body">
-				<h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2>
-				<% loop $Candidat.CVItems %>
-					<div data-uk-grid>
-						<div class="uk-width-1-3 uk-width-1-4@m uk-width-1-5@l">
-							<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
-							<p>$Company</p>
+			<% else %>
+			<div class="uk-margin">
+				<div class="uk-card uk-card-body">
+					<h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2>
+					<% loop $Candidat.CVItems %>
+						<div data-uk-grid>
+							<div class="uk-width-1-3 uk-width-1-4@m uk-width-1-5@l">
+								<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
+								<p>$Company</p>
+							</div>
+							<div class="uk-width-2-3 uk-width-3-4@m uk-width-4-5@l">
+								<strong>$Position</strong>
+								$Description
+							</div>
 						</div>
-						<div class="uk-width-2-3 uk-width-3-4@m uk-width-4-5@l">
-							<strong>$Position</strong>
-							$Description
-						</div>
-					</div>
-				<% end_loop %>
+					<% end_loop %>
+				</div>
 			</div>
-		</div>
-		<hr>
-		<div class="uk-margin">
-			<div class="uk-card uk-card-body">
-				<h2><%t Candidature.FormationTitle 'Ausbildungen' %></h2>
-				<% loop $Candidat.CursusItems %>
-					<div data-uk-grid>
-						<div class="uk-width-1-3 uk-width-1-4@m uk-width-1-5@l">
-							<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
+			<hr>
+			<div class="uk-margin">
+				<div class="uk-card uk-card-body">
+					<h2><%t Candidature.FormationTitle 'Ausbildungen' %></h2>
+					<% loop $Candidat.CursusItems %>
+						<div data-uk-grid>
+							<div class="uk-width-1-3 uk-width-1-4@m uk-width-1-5@l">
+								<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
+							</div>
+							<div class="uk-width-2-3 uk-width-3-4@m uk-width-4-5@l">
+								<strong>$Diplom</strong>
+								<p>$School</p>
+							</div>
 						</div>
-						<div class="uk-width-2-3 uk-width-3-4@m uk-width-4-5@l">
-							<strong>$Diplom</strong>
-							<p>$School</p>
-						</div>
-					</div>
-				<% end_loop %>
+					<% end_loop %>
+				</div>
 			</div>
+			<% end_if %>
+			<hr>
 		</div>
-		<% end_if %>
-		<hr>
 		<div class="uk-margin">
 			<div class="uk-flex uk-flex-center uk-flex-around">
 				<% if Status == "declined" %>
