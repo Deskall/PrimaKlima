@@ -70,10 +70,10 @@
 		        
 		        <h3 class="uk-card-title">$Title</h3>
 		        <div class="product-body">
-		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right"><%t Package.RunTime 'Laufzeit' %></span>$RunTimeTitle</div>
-		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right"><%t Package.OfferQuota 'Anzahl Stelleninserate' %></span>$NumOfAdsTitle</div>
+		        	<div class="uk-margin">$RunTimeTitle</div>
+		        	<div class="uk-margin">$NumOfAdsTitle</div>
 		        	<% loop $Features %>
-		        	<div class="uk-margin"><span class="uk-hidden@m uk-margin-small-right">$title</span>$Title</div>
+		        	<div class="uk-margin">$Title</div>
 		        	<% end_loop %> 
 		        	<% if PackegeOptions %>
 			        	<table class="uk-flex uk-flex-center"><% loop PackegeOptions %>
