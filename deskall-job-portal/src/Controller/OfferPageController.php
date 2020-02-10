@@ -188,6 +188,7 @@ class OfferPageController extends PageController{
 				if ($Candidature->canView()){
 					return ['Title' => 'Bewerbung für die Stellenangebot '.$Candidature->Mission()->Nummer, 'Candidature' => $Candidature];
 				}
+				return $this->httpError(403);
 			}
 		}
 		return $this->httpError(404);
@@ -254,7 +255,7 @@ class OfferPageController extends PageController{
 				$cd->write();
 				$cd->createPDF();
 				$cd->sendCandidature();
-				
+
 				return ['Title' => 'Bewerbung gesendet', 'Content' =>  DBHTMLText::create()->setValue($config->parseString($config->CandidatureSentText))];
 			} catch (ValidationException $e) {
 				$validationMessages = '';
