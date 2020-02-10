@@ -360,7 +360,7 @@ class MemberProfilePageController extends PageController{
 			return $this->redirectBack();
 		}
 		$form->sessionMessage(
-			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Inserate wurde gespeichert.'),
+			_t('MemberProfiles.INSERATEUPDATED', 'Ihre Inserate wurde gespeichert.'),
 			'good'
 		);
 		$this->getRequest()->getSession()->set('active_tab','offers');
