@@ -461,6 +461,16 @@ class Mission extends DataObject
         }
     }
 
+    public function canUnpublish($member = null){
+        
+            $member = Security::getCurrentUser();
+            if ($this->Customer()->MemberID == $member->ID){
+                return true;
+            }
+            return parent::canEdit($member);
+        
+    }
+
     public function publish(){
         if ($this->canPublish()){
             $this->isActive = true;
@@ -469,6 +479,18 @@ class Mission extends DataObject
             //update order
             $order = $this->Customer()->activeOrder();
             $order->RemainingOffers = $order->RemainingOffers - 1;
+            $order->write();
+        }
+    }
+
+    public function unpublish(){
+        if ($this->canUnpublish()){
+            $this->isActive = false;
+            $this->PublishedDate = null;
+            $this->write();
+            //update order
+            $order = $this->Customer()->activeOrder();
+            $order->RemainingOffers = $order->RemainingOffers + 1;
             $order->write();
         }
     }

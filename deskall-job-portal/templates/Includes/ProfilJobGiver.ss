@@ -89,7 +89,7 @@
 													<thead></th><th><%t MemberPage.OffersTableTH2 'Titel' %></th><th><%t MemberPage.OffersTableTH3 'Anzahl Bewerbungen' %></th><th><%t MemberPage.OffersTableTH1 'Status' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
 													<tbody>
 													<% loop CurrentCustomer.Missions %>
-													<tr><td class="uk-table-expand">$Title</td><td>$Candidatures.count</td><td>$NiceStatus</td><td><a href="$previewLink"><i class="icon icon-eye"></i></a></td><td><% if canEdit %><a href="{$Top.Link}inserat-bearbeiten/{$ID}"><i class="icon icon-edit"></i></a><% end_if %></td><td><% if canDelete %><a data-uk-toggle="target: #modal-delete-offer-{$ID}"><i class="icon icon-trash-a"></i></a><% end_if %></td><td><% if canPublish %><a data-uk-toggle="target: #modal-publish-offer-{$ID}"><i class="icon icon-ios-paperplane"></i></a><% end_if %></td></tr>
+													<tr><td class="uk-table-expand">$Title</td><td>$Candidatures.count</td><td>$NiceStatus</td><td><a href="$previewLink"><i class="icon icon-eye"></i></a></td><td><% if canEdit %><a href="{$Top.Link}inserat-bearbeiten/{$ID}"><i class="icon icon-edit"></i></a><% end_if %></td><td><% if canDelete %><a data-uk-toggle="target: #modal-delete-offer-{$ID}"><i class="icon icon-trash-a"></i></a><% end_if %></td><td><% if canPublish %><a data-uk-toggle="target: #modal-publish-offer-{$ID}"><i class="icon icon-ios-cloud-upload-outline"></i></a><% end_if %><% if canUnpublish %><a data-uk-toggle="target: #modal-unpublish-offer-{$ID}"><i class="icon icon-ios-cloud-download-outline"></i></a><% end_if %></td></tr>
 													<div id="modal-delete-offer-{$ID}" data-uk-modal>
 													    <div class="uk-modal-dialog">
 													        <button class="uk-modal-close-default" type="button" data-uk-close></button>
@@ -111,7 +111,20 @@
 													        	<p><%t MemberPage.PublishOfferModalBody 'Sie können dieses Angebot nach seiner Veröffentlichung nicht mehr ändern.' %></p>
 														        <div class="uk-text-right">
 														        	<button class="uk-button uk-button-secondary uk-modal-close" type="button"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></button>
-														        	<a href="{$Top.Link}inserat-veroeffentlichen/{$ID}" class="uk-button uk-button-primary"><i class="icon icon-ios-paperplane uk-margin-small-right"></i><%t MemberPage.PublishOffer 'Ja, veröffentlichen' %></a>
+														        	<a href="{$Top.Link}inserat-veroeffentlichen/{$ID}" class="uk-button uk-button-primary"><i class="icon icon-ios-cloud-upload-outline uk-margin-small-right"></i><%t MemberPage.PublishOffer 'Ja, veröffentlichen' %></a>
+														        </div>
+														    </div>
+													    </div>
+													</div>
+													<div id="modal-unpublish-offer-{$ID}" data-uk-modal>
+													    <div class="uk-modal-dialog">
+													        <button class="uk-modal-close-default" type="button" data-uk-close></button>
+													        <div class="uk-modal-body">
+													        	<strong class="uk-modal-title"><%t MemberPage.UnPublishOfferModalTitle 'Möchten Sie dieses Angebot wirklich parkieren?' %></strong>
+													        	<p><%t MemberPage.UnPublishOfferModalBody 'Dieses Angebot wird nicht mehr sichtbar sein.' %></p>
+														        <div class="uk-text-right">
+														        	<button class="uk-button uk-button-secondary uk-modal-close" type="button"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></button>
+														        	<a href="{$Top.Link}inserat-parkieren/{$ID}" class="uk-button uk-button-primary"><i class="icon icon-ios-cloud-download-outline uk-margin-small-right"></i><%t MemberPage.UnPublishOffer 'Ja, parkieren' %></a>
 														        </div>
 														    </div>
 													    </div>

@@ -44,7 +44,7 @@ use SilverStripe\Security\DefaultAdminService;
 
 class MemberProfilePageController extends PageController{
 
-	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer', 'CandidatProfilForm','CandidatAccountForm', 'DeleteCandidature'];
+	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer','UnpublishJobOffer', 'CandidatProfilForm','CandidatAccountForm', 'DeleteCandidature'];
 
 	private static $url_handlers = [
 		'delete-object/$ID/$OBJECT' => 'DeleteObject',
@@ -56,6 +56,7 @@ class MemberProfilePageController extends PageController{
 		'inserat-bearbeiten/$ID' => 'EditJobOffer',
 		'inserat-loeschen/$ID' => 'DeleteJobOffer',
 		'inserat-veroeffentlichen/$ID' => 'PublishJobOffer',
+		'inserat-parkieren/$ID' => 'UnpublishJobOffer',
 		'bewerbung-loeschen/$ID' => 'DeleteCandidature',
 	];
 
@@ -284,6 +285,19 @@ class MemberProfilePageController extends PageController{
 				$offer->publish();
 				$this->getRequest()->getSession()->set('active_tab','offers');
 				$this->getRequest()->getSession()->set('account_message',_t('MemberProfiles.OfferPublished', 'Ihr Angebot wurde veröffentlicht.'));
+			}
+		}
+		return $this->redirectBack();
+	}
+
+	public function PublishJobOffer(HTTPRequest $request){
+		$id = $request->param('ID');
+		if ($id){
+			$offer = Mission::get()->byId($id);
+			if ($offer){
+				$offer->unpublish();
+				$this->getRequest()->getSession()->set('active_tab','offers');
+				$this->getRequest()->getSession()->set('account_message',_t('MemberProfiles.OfferUnPublished', 'Ihr Angebot wurde parkiert.'));
 			}
 		}
 		return $this->redirectBack();
