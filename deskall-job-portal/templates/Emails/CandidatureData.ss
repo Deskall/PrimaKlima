@@ -1,6 +1,6 @@
 
 <br/>
-<strong>Angebot:</strong>
+<strong><%t Mission.Mission 'Angebot:' %></strong>
 <table>
 	<tr><td><%t Mission.Number 'Angebot-Nr.' %></td><td>$Mission.Nummer</td></tr>
 	<tr><td><%t Mission.Title 'Title' %></td><td>$Mission.Title</td></tr>
@@ -8,9 +8,8 @@
 </table>
 <br/>
 
-<strong>Bewerbung:</strong>
-<table>
-	<tr><td><%t Candidat.Title 'Bewerber' %></td><td>$Candidat.Member.FirstName $Candidat.Member.Surame</td></tr>
-	<tr><td><%t Candidat.Text 'Bewerbungstext' %></td><td>$Content</td></tr>
-</table>
-<br/>
+<strong><%t Mission.Candidature 'Bewerbung:' %></strong>
+<p><%t Candidat.Title 'Bewerber' %>: $Candidat.Member.FirstName $Candidat.Member.Surame</p>
+	
+<strong><%t Mission.CandidatureText 'Bewerbungstext:' %></strong>
+<p><%t Candidat.Title 'Bewerber' %>: $Candidat.Member.FirstName $Candidat.Member.Surame</p>

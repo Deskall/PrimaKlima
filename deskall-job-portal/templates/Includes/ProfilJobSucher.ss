@@ -38,7 +38,7 @@
 												<p><i><%t JobSucher.noCandidatures 'Sie haben momentan keine Bewerbung' %></i></p>
 											<% end_if %>
 											<div class="uk-margin">
-												<a href="$OfferPage.Link" class="uk-button button-PrimaryBackground"><%t JobSucher.toSearch 'Zum Job Suche' %></a>
+												<a href="$OfferPage.Link" class="uk-button button-PrimaryBackground"><%t JobSucher.toSearch 'Zur Jobsuche' %></a>
 											</div>
 										</div>
 									</div>
