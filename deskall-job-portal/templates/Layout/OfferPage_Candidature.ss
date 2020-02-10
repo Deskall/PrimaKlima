@@ -85,6 +85,7 @@
 				<p><%t Candidature.WasDeclined 'Diese Bewerbung wurde abgelehnt' %></p>
 				<% else %>
 				<a href="mailto:{$Candidat.Email}?subject=<%t Candidature.ContactMailTilte 'Ihre Bewerbung für die Stellenangebot' %> {$Mission.Nummer}  - $Top.SiteConfig.Title" class="uk-button button-PrimaryBackground"><i class="icon icon-ios-paperplane uk-margin-small-right"></i><%t Candidature.Answer 'Kontakt aufnehmen' %></a>
+				<a href="$File" class="uk-button button-PrimaryBackground"><i class="icon icon-print uk-margin-small-right"></i><%t Candidature.Print 'Bewerbung als PDF anzeigen' %></a>
 				<% if canDecline %><a data-uk-toggle="#decline-modal" class="uk-button uk-button-default"><i class="icon icon-ios-close-outline uk-margin-small-right"></i><%t Candidature.Decline 'Bewerbung ablehnen' %></a><% end_if %>
 				<% end_if %>
 			</div>
