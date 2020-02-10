@@ -61,7 +61,7 @@ class CandidatureEmail extends Email
      */
     public function getParsedString($string)
     {
-        $candidature = $this->candidature();
+        $candidature = $this->getCandidature();
         $config = $this->getConfig();
 
         /**
