@@ -300,7 +300,7 @@ class ShopOrder extends DataObject{
 	    $config = $this->getSiteConfig();
 	    $body = $config->BillEmailBody;
 
-	    $email = new ShopOrderEmail($config,$this,$config->Email,$this->Email,$config->BillEmailSubject,  $body);
+	    $email = new ShopOrderEmail($config,$this,$config->Email,$this->Email,$config->BillEmailSubject,$body);
 	    $email->setBCC($config->Email);
 
 	    //Attchments
@@ -310,6 +310,7 @@ class ShopOrder extends DataObject{
 	    $email->send();
 
 	}
+
 
 	public function sendConfirmationEmail(){
 	   
