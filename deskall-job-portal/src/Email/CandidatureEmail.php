@@ -80,8 +80,8 @@ class CandidatureEmail extends Email
             ),
             '$Candidature.Data' => $candidature->renderWith('Emails/CandidatureData'),
             '$CandidatProfilLink' => $candidature->Link(),
-            '$Customer.Title' => $candidature->Mission()->$Customer()->getTitle(),
-            '$Candidat.Title' => $candidature->$Candidat()->getTitle()
+            '$Customer.Title' => $candidature->Mission()->Customer()->getTitle(),
+            '$Candidat.Title' => $candidature->Candidat()->getTitle()
         );
         
         foreach (array('Content' , 'ContentRefusal' , 'Status') as $field) {
