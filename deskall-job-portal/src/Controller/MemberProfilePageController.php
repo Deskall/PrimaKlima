@@ -290,7 +290,7 @@ class MemberProfilePageController extends PageController{
 		return $this->redirectBack();
 	}
 
-	public function PublishJobOffer(HTTPRequest $request){
+	public function UnpublishJobOffer(HTTPRequest $request){
 		$id = $request->param('ID');
 		if ($id){
 			$offer = Mission::get()->byId($id);
