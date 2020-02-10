@@ -11,7 +11,6 @@
 	.container,table.footer-wrap{clear:both!important}
 	*{margin:0;font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;color: #666;}
 	img{max-width:100%}
-	.logo{text-align: center;}
 	.logo img{max-width: 250px;height:auto;}
 	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%}
 	.content table,table.body-wrap,table.footer-wrap,table.head-wrap{width:100%}
@@ -34,7 +33,7 @@
 	a.gp{background-color:#DB4A39!important}
 	a.ms{background-color:#000!important}
 	.sidebar .soc-btn{display:block;width:100%}
-	.header.container table td.logo{padding:15px;text-align:right;}
+	.header.container table td.logo{padding:15px;text-align:center;}
 	.header.container table td.logo img{max-height:50px;width:auto;}
 	.header.container table td.label{padding:15px 15px 15px 0}
 	.footer-wrap .container td.content p{border-top:1px solid #d7d7d7;padding-top:15px;font-size:10px;font-weight:700}
@@ -88,11 +87,11 @@
 
 <body style="background-color:#EEEEEE" bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 	<!-- HEADER -->
-	<table style="background-color:#E6D091" class="head-wrap">
+	<table class="head-wrap">
 		<tbody>
 			<tr>
 				<td><br /></td>
-				<td class="header container" align=""><!-- /content -->
+				<td class="header container" style="background-color:#E6D091" align=""><!-- /content -->
 					<div class="content">
 						<table>
 							<tbody>
