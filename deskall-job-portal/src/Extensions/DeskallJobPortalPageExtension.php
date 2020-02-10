@@ -16,7 +16,7 @@ class DeskallJobPortalPageExtension extends DataExtension
 
     public function CurrentCustomer(){
         if (Security::getCurrentUser()){
-            return Customer::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+            return JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
         }
         return null;
     }
