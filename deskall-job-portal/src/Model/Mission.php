@@ -109,6 +109,7 @@ class Mission extends DataObject
 
 
     private static $summary_fields = [
+        'Nummer' => ['title' => 'Nr.'],
         'NiceStatus' => ['title' => 'Status'],
         'Title',
         'Customer.NiceAddress' => ['title' => 'Kunde']
