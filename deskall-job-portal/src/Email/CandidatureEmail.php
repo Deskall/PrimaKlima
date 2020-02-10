@@ -86,10 +86,10 @@ class CandidatureEmail extends Email
             $variables["\$Candidature.$field"] = $candidature->$field;
         }
         foreach (array('Title') as $method) {
-            $variables["\$Customer.$field"] = $candidature->Mission()->$Customer()->{$method}();
+            $variables["\$Customer.$method"] = $candidature->Mission()->$Customer()->{$method}();
         }
         foreach (array('Title') as $method) {
-            $variables["\$Candidat.$field"] = $candidature->$Candidat()->{$method}();
+            $variables["\$Candidat.$method"] = $candidature->$Candidat()->{$method}();
         }
         foreach (array('Title','Nummer') as $field) {
             $variables["\$Mission.$field"] = $candidature->$Mission()->$field;
