@@ -462,7 +462,9 @@ class Mission extends DataObject
     }
 
     public function canUnpublish($member = null){
-        
+          if ($this->isClosed || !$this->isActive){
+            return false;
+          }
             $member = Security::getCurrentUser();
             if ($this->Customer()->MemberID == $member->ID){
                 return true;
