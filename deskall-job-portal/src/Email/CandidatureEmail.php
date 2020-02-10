@@ -79,18 +79,15 @@ class CandidatureEmail extends Email
                 $loginPage->Link()
             ),
             '$Candidature.Data' => $candidature->renderWith('Emails/CandidatureData'),
-            '$CandidatProfilLink' => $candidature->Link()
+            '$CandidatProfilLink' => $candidature->Link(),
+            '$Customer.Title' => $candidature->Mission()->$Customer()->getTitle(),
+            '$Candidat.Title' => $candidature->$Candidat()->getTitle()
         );
         
         foreach (array('Content' , 'ContentRefusal' , 'Status') as $field) {
             $variables["\$Candidature.$field"] = $candidature->$field;
         }
-        foreach (array('Title') as $method) {
-            $variables["\$Customer.$method"] = $candidature->Mission()->$Customer()->{$method}();
-        }
-        foreach (array('Title') as $method) {
-            $variables["\$Candidat.$method"] = $candidature->$Candidat()->{$method}();
-        }
+      
         foreach (array('Title','Nummer') as $field) {
             $variables["\$Mission.$field"] = $candidature->$Mission()->$field;
         }
