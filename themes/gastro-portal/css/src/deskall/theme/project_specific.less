@@ -333,14 +333,17 @@ label.error{
 
 			tr{
 				cursor: initial;
-
+				display: block;
 				&.even{
-					background-color: #efefef;
+					background-color: #FFEDBA;
+				}
+				@media only screen and (min-width:@breakpoint-medium){
+					display: table;
 				}
 			}
 
 			tr:hover{
-				background-color: #e1e1e1;
+				background-color: #FFEDBA;
 
 				td{
 					&.col-buttons{
