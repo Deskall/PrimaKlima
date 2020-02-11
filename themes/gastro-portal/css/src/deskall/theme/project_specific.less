@@ -471,10 +471,16 @@ label.error{
 
 		table{
 			.uk-table;
-			.uk-table-responsive;
 
 			.ss-gridfield-inline-new{
 				background: none  !important;
+			}
+
+			tr{
+				display: block;
+				@media only screen and (min-width:@breakpoint-medium){
+					display: table;
+				}
 			}
 
 			th{
