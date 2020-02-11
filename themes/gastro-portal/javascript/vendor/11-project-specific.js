@@ -197,10 +197,6 @@
 			UIkit.toggle(img).toggle();
 		});
 		$(document).on("click","[data-delete-row]",function(e){
-		$(this).parents('tr').remove();
-	});
-		var switcher = UIkit.switcher('#login-tab-switcher');
-		$(document).on("click","[data-toggle-login-switcher]",function(){
-			switcher.show($(this).attr('data-toggle-login-switcher'));
+			$(this).parents('tr').remove();
 		});
 });
