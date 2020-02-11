@@ -199,4 +199,8 @@
 		$(document).on("click","[data-delete-row]",function(e){
 		$(this).parents('tr').remove();
 	});
+
+		$(document).on("click","[data-toggle-login-sitcher]",function(){
+			UIkit.switcher('#login-tab-switcher').show($(this).attr('data-toggle-login-sitcher'));
+		});
 });
