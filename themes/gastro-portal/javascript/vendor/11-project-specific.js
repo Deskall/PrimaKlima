@@ -201,7 +201,7 @@
 	});
 
 		$(document).on("click","[data-toggle-login-switcher]",function(){
-			var index = parseINT($(this).attr('data-toggle-login-switcher')) + 1;
+			var index = parseInt($(this).attr('data-toggle-login-switcher')) + 1;
 			$("#login-tab-switcher li:nth-child("+index+")").find('a').trigger('click');
 			// UIkit.switcher('#login-tab-switcher').show($(this).attr('data-toggle-login-switcher'));
 		});
