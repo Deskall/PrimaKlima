@@ -29,7 +29,7 @@
 										<h2><%t JobSucher.AdsTitle 'Ihre Bewerbungen' %></h2>
 										<div class="member-section-container">
 											<% if $CurrentCandidat.Candidatures.exists %>
-											<table class="uk-table uk-table-small uk-table-divider">
+											<table class="uk-table uk-table-small uk-table-divider uk-table-responsive">
 												<% loop $CurrentCandidat.Candidatures %>
 												<tr><td>$Mission.Title</td><td>$Mission.Company</td><td>$Mission.City</td><td>$Created.Ago</td><td>$NiceStatus</td><td>$CV</td><td><a href="$Mission.previewLink" title="zur Stellenangebote" data-uk-tooltip><i class="icon icon-eye"></i></a></td></tr>
 												<% end_loop %>
