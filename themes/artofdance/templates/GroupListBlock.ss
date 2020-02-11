@@ -7,7 +7,7 @@
 		        	    <div class="list-item uk-margin-top">
 		        	        	<div class="uk-grid-small uk-flex uk-flex-middle <% if Layout == "right" %>uk-flex-row-reverse<% end_if %>" data-uk-grid >
 		        		        	    <% if ContentImage %>
-		        		        	    <div class="uk-width-1-2 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l">
+		        		        	    <div class="uk-width-1-1 uk-width-1-3@s uk-width-1-4@m uk-width-1-5@l">
 		        		        	    	<% if ContentImage.getExtension == "svg" %>
 		        		        				<img src="$ContentImage.URL" alt="$Up.AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$Up.TitleTag($ContentImage.Name,$Title)" class="svg-list-item">
 		        		        			<% else %>
