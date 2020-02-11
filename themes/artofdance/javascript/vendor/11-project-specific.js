@@ -59,7 +59,6 @@
 			    }
 
 			});
-
 			$(".dk-cancel-picture").on("click",function(){
 				$(".js-upload").find('img.photo').remove();
 				$(".js-upload").find('.form-field').show();
