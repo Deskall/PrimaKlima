@@ -200,7 +200,7 @@
 		$(this).parents('tr').remove();
 	});
 
-		$(document).on("click","[data-toggle-login-sitcher]",function(){
-			UIkit.switcher('#login-tab-switcher').show($(this).attr('data-toggle-login-sitcher'));
+		$(document).on("click","[data-toggle-login-switcher]",function(){
+			UIkit.switcher('#login-tab-switcher').show($(this).attr('data-toggle-login-switcher'));
 		});
 });
