@@ -4,7 +4,7 @@
 			<li><a><%t Checkout.Register 'Sie besitzen noch kein Konto? Weiter zur<div class="uk-h1">Neu-Registrierung</div>' %></a></li>
 		</ul>
 		<ul class="member-tab uk-child-width-expand uk-hidden@m" data-uk-tab>
-			<li class="uk-text-left"><a><%t Checkout.LoginShort 'Login' %></a></li>
+			<li class="uk-text-left uk-active"><a><%t Checkout.LoginShort 'Login' %></a></li>
 			<li><a><%t Checkout.RegisterShort 'Neu-Registrierung' %></a></li>
 		</ul>
 		<ul id="login-tab-switcher" class="uk-switcher">
