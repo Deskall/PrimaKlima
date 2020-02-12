@@ -71,10 +71,10 @@ class Coupon extends DataObject {
 	public function DiscountPrice($originalPrice){
 		$originalPrice = floatval($originalPrice);
 		if ($this->AmountType == "relative"){
-			$price = number_format ( $originalPrice - ($originalPrice*($this->Amount)/100), 2);
+			$price = $originalPrice - ($originalPrice*($this->Amount)/100);
 		}
 		if ($this->AmountType == "absolute"){
-			$price = number_format ( $originalPrice - $this->Amount, 2);
+			$price = $originalPrice - $this->Amount;
 		}
 		
 		return $price;
