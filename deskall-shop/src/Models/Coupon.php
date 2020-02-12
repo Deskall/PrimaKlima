@@ -69,13 +69,18 @@ class Coupon extends DataObject {
 	}
 
 	public function DiscountPrice($originalPrice){
+		$originalPrice = floatval($originalPrice);
 		if ($this->AmountType == "relative"){
-			return number_format ( $originalPrice - ($originalPrice*$this->Amount/100), 2);
+			$price = number_format ( $originalPrice - ($originalPrice*($this->Amount)/100), 2);
 		}
 		if ($this->AmountType == "absolute"){
-			return number_format ( $originalPrice - $this->Amount, 2);
+			$price = number_format ( $originalPrice - $this->Amount, 2);
 		}
-		return null;
+		ob_start();
+					print_r($price);
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+		return $price;
 	}
 
 	public function isValid(){
