@@ -24,7 +24,9 @@ $(document).ready(function(){
 			UIkit.tab(switcher).show(index+1);
 		}
 	});
-	var price;
+	
+	var price,
+	voucherID;
 
 	//Package Selection
 	$(document).on("click","[data-package-choice]",function(){
@@ -88,7 +90,7 @@ $(document).ready(function(){
 	          	dataType: 'Json'
 	        }).done(function(response){
 	        	if (response.status == "OK"){
-	        		window.location.href = "/shop/bestellung-bestaetigt/";
+	        		window.location.href = "/danke-fuer-ihre-bestellung";
 	        	}
 	        	else{
 	        		 UIkit.modal.alert('Ein Fehler ist aufgetreten');
