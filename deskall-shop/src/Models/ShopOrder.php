@@ -200,13 +200,15 @@ class ShopOrder extends DataObject{
 
 
 	public function getOrderPriceNetto(){
-	    $price = $this->Price * 100 / 107.7;
+	    // $price = $this->Price * 100 / 107.7;
+	    $price = $this->Price;
 	    setlocale(LC_MONETARY, 'de_DE');
 	    return DBField::create_field('Varchar',money_format('%i',$price));
 	}
 
 	public function getOrderMwSt(){
-	    $price = $this->Price - ($this->Price * 100 / 107.7);
+	    // $price = $this->Price - ($this->Price * 100 / 107.7);
+	    $price = 0;
 	    setlocale(LC_MONETARY, 'de_DE');
 	    return DBField::create_field('Varchar',money_format('%i',$price));
 	}
