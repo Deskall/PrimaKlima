@@ -310,7 +310,7 @@ class ShopPageController extends PageController{
 						$order->Name = ucfirst(strtolower($response->result->payer->name->surname));
 						$order->Vorname = ucfirst(strtolower($response->result->payer->name->given_name));
 						$order->Email = $response->result->payer->email_address;
-						$order->Price = $response->result->purchase_units[0]->amount->value;
+						$order->Price = $package->currentPrice();
 						$address = $response->result->purchase_units[0]->shipping->address;
 						$order->PostalCode = $address->postal_code;
 						$order->Address = $address->address_line_1;
@@ -330,9 +330,9 @@ class ShopPageController extends PageController{
 							//Write order
 							$order->write();
 							//Create Receipt
-							$order->generatePDF();
+							$order->generateQuittungPDF();
 							//Send Confirmation Email (BCC to admin)
-							$order->sendEmail();
+							$order->sendConfirmationEmail();
 							
 							$this->getRequest()->getSession()->set('orderID',$order->ID);
 
