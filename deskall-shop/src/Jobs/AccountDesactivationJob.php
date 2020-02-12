@@ -129,8 +129,7 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
 
         // we need to always increment! This is important, because if we don't then our container
         // that executes around us thinks that the job has died, and will stop it running.
-        $this->currentStep++;
-        $start = $this->Date;
+       
         $process = $this->currentProcess;
         $process1 = $this->currentStepProcess1;
         $process2 = $this->currentStepProcess2;
@@ -190,5 +189,6 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
 
             return;
         }
+         $this->currentStep++;
     }
 }
