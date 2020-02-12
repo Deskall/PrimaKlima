@@ -35,7 +35,7 @@
 												<h4><%t MemberPage.MoreTitle 'Inserate verfügbar' %></h4>
 												<p><%t MemberPage.OffersAvailable 'Ihr Abonnement ist aktiv, Sie durfen Inserate jetzt freischalten!' %></p>
 												<table class="uk-table uk-table-small uk-table-justify">
-													<thead></th><th><%t MemberPage.OrdersTableTH2 'Paket' %></th><th><%t MemberPage.OrdersTableTH2 'Gültig bis' %></th><th><%t MemberPage.OrdersTableTH3 'Verbleibende Anzeige' %></th></thead>
+													<thead></th><th><%t MemberPage.OrdersTableTH1 'Paket' %></th><th><%t MemberPage.OrdersTableTH4 'Gültig bis' %></th><th><%t MemberPage.OrdersTableTH5 'Verbleibende Anzeige' %></th></thead>
 													<tbody>
 													<% with CurrentCustomer.activeOrder %>
 													<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td>$EndValidity.Nice</td><td><% if $Product.NumOfAds > 0 %>$RemainingOffers<% else %>$Product.NumOfAdsTitle<% end_if %></td></tr>
@@ -56,10 +56,10 @@
 											<div class="uk-margin uk-overflow-auto">
 												<h4><%t MemberPage.OrdersTitle 'Meine Bestellungen' %></h4>
 												<table class="uk-table uk-table-small uk-table-justify">
-													<thead></th><th><%t MemberPage.OrdersTableTH2 'Paket' %></th><th><%t MemberPage.OrdersTableTH2 'Laufzeit' %></th><th><%t MemberPage.OrdersTableTH3 'Anzahl Anzeige' %></th><th><%t MemberPage.OrdersTableTH1 'Zeitraums' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
+													<thead><th><%t MemberPage.OrdersTableTH1 'Paket' %></th><th><%t MemberPage.OrdersTableTH2 'Laufzeit' %></th><th><%t MemberPage.OrdersTableTH3 'Anzahl Anzeige' %></th><th><%t MemberPage.OrdersTableTH4 'Gültig bis' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
 													<tbody>
 													<% loop CurrentCustomer.Orders %>
-													<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td><% if Option %>$Option.Title<% else %>$Product.RunTimeTitle<% end_if %></td><td>$Product.NumOfAdsTitle</td><td>$Period</td><td><% if isPaid %>bezahlt<% else %>nicht bezahlt<% end_if %></td><td>$Status</td><td>$Documents</td></tr>
+													<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td><% if Option %>$Option.Title<% else %>$Product.RunTimeTitle<% end_if %></td><td>$Product.NumOfAdsTitle</td><td>$EndValidity.Nice</td><td><% if isPaid %>bezahlt<% else %>nicht bezahlt<% end_if %></td><td>$Status</td><td>$Documents</td></tr>
 													<% end_loop %>
 													</tbody>
 												</table>
