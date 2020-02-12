@@ -143,7 +143,7 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
                 
                 foreach ($orders1 as $order) {
                     $order->deactivate();
-                    $email = ShopOrderEmail::create($this->getConfig(),$order,$this->getConfig()->Email,$order->Email,$this->getConfig()->DesactivationEmailSubject,$this->getConfig()->DesactivationEmailBody)
+                    $email = ShopOrderEmail::create($this->getConfig(),$order,$this->getConfig()->Email,$order->Email,$this->getConfig()->DesactivationEmailSubject,$this->getConfig()->DesactivationEmailBody);
                     $email->send();
                     $this->Step1 = $orders1->exclude('ID',$order->ID);
                     $this->currentStepProcess1++;
