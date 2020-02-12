@@ -83,14 +83,6 @@
 						<% end_with %>
 					</div>
 				</div>
-				<div id="card-form-container" class="uk-margin" hidden>
-					<div class="uk-panel uk-background-muted uk-padding-small">
-						<h4><%t Checkout.OnlinePayment 'Online bezahlen' %></h4>
-						$SiteConfig.OnlinePayLabel
-						<div id="paypal-button-container" class="uk-width-medium uk-flex-center">
-						</div>
-					</div>
-				</div>
 				<div class="uk-flex uk-flex-between">
 					<a class="uk-button uk-button-muted" data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
@@ -118,7 +110,14 @@
 						<% with Fields.FieldByName('SummaryFields') %>
 						$FieldHolder
 						<% end_with %>
-						<div id="paypal-button-container"></div>
+						<div id="card-form-container" class="uk-margin" hidden>
+							<div class="uk-panel uk-background-muted uk-padding-small">
+								<h4><%t Checkout.OnlinePayment 'Online bezahlen' %></h4>
+								$SiteConfig.OnlinePayLabel
+								<div id="paypal-button-container" class="uk-width-medium uk-flex-center">
+								</div>
+							</div>
+						</div>
 					</div>
 				
 				<div class="uk-margin uk-flex uk-flex-between">
