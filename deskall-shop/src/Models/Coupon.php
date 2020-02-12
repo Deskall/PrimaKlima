@@ -68,4 +68,19 @@ class Coupon extends DataObject {
 	    return $randomString;
 	}
 
+	public function DiscountPrice($originalPrice){
+		if ($this->AmountType == "relative"){
+			return number_format ( $originalPrice - ($originalPrice*$voucher->Amount/100), 2);
+		}
+		if ($this->AmountType == "absolute"){
+			return number_format ( $originalPrice - $voucher->Amount), 2);
+		}
+		return null;
+	}
+
+	public function isValid(){
+		return $this->Count > 0;
+	}
+
+	
 }

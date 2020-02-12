@@ -31,7 +31,7 @@ use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ShopPageController extends PageController{
-	private static $allowed_actions = ['CreateTransaction','TransactionCompleted','CheckoutForm'];
+	private static $allowed_actions = ['CreateTransaction','TransactionCompleted','CheckoutForm', 'VoucherForm'];
 
 	private static $url_handlers = [
 		'transaktion-erstellen' => 'CreateTransaction',
@@ -346,16 +346,17 @@ class ShopPageController extends PageController{
 
 
 	public function VoucherForm(HTTPRequest $request){
-		if ($request->postVar('voucher') && $request->postVar('event')){
-			$voucher = Voucher::get()->filter('Token',$request->postVar('voucher'))->first();
-			$event = EventDate::get()->byId($request->postVar('event'));
-			if ($voucher && $event){
+		if ($request->postVar('code') && $request->postVar('package')){
+			$voucher = Coupon::get()->filter('Code',$request->postVar('code'))->first();
+			$package = Package::get()->byId($request->postVar('package'));
+			if ($voucher && $package){
 				if ($voucher->isValid()){
-					$originalPrice = $event->Price;
-					$discountPrice = number_format ( $event->Price - ($event->Price*$voucher->Percent/100), 2);
+					$originalPrice = $package->currentPrice();
+					$discountPrice = $voucher->DiscountPrice($originalPrice);
+
 					return json_encode([
 						'status' => 'OK', 
-						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->Percent.'% gewährt.</p>', 
+						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->NiceAmount().' gewährt.</p>', 
 						'price' => $discountPrice,
 						'voucherID' => $voucher->ID
 					]);
@@ -368,6 +369,6 @@ class ShopPageController extends PageController{
 				}
 			}
 		}
-		return json_encode(['status' => 'Not found']);
+		return json_encode(['status' => 'Not OK']);
 	}
 }

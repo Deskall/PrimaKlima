@@ -61,6 +61,16 @@ $(document).ready(function(){
 		$("#Form_CheckoutForm_PaymentType").val($("input[name='paymentmethod']:checked").val());
 	});
 
+	//Voucher
+	$(document).on("click","[data-check-voucher]",function(){
+		$.post({
+			url: window.location.pathname+'/VoucherForm',
+			data:{code: $("input[name='voucher']").val()}
+		}).done(function(response){
+			console.log('ici');
+		});
+	});
+
 	function getPrice(){
 		return price;
 	}
