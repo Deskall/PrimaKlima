@@ -15,7 +15,9 @@ class Coupon extends DataObject {
 		'Count'  => 'Int',
 		'Used' => 'Int'
 	);
-
+	
+	private static $singular_name = 'Gutschein';
+	private static $plural_name = 'Gutscheine';
 
 	private static $summary_fields = array(
 		'Code' => 'Code',
@@ -45,15 +47,24 @@ class Coupon extends DataObject {
 			'absolute' => '€',
 		)));
 
-
-
 		return $fields;
 	}
 
+	public function onBeforeWrite(){
+		parent::onBeforeWrite();
+		if(!$this->Code){
+			$this->Code = $this->generateCode();
+		}
+	}
 
-
-	private static $singular_name = 'Gutschein';
-	private static $plural_name = 'Gutscheine';
-
+	public function generateCode($length = 10){
+	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $charactersLength = strlen($characters);
+	    $randomString = '';
+	    for ($i = 0; $i < $length; $i++) {
+	        $randomString .= $characters[rand(0, $charactersLength - 1)];
+	    }
+	    return $randomString;
+	}
 
 }
