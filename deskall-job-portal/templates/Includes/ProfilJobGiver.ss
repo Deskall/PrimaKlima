@@ -38,7 +38,7 @@
 													<thead></th><th><%t MemberPage.OrdersTableTH1 'Paket' %></th><th><%t MemberPage.OrdersTableTH4 'Gültig bis' %></th><th><%t MemberPage.OrdersTableTH5 'Verbleibende Anzeige' %></th></thead>
 													<tbody>
 													<% with CurrentCustomer.activeOrder %>
-													<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td><% if EndValidity %>$EndValidity.Nice<% else %>$RunTimeTitle <%t Order.EndValidityEmptyLabel 'nach Veröffentlichung Ihres ersten Angebots' %><% end_if %></td><td><% if $Product.NumOfAds > 0 %>$RemainingOffers<% else %>$Product.NumOfAdsTitle<% end_if %></td></tr>
+													<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td><% if EndValidity %>$EndValidity.Nice<% else %>$Product.RunTimeTitle <%t Order.EndValidityEmptyLabel 'nach Veröffentlichung Ihres ersten Angebots' %><% end_if %></td><td><% if $Product.NumOfAds > 0 %>$RemainingOffers<% else %>$Product.NumOfAdsTitle<% end_if %></td></tr>
 													<% end_with %>
 													</tbody>
 												</table>
@@ -59,7 +59,7 @@
 													<thead><th><%t MemberPage.OrdersTableTH1 'Paket' %></th><th><%t MemberPage.OrdersTableTH2 'Laufzeit' %></th><th><%t MemberPage.OrdersTableTH3 'Anzahl Anzeige' %></th><th><%t MemberPage.OrdersTableTH4 'Gültig bis' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
 													<tbody>
 													<% loop CurrentCustomer.Orders %>
-													<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td><% if Option %>$Option.Title<% else %>$Product.RunTimeTitle<% end_if %></td><td>$Product.NumOfAdsTitle</td><td><% if EndValidity %>$EndValidity.Nice<% else %>$RunTimeTitle <%t Order.EndValidityEmptyLabel 'nach Veröffentlichung Ihres ersten Angebots' %><% end_if %></td><td><% if isPaid %>bezahlt<% else %>nicht bezahlt<% end_if %></td><td>$Status</td><td>$Documents</td></tr>
+													<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td><% if Option %>$Option.Title<% else %>$Product.RunTimeTitle<% end_if %></td><td>$Product.NumOfAdsTitle</td><td><% if EndValidity %>$EndValidity.Nice<% else %>$Product.RunTimeTitle <%t Order.EndValidityEmptyLabel 'nach Veröffentlichung Ihres ersten Angebots' %><% end_if %></td><td><% if isPaid %>bezahlt<% else %>nicht bezahlt<% end_if %></td><td>$Status</td><td>$Documents</td></tr>
 													<% end_loop %>
 													</tbody>
 												</table>
