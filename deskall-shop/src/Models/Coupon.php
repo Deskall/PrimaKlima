@@ -1,7 +1,7 @@
 <?php
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\DateField;
-use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\DropdownField;
 
@@ -11,7 +11,8 @@ class Coupon extends DataObject {
 		'Code' => 'Varchar(255)',
 		'Amount' => 'Int',
 		'AmountType' => 'Varchar(255)',
-		'Count'  => 'Int'
+		'Count'  => 'Int',
+		'Used' => 'Int'
 	);
 
 
@@ -50,7 +51,7 @@ class Coupon extends DataObject {
 
 
 	private static $singular_name = 'Gutschein';
-	private static $plural_name = 'Gutshceine';
+	private static $plural_name = 'Gutscheine';
 
 
 }

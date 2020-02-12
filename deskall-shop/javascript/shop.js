@@ -30,7 +30,6 @@ $(document).ready(function(){
 	$(document).on("click","[data-package-choice]",function(){
 		$("#Form_CheckoutForm_ProductID").val($(this).attr('data-package-choice'));
 		price = parseInt($(this).attr('data-price')) * 100;
-		console.log(price);
 		$(".summary-package").attr('hidden','hidden');
 		$("#summary-package-"+$(this).attr('data-package-choice')).attr('hidden',false);
 		if ($(this).attr('data-package-choice') == 3){
@@ -47,9 +46,11 @@ $(document).ready(function(){
 		if ($("input[name='paymentmethod']:checked").val() == "bill"){
 			$("#bill-form-container").attr('hidden',false).find('input,select').attr('required',true);
 			$("#card-form-container").attr('hidden','hidden');
+			$("Form_CheckoutForm_action_payBill").attr('hidden',false);
 		}
 		else{
 			$("#bill-form-container").attr('hidden','hidden').find('input, select').attr('required',false);
+			$("Form_CheckoutForm_action_payBill").attr('hidden','hidden');
 			$("#card-form-container").attr('hidden',false);
 		}
 	
@@ -81,8 +82,7 @@ $(document).ready(function(){
 	          	method: 'post',
 	          	data: {
 	            	orderID: data.orderID,
-	            	productID: $("#product").attr('data-product-id'),
-	            	quantity: $("input[name='quantity']").val(),
+	            	productID: $("#Form_CheckoutForm_ProductID").val(),
 	            	voucherID: voucherID
 	          	},
 	          	dataType: 'Json'
