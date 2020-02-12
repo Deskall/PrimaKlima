@@ -68,7 +68,6 @@ $(document).ready(function(){
 			data:{code: $("input[name='voucher']").val(), package: $("#Form_CheckoutForm_ProductID").val() },
 	        dataType: 'Json'
 		}).done(function(response){
-			console.log(response);
 			if (response.status == "OK"){
 				UIkit.modal.alert(response.message).then(function() {
 					$("input[name='VoucherID']").val(response.voucherID);
@@ -76,7 +75,6 @@ $(document).ready(function(){
 						</tr><tr><td colspan="3">&nbsp;</td><td class="uk-text-bold">'+response.price+' €</td></tr>');
 					price = parseFloat(response.price);
 					voucherID = response.voucherID;
-					console.log(voucherID);
 				});
 			}
 			else{
@@ -92,7 +90,6 @@ $(document).ready(function(){
 	});
 
 	function getPrice(){
-		console.log(price);
 		return price;
 	}
 
