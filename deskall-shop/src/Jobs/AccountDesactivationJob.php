@@ -97,10 +97,9 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
         print_r('start setup -------------------------'."\n");
         print_r($this->getExpiration()->format('Y-m-d H:i:s')."\n");
         //All active orde expiring tomorrow and not yet confirmed
-        $orders = ShopOrder::get()->filter('isActive' , 1)->where('EndValidity IS NOT NULL')->sort('Created');
         //1. expire today
-        $orders1 = $orders->filter('EndValidity:LessThan',$this->getDate()->format('Y-m-d H:i:s'));
-        $orders2 = $orders->filter(['EndValidity:GreaterThanOrEqual' => $this->getDate()->format('Y-m-d H:i:s'), 'EndValidity:LessThan' => $this->getExpiration()->format('Y-m-d H:i:s')]);
+        $orders1 = ShopOrder::get()->filter(['isActive' =>  1,'EndValidity:LessThan' => $this->getDate()->format('Y-m-d H:i:s')]);
+        $orders2 = ShopOrder::get()->filter(['isActive' =>  1,'EndValidity:GreaterThanOrEqual' => $this->getDate()->format('Y-m-d H:i:s'), 'EndValidity:LessThan' => $this->getExpiration()->format('Y-m-d H:i:s')]);
         print_r('missions1:'."\n");
         print_r($orders1->count());
         print_r("\n");
@@ -113,7 +112,7 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
         $this->totalProcess2 = $orders2->count();
 
         $this->currentStep = 0;
-        $this->currentProcess = ($this->totalProcess1 > 0) ? 1 : 2;
+        $this->currentProcess = 1;
         $this->currentStepProcess1 = 1;
         $this->currentStepProcess2 = 1;
         $this->totalProcess = 1;
