@@ -67,6 +67,7 @@ $(document).ready(function(){
 			url: cleanUrl(window.location.pathname)+'VoucherForm',
 			data:{code: $("input[name='voucher']").val(), package: $("#Form_CheckoutForm_ProductID").val() }
 		}).done(function(response){
+			console.log(response);
 			if (response.status == "OK"){
 				UIkit.modal.alert(response.message).then(function() {
 					$("input[name='CouponID']").val(response.voucherID);
