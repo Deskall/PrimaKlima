@@ -65,7 +65,8 @@ $(document).ready(function(){
 	$(document).on("click","[data-check-voucher]",function(){
 		$.post({
 			url: cleanUrl(window.location.pathname)+'VoucherForm',
-			data:{code: $("input[name='voucher']").val(), package: $("#Form_CheckoutForm_ProductID").val() }
+			data:{code: $("input[name='voucher']").val(), package: $("#Form_CheckoutForm_ProductID").val() },
+	        dataType: 'Json'
 		}).done(function(response){
 			console.log(response.status);
 			if (response.status == "OK"){
