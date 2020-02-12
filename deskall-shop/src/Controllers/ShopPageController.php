@@ -380,6 +380,6 @@ class ShopPageController extends PageController{
 				}
 			}
 		}
-		return json_encode(['status' => 'Not OK']);
+		return json_encode(['status' => 'Not OK','message' => '<p>Ihre Gutschein ist ungültig.</p>']);
 	}
 }
