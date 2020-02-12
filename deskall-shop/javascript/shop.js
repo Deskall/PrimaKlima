@@ -64,7 +64,7 @@ $(document).ready(function(){
 	//Voucher
 	$(document).on("click","[data-check-voucher]",function(){
 		$.post({
-			url: window.location.pathname+'/VoucherForm',
+			url: cleanUrl(window.location.pathname)+'VoucherForm',
 			data:{code: $("input[name='voucher']").val()}
 		}).done(function(response){
 			if (response.status == "OK"){
@@ -91,6 +91,11 @@ $(document).ready(function(){
 		return price;
 	}
 
+	function cleanUrl(url){
+		url = (url.substr(url.length-1,1) == "/") ? url : url+"/";
+		return url;
+	}
+
 	//PayPal
 	if ($('#paypal-button-container').length > 0){
 		paypal.Buttons({
@@ -109,12 +114,12 @@ $(document).ready(function(){
 	        UIkit.modal.alert('Ihre Zahlung wurde berücksichtigt. Sie werden in wenigen Augenblicken weitergeleitet ...');
 	        // Call your server to save the transaction
 	        $.ajax({
-	        	url: window.location.pathname+'/transaktion-abgeschlossen',
+	        	url: cleanUrl(window.location.pathname)+'transaktion-abgeschlossen',
 	          	method: 'post',
 	          	data: {
 	            	orderID: data.orderID,
 	            	productID: $("#Form_CheckoutForm_ProductID").val(),
-	            	voucherID: voucherID
+	            	voucherID: voucherID,
 	          	},
 	          	dataType: 'Json'
 	        }).done(function(response){
