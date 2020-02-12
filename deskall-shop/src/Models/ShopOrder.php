@@ -182,7 +182,7 @@ class ShopOrder extends DataObject{
 	}
 
 	public function getBill(){
-		//$this->generatePDF();
+		$this->generatePDF();
 		$html = ($this->BillFile()->exists()) ? $this->BillFile()->forTemplate() : '(keine)';
 		return DBField::create_field('HTMLText',$html);
 	}
