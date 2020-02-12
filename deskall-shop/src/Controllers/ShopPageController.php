@@ -72,7 +72,7 @@ class ShopPageController extends PageController{
 			)->setName('SummaryFields')
 		);
 		$actions = new FieldList(FormAction::create('payBill', _t('SHOP.BUY', 'Jetzt kaufen'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="uk-margin-small-right" data-uk-icon="cart"></i>'._t('SHOP.BUY', 'Jetzt kaufen')));
-		$required = RequiredFields::create([]);
+		$required = RequiredFields::create(['BillingAddressCompany','BillingAddressStreet','BillingAddressPostalCode','BillingAddressPlace','BillingAddressCountry','AGB']);
 
 		$form = new Form(
 			$this,
