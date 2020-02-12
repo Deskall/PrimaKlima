@@ -77,7 +77,7 @@ class ShopOrderEmail extends Email
             '$Order.Created' => $createdDateObj->Nice(),
             '$Order.Data' => $Order->renderWith('Emails/ShopOrderData'),
             '$Product.Title' => $Order->Product()->Title,
-            '$Product.Data' => $Order->Product()->renderWith('Emails/ProductData')
+            '$Product.Data' => $Order->Product()->renderWith('Emails/ProductData'),
             '$Order.EndValidity' => $expiration->format('d.m.Y')
         );
         
