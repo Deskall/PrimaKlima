@@ -97,7 +97,7 @@
 					<h3><%t Event.Voucher 'Gutschein' %></h3>
 					<p><%t Event.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. und klicken Sie an "Gutschein prüfen".' %></p>
 					<div class="uk-flex uk-flex-left">
-						<input type="text" name="voucher" class="uk-input uk-width-small" placeholder="<%t Event.VoucherPLH 'zb: A12B3C4D' %>" required />
+						<div class=" uk-width-small"><input type="text" name="voucher" class="uk-input" placeholder="<%t Event.VoucherPLH 'zb: A12B3C4D' %>" required />
 						<a class="uk-button uk-button-primary"><%t Event.VoucherCheck 'Gutschein prüfen' %></a>
 					</div>
 				</div>
