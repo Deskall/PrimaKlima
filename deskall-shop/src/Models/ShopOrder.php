@@ -187,6 +187,13 @@ class ShopOrder extends DataObject{
 		return DBField::create_field('HTMLText',$html);
 	}
 
+	public function getFinalPrice(){
+		if ($this->Voucher()->exists()){
+			return $this->Voucher()->DiscountPrice($this->Price);
+		}
+		return $this->Price;
+	}
+
 	public function getOrderPrice(){
 	    setlocale(LC_MONETARY, 'de_DE');
 	    return DBField::create_field('Varchar',money_format('%i',$this->Price));
@@ -194,7 +201,7 @@ class ShopOrder extends DataObject{
 
 	public function getOrderSubPrice(){
 	    setlocale(LC_MONETARY, 'de_DE');
-	    $price = ($this->Option()->exists()) ? $this->Option()->currentPrice() : $this->Product()->currentPrice();
+	    $price = $this->Price;
 	    return DBField::create_field('Varchar',money_format('%i',$price));
 	}
 

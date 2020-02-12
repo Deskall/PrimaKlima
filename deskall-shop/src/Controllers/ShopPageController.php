@@ -125,10 +125,6 @@ class ShopPageController extends PageController{
 							$order = new ShopOrder();
 							$form->saveInto($order);
 							$order->Price = ($packageOption) ? $packageOption->currentPrice() : $package->currentPrice();
-							if ($order->VoucherID > 0 && $order->Voucher()->isValid()){
-								$dicountPrice = $order->Voucher()->DiscountPrice($order->Price);
-								$order->Price = $discountPrice;
-							}
 							$order->isPaid = false;
 							$order->Name = $customer->ContactPersonSurname;
 							$order->Vorname = $customer->ContactPersonFirstName;
