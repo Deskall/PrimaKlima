@@ -480,12 +480,15 @@ class Mission extends DataObject
             $this->write();
             //update order
             $order = $this->Customer()->activeOrder();
-            $order->RemainingOffers = $order->RemainingOffers - 1;
-            //Start validity if first mission
-            if (!$order->StartValidity){
-              $order->StartValidityPeriod();
+            if ($order){
+              $order->RemainingOffers = $order->RemainingOffers - 1;
+              //Start validity if first mission
+              if (!$order->StartValidity){
+                $order->StartValidityPeriod();
+              }
+              $order->write();
             }
-            $order->write();
+            
         }
     }
 
@@ -496,8 +499,11 @@ class Mission extends DataObject
             $this->write();
             //update order
             $order = $this->Customer()->activeOrder();
-            $order->RemainingOffers = $order->RemainingOffers + 1;
-            $order->write();
+            if ($order){
+              $order->RemainingOffers = $order->RemainingOffers + 1;
+              $order->write();
+            }
+            
         }
     }
 
