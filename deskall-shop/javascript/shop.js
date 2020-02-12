@@ -80,7 +80,7 @@ $(document).ready(function(){
 					UIkit.modal.alert(response.message);
 				}
 			}
-		}).failed(function(){
+		}).fail(function(){
 			UIkit.modal.alert('Ein Fehler ist aufgetreten').then(function() {
 				window.location.reload();
 			});
