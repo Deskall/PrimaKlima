@@ -495,7 +495,6 @@ class Mission extends DataObject
     public function unpublish(){
         if ($this->canUnpublish()){
             $this->isActive = false;
-            $this->PublishedDate = null;
             $this->write();
             //update order
             $order = $this->Customer()->activeOrder();
@@ -512,7 +511,7 @@ class Mission extends DataObject
             return _t('Mission.Archived','Archiviert');
         }
         if ($this->isActive){
-            return _t('Mission.Active','Veröffentlicht seit {date}', ['date' => $this->PublishedDate]);
+            return _t('Mission.Active','Erste Veröffentlichung: {date}', ['date' => $this->PublishedDate]);
         }
         return _t('Mission.Draft','Entwurf');
     }

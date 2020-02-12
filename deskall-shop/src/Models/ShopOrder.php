@@ -221,7 +221,7 @@ class ShopOrder extends DataObject{
 	}
 
 	public function getReceipt(){
-		 $this->generateQuittungPDF();
+		// $this->generateQuittungPDF();
 		$html = ($this->ReceiptFile()->exists()) ? $this->ReceiptFile()->forTemplate() : '(keine)';
 		return DBField::create_field('HTMLText',$html);
 	}
@@ -338,6 +338,19 @@ class ShopOrder extends DataObject{
 
 	    $email->send();
 
+	}
+
+
+	public function deactivate(){
+		$this->isActive = false;
+		$this->RemainingOffers = 0;
+		if ($missions = $this->Customer()->Missions()->filter('isActive',1)){
+			foreach ($missions as $m) {
+				$m->isActive = false;
+				$m->write();
+			}
+		}
+		$this->write();
 	}
 }
 

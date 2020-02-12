@@ -18,13 +18,18 @@ class SiteConfigPayPalExtension extends DataExtension
     'BillPayLabel' => 'HTMLText',
     'OnlinePayLabel' => 'HTMLText',
     'PaymentConfirmedLabel' => 'HTMLText',
+    'ClientNumberOffset' => 'Int',
+    'OrderNumberOffset' => 'Int',
+    'BuySuccessfullMessage' => 'HTMLText'
     'BillEmailSubject' => 'Varchar',
     'BillEmailBody' => 'HTMLText',
     'PaymentEmailSubject' => 'Varchar',
     'PaymentEmailBody' =>  'HTMLText',
-    'ClientNumberOffset' => 'Int',
-    'OrderNumberOffset' => 'Int',
-    'BuySuccessfullMessage' => 'HTMLText'
+    'CloseToDesactivationEmailSubject' => 'Varchar',
+    'CloseToDesactivationEmailBody' => 'HTMLText',
+    'DesactivationEmailSubject' => 'Varchar',
+    'DesactivationEmailBody' => 'HTMLText',
+    
   ];
 
   private static $has_one = [
@@ -51,6 +56,10 @@ class SiteConfigPayPalExtension extends DataExtension
      $labels['PaymentConfirmedLabel'] = _t(__CLASS__.'.PaymentConfirmedLabel','Zahlungsbestätigungstext');
      $labels['BillEmailSubject'] = _t(__CLASS__.'.BillEmailSubject','Rechnungsemail Betreff');
      $labels['BillEmailBody'] = _t(__CLASS__.'.BillEmailBody','Rechnungsemail Inhalt');
+     $labels['CloseToDesactivationEmailSubject'] = _t(__CLASS__.'.CloseToDesactivationEmailSubject','Erinnerungsemail 5 Tage vor Deaktivierung Betreff');
+     $labels['CloseToDesactivationEmailBody'] = _t(__CLASS__.'.CloseToDesactivationEmailBody','Erinnerungsemail 5 Tage vor Deaktivierung Inhalt');
+     $labels['DesactivationEmailSubject'] = _t(__CLASS__.'.DesactivationEmailSubject','Konto deaktiviert Email Betreff');
+     $labels['DesactivationEmailBody'] = _t(__CLASS__.'.DesactivationEmailBody','Konto deaktiviert Email Inhalt');
      $labels['PaymentEmailSubject'] = _t(__CLASS__.'.PaymentEmailSubject','Zahlunsbestätigungsemail Betreff');
      $labels['PaymentEmailBody'] = _t(__CLASS__.'.PaymentEmailBody','Zahlunsbestätigungsemail Inhalt');
      $labels['AGBFile'] = _t(__CLASS__.'.AGBFile','AGB Datei');
@@ -71,7 +80,10 @@ class SiteConfigPayPalExtension extends DataExtension
       HTMLEditorField::create('BillEmailBody',$this->owner->fieldLabels()['BillEmailBody'])->setRows(5),
       TextField::create('PaymentEmailSubject',$this->owner->fieldLabels()['PaymentEmailSubject']),
       HTMLEditorField::create('PaymentEmailBody',$this->owner->fieldLabels()['PaymentEmailBody'])->setRows(5),
-
+      TextField::create('CloseToDesactivationEmailSubject',$this->owner->fieldLabels()['CloseToDesactivationEmailSubject']),
+      HTMLEditorField::create('CloseToDesactivationEmailBody',$this->owner->fieldLabels()['CloseToDesactivationEmailBody'])->setRows(5),
+      TextField::create('DesactivationEmailSubject',$this->owner->fieldLabels()['DesactivationEmailSubject']),
+      HTMLEditorField::create('DesactivationEmailBody',$this->owner->fieldLabels()['DesactivationEmailBody'])->setRows(5),
       UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setFolderName('Uploads/Vorlagen'),
       UploadField::create('BillFile',$this->owner->fieldLabels()['BillFile'])->setFolderName('Uploads/Vorlagen'),
       UploadField::create('ReceiptFile',$this->owner->fieldLabels()['ReceiptFile'])->setFolderName('Uploads/Vorlagen')
