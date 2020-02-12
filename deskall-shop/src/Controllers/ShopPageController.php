@@ -297,7 +297,7 @@ class ShopPageController extends PageController{
 			$response = $client->execute(new OrdersGetRequest($orderId));
 			
 			if ($response->statusCode == "200"){
-				$package = Package::get()->byId($data['ProductID']);
+				$package = Package::get()->byId($productId);
 				$member = Security::getCurrentUser();
 				$customer  = ($member) ? JobGiver::get()->filter('MemberID',$member->ID)->first() : null;
 				if ($package && $customer){
