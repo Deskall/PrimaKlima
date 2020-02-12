@@ -11,7 +11,7 @@
 	.container,table.footer-wrap{clear:both!important}
 	*{margin:0;font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;color: #666;}
 	img{max-width:100%}
-	.logo img{max-width: 250px;height:auto;}
+	.logo img{max-width: 350px;height:auto;}
 	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%}
 	.content table,table.body-wrap,table.footer-wrap,table.head-wrap{width:100%}
 	a{color:#666}
@@ -34,7 +34,6 @@
 	a.ms{background-color:#000!important}
 	.sidebar .soc-btn{display:block;width:100%}
 	.header.container table td.logo{padding:15px;text-align:center;}
-	.header.container table td.logo img{max-height:50px;width:auto;}
 	.header.container table td.label{padding:15px 15px 15px 0}
 	.footer-wrap .container td.content p{border-top:1px solid #d7d7d7;padding-top:15px;font-size:10px;font-weight:700}
 	h1,h2,h3,h4,h5,h6{font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;line-height:1.1;margin-bottom:15px;color:#666}
@@ -96,7 +95,7 @@
 						<table>
 							<tbody>
 								<tr>
-									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="{$AbsoluteBaseURL}/themes/gastro-portal/img/logo-email.png" border="0" alt="$SiteConfig.Title"/></a></a></td>
+									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="{$AbsoluteBaseURL}/themes/gastro-portal/img/logo-email-transparent.png" border="0" alt="$SiteConfig.Title"/></a></a></td>
 								</tr>
 								<% if $Header %>
 								<tr><td class="header-text">
