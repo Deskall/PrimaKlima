@@ -67,7 +67,7 @@ $(document).ready(function(){
 			url: cleanUrl(window.location.pathname)+'VoucherForm',
 			data:{code: $("input[name='voucher']").val(), package: $("#Form_CheckoutForm_ProductID").val() }
 		}).done(function(response){
-			
+			console.log(response.status);
 			if (response.status == "OK"){
 				console.log('ici');
 				UIkit.modal.alert(response.message).then(function() {
