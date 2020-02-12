@@ -111,7 +111,7 @@
 						$FieldHolder
 						<% end_with %>
 						<div id="card-form-container" class="uk-margin" hidden>
-							<div class="uk-panel uk-background-muted uk-padding-small">
+							<div class="uk-panel uk-background-muted uk-padding-small uk-text-center">
 								<h4><%t Checkout.OnlinePayment 'Online bezahlen' %></h4>
 								$Top.SiteConfig.OnlinePayLabel
 								<div id="paypal-button-container">
