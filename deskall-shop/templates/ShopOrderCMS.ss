@@ -15,6 +15,9 @@ $Product.Title
 	</thead>
 	<tbody>
 		<tr><td width="210">$Product.Title</td><td width="100" align="center"><% if Option %>$Option.Title<% else %>$Product.RunTimeTitle<% end_if %></td><td width="100" align="center">$Product.NumOfAdsTitle</td><td width="120" align="right">$OrderSubPrice</td></tr>
+		<% if Voucher.exists %>
+		<tr><td width="410"><%t Order.Voucher 'Gutschein' %></td><td width="120" align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
+		<% end_if %>
 		<tr><td colspan="3">Nettobetrag</td><td align="right">$OrderPriceNetto</td></tr>
 		<tr><td colspan="3">MwSt. inkl</td><td align="right">$OrderMwst</td></tr>
 		<tr style="font-size:12px;"><td colspan="3"><b>Gesamtbetrag</b></td><td align="right"><b>$OrderPrice</b></td></tr>
