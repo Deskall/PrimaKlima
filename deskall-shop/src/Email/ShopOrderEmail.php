@@ -78,7 +78,8 @@ class ShopOrderEmail extends Email
             '$Order.Data' => $Order->renderWith('Emails/ShopOrderData'),
             '$Product.Title' => $Order->Product()->Title,
             '$Product.Data' => $Order->Product()->renderWith('Emails/ProductData'),
-            '$Order.EndValidity' => $expiration->format('d.m.Y')
+            '$Order.EndValidity' => $expiration->format('d.m.Y'),
+            '$ShopPageLink' => ShopPage::get()->first()->AbsoluteLink()
         );
         
         foreach (array('Company' , 'Email' , 'Address' , 'PostalCode' , 'City' , 'Country', 'Phone', 'Price' ) as $field) {
