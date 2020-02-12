@@ -189,6 +189,10 @@ class ShopOrder extends DataObject{
 
 	public function getFinalPrice(){
 		if ($this->Voucher()->exists()){
+			ob_start();
+						print_r('ici');
+						$result = ob_get_clean();
+						file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 			return $this->Voucher()->DiscountPrice($this->Price);
 		}
 		return $this->Price;

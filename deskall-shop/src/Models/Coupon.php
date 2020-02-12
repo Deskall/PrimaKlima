@@ -76,10 +76,7 @@ class Coupon extends DataObject {
 		if ($this->AmountType == "absolute"){
 			$price = number_format ( $originalPrice - $this->Amount, 2);
 		}
-		ob_start();
-					print_r($price);
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+		
 		return $price;
 	}
 
