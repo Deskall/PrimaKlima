@@ -139,7 +139,7 @@ class ShopOrder extends DataObject{
 		$start = new \DateTime();
 		$this->StartValidity = $start->format('Y-m-d H:i');
 		//Laufzeit
-		$period = '+'.$this->Product()->Runtime;
+		$period = '+'.$this->Product()->RunTime;
 		$currency = $this->Product()->RunTimeCurrency;
 		if ($this->Product()->Runtime > 1){
 			$currency .= 's';
