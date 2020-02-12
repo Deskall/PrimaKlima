@@ -91,6 +91,7 @@ $(document).ready(function(){
 	});
 
 	function getPrice(){
+		console.log(price);
 		return price;
 	}
 
