@@ -41,7 +41,7 @@
 						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 						        	<% end_if %>
 						        	<div class="uk-margin">
-						        		<a data-package-choice="$ID" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+						        		<a data-package-choice="$ID" data-price="$Price" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
 						        	</div>
 						        	<div class="footer-text">$FooterText</div>
 						    	</div>

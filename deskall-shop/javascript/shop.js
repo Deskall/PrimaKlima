@@ -24,10 +24,13 @@ $(document).ready(function(){
 			UIkit.tab(switcher).show(index+1);
 		}
 	});
+	var price;
 
 	//Package Selection
 	$(document).on("click","[data-package-choice]",function(){
 		$("#Form_CheckoutForm_ProductID").val($(this).attr('data-package-choice'));
+		price = parseInt($(this).attr('data-package-choice')) * 100;
+		console.log(price);
 		$(".summary-package").attr('hidden','hidden');
 		$("#summary-package-"+$(this).attr('data-package-choice')).attr('hidden',false);
 		if ($(this).attr('data-package-choice') == 3){
@@ -53,7 +56,9 @@ $(document).ready(function(){
 		$("#Form_CheckoutForm_PaymentType").val($("input[name='paymentmethod']:checked").val());
 	});
 
-
+	function getPrice(){
+		return price;
+	}
 
 	//PayPal
 	if ($('#paypal-button-container').length > 0){
@@ -62,7 +67,7 @@ $(document).ready(function(){
 	      return actions.order.create({
 	        purchase_units: [{
 	          amount: {
-	            value: UpdateTotalPrice()
+	            value: getPrice()
 	          }
 	        }]
 	      });
