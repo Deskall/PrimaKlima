@@ -55,7 +55,7 @@
 											<% if CurrentCustomer.Orders.exists %>
 											<div class="uk-margin uk-overflow-auto">
 												<h4><%t MemberPage.OrdersTitle 'Meine Bestellungen' %></h4>
-												<table class="uk-table uk-table-small uk-table-justify uk-table-responsive">
+												<table class="uk-table uk-table-small uk-table-justify uk-table-divider uk-table-responsive">
 													<thead><th><%t MemberPage.OrdersTableTH1 'Paket' %></th><th><%t MemberPage.OrdersTableTH2 'Laufzeit' %></th><th><%t MemberPage.OrdersTableTH3 'Anzahl Anzeige' %></th><th><%t MemberPage.OrdersTableTH4 'Gültig bis' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
 													<tbody>
 													<% loop CurrentCustomer.Orders %>
@@ -85,7 +85,7 @@
 											<% if CurrentCustomer.Missions.exists %>
 											<div class="uk-margin uk-overflow-auto">
 												<h4><%t MemberPage.OffersTitle 'Meine Inserate' %></h4>
-												<table class="uk-table uk-table-small uk-table-striped uk-table-justify uk-table-responsive">
+												<table class="uk-table uk-table-small uk-table-striped uk-table-justify uk-table-divider uk-table-responsive">
 													<thead></th><th><%t MemberPage.OffersTableTH2 'Titel' %></th><th><%t MemberPage.OffersTableTH3 'Anzahl Bewerbungen' %></th><th><%t MemberPage.OffersTableTH1 'Status' %><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></thead>
 													<tbody>
 													<% loop CurrentCustomer.Missions %>
