@@ -146,7 +146,7 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
                 }
             }
             else{
-                $process++;
+                $this->currentProcess++;
             }
         }
 
@@ -167,7 +167,7 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
                 }
             }
             else{
-                $process++;
+                $this->currentProcess++;
             }
         }
 
