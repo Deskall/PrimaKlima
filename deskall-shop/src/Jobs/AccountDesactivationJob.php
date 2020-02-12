@@ -93,18 +93,9 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
     {
         $config = $this->config;
         
-        ob_start();
-        print_r('start setup -------------------------'."\n");
-        print_r($this->getExpiration()->format('Y-m-d H:i:s')."\n");
-        //All active orde expiring tomorrow and not yet confirmed
-        //1. expire today
         $orders1 = ShopOrder::get()->filter(['isActive' =>  1,'EndValidity:LessThan' => $this->getDate()->format('Y-m-d H:i:s')]);
         $orders2 = ShopOrder::get()->filter(['isActive' =>  1,'EndValidity:GreaterThanOrEqual' => $this->getDate()->format('Y-m-d H:i:s'), 'EndValidity:LessThan' => $this->getExpiration()->format('Y-m-d H:i:s')]);
-        print_r('missions1:'."\n");
-        print_r($orders1->count());
-        print_r("\n");
-        $result = ob_get_clean();
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-email.txt", $result);
+
         $this->Step1 = $orders1;
         $this->totalProcess1 = $orders1->count();
 
@@ -176,7 +167,7 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
                 }
             }
             else{
-                $this->currentProcess++;
+                $process++;
             }
         }
 
