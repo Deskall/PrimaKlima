@@ -73,7 +73,7 @@ class Coupon extends DataObject {
 			return number_format ( $originalPrice - ($originalPrice*$voucher->Amount/100), 2);
 		}
 		if ($this->AmountType == "absolute"){
-			return number_format ( $originalPrice - $voucher->Amount), 2);
+			return number_format ( $originalPrice - $voucher->Amount, 2);
 		}
 		return null;
 	}
