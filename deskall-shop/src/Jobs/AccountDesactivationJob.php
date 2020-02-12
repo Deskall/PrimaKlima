@@ -97,7 +97,7 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
         $orders = ShopOrder::get()->filter('isActive',1)->sort('Created');
         //1. expire today
         $orders1 = $orders->filter('EndValidity:LessThan',$this->getDate()->format('D-M-Y H:i:s'));
-        $orders2 = $orders->filter(['EndValidity:GreaterThanOrEqual' => $this->getDate()->format('D-M-Y H:i:s')), 'EndValidity:LessThan' => $this->getExpiration()->format('D-M-Y H:i:s')]);
+        $orders2 = $orders->filter(['EndValidity:GreaterThanOrEqual' => $this->getDate()->format('D-M-Y H:i:s'), 'EndValidity:LessThan' => $this->getExpiration()->format('D-M-Y H:i:s')]);
         print_r('missions1:'."\n");
         print_r($orders1->count());
         print_r("\n");
@@ -116,9 +116,6 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
         $this->totalProcess = 1;
         $this->totalSteps =  $this->totalProcess1 + $this->totalProcess2 /* + $this->totalProcess3 + $this->totalProcess4 + $this->totalProcess5 + $this->totalProcess6*/;
  
-
-
-
     }
 
     /**
