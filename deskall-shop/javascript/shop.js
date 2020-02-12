@@ -67,7 +67,23 @@ $(document).ready(function(){
 			url: window.location.pathname+'/VoucherForm',
 			data:{code: $("input[name='voucher']").val()}
 		}).done(function(response){
-			console.log('ici');
+			if (response.status == "OK"){
+				UIkit.modal.alert(response.message).then(function() {
+					$("input[name='CouponID']").val(response.voucherID);
+					$("tbody#package-summary").append('<tr><td colspan="3" class="uk-text-right">Rabatt</td><td class="uk-text-right">- '+response.NiceAmount+'</td>\
+						</tr><tr><td colspan="4" class="uk-text-right uk-text-bold">'+response.price+'</td></tr>');
+					price = response.price;
+				});
+			}
+			else{
+				if (response.message){
+					UIkit.modal.alert(response.message);
+				}
+			}
+		}).failed(function(){
+			UIkit.modal.alert('Ein Fehler ist aufgetreten').then(function() {
+				window.location.reload();
+			});
 		});
 	});
 
