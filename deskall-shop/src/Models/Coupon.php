@@ -23,12 +23,13 @@ class Coupon extends DataObject {
 	);
 
 	public function NiceAmount(){
+		$amount = '';
 		if( $this->AmountType == 'relative' ){
-			return $this->Amount.' %';
+			$amount = $this->Amount.' %';
 		}else{
-			return $this->Amount.' €';
+			$amount = $this->Amount.' €';
 		}
-
+		return DBText::create()->setValue($amount);
 	}
 
 
