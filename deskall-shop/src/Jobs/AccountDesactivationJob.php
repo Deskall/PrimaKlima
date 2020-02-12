@@ -164,7 +164,7 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
             $orders2 = $this->Step2;
             if ($orders2->count() > 0){
                 
-                foreach ($orders1 as $order) {
+                foreach ($orders2 as $order) {
                     $email = ShopOrderEmail::create($this->getConfig(),$order,$this->getConfig()->Email,$order->Email,$this->getConfig()->CloseToDesactivationEmailSubject,$this->getConfig()->CloseToDesactivationEmailBody);
                     $email->send();
                     $this->Step2 = $orders2->exclude('ID',$order->ID);
