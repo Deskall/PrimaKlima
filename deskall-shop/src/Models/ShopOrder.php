@@ -92,6 +92,9 @@ class ShopOrder extends DataObject{
 	}
 
 	public function Initiate(){
+		if ($this->isPaid){
+			$this->isActive = true;
+		}
 		$this->RemainingOffers = $this->Product()->NumOfAds;
 	}
 
