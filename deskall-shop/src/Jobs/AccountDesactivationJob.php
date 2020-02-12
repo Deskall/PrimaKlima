@@ -97,7 +97,7 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
         print_r('start setup -------------------------'."\n");
         print_r($this->getExpiration()->format('Y-m-d H:i:s')."\n");
         //All active orde expiring tomorrow and not yet confirmed
-        $orders = ShopOrder::get()->filter('isActive',1)->sort('Created');
+        $orders = ShopOrder::get()->filter(['isActive' => 1)->where('EndValidity IS NOT NULL')->sort('Created');
         //1. expire today
         $orders1 = $orders->filter('EndValidity:LessThan',$this->getDate()->format('Y-m-d H:i:s'));
         $orders2 = $orders->filter(['EndValidity:GreaterThanOrEqual' => $this->getDate()->format('Y-m-d H:i:s'), 'EndValidity:LessThan' => $this->getExpiration()->format('Y-m-d H:i:s')]);
