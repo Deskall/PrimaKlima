@@ -71,11 +71,12 @@ $(document).ready(function(){
 			console.log(response);
 			if (response.status == "OK"){
 				UIkit.modal.alert(response.message).then(function() {
-					$("input[name='CouponID']").val(response.voucherID);
+					$("input[name='VoucherID']").val(response.voucherID);
 					$("tbody#package-summary").append('<tr><td colspan="3" class="uk-text-right">Rabatt</td><td>- '+response.NiceAmount+'</td>\
 						</tr><tr><td colspan="3">&nbsp;</td><td class="uk-text-bold">'+response.price+' €</td></tr>');
 					price = parseFloat(response.price);
 					voucherID = response.voucherID;
+					console.log(voucherID);
 				});
 			}
 			else{
