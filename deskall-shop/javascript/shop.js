@@ -43,16 +43,16 @@ $(document).ready(function(){
 		UIkit.tab('#tab-switcher').show(1);
 	});
 
-	//Bill Fields
+	//Pyement Method Fields
 	$(document).on("change","input[name='paymentmethod']",function(){
 		if ($("input[name='paymentmethod']:checked").val() == "bill"){
 			$("#bill-form-container").attr('hidden',false).find('input,select').attr('required',true);
 			$("#card-form-container").attr('hidden','hidden');
-			$("Form_CheckoutForm_action_payBill").attr('hidden',false);
+			$("#Form_CheckoutForm_action_payBill").attr('hidden',false);
 		}
 		else{
 			$("#bill-form-container").attr('hidden','hidden').find('input, select').attr('required',false);
-			$("Form_CheckoutForm_action_payBill").attr('hidden','hidden');
+			$("#Form_CheckoutForm_action_payBill").attr('hidden','hidden');
 			$("#card-form-container").attr('hidden',false);
 		}
 	
