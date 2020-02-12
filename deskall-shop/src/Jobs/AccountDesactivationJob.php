@@ -113,7 +113,7 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
         $this->totalProcess2 = $orders2->count();
 
         $this->currentStep = 0;
-        $this->currentProcess = 1;
+        $this->currentProcess = ($this->totalProcess1 > 0) ? 1 : 2;
         $this->currentStepProcess1 = 1;
         $this->currentStepProcess2 = 1;
         $this->totalProcess = 1;
@@ -156,7 +156,7 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
                 }
             }
             else{
-                $process++;
+                $this->currentProcess++;
             }
         }
 
