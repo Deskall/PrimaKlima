@@ -56,7 +56,7 @@ class ShopPageController extends PageController{
 			HiddenField::create('OptionID'),
 			HiddenField::create('PaymentType'),
 			HiddenField::create('CustomerID')->setValue($customer->ID),
-			HiddenField::create('CouponID'),
+			HiddenField::create('VoucherID'),
 			CompositeField::create(
 				TextField::create('BillingAddressCompany',_t(__CLASS__.'.BillingAddressCompany','Firma')),
 				TextField::create('BillingAddressStreet',_t(__CLASS__.'.BillingAddressStreet','Adresse')),
