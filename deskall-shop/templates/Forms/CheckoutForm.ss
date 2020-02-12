@@ -106,6 +106,13 @@
 					<% end_loop %>
 				</div>
 				<hr>
+				<div class="uk-margin-large">
+					<h3><%t Event.Voucher 'Gutschein' %></h3>
+					<p><%t Event.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. und klicken Sie an "Gutschein prüfen".' %></p>
+					<input type="text" name="voucher" class="uk-input uk-width-medium" placeholder="<%t Event.VoucherPLH 'zb: A12B3C4D' %>" required />
+					<a class="uk-button uk-button-primary"><%t Event.VoucherCheck 'Gutschein prüfen' %></a>
+				</div>
+				<hr>
 					<div class="uk-text-right">
 						<div id="summary-bill-container">
 						<% with Fields.FieldByName('SummaryFields') %>
