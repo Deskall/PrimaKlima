@@ -78,7 +78,7 @@ $(document).ready(function(){
 	      });
 	    },
 	    onApprove: function(data, actions) {
-	    	$('#paypal-button-container').empty().append('<p>Zahlung in Bearbeitung, bitte haben Sie einen Moment Geduld. Bitte schließen Sie die Seite nicht und laden Sie sie nicht erneut.</p>');
+	    	$('#paypal-button-container').hide().after('<p>Zahlung in Bearbeitung, bitte haben Sie einen Moment Geduld.</p><p>Bitte schließen Sie die Seite nicht und laden Sie sie nicht erneut.</p>');
 	      return actions.order.capture().then(function(details) {
 	        UIkit.modal.alert('Ihre Zahlung wurde berücksichtigt. Sie werden in wenigen Augenblicken weitergeleitet ...');
 	        // Call your server to save the transaction
