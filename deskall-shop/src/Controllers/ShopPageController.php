@@ -142,6 +142,16 @@ class ShopPageController extends PageController{
 								$order->write();
 								//Write customer
 								$customer->write();
+
+								//Create Receipt
+								$order->generatePDF();
+								//Send Confirmation Email (BCC to admin)
+								$order->sendEmail();
+								
+
+								$this->getRequest()->getSession()->set('orderID',$order->ID);
+								
+								return $this->Redirect('danke-fuer-ihre-bestellung');
 								
 							} catch (ValidationException $e) {
 								$validationMessages = '';
@@ -152,15 +162,7 @@ class ShopPageController extends PageController{
 								return $this->redirectBack();
 							}
 						
-						//Create Receipt
-						$order->generatePDF();
-						//Send Confirmation Email (BCC to admin)
-						$order->sendEmail();
 						
-
-						$this->getRequest()->getSession()->set('orderID',$order->ID);
-						
-						return $this->Redirect('danke-fuer-ihre-bestellung');
 
 					}
 				
