@@ -125,6 +125,10 @@ class ShopPageController extends PageController{
 							$order = new ShopOrder();
 							$form->saveInto($order);
 							$order->Price = ($packageOption) ? $packageOption->currentPrice() : $package->currentPrice();
+							if ($order->VoucherID > 0 && $order->Voucher()->isValid()){
+								$dicountPrice = $order->Voucher()->DiscountPrice($order->Price);
+								$order->Price = $discountPrice;
+							}
 							$order->isPaid = false;
 							$order->Name = $customer->ContactPersonSurname;
 							$order->Vorname = $customer->ContactPersonFirstName;
@@ -318,6 +322,11 @@ class ShopPageController extends PageController{
 						$order->isPaid = true;
 						$order->PaymentType = 'creditcard';
 						$order->PayPalOrderID = $orderId;
+
+						//Voucher 
+						if (isset($data['voucherID']) && $voucher = Coupon::get()->byId($data['voucherID'])){
+							$order->VoucherID = $voucher->ID;
+						}
 						
 						try {
 							//Write order

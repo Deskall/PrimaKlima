@@ -74,6 +74,7 @@ $(document).ready(function(){
 					$("tbody#package-summary").append('<tr><td colspan="3" class="uk-text-right">Rabatt</td><td>- '+response.NiceAmount+'</td>\
 						</tr><tr><td colspan="3">&nbsp;</td><td class="uk-text-bold">'+response.price+' €</td></tr>');
 					price = parseFloat(response.price);
+					voucherID = response.voucherID;
 				});
 			}
 			else{
