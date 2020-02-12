@@ -302,7 +302,7 @@ class ShopPageController extends PageController{
 				$customer  = ($member) ? JobGiver::get()->filter('MemberID',$member->ID)->first() : null;
 				if ($package && $customer){
 					//Create and fill the order
-						$order->PackageID = $package->ID;
+						$order->ProductID = $package->ID;
 						$order->Name = ucfirst(strtolower($response->result->payer->name->surname));
 						$order->Vorname = ucfirst(strtolower($response->result->payer->name->given_name));
 						$order->Email = $response->result->payer->email_address;
