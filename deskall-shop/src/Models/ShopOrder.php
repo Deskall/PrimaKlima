@@ -145,6 +145,20 @@ class ShopOrder extends DataObject{
 		return "-";
 	}
 
+	public function StartValidityPeriod(){
+		$start = new \DateTime();
+		$this->StartValidity = $start->format('Y-m-d H:i');
+		//Laufzeit
+		$period = '+'.$this->Product()->Runtime;
+		$currency = $this->Product()->RunTimeCurrency;
+		if ($this->Product()->Runtime > 1){
+			$currency .= 's';
+		}
+		$period .= ' '.$currency;
+		$end = $start->modify($period);
+		$this->EndValidity = $end->format('Y-m-d H:i');
+	}
+
 	public function getPaymentResource(){
 		switch ($this->PaymentType){
 			case "bill":
