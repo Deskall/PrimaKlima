@@ -34,8 +34,8 @@ class ShopOrder extends DataObject{
 		'StartValidity' => 'Date',
 		'EndValidity' => 'Date',
 		'RemainingOffers' => 'Int',
-		'isActive' => 'Boolean(0)'
-
+		'isActive' => 'Boolean(0)',
+		'PayPalOrderID' => 'Varchar'
 	);
 
 	private static $has_one = array(

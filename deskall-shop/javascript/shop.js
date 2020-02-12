@@ -80,7 +80,7 @@ $(document).ready(function(){
 	        UIkit.modal.alert('Ihre Zahlung wurde berücksichtigt. Sie werden in wenigen Augenblicken weitergeleitet ...');
 	        // Call your server to save the transaction
 	        $.ajax({
-	        	url: '/shop/transaktion-abgeschlossen',
+	        	url: window.location.pathname+'/transaktion-abgeschlossen',
 	          	method: 'post',
 	          	data: {
 	            	orderID: data.orderID,
