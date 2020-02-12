@@ -303,24 +303,22 @@ class ShopPageController extends PageController{
 				if ($package && $customer){
 					//Create and fill the order
 						$order = new ShopOrder();
+						$order->PackageID = $package->ID;
 						$order->Name = ucfirst(strtolower($response->result->payer->name->surname));
 						$order->Vorname = ucfirst(strtolower($response->result->payer->name->given_name));
-						$order->Email = $data['email'];
+						$order->Email = $response->result->payer->email_address;
 						$order->Phone = $response->result->payer->phone;
-						
+						$order->Price = $response->result->purchase_units[0]->amount->value;
+						$address = $response->result->purchase_units[0]->shipping->address;
 						$order->PostalCode = $address->postal_code;
 						$order->Address = $address->address_line_1;
 						$order->City = ucfirst(strtolower($address->admin_area_2));
 						$order->Country = strtolower($address->country_code);
-						
-						
 						$order->CustomerID = $customer->ID;
 						$order->isPaid = true;
 						$order->PaymentType = 'creditcard';
 						$order->PayPalOrderID = $orderId;
-						$order->Price = $package->currentPrice();
 						
-
 						try {
 							//Write order
 							$order->write();
