@@ -65,6 +65,8 @@ class SiteConfigPayPalExtension extends DataExtension
       TextField::create('PayPalSecret'),
       NumericField::create('ClientNumberOffset',$this->owner->fieldLabels()['ClientNumberOffset']),
       NumericField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']),
+      HTMLEditorField::create('BillPayLabel',$this->owner->fieldLabels()['BillPayLabel'])->setRows(5),
+      HTMLEditorField::create('OnlinePayLabel',$this->owner->fieldLabels()['OnlinePayLabel'])->setRows(5),
       TextField::create('BillEmailSubject',$this->owner->fieldLabels()['BillEmailSubject']),
       HTMLEditorField::create('BillEmailBody',$this->owner->fieldLabels()['BillEmailBody'])->setRows(5),
       TextField::create('PaymentEmailSubject',$this->owner->fieldLabels()['PaymentEmailSubject']),
