@@ -196,7 +196,7 @@ class ShopOrder extends DataObject{
 
 	public function getOrderPrice(){
 	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',704));
+	    return DBField::create_field('Varchar',money_format('%i',$this->getFinalPrice()));
 	}
 
 	public function getOrderSubPrice(){
