@@ -31,7 +31,7 @@ $(document).ready(function(){
 	//Package Selection
 	$(document).on("click","[data-package-choice]",function(){
 		$("#Form_CheckoutForm_ProductID").val($(this).attr('data-package-choice'));
-		price = parseInt($(this).attr('data-price')) * 100;
+		price = parseFloat($(this).attr('data-price'));
 		$(".summary-package").attr('hidden','hidden');
 		$("#summary-package-"+$(this).attr('data-package-choice')).attr('hidden',false);
 		if ($(this).attr('data-package-choice') == 3){
@@ -96,10 +96,14 @@ $(document).ready(function(){
 	        		window.location.href = "/danke-fuer-ihre-bestellung";
 	        	}
 	        	else{
-	        		 UIkit.modal.alert('Ein Fehler ist aufgetreten');
+	        		 UIkit.modal.alert('Ein Fehler ist aufgetreten').then(function() {
+	        		 	window.location.reload();
+	        		 });
 	        	}
 	        }).fail(function(data){
-	        	UIkit.modal.alert('Ein Fehler ist aufgetreten');
+	        	UIkit.modal.alert('Ein Fehler ist aufgetreten').then(function() {
+	        		 	window.location.reload();
+	        		 });
 	        });
 	      });
 	    }
