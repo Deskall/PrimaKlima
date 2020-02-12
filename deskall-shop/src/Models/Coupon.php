@@ -4,6 +4,7 @@ use SilverStripe\Forms\DateField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\ORM\FieldType\DBText;
 
 class Coupon extends DataObject {
 
