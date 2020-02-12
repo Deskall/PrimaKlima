@@ -20,7 +20,7 @@ class SiteConfigPayPalExtension extends DataExtension
     'PaymentConfirmedLabel' => 'HTMLText',
     'ClientNumberOffset' => 'Int',
     'OrderNumberOffset' => 'Int',
-    'BuySuccessfullMessage' => 'HTMLText'
+    'BuySuccessfullMessage' => 'HTMLText',
     'BillEmailSubject' => 'Varchar',
     'BillEmailBody' => 'HTMLText',
     'PaymentEmailSubject' => 'Varchar',
