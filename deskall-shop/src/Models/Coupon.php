@@ -2,6 +2,7 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\DateField;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\FieldType\DBText;
@@ -39,7 +40,7 @@ class Coupon extends DataObject {
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
 		$fields->removeByName('Used');
-		$fields->addFieldToTab('Root.Main', TextField::create('Code', _t('COUPON.Code', 'Code')));
+		$fields->addFieldToTab('Root.Main', ReadonlyField::create('Code', _t('COUPON.Code', 'Code')));
 		$fields->addFieldToTab('Root.Main', NumericField::create('Count', _t('COUPON.Count', 'Verfügbar (wie oft)')));		
 		$fields->addFieldToTab('Root.Main', NumericField::create('Amount', _t('COUPON.Amount', 'Betrag')));
 		$fields->addFieldToTab('Root.Main', DropdownField::create('AmountType', _t('COUPON.AmountType', 'Art des Gutscheins'), array(
