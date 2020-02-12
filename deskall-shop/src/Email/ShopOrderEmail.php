@@ -64,6 +64,7 @@ class ShopOrderEmail extends Email
          * @var \SilverStripe\ORM\FieldType\DBDatetime $createdDateObj
          */
         $createdDateObj = $Order->obj('Created');
+        $expiration = $Order->obj('EndValidity');
 
         $absoluteBaseURL = $this->BaseURL();
         $variables = array(
@@ -77,6 +78,7 @@ class ShopOrderEmail extends Email
             '$Order.Data' => $Order->renderWith('Emails/ShopOrderData'),
             '$Product.Title' => $Order->Product()->Title,
             '$Product.Data' => $Order->Product()->renderWith('Emails/ProductData')
+            '$Order.EndValidity' => $expiration->format('d.m.Y')
         );
         
         foreach (array('Company' , 'Email' , 'Address' , 'PostalCode' , 'City' , 'Country', 'Phone', 'Price' ) as $field) {
