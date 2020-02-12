@@ -37,11 +37,14 @@ class AccountDesactivationJob extends AbstractQueuedJob implements QueuedJob
     public function __construct()
     {   
   
-        $this->date = new \DateTime('Y-m-d 00:00:00');
+        $today = new \DateTime();
+        $today = $today->setTimestamp(strtotime('today midnight'));
+        $this->date = $today;
         $this->config = SiteConfig::current_site_config();
-        $expiration = new \DateTime('Y-m-d 00:00:00');
+        $expiration = new \DateTime();
+        $expiration = $expiration->setTimestamp(strtotime('today midnight'));
         $expiration->modify('+5 days');
-        $this->expiration = $expirationOffer;
+        $this->expiration = $expiration;
     }
 
 
