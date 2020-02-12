@@ -73,8 +73,8 @@ $(document).ready(function(){
 				console.log('ici');
 				UIkit.modal.alert(response.message).then(function() {
 					$("input[name='CouponID']").val(response.voucherID);
-					$("tbody#package-summary").append('<tr><td colspan="3" class="uk-text-right">Rabatt</td><td class="uk-text-right">- '+response.NiceAmount+'</td>\
-						</tr><tr><td colspan="4" class="uk-text-right uk-text-bold">'+response.price+'</td></tr>');
+					$("tbody#package-summary").append('<tr><td colspan="3" class="uk-text-right">Rabatt</td><td>- '+response.NiceAmount+'</td>\
+						</tr><tr><td colspan="4" class="uk-text-bold">'+response.price+' €</td></tr>');
 					price = response.price;
 				});
 			}

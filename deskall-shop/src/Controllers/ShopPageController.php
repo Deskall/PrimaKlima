@@ -359,7 +359,7 @@ class ShopPageController extends PageController{
 						'status' => 'OK', 
 						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->NiceAmount().' gewährt.</p>', 
 						'price' => $discountPrice,
-						'NiceAmount' => $voucher->NiceAmount(),
+						'NiceAmount' => $voucher->NiceAmount()->getValue(),
 						'voucherID' => $voucher->ID
 					]);
 				}
