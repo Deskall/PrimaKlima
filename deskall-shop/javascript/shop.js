@@ -48,11 +48,13 @@ $(document).ready(function(){
 		if ($("input[name='paymentmethod']:checked").val() == "bill"){
 			$("#bill-form-container").attr('hidden',false).find('input,select').attr('required',true);
 			$("#card-form-container").attr('hidden','hidden');
+			$("#summary-bill-container").attr('hidden',false);
 			$("#Form_CheckoutForm_action_payBill").attr('hidden',false);
 		}
 		else{
 			$("#bill-form-container").attr('hidden','hidden').find('input, select').attr('required',false);
 			$("#Form_CheckoutForm_action_payBill").attr('hidden','hidden');
+			$("#summary-bill-container").attr('hidden','hidden');
 			$("#card-form-container").attr('hidden',false);
 		}
 	

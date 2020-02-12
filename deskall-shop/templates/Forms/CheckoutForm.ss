@@ -107,9 +107,11 @@
 				</div>
 				<hr>
 					<div class="uk-text-right">
+						<div id="summary-bill-container">
 						<% with Fields.FieldByName('SummaryFields') %>
 						$FieldHolder
 						<% end_with %>
+						</div>
 						<div id="card-form-container" class="uk-margin" hidden>
 							<div class="uk-panel uk-background-muted uk-padding-small uk-text-center">
 								<h4><%t Checkout.OnlinePayment 'Online bezahlen' %></h4>
