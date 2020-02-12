@@ -113,8 +113,8 @@
 						<div id="card-form-container" class="uk-margin" hidden>
 							<div class="uk-panel uk-background-muted uk-padding-small">
 								<h4><%t Checkout.OnlinePayment 'Online bezahlen' %></h4>
-								$SiteConfig.OnlinePayLabel
-								<div id="paypal-button-container" class="uk-width-medium uk-flex-center">
+								$Top.SiteConfig.OnlinePayLabel
+								<div id="paypal-button-container">
 								</div>
 							</div>
 						</div>
