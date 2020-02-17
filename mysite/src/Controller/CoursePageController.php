@@ -75,7 +75,7 @@ class CoursePageController extends Extension
             NocaptchaField::create('Captcha'),
             HiddenField::create('course')->setValue($KurseID)
         ); 
-        $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday','agb','acceptance']);
+        $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday','strasse','plz','ort','telephone','agb','acceptance']);
 
         
         $form = new Form(
@@ -128,7 +128,7 @@ class CoursePageController extends Extension
             NocaptchaField::create('Captcha'),
             HiddenField::create('course')->setValue($KurseID)
         ); 
-        $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday','anrede2','name2','vorname2','email2','birthday2','agb','acceptance']);
+        $requiredFields = new RequiredFields(['anrede','name','vorname','email','birthday','strasse','plz','ort','telephone','anrede2','name2','vorname2','email2','birthday2','strasse2','plz2','ort2','telephone2','agb','acceptance']);
 
         
         
