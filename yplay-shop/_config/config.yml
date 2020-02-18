@@ -5,8 +5,12 @@ BaseBlockExtension:
   blocks:
     - ProductBlock
     - ShopFinderBlock
+    - MarketingBlock
+    - TeasingBlock
   children_blocks:
     - ProductBlock
+    - MarketingBlock
+    - TeasingBlock
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
@@ -19,10 +23,3 @@ PageController:
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - yplay-shop/css/yplay_shop.css
-
-BaseBlockExtension:
-  blocks:
-    - MarketingBlock
-    - TeasingBlock
-  children_blocks:
-    - MarketingBlock
