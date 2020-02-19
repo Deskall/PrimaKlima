@@ -51,12 +51,12 @@
 
 <section class="uk-section uk-section-medium" style="background-color:#eee;">
 		<div class="uk-container uk-container-medium">
-		<% if not Parent.activePLZ %>
+		<% if not getPage.activePLZ %>
 			<% if $chosenItem %>
 			<strong>Ihre Auswahl: $chosenItem.Title</strong>
 			<% end_if %>
 
-			$Parent.SiteConfig.PLZModalBody
+			$getPage.SiteConfig.PLZModalBody
 			<form method="POST" action="{$Link}plz-speichern" class="form-std plz-form">
 				<div class="uk-flex uk-flex-left uk-flex-top">
 				   <div>
