@@ -30,7 +30,7 @@
 </table>
 <% end_if %>
 <table width="100%">
-	<tr height="30">
+	<tr height="50">
 		<td><h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2></td>
 	</tr>
 	<% if Candidat.CVItems.exists %>
@@ -45,6 +45,9 @@
 				$Description
 			</td>
 		</tr>
+		<tr height="20">
+			<td>&nbsp;</td>
+		</tr>
 		<% end_loop %>
 	<% else %>
 	<tr><td><%t Candidature.NoExperience 'Keine berüfliche Erfahrungen' %></td></tr>
@@ -56,7 +59,7 @@
 	</tr>
 </table>
 <table width="100%">
-	<tr height="30">
+	<tr height="50">
 		<td><h2><%t Candidature.FormationTitle 'Ausbildungen' %></h2></td>
 	</tr>
 	<% if Candidat.CursusItems.exists %>
@@ -70,6 +73,9 @@
 				<div><strong>$Position</strong></div>
 				$Description
 			</td>
+		</tr>
+		<tr height="20">
+			<td>&nbsp;</td>
 		</tr>
 		<% end_loop %>
 	<% else %>
