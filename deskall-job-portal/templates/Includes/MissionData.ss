@@ -1,5 +1,5 @@
 
-				<% with Offer %>
+				
 				<table width="100%">
 					<tr>
 						<td width="100">
@@ -27,4 +27,4 @@
 					</tr>
 				</table>
 						
-				<% end_with %>
+				
