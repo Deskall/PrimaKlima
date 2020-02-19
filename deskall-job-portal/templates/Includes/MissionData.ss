@@ -47,7 +47,25 @@
 				<% if Image.exists %> 
 				<table width="100%">
 					<tr>
-						<td>$Image.FitMax(450,350)</td>
+						<td align="center">$Image.FitMax(250,200)</td>
 					</tr>
 				</table>
 				<% end_if %>
+				<table width="100%">
+					<tr>
+						<td>$Description</td>
+					</tr>
+				</table>
+				<table width="100%">
+					<tr height="80">
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+				<table width="100%">
+					<tr>
+						<td><%t OfferPage.WeOffer 'Wir bieten Ihnen' %></td>
+					</tr>
+					<tr>
+						<td>$Customer.ReasonWhy</td>
+					</tr>
+				</table>
