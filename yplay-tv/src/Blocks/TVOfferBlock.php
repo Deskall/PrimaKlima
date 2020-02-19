@@ -53,7 +53,7 @@ class TVOfferBlock extends TextBlock
     public function getTVOffer(){
 
         if ($plz = $this->activePLZ()){
-            print_r($plz->ID);
+            print_r($plz->TVType);
             return TVOffer::get()->filter('TVOffer',$plz->TVType)->first();
         }
         return null;
