@@ -4,7 +4,7 @@
 use SilverStripe\ORM\FieldType\DBField;
 
 
-class TVOfferBlock extends TextBlcok
+class TVOfferBlock extends TextBlock
 {
     private static $icon = 'font-icon-monitor';
     
