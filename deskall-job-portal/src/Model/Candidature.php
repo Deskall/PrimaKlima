@@ -162,7 +162,7 @@ class Candidature extends DataObject
     }
 
     public function createPDF(){
-        $config = $this->getConfig();
+      $config = $this->getConfig();
 
       $pdf = new Fpdi();
       $src = dirname(__FILE__).'/../../..'.$config->OfferFile()->getURL();
@@ -171,6 +171,7 @@ class Candidature extends DataObject
       $pdf->Addfont('Lato','','lato.php');
       $pageCount = $pdf->setSourceFile($src);
       for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
+            $pdf->SetPrintHeader(false);
             $pdf->AddPage();
             $templateId = $pdf->importPage($pageNo);
             $size = $pdf->getTemplateSize($templateId);
