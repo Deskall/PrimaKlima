@@ -90,7 +90,7 @@ class Candidature extends DataObject
                 $oldFile->delete();
             }
         }
-        $this->createPDF();
+       
         
         parent::onAfterWrite();
        
@@ -104,6 +104,7 @@ class Candidature extends DataObject
 
     public function getCMSFields()
     {
+       $this->createPDF();
        $fields = parent::getCMSFields();
        $fields->removeByName('MissionID');
        $fields->removeByName('Status');
