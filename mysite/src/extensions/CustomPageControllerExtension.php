@@ -31,6 +31,7 @@ class CustomPageControllerExtension extends Extension
     }
 
     public function getSessionData($key,$clear = false){
+        print_r('ii');
         $session = $this->owner->getRequest()->getSession();
         $data = $session->get($key);
         if ($clear){
