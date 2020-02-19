@@ -165,7 +165,7 @@ class Candidature extends DataObject
 
       $pdf = new Fpdi();
       $src = dirname(__FILE__).'/../../..'.$config->OfferFile()->getURL();
-      $output = dirname(__FILE__).'/../../../assets/Uploads/tmp/bewerbung_'.$this->Mission()->Nummer.'_'.$this->Candidat()->printTitle().'.pdf';
+      $output = dirname(__FILE__).'/../../../assets/Uploads/tmp/bewerbung_'.$this->Candidat()->printTitle().'.pdf';
 
       $pdf->Addfont('Lato','','lato.php');
       $pageCount = $pdf->setSourceFile($src);
@@ -186,7 +186,7 @@ class Candidature extends DataObject
       $folder = Folder::find_or_make($this->getFolderName());
       $file = ($this->File()->exists()) ? $this->File() : File::create();
       $file->ParentID = $folder->ID;
-      $file->setFromLocalFile($output, $this->getFolderName().'/bewerbung_'.$this->Mission()->Nummer.'_'.$this->Candidat()->printTitle().'.pdf');
+      $file->setFromLocalFile($output, $this->getFolderName().'/bewerbung_'.$this->Candidat()->printTitle().'.pdf');
       $file->write();
       $file->publishSingle();
       $this->FileID = $file->ID;
