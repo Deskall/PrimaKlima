@@ -56,7 +56,7 @@
 					</div>
 					<% else %>
 					<div class="photo-profil-{$Top.Record.ID} uk-text-center">
-						<div id="upload-photo-container-{$Top.Record.ID}" class="js-upload with-preview uk-placeholder uk-text-center uk-margin-remove" data-container=".photo-profil-{$Top.Record.ID}" data-field-name="ImageID">
+						<div id="upload-photo-container-{$Top.Record.ID}" class="js-upload with-preview uk-placeholder uk-text-center uk-margin-remove" data-container=".photo-profil-{$Top.Record.ID}" data-field-name="ImageID" data-upload-url="{$Controller.MemberPage.Link}upload">
 							<div class="form-field">
 								<span data-uk-icon="icon: cloud-upload"></span>
 								<span class="uk-text-middle"><%t Member.ChangePicture 'Legen Sie ein Bild ab oder' %></span>
@@ -84,13 +84,13 @@
 						<tbody id="job-offer-files" data-uk-sortable>
 							<% if $Top.Record.Attachments %>
 							<% loop  $Top.Record.Attachments.sort('SortOrder') %>
-							<tr><td class="uk-drag"><span class="fa fa-ellipsis-v"></span></td><td><i class="fa fa-file uk-text-large"></i></td><td>$Name</td><td><a data-delete-row><span class="fa fa-trash"></span></a></td><td><input type="hidden" name="TempFiles[]" value="$ID"/></td></tr>
+							<tr><td class="uk-drag"><span class="icon icon-android-more-vertical"></span></td><td><i class="icon icon-file uk-text-large"></i></td><td>$Name</td><td><a data-delete-row><span class="icon icon-trash-a"></span></a></td><td><input type="hidden" name="TempFiles[]" value="$ID"/></td></tr>
 							<% end_loop %>
 							<% end_if %>
 						</tbody>
 					</table>
 					<div class="uk-margin-small">
-						<div id="upload-photos" class="js-upload multiple uk-placeholder uk-text-center" data-container="#job-offer-files" data-field-name="TempFiles[]" data-type="file">
+						<div id="upload-photos" class="js-upload multiple uk-placeholder uk-text-center" data-container="#job-offer-files" data-field-name="TempFiles[]" data-type="file" data-upload-url="{$Controller.MemberPage.Link}upload">
 							<div class="form-field">
 								<span data-uk-icon="icon: cloud-upload"></span>
 								<span class="uk-text-middle"><%t Member.AddFiles 'Legen Sie Dateien ab oder' %></span>
