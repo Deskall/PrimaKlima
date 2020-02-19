@@ -2,7 +2,8 @@
 
 
 use SilverStripe\ORM\FieldType\DBField;
-
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Core\Injector\Injector;
 
 class TVOfferBlock extends TextBlock
 {
@@ -27,7 +28,6 @@ class TVOfferBlock extends TextBlock
     {
         $fields = parent::getCMSFields();
        
-
         return $fields;
     }
 
@@ -38,4 +38,14 @@ class TVOfferBlock extends TextBlock
         return _t(__CLASS__ . '.BlockType', 'Zeigt TV-Angebot nach Ortschaft an');
     }
 
+
+    public function activePLZ(){
+        $request = Injector::inst()->get(HTTPRequest::class);
+        $session = $request->getSession();
+        return $session->get('active_plz');
+    }
+
+    // public function getTVOffer(){
+        
+    // }
 }
