@@ -8,12 +8,14 @@
 		</td>
 		<td align="right">$Candidat.NiceAddress</td>
 	</tr>
-	<% if $Content %>
+</table>
+<% if $Content %>
+<table>
 	<tr>
 		<td><h2><%t Candidature.Text 'Bewerbungstext' %></h2></td>
 	</tr>
 	<tr>
 		<td><i>$Content</i></td>
 	</tr>
-	<% end_if %>
 </table>
+<% end_if %>
