@@ -39,7 +39,6 @@ use SilverStripe\Control\Controller;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Forms\RequiredFields;
 use Bummzack\SortableFile\Forms\SortableUploadField;
-use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class Mission extends DataObject
 {
@@ -294,7 +293,7 @@ class Mission extends DataObject
     }
 
     public function getFolderName(){
-        return 'Uploads/Stellenangebot/'.URLSegmentFilter::create()->filter($this->Nummer);
+        return 'Uploads/Stellenangebot/'.str_replace('.','-',$this->Nummer);
     }
 
     public function ShortDescription(){
