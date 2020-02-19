@@ -2,7 +2,7 @@
 				
 				<table width="100%">
 					<tr>
-						<td width="100">
+						<td width="120">
 							<% if Customer.Logo %>
 								<% if $Customer.Logo.getExtension == "svg" %>
 								<img src="$Customer.Logo.URL" width="100" />
@@ -14,10 +14,16 @@
 						<td>
 							<table>
 								<tr>
-									<td><strong>$Customer.Company</strong></td>
+									<td colspan="3"><strong>$Customer.Company</strong></td>
+								</tr>
+								<tr height="30">
+									<td>&nbsp;</td>
 								</tr>
 								<tr>
-									<td><h1>$Title</h1></td>
+									<td colspan="3"><h1>$Title</h1></td>
+								</tr>
+								<tr height="30">
+									<td>&nbsp;</td>
 								</tr>
 								<tr>
 									<td>$City</td>
