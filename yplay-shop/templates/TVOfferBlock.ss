@@ -50,7 +50,7 @@
 </div>
 
 
-			<div class="uk-panel uk-background-muted">
+			<div class="uk-panel uk-background-muted uk-padding-small">
 				<% if not activePLZ %>
 
 					<form method="POST" action="{$getPage.Link}plz-speichern" class="form-std plz-form">
