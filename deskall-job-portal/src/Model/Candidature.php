@@ -183,7 +183,7 @@ class Candidature extends DataObject
       $pdf->Output($output,'F');
       
       $folder = Folder::find_or_make($this->getFolderName());
-      $file = File::create();
+      $file = ($this->File()->exists()) ? $this->File() : File::create();
       $file->ParentID = $folder->ID;
       $file->setFromLocalFile($output, $this->getFolderName().'/Bewerbung_'.$this->ID.'.pdf');
       $file->write();
