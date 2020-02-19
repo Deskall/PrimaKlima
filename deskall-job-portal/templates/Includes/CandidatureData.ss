@@ -23,18 +23,35 @@
 		<td>$Content</td>
 	</tr>
 </table>
+<table>
+	<tr height="50">
+		<td>&nbsp;</td>
+	</tr>
+</table>
 <% end_if %>
 <table width="100%">
-	<tr>
+	<tr height="30">
 		<td><h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2></td>
 	</tr>
 	<% if CVItems.exists %>
 		<% loop CVItems %> 
 		<tr>
-			<td>$Content</td>
+			<td width="100">
+				<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
+				<p>$Company</p>
+			</td>
+			<td>
+				<div><strong>$Position</strong></div>
+				$Description
+			</td>
 		</tr>
 		<% end_loop %>
 	<% else %>
 	<tr><td><%t Candidature.NoExperience 'Keine berüfliche Erfahrungen' %></td></tr>
 	<% end_if %>
+</table>
+<table>
+	<tr height="50">
+		<td>&nbsp;</td>
+	</tr>
 </table>
