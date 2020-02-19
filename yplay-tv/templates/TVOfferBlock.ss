@@ -62,22 +62,25 @@
 					</form>
 				<% else %>
 					<p>Ihre Region: $activePLZ.Code - $activePLZ.City <a href="{$getPage.Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a></p>
-					<% if $TVOffer %>
-						<% with $TVOffer %>
-							<h3>Ihre TV-Angebot: $Title</h3>
-							<% if Image %>
-							<div class="uk-flex uk-flex-middle" data-uk-grid>
-								<div class="uk-width-1-2@m uk-1-3@l uk-width-1-4@xl">
-									$Image.ScaleWidth(350)
-								</div>
-								<div class="uk-width-1-2@m uk-2-3@l uk-width-3-4@xl">
-									$Inhalt
-								</div>
-							</div>
-							<% else %>
-							$Inhalt
-							<% end_if %>
-						<% end_with %>
-					<% end_if %>
 				<% end_if %>
 			</div>
+
+			<% if $TVOffer %>
+			<div class="uk-panel">
+				<% with $TVOffer %>
+					<h3>Ihre TV-Angebot: $Title</h3>
+					<% if Image %>
+					<div class="uk-flex uk-flex-middle" data-uk-grid>
+						<div class="uk-width-1-2@m uk-1-3@l uk-width-1-4@xl">
+							$Image.ScaleWidth(350)
+						</div>
+						<div class="uk-width-1-2@m uk-2-3@l uk-width-3-4@xl">
+							$Inhalt
+						</div>
+					</div>
+					<% else %>
+					$Inhalt
+					<% end_if %>
+				<% end_with %>
+			</div>
+			<% end_if %>
