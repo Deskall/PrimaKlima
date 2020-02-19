@@ -30,15 +30,18 @@
 </table>
 <% end_if %>
 <table width="100%">
-	<tr height="50">
+	<tr>
 		<td><h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2></td>
+	</tr>
+	<tr height="30">
+		<td>&nbsp;</td>
 	</tr>
 	<% if Candidat.CVItems.exists %>
 		<% loop Candidat.CVItems %> 
 		<tr>
 			<td width="100">
-				<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
-				<p>$Company</p>
+				$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %><br>
+				$Company
 			</td>
 			<td>
 				<div><strong>$Position</strong></div>
@@ -59,15 +62,18 @@
 	</tr>
 </table>
 <table width="100%">
-	<tr height="50">
+	<tr>
 		<td><h2><%t Candidature.FormationTitle 'Ausbildungen' %></h2></td>
+	</tr>
+	<tr height="30">
+		<td>&nbsp;</td>
 	</tr>
 	<% if Candidat.CursusItems.exists %>
 		<% loop Candidat.CursusItems %> 
 		<tr>
 			<td width="100">
-				<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
-				<p>$Company</p>
+				$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %><br>
+				$Company
 			</td>
 			<td>
 				<div><strong>$Position</strong></div>
