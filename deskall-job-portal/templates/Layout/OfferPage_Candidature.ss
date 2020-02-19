@@ -63,7 +63,7 @@
 								<p>$Company</p>
 							</div>
 							<div class="uk-width-2-3 uk-width-3-4@m uk-width-4-5@l">
-								<strong>$Position</strong>
+								<div><strong>$Position</strong></div>
 								$Description
 							</div>
 						</div>
@@ -79,7 +79,7 @@
 								<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
 							</div>
 							<div class="uk-width-2-3 uk-width-3-4@m uk-width-4-5@l">
-								<strong>$Diplom</strong>
+								<div><strong>$Diplom</strong></div>
 								<p>$School</p>
 							</div>
 						</div>
