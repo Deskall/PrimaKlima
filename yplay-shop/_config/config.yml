@@ -7,10 +7,12 @@ BaseBlockExtension:
     - ShopFinderBlock
     - MarketingBlock
     - TeasingBlock
+    - TVOfferBlock
   children_blocks:
     - ProductBlock
     - MarketingBlock
     - TeasingBlock
+    - TVOfferBlock
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
