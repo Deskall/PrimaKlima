@@ -10,7 +10,7 @@
 	</tr>
 </table>
 <% if $Content %>
-<table cellspacing="2" width="100%" bgcolor="#E6D091" color="#4A4A49">
+<table style="margin-top:40px;" width="100%">
 	<tr>
 		<td><h2><%t Candidature.Text 'Bewerbungstext' %></h2></td>
 	</tr>
@@ -19,7 +19,7 @@
 	</tr>
 </table>
 <% end_if %>
-<table cellspacing="2" width="100%" bgcolor="#E6D091" color="#4A4A49">
+<table style="margin-top:40px;" width="100%">
 	<tr>
 		<td><h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2></td>
 	</tr>
