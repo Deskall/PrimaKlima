@@ -156,15 +156,16 @@ class JobPortalConfig extends DataObject
                    ]),
                  
                     CompositeField::create([ 
+                        HeaderField::create('InscriptionTitle2',_t(__CLASS__.".BackInscriptionTitle2","Inscription - Step 2"),3),
                         Wrapper::create(
                             CompositeField::create([ 
-                                HeaderField::create('InscriptionTitle2',_t(__CLASS__.".BackInscriptionTitle2","Inscription - Step 2"),3),
-                               TextField::create('AfterConfirmationTitle',_t(__CLASS__.".AfterConfirmationTitle", 'Page title (after email validation)')),
-                               HTMLEditorField::create('AfterConfirmationContent',_t(__CLASS__.".AfterConfirmationContent", 'Page content (after email validation)')),
-                               TextField::create('AfterConfirmationEmailFrom',_t(__CLASS__.".AfterConfirmationEmailFrom", 'Confirmation email sender')),
-                               TextField::create('AfterConfirmationEmailSubject',_t(__CLASS__.".AfterConfirmationEmailSubject", 'Confirmation email subject')),
-                               HTMLEditorField::create('AfterConfirmationEmailBody',_t(__CLASS__.".AfterConfirmationContent", 'Confirmation email body')),
-                            ]))->displayIf('EmailValidationRequired')->isChecked()->end()
+                                TextField::create('AfterConfirmationTitle',_t(__CLASS__.".AfterConfirmationTitle", 'Page title (after email validation)')),
+                                HTMLEditorField::create('AfterConfirmationContent',_t(__CLASS__.".AfterConfirmationContent", 'Page content (after email validation)')),
+                                TextField::create('AfterConfirmationEmailFrom',_t(__CLASS__.".AfterConfirmationEmailFrom", 'Confirmation email sender')),
+                                TextField::create('AfterConfirmationEmailSubject',_t(__CLASS__.".AfterConfirmationEmailSubject", 'Confirmation email subject')),
+                                HTMLEditorField::create('AfterConfirmationEmailBody',_t(__CLASS__.".AfterConfirmationContent", 'Confirmation email body')),
+                            ])
+                        )->displayIf('EmailValidationRequired')->isChecked()->end()
                     ]),
                 
                 
