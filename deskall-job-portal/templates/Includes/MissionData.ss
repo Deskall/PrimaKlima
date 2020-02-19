@@ -77,7 +77,7 @@
 					<tr>
 						<td><h3><%t OfferPage.MoreInfos 'Weitere Informationen' %></h3></td>
 					</tr>
-					<tr height="20">
+					<tr height="30">
 						<td>&nbsp;</td>
 					</tr>
 					<% loop $Attachments %>
