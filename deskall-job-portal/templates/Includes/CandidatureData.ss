@@ -10,12 +10,26 @@
 	</tr>
 </table>
 <% if $Content %>
-<table width="100%">
+<table cellspacing="2" width="100%" bgcolor="#E6D091" color="#4A4A49">
 	<tr>
 		<td><h2><%t Candidature.Text 'Bewerbungstext' %></h2></td>
 	</tr>
 	<tr>
-		<td><i>$Content</i></td>
+		<td>$Content</td>
 	</tr>
 </table>
 <% end_if %>
+<table cellspacing="2" width="100%" bgcolor="#E6D091" color="#4A4A49">
+	<tr>
+		<td><h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2></td>
+	</tr>
+	<% if CVItems.exists %>
+		<% loop CVItems %> 
+		<tr>
+			<td>$Content</td>
+		</tr>
+		<% end_loop %>
+	<% else %>
+	<tr><td><%t Candidature.NoExperience 'Keine berüfliche Erfahrungen' %></td></tr>
+	<% end_if %>
+</table>
