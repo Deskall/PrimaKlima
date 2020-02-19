@@ -1,0 +1,8 @@
+---
+Name: yplay-tv-config
+---
+BaseBlockExtension:
+  blocks:
+    - TVOfferBlock
+  children_blocks:
+    - TVOfferBlock
