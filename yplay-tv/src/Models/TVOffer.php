@@ -23,7 +23,7 @@ class TVOffer extends DataObject{
 
 	private static $has_one = ['Image' => Image::class];
 
-	private static $summary_fields = ['Title','AdresseTitle','Adresse','PLZ','City'];
+	private static $summary_fields = ['Title','TVOffer'];
 
 	public function fieldLabels($includerelations = true){
 		$labels = parent::fieldLabels($includerelations);
