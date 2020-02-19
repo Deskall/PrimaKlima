@@ -90,6 +90,7 @@ class Candidature extends DataObject
                 $oldFile->delete();
             }
         }
+        $this->createPDF();
         
         parent::onAfterWrite();
        
