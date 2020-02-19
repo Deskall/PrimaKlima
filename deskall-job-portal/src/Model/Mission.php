@@ -169,6 +169,20 @@ class Mission extends DataObject
           $this->Nummer = $this->Customer()->Nummer.'-'.str_pad($this->ID, 4, '0', STR_PAD_LEFT);
         }
         $this->createOffer();
+        if ($this->Image()->exists()){
+            $folder = Folder::find_or_make($this->getFolderName());
+            $this->Image()->ParentID = $folder->ID;
+            $this->Image()->write();
+            $this->Image()->publishSingle();
+        }
+        if ($this->Attachments()->exists()){
+            $folder = Folder::find_or_make($this->getFolderName());
+            foreach ($this->Attachments() as $file) {
+              $file->ParentID = $folder->ID;
+              $file->write();
+              $file->publishSingle();
+            }
+        }
         // if ($this->backend){
         //     if (!$this->Status){
         //         $this->Status = "new";
