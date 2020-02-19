@@ -51,21 +51,23 @@
 
 <section class="uk-section uk-section-medium">
 		<div class="uk-container uk-container-medium">
-		<% if not activePLZ %>
+			<div class="uk-panel uk-background-muted">
+				<% if not activePLZ %>
 
-			<form method="POST" action="{$getPage.Link}plz-speichern" class="form-std plz-form">
-				<div class="uk-flex uk-flex-left uk-flex-top">
-				   <div>
-				        <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
-				   </div>
-				   <button class="uk-button uk-button-primary" type="submit">Region prüfen</button>
-				</div>
-			</form>
-		<% else %>
-			<p>Ihre Region: $activePLZ.Code - $activePLZ.City <a href="{$getPage.Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a></p>
-			<% if $TVAngebot %>
-			<strong>Ihre TV-Angebot: $TVAngebot.Title</strong>
-			<% end_if %>
-		<% end_if %>
+					<form method="POST" action="{$getPage.Link}plz-speichern" class="form-std plz-form">
+						<div class="uk-flex uk-flex-left uk-flex-top">
+						   <div>
+						        <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
+						   </div>
+						   <button class="uk-button uk-button-primary" type="submit">Region prüfen</button>
+						</div>
+					</form>
+				<% else %>
+					<p>Ihre Region: $activePLZ.Code - $activePLZ.City <a href="{$getPage.Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a></p>
+					<% if $TVAngebot %>
+					<strong>Ihre TV-Angebot: $TVAngebot.Title</strong>
+					<% end_if %>
+				<% end_if %>
+			</div>
 		</div>
 </section>
