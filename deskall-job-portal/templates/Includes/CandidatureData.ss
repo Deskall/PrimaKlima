@@ -73,11 +73,10 @@
 		<tr>
 			<td width="100">
 				$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %><br>
-				$Company
+				$School
 			</td>
 			<td>
 				<div><strong>$Diplom</strong></div>
-				$School
 			</td>
 		</tr>
 		<tr height="20">
