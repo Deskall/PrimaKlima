@@ -68,7 +68,7 @@
 			<% if $TVOffer %>
 			<div class="uk-panel">
 				<% with $TVOffer %>
-					<h3>Ihre TV-Angebot: $Title</h3>
+					<h3 class="uk-margin-top uk-margin-remove-bottom">Ihre TV-Angebot: $Title</h3>
 					<% if Image %>
 					<div class="uk-flex uk-flex-middle" data-uk-grid>
 						<div class="uk-width-1-2@m uk-1-3@l uk-width-1-4@xl">
