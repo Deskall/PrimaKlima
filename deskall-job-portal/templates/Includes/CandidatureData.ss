@@ -1,7 +1,7 @@
-<table width="100%" bgcolor="#EEEEEE">
+<table cellpaddind="10" width="100%" bgcolor="#EEEEEE">
 	<tr>
 		<td width="100"><%t Candidature.MissionNumber 'Stellenangebot-Nr.:' %> $Mission.Nummer</td>
-		<td>$Mission.Title</td>
+		<td width="445">$Mission.Title</td>
 	</tr>
 </table>
 <table>
