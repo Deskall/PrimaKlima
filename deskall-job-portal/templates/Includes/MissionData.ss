@@ -38,3 +38,16 @@
 				</table>
 						
 				
+				<table width="100%">
+					<tr height="80">
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+
+				<% if Image.exists %> 
+				<table width="100%">
+					<tr>
+						<td>$Image.FitMax(450,350)</td>
+					</tr>
+				</table>
+				<% end_if %>
