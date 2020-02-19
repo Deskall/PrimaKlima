@@ -37,7 +37,7 @@ class TVOfferAdmin extends ModelAdmin{
 
 	public function getList(){
 		$list = parent::getList();
-		i
+		
 		return $list;
 	}
 
