@@ -51,15 +51,12 @@
 
 <section class="uk-section uk-section-medium" style="background-color:#eee;">
 		<div class="uk-container uk-container-medium">
-			<h1>$Title</h1>
-			<%-- <h2>$SiteConfig.ConfiguratorTitle</h2> --%>
-			<% if not activePLZ %>
-
+		<% if not Parent.activePLZ %>
 			<% if $chosenItem %>
 			<strong>Ihre Auswahl: $chosenItem.Title</strong>
 			<% end_if %>
 
-			$SiteConfig.PLZModalBody
+			$Parent.SiteConfig.PLZModalBody
 			<form method="POST" action="{$Link}plz-speichern" class="form-std plz-form">
 				<div class="uk-flex uk-flex-left uk-flex-top">
 				   <div>
@@ -69,11 +66,12 @@
 				   
 				</div>
 			</form>
-			<% else %>
+		<% else %>
 			<div id="loading-block" class="uk-text-left">
 				<p><span data-uk-spinner="ratio: 2" class="uk-margin-right"></span>Produkte werden geladen. Einen Moment bitte.</p>
 			</div>
 			<div id="products-hidden-container">
 			</div>
+		<% end_if %>
 		</div>
 </section>
