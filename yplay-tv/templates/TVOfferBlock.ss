@@ -51,8 +51,8 @@
 
 
 			<div class="uk-panel uk-background-muted uk-padding-small">
-				<% if getPage.Controller.SessionData('message') %>
-				<p>$getPage.Controller.SessionData('message',true)</p>
+				<% if $getPage.SessionData('message') %>
+				<p>$getPage.SessionData('message',true)</p>
 				<% end_if %>
 				<% if not activePLZ %>
 					<form method="POST" action="{$getPage.Link}plz-speichern" class="form-std plz-form">
