@@ -35,7 +35,7 @@ class JobPortalConfig extends DataObject
 
         //Registration
         'EmailValidationRequired' => 'Boolean(0)',
-        'ApprovalRequired' => 'Boolean(0)',
+       
         //Step 1
         'AfterRegistrationTitle'   => 'Varchar(255)',
         'AfterRegistrationContent' => 'HTMLText',
@@ -100,6 +100,8 @@ class JobPortalConfig extends DataObject
     $labels['EmailSignature'] = _t(__CLASS__.'.EmailSignature','E-Mail Signatur');
     $labels['AfterRefusalCandidatureEmailBody'] = _t(__CLASS__.'.AfterRefusalCandidatureEmailBody','Inhalt der Email - Bewerbung abgelehnt');
     $labels['AfterRefusalCandidatureEmailSubject'] = _t(__CLASS__.'.AfterRefusalCandidatureEmailSubject','Titel der Email - Bewerbung abgelehnt');
+    $labels['CandidatureEmailSubject'] = _t(__CLASS__.'.CandidatureEmailSubject','Titel der Email - Bewerbung');
+    $labels['CandidatureEmailBody'] = _t(__CLASS__.'.CandidatureEmailBody','Inhalt der Email - Bewerbung');
     
     return $labels;
     }
