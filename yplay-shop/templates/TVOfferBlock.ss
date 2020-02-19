@@ -62,7 +62,7 @@
 				</div>
 			</form>
 		<% else %>
-			<p>Ihre Region: $activePLZ.Code - $activePLZ.City <a href="{$Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a></p>
+			<p>Ihre Region: $activePLZ.Code - $activePLZ.City <a href="{$getPage.Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a></p>
 			<% if $TVAngebot %>
 			<strong>Ihre TV-Angebot: $TVAngebot.Title</strong>
 			<% end_if %>
