@@ -57,7 +57,7 @@ class TVOfferBlock extends TextBlock
         return null;
     }
 
-    public function getSessionData($key,$clear = false){
+    public function getSessionData($key,$clear = null){
         print_r('ii');
         $request = Injector::inst()->get(HTTPRequest::class);
         $session = $request->getSession();
