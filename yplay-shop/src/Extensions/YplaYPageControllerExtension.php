@@ -103,7 +103,7 @@ class YplaYPageControllerExtension extends Extension
             }
             else{
                 //return to unbekannt plz page
-                return ['Title' => 'Unbekannte Region'];
+               return $this->owner->redirectBack();
             }
         }
         //should not happen as plz is mandatory, but redirecting anyway
