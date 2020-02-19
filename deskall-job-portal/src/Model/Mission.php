@@ -168,7 +168,7 @@ class Mission extends DataObject
         if ($this->Customer()->exists() && !$this->Nummer){
           $this->Nummer = $this->Customer()->Nummer.'-'.str_pad($this->ID, 4, '0', STR_PAD_LEFT);
         }
-        
+        $this->createOffer();
         // if ($this->backend){
         //     if (!$this->Status){
         //         $this->Status = "new";
@@ -596,9 +596,7 @@ class Mission extends DataObject
       $file->setFromLocalFile($output, 'Uploads/Stellenangebot/'.$this->Nummer.'/Angebot.pdf');
       $file->write();
       $file->publishSingle();
-      $this->OfferFileID = $file->ID;
-      $this->write();
-      
+      $this->OfferFileID = $file->ID;      
     }
 
     public function getConfig(){

@@ -25,8 +25,8 @@
 							<div class="uk-width-2-3">
 								<div class="uk-flex uk-flex-left uk-flex-middle">
 									<%-- <a class="uk-button WhiteBackground uk-margin-small-right"><%t OfferPage.CompanyPage 'Unternehmensprofil' %></a> --%>
-									<a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart"></i></a>
-									<a class="uk-button WhiteBackground uk-margin-small-right" data-print><i class="icon icon-printer"></i></a>
+									<%-- <a class="uk-button WhiteBackground uk-margin-small-right" data-save><i class="icon icon-heart"></i></a> --%>
+									<a class="uk-button WhiteBackground uk-margin-small-right" href="$OfferFile.URL" target="_blank"><i class="icon icon-printer"></i></a>
 									<% if CurrentMember %>
 										<% if canCandidate %><a class="uk-button uk-button-primary" href="{$Top.Link}bewerben/$ID"><%t OfferPage.Candidate 'Bewerben' %></a><% end_if %>
 									<% else %>
