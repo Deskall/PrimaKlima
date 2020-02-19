@@ -154,9 +154,9 @@ class JobPortalConfig extends DataObject
                        TextField::create('AfterRegistrationEmailSubject',_t(__CLASS__.".AfterRegistrationEmailSubject", 'Validation email subject')),
                        HTMLEditorField::create('AfterRegistrationEmailBody',_t(__CLASS__.".AfterRegistrationContent", 'Validaiton email body')),
                    ]),
-                 
+                    HeaderField::create('InscriptionTitle2',_t(__CLASS__.".BackInscriptionTitle2","Inscription - Step 2"),3)->displayIf('EmailValidationRequired')->isChecked()->end(),
                     CompositeField::create([ 
-                        HeaderField::create('InscriptionTitle2',_t(__CLASS__.".BackInscriptionTitle2","Inscription - Step 2"),3),
+                        
                         Wrapper::create(
                             CompositeField::create([ 
                                 TextField::create('AfterConfirmationTitle',_t(__CLASS__.".AfterConfirmationTitle", 'Page title (after email validation)')),
