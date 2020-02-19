@@ -1,4 +1,4 @@
-<table cellpaddind="10" width="100%" bgcolor="#EEEEEE">
+<table cellpadding="10" width="100%" bgcolor="#EEEEEE">
 	<tr>
 		<td width="100"><%t Candidature.MissionNumber 'Stellenangebot-Nr.:' %> $Mission.Nummer</td>
 		<td width="445">$Mission.Title</td>
