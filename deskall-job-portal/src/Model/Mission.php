@@ -293,7 +293,7 @@ class Mission extends DataObject
     }
 
     public function getFolderName(){
-        return 'Uploads/Stellenangebot/'.$this->ID;
+        return 'Uploads/Stellenangebot/'.str_replace('\.','-',$this->Nummer);
     }
 
     public function ShortDescription(){
