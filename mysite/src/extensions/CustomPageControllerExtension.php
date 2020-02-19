@@ -30,4 +30,13 @@ class CustomPageControllerExtension extends Extension
         return Security::getCurrentUser();
     }
 
+    public function getSessionData($key,$clear = false){
+        $session = $this->owner->getRequest()->getSession();
+        $data = $session->get($key);
+        if ($clear){
+            $session->clear($key);
+        }
+        return $data;
+    }
+
 }

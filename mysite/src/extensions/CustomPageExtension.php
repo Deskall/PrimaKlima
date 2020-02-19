@@ -43,4 +43,6 @@ class CustomPageExtension extends DataExtension
     public function activeMenuSections(){
         return $this->owner->MenuSections()->filter(['ClassName' => MenuSection::class, 'isVisible' => 1]);
     }
+
+   
 }
