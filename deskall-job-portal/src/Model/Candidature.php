@@ -31,6 +31,7 @@ class Candidature extends DataObject
     ];
 
     private static $summary_fields = [
+       'Created' => ['title' => 'Erstellt am'],
         'Candidat.Thumbnail' => ['title' => 'Foto'],
         'Candidat.NiceAddress' => ['title' => 'Personal Angaben'],
         // 'Candidat.NiceJobs' => ['title' => 'Kompetenz / Berufe'],
@@ -174,7 +175,7 @@ class Candidature extends DataObject
             $pdf->useTemplate($templateId);
             $pdf->SetFont('Lato','',8);
             $pdf->setXY(8,60);
-            $pdf->WriteHTML('<p>Hello</p>');
+            $pdf->WriteHTML($this->renderWidth('Includes/CandidatureData'));
             
       }
       $pdf->Output($output,'F');
