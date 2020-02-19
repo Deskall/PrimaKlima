@@ -177,7 +177,7 @@ class Candidature extends DataObject
             $size = $pdf->getTemplateSize($templateId);
             $pdf->useTemplate($templateId);
             $pdf->SetFont('Lato','',8);
-            $pdf->setXY(8,20);
+            $pdf->setXY(8,10);
 
             $pdf->WriteHTML($this->renderWith('Includes/CandidatureData'));
             
