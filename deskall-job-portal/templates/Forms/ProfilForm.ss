@@ -22,7 +22,7 @@
 									<span class="uk-text-middle"><%t Member.ChangePicture 'Legen Sie ein Bild ab oder' %></span>
 									<div data-uk-form-custom>
 										<input type="file" name="files">
-										<%t Member.SelectPicture 'Klicken Sie hier an' %>
+										<span class="uk-link"><%t Member.SelectPicture 'Klicken Sie hier an' %></span>
 									</div>
 								</div>
 								<div class="uk-position-top-right uk-dark uk-text-center">
@@ -38,7 +38,7 @@
 									<span class="uk-text-middle"><%t Member.ChangePicture 'Legen Sie ein Bild ab oder' %></span>
 									<div data-uk-form-custom>
 										<input type="file" name="files">
-										<%t Member.SelectPicture 'Klicken Sie hier an' %>
+										<span class="uk-link"><%t Member.SelectPicture 'Klicken Sie hier an' %></span>
 									</div>
 								</div>
 								

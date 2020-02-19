@@ -122,6 +122,12 @@ class MemberProfilePageController extends PageController{
 		try {
 			$member->write();
 			$JobGiver->write();
+			//Update all Offers
+			if ($JobGiver->Missions()->exists()){
+				foreach ($JobGiver->Missions() as $m) {
+					$m->write();
+				}
+			}
 		} catch (ValidationException $e) {
 			$validationMessages = '';
 			foreach($e->getResult()->getMessages() as $error){
