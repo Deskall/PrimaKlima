@@ -6,7 +6,7 @@
 			<% if $Candidat.Birthdate %><span>$Candidat.Age</span><% end_if %>
 			$Description
 		</td>
-		<td width="100" align="right">$Candidat.NiceAddress</td>
+		<td width="120" align="right">$Candidat.NiceAddress</td>
 	</tr>
 </table>
 <% if $Content %>
