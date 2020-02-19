@@ -86,7 +86,7 @@ class YplaYPageControllerExtension extends Extension
             }
             else{
                 //return to unbekannt plz page
-                $this->owner->getRequest()->getSession()->set('message','Unbekannte Region');
+                $this->owner->getRequest()->getSession()->set('message','Unbekannte Region « '.$plz.' »');
                return $this->owner->redirectBack();
             }
         }
