@@ -50,7 +50,10 @@ class TVOfferBlock extends TextBlock
         return null ;
     }
 
-    // public function getTVOffer(){
-
-    // }
+    public function getTVOffer(){
+        if ($plz = $this->activePLZ()){
+            return TVOffer::get()->filter('TVOffer',$plz->TVType)->first();
+        }
+        return null;
+    }
 }
