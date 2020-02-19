@@ -5,7 +5,7 @@
 	</tr>
 </table>
 <table>
-	<tr height="50">
+	<tr height="80">
 		<td>&nbsp;</td>
 	</tr>
 </table>
