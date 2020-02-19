@@ -178,7 +178,6 @@ class Candidature extends DataObject
             $pdf->useTemplate($templateId);
             $pdf->SetFont('Lato','',8);
             $pdf->setXY(8,60);
-
             $pdf->WriteHTML($this->renderWith('CandidatureData'));
             
       }
