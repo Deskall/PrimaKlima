@@ -169,6 +169,7 @@ class Mission extends DataObject
           $this->Nummer = $this->Customer()->Nummer.'-'.str_pad($this->ID, 4, '0', STR_PAD_LEFT);
         }
         $this->createOffer();
+        
         if ($this->Image()->exists()){
             $folder = Folder::find_or_make($this->getFolderName());
             $this->Image()->ParentID = $folder->ID;
@@ -244,6 +245,7 @@ class Mission extends DataObject
 
     public function getCMSFields()
     {
+      $this->createOffer();
         $fields = parent::getCMSFields();
        // $fields = FieldList::create(
        //      Tabset::create('Root',
@@ -591,6 +593,7 @@ class Mission extends DataObject
       $pdf->Addfont('Lato','','lato.php');
       $pageCount = $pdf->setSourceFile($src);
       for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
+            $pdf->SetPrintHeader(false);
             $pdf->AddPage();
             $templateId = $pdf->importPage($pageNo);
             $size = $pdf->getTemplateSize($templateId);
