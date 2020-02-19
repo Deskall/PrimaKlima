@@ -1,4 +1,4 @@
-<table>
+<table width="100%">
 	<tr>
 		<td width="100"><% if Candidat.Picture.exists %>$Candidat.Picture.Thumbnail(80,80)<% end_if %></td>
 		<td>
@@ -10,7 +10,7 @@
 	</tr>
 </table>
 <% if $Content %>
-<table>
+<table width="100%">
 	<tr>
 		<td><h2><%t Candidature.Text 'Bewerbungstext' %></h2></td>
 	</tr>
