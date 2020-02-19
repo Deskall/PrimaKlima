@@ -1,5 +1,15 @@
 
-				
+				<table cellpadding="10" width="100%" bgcolor="#EEEEEE">
+					<tr>
+						<td width="100"><%t Candidature.MissionNumber 'Stellenangebot-Nr.:' %> $Nummer</td>
+						<td width="445">$Title</td>
+					</tr>
+				</table>
+				<table>
+					<tr height="80">
+						<td>&nbsp;</td>
+					</tr>
+				</table>
 				<table width="100%">
 					<tr>
 						<td width="120">
@@ -44,13 +54,7 @@
 					</tr>
 				</table>
 
-				<% if Image.exists %> 
-				<table width="100%">
-					<tr>
-						<td align="center">$Image.FitMax(250,200)</td>
-					</tr>
-				</table>
-				<% end_if %>
+				
 				<table width="100%">
 					<tr>
 						<td>$Description</td>
@@ -63,9 +67,21 @@
 				</table>
 				<table width="100%">
 					<tr>
-						<td><%t OfferPage.WeOffer 'Wir bieten Ihnen' %></td>
+						<td><h2><%t OfferPage.WeOffer 'Wir bieten Ihnen' %></h2></td>
 					</tr>
 					<tr>
 						<td>$Customer.ReasonWhy</td>
 					</tr>
 				</table>
+				<table width="100%">
+					<tr height="80">
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+				<% if Image.exists %> 
+				<table width="100%">
+					<tr>
+						<td align="center">$Image.FitMax(250,200)</td>
+					</tr>
+				</table>
+				<% end_if %>
