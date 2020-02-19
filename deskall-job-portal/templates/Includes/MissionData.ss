@@ -4,7 +4,11 @@
 					<tr>
 						<td width="100">
 							<% if Customer.Logo %>
-								<img <% if $Customer.Logo.getExtension == "svg" %>src="$Customer.Logo.URL"<% else %>src="$Customer.Logo.FitMax(100,100)"<% end_if %> alt="Logo von $Customer.Company" width="100">
+								<% if $Customer.Logo.getExtension == "svg" %>
+								<img src="$Customer.Logo.URL" width="100" />
+								<% else %>
+								<img src="$Customer.Logo.FitMax(100,100)" width="100" />
+								<% end_if %>
 							<% end_if %>
 						</td>
 						<td>
