@@ -43,7 +43,7 @@ class TVOfferBlock extends TextBlock
         $request = Injector::inst()->get(HTTPRequest::class);
         $session = $request->getSession();
         if($session->get('active_plz')){
-            $code = PostalCode::get()->filter('Code',$session->get('active_plz'))->first();
+            $code = PostalCode::get()->byId($session->get('active_plz'));
             return $code;
         }
         
