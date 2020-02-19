@@ -106,7 +106,7 @@ class Candidature extends DataObject
        $fields = parent::getCMSFields();
        $fields->removeByName('MissionID');
        $fields->removeByName('Status');
-       $fields->addFieldToTab('Root.Main',DropdownField::create('CandidatID','Bewerber',Candidat::get()->map('ID','Title'))->setEmptyString('Bewerber auswählen'));
+       $fields->addFieldToTab('Root.Main',DropdownField::create('CandidatID','Bewerber',Candidat::get()->map('ID','printTitle'))->setEmptyString('Bewerber auswählen'));
        return $fields;
     }
 

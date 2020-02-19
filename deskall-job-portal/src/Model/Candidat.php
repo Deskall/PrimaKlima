@@ -544,4 +544,8 @@ class Candidat extends DataObject
         return $o;
     }
 
+    public function printTitle(){
+        return $this->Member()->FirstName.' '.$this->Member()->Surname;
+    }
+
 }
