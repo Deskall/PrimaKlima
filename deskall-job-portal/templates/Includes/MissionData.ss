@@ -7,7 +7,7 @@
 								<% if $Customer.Logo.getExtension == "svg" %>
 								<img src="$Customer.Logo.URL" width="100" />
 								<% else %>
-								<img src="$Customer.Logo.FitMax(100,100)" width="100" />
+								<img src="$Customer.Logo.FitMax(100,100).URL" width="100" />
 								<% end_if %>
 							<% end_if %>
 						</td>
