@@ -57,22 +57,16 @@
 				
 				<table width="100%">
 					<tr>
+						<td><h2><%t OfferPage.JobDescription 'Job Beschreibung' %></h2></td>
+					</tr>
+					<tr height="30">
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
 						<td>$Description</td>
 					</tr>
 				</table>
-				<table width="100%">
-					<tr height="80">
-						<td>&nbsp;</td>
-					</tr>
-				</table>
-				<table width="100%">
-					<tr>
-						<td><h2><%t OfferPage.WeOffer 'Wir bieten Ihnen' %></h2></td>
-					</tr>
-					<tr>
-						<td>$Customer.ReasonWhy</td>
-					</tr>
-				</table>
+
 				<table width="100%">
 					<tr height="80">
 						<td>&nbsp;</td>
@@ -93,6 +87,21 @@
 					<% end_loop %>
 				</table>
 				<% end_if %>
+				<table width="100%">
+					<tr height="80">
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+				<table width="100%">
+					<tr>
+						<td><h2><%t OfferPage.WeOffer 'Wir bieten Ihnen' %></h2></td>
+					</tr>
+					<tr>
+						<td>$Customer.ReasonWhy</td>
+					</tr>
+				</table>
+				
+				
 <table width="100%">
 					<tr height="80">
 						<td>&nbsp;</td>
