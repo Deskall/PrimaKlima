@@ -20,7 +20,10 @@ class YplaYPageControllerExtension extends Extension
     ];
 
     public function SavePLZ(HTTPRequest $request){
-      print_r('ici');
+          ob_start();
+          print_r('ici');
+          $result = ob_get_clean();
+          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $this->owner->getRequest()->getSession()->clear('active_plz');
         //clear also cart
         if ($this->activeCart()){
@@ -31,8 +34,17 @@ class YplaYPageControllerExtension extends Extension
         
         $plz = $request->postVar('plz-choice');
         if ($plz){
+            ob_start();
+            print_r($plz);
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+          $this->owner->getRequest()->getSession()->clear('active_plz');
             $PostalCode = PostalCode::get()->filter('Code',$plz)->first();
             if ($PostalCode){ 
+              ob_start();
+              print_r($PostalCode->ID);
+              $result = ob_get_clean();
+              file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
                 //if externe we redirect
                 //if subsite we redirect
                 if ($PostalCode->SubsiteID > 0 || $PostalCode->Externe ){
@@ -81,6 +93,11 @@ class YplaYPageControllerExtension extends Extension
                     }
                   }
                 }
+
+                ob_start();
+                print_r('all ok');
+                $result = ob_get_clean();
+                file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
                 return $this->owner->redirectBack();
             }
