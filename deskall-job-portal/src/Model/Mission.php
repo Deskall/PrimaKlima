@@ -293,7 +293,7 @@ class Mission extends DataObject
     }
 
     public function getFolderName(){
-        return 'Uploads/Stellenangebot/'.str_replace('\.','-',$this->Nummer);
+        return 'Uploads/Stellenangebot/'.str_replace('.','-',$this->Nummer);
     }
 
     public function ShortDescription(){
@@ -589,11 +589,11 @@ class Mission extends DataObject
       
 
 
-      $tmpFolder = "Uploads/Stellenangebot/".$this->ID;
+      $tmpFolder = $this->getFolderName();
       $folder = Folder::find_or_make($tmpFolder);
       $file = ($this->OfferFile()->exists() ) ? $this->OfferFile() : File::create();
       $file->ParentID = $folder->ID;
-      $file->setFromLocalFile($output, 'Uploads/Stellenangebot/'.$this->Nummer.'/Angebot.pdf');
+      $file->setFromLocalFile($output, $this->getFolderName().'/Angebot.pdf');
       $file->write();
       $file->publishSingle();
       $this->OfferFileID = $file->ID;      
