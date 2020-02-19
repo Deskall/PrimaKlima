@@ -42,10 +42,15 @@ class TVOfferBlock extends TextBlock
     public function activePLZ(){
         $request = Injector::inst()->get(HTTPRequest::class);
         $session = $request->getSession();
-        return $session->get('active_plz');
+        if($session->get('active_plz')){
+            $code = PostalCode::get()->filter('Code',$session->get('active_plz'))->first();
+            return $code;
+        }
+        
+        return null ;
     }
 
     // public function getTVOffer(){
-        
+
     // }
 }

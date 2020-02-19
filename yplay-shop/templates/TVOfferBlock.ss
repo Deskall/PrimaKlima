@@ -52,9 +52,7 @@
 <section class="uk-section uk-section-medium" style="background-color:#eee;">
 		<div class="uk-container uk-container-medium">
 		<% if not activePLZ %>
-			<% if $chosenItem %>
-			<strong>Ihre Auswahl: $chosenItem.Title</strong>
-			<% end_if %>
+
 			<form method="POST" action="{$getPage.Link}plz-speichern" class="form-std plz-form">
 				<div class="uk-flex uk-flex-left uk-flex-top">
 				   <div>
@@ -64,11 +62,10 @@
 				</div>
 			</form>
 		<% else %>
-			<div id="loading-block" class="uk-text-left">
-				<p><span data-uk-spinner="ratio: 2" class="uk-margin-right"></span>Produkte werden geladen. Einen Moment bitte.</p>
-			</div>
-			<div id="products-hidden-container">
-			</div>
+			<p>Ihre Ortschaft: $activePLZ.Code - $activePLZ.City</p>
+			<% if $TVAngebot %>
+			<strong>Ihre TV-Angebot: $TVAngebot.Title</strong>
+			<% end_if %>
 		<% end_if %>
 		</div>
 </section>
