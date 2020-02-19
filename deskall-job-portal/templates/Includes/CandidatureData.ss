@@ -76,8 +76,8 @@
 				$Company
 			</td>
 			<td>
-				<div><strong>$Position</strong></div>
-				$Description
+				<div><strong>$Diplom</strong></div>
+				$School
 			</td>
 		</tr>
 		<tr height="20">
