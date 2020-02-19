@@ -33,8 +33,8 @@
 	<tr height="30">
 		<td><h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2></td>
 	</tr>
-	<% if CVItems.exists %>
-		<% loop CVItems %> 
+	<% if Candidat.CVItems.exists %>
+		<% loop Candidat.CVItems %> 
 		<tr>
 			<td width="100">
 				<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
@@ -54,4 +54,25 @@
 	<tr height="50">
 		<td>&nbsp;</td>
 	</tr>
+</table>
+<table width="100%">
+	<tr height="30">
+		<td><h2><%t Candidature.FormationTitle 'Ausbildungen' %></h2></td>
+	</tr>
+	<% if Candidat.CursusItems.exists %>
+		<% loop Candidat.CursusItems %> 
+		<tr>
+			<td width="100">
+				<p><small>$StartDate.Nice - <% if $EndDate %>$EndDate.Nice<% else %><%t Candidature.Today 'Heute' %><% end_if %></small></p>
+				<p>$Company</p>
+			</td>
+			<td>
+				<div><strong>$Position</strong></div>
+				$Description
+			</td>
+		</tr>
+		<% end_loop %>
+	<% else %>
+	<tr><td><%t Candidature.NoFormation 'Keine Ausbildungen' %></td></tr>
+	<% end_if %>
 </table>
