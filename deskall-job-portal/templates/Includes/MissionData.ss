@@ -78,10 +78,42 @@
 						<td>&nbsp;</td>
 					</tr>
 				</table>
-				<% if Image.exists %> 
+				<% if $Attachments.exists %>
 				<table width="100%">
 					<tr>
-						<td align="center">$Image.FitMax(250,200)</td>
+						<td><h3><%t OfferPage.MoreInfos 'Weitere Informationen' %></h3></td>
 					</tr>
+					<% loop $Attachments %>
+					<tr>
+						<td><a href="$URL" target="_blank">$Title</a></td>
+					</tr>
+					<% end_loop %>
 				</table>
 				<% end_if %>
+
+				<table width="100%">
+					<tr>
+						<td width="120">
+							<% if Customer.Logo %>
+								<% if $Customer.Logo.getExtension == "svg" %>
+								<img src="$Customer.Logo.URL" width="100" />
+								<% else %>
+								<img src="$Customer.Logo.FitMax(100,100).URL" width="100" />
+								<% end_if %>
+							<% end_if %>
+						</td>
+						<td>
+							<table>
+								<tr>
+									<td colspan="3"><h2>$Customer.Company</h2></td>
+								</tr>
+								<tr height="30">
+									<td>&nbsp;</td>
+								</tr>
+								<tr>
+									<td colspan="3">$Customer.Description</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
