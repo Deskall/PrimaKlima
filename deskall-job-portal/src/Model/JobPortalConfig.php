@@ -72,7 +72,8 @@ class JobPortalConfig extends DataObject
     private static $plural_name = "Einstellungen";
 
     private static $has_one = [
-        'OfferFile' => File::class 
+        'OfferFile' => File::class,
+        'File' =>  File::class,
     ];
 
     private static $has_many = [
@@ -80,7 +81,7 @@ class JobPortalConfig extends DataObject
     ];
 
     private static $owns = [
-        'OfferFile'
+        'OfferFile', 'File'
     ];
 
     private static $summary_fields = [
@@ -92,7 +93,8 @@ class JobPortalConfig extends DataObject
     $labels = parent::fieldLabels($includerelation);
     $labels['Title'] = _t(__CLASS__.'.Title','Titel');
    
-    $labels['OfferFile'] = _t(__CLASS__.'.OfferFile','Angebot Vorlage');
+    $labels['OfferFile'] = _t(__CLASS__.'.OfferFile','Bewerbung Vorlage');
+    $labels['File'] = _t(__CLASS__.'.File','Stellenangebot Vorlage');
     $labels['CandidatureSentText'] = _t(__CLASS__.'.CandidatureSentText','Bewerbung gesendet');
     $labels['CandidatureAlreadySentText'] = _t(__CLASS__.'.CandidatureAlreadySentText','Bewerbung bereits gesendet');
     $labels['CandidatureHelpTitle'] = _t(__CLASS__.'.CandidatureHelpTitle','Titel der Bewerbung Pop-up Fenster');
@@ -187,6 +189,7 @@ class JobPortalConfig extends DataObject
 
     
        $fields->addFieldToTab('Root.Main',UploadField::create('OfferFile',$this->fieldLabels()['OfferFile'])->setFolderName('Uploads/Vorlagen'));
+       $fields->addFieldToTab('Root.Main',UploadField::create('File',$this->fieldLabels()['File'])->setFolderName('Uploads/Vorlagen'));
       
        $fields->dataFieldByName('Parameters')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
 

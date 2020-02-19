@@ -44,15 +44,9 @@ use SilverStripe\Security\DefaultAdminService;
 
 class MemberProfilePageController extends PageController{
 
-	private static $allowed_actions = ['upload', 'UploadForm', 'UpdateExistingDocument','DeleteObject', 'saveFolder', 'EditFile', 'DeleteFile', 'acceptContract','SaveTimeSheet','DeleteTimeSheet','ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer','UnpublishJobOffer', 'CandidatProfilForm','CandidatAccountForm', 'DeleteCandidature'];
+	private static $allowed_actions = ['upload', 'ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer','UnpublishJobOffer', 'CandidatProfilForm','CandidatAccountForm', 'DeleteCandidature'];
 
 	private static $url_handlers = [
-		'delete-object/$ID/$OBJECT' => 'DeleteObject',
-		'edit-file/$ID/$NEWNAME' => 'EditFile',
-		'delete-file/$ID' => 'DeleteFile',
-		'bestaetigen/auftrag/$ID/$CookID' => 'acceptContract',
-		'wochen-zeiten' => 'SaveTimeSheet',
-		'wochen-zeiten-loeschen' => 'DeleteTimeSheet',
 		'inserat-bearbeiten/$ID' => 'EditJobOffer',
 		'inserat-loeschen/$ID' => 'DeleteJobOffer',
 		'inserat-veroeffentlichen/$ID' => 'PublishJobOffer',
@@ -82,26 +76,7 @@ class MemberProfilePageController extends PageController{
 		Requirements::javascript('silverstripe/admin: client/dist/js/vendor.js');
 		Requirements::javascript('silverstripe/admin: client/dist/js/bundle.js');
 		Requirements::javascript('deskall-job-portal/javascript/jobportal.js');
-		// if (!$this->getRequest()->getVar('CMSPreview')){
-		// 	if (!Security::getCurrentUser()){
-		// 		return Security::permissionFailure($this, _t(
-		// 			'MemberProfiles.NeedToLogin',
-		// 			'Sie müssen sich anmelden, um auf diese Seite zugreifen zu können'
-		// 		));
-		// 	}
-		// 	if(!Security::getCurrentUser()->inGroup($this->Group()->Code)){
-		// 		return Security::permissionFailure($this, _t(
-		// 			'MemberProfiles.AccessDenied',
-		// 			'Sie dürfen diesen Bereich nicht betreten.'
-		// 		));
-		// 	}
-		// 	if(Security::getCurrentUser()->isRefused){
-		// 		return Security::permissionFailure($this, _t(
-		// 			'MemberProfiles.AccessDenied',
-		// 			'Sie dürfen diesen Bereich nicht betreten.'
-		// 		));
-		// 	}
-		// }
+
 		
 		
 	}
@@ -120,14 +95,6 @@ class MemberProfilePageController extends PageController{
 		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$JobGiver = ($JobGiver) ? $JobGiver : new JobGiver();
 		$status = $JobGiver->Status;
-		// if (!$status){
-		// 	$actions->push(FormAction::create('requireApproval', _t('MemberProfiles.REQUIREAPPROVAL', 'Genehmigung erfordern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="fa fa-check uk-margin-small-right"></i>'. _t('MemberProfiles.REQUIREAPPROVAL', 'Genehmigung erfordern')));
-		// }
-		// if (Security::getCurrentUser()->Status == "waitForApproval"){
-		// 	$actions->push(FormAction::create('requireApproval', _t('MemberProfiles.APPROVALCHECK', 'Genehmigung in Bearbeitung'))->setDisabled(true)->setButtonContent('<i class="fa fa-check uk-margin-small-right"></i>Genehmigung in Bearbeitung')->addExtraClass('uk-button'));
-		// }
-
-		
 		
 		$form = new Form(
 			$this,
@@ -230,12 +197,7 @@ class MemberProfilePageController extends PageController{
 		$actions = new FieldList(FormAction::create('saveOffer', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
 		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$status = $JobGiver->Status;
-		// if (!$status){
-		// 	$actions->push(FormAction::create('requireApproval', _t('MemberProfiles.REQUIREAPPROVAL', 'Genehmigung erfordern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="fa fa-check uk-margin-small-right"></i>'. _t('MemberProfiles.REQUIREAPPROVAL', 'Genehmigung erfordern')));
-		// }
-		// if (Security::getCurrentUser()->Status == "waitForApproval"){
-		// 	$actions->push(FormAction::create('requireApproval', _t('MemberProfiles.APPROVALCHECK', 'Genehmigung in Bearbeitung'))->setDisabled(true)->setButtonContent('<i class="fa fa-check uk-margin-small-right"></i>Genehmigung in Bearbeitung')->addExtraClass('uk-button'));
-		// }
+
 		if ($this->getRequest()->getSession()->get('offer_id')){
 			$offer = Mission::get()->byId($this->getRequest()->getSession()->get('offer_id'));
 		}
@@ -404,24 +366,6 @@ class MemberProfilePageController extends PageController{
 		}
 		
 		return $this->httpError(400);
-	}
-
-	
-	//To delete / update
-	public function sendApprovalEmail($member){
-		// $page = RegisterPage::get()->first();
-	 //        	$emailAdmin = $page->ApprovalEmailReceiver;
-	 //        	if (!$emailAdmin){
-	 //        		$config = SiteConfig::current_site_config();
-	 //        		$emailAdmin = $config->Email;
-	 //        	}
-	        	
-	 //        	$body = $page->ApprovalEmailBody;
-	 //        	$body .= '<p><strong>'._t('Member.UserType','Koch').' :</strong><br>'.$member->getTitle().'</p>';
-	 //        	$body .= '<p><a href="'.Director::absoluteBaseUrl().'admin/'.Config::inst()->get('UserAdmin','url_segment').'">'._t('Member.CheckProfile','Profil prüfen').'</a></p>';
-	 //        	$email = new MemberEmail($this->data(),$member,$page->ApprovalEmailSender, $emailAdmin,$page->ApprovalEmailSubject,  $body);
-	        	
-	 //        	$email->send(); 
 	}
 
 //Job Sucher

@@ -168,18 +168,7 @@ class Mission extends DataObject
         if ($this->Customer()->exists() && !$this->Nummer){
           $this->Nummer = $this->Customer()->Nummer.'-'.str_pad($this->ID, 4, '0', STR_PAD_LEFT);
         }
-        // if ($this->ID == 0){
-        //     $this->isVisible = 0;
-        // }
-        // if (!$this->OfferKey){
-        //     $this->OfferKey = $this->generateToken();
-        // }
-        // if ($this->Start && $this->End){
-        //     $this->Period = _t('Mission.From','von').' '.date('d.m.Y',strtotime($this->Start)).' '._t('Mission.Until','bis').' '.date('d.m.Y',strtotime($this->End));
-        // }
-        // if ($this->Status == "created" && $this->isVisible){
-        //     $this->Status = "acceptedByCustomer";
-        // }
+        
         // if ($this->backend){
         //     if (!$this->Status){
         //         $this->Status = "new";
@@ -221,32 +210,21 @@ class Mission extends DataObject
     public function onAfterWrite()
     {
         parent::onAfterWrite(); 
-        // if ($this->isChanged('Start')){
-        //     //then we reset the weeks
-        //     foreach ($this->Weeks() as $week) {
-        //       $week->delete();
-        //     }
-        //     $this->Weeks()->removeAll();
-        //     $this->ManageWeeks();  
-        // } 
-        // else if ($this->isChanged('End')){
-        //     $this->ManageWeeks();   
-        // }
 
     }
 
     public function onBeforeDelete(){
         parent::onBeforeDelete();
-        // if ($this->OfferFile()->exists()){
-        //     $this->OfferFile()->File->deleteFile();
-        //     DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($this->OfferFile()->ID));
-        //     $this->OfferFile()->delete();
-        // }
-        // //delete folder
-        // $folder = Folder::find_or_make("Uploads/Auftraege/".$this->ID);
-        // $folder->File->deleteFile();
-        // DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($folder->ID));
-        // $folder->delete();
+        if ($this->OfferFile()->exists()){
+            $this->OfferFile()->File->deleteFile();
+            DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($this->OfferFile()->ID));
+            $this->OfferFile()->delete();
+        }
+        //delete folder
+        $folder = Folder::find_or_make($this->getFolderName());
+        $folder->File->deleteFile();
+        DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($folder->ID));
+        $folder->delete();
     }
 
 
@@ -315,7 +293,7 @@ class Mission extends DataObject
     }
 
     public function getFolderName(){
-        return 'Uploads/Stellenangebot/'.$this->ID;
+        return 'Uploads/Stellenangebot/'.$this->Nummer;
     }
 
     public function ShortDescription(){
@@ -554,51 +532,6 @@ class Mission extends DataObject
       return _t('Mission.PublishedPeriod4','> 14 Tage');
     }
 
-   
-
-    // //Price calculation
-    // public function calculatePrice(){
-    //     if ($this->Job()->exists()){
-    //         $hourPay = floatval($this->Job()->HourPay);
-    //         if ($this->Options()->exists()){
-    //             foreach ($this->Options() as $opt) {
-    //                $hourPay += floatval($opt->HourPay);
-    //             }
-    //         }
-    //         $hourPay = (string) $hourPay." €";
-    //         if ($this->Customer()->exists()){
-    //             //To do
-    //            // $hourPayDiscount = XX;
-    //             //$hourPay -= $hourPayDiscount; 
-    //         }
-    //         return $hourPay;
-    //     }
-    //     return null;
-    // }
-
-    //  public function calculateCustomerPrice(){
-    //     if ($this->Job()->exists()){
-    //         $hourPay = floatval($this->Job()->HourPayCustomer);
-    //         if ($this->Options()->exists()){
-    //             foreach ($this->Options() as $opt) {
-    //                $hourPay += floatval($opt->HourPayCustomer);
-    //             }
-    //         }
-    //         $hourPay = (string) $hourPay." €";
-    //         if ($this->Customer()->exists()){
-    //             //To do
-    //            // $hourPayDiscount = XX;
-    //             //$hourPay -= $hourPayDiscount; 
-    //         }
-    //         return $hourPay;
-    //     }
-    //     return null;
-    // }
-
-    // public function canChangeStatus(){
-    //     return true;
-    // }
-
     public function canCandidate(){
         $member = Security::getCurrentUser();
         if ($member){
@@ -629,27 +562,8 @@ class Mission extends DataObject
         return (Permission::check('ADMIN') && $this->isVisible);
     }
 
-    // public function canChooseCandidat(){
-    //     return !$this->Candidatures()->filter('Status','approved')->exists();
-    // }
-
     public function canClose(){
         return true;
-    }
-
-
-    //STEPS
-    public function confirmedByCustomer(){
-        $this->Status = "acceptedByCustomer";
-        //$this->sendEmailToCandidats();
-        //$this->Status = "sentToCandidat";
-        $this->write();
-    }
-
-    public function confirmedByCandidat(){
-        $this->sendEndConfirmationEmails();
-        $this->Status = "approved";
-        $this->write();
     }
     
 
@@ -657,8 +571,8 @@ class Mission extends DataObject
       $config = $this->getConfig();
 
       $pdf = new Fpdi();
-      $src = dirname(__FILE__).'/../../..'.$config->OfferFile()->getURL();
-      $output = dirname(__FILE__).'/../../../assets/Uploads/tmp/angebot_'.$this->ID.'.pdf';
+      $src = dirname(__FILE__).'/../../..'.$config->File()->getURL();
+      $output = dirname(__FILE__).'/../../../assets/Uploads/tmp/angebot_'.$this->Nummer.'.pdf';
 
       $pdf->Addfont('Lato','','lato.php');
       $pageCount = $pdf->setSourceFile($src);
@@ -668,113 +582,24 @@ class Mission extends DataObject
             $size = $pdf->getTemplateSize($templateId);
             $pdf->useTemplate($templateId);
             $pdf->SetFont('Lato','',8);
-            $pdf->setXY(8,60);
-            $pdf->WriteHTML($this->parseString($config->Intro));
-            $y = $pdf->GetY();
-            $i = 6;
-            $pdf->setXY(10,$y + $i);
-            $pdf->SetFont('Stone sans ITC','',10);
-            $pdf->WriteHTML("Angebot:");
-            $pdf->SetFont('Lato','',8);
-            $pdf->setXY(10,$y + $i*2);
-            $pdf->WriteHtml("Einsatz:");
-            $pdf->setXY(50,$y + $i*2);
-            $pdf->WriteHtml($config->Usage);
-            $pdf->setXY(10,$y + $i*3);
-            $pdf->WriteHtml("Funktion:");
-            $pdf->setXY(50,$y + $i*3);
-            $pdf->WriteHtml($this->NiceJobTitle());
-            $pdf->setXY(10,$y + $i*4);
-            $pdf->WriteHtml("Einsatzzeitraum:");
-            $pdf->setXY(50,$y + $i*4);
-            $pdf->WriteHtml($this->Period);
-            $pdf->setXY(10,$y + $i*5);
-            $pdf->WriteHtml("Kosten:");
-            $pdf->setXY(50,$y + $i*5);
-            $pdf->WriteHtml($this->CustomerPrice." pro Std., mindestens 8 Std. pro Tag, 50% Zuschläge an Sonn-und Feiertagen");
-            $pdf->setXY(10,$y + $i*6);
-            $pdf->WriteHtml("Fahrtkosten:");
-            $pdf->setXY(50,$y + $i*6);
-            $pdf->WriteHtml($config->TransportCost);
-            $pdf->setXY(10,$y + $i*7);
-            $pdf->WriteHtml("Kost&Logis:");
-            $pdf->setXY(50,$y + $i*7);
-            $pdf->WriteHtml($config->CostAndHousing);
-            $pdf->setXY(10,$y + $i*8);
-            $pdf->WriteHtml("Agentur-Gebühr:");
-            $pdf->setXY(50,$y + $i*8);
-            $pdf->WriteHtml($config->AgentCost);
-
-            $pdf->setXY(8,$y + $i*10);
-            $pdf->WriteHTML($this->parseString($config->Diverse));
-            $y = $pdf->GetY();
-            $pdf->setXY(8,$y + $i);
-            $pdf->WriteHTML($this->parseString($config->Conditions));
-             $y = $pdf->GetY();
-            $pdf->setXY(10,$y + $i);
-            $pdf->WriteHtml("Datum: ".date('d.m.Y'));
-            $pdf->setXY(150,$y + $i);
-            $pdf->WriteHtml("Kunde Unterschrift: ");
+            $pdf->setXY(8,8);
+            $pdf->WriteHTML($this->renderWith('Includes/MissionData'));
       }
       $pdf->Output($output,'F');
       
 
 
-      $tmpFolder = "Uploads/Auftraege/".$this->ID;
+      $tmpFolder = "Uploads/Stellenangebot/".$this->ID;
       $folder = Folder::find_or_make($tmpFolder);
-      $file = File::create();
+      $file = ($this->OfferFile()->exists() ) ? $this->OfferFile() : File::create();
       $file->ParentID = $folder->ID;
-      $file->setFromLocalFile($output, 'Uploads/Auftraege/'.$this->ID.'/Angebot.pdf');
+      $file->setFromLocalFile($output, 'Uploads/Stellenangebot/'.$this->Nummer.'/Angebot.pdf');
       $file->write();
       $file->publishSingle();
       $this->OfferFileID = $file->ID;
       $this->write();
       
     }
-
-    /* create Contract as PDF */
-    public function createContract(){
-      $config = $this->getConfig();
-
-      $pdf = new Fpdi();
-      $src = dirname(__FILE__).'/../../..'.$config->ContractFile()->getURL();
-      $output = dirname(__FILE__).'/../../../assets/Uploads/tmp/auftrag_'.$this->ID.'.pdf';
-
-      $pdf->Addfont('Stone sans ITC','','stonesansitc.php');
-      $pdf->Addfont('Lato','','lato.php');
-      $pageCount = $pdf->setSourceFile($src);
-      for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
-            $pdf->AddPage();
-            $templateId = $pdf->importPage($pageNo);
-            $size = $pdf->getTemplateSize($templateId);
-            $pdf->useTemplate($templateId);
-            $pdf->SetFont('Lato','',8);
-            $pdf->setXY(8,60);
-            $pdf->WriteHTML($this->parseString($config->ChosenCandidatEmailBody));
-            $y = $pdf->GetY();
-            $pdf->setXY(10,$y + 20);
-            $pdf->WriteHtml("Datum: ".date('d.m.Y'));
-            $pdf->setXY(150,$y + 20);
-            $pdf->WriteHtml("Ihre Unterschrift: ");
-      }
-      $pdf->Output($output,'F');
-      
-
-
-      $tmpFolder = "Uploads/Auftraege/".$this->ID;
-      $folder = Folder::find_or_make($tmpFolder);
-      $file = File::create();
-      $file->ParentID = $folder->ID;
-      $file->setFromLocalFile($output, 'Uploads/Auftraege/'.$this->ID.'/Auftrag.pdf');
-      $file->write();
-      $file->publishSingle();
-
-      $this->ContractFileID = $file->ID;
-      $this->write();
-      
-    }
-
-
 
     public function getConfig(){
         return JobPortalConfig::get()->first();
@@ -806,27 +631,6 @@ class Mission extends DataObject
     }
     
     //EMAILS
-    public function sendOfferMail(){
-        $page = MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code','kunden')->first()->ID)->first();
-        //$admin = singleton(DefaultAdminService::class)->findOrCreateDefaultAdmin();
-      
-        $siteconfig = SiteConfig::current_site_config();
-        $emailAdmin = $siteconfig->Email;
-        $config = $this->getConfig();
-        $body = $config->CustomerOfferEmailBody;
-
-        $email = new MissionEmail($config,$this,$siteconfig->Email,$this->Email,"Unser Angebot für Ihre Auftrag",  $body);
-        $email->setBCC($siteconfig->Email);
-
-        //Angebot
-        //$email->addAttachment(dirname(__FILE__).'/../../..'.$this->OfferFile()->getURL(),'Angebot.pdf');
-        //$email->addAttachment(dirname(__FILE__).'/../../..'.$config->AGBCustomerFile()->getURL(),'AGB.pdf');
-
-        $email->send();
-
-        $this->SentDate = date('Y-m-d');
-        $this->write();
-    }
 
     public function sendAdminMail(){
         $page = MemberProfilePage::get()->filter('GroupID',Group::get()->filter('Code','kunden')->first()->ID)->first();
@@ -844,41 +648,6 @@ class Mission extends DataObject
         $email->send();
     }
 
-    public function sendEmailToCandidats(){
-
-        $siteconfig = SiteConfig::current_site_config();
-        $config = $this->getConfig();
-        $body = $config->CandidatOffersEmailBody;
-
-        $email = new MissionEmail($config,$this,$siteconfig->Email,null,"Neue Auftrag verfügbar",  $body);
-        
-        foreach(Candidat::get()->filter('Status','approved') as $Candidat){
-           $email->setTo($Candidat->Member()->Email);
-           $email->send();
-        }
-       
-    }
-
-     public function sendEmailToApprovedCandidat($Candidat){
-        $siteconfig = SiteConfig::current_site_config();
-        $emailAdmin = $siteconfig->Email;
-        $config = $this->getConfig();
-        $body = $config->ChosenCandidatEmailBody;
-
-        $email = new MissionEmail($config,$this,$siteconfig->Email,$Candidat->Member()->Email,"Ihre Bewerbung wurde genehmigt",  $body);
-        $email->setBCC($siteconfig->Email);
-        
-
-        //Auftrag
-        $email->addAttachment(dirname(__FILE__).'/../../..'.$this->ContractFile()->getURL(),'Auftrag.pdf');
-        $email->addAttachment(dirname(__FILE__).'/../../..'.$config->AGBCandidatFile()->getURL(),'AGB.pdf');
-        $email->send();
-        $this->Status = "contractSent";
-        $this->SentContractDate = date('Y-m-d');
-        $this->write();
-       
-    }
-
      public function notifyAdminEmail(){
         $page = MemberProfilePage::get()->first();
         $config = SiteConfig::current_site_config();
@@ -892,21 +661,6 @@ class Mission extends DataObject
         $email = new MemberEmail($page,$this->Customer()->Member(),$config->Email, $emailAdmin,"Eine neue Bewerbung wurde gesendet",  $body);
         
         $email->send();
-    }
-
-    public function sendEndConfirmationEmails(){
-        $siteconfig = SiteConfig::current_site_config();
-        $emailAdmin = $siteconfig->Email;
-        $config = $this->getConfig();
-        $body = $config->CustomerContractSignedEmailBody;
-
-        $email = new MissionEmail($config,$this,$siteconfig->Email,$this->Customer()->Member()->Email,"Annahme Ihres Angebotes",  $body);
-
-        $email->addCC($siteconfig->Email);
-        $email->addCC($this->Candidat()->Member()->Email);
-
-        $email->send();
-
     }
 
 
