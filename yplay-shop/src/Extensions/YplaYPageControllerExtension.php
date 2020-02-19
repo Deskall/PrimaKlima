@@ -20,6 +20,7 @@ class YplaYPageControllerExtension extends Extension
     ];
 
     public function SavePLZ(HTTPRequest $request){
+      print_r('ici');
         $this->owner->getRequest()->getSession()->clear('active_plz');
         //clear also cart
         if ($this->activeCart()){
