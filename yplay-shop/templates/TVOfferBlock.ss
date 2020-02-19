@@ -49,7 +49,7 @@
 	<% end_if %>
 </div>
 
-<section class="uk-section uk-section-medium" style="background-color:#eee;">
+<section class="uk-section uk-section-medium">
 		<div class="uk-container uk-container-medium">
 		<% if not activePLZ %>
 
