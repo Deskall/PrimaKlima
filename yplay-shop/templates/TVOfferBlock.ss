@@ -49,8 +49,7 @@
 	<% end_if %>
 </div>
 
-<section class="uk-section uk-section-medium">
-		<div class="uk-container uk-container-medium">
+
 			<div class="uk-panel uk-background-muted">
 				<% if not activePLZ %>
 
@@ -69,5 +68,3 @@
 					<% end_if %>
 				<% end_if %>
 			</div>
-		</div>
-</section>
