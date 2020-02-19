@@ -1,3 +1,14 @@
+<table width="100%" bgcolor="#EEEEEE">
+	<tr>
+		<td width="100"><%t Candidature.MissionNumber 'Stellenangebot-Nr.:' %> $Mission.Nummer</td>
+		<td>$Mission.Title</td>
+	</tr>
+</table>
+<table>
+	<tr height="50">
+		<td>&nbsp;</td>
+	</tr>
+</table>
 <table width="100%">
 	<tr>
 		<td width="100"><% if Candidat.Picture.exists %>$Candidat.Picture.Thumbnail(80,80)<% end_if %></td>
@@ -18,6 +29,9 @@
 <table width="100%">
 	<tr>
 		<td><h2><%t Candidature.Text 'Bewerbungstext' %></h2></td>
+	</tr>
+	<tr height="30">
+		<td>&nbsp;</td>
 	</tr>
 	<tr>
 		<td>$Content</td>
