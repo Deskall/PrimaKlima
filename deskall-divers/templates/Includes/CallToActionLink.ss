@@ -14,4 +14,4 @@
 		    <a href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %> class="uk-button button-{$Background}" <% if hasIcone %>data-uk-icon="icon: $Icone"<% end_if %>>$Title</a>
 		<% end_if %>
 	<% end_with %>
-</div>
+</div> 
