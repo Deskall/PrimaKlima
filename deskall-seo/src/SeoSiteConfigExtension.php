@@ -21,8 +21,9 @@ class SeoSiteConfigExtension extends DataExtension {
         'BodyScripts' => 'HTMLText'
 	);
 
-     private static $has_one = ['OpenGraphDefaultImage' => Image::class];
+    private static $has_one = ['OpenGraphDefaultImage' => Image::class];
 
+    private static $owns = ['OpenGraphDefaultImage'];
 
 	/**
 	 * updateCMSFields.
@@ -62,7 +63,7 @@ class SeoSiteConfigExtension extends DataExtension {
                         "Google webmaster meta tag Zum Beispiel <meta name=\"google-site-verification\" content=\"hjhjhJHG12736JHGdfsdf\" />"
                     )
                 ),
-                UploadField::create("OpenGraphDefaultImage",'Vorschau Bild für Shares')->setFolderName('Uploads/Default')
+                UploadField::create("OpenGraphDefaultImage",'Vorschau Bild für Shares')->setFolderName($this->owner->getFolderName())
             )
         );
 

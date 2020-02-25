@@ -17,12 +17,13 @@ use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
 
     private static $db = [
-        'TitleIcon' => 'Varchar',
         'isPrimary' => 'Boolean(0)',
         'FullWidth' => 'Boolean(0)',
         'Background' => 'Varchar(255)',
@@ -33,7 +34,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextColumnsDivider' => 'Boolean(0)',
         'Width' => 'Varchar',
         'Animation' => 'Varchar',
-        'BackgroundImageEffect' => 'Boolean(0)'
+        'BackgroundImageEffect' => 'Boolean(0)',
+        'SectionPadding' => 'Varchar',
+        'AnchorTitle' => 'Varchar'
     ];
 
 
@@ -51,7 +54,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextAlign' => 'uk-text-left',
         'TitleAlign' => 'uk-text-left',
         'TextColumns' => '1',
-        'AvailableGlobally' => 1
+        'AvailableGlobally' => 1,
+        'SectionPadding' => 'uk-section-small'
     ];
 
     private static $blocks = [
@@ -175,8 +179,17 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
        
     }
 
+    public function updateFieldLabels(&$labels){
+        $labels['AnchorTitle'] = 'Anker';
+    }
+
 
     public function updateCMSFields(FieldList $fields){
+        // foreach (BaseElement::get() as $b) {
+        //    if(ClassInfo::exists($b->Parent()->OwnerClassName)){
+        //     $b->write();
+        //     }
+        // }
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
@@ -188,21 +201,21 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('Width');
         $fields->removeByName('Animation');
         $fields->removeByName('BackgroundImageEffect');
-       
+        $fields->removeByName('SectionPadding');
 
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
         $fields->removeByName('ExtraClass');
 
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Diese Block enthalt den Haupttitel der Seite (h1)")),'TitleAndDisplayed');
-        $fields->addFieldToTab('Root.Main',TextField::create('TitleIcon',_t(__CLASS__.".TitleIcon","Icon (Class font awesome)")),'TitleAndDisplayed');
       
      
         if (Permission::check('ADMIN') && $extracss){
             $fields->addFieldToTab('Root.LayoutTab',$extracss);
         } 
-    	$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
+            DropdownField::create('SectionPadding',_t(__CLASS__.'.SectionPadding','Vertical Abstand'),['uk-padding-remove' => 'Keine','uk-section-small' => 'klein', 'uk-section-medium' => 'medium','uk-section-large' => 'gross']),
             HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
             UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()),
             CheckboxField::create('BackgroundImageEffect',_t(__CLASS__.'.BackgroundImageEffect','Behobenes Scrollen des Bildes?')),
@@ -237,9 +250,36 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     }
 
-    public function getAnchorTitle(){
-        return 'e-'.$this->owner->ClassName.'-'.$this->owner->ID;
-        // return $this->owner->Title;
+    public function generateAnchorTitle()
+    {
+
+        $anchorTitle = '';
+
+        if (!$this->owner->config()->disable_pretty_anchor_name) {
+            if ($this->owner->hasMethod('getAnchorTitle')) {
+                $anchorTitle = $this->owner->getAnchorTitle();
+            } elseif ($this->owner->config()->enable_title_in_template) {
+                $anchorTitle = $this->owner->getField('Title');
+            }
+        }
+
+        if (!$anchorTitle) {
+            $anchorTitle = ($this->owner->Title) ? $this->owner->Title : $this->owner->ClassName.'-'.$this->owner->ID;
+        }
+
+        $filter = URLSegmentFilter::create();
+        $titleAsURL = $filter->filter($anchorTitle);
+
+        // Ensure that this anchor name isn't already in use
+        // ie. If two elemental blocks have the same title, it'll append '-2', '-3'
+        $result = $titleAsURL;
+        $count = 1;
+        while (BaseElement::get()->filter('AnchorTitle',$result)->exists()) {
+            ++$count;
+            $result = $titleAsURL . '-' . $count;
+        }
+       
+        return $this->owner->anchor = $result;
     }
 
     public function getFolderName(){
@@ -257,6 +297,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $last = $this->owner->Parent()->Elements()->sort('Sort','DESC')->first();
             $this->owner->Sort = ($last) ? $last->Sort + 1 : 1;
         }
+        if (!$this->owner->AnchorTitle){
+            $this->owner->AnchorTitle = $this->generateAnchorTitle();
+        }
         if ($this->owner->isPrimary){
             foreach(BaseElement::get()->filter('isPrimary',1)->exclude('ID',$this->owner->ID) as $primary){
                 if ($primary->getRealPage() && $this->owner->getRealPage() && $primary->getRealPage()->ID == $this->owner->getRealPage()->ID){
@@ -270,12 +313,23 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
     public function getRealPage(){
-        $parent = $this->owner->getPage();
-        while($parent && !in_array('SilverStripe\CMS\Model\SiteTree',$parent->getClassAncestry())){
-            $parent = $parent->getPage();
+        $parent = null;
+        if (ClassInfo::exists($this->owner->Parent()->OwnerClassName)){
+            $parent = $this->owner->getPage();
+            while($parent && !in_array('SilverStripe\CMS\Model\SiteTree',$parent->getClassAncestry())){
+                $parent = $parent->getPage();
+            }
         }
         return $parent;
     }
+
+   public function updateLink(&$link){
+        if ($page = $this->owner->getRealPage()) {
+            $link = substr($link,0,strpos($link,'#'));
+            $link = $link . '#' . $this->owner->AnchorTitle;
+        }
+    }
+
 
     public function isChildren(){
         return $this->owner->Parent()->OwnerClassName == "ParentBlock";
@@ -318,9 +372,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
     public function TitleTag($name,$fallback = null){
-        $title = ($fallback) ? $fallback : $name;
+        // $title = ($fallback) ? $fallback : $name;
         
-        return $title;
+        // return $title;
+        return "Klicken, um das Bild zu vergrößern";
     }
 
     public function HeightForWidth($width, $ImageWidth, $ImageHeight){

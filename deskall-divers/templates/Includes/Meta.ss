@@ -21,11 +21,11 @@ $CustomStructuredData
 <meta name="msapplication-config" content="$ThemeDir/browserconfig.xml">
 
 <% if isLive %>
-	<script async defer src="$ThemeDir/javascript/main.min.js"></script>
-	$Css
+	<script async defer src="$ThemeDir/javascript/main.min.js?v=$LastChangeJS"></script>
+	$HeadCss
 <% else %>
     <script src="$ThemeDir/javascript/main.js"></script>
-	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/main.min.css" />
+	<link rel="stylesheet" type="text/css" href="$ThemeDir/css/head.min.css" />
 <% end_if %>
 
 <% if headScripts %>

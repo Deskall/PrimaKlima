@@ -18,6 +18,7 @@ $filename_less = str_replace(".css", ".less", $filename_full);
 if ($filename == "editortocompile.css"){
 	$filename_min = "editor.min.css";
 	$filename_less = "editor.less";
+	$filename = "editor.css";
 }
 
 
@@ -55,13 +56,13 @@ if($css_compiled){
 		// }
 
 		// save files
-		if ($filename == "editortocompile.css"){
+		if ($filename == "editor.css"){
 			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/'.$theme.'/css/editor.css',$css_compiled);
 		}
 		else{
 			file_put_contents($filename_full,$css_compiled);
 			file_put_contents($filename_min,$css_compiled);
-			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/'.$theme."/templates/Includes/Css.ss","<style>".$css_live."</style>");
+			file_put_contents($_SERVER['DOCUMENT_ROOT'].'/'.$theme."/templates/Includes/".ucfirst($filecore)."Css.ss","<style>".$css_live."</style>");
 			
 		}
 			

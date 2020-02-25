@@ -78,6 +78,9 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterFontSize' => 'Varchar(255)',
     'FooterTitleFontSize' => 'Varchar(255)',
     'FooterFontColor' => 'Varchar(7)',
+    'FooterTitleFontColor' => 'Varchar(7)',
+    'FooterLinkFontColor' => 'Varchar(7)',
+    'FooterLinkHoverFontColor' => 'Varchar(7)',
     'ExtraFooterClass' => 'Varchar(255)',
 
     'MobileNaviBackground' => 'Varchar(255)',
@@ -127,6 +130,9 @@ class SiteConfigLayoutExtension extends DataExtension
     'FooterLogoWidth' => '@footer-logo-width',
     'FooterBackground' => '@footer-background-color',
     'FooterFontColor' => '@footer-font-color',
+    'FooterTitleFontColor' => '@footer-title-font-color',
+    'FooterLinkFontColor' => '@footer-link-font-color',
+    'FooterLinkHoverFontColor' => '@footer-link-hover-font-color',
     'FooterFontSize' => '@footer-font-size',
     'FooterTitleFontSize' => '@footer-title-font-size',
 
@@ -276,7 +282,7 @@ class SiteConfigLayoutExtension extends DataExtension
         HeaderField::create('FontsTitle',_t(__CLASS__.'.FontsTitle','Schriften'),2),
         TextField::create('GlobalFontSize',_t(__CLASS__.'.GlobalFontSize','Standard Schriftgrösse')),
         TextField::create('H1FontSize',_t(__CLASS__.'.H1FontSize','H1 Schriftgrösse')),
-         TextField::create('H1FontColor',_t(__CLASS__.'.H1FontColor','H1 Titel Farbe'))->addExtraClass('jscolor'),
+         TextField::create('H1FontColor',_t(__CLASS__.'.H1FontColor','H* Titel Farbe'))->addExtraClass('jscolor'),
         TextField::create('H1MobileFontSize',_t(__CLASS__.'.H1MobileFontSize','H1 Mobile Schriftgrösse')),
         TextField::create('H2FontSize',_t(__CLASS__.'.H2FontSize','H2 Schriftgrösse')),
         TextField::create('H3FontSize',_t(__CLASS__.'.H3FontSize','H3 Schriftgrösse')),
@@ -371,7 +377,10 @@ class SiteConfigLayoutExtension extends DataExtension
     $fields->addFieldToTab("Root.Footer.Layout", CompositeField::create(
       FieldGroup::create(
         TextField::create('FooterBackground',_t(__CLASS__.'.FooterBackground','Hintergrundfarbe'))->addExtraClass('jscolor'),
-        TextField::create('FooterFontColor',_t(__CLASS__.'.FooterFontColor','Schriftfarbe'))->addExtraClass('jscolor')
+        TextField::create('FooterFontColor',_t(__CLASS__.'.FooterFontColor','Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('FooterTitleFontColor',_t(__CLASS__.'.FooterTitleFontColor','Titel Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('FooterLinkFontColor',_t(__CLASS__.'.FooterLinkFontColor','Link Schriftfarbe'))->addExtraClass('jscolor'),
+        TextField::create('FooterLinkHoverFontColor',_t(__CLASS__.'.FooterLinkHoverFontColor',' Link Hover Schriftfarbe'))->addExtraClass('jscolor')
       ),
       FieldGroup::create(
         TextField::create('FooterLogoWidth',_t(__CLASS__.'.Footerlogowidtht','Logo Breite')),
@@ -416,6 +425,9 @@ class SiteConfigLayoutExtension extends DataExtension
     $this->owner->HeaderFontColor = "#".ltrim($this->owner->HeaderFontColor,"#");
     $this->owner->HeaderHoverFontColor = "#".ltrim($this->owner->HeaderHoverFontColor,"#");
     $this->owner->FooterFontColor = "#".ltrim($this->owner->FooterFontColor,"#");
+    $this->owner->FooterTitleFontColor = "#".ltrim($this->owner->FooterTitleFontColor,"#");
+    $this->owner->FooterLinkFontColor = "#".ltrim($this->owner->FooterLinkFontColor,"#");
+    $this->owner->FooterLinkHoverFontColor = "#".ltrim($this->owner->FooterLinkHoverFontColor,"#");
     $this->owner->FooterBackground = "#".ltrim($this->owner->FooterBackground,"#");
     $this->owner->H1FontColor = "#".ltrim($this->owner->H1FontColor,"#");
     $this->owner->MobileNaviBackground = "#".ltrim($this->owner->MobileNaviBackground,"#");
@@ -488,7 +500,7 @@ class SiteConfigLayoutExtension extends DataExtension
       /** global background element and font color **/
       file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';.dk-text-content a, .calltoaction-container *{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}&:after{background-color:#'.$c->LinkHoverColor.';}}}*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
-      file_put_contents($fullpath, "\n".".calltoaction-container .uk-button.button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->LinkColor.';*{color:#'.$c->LinkColor.';}&:hover,&:focus,&:active{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".uk-button.button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.'!important;*{color:#'.$c->FontColor.'!important;}&:hover,&:focus,&:active{color:#'.$c->LinkHoverColor.'!important;*{color:#'.$c->LinkHoverColor.'!important;}}&:hover{background-color:darken(#'.$c->Color.', 5%);}&:active{background-color:darken(#'.$c->Color.', 10%);}}',FILE_APPEND);
       /** CSS Class for Call To Form Button **/
       file_put_contents($fullpath, "\n".".userform .button-".$c->Code.' .uk-button{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /*** Css class for Slideshow controls **/
@@ -508,9 +520,9 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function RegenerateCss(){
-    $files = ['main.min.css','editortocompile.css'];
+    $files = ['body.min.css','head.min.css','editortocompile.css'];
     foreach ($files as $key => $value) {
-      $url = $this->owner->getAbsoluteCurrentThemeDir().$value;
+      $url = $this->owner->getAbsoluteCurrentThemeDir().'/css/'.$value;
       if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
           if ($this->owner->SubsiteID > 0){
               $url = Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/'.$value);
@@ -522,6 +534,11 @@ class SiteConfigLayoutExtension extends DataExtension
       curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
       curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
       curl_exec($req);
+      ob_start();
+            print_r($url);
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+
     }
    
   }
@@ -553,6 +570,10 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function RandomSlides(){
     return $this->owner->Slides()->filter('isVisible',1)->sort('RAND()');
+  }
+
+  public function activeSlides(){
+    return $this->owner->Slides()->filter('isVisible',1);
   }
 
 /************* TRANLSATIONS *******************/

@@ -24,6 +24,8 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Assets\Folder;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Subsites\Extensions\SiteTreeSubsites;
 
 class SiteConfigExtension extends DataExtension 
 {
@@ -81,15 +83,18 @@ class SiteConfigExtension extends DataExtension
 
   public function onBeforeWrite(){
 
-  // if ($this->owner->ID > 0){
-  //         $changedFields = $this->owner->getChangedFields();
-  //         //Update Folder Name
-  //         if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
-  //             $oldFolderPath = "Uploads/".URLSegmentFilter::create()->filter($changedFields['Title']['before']);
-  //             $newFolder = Folder::find_or_make($oldFolderPath);
-  //             $newFolder->renameFile($changedFields['Title']['after']);
-  //         }
-  //     }
+  if ($this->owner->ID > 0){
+          $changedFields = $this->owner->getChangedFields();
+          //Update Folder Name if needed
+          if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
+              if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
+                  $config = SiteConfig::current_site_config();
+                  $prefix = URLSegmentFilter::create()->filter($changedFields['Title']['before']);
+                  $folder = Folder::find_or_make("Uploads/".$prefix."/Einstellungen");
+                  $folder->renameFile($changedFields['Title']['after']);
+              }
+          }
+      }
     
       parent::onBeforeWrite();
   }
@@ -100,7 +105,15 @@ class SiteConfigExtension extends DataExtension
 
 
   public function getFolderName(){
-    $folder = Folder::find_or_make("Uploads/Einstellungen");
+    if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
+        $config = SiteConfig::current_site_config();
+        $prefix = URLSegmentFilter::create()->filter($config->Title);
+        $folder = Folder::find_or_make("Uploads/".$prefix."/Einstellungen");
+    }
+    else{
+      $folder = Folder::find_or_make("Uploads/Einstellungen");
+    }
+    
     return $folder->getFilename();
   }
 }

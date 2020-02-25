@@ -21,6 +21,8 @@ class FooterBlock extends LayoutBlock{
         'Items' => ListItem::class
     ];
 
+    private static $owns = ['Items'];
+
     private static $block_types = [
         'address' => 'Adresse',
         'links' => 'Links',

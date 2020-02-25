@@ -66,7 +66,7 @@ class MapBlock extends BaseElement implements Searchable
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('Layout');
-        $fields->removeByName('GlobalLayout');
+        // $fields->removeByName('GlobalLayout');
         $fields->removeByName('Height');
         $fields->removeByName('disableDefaultUI');
         $fields->removeByName('mapTypeControl');

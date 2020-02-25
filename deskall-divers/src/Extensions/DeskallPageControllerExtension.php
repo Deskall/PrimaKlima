@@ -12,8 +12,15 @@ class DeskallPageControllerExtension extends Extension
         return Director::isLive();
     }
 
-    public function Css(){
-    	$css_compiled = file_get_contents(Director::baseFolder().SiteConfig::current_site_config()->getCurrentThemeDir().'/templates/Includes/Css.ss');
+    public function HeadCss(){
+    	$css_compiled = file_get_contents(Director::baseFolder().SiteConfig::current_site_config()->getCurrentThemeDir().'/templates/Includes/HeadCss.ss');
+        $css = new DBHTMLText();
+        $css->setValue($css_compiled);
+        return $css;
+    }
+
+    public function BodyCss(){
+    	$css_compiled = file_get_contents(Director::baseFolder().SiteConfig::current_site_config()->getCurrentThemeDir().'/templates/Includes/BodyCss.ss');
         $css = new DBHTMLText();
         $css->setValue($css_compiled);
         return $css;
