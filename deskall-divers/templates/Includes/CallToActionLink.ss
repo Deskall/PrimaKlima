@@ -8,7 +8,7 @@
 		</a>
 	<% end_with %>
 </div> --%>
-<div class="calltoaction-container uk-flex <% if not noMargin %>dk-margin-responsive<% end_if %> uk-flex-{$LinkableLink.LinkPosition}">
+<div class="calltoaction-container uk-flex <% if not noMargin %>dk-margin-responsive<% end_if %> uk-flex-{$LinkableLink.LinkPosition}"  <% if LinkableLink.Embedded %>data-uk-lightbox<% end_if %>>
 	<% with $LinkableLink %>
 		<% if $LinkURL %>
 		    <a href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %> class="uk-button button-{$Background}" <% if hasIcone %>data-uk-icon="icon: $Icone"<% end_if %>>$Title</a>

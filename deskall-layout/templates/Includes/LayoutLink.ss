@@ -1,4 +1,4 @@
-<li data-level="$Level">
+<li data-level="$Level"  <% if LinkableLink.Embedded %>data-uk-lightbox<% end_if %>>
 	<% with LinkableLink %>
 	    <% if $LinkURL %>
 	     	<a  href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %> class="<% if $Background %>uk-button button-{$Background}<% end_if %> <% if hasIcone %>dk-link-with-icon<% end_if %>">
