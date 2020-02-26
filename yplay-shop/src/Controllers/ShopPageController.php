@@ -158,6 +158,7 @@ class ShopPageController extends PageController
       $min = $min->modify('-100 years');
       $config = SiteConfig::current_site_config();
       $agbpage = $config->AGBPage();
+      $emailtovalidate = ($cart->Email) ? $cart->Email : true;
       $form = new Form(
          $this,
          'OrderForm',
@@ -173,7 +174,7 @@ class ShopPageController extends PageController
             HiddenField::create('Birthdate'),
             CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
-               EmailField::create('Email2','E-Mail Prüfung')->setAttribute('class','uk-input')->setAttribute('validateEmail',true)->setDescription('Bitte geben Sie wieder Ihre E-Mail-Adresse ein.')->setAttribute('autocomplete','new-email-validation-'.rand()),
+               EmailField::create('Email2','E-Mail Prüfung')->setAttribute('class','uk-input')->setAttribute('validateEmail',$emailtovalidate)->setDescription('Bitte geben Sie wieder Ihre E-Mail-Adresse ein.')->setAttribute('autocomplete','new-email-validation-'.rand()),
                TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true)
             )->setName('Step2'),
             CompositeField::create(
