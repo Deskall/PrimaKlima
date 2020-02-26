@@ -181,7 +181,7 @@ $(document).ready(function(){
 			productsOfPackages.push($(this).attr('data-value'));
 		});
 		$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
-			products.push($(this).attr('data-value'));
+			products[$(this).attr('data-value')] = 1;
 		});
 		//Compare to see if any package matches the selected products
 		$.each(packages,function(i,v){
