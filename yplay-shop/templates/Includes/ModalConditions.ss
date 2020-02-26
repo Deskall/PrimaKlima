@@ -1,9 +1,9 @@
 <div id="modal-conditions" data-uk-modal>
-	    <div class="uk-modal-dialog uk-modal-body">
+	    <div class="uk-modal-dialog uk-modal-body uk-modal-full">
 	        <h2 class="uk-modal-title">Konditionen</h2>
 	        $SiteConfig.Conditions
 	        <p class="uk-text-right">
-	            <button class="uk-button BlackBackground uk-modal-close" type="button">Schliessen</button>
+	            <button class="uk-button BlackBackground uk-modal-close-full" type="button">Schliessen</button>
 	        </p>
 	    </div>
 	</div>
