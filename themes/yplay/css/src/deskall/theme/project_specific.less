@@ -680,7 +680,7 @@ body{
 
 //Mixins
 .fill-page(@color){
-	h1,h2,h3{
+	h1{
 		color:@color;
 	}
 	main a:not(.uk-button){
@@ -702,6 +702,9 @@ body{
 	}
 	.uk-dotnav > .uk-active > * {
 		background: fade(@color, 60%);
+	}
+	.element{
+		.fill-block(@color);
 	}
 }
 
