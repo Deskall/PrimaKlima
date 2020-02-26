@@ -134,6 +134,9 @@ class Product extends DataObject {
 
 	public function PrintPriceString(){
 		if ($this->RecurringPrice){
+			if ($this->getActionMonthlyPrice() > 0){
+				return DBText::create()->setValue('CHF '.$this->getActionMonthlyPrice().' / Mt.');
+			}
 			return DBText::create()->setValue('CHF '.$this->getMonthlyPrice().' / Mt.');
 		}
 		else{
