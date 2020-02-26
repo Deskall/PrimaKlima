@@ -197,11 +197,9 @@ class Product extends DataObject {
 
 	//To do: elaborate with Actions
 	public function getMonthlyPrice(){
-		ob_start();
-		print_r('------------------ start -----------------');
+		
 		$variation = ($this->activePLZ()) ? $this->PriceVariations()->filter('CodeID',$this->activePLZ())->first() : null;
 		$discounts = $this->Actions();
-		print_r('discount: '.$discounts->count());
 		if ($discounts){
 			if ($this->activePLZ()){
 				$c = PostalCode::get()->byId($this->activePLZ());
@@ -217,14 +215,11 @@ class Product extends DataObject {
 				$discounts = $discounts->filter('AllCodes',1);
 			}
 		}
-		print_r('discount: '.$discounts->count());
 		if ($discounts->count() > 0){
 			$discount = $discounts->first();
 			return $discount->Value;
 		}
-		print_r('variation: '.$variation->ClassName.' '.$variation->ID);
-		$result = ob_get_clean();
-		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+		
 		return ($variation ) ? $variation->Price : $this->Price;
 	}
 
