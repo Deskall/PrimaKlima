@@ -112,7 +112,10 @@ class ShopController extends PageController
       //retrieve cart in session
       $id = $this->getRequest()->getSession()->get('shopcart_id');
       $options = $this->getRequest()->postVar('options');
-     
+      ob_start();
+      print_r( $options);
+      $result = ob_get_clean();
+      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
       $cart = null;
       if ($id){
          $cart = ShopCart::get()->byId($id);
