@@ -58,6 +58,7 @@ class ProductOption extends Product {
 		if ($this->GroupID > 0){
 			$fields->removeByName('Options');
 			$fields->removeByName('hasOptions');
+			$fields->removeByName('Single');
 		}
 		return $fields;
 	}
