@@ -24,3 +24,9 @@ $.validator.addMethod("intlTelNumber", function(value, element) {
     }
     return true;
 }, "Bitte geben Sie eine gültige schweizer oder deutsche Telefonnummer ein");
+
+$.validator.addMethod("validateEmail", function(value, element) {
+    console.log('ici');
+    
+    return true;
+}, "E-Mail-Adressen stimmen nicht überein");
