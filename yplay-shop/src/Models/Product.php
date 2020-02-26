@@ -37,7 +37,11 @@ class Product extends DataObject {
 	];
 
 	private static $belongs_many_many= [
-	    'Actions' => 'PriceVariation'
+	    'Actions' => PriceVariation::class
+	];
+
+	private static $has_many= [
+	    'PriceVariations' => PriceVariation::class
 	];
 
 	private static $extensions = [
@@ -112,6 +116,7 @@ class Product extends DataObject {
 		$labels['FooterText'] = 'Weitere Informationen (wird im Produkt Kart zeigt an boden.)';
 		$labels['Preselected'] = 'standardmäßig ausgewählt?';
 		$labels['TVOffer'] = 'TV Angebot';
+		$labels['Actions'] = 'Aktionen';
 
 		return $labels;
 	}
