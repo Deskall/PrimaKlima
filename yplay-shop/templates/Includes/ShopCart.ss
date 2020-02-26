@@ -81,7 +81,7 @@
 <div class="uk-margin-small">
 	<a data-uk-toggle="#modal-conditions" data-uk-icon="chevron-right">Konditionen</a>
 </div>
-<div class="uk-margin-small">
+<%-- <div class="uk-margin-small">
 	<div class="uk-flex uk-flex-middle">
 		<img src="$ThemeDir/img/gift-solid.svg" class="uk-margin-small-right" width="50">
 		<div>
@@ -89,4 +89,4 @@
 			<small>3 Monate 1/2 Preis</small>
 		</div>
 	</div>
-</div>
+</div> --%>
