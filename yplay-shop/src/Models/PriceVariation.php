@@ -12,9 +12,7 @@ class PriceVariation extends DataObject {
 	private static $db = [
 		'Price' => 'Currency',
 		'UniquePrice' => 'Currency',
-		'UniquePriceLabel' => 'Varchar',
 		'ActivationPrice' => 'Currency',
-		'ActivationPriceLabel' => 'Varchar'
 	];
 
 	private static $has_one = [
@@ -27,18 +25,14 @@ class PriceVariation extends DataObject {
 		'Code',
 		'Price',
 		'UniquePrice',
-		'UniquePriceLabel',
 		'ActivationPrice',
-		'ActivationPriceLabel'
 	];
 
 
 	public function fieldLabels($includerelation = true){
 		$labels = parent::fieldLabels($includerelation);
 		$labels['UniquePrice'] = 'Einmaliger Preis';
-		$labels['UniquePriceLabel'] = 'Einmaliger Preis Erklärung';
 		$labels['ActivationPrice'] = 'Grundgebühr';
-		$labels['ActivationPriceLabel'] = 'Grundgebühr Preis Erklärung';
 		$labels['Price'] = 'Preis';
 		$labels['Product'] = 'Produkt';
 		$labels['Code'] = 'Ortschaft';
