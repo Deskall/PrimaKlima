@@ -657,18 +657,19 @@ $(document).ready(function(){
 		$(document).on("click",".hdsmartcardblock [data-submit-smartcard]",function(){
 			console.log(smartcardoptions);
 			$.ajax({
-				url: '/shop-functions/smartcard',
+				url: '/shop-functions/smartcard/',
 				method: 'POST',
 				dataType: 'json',
 				data: {options: smartcardoptions}
 			}).done(function(response){
 				$(this).removeClass('loading');
-				if (response.link){
-					window.location.href = response.link;
-				}
-				else{
-					console.log(response.error);
-				}
+				console.log(response);
+				// if (response.link){
+				// 	window.location.href = response.link;
+				// }
+				// else{
+				// 	console.log(response.error);
+				// }
 			});
 		});
 

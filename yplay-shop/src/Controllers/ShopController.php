@@ -153,6 +153,7 @@ class ShopController extends PageController
          }
      
          $cart->write();
+         $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
          return json_encode(['link' => ShopPage::get()->first()->Link()]);
       }
 
