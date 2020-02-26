@@ -24,7 +24,8 @@ class OrderItem extends DataObject {
     private static $has_one = array(
         'Order' => ShopOrder::class,
         'Package' => Package::class,
-        'Product' => Product::class
+        'Product' => Product::class,
+        'Option' => ProductOption::class
     );
 
     private static $summary_fields = array(
@@ -49,6 +50,9 @@ class OrderItem extends DataObject {
             break;
             case "Package":
              return "Paket";
+            break;
+            case "Option":
+             return "Option";
             break;
             case "Accessory":
              return "Zubehör";
@@ -77,6 +81,20 @@ class OrderItem extends DataObject {
     public function createFromProduct($product,$quantity = 1,$included = false,$customer = null){
         $this->Type = "Product";
         $this->ProductID = $product->ID;
+        $this->Title = $product->Title;
+        $this->SubTitle = $product->SubTitle;
+        $this->MonthlyPrice = $product->getMonthlyPrice();
+        $this->UniquePrice = $product->getPriceUnique();
+        $this->ActivationPrice = $product->getFees();
+        $this->UniquePriceLabel = $product->UniquePriceLabel;
+        $this->ActivationPriceLabel = $product->ActivationPriceLabel;
+        $this->Quantity = $quantity;
+        $this->write();
+    }
+
+     public function createFromOption($product,$quantity = 1,$included = false,$customer = null){
+        $this->Type = "Option";
+        $this->OptionID = $product->ID;
         $this->Title = $product->Title;
         $this->SubTitle = $product->SubTitle;
         $this->MonthlyPrice = $product->getMonthlyPrice();
