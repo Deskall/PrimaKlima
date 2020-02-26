@@ -657,7 +657,7 @@ $(document).ready(function(){
 			$('.hdsmartcardblock').find("tr.product").each(function(){
 				quantity = $(this).find('input').val();
 				if (quantity > 0){
-					subprice = quantity * floatval($(this).attr('data-price'));
+					subprice = quantity * parseFloat($(this).attr('data-price'));
 					$(this).find('sub-total').text(subprice);
 				}
 			});
