@@ -213,7 +213,7 @@
 							           		<% if hasOptions %>
                                                 <tr><td colspan="3"><strong>$Title</strong></td></tr>
 								           		<% loop Options %>
-								           		<tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox <% if Single %>pseudo-radio<% end_if %>" name="$Group.ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> ></td><td>$Title</td><% if Multiple %><td><input type="number" name="quantity-{$ProductCode}" class="uk-input"/></td><% end_if %><td class="uk-text-right">$PrintPriceString</td></tr>
+								           		<tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox <% if Single %>pseudo-radio<% end_if %>" name="$Group.ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> ></td><td>$Title</td><% if Multiple %><td><input type="number" name="quantity-{$ProductCode}" class="uk-input" hidden /></td><% end_if %><td class="uk-text-right">$PrintPriceString</td></tr>
 								           		<% end_loop %>
 								           	<% else %>
 								           	<tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox" name="$ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> ></td><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>

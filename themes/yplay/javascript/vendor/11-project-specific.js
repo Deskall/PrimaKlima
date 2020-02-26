@@ -407,14 +407,14 @@ $(document).ready(function(){
 					if(quantityInput.val() == "" || quantityInput.val == 0 ){
 						quantityInput.val(1);
 					}
-					quantityInput.show();
+					quantityInput.attr('hidden',false);
 					options.push({
 						'code' : $(this).attr('data-value'),
 						'quantity': quantityInput.val()
 					});
 				}
 				else{
-					$(this).parents('tr').find('input.quantity').val(0).hide();
+					$(this).parents('tr').find('input.quantity').val(0).attr('hidden','hidden');
 				}
 			});
 			UpdateCart(options);
