@@ -26,7 +26,5 @@ $.validator.addMethod("intlTelNumber", function(value, element) {
 }, "Bitte geben Sie eine gültige schweizer oder deutsche Telefonnummer ein");
 
 $.validator.addMethod("validateEmail", function(value, element) {
-    console.log('ici');
-    
-    return true;
+    return value == $("input[name='email']").val();
 }, "E-Mail-Adressen stimmen nicht überein");
