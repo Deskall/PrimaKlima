@@ -310,6 +310,15 @@ class ShopPageController extends PageController
                   $item->write();
                }
             }
+            //Options
+            if ($cart->Options()->exists()){
+               foreach ($cart->Options() as $o) {
+                  $item = new OrderItem();
+                  $item->createFromOption($p,$data['ExistingCustomer']);
+                  $item->OrderID = $order->ID;
+                  $item->write();
+               }
+            }
 
             $order->MonthlyPrice = $cart->PrintMonthlyPrice();
             $order->UniquePrice = $cart->PrintUniquePrice();
