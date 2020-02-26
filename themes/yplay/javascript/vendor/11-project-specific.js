@@ -655,8 +655,8 @@ $(document).ready(function(){
 
 		function CalculateSmartcardPrice(){
 			$('.hdsmartcardblock').find("tr.product").each(function(){
-				console.log($(this).attr('data-price'));
 				quantity = $(this).find('input').val();
+				console.log(quantity);
 				if (quantity > 0){
 					subprice = quantity * parseFloat($(this).attr('data-price'));
 					$(this).find('sub-total').text(subprice);
