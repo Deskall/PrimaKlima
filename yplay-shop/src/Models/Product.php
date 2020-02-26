@@ -216,7 +216,7 @@ class Product extends DataObject {
 		}
 
 		if ($discounts->count() > 0){
-			$variation = $discounts->sort('SortOrder')->first();
+			$variation = $discounts->first();
 		}
 		return ($variation ) ? $variation->Price : $this->Price;
 	}
