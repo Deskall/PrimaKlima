@@ -117,6 +117,7 @@ class Product extends DataObject {
 		$labels['Preselected'] = 'standardmäßig ausgewählt?';
 		$labels['TVOffer'] = 'TV Angebot';
 		$labels['Actions'] = 'Aktionen';
+		$labels['PriceVariations'] = 'Preise pro Ortschaft';
 
 		return $labels;
 	}
