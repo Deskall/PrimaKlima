@@ -4,7 +4,7 @@
 	<% if Products.exists %>
 	<table class="uk-table uk-table-small uk-table-divider">
 		<thead>
-			<tr><th>&nbsp;</th><th>Produkt</th><th>Einzelpreis</th><th>Gesamt</th></tr>
+			<tr><th>&nbsp;</th><th>Produkt</th><th>Einzelpreis</th><th class="uk-text-right">Gesamt</th></tr>
 		</thead>
 		<tbody>
 		<% loop Products %>
@@ -17,7 +17,7 @@
 		<% end_loop %>
 		</tbody>
 		<tfoot>
-			<tr><td colspan="2">&nbsp;</td><td class="uk-text-right">Gesamtpreise</td><td id="total-price"></td></tr>
+			<tr><td colspan="2">&nbsp;</td><td class="uk-table-shrink">Gesamtpreise</td><td id="total-price" class="uk-text-right"></td></tr>
 		</tfoot>
 		<tbody>
 	</table>
