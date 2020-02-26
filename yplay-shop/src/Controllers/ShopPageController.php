@@ -203,7 +203,7 @@ class ShopPageController extends PageController
          new FieldList(
             FormAction::create('doOrder', _t('SHOP.BUYNOW', 'Bestellung abschicken'))->setUseButtonTag(true)->addExtraClass('uk-button')
          ),
-         RequiredFields::create(['Gender','Name','FirstName','Email','Phone','Address','HouseNumber','AGB'])
+         RequiredFields::create(['Gender','Name','FirstName','Email','Email2','Phone','Address','HouseNumber','AGB'])
       );
       // $member = Security::getCurrentUser();
       // if ($member){
