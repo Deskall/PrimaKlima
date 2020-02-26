@@ -142,15 +142,19 @@ class ShopController extends PageController
    } 
 
    public function smartcard(){
+     
       $options = $this->getRequest()->postVar('options');
    
       if ($options){
-         $cart = new ShopCart();
+         $id = $this->getRequest()->getSession()->get('shopcart_id');
+         $cart = ($id) ? ( (ShopCart::get()->byId($id)) ? ShopCart::get()->byId($id) : new ShopCart() ) : new ShopCart() ;
          $cart->write();
+         $i = 1;
          foreach ($options as $code => $quantity) {
             $option = ProductOption::get()->filter('ProductCode',$code)->first();
             if ($option){
-               $cart->Options()->add($option, ['Quantity' => $quantity]);
+               $cart->Options()->add($option, ['SortOrder' => $i,'Quantity' => $quantity]);
+               $i++;
             }
          }
          $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
