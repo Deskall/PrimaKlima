@@ -196,9 +196,7 @@ class Product extends DataObject {
 	}
 
 	//To do: elaborate with Actions
-	public function getMonthlyPrice(){
-		
-		$variation = ($this->activePLZ()) ? $this->PriceVariations()->filter('CodeID',$this->activePLZ())->first() : null;
+	public function getActionMonthlyPrice(){
 		$discounts = $this->Actions();
 		if ($discounts){
 			if ($this->activePLZ()){
@@ -219,7 +217,10 @@ class Product extends DataObject {
 			$discount = $discounts->first();
 			return $discount->Value;
 		}
-		
+	}
+
+	public function getMonthlyPrice(){
+		$variation = ($this->activePLZ()) ? $this->PriceVariations()->filter('CodeID',$this->activePLZ())->first() : null;
 		return ($variation ) ? $variation->Price : $this->Price;
 	}
 
