@@ -8,7 +8,7 @@
 		</thead>
 		<tbody>
 		<% loop Products %>
-		<tr>
+		<tr class="product" data-price="$getMonthlyPrice" data-value="$ProductCode">
 			<td><input type="number" min="0" max="10" class="uk-input uk-form-small" /></td>
 			<td class="uk-table-expand">$Title</td>
 			<td class="uk-table-shrink">$PrintPriceString</td>

@@ -642,4 +642,26 @@ $(document).ready(function(){
         });
     });
 
+
+    //HD Smartcard
+	if ($('.hdsmartcardblock').length > 0){
+		var hdprice,
+			subprice,
+			quantity;
+
+		$(document).on("change",".hdsmartcardblock input",function(){
+			CalculateSmartcardPrice();
+		});
+
+		function CalculateSmartcardPrice(){
+			$('.hdsmartcardblock').find("tr.product").each(function(){
+				quantity = $(this).find('input').val();
+				if (quantity > 0){
+					subprice = quantity * floatval($(this).attr('data-price'));
+					$(this).find('sub-total').text(subprice);
+				}
+			});
+		}
+	}	
+
 });
