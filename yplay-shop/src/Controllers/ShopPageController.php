@@ -173,6 +173,7 @@ class ShopPageController extends PageController
             HiddenField::create('Birthdate'),
             CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
+               EmailField::create('Email2','E-Mail Prüfung')->setAttribute('class','uk-input')->setDescription('Bitte geben Sie wieder Ihre E-Mail-Adresse ein.'),
                TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true)
             )->setName('Step2'),
             CompositeField::create(
@@ -262,10 +263,7 @@ class ShopPageController extends PageController
      
       //Retrive Cart
       $cartId = $this->getRequest()->getSession()->get('shopcart_id');
-      ob_start();
-      print_r($cartId);
-      $result = ob_get_clean();
-      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+     
       $cart = ($cartId) ? ShopCart::get()->byId($cartId) : null;
 
       if ($cart && !$cart->isEmpty()){
@@ -329,7 +327,7 @@ class ShopPageController extends PageController
             $order->write();
             //Create Receipt
             // $order->generatePDF();
-            //Send Confirmation Email
+            //Send Notification Email
             $order->sendEmail();
 
             $this->getRequest()->getSession()->set('orderID',$order->ID);
