@@ -232,6 +232,6 @@ class ShopCart extends DataObject {
 	// }
 
 	public function isEmpty(){
-		return (!$this->Package()->exists() && !$this->Products()->exists());
+		return (!$this->Package()->exists() && !$this->Products()->exists() && !$this->Options()->exists());
 	}
 }
