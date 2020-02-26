@@ -46,7 +46,7 @@ class ProductOption extends Product {
 		$fields->dataFieldByName('ActivationPrice')->hideIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('UniquePriceLabel')->hideIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('ActivationPriceLabel')->hideIf('hasOptions')->isChecked();
-		$fields->dataFieldByName('Single')->showIf('hasOptions')->isChecked();
+		$fields->dataFieldByName('Single')->displayIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('Unit')->hideIf('hasOptions')->isChecked();
 		
 
