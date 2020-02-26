@@ -743,7 +743,7 @@ $(document).ready(function(){
 			hdprice = 0;
 			paytvpackages = {};
 			$('.paytvblock').find("tr.product").each(function(){
-				smartcardoptions[$(this).attr('data-value')] = 1;
+				paytvpackages[$(this).attr('data-value')] = 1;
 				hdprice += $(this).attr('data-price');
 			});
 			$('.paytvblock').find('#total-price').text(printPrice(hdprice));
