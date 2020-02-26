@@ -185,15 +185,15 @@ class Product extends DataObject {
 		        },
 		        'Price' => array(
 		          'title' => 'Monatlicher Preis',
-		          'field' => TextField::create
+		          'field' => TextField::class
 		        ),
 		        'PriceUnique' => array(
 		          'title' => 'Einmaliger Preis',
-		           'field' => TextField::create
+		           'field' => TextField::class
 		        ),
 		        'ActivationFee' => array(
 		          'title' => 'Aufschaltgebühr',
-		           'field' => TextField::create
+		           'field' => TextField::class
 		        )
 		    ]);
            $fields->addFieldToTab('Root.PriceVariations',new GridField('PriceVariations',$this->fieldLabels()['PriceVariations'],$this->PriceVariations(),$config));
