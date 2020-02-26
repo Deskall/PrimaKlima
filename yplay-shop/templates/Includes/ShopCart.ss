@@ -12,14 +12,14 @@
 		<% if Products.exists %>
 		<% loop Products.Sort('SortOrder') %>
 			<% if RecurringPrice %>
-				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString <% if Quantity > 1 %>* $Quantity<% end_if %></td></tr>
 				<% end_if %>
 			<% end_loop %>
 		<% end_if %>
 		<% if Options.exists %>
 		<% loop Options %>
 			<% if RecurringPrice %>
-			<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+			<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString <% if Quantity > 1 %>* $Quantity<% end_if %></td></tr>
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
@@ -47,28 +47,28 @@
 		<% if Products.exists %>
 		<% loop Products %>
 			<% if not RecurringPrice %>
-				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString <% if Quantity > 1 %>* $Quantity<% end_if %></td></tr>
 			<% else %>
 				<% if $getPriceUnique > 0 %>
-				<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $getPriceUnique</td></tr>
+				<tr><td>$UniquePriceLabel <% if Quantity > 1 %>* $Quantity<% end_if %></td><td class="uk-text-right">CHF $getPriceUnique</td></tr>
 				<% end_if %>
 			<% end_if %>
 			<% if $getFees > 0 %>
-			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $getFees</td></tr>
+			<tr><td>$ActivationPriceLabel <% if Quantity > 1 %>* $Quantity<% end_if %></td><td class="uk-text-right">CHF $getFees</td></tr>
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
 		<% if Options.exists %>
 		<% loop Options %>
 			<% if not RecurringPrice %>
-				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString <% if Quantity > 1 %>* $Quantity<% end_if %></td></tr>
 			<% else %>
 				<% if $getPriceUnique > 0 %>
-				<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $getPriceUnique</td></tr>
+				<tr><td>$UniquePriceLabel <% if Quantity > 1 %>* $Quantity<% end_if %></td><td class="uk-text-right">CHF $getPriceUnique</td></tr>
 				<% end_if %>
 			<% end_if %>
 			<% if $getFees > 0 %>
-			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $getFees</td></tr>
+			<tr><td>$ActivationPriceLabe <% if Quantity > 1 %>* $Quantity<% end_if %></td><td class="uk-text-right">CHF $getFees</td></tr>
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
