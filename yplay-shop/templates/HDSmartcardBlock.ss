@@ -12,7 +12,7 @@
 			<td><input type="number" min="0" max="10" class="uk-input uk-form-small" /></td>
 			<td class="uk-table-expand">$Title</td>
 			<td class="uk-table-shrink">$PrintPriceString</td>
-			<td class="sub-total"></td>
+			<td class="sub-total uk-text-right"></td>
 		</tr>
 		<% end_loop %>
 		</tbody>

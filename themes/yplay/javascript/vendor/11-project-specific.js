@@ -660,7 +660,7 @@ $(document).ready(function(){
 				quantity = $(this).find('input').val();
 				if (quantity > 0){
 					subprice = quantity * parseFloat($(this).attr('data-price'));
-					$(this).find('.sub-total').text(subprice);
+					$(this).find('.sub-total').text(printPrice(subprice));
 					hdprice += subprice;
 				}
 			});
