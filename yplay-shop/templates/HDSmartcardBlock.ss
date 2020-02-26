@@ -9,8 +9,8 @@
 		<tbody>
 		<% loop Products %>
 		<tr>
-			<td><input type="number" min="0" max="10" class="uk-input" /></td>
-			<td>$Title</td>
+			<td class="uk-table-shrink"><input type="number" min="0" max="10" class="uk-input" /></td>
+			<td class="uk-table-expand">$Title</td>
 			<td>$PrintPriceString</td>
 		</tr>
 		<% end_loop %>
