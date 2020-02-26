@@ -5,14 +5,14 @@
 	<tbody>
 		<% if Package.exists %>
 		<% with Package %>
-		<tr><td>$Title</td><td class="uk-text-right"><% if $ActionMonthlyPrice %><s>$PrintPriceString</s> $ActionMonthlyPrice<% else %>$PrintPriceString<% end_if %></td></tr>
+		<tr><td>$Title</td><td class="uk-text-right"><% if $ActionMonthlyPrice %><s>$getMonthlyPrice</s> $PrintPriceString<% else %>$PrintPriceString<% end_if %></td></tr>
 		<tr><td colspan="2" class="products-package"><% loop Products %>$Title<br><% end_loop %></td></tr>
 		<% end_with %>
 		<% end_if %>
 		<% if Products.exists %>
 		<% loop Products.Sort('SortOrder') %>
 			<% if RecurringPrice %>
-				<tr><td>$Title</td><td class="uk-text-right"><% if $ActionMonthlyPrice %><s>$PrintPriceString</s> $ActionMonthlyPrice<% else %>$PrintPriceString<% end_if %><% if Quantity > 1 %> * $Quantity<% end_if %></td></tr>
+				<tr><td>$Title</td><td class="uk-text-right"><% if $ActionMonthlyPrice %><s>$getMonthlyPrice</s> $PrintPriceString<% else %>$PrintPriceString<% end_if %><% if Quantity > 1 %> * $Quantity<% end_if %></td></tr>
 				<% end_if %>
 			<% end_loop %>
 		<% end_if %>
