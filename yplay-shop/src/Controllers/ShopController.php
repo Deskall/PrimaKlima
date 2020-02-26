@@ -14,7 +14,7 @@ use SilverStripe\ORM\ArrayList;
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'smartcard']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
@@ -138,6 +138,25 @@ class ShopController extends PageController
       }
 
       return null;
+      
+   } 
+
+   public function smartcard(){
+      $options = $this->getRequest()->postVar('options');
+      if ($options){
+         $cart = new ShopCart();
+         foreach ($options as $code => $quantity) {
+            $option = ProductOption::get()->filter('ProductCode',$code)->first();
+            if ($option){
+               $cart->Options()->add($option);
+            }
+         }
+     
+         $cart->write();
+         return json_encode(['link' => ShopPage::get()->first()->Link()]);
+      }
+
+     return json_encode(['error' => '']);
       
    } 
 

@@ -655,25 +655,32 @@ $(document).ready(function(){
 		});
 
 		$(document).on("click",".hdsmartcardblock [data-submit-smartcard]",function(){
-			smartcardoptions = {};
-			var url = $(this).attr('data-url');
+			console.log(smartcardoptions);
 			$.ajax({
 				url: '/shop-functions/smartcard',
 				method: 'POST',
-				dataType: 'html',
+				dataType: 'json',
 				data: {options: smartcardoptions}
 			}).done(function(response){
 				$(this).removeClass('loading');
-				window.location.href = url;
+				if (response.link){
+					window.location.href = response.link;
+				}
+				else{
+					console.log(response.error);
+				}
 			});
 		});
 
 		function CalculateSmartcardPrice(){
 			hdprice = 0;
+			smartcardoptions = {};
 			$('.hdsmartcardblock').find("tr.product").each(function(){
 				$(this).find('.sub-total').empty();
 				quantity = $(this).find('input').val();
+
 				if (quantity > 0){
+					smartcardoptions[$(this).attr('data-value')] = quantity;
 					subprice = quantity * parseFloat($(this).attr('data-price'));
 					$(this).find('.sub-total').text(printPrice(subprice));
 					hdprice += subprice;
