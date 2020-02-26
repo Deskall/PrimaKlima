@@ -2,13 +2,23 @@
 
 <div class="uk-margin">
 	<% if Products.exists %>
-	<table>
+	<table class="uk-table uk-table-small">
+		<thead>
+			<tr><th>&nbsp;</th><th>Produkt</th><th>Einzelpreis</th><th>Gesamt</th></tr>
+		</thead>
+		<tbody>
 		<% loop Products %>
 		<tr>
+			<td><input type="number" min="0" max="10" class="uk-input" /></td>
 			<td>$Title</td>
-			<td>$printPriceString</td>
+			<td>$PrintPriceString</td>
 		</tr>
 		<% end_loop %>
+		</tbody>
+		<tfoot>
+			<tr><td>Gesamtpreise</th><th id="total-price"></th></tr>
+		</tfoot>
+		<tbody>
 	</table>
 		
 	<% else %>
