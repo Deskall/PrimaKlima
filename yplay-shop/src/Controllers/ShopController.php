@@ -125,11 +125,11 @@ class ShopController extends PageController
          //apply options
          $cart->Options()->removeAll();
          if ($options){
-            foreach ($options as $code => $quantity) {
+            foreach ($options as $index => $value) {
               
-                  $option = ProductOption::get()->filter('ProductCode',$code)->first();
+                  $option = ProductOption::get()->filter('ProductCode',$value['code'])->first();
                   if ($option){
-                     $cart->Options()->add($option, ['Quantity' => $quantity]);
+                     $cart->Options()->add($option, ['Quantity' => $value['quantity']);
                   }
                
             }
