@@ -405,7 +405,7 @@ $(document).ready(function(){
 				if ($(this).is(':checked')){
 					if ($(this).attr('data-is-multiple')){
 						var quantityInput = $(this).parents('tr').find('input.quantity');
-						if(quantityInput.val() == "" || quantityInput.val == 0 ){
+						if(quantityInput.val() < 1 ){
 							quantityInput.val(1);
 						}
 						quantityInput.attr('hidden',false);
