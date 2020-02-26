@@ -262,6 +262,10 @@ class ShopPageController extends PageController
      
       //Retrive Cart
       $cartId = $this->getRequest()->getSession()->get('shopcart_id');
+      ob_start();
+      print_r($cartId);
+      $result = ob_get_clean();
+      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
       $cart = ($cartId) ? ShopCart::get()->byId($cartId) : null;
 
       if ($cart && !$cart->isEmpty()){
