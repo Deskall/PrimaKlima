@@ -129,16 +129,16 @@ class ShopCart extends DataObject {
 	public function writeTotalMonthlyPrice(){
 		$price = 0;
 		if ($this->Package()->exists()){
-			$price += $this->Package()->getMonthlyPrice();
+			$price += ($this->Package()->getActionMonthlyPrice()) ? $this->Package()->getActionMonthlyPrice() : $this->Package()->getMonthlyPrice();
 		}
 		if ($this->Products()->exists()){
 			foreach ($this->Products() as $product) {
-				$price += $product->getMonthlyPrice() * $product->Quantity;
+				$price += ($product->getActionMonthlyPrice() ) ? $product->getActionMonthlyPrice()  * $product->Quantity : $product->getMonthlyPrice() * $product->Quantity;
 			}
 		}
 		if ($this->Options()->filter('RecurringPrice',1)->exists()){
 			foreach ($this->Options() as $product) {
-				$price += $product->getMonthlyPrice() * $product->Quantity;
+				$price += ($product->getActionMonthlyPrice() ) ? $product->getActionMonthlyPrice()  * $product->Quantity : $product->getMonthlyPrice() * $product->Quantity;
 			}
 		}
 		$this->TotalMonthlyPrice = $price;
