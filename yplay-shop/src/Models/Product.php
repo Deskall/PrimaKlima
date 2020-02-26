@@ -8,6 +8,7 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
@@ -178,6 +179,23 @@ class Product extends DataObject {
                 ->addComponent(new GridFieldEditableColumns())
                 ->addComponent(new GridFieldDeleteAction())
                 ->addComponent(new GridFieldAddNewInlineButton());
+            $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields([
+		        'CodeID' => function($record, $column, $grid) {
+		          return new DropdownField($column, 'Ortschaft',PostalCode::get()->map('ID','Code'));
+		        },
+		        'Price' => array(
+		          'title' => 'Monatlicher Preis',
+		          'field' => TextField::create
+		        ),
+		        'PriceUnique' => array(
+		          'title' => 'Einmaliger Preis',
+		           'field' => TextField::create
+		        ),
+		        'ActivationFee' => array(
+		          'title' => 'Aufschaltgebühr',
+		           'field' => TextField::create
+		        )
+		    ]);
            $fields->addFieldToTab('Root.PriceVariations',new GridField('PriceVariations',$this->fieldLabels()['PriceVariations'],$this->PriceVariations(),$config));
 		}
 		
