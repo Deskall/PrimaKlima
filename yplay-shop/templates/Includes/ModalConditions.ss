@@ -1,5 +1,5 @@
-<div id="modal-conditions" data-uk-modal>
-	    <div class="uk-modal-dialog uk-modal-body uk-modal-full">
+<div id="modal-conditions" class="uk-modal-full" data-uk-modal>
+	    <div class="uk-modal-dialog uk-modal-body">
 	        <h2 class="uk-modal-title">Konditionen</h2>
 	        $SiteConfig.Conditions
 	        <p class="uk-text-right">
