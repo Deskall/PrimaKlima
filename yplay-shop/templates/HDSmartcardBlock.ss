@@ -11,11 +11,12 @@
 		<tr>
 			<td><input type="number" min="0" max="10" class="uk-input uk-form-small" /></td>
 			<td class="uk-table-expand">$Title</td>
-			<td>$PrintPriceString</td>
+			<td class="uk-table-shrink">$PrintPriceString</td>
+			<td class="sub-total"></td>
 		</tr>
 		<% end_loop %>
 		</tbody>
-		<tfoot class="uk-background-muted">
+		<tfoot>
 			<tr><td colspan="2">&nbsp;</td><td class="uk-text-right">Gesamtpreise</td><td id="total-price"></td></tr>
 		</tfoot>
 		<tbody>
