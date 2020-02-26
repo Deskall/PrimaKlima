@@ -88,11 +88,11 @@ class ShopController extends PageController
          $cart->Products()->removeAll();
          if ($products){
             $i = 1;
-            foreach ($products as $code => $quantity) {
+            foreach ($products as $code ) {
                if (!in_array($code,$productIds)){
                   $product = Product::get()->filter('ProductCode',$code)->first();
                   if ($product){
-                     $cart->Products()->add($product,['SortOrder' => $i, 'Quantity' => $quantity]);
+                     $cart->Products()->add($product,['SortOrder' => $i, 'Quantity' => 1]);
                      $i++;
                   }
                }
