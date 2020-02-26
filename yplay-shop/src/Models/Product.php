@@ -198,18 +198,14 @@ class Product extends DataObject {
 	//To do: elaborate with Actions
 	public function getMonthlyPrice(){
 		$variation = ($this->activePLZ()) ? $this->PriceVariations()->filter('CodeID',$this->activePLZ())->first() : null;
-		// $discounts = $this->Actions()->filterByCallback(function($item, $list) { 
-		// 	if ($item->AllCodes){
-		// 		return true;
-		// 	}
-		// 	if ($this->activePLZ()){
-		// 		return $item->Codes()->byId($this->activePLZ());
-		// 	}
-		// 	return false; 
-		// });
-		// if ($discounts->count() > 0){
-		// 	$variation = $discounts->sort('SortOrder')->first();
-		// }
+		$discounts = $this->Actions();
+		if ($discounts){
+			$discounts = ($this->activePLZ()) ? $discounts->filter('CodeID',$this->activePLZ()) : $discounts;
+		}
+
+		if ($discounts->count() > 0){
+			$variation = $discounts->sort('SortOrder')->first();
+		}
 		return ($variation ) ? $variation->Price : $this->Price;
 	}
 
