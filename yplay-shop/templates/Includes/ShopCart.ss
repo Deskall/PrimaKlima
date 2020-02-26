@@ -1,3 +1,4 @@
+<% if $TotalMonthlyPrice > 0 %>
 <strong class="uk-text-small">Monatliche Kosten</strong>
 <% if Package.exists && $Package.PriceGain.gainM < 0 %><p>Sie sparen mit diesem Kombiabo {$Package.PriceGain.gainM}%</p><% end_if %>
 <table id="monthly-costs" class="uk-table uk-table-small uk-table-justify">
@@ -27,6 +28,8 @@
 		<tr><td>Total (monatlich)</td><td id="total-monthly-price" class="uk-text-right uk-text-bold">$TotalMonthlyPrice</td></tr>
 	</tfoot>
 </table>
+<% end_if %>
+<% if $TotalUniquePrice > 0 %>
 <strong class="uk-text-small">Einmalige Kosten</strong>
 <% if Package.exists && $Package.PriceGain.gainU < 0 %><p>Sie sparen {$Package.PriceGain.gainU}%</p><% end_if %>
 <table id="unique-costs" class="uk-table uk-table-small uk-table-justify">
@@ -74,6 +77,7 @@
 		<tr><td>Total (einmalig)</td><td id="total-unique-price" class="uk-text-right uk-text-bold">$TotalUniquePrice</td></tr>
 	</tfoot>
 </table>
+<% end_if %>
 <div class="uk-margin-small">
 	<a data-uk-toggle="#modal-conditions" data-uk-icon="chevron-right">Konditionen</a>
 </div>
