@@ -346,7 +346,7 @@ class ShopPageController extends PageController
       
       
 
-      return $this->httpError(404);
+      return $this->redirect($this->ConfiguratorPage()->Link());
       
    }
 
