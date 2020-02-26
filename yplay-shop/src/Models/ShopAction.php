@@ -28,7 +28,7 @@ class ShopAction extends DataObject {
 	];
 
 	private static $has_many = [
-		'Variations' => PriceVariation::class
+		'Variations' => PriceDiscount::class
 	];
 
 	private static $cascade_deletes = [
