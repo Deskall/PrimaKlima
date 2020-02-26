@@ -204,7 +204,7 @@ class Product extends DataObject {
 
 	//To do: elaborate with Actions
 	public function getMonthlyPrice(){
-		$variation = ($this->activePLZ() ) ? $this->PriceVariations()->filter('CodeID',$plz->ID)->first() : null;
+		$variation = ($this->activePLZ()) ? $this->PriceVariations()->filter('CodeID',$this->activePLZ())->first() : null;
 		return ($variation ) ? $variation->Price : $this->Price;
 	}
 
@@ -219,8 +219,7 @@ class Product extends DataObject {
 	public function activePLZ(){
 		$request = Injector::inst()->get(HTTPRequest::class);
 		$session = $request->getSession();
-		$code = PostalCode::get()->byId($session->get('active_plz'));
-		return $code;
+		return $session->get('active_plz');
 	}
 
 	public function inCart(){
