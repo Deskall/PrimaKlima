@@ -16,7 +16,7 @@
 		<% end_loop %>
 		</tbody>
 		<tfoot class="uk-divider uk-background-muted">
-			<tr><td>&nbsp;</td><td>Gesamtpreise</th><th id="total-price"></th></tr>
+			<tr><td colspan="2">&nbsp;</td><td class="uk-align-right">Gesamtpreise</td><td id="total-price"></td></tr>
 		</tfoot>
 		<tbody>
 	</table>
