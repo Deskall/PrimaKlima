@@ -187,11 +187,11 @@ class Product extends DataObject {
 		          'title' => 'Monatlicher Preis',
 		          'field' => TextField::class
 		        ),
-		        'PriceUnique' => array(
+		        'UniquePrice' => array(
 		          'title' => 'Einmaliger Preis',
 		           'field' => TextField::class
 		        ),
-		        'ActivationFee' => array(
+		        'ActivationPrice' => array(
 		          'title' => 'Aufschaltgebühr',
 		           'field' => TextField::class
 		        )
