@@ -314,7 +314,7 @@ class ShopPageController extends PageController
             if ($cart->Options()->exists()){
                foreach ($cart->Options() as $o) {
                   $item = new OrderItem();
-                  $item->createFromOption($p,$data['ExistingCustomer']);
+                  $item->createFromOption($o,$data['ExistingCustomer']);
                   $item->OrderID = $order->ID;
                   $item->write();
                }
