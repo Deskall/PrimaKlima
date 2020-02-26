@@ -727,7 +727,7 @@ $(document).ready(function(){
 				url: '/shop-functions/smartcard/',
 				method: 'POST',
 				dataType: 'json',
-				data: {options: smartcardoptions}
+				data: {options: paytvpackages}
 			}).done(function(response){
 				$(this).removeClass('loading');
 				if (response.link){
