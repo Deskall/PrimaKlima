@@ -301,7 +301,7 @@ class ShopPageController extends PageController
             //Package
             if ($cart->Package()->exists()){
                $item = new OrderItem();
-               $item->createFromPackage($cart->Package(),$data['ExistingCustomer']);
+               $item->createFromPackage($cart->Package());
                $item->OrderID = $order->ID;
                $item->write();
             }
@@ -309,7 +309,7 @@ class ShopPageController extends PageController
             if ($cart->Products()->exists()){
                foreach ($cart->Products() as $p) {
                   $item = new OrderItem();
-                  $item->createFromProduct($p,$data['ExistingCustomer']);
+                  $item->createFromProduct($p);
                   $item->OrderID = $order->ID;
                   $item->write();
                }
@@ -318,7 +318,7 @@ class ShopPageController extends PageController
             if ($cart->Options()->exists()){
                foreach ($cart->Options() as $o) {
                   $item = new OrderItem();
-                  $item->createFromOption($o,$data['ExistingCustomer']);
+                  $item->createFromOption($o);
                   $item->OrderID = $order->ID;
                   $item->write();
                }
