@@ -739,7 +739,7 @@ $(document).ready(function(){
 			});
 		});
 
-		function CalculateSmartcardPrice(){
+		function CalculatePayTVPrice(){
 			hdprice = 0;
 			paytvpackages = {};
 			$('.paytvblock').find("tr.product").each(function(){
