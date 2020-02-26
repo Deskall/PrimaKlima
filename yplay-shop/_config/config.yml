@@ -6,11 +6,15 @@ BaseBlockExtension:
     - ProductBlock
     - ShopFinderBlock
     - MarketingBlock
-    - TeasingBlock
+    #- TeasingBlock
+    - HDSmartcardBlock
+    - PayTVBlock
   children_blocks:
     - ProductBlock
     - MarketingBlock
-    - TeasingBlock
+    #- TeasingBlock
+    - HDSmartcardBlock
+    - PayTVBlock
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
