@@ -403,7 +403,7 @@ $(document).ready(function(){
 		
 			$(".options input").each(function(){
 				if ($(this).is(':checked')){
-					options.push($(this).attr('data-value'));
+					options.[$(this).attr('data-value')] = 1;
 				}
 			});
 			UpdateCart(options);
