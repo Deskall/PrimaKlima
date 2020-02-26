@@ -68,22 +68,17 @@ class HDSmartcardBlock extends TextBlock
 
         public function getPackageContent(){
             $html = '';
-            // $packages = $this->filteredItems();
-            // if ($packages){
-            //     $html .= '<ul>';
-            //     foreach ($packages as $item) {
-            //         $html .= '<li>';
-            //         $html .= $item->Title.' '.$item->Subtitle;
-            //         if ($item->Items()->exists()){
-            //             foreach ($item->Items() as $i) {
-            //                 $html .= ' '.$i->Title.' '.$i->Content;
-            //             }
-            //         }
-            //         $html .= ' | ';
-            //         $html .= '</li>';
-            //     }
-            //     $html .='</ul>';
-            // }
+            $products = $this->getProducts();
+            if ($products){
+                $html .= '<ul>';
+                foreach ($products as $item) {
+                    $html .= '<li>';
+                    $html .= $item->Title.' '.$item->Subtitle;
+                    $html .= ' | ';
+                    $html .= '</li>';
+                }
+                $html .='</ul>';
+            }
             return $html;
         }
     /************ END SEARCHABLE ***************************/

@@ -45,6 +45,14 @@ class PayTVBlock extends TextBlock
         return _t(__CLASS__ . '.BlockType', 'Zeigt Premiumsender Pakete an');
     }
 
+    public function getPayTVPackages(){
+        $paytv = ProductOption::get()->filter('ProductCode','pay-tv-pakete')->first();
+        if ($paytv){
+            return $paytv->Options();
+        }
+        return null;
+    }
+
 
     
 
@@ -61,22 +69,17 @@ class PayTVBlock extends TextBlock
 
         public function getPackageContent(){
             $html = '';
-            // $packages = $this->filteredItems();
-            // if ($packages){
-            //     $html .= '<ul>';
-            //     foreach ($packages as $item) {
-            //         $html .= '<li>';
-            //         $html .= $item->Title.' '.$item->Subtitle;
-            //         if ($item->Items()->exists()){
-            //             foreach ($item->Items() as $i) {
-            //                 $html .= ' '.$i->Title.' '.$i->Content;
-            //             }
-            //         }
-            //         $html .= ' | ';
-            //         $html .= '</li>';
-            //     }
-            //     $html .='</ul>';
-            // }
+            $packages = $this->getPayTVPackages();
+            if ($packages){
+                $html .= '<ul>';
+                foreach ($packages as $item) {
+                    $html .= '<li>';
+                    $html .= $item->Title.' '.$item->Subtitle;
+                    $html .= ' | ';
+                    $html .= '</li>';
+                }
+                $html .='</ul>';
+            }
             return $html;
         }
     /************ END SEARCHABLE ***************************/
