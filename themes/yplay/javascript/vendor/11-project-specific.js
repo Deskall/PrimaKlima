@@ -743,8 +743,11 @@ $(document).ready(function(){
 			hdprice = 0;
 			paytvpackages = {};
 			$('.paytvblock').find("tr.product").each(function(){
-				paytvpackages[$(this).attr('data-value')] = 1;
-				hdprice += parseFloat($(this).attr('data-price'));
+				if ($(this).find('input').is(':checked')){
+					paytvpackages[$(this).attr('data-value')] = 1;
+					hdprice += parseFloat($(this).attr('data-price'));
+				}
+				
 			});
 			$('.paytvblock').find('#total-price').text(printPrice(hdprice));
 		}
