@@ -403,15 +403,24 @@ $(document).ready(function(){
 		
 			$(".options input[type='checkbox']").each(function(){
 				if ($(this).is(':checked')){
-					var quantityInput = $(this).parents('tr').find('input.quantity');
-					if(quantityInput.val() == "" || quantityInput.val == 0 ){
-						quantityInput.val(1);
+					if ($(this).attr('data-is-multiple')){
+						var quantityInput = $(this).parents('tr').find('input.quantity');
+						if(quantityInput.val() == "" || quantityInput.val == 0 ){
+							quantityInput.val(1);
+						}
+						quantityInput.attr('hidden',false);
+						options.push({
+							'code' : $(this).attr('data-value'),
+							'quantity': quantityInput.val()
+						});
 					}
-					quantityInput.attr('hidden',false);
-					options.push({
-						'code' : $(this).attr('data-value'),
-						'quantity': quantityInput.val()
-					});
+					else{
+						options.push({
+							'code' : $(this).attr('data-value'),
+							'quantity':1
+						});
+					}
+					
 				}
 				else{
 					$(this).parents('tr').find('input.quantity').val(0).attr('hidden','hidden');
