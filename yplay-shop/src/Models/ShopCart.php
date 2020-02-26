@@ -48,7 +48,8 @@ class ShopCart extends DataObject {
 	];
 
 	private static $many_many_extraFields = [
-		'Products' => ['SortOrder' => 'Int', 'Quantity' => 'Int']
+		'Products' => ['SortOrder' => 'Int', 'Quantity' => 'Int'],
+		'Options' => ['SortOrder' => 'Int', 'Quantity' => 'Int']
 	];
 
 	private static $summary_fields = [
