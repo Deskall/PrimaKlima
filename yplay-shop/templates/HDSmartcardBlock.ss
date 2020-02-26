@@ -1,2 +1,2 @@
-<% includes TextBlock %>
+<% include TextBlock %>
 hello
