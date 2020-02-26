@@ -102,6 +102,7 @@ class ShopConfigExtension extends DataExtension
           HeaderField::create('OrdersTitle','Bestellung Seite',3),
           CompositeField::create(
           [
+            HTMLEditorField::create('Conditions',$this->owner->fieldLabels()['Conditions']),
             TextField::create('MobileStepTitle',$this->owner->fieldLabels()['MobileStepTitle']),
             HTMLEditorField::create('MobileStepBody',$this->owner->fieldLabels()['MobileStepBody']),
             TextField::create('WishNumberTitle',$this->owner->fieldLabels()['WishNumberTitle']),
