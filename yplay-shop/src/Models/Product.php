@@ -209,11 +209,13 @@ class Product extends DataObject {
 	}
 
 	public function getPriceUnique(){
-		return $this->UniquePrice;
+		$variation = ($this->activePLZ()) ? $this->PriceVariations()->filter('CodeID',$this->activePLZ())->first() : null;
+		return ($variation ) ? $variation->UniquePrice : $this->UniquePrice;
 	}
 
 	public function getFees(){
-		return $this->ActivationPrice;
+		$variation = ($this->activePLZ()) ? $this->PriceVariations()->filter('CodeID',$this->activePLZ())->first() : null;
+		return ($variation ) ? $variation->ActivationPrice : $this->ActivationPrice;
 	}
 
 	public function activePLZ(){
