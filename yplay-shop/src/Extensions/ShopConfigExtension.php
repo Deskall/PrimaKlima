@@ -34,6 +34,7 @@ class ShopConfigExtension extends DataExtension
        'MobileStepBody' => 'HTMLText',
        'WishNumberTitle' => 'Varchar',
        'WishNumberBody' => 'HTMLText',
+       'Conditions' => 'HTMLText'
     );
 
     private static $has_one = [
@@ -67,6 +68,7 @@ class ShopConfigExtension extends DataExtension
       $labels['WishNumberBody'] = _t(__CLASS__.'.WishNumberBody','Text des "Wunschnummer" Modal');
       $labels['AGBPage'] = _t(__CLASS__.'.AGBPage','AGB Seite');
       $labels['MobileAGBPage'] = _t(__CLASS__.'.MobileAGBPage','Mobile AGB Seite');
+      $labels['Conditions'] = _t(__CLASS__.'.Conditions','Konditionen');
     }
 
    
