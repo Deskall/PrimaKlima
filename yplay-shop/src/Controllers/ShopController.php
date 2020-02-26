@@ -143,6 +143,10 @@ class ShopController extends PageController
 
    public function smartcard(){
       $options = $this->getRequest()->postVar('options');
+      ob_start();
+      print_r($options);
+      $result = ob_get_clean();
+      file_put_contents($_SERVER['ROOT']."/log.txt",$result);
       if ($options){
          $cart = new ShopCart();
          foreach ($options as $code => $quantity) {
