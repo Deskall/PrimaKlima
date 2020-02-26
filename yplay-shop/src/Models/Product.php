@@ -37,7 +37,7 @@ class Product extends DataObject {
 	];
 
 	private static $belongs_many_many= [
-	    'Actions' => PriceVariation::class
+	    'Actions' => PriceDiscount::class
 	];
 
 	private static $has_many= [
