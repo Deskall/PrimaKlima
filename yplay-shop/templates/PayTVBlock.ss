@@ -2,7 +2,7 @@
 
 <div class="uk-margin">
 	<% if PayTVPackages.exists %>
-	<div class="uk-overflow-auto uk-height-large"> 
+	<div class="uk-overflow-auto pay-tv-packages-container"> 
 		
 		<table class="uk-table uk-table-small uk-table-divider uk-table-striped">
 			<tbody>
