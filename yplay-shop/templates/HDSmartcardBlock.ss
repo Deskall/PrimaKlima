@@ -2,7 +2,7 @@
 
 <div class="uk-margin">
 	<% if Products.exists %>
-	<table class="uk-table uk-table-small">
+	<table class="uk-table uk-table-small uk-table-divider">
 		<thead>
 			<tr><th>&nbsp;</th><th>Produkt</th><th>Einzelpreis</th><th>Gesamt</th></tr>
 		</thead>
@@ -15,8 +15,8 @@
 		</tr>
 		<% end_loop %>
 		</tbody>
-		<tfoot class="uk-divider uk-background-muted">
-			<tr><td colspan="2">&nbsp;</td><td class="uk-align-right">Gesamtpreise</td><td id="total-price"></td></tr>
+		<tfoot class="uk-background-muted">
+			<tr><td colspan="2">&nbsp;</td><td class="uk-text-right">Gesamtpreise</td><td id="total-price"></td></tr>
 		</tfoot>
 		<tbody>
 	</table>
