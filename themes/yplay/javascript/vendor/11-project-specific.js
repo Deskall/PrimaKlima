@@ -647,10 +647,27 @@ $(document).ready(function(){
 	if ($('.hdsmartcardblock').length > 0){
 		var hdprice,
 			subprice,
-			quantity;
+			quantity,
+			smartcardoptions;
 
 		$(document).on("change",".hdsmartcardblock input",function(){
 			CalculateSmartcardPrice();
+		});
+
+		$(document).on("click",".hdsmartcardblock [data-submit-smartcard]",function(){
+			smartcardoptions = ;
+			$.ajax({
+				url: '/shop-functions/smartcard',
+				method: 'POST',
+				dataType: 'html',
+				data: {options: options}
+			}).done(function(response){
+				$(".order-preview").each(function(){
+					$(this).removeClass('loading');
+					$(this).empty().append(response);
+					UpdateCartSummaries();
+				});
+			});
 		});
 
 		function CalculateSmartcardPrice(){
