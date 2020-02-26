@@ -3,8 +3,9 @@
 <div class="uk-margin">
 	<% if Products.exists %>
 		<% loop Products %>
+		<div>$Title</div>
 		<% end_loop %>
 	<% else %>
-	<p>Zurzeit keine Produkte verfügbar</p>
+	<p><i>Zurzeit keine Produkte verfügbar</i></p>
 	<% end_if %>
 </div>

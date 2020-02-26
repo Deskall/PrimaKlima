@@ -45,6 +45,13 @@ class HDSmartcardBlock extends TextBlock
         return _t(__CLASS__ . '.BlockType', 'Zeigt HD Smartcard Produkte an.');
     }
 
+    public function getProducts(){
+        $smartcard = ProductOption::get()->filter('Code','hd-smartcard')->first();
+        if ($smartcard){
+            return $smartcard->Options();
+        }
+    }
+
 
     
 
