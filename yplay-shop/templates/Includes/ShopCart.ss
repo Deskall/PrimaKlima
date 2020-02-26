@@ -36,8 +36,8 @@
 		<% if $getPriceUnique > 0 %>
 		<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $getPriceUnique</td></tr>
 		<% end_if %>
-		<% if $getFee > 0 %>
-		<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $getFee</td></tr>
+		<% if $getFees > 0 %>
+		<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $getFees</td></tr>
 		<% end_if %>
 		<% end_with %>
 		<% end_if %>
@@ -50,8 +50,8 @@
 				<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $getPriceUnique</td></tr>
 				<% end_if %>
 			<% end_if %>
-			<% if $getFee > 0 %>
-			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $getFee</td></tr>
+			<% if $getFees > 0 %>
+			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $getFees</td></tr>
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
@@ -64,8 +64,8 @@
 				<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $getPriceUnique</td></tr>
 				<% end_if %>
 			<% end_if %>
-			<% if $getFee > 0 %>
-			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $getFee</td></tr>
+			<% if $getFees > 0 %>
+			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $getFees</td></tr>
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>

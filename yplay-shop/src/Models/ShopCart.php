@@ -147,12 +147,12 @@ class ShopCart extends DataObject {
 		$price = 0;
 		if ($this->Package()->exists()){
 			$price += $this->Package->getPriceUnique();
-			$price += $this->Package->getFee();
+			$price += $this->Package->getFees();
 		}
 		if ($this->Products()->exists()){
 			foreach ($this->Products() as $product) {
 				$price += $product->getPriceUnique();
-				$price += $product->getFee();
+				$price += $product->getFees();
 			}
 		}
 		if ($this->Options()->exists()){
@@ -161,7 +161,7 @@ class ShopCart extends DataObject {
 					$price += $product->getMonthlyPrice();
 				}
 				$price += $product->getPriceUnique();
-				$price += $product->getFee();
+				$price += $product->getFees();
 			}
 		}
 
