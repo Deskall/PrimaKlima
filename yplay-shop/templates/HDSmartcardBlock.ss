@@ -21,7 +21,11 @@
 		</tfoot>
 		<tbody>
 	</table>
-		
+	<div class="uk-margin">
+		<div class="uk-text-right">
+			<a href="" class="uk-button">Jetzt bestellen</a>
+		</div>
+	</div>
 	<% else %>
 	<p><i>Zurzeit keine Produkte verfügbar</i></p>
 	<% end_if %>
