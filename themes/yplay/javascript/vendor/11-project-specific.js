@@ -664,8 +664,13 @@ $(document).ready(function(){
 					hdprice += subprice;
 				}
 			});
-			$('.hdsmartcardblock').find('#total-price').text(hdprice);
+			$('.hdsmartcardblock').find('#total-price').text(printPrice(hdprice));
 		}
-	}	
+	}
+
+	function printPrice(price){
+		price = price.toFixed(2);
+		return 'CHF '+price;
+	}
 
 });
