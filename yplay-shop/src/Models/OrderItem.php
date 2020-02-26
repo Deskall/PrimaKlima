@@ -105,7 +105,7 @@ class OrderItem extends DataObject {
         $this->PayTVPackageID = $product->ID;
         $this->Title = $product->Title;
         $this->SubTitle = $product->SubTitle;
-        $this->MonthlyPrice = $product->MonthlyPrice;
+        $this->MonthlyPrice = $product->getMonthlyPrice();
         $this->Quantity = 1;
         $this->write();
     }
@@ -115,7 +115,7 @@ class OrderItem extends DataObject {
         $this->ProductSmartCardOptionID = $product->ID;
         $this->Title = $product->Title;
         $this->SubTitle = $product->SubTitle;
-        $this->UniquePrice = $product->Price;
+        $this->UniquePrice = $product->getPriceUnique();
         $this->Quantity = 1;
         $this->write();
     }

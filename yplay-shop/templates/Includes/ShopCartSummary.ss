@@ -23,11 +23,11 @@
 		<tr><td>Total (monatlich)</td><td style="text-align:right;font-weight:bold">$TotalMonthlyPrice</td></tr>
 		<% if Package %>
 		<% with Package %>
-		<% if UniquePrice > 0 %>
-		<tr><td>$UniquePriceLabel</td><td style="text-align:right">CHF $UniquePrice</td></tr>
+		<% if $getPriceUnique > 0 %>
+		<tr><td>$UniquePriceLabel</td><td style="text-align:right">CHF $getPriceUnique</td></tr>
 		<% end_if %>
-		<% if ActivationPrice > 0 %>
-		<tr><td>$ActivationPriceLabel</td><td style="text-align:right">CHF $ActivationPrice</td></tr>
+		<% if getFees > 0 %>
+		<tr><td>$ActivationPriceLabel</td><td style="text-align:right">CHF $getFees</td></tr>
 		<% end_if %>
 		<% end_with %>
 		<% end_if %>
@@ -36,12 +36,12 @@
 			<% if not RecurringPrice %>
 				<tr><td>$Title</td><td style="text-align:right">$PrintPriceString</td></tr>
 			<% else %>
-				<% if UniquePrice > 0 %>
-				<tr><td>$UniquePriceLabel</td><td style="text-align:right">CHF $UniquePrice</td></tr>
+				<% if $getPriceUnique > 0 %>
+				<tr><td>$UniquePriceLabel</td><td style="text-align:right">CHF $getPriceUnique</td></tr>
 				<% end_if %>
 			<% end_if %>
-			<% if ActivationPrice > 0 %>
-			<tr><td>$ActivationPriceLabel</td><td style="text-align:right">CHF $ActivationPrice</td></tr>
+			<% if getFees > 0 %>
+			<tr><td>$ActivationPriceLabel</td><td style="text-align:right">CHF $getFees</td></tr>
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
@@ -50,12 +50,12 @@
 			<% if not RecurringPrice %>
 				<tr><td>$Title</td><td style="text-align:right">$PrintPriceString</td></tr>
 			<% else %>
-				<% if UniquePrice > 0 %>
-				<tr><td>$UniquePriceLabel</td><td style="text-align:right">CHF $UniquePrice</td></tr>
+				<% if $getPriceUnique > 0 %>
+				<tr><td>$UniquePriceLabel</td><td style="text-align:right">CHF $getPriceUnique</td></tr>
 				<% end_if %>
 			<% end_if %>
-			<% if ActivationPrice > 0 %>
-			<tr><td>$ActivationPriceLabel</td><td style="text-align:right">CHF $ActivationPrice</td></tr>
+			<% if getFees > 0 %>
+			<tr><td>$ActivationPriceLabel</td><td style="text-align:right">CHF $getFees</td></tr>
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
