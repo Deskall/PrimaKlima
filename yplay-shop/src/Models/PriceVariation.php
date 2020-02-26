@@ -7,7 +7,8 @@ use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\CheckboxField;
 
 class PriceVariation extends DataObject {
-
+	private static $singular_name = 'Alternative Preis';
+	private static $plural_name = 'Alternative Preise';
 	
 	private static $db = [
 		'Price' => 'Currency',

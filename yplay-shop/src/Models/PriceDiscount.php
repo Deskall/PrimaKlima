@@ -8,6 +8,8 @@ use SilverStripe\Forms\CheckboxField;
 
 class PriceDiscount extends DataObject {
 
+	private static $singular_name = 'Aktion Preis';
+	private static $plural_name = 'Aktion Preise';
 	
 	private static $db = [
 		'Title' => 'Varchar',
