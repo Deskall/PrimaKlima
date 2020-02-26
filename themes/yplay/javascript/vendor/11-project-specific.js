@@ -743,7 +743,7 @@ $(document).ready(function(){
 			hdprice = 0;
 			paytvpackages = {};
 			$('.paytvblock').find("tr.product").each(function(){
-				if ($(this).find('input').is(':checked')){
+				if (!($(this).find('input') || $(this).find('input').is(':checked')){
 					paytvpackages[$(this).attr('data-value')] = 1;
 					hdprice += parseFloat($(this).attr('data-price'));
 				}
