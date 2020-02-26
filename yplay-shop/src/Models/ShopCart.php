@@ -128,16 +128,16 @@ class ShopCart extends DataObject {
 	public function writeTotalMonthlyPrice(){
 		$price = 0;
 		if ($this->Package()->exists()){
-			$price += $this->Package->Price;
+			$price += $this->Package->getMonthlyPrice();
 		}
 		if ($this->Products()->exists()){
 			foreach ($this->Products() as $product) {
-				$price += $product->Price;
+				$price += $product->getMonthlyPrice();
 			}
 		}
 		if ($this->Options()->filter('RecurringPrice',1)->exists()){
 			foreach ($this->Options() as $product) {
-				$price += $product->Price;
+				$price += $product->getMonthlyPrice();
 			}
 		}
 		$this->TotalMonthlyPrice = "CHF ".number_format($price,2)." /Mt.";
@@ -146,22 +146,22 @@ class ShopCart extends DataObject {
 	public function writeTotalUniquePrice(){
 		$price = 0;
 		if ($this->Package()->exists()){
-			$price += $this->Package->UniquePrice;
-			$price += $this->Package->ActivationPrice;
+			$price += $this->Package->getPriceUnique();
+			$price += $this->Package->getFee();
 		}
 		if ($this->Products()->exists()){
 			foreach ($this->Products() as $product) {
-				$price += $product->UniquePrice;
-				$price += $product->ActivationPrice;
+				$price += $product->getPriceUnique();
+				$price += $product->getFee();
 			}
 		}
 		if ($this->Options()->exists()){
 			foreach ($this->Options() as $product) {
 				if (!$product->RecurringPrice){
-					$price += $product->Price;
+					$price += $product->getMonthlyPrice();
 				}
-				$price += $product->UniquePrice;
-				$price += $product->ActivationPrice;
+				$price += $product->getPriceUnique();
+				$price += $product->getFee();
 			}
 		}
 
