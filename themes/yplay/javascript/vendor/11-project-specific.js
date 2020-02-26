@@ -401,12 +401,20 @@ $(document).ready(function(){
 			}
 
 		
-			$(".options input").each(function(){
+			$(".options input[type='checkbox']").each(function(){
 				if ($(this).is(':checked')){
+					var quantityInput = $(this).parents('tr').find('input.quantity');
+					if(quantityInput.val() == "" || quantityInput.val == 0 ){
+						quantityInput.val(1);
+					}
+					quantityInput.show();
 					options.push({
 						'code' : $(this).attr('data-value'),
-						'quantity': 1
+						'quantity': quantityInput.val()
 					});
+				}
+				else{
+					$(this).parents('tr').find('input.quantity').val(0).hide();
 				}
 			});
 			UpdateCart(options);
