@@ -158,7 +158,7 @@ class ShopPageController extends PageController
       $min = $min->modify('-100 years');
       $config = SiteConfig::current_site_config();
       $agbpage = $config->AGBPage();
-      $emailtovalidate = ($cart->Email) ? $cart->Email : true;
+
       $form = new Form(
          $this,
          'OrderForm',
@@ -174,7 +174,7 @@ class ShopPageController extends PageController
             HiddenField::create('Birthdate'),
             CompositeField::create(
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
-               EmailField::create('Email2','E-Mail Prüfung')->setAttribute('class','uk-input')->setAttribute('validateEmail',$emailtovalidate)->setDescription('Bitte geben Sie wieder Ihre E-Mail-Adresse ein.')->setAttribute('autocomplete','new-email-validation-'.rand()),
+               $email2 = EmailField::create('Email2','E-Mail Prüfung')->setAttribute('class','uk-input')->setAttribute('validateEmail',$emailtovalidate)->setDescription('Bitte geben Sie wieder Ihre E-Mail-Adresse ein.')->setAttribute('autocomplete','new-email-validation-'.rand()),
                TextField::create('Phone','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true)
             )->setName('Step2'),
             CompositeField::create(
@@ -240,6 +240,7 @@ class ShopPageController extends PageController
             $form->Fields()->insertBefore('Comments',TextField::create('Glasfaserdose','Bitte geben Sie Ihre Glasfaserdosen-Nummer ein:')->setAttribute('placeholder','B.110.123.456.X'))->setAttribute('required','required')->setAttribute('class','uk-input');
             $form->Fields()->insertAfter('Glasfaserdose',CheckboxField::create('UnknownGlasfaserdose','Ich kenne meine Glasfaserdosen-Nummer nicht.')->setAttribute('class','uk-checkbox'));
          }
+
       }
       
      

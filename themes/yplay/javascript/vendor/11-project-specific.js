@@ -254,6 +254,7 @@ $(document).ready(function(){
 						return false;
 					}
 				}
+				
 				//Check daten && Update Session Data
 				var form = $(this).parents('form');
 			
