@@ -254,7 +254,7 @@ $(document).ready(function(){
 						return false;
 					}
 				}
-				
+
 				//Check daten && Update Session Data
 				var form = $(this).parents('form');
 			
@@ -708,6 +708,45 @@ $(document).ready(function(){
 				}
 			});
 			$('.hdsmartcardblock').find('#total-price').text(printPrice(hdprice));
+		}
+	}
+
+	//Pay TV Package
+	if ($('.paytvblock').length > 0){
+		var hdprice,
+			subprice,
+			paytvpackages;
+
+		$(document).on("change",".paytvblock input",function(){
+			CalculatePayTVPrice();
+		});
+
+		$(document).on("click",".paytvblock [data-submit-paytv]",function(){
+
+			$.ajax({
+				url: '/shop-functions/smartcard/',
+				method: 'POST',
+				dataType: 'json',
+				data: {options: smartcardoptions}
+			}).done(function(response){
+				$(this).removeClass('loading');
+				if (response.link){
+					window.location.href = response.link;
+				}
+				else{
+					console.log(response.error);
+				}
+			});
+		});
+
+		function CalculateSmartcardPrice(){
+			hdprice = 0;
+			paytvpackages = {};
+			$('.paytvblock').find("tr.product").each(function(){
+				smartcardoptions[$(this).attr('data-value')] = 1;
+				hdprice += $(this).attr('data-price');
+			});
+			$('.paytvblock').find('#total-price').text(printPrice(hdprice));
 		}
 	}
 
