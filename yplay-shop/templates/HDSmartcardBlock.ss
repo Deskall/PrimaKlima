@@ -9,14 +9,14 @@
 		<tbody>
 		<% loop Products %>
 		<tr>
-			<td class="uk-table-shrink"><input type="number" min="0" max="10" class="uk-input" /></td>
+			<td class="uk-table-shrink"><input type="number" min="0" max="10" class="uk-input uk-form-small" /></td>
 			<td class="uk-table-expand">$Title</td>
 			<td>$PrintPriceString</td>
 		</tr>
 		<% end_loop %>
 		</tbody>
 		<tfoot>
-			<tr><td>Gesamtpreise</th><th id="total-price"></th></tr>
+			<tr><td>&nbsp;</td><td>Gesamtpreise</th><th id="total-price"></th></tr>
 		</tfoot>
 		<tbody>
 	</table>
