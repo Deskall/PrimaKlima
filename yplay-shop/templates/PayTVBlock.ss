@@ -14,6 +14,9 @@
 			</tr>
 			<% end_loop %>
 			</tbody>
+			<tfoot>
+				<tr><td colspan="2">&nbsp;</td><td class="uk-table-shrink uk-text-bold">Gesamtpreise</td><td id="total-price" class="uk-text-right uk-text-nowrap uk-text-bold">CHF 0.00 / Mt.</td></tr>
+			</tfoot>
 		</table>
 	</div>
 	<div class="uk-margin">
