@@ -744,7 +744,7 @@ $(document).ready(function(){
 			paytvpackages = {};
 			$('.paytvblock').find("tr.product").each(function(){
 				paytvpackages[$(this).attr('data-value')] = 1;
-				hdprice += $(this).attr('data-price');
+				hdprice += parseFloat($(this).attr('data-price'));
 			});
 			$('.paytvblock').find('#total-price').text(printPrice(hdprice));
 		}
