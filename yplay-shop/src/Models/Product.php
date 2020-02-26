@@ -204,10 +204,8 @@ class Product extends DataObject {
 
 	//To do: elaborate with Actions
 	public function getMonthlyPrice(){
-		if ($plz = $this->activePLZ() && $variation = $this->PriceVariations()->filter('CodeID',$plz->ID)->first()){
-			return $variation->Price;
-		}
-		return $this->Price;
+		$variation = ($this->activePLZ() ) ? $this->PriceVariations()->filter('CodeID',$plz->ID)->first() : null;
+		return ($variation ) ? $variation->Price : $this->Price;
 	}
 
 	public function getPriceUnique(){
