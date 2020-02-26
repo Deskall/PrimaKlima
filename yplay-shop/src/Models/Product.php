@@ -178,7 +178,7 @@ class Product extends DataObject {
                 ->addComponent(new GridFieldEditableColumns())
                 ->addComponent(new GridFieldDeleteAction())
                 ->addComponent(new GridFieldAddNewInlineButton());
-           $fields->addFieldToTab('Root.PriceVariations',new GridField('PriceVariations',$this->fieldLabels()['PriceVariations'],$this->PriceVariations(),$config);
+           $fields->addFieldToTab('Root.PriceVariations',new GridField('PriceVariations',$this->fieldLabels()['PriceVariations'],$this->PriceVariations(),$config));
 		}
 		
 		return $fields;
