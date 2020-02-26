@@ -129,7 +129,7 @@ class ShopController extends PageController
               
                   $option = ProductOption::get()->filter('ProductCode',$value['code'])->first();
                   if ($option){
-                     $cart->Options()->add($option, ['Quantity' => $value['quantity']);
+                     $cart->Options()->add($option, ['Quantity' => $value['quantity']]);
                   }
                
             }
