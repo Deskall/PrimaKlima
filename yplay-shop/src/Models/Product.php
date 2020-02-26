@@ -38,7 +38,8 @@ class Product extends DataObject {
 	'ActivationPrice' => 'Currency',
 	'ActivationPriceLabel' => 'Varchar',
 	'Unit' => 'Varchar',
-	'FooterText' => 'HTMLText'
+	'FooterText' => 'HTMLText',
+	'Multiple' => 'Boolean(0)'
 	];
 
 	private static $has_one = [
@@ -126,6 +127,7 @@ class Product extends DataObject {
 		$labels['Preselected'] = 'standardmäßig ausgewählt?';
 		$labels['Actions'] = 'Aktionen';
 		$labels['PriceVariations'] = 'Preise pro Ortschaft';
+		$labels['Multiple'] = 'kann in mehreren Exemplaren bestellt werden?';
 
 		return $labels;
 	}

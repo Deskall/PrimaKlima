@@ -17,7 +17,8 @@ class ProductOption extends Product {
 	private static $plural_name = 'Optionen';
 
 	private static $db = [
-		'hasOptions' => 'Boolean(0)'
+		'hasOptions' => 'Boolean(0)',
+		'Single' => 'Boolean(0)'
 	];
 
 	private static $has_one = ['Group' => ProductOption::class];
@@ -30,6 +31,7 @@ class ProductOption extends Product {
 		$labels['hasOptions'] = 'ist einen Grupp?';
 		$labels['Group'] = 'Grupp';
 		$labels['Options'] = 'Optionen';
+		$labels['Single'] = 'Aus dieser Gruppe kann jeweils nur eine Option bestellt werden?';
 		return $labels;
 	}
 
@@ -44,6 +46,7 @@ class ProductOption extends Product {
 		$fields->dataFieldByName('ActivationPrice')->hideIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('UniquePriceLabel')->hideIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('ActivationPriceLabel')->hideIf('hasOptions')->isChecked();
+		$fields->dataFieldByName('Single')->showIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('Unit')->hideIf('hasOptions')->isChecked();
 		
 
