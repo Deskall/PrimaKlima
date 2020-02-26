@@ -655,18 +655,16 @@ $(document).ready(function(){
 		});
 
 		$(document).on("click",".hdsmartcardblock [data-submit-smartcard]",function(){
-			smartcardoptions = ;
+			smartcardoptions = {};
+			var url = $(this).attr('data-url');
 			$.ajax({
 				url: '/shop-functions/smartcard',
 				method: 'POST',
 				dataType: 'html',
-				data: {options: options}
+				data: {options: smartcardoptions}
 			}).done(function(response){
-				$(".order-preview").each(function(){
-					$(this).removeClass('loading');
-					$(this).empty().append(response);
-					UpdateCartSummaries();
-				});
+				$(this).removeClass('loading');
+				window.location.href = url;
 			});
 		});
 
