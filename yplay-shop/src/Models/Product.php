@@ -134,10 +134,10 @@ class Product extends DataObject {
 
 	public function PrintPriceString(){
 		if ($this->RecurringPrice){
-			return DBText::create()->setValue('CHF '.$this->Price.' / Mt.');
+			return DBText::create()->setValue('CHF '.$this->getMonthlyPrice().' / Mt.');
 		}
 		else{
-			return DBText::create()->setValue('CHF '.$this->Price);
+			return DBText::create()->setValue('CHF '.$this->getPriceUnique());
 		}
 	}
 
@@ -204,6 +204,9 @@ class Product extends DataObject {
 
 	//To do: elaborate with Actions
 	public function getMonthlyPrice(){
+		if ($plz = $this->activePLZ() && $variation = $this->PriceVariations()->filter('CodeID',$plz->ID)->first()){
+			return $variation->Price;
+		}
 		return $this->Price;
 	}
 
@@ -213,6 +216,13 @@ class Product extends DataObject {
 
 	public function getFees(){
 		return $this->ActivationPrice;
+	}
+
+	public function activePLZ(){
+		$request = Injector::inst()->get(HTTPRequest::class);
+		$session = $request->getSession();
+		$code = PostalCode::get()->filter('Code',$session->get('active_plz'))->first();
+		return $code;
 	}
 
 	public function inCart(){
