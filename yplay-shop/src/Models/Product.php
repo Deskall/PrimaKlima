@@ -219,9 +219,11 @@ class Product extends DataObject {
 		}
 		print_r('discount: '.$discounts->count());
 		if ($discounts->count() > 0){
-			$variation = $discounts->first();
+			$discount = $discounts->first();
+			return $discount->Value;
 		}
 		print_r('variation: '.$variation->ClassName.' '.$variation->ID);
+		$result = ob_get_clean();
 		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		return ($variation ) ? $variation->Price : $this->Price;
 	}
