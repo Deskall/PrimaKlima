@@ -5,7 +5,7 @@
 	<tbody>
 		<% if Package.exists %>
 		<% with Package %>
-		<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+		<tr><td>$Title</td><td class="uk-text-right"><% if $ActionMonthlyPrice %><s>$PrintPriceString</s> $ActionMonthlyPrice<% else %>$PrintPriceString<% end_if %></td></tr>
 		<tr><td colspan="2" class="products-package"><% loop Products %>$Title<br><% end_loop %></td></tr>
 		<% end_with %>
 		<% end_if %>
