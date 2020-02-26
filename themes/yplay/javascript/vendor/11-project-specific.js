@@ -749,7 +749,7 @@ $(document).ready(function(){
 				}
 				
 			});
-			$('.paytvblock').find('#total-price').text(printPrice(hdprice));
+			$('.paytvblock').find('#total-price').text(printPrice(hdprice)+' / Mt.');
 		}
 	}
 
