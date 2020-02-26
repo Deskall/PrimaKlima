@@ -654,14 +654,17 @@ $(document).ready(function(){
 		});
 
 		function CalculateSmartcardPrice(){
+			hdprice = 0;
 			$('.hdsmartcardblock').find("tr.product").each(function(){
+				$(this).find('.sub-total').empty();
 				quantity = $(this).find('input').val();
-				console.log(quantity);
 				if (quantity > 0){
 					subprice = quantity * parseFloat($(this).attr('data-price'));
-					$(this).find('sub-total').text(subprice);
+					$(this).find('.sub-total').text(subprice);
+					hdprice += subprice;
 				}
 			});
+			$('.hdsmartcardblock').find('#total-price').text(hdprice);
 		}
 	}	
 
