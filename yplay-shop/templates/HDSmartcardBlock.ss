@@ -9,7 +9,7 @@
 		<tbody>
 		<% loop Products %>
 		<tr class="product" data-price="$getPriceUnique" data-value="$ProductCode">
-			<td><input type="number" min="0" max="10" class="uk-input uk-form-small uk-width-1-6" /></td>
+			<td><input type="number" min="0" max="10" class="uk-input uk-form-small uk-width-small" /></td>
 			<td>$Title<br><small>$Subtitle</small></td>
 			<td class="uk-table-shrink">$PrintPriceString</td>
 			<td class="sub-total uk-text-right"></td>
