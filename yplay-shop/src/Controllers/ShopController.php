@@ -149,14 +149,13 @@ class ShopController extends PageController
       file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt",$result);
       if ($options){
          $cart = new ShopCart();
+         $cart->write();
          foreach ($options as $code => $quantity) {
             $option = ProductOption::get()->filter('ProductCode',$code)->first();
             if ($option){
                $cart->Options()->add($option);
             }
          }
-     
-         $cart->write();
          $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
          return json_encode(['link' => ShopPage::get()->first()->Link()]);
       }

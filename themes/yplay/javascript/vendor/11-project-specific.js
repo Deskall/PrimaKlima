@@ -655,7 +655,6 @@ $(document).ready(function(){
 		});
 
 		$(document).on("click",".hdsmartcardblock [data-submit-smartcard]",function(){
-			console.log(smartcardoptions);
 			$.ajax({
 				url: '/shop-functions/smartcard/',
 				method: 'POST',
@@ -663,13 +662,12 @@ $(document).ready(function(){
 				data: {options: smartcardoptions}
 			}).done(function(response){
 				$(this).removeClass('loading');
-				console.log(response);
-				// if (response.link){
-				// 	window.location.href = response.link;
-				// }
-				// else{
-				// 	console.log(response.error);
-				// }
+				if (response.link){
+					window.location.href = response.link;
+				}
+				else{
+					console.log(response.error);
+				}
 			});
 		});
 
