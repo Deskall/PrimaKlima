@@ -25,7 +25,7 @@
 		<% end_if %>
 	</tbody>
 	<tfoot>
-		<tr><td>Total (monatlich)</td><td id="total-monthly-price" class="uk-text-right uk-text-bold">$TotalMonthlyPrice</td></tr>
+		<tr><td>Total (monatlich)</td><td id="total-monthly-price" class="uk-text-right uk-text-bold">$PrintMonthlyPrice</td></tr>
 	</tfoot>
 </table>
 <% end_if %>
@@ -74,7 +74,7 @@
 		<% end_if %>
 	</tbody>
 	<tfoot>
-		<tr><td>Total (einmalig)</td><td id="total-unique-price" class="uk-text-right uk-text-bold">$TotalUniquePrice</td></tr>
+		<tr><td>Total (einmalig)</td><td id="total-unique-price" class="uk-text-right uk-text-bold">$PrintUniquePrice</td></tr>
 	</tfoot>
 </table>
 <% end_if %>

@@ -8,8 +8,8 @@ class ShopCart extends DataObject {
 	
 	private static $db = [
 		'IP' => 'Varchar',
-		'TotalMonthlyPrice' => 'Varchar',
-		'TotalUniquePrice' => 'Varchar',
+		'TotalMonthlyPrice' => 'Currency',
+		'TotalUniquePrice' => 'Currency',
 		'Purchased' => 'Boolean(0)',
 		'CurrentStep' => 'Varchar',
 		//Customer Fields for save
@@ -140,7 +140,11 @@ class ShopCart extends DataObject {
 				$price += $product->getMonthlyPrice();
 			}
 		}
-		$this->TotalMonthlyPrice = "CHF ".number_format($price,2)." /Mt.";
+		$this->TotalMonthlyPrice = $price;
+	}
+
+	public function PrintMonthlyPrice(){
+		return "CHF ".number_format($this->TotalMonthlyPrice,2)." /Mt.";
 	}
 
 	public function writeTotalUniquePrice(){
@@ -165,7 +169,11 @@ class ShopCart extends DataObject {
 			}
 		}
 
-		$this->TotalUniquePrice = "CHF ".number_format($price,2);
+		$this->TotalUniquePrice = $price;
+	}
+
+	public function PrintUniquePrice(){
+		return "CHF ".number_format($this->TotalUniquePrice,2);
 	}
 
 	public function hasCategory($code){
