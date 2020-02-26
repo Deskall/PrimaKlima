@@ -128,7 +128,7 @@ class ShopCart extends DataObject {
 	public function writeTotalMonthlyPrice(){
 		$price = 0;
 		if ($this->Package()->exists()){
-			$price += $this->Package->getMonthlyPrice();
+			$price += $this->Package()->getMonthlyPrice();
 		}
 		if ($this->Products()->exists()){
 			foreach ($this->Products() as $product) {
@@ -146,8 +146,8 @@ class ShopCart extends DataObject {
 	public function writeTotalUniquePrice(){
 		$price = 0;
 		if ($this->Package()->exists()){
-			$price += $this->Package->getPriceUnique();
-			$price += $this->Package->getFees();
+			$price += $this->Package()->getPriceUnique();
+			$price += $this->Package()->getFees();
 		}
 		if ($this->Products()->exists()){
 			foreach ($this->Products() as $product) {
