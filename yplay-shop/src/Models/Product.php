@@ -200,7 +200,19 @@ class Product extends DataObject {
 		$variation = ($this->activePLZ()) ? $this->PriceVariations()->filter('CodeID',$this->activePLZ())->first() : null;
 		$discounts = $this->Actions();
 		if ($discounts){
-			$discounts = ($this->activePLZ()) ? $discounts->filter('CodeID',$this->activePLZ()) : $discounts;
+			if ($this->activePLZ()){
+				$c = PostalCode::get()->byId($this->activePLZ());
+				$ids = null;
+				if ($c){
+					$ids = $c->Actions()->column('ID');
+				}
+				if ($ids){
+					$discounts->filter('ID',$ids);
+				}
+			}
+			else{
+				$discounts = $discounts->filter('AllCodes',1);
+			}
 		}
 
 		if ($discounts->count() > 0){

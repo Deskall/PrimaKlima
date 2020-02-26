@@ -39,7 +39,7 @@ class PostalCode extends DataObject {
 	];
 
 	private static $belongs_many_many= [
-	    'Actions' => 'PriceVariation'
+	    'Actions' => PriceDiscount::class
 	];
 
 	private static $default_sort = 'Code';
