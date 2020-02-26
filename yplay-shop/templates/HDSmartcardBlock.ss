@@ -10,7 +10,7 @@
 		<% loop Products %>
 		<tr class="product" data-price="$getPriceUnique" data-value="$ProductCode">
 			<td><input type="number" min="0" max="10" class="uk-input uk-form-small" /></td>
-			<td class="uk-table-expand">$Title<br><small>$Description</small></td>
+			<td class="uk-table-expand">$Title<br><small>$Subtitle</small></td>
 			<td class="uk-table-shrink">$PrintPriceString</td>
 			<td class="sub-total uk-text-right"></td>
 		</tr>
