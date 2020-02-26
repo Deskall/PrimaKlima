@@ -100,7 +100,7 @@ class ProductBlock extends TextBlock
         public function getPackageContent(){
             $html = '';
             $packages = $this->filteredItems();
-            if ($packages->count() > 0){
+            if ($packages){
                 $html .= '<ul>';
                 foreach ($packages as $item) {
                     $html .= '<li>';
