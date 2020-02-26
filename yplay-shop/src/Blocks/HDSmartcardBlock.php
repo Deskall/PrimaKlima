@@ -46,7 +46,7 @@ class HDSmartcardBlock extends TextBlock
     }
 
     public function getProducts(){
-        $smartcard = ProductOption::get()->filter('Code','hd-smartcard')->first();
+        $smartcard = ProductOption::get()->filter('ProductCode','hd-smartcard')->first();
         if ($smartcard){
             return $smartcard->Options();
         }
