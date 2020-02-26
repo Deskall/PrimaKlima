@@ -25,7 +25,11 @@ class PriceVariation extends DataObject {
 
 	private static $summary_fields = [
 		'Code',
-		'Product.Title' => ['title' => 'Product']
+		'Price',
+		'UniquePrice',
+		'UniquePriceLabel',
+		'ActivationPrice',
+		'ActivationPriceLabel'
 	];
 
 
