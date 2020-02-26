@@ -20,7 +20,7 @@ class ShopController extends PageController
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
    		return ($item->shouldDisplay() && $item->isAvailable() );
    	});
-	  $array = [];
+	   $array = [];
    	foreach ($packages as $package) {
    		$array[$package->ProductCode] = $package->toMap();
    		$products = [];
@@ -122,11 +122,11 @@ class ShopController extends PageController
          //apply options
          $cart->Options()->removeAll();
          if ($options){
-            foreach ($options as $code) {
+            foreach ($options as $code => $quantity) {
               
                   $option = ProductOption::get()->filter('ProductCode',$code)->first();
                   if ($option){
-                     $cart->Options()->add($option);
+                     $cart->Options()->add($option, ['Quantity' => $quantity]);
                   }
                
             }
@@ -150,7 +150,7 @@ class ShopController extends PageController
          foreach ($options as $code => $quantity) {
             $option = ProductOption::get()->filter('ProductCode',$code)->first();
             if ($option){
-               $cart->Options()->add($option);
+               $cart->Options()->add($option, ['Quantity' => $quantity]);
             }
          }
          $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);

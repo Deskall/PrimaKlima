@@ -48,7 +48,7 @@ class ShopCart extends DataObject {
 	];
 
 	private static $many_many_extraFields = [
-		'Products' => ['SortOrder' => 'Int']
+		'Products' => ['SortOrder' => 'Int', 'Quantity' => 'Int']
 	];
 
 	private static $summary_fields = [
@@ -132,12 +132,12 @@ class ShopCart extends DataObject {
 		}
 		if ($this->Products()->exists()){
 			foreach ($this->Products() as $product) {
-				$price += $product->getMonthlyPrice();
+				$price += $product->getMonthlyPrice() * $product->Quantity;
 			}
 		}
 		if ($this->Options()->filter('RecurringPrice',1)->exists()){
 			foreach ($this->Options() as $product) {
-				$price += $product->getMonthlyPrice();
+				$price += $product->getMonthlyPrice() * $product->Quantity;
 			}
 		}
 		$this->TotalMonthlyPrice = $price;
@@ -155,17 +155,17 @@ class ShopCart extends DataObject {
 		}
 		if ($this->Products()->exists()){
 			foreach ($this->Products() as $product) {
-				$price += $product->getPriceUnique();
-				$price += $product->getFees();
+				$price += $product->getPriceUnique() * $product->Quantity;
+				$price += $product->getFees() * $product->Quantity;
 			}
 		}
 		if ($this->Options()->exists()){
 			foreach ($this->Options() as $product) {
 				if (!$product->RecurringPrice){
-					$price += $product->getMonthlyPrice();
+					$price += $product->getMonthlyPrice() * $product->Quantity;
 				}
-				$price += $product->getPriceUnique();
-				$price += $product->getFees();
+				$price += $product->getPriceUnique() * $product->Quantity;
+				$price += $product->getFees() * $product->Quantity;
 			}
 		}
 
