@@ -56,11 +56,11 @@ class Package extends Product {
 		$altPrice = 0;
 		$altPriceU = 0;
 		foreach($this->Products() as $p){
-			$altPrice += $p->Price;
-			$altPriceU += $p->UniquePrice + $p->ActivationPrice;
+			$altPrice += $p->getMonthlyPrice();
+			$altPriceU += $p->getPriceUnique() + $p->getFees();
 		}
-		$gainM = ($altPrice > 0) ? number_format( (($this->Price / $altPrice) - 1) * 100, 0 ) : 0;
-		$gainU = ($altPriceU > 0) ? number_format( ((($this->Price + $this->ActivationPrice)/ $altPriceU) - 1) * 100,0 ) : 0;
+		$gainM = ($altPrice > 0) ? number_format( (($this->getMonthlyPrice() / $altPrice) - 1) * 100, 0 ) : 0;
+		$gainU = ($altPriceU > 0) ? number_format( ((($this->getPriceUnique() + $this->getFees())/ $altPriceU) - 1) * 100,0 ) : 0;
 		return new ArrayData(['gainM' => $gainM, 'gainU' => $gainU]);
 	}
 

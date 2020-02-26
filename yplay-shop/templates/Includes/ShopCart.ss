@@ -33,11 +33,11 @@
 	<tbody>
 		<% if Package %>
 		<% with Package %>
-		<% if UniquePrice > 0 %>
-		<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
+		<% if $getPriceUnique > 0 %>
+		<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $getPriceUnique</td></tr>
 		<% end_if %>
-		<% if ActivationPrice > 0 %>
-		<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
+		<% if $getFee > 0 %>
+		<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $getFee</td></tr>
 		<% end_if %>
 		<% end_with %>
 		<% end_if %>
@@ -46,12 +46,12 @@
 			<% if not RecurringPrice %>
 				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
 			<% else %>
-				<% if UniquePrice > 0 %>
-				<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
+				<% if $getPriceUnique > 0 %>
+				<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $getPriceUnique</td></tr>
 				<% end_if %>
 			<% end_if %>
-			<% if ActivationPrice > 0 %>
-			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
+			<% if $getFee > 0 %>
+			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $getFee</td></tr>
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
@@ -60,12 +60,12 @@
 			<% if not RecurringPrice %>
 				<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
 			<% else %>
-				<% if UniquePrice > 0 %>
-				<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $UniquePrice</td></tr>
+				<% if $getPriceUnique > 0 %>
+				<tr><td>$UniquePriceLabel</td><td class="uk-text-right">CHF $getPriceUnique</td></tr>
 				<% end_if %>
 			<% end_if %>
-			<% if ActivationPrice > 0 %>
-			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $ActivationPrice</td></tr>
+			<% if $getFee > 0 %>
+			<tr><td>$ActivationPriceLabel</td><td class="uk-text-right">CHF $getFee</td></tr>
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
