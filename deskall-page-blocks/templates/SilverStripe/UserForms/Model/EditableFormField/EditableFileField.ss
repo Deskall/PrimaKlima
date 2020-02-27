@@ -6,6 +6,6 @@
 
  <div data-uk-form-custom="target: true">
     <input type="file">
-    <input class="uk-input uk-form-width-medium" type="text" placeholder="<%t Form.SelectFile 'Datei auswählen' %>" disabled>
+    <input class="uk-input uk-form-width-medium uk-background-primary" type="text" placeholder="<%t Form.SelectFile 'Datei auswählen' %>" disabled>
  </div>
   
