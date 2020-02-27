@@ -5,7 +5,6 @@
 </div> --%>
 
  <div data-uk-form-custom="target: true">
- 	<button type="button" class="uk-button uk-button-primary" tabindex="-1" ><%t Form.SelectFile 'Datei auswählen' %></button>
     <input type="file">
     <input class="uk-input uk-form-width-medium" type="text" placeholder="<%t Form.SelectFile 'Datei auswählen' %>" disabled>
  </div>
