@@ -6,7 +6,7 @@
 </div>
 <div data-uk-slider>
 	<div class="uk-position-relative uk-padding-small uk-visible-toggle" tabindex="-1" data-uk-height-match=".uk-card-title">
-		<ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-child-width-1-4@l uk-child-width-1-5@xl uk-grid uk-grid-match products-container">
+		<ul class="uk-slider-items uk-child-width-1-3@m uk-child-width-1-4@l uk-child-width-1-5@xl uk-grid uk-grid-match products-container">
 			<% loop activePackages %>
 			    <li class="dk-transition-toggle-not-mobile">
 			    	
@@ -38,8 +38,9 @@
 			    </li>
 			<% end_loop %>
 		</ul>
-		<a class="uk-position-center-left-out uk-position-small uk-hidden-hover" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-		<a class="uk-position-center-right-out uk-position-small uk-hidden-hover" data-uk-slidenav-next data-uk-slider-item="next"></a>
+		<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+		<%-- <a class="uk-position-center-left-out uk-position-small uk-hidden-hover" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+		<a class="uk-position-center-right-out uk-position-small uk-hidden-hover" data-uk-slidenav-next data-uk-slider-item="next"></a> --%>
 	</div>
 </div>
 
