@@ -490,7 +490,7 @@ label.error{
 			td,th{
 				vertical-align: top;
 				padding:5px;
-				min-width:130px!important;
+				
 
 
 				&.col-Reorder{
@@ -500,7 +500,19 @@ label.error{
 				&.col-buttons{
 					width: 30px;
 				}
-				
+				&.col-StartDate,&.col-EndDate,&.col-Company,&.col-Position{
+					width:215px;
+				}
+				&.col-Description{
+					position: relative;
+					width:300px;	
+				}
+				textarea{
+					.uk-textarea;
+				}
+				input{
+					max-width:100%!important;
+				}
 				.gridfield-button-delete{
 					background: none;
 					border: none;
