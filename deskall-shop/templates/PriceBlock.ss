@@ -5,8 +5,8 @@
 	</div>
 </div>
 <div data-uk-slider>
-	<div class="uk-position-relative uk-visible-toggle" tabindex="-1">
-		<ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-child-width-1-5@l uk-grid uk-grid-match products-container">
+	<div class="uk-position-relative uk-visible-toggle" tabindex="-1" data-uk-height-match=".uk-card-title">
+		<ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-child-width-1-4@l uk-child-width-1-5@xl uk-grid uk-grid-match products-container">
 			<% loop activePackages %>
 			    <li class="dk-transition-toggle-not-mobile">
 			    	
