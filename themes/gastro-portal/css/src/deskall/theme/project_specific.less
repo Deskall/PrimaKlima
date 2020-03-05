@@ -319,7 +319,7 @@ label.error{
 		table{
 			width: 100%;
 			border-collapse: collapse; border-spacing: 0;
-			.uk-table;
+
 			*{
 				color: @global-color;
 			}
@@ -334,12 +334,12 @@ label.error{
 
 			tr{
 				cursor: initial;
-				td{
+				td,th{
 					padding-top:5px;
 					padding-bottom:5px;
 				}
 				display: block;
-				border-bottom:1px solid #eb7e1d;
+				border-bottom:1px solid #FFEDBA;
 				@media only screen and (min-width:@breakpoint-medium){
 					display: table;
 				}
@@ -365,7 +365,9 @@ label.error{
 				color: @global-color;
 				border: none;
 				background: none;
-				padding-left: 0;
+				&:not(first-child){
+					padding-left: 5px;
+				}
 			}
 
 			td{
@@ -373,7 +375,7 @@ label.error{
 				border: none;
 				background: none;
 				padding-left: 0;
-				&:first-child{
+				&:not(first-child){
 					padding-left: 5px;
 				}
 
