@@ -55,7 +55,7 @@ class JobParameter extends DataObject
     $labels['FieldType'] = _t(__CLASS__.'.FieldType','Feldtyp');
     $labels['Required'] = _t(__CLASS__.'.Required','Plichtfeld?');
     $labels['Parent'] = _t(__CLASS__.'.Parent','Haupt Parameter');
-    $labels['Children'] = _t(__CLASS__.'.Required','Parameters');
+    $labels['Children'] = _t(__CLASS__.'.Children','Parameters');
     $labels['isGroup'] = _t(__CLASS__.'.isGroup','Grupp?');
 
     return $labels;
