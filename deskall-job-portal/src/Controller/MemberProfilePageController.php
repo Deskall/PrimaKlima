@@ -44,7 +44,7 @@ use SilverStripe\Security\DefaultAdminService;
 
 class MemberProfilePageController extends PageController{
 
-	private static $allowed_actions = ['upload', 'ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer','UnpublishJobOffer', 'CandidatProfilForm','CandidatAccountForm', 'DeleteCandidature'];
+	private static $allowed_actions = ['upload', 'ProfilForm', 'AccountForm','JobOfferForm','EditJobOffer','DeleteJobOffer','PublishJobOffer','UnpublishJobOffer', 'CandidatProfilForm','CompetencesForm','CandidatAccountForm', 'DeleteCandidature'];
 
 	private static $url_handlers = [
 		'inserat-bearbeiten/$ID' => 'EditJobOffer',
@@ -112,6 +112,62 @@ class MemberProfilePageController extends PageController{
 	}
 
 	public function saveProfil($data, Form $form)
+	{
+
+		$member = Security::getCurrentUser();
+		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$form->saveInto($member);
+		$form->saveInto($JobGiver);
+	
+		try {
+			$member->write();
+			$JobGiver->write();
+			//Update all Offers
+			if ($JobGiver->Missions()->exists()){
+				foreach ($JobGiver->Missions() as $m) {
+					$m->write();
+				}
+			}
+		} catch (ValidationException $e) {
+			$validationMessages = '';
+			foreach($e->getResult()->getMessages() as $error){
+				$validationMessages .= $error['message']."\n";
+			}
+			$form->sessionMessage($validationMessages, 'bad');
+			return $this->redirectBack();
+		}
+		$form->sessionMessage(
+			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
+			'good'
+		);
+		$this->getRequest()->getSession()->set('active_tab','profil');
+		
+		return $this->redirectBack();
+	}
+
+	public function CompetencesForm(){
+
+		$actions = new FieldList(FormAction::create('saveCompetences', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
+		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$JobGiver = ($JobGiver) ? $JobGiver : new JobGiver();
+		$status = $JobGiver->Status;
+		
+		$form = new Form(
+			$this,
+			'ProfilForm',
+			$JobGiver->getProfileFields(),
+			$actions,
+			$JobGiver->getRequiredProfileFields()
+		);
+		
+		$form->setTemplate('Forms/ProfilForm');
+		$form->addExtraClass('uk-form-horizontal form-std company-form');
+		$form->loadDataFrom($JobGiver);
+
+		return $form;
+	}
+
+	public function saveCompetences($data, Form $form)
 	{
 
 		$member = Security::getCurrentUser();
