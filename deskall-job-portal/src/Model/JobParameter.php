@@ -82,27 +82,29 @@ class JobParameter extends DataObject
        $fields = parent::getCMSFields();
        $fields->removeByName('ConfigID');
        $fields->removeByName('Values');
+       $fields->removeByName('ParentID');
        $fields->removeByName('FieldType');
-       if (!$this->isGroup && $this->ID > 0){
-        $fields->addFieldToTab('Root.Main',DropdownField::create('FieldType',$this->fieldLabels()['FieldType'],['text' => 'Text', 'dropdown' => 'Dropdown', 'multiple' => 'Mehrere Werte', 'multiple-free' => 'Mehrere Werte (neue Werte erlaubt)']));
-        $config = 
-         GridFieldConfig::create()
-         ->addComponent(new GridFieldButtonRow('before'))
-         ->addComponent(new GridFieldToolbarHeader())
-         ->addComponent(new GridFieldTitleHeader())
-         ->addComponent(new GridFieldEditableColumns())
-         ->addComponent(new GridFieldDeleteAction())
-         ->addComponent(new GridFieldAddNewInlineButton())
-         ->addComponent(new GridFieldOrderableRows('Sort'));
-         if (singleton('JobParameterValue')->hasExtension('Activable')){
-              $config->addComponent(new GridFieldShowHideAction());
-         }
+       if ($this->ID > 0){
+        $fields->removeByName('isGroup');
+        if (!$this->isGroup){
+           $fields->addFieldToTab('Root.Main',DropdownField::create('FieldType',$this->fieldLabels()['FieldType'],['text' => 'Text', 'dropdown' => 'Dropdown', 'multiple' => 'Mehrere Werte', 'multiple-free' => 'Mehrere Werte (neue Werte erlaubt)']));
+          $config = 
+           GridFieldConfig::create()
+           ->addComponent(new GridFieldButtonRow('before'))
+           ->addComponent(new GridFieldToolbarHeader())
+           ->addComponent(new GridFieldTitleHeader())
+           ->addComponent(new GridFieldEditableColumns())
+           ->addComponent(new GridFieldDeleteAction())
+           ->addComponent(new GridFieldAddNewInlineButton())
+           ->addComponent(new GridFieldOrderableRows('Sort'));
+           if (singleton('JobParameterValue')->hasExtension('Activable')){
+                $config->addComponent(new GridFieldShowHideAction());
+           }
 
-         $valuesField = new GridField('Values',_t(__CLASS__.'.Values','Werte'),$this->Values(),$config);
-         $fields->addFieldToTab('Root.Main',$valuesField);
-
+           $valuesField = new GridField('Values',_t(__CLASS__.'.Values','Werte'),$this->Values(),$config);
+           $fields->addFieldToTab('Root.Main',$valuesField);
+        }
        }
-       
        return $fields;
     }
 }
