@@ -47,6 +47,10 @@ class JobParameter extends DataObject
         'Activable'
     ];
 
+    private static $cascade_deletes = [
+      'Children','Values'
+    ];
+
 
     public function fieldLabels($includerelation = true){
     $labels = parent::fieldLabels($includerelation);
