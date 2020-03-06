@@ -27,7 +27,7 @@
 								</li>
 								<li class="account-tab personal-data-tab">
 									<div class="uk-panel uk-background-muted uk-padding-small">
-										<h2><%t JobSucher.ProfilTitle 'Ihre Fähigkeiten' %></h2>
+										<h2><%t JobSucher.CompetencesTitle 'Ihre Fähigkeiten' %></h2>
 										<div class="member-section-container">
 											$CompetencesForm
 										</div>

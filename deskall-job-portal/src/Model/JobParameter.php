@@ -21,17 +21,20 @@ class JobParameter extends DataObject
     private static $db = array(
       'Title' => 'Varchar',
       'FieldType' => 'Varchar(255)',
-      'Required' => 'Boolean(0)'
+      'Required' => 'Boolean(0)',
+      'isGroup' => 'Boolean(0)',
     );
 
     private static $singular_name = "Parameter";
     private static $plural_name = "Parameter";
 
     private static $has_one = [
-        'Config' => JobPortalConfig::class
+        'Config' => JobPortalConfig::class,
+        'Parent' => JobParameter::class
     ];
 
     private static $has_many = [
+        'Children' => JobParameter::class,
         'Values' => JobParameterValue::class
     ];
 
@@ -51,6 +54,9 @@ class JobParameter extends DataObject
     $labels['Values'] = _t(__CLASS__.'.Values','Werte');
     $labels['FieldType'] = _t(__CLASS__.'.FieldType','Feldtyp');
     $labels['Required'] = _t(__CLASS__.'.Required','Plichtfeld?');
+    $labels['Parent'] = _t(__CLASS__.'.Parent','Haupt Parameter');
+    $labels['Children'] = _t(__CLASS__.'.Required','Parameters');
+    $labels['isGroup'] = _t(__CLASS__.'.isGroup','Grupp?');
 
     return $labels;
     }

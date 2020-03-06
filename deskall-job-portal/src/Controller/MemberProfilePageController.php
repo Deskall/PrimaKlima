@@ -145,62 +145,6 @@ class MemberProfilePageController extends PageController{
 		return $this->redirectBack();
 	}
 
-	public function CompetencesForm(){
-
-		$actions = new FieldList(FormAction::create('saveCompetences', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
-		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
-		$JobGiver = ($JobGiver) ? $JobGiver : new JobGiver();
-		$status = $JobGiver->Status;
-		
-		$form = new Form(
-			$this,
-			'ProfilForm',
-			$JobGiver->getProfileFields(),
-			$actions,
-			$JobGiver->getRequiredProfileFields()
-		);
-		
-		$form->setTemplate('Forms/ProfilForm');
-		$form->addExtraClass('uk-form-horizontal form-std company-form');
-		$form->loadDataFrom($JobGiver);
-
-		return $form;
-	}
-
-	public function saveCompetences($data, Form $form)
-	{
-
-		$member = Security::getCurrentUser();
-		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
-		$form->saveInto($member);
-		$form->saveInto($JobGiver);
-	
-		try {
-			$member->write();
-			$JobGiver->write();
-			//Update all Offers
-			if ($JobGiver->Missions()->exists()){
-				foreach ($JobGiver->Missions() as $m) {
-					$m->write();
-				}
-			}
-		} catch (ValidationException $e) {
-			$validationMessages = '';
-			foreach($e->getResult()->getMessages() as $error){
-				$validationMessages .= $error['message']."\n";
-			}
-			$form->sessionMessage($validationMessages, 'bad');
-			return $this->redirectBack();
-		}
-		$form->sessionMessage(
-			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
-			'good'
-		);
-		$this->getRequest()->getSession()->set('active_tab','profil');
-		
-		return $this->redirectBack();
-	}
-
 	public function AccountForm(){
 
 		$actions = new FieldList(FormAction::create('saveAccount', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
@@ -501,6 +445,90 @@ class MemberProfilePageController extends PageController{
 	}
 
 	public function saveCandidatProfil($data, Form $form)
+	{
+
+		$member = Security::getCurrentUser();
+		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$form->saveInto($candidat);
+
+		//Files
+		if(isset($data['TempFiles'])){
+			$i = 0;
+			$keys = [];
+
+			foreach ($data['TempFiles'] as $id) {
+				$p = $candidat->Files()->byId($id);
+				if(!$p){ 
+					$p = File::get()->byId($id);
+					if ($p){
+						$folder = Folder::find_or_make($candidat->generateFolderName());
+						$p->ParentID = $folder->ID;
+						$p->write();
+						$p->publishSingle();
+					}
+					
+				}
+				if ($p){
+					$candidat->Files()->add($p,['SortOrder' => $i]);
+				}
+				$keys[] = $id;
+				$i++;
+			}
+			foreach($candidat->Files()->exclude('ID',$keys) as $p){
+				$p->File->deleteFile();
+                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
+				$p->delete();
+			}
+		}
+		else{
+			foreach($candidat->Files() as $p){
+				$p->File->deleteFile();
+                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($p->ID));
+				$p->delete();
+
+			}
+		}
+	
+		try {
+			$candidat->write();
+		} catch (ValidationException $e) {
+			$validationMessages = '';
+			foreach($e->getResult()->getMessages() as $error){
+				$validationMessages .= $error['message']."\n";
+			}
+			$form->sessionMessage($validationMessages, 'bad');
+			return $this->redirectBack();
+		}
+		$form->sessionMessage(
+			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
+			'good'
+		);
+		$this->getRequest()->getSession()->set('active_tab','profil');
+		
+		return $this->redirectBack();
+	}
+
+	public function CompetencesForm(){
+		$actions = new FieldList(FormAction::create('saveCompetences', _t('MemberProfiles.SAVE', 'Speichern'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'._t('MemberProfiles.SAVE', 'Speichern')));
+		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+		$candidat = ($candidat) ? $candidat : new Candidat();
+		
+		$form = new Form(
+			$this,
+			'CandidatProfilForm',
+			$candidat->getComptencesFields(),
+			$actions,
+			$candidat->getRequiredCompetencesFields()
+		);
+		
+		$form->setTemplate('Forms/CandidatCompetencesForm');
+		$form->addExtraClass('form-std');
+		$form->loadDataFrom($candidat);
+
+		return $form;
+	}
+
+	public function saveCompetences($data, Form $form)
 	{
 
 		$member = Security::getCurrentUser();
