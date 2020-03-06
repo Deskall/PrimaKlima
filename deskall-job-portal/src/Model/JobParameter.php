@@ -83,7 +83,7 @@ class JobParameter extends DataObject
        $fields->removeByName('ConfigID');
        $fields->removeByName('Values');
        $fields->removeByName('FieldType');
-       if (!$this->isGrupp && $this->ID > 0){
+       if (!$this->isGroup && $this->ID > 0){
         $fields->addFieldToTab('Root.Main',DropdownField::create('FieldType',$this->fieldLabels()['FieldType'],['text' => 'Text', 'dropdown' => 'Dropdown', 'multiple' => 'Mehrere Werte', 'multiple-free' => 'Mehrere Werte (neue Werte erlaubt)']));
         $config = 
          GridFieldConfig::create()
