@@ -49,9 +49,19 @@
 							<% end_loop %>
 						<% else %>
 						<div class="uk-child-width-auto" data-uk-grid>
-							<% loop Values %>
-							<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
-							<% end_loop %>
+							<% if groupValuesAZ %>
+								<% loop GroupedValues.groupedBy(FirstLetter) %>
+								<div class="uk-width-1-1">$FirstLetter</div>
+								<div>
+									<div class="uk-child-width-auto" data-uk-grid>
+									<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+								</div>
+								<% end_loop %>
+							<% else %>
+								<% loop Values %>
+								<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+								<% end_loop %>
+							<% end_if %>
 						</div> 
 						<% end_if %>
 					</div>
