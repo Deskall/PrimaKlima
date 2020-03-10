@@ -20,6 +20,12 @@
 									<% if isGroup %>
 										<% loop Children %>
 										<div class="uk-margin">
+											<% if FieldType == "range" %>
+											<div class="uk-grid-small" data-uk-grid>
+												<div class="uk-width-auto@m">$Title</div>
+												<div class="uk-width-expand"><input type="range" class="uk-range" /></div>
+											</div>
+											<% else %>
 											<div><strong>$Title</strong></div>
 											<div class="uk-panel uk-padding-small">
 												<div class="uk-grid-small uk-child-width-auto" data-uk-grid>
@@ -28,6 +34,7 @@
 													<% end_loop %>
 												</div> 
 											</div>
+											<% end_if %>
 										</div>
 										<% end_loop %>
 									<% else %>
