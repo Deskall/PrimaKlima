@@ -11,6 +11,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldButtonRow;
+use SilverStripe\Forms\GridField\GridFieldEditButton;
 use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
@@ -84,6 +85,7 @@ class ProfilParameter extends JobParameter
        		 ->addComponent(new GridFieldToolbarHeader())
        		 ->addComponent(new GridFieldTitleHeader())
        		 ->addComponent(new GridFieldEditableColumns())
+       		 ->addComponent(new GridFieldEditButton())
        		 ->addComponent(new GridFieldDeleteAction())
        		 ->addComponent(new GridFieldAddNewInlineButton())
        		 ->addComponent(new GridFieldOrderableRows('Sort'))
