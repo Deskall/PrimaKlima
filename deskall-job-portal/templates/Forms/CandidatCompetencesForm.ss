@@ -23,7 +23,7 @@
 											<% if FieldType == "range" %>
 											<div class="uk-grid-small" data-uk-grid>
 												<div class="uk-width-auto@m">$Title</div>
-												<div class="uk-width-expand"><input type="range" class="uk-range" /></div>
+												<div class="uk-width-expand"><input type="range" class="uk-range" value="" min="$Min" max="$Max" step="1" /></div>
 											</div>
 											<% else %>
 											<div><strong>$Title</strong></div>
