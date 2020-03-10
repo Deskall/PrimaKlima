@@ -13,7 +13,7 @@
 					<legend>$Title</legend>
 					<div class="uk-flex uk-flex-left">
 						<% loop Children %>
-						<label><input type="checkbox" class="uk-checkbox" name="{$Parent}[]" value="$Title" />$Title</label>
+						<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
 						<% end_loop %>
 					</div>
 				</fieldset>
