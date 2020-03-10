@@ -34,7 +34,7 @@
 							</div>
 							<% end_loop %>
 						<% else %>
-						<div class="uk-grid-small uk-child-width-auto" data-uk-grid>
+						<div class="uk-child-width-auto" data-uk-grid>
 							<% loop Values %>
 							<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
 							<% end_loop %>
