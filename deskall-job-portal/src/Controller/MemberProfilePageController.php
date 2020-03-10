@@ -529,7 +529,7 @@ class MemberProfilePageController extends PageController{
 	}
 
 	public function getCompetences(){
-		return ProfilParameter::get()->filter('isVisible',1)->sort('Sort');
+		return ProfilParameter::get()->filter(['isVisible' => 1,'ParentID' => 0])->sort('Sort');
 	}
 
 	public function saveCompetences($data, Form $form)
