@@ -16,6 +16,7 @@ use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\ORM\GroupedList;
 
 class ProfilParameter extends JobParameter
 {
@@ -118,5 +119,5 @@ class ProfilParameter extends JobParameter
     	return GroupedList::create($this->Values()->sort('Title'));
     }
 
-   
+
 }
