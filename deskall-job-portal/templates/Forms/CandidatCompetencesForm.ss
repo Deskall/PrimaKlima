@@ -16,6 +16,21 @@
 							<% loop Children %>
 							<div class="uk-margin">
 								<div>$Title</div>
+								<div class="uk-panel uk-padding-small">
+									<% if isGroup %>
+										<% loop Children %>
+										<div class="uk-margin">
+											<div>$Title</div>
+										</div>
+										<% end_loop %>
+									<% else %>
+									<div class="uk-flex uk-flex-left">
+										<% loop Values %>
+										<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+										<% end_loop %>
+									</div> 
+									<% end_if %>
+								</div>
 							</div>
 							<% end_loop %>
 						<% else %>
