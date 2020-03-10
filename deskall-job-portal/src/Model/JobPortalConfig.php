@@ -194,7 +194,7 @@ class JobPortalConfig extends DataObject
        $fields->addFieldToTab('Root.Main',UploadField::create('OfferFile',$this->fieldLabels()['OfferFile'])->setFolderName('Uploads/Vorlagen'));
        $fields->addFieldToTab('Root.Main',UploadField::create('File',$this->fieldLabels()['File'])->setFolderName('Uploads/Vorlagen'));
         
-       $config = GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort');
+       $config = GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'));
        $fields->addFieldToTab('Root.Parameters',GridField::create('Parameters','Job Parameters',$this->Parameters(),$config));
 
         
