@@ -8,7 +8,9 @@
 	<% end_if %>
 	<div class="uk-child-width-1-1" data-uk-grid>
 		<% loop $Controller.getCompetences %>
-			$Title
+			<div>
+				$Title
+			</div>
 		<% end_loop %>
 	</div>
 	<% with Fields.FieldByName('SecurityID') %>
