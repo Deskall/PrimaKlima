@@ -18,21 +18,19 @@ use SilverStripe\Forms\GridField\GridField;
 
 class ProfilParameter extends JobParameter
 {
-    private static $db = array(
+    private static $db = [
       'isGroup' => 'Boolean(0)'
-    );
+    ];
 
     private static $singular_name = "Profil Parameter";
     private static $plural_name = "Profil Parameter";
 
 
     private static $has_many = [
-        'Children' => ProfilParameter::class,
+        'Children' => ProfilParameter::class
     ];
 
-    private static $summary_fields = [
-      
-    ];
+  
 
     private static $cascade_deletes = [
       'Children'
@@ -40,14 +38,14 @@ class ProfilParameter extends JobParameter
 
 
     public function fieldLabels($includerelation = true){
-    $labels = parent::fieldLabels($includerelation);
+	    $labels = parent::fieldLabels($includerelation);
 
-    $labels['Parent'] = _t(__CLASS__.'.Parent','Haupt Parameter');
-    $labels['Children'] = _t(__CLASS__.'.Children','Parameters');
-    $labels['isGroup'] = _t(__CLASS__.'.isGroup','Grupp?');
-  
+	    $labels['Parent'] = _t(__CLASS__.'.Parent','Haupt Parameter');
+	    $labels['Children'] = _t(__CLASS__.'.Children','Parameters');
+	    $labels['isGroup'] = _t(__CLASS__.'.isGroup','Grupp?');
+	  
 
-    return $labels;
+	    return $labels;
     }
 
    

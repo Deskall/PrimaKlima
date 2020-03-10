@@ -24,14 +24,13 @@ class JobParameter extends DataObject
       'Required' => 'Boolean(0)',
       'Min' => 'Int',
       'Max' => 'Int'
-      
     );
 
     private static $singular_name = "Parameter";
     private static $plural_name = "Parameter";
 
     private static $has_one = [
-        'Config' => JobPortalConfig::class,
+        'Config' => JobPortalConfig::class
     ];
 
     private static $has_many = [
@@ -106,7 +105,6 @@ class JobParameter extends DataObject
 
            $valuesField = new GridField('Values',_t(__CLASS__.'.Values','Werte'),$this->Values(),$config);
            $fields->addFieldToTab('Root.Main',$valuesField);
-        }
        }
        return $fields;
     }
