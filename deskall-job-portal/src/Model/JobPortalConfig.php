@@ -199,6 +199,9 @@ class JobPortalConfig extends DataObject
        $fields->addFieldToTab('Root.Parameters',GridField::create('Parameters','Job Parameters',$this->Parameters(),$config));
        $fields->FieldByName('Root.Parameters')->setTitle('Job Parameters');
 
+       $config2 = GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'));
+       $fields->addFieldToTab('Root.Profile',GridField::create('ProfilParameters','Profil Parameters',$this->ProfilParameters(),$config2));
+
         
 
        return $fields;
