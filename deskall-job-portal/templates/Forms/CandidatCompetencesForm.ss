@@ -10,7 +10,7 @@
 		<% loop $Controller.getCompetences %>
 			<div>
 				<fieldset>
-					<legend><h3>$Title</h3></legend>
+					<legend class="uk-text-large uk-text-bold">$Title</legend>
 					<div class="uk-panel uk-padding-small">
 						<% if isGroup %>
 							<% loop Children %>
