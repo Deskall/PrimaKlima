@@ -202,7 +202,6 @@ class JobPortalConfig extends DataObject
        $config2 = GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'));
        $fields->addFieldToTab('Root.Profile',GridField::create('ProfilParameters','Profil Parameters',$this->ProfilParameters(),$config2));
 
-        
 
        return $fields;
     }

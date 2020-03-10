@@ -25,6 +25,9 @@ class ProfilParameter extends JobParameter
     private static $singular_name = "Profil Parameter";
     private static $plural_name = "Profil Parameter";
 
+    private static $has_one = [
+        'Config' => JobPortalConfig::class
+    ];
 
     private static $has_many = [
         'Children' => ProfilParameter::class
