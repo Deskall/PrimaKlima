@@ -74,7 +74,9 @@ class ProfilParameter extends JobParameter
        $fields->removeByName('Parameters');
        $fields->removeByName('Values');
        $fields->fieldByName('Root.Main.FieldType')->hideIf('isGroup')->isChecked()->end();
+       $fields->fieldByName('Root.Main.Required')->hideIf('isGroup')->isChecked()->end();
        if ($this->ID > 0){
+       	$fields->removeByName('isGroup');
        	if ($this->isGroup){
        		$config = 
        		 GridFieldConfig::create()
