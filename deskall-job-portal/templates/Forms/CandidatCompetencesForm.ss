@@ -24,6 +24,7 @@
 								</div>
 							<% else %>
 							<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+							<% end_if %>
 							<% end_loop %>
 						</div>
 						<% else %>
