@@ -9,7 +9,14 @@
 	<div class="uk-child-width-1-1" data-uk-grid>
 		<% loop $Controller.getCompetences %>
 			<div>
-				$Title
+				<fieldset>
+					<legend>$Title</legend>
+					<div class="uk-flex uk-flex-left">
+						<% loop Children %>
+						<label><input type="checkbox" class="uk-checkbox" name="{$Parent}[]" value="$Title" />$Title</label>
+						<% end_loop %>
+					</div>
+				</fieldset>
 			</div>
 		<% end_loop %>
 	</div>
