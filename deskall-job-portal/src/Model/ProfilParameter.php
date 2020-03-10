@@ -34,7 +34,9 @@ class ProfilParameter extends JobParameter
         'Children' => ProfilParameter::class
     ];
 
-  
+    private static $cascade_duplicate = [
+      'Children'
+    ];
 
     private static $cascade_deletes = [
       'Children'
