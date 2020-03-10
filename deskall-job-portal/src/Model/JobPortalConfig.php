@@ -148,6 +148,7 @@ class JobPortalConfig extends DataObject
         $fields->removeByName('AdsTabHTML');
         $fields->removeByName('PaymentTabHTML');
         $fields->removeByName('Parameters');
+        $fields->removeByName('ProfilParameters');
 
 
             $fields->addFieldsToTab('Root.Registration',[
@@ -180,7 +181,7 @@ class JobPortalConfig extends DataObject
                 ]
             );
 
-        $fields->FieldByName('Root.Registration')->setTitle(_t(__CLASS__.".RegistrationTab",'Registrierung'));
+        $fields->FieldByName('Root.Registration')->setTitle('Registrierung');
 
         $fields->addFieldToTab('Root.Profile', CompositeField::create(
             HTMLEditorField::create('AccountTabHTML',_t(__CLASS__.'.AccountTabHTML','Text für den Bereich "Adressangaben"'))->setRows(3),

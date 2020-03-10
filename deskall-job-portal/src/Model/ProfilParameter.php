@@ -70,7 +70,45 @@ class ProfilParameter extends JobParameter
     public function getCMSFields()
     {
        $fields = parent::getCMSFields();
-      
+       $fields->removeByName('ParentID');
+       $fields->removeByName('Parameters');
+       $fields->fieldByName('Root.Main.FieldType')->hideIf('isGroup')->isChecked()->end();
+       if ($this->ID > 0){
+       	if ($this->isGroup){
+       		$config = 
+       		 GridFieldConfig::create()
+       		 ->addComponent(new GridFieldButtonRow('before'))
+       		 ->addComponent(new GridFieldToolbarHeader())
+       		 ->addComponent(new GridFieldTitleHeader())
+       		 ->addComponent(new GridFieldEditableColumns())
+       		 ->addComponent(new GridFieldDeleteAction())
+       		 ->addComponent(new GridFieldAddNewInlineButton())
+       		 ->addComponent(new GridFieldOrderableRows('Sort'));
+       		 if (singleton('JobParameterValue')->hasExtension('Activable')){
+       		      $config->addComponent(new GridFieldShowHideAction());
+       		 }
+
+       		 $parametersField = new GridField('Children',_t(__CLASS__.'.Children','Parameters'),$this->Children(),$config);
+       		 $fields->addFieldToTab('Root.Main',$parametersField);
+       	}
+       	else{
+       		$config = 
+       		 GridFieldConfig::create()
+       		 ->addComponent(new GridFieldButtonRow('before'))
+       		 ->addComponent(new GridFieldToolbarHeader())
+       		 ->addComponent(new GridFieldTitleHeader())
+       		 ->addComponent(new GridFieldEditableColumns())
+       		 ->addComponent(new GridFieldDeleteAction())
+       		 ->addComponent(new GridFieldAddNewInlineButton())
+       		 ->addComponent(new GridFieldOrderableRows('Sort'));
+       		 if (singleton('JobParameterValue')->hasExtension('Activable')){
+       		      $config->addComponent(new GridFieldShowHideAction());
+       		 }
+
+       		 $valuesField = new GridField('Values',_t(__CLASS__.'.Values','Werte'),$this->Values(),$config);
+       		 $fields->addFieldToTab('Root.Main',$valuesField);
+       	}
+       }
        return $fields;
     }
 }
