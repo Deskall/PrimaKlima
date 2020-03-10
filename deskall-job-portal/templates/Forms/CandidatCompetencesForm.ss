@@ -24,7 +24,7 @@
 										</div>
 										<% end_loop %>
 									<% else %>
-									<div class="uk-flex uk-flex-left">
+									<div class="uk-flex uk-flex-around">
 										<% loop Values %>
 										<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
 										<% end_loop %>
@@ -34,23 +34,7 @@
 							</div>
 							<% end_loop %>
 						<% else %>
-						<%-- <% if isGroup %>
-						<div class="uk-margin">
-							<% loop Children %>
-							<% if isGroup %>
-								<div>$Title</div>
-								<div class="uk-flex uk-flex-left">
-									<% loop Children %>
-										<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
-									<% end_loop %>
-								</div>
-							<% else %>
-							<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
-							<% end_if %>
-							<% end_loop %>
-						</div>
-						<% else %>--%>
-						<div class="uk-flex uk-flex-left">
+						<div class="uk-flex uk-flex-around">
 							<% loop Values %>
 							<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
 							<% end_loop %>
