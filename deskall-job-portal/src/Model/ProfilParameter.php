@@ -20,7 +20,8 @@ use SilverStripe\Forms\GridField\GridField;
 class ProfilParameter extends JobParameter
 {
     private static $db = [
-      'isGroup' => 'Boolean(0)'
+      'isGroup' => 'Boolean(0)',
+      'groupValuesAZ' => 'Boolean(0)' 
     ];
 
     private static $singular_name = "Profil Parameter";
@@ -49,6 +50,7 @@ class ProfilParameter extends JobParameter
 	    $labels['Parent'] = _t(__CLASS__.'.Parent','Haupt Parameter');
 	    $labels['Children'] = _t(__CLASS__.'.Children','Parameters');
 	    $labels['isGroup'] = _t(__CLASS__.'.isGroup','Grupp?');
+	    $labels['groupValuesAZ'] = _t(__CLASS__.'.groupValuesAZ','Werte alphabetisch gruppieren?');
 	  
 
 	    return $labels;
@@ -81,6 +83,7 @@ class ProfilParameter extends JobParameter
        	$fields->fieldByName('Root.Main.FieldType')->hideIf('isGroup')->isChecked()->end();
        	$fields->fieldByName('Root.Main.Required')->hideIf('isGroup')->isChecked()->end();
        	if ($this->isGroup){
+       		$fields->removeByName('groupValuesAZ');
        		$config = 
        		 GridFieldConfig_RecordEditor::create()
        		 ->addComponent(new GridFieldDuplicateAction())
