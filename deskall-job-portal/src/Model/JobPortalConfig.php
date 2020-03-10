@@ -79,7 +79,8 @@ class JobPortalConfig extends DataObject
     ];
 
     private static $has_many = [
-        'Parameters' => JobParameter::class
+        'Parameters' => JobParameter::class,
+        'ProfilParameters' => ProfilParameter::class
     ];
 
     private static $owns = [
