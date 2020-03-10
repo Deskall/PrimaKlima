@@ -81,6 +81,7 @@ class ProfilParameter extends JobParameter
        	if ($this->isGroup){
        		$config = 
        		 GridFieldConfig_RecordEditor::create()
+       		 ->addComponent(new GridFieldDuplicateAction())
        		 ->addComponent(new GridFieldOrderableRows('Sort'))
        		 ->addComponent(new GridFieldShowHideAction());
 
