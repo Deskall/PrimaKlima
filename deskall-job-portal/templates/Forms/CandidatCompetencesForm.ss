@@ -11,11 +11,26 @@
 			<div>
 				<fieldset>
 					<legend>$Title</legend>
-					<div class="uk-flex uk-flex-left">
-						<% loop Children %>
-						<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
-						<% end_loop %>
+					<div class="uk-panel uk-padding-small">
+						<% if isGroup %>
+						<div class="uk-margin">
+							<% loop Children %>
+							<div class="uk-flex uk-flex-left">
+								<% loop Children %>
+									<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+								<% end_loop %>
+							</div>
+							<% end_loop %>
+						</div>
+						<% else %>
+						<div class="uk-flex uk-flex-left">
+							<% loop Children %>
+							<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+							<% end_loop %>
+						</div>
+						<% end_if %>
 					</div>
+					
 				</fieldset>
 			</div>
 		<% end_loop %>
