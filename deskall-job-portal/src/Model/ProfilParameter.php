@@ -71,7 +71,7 @@ class ProfilParameter extends JobParameter
     {
        $fields = parent::getCMSFields();
        $fields->removeByName('ParentID');
-       $fields->removeByName('Parameters');
+       $fields->removeByName('Children');
        $fields->removeByName('Values');
        $fields->fieldByName('Root.Main.FieldType')->hideIf('isGroup')->isChecked()->end();
        $fields->fieldByName('Root.Main.Required')->hideIf('isGroup')->isChecked()->end();
@@ -86,10 +86,8 @@ class ProfilParameter extends JobParameter
        		 ->addComponent(new GridFieldEditableColumns())
        		 ->addComponent(new GridFieldDeleteAction())
        		 ->addComponent(new GridFieldAddNewInlineButton())
-       		 ->addComponent(new GridFieldOrderableRows('Sort'));
-       		 if (singleton('JobParameterValue')->hasExtension('Activable')){
-       		      $config->addComponent(new GridFieldShowHideAction());
-       		 }
+       		 ->addComponent(new GridFieldOrderableRows('Sort'))
+       		 ->addComponent(new GridFieldShowHideAction());
 
        		 $parametersField = new GridField('Children',_t(__CLASS__.'.Children','Parameters'),$this->Children(),$config);
        		 $fields->addFieldToTab('Root.Main',$parametersField);
