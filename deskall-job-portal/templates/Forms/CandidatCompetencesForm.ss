@@ -54,7 +54,10 @@
 								<div class="uk-width-1-1">$FirstLetter</div>
 								<div>
 									<div class="uk-child-width-auto" data-uk-grid>
-									<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+										<% loop Children %>
+										<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+										<% end_loop %>
+									</div>
 								</div>
 								<% end_loop %>
 							<% else %>

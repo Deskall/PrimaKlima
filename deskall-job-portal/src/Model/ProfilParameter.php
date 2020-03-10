@@ -113,4 +113,10 @@ class ProfilParameter extends JobParameter
        }
        return $fields;
     }
+
+    public function GroupedValues(){
+    	return GroupedList::create($this->Values()->sort('Title'));
+    }
+
+   
 }
