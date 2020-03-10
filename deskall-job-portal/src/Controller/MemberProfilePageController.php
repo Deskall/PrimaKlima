@@ -528,6 +528,10 @@ class MemberProfilePageController extends PageController{
 		return $form;
 	}
 
+	public function getCompetences(){
+		
+	}
+
 	public function saveCompetences($data, Form $form)
 	{
 

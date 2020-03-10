@@ -22,9 +22,9 @@ class JobParameter extends DataObject
       'Title' => 'Varchar',
       'FieldType' => 'Varchar(255)',
       'Required' => 'Boolean(0)',
-      'isGroup' => 'Boolean(0)',
       'Min' => 'Int',
       'Max' => 'Int'
+      
     );
 
     private static $singular_name = "Parameter";
@@ -32,11 +32,9 @@ class JobParameter extends DataObject
 
     private static $has_one = [
         'Config' => JobPortalConfig::class,
-        'Parent' => JobParameter::class
     ];
 
     private static $has_many = [
-        'Children' => JobParameter::class,
         'Values' => JobParameterValue::class
     ];
 
@@ -50,7 +48,7 @@ class JobParameter extends DataObject
     ];
 
     private static $cascade_deletes = [
-      'Children','Values'
+      'Values'
     ];
 
 
@@ -60,9 +58,6 @@ class JobParameter extends DataObject
     $labels['Values'] = _t(__CLASS__.'.Values','Werte');
     $labels['FieldType'] = _t(__CLASS__.'.FieldType','Feldtyp');
     $labels['Required'] = _t(__CLASS__.'.Required','Plichtfeld?');
-    $labels['Parent'] = _t(__CLASS__.'.Parent','Haupt Parameter');
-    $labels['Children'] = _t(__CLASS__.'.Children','Parameters');
-    $labels['isGroup'] = _t(__CLASS__.'.isGroup','Grupp?');
     $labels['Min'] = _t(__CLASS__.'.Min','min. Wert');
     $labels['Max'] = _t(__CLASS__.'.Max','max. Wert');
 
@@ -90,11 +85,8 @@ class JobParameter extends DataObject
        $fields = parent::getCMSFields();
        $fields->removeByName('ConfigID');
        $fields->removeByName('Values');
-       $fields->removeByName('ParentID');
        $fields->removeByName('FieldType');
        if ($this->ID > 0){
-        $fields->removeByName('isGroup');
-        if (!$this->isGroup){
            $fields->removeByName('Parameters');
            $fields->addFieldToTab('Root.Main',DropdownField::create('FieldType',$this->fieldLabels()['FieldType'],['text' => 'Text', 'dropdown' => 'Dropdown', 'multiple' => 'Mehrere Werte', 'multiple-free' => 'Mehrere Werte (neue Werte erlaubt)','range' => 'Schieberegler']));
           $fields->fieldByName('Root.Main.Min')->displayIf('FieldType')->isEqualTo('range')->end();

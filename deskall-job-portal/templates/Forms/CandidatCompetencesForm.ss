@@ -7,7 +7,9 @@
 	<p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
 	<% end_if %>
 	<div class="uk-child-width-1-1" data-uk-grid>
-		
+		<% loop $Controller.getCompetences %>
+			
+		<% end_loop %>
 	</div>
 	<% with Fields.FieldByName('SecurityID') %>
 	$FieldHolder
