@@ -72,6 +72,7 @@ class ProfilParameter extends JobParameter
        $fields = parent::getCMSFields();
        $fields->removeByName('ParentID');
        $fields->removeByName('Parameters');
+       $fields->removeByName('Values');
        $fields->fieldByName('Root.Main.FieldType')->hideIf('isGroup')->isChecked()->end();
        if ($this->ID > 0){
        	if ($this->isGroup){
