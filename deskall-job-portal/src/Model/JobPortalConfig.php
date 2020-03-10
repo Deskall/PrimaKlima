@@ -22,6 +22,8 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\HeaderField;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 
 class JobPortalConfig extends DataObject
 {
@@ -144,6 +146,7 @@ class JobPortalConfig extends DataObject
         $fields->removeByName('OffersTabHTML');
         $fields->removeByName('AdsTabHTML');
         $fields->removeByName('PaymentTabHTML');
+        $fields->removeByName('Parameters');
 
 
             $fields->addFieldsToTab('Root.Registration',[
@@ -190,8 +193,9 @@ class JobPortalConfig extends DataObject
     
        $fields->addFieldToTab('Root.Main',UploadField::create('OfferFile',$this->fieldLabels()['OfferFile'])->setFolderName('Uploads/Vorlagen'));
        $fields->addFieldToTab('Root.Main',UploadField::create('File',$this->fieldLabels()['File'])->setFolderName('Uploads/Vorlagen'));
-      
-       $fields->dataFieldByName('Parameters')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
+        
+       $config = GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort');
+       $fields->addFieldToTab('Root.Parameters',GridField::create('Parameters','Job Parameters',$this->Parameters(),$config));
 
         
 
