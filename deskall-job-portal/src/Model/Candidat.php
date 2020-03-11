@@ -61,7 +61,7 @@ class Candidat extends DataObject
         'Phone'  => 'Varchar',
         'Experience' => 'HTMLText',
         'Formation' => 'HTMLText',
-        'ProfilCompletion' => 'Decimal'
+        'ProfilCompletion' => 'Decimal(2)'
      );
 
     private static $singular_name = "Kandidat";
@@ -515,7 +515,7 @@ class Candidat extends DataObject
         $result = ob_get_clean();
         file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
-        $this->ProfilCompletion = number_format($percent,2);
+        $this->ProfilCompletion = number_format($percent,2,',');
         
     }
 
