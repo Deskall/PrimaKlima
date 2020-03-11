@@ -48,12 +48,12 @@
 		    			</div>
 		    			<% end_loop %>
 		    		<% else %>
-		    		<div class="uk-child-width-auto" data-uk-grid>
+		    		<div class="uk-child-width-auto uk-grid-small" data-uk-grid>
 		    			<% if groupValuesAZ %>
 		    				<% loop GroupedValues.groupedBy(FirstLetter) %>
 		    				<div class="uk-width-1-1">$FirstLetter</div>
 		    				<div>
-		    					<div class="uk-child-width-auto" data-uk-grid>
+		    					<div class="uk-child-width-auto uk-grid-small" data-uk-grid>
 		    						<% loop Children %>
 		    						<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
 		    						<% end_loop %>
