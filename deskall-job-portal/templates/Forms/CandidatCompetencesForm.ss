@@ -35,7 +35,7 @@
 		    							<div class="uk-panel uk-padding-small">
 		    								<div class="uk-grid-small uk-child-width-auto" data-uk-grid>
 		    									<% loop Values %>
-		    									<label><input type="checkbox" class="uk-checkbox" name="ProfilParameters[{$Parameter.Parent.Title}][]" value="$Title" checked="$Controller.hasCompetence($Parameter.Parent.Title,$Title,1)" />$Title</label>
+		    									<label><input type="checkbox" class="uk-checkbox" name="ProfilParameters[{$Parameter.Parent.Title}][]" value="$Title" checked="$Top.Controller.hasCompetence($Parameter.Parent.Title,$Title,1)" />$Title</label>
 		    									<% end_loop %>
 		    								</div> 
 		    							</div>
@@ -45,7 +45,7 @@
 		    					<% else %>
 		    					<div class="uk-grid-small uk-child-width-auto" data-uk-grid>
 		    						<% loop Values %>
-		    						<label><input type="checkbox" class="uk-checkbox" name="ProfilParameters[{$Parameter.Parent.Title}][]" value="$Title" />$Title</label>
+		    						<label><input type="checkbox" class="uk-checkbox" name="ProfilParameters[{$Parameter.Parent.Title}][]" value="$Title" checked="$Top.Controller.hasCompetence($Parameter.Parent.Title,$Title,1)" />$Title</label>
 		    						<% end_loop %>
 		    					</div> 
 		    					<% end_if %>
@@ -60,14 +60,14 @@
 		    				<div>
 		    					<div class="uk-child-width-auto uk-grid-small" data-uk-grid>
 		    						<% loop Children %>
-		    						<label><input type="checkbox" class="uk-checkbox" name="ProfilParameters[{$Parameter.Title}][]" value="$Title" />$Title</label>
+		    						<label><input type="checkbox" class="uk-checkbox" name="ProfilParameters[{$Parameter.Title}][]" value="$Title" checked="$Top.Controller.hasCompetence($Parameter.Title,$Title,1)" />$Title</label>
 		    						<% end_loop %>
 		    					</div>
 		    				</div>
 		    				<% end_loop %>
 		    			<% else %>
 		    				<% loop Values %>
-		    				<label><input type="checkbox" class="uk-checkbox" name="ProfilParameters[{$Parameter.Parent.Title}][]" value="$Title" />$Title</label>
+		    				<label><input type="checkbox" class="uk-checkbox" name="ProfilParameters[{$Parameter.Parent.Title}][]" value="$Title" checked="$Top.Controller.hasCompetence($Parameter.Parent.Title,$Title,1)" />$Title</label>
 		    				<% end_loop %>
 		    			<% end_if %>
 		    		</div> 
