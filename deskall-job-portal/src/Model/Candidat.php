@@ -504,7 +504,7 @@ class Candidat extends DataObject
         $thirdRowResult = ($this->CursusItems()->count() > 0) ? 20 : 0;
        
         $activeParameters = ProfilParameter::get()->filterByCallback(function($item, $list) {
-            return $item->isVisible && $item->Values()->exists(); 
+            return $item->isVisible && ($item->Values()->exists() || $item->FieldType == "range"); 
         });
         $k = 0;
         $l = 0; 
