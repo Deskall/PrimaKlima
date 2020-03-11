@@ -61,7 +61,7 @@ class Candidat extends DataObject
         'Phone'  => 'Varchar',
         'Experience' => 'HTMLText',
         'Formation' => 'HTMLText',
-        'ProfilCompletion' => 'Decimal(2)'
+        'ProfilCompletion' => 'Decimal'
      );
 
     private static $singular_name = "Kandidat";
