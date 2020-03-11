@@ -561,11 +561,6 @@ class MemberProfilePageController extends PageController{
 
 		$member = Security::getCurrentUser();
 		$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
-		
-		ob_start();
-					print_r($data);
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
 		//Files
 		if(isset($data['ProfilParameters'])){

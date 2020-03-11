@@ -1,4 +1,6 @@
-<ul data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
+	<progress class="uk-progress" value="$CurrentCandidat.ProfilCompletion" max="100"></progress>
+	
+	<ul data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 								<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t JobSucher.Account '1. Adressangaben erfassen' %></a></li>
 								<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t JobSucher.Profil '2. Porträt erstellen' %></a></li>
 								<li <% if $activeTab == "competences" %>class="uk-active"<% end_if %>><a><%t JobSucher.Competences '3. Fähigkeiten' %></a></li>
