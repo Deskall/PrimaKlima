@@ -8,7 +8,7 @@
 	<% end_if %>
 	<ul data-uk-accordion>
 		<% loop $Controller.getCompetences %>
-		<li>
+		<li <% if First %>class="uk-open"<% end_if %>>
 		    <a class="uk-accordion-title"><strong class="uk-text-large">$Title</strong></a>
 		    <div class="uk-accordion-content">
 		    	<div class="uk-panel uk-padding-small">
