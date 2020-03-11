@@ -1,3 +1,8 @@
+<ul>
+<% loop $Controller.getAssignedCompetences %>
+<li>$Title: $Value</li>
+<% end_loop %>
+</ul>
 <% if $IncludeFormTag %>
 <form $AttributesHTML>
 <% end_if %>

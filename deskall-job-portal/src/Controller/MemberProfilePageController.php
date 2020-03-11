@@ -532,6 +532,18 @@ class MemberProfilePageController extends PageController{
 		return ProfilParameter::get()->filter(['isVisible' => 1,'ParentID' => 0])->sort('Sort');
 	}
 
+	public function getAssignedCompetences(){
+		$member = Security::getCurrentUser();
+		if ($member){
+			$candidat = Candidat::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
+			if ($candidat){
+				return $candidat->Parameters();
+			}
+			
+		}
+		return null;
+	}
+
 	public function saveCompetences($data, Form $form)
 	{
 
