@@ -84,7 +84,8 @@ class Candidat extends DataObject
     private static $has_many = [
         'CVItems' => CVItem::class,
         'CursusItems' => CursusItem::class,
-        'Candidatures' => Candidature::class
+        'Candidatures' => Candidature::class,
+        'Parameters' => AssignedProfilParameter::class
     ];
 
     private static $owns = [
