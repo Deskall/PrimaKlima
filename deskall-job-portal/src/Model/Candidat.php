@@ -510,7 +510,7 @@ class Candidat extends DataObject
                    
 
         $percent = $firstRowResult + $secondRowResult + $thirdRowResult;
-        print_r('total: '.$percent."\n");
+        print_r('total: '.number_format($percent,2)."\n");
 
         $result = ob_get_clean();
         file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
