@@ -28,7 +28,7 @@
 		    							<% if FieldType == "range" %>
 		    							<div class="uk-grid-small" data-uk-grid>
 		    								<div class="uk-width-auto@m">$Title</div>
-		    								<div class="uk-width-expand"><input type="range" name="ProfilParameters[$Title]" class="uk-range" value="3" min="$Min" max="$Max" step="1" /></div>
+		    								<div class="uk-width-expand"><input type="range" name="ProfilParameters[$Title]" class="uk-range" value="<% if $Top.Controller.getAssignedCompetences.filter('Title',$Title).exists %>$Top.Controller.getAssignedCompetences.filter('Title',$Title).first.Value<% else %>3<% end_if %>" min="$Min" max="$Max" step="1" /></div>
 		    							</div>
 		    							<% else %>
 		    							<div><strong>$Title</strong></div>
