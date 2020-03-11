@@ -9,7 +9,7 @@ class AssignedProfilParameter extends DataObject
 {
     private static $db = array(
       'Title' => 'Varchar',
-      'Value' => 'Varchar'
+      'Value' => 'Text'
     );
 
     private static $singular_name = "Profil Parameter";
