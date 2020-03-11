@@ -51,7 +51,7 @@
 		    		<div class="uk-child-width-auto uk-grid-small" data-uk-grid>
 		    			<% if groupValuesAZ %>
 		    				<% loop GroupedValues.groupedBy(FirstLetter) %>
-		    				<div class="uk-width-1-1">$FirstLetter</div>
+		    				<div class="uk-width-1-1"><strong>$FirstLetter</strong></div>
 		    				<div>
 		    					<div class="uk-child-width-auto uk-grid-small" data-uk-grid>
 		    						<% loop Children %>
