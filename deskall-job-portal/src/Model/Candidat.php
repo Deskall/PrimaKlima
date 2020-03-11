@@ -507,18 +507,21 @@ class Candidat extends DataObject
             return $item->isVisible && $item->Values()->exists(); 
         });
         $k = 0;
-        $l = 0;
+        $l = 0; 
+        ob_start();
         foreach ($activeParameters as $ap) {
+            print_r($ap->Title)."\n";
            if ($this->Parameters()->filter('Title',$ap->Title)->count() > 0){
+            print_r($ap->Title)."\n";
             $l++;
            }
            $k++;
         }
-        ob_start();
-                    print_r($k);
-                    print_r($l);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+       
+        print_r($k)."\n";
+        print_r($l)."\n";
+        $result = ob_get_clean();
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $fourthRowResult = ($l/$k) * 10;
         $percent = $firstRowResult + $secondRowResult + $thirdRowResult + $fourthRowResult;
         
