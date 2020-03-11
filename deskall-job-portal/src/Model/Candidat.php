@@ -515,7 +515,7 @@ class Candidat extends DataObject
         $result = ob_get_clean();
         file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
-        $this->ProfilCompletion = number_format($percent,2,',');
+        $this->ProfilCompletion = number_format($percent,2,'.');
         
     }
 
