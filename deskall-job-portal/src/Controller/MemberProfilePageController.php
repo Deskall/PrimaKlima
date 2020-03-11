@@ -560,7 +560,7 @@ class MemberProfilePageController extends PageController{
 			$keys = [];
 
 			foreach ($data['ProfilParameters'] as $param => $value) {
-				$assignedParam = $candidat->Parameters()->byTitle($param);
+				$assignedParam = $candidat->Parameters()->filter('Title',$param)->first();
 				if(!$assignedParam){ 
 					$assignedParam = new AssignedProfilParameter();
 					$assignedParam->Title = $param;
