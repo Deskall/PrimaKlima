@@ -10,7 +10,7 @@
 		<div class="uk-width-1-2@s uk-width-1-3@m uk-width-1-4@l">
 			
 				<div id="Form_CandidatProfilForm_Picture_Holder" class="field text uk-margin-small">
-					<label class="uk-form-label"><%t Candidat.PictureLabel 'Ihr Foto' %></label>
+					<label class="uk-form-label"><%t Candidat.PictureLabel 'Ihr Foto *' %></label>
 					<div class="uk-form-controls">
 						<% if $Top.Record.PictureID > 0 %>
 						<div class="switch-container-{$Top.Record.ID} original-container-{$Top.Record.ID} uk-position-relative">

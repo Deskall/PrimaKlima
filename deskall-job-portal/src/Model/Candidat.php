@@ -60,7 +60,8 @@ class Candidat extends DataObject
         'Country'  => 'Varchar',
         'Phone'  => 'Varchar',
         'Experience' => 'HTMLText',
-        'Formation' => 'HTMLText'
+        'Formation' => 'HTMLText',
+        'ProfilCompletion' => 'Decimal(2)'
      );
 
     private static $singular_name = "Kandidat";
@@ -68,7 +69,7 @@ class Candidat extends DataObject
 
    
 
-    private static $required_profile_fields = ['FirstName','Surname','Email','Gender','Birthdate','Address','PostalCode','City','Country','Phone'];
+    private static $required_profile_fields = ['Gender','Surname','FirstName','Birthdate','Email', 'Address','PostalCode','City','Country','Phone'];
 
     private static $groupcode = 'kandidaten';
 
@@ -154,12 +155,14 @@ class Candidat extends DataObject
     $labels['isApproved'] = _t('CustomUser.isApproved','diese Benutzer genehmigen?');
     $labels['CVItems'] = _t('CustomUser.CVItems','Erfahrungen');
     $labels['CursusItems'] = _t('CustomUser.CursusItems','Ausbildungen');
+    $labels['ProfilCompletion'] = _t('CustomUser.ProfilCompletion','Prozent Profil abgeschlossen');
     return $labels;
     }
 
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
+        $this->calculateCompletion();
         if ($this->Picture()->exists()){
             $folder = Folder::find_or_make($this->generateFolderName());
             $this->Picture()->ParentID = $folder->ID;
@@ -456,7 +459,7 @@ class Candidat extends DataObject
 
     public function getRequiredAccountFields(){
        
-        return new RequiredFields(['Gender','Surname','FirstName','Birthdate','Email']);
+        return new RequiredFields(['Gender','Surname','FirstName','Birthdate','Email', 'Address','PostalCode','City','Country','Phone']);
     }
 
     public function getCompetencesFields(){
@@ -473,7 +476,15 @@ class Candidat extends DataObject
         return new RequiredFields([]);
     }
 
-    public function profileCompletion(){
+    public function calculateCompletion(){
+        /******* Rules ********
+        * First the required fields: amount to 50%, each equal
+        * then Experiences (at least one) 20%
+        * then Formations (at least one) 20 %
+        * then Profil parameters 10%, each equal (for now-->see Weighting System)
+        */
+        $percent = 0;
+
         $i = 0;
         $j = 0;
         $fields = $this->stat('required_profile_fields');
@@ -483,14 +494,19 @@ class Candidat extends DataObject
             }
             $i++;
         }
-        $files = ['CV','Licence','HACCPCertificat','Ausweis'];
-        foreach($files as $key => $file){
-            if ($this->{$file}()->exists()){
-                $j++;
-            }
-            $i++;
+        if ($this->Picture()->exists()){
+            $j++;
         }
-        return number_format($j/$i*100,2);
+        $i++;
+
+        $firstRowResult = ($j/$i) * 50;
+        $secondRowResult = ($this->CVItems()->count() > 0) ? 20 : 0;
+        $thirdRowResult = ($this->CursusItems()->count() > 0) ? 20 : 0;
+
+        $percent = $firstRowResult + $secondRowResult + $thirdRowResult;
+
+        $this->ProfilCompletion = number_format($percent,2);
+        
     }
 
     public function generateFolderName(){
