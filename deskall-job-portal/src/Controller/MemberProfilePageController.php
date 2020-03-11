@@ -515,7 +515,7 @@ class MemberProfilePageController extends PageController{
 		
 		$form = new Form(
 			$this,
-			'CandidatProfilForm',
+			'CompetencesForm',
 			$candidat->getCompetencesFields(),
 			$actions,
 			$candidat->getRequiredCompetencesFields()
