@@ -1,5 +1,5 @@
 	<p><i><%t Candidat.ProfilCOmpletionLabel 'Deine Profil ist zu {percent}% abgeschlossen' percent=$CurrentCandidat.ProfilCompletion %></i></p>
-	<p>Hier Text für einfügen</p>
+	<p>Hier Text einfügen, zb: <i>Es ist viel wahrscheinlicher, dass ein vollständiges Profil in den Geschäftssuchergebnissen angezeigt wird</i></p>
 	<progress class="uk-progress" value="$CurrentCandidat.ProfilCompletion" max="100"></progress>
 	
 	<ul data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
