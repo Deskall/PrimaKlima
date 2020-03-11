@@ -510,16 +510,16 @@ class Candidat extends DataObject
         $l = 0; 
         ob_start();
         foreach ($activeParameters as $ap) {
-            print_r($ap->Title)."\n";
+            print_r($ap->Title).";<br>";
            if ($this->Parameters()->filter('Title',$ap->Title)->count() > 0){
-            print_r($ap->Title)."\n";
+            print_r($ap->Title).";<br>";
             $l++;
            }
            $k++;
         }
        
-        print_r($k)."\n";
-        print_r($l)."\n";
+        print_r($k)."<br>";
+        print_r($l)."<br>";
         $result = ob_get_clean();
         file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $fourthRowResult = ($l/$k) * 10;
