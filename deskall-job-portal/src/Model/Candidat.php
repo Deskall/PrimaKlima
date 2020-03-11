@@ -502,19 +502,26 @@ class Candidat extends DataObject
         $firstRowResult = ($j/$i) * 50;
         $secondRowResult = ($this->CVItems()->count() > 0) ? 20 : 0;
         $thirdRowResult = ($this->CursusItems()->count() > 0) ? 20 : 0;
-
+       
+        $activeParameters = ProfilParameter::get()->filterByCallback(function($item, $list) {
+            return $item->isVisible && $item->Values()->exists(); 
+        });
+        $k = 0;
+        $l = 0;
+        foreach ($activeParameters as $ap) {
+           if ($this->Parameters()->filter('Title',$ap->Title)->count() > 0){
+            $l++;
+           }
+           $k++;
+        }
         ob_start();
-                    print_r('first: '.$firstRowResult."\n");
-                     print_r('second: '.$secondRowResult."\n");
-                      print_r('third: '.$thirdRowResult."\n");
-                   
-
-        $percent = $firstRowResult + $secondRowResult + $thirdRowResult;
-        print_r('total: '.number_format($percent,2)."\n");
-
-        $result = ob_get_clean();
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-
+                    print_r($k);
+                    print_r($l);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        $fourthRowResult = ($l/$k) * 10;
+        $percent = $firstRowResult + $secondRowResult + $thirdRowResult + $fourthRowResult;
+        
         $this->ProfilCompletion = number_format($percent,2);
         
     }
