@@ -35,7 +35,7 @@
 		    							<div class="uk-panel uk-padding-small">
 		    								<div class="uk-grid-small uk-child-width-auto" data-uk-grid>
 		    									<% loop Values %>
-		    									<label><input type="checkbox" class="uk-checkbox" name="ProfilParameters[{$Parameter.Parent.Title}][]" value="$Title" />$Title</label>
+		    									<label><input type="checkbox" class="uk-checkbox" name="ProfilParameters[{$Parameter.Parent.Title}][]" value="$Title" checked="$Controller.hasCompetence($Parameter.Parent.Title,$Title,1)" />$Title</label>
 		    									<% end_loop %>
 		    								</div> 
 		    							</div>

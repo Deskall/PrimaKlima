@@ -544,6 +544,18 @@ class MemberProfilePageController extends PageController{
 		return null;
 	}
 
+	public function hasCompetence($param,$value,$isArray){
+		$hasParameter = $this->getAssignedCompetences()->filter('Title',$param)->first();
+		if ($hasParameter){
+			if ($isArray){
+				$values = explode(';-;',$hasParameter->Value);
+				return in_array($value,$values);
+			}
+			return $value == $hasParameter->Value;
+		}
+		return false;
+	}
+
 	public function saveCompetences($data, Form $form)
 	{
 
