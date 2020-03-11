@@ -23,7 +23,7 @@
 		    							<% if FieldType == "range" %>
 		    							<div class="uk-grid-small" data-uk-grid>
 		    								<div class="uk-width-auto@m">$Title</div>
-		    								<div class="uk-width-expand"><input type="range" class="uk-range" value="3" min="$Min" max="$Max" step="1" /></div>
+		    								<div class="uk-width-expand"><input type="range" name="$Title" class="uk-range" value="3" min="$Min" max="$Max" step="1" /></div>
 		    							</div>
 		    							<% else %>
 		    							<div><strong>$Title</strong></div>
@@ -55,7 +55,7 @@
 		    				<div>
 		    					<div class="uk-child-width-auto uk-grid-small" data-uk-grid>
 		    						<% loop Children %>
-		    						<label><input type="checkbox" class="uk-checkbox" name="{$Parameter.Parent.Title}[]" value="$Title" />$Title</label>
+		    						<label><input type="checkbox" class="uk-checkbox" name="{$Parameter.Title}[]" value="$Title" />$Title</label>
 		    						<% end_loop %>
 		    					</div>
 		    				</div>
