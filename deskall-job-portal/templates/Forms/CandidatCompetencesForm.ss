@@ -6,73 +6,72 @@
 	<% else %>
 	<p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
 	<% end_if %>
-	<div class="uk-child-width-1-1" data-uk-grid>
+	<ul data-uk-accordion>
 		<% loop $Controller.getCompetences %>
-			<div>
-				<fieldset>
-					<legend class="uk-text-large "><strong>$Title</strong></legend>
-					<div class="uk-panel uk-padding-small">
-						<% if isGroup %>
-							<% loop Children %>
-							<div class="uk-margin">
-								<div><strong>$Title</strong></div>
-								<div class="uk-panel uk-padding-small">
-									<% if isGroup %>
-										<% loop Children %>
-										<div class="uk-margin">
-											<% if FieldType == "range" %>
-											<div class="uk-grid-small" data-uk-grid>
-												<div class="uk-width-auto@m">$Title</div>
-												<div class="uk-width-expand"><input type="range" class="uk-range" value="3" min="$Min" max="$Max" step="1" /></div>
-											</div>
-											<% else %>
-											<div><strong>$Title</strong></div>
-											<div class="uk-panel uk-padding-small">
-												<div class="uk-grid-small uk-child-width-auto" data-uk-grid>
-													<% loop Values %>
-													<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
-													<% end_loop %>
-												</div> 
-											</div>
-											<% end_if %>
-										</div>
-										<% end_loop %>
-									<% else %>
-									<div class="uk-grid-small uk-child-width-auto" data-uk-grid>
-										<% loop Values %>
-										<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
-										<% end_loop %>
-									</div> 
-									<% end_if %>
-								</div>
-							</div>
-							<% end_loop %>
-						<% else %>
-						<div class="uk-child-width-auto" data-uk-grid>
-							<% if groupValuesAZ %>
-								<% loop GroupedValues.groupedBy(FirstLetter) %>
-								<div class="uk-width-1-1">$FirstLetter</div>
-								<div>
-									<div class="uk-child-width-auto" data-uk-grid>
-										<% loop Children %>
-										<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
-										<% end_loop %>
-									</div>
-								</div>
-								<% end_loop %>
-							<% else %>
-								<% loop Values %>
-								<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
-								<% end_loop %>
-							<% end_if %>
-						</div> 
-						<% end_if %>
-					</div>
-					
-				</fieldset>
-			</div>
+		<li>
+		    <a class="uk-accordion-title"><strong class="uk-text-large">$Title</strong></a>
+		    <div class="uk-accordion-content">
+		    	<div class="uk-panel uk-padding-small">
+		    		<% if isGroup %>
+		    			<% loop Children %>
+		    			<div class="uk-margin">
+		    				<div><strong>$Title</strong></div>
+		    				<div class="uk-panel uk-padding-small">
+		    					<% if isGroup %>
+		    						<% loop Children %>
+		    						<div class="uk-margin">
+		    							<% if FieldType == "range" %>
+		    							<div class="uk-grid-small" data-uk-grid>
+		    								<div class="uk-width-auto@m">$Title</div>
+		    								<div class="uk-width-expand"><input type="range" class="uk-range" value="3" min="$Min" max="$Max" step="1" /></div>
+		    							</div>
+		    							<% else %>
+		    							<div><strong>$Title</strong></div>
+		    							<div class="uk-panel uk-padding-small">
+		    								<div class="uk-grid-small uk-child-width-auto" data-uk-grid>
+		    									<% loop Values %>
+		    									<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+		    									<% end_loop %>
+		    								</div> 
+		    							</div>
+		    							<% end_if %>
+		    						</div>
+		    						<% end_loop %>
+		    					<% else %>
+		    					<div class="uk-grid-small uk-child-width-auto" data-uk-grid>
+		    						<% loop Values %>
+		    						<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+		    						<% end_loop %>
+		    					</div> 
+		    					<% end_if %>
+		    				</div>
+		    			</div>
+		    			<% end_loop %>
+		    		<% else %>
+		    		<div class="uk-child-width-auto" data-uk-grid>
+		    			<% if groupValuesAZ %>
+		    				<% loop GroupedValues.groupedBy(FirstLetter) %>
+		    				<div class="uk-width-1-1">$FirstLetter</div>
+		    				<div>
+		    					<div class="uk-child-width-auto" data-uk-grid>
+		    						<% loop Children %>
+		    						<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+		    						<% end_loop %>
+		    					</div>
+		    				</div>
+		    				<% end_loop %>
+		    			<% else %>
+		    				<% loop Values %>
+		    				<label><input type="checkbox" class="uk-checkbox" name="{$Parent.Title}[]" value="$Title" />$Title</label>
+		    				<% end_loop %>
+		    			<% end_if %>
+		    		</div> 
+		    		<% end_if %>
+		    	</div>
+		    </div>
+		</li>
 		<% end_loop %>
-	</div>
+	</ul>
 	<% with Fields.FieldByName('SecurityID') %>
 	$FieldHolder
 	<% end_with %>
