@@ -543,24 +543,51 @@ class MemberProfilePageController extends PageController{
 					$result = ob_get_clean();
 					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
-		// $form->saveInto($candidat);
+		//Files
+		if(isset($data['ProfilParameters'])){
+			$keys = [];
 
+			foreach ($data['ProfilParameters'] as $param => $value) {
+				$assignedParam = $candidat->Parameters()->byTitle($param);
+				if(!$assignedParam){ 
+					$assignedParam = new AssignedProfilParameter();
+					$assignedParam->Title = $param;
+					$assignedParam->CandidatID = $candidat->ID;
+				}
+				if (is_array($value)){
+					$assignedParam->Value = implode(';-;',$value);
+				}
+				else{
+					$assignedParam->Value = $value;
+				}
+				$assignedParam->write();
+				$keys[] = $param;
+			}
+			foreach($candidat->Parameters()->exclude('Title',$keys) as $p){
+				$p->delete();
+			}
+		}
+		else{
+			foreach($candidat->Parameters()() as $p){
+				$p->delete();
+			}
+		}
 		
-		// try {
-		// 	$candidat->write();
-		// } catch (ValidationException $e) {
-		// 	$validationMessages = '';
-		// 	foreach($e->getResult()->getMessages() as $error){
-		// 		$validationMessages .= $error['message']."\n";
-		// 	}
-		// 	$form->sessionMessage($validationMessages, 'bad');
-		// 	return $this->redirectBack();
-		// }
-		// $form->sessionMessage(
-		// 	_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
-		// 	'good'
-		// );
-		// $this->getRequest()->getSession()->set('active_tab','profil');
+		try {
+			$candidat->write();
+		} catch (ValidationException $e) {
+			$validationMessages = '';
+			foreach($e->getResult()->getMessages() as $error){
+				$validationMessages .= $error['message']."\n";
+			}
+			$form->sessionMessage($validationMessages, 'bad');
+			return $this->redirectBack();
+		}
+		$form->sessionMessage(
+			_t('MemberProfiles.PROFILEUPDATED', 'Ihre Profil wurde aktualisiert.'),
+			'good'
+		);
+		$this->getRequest()->getSession()->set('active_tab','competences');
 		
 		return $this->redirectBack();
 	}
