@@ -337,7 +337,7 @@ class Mission extends DataObject
         );
 
         $config = $this->getJobConfig();
-        foreach ($config->Parameters() as $p) {
+        foreach ($config->Parameters()->filter('ClassName',JobParameter::class) as $p) {
             switch ($p->FieldType){
                 case "text":
                     $field = TextField::create($p->Title,$p->Title)->setAttribute('class','uk-input');
