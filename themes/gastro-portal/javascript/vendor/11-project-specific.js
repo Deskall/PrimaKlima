@@ -13,8 +13,7 @@
 
 			    url: url,
 			    multiple: false,
-			    maxSize: 8000,
-			    mime: allowed,
+			    allow: '*.png',
 				msgInvalidMime: "Bitte laden Sie ein Bild (Format: .png, .jpg, .jpeg, .gif, .svg)",
 
 			    beforeSend: function () {
@@ -51,7 +50,7 @@
 			    },
 
 			    fail: function () {
-					alert('Die Datei hat nicht das richtige Format oder ist zu groß.\nFormate zulässig: '+allowed+'.\nMax. Dateigröße:: 8Mo');
+					alert('Die Datei hat nicht das richtige Format.\nFormate zulässig: '+allowed+'.\nMax.');
 				},
 
 			    loadEnd: function (e) {
