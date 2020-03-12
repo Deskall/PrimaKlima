@@ -47,7 +47,7 @@ class MemberProfileExtension extends DataExtension
             }
             $fields->replaceField('Email',EmailField::create('Email','Email'));
         }
-        $privacyPolicy = PrivacyPolicyPage::get()->first();
+        $privacyPolicy = PrivatePolicyPage::get()->first();
         $link = ($privacyPolicy) ? $privacyPolicy->Link() : '/';
         $fields->push(CheckboxField::create('AGB',DBField::create_field(
         'HTMLFragment','<span class="uk-text-small uk-margin-remove">Hiermit bestätige ich, dass ich sowohl <a href="'.$link.'" target="_blank">die Datenschutzerklärung</a> wie auch <a href="/agb" target="_blank">die AGB</a> gelesen habe und mit beiden einverstanden bin.</span>'))
