@@ -8,9 +8,11 @@
 									<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-card-small offer-snippet">
 										<div class="uk-grid-small" data-uk-grid>
 											<div class="uk-width-1-5">
+												<% if $Customer.Logo.exists %> 
 												<div class="firma-logo">
 													<img <% if $Customer.Logo.getExtension == "svg" %>src="$Customer.Logo.URL" class="svg-logo"<% else %>src="$Customer.Logo.Fit(150,150).URL"<% end_if %> alt="Logo von $Company" width="150" height="150">
 												</div>
+												<% end_if %>
 											</div>
 											<div class="uk-width-3-5">
 												<div><a href="$previewLink" title="Stelle ansehen"><strong>$Title</strong></a></div>
