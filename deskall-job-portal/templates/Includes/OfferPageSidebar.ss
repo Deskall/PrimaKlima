@@ -7,7 +7,7 @@
 			<% end_loop %>
 		</div>
 	</div>
-	<% loop $CookConfig.Parameters %>
+	<% loop $CookConfig.Parameters.filter('ClassName','JobParameter') %>
 	<div class="parameter uk-margin">
 		<strong class="parameter-title">$Title</strong>
 		<% loop $Values %>
