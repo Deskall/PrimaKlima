@@ -4,6 +4,7 @@
 			var	container = $($(this).attr('data-container'));
 			var	filetype = "image";
 			var	name = $(this).attr('data-field-name');
+			var allowed = $(this).attr('data-allowed');
 			var url = $(this).attr('data-upload-url');
 			url = (typeof url != "undefined") ? url : ((window.location.pathname.substr(window.location.pathname.length-1,1) == "/") ? window.location.pathname+"upload" : window.location.pathname+"/upload");
 			var id = $(this).attr('id');
@@ -12,6 +13,9 @@
 
 			    url: url,
 			    multiple: false,
+			    allow: allowed,
+				maxSize: 8000,
+				msgInvalidMime: "Bitte laden Sie eine PDF-Datei von weniger als 8 Mo herunter",
 
 			    beforeSend: function () {
 			    	container.append(bar);
