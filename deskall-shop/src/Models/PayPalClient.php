@@ -30,7 +30,7 @@ class PayPalClient
     {
         $clientId = SiteConfig::current_site_config()->PayPalClientID;
         $clientSecret = SiteConfig::current_site_config()->PayPalSecret;
-        if (Director::AbsoluteBaseUrl() == "https://www.schneider-hotel-gastrojobs.com/" ){
+        if (Director::AbsoluteBaseUrl() == "https://www.schneider-hoga-career.com/" ){
             ob_start();
             print_r('live');
             $result = ob_get_clean();
