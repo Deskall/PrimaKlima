@@ -74,6 +74,7 @@ class CandidatureEmail extends Email
         $absoluteBaseURL = $this->BaseURL();
         $variables = array(
             '$SiteName'       => SiteConfig::current_site_config()->Title,
+            '$WebsiteLink'     => Director::absoluteBaseURL(),
             '$LoginLink'      => Controller::join_links(
                 $absoluteBaseURL,
                 $loginPage->Link()
