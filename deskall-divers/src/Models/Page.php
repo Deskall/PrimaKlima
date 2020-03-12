@@ -25,6 +25,7 @@ class Page extends SiteTree implements Searchable
 
     public function getCMSFields(){
       $fields = parent::getCMSFields();
+      $fields->replaceField('Title',TextareaField::create('Title',$this->fieldLabel('Title'))->setRows(2));
       $fields->addFieldToTab('Root.Layout',TextField::create('ExtraCSSClass',$this->fieldLabels()['ExtraCSSClass']));
       $fields->addFieldToTab('Root.Layout',TextField::create('ExtraHeaderClass',$this->fieldLabels()['ExtraHeaderClass']));
       $fields->addFieldToTab('Root.Layout',TextField::create('ExtraMenuClass',$this->fieldLabels()['ExtraMenuClass']));
