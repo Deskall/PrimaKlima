@@ -4,7 +4,7 @@
 		$Lead
 	</div>
 </div>
-<div data-uk-slider="center:true;">
+<div data-uk-slider="center:true;index:2;">
 	<div class="uk-position-relative uk-padding-small uk-visible-toggle" tabindex="-1" data-uk-height-match=".uk-card-title">
 		<ul class="uk-slider-items uk-child-width-1-3@m uk-child-width-1-4@l uk-grid uk-grid-match products-container">
 			<% loop activePackages %>
