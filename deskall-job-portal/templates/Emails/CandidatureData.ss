@@ -12,4 +12,4 @@
 <p><%t Candidat.Title 'Bewerber' %>: $Candidat.Member.FirstName $Candidat.Member.Surname</p>
 	
 <strong><%t Mission.CandidatureText 'Bewerbungstext:' %></strong>
-<p>$Content</p>
+<p>«<i>$Content</i>»</p>
