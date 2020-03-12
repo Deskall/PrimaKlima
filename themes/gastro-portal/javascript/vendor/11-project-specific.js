@@ -14,7 +14,7 @@
 			    url: url,
 			    multiple: false,
 			    maxSize: 8000,
-			    allow: allowed,
+			    mime: allowed,
 				msgInvalidMime: "Bitte laden Sie ein Bild (Format: .png, .jpg, .jpeg, .gif, .svg)",
 
 			    beforeSend: function () {
