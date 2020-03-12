@@ -56,6 +56,7 @@
 			<div class="uk-margin">
 				<div class="uk-card uk-card-body">
 					<h2><%t Candidature.ExperienceTitle 'Berüfliche Erfahrungen' %></h2>
+					<% if $Candidat.CVItems.exists %>
 					<% loop $Candidat.CVItems %>
 						<div data-uk-grid>
 							<div class="uk-width-1-3 uk-width-1-4@m uk-width-1-5@l">
@@ -68,11 +69,15 @@
 							</div>
 						</div>
 					<% end_loop %>
+					<% else %>
+					<p><i><%t Candidature.NoExperience 'Keine Erfahrungen' %></i></p>
+					<% end_if %>
 				</div>
 			</div>
 			<div class="uk-margin">
 				<div class="uk-card uk-card-body">
 					<h2><%t Candidature.FormationTitle 'Ausbildungen' %></h2>
+					<% if $Candidat.CursusItems.exists %>
 					<% loop $Candidat.CursusItems %>
 						<div data-uk-grid>
 							<div class="uk-width-1-3 uk-width-1-4@m uk-width-1-5@l">
@@ -84,6 +89,9 @@
 							</div>
 						</div>
 					<% end_loop %>
+					<% else %>
+					<p><i><%t Candidature.NoFormation 'Keine Ausbildungen' %></i></p>
+					<% end_if %>
 				</div>
 			</div>
 			<% end_if %>
