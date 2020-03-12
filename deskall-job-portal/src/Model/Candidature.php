@@ -197,8 +197,7 @@ class Candidature extends DataObject
       $config = $this->getConfig();
       $from = ($config->EmailFrom) ? $config->EmailFrom : SiteConfig::current_site_config()->Email;
       $body = new DBHTMLText();
-      $message = '<p><strong>'._t('Candidature.Messagelabel','Bewerbungstext').'</strong></p>'.$this->Content;
-      $body->setValue($config->CandidatureEmailBody.$message);
+      $body->setValue($config->CandidatureEmailBody);
       $companyEmail = ($this->Mission()->Customer()->ContactPersonEmail) ? $this->Mission()->Customer()->ContactPersonEmail : $this->Mission()->Customer()->CompanyEmail;
       $mail = new CandidatureEmail($config,$this,$from,$companyEmail,$config->CandidatureEmailSubject,$body);
       $mail->setBCC($from);

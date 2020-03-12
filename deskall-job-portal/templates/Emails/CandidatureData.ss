@@ -9,7 +9,7 @@
 <br/>
 
 <strong><%t Mission.Candidature 'Bewerbung:' %></strong>
-<p><%t Candidat.Title 'Bewerber' %>: $Candidat.Member.FirstName $Candidat.Member.Surame</p>
+<p><%t Candidat.Title 'Bewerber' %>: $Candidat.Member.FirstName $Candidat.Member.Surname</p>
 	
 <strong><%t Mission.CandidatureText 'Bewerbungstext:' %></strong>
-<p><%t Candidat.Title 'Bewerber' %>: $Candidat.Member.FirstName $Candidat.Member.Surame</p>
+<p>$Content</p>
