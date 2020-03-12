@@ -79,6 +79,7 @@ class CandidatureEmail extends Email
                 $loginPage->Link()
             ),
             '$Candidature.Data' => $candidature->renderWith('Emails/CandidatureData'),
+            '$Candidature.Refusal' => $candidature->ContentRefusal,
             '$CandidatProfilLink' => $candidature->Link(),
             '$Customer.Title' => $candidature->Mission()->Customer()->ContactTitle(),
             '$Candidat.Title' => $candidature->Candidat()->Member()->FirstName.' '.$candidature->Candidat()->Member()->Surname
