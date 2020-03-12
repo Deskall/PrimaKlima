@@ -85,6 +85,12 @@ class SEOPageExtension extends DataExtension
 		);
     }
 
+    public function onBeforeWrite(){
+    	parent::onBeforeWrite();
+    	if (!$this->owner->isChanged('MetaTitle',2)){
+    		$this->owner->MetaTitle = strip_tags($this->owner->Title);
+    	}
+    }
 
     /* MetaTags
 	*  Hooks into MetaTags SiteTree method and adds MetaTags for
