@@ -334,7 +334,7 @@ class JobGiver extends DataObject
 
     public function getRequiredAccountFields(){
        
-        return new RequiredFields(['CompanyEmail']);
+        return new RequiredFields(['AdressTitle','Company','Address','PostalCode','City','Country','Phone','CompanyEmail','ContactPersonFirstName','ContactPersonSurname']);
     }
 
 
