@@ -4,6 +4,7 @@ use SilverStripe\CMS\Model\SiteTree;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Control\Session;
+use SilverStripe\Forms\TextareaField;
 
 class Page extends SiteTree implements Searchable
 {
