@@ -130,7 +130,7 @@
 					
 						
 								<tr>
-									<td><a href="$AbsoluteLink" target="_blank"><%t Mission.GoOnline 'Klicken Sie hier, um dieses und viele andere Angebote auf unserer Website www.schneider-hotel-gastrojobs.com zu finden' %></a></td>
+									<td><a href="$AbsoluteLink" target="_blank"><%t Mission.GoOnline 'Klicken Sie hier, um dieses und viele andere Angebote auf unserer Website zu finden' %></a></td>
 								</tr>
 								
 					

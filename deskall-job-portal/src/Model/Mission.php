@@ -165,7 +165,7 @@ class Mission extends DataObject
         if ($this->Customer()->exists() && !$this->Company){
           $this->Company = $this->Customer()->Company;
         }
-        if ($this->Customer()->exists() && !$this->Nummer){
+        if ($this->Customer()->exists() && $this->ID > 0 && !$this->Nummer){
           $this->Nummer = $this->Customer()->Nummer.'-'.str_pad($this->ID, 4, '0', STR_PAD_LEFT);
         }
         $this->createOffer();
@@ -398,6 +398,10 @@ class Mission extends DataObject
 
     public function previewLink(){
         return ($this->getJobsPage()->exists()) ? $this->getJobsPage()->Link().'details/'.$this->ID : null;
+    }
+
+    public function AbsoluteLink(){
+        return ($this->getJobsPage()->exists()) ? Director::absoluteURL($this->getJobsPage()->Link().'details/'.$this->ID) : null;
     }
 
     public function editLink(){
