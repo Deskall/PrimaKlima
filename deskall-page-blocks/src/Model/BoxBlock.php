@@ -102,19 +102,19 @@ class BoxBlock extends BaseElement implements Searchable
         ]
     ];
 
-     private static $boxes_text_alignments = [
-        'uk-text-justify uk-text-left@s' =>  [
-            'value' => 'uk-text-justify uk-text-left@s',
+    private static $boxes_text_alignments = [
+        'uk-text-left' =>  [
+            'value' => 'uk-text-left',
             'title' => 'Links Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
-        'uk-text-justify uk-text-right@s' =>  [
-            'value' => 'uk-text-justify uk-text-righ@s',
+        'uk-text-right' =>  [
+            'value' => 'uk-text-right',
             'title' => 'Rechts Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
-        'uk-text-justify uk-text-center@s' => [
-            'value' => 'uk-text-justify uk-text-center@s',
+        'uk-text-center' => [
+            'value' => 'uk-text-center',
             'title' => 'Mittel Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
         ],
@@ -124,7 +124,6 @@ class BoxBlock extends BaseElement implements Searchable
             'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
         ]
     ];
-
 
 
     private static $table_name = 'BoxBlock';
