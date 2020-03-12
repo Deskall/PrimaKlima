@@ -207,7 +207,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
         $fields->removeByName('ExtraClass');
-        $fields->replaceField('Title',TextareaField::create('Title',$this->fieldLabel('Title'))->setRows(2));
+        $fields->replaceField('Title',TextareaField::create('Title',$this->owner->fieldLabel('Title'))->setRows(2));
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Diese Block enthalt den Haupttitel der Seite (h1)")),'TitleAndDisplayed');
       
      
