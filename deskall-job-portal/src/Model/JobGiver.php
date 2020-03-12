@@ -149,7 +149,7 @@ class JobGiver extends DataObject
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        if (!$this->Nummer){
+        if (!$this->Nummer && $this->ID > 0){
             $this->Nummer = $this->generateClientNumber();
         }
         
