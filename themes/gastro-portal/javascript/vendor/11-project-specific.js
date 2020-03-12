@@ -15,7 +15,7 @@
 			    multiple: false,
 			    allow: allowed,
 				maxSize: 8000,
-				msgInvalidMime: "Bitte laden Sie eine PDF-Datei von weniger als 8 Mo herunter",
+				msgInvalidMime: "Bitte laden Sie ein Bild (Format: .png, .jpg, .jpeg, .gif, .svg)",
 
 			    beforeSend: function () {
 			    	container.append(bar);
