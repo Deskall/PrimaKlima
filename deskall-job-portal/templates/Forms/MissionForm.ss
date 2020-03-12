@@ -40,7 +40,7 @@
 					<div class="switch-container-{$Top.Record.ID} original-container-{$Top.Record.ID} uk-position-relative">
 						<img src="<% if $Top.Record.Image.getExtension == "svg" %>$Top.Record.Image.URL<% else %>$Top.Record.Image.ScaleWidth(300).URL<% end_if %>" class="switch-this">
 						<div class="uk-position-top-right uk-text-center switch-this"><a data-uk-toggle="target:.switch-this" class="uk-text-large uk-display-block uk-padding-small uk-padding-remove-top"><i class="icon icon-edit"></i></a></div>
-						<div id="upload-photo-container-{$Top.Record.ID}" class="js-upload with-preview uk-placeholder uk-text-center uk-margin-remove switch-this" data-container=".original-container-{$Top.Record.ID}" data-field-name="ImageID" hidden data-upload-url="{$Controller.MemberPage.Link}upload" data-allowed="*.(jpg|jpeg|gif|png|svg)">
+						<div id="upload-photo-container-{$Top.Record.ID}" class="js-upload with-preview uk-placeholder uk-text-center uk-margin-remove switch-this" data-container=".original-container-{$Top.Record.ID}" data-field-name="ImageID" hidden data-upload-url="{$Controller.MemberPage.Link}upload" data-allowed="*.(jpg|jpeg|gif|png)">
 							<div class="form-field">
 								<span data-uk-icon="icon: cloud-upload"></span>
 								<span class="uk-text-middle"><%t Member.ChangePicture 'Legen Sie ein Bild ab oder' %></span>
@@ -56,7 +56,7 @@
 					</div>
 					<% else %>
 					<div class="photo-profil-{$Top.Record.ID} uk-text-center">
-						<div id="upload-photo-container-{$Top.Record.ID}" class="js-upload with-preview uk-placeholder uk-text-center uk-margin-remove" data-container=".photo-profil-{$Top.Record.ID}" data-field-name="ImageID" data-upload-url="{$Controller.MemberPage.Link}upload" data-allowed="*.(jpg|jpeg|gif|png|svg)">
+						<div id="upload-photo-container-{$Top.Record.ID}" class="js-upload with-preview uk-placeholder uk-text-center uk-margin-remove" data-container=".photo-profil-{$Top.Record.ID}" data-field-name="ImageID" data-upload-url="{$Controller.MemberPage.Link}upload" data-allowed="*.(jpg|jpeg|gif|png)">
 							<div class="form-field">
 								<span data-uk-icon="icon: cloud-upload"></span>
 								<span class="uk-text-middle"><%t Member.ChangePicture 'Legen Sie ein Bild ab oder' %></span>
