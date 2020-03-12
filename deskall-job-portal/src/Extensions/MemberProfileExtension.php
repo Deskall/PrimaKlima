@@ -50,7 +50,7 @@ class MemberProfileExtension extends DataExtension
         $privacyPolicy = PrivatePolicyPage::get()->first();
         $link = ($privacyPolicy) ? $privacyPolicy->Link() : '/';
         $fields->push(CheckboxField::create('AGB',DBField::create_field(
-        'HTMLFragment','<span class="uk-text-small uk-margin-remove">Hiermit bestätige ich, dass ich sowohl <a href="'.$link.'" target="_blank">die Datenschutzerklärung</a> wie auch <a href="/agb" target="_blank">die AGB</a> gelesen habe und mit beiden einverstanden bin.</span>'))
+        'HTMLFragment','<span class="uk-text-small uk-margin-remove dk-text-content">Hiermit bestätige ich, dass ich sowohl <a href="'.$link.'" target="_blank">die Datenschutzerklärung</a> wie auch <a href="/agb" target="_blank">die AGB</a> gelesen habe und mit beiden einverstanden bin.</span>'))
         ->setFieldHolderTemplate('deskall-page-blocks/templates/SilverStripe/Forms/FullWidthCheckboxField_holder'));
 
         return $fields;
