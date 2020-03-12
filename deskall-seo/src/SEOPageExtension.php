@@ -29,7 +29,13 @@ class SEOPageExtension extends DataExtension
 
     private static $owns = ['SharableImage'];
 
-
+    public function onBeforeWrite(){
+    	parent::onBeforeWrite();
+    	if (!$this->owner->isChanged('MetaTitle',2)){
+    		$this->owner->MetaTitle = strip_tags($this->owner->Title);
+    	}
+    }
+    
 	public function updateFieldLabels(&$labels) {
 		$labels['MetaTitle'] = _t('SiteTree.METATITLE', "MetaTitel");
 	}
