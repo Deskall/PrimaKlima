@@ -13,7 +13,7 @@
 
 			    url: url,
 			    multiple: false,
-			    allow: '*.png',
+			    allow: '*.png,*.jpg',
 				msgInvalidMime: "Bitte laden Sie ein Bild (Format: .png, .jpg, .jpeg, .gif, .svg)",
 
 			    beforeSend: function () {
