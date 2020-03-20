@@ -1,0 +1,6 @@
+---
+Name: 'deskall-events'
+---
+BaseBlockExtension:
+  blocks:
+    - EventBlock

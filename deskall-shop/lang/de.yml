@@ -1,0 +1,152 @@
+de:
+  Bill:
+    BillNumber: 'Rechnung Nr.'
+    CustomerNumber: 'Kunde Nr.'
+    Date: 'Datum:'
+    NettPrice: Nettobetrag
+    PayNow: 'Der Gesamtbetrag ist ab sofort auf unser unten genanntes Konto zu zahlen.'
+    Preis: Preis
+    Product: Paket
+    ProductCount: 'Anzahl Anzeige'
+    ProductRunTime: Laufzeit
+    Tax: 'MwSt. inkl'
+    Title: Rechnung
+    Total: Gesamtbetrag
+  COUPON:
+    Amount: Betrag
+    AmountType: 'Art des Gutscheins'
+    Code: Code
+    Count: 'Verfügbar (wie oft)'
+  Checkout:
+    AlreadyActive: 'Sie haben bereits ein aktives Paket.'
+    BillAddress: Rechnungsadresse
+    ChoosePackage: 'Wählen Sie Ihre Paket nach Mass'
+    ChoosePaymentType: 'Wählen Sie Ihre Zahlungsmethod'
+    Order: Bestellen
+    PortalLink: 'zu Ihrem Portal'
+    ReviewAndPay: 'Prüfen und bestätigen Sie Ihre Bestellung'
+    SummaryTableTH1: Paket
+    SummaryTableTH2: Preis
+    SummaryTableTH3: Laufzeit
+    SummaryTableTH4: 'Anzahl Anzeige'
+    SummaryTitle: 'Ihre Bestellung'
+  Coupon:
+    PLURALNAME: Gutshceine
+    PLURALS:
+      one: 'A Gutschein'
+      other: '{count} Gutshceine'
+    SINGULARNAME: Gutschein
+  Global:
+    Back: Zurück
+    Forward: Weiter
+  MemberProfiles:
+    AccessDenied: 'Sie dürfen diesen Bereich nicht betreten.'
+    NeedToLogin: 'Sie müssen sich anmelden, um auf diese Seite zugreifen zu können'
+    NoAccess: 'Sie haben nicht die erforderlichen Rechte, um auf diese Seite zuzugreifen'
+    PROFILEUPDATED: 'Ihre Profil wurde aktualisiert.'
+    Update: 'Angaben aktualisieren'
+  Order:
+    DownloadBill: 'Rechnung herunterladen'
+    DownloadReceipt: 'Quittung herunterladen'
+    YourOrder: 'Ihre Bestellung'
+  PACKAGE:
+    PackegeOptions: Optionen
+    Price: Preis
+    RunTime: Laufzeit
+    RunTimeCurrency: 'Laufzeit Einheit'
+    Title: Titel
+  Package:
+    Beschreibung: Beschreibung
+    Choose: 'Bitte Wählen'
+    Features: Features
+    NumOfAds: 'Anzahl Stellenanzeigen'
+    OfferQuota: 'Anzahl Stelleninserate'
+    PLURALNAME: Pakete
+    PLURALS:
+      one: 'A Paket'
+      other: '{count} Pakete'
+    Price: Preis
+    RunTime: Laufzeit
+    SINGULARNAME: Paket
+    SalePrice: Aktionspreis
+    Title: Titel
+    isFlatrate: Flatrate
+  PackageConfigItem:
+    PLURALNAME: Features
+    PLURALS:
+      one: 'A Feature'
+      other: '{count} Features'
+    SINGULARNAME: Feature
+  PackageOption:
+    PLURALNAME: 'Package Options'
+    PLURALS:
+      one: 'A Package Option'
+      other: '{count} Package Options'
+    SINGULARNAME: 'Package Option'
+  PriceBlock:
+    BlockType: 'Tarife Block'
+    PLURALNAME: blocks
+    PLURALS:
+      one: 'A block'
+      other: '{count} blocks'
+    SINGULARNAME: block
+  Product:
+    TransportCost: 'Transportkosten (pauschal Preis)'
+  ProductAdmin:
+    MENUTITLE: Shop
+  SHOP:
+    BUY: 'Jetzt kaufen'
+    BUYNOW: 'Jetzt kaufen'
+  Shop:
+    BillPayLabel: 'Ich bezahle per Rechnung'
+    OnlinePayLabel: 'Ich bezahle online mit meiner Kreditkarte oder meinem PayPal-Konto'
+    ChoosePackage: '1. Paket wählen'
+    ChoosePayment: '2. Zahlungsmethod'
+    Confirm: '3. Bestätigung'
+    GoToAccount: 'zu Ihrem Konto'
+    GoToProduct: 'zu Ihrem Produkt'
+    MyAccount: 'Mein Konto'
+  ShopCustomer:
+    SaveForCertificate: 'Profil aktualisieren und Zertifikat herunterladen'
+  ShopOrder:
+    PLURALNAME: Rechnungen
+    PLURALS:
+      one: 'A Rechnung'
+      other: '{count} Rechnungen'
+    SINGULARNAME: Rechnung
+  ShopOrderItemRequestExtension:
+    BUTTONORDERPAID: 'Bestellung als bezahlt markieren und Kunde per Email bestätigen'
+    MarkAsPaid: 'Bestellung bezahlt und Bestätigungs-Email an Kunde gesendet'
+  ShopPage:
+    PLURALNAME: 'Shop Pages'
+    PLURALS:
+      one: 'A Shop Page'
+      other: '{count} Shop Pages'
+    SINGULARNAME: 'Shop Page'
+  ShopPageController:
+    AGB: 'Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin. *'
+    BillingAddressCompany: Firma
+    BillingAddressCountry: Land
+    BillingAddressPlace: Ort
+    BillingAddressPostalCode: PLZ
+    BillingAddressStreet: Adresse
+    CountryLabel: 'Land wählen'
+    GenderLabel: 'Bitte wählen'
+  SiteConfigPayPalExtension:
+    AGBFile: 'AGB Datei'
+    BillEmailBody: 'Rechnungsemail Inhalt'
+    BillEmailSubject: 'Rechnungsemail Betreff'
+    BillFile: 'Rechnung Vorlage'
+    BillPayLabel: 'Text für die Zahlung mit Rechnung'
+    ClientNumberOffset: 'Increment für Kundennummer'
+    CustomerAccountLabel: 'Text für das Kundenkonto Label'
+    OnlinePayLabel: 'Text für die Zahlung mit PayPal oder Kreditkarte'
+    OrderNumberOffset: 'Increment für Bestellungsnummer'
+    PayPalClientID: 'PayPal Kunden ID'
+    PayPalSecret: 'PayPal Kunden Secret'
+    PaymentConfirmedLabel: Zahlungsbestätigungstext
+    PaymentEmailBody: 'Zahlunsbestätigungsemail Inhalt'
+    PaymentEmailSubject: 'Zahlunsbestätigungsemail Betreff'
+    ReceiptFile: 'Quittung Vorlage'
+  TextBlock:
+    Lead: Lead

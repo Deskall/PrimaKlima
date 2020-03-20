@@ -1,0 +1,23 @@
+---
+Name: deskall-products
+After:
+    - '#deskall-divers'
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: deskall-products
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SiteConfigPayPalExtension
+
+SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
+  extensions:
+    - ShopOrderItemRequestExtension
+
+BaseBlockExtension:
+  blocks:
+    - PriceBlock
+
+Page:
+  extensions:
+    - DeskallShopPageExtension
