@@ -75,6 +75,7 @@ class Product extends DataObject {
     public function getCMSFields() {
         $fields = parent::getCMSFields();
         $fields->removeByName('URLSegment');
+        $fields->removeByName('CategoryID');
         $fields->insertAfter('MainBild',SortableUploadField::create('Images',$this->fieldLabels()['Images'])->setIsMultiUpload(true)->setFolderName($this->getFolderName()));
         
 
