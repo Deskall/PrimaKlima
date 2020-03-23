@@ -44,11 +44,11 @@ class ProductCategory extends DataObject {
     public function onBeforeWrite(){
         parent::onBeforeWrite();
         $this->URLSegment = URLSegmentFilter::create()->filter($this->Title);
-        if ($this->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after']) ){
-                $oldFolderPath = 'Uploads/Webshop/'.URLSegmentFilter::create()->filter($changedFields['Title']['before']);
+        if ($this->isChanged('URLSegment') && ($changedFields['URLSegment']['before'] != $changedFields['URLSegment']['after']) ){
+                $oldFolderPath = 'Uploads/Webshop/'.URLSegmentFilter::create()->filter($changedFields['URLSegment']['before']);
                 $newFolder = Folder::find_or_make($oldFolderPath);
-                $newFolder->Name = $changedFields['Title']['after'];
-                $newFolder->Title = $changedFields['Title']['after'];
+                $newFolder->Name = $changedFields['URLSegment']['after'];
+                $newFolder->Title = $changedFields['URLSegment']['after'];
                 $newFolder->write();
             
         }
