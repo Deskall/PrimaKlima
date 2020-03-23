@@ -32,7 +32,7 @@ class ProductCategory extends DataObject {
 
 
     public function getCMSFields() {
-        $fields = new FieldList();
+        $fields = parent::getCMSFields();
 
 
 
