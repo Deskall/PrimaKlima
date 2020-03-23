@@ -5,6 +5,8 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Assets\Folder;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DB;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class ProductCategory extends DataObject {
 
@@ -70,8 +72,9 @@ class ProductCategory extends DataObject {
     public function getCMSFields() {
         $fields = parent::getCMSFields();
         $fields->fieldByName('Root.Main.Image')->setFolderName($this->getFolderName());
-        $config = new GridFieldConfig();
-        $fields->fieldByName('Root.Products.Products')->getConfig()->
+        $config = new GridFieldConfig_RecordEditor();
+        $config->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldDuplicateAction());
+        $fields->fieldByName('Root.Products.Products')->setConfig($config);
 
         return $fields;
     }
