@@ -26,6 +26,7 @@ class Product extends DataObject {
 
     private static $db = array(
         'Title' => 'Varchar(255)',
+        'Lead' => 'HTMLText',
         'Description' => 'HTMLText',
         'Price' => 'Currency',
         'TransportPrice' => 'Currency'
@@ -38,7 +39,12 @@ class Product extends DataObject {
 
     private static $has_one = array(
         'Category' =>  ProductCategory::class,
+        'MainBild' => Image::class
     );
+
+    private static $many_many = ['Images' => Image::class];
+
+    private static $many_many_extraFields = ['Images' => ['Sort' => 'Int']];
 
     private static $singular_name = 'Produkt';
     private static $plural_name = 'Produkte';
@@ -51,8 +57,13 @@ class Product extends DataObject {
     public function fieldLabels($includerelation = true){
         $labels = parent::fieldLabels($includerelation);
         $labels['Title'] = _t('Product.Title', 'Titel');
-       
-
+        $labels['Lead'] = _t('Product.Lead', 'Einstiegstext');
+        $labels['Description'] = _t('Product.Description', 'Beschreibung');
+        $labels['Price'] = _t('Product.Price', 'Preis');
+        $labels['TransportPrice'] = _t('Product.TransportPrice', 'Versandkosten');
+        $labels['Category'] = _t('Product.Category', 'Kategorie');
+        $labels['MainBild'] = _t('Product.MainBild', 'Hauptbild');
+        $labels['Images'] =  _t('Product.Images', 'Bilder');
         return $labels;
     }
 
