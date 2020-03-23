@@ -44,14 +44,15 @@ class ProductCategory extends DataObject {
     public function onBeforeWrite(){
         parent::onBeforeWrite();
         $this->URLSegment = URLSegmentFilter::create()->filter($this->Title);
-        // if ($this->isChanged('URLSegment') && ($changedFields['URLSegment']['before'] != $changedFields['URLSegment']['after']) ){
-        //         $oldFolderPath = 'Uploads/Webshop/'.URLSegmentFilter::create()->filter($changedFields['URLSegment']['before']);
-        //         $newFolder = Folder::find_or_make($oldFolderPath);
-        //         $newFolder->Name = $changedFields['URLSegment']['after'];
-        //         $newFolder->Title = $changedFields['URLSegment']['after'];
-        //         $newFolder->write();
+        $changedFields = $this->getChangedFields();
+        if ($this->isChanged('URLSegment') && ($changedFields['URLSegment']['before'] != $changedFields['URLSegment']['after']) ){
+                $oldFolderPath = 'Uploads/Webshop/'.URLSegmentFilter::create()->filter($changedFields['URLSegment']['before']);
+                $newFolder = Folder::find_or_make($oldFolderPath);
+                $newFolder->Name = $changedFields['URLSegment']['after'];
+                $newFolder->Title = $changedFields['URLSegment']['after'];
+                $newFolder->write();
             
-        // }
+        }
         if ($this->Image()->exists()){
             $folder = Folder::find_or_make($this->getFolderName());
             $this->Image()->ParentID = $folder->ID;
