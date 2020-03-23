@@ -1,7 +1,7 @@
 <?php
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\FieldList;
-
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class ProductCategory extends DataObject {
 
@@ -35,7 +35,18 @@ class ProductCategory extends DataObject {
         'Sortable'
     ];
 
-
+    public function onBeforeWrite(){
+        parent::onBeforeWrite();
+        $this->URLSegment = URLSegmentFilter::create()->filter($this->Title);
+        if ($this->isChanged('URLSegment') && ($changedFields['URLSegment']['before'] != $changedFields['URLSegment']['after']) ){
+                $oldFolderPath = 'Uploads/Webshop/'.$changedFields['URLSegment']['before'];
+                $newFolder = Folder::find_or_make($oldFolderPath);
+                $newFolder->Name = $changedFields['URLSegment']['after'];
+                $newFolder->Title = $changedFields['URLSegment']['after'];
+                $newFolder->write();
+            } 
+        }
+    }
 
     public function getCMSFields() {
         $fields = parent::getCMSFields();
