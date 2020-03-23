@@ -83,9 +83,12 @@ class ProductCategory extends DataObject {
         $fields = parent::getCMSFields();
         $fields->removeByName('URLSegment');
         $fields->fieldByName('Root.Main.Image')->setFolderName($this->getFolderName());
-        $config = new GridFieldConfig_RecordEditor();
-        $config->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldDuplicateAction());
-        $fields->fieldByName('Root.Products.Products')->setConfig($config);
+        if ($this->ID > 0 ){
+            $config = new GridFieldConfig_RecordEditor();
+            $config->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldDuplicateAction());
+            $fields->fieldByName('Root.Products.Products')->setConfig($config);
+        }
+        
 
         return $fields;
     }
