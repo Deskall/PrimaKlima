@@ -47,6 +47,7 @@ class ProductCategory extends DataObject {
         $labels['Title'] = 'Titel';
         $labels['Description'] = 'Beschreibung';
         $labels['Products'] =  'Produkte';
+        $labels['Image'] =  'Bild';
 
         return $labels;
     }
