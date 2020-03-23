@@ -42,6 +42,15 @@ class ProductCategory extends DataObject {
         'Sortable'
     ];
 
+    public function fieldLabels($includerelation = true){
+        $labels = parent::fieldLabels($includerelation);
+        $labels['Title'] = 'Titel';
+        $labels['Description'] = 'Beschreibung';
+        $labels['Products'] =  'Produkte';
+
+        return $labels;
+    }
+
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
