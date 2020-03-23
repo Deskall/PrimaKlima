@@ -80,6 +80,7 @@ class ProductCategory extends DataObject {
 
     public function getCMSFields() {
         $fields = parent::getCMSFields();
+        $fields->removeByName('URLSegment');
         $fields->fieldByName('Root.Main.Image')->setFolderName($this->getFolderName());
         $config = new GridFieldConfig_RecordEditor();
         $config->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldDuplicateAction());
