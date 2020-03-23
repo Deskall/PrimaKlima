@@ -2,7 +2,7 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\View\Parsers\URLSegmentFilter;
-use SilverStripe\Assets\Folder:
+use SilverStripe\Assets\Folder;
 
 class ProductCategory extends DataObject {
 
