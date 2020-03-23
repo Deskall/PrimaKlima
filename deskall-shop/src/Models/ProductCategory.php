@@ -4,6 +4,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Assets\Folder;
 use SilverStripe\Assets\Image;
+use SilverStripe\ORM\DB;
 
 class ProductCategory extends DataObject {
 
