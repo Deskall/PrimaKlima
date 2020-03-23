@@ -7,7 +7,8 @@ class ProductCategory extends DataObject {
 
     private static $db = array(
         'Title' => 'Varchar(255)',
-        'Description' => 'HTMLText'
+        'Description' => 'HTMLText',
+        'URLSegment' => 'Varchar(255)'
     );
 
 
@@ -15,6 +16,11 @@ class ProductCategory extends DataObject {
 
     private static $summary_fields = array(
         'Title' => 'Titel',
+    );
+
+
+    private static $has_one = array(
+        'Image' =>  Image::class,
     );
 
     private static $has_many = array(
@@ -33,10 +39,14 @@ class ProductCategory extends DataObject {
 
     public function getCMSFields() {
         $fields = parent::getCMSFields();
-
+        $fields->fieldByName('Root.Main.Image')->setFolderName($this->getFolderName());
 
 
         return $fields;
+    }
+
+    public function getFolderName(){
+        return 'Uploads/Webshop/'.$this->URLSegment;
     }
 
 }
