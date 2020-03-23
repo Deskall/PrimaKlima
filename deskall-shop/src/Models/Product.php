@@ -44,8 +44,8 @@ class Product extends DataObject {
         'Category' =>  ProductCategory::class,
     );
 
-    private static $singular_name = 'Paket';
-    private static $plural_name = 'Pakete';
+    private static $singular_name = 'Produkt';
+    private static $plural_name = 'Produkte';
 
     private static $extensions = [
         'Activable',

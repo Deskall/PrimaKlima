@@ -70,7 +70,8 @@ class ProductCategory extends DataObject {
     public function getCMSFields() {
         $fields = parent::getCMSFields();
         $fields->fieldByName('Root.Main.Image')->setFolderName($this->getFolderName());
-
+        $config = new GridFieldConfig();
+        $fields->fieldByName('Root.Products.Products')->getConfig()->
 
         return $fields;
     }
