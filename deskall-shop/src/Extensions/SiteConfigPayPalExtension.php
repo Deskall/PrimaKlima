@@ -25,11 +25,9 @@ class SiteConfigPayPalExtension extends DataExtension
     'BillEmailBody' => 'HTMLText',
     'PaymentEmailSubject' => 'Varchar',
     'PaymentEmailBody' =>  'HTMLText',
-    'CloseToDesactivationEmailSubject' => 'Varchar',
-    'CloseToDesactivationEmailBody' => 'HTMLText',
-    'DesactivationEmailSubject' => 'Varchar',
-    'DesactivationEmailBody' => 'HTMLText',
-    
+    'TransportPrice' => 'Currency',
+    'MwSt' => 'Decimal(2)',
+  
   ];
 
   private static $has_one = [
@@ -56,14 +54,12 @@ class SiteConfigPayPalExtension extends DataExtension
      $labels['PaymentConfirmedLabel'] = _t(__CLASS__.'.PaymentConfirmedLabel','Zahlungsbestätigungstext');
      $labels['BillEmailSubject'] = _t(__CLASS__.'.BillEmailSubject','Rechnungsemail Betreff');
      $labels['BillEmailBody'] = _t(__CLASS__.'.BillEmailBody','Rechnungsemail Inhalt');
-     $labels['CloseToDesactivationEmailSubject'] = _t(__CLASS__.'.CloseToDesactivationEmailSubject','Erinnerungsemail 5 Tage vor Deaktivierung Betreff');
-     $labels['CloseToDesactivationEmailBody'] = _t(__CLASS__.'.CloseToDesactivationEmailBody','Erinnerungsemail 5 Tage vor Deaktivierung Inhalt');
-     $labels['DesactivationEmailSubject'] = _t(__CLASS__.'.DesactivationEmailSubject','Konto deaktiviert Email Betreff');
-     $labels['DesactivationEmailBody'] = _t(__CLASS__.'.DesactivationEmailBody','Konto deaktiviert Email Inhalt');
      $labels['PaymentEmailSubject'] = _t(__CLASS__.'.PaymentEmailSubject','Zahlunsbestätigungsemail Betreff');
      $labels['PaymentEmailBody'] = _t(__CLASS__.'.PaymentEmailBody','Zahlunsbestätigungsemail Inhalt');
      $labels['AGBFile'] = _t(__CLASS__.'.AGBFile','AGB Datei');
      $labels['ReceiptFile'] = _t(__CLASS__.'.ReceiptFile','Quittung Vorlage');
+     $labels['TransportPrice'] = _t(__CLASS__.'.TransportPrice','standard Transportkosten');
+     $labels['MwSt'] = _t(__CLASS__.'.MwSt','% MwSt.');
   }
 
   public function updateCMSFields(FieldList $fields) {
@@ -72,6 +68,8 @@ class SiteConfigPayPalExtension extends DataExtension
       
       TextField::create('PayPalClientID'),
       TextField::create('PayPalSecret'),
+      CurrencyField::create('TransportPrice',$this->owner->fieldLabels()['TransportPrice']),
+      CurrencyField::create('MwSt',$this->owner->fieldLabels()['MwSt']),
       NumericField::create('ClientNumberOffset',$this->owner->fieldLabels()['ClientNumberOffset']),
       NumericField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']),
       HTMLEditorField::create('BillPayLabel',$this->owner->fieldLabels()['BillPayLabel'])->setRows(5),
@@ -80,10 +78,6 @@ class SiteConfigPayPalExtension extends DataExtension
       HTMLEditorField::create('BillEmailBody',$this->owner->fieldLabels()['BillEmailBody'])->setRows(5),
       TextField::create('PaymentEmailSubject',$this->owner->fieldLabels()['PaymentEmailSubject']),
       HTMLEditorField::create('PaymentEmailBody',$this->owner->fieldLabels()['PaymentEmailBody'])->setRows(5),
-      TextField::create('CloseToDesactivationEmailSubject',$this->owner->fieldLabels()['CloseToDesactivationEmailSubject']),
-      HTMLEditorField::create('CloseToDesactivationEmailBody',$this->owner->fieldLabels()['CloseToDesactivationEmailBody'])->setRows(5),
-      TextField::create('DesactivationEmailSubject',$this->owner->fieldLabels()['DesactivationEmailSubject']),
-      HTMLEditorField::create('DesactivationEmailBody',$this->owner->fieldLabels()['DesactivationEmailBody'])->setRows(5),
       UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setFolderName('Uploads/Vorlagen'),
       UploadField::create('BillFile',$this->owner->fieldLabels()['BillFile'])->setFolderName('Uploads/Vorlagen'),
       UploadField::create('ReceiptFile',$this->owner->fieldLabels()['ReceiptFile'])->setFolderName('Uploads/Vorlagen')
