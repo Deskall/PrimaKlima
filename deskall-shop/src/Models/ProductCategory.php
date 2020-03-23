@@ -60,21 +60,7 @@ class ProductCategory extends DataObject {
         }
     }
 
-    public function onAfterWrite()
-    {
-        if ($this->isChanged('ImageID')){
-            $changedFields = $this->getChangedFields();
-            $oldPicture = Image::get()->byId($changedFields['ImageID']['before']);
-            if ($oldPicture){
-                $oldPicture->File->deleteFile();
-                DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($oldPicture->ID));
-                $oldPicture->delete();
-            }
-        }
-        
-        parent::onAfterWrite();
-       
-    }
+  
 
     public function getCMSFields() {
         $fields = parent::getCMSFields();
