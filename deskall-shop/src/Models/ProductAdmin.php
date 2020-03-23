@@ -19,11 +19,8 @@ class ProductAdmin extends ModelAdmin{
 	
 	private static $managed_models = [
 		
-		'Package' => [
-			'title' => 'Pakete'
-		],
-		'PackageConfigItem' => [
-			'title' => 'Pakete-Features'
+		'ProductCategory' => [
+			'title' => 'Kategorien'
 		],
 		'ShopOrder' => [
 			'title' => 'Bestellungen'
@@ -38,10 +35,7 @@ class ProductAdmin extends ModelAdmin{
 	public function getEditForm($id = null, $fields = null) {
 	    $form = parent::getEditForm($id, $fields);
 
-	    if($this->modelClass == 'PackageConfigItem' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
-	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction());
-	    }
-	    if($this->modelClass == 'Package' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+	    if($this->modelClass == 'ProductCategory' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
 	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
 	    }
 

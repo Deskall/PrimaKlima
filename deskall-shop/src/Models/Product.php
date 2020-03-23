@@ -22,34 +22,26 @@ use SilverStripe\i18n\i18n;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 
-class Package extends DataObject {
+class Product extends DataObject {
 
     private static $db = array(
         'Title' => 'Varchar(255)',
         'Description' => 'HTMLText',
-        'NumOfAds' => 'Int',
-        'NumOfAdsTitle' => 'Varchar(255)',
         'Price' => 'Currency',
-        'SalePrice' => 'Currency',
-        'RunTime' => 'Int',
-        'RunTimeTitle' => 'Varchar(255)',
-        'RunTimeCurrency' => 'Varchar(255)',
-        'isFlatrate' => 'Boolean'
+        'TransportPrice' => 'Currency'
     );
 
-    private static $many_many = array(
-        'Features' => PackageConfigItem::class,
-    );
-
-    private static $has_many = array(
-        'PackegeOptions' => 'PackageOption',
-    );
+    
 
     private static $cascade_duplicates = ['Features'];
 
 
     private static $summary_fields = array(
         'Title' => 'Titel',
+    );
+
+    private static $has_one = array(
+        'Category' =>  ProductCategory::class,
     );
 
     private static $singular_name = 'Paket';
