@@ -22,6 +22,7 @@ use SilverStripe\i18n\i18n;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use Bummzack\SortableFile\Forms\SortableUploadField;
+use SilverStripe\Assets\Image;
 
 class Product extends DataObject {
 
