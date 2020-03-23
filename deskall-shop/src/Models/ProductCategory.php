@@ -3,7 +3,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\FieldList;
 
 
-class Product extends DataObject {
+class ProductCategory extends DataObject {
 
     private static $db = array(
         'Title' => 'Varchar(255)',
