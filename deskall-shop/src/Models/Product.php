@@ -21,6 +21,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\i18n\i18n;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
+use Bummzack\SortableFile\Forms\SortableUploadField;
 
 class Product extends DataObject {
 
@@ -29,7 +30,8 @@ class Product extends DataObject {
         'Lead' => 'HTMLText',
         'Description' => 'HTMLText',
         'Price' => 'Currency',
-        'TransportPrice' => 'Currency'
+        'TransportPrice' => 'Currency',
+        'URLSegment' => 'Varchar(255)'
     );
 
 
@@ -71,10 +73,21 @@ class Product extends DataObject {
 
     public function getCMSFields() {
         $fields = parent::getCMSFields();
-
-      
+        $fields->removeByName('URLSegment');
+        $fields->insertAfter('MainBild',SortableUploadField::create('Images',$this->fieldLabels()['Images'])->setIsMultiUpload(true)->setFolderName($this->getFolderName()));
+        
 
         return $fields;
+    }
+
+    public function getFolderName(){
+        if($this->URLSegment){
+            return $this->Category()->getFolderName().'/'.$this->URLSegment;
+        }
+        else{
+            return $this->Category()->getFolderName().'/tmp';
+        }
+        
     }
 
 
