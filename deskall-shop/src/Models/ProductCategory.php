@@ -44,7 +44,7 @@ class ProductCategory extends DataObject {
                 $newFolder->Name = $changedFields['URLSegment']['after'];
                 $newFolder->Title = $changedFields['URLSegment']['after'];
                 $newFolder->write();
-            } 
+            
         }
     }
 
