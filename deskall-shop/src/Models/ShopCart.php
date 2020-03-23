@@ -38,13 +38,11 @@ class ShopCart extends DataObject {
 
 	private static $has_one = [
 		'Order' => ShopOrder::class,
-		'Package' => Package::class,
 		'Customer' => ShopCustomer::class
 	];
 
 	private static $many_many = [
 		'Products' => Product::class,
-		'Options' => ProductOption::class
 	];
 
 	private static $many_many_extraFields = [
