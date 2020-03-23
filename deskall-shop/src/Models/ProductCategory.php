@@ -52,12 +52,12 @@ class ProductCategory extends DataObject {
                 $newFolder->write();
             
         }
-        if ($this->Image()->exists()){
-            $folder = Folder::find_or_make($this->getFolderName());
-            $this->Image()->ParentID = $folder->ID;
-            $this->Image()->write();
-            $this->Image()->publishSingle();
-        }
+        // if ($this->Image()->exists()){
+        //     $folder = Folder::find_or_make($this->getFolderName());
+        //     $this->Image()->ParentID = $folder->ID;
+        //     $this->Image()->write();
+        //     $this->Image()->publishSingle();
+        // }
     }
 
   
