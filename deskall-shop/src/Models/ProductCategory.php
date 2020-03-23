@@ -49,7 +49,7 @@ class ProductCategory extends DataObject {
                 $oldFolderPath = 'Uploads/Webshop/'.URLSegmentFilter::create()->filter($changedFields['Title']['before']);
                 $newFolder = Folder::find_or_make($oldFolderPath);
                 $newFolder->Name = 'Uploads/Webshop/'.URLSegmentFilter::create()->filter($changedFields['Title']['after']);
-                $newFolder->Title = $changedFields['Title']['after'];
+                $newFolder->Title = 'Uploads/Webshop/'.URLSegmentFilter::create()->filter($changedFields['Title']['after']);
                 $newFolder->write();
             
         }
