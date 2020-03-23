@@ -16,7 +16,7 @@ class ProductCategory extends DataObject {
 
     private static $cascade_duplicates = ['Products'];
 
-    private static $cascade_delete = ['Products'];
+    private static $cascade_deletes = ['Products'];
 
     private static $summary_fields = array(
         'Title' => 'Titel',
