@@ -173,7 +173,7 @@
 			url: '/shop/updateCart',
 			method: 'POST',
 			dataType: 'html',
-			data: {productID: productID}
+			data: {productID: productID,quantity: quantity}
 		}).done(function(response){
 			$(".cart-container").each(function(){
 				$(this).empty().append(response);
