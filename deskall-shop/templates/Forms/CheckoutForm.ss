@@ -48,17 +48,32 @@
 			<li class="account-tab" data-index="2">
 				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
 				<div class="uk-margin">
-					<div class="uk-child-width-1-2@s" data-uk-grid data-uk-height-match=".uk-card">
+					<div class="uk-child-width-1-3@s" data-uk-grid data-uk-height-match=".uk-card">
+						<div>
+							<div class="uk-card uk-card-body uk-card-default uk-text-center">
+								<div class="icon-large"><i class="icon icon-ios-money"></i></div>
+								<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="cash" required="required"><label for="cash-choice"><%t Shop.CashPayLabel 'Bargeld' %></label>
+								<div class="uk-margin">
+									$CashTransportCostLabel
+								</div>
+							</div>
+						</div>
 						<div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-ios-paper"></i></div>
 								<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill" required="required"><label for="bill-choice"><%t Shop.BillPayLabel 'Ich bezahle per Rechnung' %></label>
+								<div class="uk-margin">
+									$CashTransportCostLabel
+								</div>
 							</div>
 						</div>
 						<div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-card"></i></div>
 								<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online" required="required"><label for="online-choice"><%t Shop.OnlinePayLabel 'Ich bezahle online mit meiner Kreditkarte oder meinem PayPal-Konto' %></label>
+								<div class="uk-margin">
+									$CashTransportCostLabel
+								</div>
 							</div>
 						</div>
 					</div>
