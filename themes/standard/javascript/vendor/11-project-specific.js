@@ -145,7 +145,7 @@
 
 	//Toggle cart (all pages)
 	$(document).on("click",".toggle-cart",function(){
-		UIkit.toggle($("#cart-container")).toggle();
+		UIkit.toggle("#cart-container").toggle();
 	});
 
 	$(document).on("click",".add-to-cart",function(){
