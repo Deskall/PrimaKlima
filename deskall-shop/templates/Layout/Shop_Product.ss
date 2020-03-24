@@ -3,8 +3,8 @@
 	<div class="uk-container">
 		<div class="breadcrumbs">
 			<ul class="uk-breadcrumb">
-			    <li><a href="/webshop"></a>Bewusstsein Leben Shop</li>
-			    <li><a href="$Category.Link"></a>$Category.Title</li>
+			    <li><a href="/webshop">Bewusstsein Leben Shop</a></li>
+			    <li><a href="$Category.Link">$Category.Title</a></li>
 			    <li><span>$Title</span></li>
 			</ul>
 		</div>
