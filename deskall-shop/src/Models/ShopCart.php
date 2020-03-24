@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class ShopCart extends DataObject {
 
