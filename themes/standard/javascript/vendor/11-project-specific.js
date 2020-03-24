@@ -57,7 +57,6 @@
 			            bar.attr('hidden', 'hidden');
 			        }, 1000);
 			    }
-
 			});
 
 			$(".dk-cancel-picture").on("click",function(){
