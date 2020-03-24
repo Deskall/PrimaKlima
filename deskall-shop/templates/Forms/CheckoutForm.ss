@@ -69,6 +69,12 @@
 						<% with Fields.FieldByName('BillFields') %>
 							$FieldHolder
 						<% end_with %>
+						<div id="delivery-form-container" class="uk-margin" hidden>
+							<h4><%t Checkout.DeliveryAddress 'Lieferungsadresse' %></h4>
+							<% with Fields.FieldByName('DeliveryFields') %>
+								$FieldHolder
+							<% end_with %>
+						</div>
 					</div>
 				</div>
 				<div class="uk-flex uk-flex-between">
