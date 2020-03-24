@@ -93,6 +93,10 @@ class Product extends DataObject {
         
     }
 
+    public function Link(){
+        return 'shop/produkt/'.$this->URLSegment;
+    }
+
 
     public function OrderLink(){
         return ShopPage::get()->first()->Link();

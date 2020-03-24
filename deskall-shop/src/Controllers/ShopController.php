@@ -31,10 +31,11 @@ use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ShopController extends PageController{
-	private static $allowed_actions = ['Category'];
+	private static $allowed_actions = ['Category','Product'];
 
 	private static $url_handlers = [
-		'kategorie//$URLSegment' => 'Category'
+		'kategorie//$URLSegment' => 'Category',
+		'produkt//$URLSegment' => 'Product'
 	];
 
 	public function init(){
@@ -48,6 +49,17 @@ class ShopController extends PageController{
 			$category = ProductCategory::get()->filter('URLSegment',$URLSegment)->first();
 			if ($category){
 				return ['Title' => $category->Title, 'Category' => $category ];
+			}
+		}
+		return $this->httpError(404);
+	}
+
+	public function Product(HTTPRequest $request){
+		$URLSegment = $request->param('URLSegment');
+		if ($URLSegment){
+			$product = Product::get()->filter('URLSegment',$URLSegment)->first();
+			if ($product){
+				return ['Title' => $product->Title, 'Product' => $product ];
 			}
 		}
 		return $this->httpError(404);
