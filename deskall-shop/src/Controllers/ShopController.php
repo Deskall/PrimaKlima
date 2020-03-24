@@ -84,7 +84,7 @@ class ShopController extends PageController{
 	   			print_r('cart id: '.$id );
 	   			$result = ob_get_clean();
 	   			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-	   $cart = null;
+	 
 	   if ($id){
 	      $cart = ShopCart::get()->byId($id);
 	      	if ($cart){
@@ -94,7 +94,7 @@ class ShopController extends PageController{
 				   	if ($product){
 				   		$quantity = ($request->postVar('Quantity')) ? $request->postVar('Quantity') : 1;
 				   		$sort = $cart->Products()->count() + 1;
-				   		$cart->Products()->add($product,['Quantity' => $quantity, 'Sort' => $sort]);
+				   		$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort]);
 				   	}
 				}
 				return $cart->renderWith('Includes/ShopCart');
