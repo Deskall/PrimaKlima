@@ -44,8 +44,7 @@ class ShopPageController extends PageController{
 	}
 
 	public function CheckoutForm(){
-		$member =  Security::getCurrentUser();
-		$customer = JobGiver::get()->filter('MemberID',$member->ID)->first();
+		// $customer = ShopCustomer::get()->filter('MemberID',$member->ID)->first();
 
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".SiteConfig::current_site_config()->PayPalClientID."&currency=EUR&locale=de_DE");
 		Requirements::javascript("deskall-shop/javascript/shop.js");
@@ -53,9 +52,8 @@ class ShopPageController extends PageController{
 		Requirements::javascript("deskall-shop/javascript/messages_de.min.js");
 		$fields = FieldList::create(
 			HiddenField::create('ProductID'),
-			HiddenField::create('OptionID'),
 			HiddenField::create('PaymentType'),
-			HiddenField::create('CustomerID')->setValue($customer->ID),
+			// HiddenField::create('CustomerID')->setValue($customer->ID),
 			HiddenField::create('VoucherID'),
 			CompositeField::create(
 				TextField::create('BillingAddressCompany',_t(__CLASS__.'.BillingAddressCompany','Firma')),
@@ -85,21 +83,21 @@ class ShopPageController extends PageController{
 		$form->setTemplate('Forms/CheckoutForm');
 		$form->addExtraClass('uk-form-horizontal form-std');
 		//Pre-fill Address fields
-		$fields = $form->Fields();
-		if ($customer->BillingAddressIsCompanyAddress){
-			$fields->dataFieldByName('BillingAddressCompany')->setValue($customer->Company);
-			$fields->dataFieldByName('BillingAddressStreet')->setValue($customer->Address);
-			$fields->dataFieldByName('BillingAddressPostalCode')->setValue($customer->PostalCode);
-			$fields->dataFieldByName('BillingAddressPlace')->setValue($customer->City);
-			$fields->dataFieldByName('BillingAddressCountry')->setValue($customer->Country);
-		}
-		else{
-			$fields->dataFieldByName('BillingAddressCompany')->setValue($customer->BillingAddressCompany);
-			$fields->dataFieldByName('BillingAddressStreet')->setValue($customer->BillingAddressStreet);
-			$fields->dataFieldByName('BillingAddressPostalCode')->setValue($customer->BillingAddressPostalCode);
-			$fields->dataFieldByName('BillingAddressPlace')->setValue($customer->BillingAddressPlace);
-			$fields->dataFieldByName('BillingAddressCountry')->setValue($customer->BillingAddressCountry);
-		}
+		// $fields = $form->Fields();
+		// if ($customer->BillingAddressIsCompanyAddress){
+		// 	$fields->dataFieldByName('BillingAddressCompany')->setValue($customer->Company);
+		// 	$fields->dataFieldByName('BillingAddressStreet')->setValue($customer->Address);
+		// 	$fields->dataFieldByName('BillingAddressPostalCode')->setValue($customer->PostalCode);
+		// 	$fields->dataFieldByName('BillingAddressPlace')->setValue($customer->City);
+		// 	$fields->dataFieldByName('BillingAddressCountry')->setValue($customer->Country);
+		// }
+		// else{
+		// 	$fields->dataFieldByName('BillingAddressCompany')->setValue($customer->BillingAddressCompany);
+		// 	$fields->dataFieldByName('BillingAddressStreet')->setValue($customer->BillingAddressStreet);
+		// 	$fields->dataFieldByName('BillingAddressPostalCode')->setValue($customer->BillingAddressPostalCode);
+		// 	$fields->dataFieldByName('BillingAddressPlace')->setValue($customer->BillingAddressPlace);
+		// 	$fields->dataFieldByName('BillingAddressCountry')->setValue($customer->BillingAddressCountry);
+		// }
 
 		return $form;
 	}
