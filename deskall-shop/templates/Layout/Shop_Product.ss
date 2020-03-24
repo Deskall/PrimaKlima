@@ -10,7 +10,7 @@
 		</div>
 		<h1>$Title</h1>
 		<div data-uk-grid>
-		        <div class="uk-width-1-3@m">
+		    <div class="uk-width-1-3@m">
 		          <div class="uk-position-relative" data-uk-slideshow="animation: fade;min-height:350;">
 
 		              <ul class="uk-slideshow-items"  data-uk-lightbox="$ID">
@@ -43,8 +43,8 @@
 		              </div>
 		              <% end_if %>
 		          </div>
-		        </div>
-		        <div class="uk-width-2-3@m">
+		    </div>
+		    <div class="uk-width-2-3@m">
 		        	<% if Lead %>
 		        		<div class="uk-margin">$Lead</div>
 		        	<% end_if %>
@@ -59,17 +59,18 @@
 				              	<tr><td>MwSt.:</td><td>7.7%</td></tr>
 				              	<tr><td>Zuzüglich Porto und Verpackung</td><td>&nbsp;</td></tr>
 				              </table>
-				          </div>
-				          <div>
-				          	<div class="uk-margin"><a href="$Top.ShopPage.Link" class="uk-button button-SecondaryBackground uk-width-1-1 uk-border-rounded"><i class="uk-margin-small-right" data-uk-icon="cart"></i><%t Webshop.ToCart 'in den Warenkorb' %></a></div>
-				          	<div class="uk-margin">agb, konditionen</div>
-				          </div>
-		            </div>
-		            <div class="uk-margin">
-		            	$Top.SiteConfig.FootertextProduct
-		            </div>
-		        </div>
-		      </div>
+				          	</div>
+				          	<div>
+				          		<div class="uk-margin"><a href="$Top.ShopPage.Link" class="uk-button button-SecondaryBackground uk-width-1-1 uk-border-rounded"><i class="uk-margin-small-right" data-uk-icon="cart"></i><%t Webshop.ToCart 'in den Warenkorb' %></a></div>
+				          		<div class="uk-margin">agb, konditionen</div>
+				          	</div>
+		            	</div>
+		        	</div>
+		    </div>
+		</div>
+		<div class="uk-margin">
+			$Top.SiteConfig.FootertextProduct
+		</div>
 	</div>
 </section>
 <% end_with %>
