@@ -43,6 +43,15 @@ class ShopPageController extends PageController{
 		
 	}
 
+	public function activeCart(){
+		$id = $this->getRequest()->getSession()->get('shopcart_id');
+		if ($id){
+		   $cart = ShopCart::get()->byId($id);
+		   return $cart;
+		}
+		return null;
+	}
+
 	public function CheckoutForm(){
 		// $customer = ShopCustomer::get()->filter('MemberID',$member->ID)->first();
 		$privacyPolicy = PrivatePolicyPage::get()->first();

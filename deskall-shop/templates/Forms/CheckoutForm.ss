@@ -16,8 +16,8 @@
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
 			<li class="account-tab" data-index="0">
-				<h3><%t Checkout.ChoosePackage 'Ihr Einkaufswagen' %></h3>
-					<% with activeCart %>
+				<h3><%t Checkout.ShopCartTitle 'Ihr Einkaufswagen' %></h3>
+					<% with Controller.activeCart %>
 					   <table class="uk-table uk-table-small uk-table-divider">
 					   	<thead><th><%t Webshop.Product 'Produkt' %></th><th><%t Webshop.Quantity 'Menge' %></th><th><%t Webshop.UniquePrice 'Einzelpreis' %></th><th><%t Webshop.Subtotak 'Betrag' %></th></thead>
 					   	<tbody>
