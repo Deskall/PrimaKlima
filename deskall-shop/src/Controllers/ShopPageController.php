@@ -52,9 +52,6 @@ class ShopPageController extends PageController{
 		return null;
 	}
 
-	public function Webshop(){
-		return SiteConfig::current_site_config()->ShopPage();
-	}
 
 	public function CheckoutForm(){
 		// $customer = ShopCustomer::get()->filter('MemberID',$member->ID)->first();

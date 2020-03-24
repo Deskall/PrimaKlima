@@ -135,6 +135,10 @@ class ShopCart extends DataObject {
 		return ShopPage::get()->first();
 	}
 
+	public function Webshop(){
+		return SiteConfig::current_site_config()->ShopPage();
+	}
+
 
 	public function isEmpty(){
 		return (!$this->Product()->exists());
