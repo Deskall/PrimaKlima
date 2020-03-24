@@ -94,7 +94,10 @@ class ProductCategory extends DataObject {
         else{
             return 'Uploads/Webshop/tmp';
         }
-        
+    }
+
+    public function Link(){
+        return 'webshop/'.$this->URLSegment;
     }
 
 }
