@@ -8,7 +8,7 @@
 			<% include ShopCartProducts %>
 		</div>
 		<div class="uk-card-footer">
-			<a href="$Top.ShopPage.Link" class="uk-button BlackBackground"><%t Webshop.Checkout 'Zur Kasse' %></a>
+			<a href="$ShopPage.Link" class="uk-button BlackBackground"><%t Webshop.Checkout 'Zur Kasse' %></a>
 		</div>
 	</div>
 </div>

@@ -131,6 +131,10 @@ class ShopCart extends DataObject {
 		$this->TotalPrice = $price;
 	}
 
+	public function ShopPage(){
+		return ShopPage::get()->first();
+	}
+
 
 	public function isEmpty(){
 		return (!$this->Product()->exists());
