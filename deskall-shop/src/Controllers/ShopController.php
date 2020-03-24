@@ -97,7 +97,7 @@ class ShopController extends PageController{
 				   		$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort]);
 				   	}
 				}
-				return $cart->renderWith('Includes/ShopCart');
+				return $cart->renderWith('Includes/ShopCartProducts');
 		    }
 		}
 	}

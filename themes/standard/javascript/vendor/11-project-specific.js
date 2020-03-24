@@ -175,7 +175,7 @@
 			dataType: 'html',
 			data: {productID: productID,quantity: quantity}
 		}).done(function(response){
-			$(".cart-container").each(function(){
+			$(".order-preview").each(function(){
 				$(this).empty().append(response);
 			});
 		});
