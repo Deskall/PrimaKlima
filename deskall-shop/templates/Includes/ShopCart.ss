@@ -1,4 +1,4 @@
-<div class="uk-position-fixed uk-position-center-right">
+<div class="uk-position-fixed uk-position-center-right uk-position-small">
 	<div class="uk-card WhiteBackground uk-card-hover uk-box-shadow-medium uk-card-small">
 		<div class="uk-card-header">
 			<h3 class="uk-card-title"><%t Webshop.Cart 'Einkaufswagen' %></h3>
