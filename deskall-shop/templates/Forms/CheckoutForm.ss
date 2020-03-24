@@ -26,7 +26,6 @@
 					   		<% end_loop %>
 					   	</tbody>
 					<% end_with %>
-				</div>
 			</li>
 			<li class="account-tab" data-index="1">
 				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
