@@ -61,7 +61,7 @@
 				              </table>
 				          </div>
 				          <div>
-				          	Kaufen
+				          	<div class="uk-margin"><a href="$Top.ShopPage.Link" class="uk-button button-SecondaryBackground"><i class="uk-margin-small-right" data-uk-icon="cart"></i><%t Webshop.ToCart 'in den Warenkorb' %></a></div>
 				          </div>
 		            </div>
 		        </div>
