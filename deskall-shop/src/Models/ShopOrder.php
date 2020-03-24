@@ -39,13 +39,15 @@ class ShopOrder extends DataObject{
 	);
 
 	private static $has_one = array(
-		'Customer' => JobGiver::class,
+		'Customer' => ShopCustomer::class,
 		'BillFile'  => File::class,
 		'ReceiptFile' => File::class,
-		'Voucher' => Coupon::class,
-		'Product' => Package::class,
-		'Option' => PackageOption::class
+		'Voucher' => Coupon::class
 	);
+
+	private static $has_many = [
+		'Items' => OrderItem::class
+	];
 
 	private static $summary_fields = array(
 		'Nummer' => 'Rechnungsnummer',
