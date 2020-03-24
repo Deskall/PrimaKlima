@@ -31,7 +31,7 @@ use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ShopController extends PageController{
-	private static $allowed_actions = ['Category','Product','getActiveCart','updateCart'];
+	private static $allowed_actions = ['Category','Product','getActiveCart','updateCart','removeFromCart'];
 
 	private static $url_handlers = [
 		'kategorie//$URLSegment' => 'Category',
@@ -109,7 +109,6 @@ class ShopController extends PageController{
 			   	if ($productID){
 				   	$product = Product::get()->byId($productID);
 				   	if ($product){
-				   		
 				   		$cart->Products()->remove($product);
 				   		$cart->write();
 				   	}
