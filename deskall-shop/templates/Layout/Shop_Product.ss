@@ -34,10 +34,10 @@
 		             <div class="uk-margin-small-top uk-flex uk-flex-center uk-visible@s">
 		                  <ul class="uk-thumbnav">
 		                    <% with MainBild %>
-		                      <li data-uk-slideshow-item="0"><a href="#"><img src="$CroppedFocusedImage(100,80).URL" width="100" height="80" alt="" class="uk-border-circle"></a></li>
+		                      <li data-uk-slideshow-item="0"><a href="#"><img src="$FocusFill(100,80).URL" width="100" height="80" alt="" class="uk-border-circle"></a></li>
 		                      <% end_with %>
 		                      <% loop Images.sort('Sort') %>
-		                      <li data-uk-slideshow-item="$pos"><a href="#"><img src="$CroppedFocusedImage(100,80).URL" width="100" height="80" alt="" class="uk-border-circle"></a></li>
+		                      <li data-uk-slideshow-item="$pos"><a href="#"><img src="$FocusFill(100,80).URL" width="100" height="80" alt="" class="uk-border-circle"></a></li>
 		                      <% end_loop %>
 		                  </ul>
 		              </div>
