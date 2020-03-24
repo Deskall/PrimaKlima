@@ -100,6 +100,10 @@ class ProductCategory extends DataObject {
         return 'shop/kategorie/'.$this->URLSegment;
     }
 
+    public function activeProducts(){
+        return $this->Products()->filter('isVisible',1)->sort('Sort');
+    }
+
 }
 
 
