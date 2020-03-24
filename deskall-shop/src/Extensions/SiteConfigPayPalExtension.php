@@ -4,10 +4,12 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\NumericField;
+use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\CurrencyField;
 use SilverStripe\Assets\File;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\CMS\Model\SiteTree;
 
 class SiteConfigPayPalExtension extends DataExtension 
 {
@@ -35,8 +37,9 @@ class SiteConfigPayPalExtension extends DataExtension
   private static $has_one = [
      'BillFile' => File::class,
      'AGBFile' => File::class,
-     'ReceiptFile' => File::class
-  ];
+     'ReceiptFile' => File::class,
+     'ShopPage' => SiteTree::class
+   ];
 
   private static $owns = [
       'BillFile',
@@ -63,6 +66,7 @@ class SiteConfigPayPalExtension extends DataExtension
      $labels['TransportPrice'] = _t(__CLASS__.'.TransportPrice','standard Transportkosten');
      $labels['MwSt'] = _t(__CLASS__.'.MwSt','% MwSt.');
      $labels['FootertextProduct'] = _t(__CLASS__.'.FootertextProduct','standard Text für den Produkt-Seite Footer');
+     $labels['ShopPage'] = _t(__CLASS__.'.ShopPage','Webshop Hauptseite');
   }
 
   public function updateCMSFields(FieldList $fields) {
@@ -73,6 +77,7 @@ class SiteConfigPayPalExtension extends DataExtension
       TextField::create('PayPalSecret'),
       CurrencyField::create('TransportPrice',$this->owner->fieldLabels()['TransportPrice']),
       TextField::create('MwSt',$this->owner->fieldLabels()['MwSt']),
+      TreeDropdownField::create('ShopPage',$this->owner->fieldLabels()['ShopPage'],SiteTree::class),
       NumericField::create('ClientNumberOffset',$this->owner->fieldLabels()['ClientNumberOffset']),
       NumericField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']),
       HTMLEditorField::create('FootertextProduct',$this->owner->fieldLabels()['FootertextProduct'])->setRows(5),
