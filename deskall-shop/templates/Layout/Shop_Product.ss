@@ -9,7 +9,7 @@
 			</ul>
 		</div>
 		<h1>$Title</h1>
-		<div data-uk-grid>
+		<div class="uk-grid-small" data-uk-grid>
 		    <div class="uk-width-1-3@m uk-text-center">
 		          <div class="uk-position-relative" data-uk-slideshow="animation: fade;min-height:350;">
 
