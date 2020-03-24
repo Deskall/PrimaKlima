@@ -182,6 +182,7 @@
 
 
 	function UpdateOrderPreview(productID,quantity,context = null){
+		console.log(quantity);
 		//ici ajouter un
 		$.ajax({
 			url: '/shop/updateCart',
