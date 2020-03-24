@@ -51,7 +51,7 @@
 		        	<% if Description %>
 		        		<div class="uk-margin">$Description</div>
 		        	<% end_if %>
-		            <div class="uk-margin uk-padding-small">
+		            <div class="uk-margin">
 		            	<div class="uk-child-width-1-2@s uk-grid-small" data-uk-grid>
 		            		<div>
 				              <table class="uk-table uk-table-justify uk-table-small">
@@ -61,9 +61,12 @@
 				              </table>
 				          </div>
 				          <div>
-				          	<div class="uk-margin"><a href="$Top.ShopPage.Link" class="uk-button button-SecondaryBackground uk-width-1-1"><i class="uk-margin-small-right" data-uk-icon="cart"></i><%t Webshop.ToCart 'in den Warenkorb' %></a></div>
+				          	<div class="uk-margin"><a href="$Top.ShopPage.Link" class="uk-button button-SecondaryBackground uk-width-1-1 uk-border-rounded"><i class="uk-margin-small-right" data-uk-icon="cart"></i><%t Webshop.ToCart 'in den Warenkorb' %></a></div>
 				          	<div class="uk-margin">agb, konditionen</div>
 				          </div>
+		            </div>
+		            <div class="uk-margin">
+		            	$Top.SiteConfig.FootertextProduct
 		            </div>
 		        </div>
 		      </div>
