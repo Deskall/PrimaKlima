@@ -61,7 +61,7 @@
 				              </table>
 				          	</div>
 				          	<div>
-				          		<div class="uk-margin"><a href="$Top.ShopPage.Link" class="uk-button button-SecondaryBackground uk-width-1-1 uk-border-rounded add-to-cart" data-product-id="$ID"><i class="uk-margin-small-right" data-uk-icon="cart"></i><%t Webshop.ToCart 'in den Warenkorb' %></a></div>
+				          		<div class="uk-margin"><a class="uk-button button-SecondaryBackground uk-width-1-1 uk-border-rounded add-to-cart" data-product-id="$ID"><i class="uk-margin-small-right" data-uk-icon="cart"></i><%t Webshop.ToCart 'in den Warenkorb' %></a></div>
 				          		<div class="uk-margin">agb, konditionen</div>
 				          	</div>
 		            	</div>
