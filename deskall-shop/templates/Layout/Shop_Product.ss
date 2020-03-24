@@ -17,14 +17,14 @@
 		                <% with MainBild %>
 		                  <li>
 		                    <a href="$URL" class="uk-display-block uk-height-1-1">
-		                        <img src="$FocusFill(500,500).URL" alt="" class="uk-border-circle">
+		                        <img src="$FocusFill(350,350).URL" alt="" class="uk-border-circle">
 		                    </a>
 		                  </li>
 		                  <% end_with %>
 		                  <% loop Images.sort('Sort') %>
 		                  <li>
 		                    <a href="$URL" class="uk-display-block uk-height-1-1">
-		                        <img src="$FocusFill(500,500).URL" alt="" class="uk-border-circle" >
+		                        <img src="$FocusFill(350,350).URL" alt="" class="uk-border-circle" >
 		                    </a>  
 		                  </li>
 		                  <% end_loop %>
