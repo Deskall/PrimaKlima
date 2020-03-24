@@ -17,14 +17,14 @@
 		                <% with MainBild %>
 		                  <li>
 		                    <a href="$URL" class="uk-display-block uk-height-1-1">
-		                        <img src="$SetWidth(500).URL" alt="" class="uk-border-circle">
+		                        <img src="$ScaleWidth(500).URL" alt="" class="uk-border-circle">
 		                    </a>
 		                  </li>
 		                  <% end_with %>
-		                  <% loop Images.sort('SortOrder') %>
+		                  <% loop Images.sort('Sort') %>
 		                  <li>
 		                    <a href="$URL" class="uk-display-block uk-height-1-1">
-		                        <img src="$setWidth(500).URL" alt="" class="uk-border-circle" >
+		                        <img src="$ScaleWidth(500).URL" alt="" class="uk-border-circle" >
 		                    </a>  
 		                  </li>
 		                  <% end_loop %>
@@ -36,7 +36,7 @@
 		                    <% with MainBild %>
 		                      <li data-uk-slideshow-item="0"><a href="#"><img src="$CroppedFocusedImage(100,80).URL" width="100" height="80" alt="" class="uk-border-circle"></a></li>
 		                      <% end_with %>
-		                      <% loop Images.sort('SortOrder') %>
+		                      <% loop Images.sort('Sort') %>
 		                      <li data-uk-slideshow-item="$pos"><a href="#"><img src="$CroppedFocusedImage(100,80).URL" width="100" height="80" alt="" class="uk-border-circle"></a></li>
 		                      <% end_loop %>
 		                  </ul>
