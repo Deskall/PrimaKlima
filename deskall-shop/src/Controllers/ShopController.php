@@ -114,7 +114,7 @@ class ShopController extends PageController{
 				   		$cart->write();
 				   	}
 				}
-				return json_encode(['Status' => 'OK']]);
+				return json_encode(['Status' => 'OK']);
 		    }
 		}
 	}
