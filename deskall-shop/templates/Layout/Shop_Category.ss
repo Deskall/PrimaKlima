@@ -6,14 +6,13 @@
 			    <li><span>$Title</span></li>
 			</ul>
 		</div>
+		<% with Category %>
 		<h1>$Title</h1>
-
 		<div <% if ContentImage %>class="uk-flex" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %>>
 			<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 				$Lead
 			</div>
 		</div>
-
 		<div class="uk-child-width-1-1" data-uk-grid>
 			<% loop activeProducts %>
 			<div>
@@ -34,5 +33,6 @@
 			</div>
 			<% end_loop %>
 		</div>
+		<% end_with %>
 	</div>
 </section>

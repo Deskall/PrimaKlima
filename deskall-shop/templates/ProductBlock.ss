@@ -4,7 +4,7 @@
 		$Lead
 	</div>
 </div>
-<% with Category %>
+
 <div class="uk-child-width-1-1" data-uk-grid>
 	<% loop activeCategories %>
 	<div>
@@ -25,4 +25,8 @@
 	</div>
 	<% end_loop %>
 </div>
-<% end_with %>
+
+
+<% if LinkableLinkID > 0 %>
+	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+<% end_if %>
