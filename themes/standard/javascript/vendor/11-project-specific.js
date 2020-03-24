@@ -151,7 +151,7 @@
 	});
 
 	$(document).on("click",".add-to-cart",function(){
-		UpdateOrderPreview($(this).attr('product-id'),1);
+		UpdateOrderPreview($(this).attr('data-product-id'),1);
 	});
 
 		
