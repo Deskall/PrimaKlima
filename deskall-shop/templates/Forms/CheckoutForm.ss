@@ -11,7 +11,7 @@
 		<ul id="tab-switcher" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePackage '1. Einkaufswagen' %></a></li>
 			<% if Controller.activeCart.products.exists %>
-			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePayment '2. Angaben' %></a></li>
+			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t Shop.Contact '2. Angaben' %></a></li>
 			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePayment '3. Zahlungsmethod' %></a></li>
 			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a><%t Shop.Confirm '4. Bestätigung' %></a></li>
 			<% end_if %>
@@ -27,6 +27,8 @@
 			</li>
 			<% if Controller.activeCart.products.exists %>
 			<li class="account-tab" data-index="1">
+			</li>
+			<li class="account-tab" data-index="2">
 				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
 				<div class="uk-margin">
 					<div class="uk-child-width-1-2@s" data-uk-grid data-uk-height-match=".uk-card">
@@ -61,7 +63,7 @@
 				$FieldHolder
 				<% end_with %>
 			</li>
-			<li class="account-tab" data-index="2">
+			<li class="account-tab" data-index="3">
 				<h3><%t Checkout.ReviewAndPay 'Prüfen und bestätigen Sie Ihre Bestellung' %></h3>
 				<div class="uk-panel uk-background-muted uk-padding-small">
 					<h3><%t Checkout.Voucher 'Gutschein' %></h3>
@@ -112,6 +114,7 @@
 				</div>
 				
 			</li>
+
 			<% end_if %>
 		</ul>
 	</div>
