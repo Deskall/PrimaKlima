@@ -80,6 +80,10 @@ class ShopController extends PageController{
 
 	public function updateCart(HTTPRequest $request){
 	   $id = $this->getRequest()->getSession()->get('shopcart_id');
+	   ob_start();
+	   			print_r('cart id: '.$id );
+	   			$result = ob_get_clean();
+	   			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 	   $cart = null;
 	   if ($id){
 	      $cart = ShopCart::get()->byId($id);
