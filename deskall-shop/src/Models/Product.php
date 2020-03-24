@@ -86,7 +86,7 @@ class Product extends DataObject {
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        if ($this->isChanged('Title'){
+        if ($this->isChanged('Title')){
             $this->URLSegment = URLSegmentFilter::create()->filter($this->Title);
         }
         $changedFields = $this->getChangedFields();
