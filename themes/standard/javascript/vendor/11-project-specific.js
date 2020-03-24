@@ -150,6 +150,10 @@
 		UIkit.scroll("#mobile-cart-container");
 	});
 
+	$(document).on("click",".add-to-cart",function(){
+		UpdateOrderPreview($(this).attr('product-id'),1);
+	});
+
 		
 	var url = window.location.pathname;
 	$.ajax({
@@ -163,7 +167,7 @@
 	
 
 
-	function UpdateOrderPreview(){
+	function UpdateOrderPreview(productID,quantity){
 		//ici ajouter un
 		$.ajax({
 			url: '/shop/updateCart',
@@ -171,13 +175,9 @@
 			dataType: 'html',
 			data: {productID: productID}
 		}).done(function(response){
-			$(".order-preview").each(function(){
+			$(".cart-container").each(function(){
 				$(this).empty().append(response);
-				UpdateCartSummaries();
 			});
-			if (packageID > 0 || products.length > 0 ){
-				$("#mobile-cart-container").attr('hidden',false);
-			}
 		});
 	}
 
