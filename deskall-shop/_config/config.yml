@@ -1,10 +1,10 @@
 ---
-Name: deskall-products
+Name: deskall-shop
 After:
     - '#deskall-divers'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
-  project: deskall-products
+  project: deskall-shop
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
