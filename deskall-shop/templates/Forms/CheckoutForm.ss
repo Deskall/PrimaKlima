@@ -54,7 +54,7 @@
 						<div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-card"></i></div>
-								<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online" required="required"><label for="online-choice"><%t Shop.OnlinePayLabel 'Ich bezahle online mit meiner Kreditkarte oder meinem PayPal-Konto' %></label>
+								<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online" required="required"><label for="online-choice"><%t Shop.OnlinePayLabel 'Zahlung online bei Kreditkarte oder PayPal-Konto' %></label>
 								<div class="uk-margin">
 									Kosten für Porto und Verpackung CHF 9.80
 								</div>
