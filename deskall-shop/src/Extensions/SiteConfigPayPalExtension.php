@@ -27,6 +27,7 @@ class SiteConfigPayPalExtension extends DataExtension
     'PaymentEmailBody' =>  'HTMLText',
     'TransportPrice' => 'Currency',
     'MwSt' => 'Decimal(2)',
+    'FootertextProduct' => 'HTMLText'
   
   ];
 
@@ -60,6 +61,7 @@ class SiteConfigPayPalExtension extends DataExtension
      $labels['ReceiptFile'] = _t(__CLASS__.'.ReceiptFile','Quittung Vorlage');
      $labels['TransportPrice'] = _t(__CLASS__.'.TransportPrice','standard Transportkosten');
      $labels['MwSt'] = _t(__CLASS__.'.MwSt','% MwSt.');
+     $labels['FootertextProduct'] = _t(__CLASS__.'.FootertextProduct','standard Text für den Produkt-Seite Footer');
   }
 
   public function updateCMSFields(FieldList $fields) {
@@ -72,6 +74,7 @@ class SiteConfigPayPalExtension extends DataExtension
       CurrencyField::create('MwSt',$this->owner->fieldLabels()['MwSt']),
       NumericField::create('ClientNumberOffset',$this->owner->fieldLabels()['ClientNumberOffset']),
       NumericField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']),
+      HTMLEditorField::create('FootertextProduct',$this->owner->fieldLabels()['FootertextProduct'])->setRows(5),
       HTMLEditorField::create('BillPayLabel',$this->owner->fieldLabels()['BillPayLabel'])->setRows(5),
       HTMLEditorField::create('OnlinePayLabel',$this->owner->fieldLabels()['OnlinePayLabel'])->setRows(5),
       TextField::create('BillEmailSubject',$this->owner->fieldLabels()['BillEmailSubject']),

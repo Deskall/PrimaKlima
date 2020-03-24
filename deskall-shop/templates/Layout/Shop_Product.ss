@@ -55,7 +55,7 @@
 		            	<div class="uk-child-width-1-2@s uk-grid-small" data-uk-grid>
 		            		<div>
 				              <table class="uk-table uk-table-justify uk-table-small">
-				              	<tr><td>Preis:</td><td>$Price</td></tr>
+				              	<tr><td>Preis:</td><td>$Price.Nice</td></tr>
 				              	<tr><td>MwSt.:</td><td>7.7%</td></tr>
 				              	<tr><td>Zuzüglich Porto und Verpackung</td><td>&nbsp;</td></tr>
 				              </table>
