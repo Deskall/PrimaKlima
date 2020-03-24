@@ -11,7 +11,7 @@
 		<h1>$Title</h1>
 		<div data-uk-grid>
 		    <div class="uk-width-1-3@m uk-text-center">
-		          <div class="uk-position-relative" data-uk-slideshow="animation: fade;min-height:350;">
+		          <div class="uk-position-relative" data-uk-slideshow="animation: fade;ratio:false;">
 
 		              <ul class="uk-slideshow-items"  data-uk-lightbox="$ID">
 		                <% with MainBild %>
