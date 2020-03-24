@@ -10,4 +10,7 @@
 </table>
 <% else %>
 <p><i>Ihr Warenkorb enthält keine Produkte</i></p>
+<div class="uk-margin">
+	<a href="$Top.Controller.Webshop.Link" class="uk-button button-WebshopBackground">Zum Webshop<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+</div>
 <% end_if %>
