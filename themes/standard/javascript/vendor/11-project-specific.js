@@ -150,20 +150,14 @@
 		UIkit.scroll("#mobile-cart-container");
 	});
 
-	
-		//Initiate all
-		var cart,
-		products = [],
-		updateRun;
-
 		
-		var url = window.location.pathname;
-		$.ajax({
-			url: '/shop/getActiveCart',
-			dataType: 'html'
-		}).done(function(response){
-			$('body').append(response);
-		});
+	var url = window.location.pathname;
+	$.ajax({
+		url: '/shop/getActiveCart',
+		dataType: 'html'
+	}).done(function(response){
+		$('body').append(response);
+	});
 		
 		
 	
@@ -188,6 +182,5 @@
 	}
 
 	
-
 
 });
