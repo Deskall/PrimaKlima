@@ -38,7 +38,7 @@
 								<div class="icon-large"><i class="icon icon-ios-money"></i></div>
 								<input id="cash-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="cash" required="required"><label for="cash-choice"><%t Shop.CashPayLabel 'Bargeld' %></label>
 								<div class="uk-margin">
-									$CashTransportCostLabel
+									Kosten für Porto und Verpackung CHF 9.80
 								</div>
 							</div>
 						</div>
@@ -47,7 +47,7 @@
 								<div class="icon-large"><i class="icon icon-ios-paper"></i></div>
 								<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill" required="required"><label for="bill-choice"><%t Shop.BillPayLabel 'Ich bezahle per Rechnung' %></label>
 								<div class="uk-margin">
-									$CashTransportCostLabel
+									Kosten für Porto und Verpackung CHF 9.80
 								</div>
 							</div>
 						</div>
@@ -56,7 +56,7 @@
 								<div class="icon-large"><i class="icon icon-card"></i></div>
 								<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="online" required="required"><label for="online-choice"><%t Shop.OnlinePayLabel 'Ich bezahle online mit meiner Kreditkarte oder meinem PayPal-Konto' %></label>
 								<div class="uk-margin">
-									$CashTransportCostLabel
+									Kosten für Porto und Verpackung CHF 9.80
 								</div>
 							</div>
 						</div>
