@@ -43,10 +43,6 @@ class ShopController extends PageController{
 		
 	}
 
-	public function Webshop(){
-		return SiteConfig::current_site_config()->ShopPage();
-	}
-
 	public function Category(HTTPRequest $request){
 		$URLSegment = $request->param('URLSegment');
 		if ($URLSegment){
