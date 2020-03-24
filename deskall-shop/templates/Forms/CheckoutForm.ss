@@ -18,7 +18,7 @@
 			<li class="account-tab" data-index="0">
 				<h3><%t Checkout.ShopCartTitle 'Ihr Einkaufswagen' %></h3>
 					<% with Controller.activeCart %>
-					<div id="cart-container">
+					<div class="order-preview">
 					   <% include ShopCartCheckout %>
 					</div>
 					<% end_with %>

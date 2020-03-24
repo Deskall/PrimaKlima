@@ -153,7 +153,7 @@
 	});
 
 	$(document).on("change","input[data-quantity]",function(){
-		UpdateOrderPreview($(this).attr('data-quantity'),$(this).val());
+		UpdateOrderPreview($(this).attr('data-quantity'),$(this).val(), 'checkout');
 	});
 
 	$(document).on("click","[data-remove-product]",function(){
@@ -164,7 +164,7 @@
 			dataType: 'html',
 			data: {productID: productID}
 		}).done(function(response){
-			$("#cart-container").empty().append(response);
+			$(".order-preview").empty().append(response);
 		});
 	});
 
@@ -181,13 +181,13 @@
 	
 
 
-	function UpdateOrderPreview(productID,quantity){
+	function UpdateOrderPreview(productID,quantity,context = null){
 		//ici ajouter un
 		$.ajax({
 			url: '/shop/updateCart',
 			method: 'POST',
 			dataType: 'html',
-			data: {productID: productID,quantity: quantity}
+			data: {productID: productID,quantity: quantity, context: context}
 		}).done(function(response){
 			$(".order-preview").each(function(){
 				$(this).empty().append(response);
