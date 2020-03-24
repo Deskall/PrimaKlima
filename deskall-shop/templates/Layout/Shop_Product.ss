@@ -17,14 +17,14 @@
 		                <% with MainBild %>
 		                  <li>
 		                    <a href="$URL" class="uk-display-block">
-		                        <img src="$ScaleWidth(500).URL" alt="" class="uk-border-circle">
+		                        <img src="$FocusFill(500,500).URL" alt="" class="uk-border-circle">
 		                    </a>
 		                  </li>
 		                  <% end_with %>
 		                  <% loop Images.sort('Sort') %>
 		                  <li>
 		                    <a href="$URL" class="uk-display-block">
-		                        <img src="$ScaleWidth(500).URL" alt="" class="uk-border-circle" >
+		                        <img src="$FocusFill(500,500).URL" alt="" class="uk-border-circle" >
 		                    </a>  
 		                  </li>
 		                  <% end_loop %>
@@ -34,10 +34,10 @@
 		             <div class="uk-margin-small-top uk-flex uk-flex-center uk-visible@s">
 		                  <ul class="uk-thumbnav">
 		                    <% with MainBild %>
-		                      <li data-uk-slideshow-item="0"><a href="#"><img src="$FocusFill(100,80).URL" width="100" height="80" alt="" class="uk-border-circle"></a></li>
+		                      <li data-uk-slideshow-item="0"><a href="#"><img src="$FocusFill(100,100).URL" width="100" height="100" alt="" class="uk-border-circle"></a></li>
 		                      <% end_with %>
 		                      <% loop Images.sort('Sort') %>
-		                      <li data-uk-slideshow-item="$pos"><a href="#"><img src="$FocusFill(100,80).URL" width="100" height="80" alt="" class="uk-border-circle"></a></li>
+		                      <li data-uk-slideshow-item="$pos"><a href="#"><img src="$FocusFill(100,100).URL" width="100" height="100" alt="" class="uk-border-circle"></a></li>
 		                      <% end_loop %>
 		                  </ul>
 		              </div>
