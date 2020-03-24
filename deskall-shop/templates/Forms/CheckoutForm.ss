@@ -33,6 +33,10 @@
 					   <% include ShopCartCheckout %>
 					</div>
 					<% end_with %>
+					<div class="uk-flex uk-flex-between">
+						<a class="uk-button uk-button-muted" data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
+						<a class="uk-button uk-button-primary" data-step="forward"><%t Global.Forward 'Weiter' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+					</div>
 			</li>
 			<% if Controller.activeCart.products.exists %>
 			<li class="account-tab" data-index="1">
