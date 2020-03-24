@@ -31,11 +31,11 @@ use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ShopController extends PageController{
-	private static $allowed_actions = ['Category','Product'];
+	private static $allowed_actions = ['Category','Product','getActiveCart','updateCart'];
 
 	private static $url_handlers = [
 		'kategorie//$URLSegment' => 'Category',
-		'produkt//$URLSegment' => 'Product'
+		'produkt//$URLSegment' => 'Product',
 	];
 
 	public function init(){
@@ -63,5 +63,37 @@ class ShopController extends PageController{
 			}
 		}
 		return $this->httpError(404);
+	}
+
+	public function getActiveCart(){
+	   $id = $this->getRequest()->getSession()->get('shopcart_id');
+	   $cart = null;
+	   if ($id){
+	      $cart = ShopCart::get()->byId($id);
+	   }
+	   $cart = ($cart) ? $cart : new ShopCart();
+	   
+	   return $cart->renderWith('Includes/ShopCart');
+	}
+
+	public function updateCart(HTTPRequest $request){
+	   $id = $this->getRequest()->getSession()->get('shopcart_id');
+	   $cart = null;
+	   if ($id){
+	      $cart = ShopCart::get()->byId($id);
+	   }
+	   $cart = ($cart) ? $cart : new ShopCart();
+	   $productID = $request->getVar('productID');
+	   if ($productID){
+	   	$product = Product::get()->byId($productID);
+	   	if ($product){
+	   		$quantity = ($request->getVar('Quantity')) ? $request->getVar('Quantity') : 1;
+	   		$sort = $cart->Products()->count() + 1;
+	   		$cart->Products()->add($product,['Quantity' => $quantity, 'Sort' => $sort]);
+	   	}
+	   }
+	   $cart->write();
+
+	   return $cart->renderWith('Includes/ShopCart');
 	}
 }

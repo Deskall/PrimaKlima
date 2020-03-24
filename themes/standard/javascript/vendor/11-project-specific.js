@@ -140,3 +140,54 @@
 		$(this).parents('tr').remove();
 	});
 });
+
+ $(document).ready(function(){
+
+	//Toggle cart (all pages)
+	$(document).on("click",".toggle-cart",function(){
+		UIkit.toggle($(this).attr('data-target')).toggle();
+		$(".cart-button").toggleClass('uk-hidden');
+		UIkit.scroll("#mobile-cart-container");
+	});
+
+	
+		//Initiate all
+		var cart,
+		products = [],
+		updateRun;
+
+		
+		var url = window.location.pathname;
+		$.ajax({
+			url: '/shop/getActiveCart',
+			dataType: 'html'
+		}).done(function(response){
+			$('body').append(response);
+		});
+		
+		
+	
+
+
+	function UpdateOrderPreview(){
+		//ici ajouter un
+		$.ajax({
+			url: '/shop/updateCart',
+			method: 'POST',
+			dataType: 'html',
+			data: {productID: productID}
+		}).done(function(response){
+			$(".order-preview").each(function(){
+				$(this).empty().append(response);
+				UpdateCartSummaries();
+			});
+			if (packageID > 0 || products.length > 0 ){
+				$("#mobile-cart-container").attr('hidden',false);
+			}
+		});
+	}
+
+	
+
+
+});
