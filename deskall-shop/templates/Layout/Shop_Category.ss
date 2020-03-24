@@ -17,7 +17,7 @@
 			<% loop activeProducts %>
 			<div>
 				<div class="uk-card uk-card-default uk-card-body">
-					<div class="uk-grid-small uk-flex-middle uk-grid-match" data-uk-grid>
+					<div class="uk-grid-small" data-uk-grid>
 						<div class="uk-width-1-3">
 							<img src="$MainBild.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$MainBild.Alt" />
 						</div>
