@@ -113,7 +113,7 @@ class ShopController extends PageController{
 				   		$cart->write();
 				   	}
 				}
-				return $cart->renderWith('Includes/ShopCartCheckout')
+				return $cart->renderWith('Includes/ShopCartCheckout');
 		    }
 		}
 	}
