@@ -92,7 +92,7 @@ class ShopController extends PageController{
 			   	if ($productID){
 				   	$product = Product::get()->byId($productID);
 				   	if ($product){
-				   		$quantity = ($request->postVar('Quantity')) ? $request->postVar('Quantity') : 1;
+				   		$quantity = ($request->postVar('quantity')) ? $request->postVar('quantity') : 1;
 				   		$sort = $cart->Products()->count() + 1;
 				   		$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort]);
 				   		$cart->write();
