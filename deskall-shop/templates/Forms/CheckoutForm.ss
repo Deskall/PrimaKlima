@@ -25,6 +25,7 @@
 					   		<tr><td>$Title</td><td>$Quantity</td><td>$Price</td><td>$TotalPrice</td></tr>
 					   		<% end_loop %>
 					   	</tbody>
+					   </table>
 					<% end_with %>
 			</li>
 			<li class="account-tab" data-index="1">
