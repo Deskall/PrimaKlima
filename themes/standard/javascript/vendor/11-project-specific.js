@@ -145,9 +145,7 @@
 
 	//Toggle cart (all pages)
 	$(document).on("click",".toggle-cart",function(){
-		UIkit.toggle($(this).attr('data-target')).toggle();
-		$(".cart-button").toggleClass('uk-hidden');
-		UIkit.scroll("#mobile-cart-container");
+		UIkit.toggle($("#cart-container")).toggle();
 	});
 
 	$(document).on("click",".add-to-cart",function(){
