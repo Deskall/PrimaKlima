@@ -10,7 +10,7 @@
 		</div>
 		<h1>$Title</h1>
 		<div data-uk-grid>
-		        <div class="uk-width-2-3@m">
+		        <div class="uk-width-1-3@m">
 		          <div class="uk-position-relative" data-uk-slideshow="animation: fade">
 
 		              <ul class="uk-slideshow-items"  data-uk-lightbox="$ID">
@@ -44,7 +44,7 @@
 		              <% end_if %>
 		          </div>
 		        </div>
-		        <div class="uk-width-1-3@m">
+		        <div class="uk-width-2-3@m">
 		            <div class="uk-margin">$Lead</div>
 		            <div class="uk-margin uk-background-muted uk-padding-small">
 		              <table class="uk-table uk-table-small">
