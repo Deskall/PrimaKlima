@@ -19,12 +19,13 @@
 				<h3><%t Checkout.ShopCartTitle 'Ihr Einkaufswagen' %></h3>
 					<% with Controller.activeCart %>
 					   <table class="uk-table uk-table-small uk-table-divider">
-					   	<thead><th><%t Webshop.Product 'Produkt' %></th><th><%t Webshop.Quantity 'Menge' %></th><th><%t Webshop.UniquePrice 'Einzelpreis' %></th><th><%t Webshop.Subtotak 'Betrag' %></th></thead>
+					   	<thead><th><%t Webshop.Product 'Produkt' %></th><th><%t Webshop.Quantity 'Menge' %></th><th class="uk-text-right"><%t Webshop.UniquePrice 'Einzelpreis' %></th></thead>
 					   	<tbody>
 					   		<% loop Products %>
-					   		<tr><td>$Title</td><td>$Quantity</td><td>$Price</td><td>$TotalPrice</td></tr>
+					   		<tr><td>$Title</td><td>$Quantity</td><td  class="uk-text-right">$Price.Nice</td></tr>
 					   		<% end_loop %>
 					   	</tbody>
+					   	<tfoot><tr><td class="uk-text-bold"><%t Webshop.TotalPrice 'Gesamt Betrag' %></td><td class="uk-text-bold uk-text-right">$TotalPrice.Nice</td></tr></tfoot>
 					   </table>
 					<% end_with %>
 			</li>
