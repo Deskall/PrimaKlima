@@ -13,10 +13,10 @@
 				<div class="uk-width-1-3">
 					<img src="$Image.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$Image.Alt" />
 				</div>
-				<div class="uk-width-2-3">
+				<div class="uk-width-2-3 uk-position-relative">
 				    <h3 class="uk-card-title">$Title</h3>
 				    $Description
-				    <div class="uk-position-bottom uk-position-small uk-text-right">
+				    <div class="uk-position-bottom-right">
 				    	<a href="$Link" class="uk-button button-PrimaryBackground"><%t Webshop.ToProducts 'Zum Produkte' %></a>
 				    </div>
 				</div>
