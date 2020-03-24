@@ -57,6 +57,14 @@ $(document).ready(function(){
 		if ($("input[name='paymentmethod']:checked").val() == "bill"){
 			$("#bill-form-container").attr('hidden',false).find('input,select').attr('required',true);
 			$("#card-form-container").attr('hidden','hidden');
+			$("#Form_CheckoutForm_DeliverySameAddress_Holder").attr("hidden",false);
+			$("#summary-bill-container").attr('hidden',false);
+			$("#Form_CheckoutForm_action_payBill").attr('hidden',false);
+		}
+		else if ( $("input[name='paymentmethod']:checked").val() == "cash"){
+			$("#bill-form-container").attr('hidden',false);
+			$("#Form_CheckoutForm_DeliverySameAddress_Holder").attr("hidden","hidden");
+			$("#card-form-container").attr('hidden','hidden');
 			$("#summary-bill-container").attr('hidden',false);
 			$("#Form_CheckoutForm_action_payBill").attr('hidden',false);
 		}
