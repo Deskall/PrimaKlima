@@ -72,6 +72,7 @@ class ShopController extends PageController{
 	      $cart = ShopCart::get()->byId($id);
 	   }
 	   $cart = ($cart) ? $cart : new ShopCart();
+	   $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
 	   
 	   return $cart->renderWith('Includes/ShopCart');
 	}
@@ -81,19 +82,18 @@ class ShopController extends PageController{
 	   $cart = null;
 	   if ($id){
 	      $cart = ShopCart::get()->byId($id);
-	   }
-	   $cart = ($cart) ? $cart : new ShopCart();
-	   $productID = $request->postVar('productID');
-	   if ($productID){
-	   	$product = Product::get()->byId($productID);
-	   	if ($product){
-	   		$quantity = ($request->postVar('Quantity')) ? $request->postVar('Quantity') : 1;
-	   		$sort = $cart->Products()->count() + 1;
-	   		$cart->Products()->add($product,['Quantity' => $quantity, 'Sort' => $sort]);
-	   	}
-	   }
-	   $cart->write();
-
-	   return $cart->renderWith('Includes/ShopCart');
+	      	if ($cart){
+				$productID = $request->postVar('productID');
+			   	if ($productID){
+				   	$product = Product::get()->byId($productID);
+				   	if ($product){
+				   		$quantity = ($request->postVar('Quantity')) ? $request->postVar('Quantity') : 1;
+				   		$sort = $cart->Products()->count() + 1;
+				   		$cart->Products()->add($product,['Quantity' => $quantity, 'Sort' => $sort]);
+				   	}
+				}
+				return $cart->renderWith('Includes/ShopCart');
+		    }
+		}
 	}
 }
