@@ -83,6 +83,23 @@ class Product extends DataObject {
         return $fields;
     }
 
+    public function onBeforeWrite(){
+        parent::onBeforeWrite();
+        $this->URLSegment = URLSegmentFilter::create()->filter($this->Title);
+        $changedFields = $this->getChangedFields();
+        if ($this->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after']) ){
+            if ($changedFields['Title']['before']){
+                $oldFolderPath = $this->Category()->getFolderName().'/'.URLSegmentFilter::create()->filter($changedFields['Title']['before']);
+            }
+            else{
+                $oldFolderPath = $this->Category()->getFolderName().'/tmp';
+            }
+            $newFolder = Folder::find_or_make($oldFolderPath);
+            $newFolder->Name = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
+            $newFolder->write();
+        }
+    }
+
     public function getFolderName(){
         if($this->URLSegment){
             return $this->Category()->getFolderName().'/'.$this->URLSegment;
