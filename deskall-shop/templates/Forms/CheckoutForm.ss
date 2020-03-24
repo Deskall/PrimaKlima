@@ -104,7 +104,7 @@
 					<div id="summary-products" class="summary-products" hidden>
 						
 					</div>
-					<% end_with %>
+					<% end_with %>	
 				</div>
 				<hr>
 				
