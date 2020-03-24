@@ -31,12 +31,11 @@ use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ShopPageController extends PageController{
-	private static $allowed_actions = ['CreateTransaction','TransactionCompleted','CheckoutForm', 'VoucherForm', 'Category'];
+	private static $allowed_actions = ['CreateTransaction','TransactionCompleted','CheckoutForm', 'VoucherForm'];
 
 	private static $url_handlers = [
 		'transaktion-erstellen' => 'CreateTransaction',
-		'transaktion-abgeschlossen' => 'TransactionCompleted',
-		'kategorie//$URLSegment' => 'Category'
+		'transaktion-abgeschlossen' => 'TransactionCompleted'
 	];
 
 	public function init(){
@@ -380,16 +379,5 @@ class ShopPageController extends PageController{
 			}
 		}
 		return json_encode(['status' => 'Not OK','message' => '<p>Ihre Gutschein ist ungültig.</p>']);
-	}
-
-	public function Category(HTTPRequest $request){
-		$URLSegment = $request->param('URLSegment');
-		if ($URLSegment){
-			$category = ProductCategory::get()->filter('URLSegment',$URLSegment)->first();
-			if ($category){
-				return ['Title' => $category->Title, 'Category' => $category ];
-			}
-		}
-		return $this->httpError(404);
 	}
 }

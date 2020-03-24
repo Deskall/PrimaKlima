@@ -1,7 +1,7 @@
-# ---
-# Name: shopcontrollerroutes
-# After: '#coreroutes'
-# ---
-# SilverStripe\Control\Director:
-#   rules:
-#     'webshop': 'ShopPageController'
+---
+Name: shopcontrollerroutes
+After: '#coreroutes'
+---
+SilverStripe\Control\Director:
+  rules:
+    'shop': 'ShopController'
