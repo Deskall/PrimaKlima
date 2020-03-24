@@ -6,11 +6,13 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class ShopPage extends Page {
 
-
-	public function activeProducts(){
-		return Product::get()->filter('isVisible',1);
+	public function activeCart(){
+		$id = $this->getRequest()->getSession()->get('shopcart_id');
+		if ($id){
+		   $cart = ShopCart::get()->byId($id);
+		   return $cart;
+		}
+		return null;
 	}
-
-	
 
 }
