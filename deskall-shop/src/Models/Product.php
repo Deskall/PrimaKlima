@@ -23,6 +23,8 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\Assets\Image;
+use SilverStripe\Assets\Folder;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class Product extends DataObject {
 
