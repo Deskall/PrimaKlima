@@ -100,15 +100,11 @@
 				<hr>
 				<div class="uk-panel uk-background-muted uk-padding-small">
 					<h4><%t Checkout.SummaryTitle 'Ihre Bestellung' %></h4>
-					<% loop Controller.activePackages %>
-					<div id="summary-package-{$ID}" class="summary-package" hidden>
-						<table class="uk-table uk-table-small">
-							<thead><th><%t Checkout.SummaryTableTH1 'Paket' %></th><th><%t Checkout.SummaryTableTH3 'Laufzeit' %></th><th><%t Checkout.SummaryTableTH4 'Anzahl Anzeige' %></th><th><%t Checkout.SummaryTableTH2 'Preis' %></th></thead>
-							<tbody id="package-summary"><tr><td><strong>$Title</strong></td><td class="runtime">$RunTimeTitle</td><td>$NumOfAdsTitle</td><td class="price uk-text-bold">$Price €</td></tr></tbody>
-						</table>
+					<% with Controller.activeCart %>
+					<div id="summary-products" class="summary-products" hidden>
+						
 					</div>
-
-					<% end_loop %>
+					<% end_with %>
 				</div>
 				<hr>
 				
