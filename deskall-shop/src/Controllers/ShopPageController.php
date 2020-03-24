@@ -45,6 +45,8 @@ class ShopPageController extends PageController{
 
 	public function CheckoutForm(){
 		// $customer = ShopCustomer::get()->filter('MemberID',$member->ID)->first();
+		$privacyPolicy = PrivatePolicyPage::get()->first();
+		$ppLink = ($privacyPolicy) ? $privacyPolicy->Link() : '/';
 
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".SiteConfig::current_site_config()->PayPalClientID."&currency=EUR&locale=de_DE");
 		Requirements::javascript("deskall-shop/javascript/shop.js");
@@ -64,7 +66,7 @@ class ShopPageController extends PageController{
 			)->setName('BillFields'),
 			CompositeField::create(
 				// TextareaField::create('Comments','Bemerkungen'),
-				CheckboxField::create('AGB',DBHTMLText::create()->setValue(_t(__CLASS__.'.AGB','Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin. *', ['link' => PrivatePolicyPage::get()->first()->Link(), 'link2' => '/agb'])))->setAttribute('class','uk-checkbox'),
+				CheckboxField::create('AGB',DBHTMLText::create()->setValue(_t(__CLASS__.'.AGB','Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin. *', ['link' => $ppLink, 'link2' => '/agb'])))->setAttribute('class','uk-checkbox'),
 				NocaptchaField::create('Captcha')
 				
 			)->setName('SummaryFields')
