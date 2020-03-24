@@ -68,11 +68,32 @@ class ShopPageController extends PageController{
 			// HiddenField::create('CustomerID')->setValue($customer->ID),
 			HiddenField::create('VoucherID'),
 			CompositeField::create(
-				TextField::create('BillingAddressCompany',_t(__CLASS__.'.BillingAddressCompany','Firma')),
-				TextField::create('BillingAddressStreet',_t(__CLASS__.'.BillingAddressStreet','Adresse')),
-				TextField::create('BillingAddressPostalCode',_t(__CLASS__.'.BillingAddressPostalCode','PLZ')),
-				TextField::create('BillingAddressPlace',_t(__CLASS__.'.BillingAddressPlace','Ort')),
-				DropdownField::create('BillingAddressCountry',_t(__CLASS__.'.BillingAddressCountry','Land'))->setSource(i18n::getData()->getCountries())->setValue('de')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))
+				TextField::create('Company',_t(__CLASS__.'.Company','Firma')),
+				DropdownField::create('Gender',_t(__CLASS__.'.Gender','Anrede'), ['Herr' => 'Herr','Frau' => 'Frau']),
+				TextField::create('FirstName',_t(__CLASS__.'.FirstName','Vorname')),
+				TextField::create('Name',_t(__CLASS__.'.Name','Name')),
+				TextField::create('Street',_t(__CLASS__.'.Street','Strasse')),
+				TextField::create('Address',_t(__CLASS__.'.Address','Adresse')),
+				TextField::create('PostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl')),
+				TextField::create('City',_t(__CLASS__.'.City','Stadt')),
+				TextField::create('Region',_t(__CLASS__.'.Region','Bundesland')),
+				DropdownField::create('Country',_t(__CLASS__.'.Country','Land'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),
+				EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail-Adresse')),
+				TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon')),
+				TextareaField::create('Additional',_t(__CLASS__.'.Additional','Zusätzliche Informationen'))->setRows(3),
+				CheckboxField::create('DeliverySameAddress',_t(__CLASS__.'.DeliverySameAddress','Abweichende Lieferadresse'))
+			)->setName('BillFields'),
+			CompositeField::create(
+				TextField::create('DeliveryCompany',_t(__CLASS__.'.Company','Firma')),
+				DropdownField::create('DeliveryGender',_t(__CLASS__.'.Gender','Anrede'), ['Herr' => 'Herr','Frau' => 'Frau']),
+				TextField::create('DeliveryFirstName',_t(__CLASS__.'.FirstName','Vorname')),
+				TextField::create('DeliveryName',_t(__CLASS__.'.Name','Name')),
+				TextField::create('DeliveryStreet',_t(__CLASS__.'.Street','Strasse')),
+				TextField::create('DeliveryAddress',_t(__CLASS__.'.Address','Adresse')),
+				TextField::create('DeliveryPostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl')),
+				TextField::create('DeliveryCity',_t(__CLASS__.'.City','Stadt')),
+				TextField::create('DeliveryRegion',_t(__CLASS__.'.Region','Bundesland')),
+				DropdownField::create('DeliveryCountry',_t(__CLASS__.'.Country','Land'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))
 			)->setName('BillFields'),
 			CompositeField::create(
 				// TextareaField::create('Comments','Bemerkungen'),

@@ -45,7 +45,7 @@
 						<div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-ios-paper"></i></div>
-								<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill" required="required"><label for="bill-choice"><%t Shop.BillPayLabel 'Ich bezahle per Rechnung' %></label>
+								<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="bill" required="required"><label for="bill-choice"><%t Shop.BillPayLabel 'Zahlung bei Rechnung' %></label>
 								<div class="uk-margin">
 									Kosten für Porto und Verpackung CHF 9.80
 								</div>
