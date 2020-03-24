@@ -10,6 +10,15 @@ $(document).ready(function(){
 		UIkit.tab(switcher).show(index);
 	}
 
+	$(document).on("change","input[name='DeliverySameAddress']",function(){
+		if ($(this).is(':checked')){
+			$("#delivery-form-container").attr('hidden',false);
+		}
+		else{
+			$("#delivery-form-container").attr('hidden','hidden');
+		}
+	});
+
 
 	//Steps
 	$(document).on("click","[data-step]",function(){
