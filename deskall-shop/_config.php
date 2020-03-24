@@ -5,5 +5,6 @@
 */
 
 use SilverStripe\ORM\FieldType\DBCurrency;
+use SilverStripe\Core\Config\Config;
 
-DBCurrency::setCurrencySymbol('CHF');
+Config::modify()->set(DBCurrency::class, 'currency_symbol', 'CHF');
