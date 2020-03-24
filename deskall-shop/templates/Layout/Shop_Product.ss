@@ -51,12 +51,18 @@
 		        	<% if Description %>
 		        		<div class="uk-margin">$Description</div>
 		        	<% end_if %>
-		            <div class="uk-margin uk-background-muted uk-padding-small">
-		              <table class="uk-table uk-table-small">
-		              	<tr><td>Preis:</td><td>$Price</td></tr>
-		              	<tr><td>MwSt.:</td><td>7.7%</td></tr>
-		              	<tr><td>Zuzüglich Porto und Verpackung</td><td>&nbsp;</td></tr>
-		              </table>
+		            <div class="uk-margin uk-padding-small">
+		            	<div class="uk-child-width-1-2@s uk-grid-small" data-uk-grid>
+		            		<div>
+				              <table class="uk-table uk-table-small">
+				              	<tr><td>Preis:</td><td>$Price</td></tr>
+				              	<tr><td>MwSt.:</td><td>7.7%</td></tr>
+				              	<tr><td>Zuzüglich Porto und Verpackung</td><td>&nbsp;</td></tr>
+				              </table>
+				          </div>
+				          <div>
+				          	Kaufen
+				          </div>
 		            </div>
 		        </div>
 		      </div>
