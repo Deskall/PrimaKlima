@@ -19,7 +19,7 @@
 				<h3><%t Checkout.ShopCartTitle 'Ihr Einkaufswagen' %></h3>
 					<% with Controller.activeCart %>
 					<div id="cart-container">
-					   
+					   <% include ShopCartCheckout %>
 					</div>
 					<% end_with %>
 			</li>
