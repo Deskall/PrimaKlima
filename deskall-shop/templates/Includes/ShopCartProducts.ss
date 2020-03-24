@@ -1,4 +1,4 @@
-<table class="uk-table uk-table-small uk-table-justify uk-table-striped">
+<table class="uk-table uk-table-small uk-table-justify">
 				<tbody>
 					<% if Products.exists %>
 					<% loop Products.Sort('Sort') %>
@@ -7,6 +7,6 @@
 					<% end_if %>
 				</tbody>
 				<tfoot>
-					<tr><td>Total</td><td id="total-price" class="uk-text-right uk-text-bold">$TotalPrice</td></tr>
+					<tr><td>Total</td><td id="total-price" class="uk-text-right uk-text-bold">$TotalPrice.Nice</td></tr>
 				</tfoot>
 			</table>
