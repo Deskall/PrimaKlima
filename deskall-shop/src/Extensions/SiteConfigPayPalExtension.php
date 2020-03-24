@@ -27,7 +27,7 @@ class SiteConfigPayPalExtension extends DataExtension
     'PaymentEmailSubject' => 'Varchar',
     'PaymentEmailBody' =>  'HTMLText',
     'TransportPrice' => 'Currency',
-    'MwSt' => 'Decimal(2)',
+    'MwSt' => 'Varchar',
     'FootertextProduct' => 'HTMLText'
   
   ];
