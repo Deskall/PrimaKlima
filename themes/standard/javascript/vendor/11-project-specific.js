@@ -158,14 +158,13 @@
 
 	$(document).on("click","[data-remove-product]",function(){
 		productID = $(this).attr('data-remove-product');
-		var row = $(this).closest('tr');
 		$.ajax({
 			url: '/shop/removeFromCart',
 			method: 'POST',
 			dataType: 'html',
 			data: {productID: productID}
 		}).done(function(response){
-			row.remove();
+			$("#cart-container").empty().append(response);
 		});
 	});
 
