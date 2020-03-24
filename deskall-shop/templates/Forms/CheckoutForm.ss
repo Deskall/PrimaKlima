@@ -9,52 +9,24 @@
 
 	<div class="uk-container">
 		<ul id="tab-switcher" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
-			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePackage '1. Paket wählen' %></a></li>
-			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePayment '2. Zahlungsmethod' %></a></li>
-			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a><%t Shop.Confirm '3. Bestätigung' %></a></li>
+			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePackage '1. Einkaufswagen' %></a></li>
+			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePayment '2. Angaben' %></a></li>
+			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePayment '3. Zahlungsmethod' %></a></li>
+			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a><%t Shop.Confirm '4. Bestätigung' %></a></li>
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
 			<li class="account-tab" data-index="0">
-				<h3><%t Checkout.ChoosePackage 'Wählen Sie Ihre Paket nach Mass' %></h3>
-				<div class="uk-child-width-auto uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
-					<% loop Controller.activePackages %>
-					    <div class="dk-transition-toggle-not-mobile">
-					    	
-					        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
-						        
-						        <h3 class="uk-card-title">$Title</h3>
-						        <div class="product-body">
-						        	<div class="uk-margin">$RunTimeTitle</div>
-						        	<div class="uk-margin">$NumOfAdsTitle</div>
-						        	<% loop $Features %>
-						        		<div class="uk-margin">$Title</div>
-						        	<% end_loop %>   
-							    </div>
-						        <div class="product-footer">
-						        	<% if PackegeOptions %>
-						        	<select name="package-option" class="uk-select">
-						        		<% loop PackegeOptions %>
-						        		<option value="$ID" data-price="$Price" data-runtime="$Title">$Title $Price €</option>
-						        		<% end_loop %>
-						        	</select>
-						        	<% else %>
-						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
-						        	<% end_if %>
-						        	<div class="uk-margin">
-						        		<a data-package-choice="$ID" data-price="$Price" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
-						        	</div>
-						        	<div class="footer-text">$FooterText</div>
-						    	</div>
-						    </div>
-					    </div>
-					<% end_loop %>
+				<h3><%t Checkout.ChoosePackage 'Ihr Einkaufswagen' %></h3>
+					<% with activeCart %>
+					   <table class="uk-table uk-table-small uk-table-divider">
+					   	<thead><th><%t Webshop.Product 'Produkt' %></th><th><%t Webshop.Quantity 'Menge' %></th><th><%t Webshop.UniquePrice 'Einzelpreis' %></th><th><%t Webshop.Subtotak 'Betrag' %></th></thead>
+					   	<tbody>
+					   		<% loop Products %>
+					   		<tr><td>$Title</td><td>$Quantity</td><td>$Price</td><td>$TotalPrice</td></tr>
+					   		<% end_loop %>
+					   	</tbody>
+					<% end_with %>
 				</div>
-				<% with Fields.FieldByName('ProductID') %>
-				$FieldHolder
-				<% end_with %>
-				<% with Fields.FieldByName('OptionID') %>
-				$FieldHolder
-				<% end_with %>
 			</li>
 			<li class="account-tab" data-index="1">
 				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
