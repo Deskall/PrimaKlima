@@ -19,13 +19,13 @@
 				<h3><%t Checkout.ShopCartTitle 'Ihr Einkaufswagen' %></h3>
 					<% with Controller.activeCart %>
 					   <table class="uk-table uk-table-small uk-table-divider">
-					   	<thead><th><%t Webshop.Product 'Produkt' %></th><th class="uk-text-center uk-table-shrink"><%t Webshop.Quantity 'Menge' %></th><th class="uk-text-right"><%t Webshop.UniquePrice 'Einzelpreis' %></th></thead>
+					   	<thead><th><%t Webshop.Product 'Produkt' %></th><th class="uk-text-center uk-table-shrink"><%t Webshop.Quantity 'Menge' %></th><th class="uk-text-right"><%t Webshop.UniquePrice 'Einzelpreis' %></th><th>&nbsp;</th></thead>
 					   	<tbody>
 					   		<% loop Products %>
-					   		<tr><td>$Title</td><td class="uk-text-center"><input type="number" value="$Quantity" min="1" class="uk-input"></td><td class="uk-text-right">$Price.Nice</td></tr>
+					   		<tr><td>$Title</td><td class="uk-text-center"><input type="number" value="$Quantity" min="1" class="uk-input"></td><td class="uk-text-right">$Price.Nice</td><td><a data-remove-product="$ID"><i data-uk-icon="trash"></i></a></td></tr>
 					   		<% end_loop %>
 					   	</tbody>
-					   	<tfoot><tr><td class="uk-text-bold" colspan="2"><%t Webshop.TotalPrice 'Gesamt Betrag' %></td><td class="uk-text-bold uk-text-right">$TotalPrice.Nice</td></tr></tfoot>
+					   	<tfoot><tr><td class="uk-text-bold" colspan="2"><%t Webshop.TotalPrice 'Gesamt Betrag' %></td><td class="uk-text-bold uk-text-right">$TotalPrice.Nice</td><td>&nbsp;</td></tr></tfoot>
 					   </table>
 					<% end_with %>
 			</li>
