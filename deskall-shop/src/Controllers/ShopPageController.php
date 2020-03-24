@@ -36,7 +36,7 @@ class ShopPageController extends PageController{
 	private static $url_handlers = [
 		'transaktion-erstellen' => 'CreateTransaction',
 		'transaktion-abgeschlossen' => 'TransactionCompleted',
-		'webshop//$URLSegment' => 'Category'
+		'kategorie//$URLSegment' => 'Category'
 	];
 
 	public function init(){

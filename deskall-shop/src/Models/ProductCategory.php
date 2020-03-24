@@ -97,7 +97,7 @@ class ProductCategory extends DataObject {
     }
 
     public function Link(){
-        return 'webshop/'.$this->URLSegment;
+        return 'webshop/kategorie/'.$this->URLSegment;
     }
 
 }
