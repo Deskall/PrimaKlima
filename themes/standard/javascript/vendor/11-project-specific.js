@@ -152,6 +152,23 @@
 		UpdateOrderPreview($(this).attr('data-product-id'),1);
 	});
 
+	$(document).on("change","input[data-quantity]",function(){
+		UpdateOrderPreview($(this).attr('data-quantity'),$(this).val());
+	});
+
+	$(document).on("click","[data-remove-product]",function(){
+		productID = $(this).attr('data-remove-product');
+		var row = $(this).parents('tr');
+		$.ajax({
+			url: '/shop/removeFromCart',
+			method: 'POST',
+			dataType: 'html',
+			data: {productID: productID}
+		}).done(function(response){
+			row.delete();
+		});
+	});
+
 		
 	var url = window.location.pathname;
 	$.ajax({

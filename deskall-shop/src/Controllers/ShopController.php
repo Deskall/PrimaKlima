@@ -98,4 +98,24 @@ class ShopController extends PageController{
 		    }
 		}
 	}
+
+	public function removeFromCart(HTTPRequest $request){
+	   $id = $this->getRequest()->getSession()->get('shopcart_id');
+	 
+	   if ($id){
+	      $cart = ShopCart::get()->byId($id);
+	      	if ($cart){
+				$productID = $request->postVar('productID');
+			   	if ($productID){
+				   	$product = Product::get()->byId($productID);
+				   	if ($product){
+				   		
+				   		$cart->Products()->remove($product);
+				   		$cart->write();
+				   	}
+				}
+				return json_encode(['Status' => 'OK']]);
+		    }
+		}
+	}
 }
