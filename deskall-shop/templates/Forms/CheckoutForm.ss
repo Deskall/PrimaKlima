@@ -9,7 +9,7 @@
 
 	<div class="uk-container">
 		<ul id="tab-switcher" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
-			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePackage '1. Einkaufswagen' %></a></li>
+			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t Shop.ShopCart '1. Warenkorb' %></a></li>
 			<% if Controller.activeCart.products.exists %>
 			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t Shop.Contact '2. Angaben' %></a></li>
 			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePayment '3. Zahlungsmethod' %></a></li>
@@ -18,7 +18,7 @@
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
 			<li class="account-tab" data-index="0">
-				<h3><%t Checkout.ShopCartTitle 'Ihr Einkaufswagen' %></h3>
+				<h3><%t Checkout.ShopCartTitle 'Ihr Warenkorb' %></h3>
 					<% with Controller.activeCart %>
 					<div class="order-preview">
 					   <% include ShopCartCheckout %>
