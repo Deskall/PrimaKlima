@@ -74,7 +74,6 @@ class Product extends DataObject {
 
     public function getCMSFields() {
         $fields = parent::getCMSFields();
-        $fields->removeByName('URLSegment');
         $fields->removeByName('CategoryID');
         $fields->removeByName('Images');
         $fields->insertAfter('MainBild',SortableUploadField::create('Images',$this->fieldLabels()['Images'])->setIsMultiUpload(true)->setFolderName($this->getFolderName()));
@@ -85,17 +84,19 @@ class Product extends DataObject {
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        $this->URLSegment = URLSegmentFilter::create()->filter($this->Title);
+        if ($this->isChanged('Title'){
+            $this->URLSegment = URLSegmentFilter::create()->filter($this->Title);
+        }
         $changedFields = $this->getChangedFields();
-        if ($this->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after']) ){
-            if ($changedFields['Title']['before']){
-                $oldFolderPath = $this->Category()->getFolderName().'/'.URLSegmentFilter::create()->filter($changedFields['Title']['before']);
+        if ($this->isChanged('URLSegment') && ($changedFields['URLSegment']['before'] != $changedFields['URLSegment']['after']) ){
+            if ($changedFields['URLSegment']['before']){
+                $oldFolderPath = $this->Category()->getFolderName().'/'.$changedFields['URLSegment']['before'];
             }
             else{
                 $oldFolderPath = $this->Category()->getFolderName().'/tmp';
             }
             $newFolder = Folder::find_or_make($oldFolderPath);
-            $newFolder->Name = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
+            $newFolder->Name = $changedFields['URLSegment']['after'];
             $newFolder->write();
         }
     }
