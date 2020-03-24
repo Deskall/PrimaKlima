@@ -10,9 +10,11 @@
 	<div class="uk-container">
 		<ul id="tab-switcher" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePackage '1. Einkaufswagen' %></a></li>
+			<% if Controller.activeCart.products.exists %>
 			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePayment '2. Angaben' %></a></li>
 			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t Shop.ChoosePayment '3. Zahlungsmethod' %></a></li>
 			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a><%t Shop.Confirm '4. Bestätigung' %></a></li>
+			<% end_if %>
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
 			<li class="account-tab" data-index="0">
@@ -23,6 +25,7 @@
 					</div>
 					<% end_with %>
 			</li>
+			<% if Controller.activeCart.products.exists %>
 			<li class="account-tab" data-index="1">
 				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
 				<div class="uk-margin">
@@ -109,6 +112,7 @@
 				</div>
 				
 			</li>
+			<% end_if %>
 		</ul>
 	</div>
 	<% with Fields.FieldByName('CustomerID') %>
