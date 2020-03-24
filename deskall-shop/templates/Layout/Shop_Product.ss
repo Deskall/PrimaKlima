@@ -45,7 +45,12 @@
 		          </div>
 		        </div>
 		        <div class="uk-width-2-3@m">
-		            <div class="uk-margin">$Lead</div>
+		        	<% if Lead %>
+		        		<div class="uk-margin">$Lead</div>
+		        	<% end_if %>
+		        	<% if Description %>
+		        		<div class="uk-margin">$Description</div>
+		        	<% end_if %>
 		            <div class="uk-margin uk-background-muted uk-padding-small">
 		              <table class="uk-table uk-table-small">
 		              	<tr><td>Preis:</td><td>$Price</td></tr>
