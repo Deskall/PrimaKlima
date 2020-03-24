@@ -95,6 +95,7 @@ class ShopController extends PageController{
 				   		$quantity = ($request->postVar('Quantity')) ? $request->postVar('Quantity') : 1;
 				   		$sort = $cart->Products()->count() + 1;
 				   		$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort]);
+				   		$cart->write();
 				   	}
 				}
 				return $cart->renderWith('Includes/ShopCartProducts');
