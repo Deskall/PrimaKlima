@@ -22,10 +22,10 @@
 					   	<thead><th><%t Webshop.Product 'Produkt' %></th><th class="uk-text-center"><%t Webshop.Quantity 'Menge' %></th><th class="uk-text-right"><%t Webshop.UniquePrice 'Einzelpreis' %></th></thead>
 					   	<tbody>
 					   		<% loop Products %>
-					   		<tr><td>$Title</td><td class="uk-text-center">$Quantity</td><td class="uk-text-right">$Price.Nice</td></tr>
+					   		<tr><td>$Title</td><td class="uk-text-center"><input type="number" value="$Quantity" min="1" class="uk-input"></td><td class="uk-text-right">$Price.Nice</td></tr>
 					   		<% end_loop %>
 					   	</tbody>
-					   	<tfoot><tr><td class="uk-text-bold" colspan="3"><%t Webshop.TotalPrice 'Gesamt Betrag' %></td><td class="uk-text-bold uk-text-right">$TotalPrice.Nice</td></tr></tfoot>
+					   	<tfoot><tr><td class="uk-text-bold" colspan="2"><%t Webshop.TotalPrice 'Gesamt Betrag' %></td><td class="uk-text-bold uk-text-right">$TotalPrice.Nice</td></tr></tfoot>
 					   </table>
 					<% end_with %>
 			</li>
