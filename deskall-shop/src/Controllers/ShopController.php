@@ -72,6 +72,7 @@ class ShopController extends PageController{
 	      $cart = ShopCart::get()->byId($id);
 	   }
 	   $cart = ($cart) ? $cart : new ShopCart();
+	   $cart->write();
 	   $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
 	   
 	   return $cart->renderWith('Includes/ShopCart');
