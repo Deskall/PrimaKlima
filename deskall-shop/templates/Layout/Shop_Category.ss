@@ -19,7 +19,7 @@
 				<div class="uk-card uk-card-default uk-card-body">
 					<div class="uk-grid-small" data-uk-grid>
 						<div class="uk-width-1-3">
-							<img src="$MainImage.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$MainImage.Alt" />
+							<img src="$MainBild.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$MainBild.Alt" />
 						</div>
 						<div class="uk-width-2-3 uk-position-relative">
 						    <h3 class="uk-card-title">$Title</h3>
