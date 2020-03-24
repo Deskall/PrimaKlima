@@ -8,8 +8,7 @@ class ShopCart extends DataObject {
 	
 	private static $db = [
 		'IP' => 'Varchar',
-		'TotalMonthlyPrice' => 'Varchar',
-		'TotalUniquePrice' => 'Varchar',
+		'TotalPrice' => 'Currency',
 		'Purchased' => 'Boolean(0)',
 		'CurrentStep' => 'Varchar',
 		//Customer Fields for save
@@ -32,8 +31,7 @@ class ShopCart extends DataObject {
 		'PhoneOption' => 'Varchar',
 		'ExistingPhone' => 'Varchar',
 		'WishPhone' => 'Varchar',
-		'ExistingCustomer' => 'Boolean(0)',
-		'Availability' => 'Varchar'
+		'ExistingCustomer' => 'Boolean(0)'
 	];
 
 	private static $has_one = [
@@ -85,8 +83,7 @@ class ShopCart extends DataObject {
 	
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
-		$this->writeTotalMonthlyPrice();
-		$this->writeTotalUniquePrice();
+		$this->writeTotalPrice();
 	}
 
 	public function forTemplate(){
@@ -123,104 +120,19 @@ class ShopCart extends DataObject {
 	    return $o;
 	}
 
-	public function writeTotalMonthlyPrice(){
+	public function writeTotalPrice(){
 		$price = 0;
-		if ($this->Package()->exists()){
-			$price += $this->Package->Price;
-		}
 		if ($this->Products()->exists()){
 			foreach ($this->Products() as $product) {
-				$price += $product->Price;
+				$price += $product->Price * $product->Quantity;
 			}
 		}
-		if ($this->Options()->filter('RecurringPrice',1)->exists()){
-			foreach ($this->Options() as $product) {
-				$price += $product->Price;
-			}
-		}
-		$this->TotalMonthlyPrice = "CHF ".number_format($price,2)." /Mt.";
+		
+		$this->TotalPrice = $price;
 	}
 
-	public function writeTotalUniquePrice(){
-		$price = 0;
-		if ($this->Package()->exists()){
-			$price += $this->Package->UniquePrice;
-			$price += $this->Package->ActivationPrice;
-		}
-		if ($this->Products()->exists()){
-			foreach ($this->Products() as $product) {
-				$price += $product->UniquePrice;
-				$price += $product->ActivationPrice;
-			}
-		}
-		if ($this->Options()->exists()){
-			foreach ($this->Options() as $product) {
-				if (!$product->RecurringPrice){
-					$price += $product->Price;
-				}
-				$price += $product->UniquePrice;
-				$price += $product->ActivationPrice;
-			}
-		}
-
-		$this->TotalUniquePrice = "CHF ".number_format($price,2);
-	}
-
-	public function hasCategory($code){
-		$confirm = false;
-		if ($this->Package()->exists()){
-			foreach ($this->Package()->Products() as $p) {
-				if ($p->Category()->Code == $code){
-					$confirm = true;
-					break;
-				}
-			}
-		}
-		if ($this->Products()->exists() && !$confirm){
-			foreach ($this->Products() as $p) {
-				if ($p->Category()->Code == $code){
-					$confirm = true;
-					break;
-				}
-			}
-		}
-		return $confirm;
-	}
-
-	// public function requireCategory($code){
-	// 	$required = false;
-		
-	// 	if ($this->Products()->exists()){
-	// 		$categories = DataList::create();
-	// 		foreach ($this->Products() as $p) {
-	// 			$categories->add($p->Category());
-	// 		}
-			
-	// 		$dependencies = ProductDependency::create()->filter('ParentID',$categories->column('ID'));
-	// 		//First check global dependencies
-	// 		$globalDependencies = $dependencies->filter('isGlobal',1);
-	// 		if ($globalDependencies->exists()){
-	// 			foreach ($globalDependencies as $gd){
-					
-	// 			}
-	// 		}
-			
-
-	// 		$request = Injector::inst()->get(HTTPRequest::class);
-	// 		$session = $request->getSession();
-	// 		$plzID = $session->get('active_plz')
-		
-			
-				
-	// 			$p->Category()->Dependencies()->filter()
-	// 		}
-	// 	}
-		
-	// 	return $required;
-		
-	// }
 
 	public function isEmpty(){
-		return (!$this->Package()->exists() && !$this->Products()->exists());
+		return (!$this->Product()->exists());
 	}
 }
