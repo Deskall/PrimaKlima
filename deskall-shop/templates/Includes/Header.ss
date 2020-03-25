@@ -5,7 +5,7 @@
 				<div class="uk-navbar-center-left">
 					<div> --%>
 					<% with SiteConfig.activeMenuBlocks.filter('Class','main').first %>
-					<div class="$Layout <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
+					<div class="uk-navbar-left <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
 						<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
 							<% if UseMenu %>
 							<% loop Menu.limit(2) %>
@@ -44,7 +44,7 @@
 		        <%-- <div class="uk-navbar-center-right">
 		        	<div> --%>
 						<% with SiteConfig.activeMenuBlocks.filter('Class','main').first %>
-						<div class="$Layout <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
+						<div class="uk-navbar-right <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
 							<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
 								<% if UseMenu %>
 								<% loop Menu %>
