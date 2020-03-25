@@ -132,7 +132,7 @@
 						<% if $getExtension == "svg" %>
 						$URL
 						<% else %>
-						<% if Up.RoundedImage %>
+						<% if Top.RoundedImage %>
 							$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL
 						<% else_if Up.PaddedImages %>
 						$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
@@ -152,7 +152,7 @@
 							<% if $getExtension == "svg" %>
 							$URL
 							<% else %>
-							<% if Up.RoundedImage %>
+							<% if Top.RoundedImage %>
 								$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL
 							<% else_if Up.PaddedImages %>
 							$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
