@@ -133,7 +133,7 @@
 						$URL
 						<% else %>
 						<% if Up.RoundedImage %>
-							$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL
+							$FocusFill($Up.PictureWidth,$Up.PictureWidth).URL
 						<% else_if Up.PaddedImages %>
 						$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 						<% else %>
@@ -153,7 +153,7 @@
 							$URL
 							<% else %>
 							<% if Up.RoundedImage %>
-								$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL
+								$FocusFill($Up.PictureWidth,$Up.PictureWidth).URL
 							<% else_if Up.PaddedImages %>
 							$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 							<% else %>
@@ -197,7 +197,7 @@
 			<% else %>
 			<% loop OrderedImages %>
 			<div class="uk-flex uk-flex-middle uk-flex-center">
-				<img data-src="<% if $getExtension == "svg" %>$URL<% else_if Up.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %> $FocusFill($Up.PictureWidth,$Up.PictureHeight).URL <% end_if %>
+				<img data-src="<% if $getExtension == "svg" %>$URL<% else_if Up.RoundedImage %>$FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %> $FocusFill($Up.PictureWidth,$Up.PictureHeight).URL <% end_if %>
 				" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding <% if $Top.RoundedImage %>uk-border-circle<% end_if %>" data-uk-img>
 			</div>
 			<% end_loop %>
@@ -208,7 +208,7 @@
 			<% if PaddedImages %>
 				<% loop OrderedImages %>
 				<div class="uk-flex uk-flex-middle uk-flex-center">
-					<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else_if Up.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>
+					<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else_if Up.RoundedImage %>$FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>
 						$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 						<% end_if %>
 						" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding <% if $Top.RoundedImage %>uk-border-circle<% end_if %>" data-uk-img>
@@ -218,7 +218,7 @@
 			<% else %>
 				<% loop OrderedImages %>
 				<div class="uk-flex uk-flex-middle uk-flex-center">
-					<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else_if Up.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>
+					<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description"><img data-src="<% if $getExtension == "svg" %>$URL<% else_if Up.RoundedImage %>$FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>
 						$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
 						<% end_if %>
 						" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding <% if $Top.RoundedImage %>uk-border-circle<% end_if %>" data-uk-img>
