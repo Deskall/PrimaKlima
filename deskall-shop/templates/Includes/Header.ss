@@ -91,7 +91,7 @@
 						<% end_with %>
 				<%-- 	</div>
 		        </div> --%>
-		        <% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top') %>$forTemplate<% end_loop %>
+		        <% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top').sort('Sort') %>$forTemplate<% end_loop %>
 			</div>
 			<div class="uk-navbar-right uk-hidden@m">
 	            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
