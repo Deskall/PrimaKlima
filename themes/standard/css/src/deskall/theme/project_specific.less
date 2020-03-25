@@ -3,7 +3,7 @@
 @strong-font-family: 							"Gill Sans Nova W01 Book", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 @title-font-family: 							"Gill Sans Nova W01 Cond Book" ,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 @read-more-font-family: 						@strong-font-family;
-@nav-font-family:                               @title-font-family;
+@nav-font-family:                               @strong-font-family;
 @italic-font-family:                            "Gill Sans Nova W01 Light It", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 @italic-strong-font-family:                     "Gill Sans Nova W01 Book It", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
@@ -17,12 +17,16 @@ header {
 		position: absolute;
 		right:0;
 		top:0;
+		>li > a{
+			text-transform: uppercase;
+		}
 	}
 	.uk-navbar-nav.main > li {
 		border:1px solid #393633;
 		border-radius: 4px 4px 0 0;
 		> a{
 			padding:10px!important;
+			text-transform: uppercase;
 		}
 	}
 }
