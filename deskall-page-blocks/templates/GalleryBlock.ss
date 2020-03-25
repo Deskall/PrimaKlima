@@ -18,7 +18,7 @@
 								<% if Image.exists %>
 								<div class="uk-card-media-top">
 									<img data-src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
-									<% if Up.RoundedImage %>
+									<% if Top.RoundedImage %>
 									$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL
 									<% else_if Up.PaddedImages %>
 									$Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL
@@ -66,7 +66,7 @@
 					<% if Image.exists %>
 					<div class="uk-card-media-top">
 						<img data-src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>
-						<% if Up.RoundedImage %>
+						<% if Top.RoundedImage %>
 							$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL
 						<% else_if Up.PaddedImages %>
 						$Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL
