@@ -1,6 +1,7 @@
 <header <% if $SiteConfig.StickyHeader %>class="dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
 	<div class="uk-container uk-container-medium uk-position-relative">
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+			<% with SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top').sort('Sort').first %>$forTemplate<% end_with %>
 			<%-- <div class="uk-navbar-center">
 				<div class="uk-navbar-center-left">
 					<div> --%>
@@ -91,7 +92,7 @@
 						<% end_with %>
 				<%-- 	</div>
 		        </div> --%>
-		        <% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top').sort('Sort') %>$forTemplate<% end_loop %>
+		        <% with SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top').sort('Sort').last %>$forTemplate<% end_with %>
 			</div>
 			<div class="uk-navbar-right uk-hidden@m">
 	            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
