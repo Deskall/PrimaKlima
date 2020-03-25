@@ -36,7 +36,7 @@
 						<% end_with %>
 					</div>
 				</div>
-		        <a href="" class="uk-navbar-item uk-logo">
+		        <a href="/" class="uk-navbar-item uk-logo">
 		        	<% with SiteConfig.activeMenuBlocks.filter('type','logo').first %>
 			        	<% if Logo.exists %>
 							<% if $Logo.getExtension == "svg" %>
@@ -49,7 +49,8 @@
 								<% end_if %>
 							<% end_if %>
 						<% end_if %>
-		        	<% end_with %></a>
+		        	<% end_with %>
+		        </a>
 		        <div class="uk-navbar-center-right">
 		        	<div>
 						<% with SiteConfig.activeMenuBlocks.filter('Class','main').first %>
