@@ -79,6 +79,7 @@
 						<% end_with %>
 				<%-- 	</div>
 		        </div> --%>
+		        <% with SiteConfig.activeMenuBlocks.filter('Class','second').first %>$forTemplate<% end_with %>
 			</div>
 			<div class="uk-navbar-right uk-hidden@m">
 	            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
