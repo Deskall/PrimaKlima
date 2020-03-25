@@ -12,10 +12,10 @@
 						<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
 							<% if UseMenu %>
 							<% loop Menu.limit(2) %>
-							<li class="$LinkingMode $ExtraMenuClass <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
+							<li class="$LinkingMode $ExtraMenuClass boundary-align <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
 								<% if Up.ShowSubLevels && Children %>
 								<div class="uk-navbar-dropdown">
-									<ul class="uk-nav uk-navbar-dropdown-nav">
+									<ul class="uk-nav uk-navbar-dropdown-nav" data-uk-dropdown="pos: bottom-justify; boundary: .boundary-align; boundary-align: true">
 										<% loop Children %>
 										<li class="uk-position-relative $LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %> $ExtraMenuClass"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML<% if Top.ShowSubLevels && Children %><div id="link-{$ID}" class="uk-position-center-right uk-position-small"><i class="fa fa-chevron-right uk-margin-small-left"></i></div><% end_if %></a>
 											<% if Top.ShowSubLevels && Children %>
@@ -64,10 +64,10 @@
 								<% if UseMenu %>
 								<% loop Menu %>
 								<% if Pos == 3 || Pos == 4 %>
-								<li class="$LinkingMode $ExtraMenuClass <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
+								<li class="$LinkingMode $ExtraMenuClass boundary-align <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
 									<% if Up.ShowSubLevels && Children %>
 									<div class="uk-navbar-dropdown">
-										<ul class="uk-nav uk-navbar-dropdown-nav">
+										<ul class="uk-nav uk-navbar-dropdown-nav" data-uk-dropdown="pos: bottom-justify; boundary: .boundary-align; boundary-align: true">
 											<% loop Children %>
 											<li class="uk-position-relative $LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %> $ExtraMenuClass"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML<% if Top.ShowSubLevels && Children %><div id="link-{$ID}" class="uk-position-center-right uk-position-small"><i class="fa fa-chevron-right uk-margin-small-left"></i></div><% end_if %></a>
 												<% if Top.ShowSubLevels && Children %>
