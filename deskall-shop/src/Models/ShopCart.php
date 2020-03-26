@@ -94,6 +94,8 @@ class ShopCart extends DataObject {
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
 		$this->writeTotalPrice();
+		$this->writeTransportPrice();
+		$this->writeFullTotalPrice();
 	}
 
 	public function forTemplate(){
@@ -139,6 +141,14 @@ class ShopCart extends DataObject {
 		}
 		
 		$this->TotalPrice = $price;
+	}
+
+	public function writeTransportPrice(){
+		$this->TransportPrice = ($this->PaymentMethod == "cash") ? 0 : $this->SiteConfig()->TransportPrice;
+	}
+
+	public function writeFullTotalPrice(){
+		$this->FullTotalPrice = $this->TotalPrice + $this->TransportPrice;
 	}
 
 	public function ShopPage(){
