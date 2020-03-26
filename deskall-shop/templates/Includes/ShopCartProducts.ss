@@ -10,3 +10,4 @@
 					<tr><td>Total</td><td id="total-price" class="uk-text-right uk-text-bold">$TotalPrice.Nice</td></tr>
 				</tfoot>
 			</table>
+			<div class="uk-margin-small">$countProducts <%t Webshop.CartProducts 'Artikel' %></div>
