@@ -70,30 +70,30 @@ class ShopPageController extends PageController{
 			CompositeField::create(
 				TextField::create('Company',_t(__CLASS__.'.Company','Firma')),
 				DropdownField::create('Gender',_t(__CLASS__.'.Gender','Anrede'), ['Herr' => 'Herr','Frau' => 'Frau']),
-				TextField::create('FirstName',_t(__CLASS__.'.FirstName','Vorname')),
-				TextField::create('Name',_t(__CLASS__.'.Name','Name')),
-				TextField::create('Street',_t(__CLASS__.'.Street','Strasse')),
+				TextField::create('FirstName',_t(__CLASS__.'.FirstName','Vorname'))->setAttribute('data-required',true),
+				TextField::create('Name',_t(__CLASS__.'.Name','Name'))->setAttribute('data-required',true),
+				TextField::create('Street',_t(__CLASS__.'.Street','Strasse'))->setAttribute('data-required',true),
 				TextField::create('Address',_t(__CLASS__.'.Address','Adresse')),
-				TextField::create('PostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl')),
-				TextField::create('City',_t(__CLASS__.'.City','Stadt')),
+				TextField::create('PostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl'))->setAttribute('data-required',true),
+				TextField::create('City',_t(__CLASS__.'.City','Stadt'))->setAttribute('data-required',true),
 				TextField::create('Region',_t(__CLASS__.'.Region','Bundesland')),
-				DropdownField::create('Country',_t(__CLASS__.'.Country','Land'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),
-				EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail-Adresse')),
-				TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon')),
+				DropdownField::create('Country',_t(__CLASS__.'.Country','Land'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setAttribute('data-required',true),
+				EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail-Adresse'))->setAttribute('data-required',true),
+				TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon'))->setAttribute('data-required',true),
 				TextareaField::create('Additional',_t(__CLASS__.'.Additional','Zusätzliche Informationen'))->setRows(3),
 				CheckboxField::create('DeliverySameAddress',_t(__CLASS__.'.DeliverySameAddress','Abweichende Lieferadresse'))
 			)->setName('BillFields'),
 			CompositeField::create(
 				TextField::create('DeliveryCompany',_t(__CLASS__.'.Company','Firma')),
 				DropdownField::create('DeliveryGender',_t(__CLASS__.'.Gender','Anrede'), ['Herr' => 'Herr','Frau' => 'Frau']),
-				TextField::create('DeliveryFirstName',_t(__CLASS__.'.FirstName','Vorname')),
-				TextField::create('DeliveryName',_t(__CLASS__.'.Name','Name')),
-				TextField::create('DeliveryStreet',_t(__CLASS__.'.Street','Strasse')),
-				TextField::create('DeliveryAddress',_t(__CLASS__.'.Address','Adresse')),
-				TextField::create('DeliveryPostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl')),
-				TextField::create('DeliveryCity',_t(__CLASS__.'.City','Stadt')),
+				TextField::create('DeliveryFirstName',_t(__CLASS__.'.FirstName','Vorname'))->setAttribute('data-required',true),
+				TextField::create('DeliveryName',_t(__CLASS__.'.Name','Name'))->setAttribute('data-required',true),
+				TextField::create('DeliveryStreet',_t(__CLASS__.'.Street','Strasse'))->setAttribute('data-required',true),
+				TextField::create('DeliveryAddress',_t(__CLASS__.'.Address','Adresse'))->setAttribute('data-required',true),
+				TextField::create('DeliveryPostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl'))->setAttribute('data-required',true),
+				TextField::create('DeliveryCity',_t(__CLASS__.'.City','Stadt'))->setAttribute('data-required',true),
 				TextField::create('DeliveryRegion',_t(__CLASS__.'.Region','Bundesland')),
-				DropdownField::create('DeliveryCountry',_t(__CLASS__.'.Country','Land'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))
+				DropdownField::create('DeliveryCountry',_t(__CLASS__.'.Country','Land'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setAttribute('data-required',true)
 			)->setName('DeliveryFields'),
 			CompositeField::create(
 				// TextareaField::create('Comments','Bemerkungen'),
@@ -103,7 +103,7 @@ class ShopPageController extends PageController{
 			)->setName('SummaryFields')
 		);
 		$actions = new FieldList(FormAction::create('payBill', _t('SHOP.BUY', 'Jetzt kaufen'))->addExtraClass('uk-button button-blau')->setUseButtonTag(true)->setButtonContent('<i class="uk-margin-small-right" data-uk-icon="cart"></i>'._t('SHOP.BUY', 'Jetzt kaufen')));
-		$required = RequiredFields::create(['BillingAddressCompany','BillingAddressStreet','BillingAddressPostalCode','BillingAddressPlace','BillingAddressCountry','AGB']);
+		$required = RequiredFields::create(['AGB']);
 
 		$form = new Form(
 			$this,

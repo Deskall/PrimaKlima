@@ -114,7 +114,7 @@ $(document).ready(function(){
 	//Pyement Method Fields
 	$(document).on("change","input[name='PaymentMethod']",function(){
 		if ($("input[name='PaymentMethod']:checked").val() == "bill"){
-			$("#bill-form-container").attr('hidden',false).find('input,select').attr('required',true);
+			$("#bill-form-container").attr('hidden',false).find('input[data-required],select[data-required]').attr('required',true);
 			$("#card-form-container").attr('hidden','hidden');
 			$("#Form_CheckoutForm_DeliverySameAddress_Holder").attr("hidden",false);
 			$("#summary-bill-container").attr('hidden',false);
@@ -128,7 +128,7 @@ $(document).ready(function(){
 			$("#Form_CheckoutForm_action_payBill").attr('hidden',false);
 		}
 		else{
-			$("#bill-form-container").attr('hidden','hidden').find('input, select').attr('required',false);
+			$("#bill-form-container").attr('hidden','hidden').find('input[data-required],select[data-required]').attr('required',false);
 			$("#Form_CheckoutForm_action_payBill").attr('hidden','hidden');
 			$("#summary-bill-container").attr('hidden','hidden');
 			$("#card-form-container").attr('hidden',false);
