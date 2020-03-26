@@ -11,7 +11,7 @@
 		<% end_if %>
 	</tbody>
 	<tfoot>
-		<tr><td>Total</td><td id="total-price" class="uk-text-right uk-text-bold">$TotalPrice.Nice</td></tr>
+		<tr><td colspan="3">Total</td><td id="total-price" class="uk-text-right uk-text-bold">$TotalPrice.Nice</td></tr>
 	</tfoot>
 </table>
 <div class="uk-margin-small">$countProducts <%t Webshop.CartProducts 'Artikel' %></div>
