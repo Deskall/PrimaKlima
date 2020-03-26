@@ -24,8 +24,8 @@
 					</div>
 					<% end_with %>
 					<div class="uk-flex uk-flex-between">
-						<a class="uk-button uk-button-muted" data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
-						<a class="uk-button" data-step="forward"><%t Global.Forward 'Weiter' %></a>
+						<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
+						<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 					</div>
 			</li>
 			<% if Controller.activeCart.products.exists %>
@@ -80,8 +80,8 @@
 					</div>
 				</div>
 				<div class="uk-flex uk-flex-between">
-					<a class="uk-button uk-button-muted" data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
-					<a class="uk-button button with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
+					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
+					<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 				</div>
 				<% with Fields.FieldByName('PaymentType') %>
 				$FieldHolder
@@ -94,7 +94,7 @@
 					<p><%t Checkout.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. und klicken Sie an "Gutschein prüfen".' %></p>
 					<div class="uk-flex uk-flex-left">
 						<div class=" uk-width-medium uk-margin-small-right"><input type="text" name="voucher" class="uk-input" minlength="10" maxlength="10" placeholder="<%t Checkout.VoucherPLH 'zb: A12B3C4DEF' %>" /></div>
-						<a class="uk-button button with-chevron" data-check-voucher><%t Checkout.VoucherCheck 'Gutschein prüfen' %></a>
+						<a class="uk-button button-blau with-chevron" data-check-voucher><%t Checkout.VoucherCheck 'Gutschein prüfen' %></a>
 					</div>
 				</div>
 				<hr>
