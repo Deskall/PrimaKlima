@@ -209,3 +209,41 @@ header {
 		}
 	}
 }
+
+//Specific to custom Page elements
+.dk-middle-offcanvas{
+
+	&:not(.cart-offcanvas) *{
+		color: inherit;
+	}
+	&.cart-offcanvas{
+		background-color:transparent;
+		color:inherit;
+		padding:10px;
+		
+		.uk-button{
+			background-color:@global-emphasis-background;
+			color:@global-emphasis-color;
+		}
+	}
+	@media only screen and (min-width: @breakpoint-medium) {
+		top:25%;
+		bottom:25%;
+		&.cart-offcanvas{
+			overflow-y: visible;
+		}
+	}
+}
+
+.sidebar-menu{
+	transform: rotate(-90deg);
+	display: none;
+	z-index:100;
+	button{
+		padding:0 10px;
+		box-shadow:-5px -10px 5px rgba(0,0,0,0.08);
+		svg{
+			transform: rotate(90deg);
+		}
+	}
+}
