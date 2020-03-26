@@ -24,7 +24,6 @@
 					</div>
 					<% end_with %>
 					<div class="uk-flex uk-flex-between">
-						<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 						<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 					</div>
 			</li>
