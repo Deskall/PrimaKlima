@@ -178,13 +178,14 @@ var MTIProjectId='4b41bbd9-4c07-40bd-b496-1ecb39ec46d6';
 	});
 
 	if (!$('body').hasClass('ShopPage')){
-		console.log('ici');
 		var url = window.location.pathname;
 		$.ajax({
 			url: '/shop/getActiveCart',
-			dataType: 'html'
+			dataType: 'json'
 		}).done(function(response){
-			$('body').append(response);
+			if (response.showCart){
+				$('body').append(response.html);
+			}
 		});
 	}
 		
