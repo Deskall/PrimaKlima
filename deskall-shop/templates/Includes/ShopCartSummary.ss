@@ -1,9 +1,9 @@
-<table class="uk-table uk-table-small uk-table-justify uk-table-divider">
+<table class="uk-table uk-table-small uk-table-justify">
 	<thead><th colspan="2"><%t Webshop.Article 'Artikel' %></th><th class="uk-text-center"><%t Webshop.Quantity 'Menge' %></th><th class="uk-text-right"><%t Webshop.Total 'Gesamtsumme' %></th></thead>
 	<tbody>
 		<% if Products.exists %>
 		<% loop Products.Sort('Sort') %>
-		<tr>
+		<tr class="uk-table-divider">
 			<td><img src="$MainBild.FocusFill(80,80).URL" class="uk-border-circle" /></td>
 			<td class="uk-text-truncate uk-table-expand">$Title<br/><%t Webshop.Price 'Stückpreis' %>: $Price.Nice</td><td class="uk-text-center">$Quantity</td><td class="uk-text-right">$Subtotal.Nice</td>
 		</tr>
