@@ -89,7 +89,7 @@ class ShopController extends PageController{
 				   	if ($product){
 				   		$quantity = ($request->postVar('quantity')) ? $request->postVar('quantity') : 1;
 				   		$sort = $cart->Products()->count() + 1;
-				   		$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort, 'Subtotal' => $product->Price * $Quantity]);
+				   		$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort, 'Subtotal' => $product->Price * $quantity]);
 				   		$cart->write();
 				   	}
 				}
