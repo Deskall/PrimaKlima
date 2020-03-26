@@ -155,6 +155,7 @@ class ShopCart extends DataObject {
 
 	public function SubTotalPrice($id){
 		$p = $this->Products()->byId($id);
+		print_r($id);
 		if ($p){
 			$price = DBCurrency::create();
 			$price->setAmount($p->Price * $p->Quantity);
