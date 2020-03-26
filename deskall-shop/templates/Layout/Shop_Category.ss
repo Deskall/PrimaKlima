@@ -16,7 +16,7 @@
 		<div class="uk-child-width-1-2@s uk-child-width-1-3" data-uk-grid>
 			<% loop activeProducts %>
 			<div>
-				<div class="uk-card uk-card-default uk-card-body uk-text-center">
+				<div class="uk-card uk-card-body uk-text-center">
 					<h3 class="uk-card-title">$Title</h3>
 					<div class="uk-margin-small">
 						<img src="$MainBild.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$MainBild.Alt" />
