@@ -181,11 +181,9 @@ var MTIProjectId='4b41bbd9-4c07-40bd-b496-1ecb39ec46d6';
 		var url = window.location.pathname;
 		$.ajax({
 			url: '/shop/getActiveCart',
-			dataType: 'json'
+			dataType: 'html'
 		}).done(function(response){
-			if (response.showCart){
-				$('body').append(response.html);
-			}
+			$('body').append(response);
 		});
 	}
 		
