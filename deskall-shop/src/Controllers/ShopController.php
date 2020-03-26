@@ -48,7 +48,7 @@ class ShopController extends PageController{
 		if ($URLSegment){
 			$category = ProductCategory::get()->filter('URLSegment',$URLSegment)->first();
 			if ($category){
-				return ['Title' => $category->Title, 'Category' => $category ];
+				return ['Title' => $category->Title, 'Category' => $category, 'ExtraCssClass' => 'blau' ];
 			}
 		}
 		return $this->httpError(404);
@@ -59,7 +59,7 @@ class ShopController extends PageController{
 		if ($URLSegment){
 			$product = Product::get()->filter('URLSegment',$URLSegment)->first();
 			if ($product){
-				return ['Title' => $product->Title, 'Product' => $product ];
+				return ['Title' => $product->Title, 'Product' => $product, 'ExtraCssClass' => 'blau' ];
 			}
 		}
 		return $this->httpError(404);
