@@ -213,7 +213,7 @@ var MTIProjectId='4b41bbd9-4c07-40bd-b496-1ecb39ec46d6';
 			url: '/shop/updateCartData',
 			method: 'POST',
 			dataType: 'html',
-			data: form.serialize()
+			data: {form: form.serialize()}
 		}).done(function(response){
 			$(".summary-products").each(function(){
 				$(this).empty().append(response);

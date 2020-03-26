@@ -113,6 +113,8 @@ class ShopController extends PageController{
          parse_str($form, $data);
          $cart->update($data);
          $cart->write();
+
+         return $cart->renderWith('Includes/ShopCartSummary');
       }
 
       return;
