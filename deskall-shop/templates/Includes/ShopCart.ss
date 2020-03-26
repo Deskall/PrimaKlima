@@ -1,5 +1,5 @@
 <div id="cart-container" class="uk-position-fixed uk-position-center-right uk-position-z-index sidebar-menu">
-	
+	<% if Top.ClassName != "ShopPage" %>
 	<button class="uk-button uk-visible@m" type="button" data-uk-toggle="target: #offcanvas-usage-cart">Warenkorb<span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></button>
 	<div id="offcanvas-usage-cart" data-uk-offcanvas="flip:true;">
 		<div class="uk-offcanvas-bar dk-middle-offcanvas cart-offcanvas">
@@ -17,5 +17,5 @@
 			</div>
 		</div>
 	</div>
-	
+	<% end_if %>
 </div>
