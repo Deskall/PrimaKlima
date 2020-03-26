@@ -11,9 +11,9 @@
 		<% end_if %>
 	</tbody>
 	<tfoot>
-		<tr><td colspan="3" class="uk-text-right"><%t Webshop.MwSt 'Enthaltene Mehrwertsteuer:' %> $Config.MwSt %</td><td id="total-price" class="uk-text-right">$TotalPrice.Nice</td></tr>
+		<tr><td colspan="3" class="uk-text-right"><%t Webshop.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td id="total-price" class="uk-text-right">$TotalPrice.Nice</td></tr>
 		<tr><td colspan="3" class="uk-text-right"><strong><%t Webshop.Total 'Gesamtsumme:' %></strong></td><td id="total-price" class="uk-text-right uk-text-bold"><strong>$TotalPrice.Nice</strong></td></tr>
-		<tr><td colspan="3" class="uk-text-right"><%t Webshop.Transport 'Porto und Verpackung' %></td><td class="uk-text-right">$Config.TransportPrice.Nice</td></tr>
+		<tr><td colspan="3" class="uk-text-right"><%t Webshop.Transport 'Porto und Verpackung' %></td><td class="uk-text-right">$SiteConfig.TransportPrice.Nice</td></tr>
 		<tr><td colspan="3" class="uk-text-right"><%t Webshop.TotalPrice 'Preis inklusive MwSt., Porto und Verpackung' %></td><td class="uk-text-right">$FullTotalPrice.Nice</td></tr>
 	</tfoot>
 </table>

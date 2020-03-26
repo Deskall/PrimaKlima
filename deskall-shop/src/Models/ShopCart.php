@@ -153,6 +153,9 @@ class ShopCart extends DataObject {
 		return $i;
 	}
 
+	public function SiteConfig(){
+		return SiteConfig::current_site_config();
+	}
 
 	public function isEmpty(){
 		return (!$this->Product()->exists());
