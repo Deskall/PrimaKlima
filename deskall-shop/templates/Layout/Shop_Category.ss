@@ -25,7 +25,7 @@
 					<% if Lead %>Lead.limitWordCount(15)<% else %>$Description.limitWordCount(15)<% end_if %>
 					</div>
 					<div class="uk-margin-small">
-						$Price.Nice
+						<strong>$Price.Nice</strong>
 					</div>
 					<a href="$Link" class="uk-button button-blau"><%t Webshop.ToProduct 'Zum Produkt' %></a>
 				</div>
