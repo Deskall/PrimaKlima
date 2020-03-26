@@ -13,22 +13,14 @@
 				$Lead
 			</div>
 		</div>
-		<div class="uk-child-width-1-1" data-uk-grid>
+		<div class="uk-child-width-1-2@s uk-child-width-1-3" data-uk-grid>
 			<% loop activeProducts %>
 			<div>
 				<div class="uk-card uk-card-default uk-card-body">
-					<div class="uk-grid-small" data-uk-grid>
-						<div class="uk-width-1-3">
-							<img src="$MainBild.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$MainBild.Alt" />
-						</div>
-						<div class="uk-width-2-3 uk-position-relative">
-						    <h3 class="uk-card-title">$Title</h3>
-						    $Description
-						    <div class="uk-position-bottom-right">
-						    	<a href="$Link" class="uk-button button-PrimaryBackground"><%t Webshop.ToProduct 'Zum Produkt' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
-						    </div>
-						</div>
-					</div>
+					<h3 class="uk-card-title">$Title</h3>
+					<img src="$MainBild.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$MainBild.Alt" />
+					$Description
+					<a href="$Link" class="uk-button button-blau"><%t Webshop.ToProduct 'Zum Produkt' %></a>
 				</div>
 			</div>
 			<% end_loop %>
