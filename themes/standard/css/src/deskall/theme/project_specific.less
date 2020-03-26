@@ -218,6 +218,18 @@ header {
 	.uk-tab > li.uk-active > a{
 		border-color:@color;
 	}
+	uk-radio:checked,
+	.uk-checkbox:checked,
+	.uk-checkbox:indeterminate {
+	    background-color: @color;
+	}
+
+	/* Focus */
+	.uk-radio:checked:focus,
+	.uk-checkbox:checked:focus,
+	.uk-checkbox:indeterminate:focus {
+	    background-color: @color;
+	}
 }
 
 .icon-large i{
