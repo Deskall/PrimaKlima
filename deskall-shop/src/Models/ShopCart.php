@@ -50,7 +50,7 @@ class ShopCart extends DataObject {
 	];
 
 	private static $many_many_extraFields = [
-		'Products' => ['SortOrder' => 'Int', 'Quantity' => 'Int']
+		'Products' => ['SortOrder' => 'Int', 'Quantity' => 'Int', 'Subtotal' => 'Currency']
 	];
 
 	private static $summary_fields = [
@@ -151,18 +151,6 @@ class ShopCart extends DataObject {
 			$i += $p->Quantity; 
 		}
 		return $i;
-	}
-
-	public function SubTotalPrice($id){
-		print_r('ici');
-		$p = $this->Products()->byId($id);
-		print_r($id);
-		if ($p){
-			$price = DBCurrency::create();
-			$price->setAmount($p->Price * $p->Quantity);
-	    	return $price;
-		}
-		return null;
 	}
 
 

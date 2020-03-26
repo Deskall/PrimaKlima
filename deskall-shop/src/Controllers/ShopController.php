@@ -79,12 +79,7 @@ class ShopController extends PageController{
 	}
 
 	public function updateCart(HTTPRequest $request){
-		ob_start();
-			print_r($request->postVars());
-			$result = ob_get_clean();
-			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 	   $id = $this->getRequest()->getSession()->get('shopcart_id');
-	 
 	   if ($id){
 	      $cart = ShopCart::get()->byId($id);
 	      	if ($cart){
@@ -94,7 +89,7 @@ class ShopController extends PageController{
 				   	if ($product){
 				   		$quantity = ($request->postVar('quantity')) ? $request->postVar('quantity') : 1;
 				   		$sort = $cart->Products()->count() + 1;
-				   		$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort]);
+				   		$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort, 'Subtotal' => $product->Price * $Quantity]);
 				   		$cart->write();
 				   	}
 				}
