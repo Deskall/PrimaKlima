@@ -133,18 +133,22 @@ header {
 	font-family: inherit;
   	border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    padding:5px 30px;
-    padding-right:40px;
-    position: relative;
-   	&.with-chevron:after{
-	    font-family: 'icomoon';
-	    content: '\e9bd';
-	    font-size: 65%;
-	    color: inherit;
-	    position: absolute;
-	    right: 15px;
-	    top: 60%;
-	    transform: translateY(-60%);
+    &.large{
+    	padding:5px 30px;
+    }
+   	&.with-chevron{
+   		position: relative;
+   		padding-right:40px;
+   		:after{
+		    font-family: 'icomoon';
+		    content: '\e9bd';
+		    font-size: 65%;
+		    color: inherit;
+		    position: absolute;
+		    right: 15px;
+		    top: 60%;
+		    transform: translateY(-60%);
+		}
     }
     &:hover{
     	color:inherit;
@@ -229,6 +233,9 @@ header {
 	.uk-checkbox:checked:focus,
 	.uk-checkbox:indeterminate:focus {
 	    background-color: @color;
+	}
+	.uk-button{
+		background-color:
 	}
 }
 
