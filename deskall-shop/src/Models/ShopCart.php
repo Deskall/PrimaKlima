@@ -163,12 +163,12 @@ class ShopCart extends DataObject {
 
 	public function MwSt(){
 		$mwst = $this->TotalPrice * floatval($this->SiteConfig()->MwSt) / 100;
-		return DBCurrency::create()->setAmount($mwst);
+		return DBCurrency::create()->setValue($mwst);
 	}
 
 	public function FullTotalPrice(){
 		$price = $this->TotalPrice + $this->TransportPrice;
-		return DBCurrency::create()->setAmount($price);
+		return DBCurrency::create()->setValue($price);
 	}
 
 	public function isEmpty(){
