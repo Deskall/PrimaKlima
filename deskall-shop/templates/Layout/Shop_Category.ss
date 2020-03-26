@@ -21,8 +21,11 @@
 					<div class="uk-margin-small">
 						<img src="$MainBild.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$MainBild.Alt" />
 					</div>
+					<div class="uk-margin-small uk-text-small">
+					<% if Lead %>Lead.limitWordCount(15)<% else %>$Description.limitWordCount(15)<% end_if %>
+					</div>
 					<div class="uk-margin-small">
-					<% if Lead %>Lead.limitWordCount(25)<% else %>$Description.limitWordCount(25)<% end_if %>
+						$Price.Nice
 					</div>
 					<a href="$Link" class="uk-button button-blau"><%t Webshop.ToProduct 'Zum Produkt' %></a>
 				</div>
