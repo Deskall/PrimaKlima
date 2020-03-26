@@ -184,7 +184,7 @@ var MTIProjectId='4b41bbd9-4c07-40bd-b496-1ecb39ec46d6';
 			dataType: 'json'
 		}).done(function(response){
 			if (response.showCart){
-				$('body').append(response.htmlResponse);
+				$('body').append(response.html);
 			}
 		});
 	}
