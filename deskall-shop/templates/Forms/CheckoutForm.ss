@@ -34,7 +34,7 @@
 					<div class="uk-child-width-1-3@s" data-uk-grid data-uk-height-match=".uk-card">
 						<div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
-								<div class="icon-large"><i class="icon icon-ios-cash"></i></div>
+								<div class="icon-large"><i class="icon icon-cash"></i></div>
 								<input id="cash-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="cash" required="required"><label for="cash-choice"><%t Shop.CashPayLabel 'Barzahlung bei Abholung' %></label>
 								<div class="uk-margin">
 									Kosten für Porto und Verpackung CHF 9.80
