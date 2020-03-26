@@ -124,7 +124,7 @@
 					</div>
 				
 				<div class="uk-margin uk-flex uk-flex-between">
-					<a class="uk-button uk-button-muted" data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
+					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<% if $Actions %>
 						<% loop $Actions %>
 							$Field
