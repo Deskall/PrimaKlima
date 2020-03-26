@@ -56,7 +56,7 @@
 		        		<div class="uk-margin">$Description</div>
 		        	<% end_if %>
 		            <div class="uk-margin">
-		            	<div class="uk-child-width-1-2@s uk-grid-small" data-uk-grid>
+		            	<div class="uk-child-width-1-2@s uk-grid-small uk-flex-middle" data-uk-grid>
 		            		<div>
 				              <table class="uk-table uk-table-justify uk-table-small">
 				              	<tr><td><strong>Preis:</strong></td><td><strong>$Price.Nice</strong>	</td></tr>
@@ -65,8 +65,8 @@
 				              </table>
 				          	</div>
 				          	<div>
-				          		<div class="uk-margin"><a class="uk-button button-blau uk-width-1-1 uk-border-rounded add-to-cart" data-product-id="$ID"><i class="uk-margin-small-right" data-uk-icon="cart"></i><%t Webshop.ToCart 'in den Warenkorb' %></a></div>
-				          		<div class="uk-margin">agb, konditionen</div>
+				          		<div class="uk-margin"><a class="uk-button button-blau uk-width-1-1 add-to-cart" data-product-id="$ID"><i class="uk-margin-small-right" data-uk-icon="cart"></i><%t Webshop.ToCart 'in den Warenkorb' %></a></div>
+				          		<%-- <div class="uk-margin">agb, konditionen</div> --%>
 				          	</div>
 		            	</div>
 		        	</div>
