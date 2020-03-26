@@ -18,8 +18,12 @@
 			<div>
 				<div class="uk-card uk-card-default uk-card-body">
 					<h3 class="uk-card-title">$Title</h3>
-					<img src="$MainBild.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$MainBild.Alt" />
+					<div class="uk-margin-small">
+						<img src="$MainBild.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$MainBild.Alt" />
+					</div>
+					<div class="uk-margin-small">
 					<% if Lead %>Lead.limitWordCount(25)<% else %>$Description.limitWordCount(25)<% end_if %>
+					</div>
 					<a href="$Link" class="uk-button button-blau"><%t Webshop.ToProduct 'Zum Produkt' %></a>
 				</div>
 			</div>
