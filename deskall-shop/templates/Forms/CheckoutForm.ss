@@ -37,7 +37,7 @@
 								<div class="icon-large"><i class="icon icon-cash"></i></div>
 								<input id="cash-choice" class="uk-radio uk-margin-right" type="radio" name="paymentmethod" value="cash" required="required"><label for="cash-choice"><%t Shop.CashPayLabel 'Barzahlung bei Abholung' %></label>
 								<div class="uk-margin">
-									Kosten für Porto und Verpackung CHF 9.80
+									Kosten für Porto und Verpackung CHF 0.00
 								</div>
 							</div>
 						</div>
