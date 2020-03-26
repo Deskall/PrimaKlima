@@ -46,7 +46,8 @@ class GalleryBlock extends BaseElement implements Searchable
         'ItemType' => 'Varchar',
         'infiniteLoop' => 'Boolean(1)',
         'ImagePadding' => 'Varchar',
-        'RoundedImage' => 'Boolean(0)'
+        'RoundedImage' => 'Boolean(0)',
+        'TextPosition' => 'Varchar'
     ];
 
     private static $many_many = [
@@ -128,6 +129,7 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('infiniteLoop');
             $fields->removeByName('ImagePadding');
             $fields->removeByName('RoundedImage');
+            $fields->removeByName('TextPosition');
             $fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Item Typ',$this->stat('block_types')),'TitleAndDisplayed');
 
             if ($this->ID > 0){
@@ -169,6 +171,8 @@ class GalleryBlock extends BaseElement implements Searchable
             );
             
            $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Name' => 'Dateiname'))->displayIf('ItemType')->isEqualTo('images')->orIf('ItemType')->isEqualTo('logos')->end(),'HTML');
+
+           $fields->insertAfter('TextColumnsDivider',DropdownField::create('TextPosition','Text Position',array('before' => 'Vor den Bildern', 'after' => 'Nach den Bildern')));
 
 
         });
