@@ -157,6 +157,11 @@ class ShopCart extends DataObject {
 		return SiteConfig::current_site_config();
 	}
 
+	public function MwSt(){
+		$mwst = $this->TotalPrice * floatval($this->SiteConfig()->MwSt) / 100;
+		return DBCurrency::create()->setAmount($mwst);
+	}
+
 	public function isEmpty(){
 		return (!$this->Product()->exists());
 	}
