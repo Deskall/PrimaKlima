@@ -232,7 +232,7 @@
 <% end_if %>
 
 <% if TextPosition == "after" %>
-<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+<div class="uk-margin-large-top dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	$HTML
 </div>
 <% if LinkableLinkID > 0 %>
