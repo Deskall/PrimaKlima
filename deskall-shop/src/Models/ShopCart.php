@@ -11,6 +11,9 @@ class ShopCart extends DataObject {
 	private static $db = [
 		'IP' => 'Varchar',
 		'TotalPrice' => 'Currency',
+		'TransportPrice' => 'Currency',
+		'FullTotalPrice' => 'Currency',
+		'PaymentMethod' => 'Varchar',
 		'Purchased' => 'Boolean(0)',
 		'CurrentStep' => 'Varchar',
 		//Customer Fields for save
@@ -161,6 +164,11 @@ class ShopCart extends DataObject {
 	public function MwSt(){
 		$mwst = $this->TotalPrice * floatval($this->SiteConfig()->MwSt) / 100;
 		return DBCurrency::create()->setAmount($mwst);
+	}
+
+	public function FullTotalPrice(){
+		$price = $this->TotalPrice + $this->TransportPrice;
+		return DBCurrency::create()->setAmount($price);
 	}
 
 	public function isEmpty(){
