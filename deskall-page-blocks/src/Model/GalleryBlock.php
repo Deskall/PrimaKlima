@@ -172,7 +172,7 @@ class GalleryBlock extends BaseElement implements Searchable
             
            $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Name' => 'Dateiname'))->displayIf('ItemType')->isEqualTo('images')->orIf('ItemType')->isEqualTo('logos')->end(),'HTML');
 
-           $fields->insertAfter('TextColumnsDivider',DropdownField::create('TextPosition','Text Position',array('before' => 'Vor den Bildern', 'after' => 'Nach den Bildern')));
+           $fields->insertAfter('ShowColumnsBorder',DropdownField::create('TextPosition','Text Position',array('before' => 'Vor den Bildern', 'after' => 'Nach den Bildern')));
 
 
         });
