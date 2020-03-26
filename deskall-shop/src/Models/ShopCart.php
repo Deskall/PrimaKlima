@@ -157,7 +157,7 @@ class ShopCart extends DataObject {
 		$p = $this->Products()->byId($id);
 		if ($p){
 			$price = DBCurrency::create();
-			$price->setAmount($p->Price->getAmount() * $p->Quantity);
+			$price->setAmount($p->Price * $p->Quantity);
 	    	return $price;
 		}
 		return null;
