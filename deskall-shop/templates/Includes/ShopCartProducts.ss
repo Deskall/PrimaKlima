@@ -1,4 +1,4 @@
-<table class="uk-table uk-table-small uk-table-justify uk-table-striped">
+<table class="uk-table uk-table-small uk-table-justify uk-table-divider">
 				<tbody>
 					<% if Products.exists %>
 					<% loop Products.Sort('Sort') %>
