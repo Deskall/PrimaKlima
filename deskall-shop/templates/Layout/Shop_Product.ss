@@ -1,5 +1,5 @@
 <% with Product %>
-<section class="uk-section uk-background-muted uk-padding-remove-vertical">
+<section class="uk-section uk-background-muted uk-padding-small">
 	<div class="uk-container">
 		<div class="breadcrumbs">
 			<ul class="uk-breadcrumb">
