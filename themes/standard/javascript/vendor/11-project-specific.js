@@ -194,7 +194,6 @@ var MTIProjectId='4b41bbd9-4c07-40bd-b496-1ecb39ec46d6';
 
 
 	function UpdateOrderPreview(productID,quantity,context = null){
-		console.log(quantity);
 		//ici ajouter un
 		$.ajax({
 			url: '/shop/updateCart',
@@ -203,6 +202,20 @@ var MTIProjectId='4b41bbd9-4c07-40bd-b496-1ecb39ec46d6';
 			data: {productID: productID,quantity: quantity, context: context}
 		}).done(function(response){
 			$(".order-preview").each(function(){
+				$(this).empty().append(response);
+			});
+		});
+	}
+
+	function UpdateCartStep(){
+		var form = $("#Form_CheckoutForm");
+		$.ajax({
+			url: '/shop/updateCartData',
+			method: 'POST',
+			dataType: 'html',
+			data: form.serialize()
+		}).done(function(response){
+			$(".summary-products").each(function(){
 				$(this).empty().append(response);
 			});
 		});
