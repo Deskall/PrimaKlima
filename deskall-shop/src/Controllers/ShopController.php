@@ -75,7 +75,8 @@ class ShopController extends PageController{
 	   $cart->write();
 	   $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
 	   $showCart = $cart->Products()->count() > 0;
-	   return json_encode(['html' => $cart->renderWith('Includes/ShopCart'), 'showCart' => $showCart, 'count' => $cart->countProducts()]);
+	   $html = $cart->renderWith('Includes/ShopCart');
+	   return json_encode(['html' => $html, 'showCart' => $showCart, 'count' => $cart->countProducts()]);
 	}
 
 	public function updateCart(HTTPRequest $request){
