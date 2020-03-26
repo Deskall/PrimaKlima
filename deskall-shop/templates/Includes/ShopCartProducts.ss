@@ -2,7 +2,7 @@
 				<tbody>
 					<% if Products.exists %>
 					<% loop Products.Sort('Sort') %>
-						<tr><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
+						<tr><td class="uk-text-truncate">$Title</td></tr>
 					<% end_loop %>
 					<% end_if %>
 				</tbody>
