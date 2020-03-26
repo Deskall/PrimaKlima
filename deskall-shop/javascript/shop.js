@@ -20,6 +20,80 @@ $(document).ready(function(){
 	});
 
 
+	//Toggle cart (all pages)
+	$(document).on("click",".toggle-cart",function(){
+		$("#cart-container").toggleClass('uk-hidden');
+	});
+
+	$(document).on("click",".add-to-cart",function(){
+		UpdateOrderPreview($(this).attr('data-product-id'),1);
+	});
+
+	$(document).on("change","input[data-quantity]",function(){
+		UpdateOrderPreview($(this).attr('data-quantity'),$(this).val(), 'checkout');
+	});
+
+	$(document).on("click","[data-remove-product]",function(){
+		productID = $(this).attr('data-remove-product');
+		$.ajax({
+			url: '/shop/removeFromCart',
+			method: 'POST',
+			dataType: 'html',
+			data: {productID: productID}
+		}).done(function(response){
+			$(".order-preview").empty().append(response);
+		});
+	});
+
+	$(document).on("click","[data-step='forward']",function(){
+		UpdateCartStep();
+	});
+
+	if (!$('body').hasClass('ShopPage')){
+		var url = window.location.pathname;
+		$.ajax({
+			url: '/shop/getActiveCart',
+			dataType: 'html'
+		}).done(function(response){
+			$('body').append(response);
+		});
+	}
+		
+	
+		
+		
+	
+
+
+	function UpdateOrderPreview(productID,quantity,context = null){
+		//ici ajouter un
+		$.ajax({
+			url: '/shop/updateCart',
+			method: 'POST',
+			dataType: 'html',
+			data: {productID: productID,quantity: quantity, context: context}
+		}).done(function(response){
+			$(".order-preview").each(function(){
+				$(this).empty().append(response);
+			});
+		});
+	}
+
+	function UpdateCartStep(){
+		var form = $("#Form_CheckoutForm");
+		$.ajax({
+			url: '/shop/updateCartData',
+			method: 'POST',
+			dataType: 'html',
+			data: {form: form.serialize()}
+		}).done(function(response){
+			$(".summary-products").each(function(){
+				$(this).empty().append(response);
+			});
+		});
+	}
+
+
 	//Steps
 	$(document).on("click","[data-step]",function(){
 		var switcher = $('#tab-switcher');
@@ -37,31 +111,16 @@ $(document).ready(function(){
 	var price,
 	voucherID;
 
-	//Package Selection
-	$(document).on("click","[data-package-choice]",function(){
-		$("#Form_CheckoutForm_ProductID").val($(this).attr('data-package-choice'));
-		price = parseFloat($(this).attr('data-price'));
-		$(".summary-package").attr('hidden','hidden');
-		$("#summary-package-"+$(this).attr('data-package-choice')).attr('hidden',false);
-		if ($(this).attr('data-package-choice') == 3){
-			var option = $("select[name='package-option'] option:selected");
-			$("#Form_CheckoutForm_OptionID").val(option.attr('value'));
-			$("#summary-package-"+$(this).attr('data-package-choice')).find('td.price').text(option.attr('data-price')+' €');
-			$("#summary-package-"+$(this).attr('data-package-choice')).find('td.runtime').text(option.attr('data-runtime'));
-		}
-		UIkit.tab('#tab-switcher').show(1);
-	});
-
 	//Pyement Method Fields
-	$(document).on("change","input[name='paymentmethod']",function(){
-		if ($("input[name='paymentmethod']:checked").val() == "bill"){
+	$(document).on("change","input[name='PaymentMethod']",function(){
+		if ($("input[name='PaymentMethod']:checked").val() == "bill"){
 			$("#bill-form-container").attr('hidden',false).find('input,select').attr('required',true);
 			$("#card-form-container").attr('hidden','hidden');
 			$("#Form_CheckoutForm_DeliverySameAddress_Holder").attr("hidden",false);
 			$("#summary-bill-container").attr('hidden',false);
 			$("#Form_CheckoutForm_action_payBill").attr('hidden',false);
 		}
-		else if ( $("input[name='paymentmethod']:checked").val() == "cash"){
+		else if ( $("input[name='PaymentMethod']:checked").val() == "cash"){
 			$("#bill-form-container").attr('hidden',false);
 			$("#Form_CheckoutForm_DeliverySameAddress_Holder").attr("hidden","hidden");
 			$("#card-form-container").attr('hidden','hidden');
@@ -75,7 +134,7 @@ $(document).ready(function(){
 			$("#card-form-container").attr('hidden',false);
 		}
 	
-		$("#Form_CheckoutForm_PaymentType").val($("input[name='paymentmethod']:checked").val());
+		$("#Form_CheckoutForm_PaymentType").val($("input[name='PaymentMethod']:checked").val());
 	});
 
 	//Voucher

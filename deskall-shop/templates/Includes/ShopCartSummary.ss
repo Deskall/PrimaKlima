@@ -17,4 +17,3 @@
 		<tr><td colspan="3" class="uk-text-right"><strong><%t Webshop.TotalPrice 'Preis inklusive MwSt., Porto und Verpackung' %></strong></td><td class="uk-text-right"><strong>$FullTotalPrice.Nice</strong></td></tr>
 	</tfoot>
 </table>
-<div class="uk-margin-small">$countProducts <%t Webshop.CartProducts 'Artikel' %></div>
