@@ -108,7 +108,7 @@
 				<hr>
 				
 					<div class="uk-text-right">
-						<div id="summary-bill-container">
+						<div id="summary-bill-container" class="dk-text-content">
 						<% with Fields.FieldByName('SummaryFields') %>
 						$FieldHolder
 						<% end_with %>
