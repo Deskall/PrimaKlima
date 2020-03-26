@@ -177,6 +177,10 @@ var MTIProjectId='4b41bbd9-4c07-40bd-b496-1ecb39ec46d6';
 		});
 	});
 
+	$(document).on("click","[data-step='forward']",function(){
+		UpdateCartStep();
+	});
+
 	if (!$('body').hasClass('ShopPage')){
 		var url = window.location.pathname;
 		$.ajax({
