@@ -1,5 +1,5 @@
 <% with Product %>
-<section class="uk-section">
+<section class="uk-section uk-background-muted">
 	<div class="uk-container">
 		<div class="breadcrumbs">
 			<ul class="uk-breadcrumb">
@@ -8,6 +8,10 @@
 			    <li><span>$Title</span></li>
 			</ul>
 		</div>
+	</div>
+</section>
+<section class="uk-section">
+	<div class="uk-container">
 		<h1>$Title</h1>
 		<div class="uk-grid-small" data-uk-grid>
 		    <div class="uk-width-1-3@m uk-text-center">
@@ -55,7 +59,7 @@
 		            	<div class="uk-child-width-1-2@s uk-grid-small" data-uk-grid>
 		            		<div>
 				              <table class="uk-table uk-table-justify uk-table-small">
-				              	<tr><td><strong>Preis:</strong></td><td><strong>$Price.Nice</strong></td></tr>
+				              	<tr><td><strong>Preis:</strong></td><td><strong>$Price.Nice</strong>	</td></tr>
 				              	<tr><td>MwSt.:</td><td>7.7%</td></tr>
 				              	<tr><td>Zuzüglich Porto und Verpackung</td><td>&nbsp;</td></tr>
 				              </table>
