@@ -154,6 +154,7 @@ class ShopCart extends DataObject {
 	}
 
 	public function SubTotalPrice($id){
+		print_r('ici');
 		$p = $this->Products()->byId($id);
 		print_r($id);
 		if ($p){
