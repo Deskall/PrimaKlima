@@ -6,7 +6,7 @@
 			<button class="uk-offcanvas-close" type="button" data-uk-close></button>
 			<div class="uk-card uk-background-muted uk-card-hover uk-box-shadow-medium uk-card-small">
 				<div class="uk-card-header">
-					<h3 class="uk-card-title"><%t Webshop.Cart 'Einkaufswagen' %></h3>
+					<h3 class="uk-card-title"><%t Webshop.Cart 'Warenkorb' %></h3>
 				</div>
 				<div class="uk-card-body order-preview uk-text-small">
 					<% include ShopCartProducts %>
