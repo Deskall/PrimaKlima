@@ -19,7 +19,7 @@
 	<div id="offcanvas-usage-cart" data-uk-offcanvas="flip:true;">
 		<div class="uk-offcanvas-bar dk-middle-offcanvas cart-offcanvas">
 			<button class="uk-offcanvas-close" type="button" data-uk-close></button>
-			<div class="uk-card WhiteBackground uk-card-hover uk-box-shadow-medium uk-card-small">
+			<div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-small">
 				<div class="uk-card-header">
 					<h3 class="uk-card-title"><%t Webshop.Cart 'Einkaufswagen' %></h3>
 				</div>
