@@ -145,6 +145,14 @@ class ShopCart extends DataObject {
 		return SiteConfig::current_site_config()->ShopPage();
 	}
 
+	public function countProducts(){
+		$i = 0;
+		foreach ($this->Products() as $p) {
+			$i += $p->Quantity; 
+		}
+		return $i;
+	}
+
 
 	public function isEmpty(){
 		return (!$this->Product()->exists());
