@@ -101,7 +101,7 @@
 					<h4><%t Checkout.SummaryTitle 'Ihre Bestellung' %></h4>
 					<% with Controller.activeCart %>
 					<div id="summary-products" class="summary-products" hidden>
-						
+						<% include ShopCartSummary %>
 					</div>
 					<% end_with %>	
 				</div>

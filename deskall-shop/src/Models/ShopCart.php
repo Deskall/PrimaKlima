@@ -153,6 +153,16 @@ class ShopCart extends DataObject {
 		return $i;
 	}
 
+	public function SubTotalPrice($id){
+		$p = $this->Products()->byId($id);
+		if ($p){
+			$price = DBCurrency::create();
+			$price->setAmount($p->Price->getAmount() * $p->Quantity);
+	    	return $price;
+		}
+		return null;
+	}
+
 
 	public function isEmpty(){
 		return (!$this->Product()->exists());
