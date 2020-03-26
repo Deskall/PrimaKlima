@@ -166,13 +166,13 @@ class GalleryBlock extends BaseElement implements Searchable
                     CheckboxField::create('RoundedImage',_t(__CLASS__.'.RoundedImage','Rund Bilder?')),
                     CheckboxField::create('PaddedImages',_t(__CLASS__.'.PaddedImages','Bilder vollständig anzeigen? (keine Größenanpassung, beispielsweise für Logos angegeben)')),
                     CheckboxField::create('lightboxOff',_t(__CLASS__.'.LightboxOff','Bilder nicht anklickbar?')),
-                    DropdownField::create('ImagePadding',_t(__CLASS__.'.ImagePadding','Bild Abstand'), $this->getTranslatedSourceFor(__CLASS__,'image_padding'))->setEmptyString(_t('Global.None','Keine'))
+                    DropdownField::create('ImagePadding',_t(__CLASS__.'.ImagePadding','Bild Abstand'), $this->getTranslatedSourceFor(__CLASS__,'image_padding'))->setEmptyString(_t('Global.None','Keine')),
+                    DropdownField::create('TextPosition','Text Position',array('before' => 'Vor den Bildern', 'after' => 'Nach den Bildern'))
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             
            $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Name' => 'Dateiname'))->displayIf('ItemType')->isEqualTo('images')->orIf('ItemType')->isEqualTo('logos')->end(),'HTML');
 
-           $fields->insertAfter('TextColumnsDivider',DropdownField::create('TextPosition','Text Position',array('before' => 'Vor den Bildern', 'after' => 'Nach den Bildern')));
 
 
         });

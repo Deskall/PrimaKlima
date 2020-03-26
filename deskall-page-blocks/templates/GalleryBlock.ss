@@ -1,10 +1,10 @@
-
+<% if TextPosition == "before" %>
 <div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	$HTML
 </div>
-
 <% if LinkableLinkID > 0 %>
 	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+<% end_if %>
 <% end_if %>
 <% if ItemType == "boxes" %>
 	<% if Layout == "carousel" %>
@@ -229,4 +229,13 @@
 		</div>
 		<% end_if %>
 	<% end_if %>
+<% end_if %>
+
+<% if TextPosition == "after" %>
+<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+	$HTML
+</div>
+<% if LinkableLinkID > 0 %>
+	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+<% end_if %>
 <% end_if %>
