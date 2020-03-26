@@ -23,11 +23,11 @@
 				<div class="uk-card-header">
 					<h3 class="uk-card-title"><%t Webshop.Cart 'Einkaufswagen' %></h3>
 				</div>
-				<div class="uk-card-body order-preview">
+				<div class="uk-card-body order-preview uk-text-small">
 					<% include ShopCartProducts %>
 				</div>
 				<div class="uk-card-footer">
-					<a href="$ShopPage.Link" class="uk-button BlackBackground"><%t Webshop.Checkout 'Zur Kasse' %></a>
+					<a href="$ShopPage.Link" class="uk-button button with-icon uk-width-1-1"><%t Webshop.Checkout 'Zur Kasse' %></a>
 				</div>
 			</div>
 		</div>
