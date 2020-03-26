@@ -62,7 +62,7 @@
 					</div>
 				</div>
 				<div id="bill-form-container" class="uk-margin" hidden>
-					<div class="uk-panel uk-background-muted uk-padding-small">
+					<div class="uk-panel uk-padding-small">
 						<h4><%t Checkout.BillAddress 'Rechnungsadresse' %></h4>
 						$SiteConfig.BillPayLabel
 						<div class="uk-width-1-2@m">
