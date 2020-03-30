@@ -504,7 +504,7 @@ class SiteConfigLayoutExtension extends DataExtension
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
       /** global background element and font color **/
-      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';.dk-text-content a, .calltoaction-container *{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}&:after{background-color:#'.$c->LinkHoverColor.';}}}*{color:#'.$c->FontColor.';}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';.dk-text-content a, .calltoaction-container *{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}&:after{background-color:#'.$c->LinkHoverColor.';}}}*:not(input,select,textarea){color:#'.$c->FontColor.';}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
       file_put_contents($fullpath, "\n".".uk-button.button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.'!important;*{color:#'.$c->FontColor.'!important;}&:hover,&:focus,&:active{color:#'.$c->LinkHoverColor.'!important;*{color:#'.$c->LinkHoverColor.'!important;}}&:hover{background-color:darken(#'.$c->Color.', 5%);}&:active{background-color:darken(#'.$c->Color.', 10%);}}',FILE_APPEND);
       /** CSS Class for Call To Form Button **/
