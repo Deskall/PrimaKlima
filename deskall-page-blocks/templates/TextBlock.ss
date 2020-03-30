@@ -5,7 +5,7 @@
 		<% if Layout == right || Layout == left %>
 			<div class="uk-width-1-3@m">
 				<% if LightBox %><a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" ><% end_if %>
-					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" <% if ContentImage.getExtension == "svg" %>data-uk-svg<% end_if %>>
+					<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %><% if Top.RoundedImage %>$ContentImage.FocusFill(350,350).URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %><% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" <% if ContentImage.getExtension == "svg" %>data-uk-svg<% end_if %> <% if Top.RoundedImage %>class="uk-border-circle"<% end_if %>>
 				<% if LightBox %></a><% end_if %>
 			</div>
 			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
@@ -22,6 +22,14 @@
 						<% if ContentImage.getExtension == "svg" %>
 							<img src="$ContentImage.URL" data-uk-svg>
 						<% else %>
+							<% if Top.RoundedImage %>
+							<img src="$ContentImage.FocusFillMax(750,750).URL" data-src="$ContentImage.FocusFillMax(500,500).URL"
+							     data-srcset="$ContentImage.FocusFillMax(500,500).URL 500w,
+							                  $ContentImage.FocusFillMax(1000,1000).URL 1000w,
+							                  $ContentImage.FocusFillMax(1500,1500).URL 1500w,
+							                  $ContentImage.FocusFillMax(2000,2000).URL 2500w"
+							     sizes="(min-width: 1700px) 2500px,(min-width: 1000px) 1500px,(min-width: 650px) 1000px, 100vw"  alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" class="uk-border-circle" data-uk-img>
+							<% else %>
 							<%-- $ContentImage.Content($ContentImage.ID,2500,$Title) --%>
 							<img src="$ContentImage.FitMax(1500,1500).URL" data-src="$ContentImage.FitMax(500,500).URL"
 							     data-srcset="$ContentImage.FitMax(500,500).URL 500w,
@@ -29,17 +37,28 @@
 							                  $ContentImage.FitMax(1500,1500).URL 1500w,
 							                  $ContentImage.FitMax(2500,2500).URL 2500w"
 							     sizes="(min-width: 1700px) 2500px,(min-width: 1000px) 1500px,(min-width: 650px) 1000px, 100vw"  alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" data-uk-img>
+							<% end_if %>
 						<% end_if %>
 					<% else %>
 						<% if ContentImage.getExtension == "svg" %>
 							<img src="$ContentImage.URL" data-uk-svg>
 						<% else %>
-							<%-- $ContentImage.Content($ContentImage.ID,1200,$Title) --%>
+							<% if Top.RoundedImage %>
+							<img src="$ContentImage.FocusFillMax(750,750).URL" data-src="$ContentImage.FocusFillMax(500,500).URL"
+							     data-srcset="$ContentImage.FocusFillMax(500,500).URL 500w,
+							                  $ContentImage.FocusFillMax(1000,1000).URL 1000w,
+							                  $ContentImage.FocusFillMax(1500,1500).URL 1500w,
+							                  $ContentImage.FocusFillMax(2000,2000).URL 2500w"
+							     sizes="(min-width: 1700px) 2500px,(min-width: 1000px) 1500px,(min-width: 650px) 1000px, 100vw"  alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" class="uk-border-circle" data-uk-img>
+							<% else %>
+							<%-- $ContentImage.Content($ContentImage.ID,2500,$Title) --%>
 							<img src="$ContentImage.FitMax(1500,1500).URL" data-src="$ContentImage.FitMax(500,500).URL"
 							     data-srcset="$ContentImage.FitMax(500,500).URL 500w,
 							                  $ContentImage.FitMax(1000,1000).URL 1000w,
-							                  $ContentImage.FitMax(1500,1500).URL 1200w"
-							     sizes="(min-width: 1200px) 1200px,(min-width: 650px) 1000px, 100vw" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" data-uk-img>
+							                  $ContentImage.FitMax(1500,1500).URL 1500w,
+							                  $ContentImage.FitMax(2500,2500).URL 2500w"
+							     sizes="(min-width: 1700px) 2500px,(min-width: 1000px) 1500px,(min-width: 650px) 1000px, 100vw"  alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" data-uk-img>
+							<% end_if %>
 						<% end_if %>
 					<% end_if %>
 

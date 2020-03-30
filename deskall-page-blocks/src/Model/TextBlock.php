@@ -21,7 +21,8 @@ class TextBlock extends BaseElement implements Searchable
     private static $db = [
         'HTML' => 'HTMLText',
         'BlockVerticalAlignment' => 'Varchar',
-        'LightBox' => 'Boolean(1)'
+        'LightBox' => 'Boolean(1)',
+        'RoundedImage' => 'Boolean(0)'
     ];
 
     private static $has_one = [
@@ -99,10 +100,13 @@ class TextBlock extends BaseElement implements Searchable
         $fields = parent::getCMSFields();
         $fields->RemoveByName('Layout');
         $fields->RemoveByName('LightBox');
+        $fields->removeByName('RoundedImage');
         $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
 
         $fields->insertAfter('Layout',DropdownField::create('BlockVerticalAlignment',_t(__CLASS__.'.BlockVerticalAlignment','Blockausrichtung (Vertical)'),$this->owner->stat('block_alignments_vertical')));
         $fields->insertAfter('Layout',CheckboxField::create('LightBox','Bild vergrößern wenn klickten?'));
+        $fields->insertAfter('LightBox',CheckboxField::create('RoundedImage',_t(__CLASS__.'.RoundedImage','Rund Bilder?')));
+
         return $fields;
     }
 

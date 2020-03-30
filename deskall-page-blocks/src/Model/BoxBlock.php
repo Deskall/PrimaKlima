@@ -36,7 +36,8 @@ class BoxBlock extends BaseElement implements Searchable
         'BoxTextAlign' => 'Varchar(255)',
         'PictureWidth' => 'Int',
         'PictureHeight' => 'Int',
-        'FullLink' => 'Boolean(0)'
+        'FullLink' => 'Boolean(0)',
+        'RoundedImage' => 'Boolean(0)'
     ];
 
     private static $has_many = [
@@ -102,19 +103,19 @@ class BoxBlock extends BaseElement implements Searchable
         ]
     ];
 
-     private static $boxes_text_alignments = [
-        'uk-text-justify uk-text-left@s' =>  [
-            'value' => 'uk-text-justify uk-text-left@s',
+    private static $boxes_text_alignments = [
+        'uk-text-left' =>  [
+            'value' => 'uk-text-left',
             'title' => 'Links Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
-        'uk-text-justify uk-text-right@s' =>  [
-            'value' => 'uk-text-justify uk-text-righ@s',
+        'uk-text-right' =>  [
+            'value' => 'uk-text-right',
             'title' => 'Rechts Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
-        'uk-text-justify uk-text-center@s' => [
-            'value' => 'uk-text-justify uk-text-center@s',
+        'uk-text-center' => [
+            'value' => 'uk-text-center',
             'title' => 'Mittel Ausrichtung',
             'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
         ],
@@ -124,7 +125,6 @@ class BoxBlock extends BaseElement implements Searchable
             'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
         ]
     ];
-
 
 
     private static $table_name = 'BoxBlock';
@@ -148,6 +148,7 @@ class BoxBlock extends BaseElement implements Searchable
             $fields->removeByName('Effect');
             $fields->removeByName('Layout');
             $fields->removeByName('FullLink');
+            $fields->removeByName('RoundedImage');
 
             $fields->FieldByName('Root.Main.HTML')->setRows(5);
                 
@@ -157,7 +158,8 @@ class BoxBlock extends BaseElement implements Searchable
                 HTMLOptionsetField::create('BoxTextAlign',_t(__CLASS__.'.BoxTextAlignment','Boxen Textausrichtung'),$this->stat('boxes_text_alignments')),
                 HTMLOptionsetField::create('BoxPerLine',_t(__CLASS__.'.BoxPerLine','Boxen per Linie'), $this->stat('boxes_per_line')),
                 DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt auf Mouseover'), $this->getTranslatedSourceFor(__CLASS__,'effects')),
-                CheckboxField::create('FullLink',_t(__CLASS__.'.FullLink','ganze Box anklickbar?'))
+                CheckboxField::create('FullLink',_t(__CLASS__.'.FullLink','ganze Box anklickbar?')),
+                CheckboxField::create('RoundedImage',_t(__CLASS__.'.RoundedImage','Rund Bilder?'))
                 )->setTitle(_t(__CLASS__.'.BoxFormat','Boxen Format'))->setName('BoxLayout'));
                 
                 $config = GridFieldConfig_RecordEditor::create();

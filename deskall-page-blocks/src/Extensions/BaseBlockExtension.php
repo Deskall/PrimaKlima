@@ -19,6 +19,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Core\ClassInfo;
 use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\Forms\TextareaField;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -207,7 +208,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
         $fields->removeByName('ExtraClass');
-
+        $fields->replaceField('Title',TextareaField::create('Title',$this->owner->fieldLabel('Title'))->setRows(2));
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Diese Block enthalt den Haupttitel der Seite (h1)")),'TitleAndDisplayed');
         $fields->addFieldToTab('Root.Main',TextField::create('TitleIcon',_t(__CLASS__.".TitleIcon","Icon (Class font awesome)")),'TitleAndDisplayed');
       
