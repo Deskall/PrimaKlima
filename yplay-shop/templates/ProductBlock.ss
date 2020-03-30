@@ -93,7 +93,7 @@
 	        		<div class="product-price uk-text-large uk-text-bold">$PrintPriceString</div>
 	        	<% end_if %>
 	        	<div class="uk-margin">
-	        		<a href="$OrderLink" class="uk-button btn-order">Bestellen</a>
+	        		<a href="$OrderLink" class="uk-button dk-button btn-order">Bestellen</a>
 	        	</div>
 	        	<div class="footer-text">$FooterText</div>
 	    	</div>
