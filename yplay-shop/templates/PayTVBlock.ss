@@ -21,7 +21,7 @@
 	</div>
 	<div class="uk-margin">
 		<div class="uk-text-right">
-			<a class="uk-button" data-submit-paytv>Jetzt bestellen</a>
+			<a class="uk-button uk-button-primary" data-submit-paytv>Jetzt bestellen</a>
 		</div>
 	</div>
 	<% else %>
