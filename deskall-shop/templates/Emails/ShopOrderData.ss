@@ -1,11 +1,11 @@
-<h2>Bestellung</h2>
+<h2><%t Webshop.Order 'Bestellung' %></h2>
 <table cellspacing="4" cellpadding="4">
-	<tr style="font-size:16px;"><td>Bestellung Nr. <b>$Nummer</b></td><td>Kunde Nr. <b>$Customer.Nummer</b></td><td align="right">Datum: <b>$Created.format('dd.MM.Y')</b></td></tr>
+	<tr style="font-size:16px;"><td><%t Webshop.OrderNumber 'Bestellung Nr.' %> <b>$Nummer</b></td><td><%t Webshop.CustomerNumber 'Kunde Nr.' %> <b>$Customer.Nummer</b></td><td align="right"><%t Webshop.Date 'Datum:' %> <b>$Created.format('dd.MM.Y')</b></td></tr>
 </table>
 
 <table cellpadding="2" cellspacing="2">
 	<thead>
-		<tr style="background-color:#EEEEEE;color:#666666;"><th width="310">Produkt</th><th width="100" align="center">Menge</th><th width="120" align="right" style="text-align:right">Gesamt</th></tr>
+		<tr style="background-color:#EEEEEE;color:#666666;"><th width="80"></th><%t Webshop.Product 'Produkt' %><th width="230"></th><th width="100" align="center"><%t Webshop.Quantity 'Menge' %></th><th width="120" align="right" style="text-align:right"><%t Webshop.Total 'Gesamt' %></th></tr>
 	</thead>
 	<tbody>
 		<% loop Items %>
