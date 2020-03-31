@@ -64,7 +64,6 @@ class ShopOrderEmail extends Email
          * @var \SilverStripe\ORM\FieldType\DBDatetime $createdDateObj
          */
         $createdDateObj = $Order->obj('Created');
-        $expiration = $Order->obj('EndValidity');
 
         $absoluteBaseURL = $this->BaseURL();
         $variables = array(
@@ -76,13 +75,11 @@ class ShopOrderEmail extends Email
             '$Customer.printTitle' => $Order->Customer()->ContactTitle(),
             '$Order.Created' => $createdDateObj->Nice(),
             '$Order.Data' => $Order->renderWith('Emails/ShopOrderData'),
-            '$Product.Title' => $Order->Product()->Title,
-            '$Product.Data' => $Order->Product()->renderWith('Emails/ProductData'),
-            '$Order.EndValidity' => $expiration->format('d.m.Y'),
+            '$Products.Data' => $Order->Product()->renderWith('Emails/ProductsData'),
             '$ShopPageLink' => ShopPage::get()->first()->AbsoluteLink()
         );
         
-        foreach (array('Company' , 'Email' , 'Address' , 'PostalCode' , 'City' , 'Country', 'Phone', 'Price' ) as $field) {
+        foreach (array('Company' , 'Email' , 'Street', 'Address' , 'PostalCode' , 'City' , 'Country', 'Phone', 'Price' ) as $field) {
             $variables["\$Order.$field"] = $Order->$field;
         }
 

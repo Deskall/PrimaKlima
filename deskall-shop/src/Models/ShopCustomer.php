@@ -113,6 +113,10 @@ class ShopCustomer extends DataObject
         return DBField::create_field('Varchar', $intro.' '.$this->FirstName.' '.$this->Name);
     }
 
+    public function ContactTitle(){
+       return DBField::create_field('Varchar',$this->FirstName.' '.$this->Name);
+    }
+
    
 
     public function onBeforeWrite(){
