@@ -175,7 +175,7 @@ class ShopPageController extends PageController{
 				$this->getRequest()->getSession()->clear('shopcart_id');
 								
 				
-				return $this->Redirect('danke-fuer-ihre-bestellung');
+				return $this->Redirect(SiteConfig::current_site_config()->SuccessfullPage()->Link());
 				
 			} catch (ValidationException $e) {
 				$validationMessages = '';
