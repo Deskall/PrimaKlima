@@ -141,50 +141,27 @@
 						<table class="social" width="100%" bgcolor="">
 							<tbody>
 								<tr>
-									<td><!--- column 1 -->
-										<div class="column">
-											<table cellpadding="" bgcolor="" align="left">
-												<tbody>
-													<tr>
-														<td>
+									<td>
+										
 															<h5 class=""><%t Email.Contact 'Kontakt' %>:</h5>
 															<p><strong>$SiteConfig.AddressTitle</strong></p>
 															<% if $SiteConfig.Address %><p>$SiteConfig.Address<br/>$SiteConfig.Code - $SiteConfig.City<br/> $SiteConfig.Country</p><% end_if %>
 															<p><% if $SiteConfig.Phone %><a href="tel:$SiteConfig.PhoneFormatted" target="_blank">$SiteConfig.Phone</a><br /><% end_if %><a href="mailto:$SiteConfig.Email">$SiteConfig.Email</a></p>
 														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<div class="column">
-											<table cellpadding="" bgcolor="" align="left">
-												<tbody>
-													<tr>
+										
 														<td>
 															<h5 class=""><br /></h5>
 															<p class=""><a href="$AbsoluteBaseURL" class="soc-btn web" target="_blank" rel="noopener noreferrer">$SiteConfig.AddressTitle</a></p>
 														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<div class="clear"><br /></div>
+												
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<div class="column" style="width: 100%;">
-											<table cellpadding="" bgcolor="" align="left">
-												<tbody>
-													<tr>
-														<td>
+										
 															$Footer
 														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</td>
+												
 								</tr>
 							</tbody>
 						</table>
