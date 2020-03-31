@@ -394,8 +394,8 @@ class ShopPageController extends PageController{
 		    }
 			if ($voucher && $cart){
 				if ($voucher->isValid()){
-					$card->VoucherID = $voucher->ID;
-
+					$cart->VoucherID = $voucher->ID;
+					$cart->write();
 					return json_encode([
 						'status' => 'OK', 
 						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->NiceAmount().' gewährt.</p>', 
