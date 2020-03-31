@@ -80,7 +80,7 @@ class SiteConfigPayPalExtension extends DataExtension
       CurrencyField::create('TransportPrice',$this->owner->fieldLabels()['TransportPrice']),
        HTMLEditorField::create('DeliveryLabel',$this->owner->fieldLabels()['DeliveryLabel'])->setRows(2),
       TextField::create('MwSt',$this->owner->fieldLabels()['MwSt']),
-      TreeDropdownField::create('ShopPage',$this->owner->fieldLabels()['ShopPage'],SiteTree::class),
+      TreeDropdownField::create('ShopPageID',$this->owner->fieldLabels()['ShopPage'],SiteTree::class),
       NumericField::create('ClientNumberOffset',$this->owner->fieldLabels()['ClientNumberOffset']),
       NumericField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']),
       HTMLEditorField::create('FootertextProduct',$this->owner->fieldLabels()['FootertextProduct'])->setRows(5),
