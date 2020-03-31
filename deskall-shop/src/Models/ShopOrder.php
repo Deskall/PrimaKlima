@@ -215,6 +215,7 @@ class ShopOrder extends DataObject{
 		$pdf = new Fpdi();
       	$src = Director::baseFolder().$config->BillFile()->getURL();
       	$tmpFolder = Folder::find_or_make('Uploads/tmp');
+      	$tmpFolder->publishSingle();
       	$output = Director::baseFolder().'/assets/Uploads/tmp/rechnung_'.$this->ID.'.pdf';
 
       	
