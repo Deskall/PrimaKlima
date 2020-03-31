@@ -177,31 +177,31 @@ class ShopOrder extends DataObject{
 	}
 
 
-	public function getOrderPrice(){
-	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$this->getFinalPrice()));
-	}
+	// public function getOrderPrice(){
+	//     setlocale(LC_MONETARY, 'de_DE');
+	//     return DBField::create_field('Varchar',money_format('%i',$this->FullTotalPrice));
+	// }
 
-	public function getOrderSubPrice(){
-	    setlocale(LC_MONETARY, 'de_DE');
-	    $price = $this->Price;
-	    return DBField::create_field('Varchar',money_format('%i',$price));
-	}
+	// public function getOrderSubPrice(){
+	//     setlocale(LC_MONETARY, 'de_DE');
+	//     $price = $this->Price;
+	//     return DBField::create_field('Varchar',money_format('%i',$price));
+	// }
 
 
-	public function getOrderPriceNetto(){
-	    $price = $this->Price * 100 / 107.7;
+	// public function getOrderPriceNetto(){
+	//     $price = $this->Price * 100 / 107.7;
 	   
-	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$price));
-	}
+	//     setlocale(LC_MONETARY, 'de_DE');
+	//     return DBField::create_field('Varchar',money_format('%i',$price));
+	// }
 
-	public function getOrderMwSt(){
-	    // $price = $this->Price - ($this->Price * 100 / 107.7);
-	    $price = 0;
-	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$price));
-	}
+	// public function getOrderMwSt(){
+	//     // $price = $this->Price - ($this->Price * 100 / 107.7);
+	//     $price = 0;
+	//     setlocale(LC_MONETARY, 'de_DE');
+	//     return DBField::create_field('Varchar',money_format('%i',$price));
+	// }
 
 	public function getReceipt(){
 		// $this->generateQuittungPDF();
