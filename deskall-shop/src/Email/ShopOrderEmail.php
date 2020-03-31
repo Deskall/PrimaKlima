@@ -75,7 +75,7 @@ class ShopOrderEmail extends Email
             '$Customer.printTitle' => $Order->Customer()->ContactTitle(),
             '$Order.Created' => $createdDateObj->Nice(),
             '$Order.Data' => $Order->renderWith('Emails/ShopOrderData'),
-            '$Products.Data' => $Order->Product()->renderWith('Emails/ProductsData'),
+            '$Products.Data' => $Order->renderWith('Emails/ProductsData'),
             '$ShopPageLink' => ShopPage::get()->first()->AbsoluteLink()
         );
         
