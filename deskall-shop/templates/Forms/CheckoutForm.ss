@@ -88,6 +88,7 @@
 			</li>
 			<li class="account-tab" data-index="2">
 				<h3><%t Checkout.ReviewAndPay 'Prüfen und bestätigen Sie Ihre Bestellung' %></h3>
+				<% if ! Voucher.exists %>
 				<div class="uk-panel uk-padding-small">
 					<h3><%t Checkout.Voucher 'Gutschein' %></h3>
 					<p><%t Checkout.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. und klicken Sie an "Gutschein prüfen".' %></p>
@@ -97,6 +98,7 @@
 					</div>
 				</div>
 				<hr>
+				<% end_if %>
 				<div class="uk-panel uk-background-muted uk-padding-small">
 					<h4><%t Checkout.SummaryTitle 'Ihre Bestellung' %></h4>
 					<% with Controller.activeCart %>
