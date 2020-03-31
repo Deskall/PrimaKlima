@@ -148,30 +148,41 @@ class ShopCustomer extends DataObject
     }
 
     public function printAddress(){
-        $html = '<p>'.$this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
-      
-        $html .= $this->Address.' '.$this->HouseNumber.'<br/>'
-        .$this->PostalCode.' - '.$this->City.'<br/>';
+        $html = '<p>';
+        if ($this->Company){
+            $html .= $this->Company.'br/>';
+        }
+        $html .= $this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
+        $html .= $this->Street;
+        if ($this->Address){
+            $html .= $this->Address.'<br/>';
+        }
+        $html .= $this->PostalCode.' - '.$this->City.'<br/>';
         if ($this->Country){
             $html .= i18n::getData()->getCountries()[strtolower($this->Country)];
         }
-         $html .= '</p>';
-      
+        $html .= '</p>';
         $o = new DBHTMLText();
         $o->setValue($html);
         return $o;
     }
 
     public function printContact(){
-        $html = '<p>'.$this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
-       
-        $html .= $this->Address.' '.$this->HouseNumber.'<br/>'
-        .$this->PostalCode.' - '.$this->City;
-        if ($this->Country){
-            $html .= '<br/>'.i18n::getData()->getCountries()[$this->Country];
+        $html = '<p>';
+        if ($this->Company){
+            $html .= $this->Company.'br/>';
         }
-        $html .= '</p>'
-        .'<p><a href="mailto:'.$this->Email.'">'.$this->Email.'</a>'.'<br/>'
+        $html .= $this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
+        $html .= $this->Street;
+        if ($this->Address){
+            $html .= $this->Address.'<br/>';
+        }
+        $html .= $this->PostalCode.' - '.$this->City.'<br/>';
+        if ($this->Country){
+            $html .= i18n::getData()->getCountries()[strtolower($this->Country)];
+        }
+        $html .= '</p>';
+        $html .= '<p><a href="mailto:'.$this->Email.'">'.$this->Email.'</a>'.'<br/>'
         .$this->Phone.'</p>';
         $o = new DBHTMLText();
         $o->setValue($html);
