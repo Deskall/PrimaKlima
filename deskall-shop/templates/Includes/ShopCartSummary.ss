@@ -19,20 +19,25 @@
 	</tfoot>
 </table>
 <div class="uk-margin">
-	<h4><%t Webshop.BillAddressTitle 'Rechnungsadresse' %></h4>
-	<p><% if Company %>$Company<br/><% end_if %>
-		$Gender $FirstName $Name<br/>
-		$Email<br/>
-		$Phone<br/>
-		<% if Street %>$Street<br/><% end_if %>
-		<% if Address %>$Address<br/><% end_if %>
-		<% if Region %>$Region<br/><% end_if %>
-		<% if PostalCode %>$PostalCode -<% end_if %>
-		<% if City %>$City<br/><% end_if %>
-		<% if Country %>$NiceCountry<br/><% end_if %>
-		<% if Address %>$Address<br/><% end_if %>
-	</p>
-	<% if $Additional %>
-	<p>$Additional</p>
-	<% end_if %>
+	<div class="uk-child-width-1-2@s" data-uk-grid>
+		<h4><%t Webshop.BillAddressTitle 'Rechnungsadresse' %></h4>
+		<p><% if Company %>$Company<br/><% end_if %>
+			$Gender $FirstName $Name<br/>
+			$Email<br/>
+			$Phone<br/>
+			<% if Street %>$Street<br/><% end_if %>
+			<% if Address %>$Address<br/><% end_if %>
+			<% if Region %>$Region<br/><% end_if %>
+			<% if PostalCode %>$PostalCode -<% end_if %>
+			<% if City %>$City<br/><% end_if %>
+			<% if Country %>$NiceCountry<br/><% end_if %>
+			<% if Address %>$Address<br/><% end_if %>
+		</p>
+		<% if $Additional %>
+		<p>$Additional</p>
+		<% end_if %>
+	</div>
+	<div>
+		<h4>Lieferbedingungen</h4>
+		$SiteConfig.DeliveryLabel
 </div>

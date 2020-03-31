@@ -29,6 +29,7 @@ class SiteConfigPayPalExtension extends DataExtension
     'PaymentEmailSubject' => 'Varchar',
     'PaymentEmailBody' =>  'HTMLText',
     'TransportPrice' => 'Currency',
+    'DeliveryLabel' => 'HTMLText',
     'MwSt' => 'Varchar',
     'FootertextProduct' => 'HTMLText'
   
@@ -67,6 +68,7 @@ class SiteConfigPayPalExtension extends DataExtension
      $labels['MwSt'] = _t(__CLASS__.'.MwSt','% MwSt.');
      $labels['FootertextProduct'] = _t(__CLASS__.'.FootertextProduct','standard Text für den Produkt-Seite Footer');
      $labels['ShopPage'] = _t(__CLASS__.'.ShopPage','Webshop Hauptseite');
+     $labels['DeliveryLabel'] = _t(__CLASS__.'.DeliveryLabel','Lieferbedingungen');
   }
 
   public function updateCMSFields(FieldList $fields) {
@@ -76,6 +78,7 @@ class SiteConfigPayPalExtension extends DataExtension
       TextField::create('PayPalClientID'),
       TextField::create('PayPalSecret'),
       CurrencyField::create('TransportPrice',$this->owner->fieldLabels()['TransportPrice']),
+       HTMLEditorField::create('DeliveryLabel',$this->owner->fieldLabels()['DeliveryLabel'])->setRows(2),
       TextField::create('MwSt',$this->owner->fieldLabels()['MwSt']),
       TreeDropdownField::create('ShopPage',$this->owner->fieldLabels()['ShopPage'],SiteTree::class),
       NumericField::create('ClientNumberOffset',$this->owner->fieldLabels()['ClientNumberOffset']),
