@@ -164,5 +164,6 @@ $( window ).resize(function() {
 function resizeMain(){
   var screen = $( window ).height();
   var h = $('header').outerHeight() + $('footer').outerHeight();
+  console.log($('header').outerHeight());
   $('main').css({ minHeight: `${screen - h}px` });
 }
