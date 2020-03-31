@@ -215,7 +215,7 @@ class ShopOrder extends DataObject{
 		$pdf = new Fpdi();
       	$src = Director::baseFolder().$config->BillFile()->getURL();
       	$tmpFolder = Folder::find_or_make('Uploads/tmp');
-      	$output = Director::baseFolder().'assets/Uploads/tmp/rechnung_'.$this->ID.'.pdf';
+      	$output = Director::baseFolder().'/assets/Uploads/tmp/rechnung_'.$this->ID.'.pdf';
 
       	
       	// replace with project font $pdf->Addfont('Lato','','lato.php');
