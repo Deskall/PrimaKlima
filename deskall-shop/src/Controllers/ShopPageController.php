@@ -160,7 +160,7 @@ class ShopPageController extends PageController{
 				foreach ($cart->Products() as $p) {
 					$item = new OrderItem();
 					$item->createFromProduct($p);
-					$order->add($item);
+					$order->Items()->add($item);
 				}
 
 				//Create Receipt
