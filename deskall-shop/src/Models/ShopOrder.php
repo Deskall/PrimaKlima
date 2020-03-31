@@ -9,6 +9,7 @@ use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
+use SilverStripe\Core\Director;
 
 class ShopOrder extends DataObject{
 
@@ -212,8 +213,12 @@ class ShopOrder extends DataObject{
 	public function generatePDF(){
 		$config = $this->getSiteConfig();
 		$pdf = new Fpdi();
-      	$src = dirname(__FILE__).'/../../..'.$config->BillFile()->getURL();
-      	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/rechnung_'.$this->ID.'.pdf';
+      	$src = Director::baseFolder().$config->BillFile()->getURL();
+      	ob_start();
+      				print_r($src);
+      				$result = ob_get_clean();
+      				file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+      	$output = Director::baseFolder().'/assets/Uploads/tmp/rechnung_'.$this->ID.'.pdf';
 
       	
       	// replace with project font $pdf->Addfont('Lato','','lato.php');
