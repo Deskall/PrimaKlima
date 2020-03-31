@@ -176,6 +176,10 @@ class ShopOrder extends DataObject{
 		return DBField::create_field('HTMLText',$html);
 	}
 
+	public function MwSt(){
+		$mwst = $this->TotalPrice * floatval($this->getSiteConfig()->MwSt) / 100;
+		return DBCurrency::create()->setValue($mwst);
+	}
 
 	// public function getOrderPrice(){
 	//     setlocale(LC_MONETARY, 'de_DE');
