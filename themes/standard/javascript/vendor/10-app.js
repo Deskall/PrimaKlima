@@ -150,7 +150,9 @@ $(document).ready(function(){
 
 //ensure minimum height for main content
 $(document).ready(function(){
-  resizeMain();
+  setTimeout(function(){
+    resizeMain();
+  },500);
 
   UIkit.util.on("#modal-search","shown",function(){
     $("input[name='Search']").focus();
