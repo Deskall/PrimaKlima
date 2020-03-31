@@ -1,7 +1,5 @@
-<h2><%t Webshop.Order 'Bestellung' %></h2>
-<table cellspacing="4" cellpadding="4">
-	<tr style="font-size:16px;"><td><%t Webshop.OrderNumber 'Bestellung Nr.' %> <b>$Nummer</b></td><td><%t Webshop.CustomerNumber 'Kunde Nr.' %> <b>$Customer.Nummer</b></td><td align="right"><%t Webshop.Date 'Datum:' %> <b>$Created.format('dd.MM.Y')</b></td></tr>
-</table>
+<h2><%t Webshop.OrderDetail 'Details' %></h2>
+
 
 <table cellpadding="2" cellspacing="2">
 	<thead>
