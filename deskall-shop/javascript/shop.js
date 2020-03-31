@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 	$(document).on("change","input[data-quantity]",function(){
 		UpdateOrderPreview($(this).attr('data-quantity'),$(this).val(), 'checkout');
-		updateCartSummary();
+		UpdateCartSummary();
 	});
 
 	$(document).on("click","[data-remove-product]",function(){
