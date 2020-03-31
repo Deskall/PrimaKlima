@@ -7,7 +7,7 @@
 				<div class="uk-card-header">
 					<h3 class="uk-card-title"><%t Webshop.Cart 'Warenkorb' %></h3>
 				</div>
-				<div class="uk-card-body order-preview uk-text-small">
+				<div class="uk-card-body order-preview dk-text-small">
 					<% include ShopCartProducts %>
 				</div>
 				<div class="uk-card-footer">
