@@ -120,6 +120,10 @@ class ShopCart extends DataObject {
 		return ($this->isOnline()) ? DBHTMLText::create()->setValue('<div class="btn btn-primary">LIVE</div>') : null;
 	}
 
+	public function NiceCountry(){
+		return ($this->Country) ? i18n::getData()->getCountries()[$this->Country] : null;
+	}
+
 	public function printContact(){
 	    $html = '<p>'.$this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
 	   
