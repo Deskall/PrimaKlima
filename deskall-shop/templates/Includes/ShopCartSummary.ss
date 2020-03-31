@@ -1,4 +1,4 @@
-<table class="uk-table uk-table-small uk-table-justify">
+<table class="uk-table uk-table-small uk-table-striped uk-table-justify">
 	<thead><th colspan="2"><%t Webshop.Article 'Artikel' %></th><th class="uk-text-center"><%t Webshop.Quantity 'Menge' %></th><th class="uk-text-right"><%t Webshop.Total 'Gesamtsumme' %></th></thead>
 	<tbody>
 		<% if Products.exists %>
