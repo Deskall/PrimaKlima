@@ -179,6 +179,7 @@ class ShopOrder extends DataObject{
 
 	public function MwSt(){
 		$mwst = $this->TotalPrice * floatval($this->getSiteConfig()->MwSt) / 100;
+		$mwst = number_format($mwst,2);
 		return DBCurrency::create()->setValue($mwst);
 	}
 
