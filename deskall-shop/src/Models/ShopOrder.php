@@ -10,6 +10,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Control\Director;
+use SilverStripe\ORM\FieldType\DBCurrency;
 
 class ShopOrder extends DataObject{
 
