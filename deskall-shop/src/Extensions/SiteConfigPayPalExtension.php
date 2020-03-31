@@ -39,7 +39,8 @@ class SiteConfigPayPalExtension extends DataExtension
      'BillFile' => File::class,
      'AGBFile' => File::class,
      'ReceiptFile' => File::class,
-     'ShopPage' => SiteTree::class
+     'ShopPage' => SiteTree::class,
+     'SuccessfullPage' => SiteTree::class
    ];
 
   private static $owns = [
@@ -68,6 +69,7 @@ class SiteConfigPayPalExtension extends DataExtension
      $labels['MwSt'] = _t(__CLASS__.'.MwSt','% MwSt.');
      $labels['FootertextProduct'] = _t(__CLASS__.'.FootertextProduct','standard Text für den Produkt-Seite Footer');
      $labels['ShopPage'] = _t(__CLASS__.'.ShopPage','Webshop Hauptseite');
+     $labels['SuccessfullPage'] = _t(__CLASS__.'.SuccessfullPage','Bestellung erfolgreich Seite');
      $labels['DeliveryLabel'] = _t(__CLASS__.'.DeliveryLabel','Lieferbedingungen');
   }
 
@@ -81,6 +83,7 @@ class SiteConfigPayPalExtension extends DataExtension
        HTMLEditorField::create('DeliveryLabel',$this->owner->fieldLabels()['DeliveryLabel'])->setRows(2),
       TextField::create('MwSt',$this->owner->fieldLabels()['MwSt']),
       TreeDropdownField::create('ShopPageID',$this->owner->fieldLabels()['ShopPage'],SiteTree::class),
+      TreeDropdownField::create('SuccessfullPageID',$this->owner->fieldLabels()['SuccessfullPage'],SiteTree::class),
       NumericField::create('ClientNumberOffset',$this->owner->fieldLabels()['ClientNumberOffset']),
       NumericField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']),
       HTMLEditorField::create('FootertextProduct',$this->owner->fieldLabels()['FootertextProduct'])->setRows(5),
