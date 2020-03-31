@@ -155,7 +155,7 @@ if (!$('body').hasClass('ShopPage')){
 			url: '/shop/getActiveCart',
 			dataType: 'html'
 		}).done(function(response){
-			$('body').append(response);
+			// $('body').append(response);
 		});
 	}
  
