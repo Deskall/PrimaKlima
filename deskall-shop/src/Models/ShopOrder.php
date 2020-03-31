@@ -86,7 +86,7 @@ class ShopOrder extends DataObject{
           "filter" => "PartialMatchFilter",
           "title" => 'Rechnungsnummer'
         ),
-		'Customer.ContactPersonSurname' => array(
+		'Customer.Nname' => array(
           "field" => TextField::class,
           "filter" => "PartialMatchFilter",
           "title" => 'Kunden Name'
