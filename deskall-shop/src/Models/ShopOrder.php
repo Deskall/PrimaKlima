@@ -9,7 +9,7 @@ use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
-use SilverStripe\Core\Director;
+use SilverStripe\Control\Director;
 
 class ShopOrder extends DataObject{
 
