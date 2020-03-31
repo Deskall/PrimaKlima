@@ -118,7 +118,6 @@ class ShopOrder extends DataObject{
 
 	public function getCMSFields(){
 		$fields = FieldList::create();
-		$this->Initiate();
 		$html = $this->renderWith('ShopOrderCMS');
 		$fields->push(LiteralField::create('Order',$html));
 		return $fields;

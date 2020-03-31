@@ -76,7 +76,7 @@ class ShopOrderEmail extends Email
             '$Order.Created' => $createdDateObj->Nice(),
             '$Order.Data' => $Order->renderWith('Emails/ShopOrderData'),
             '$Products.Data' => $Order->renderWith('Emails/ProductsData'),
-            '$ShopPageLink' => ShopPage::get()->first()->AbsoluteLink()
+            '$ShopPageLink' => $config->ShopPage()->AbsoluteLink()
         );
         
         foreach (array('Company' , 'Email' , 'Street', 'Address' , 'PostalCode' , 'City' , 'Country', 'Phone', 'Price' ) as $field) {
