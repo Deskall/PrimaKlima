@@ -66,7 +66,7 @@ class ShopPageController extends PageController{
 			HiddenField::create('ProductID'),
 			HiddenField::create('PaymentType'),
 			// HiddenField::create('CustomerID')->setValue($customer->ID),
-			HiddenField::create('VoucherID'),
+			// HiddenField::create('VoucherID'),
 			CompositeField::create(
 				TextField::create('Company',_t(__CLASS__.'.Company','Firma')),
 				DropdownField::create('Gender',_t(__CLASS__.'.Gender','Anrede *'), ['Herr' => 'Herr','Frau' => 'Frau']),
@@ -135,7 +135,7 @@ class ShopPageController extends PageController{
 		return $form;
 	}
 
-
+	//refaire entièrement (pas oublier coupon)
 	public function payBill($data,$form){
 		//retrieve customer
 		if (isset($data['CustomerID']) && !empty($data['CustomerID'])){
@@ -166,7 +166,7 @@ class ShopPageController extends PageController{
 							$order->Country = $customer->BillingAddressCountry;
 							$order->Phone = $customer->ContactPersonTelephone;
 
-
+							
 
 							try {
 								//Write order
