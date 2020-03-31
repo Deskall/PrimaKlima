@@ -84,7 +84,7 @@ $(document).ready(function(){
 			method: 'POST',
 			dataType: 'html'
 		}).done(function(response){
-			$(".order-summary").replaceWith(response);
+			$(".summary-products").replaceWith(response);
 		});
 	}
 
