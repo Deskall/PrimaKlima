@@ -46,7 +46,8 @@ class ShopCart extends DataObject {
 
 	private static $has_one = [
 		'Order' => ShopOrder::class,
-		'Customer' => ShopCustomer::class
+		'Customer' => ShopCustomer::class,
+		'Voucher' => Voucher::class
 	];
 
 	private static $many_many = [
@@ -86,6 +87,7 @@ class ShopCart extends DataObject {
 		$labels['Phone'] = _t(__CLASS__.'.Phone','Telefon');
 		$labels['Birthdate'] = _t(__CLASS__.'.Birthdate','Geburtsdatum');
 		$labels['HouseNumber'] = _t(__CLASS__.'.HouseNumber','Haus-Nr.');
+		$labels['Voucher'] = _t(__CLASS__.'.Voucher','Gutschein');
 		
 		return $labels;
 	}

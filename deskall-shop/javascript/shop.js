@@ -65,9 +65,13 @@ $(document).ready(function(){
 			dataType: 'html',
 			data: {productID: productID,quantity: quantity, context: context}
 		}).done(function(response){
+			console.log(response);
 			if (context == "checkout"){
 				$(".order-preview").each(function(){
-					$(this).empty().append(response);
+					$(this).empty().append(response.cart);
+				});
+				$(".order-summary").each(function(){
+					$(this).empty().append(response.summary);
 				});
 			}
 			else{
@@ -144,10 +148,7 @@ $(document).ready(function(){
 			if (response.status == "OK"){
 				UIkit.modal.alert(response.message).then(function() {
 					$("input[name='VoucherID']").val(response.voucherID);
-					$("tbody#package-summary").append('<tr><td colspan="3" class="uk-text-right">Rabatt</td><td>- '+response.NiceAmount+'</td>\
-						</tr><tr><td colspan="3">&nbsp;</td><td class="uk-text-bold">'+response.price+' €</td></tr>');
-					price = parseFloat(response.price);
-					voucherID = response.voucherID;
+					
 				});
 			}
 			else{

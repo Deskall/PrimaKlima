@@ -385,18 +385,20 @@ class ShopPageController extends PageController{
 
 
 	public function VoucherForm(HTTPRequest $request){
-		if ($request->postVar('code') && $request->postVar('package')){
+		if ($request->postVar('code')){
 			$voucher = Coupon::get()->filter('Code',$request->postVar('code'))->first();
-			$package = Package::get()->byId($request->postVar('package'));
-			if ($voucher && $package){
+			$id = $this->getRequest()->getSession()->get('shopcart_id');
+		    $cart = null;
+		    if ($id){
+		      $cart = ShopCart::get()->byId($id);
+		    }
+			if ($voucher && $cart){
 				if ($voucher->isValid()){
-					$originalPrice = $package->currentPrice();
-					$discountPrice = $voucher->DiscountPrice($originalPrice);
+					$card->VoucherID = $voucher->ID;
 
 					return json_encode([
 						'status' => 'OK', 
 						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->NiceAmount().' gewährt.</p>', 
-						'price' => $discountPrice,
 						'NiceAmount' => $voucher->NiceAmount()->getValue(),
 						'voucherID' => $voucher->ID
 					]);

@@ -95,7 +95,13 @@ class ShopController extends PageController{
 				   		$cart->write();
 				   	}
 				}
-				return ($request->postVar('context') == "checkout") ? $cart->renderWith('Includes/ShopCartCheckout') : $cart->renderWith('Includes/ShopCart');
+				if ($request->postVar('context') == "checkout"){
+					return ['cart' => $cart->renderWith('Includes/ShopCartCheckout'), 'summary' => $cart->renderWith('Includes/ShopCartSummary')];
+				}
+				else{
+					return $cart->renderWith('Includes/ShopCart');
+				}
+				
 		    }
 		}
 	}
