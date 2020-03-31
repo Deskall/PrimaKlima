@@ -44,6 +44,7 @@ class ShopController extends PageController{
 	}
 
 	public function Category(HTTPRequest $request){
+
 		$URLSegment = $request->param('URLSegment');
 		if ($URLSegment){
 			$category = ProductCategory::get()->filter('URLSegment',$URLSegment)->first();
@@ -55,6 +56,7 @@ class ShopController extends PageController{
 	}
 
 	public function Product(HTTPRequest $request){
+		Requirements::javascript("deskall-shop/javascript/shop.js");
 		$URLSegment = $request->param('URLSegment');
 		if ($URLSegment){
 			$product = Product::get()->filter('URLSegment',$URLSegment)->first();
