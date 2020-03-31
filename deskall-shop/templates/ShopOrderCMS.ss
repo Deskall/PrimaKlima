@@ -17,10 +17,10 @@ $Customer.printAddress
 		<% if Voucher.exists %>
 		<tr><td colspan="2"><%t Order.Voucher 'Gutschein' %></td><td align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
 		<% end_if %>
-		<tr><td colspan="2">Nettobetrag</td><td align="right">$OrderPriceNetto</td></tr>
+		<tr><td colspan="2"><%t Webshop.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td align="right">$MwSt</td></tr>
 		<tr><td colspan="2">MwSt. inkl</td><td align="right">$OrderMwst</td></tr>
-		<tr style="font-size:12px;"><td colspan="2"><b>Gesamtbetrag</b></td><td align="right"><b>$TotalPrice</b></td></tr>
-		<tr style="font-size:12px;"><td colspan="2"><b>Versandkosten</b></td><td align="right"><b>$TransportPrice</b></td></tr>
-		<tr style="font-size:12px;"><td colspan="2"><b>Total</b></td><td align="right"><b>$FullTotalPrice</b></td></tr>
+		<tr style="font-size:12px;"><td colspan="2"><b><%t Webshop.Total 'Gesamtsumme:' %></b></td><td align="right"><b>$TotalPrice</b></td></tr>
+		<tr style="font-size:12px;"><td colspan="2"><b><%t Webshop.Transport 'Porto und Verpackung' %></b></td><td align="right"><b>$TransportPrice</b></td></tr>
+		<tr style="font-size:14px;font-weight:bold;"><td colspan="2"><b><%t Webshop.TotalPrice 'Preis inklusive MwSt., Porto und Verpackung' %></b></td><td align="right"><b>$FullTotalPrice</b></td></tr>
 	</tbody>
 </table>
