@@ -5,11 +5,11 @@
 
 <table cellpadding="2" cellspacing="2">
 	<thead>
-		<tr style="background-color:#EEEEEE;color:#666666;"><th width="80"></th><%t Webshop.Product 'Produkt' %><th width="230"></th><th width="100" align="center"><%t Webshop.Quantity 'Menge' %></th><th width="120" align="right" style="text-align:right"><%t Webshop.Total 'Gesamt' %></th></tr>
+		<tr style="background-color:#EEEEEE;color:#666666;"><th width="80"><%t Webshop.Product 'Produkt' %></th><th width="230"></th><th width="100" align="center"><%t Webshop.Quantity 'Menge' %></th><th width="120" align="right" style="text-align:right"><%t Webshop.Total 'Gesamt' %></th></tr>
 	</thead>
 	<tbody>
 		<% loop Items %>
-		<tr style="font-size:12px;"><td width="80"><img src="$MainBild.FocusFill(80,80).absoluteURL" width="80" height="80" /><td width="230">$Product.Title</td><td width="100" align="center">$Quantity</td><td width="120" align="right">$Price</td></tr>
+		<tr style="font-size:12px;"><td width="80"><img src="$Product.MainBild.FocusFill(80,80).absoluteURL" width="80" height="80" /><td width="230">$Product.Title</td><td width="100" align="center">$Quantity</td><td width="120" align="right">$Price</td></tr>
 		<% end_loop %>
 		<% if Voucher.exists %>
 		<tr><td colspan="2"><%t Order.Voucher 'Gutschein' %></td><td align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
