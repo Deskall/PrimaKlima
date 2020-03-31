@@ -42,6 +42,7 @@
 				<p>$Additional</p>
 				<% end_if %>
 			</div>
+		</div>
 		<div>
 			<div class="uk-panel uk-background-muted uk-padding-small">
 				<h4>Lieferbedingungen</h4>
