@@ -65,7 +65,14 @@ $(document).ready(function(){
 			dataType: 'html',
 			data: {productID: productID,quantity: quantity, context: context}
 		}).done(function(response){
-			$("#cart-container").replaceWith(response);
+			if (context == "checkout"){
+				$(".order-preview").each(function(){
+					$(this).empty().append(response);
+				});
+			}
+			else{
+				$("#cart-container").replaceWith(response);
+			}
 		});
 	}
 
