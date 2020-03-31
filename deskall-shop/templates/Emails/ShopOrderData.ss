@@ -9,7 +9,7 @@
 	</thead>
 	<tbody>
 		<% loop Items %>
-		<tr style="font-size:12px;"><td width="80"><img src="$MainBild.FocusFill(80,80)" width="80" height="80" /><td width="230">$Product.Title</td><td width="100" align="center">$Quantity</td><td width="120" align="right">$Price</td></tr>
+		<tr style="font-size:12px;"><td width="80"><img src="$MainBild.FocusFill(80,80).URL" width="80" height="80" /><td width="230">$Product.Title</td><td width="100" align="center">$Quantity</td><td width="120" align="right">$Price</td></tr>
 		<% end_loop %>
 		<% if Voucher.exists %>
 		<tr><td colspan="2"><%t Order.Voucher 'Gutschein' %></td><td align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
