@@ -49,15 +49,7 @@ $(document).ready(function(){
 		UpdateCartStep();
 	});
 
-	if (!$('body').hasClass('ShopPage')){
-		var url = window.location.pathname;
-		$.ajax({
-			url: '/shop/getActiveCart',
-			dataType: 'html'
-		}).done(function(response){
-			$('body').append(response);
-		});
-	}
+	
 		
 	
 		
