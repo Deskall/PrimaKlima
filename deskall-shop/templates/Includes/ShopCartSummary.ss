@@ -12,7 +12,7 @@
 	</tbody>
 	<tfoot>
 		<tr><td colspan="3" class="uk-text-right"><%t Webshop.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td id="total-price" class="uk-text-right">$MwSt.Nice</td></tr>
-		<% if Voucher.exists %><tr><td colspan="3" class="uk-text-right"><%t Webshop.Voucher 'Gutschein:' %></td><td id="voucher-price" class="uk-text-right">$Discount.Nice</td></tr><% end_if %>
+		<% if Voucher.exists %><tr><td colspan="3" class="uk-text-right"><%t Webshop.Voucher 'Gutschein:' %></td><td id="voucher-price" class="uk-text-right">$Discountprice.Nice</td></tr><% end_if %>
 		<tr><td colspan="3" class="uk-text-right"><strong><%t Webshop.Total 'Gesamtsumme:' %></strong></td><td id="total-price" class="uk-text-right uk-text-bold"><strong>$TotalPrice.Nice</strong></td></tr>
 		<tr><td colspan="3" class="uk-text-right"><%t Webshop.Transport 'Porto und Verpackung' %></td><td class="uk-text-right">$TransportPrice.Nice</td></tr>
 		<tr class="uk-table-divider"><td colspan="3" class="uk-text-right"><strong><%t Webshop.TotalPrice 'Preis inklusive MwSt., Porto und Verpackung' %></strong></td><td class="uk-text-right"><strong>$FullTotalPrice.Nice</strong></td></tr>
