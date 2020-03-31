@@ -20,21 +20,41 @@ class ShopOrder extends DataObject{
 		'Nummer' => 'Varchar(255)',
 		'isPaid' => 'Boolean',
 		'PaymentType' => 'Varchar',
-		'Price' => 'Currency',
-		'Name' => 'Varchar',
-		'Vorname' => 'Varchar',
-		'Email' => 'Varchar',
+		'IP' => 'Varchar',
+		'TotalPrice' => 'Currency',
+		'DiscountPrice' => 'Currency',
+		'TransportPrice' => 'Currency',
+		'FullTotalPrice' => 'Currency',
+		'PaymentMethod' => 'Varchar',
+		'Purchased' => 'Boolean(0)',
+		'CurrentStep' => 'Varchar',
+		//Customer Fields for save
 		'Company' => 'Varchar',
+		'Gender'  => 'Varchar',
+		'Name' => 'Varchar',
+		'FirstName' => 'Varchar',
+		'Email' => 'Varchar',
+		'Birthdate' => 'Date',
+		'Street' => 'Varchar',
 		'Address'  => 'Varchar',
+		'Region'  => 'Varchar',
 		'PostalCode'  => 'Varchar',
 		'City'  => 'Varchar',
 		'Country'  => 'Varchar',
 		'Phone'  => 'Varchar',
+		'DeliverySameAddress' => 'Boolean(1)',
+		'DeliveryCompany' => 'Varchar',
+		'DeliveryGender'  => 'Varchar',
+		'DeliveryName' => 'Varchar',
+		'DeliveryFirstName' => 'Varchar',
+		'DeliveryStreet' => 'Varchar',
+		'DeliveryAddress'  => 'Varchar',
+		'DeliveryRegion'  => 'Varchar',
+		'DeliveryPostalCode'  => 'Varchar',
+		'DeliveryCity'  => 'Varchar',
+		'DeliveryCountry'  => 'Varchar',
+		'Additional' => 'Text', 
 		'AGB' => 'Boolean(0)',
-		'StartValidity' => 'Date',
-		'EndValidity' => 'Date',
-		'RemainingOffers' => 'Int',
-		'isActive' => 'Boolean(0)',
 		'PayPalOrderID' => 'Varchar'
 	);
 
@@ -85,20 +105,8 @@ class ShopOrder extends DataObject{
 		if (!$this->Nummer){
 			$this->generateNummer();
 		}
-		if ($this->Created == $this->LastEdited){
-			$this->Initiate();
-		}
-		if ($this->RemainingOffers == 0 && $this->Product()->NumOfAds > 0){
-			$this->isActive = false;
-		}
 	}
 
-	public function Initiate(){
-		if ($this->isPaid){
-			$this->isActive = true;
-		}
-		$this->RemainingOffers = $this->Product()->NumOfAds;
-	}
 
 	public function generateNummer(){
 		$Config = $this->getSiteConfig();
@@ -116,7 +124,7 @@ class ShopOrder extends DataObject{
 	}
 
 	public function canMarkAsPaid(){
-		if ($this->PaymentType == "bill" && !$this->isPaid){
+		if (in_array($this->PaymentType,[ "bill", "cash" ]) && !$this->isPaid){
 			return true;
 		}
 		return false;
@@ -124,37 +132,19 @@ class ShopOrder extends DataObject{
 	
 	public function MarkAsPaid(){
 		$this->isPaid = true;
-		$this->Initiate();
 		$this->generateQuittungPDF();
 		$this->write();
 		$this->sendConfirmationEmail();
 	}
 
-	public function getPeriod(){
-		if ($this->isPaid){
-			$period = "vom ".$this->StartValidity." bis ".$this->EndValidity;
-		}
-		return "-";
-	}
-
-	public function StartValidityPeriod(){
-		$start = new \DateTime();
-		$this->StartValidity = $start->format('Y-m-d H:i');
-		//Laufzeit
-		$period = '+'.$this->Product()->RunTime;
-		$currency = $this->Product()->RunTimeCurrency;
-		if ($this->Product()->Runtime > 1){
-			$currency .= 's';
-		}
-		$period .= ' '.$currency;
-		$end = $start->modify($period);
-		$this->EndValidity = $end->format('Y-m-d H:i');
-	}
-
+	
 	public function getPaymentResource(){
 		switch ($this->PaymentType){
 			case "bill":
 				$type = "Rechnung";
+			break;
+			case "cash":
+				$type = "Bargeld";
 			break;
 			case "creditcard":
 				$type = "PayPal / Kreditkarte";
@@ -171,9 +161,6 @@ class ShopOrder extends DataObject{
 	    return DBField::create_field('Varchar', $paid);
 	}
 
-	public function getOrderStatus(){
-
-	}
 
 	public function getSiteConfig(){
 		return SiteConfig::current_site_config();
@@ -189,12 +176,6 @@ class ShopOrder extends DataObject{
 		return DBField::create_field('HTMLText',$html);
 	}
 
-	public function getFinalPrice(){
-		if ($this->Voucher()->exists()){
-			return $this->Voucher()->DiscountPrice($this->Price);
-		}
-		return $this->Price;
-	}
 
 	public function getOrderPrice(){
 	    setlocale(LC_MONETARY, 'de_DE');
@@ -209,8 +190,8 @@ class ShopOrder extends DataObject{
 
 
 	public function getOrderPriceNetto(){
-	    // $price = $this->Price * 100 / 107.7;
-	    $price = $this->getFinalPrice();
+	    $price = $this->Price * 100 / 107.7;
+	   
 	    setlocale(LC_MONETARY, 'de_DE');
 	    return DBField::create_field('Varchar',money_format('%i',$price));
 	}
@@ -340,19 +321,6 @@ class ShopOrder extends DataObject{
 
 	    $email->send();
 
-	}
-
-
-	public function deactivate(){
-		$this->isActive = false;
-		$this->RemainingOffers = 0;
-		if ($missions = $this->Customer()->Missions()->filter('isActive',1)){
-			foreach ($missions as $m) {
-				$m->isActive = false;
-				$m->write();
-			}
-		}
-		$this->write();
 	}
 }
 

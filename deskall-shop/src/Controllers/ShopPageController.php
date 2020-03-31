@@ -135,75 +135,60 @@ class ShopPageController extends PageController{
 		return $form;
 	}
 
-	//refaire entièrement (pas oublier coupon)
+	//Payment for Bill and Cash
 	public function payBill($data,$form){
-		//retrieve customer
-		if (isset($data['CustomerID']) && !empty($data['CustomerID'])){
-			$customer = JobGiver::get()->byId($data['CustomerID']);
-			if ($customer){
-				//Link to package
-				if (isset($data['ProductID']) && !empty($data['ProductID'])){
-					$package = Package::get()->byId($data['ProductID']);
-					if ($package){
-						$form->saveInto($customer);
-						//Option if any
-						$packageOption = null;
-						if (isset($data['OptionID']) && !empty($data['OptionID'])){
-							$packageOption = PackageOption::get()->byId($data['OptionID']);
-							
-						}
-						//Create and fill the order
-							$order = new ShopOrder();
-							$form->saveInto($order);
-							$order->Price = ($packageOption) ? $packageOption->currentPrice() : $package->currentPrice();
-							$order->isPaid = false;
-							$order->Name = $customer->ContactPersonSurname;
-							$order->Vorname = $customer->ContactPersonFirstName;
-							$order->Email = $customer->CompanyEmail;
-							$order->Address = $customer->BillingAddressStreet;
-							$order->PostalCode = $customer->BillingAddressPostalCode;
-							$order->City = $customer->BillingAddressPlace;
-							$order->Country = $customer->BillingAddressCountry;
-							$order->Phone = $customer->ContactPersonTelephone;
-
-							
-
-							try {
-								//Write order
-								$order->write();
-								//Write customer
-								$customer->write();
-
-								//Create Receipt
-								$order->generatePDF();
-								//Send Confirmation Email (BCC to admin)
-								$order->sendEmail();
-								
-
-								$this->getRequest()->getSession()->set('orderID',$order->ID);
-								
-								return $this->Redirect('danke-fuer-ihre-bestellung');
-								
-							} catch (ValidationException $e) {
-								$validationMessages = '';
-								foreach($e->getResult()->getMessages() as $error){
-									$validationMessages .= $error['message']."\n";
-								}
-								$form->sessionMessage($validationMessages, 'bad');
-								return $this->redirectBack();
-							}
-						
-						
-
-					}
-				
-				}
+		//retrieve cart
+		$cart = $this->activeCart();
+		if ($cart){
+			//Create and fill the customer
+			$customer = (ShopCustomer::get()->filter('Email',$data['Email'])->first()) ? ShopCustomer::get()->filter('Email',$data['Email'])->first() : new ShopCustomer();
+			$customer->update($data);
+			$customer->write();
+			//Create and fill the order
+			$order = new ShopOrder();
+			$form->saveInto($order);
+			$duplicateFromCart = ['IP', 'TotalPrice','DiscountPrice', 'TransportPrice', 'FullTotalPrice'];
+			foreach ($duplicateFromCart as $key => $field) {
+				$order->{$field} = $cart->{$field};
 			}
-		}
+			$order->isPaid = false;
 
+			try {
+				//Write order
+				$order->write();
+
+				foreach ($cart->Products() as $p) {
+					$item = new OrderItem();
+					$item->createFromProduct($p);
+					$order->add($item);
+				}
+
+				//Create Receipt
+				$order->generatePDF();
+				//Send Confirmation Email (BCC to admin)
+				$order->sendEmail();
+				$this->getRequest()->getSession()->set('orderID',$order->ID);
+				
+				//clear cart
+				$cart->delete();
+				$this->getRequest()->getSession()->clear('shopcart_id');
+								
+				
+				return $this->Redirect('danke-fuer-ihre-bestellung');
+				
+			} catch (ValidationException $e) {
+				$validationMessages = '';
+				foreach($e->getResult()->getMessages() as $error){
+					$validationMessages .= $error['message']."\n";
+				}
+				$form->sessionMessage($validationMessages, 'bad');
+				return $this->redirectBack();
+			}
+						
+		}
+						
 		//unguilty request, go back
 		return $this->redirectBack();
-		
 	}
 
 	private static function buildRequestBody($data)

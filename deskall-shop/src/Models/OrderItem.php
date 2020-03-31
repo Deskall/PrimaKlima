@@ -17,6 +17,8 @@ class OrderItem extends DataObject {
         'Product' => Product::class
     );
 
+    private static $extensions = ['Sortable'];
+
     private static $summary_fields = array(
         'Title' => 'Titel',
         'Price' => 'Preis',
@@ -29,11 +31,12 @@ class OrderItem extends DataObject {
     }
 
 
-    public function createFromProduct($product,$quantity = 1,$included = false,$customer = null){
+    public function createFromProduct($product){
         $this->ProductID = $product->ID;
         $this->Title = $product->Title;
         $this->Price = $product->Price;
-        $this->Quantity = $quantity;
+        $this->Quantity = $product->Quantity;
+        $this->Sort = $p->SortOrder;
         $this->write();
     }
 

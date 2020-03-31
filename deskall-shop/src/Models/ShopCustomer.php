@@ -37,23 +37,30 @@ use SilverStripe\SiteConfig\SiteConfig;
 class ShopCustomer extends DataObject
 {
     private static $db = array(
+        'Company' => 'Varchar',
         'Gender'  => 'Varchar',
         'Name' => 'Varchar',
         'FirstName' => 'Varchar',
         'Email' => 'Varchar',
         'Birthdate' => 'Date',
+        'Street' => 'Varchar',
         'Address'  => 'Varchar',
-        'HouseNumber' => 'Int',
+        'Region'  => 'Varchar',
         'PostalCode'  => 'Varchar',
         'City'  => 'Varchar',
         'Country'  => 'Varchar',
         'Phone'  => 'Varchar',
-        'BillSameAddress' => 'Boolean(1)',
-        'BillAddress'  => 'Varchar',
-        'BillHouseNumber' => 'Int',
-        'BillPostalCode'  => 'Varchar',
-        'BillCity'  => 'Varchar',
-        'BillCountry'  => 'Varchar'
+        'DeliverySameAddress' => 'Boolean(1)',
+        'DeliveryCompany' => 'Varchar',
+        'DeliveryGender'  => 'Varchar',
+        'DeliveryName' => 'Varchar',
+        'DeliveryFirstName' => 'Varchar',
+        'DeliveryStreet' => 'Varchar',
+        'DeliveryAddress'  => 'Varchar',
+        'DeliveryRegion'  => 'Varchar',
+        'DeliveryPostalCode'  => 'Varchar',
+        'DeliveryCity'  => 'Varchar',
+        'DeliveryCountry'  => 'Varchar',
      );
 
     private static $singular_name = "Kunde";

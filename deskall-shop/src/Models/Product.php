@@ -33,7 +33,6 @@ class Product extends DataObject {
         'Lead' => 'HTMLText',
         'Description' => 'HTMLText',
         'Price' => 'Currency',
-        'TransportPrice' => 'Currency',
         'URLSegment' => 'Varchar(255)'
     );
 
@@ -65,7 +64,6 @@ class Product extends DataObject {
         $labels['Lead'] = _t('Product.Lead', 'Einstiegstext');
         $labels['Description'] = _t('Product.Description', 'Beschreibung');
         $labels['Price'] = _t('Product.Price', 'Preis');
-        $labels['TransportPrice'] = _t('Product.TransportPrice', 'Versandkosten');
         $labels['Category'] = _t('Product.Category', 'Kategorie');
         $labels['MainBild'] = _t('Product.MainBild', 'Hauptbild');
         $labels['Images'] =  _t('Product.Images', 'Bilder');
