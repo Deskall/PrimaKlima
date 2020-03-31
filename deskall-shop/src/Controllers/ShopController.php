@@ -96,7 +96,7 @@ class ShopController extends PageController{
 				   	}
 				}
 				if ($request->postVar('context') == "checkout"){
-					return ['cart' => $cart->renderWith('Includes/ShopCartCheckout'), 'summary' => $cart->renderWith('Includes/ShopCartSummary')];
+					return json_encode(['cart' => $cart->renderWith('Includes/ShopCartCheckout'), 'summary' => $cart->renderWith('Includes/ShopCartSummary')]);
 				}
 				else{
 					return $cart->renderWith('Includes/ShopCart');

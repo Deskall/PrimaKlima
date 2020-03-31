@@ -62,7 +62,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: '/shop/updateCart',
 			method: 'POST',
-			dataType: 'html',
+			dataType: 'json',
 			data: {productID: productID,quantity: quantity, context: context}
 		}).done(function(response){
 			console.log(response);
