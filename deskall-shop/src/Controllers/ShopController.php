@@ -31,7 +31,7 @@ use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ShopController extends PageController{
-	private static $allowed_actions = ['Category','Product','getActiveCart','updateCart','removeFromCart','updateCartData'];
+	private static $allowed_actions = ['Category','Product','getActiveCart','updateCart','removeFromCart','updateCartData', 'updateCartSummary'];
 
 	private static $url_handlers = [
 		'kategorie//$URLSegment' => 'Category',
@@ -95,13 +95,7 @@ class ShopController extends PageController{
 				   		$cart->write();
 				   	}
 				}
-				if ($request->postVar('context') == "checkout"){
-					return json_encode(['cart' => $cart->renderWith('Includes/ShopCartCheckout'), 'summary' => $cart->renderWith('Includes/ShopCartSummary')]);
-				}
-				else{
-					return $cart->renderWith('Includes/ShopCart');
-				}
-				
+				return ($request->postVar('context') == "checkout") ? $cart->renderWith('Includes/ShopCartCheckout') : $cart->renderWith('Includes/ShopCart');
 		    }
 		}
 	}
@@ -122,6 +116,23 @@ class ShopController extends PageController{
          $cart->update($data);
          $cart->write();
 
+         return $cart->renderWith('Includes/ShopCartSummary');
+      }
+
+      return;
+      
+   } 
+
+   public function updateCartSummary(){
+      //retrieve cart in session
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
+      
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+
+      if ($cart ){
          return $cart->renderWith('Includes/ShopCartSummary');
       }
 

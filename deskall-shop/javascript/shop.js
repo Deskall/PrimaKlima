@@ -62,21 +62,28 @@ $(document).ready(function(){
 		$.ajax({
 			url: '/shop/updateCart',
 			method: 'POST',
-			dataType: 'json',
+			dataType: 'html',
 			data: {productID: productID,quantity: quantity, context: context}
 		}).done(function(response){
-			console.log(response);
 			if (context == "checkout"){
 				$(".order-preview").each(function(){
-					$(this).empty().append(response.cart);
-				});
-				$(".order-summary").each(function(){
-					$(this).empty().append(response.summary);
+					$(this).empty().append(response);
 				});
 			}
 			else{
 				$("#cart-container").replaceWith(response);
 			}
+		});
+	}
+
+	function UpdateOrderSummary(){
+		//ici ajouter un
+		$.ajax({
+			url: '/shop/updateCartSummary',
+			method: 'POST',
+			dataType: 'html'
+		}).done(function(response){
+			$(".order-summary").replaceWith(response);
 		});
 	}
 
