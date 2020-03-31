@@ -11,6 +11,7 @@ class ShopCart extends DataObject {
 	private static $db = [
 		'IP' => 'Varchar',
 		'TotalPrice' => 'Currency',
+		'DiscountPrice' => 'Currency',
 		'TransportPrice' => 'Currency',
 		'FullTotalPrice' => 'Currency',
 		'PaymentMethod' => 'Varchar',
@@ -47,7 +48,7 @@ class ShopCart extends DataObject {
 	private static $has_one = [
 		'Order' => ShopOrder::class,
 		'Customer' => ShopCustomer::class,
-		'Voucher' => Voucher::class
+		'Voucher' => Coupon::class
 	];
 
 	private static $many_many = [
@@ -88,6 +89,7 @@ class ShopCart extends DataObject {
 		$labels['Birthdate'] = _t(__CLASS__.'.Birthdate','Geburtsdatum');
 		$labels['HouseNumber'] = _t(__CLASS__.'.HouseNumber','Haus-Nr.');
 		$labels['Voucher'] = _t(__CLASS__.'.Voucher','Gutschein');
+		$labels['DiscountPrice'] = _t(__CLASS__.'.DiscountPrice','Rabatt');
 		
 		return $labels;
 	}
@@ -140,6 +142,16 @@ class ShopCart extends DataObject {
 			foreach ($this->Products() as $product) {
 				$price += $product->Price * $product->Quantity;
 			}
+		}
+		if ($this->Voucher()->exists()){
+			if ($this->Voucher()->AmountType == "relative"){
+				$discount = $price * floatval($this->Voucher()->Amount) / 100 ;
+			}
+			else{
+				$discount = $this->Voucher()->Amount;
+			}
+			$this->DiscountPrice = $discount;
+			$price -= $discount;
 		}
 		
 		$this->TotalPrice = $price;
