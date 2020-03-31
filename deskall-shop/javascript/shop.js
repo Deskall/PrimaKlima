@@ -65,7 +65,7 @@ $(document).ready(function(){
 			dataType: 'html',
 			data: {productID: productID,quantity: quantity, context: context}
 		}).done(function(response){
-			$("#cart-container").replace(response);
+			$("#cart-container").replaceWith(response);
 		});
 	}
 
