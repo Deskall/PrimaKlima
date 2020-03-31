@@ -127,7 +127,7 @@ class ShopCart extends DataObject {
 	public function printContact(){
 	    $html = '<p>'.$this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
 	   
-	    $html .= $this->Address.' '.$this->HouseNumber.'<br/>'
+	    $html .= $this->Street.' '.$this->Address.'<br/>'
 	    .$this->PostalCode.' - '.$this->City;
 	    if ($this->Country){
 	        $html .= '<br/>'.i18n::getData()->getCountries()[$this->Country];
