@@ -171,6 +171,7 @@ $(document).ready(function(){
 	});
 
 	function getPrice(){
+		console.log($("#full-total-price").attr('data-price'));
 		return $("#full-total-price").attr('data-price');
 	}
 
