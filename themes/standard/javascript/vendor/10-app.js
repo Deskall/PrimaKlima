@@ -152,7 +152,7 @@ $(document).ready(function(){
 $(document).ready(function(){
   setTimeout(function(){
     resizeMain();
-  },500);
+  },5);
 
   UIkit.util.on("#modal-search","shown",function(){
     $("input[name='Search']").focus();
