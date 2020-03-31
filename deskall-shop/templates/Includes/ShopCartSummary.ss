@@ -22,7 +22,7 @@
 	</table>
 </div>
 <div class="uk-margin">
-	<div class="uk-child-width-1-2@s uk-grid-match" data-uk-grid>
+	<div class="uk-child-width-1-2@s uk-grid-match uk-grid-small" data-uk-grid>
 		<div>
 			<div class="uk-panel uk-background-muted uk-padding-small">
 				<h4><%t Webshop.BillAddressTitle 'Rechnungsadresse' %></h4>

@@ -216,7 +216,7 @@ class ShopOrder extends DataObject{
       	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/rechnung_'.$this->ID.'.pdf';
 
       	
-      	$pdf->Addfont('Lato','','lato.php');
+      	// replace with project font $pdf->Addfont('Lato','','lato.php');
       	$pageCount = $pdf->setSourceFile($src);
       	for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
       		$pdf->SetPrintHeader(false);
@@ -253,7 +253,7 @@ class ShopOrder extends DataObject{
 	      	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/quittung_'.$this->ID.'.pdf';
 
 	      	// $pdf->Addfont('Stone sans ITC','','stonesansitc.php');
-	      	$pdf->Addfont('Lato','','lato.php');
+	      	// $pdf->Addfont('Lato','','lato.php');
 	      	$pageCount = $pdf->setSourceFile($src);
 	      	for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	      		$pdf->SetPrintHeader(false);
