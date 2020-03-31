@@ -95,6 +95,7 @@ DNADesign\ElementalUserForms\Model\ElementForm:
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
   block_default_userforms_js: true
   block_default_userforms_css: true
+  
 
 SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
     default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NocaptchaProtector
