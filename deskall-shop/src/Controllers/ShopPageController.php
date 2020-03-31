@@ -148,7 +148,7 @@ class ShopPageController extends PageController{
 			$order = new ShopOrder();
 			$order->CustomerID = $customer->ID;
 			$form->saveInto($order);
-			$duplicateFromCart = ['IP', 'TotalPrice','DiscountPrice', 'TransportPrice', 'FullTotalPrice'];
+			$duplicateFromCart = ['IP', 'TotalPrice','DiscountPrice', 'TransportPrice', 'FullTotalPrice', 'VoucherID'];
 			foreach ($duplicateFromCart as $key => $field) {
 				$order->{$field} = $cart->{$field};
 			}

@@ -15,12 +15,12 @@ $Customer.printAddress
 		<tr><td width="310">$Product.Title</td><td width="100" align="center">$Quantity</td><td width="120" align="right">$Price</td></tr>
 		<% end_loop %>
 		<% if Voucher.exists %>
-		<tr><td colspan="3"><%t Order.Voucher 'Gutschein' %></td><td align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
+		<tr><td colspan="2"><%t Order.Voucher 'Gutschein' %></td><td align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
 		<% end_if %>
-		<tr><td colspan="3">Nettobetrag</td><td align="right">$OrderPriceNetto</td></tr>
-		<tr><td colspan="3">MwSt. inkl</td><td align="right">$OrderMwst</td></tr>
-		<tr style="font-size:12px;"><td colspan="3"><b>Gesamtbetrag</b></td><td align="right"><b>$TotalPrice</b></td></tr>
-		<tr style="font-size:12px;"><td colspan="3"><b>Versandkosten</b></td><td align="right"><b>$TransportPrice</b></td></tr>
-		<tr style="font-size:12px;"><td colspan="3"><b>Total</b></td><td align="right"><b>$FullTotalPrice</b></td></tr>
+		<tr><td colspan="2">Nettobetrag</td><td align="right">$OrderPriceNetto</td></tr>
+		<tr><td colspan="2">MwSt. inkl</td><td align="right">$OrderMwst</td></tr>
+		<tr style="font-size:12px;"><td colspan="2"><b>Gesamtbetrag</b></td><td align="right"><b>$TotalPrice</b></td></tr>
+		<tr style="font-size:12px;"><td colspan="2"><b>Versandkosten</b></td><td align="right"><b>$TransportPrice</b></td></tr>
+		<tr style="font-size:12px;"><td colspan="2"><b>Total</b></td><td align="right"><b>$FullTotalPrice</b></td></tr>
 	</tbody>
 </table>
