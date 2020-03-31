@@ -224,7 +224,7 @@ class ShopOrder extends DataObject{
             $templateId = $pdf->importPage($pageNo);
             $size = $pdf->getTemplateSize($templateId);
             $pdf->useTemplate($templateId);
-            $pdf->SetFont('Lato','',8);
+            // $pdf->SetFont('Lato','',8);
 
             $pdf->setXY(8,80);
             $pdf->WriteHtml($this->renderWith('ShopOrderTable'));
@@ -261,10 +261,10 @@ class ShopOrder extends DataObject{
 	            $templateId = $pdf->importPage($pageNo);
 	            $size = $pdf->getTemplateSize($templateId);
 	            $pdf->useTemplate($templateId);
-	            $pdf->SetFont('Lato','',10);
+	            // $pdf->SetFont('Lato','',10);
 	            $pdf->setXY(100,80);
 	            $pdf->WriteHtml($this->renderWith('ReceiptTable'));
-	            $pdf->SetFont('Lato','',10);
+	            // $pdf->SetFont('Lato','',10);
 	            $pdf->setXY(30,86.5);
 	            $pdf->Write(0,$this->Nummer);
 	           
