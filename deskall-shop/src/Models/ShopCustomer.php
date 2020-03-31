@@ -150,7 +150,7 @@ class ShopCustomer extends DataObject
     public function printAddress(){
         $html = '<p>';
         if ($this->Company){
-            $html .= $this->Company.'br/>';
+            $html .= $this->Company.'<br/>';
         }
         $html .= $this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
         $html .= $this->Street;
@@ -170,7 +170,7 @@ class ShopCustomer extends DataObject
     public function printContact(){
         $html = '<p>';
         if ($this->Company){
-            $html .= $this->Company.'br/>';
+            $html .= $this->Company.'<br/>';
         }
         $html .= $this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
         $html .= $this->Street;
