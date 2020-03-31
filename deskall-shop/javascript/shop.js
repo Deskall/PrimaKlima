@@ -156,7 +156,7 @@ $(document).ready(function(){
 			if (response.status == "OK"){
 				UIkit.modal.alert(response.message).then(function() {
 					$("input[name='VoucherID']").val(response.voucherID);
-					UpdateCartSummary();
+					UpdateOrderSummary();
 				});
 			}
 			else{
