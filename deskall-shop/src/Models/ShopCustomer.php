@@ -37,6 +37,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 class ShopCustomer extends DataObject
 {
     private static $db = array(
+        'Nummer' => 'Varchar(255)',
         'Company' => 'Varchar',
         'Gender'  => 'Varchar',
         'Name' => 'Varchar',
@@ -105,7 +106,15 @@ class ShopCustomer extends DataObject
     $labels['printAddress'] = _t(__CLASS__.'.printAddress','Adresse');
     $labels['HouseNumber'] = _t(__CLASS__.'.HouseNumber','Haus-Nr.');
     $labels['BillHouseNumber'] = _t(__CLASS__.'.BillHouseNumber','Haus-Nr. (Rechnung)');
+     $labels['Nummer'] = _t(__CLASS__.'.Nummer','Kunden-Nr.');
     return $labels;
+    }
+
+    public function generateNummer(){
+        $Config = $this->getSiteConfig();
+        $last = ShopCustomer::get()->sort('ID','Desc')->first();
+        $increment = ($last) ? ($last->ID + 1) : 1;
+        $this->Nummer = number_format ( $Config->ClientNumberOffset + $increment , 0 ,  "." ,  "." );
     }
 
     public function printTitle(){
@@ -117,10 +126,17 @@ class ShopCustomer extends DataObject
        return DBField::create_field('Varchar',$this->FirstName.' '.$this->Name);
     }
 
+    public function getSiteConfig(){
+        return SiteConfig::current_site_config();
+    }
+
    
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
+        if (!$this->Nummer && $this->ID > 0){
+            $this->Nummer = $this->generateNummer();
+        }
         
     }
 

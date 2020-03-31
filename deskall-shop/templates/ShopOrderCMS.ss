@@ -3,7 +3,7 @@ $Customer.printAddress
 <br/>
 <h2>Bestellung</h2>
 <table cellspacing="4" cellpadding="4">
-	<tr style="font-size:16px;"><td>Bestellung Nr. <b>$Nummer</b></td><td>Kunde Nr. <b>$CustomerID</b></td><td align="right">Datum: <b>$Created.format('dd.MM.Y')</b></td><td>Typ: <b>$PaymentResource</b></td><td>Bezahlt: <b>$PaidStatus</b></td><td><% if isPaid %>$Receipt<% else %>$Bill<% end_if %></td></tr>
+	<tr style="font-size:16px;"><td>Bestellung Nr. <b>$Nummer</b></td><td>Kunde Nr. <b>$Customer.Nummer</b></td><td align="right">Datum: <b>$Created.format('dd.MM.Y')</b></td><td>Typ: <b>$PaymentResource</b></td><td>Bezahlt: <b>$PaidStatus</b></td><td><% if isPaid %>$Receipt<% else %>$Bill<% end_if %></td></tr>
 </table>
 <hr>
 <table cellpadding="2" cellspacing="2">
