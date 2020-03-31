@@ -1,5 +1,7 @@
 <h2><%t Webshop.OrderDetail 'Details' %></h2>
-
+<table cellspacing="4" cellpadding="4">
+	<tr style="font-size:14px;"><td><%t Webshop.OrderNumber 'Bestellung Nr.' %> <b>$Nummer</b></td></tr>
+</table>
 
 <table cellpadding="2" cellspacing="2">
 	<thead>
