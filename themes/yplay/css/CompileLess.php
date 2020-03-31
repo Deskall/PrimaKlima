@@ -14,7 +14,6 @@ $filename_full = str_replace(".min", "", $filename);
 $filename_min = str_replace(".css", ".min.css", $filename_full);
 $filename_less = str_replace(".css", ".less", $filename_full);
 
-
 if ($filename == "editortocompile.css"){
 	$filename_min = "editor.min.css";
 	$filename_less = "editor.less";
