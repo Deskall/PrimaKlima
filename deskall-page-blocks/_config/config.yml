@@ -73,6 +73,7 @@ SilverStripe\UserForms\Model\Recipient\EmailRecipient:
 SilverStripe\UserForms\UserForm:
   cascade_duplicates:
     - 'EmailRecipients'
+    - 'Fields'
 
 SilverStripe\UserForms\Control\UserDefinedFormController:
   extensions:
