@@ -164,10 +164,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 			if ($page->ElementalAreaID > 0){
 				$blocks = array();
 				foreach ($page->ElementalArea()->Elements() as $block) {
-					ob_start();
-								print_r($block->ID."\n");
-								$result = ob_get_clean();
-								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+					
 					$blocks[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
 					if ($block->ClassName == "ParentBlock"){
 						foreach ($block->Elements()->Elements() as $underblock) {
