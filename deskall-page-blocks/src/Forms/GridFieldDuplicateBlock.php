@@ -176,7 +176,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 					}
 				}
 				//build the page unique sitetree strucuture
-				$pageTree = $page->ID.$page->NestedTitle(4," > ");
+				$pageTree = $page->ID.' - '.$page->NestedTitle(4," > ");
 			
 				$blockstree[$pageTree] = $blocks;
 			}
