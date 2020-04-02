@@ -28,6 +28,8 @@ $(document).ready(function(){
 
 	$(document).on("click",".add-to-cart",function(){
 		UpdateOrderPreview($(this).attr('data-product-id'),1,'webshop');
+		$("#link-shop").attr("hidden","hidden");
+		$("#toggle-cart").attr("hidden",false);
 		var count = parseInt($("#cart-articles-count").text()) + 1;
 		$("#cart-articles-count").text(count);
 	});

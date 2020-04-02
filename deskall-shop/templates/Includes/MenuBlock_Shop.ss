@@ -3,11 +3,8 @@
 	
 			        <ul class="uk-navbar-nav">
 				        <li>
-				           	<% if $activeCart.countProducts > 0 %>
-				           		<a id="toggle-cart" data-uk-toggle="target: #offcanvas-usage-cart">Warenkorb ( <small id="cart-articles-count">$activeCart.countProducts</small> )<span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></a>
-				           	<% else %>
-				           		<a href="$ShopPage.Link">Warenkorb<span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></a>
-				           	<% end_if %>
+				           	<a id="toggle-cart" data-uk-toggle="target: #offcanvas-usage-cart" <% if $activeCart.countProducts == 0 %>hidden<% end_if %>>Warenkorb ( <small id="cart-articles-count">$activeCart.countProducts</small> )<span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></a>
+				           	<a id="link-shop" href="$ShopPage.Link">Warenkorb<span class="uk-margin-small-left" data-uk-icon="icon: cart" <% if $activeCart.countProducts > 0 %>hidden<% end_if %>></span></a>
 				        </li>
 			        </ul>
 		
