@@ -219,7 +219,7 @@ $(document).ready(function(){
 	  	            currency_code: 'CHF'
 	  	          },
 	  	          shipping: {
-	  	          	shipping_type: shipping_type,
+	  	          	// shipping_type: shipping_type,
 	  	            address: {
 	  	               address_line_1: $("input[name='DeliveryStreet']").val(),
 		  	          address_line_2: $("input[name='DeliveryAddress']").val(),
