@@ -152,7 +152,7 @@
 	<% with Fields.FieldByName('CustomerID') %>
 	$FieldHolder
 	<% end_with %>
-	<% with Fields.FieldByName('VoucherID') %>
+	<% with Fields.FieldByName('CardID') %>
 	$FieldHolder
 	<% end_with %>
 	<% with Fields.FieldByName('SecurityID') %>
