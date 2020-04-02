@@ -23,9 +23,11 @@
 					   <% include ShopCartCheckout %>
 					</div>
 					<% end_with %>
+					<% if Controller.activeCart.products.exists %>
 					<div class="uk-flex uk-flex-right">
 						<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 					</div>
+					<% end_if %>
 			</li>
 			<% if Controller.activeCart.products.exists %>
 			<li class="account-tab" data-index="1">
