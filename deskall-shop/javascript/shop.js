@@ -201,15 +201,14 @@ $(document).ready(function(){
 	  	          address_line_1: $("input[name='Street']").val(),
 	  	          address_line_2: $("input[name='Address']").val(),
 	  	          admin_area_2: $("input[name='City']").val(),
-	  	          admin_area_2: $("input[name='Region']").val(),
+	  	          admin_area_1: $("input[name='Region']").val(),
 	  	          postal_code: $("input[name='PostalCode']").val(),
 	  	          country_code: $("select[name='Country']").val().toUpperCase()
 	  	        },
 	  	        email_address: $("input[name='Email']").val(),
 	  	        phone: {
-	  	          phone_type: "MOBILE",
 	  	          phone_number: {
-	  	            national_number: "14082508100"
+	  	            national_number: $("input[name='Phone']").val()
 	  	          }
 	  	        }
 	  	      },
@@ -220,13 +219,14 @@ $(document).ready(function(){
 	  	            currency_code: 'CHF'
 	  	          },
 	  	          shipping: {
+	  	          	shipping_type: shipping_type,
 	  	            address: {
-	  	              address_line_1: '2211 N First Street',
-	  	              address_line_2: 'Building 17',
-	  	              admin_area_2: 'San Jose',
-	  	              admin_area_1: 'CA',
-	  	              postal_code: '95131',
-	  	              country_code: 'US'
+	  	               address_line_1: $("input[name='DeliveryStreet']").val(),
+		  	          address_line_2: $("input[name='DeliveryAddress']").val(),
+		  	          admin_area_2: $("input[name='DeliveryCity']").val(),
+		  	          admin_area_1: $("input[name='DeliveryRegion']").val(),
+		  	          postal_code: $("input[name='DeliveryPostalCode']").val(),
+		  	          country_code: $("select[name='DeliveryCountry']").val().toUpperCase()
 	  	            }
 	  	          },
 	  	        }
@@ -254,7 +254,7 @@ $(document).ready(function(){
 	          	dataType: 'Json'
 	        }).done(function(response){
 	        	if (response.status == "OK"){
-	        		window.location.href = "/danke-fuer-ihre-bestellung";
+	        		window.location.href = response.redirecturl;
 	        	}
 	        	else{
 	        		 UIkit.modal.alert('Ein Fehler ist aufgetreten').then(function() {

@@ -310,61 +310,96 @@ class ShopPageController extends PageController{
 		$data = $request->postVars();
 
 		$orderId = (isset($data['orderID'])) ? $data['orderID'] : null;
-		$productId = (isset($data['productID'])) ? $data['productID'] : null;
+		$cartId = $request->getSession()->get('shopcart_id');
 		
-		if ($orderId && $productId ){
+		if ($orderId && $cartId ){
 			
 			$client = PayPalClient::client();
 			$response = $client->execute(new OrdersGetRequest($orderId));
+
+			ob_start();
+						print_r($response);
+						$result = ob_get_clean();
+						file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 			
 			if ($response->statusCode == "200"){
-				$package = Package::get()->byId($productId);
-				$member = Security::getCurrentUser();
-				$customer  = ($member) ? JobGiver::get()->filter('MemberID',$member->ID)->first() : null;
-				if ($package && $customer){
+				$cart = ShopCart::get()->byId($cartId);
+				if ($cart){
+					$bill_address = $response->result->payer->address;
+					$shipping_address = $response->result->purchase_units[0]->shipping->address;
+					//Create and fill the customer
+					$customer = (ShopCustomer::get()->filter('Email',$response->result->payer->email_address)->first()) ? ShopCustomer::get()->filter('Email',$response->result->payer->email_address)->first() : new ShopCustomer();
+					$customer->Name = ucfirst(strtolower($response->result->payer->name->surname));
+					$customer->FirstName = ucfirst(strtolower($response->result->payer->name->given_name));
+					$customer->Email = $response->result->payer->email_address;
+					$customer->PostalCode = $bill_address->postal_code;
+					$customer->Street = $bill_address->address_line_1;
+					$customer->Address = $bill_address->address_line_2;
+					$customer->Region = $bill_address->admin_area_1;
+					$customer->City = ucfirst(strtolower($bill_address->admin_area_2));
+					$customer->Country = strtolower($bill_address->country_code);
+					$customer->DeliveryPostalCode = $shipping_address->postal_code;
+					$customer->DeliveryStreet = $shipping_address->address_line_1;
+					$customer->DeliveryAddress = $shipping_address->address_line_2;
+					$customer->DeliveryRegion = $shipping_address->admin_area_1;
+					$customer->DeliveryCity = ucfirst(strtolower($shipping_address->admin_area_2));
+					$customer->DeliveryCountry = strtolower($shipping_address->country_code);
+					$customer->write();
+
 					//Create and fill the order
-						$order = new ShopOrder();
-						$order->ProductID = $package->ID;
-						$order->Name = ucfirst(strtolower($response->result->payer->name->surname));
-						$order->Vorname = ucfirst(strtolower($response->result->payer->name->given_name));
-						$order->Email = $response->result->payer->email_address;
-						$order->Price = $package->currentPrice();
-						$address = $response->result->purchase_units[0]->shipping->address;
-						$order->PostalCode = $address->postal_code;
-						$order->Address = $address->address_line_1;
-						$order->City = ucfirst(strtolower($address->admin_area_2));
-						$order->Country = strtolower($address->country_code);
-						$order->CustomerID = $customer->ID;
-						$order->isPaid = true;
-						$order->PaymentType = 'creditcard';
-						$order->PayPalOrderID = $orderId;
+					$order = new ShopOrder();
+					$order->Name = ucfirst(strtolower($response->result->payer->name->surname));
+					$order->FirstName = ucfirst(strtolower($response->result->payer->name->given_name));
+					$order->Email = $response->result->payer->email_address;
+					$order->PostalCode = $bill_address->postal_code;
+					$order->Address = $bill_address->address_line_1;
+					$order->Address = $bill_address->address_line_2;
+					$order->Region = $bill_address->admin_area_1;
+					$order->City = ucfirst(strtolower($bill_address->admin_area_2));
+					$order->Country = strtolower($bill_address->country_code);
+					$order->DeliveryPostalCode = $shipping_address->postal_code;
+					$order->DeliveryStreet = $shipping_address->address_line_1;
+					$order->DeliveryAddress = $shipping_address->address_line_2;
+					$order->DeliveryRegion = $shipping_address->admin_area_1;
+					$order->DeliveryCity = ucfirst(strtolower($shipping_address->admin_area_2));
+					$order->DeliveryCountry = strtolower($shipping_address->country_code);
+					$order->CustomerID = $customer->ID;
+					$order->isPaid = true;
+					$order->PaymentType = 'creditcard';
+					$order->PayPalOrderID = $orderId;
 
-						//Voucher 
-						if (isset($data['voucherID']) && $voucher = Coupon::get()->byId($data['voucherID'])){
-							$order->VoucherID = $voucher->ID;
-						}
-						
-						try {
-							//Write order
-							$order->write();
-							//Create Receipt
-							$order->generateQuittungPDF();
-							//Send Confirmation Email (BCC to admin)
-							$order->sendConfirmationEmail();
-							
-							$this->getRequest()->getSession()->set('orderID',$order->ID);
+					$duplicateFromCart = ['IP', 'TotalPrice','DiscountPrice', 'TransportPrice', 'FullTotalPrice', 'VoucherID'];
+					foreach ($duplicateFromCart as $key => $field) {
+						$order->{$field} = $cart->{$field};
+					}
+					
+							try {
+								//Write order
+								$order->write();
+								//Add Products
+								foreach ($cart->Products() as $p) {
+									$item = new OrderItem();
+									$item->createFromProduct($p);
+									$order->Items()->add($item);
+								}
+								//Create Receipt
+								$order->generateQuittungPDF();
+								//Send Confirmation Email (BCC to admin)
+								$order->sendConfirmationEmail();
+								
+								$this->getRequest()->getSession()->set('orderID',$order->ID);
 
-							return json_encode(["status" => 'OK']);
-							
-						} catch (Exception $e) {
-							$validationMessages = '';
-							foreach($e->getResult()->getMessages() as $error){
-								$validationMessages .= $error['message']."\n";
+								return json_encode(["status" => 'OK', "redirecturl" => SiteConfig::current_site_config()->SuccessfullPage()->Link()]);
+								
+							} catch (Exception $e) {
+								$validationMessages = '';
+								foreach($e->getResult()->getMessages() as $error){
+									$validationMessages .= $error['message']."\n";
+								}
+								return json_encode(["status" => 'NOT OK', 'errors' => $validationMessages ]);
 							}
-							return json_encode(["status" => 'NOT OK', 'errors' => $validationMessages ]);
-						}
+					}
 				}
-				
 			}
 		}
 		return json_encode(["status" => 'NOT OK']);
