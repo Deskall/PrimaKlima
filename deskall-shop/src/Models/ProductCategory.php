@@ -7,6 +7,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DB;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class ProductCategory extends DataObject {
 
@@ -102,6 +103,10 @@ class ProductCategory extends DataObject {
 
     public function activeProducts(){
         return $this->Products()->filter('isVisible',1)->sort('Sort');
+    }
+
+    public function getSiteConfig(){
+        return SiteConfig::current_site_config();
     }
 
 }

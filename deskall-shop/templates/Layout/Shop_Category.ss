@@ -1,12 +1,15 @@
-<section class="uk-section">
+<% with Category %>
+<section class="uk-section uk-background-muted uk-padding-small">
 	<div class="uk-container">
 		<div class="breadcrumbs">
-			<ul class="uk-breadcrumb">
-			    <li><a href="/webshop">Bewusstsein Leben Shop</a></li>
-			    <li><span>$Title</span></li>
+			<ul class="uk-breadcrumb uk-margin-remove">
+			    <li><a href="$Config.ShopPage.Link">Bewusstsein Leben Shop</a></li>
 			</ul>
 		</div>
-		<% with Category %>
+	</div>
+</section>
+<section class="uk-section">
+	<div class="uk-container">
 		<h1>$Title</h1>
 		<div <% if ContentImage %>class="uk-flex" data-uk-grid data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %>>
 			<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
@@ -32,6 +35,6 @@
 			</div>
 			<% end_loop %>
 		</div>
-		<% end_with %>
 	</div>
 </section>
+<% end_with %>
