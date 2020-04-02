@@ -9,6 +9,8 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\DB;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 
 class ProductAdmin extends ModelAdmin{
 
