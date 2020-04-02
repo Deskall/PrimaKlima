@@ -12,7 +12,8 @@
 			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a>1. <span><%t Shop.ShopCart 'Warenkorb' %></span></a></li>
 			<% if Controller.activeCart.products.exists %>
 			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a>2. <span><%t Shop.ChoosePayment 'Zahlungsmethod' %></span></a></li>
-			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a>3. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
+			<li <% if $activeTab == "address" %>class="uk-active"<% end_if %>><a>3. <span><%t Shop.GiveAddress 'Angaben' %></span></a></li>
+			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a>4. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
 			<% end_if %>
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
@@ -63,6 +64,15 @@
 						</div>
 					</div>
 				</div>
+				<div class="uk-flex uk-flex-between">
+					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
+					<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
+				</div>
+				<% with Fields.FieldByName('PaymentType') %>
+				$FieldHolder
+				<% end_with %>
+			</li>
+			<li class="account-tab" data-index="2">
 				<div id="bill-form-container" class="uk-margin" hidden>
 					<div class="uk-panel uk-padding-small">
 						<h4><%t Checkout.BillAddress 'Rechnungsadresse' %></h4>
@@ -84,11 +94,8 @@
 					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 				</div>
-				<% with Fields.FieldByName('PaymentType') %>
-				$FieldHolder
-				<% end_with %>
 			</li>
-			<li class="account-tab" data-index="2">
+			<li class="account-tab" data-index="3">
 				<h3><%t Checkout.ReviewAndPay 'Prüfen und bestätigen Sie Ihre Bestellung' %></h3>
 				<% if not Controller.activeCart.Voucher.exists %>
 				<div class="uk-panel uk-padding-small">
