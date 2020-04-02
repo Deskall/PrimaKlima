@@ -8,4 +8,5 @@
 			        </ul>
 		
 </div>
+<% include ShopCart %>
 <% end_if %>

@@ -149,13 +149,13 @@ var MTIProjectId='4b41bbd9-4c07-40bd-b496-1ecb39ec46d6';
          mtiTracking.src='themes/standard/mtiFontTrackingCode.js';
         (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild( mtiTracking );
    })();
-if (!$('body').hasClass('ShopPage')){
-		var url = window.location.pathname;
-		$.ajax({
-			url: '/shop/getActiveCart',
-			dataType: 'html'
-		}).done(function(response){
-			$('body').append(response);
-		});
-	}
+// if (!$('body').hasClass('ShopPage')){
+// 		var url = window.location.pathname;
+// 		$.ajax({
+// 			url: '/shop/getActiveCart',
+// 			dataType: 'html'
+// 		}).done(function(response){
+// 			$('body').append(response);
+// 		});
+// 	}
  

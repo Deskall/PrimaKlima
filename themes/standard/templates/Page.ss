@@ -9,9 +9,7 @@
       <% include Header %>
       <main class="main-content-wrapper">
           $Layout
-         <% with activeCart %>
-         <% include ShopCart %>
-         <% end_with %>
+         
       </main>
       <% include Footer %>
     </div>
