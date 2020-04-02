@@ -231,7 +231,7 @@ $(document).ready(function(){
 		  	        country_code: $("select[name='DeliveryCountry']").val().toUpperCase()
 	  	        }
 	  	    };
-	  	    paypaloptions.shipping = shippingoptions;
+	  	    paypaloptions.purchase_units[0].shipping = shippingoptions;
 	    }
 	    console.log(paypaloptions);
 		paypal.Buttons({
