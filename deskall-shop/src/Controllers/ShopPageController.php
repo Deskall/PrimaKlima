@@ -383,9 +383,9 @@ class ShopPageController extends PageController{
 							$order->Items()->add($item);
 						}
 						//Create Receipt
-						$order->generateQuittungPDF();
+						// $order->generateQuittungPDF();
 						//Send Confirmation Email (BCC to admin)
-						$order->sendConfirmationEmail();
+						// $order->sendConfirmationEmail();
 						
 						$this->getRequest()->getSession()->set('orderID',$order->ID);
 
