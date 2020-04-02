@@ -36,7 +36,7 @@ class OrderItem extends DataObject {
         $this->Title = $product->Title;
         $this->Price = $product->Price;
         $this->Quantity = $product->Quantity;
-        $this->Sort = $p->SortOrder;
+        $this->Sort = $product->SortOrder;
         $this->write();
     }
 

@@ -325,7 +325,7 @@ class ShopPageController extends PageController{
 			if ($response->statusCode == "200"){
 				$cart = ShopCart::get()->byId($cartId);
 				if ($cart){
-					$bill_address = $response->result->payer->address;
+					$bill_address = $response->result->purchase_units[0]->shipping->address;
 					$shipping_address = $response->result->purchase_units[0]->shipping->address;
 					//Create and fill the customer
 					$customer = (ShopCustomer::get()->filter('Email',$response->result->payer->email_address)->first()) ? ShopCustomer::get()->filter('Email',$response->result->payer->email_address)->first() : new ShopCustomer();
