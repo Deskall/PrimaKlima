@@ -99,7 +99,7 @@
 		        </div> --%>
 			
 			<div class="uk-navbar-right uk-hidden@m">
-	            <button class="uk-button uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
+	            <button class="uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
 	        </div>
 		</nav>
 				
