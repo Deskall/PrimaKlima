@@ -194,22 +194,21 @@ $(document).ready(function(){
 	      	  intent: 'CAPTURE',
 	  	      payer: {
 	  	        name: {
-	  	          given_name: "PayPal",
-	  	          surname: "Customer"
+	  	          given_name: $("input[type='FirstName']").val(),
+	  	          surname: $("input[type='Name']").val()
 	  	        },
 	  	        address: {
-	  	          address_line_1: '123 ABC Street',
-	  	          address_line_2: 'Apt 2',
-	  	          admin_area_2: 'San Jose',
-	  	          admin_area_1: 'CA',
-	  	          postal_code: '95121',
-	  	          country_code: 'US'
+	  	          address_line_1: $("input[type='Street']").val(),
+	  	          address_line_2: $("input[type='Address']").val(),
+	  	          admin_area_2: $("input[type='City']").val(),
+	  	          admin_area_2: $("input[type='Region']").val(),
+	  	          postal_code: $("input[type='PostalCode']").val(),
+	  	          country_code: $("input[type='Country']").val()
 	  	        },
-	  	        email_address: "customer@domain.com",
+	  	        email_address: $("input[type='Email']").val(),
 	  	        phone: {
-	  	          phone_type: "MOBILE",
 	  	          phone_number: {
-	  	            national_number: "14082508100"
+	  	            national_number: $("input[type='Phone']").val()
 	  	          }
 	  	        }
 	  	      },
@@ -219,16 +218,16 @@ $(document).ready(function(){
 	  	            value: getPrice(),
 	  	            currency_code: 'CHF'
 	  	          },
-	  	          shipping: {
-	  	            address: {
-	  	              address_line_1: '2211 N First Street',
-	  	              address_line_2: 'Building 17',
-	  	              admin_area_2: 'San Jose',
-	  	              admin_area_1: 'CA',
-	  	              postal_code: '95131',
-	  	              country_code: 'US'
-	  	            }
-	  	          },
+	  	          // shipping: {
+	  	          //   address: {
+	  	          //     address_line_1: '2211 N First Street',
+	  	          //     address_line_2: 'Building 17',
+	  	          //     admin_area_2: 'San Jose',
+	  	          //     admin_area_1: 'CA',
+	  	          //     postal_code: '95131',
+	  	          //     country_code: 'US'
+	  	          //   }
+	  	          // },
 	  	        }
 	  	      ]
 	        // purchase_units: [{

@@ -69,7 +69,7 @@ class ShopPageController extends PageController{
 			// HiddenField::create('VoucherID'),
 			CompositeField::create(
 				TextField::create('Company',_t(__CLASS__.'.Company','Firma'))->setValue('Deskall'),
-				DropdownField::create('Gender',_t(__CLASS__.'.Gender','Anrede *'), ['Herr' => 'Herr','Frau' => 'Frau'])->setValue('Herr'),
+				DropdownField::create('Gender',_t(__CLASS__.'.Gender','Anrede *'), ['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setValue('Herr'),
 				TextField::create('FirstName',_t(__CLASS__.'.FirstName','Vorname *'))->setAttribute('data-required',true)->setValue('Guillaume'),
 				TextField::create('Name',_t(__CLASS__.'.Name','Name *'))->setAttribute('data-required',true)->setValue('Pacilly'),
 				TextField::create('Street',_t(__CLASS__.'.Street','Strasse *'))->setAttribute('data-required',true)->setValue('Oltnerstrasse 85'),
