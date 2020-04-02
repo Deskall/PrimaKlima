@@ -310,7 +310,7 @@ class ShopPageController extends PageController{
 		$data = $request->postVars();
 
 		$orderId = (isset($data['orderID'])) ? $data['orderID'] : null;
-		$cartId = (isset($data['orderID'])) ? $data['orderID'] : null;
+		$cartId = (isset($data['cartID'])) ? $data['cartID'] : null;
 		
 		if ($orderId && $cartId ){
 			
