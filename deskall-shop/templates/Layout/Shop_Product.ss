@@ -5,7 +5,7 @@
 			<ul class="uk-breadcrumb uk-margin-remove">
 			    <li><a href="/webshop">Bewusstsein Leben Shop</a></li>
 			    <li><a href="$Category.Link">$Category.Title</a></li>
-			    <li><span>$Title</span></li>
+			    <%-- <li><span>$Title</span></li> --%>
 			</ul>
 		</div>
 	</div>
