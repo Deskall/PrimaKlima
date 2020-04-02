@@ -90,6 +90,14 @@ class ShopController extends PageController{
 				   	$product = Product::get()->byId($productID);
 				   	if ($product){
 				   		$quantity = ($request->postVar('quantity')) ? $request->postVar('quantity') : 1;
+				   		//Context: if Webshop, we simply add 1, else we are in Checkout and must respect the quantity given
+				   		if ($request->getVar('context') && $request->getVar('context') == 'Webshop'){
+				   			//check if already in cart
+				   			if ($p = $cart->Products()->byId($productID)){
+				   				$quantity = $p->Quantity + $quantity;
+				   			}
+				   		}
+				   		
 				   		$sort = $cart->Products()->count() + 1;
 				   		$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort, 'Subtotal' => $product->Price * $quantity]);
 				   		$cart->write();
