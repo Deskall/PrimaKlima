@@ -1,9 +1,49 @@
 <header <% if $SiteConfig.StickyHeader %>class="dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
 	<div class="uk-container uk-container-medium uk-position-relative">
-		<nav class="uk-navbar-container uk-navbar-transparent nav-top" data-uk-navbar>
-			<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top') %>$forTemplate<% end_loop %>
-		</nav>
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+			<div class="nav-top">
+				<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top') %>
+				<% if Type == "Links" %>
+				<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
+					<% if UseMenu %>
+					<% loop Menu %>
+					<li class="$LinkingMode $ExtraMenuClass <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
+						<% if Top.ShowSubLevels && Children %>
+						<div class="uk-navbar-dropdown">
+							<ul class="uk-nav uk-navbar-dropdown-nav">
+								<% loop Children %>
+								<li class="uk-position-relative $LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %> $ExtraMenuClass"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML<% if Top.ShowSubLevels && Children %><div id="link-{$ID}" class="uk-position-center-right uk-position-small"><i class="fa fa-chevron-right uk-margin-small-left"></i></div><% end_if %></a>
+									<% if Top.ShowSubLevels && Children %>
+									<div class="second" data-uk-dropdown="pos:right-top">
+										<ul class="uk-nav uk-dropdown-nav">
+											<% loop Children %>
+											<li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %> $ExtraMenuClass"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
+											</li>
+											<% end_loop %>
+										</ul>
+									</div>
+									<% end_if %>
+								</li>
+								<% end_loop %>
+							</ul>
+						</div>
+						<% end_if %>
+					</li>
+					<% end_loop %>
+					<% end_if %>
+					<% loop $activeLinks %>
+					$forTemplate
+					<% end_loop %>
+				</ul>		  
+				<% else_if Type == "Webshop" %>
+				 <ul class="uk-navbar-nav">
+				        <li>
+				           	<a data-uk-toggle="target: #offcanvas-usage-cart">Warenkorb ( <small id="cart-articles-count">$countProducts</small> )<span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></a>
+				        </li>
+			        </ul>
+				<% end_if %>
+				<% end_loop %>
+			</div>
 			<%-- <div class="uk-navbar-center">
 				<div class="uk-navbar-center-left">
 					<div> --%>
