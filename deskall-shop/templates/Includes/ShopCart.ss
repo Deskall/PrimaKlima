@@ -18,7 +18,7 @@
 	
 </div>
 
-<div id="mobile-cart-container" class="uk-hidden@m">
+<div id="mobile-cart-container" class="uk-hidden@m uk-position-fixed uk-position-top uk-position-z-index">
 		<div class="cart-container">
 			<div class="uk-card uk-box-shadow-medium uk-card-small">
 				<div class="uk-card-header toggle-cart uk-padding-remove-horizontal" data-target="#mobile-order-preview">
