@@ -68,17 +68,19 @@ header {
 		}
 	}
 	.uk-logo{
-		position: absolute;
-	    top: 50%;
-	    left:50%;
-	    transform:translate(-50%,-25%);
-	    width: @header-logo-height;
+	    width: @header-logo-height / 2;
 	    background: #F8E4CE;
 	    border-radius: 50%;
-	    height: @header-logo-height;
+	    height: @header-logo-height / 2;
 	    text-align: center;
 	    padding:5px!important;
-	    z-index:990;
+	    @media only screen and (min-width: @breakpoint-medium) {
+	    	position: absolute;
+		    top: 50%;
+		    left:50%;
+		    transform:translate(-50%,-25%);
+		    z-index:990;
+	    }
 	}
 
 }
