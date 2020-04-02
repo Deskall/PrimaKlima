@@ -58,7 +58,7 @@ class ShopPageController extends PageController{
 		$privacyPolicy = PrivatePolicyPage::get()->first();
 		$ppLink = ($privacyPolicy) ? $privacyPolicy->Link() : '/';
 
-		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".SiteConfig::current_site_config()->PayPalClientID."&currency=EUR&locale=de_DE");
+		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".SiteConfig::current_site_config()->PayPalClientID."&currency=CHF&locale=de_CH");
 		Requirements::javascript("deskall-shop/javascript/shop.js");
 		Requirements::javascript("deskall-shop/javascript/jquery.validate.min.js");
 		Requirements::javascript("deskall-shop/javascript/messages_de.min.js");
