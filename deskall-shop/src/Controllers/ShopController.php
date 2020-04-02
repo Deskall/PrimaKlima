@@ -68,15 +68,14 @@ class ShopController extends PageController{
 	}
 
 	public function getActiveCart(){
-	   // $id = $this->getRequest()->getSession()->get('shopcart_id');
-	   // $cart = null;
-	   // if ($id){
-	   //    $cart = ShopCart::get()->byId($id);
-	   // }
-	   // $cart = ($cart) ? $cart : new ShopCart();
-	   // $cart->write();
-	   // $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
-		$cart = ShopCart::get()->last();
+	   $id = $this->getRequest()->getSession()->get('shopcart_id');
+	   $cart = null;
+	   if ($id){
+	      $cart = ShopCart::get()->byId($id);
+	   }
+	   $cart = ($cart) ? $cart : new ShopCart();
+	   $cart->write();
+	   $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
 	   
 	   return $cart->renderWith('Includes/ShopCart');
 	}
@@ -136,13 +135,13 @@ class ShopController extends PageController{
 
    public function updateCartSummary(){
       //retrieve cart in session
-      $id = $this->getRequest()->getSession()->get('shopcart_id');
+      // $id = $this->getRequest()->getSession()->get('shopcart_id');
       
-      $cart = null;
-      if ($id){
-         $cart = ShopCart::get()->byId($id);
-      }
-
+      // $cart = null;
+      // if ($id){
+      //    $cart = ShopCart::get()->byId($id);
+      // }
+   		$cart = ShopCart::get()->last();
       if ($cart ){
          return $cart->renderWith('Includes/ShopCartSummary');
       }
