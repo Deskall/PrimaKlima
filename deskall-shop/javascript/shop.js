@@ -27,6 +27,8 @@ $(document).ready(function(){
 
 	$(document).on("click",".add-to-cart",function(){
 		UpdateOrderPreview($(this).attr('data-product-id'),1);
+		var count = parseInt($("#cart-articles-count").text()) + 1;
+		$("#cart-articles-count").text(count);
 	});
 
 	$(document).on("change","input[data-quantity]",function(){
