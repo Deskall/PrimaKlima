@@ -373,31 +373,30 @@ class ShopPageController extends PageController{
 						$order->{$field} = $cart->{$field};
 					}
 					
-							try {
-								//Write order
-								$order->write();
-								//Add Products
-								foreach ($cart->Products() as $p) {
-									$item = new OrderItem();
-									$item->createFromProduct($p);
-									$order->Items()->add($item);
-								}
-								//Create Receipt
-								$order->generateQuittungPDF();
-								//Send Confirmation Email (BCC to admin)
-								$order->sendConfirmationEmail();
-								
-								$this->getRequest()->getSession()->set('orderID',$order->ID);
+					try {
+						//Write order
+						$order->write();
+						//Add Products
+						foreach ($cart->Products() as $p) {
+							$item = new OrderItem();
+							$item->createFromProduct($p);
+							$order->Items()->add($item);
+						}
+						//Create Receipt
+						$order->generateQuittungPDF();
+						//Send Confirmation Email (BCC to admin)
+						$order->sendConfirmationEmail();
+						
+						$this->getRequest()->getSession()->set('orderID',$order->ID);
 
-								return json_encode(["status" => 'OK', "redirecturl" => SiteConfig::current_site_config()->SuccessfullPage()->Link()]);
-								
-							} catch (Exception $e) {
-								$validationMessages = '';
-								foreach($e->getResult()->getMessages() as $error){
-									$validationMessages .= $error['message']."\n";
-								}
-								return json_encode(["status" => 'NOT OK', 'errors' => $validationMessages ]);
-							}
+						return json_encode(["status" => 'OK', "redirecturl" => SiteConfig::current_site_config()->SuccessfullPage()->Link()]);
+						
+					} catch (Exception $e) {
+						$validationMessages = '';
+						foreach($e->getResult()->getMessages() as $error){
+							$validationMessages .= $error['message']."\n";
+						}
+						return json_encode(["status" => 'NOT OK', 'errors' => $validationMessages ]);
 					}
 				}
 			}
