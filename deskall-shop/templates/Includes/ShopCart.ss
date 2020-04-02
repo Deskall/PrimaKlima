@@ -1,7 +1,7 @@
 <div id="cart-container" class="uk-position-fixed uk-position-center-right uk-position-z-index sidebar-menu" hidden>
 	<div id="offcanvas-usage-cart" >
 		<div class="dk-middle-offcanvas cart-offcanvas">
-			<button class="uk-offcanvas-close" type="button" data-uk-toggle="target: #offcanvas-usage-cart" data-uk-close></button>
+			<button class="uk-offcanvas-close" type="button" data-uk-toggle="target: #cart-container" data-uk-close></button>
 			<div class="uk-card uk-background-muted uk-card-hover uk-box-shadow-medium uk-card-small">
 				<div class="uk-card-header">
 					<h3 class="uk-card-title"><%t Webshop.Cart 'Warenkorb' %></h3>
