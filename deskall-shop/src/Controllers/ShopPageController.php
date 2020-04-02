@@ -64,7 +64,7 @@ class ShopPageController extends PageController{
 		Requirements::javascript("deskall-shop/javascript/jquery.validate.min.js");
 		Requirements::javascript("deskall-shop/javascript/messages_de.min.js");
 		$fields = FieldList::create(
-			HiddenField::create('CartID')->setValue($this->getRequest()->getSession()->get('shopcart_id')),
+			HiddenField::create('CartID')->setValue($this->activeCart()->ID),
 			HiddenField::create('PaymentType'),
 			// HiddenField::create('CustomerID')->setValue($customer->ID),
 			// HiddenField::create('VoucherID'),
