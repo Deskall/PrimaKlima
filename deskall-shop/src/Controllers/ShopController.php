@@ -90,15 +90,30 @@ class ShopController extends PageController{
 				   	$product = Product::get()->byId($productID);
 				   	if ($product){
 				   		$quantity = ($request->postVar('quantity')) ? $request->postVar('quantity') : 1;
-				   		//Context: if Webshop, we simply add 1, else we are in Checkout and must respect the quantity given
-				   		if ($request->getVar('context') && $request->getVar('context') == 'webshop'){
+				   		$sort = $p->SortOrder;
+				   		if ($p = $cart->Products()->byId($productID)){
+				   			//Context: if Webshop, we simply add 1, else we are in Checkout and must respect the quantity given
+				   			if ($request->getVar('context') && $request->getVar('context') == 'webshop'){
 				   			//check if already in cart
-				   			if ($p = $cart->Products()->byId($productID)){
+				   				ob_start();
+								print_r('ici');
+								$result = ob_get_clean();
+								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+								ob_start();
+								print_r($quantity);
+								$result = ob_get_clean();
+								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 				   				$quantity = $p->Quantity + $quantity;
+				   				ob_start();
+								print_r($quantity);
+								$result = ob_get_clean();
+								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 				   			}
+				   			
+				   		}else{
+				   			$sort = $cart->Products()->count() + 1;
 				   		}
 				   		
-				   		$sort = $cart->Products()->count() + 1;
 				   		$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort, 'Subtotal' => $product->Price * $quantity]);
 				   		$cart->write();
 				   	}
