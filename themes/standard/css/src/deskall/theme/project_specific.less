@@ -293,15 +293,13 @@ header {
 	}
 }
 
-// .sidebar-menu{
-// 	transform: rotate(-90deg);
-// 	display: none;
-// 	z-index:100;
-// 	button{
-// 		padding:0 10px;
-// 		box-shadow:-5px -10px 5px rgba(0,0,0,0.08);
-// 		svg{
-// 			transform: rotate(90deg);
-// 		}
-// 	}
-// }
+#tab-switcher{
+	li:not(.uk-active) > a > span{
+		display: none;
+	}
+	@media only screen and (min-width: @breakpoint-medium) {
+		li:not(.uk-active) > a > span{
+			display: inline;
+		}
+	}
+}
