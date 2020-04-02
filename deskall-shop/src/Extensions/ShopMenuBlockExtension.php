@@ -27,6 +27,7 @@ class ShopMenuBlockExtension extends DataExtension{
 		else{
 			$cart = new ShopCart();
 			$cart->IP = $request->getIp();
+			$cart->write();
 		}
 		
 		return $cart;
