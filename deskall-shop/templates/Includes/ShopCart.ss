@@ -18,7 +18,7 @@
 	
 </div>
 
-<div id="mobile-cart-container" class="uk-hidden@m" data-uk-sticky="bottom: #offset;">
+<div id="mobile-cart-container" class="uk-hidden@m" data-uk-sticky="bottom: #offset;" <% if countProducts == 0 %>hidden<% end_if %>>
 		<div class="cart-container">
 			<div class="uk-card BlauBackground uk-card-small">
 				<div class="uk-card-header toggle-cart uk-padding-remove-horizontal" data-target="#mobile-order-preview">
