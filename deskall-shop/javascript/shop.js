@@ -188,11 +188,9 @@ $(document).ready(function(){
 
 	//PayPal
 	if ($('#paypal-button-container').length > 0){
-		paypal.Buttons({
-	    createOrder: function(data, actions) {
-	      return actions.order.create({
-	      	  intent: 'CAPTURE',
-	  	      payer: {
+		var paypaloptions = {
+	      	intent: 'CAPTURE',
+	  	    payer: {
 	  	        name: {
 	  	          given_name: $("input[name='FirstName']").val(),
 	  	          surname: $("input[name='Name']").val()
@@ -211,32 +209,34 @@ $(document).ready(function(){
 	  	            national_number: $("input[name='Phone']").val()
 	  	          }
 	  	        }
-	  	      },
-	  	      purchase_units: [
+	  	    },
+	  	    purchase_units: [
 	  	        {
 	  	          amount: {
 	  	            value: getPrice(),
 	  	            currency_code: 'CHF'
-	  	          },
-	  	          shipping: {
-	  	          	// shipping_type: shipping_type,
-	  	            address: {
-	  	               address_line_1: $("input[name='DeliveryStreet']").val(),
-		  	          address_line_2: $("input[name='DeliveryAddress']").val(),
-		  	          admin_area_2: $("input[name='DeliveryCity']").val(),
-		  	          admin_area_1: $("input[name='DeliveryRegion']").val(),
-		  	          postal_code: $("input[name='DeliveryPostalCode']").val(),
-		  	          country_code: $("select[name='DeliveryCountry']").val().toUpperCase()
-	  	            }
-	  	          },
+	  	          }
 	  	        }
-	  	      ]
-	        // purchase_units: [{
-	        //   amount: {
-	        //     value: getPrice()
-	        //   }
-	        // }]
-	      });
+	  	    ]
+	    };
+	    if ($("input[name='DeliverySameAddress']").is(':checked')){
+	    	shippingoptions = {
+	  	        // shipping_type: shipping_type,
+	  	        address: {
+	  	            address_line_1: $("input[name='DeliveryStreet']").val(),
+		  	        address_line_2: $("input[name='DeliveryAddress']").val(),
+		  	        admin_area_2: $("input[name='DeliveryCity']").val(),
+		  	        admin_area_1: $("input[name='DeliveryRegion']").val(),
+		  	        postal_code: $("input[name='DeliveryPostalCode']").val(),
+		  	        country_code: $("select[name='DeliveryCountry']").val().toUpperCase()
+	  	        }
+	  	    };
+	  	    paypaloptions.shipping = shippingoptions;
+	    }
+	    console.log(paypaloptions);
+		paypal.Buttons({
+	    createOrder: function(data, actions) {
+	      return actions.order.create(paypaloptions);
 	    },
 	    onApprove: function(data, actions) {
 	    	$('#paypal-button-container').hide().after('<p>Zahlung in Bearbeitung, bitte haben Sie einen Moment Geduld.</p><p>Bitte schließen Sie die Seite nicht und laden Sie sie nicht erneut.</p>');
