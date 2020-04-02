@@ -77,7 +77,7 @@ $(document).ready(function(){
 			}
 			else{
 				$("#offcanvas-usage-cart .order-preview").empty().append(response);
-				 UIkit.offcanvas("#offcanvas-usage-cart").show();
+				$("#toggle-cart").trigger('click');
 			}
 		});
 	}
