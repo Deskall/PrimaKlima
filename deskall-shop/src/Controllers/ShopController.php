@@ -95,22 +95,12 @@ class ShopController extends PageController{
 				   	if ($product){
 				   		$quantity = ($request->postVar('quantity')) ? $request->postVar('quantity') : 1;
 				   		$sort = $p->SortOrder;
+				   		//check if already in cart
 				   		if ($p = $cart->Products()->byId($productID)){
 				   			//Context: if Webshop, we simply add 1, else we are in Checkout and must respect the quantity given
 				   			if ($request->postVar('context') && $request->postVar('context') == 'webshop'){
-				   			//check if already in cart
-				   				
-								ob_start();
-								print_r($quantity);
-								$result = ob_get_clean();
-								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 				   				$quantity = $p->Quantity + $quantity;
-				   				ob_start();
-								print_r($quantity);
-								$result = ob_get_clean();
-								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 				   			}
-				   			
 				   		}else{
 				   			$sort = $cart->Products()->count() + 1;
 				   		}
@@ -119,7 +109,7 @@ class ShopController extends PageController{
 				   		$cart->write();
 				   	}
 				}
-				return ($request->postVar('context') == "checkout") ? $cart->renderWith('Includes/ShopCartCheckout') : $cart->renderWith('Includes/ShopCart');
+				return ($request->postVar('context') == "checkout") ? $cart->renderWith('Includes/ShopCartCheckout') : $cart->renderWith('Includes/ShopCartProducts');
 		    }
 		}
 	}
