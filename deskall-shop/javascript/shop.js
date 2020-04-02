@@ -194,18 +194,18 @@ $(document).ready(function(){
 	      	  intent: 'CAPTURE',
 	  	      payer: {
 	  	        name: {
-	  	          given_name: $("input[type='FirstName']").val(),
-	  	          surname: $("input[type='Name']").val()
+	  	          given_name: $("input[name='FirstName']").val(),
+	  	          surname: $("input[name='Name']").val()
 	  	        },
 	  	        address: {
-	  	          address_line_1: $("input[type='Street']").val(),
-	  	          address_line_2: $("input[type='Address']").val(),
-	  	          admin_area_2: $("input[type='City']").val(),
-	  	          admin_area_2: $("input[type='Region']").val(),
-	  	          postal_code: $("input[type='PostalCode']").val(),
-	  	          country_code: $("input[type='Country']").val()
+	  	          address_line_1: $("input[name='Street']").val(),
+	  	          address_line_2: $("input[name='Address']").val(),
+	  	          admin_area_2: $("input[name='City']").val(),
+	  	          admin_area_2: $("input[name='Region']").val(),
+	  	          postal_code: $("input[name='PostalCode']").val(),
+	  	          country_code: $("select[name='Country']").val()
 	  	        },
-	  	        email_address: $("input[type='Email']").val(),
+	  	        email_address: $("input[name='Email']").val(),
 	  	        phone: {
 	  	          phone_type: "MOBILE",
 	  	          phone_number: {
