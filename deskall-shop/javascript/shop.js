@@ -75,7 +75,10 @@ $(document).ready(function(){
 			}
 			else{
 				$("#cart-container").replaceWith(response);
-				UIkit.offcanvas($("#offcanvas-usage-cart")).show();
+				if (!$("#offcanvas-usage-cart").hasClass("uk-open")){
+					UIkit.offcanvas($("#offcanvas-usage-cart")).show();
+				}
+				
 			}
 		});
 	}
