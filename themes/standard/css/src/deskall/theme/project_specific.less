@@ -48,8 +48,11 @@ header {
 		border-bottom:none;
 		border-radius: 8px 8px 0 0;
 		> a{
-			padding:10px 40px!important;
+			padding:10px 30px!important;
 			text-transform: uppercase;
+			@media only screen and (min-width: @breakpoint-large) {
+				padding:10px 40px!important;
+			}
 		}
 		&.pink > a{
 			border-bottom:8px solid @pink;
