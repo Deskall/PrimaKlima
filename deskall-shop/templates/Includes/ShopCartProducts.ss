@@ -2,7 +2,7 @@
 				<tbody>
 					<% if Products.exists %>
 					<% loop Products.Sort('Sort') %>
-						<tr><td class="uk-text-truncate uk-table-expand" colspan="2">$Title</td></tr>
+						<tr><td class="uk-text-truncate uk-table-expand" colspan="2">$Title <% if Quantity > 1 %> * $Quantity<% end_if %></td></tr>
 					<% end_loop %>
 					<% end_if %>
 				</tbody>
