@@ -3,7 +3,7 @@
 	
 			        <ul class="uk-navbar-nav">
 				        <li>
-				           	<% if $activeCart %>
+				           	<% if $activeCart.countProducts > 0 %>
 				           		<a id="toggle-cart" data-uk-toggle="target: #offcanvas-usage-cart">Warenkorb ( <small id="cart-articles-count">$activeCart.countProducts</small> )<span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></a>
 				           	<% else %>
 				           		<a href="$ShopPage.Link">Warenkorb<span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></a>

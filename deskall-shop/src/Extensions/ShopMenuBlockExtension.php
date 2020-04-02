@@ -21,12 +21,8 @@ class ShopMenuBlockExtension extends DataExtension{
 	public function activeCart(){
 		$request = Injector::inst()->get(HTTPRequest::class);
 		$session = $request->getSession();
-		if ($id = $session->get('shopcart_id')){
-		
-		   $cart = ShopCart::get()->byId($id);
-		   return $cart;
-		}
-		return null;
+		$cart =  ($session->get('shopcart_id')) ? ShopCart::get()->byId($id) : new ShopCart();
+		return $cart;
 	}
 
 }
