@@ -1,6 +1,6 @@
 <div id="cart-container" class="uk-position-fixed uk-position-center-right uk-position-z-index sidebar-menu">
 	<div id="offcanvas-usage-cart" hidden>
-		<div class="uk-offcanvas-bar dk-middle-offcanvas cart-offcanvas">
+		<div class="dk-middle-offcanvas cart-offcanvas">
 			<button class="uk-offcanvas-close" type="button" data-uk-toggle="target: #offcanvas-usage-cart" data-uk-close></button>
 			<div class="uk-card uk-background-muted uk-card-hover uk-box-shadow-medium uk-card-small">
 				<div class="uk-card-header">
