@@ -115,10 +115,11 @@ class ShopController extends PageController{
       $id = $this->getRequest()->getSession()->get('shopcart_id');
       $form = $this->getRequest()->postVar('form');
      
-      $cart = null;
-      if ($id){
-         $cart = ShopCart::get()->byId($id);
-      }
+      // $cart = null;
+      // if ($id){
+      //    $cart = ShopCart::get()->byId($id);
+      // }
+      $cart = ShopCart::get()->last();
 
       if ($cart && $form ){
          $data = array();
