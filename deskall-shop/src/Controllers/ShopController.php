@@ -81,10 +81,6 @@ class ShopController extends PageController{
 	}
 
 	public function updateCart(HTTPRequest $request){
-		ob_start();
-								print_r($request->postVar('context'));
-								$result = ob_get_clean();
-								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 	   $id = $this->getRequest()->getSession()->get('shopcart_id');
 	   if ($id){
 	      $cart = ShopCart::get()->byId($id);
@@ -109,7 +105,7 @@ class ShopController extends PageController{
 				   		$cart->write();
 				   	}
 				}
-				return ($request->postVar('context') == "checkout") ? $cart->renderWith('Includes/ShopCartCheckout') : $cart->renderWith('Includes/ShopCartProducts');
+				return ($request->postVar('context') && $request->postVar('context') == "checkout") ? $cart->renderWith('Includes/ShopCartCheckout') : $cart->renderWith('Includes/ShopCartProducts');
 		    }
 		}
 	}
