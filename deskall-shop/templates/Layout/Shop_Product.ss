@@ -12,7 +12,7 @@
 </section>
 <section class="uk-section">
 	<div class="uk-container">
-		<h1 class="uk-text-nowrap">$Title</h1>
+		<h1 class="uk-text-nowrap uk-text-center uk-text-left@m">$Title</h1>
 		<div class="uk-grid-small" data-uk-grid>
 		    <div class="uk-width-1-3@m uk-text-center">
 		          <div class="uk-position-relative" data-uk-slideshow="animation: fade;min-height:350;">
