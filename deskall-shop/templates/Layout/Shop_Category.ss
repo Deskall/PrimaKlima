@@ -13,7 +13,7 @@
 				$Lead
 			</div>
 		</div>
-		<div class="uk-child-width-1-2@s uk-child-width-1-3" data-uk-grid>
+		<div class="uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
 			<% loop activeProducts %>
 			<div>
 				<div class="uk-card uk-card-body uk-text-center">
