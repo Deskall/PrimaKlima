@@ -72,7 +72,7 @@
 		        	</div>
 		    </div>
 		</div>
-		<div class="uk-margin uk-text-center">
+		<div class="uk-margin uk-text-center@m">
 			$Top.SiteConfig.FootertextProduct
 		</div>
 	</div>
