@@ -22,7 +22,7 @@ class DeskallShopPageExtension extends DataExtension
     		$cart->write();
     		$session->set('shopcart_id',$cart->ID);
     	}
-    	
+    	// $cart = ShopCart::get()->last();
     	return $cart;
     }
 
