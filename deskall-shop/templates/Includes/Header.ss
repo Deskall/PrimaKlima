@@ -1,8 +1,11 @@
 <header <% if $SiteConfig.StickyHeader %>class="dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
 	<div class="uk-container uk-container-medium uk-position-relative">
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+		<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top') %>$forTemplate<% end_loop %>
+		</nav>
+		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 			
-			<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top') %>$forTemplate<% end_loop %>
+			
 			
 			<%-- <div class="uk-navbar-center">
 				<div class="uk-navbar-center-left">
