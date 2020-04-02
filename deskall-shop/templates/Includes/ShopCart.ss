@@ -10,7 +10,7 @@
 					<% include ShopCartProducts %>
 				</div>
 				<div class="uk-card-footer">
-					<a href="$ShopPage.Link" class="uk-button button with-chevron uk-width-1-1"><%t Webshop.Checkout 'Zur Kasse' %></a>
+					<a href="$SiteConfig.CheckoutPage.Link" class="uk-button button with-chevron uk-width-1-1"><%t Webshop.Checkout 'Zur Kasse' %></a>
 				</div>
 			</div>
 		</div>
