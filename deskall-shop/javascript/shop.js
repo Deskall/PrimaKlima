@@ -62,7 +62,7 @@ $(document).ready(function(){
 
 
 	function UpdateOrderPreview(productID,quantity,context = null){
-		UIkit.offcanvas($("#offcanvas-usage-cart")).hide();
+		UIkit.offcanvas("#offcanvas-usage-cart").hide();
 		//ici ajouter un
 		$.ajax({
 			url: '/shop/updateCart',
@@ -77,7 +77,7 @@ $(document).ready(function(){
 			}
 			else{
 				$("#offcanvas-usage-cart .order-preview").empty().append(response);
-				 UIkit.offcanvas($("#offcanvas-usage-cart")).show();
+				 UIkit.offcanvas("#offcanvas-usage-cart").show();
 			}
 		});
 	}
