@@ -251,6 +251,17 @@ header {
 }
 
 //Specific to custom Page elements
+.sidebar-menu{
+	width: 100%;
+	height:100%;
+	@media only screen and (min-width: @breakpoint-medium) {
+		width: 300px;
+		height:auto;
+	}
+	@media only screen and (min-width: @breakpoint-large) {
+		width: 380px;
+	}
+}
 .dk-middle-offcanvas{
     width: 100%;
 	&:not(.cart-offcanvas) *{
@@ -268,16 +279,12 @@ header {
 			color:#fff;
 		}
 	}
-	@media only screen and (min-width: @breakpoint-medium) {
-		
-		width: 300px;
+	
 		&.cart-offcanvas{
 			overflow-y: visible;
 		}
 	}
-	@media only screen and (min-width: @breakpoint-large) {
-		width: 380px;
-	}
+	
 }
 
 .dk-text-small{
