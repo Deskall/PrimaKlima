@@ -207,8 +207,9 @@ $(document).ready(function(){
 	  	        },
 	  	        email_address: $("input[type='Email']").val(),
 	  	        phone: {
+	  	          phone_type: "MOBILE",
 	  	          phone_number: {
-	  	            national_number: $("input[type='Phone']").val()
+	  	            national_number: "14082508100"
 	  	          }
 	  	        }
 	  	      },
@@ -218,16 +219,16 @@ $(document).ready(function(){
 	  	            value: getPrice(),
 	  	            currency_code: 'CHF'
 	  	          },
-	  	          // shipping: {
-	  	          //   address: {
-	  	          //     address_line_1: '2211 N First Street',
-	  	          //     address_line_2: 'Building 17',
-	  	          //     admin_area_2: 'San Jose',
-	  	          //     admin_area_1: 'CA',
-	  	          //     postal_code: '95131',
-	  	          //     country_code: 'US'
-	  	          //   }
-	  	          // },
+	  	          shipping: {
+	  	            address: {
+	  	              address_line_1: '2211 N First Street',
+	  	              address_line_2: 'Building 17',
+	  	              admin_area_2: 'San Jose',
+	  	              admin_area_1: 'CA',
+	  	              postal_code: '95131',
+	  	              country_code: 'US'
+	  	            }
+	  	          },
 	  	        }
 	  	      ]
 	        // purchase_units: [{
