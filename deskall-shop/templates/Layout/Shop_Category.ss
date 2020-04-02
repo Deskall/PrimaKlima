@@ -3,7 +3,7 @@
 	<div class="uk-container">
 		<div class="breadcrumbs">
 			<ul class="uk-breadcrumb uk-margin-remove">
-			    <li><a href="$Config.ShopPage.Link">Bewusstsein Leben Shop</a></li>
+			    <li><a href="$SiteConfig.ShopPage.Link">Bewusstsein Leben Shop</a></li>
 			</ul>
 		</div>
 	</div>
