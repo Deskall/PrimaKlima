@@ -68,14 +68,15 @@ class ShopController extends PageController{
 	}
 
 	public function getActiveCart(){
-	   $id = $this->getRequest()->getSession()->get('shopcart_id');
-	   $cart = null;
-	   if ($id){
-	      $cart = ShopCart::get()->byId($id);
-	   }
-	   $cart = ($cart) ? $cart : new ShopCart();
-	   $cart->write();
-	   $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+	   // $id = $this->getRequest()->getSession()->get('shopcart_id');
+	   // $cart = null;
+	   // if ($id){
+	   //    $cart = ShopCart::get()->byId($id);
+	   // }
+	   // $cart = ($cart) ? $cart : new ShopCart();
+	   // $cart->write();
+	   // $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+		$cart = ShopCart::get()->last();
 	   
 	   return $cart->renderWith('Includes/ShopCart');
 	}
