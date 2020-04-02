@@ -245,7 +245,7 @@ header {
 
 //Specific to custom Page elements
 .dk-middle-offcanvas{
-
+    width: 100%;
 	&:not(.cart-offcanvas) *{
 		color: inherit;
 	}
@@ -263,10 +263,13 @@ header {
 	}
 	@media only screen and (min-width: @breakpoint-medium) {
 		
-		
+		width: 300px;
 		&.cart-offcanvas{
 			overflow-y: visible;
 		}
+	}
+	@media only screen and (min-width: @breakpoint-large) {
+		width: 380px;
 	}
 }
 
