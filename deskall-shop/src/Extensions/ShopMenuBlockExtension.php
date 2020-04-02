@@ -14,6 +14,10 @@ class ShopMenuBlockExtension extends DataExtension{
 	    return SiteConfig::current_site_config()->ShopPage();
 	}
 
+	public function ShopPage(){
+	    return SiteConfig::current_site_config()->ShopPage();
+	}
+
 	public function activeCart(){
 		$request = Injector::inst()->get(HTTPRequest::class);
 		$session = $request->getSession();
