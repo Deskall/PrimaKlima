@@ -73,6 +73,7 @@ $(document).ready(function(){
 			}
 			else{
 				$("#cart-container").replaceWith(response);
+				UIKit.offcanvas($("#offcanvas-usage-cart")).show();
 			}
 		});
 	}
