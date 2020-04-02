@@ -334,16 +334,20 @@ class ShopPageController extends PageController{
 					$customer->Email = $response->result->payer->email_address;
 					$customer->PostalCode = $bill_address->postal_code;
 					$customer->Street = $bill_address->address_line_1;
-					$customer->Address = $bill_address->address_line_2;
-					$customer->Region = $bill_address->admin_area_1;
+					if (property_exists($bill_address,'address_line_2')){
+						$customer->Address = $bill_address->address_line_2;
+					}
+					if (property_exists($bill_address,'admin_area_1')){
+						$customer->Region = $bill_address->admin_area_1;
+					}
 					$customer->City = ucfirst(strtolower($bill_address->admin_area_2));
 					$customer->Country = strtolower($bill_address->country_code);
-					$customer->DeliveryPostalCode = $shipping_address->postal_code;
-					$customer->DeliveryStreet = $shipping_address->address_line_1;
-					$customer->DeliveryAddress = $shipping_address->address_line_2;
-					$customer->DeliveryRegion = $shipping_address->admin_area_1;
-					$customer->DeliveryCity = ucfirst(strtolower($shipping_address->admin_area_2));
-					$customer->DeliveryCountry = strtolower($shipping_address->country_code);
+					// $customer->DeliveryPostalCode = $shipping_address->postal_code;
+					// $customer->DeliveryStreet = $shipping_address->address_line_1;
+					// $customer->DeliveryAddress = $shipping_address->address_line_2;
+					// $customer->DeliveryRegion = $shipping_address->admin_area_1;
+					// $customer->DeliveryCity = ucfirst(strtolower($shipping_address->admin_area_2));
+					// $customer->DeliveryCountry = strtolower($shipping_address->country_code);
 					$customer->write();
 
 					//Create and fill the order
@@ -353,16 +357,22 @@ class ShopPageController extends PageController{
 					$order->Email = $response->result->payer->email_address;
 					$order->PostalCode = $bill_address->postal_code;
 					$order->Address = $bill_address->address_line_1;
+					if (property_exists($bill_address,'address_line_2')){
+						$order->Address = $bill_address->address_line_2;
+					}
+					if (property_exists($bill_address,'admin_area_1')){
+						$order->Region = $bill_address->admin_area_1;
+					}
 					$order->Address = $bill_address->address_line_2;
 					$order->Region = $bill_address->admin_area_1;
 					$order->City = ucfirst(strtolower($bill_address->admin_area_2));
 					$order->Country = strtolower($bill_address->country_code);
-					$order->DeliveryPostalCode = $shipping_address->postal_code;
-					$order->DeliveryStreet = $shipping_address->address_line_1;
-					$order->DeliveryAddress = $shipping_address->address_line_2;
-					$order->DeliveryRegion = $shipping_address->admin_area_1;
-					$order->DeliveryCity = ucfirst(strtolower($shipping_address->admin_area_2));
-					$order->DeliveryCountry = strtolower($shipping_address->country_code);
+					// $order->DeliveryPostalCode = $shipping_address->postal_code;
+					// $order->DeliveryStreet = $shipping_address->address_line_1;
+					// $order->DeliveryAddress = $shipping_address->address_line_2;
+					// $order->DeliveryRegion = $shipping_address->admin_area_1;
+					// $order->DeliveryCity = ucfirst(strtolower($shipping_address->admin_area_2));
+					// $order->DeliveryCountry = strtolower($shipping_address->country_code);
 					$order->CustomerID = $customer->ID;
 					$order->isPaid = true;
 					$order->PaymentType = 'creditcard';

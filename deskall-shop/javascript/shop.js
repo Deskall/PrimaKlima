@@ -240,6 +240,7 @@ $(document).ready(function(){
 	          	},
 	          	dataType: 'Json'
 	        }).done(function(response){
+	        	
 	        	if (response.status == "OK"){
 	        		window.location.href = response.redirecturl;
 	        	}
