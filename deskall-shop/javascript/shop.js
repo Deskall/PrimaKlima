@@ -203,7 +203,7 @@ $(document).ready(function(){
 	  	          admin_area_2: $("input[name='City']").val(),
 	  	          admin_area_2: $("input[name='Region']").val(),
 	  	          postal_code: $("input[name='PostalCode']").val(),
-	  	          country_code: $("select[name='Country']").val()
+	  	          country_code: $("select[name='Country']").val().toUpperCase()
 	  	        },
 	  	        email_address: $("input[name='Email']").val(),
 	  	        phone: {
