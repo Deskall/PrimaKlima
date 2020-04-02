@@ -18,7 +18,7 @@
 	
 </div>
 
-<div id="mobile-cart-container" class="uk-hidden@m" data-uk-sticky="bottom: #offset;" <% if countProducts == 0 %>hidden<% end_if %>>
+<%-- <div id="mobile-cart-container" class="uk-hidden@m" data-uk-sticky="bottom: #offset;" <% if countProducts == 0 %>hidden<% end_if %>>
 		<div class="cart-container">
 			<div class="uk-card BlauBackground uk-card-small">
 				<div class="uk-card-header toggle-cart uk-padding-remove-horizontal" data-target="#mobile-order-preview">
@@ -40,4 +40,4 @@
 		<div class="uk-card-footer">
 			<a href="$ShopPage.Link" class="uk-button button with-chevron uk-width-1-1"><%t Webshop.Checkout 'Zur Kasse' %></a>
 		</div>
-	</div>
+	</div> --%>
