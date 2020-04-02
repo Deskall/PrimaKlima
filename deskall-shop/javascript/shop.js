@@ -235,7 +235,8 @@ $(document).ready(function(){
 	        	url: cleanUrl(window.location.pathname)+'transaktion-abgeschlossen',
 	          	method: 'post',
 	          	data: {
-	            	orderID: data.orderID
+	            	orderID: data.orderID,
+	            	cartID: $("input[name='CardID']").val()
 	          	},
 	          	dataType: 'Json'
 	        }).done(function(response){
