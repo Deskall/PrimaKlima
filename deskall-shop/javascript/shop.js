@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	var cartShown = false;
 	//if form not valid we go to correct tab
 	if ($("#Form_CheckoutForm").length > 0 && $("#Form_CheckoutForm").find('.message.validation').length > 0){
 		//search for errors
@@ -75,9 +76,10 @@ $(document).ready(function(){
 			}
 			else{
 				$("#offcanvas-usage-cart .order-preview").empty().append(response);
-				// if (!$("#offcanvas-usage-cart").hasClass("uk-open")){
+				if (!cartShown){
 				 	UIkit.offcanvas($("#offcanvas-usage-cart")).show();
-				// }
+				 	cartShown = true;
+				}
 				
 			}
 		});
