@@ -1,7 +1,7 @@
 <% with Product %>
 <section class="uk-section uk-background-muted uk-padding-small">
 	<div class="uk-container">
-		<div class="breadcrumbs uk-margin-large-top">
+		<div class="breadcrumbs">
 			<ul class="uk-breadcrumb">
 			    <li><a href="/webshop">Bewusstsein Leben Shop</a></li>
 			    <li><a href="$Category.Link">$Category.Title</a></li>
