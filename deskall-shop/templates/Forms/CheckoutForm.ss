@@ -10,7 +10,7 @@
 	<div class="uk-container">
 		<ul id="tab-switcher" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a>1. <span><%t Shop.ShopCart 'Warenkorb' %></span></a></li>
-			<% if Controller.activeCart.products.exists %>
+			<% if Controller.activeCart.Products.exists %>
 			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a>2. <span><%t Shop.ChoosePayment 'Zahlungsmethod' %></span></a></li>
 			<li <% if $activeTab == "address" %>class="uk-active"<% end_if %>><a>3. <span><%t Shop.GiveAddress 'Angaben' %></span></a></li>
 			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a>4. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
@@ -24,13 +24,13 @@
 					   <% include ShopCartCheckout %>
 					</div>
 					<% end_with %>
-					<% if Controller.activeCart.products.exists %>
+					<% if Controller.activeCart.Products.exists %>
 					<div class="uk-flex uk-flex-right">
 						<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 					</div>
 					<% end_if %>
 			</li>
-			<% if Controller.activeCart.products.exists %>
+			<% if Controller.activeCart.Products.exists %>
 			<li class="account-tab" data-index="1">
 				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
 				<div class="uk-margin">
