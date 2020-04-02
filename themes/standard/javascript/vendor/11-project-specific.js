@@ -149,6 +149,14 @@ var MTIProjectId='4b41bbd9-4c07-40bd-b496-1ecb39ec46d6';
          mtiTracking.src='themes/standard/mtiFontTrackingCode.js';
         (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild( mtiTracking );
    })();
+
+   //Toggle cart (all pages)
+   $(document).on("click",".toggle-cart",function(){
+   	UIkit.toggle($(this).attr('data-target')).toggle();
+   	$(".cart-button").toggleClass('uk-hidden');
+   	UIkit.scroll("#mobile-cart-container");
+   });
+   
 // if (!$('body').hasClass('ShopPage')){
 // 		var url = window.location.pathname;
 // 		$.ajax({
