@@ -81,6 +81,10 @@ class ShopController extends PageController{
 	}
 
 	public function updateCart(HTTPRequest $request){
+		ob_start();
+								print_r($request->getVar('context'));
+								$result = ob_get_clean();
+								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 	   $id = $this->getRequest()->getSession()->get('shopcart_id');
 	   if ($id){
 	      $cart = ShopCart::get()->byId($id);
@@ -95,10 +99,7 @@ class ShopController extends PageController{
 				   			//Context: if Webshop, we simply add 1, else we are in Checkout and must respect the quantity given
 				   			if ($request->getVar('context') && $request->getVar('context') == 'webshop'){
 				   			//check if already in cart
-				   				ob_start();
-								print_r('ici');
-								$result = ob_get_clean();
-								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+				   				
 								ob_start();
 								print_r($quantity);
 								$result = ob_get_clean();
