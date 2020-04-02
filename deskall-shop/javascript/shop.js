@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var cartShown = false;
+	
 	//if form not valid we go to correct tab
 	if ($("#Form_CheckoutForm").length > 0 && $("#Form_CheckoutForm").find('.message.validation').length > 0){
 		//search for errors
@@ -18,12 +18,6 @@ $(document).ready(function(){
 		else{
 			$("#delivery-form-container").attr('hidden','hidden');
 		}
-	});
-
-
-	//Toggle cart (all pages)
-	$(document).on("click",".toggle-cart",function(){
-		$("#cart-container").toggleClass('uk-hidden');
 	});
 
 	$(document).on("click",".add-to-cart",function(){
@@ -123,27 +117,23 @@ $(document).ready(function(){
 		}
 	});
 	
-	var price,
-	voucherID;
 
 	//Pyement Method Fields
 	$(document).on("change","input[name='PaymentMethod']",function(){
 		if ($("input[name='PaymentMethod']:checked").val() == "bill"){
-			$("#bill-form-container").attr('hidden',false).find('input[data-required],select[data-required]').attr('required',true);
 			$("#card-form-container").attr('hidden','hidden');
 			$("#Form_CheckoutForm_DeliverySameAddress_Holder").attr("hidden",false);
 			$("#summary-bill-container").attr('hidden',false);
 			$("#Form_CheckoutForm_action_payBill").attr('hidden',false);
 		}
 		else if ( $("input[name='PaymentMethod']:checked").val() == "cash"){
-			$("#bill-form-container").attr('hidden',false);
 			$("#Form_CheckoutForm_DeliverySameAddress_Holder").attr("hidden","hidden");
 			$("#card-form-container").attr('hidden','hidden');
 			$("#summary-bill-container").attr('hidden',false);
 			$("#Form_CheckoutForm_action_payBill").attr('hidden',false);
 		}
 		else{
-			$("#bill-form-container").attr('hidden','hidden').find('input[data-required],select[data-required]').attr('required',false);
+			$("#Form_CheckoutForm_DeliverySameAddress_Holder").attr("hidden","hidden");
 			$("#Form_CheckoutForm_action_payBill").attr('hidden','hidden');
 			$("#summary-bill-container").attr('hidden','hidden');
 			$("#card-form-container").attr('hidden',false);
@@ -177,7 +167,6 @@ $(document).ready(function(){
 	});
 
 	function getPrice(){
-		console.log($("#full-total-price").attr('data-price'));
 		return $("#full-total-price").attr('data-price');
 	}
 
@@ -219,21 +208,20 @@ $(document).ready(function(){
 	  	        }
 	  	    ]
 	    };
-	    if ($("input[name='DeliverySameAddress']").is(':checked')){
-	    	shippingoptions = {
-	  	        // shipping_type: shipping_type,
-	  	        address: {
-	  	            address_line_1: $("input[name='DeliveryStreet']").val(),
-		  	        address_line_2: $("input[name='DeliveryAddress']").val(),
-		  	        admin_area_2: $("input[name='DeliveryCity']").val(),
-		  	        admin_area_1: $("input[name='DeliveryRegion']").val(),
-		  	        postal_code: $("input[name='DeliveryPostalCode']").val(),
-		  	        country_code: $("select[name='DeliveryCountry']").val().toUpperCase()
-	  	        }
-	  	    };
-	  	    paypaloptions.purchase_units[0].shipping = shippingoptions;
-	    }
-	    console.log(paypaloptions);
+	    // if ($("input[name='DeliverySameAddress']").is(':checked')){
+	    // 	shippingoptions = {
+	  	 //        // shipping_type: shipping_type,
+	  	 //        address: {
+	  	 //            address_line_1: $("input[name='DeliveryStreet']").val(),
+		  	//         address_line_2: $("input[name='DeliveryAddress']").val(),
+		  	//         admin_area_2: $("input[name='DeliveryCity']").val(),
+		  	//         admin_area_1: $("input[name='DeliveryRegion']").val(),
+		  	//         postal_code: $("input[name='DeliveryPostalCode']").val(),
+		  	//         country_code: $("select[name='DeliveryCountry']").val().toUpperCase()
+	  	 //        }
+	  	 //    };
+	  	 //    paypaloptions.purchase_units[0].shipping = shippingoptions;
+	    // }
 		paypal.Buttons({
 	    createOrder: function(data, actions) {
 	      return actions.order.create(paypaloptions);

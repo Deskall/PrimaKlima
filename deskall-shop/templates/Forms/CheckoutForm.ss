@@ -112,7 +112,6 @@
 				<% end_if %>
 				
 					<% with Controller.activeCart %>
-					$ID
 					<div id="summary-products" class="summary-products">
 						<% include ShopCartSummary %>
 					</div>
