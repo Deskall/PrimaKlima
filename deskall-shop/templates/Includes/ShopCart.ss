@@ -20,7 +20,7 @@
 
 <div id="mobile-cart-container" class="uk-hidden@m" data-uk-sticky="bottom: #offset;">
 		<div class="cart-container">
-			<div class="uk-card uk-box-shadow-medium uk-card-small">
+			<div class="uk-card BlauBackground uk-card-small">
 				<div class="uk-card-header toggle-cart uk-padding-remove-horizontal" data-target="#mobile-order-preview">
 					<div class="uk-position-relative">
 						<strong class="uk-card-title uk-padding-small"><%t Webshop.Cart 'Warenkorb' %></strong>
