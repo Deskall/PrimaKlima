@@ -73,7 +73,7 @@
 				<% end_with %>
 			</li>
 			<li class="account-tab" data-index="2">
-				<div id="bill-form-container" class="uk-margin" hidden>
+				
 					<div class="uk-panel uk-padding-small">
 						<h4><%t Checkout.BillAddress 'Rechnungsadresse' %></h4>
 						$SiteConfig.BillPayLabel
@@ -89,7 +89,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				
 				<div class="uk-flex uk-flex-between">
 					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
