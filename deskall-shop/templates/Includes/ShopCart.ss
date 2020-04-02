@@ -1,5 +1,5 @@
 <div id="cart-container" class="uk-position-fixed uk-position-center-right uk-position-z-index sidebar-menu">
-	<div id="offcanvas-usage-cart" data-uk-offcanvas="flip:true;">
+	<div id="offcanvas-usage-cart">
 		<div class="uk-offcanvas-bar dk-middle-offcanvas cart-offcanvas">
 			<button class="uk-offcanvas-close" type="button" data-uk-close></button>
 			<div class="uk-card uk-background-muted uk-card-hover uk-box-shadow-medium uk-card-small">
