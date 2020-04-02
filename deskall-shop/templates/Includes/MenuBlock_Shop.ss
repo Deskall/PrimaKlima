@@ -9,8 +9,3 @@
 			        </ul>
 		
 </div>
-<% if activeCart %>
-<% with activeCart %>
-<% include ShopCart %>
-<% end_with %>
-<% end_if %>
