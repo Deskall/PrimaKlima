@@ -78,7 +78,7 @@ $(document).ready(function(){
 			}
 			else{
 				$("#offcanvas-usage-cart .order-preview").empty().append(response);
-				$("#offcanvas-usage-cart").attr("hidden",false);
+				$("#cart-container").attr("hidden",false);
 			}
 		});
 	}
