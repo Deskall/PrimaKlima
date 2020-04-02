@@ -1,5 +1,5 @@
 <% if Products.exists %>
-<table class="uk-table uk-table-small uk-table-divider uk-table-middle">
+<table class="uk-table uk-table-small uk-table-divider uk-table-middle product-table">
 	<thead><th><%t Webshop.Product 'Produkt' %></th><th class="uk-text-center uk-table-shrink"><%t Webshop.Quantity 'Menge' %></th><th class="uk-text-right"><%t Webshop.UniquePrice 'Einzelpreis' %></th><th>&nbsp;</th></thead>
 	<tbody>
 		<% loop Products %>
