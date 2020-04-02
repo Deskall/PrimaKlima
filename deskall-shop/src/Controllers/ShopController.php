@@ -115,11 +115,11 @@ class ShopController extends PageController{
       $id = $this->getRequest()->getSession()->get('shopcart_id');
       $form = $this->getRequest()->postVar('form');
      
-      // $cart = null;
-      // if ($id){
-      //    $cart = ShopCart::get()->byId($id);
-      // }
-      $cart = ShopCart::get()->last();
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+      // $cart = ShopCart::get()->last();
 
       if ($cart && $form ){
          $data = array();
@@ -136,13 +136,13 @@ class ShopController extends PageController{
 
    public function updateCartSummary(){
       //retrieve cart in session
-      // $id = $this->getRequest()->getSession()->get('shopcart_id');
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
       
-      // $cart = null;
-      // if ($id){
-      //    $cart = ShopCart::get()->byId($id);
-      // }
-   		$cart = ShopCart::get()->last();
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+   		// $cart = ShopCart::get()->last();
       if ($cart ){
          return $cart->renderWith('Includes/ShopCartSummary');
       }
