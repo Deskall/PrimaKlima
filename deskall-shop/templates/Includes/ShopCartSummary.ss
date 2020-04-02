@@ -7,7 +7,7 @@
 			<% loop Products.Sort('Sort') %>
 			<tr>
 				<td><img src="$MainBild.FocusFill(80,80).URL" class="uk-border-circle" /></td>
-				<td class="uk-text-truncate uk-table-expand">$Title<br/><%t Webshop.Price 'Stückpreis' %>: $Price.Nice</td><td class="uk-text-center">$Quantity</td><td class="uk-text-right">$Subtotal.Nice</td>
+				<td class="uk-text-truncate uk-table-expand">$Title<br/><%t Webshop.Price 'Stückpreis' %>: $Price.Nice</td><td class="uk-text-center@m">$Quantity</td><td class="uk-text-right">$Subtotal.Nice</td>
 			</tr>
 			<% end_loop %>
 			<% end_if %>
