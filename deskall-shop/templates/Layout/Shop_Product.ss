@@ -72,12 +72,15 @@
 		        	</div>
 		    </div>
 		</div>
-		<div class="uk-margin uk-text-center@m">
-			$Top.SiteConfig.FootertextProduct
-		</div>
 	</div>
 </section>
 <% end_with %>
-
+<section class="uk-section uk-background-muted uk-padding-small">
+	<div class="uk-container">
+		<div class="uk-text-center@m">
+			$SiteConfig.FootertextProduct
+		</div>
+	</div>
+</section>
 			
 		
