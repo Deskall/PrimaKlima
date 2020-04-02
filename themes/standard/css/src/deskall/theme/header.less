@@ -10,6 +10,9 @@ header{
 		position: relative;
 		min-height:@header-menu-collapsed-height;
 		@media (min-width:@breakpoint-medium){
+			min-height:@header-menu-height * 0.75;
+		}
+		@media (min-width:@breakpoint-large){
 			min-height:@header-menu-height;
 		}
 	}
