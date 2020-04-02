@@ -7,15 +7,13 @@
     $SiteConfig.BodyScripts
     <div class="uk-offcanvas-content">
       <% include Header %>
+      <% if activeCart %>
+      <% with activeCart %>
+      <% include ShopCart %>
+      <% end_with %>
+      <% end_if %>
       <main class="main-content-wrapper">
           $Layout
-
-          <% if activeCart %>
-          <% with activeCart %>
-          <% include ShopCart %>
-          <% end_with %>
-          <% end_if %>
-
       </main>
 
       <% include Footer %>
