@@ -235,9 +235,7 @@ $(document).ready(function(){
 	        	url: cleanUrl(window.location.pathname)+'transaktion-abgeschlossen',
 	          	method: 'post',
 	          	data: {
-	            	orderID: data.orderID,
-	            	productID: $("#Form_CheckoutForm_ProductID").val(),
-	            	voucherID: voucherID,
+	            	orderID: data.orderID
 	          	},
 	          	dataType: 'Json'
 	        }).done(function(response){
