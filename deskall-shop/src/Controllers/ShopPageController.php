@@ -395,6 +395,12 @@ class ShopPageController extends PageController{
 						// $order->generateQuittungPDF();
 						//Send Confirmation Email (BCC to admin)
 						// $order->sendConfirmationEmail();
+
+						
+						//clear cart
+						$cart->delete();
+						$this->getRequest()->getSession()->clear('shopcart_id');
+										
 						
 						$this->getRequest()->getSession()->set('orderID',$order->ID);
 
