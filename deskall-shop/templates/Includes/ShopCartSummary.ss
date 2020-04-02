@@ -1,6 +1,6 @@
 <div class="uk-panel uk-background-muted uk-padding-small">
 	<h4><%t Checkout.SummaryTitle 'Ihre Bestellung' %></h4>
-	<table class="uk-table uk-table-small uk-table-striped uk-table-middle uk-table-justify">
+	<table class="uk-table uk-table-small uk-table-striped uk-table-middle uk-table-justify uk-table-responsive">
 		<thead><th colspan="2"><%t Webshop.Article 'Artikel' %></th><th class="uk-text-center"><%t Webshop.Quantity 'Menge' %></th><th class="uk-text-right"><%t Webshop.Total 'Gesamtsumme' %></th></thead>
 		<tbody class="uk-table-divider">
 			<% if Products.exists %>
