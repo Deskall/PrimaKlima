@@ -153,7 +153,7 @@ class ShopCustomer extends DataObject
             $html .= $this->Company.'<br/>';
         }
         $html .= $this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
-        $html .= $this->Street;
+        $html .= $this->Street.'<br/>';
         if ($this->Address){
             $html .= $this->Address.'<br/>';
         }

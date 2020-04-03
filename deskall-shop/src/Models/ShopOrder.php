@@ -165,7 +165,7 @@ class ShopOrder extends DataObject{
             $html .= $this->Company.'<br/>';
         }
         $html .= $this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
-        $html .= $this->Street;
+        $html .= $this->Street.'<br/>';
         if ($this->Address){
             $html .= $this->Address.'<br/>';
         }
@@ -185,7 +185,7 @@ class ShopOrder extends DataObject{
             $html .= $this->DeliveryCompany.'<br/>';
         }
         $html .= $this->DeliveryGender.' '.$this->DeliveryFirstName.' '.$this->DeliveryName.'<br/>';
-        $html .= $this->DeliveryStreet;
+        $html .= $this->DeliveryStreet.'<br/>';
         if ($this->DeliveryAddress){
             $html .= $this->DeliveryAddress.'<br/>';
         }
