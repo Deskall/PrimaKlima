@@ -1,4 +1,4 @@
-<% if activeCart %>
+
 <div class="$Layout <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class">
 	
 			        <ul class="uk-navbar-nav">
@@ -9,4 +9,3 @@
 			        </ul>
 		
 </div>
-<% end_if %>
