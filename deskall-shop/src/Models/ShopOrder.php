@@ -11,6 +11,8 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Control\Director;
 use SilverStripe\ORM\FieldType\DBCurrency;
+use SilverStripe\i18n\i18n;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ShopOrder extends DataObject{
 
