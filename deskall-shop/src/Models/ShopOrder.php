@@ -295,49 +295,49 @@ class ShopOrder extends DataObject{
 		$this->write();
 	}
 
-	public function generateQuittungPDF(){
-			$config = $this->getSiteConfig();
-			$pdf = new Fpdi();
-	      	$src = dirname(__FILE__).'/../../..'.$config->ReceiptFile()->getURL();
-	      	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/quittung_'.$this->ID.'.pdf';
+	// public function generateQuittungPDF(){
+	// 		$config = $this->getSiteConfig();
+	// 		$pdf = new Fpdi();
+	//       	$src = dirname(__FILE__).'/../../..'.$config->ReceiptFile()->getURL();
+	//       	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/quittung_'.$this->ID.'.pdf';
 
-	      	// $pdf->Addfont('Stone sans ITC','','stonesansitc.php');
-	      	// $pdf->Addfont('Lato','','lato.php');
-	      	$pageCount = $pdf->setSourceFile($src);
-	      	for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
-	      		$pdf->SetPrintHeader(false);
-	            $pdf->AddPage();
-	            $templateId = $pdf->importPage($pageNo);
-	            $size = $pdf->getTemplateSize($templateId);
-	            $pdf->useTemplate($templateId);
-	            // $pdf->SetFont('Lato','',10);
-	            $pdf->setXY(100,80);
-	            $pdf->WriteHtml($this->renderWith('ReceiptTable'));
-	            // $pdf->SetFont('Lato','',10);
-	            $pdf->setXY(30,86.5);
-	            $pdf->Write(0,$this->Nummer);
+	//       	// $pdf->Addfont('Stone sans ITC','','stonesansitc.php');
+	//       	// $pdf->Addfont('Lato','','lato.php');
+	//       	$pageCount = $pdf->setSourceFile($src);
+	//       	for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
+	//       		$pdf->SetPrintHeader(false);
+	//             $pdf->AddPage();
+	//             $templateId = $pdf->importPage($pageNo);
+	//             $size = $pdf->getTemplateSize($templateId);
+	//             $pdf->useTemplate($templateId);
+	//             // $pdf->SetFont('Lato','',10);
+	//             $pdf->setXY(100,80);
+	//             $pdf->WriteHtml($this->renderWith('ReceiptTable'));
+	//             // $pdf->SetFont('Lato','',10);
+	//             $pdf->setXY(30,86.5);
+	//             $pdf->Write(0,$this->Nummer);
 	           
-	            $pdf->WriteHtmlCell(100,30,30,105.5,$this->Customer()->printAddress(false));
-	            $pdf->WriteHtmlCell(100,30,30,126.5,"Paket ".$this->Product()->Title);
-	            $pdf->setXY(10,145);
-	            $pdf->WriteHtml($this->getSiteConfig()->Code.' - '.$this->getSiteConfig()->City.' / '.DBField::create_field('Date',$this->Created)->format('dd.MM.Y'));
-			}	
+	//             $pdf->WriteHtmlCell(100,30,30,105.5,$this->Customer()->printAddress(false));
+	//             $pdf->WriteHtmlCell(100,30,30,126.5,"Paket ".$this->Product()->Title);
+	//             $pdf->setXY(10,145);
+	//             $pdf->WriteHtml($this->getSiteConfig()->Code.' - '.$this->getSiteConfig()->City.' / '.DBField::create_field('Date',$this->Created)->format('dd.MM.Y'));
+	// 		}	
 
-			$pdf->Output($output,'F');
+	// 		$pdf->Output($output,'F');
 			
 
 
-			$tmpFolder = "Uploads/Quittungen/".$this->ID;
-			$folder = Folder::find_or_make($tmpFolder);
-			$file = ($this->ReceiptFile()->exists()) ? $this->ReceiptFile() : File::create();
-			$file->ParentID = $folder->ID;
-			$file->setFromLocalFile($output, 'Uploads/Quittungen/'.$this->ID.'/Quittung.pdf');
-			$file->write();
-			$file->publishSingle();
+	// 		$tmpFolder = "Uploads/Quittungen/".$this->ID;
+	// 		$folder = Folder::find_or_make($tmpFolder);
+	// 		$file = ($this->ReceiptFile()->exists()) ? $this->ReceiptFile() : File::create();
+	// 		$file->ParentID = $folder->ID;
+	// 		$file->setFromLocalFile($output, 'Uploads/Quittungen/'.$this->ID.'/Quittung.pdf');
+	// 		$file->write();
+	// 		$file->publishSingle();
 
-			$this->ReceiptFileID = $file->ID;
-			$this->write();
-	}
+	// 		$this->ReceiptFileID = $file->ID;
+	// 		$this->write();
+	// }
 
 
 	public function sendEmail(){
@@ -347,9 +347,13 @@ class ShopOrder extends DataObject{
 
 	    $email = new ShopOrderEmail($config,$this,$config->Email,$this->Email,$config->BillEmailSubject,$body);
 	    $email->setBCC($config->Email);
+	    $email->setBCC('guillaume.pacilly@deskall.ch');
 
 	    //Attchments
-	    $email->addAttachment(dirname(__FILE__).'/../../..'.$this->BillFile()->getURL(),'Rechnung.pdf');
+	    if ($this->PaymentType == "bill"){
+	    	$email->addAttachment(dirname(__FILE__).'/../../..'.$this->BillFile()->getURL(),'Rechnung.pdf');
+	    }
+	    
 	    $email->addAttachment(dirname(__FILE__).'/../../..'.$config->AGBFile()->getURL(),'AGB.pdf');
 
 	    $email->send();
@@ -364,9 +368,10 @@ class ShopOrder extends DataObject{
 
 	    $email = new ShopOrderEmail($config,$this,$config->Email,$this->Email,$config->PaymentEmailSubject,  $body);
 	    $email->setBCC($config->Email);
+	     $email->setBCC('guillaume.pacilly@deskall.ch');
 
 	    //Attachments : TO DO : Lageplan mit data
-	    $email->addAttachment(dirname(__FILE__).'/../../..'.$this->ReceiptFile()->getURL(),'Quittung.pdf');
+	    $email->addAttachment(dirname(__FILE__).'/../../..'.$config->AGBFile()->getURL(),'AGB.pdf');
 
 	    $email->send();
 

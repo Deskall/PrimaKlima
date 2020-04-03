@@ -391,10 +391,9 @@ class ShopPageController extends PageController{
 							$item->createFromProduct($p);
 							$order->Items()->add($item);
 						}
-						//Create Receipt
-						// $order->generateQuittungPDF();
+						
 						//Send Confirmation Email (BCC to admin)
-						// $order->sendConfirmationEmail();
+						$order->sendConfirmationEmail();
 
 						
 						//clear cart
