@@ -75,12 +75,11 @@ class Event extends DataObject{
         $labels['Title'] = _t(__CLASS__.'.Title','Titel');
         $labels['Subtitle'] = _t(__CLASS__.'.Subtitle','SubTitel');
         $labels['MenuTitle'] = _t(__CLASS__.'.MenuTitle','Menu');
-        $labels['Description'] = _t(__CLASS__.'.Description','Einstiegtext');
+        $labels['Description'] = _t(__CLASS__.'.Description','Beschreibung');
         $labels['Target'] = _t(__CLASS__.'.Target','Zielgruppe');
         $labels['Time'] = _t(__CLASS__.'.Time','Zeit');
-        $labels['Target'] = _t(__CLASS__.'.Target','Zielgruppe');
-        $labels['Investition'] = _t(__CLASS__.'.Investition','Investition');
-        $labels['Footer'] = _t(__CLASS__.'.Footer','Footer');
+        $labels['Investition'] = _t(__CLASS__.'.Investition','Preise');
+        $labels['Footer'] = _t(__CLASS__.'.Footer','Extra Text');
         $labels['Files'] = _t(__CLASS__.'.Files','Dateien');
         $labels['Images'] = _t(__CLASS__.'.Images','Bilder');
         $labels['Videos'] = _t(__CLASS__.'.Videos','Videos');
