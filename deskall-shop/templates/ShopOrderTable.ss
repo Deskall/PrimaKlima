@@ -24,13 +24,13 @@
 		<tr style="font-size:12px;padding-top:5px;padding-bottom:5px;"><td width="310">$Product.Title<br/>$PriceUnique.Nice</td><td width="100" align="center">$Quantity</td><td width="120" align="right">$Price.Nice</td></tr>
 		<% end_loop %>
 		<% if Voucher.exists %>
-		<tr><td colspan="3"><%t Order.Voucher 'Gutschein' %></td><td align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
+		<tr><td colspan="2"><%t Order.Voucher 'Gutschein' %></td><td align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
 		<% end_if %>
 
-		<tr style="font-size:12px;padding-top:10px;"><td colspan="3" style="border-top:1px solid #ccc;"><%t Webshop.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td style="border-top:1px solid #ccc;" align="right">$MwSt.Nice</td></tr>
-		<tr style="font-size:12px;"><td colspan="3"><b><%t Webshop.Total 'Gesamtsumme:' %></b></td><td align="right"><b>$TotalPrice.Nice</b></td></tr>
-		<tr style="font-size:12px;"><td colspan="3"><b><%t Webshop.Transport 'Porto und Verpackung' %></b></td><td align="right"><b>$TransportPrice.Nice</b></td></tr>
-		<tr style="font-size:14px;font-weight:bold;"><td colspan="3"><b><%t Webshop.TotalPrice 'Preis inklusive MwSt., Porto und Verpackung' %></b></td><td align="right"><b>$FullTotalPrice.Nice</b></td></tr>
+		<tr style="font-size:12px;"><td colspan="2" style="border-top:1px solid #ccc;"><%t Webshop.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td style="border-top:1px solid #ccc;" align="right">$MwSt.Nice</td></tr>
+		<tr style="font-size:12px;"><td colspan="2"><b><%t Webshop.Total 'Gesamtsumme:' %></b></td><td align="right"><b>$TotalPrice.Nice</b></td></tr>
+		<tr style="font-size:12px;"><td colspan="2"><b><%t Webshop.Transport 'Porto und Verpackung' %></b></td><td align="right"><b>$TransportPrice.Nice</b></td></tr>
+		<tr style="font-size:14px;font-weight:bold;"><td colspan="2"><b><%t Webshop.TotalPrice 'Preis inklusive MwSt., Porto und Verpackung' %></b></td><td align="right"><b>$FullTotalPrice.Nice</b></td></tr>
 	</tbody>
 </table>
 <% if PaymentType == "bill" %>
