@@ -7,6 +7,7 @@ use SilverStripe\Assets\File;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Security\Group;
 use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\CMS\Model\SiteTree;
 
 class EventConfig extends DataObject
 {
