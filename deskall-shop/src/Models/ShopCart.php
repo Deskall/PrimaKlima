@@ -5,7 +5,6 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\FieldType\DBCurrency;
 use SilverStripe\i18n\i18n;
-use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ShopCart extends DataObject {
 
