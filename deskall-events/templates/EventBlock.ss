@@ -9,6 +9,9 @@
 					<img src="$Images.first.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$Images.first.Alt" />
 				</div>
 				<div class="uk-width-2-3@m">
+				<% else %>
+				<div>
+				<% end_if %>
 				    <h3 class="uk-card-title">$Title</h3>
 				    $Description
 				    <div class="uk-text-right@m">
