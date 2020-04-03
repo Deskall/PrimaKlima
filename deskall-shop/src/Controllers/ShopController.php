@@ -120,7 +120,10 @@ class ShopController extends PageController{
          $cart = ShopCart::get()->byId($id);
       }
       // $cart = ShopCart::get()->last();
-
+      ob_start();
+      			print_r($form);
+      			$result = ob_get_clean();
+      			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
       if ($cart && $form ){
          $data = array();
          parse_str($form, $data);

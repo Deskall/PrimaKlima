@@ -44,11 +44,6 @@ $(document).ready(function(){
 			$(".order-preview").empty().append(response);
 		});
 	});
-
-	$(document).on("click","[data-step='forward']",function(){
-		UpdateCartStep();
-	});
-
 	
 		
 	
@@ -114,6 +109,7 @@ $(document).ready(function(){
 		}
 		if (form.valid() && $(this).attr('data-step') == "forward"){
 			UIkit.tab(switcher).show(index+1);
+			UpdateCartStep();
 		}
 	});
 	
