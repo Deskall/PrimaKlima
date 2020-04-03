@@ -26,12 +26,12 @@ class DeskallPageControllerExtension extends Extension
         return $css;
     }
 
-    public function currentThemeDir(){
+    public function ThemeDir(){
         return SiteConfig::current_site_config()->getCurrentThemeDir();
     }
 
     public function LastChangeJS(){
-        $srcDir = Director::baseFolder().$this->currentThemeDir().'/javascript/vendor';
+        $srcDir = Director::baseFolder().SiteConfig::current_site_config()->getCurrentThemeDir().'/javascript/vendor';
         $srcFiles = array_diff(scandir($srcDir), array('.', '..'));
         $filetime = 0;
         foreach($srcFiles as $key => $file) {
