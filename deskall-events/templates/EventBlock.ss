@@ -13,7 +13,7 @@
 				<div>
 				<% end_if %>
 				    <h3 class="uk-card-title">$Title</h3>
-				    <div class="uk-text-muted">$SubTitle</div>
+				    <div class="uk-text-muted">$Subtitle</div>
 				    $Description
 				    <div class="uk-text-right@m">
 				    	<a href="$Link" class="uk-button button-gruen" title="<%t Event.SeeDetails 'Details ansehen' %>"><%t Event.SeeDetails 'Details ansehen' %></a>
