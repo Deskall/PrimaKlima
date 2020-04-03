@@ -59,8 +59,8 @@ class EventConfig extends DataObject
     public function getCMSFields()
     {
        $fields = parent::getCMSFields();
-       $fields->addFieldToTab('Root.Main',TreeDropdownField::create('MainPageID',$this->fieldLabels()['MainPage']));
-       $fields->addFieldToTab('Root.Main',TreeDropdownField::create('MainPageID',$this->fieldLabels()['MainPage']));
+       $fields->addFieldToTab('Root.Main',TreeDropdownField::create('MainPageID',$this->fieldLabels()['MainPage'], SiteTree::class));
+       $fields->addFieldToTab('Root.Main',TreeDropdownField::create('MainPageID',$this->fieldLabels()['MainPage'], SiteTree::class));
        
       
 
