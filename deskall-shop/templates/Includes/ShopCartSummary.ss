@@ -28,10 +28,10 @@
 	</div>
 </div>
 <div class="uk-margin">
-	<div class="uk-child-width-1-2@s uk-grid-match uk-grid-small" data-uk-grid>
+	<div class="<% if  PaymentMethod == "bill" || PaymentMethod == "online" %>uk-child-width-1-2@s uk-grid-match<% end_if %> uk-grid-small" data-uk-grid>
 		<div>
 			<div class="uk-panel uk-background-muted uk-padding-small">
-				<h4><% if PaymentMethod == "bill" || PaymentMethod == "creditcard" %><%t Webshop.BillAddressTitle 'Rechnungsadresse' %><% else %><%t Webshop.CustomerData 'Ihre Angaben' %><% end_if %></h4>
+				<h4><% if PaymentMethod == "bill" || PaymentMethod == "online" %><%t Webshop.BillAddressTitle 'Rechnungsadresse' %><% else %><%t Webshop.CustomerData 'Ihre Angaben' %><% end_if %></h4>
 				<p><% if Company %>$Company<br/><% end_if %>
 					$Gender $FirstName $Name<br/>
 					$Email<br/>
@@ -49,7 +49,7 @@
 				<% end_if %>
 			</div>
 		</div>
-		<% if  PaymentMethod == "bill" || PaymentMethod == "creditcard" %>
+		<% if  PaymentMethod == "bill" || PaymentMethod == "online" %>
 		<div>
 			<div class="uk-panel uk-background-muted uk-padding-small">
 				<h4><%t Webshop.DeliveryAddress 'Lieferadresse' %></h4>
