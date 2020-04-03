@@ -13,10 +13,10 @@ $(document).ready(function(){
 
 	$(document).on("change","input[name='DeliverySameAddress']",function(){
 		if ($(this).is(':checked')){
-			$("#delivery-form-container").attr('hidden',false);
+			$("#delivery-form-container").attr('hidden',"hidden");
 		}
 		else{
-			$("#delivery-form-container").attr('hidden','hidden');
+			$("#delivery-form-container").attr('hidden',false);
 		}
 	});
 

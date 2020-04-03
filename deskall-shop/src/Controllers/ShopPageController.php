@@ -82,7 +82,7 @@ class ShopPageController extends PageController{
 				EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail-Adresse *'))->setAttribute('data-required',true)->setValue('guillaume.pacilly@gmail.com'),
 				TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon *'))->setAttribute('data-required',true)->setValue('0788911689'),
 				TextareaField::create('Additional',_t(__CLASS__.'.Additional','Zusätzliche Informationen'))->setRows(3),
-				CheckboxField::create('DeliverySameAddress',_t(__CLASS__.'.DeliverySameAddress','Abweichende Lieferadresse'))
+				CheckboxField::create('DeliverySameAddress',_t(__CLASS__.'.DeliverySameAddress','Diese Adresse auch als Lieferadresse verwenden?'))->setAttribute('checked',true)
 			)->setName('BillFields'),
 			CompositeField::create(
 				TextField::create('DeliveryCompany',_t(__CLASS__.'.Company','Firma')),
