@@ -4,7 +4,7 @@
 					       <%--  <li class="uk-parent">
 					            <a href="#"><%t Event.OpenEvents 'Offene Seminare' %></a>
 					            <ul class="uk-nav-sub"> --%>
-					            	<li <% if ClassName == "EventPage" && URLSegment == $SubEventPage.URLSegment%>class="uk-active"<% end_if %>><a href="$SubEventPage.Link" ><%t Event.OpenEventsPreview 'Seminare Termine {year}' year=$Now.Year %></a></li>
+					            	<li <% if ClassName == "EventPage" && URLSegment == $SubEventPage.URLSegment%>class="uk-active"<% end_if %>><a href="$SubEventPage.Link" ><%t Event.OpenEventsPreview 'Kurse Termine {year}' year=$Now.Year %></a></li>
 					            	<% loop activeEvents %>
 					            	<li <% if URLSegment == $Top.Event.URLSegment %>class="uk-active"<% end_if %>><a href="$Link" >$MenuTitle</a></li>
 					            	<% end_loop %>

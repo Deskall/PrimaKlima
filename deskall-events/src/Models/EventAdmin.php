@@ -13,17 +13,13 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 class EventAdmin extends ModelAdmin{
 
 	private static $menu_icon_class = "font-icon-book-open";
-	private static $url_segment = "seminare";
-	private static $menu_title = "Seminare";
+	private static $url_segment = "kurse";
+	private static $menu_title = "Kurse";
 	
 	private static $managed_models = [
 		'Event' => [
-			'title' => 'Seminare'
+			'title' => 'Kurse'
 		],
-		'Voucher' => ['title' => 'Gutscheinen'],
-		// 'EventCategory' => [
-		// 	'title' => 'Kategorien'
-		// ],
 		'EventConfig' => [
 			'title' => 'Einstellungen'
 		]
