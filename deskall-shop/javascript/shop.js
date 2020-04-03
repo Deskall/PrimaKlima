@@ -208,20 +208,7 @@ $(document).ready(function(){
 	  	        }
 	  	    ]
 	    };
-	    // if ($("input[name='DeliverySameAddress']").is(':checked')){
-	    // 	shippingoptions = {
-	  	 //        // shipping_type: shipping_type,
-	  	 //        address: {
-	  	 //            address_line_1: $("input[name='DeliveryStreet']").val(),
-		  	//         address_line_2: $("input[name='DeliveryAddress']").val(),
-		  	//         admin_area_2: $("input[name='DeliveryCity']").val(),
-		  	//         admin_area_1: $("input[name='DeliveryRegion']").val(),
-		  	//         postal_code: $("input[name='DeliveryPostalCode']").val(),
-		  	//         country_code: $("select[name='DeliveryCountry']").val().toUpperCase()
-	  	 //        }
-	  	 //    };
-	  	 //    paypaloptions.purchase_units[0].shipping = shippingoptions;
-	    // }
+	    
 		paypal.Buttons({
 	    createOrder: function(data, actions) {
 	      return actions.order.create(paypaloptions);
@@ -240,8 +227,7 @@ $(document).ready(function(){
 	          	},
 	          	dataType: 'Json'
 	        }).done(function(response){
-	        	console.log(response.redirecturl);
-	        	console.log(decodeURIComponent(response.redirecturl));
+	        	
 	        	if (response.status == "OK"){
 	        		window.location.href = response.redirecturl;
 	        	}
