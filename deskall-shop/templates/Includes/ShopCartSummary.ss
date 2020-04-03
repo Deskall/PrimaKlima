@@ -22,10 +22,16 @@
 	</table>
 </div>
 <div class="uk-margin">
+	<div class="uk-panel uk-background-muted uk-padding-small">
+		<h4><%t Webshop.PaymentType 'Zahlungsart' %></h4>
+		$PaymentResource
+	</div>
+</div>
+<div class="uk-margin">
 	<div class="uk-child-width-1-2@s uk-grid-match uk-grid-small" data-uk-grid>
 		<div>
 			<div class="uk-panel uk-background-muted uk-padding-small">
-				<h4><%t Webshop.BillAddressTitle 'Rechnungsadresse' %></h4>
+				<h4><% if PaymentMethod == "bill" || PaymentMethod == "creditcard" %><%t Webshop.BillAddressTitle 'Rechnungsadresse' %><% else %><%t Webshop.CustomerData 'Ihre Angaben' %><% end_if %></h4>
 				<p><% if Company %>$Company<br/><% end_if %>
 					$Gender $FirstName $Name<br/>
 					$Email<br/>
@@ -43,11 +49,15 @@
 				<% end_if %>
 			</div>
 		</div>
+		<% if  PaymentMethod == "bill" || PaymentMethod == "creditcard" %>
 		<div>
 			<div class="uk-panel uk-background-muted uk-padding-small">
-				<h4>Lieferbedingungen</h4>
+				<h4><%t Webshop.DeliveryAddress 'Lieferadresse' %></h4>
+				$printDeliveryAddress
+				<h4><%t Webshop.DeliveryConditions 'Lieferbedingungen' %></h4>
 				$SiteConfig.DeliveryLabel
 			</div>
 		</div>
+		<% end_if %>
 	</div>
 </div>

@@ -5,6 +5,8 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\FieldType\DBCurrency;
 use SilverStripe\i18n\i18n;
+use SilverStripe\ORM\FieldType\DBHTMLText;
+
 class ShopCart extends DataObject {
 
 	
@@ -123,6 +125,70 @@ class ShopCart extends DataObject {
 	public function NiceCountry(){
 		return ($this->Country) ? i18n::getData()->getCountries()[$this->Country] : null;
 	}
+
+	public function getPaymentResource(){
+		switch ($this->PaymentMethod){
+			case "bill":
+				$type = "Rechnung";
+			break;
+			case "cash":
+				$type = "Bargeld";
+			break;
+			case "creditcard":
+				$type = "PayPal / Kreditkarte";
+			break;
+			default:
+				$type = "unbekannt";
+			break;
+		}
+	    return DBField::create_field('Varchar', $type);
+	}
+
+	public function printAddress(){
+        $html = '<p>';
+        if ($this->Company){
+            $html .= $this->Company.'<br/>';
+        }
+        $html .= $this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
+        $html .= $this->Street.'<br/>';
+        if ($this->Address){
+            $html .= $this->Address.'<br/>';
+        }
+        $html .= $this->PostalCode.' - '.$this->City.'<br/>';
+        if ($this->Country){
+            $html .= i18n::getData()->getCountries()[strtolower($this->Country)];
+        }
+        $html .= '</p>';
+        $o = new DBHTMLText();
+        $o->setValue($html);
+        return $o;
+    }
+
+    public function printDeliveryAddress(){
+        $html = '<p>';
+        if ($this->DeliverySameAddress){
+        	$html .= 'wie Rechnungsadresse';
+        }
+        else{
+        	 if ($this->DeliveryCompany){
+	            $html .= $this->DeliveryCompany.'<br/>';
+	        }
+	        $html .= $this->DeliveryGender.' '.$this->DeliveryFirstName.' '.$this->DeliveryName.'<br/>';
+	        $html .= $this->DeliveryStreet.'<br/>';
+	        if ($this->DeliveryAddress){
+	            $html .= $this->DeliveryAddress.'<br/>';
+	        }
+	        $html .= $this->DeliveryPostalCode.' - '.$this->DeliveryCity.'<br/>';
+	        if ($this->DeliveryCountry){
+	            $html .= i18n::getData()->getCountries()[strtolower($this->DeliveryCountry)];
+	        }
+        }
+       
+        $html .= '</p>';
+        $o = new DBHTMLText();
+        $o->setValue($html);
+        return $o;
+    }
 
 	public function printContact(){
 	    $html = '<p>'.$this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';

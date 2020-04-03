@@ -181,18 +181,24 @@ class ShopOrder extends DataObject{
 
     public function printDeliveryAddress(){
         $html = '<p>';
-        if ($this->DeliveryCompany){
-            $html .= $this->DeliveryCompany.'<br/>';
+        if ($this->DeliverySameAddress){
+        	$html .= 'wie Rechnungsadresse';
         }
-        $html .= $this->DeliveryGender.' '.$this->DeliveryFirstName.' '.$this->DeliveryName.'<br/>';
-        $html .= $this->DeliveryStreet.'<br/>';
-        if ($this->DeliveryAddress){
-            $html .= $this->DeliveryAddress.'<br/>';
+        else{
+        	 if ($this->DeliveryCompany){
+	            $html .= $this->DeliveryCompany.'<br/>';
+	        }
+	        $html .= $this->DeliveryGender.' '.$this->DeliveryFirstName.' '.$this->DeliveryName.'<br/>';
+	        $html .= $this->DeliveryStreet.'<br/>';
+	        if ($this->DeliveryAddress){
+	            $html .= $this->DeliveryAddress.'<br/>';
+	        }
+	        $html .= $this->DeliveryPostalCode.' - '.$this->DeliveryCity.'<br/>';
+	        if ($this->DeliveryCountry){
+	            $html .= i18n::getData()->getCountries()[strtolower($this->DeliveryCountry)];
+	        }
         }
-        $html .= $this->DeliveryPostalCode.' - '.$this->DeliveryCity.'<br/>';
-        if ($this->DeliveryCountry){
-            $html .= i18n::getData()->getCountries()[strtolower($this->DeliveryCountry)];
-        }
+       
         $html .= '</p>';
         $o = new DBHTMLText();
         $o->setValue($html);
