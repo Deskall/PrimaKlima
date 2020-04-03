@@ -43,7 +43,7 @@ class EventDate extends DataObject{
     	'Event' => Event::class
     ];
 
-    private static $has_many = [
+    private static $many_many = [
         'Orders' => ShopOrder::class
     ];
 
