@@ -15,10 +15,10 @@ class EventPage extends Page {
 	}
 
 	public function MainEventPage(){
-		return EventPage::get()->filter('URLSegment','seminare')->first();
+		return $this->getEventConfig()->MainPage();
 	}
 
 	public function SubEventPage(){
-		return EventPage::get()->filter('URLSegment','seminare-termine')->first();
+		return $this->getEventConfig()->AllEventsPage();
 	}
 }
