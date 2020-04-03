@@ -1,7 +1,7 @@
 
 <ul class="uk-flex uk-flex-wrap uk-flex-left">
 <% loop $Options %>
-    <li class="$Class">
+    <li class="$Class uk-margin-right">
         <input id="$ID" class="radio uk-radio" name="$Name" type="radio" value="$Value.ATT"<% if $isChecked %>
                checked<% end_if %><% if $isDisabled %> disabled<% end_if %> <% if $Up.Required %>required<% end_if %> />
         <label for="$ID">$Title</label>
