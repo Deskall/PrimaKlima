@@ -44,11 +44,8 @@ class EventDate extends DataObject{
     ];
 
     private static $many_many = [
+        'Participants' => Participant::class,
         'Orders' => ShopOrder::class
-    ];
-
-    private static $many_many = [
-        'Participants' => Participant::class
     ];
 
     private static $many_many_extraFields = [
