@@ -5,7 +5,7 @@
 		<div class="uk-card uk-card-default uk-card-hover uk-padding-small uk-width-1-1">
 			<div class="uk-card-title">$Title</div>
 			<div class="uk-margin">
-				$LeadText
+				$Description.limitWordCount(50)
 			</div>
 			<a href="$Link" title="<%t Event.SeeDetails 'Details ansehen' %>"><%t Event.SeeDetails 'Details ansehen' %></a>
 			<% if activeDates.Exists %>

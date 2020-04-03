@@ -30,13 +30,10 @@ class Event extends DataObject{
         'Title' => 'Varchar',
         'Subtitle' => 'Text',
         'MenuTitle' => 'Varchar',
-        'LeadText' => 'HTMLText',
+        'Description' => 'HTMLText',
         'URLSegment' => 'Varchar',
-        'Intro' => 'HTMLText',
+        'Time' => 'Varchar',
         'Target' => 'HTMLText',
-        'Content' => 'HTMLText',
-        'Extras' => 'HTMLText',
-        'Duration' => 'HTMLText',
         'Investition' => 'HTMLText',
         'Footer' => 'HTMLText'
     ];
@@ -78,12 +75,9 @@ class Event extends DataObject{
         $labels['Title'] = _t(__CLASS__.'.Title','Titel');
         $labels['Subtitle'] = _t(__CLASS__.'.Subtitle','SubTitel');
         $labels['MenuTitle'] = _t(__CLASS__.'.MenuTitle','Menu');
-        $labels['LeadText'] = _t(__CLASS__.'.LeadText','Einstiegtext');
-        $labels['Intro'] = _t(__CLASS__.'.Intro','Intro');
+        $labels['Description'] = _t(__CLASS__.'.Description','Einstiegtext');
         $labels['Target'] = _t(__CLASS__.'.Target','Zielgruppe');
-        $labels['Content'] = _t(__CLASS__.'.Content','Seminarinhalte');
-        $labels['Extras'] = _t(__CLASS__.'.Extras','Extras');
-        $labels['Duration'] = _t(__CLASS__.'.Duration','Dauer');
+        $labels['Time'] = _t(__CLASS__.'.Time','Zeit');
         $labels['Target'] = _t(__CLASS__.'.Target','Zielgruppe');
         $labels['Investition'] = _t(__CLASS__.'.Investition','Investition');
         $labels['Footer'] = _t(__CLASS__.'.Footer','Footer');
@@ -137,17 +131,17 @@ class Event extends DataObject{
         return new RequiredFields(
         'Title',
         'MenuTitle',
-        'LeadText'
+        'Description'
         );
     }
 
 
     public function getFolderName(){
-        return "Uploads/Seminare/".$this->URLSegment;
+        return "Uploads/Kurse/".$this->URLSegment;
     }
 
     public function Link(){
-        return 'seminare/offene-seminare/'.$this->URLSegment;
+        return 'kurse/offene-kurse/'.$this->URLSegment;
     }
 
     public function ActiveVideos(){
@@ -163,12 +157,12 @@ class Event extends DataObject{
         $siteConfig = SiteConfig::current_site_config();
         
         //Metatags
-        $tags .= '<meta name="description" content="'.strip_tags($this->LeadText).'">';
+        $tags .= '<meta name="description" content="'.strip_tags($this->Description).'">';
 
         // facebook OpenGraph
         $tags .= '<meta property="og:locale" content="' . i18n::get_locale() . '" />' . "\n";
         $tags .= '<meta property="og:title" content="' . $this->Title . '" />' . "\n";
-        $tags .= '<meta property="og:description" content="' . strip_tags($this->LeadText) . '" />' . "\n";
+        $tags .= '<meta property="og:description" content="' . strip_tags($this->Description) . '" />' . "\n";
         $tags .= '<meta property="og:url" content=" ' . rtrim(Director::AbsoluteUrl($this->Link()),'/'). ' " />' . "\n";
         $tags .= '<meta property="og:site_name" content="' . $siteConfig->Title . '" />' . "\n";
         $tags .= '<meta property="og:type" content="website" />' . "\n";
@@ -190,7 +184,7 @@ class Event extends DataObject{
           "@context": "https://schema.org",
           "@type": "Course",
           "name": "'.$this->Title.'",
-          "description": "'.strip_tags($this->LeadText).'",
+          "description": "'.strip_tags($this->Description).'",
           "provider": {
             "@type": "Organization",
             "name": "Schneider Hotelgastro Consulting",
