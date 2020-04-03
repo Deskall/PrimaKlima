@@ -120,14 +120,14 @@ class ShopController extends PageController{
          $cart = ShopCart::get()->byId($id);
       }
       // $cart = ShopCart::get()->last();
-      ob_start();
-      			print_r($form);
-      			$result = ob_get_clean();
-      			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
       if ($cart && $form ){
          $data = array();
          parse_str($form, $data);
          $cart->update($data);
+         if (!isset($data['DeliverySameAddress'])){
+         	$cart->DeliverySameAddress = 0;
+         }
          $cart->write();
 
          return $cart->renderWith('Includes/ShopCartSummary');
