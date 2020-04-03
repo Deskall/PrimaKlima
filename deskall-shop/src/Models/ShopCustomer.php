@@ -167,6 +167,7 @@ class ShopCustomer extends DataObject
         return $o;
     }
 
+
     public function printContact(){
         $html = '<p>';
         if ($this->Company){

@@ -9,6 +9,7 @@ class OrderItem extends DataObject {
     private static $db = array(
         'Title' => 'Varchar(255)',
         'Quantity' => 'Int',
+        'PriceUnique' => 'Currency',
         'Price' => 'Currency'
     );
 
@@ -34,7 +35,8 @@ class OrderItem extends DataObject {
     public function createFromProduct($product){
         $this->ProductID = $product->ID;
         $this->Title = $product->Title;
-        $this->Price = $product->Price;
+        $this->PriceUnique = $product->Price;
+        $this->Price = $product->Price * $product->Quantity;
         $this->Quantity = $product->Quantity;
         $this->Sort = $product->SortOrder;
         $this->write();

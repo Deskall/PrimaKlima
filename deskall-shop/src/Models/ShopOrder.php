@@ -157,6 +157,47 @@ class ShopOrder extends DataObject{
 	    return DBField::create_field('Varchar', $type);
 	}
 
+	public function printAddress(){
+        $html = '<p>';
+        if ($this->Company){
+            $html .= $this->Company.'<br/>';
+        }
+        $html .= $this->Gender.' '.$this->FirstName.' '.$this->Name.'<br/>';
+        $html .= $this->Street;
+        if ($this->Address){
+            $html .= $this->Address.'<br/>';
+        }
+        $html .= $this->PostalCode.' - '.$this->City.'<br/>';
+        if ($this->Country){
+            $html .= i18n::getData()->getCountries()[strtolower($this->Country)];
+        }
+        $html .= '</p>';
+        $o = new DBHTMLText();
+        $o->setValue($html);
+        return $o;
+    }
+
+    public function printDeliveryAddress(){
+        $html = '<p>';
+        if ($this->DeliveryCompany){
+            $html .= $this->DeliveryCompany.'<br/>';
+        }
+        $html .= $this->DeliveryGender.' '.$this->DeliveryFirstName.' '.$this->DeliveryName.'<br/>';
+        $html .= $this->DeliveryStreet;
+        if ($this->DeliveryAddress){
+            $html .= $this->DeliveryAddress.'<br/>';
+        }
+        $html .= $this->DeliveryPostalCode.' - '.$this->DeliveryCity.'<br/>';
+        if ($this->DeliveryCountry){
+            $html .= i18n::getData()->getCountries()[strtolower($this->DeliveryCountry)];
+        }
+        $html .= '</p>';
+        $o = new DBHTMLText();
+        $o->setValue($html);
+        return $o;
+    }
+
+
 	public function getPaidStatus(){
 		$paid = ($this->isPaid) ? "Ja" : "Nein";
 	    return DBField::create_field('Varchar', $paid);

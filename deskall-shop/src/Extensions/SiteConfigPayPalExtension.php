@@ -31,7 +31,8 @@ class SiteConfigPayPalExtension extends DataExtension
     'TransportPrice' => 'Currency',
     'DeliveryLabel' => 'HTMLText',
     'MwSt' => 'Varchar',
-    'FootertextProduct' => 'HTMLText'
+    'FootertextProduct' => 'HTMLText',
+    'BankAccount' => 'HTMLText'
   
   ];
 
@@ -73,6 +74,7 @@ class SiteConfigPayPalExtension extends DataExtension
      $labels['CheckoutPage'] = _t(__CLASS__.'.CheckoutPage','Webshop Kasse');
      $labels['SuccessfullPage'] = _t(__CLASS__.'.SuccessfullPage','Bestellung erfolgreich Seite');
      $labels['DeliveryLabel'] = _t(__CLASS__.'.DeliveryLabel','Lieferbedingungen');
+     $labels['BankAccount'] = _t(__CLASS__.'.BankAccount','Bank-Konto Informationen');
   }
 
   public function updateCMSFields(FieldList $fields) {
@@ -91,6 +93,7 @@ class SiteConfigPayPalExtension extends DataExtension
       NumericField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']),
       HTMLEditorField::create('FootertextProduct',$this->owner->fieldLabels()['FootertextProduct'])->setRows(5),
       HTMLEditorField::create('BillPayLabel',$this->owner->fieldLabels()['BillPayLabel'])->setRows(5),
+      HTMLEditorField::create('BankAccount',$this->owner->fieldLabels()['BankAccount'])->setRows(5),
       HTMLEditorField::create('OnlinePayLabel',$this->owner->fieldLabels()['OnlinePayLabel'])->setRows(5),
       TextField::create('BillEmailSubject',$this->owner->fieldLabels()['BillEmailSubject']),
       HTMLEditorField::create('BillEmailBody',$this->owner->fieldLabels()['BillEmailBody'])->setRows(5),
