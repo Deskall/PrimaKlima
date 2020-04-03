@@ -275,7 +275,7 @@ class ShopOrder extends DataObject{
             $pdf->useTemplate($templateId);
             // $pdf->SetFont('Lato','',8);
 
-            $pdf->setXY(8,80);
+            $pdf->setXY(8,50);
             $pdf->WriteHtml($this->renderWith('ShopOrderTable'));
 		}	
 

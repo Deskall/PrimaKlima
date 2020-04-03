@@ -1,7 +1,7 @@
 <h2><%t Webshop.OrderDetail 'Details' %></h2>
 <table cellspacing="4" cellpadding="4" style="font-size:14px;">
 	<tr><td><b><%t Webshop.OrderNumber 'Bestellung Nr.' %></b></td><td><b>$Nummer</b></td></tr>
-	<tr><td><%t Webshop.OrderNumber 'Datum' %></td><td>$Created.format('dd.MM.Y H:I')</td></tr>
+	<tr><td><%t Webshop.OrderNumber 'Datum' %></td><td>$Created.format('dd.MM.Y')</td></tr>
 	<tr><td><%t Webshop.PaymentType 'Zahlungsart' %></td><td>$PaymentResource</td></tr>
 	<tr>
 		<td><b><%t Webshop.CustomerData 'Kunden Angaben' %></b><br/>$printAddress</td>
@@ -13,7 +13,7 @@
 
 <table cellpadding="2" cellspacing="2">
 	<thead>
-		<tr style="background-color:#EEEEEE;color:#666666;"><th width="310" colspan="2" align="left"><%t Webshop.Product 'Produkt' %></th><th width="100" align="center"><%t Webshop.Quantity 'Menge' %></th><th width="120" align="right" style="text-align:right;padding-right:5px"><%t Webshop.Total 'Gesamt' %></th></tr>
+		<tr style="background-color:#EEEEEE;color:#666666;"><th width="310" colspan="2" align="left" style="padding-left:5px;"><%t Webshop.Product 'Produkt' %></th><th width="100" align="center"><%t Webshop.Quantity 'Menge' %></th><th width="120" align="right" style="text-align:right;padding-right:5px"><%t Webshop.Total 'Gesamt' %></th></tr>
 	</thead>
 	<tbody>
 		<% loop Items %>

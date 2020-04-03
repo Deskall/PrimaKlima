@@ -5,7 +5,7 @@
 			$Customer.printAddress
 			</address>
 		</td>
-		<td>
+		<td align="right">
 			<address><% if $SiteConfig.AddressTitle %> $SiteConfig.AddressTitle<br/><% end_if %><% if $SiteConfig.Address %>$SiteConfig.Address<br/><% end_if %><% if $SiteConfig.Code %> $SiteConfig.Code - $SiteConfig.City<br/><% end_if %><% if $SiteConfig.Country %>$SiteConfig.Country<% end_if %></address>
 		</td>
 	</tr>
