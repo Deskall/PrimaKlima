@@ -110,7 +110,7 @@ class TableBlock extends BaseElement implements Searchable
                  'field' => TextField::class
              ),
               'Breite' => function ($record, $column, $grid) {
-                return DropdownField::create($column,$record->fieldLabels()['Format'],$record->stat('formats'))
+                return DropdownField::create($column,$record->fieldLabels()['Format'],$record->stat('formats'));
                 }
             ));
 
