@@ -159,10 +159,10 @@ class TableBlock extends BaseElement implements Searchable
                     'title' => $header->Title,
                     'callback' => function ($record, $column, $grid) use ($header){
                         $cell = $record->Cells()->filter('HeaderID',$header->ID)->first();
-                        $field = TextareaField::create($column,$header->Title);
-                        if ($cell){
-                            $field->setValue($cell->Value);
-                        }
+                        $field = TextareaField::create($column,$header->Title)->setValue('Blablabla c\'est un texte');
+                        // if ($cell){
+                        //     $field->setValue($cell->Value);
+                        // }
                         return $field;
                     }
                 );
