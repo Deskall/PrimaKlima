@@ -159,7 +159,7 @@ class TableBlock extends BaseElement implements Searchable
                     'title' => $header->Title,
                     'callback' => function ($record, $column, $grid) use ($header){
                         ob_start();
-            print_r($grid->ClassName);
+            print_r($grid[0]);
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
                         $cell = $record->Cells()->filter('HeaderID',$header->ID)->first();
