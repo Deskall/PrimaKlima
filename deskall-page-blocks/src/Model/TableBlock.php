@@ -115,12 +115,12 @@ class TableBlock extends BaseElement implements Searchable
                 //         return DropdownField::create($column,$record->fieldLabels()['Format'],$record->stat('formats'));
                 //     }
                 // ),
-                // 'TextAlign' => array(
-                //     'title' => 'Ausricthung',
-                //     'callback' => function ($record, $column, $grid) {
-                //         return HTMLOptionsetField::create($column,$this->fieldLabels()[$column],$record->stat('text_alignments'));
-                //     }
-                // )
+                'TextAlign' => array(
+                    'title' => 'Ausricthung',
+                    'callback' => function ($record, $column, $grid) {
+                        return HTMLOptionsetField::create($column,$this->fieldLabels()[$column],$record->stat('text_alignments'));
+                    }
+                )
             ));
 
             $headersField = new GridField('Headers',$this->fieldLabels()['Headers'],$this->Headers(),$config);
