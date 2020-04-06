@@ -181,7 +181,21 @@ class TableBlock extends BaseElement implements Searchable
             ->addComponent(new GridFieldAddNewInlineButton())
             ->addComponent(new GridFieldOrderableRows('Sort'))
             ->addComponent(new GridFieldShowHideAction());
-            $config2->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields($columns);
+            $config2->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
+                    'title' => $header->Title,
+                    'callback' => function ($record, $column, $grid) {
+                        ob_start();
+                        print_r($record->ClassName);
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+                        $cell = $record->Cells()->filter('HeaderID',$header->ID)->first();
+                        $field = TextareaField::create($column,$header->Title)->setValue('Blablabla c\'est un texte');
+                        // if ($cell){
+                        //     $field->setValue($cell->Value);
+                        // }
+                        return $field;
+                    }
+                ));
 
             $rowsField = new GridField('Rows',$this->fieldLabels()['Rows'],$this->Rows(),$config2);
 
