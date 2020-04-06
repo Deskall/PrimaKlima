@@ -21,7 +21,13 @@ class TableRow extends DataObject
         'Sortable'
     ];
 
-
+    public function onBeforeWrite(){
+        parent::onBeforeWrite();
+        ob_start();
+                    print_r($this);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+    }
 
 
     public function getCMSFields()
