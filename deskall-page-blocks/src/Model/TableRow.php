@@ -29,10 +29,6 @@ class TableRow extends DataObject
     public function saveCells(){
         $exclude = ['SecurityID','ParentID'];
         $changed = $this->getChangedFields();
-        ob_start();
-            print_r($changed);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
         foreach ($changed as $key => $value) {
             //save only header
             if (!in_array($key,$exclude)){

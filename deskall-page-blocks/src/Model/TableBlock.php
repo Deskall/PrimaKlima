@@ -157,7 +157,14 @@ class TableBlock extends BaseElement implements Searchable
             foreach ($this->Headers() as $header) {
                 $columns[$header->ID] = array(
                     'title' => $header->Title,
-                    'field' => TextareaField::class
+                    'callback' => function ($record, $column, $grid) use ($header){
+                        $cell = $record->Cells()->filter('HeaderID',$header->ID)->first();
+                        $field = TextareaField::create($column,$header->Title);
+                        if ($cell){
+                            $field->setValue($cell->Value);
+                        }
+                        return $field;
+                    }
                 );
             }
             $config2 = 
