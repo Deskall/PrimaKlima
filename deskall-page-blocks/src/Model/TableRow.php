@@ -23,10 +23,15 @@ class TableRow extends DataObject
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
+        $this->saveCells();
+    }
+
+    public function saveCells(){
+        $changed = $this->getChangedFields();
         ob_start();
-                    print_r($this);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+            print_r($changed);
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     }
 
 
