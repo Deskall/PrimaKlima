@@ -68,6 +68,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'ListBlock',
         'DNADesign-ElementalUserForms-Model-ElementForm',
         'DownloadBlock',
+        'TableBlock',
         'LargeImageBlock',
         'ParentBlock',
         'LeadBlock',
@@ -79,7 +80,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'SitemapBlock',
         'CodeBlock',
         'DuplicateBlock',
-        'VirtualBlock'
+        'VirtualBlock',
     ];
 
     private static $children_blocks = [
@@ -91,6 +92,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'ListBlock',
         'DNADesign-ElementalUserForms-Model-ElementForm',
         'DownloadBlock',
+        'TableBlock',
         'ParentBlock',
         'NavigationBlock',
         'MapBlock',
