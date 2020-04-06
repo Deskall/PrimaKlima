@@ -33,9 +33,9 @@ class TableRow extends DataObject
             print_r($changed);
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-        foreach ($changed as $field => $value) {
+        foreach ($changed as $key => $value) {
             //save only header
-            if (!in_array($field,$exclude)){
+            if (!in_array($key,$exclude)){
                 $header = $this->Parent()->Headers()->byId($key);
                 if ($header){
                     //If new create
