@@ -105,6 +105,8 @@ class TableBlock extends BaseElement implements Searchable
             ->addComponent(new GridFieldShowHideAction());
            
             $headersField = new GridField('Headers',$this->fieldLabels()['Headers'],$this->Headers(),$config);
+
+            $fields->addFieldToTab('Root.Main',$headersField);
         }
 
         
