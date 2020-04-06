@@ -29,17 +29,17 @@ class TableRow extends DataObject
     public function saveCells(){
         $exclude = ['SecurityID','ParentID'];
         $changed = $this->getChangedFields();
-        foreach ($changed as $key => $value) {
+        foreach ($changed as $title => $value) {
             //save only header
-            if (!in_array($key,$exclude)){
-                $header = $this->Parent()->Headers()->byId($key);
+            if (!in_array($title,$exclude)){
+                $header = $this->Parent()->Headers()->filter('Title',$title);
                 if ($header){
-                    $cell = TableCell::get()->filter(['HeaderID' => $key,'RowID' => $this->ID])->first();
+                    $cell = TableCell::get()->filter(['HeaderID' => $header->ID,'RowID' => $this->ID])->first();
                     //If new create
                     if (!$cell){
                         $cell = new TableCell();
                         $cell->RowID = $this->ID;
-                        $cell->HeaderID = $key;
+                        $cell->HeaderID = $header->ID;
                         $cell->Sort = $header->Sort;
                     }
                     $cell->Value = $value['after'];
