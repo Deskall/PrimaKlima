@@ -174,7 +174,8 @@ class TableBlock extends BaseElement implements Searchable
             ->addComponent(new GridFieldDeleteAction())
             ->addComponent(new GridFieldAddNewInlineButton())
             ->addComponent(new GridFieldOrderableRows('Sort'))
-            ->addComponent(new GridFieldShowHideAction());
+            ->addComponent(new GridFieldShowHideAction())
+            ->addComponent(new GridFieldDuplicateAction());
             $config2->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields($columns);
 
             $rowsField = new GridField('Rows',$this->fieldLabels()['Rows'],$this->Rows(),$config2);
