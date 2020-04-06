@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -12,7 +13,7 @@
 	*{margin:0;font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;color: #666;}
 	img{max-width:100%}
 	.logo img{max-width: 150px;height:auto;}
-	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%;background-color:#EEEEEE;}
+	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%}
 	.content table,table.body-wrap,table.footer-wrap,table.head-wrap{width:100%}
 	.body-wrap .container{background-color:#FFFFFF;margin-bottom:15px;box-shadow:0 0 15px #666;}
 	a{color:#666}
@@ -62,7 +63,6 @@
 	.column tr td,.content{padding:15px}
 	ul.sidebar li a.last{border-bottom-width:0}
 	ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.sidebar li a h5,ul.sidebar li a h6,ul.sidebar li a p{margin-bottom:0!important}
-	.table-products td{padding:5px;}
 	.container{display:block!important;max-width:600px!important;margin:0 auto!important}
 	.content{max-width:600px;margin:0 auto;display:block}
 	.column{width:300px;float:left}
@@ -74,26 +74,25 @@
 		div[class=column]{width:auto!important;float:none!important}
 		table.social div[class=column]{width:auto!important}
 	}
+	.uk-clearfix{clear: both; float: left; width: 100%;}
+	[class*='uk-float-']{max-width:100%;}
+	.uk-float-right{float:right;}
+	.uk-float-left{float:left;}
 	.uk-text-bold{font-weight: bolder; } 
 	.uk-text-small{font-size: 0.875rem; line-height: 1.5; }
 	.uk-heading-divider {margin: 10px 0; border-bottom: 1px solid #ccc; float: left; width: 100%;}
 	.uk-text-large {font-size: 1.5rem; line-height: 1.5; }
-	.uk-clearfix:before{content:""; display: table-cell; }
-	.uk-clearfix:after{content: ""; display: table; clear: both; }
-	[class*='uk-float-']{max-width:100%;}
-	.uk-float-right{float:right;}
-	.uk-float-left{float:left;}
-	</style>
 
+	</style>
 </head>
 
-<body bgcolor="#EEEEEE" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#EEEEEE">
+<body bgcolor="#EEEEEE" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 	<!-- HEADER -->
 	<table class="head-wrap">
 		<tbody>
 			<tr>
 				<td><br /></td>
-				<td class="header container" bgcolor="#000000"><!-- /content -->
+				<td class="header container" align=""><!-- /content -->
 					<div class="content">
 						<table>
 							<tbody>
@@ -136,7 +135,16 @@
 						</table>
 					</div>
 					<div class="content">
-						$Body
+						$Body.RAW
+
+						<% if not $HideFormData %>
+							<dl>
+								<% loop $Fields %>
+									<dt><strong><% if $Title %>$Title<% else %>$Name<% end_if %></strong></dt>
+									<dd style="margin: 4px 0 14px 0">$FormattedValue</dd>
+								<% end_loop %>
+							</dl>
+						<% end_if %>
 					</div>
 
 
