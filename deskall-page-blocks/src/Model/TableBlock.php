@@ -155,22 +155,11 @@ class TableBlock extends BaseElement implements Searchable
         if ($this->ID > 0 && $this->Headers()->exists()){
             $columns = [];
             foreach ($this->Headers() as $header) {
-                $columns[$header->ID] = array(
+                $columns[$header->Title] = array(
                     'title' => $header->Title,
-                    'callback' => function ($record, $column, $grid) use ($header){
-                        $cell = $record->Cells()->filter('HeaderID',$header->ID)->first();
-                        $field = TextareaField::create($column,$header->Title);
-                        if ($cell){
-                            $field->setValue($cell->Value);
-                        }
-                        return $field;
-                    }
+                    'field' => TextareaField::class
                 );
             }
-            ob_start();
-                        print_r($columns);
-                        $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
             $config2 = 
             GridFieldConfig::create()
             ->addComponent(new GridFieldButtonRow('before'))
