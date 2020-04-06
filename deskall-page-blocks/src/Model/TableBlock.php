@@ -153,22 +153,22 @@ class TableBlock extends BaseElement implements Searchable
         }
 
         if ($this->ID > 0 && $this->Headers()->exists()){
-            $columns = [];
-            foreach ($this->Headers() as $header) {
-                $columns[$header->Title] = array(
-                    'title' => $header->Title,
-                    'callback' => function ($record, $column, $grid) use ($header){
-                        $field = TextareaField::create($column,$header->Title);
-                        if ($record->ClassName == "TableRow"){
-                            $cell = $record->Cells()->filter('HeaderID',$header->ID)->first();
-                            if ($cell){
-                                $field->setValue($cell->Value);
-                            }
-                        }
-                        return $field;
-                    }
-                );
-            }
+            // $columns = [];
+            // foreach ($this->Headers() as $header) {
+            //     $columns[$header->Title] = array(
+            //         'title' => $header->Title,
+            //         'callback' => function ($record, $column, $grid) use ($header){
+            //             $field = TextareaField::create($column,$header->Title);
+            //             if ($record->ClassName == "TableRow"){
+            //                 $cell = $record->Cells()->filter('HeaderID',$header->ID)->first();
+            //                 if ($cell){
+            //                     $field->setValue($cell->Value);
+            //                 }
+            //             }
+            //             return $field;
+            //         }
+            //     );
+            // }
             $config2 = 
             GridFieldConfig::create()
             ->addComponent(new GridFieldButtonRow('before'))
@@ -179,7 +179,12 @@ class TableBlock extends BaseElement implements Searchable
             ->addComponent(new GridFieldAddNewInlineButton())
             ->addComponent(new GridFieldOrderableRows('Sort'))
             ->addComponent(new GridFieldShowHideAction());
-            $config2->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields($columns);
+            $config2->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(
+                array(
+                    'title' => 'Spalte 1',
+                    'field' => TextareaField::class
+                )
+            );
 
             $rowsField = new GridField('Rows',$this->fieldLabels()['Rows'],$this->Rows(),$config2);
 
