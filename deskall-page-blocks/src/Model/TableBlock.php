@@ -81,6 +81,9 @@ class TableBlock extends BaseElement implements Searchable
         $labels['MobileFormat'] = _t(__CLASS__.'.MobileFormat', 'Mobile Ansicht');
         $labels['Rows'] = _t(__CLASS__.'.Rows', 'Tabelle Linien');
         $labels['Headers'] = _t(__CLASS__.'.Headers', 'Tabelle Spalten');
+        $labels['Striped'] = _t(__CLASS__.'.Striped', 'Linien gestreift');
+        $labels['Divider'] = _t(__CLASS__.'.Divider', 'Teiler zwischen Reihe');
+        $labels['Hover'] = _t(__CLASS__.'.Hover', 'auf den Mauszeiger reagieren');
 
         return $labels;
     }
@@ -97,7 +100,12 @@ class TableBlock extends BaseElement implements Searchable
         // $fields->fieldByName('Root.Main.NumberOfColumns')->setMin(1)->setMax(10);
             
         // LAYOUT
-        $fields->addFieldToTab('Root.LayoutTab', DropdownField::create('MobileFormat',$this->fieldLabels()['MobileFormat'], $this->getTranslatedSourceFor(__CLASS__,'mobile_formats')));
+        $fields->addFieldsToTab('Root.LayoutTab', [
+            DropdownField::create('MobileFormat',$this->fieldLabels()['MobileFormat'], $this->getTranslatedSourceFor(__CLASS__,'mobile_formats')),
+            CheckboxField::create('Striped',$this->fieldLabels()['Striped']),
+            CheckboxField::create('Divider',$this->fieldLabels()['Divider']),
+            CheckboxField::create('Hover',$this->fieldLabels()['Hover'])
+        ]);
 
         if ($this->ID > 0){
             $config = 
