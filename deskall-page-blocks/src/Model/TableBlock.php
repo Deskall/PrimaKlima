@@ -158,7 +158,7 @@ class TableBlock extends BaseElement implements Searchable
                 $columns[$header->ID] = array(
                     'title' => $header->Title,
                     'callback' => function ($record, $column, $grid) use ($header){
-                        $cell = $record->Cells()->filter('HeaderID',$header->ID);
+                        $cell = $record->Cells()->filter('HeaderID',$header->ID)->first();
                         $field = TextareField::create($column,$header->Title]);
                         if ($cell){
                             $field->setValue($cell->Value);
