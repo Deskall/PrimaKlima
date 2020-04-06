@@ -11,7 +11,7 @@
 	<table class="uk-table">
 		<thead>
 			<% loop Headers %>
-				<th class="$Format $TextAlign uk-text-no-wrap">$Title</th>
+				<th class="$Format $TextAlign uk-text-nowrap">$Title</th>
 			<% end_loop %>
 		</thead>
 	</table>
