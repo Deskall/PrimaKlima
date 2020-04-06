@@ -115,12 +115,33 @@ class TableBlock extends BaseElement implements Searchable
                         return DropdownField::create($column,$record->fieldLabels()['Format'],['' => 'standard','uk-table-expand'  => 'erweitern','uk-table-shrink'   => 'schrumpfen']);
                     }
                 ),
-                // 'TextAlign' => array(
-                //     'title' => 'Ausricthung',
-                //     'callback' => function ($record, $column, $grid) {
-                //         return HTMLOptionsetField::create($column,$this->fieldLabels()[$column],$record->stat('text_alignments'));
-                //     }
-                // )
+                'TextAlign' => array(
+                    'title' => 'Ausricthung',
+                    'callback' => function ($record, $column, $grid) {
+                        return HTMLOptionsetField::create($column,$this->fieldLabels()[$column],[
+        'uk-text-left' =>  [
+            'value' => 'uk-text-left',
+            'title' => 'Links Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+        ],
+        'uk-text-right' => [
+            'value' => 'uk-text-right',
+            'title' => 'Rechts Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+        ],
+        'uk-text-center' =>  [
+            'value' => 'uk-text-center',
+            'title' => 'Mittel Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+        ],
+        'uk-text-justify' =>  [
+            'value' => 'uk-text-justify',
+            'title' => 'Justify Ausrichtung',
+            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
+        ]
+    ]);
+                    }
+                )
             ));
 
             $headersField = new GridField('Headers',$this->fieldLabels()['Headers'],$this->Headers(),$config);
