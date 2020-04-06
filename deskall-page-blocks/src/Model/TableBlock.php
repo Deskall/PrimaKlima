@@ -155,7 +155,7 @@ class TableBlock extends BaseElement implements Searchable
         if ($this->ID > 0 && $this->Headers()->exists()){
             $columns = [];
             foreach ($this->Headers() as $header) {
-                $columns[$header->Title] = array(
+                $columns[$header->ID] = array(
                     'title' => $header->Title,
                     'field' => TextareaField::class
                 );
