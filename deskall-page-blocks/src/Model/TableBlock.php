@@ -105,13 +105,16 @@ class TableBlock extends BaseElement implements Searchable
             ->addComponent(new GridFieldOrderableRows('Sort'))
             ->addComponent(new GridFieldShowHideAction());
             $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
-             'Title' => array(
-                 'title' => 'Titel',
-                 'field' => TextField::class
-             ),
-              'Breite' => function ($record, $column, $grid) {
-                return DropdownField::create($column,$record->fieldLabels()['Format'],$record->stat('formats'));
-                }
+                'Title' => array(
+                    'title' => 'Titel',
+                    'field' => TextField::class
+                ),
+                'Format' => function ($record, $column, $grid) {
+                    return DropdownField::create($column,$record->fieldLabels()['Format'],$record->stat('formats'));
+                },
+                'TextAlign' => function ($record, $column, $grid) {
+                    return HTMLOptionsetField::create($column,$this->fieldLabels()[$column],$record->stat('text_alignments'));
+                },
             ));
 
             $headersField = new GridField('Headers',$this->fieldLabels()['Headers'],$this->Headers(),$config);
