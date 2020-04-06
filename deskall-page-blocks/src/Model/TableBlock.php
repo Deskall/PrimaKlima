@@ -3,6 +3,7 @@
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\ORM\FieldType\DBField;
@@ -103,7 +104,16 @@ class TableBlock extends BaseElement implements Searchable
             ->addComponent(new GridFieldAddNewInlineButton())
             ->addComponent(new GridFieldOrderableRows('Sort'))
             ->addComponent(new GridFieldShowHideAction());
-           
+            $config->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
+             'Title' => array(
+                 'title' => 'Titel',
+                 'field' => TextField::class
+             ),
+              'Breite' => function ($record, $column, $grid) {
+                return DropdownField::create($column,$record->fieldLabels()['Format'],$record->stat('formats'))
+                }
+            ));
+
             $headersField = new GridField('Headers',$this->fieldLabels()['Headers'],$this->Headers(),$config);
 
             $fields->addFieldToTab('Root.Main',$headersField);

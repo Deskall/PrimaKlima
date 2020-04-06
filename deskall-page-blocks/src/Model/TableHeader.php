@@ -17,7 +17,7 @@ class TableHeader extends DataObject
 {
 
     private static $db = [
-        'Title' => 'Text',
+        'Title' => 'Varchar',
         'Format' => 'Varchar',
         'TextAlign' => 'Varchar(255)'
     ];
