@@ -75,6 +75,8 @@ class TableBlock extends BaseElement implements Searchable
         $labels['HTML'] = _t(__CLASS__.'.HTML', 'Inhalt');
         $labels['Caption'] = _t(__CLASS__.'.Caption', 'Tabelle Beschriftung');
         $labels['MobileFormat'] = _t(__CLASS__.'.MobileFormat', 'Mobile Ansicht');
+        $labels['Rows'] = _t(__CLASS__.'.Rows', 'Tabelle Linien');
+        $labels['Headers'] = _t(__CLASS__.'.Headers', 'Tabelle Spalten');
 
         return $labels;
     }
@@ -119,27 +121,27 @@ class TableBlock extends BaseElement implements Searchable
                     'title' => 'Ausricthung',
                     'callback' => function ($record, $column, $grid) {
                         return HTMLOptionsetField::create($column,$this->fieldLabels()[$column],[
-        'uk-text-left' =>  [
-            'value' => 'uk-text-left',
-            'title' => 'Links Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
-        ],
-        'uk-text-right' => [
-            'value' => 'uk-text-right',
-            'title' => 'Rechts Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
-        ],
-        'uk-text-center' =>  [
-            'value' => 'uk-text-center',
-            'title' => 'Mittel Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
-        ],
-        'uk-text-justify' =>  [
-            'value' => 'uk-text-justify',
-            'title' => 'Justify Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
-        ]
-    ]);
+                            'uk-text-left' =>  [
+                                'value' => 'uk-text-left',
+                                'title' => 'Links Ausrichtung',
+                                'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+                            ],
+                            'uk-text-right' => [
+                                'value' => 'uk-text-right',
+                                'title' => 'Rechts Ausrichtung',
+                                'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+                            ],
+                            'uk-text-center' =>  [
+                                'value' => 'uk-text-center',
+                                'title' => 'Mittel Ausrichtung',
+                                'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+                            ],
+                            'uk-text-justify' =>  [
+                                'value' => 'uk-text-justify',
+                                'title' => 'Justify Ausrichtung',
+                                'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
+                            ]
+                        ]);
                     }
                 )
             ));
@@ -147,6 +149,33 @@ class TableBlock extends BaseElement implements Searchable
             $headersField = new GridField('Headers',$this->fieldLabels()['Headers'],$this->Headers(),$config);
 
             $fields->addFieldToTab('Root.Main',$headersField);
+        }
+
+        if ($this->ID > 0 && $this->Headers()->exists()){
+            $columns = [];
+            foreach ($this->Headers() as $header) {
+                $columns[$header->Title] = array(
+                    'title' => $header->Title,
+                    'field' => TextareaField::class
+                );
+            }
+            $config2 = 
+            GridFieldConfig::create()
+            ->addComponent(new GridFieldButtonRow('before'))
+            ->addComponent(new GridFieldToolbarHeader())
+            ->addComponent(new GridFieldTitleHeader())
+            ->addComponent(new GridFieldEditableColumns())
+            ->addComponent(new GridFieldDeleteAction())
+            ->addComponent(new GridFieldAddNewInlineButton())
+            ->addComponent(new GridFieldOrderableRows('Sort'))
+            ->addComponent(new GridFieldShowHideAction());
+            $config2->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields($columns);
+
+            $rowsField = new GridField('Rows',$this->fieldLabels()['Rows'],$this->Rows(),$config2);
+
+            $fields->addFieldToTab('Root.Rows',$rowsField);
+
+            $fields->fieldByName('Root.Rows')->setTitle($this->fieldLabels()['Rows']);
         }
 
         
