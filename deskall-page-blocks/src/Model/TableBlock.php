@@ -161,16 +161,16 @@ class TableBlock extends BaseElement implements Searchable
                         $cell = $record->Cells()->filter('HeaderID',$header->ID)->first();
                         $field = TextareaField::create($column,$header->Title);
                         if ($cell){
-                            ob_start();
-                            print_r($cell->Value);
-                            $result = ob_get_clean();
-                            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
                             $field->setValue($cell->Value);
                         }
                         return $field;
                     }
                 );
             }
+            ob_start();
+                        print_r($columns);
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
             $config2 = 
             GridFieldConfig::create()
             ->addComponent(new GridFieldButtonRow('before'))
