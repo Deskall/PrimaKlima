@@ -8,7 +8,8 @@
 	<% end_if %>
 
 	<% if Headers.exists %>
-	<table class="uk-table">
+	<% if MobileFormat == "overflow" %><div class="uk-overflow-auto"><% end_if %>
+	<table class="uk-table <% if Striped %>uk-table-striped<% end_if %> <% if Divider %>uk-table-divider<% end_if %> <% if MobileFormat == "stack" %>uk-table-responsive<% end_if %>">
 		<thead>
 			<% loop Headers %>
 				<th class="$Format $TextAlign uk-text-nowrap">$Title</th>
@@ -25,4 +26,5 @@
 			<% end_loop %>
 		</tbody>
 	</table>
+	<% if MobileFormat == "overflow" %></div><% end_if %>
 	<% end_if %>

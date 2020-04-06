@@ -44,6 +44,9 @@ class TableBlock extends BaseElement implements Searchable
         'HTML' => 'HTMLText',
         'Caption' => 'Varchar',
         'MobileFormat' => 'Varchar',
+        'Striped' => 'Boolean(0)',
+        'Divider' => 'Boolean(0)',
+        'Hover' => 'Boolean(0)',
         // 'NumberOfColumns' => 'Int'
     ];
 
