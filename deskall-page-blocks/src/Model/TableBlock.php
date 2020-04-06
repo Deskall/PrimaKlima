@@ -158,13 +158,13 @@ class TableBlock extends BaseElement implements Searchable
                 $columns[$header->ID] = array(
                     'title' => $header->Title,
                     'callback' => function ($record, $column, $grid) use ($header){
-                        ob_start();
-            print_r($record->ClassName);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
                         $cell = $record->Cells()->filter('HeaderID',$header->ID)->first();
                         $field = TextareaField::create($column,$header->Title);
                         if ($cell){
+                            ob_start();
+                            print_r($cell->Value);
+                            $result = ob_get_clean();
+                            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
                             $field->setValue($cell->Value);
                         }
                         return $field;
