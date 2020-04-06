@@ -2,7 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 
-class Row extends DataObject
+class TableRow extends DataObject
 {
 
 

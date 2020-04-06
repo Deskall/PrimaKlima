@@ -10,8 +10,8 @@ class TableCell extends DataObject
     ];
 
     private static $has_one = [
-        'Header' => Header::class,
-        'Row' => Row::class
+        'Header' => TableHeader::class,
+        'Row' => TableRow::class
     ];
 
     public function fieldLabels($includerelations = true) {

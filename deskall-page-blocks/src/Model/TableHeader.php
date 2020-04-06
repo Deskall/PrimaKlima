@@ -13,7 +13,7 @@ use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\SiteConfig\SiteConfig;
 
-class Header extends DataObject
+class TableHeader extends DataObject
 {
 
     private static $db = [
