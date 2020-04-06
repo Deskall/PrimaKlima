@@ -164,6 +164,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 			if ($page->ElementalAreaID > 0){
 				$blocks = array();
 				foreach ($page->ElementalArea()->Elements() as $block) {
+					
 					$blocks[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
 					if ($block->ClassName == "ParentBlock"){
 						foreach ($block->Elements()->Elements() as $underblock) {
@@ -172,7 +173,7 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 					}
 				}
 				//build the page unique sitetree strucuture
-				$pageTree = $page->NestedTitle(4," > ");
+				$pageTree = $page->ID.' - '.$page->NestedTitle(4," > ");
 			
 				$blockstree[$pageTree] = $blocks;
 			}
