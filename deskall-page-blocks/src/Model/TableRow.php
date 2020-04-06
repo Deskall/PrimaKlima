@@ -38,21 +38,15 @@ class TableRow extends DataObject
             if (!in_array($key,$exclude)){
                 $header = $this->Parent()->Headers()->byId($key);
                 if ($header){
+                    $cell = TableCell::get()->filter(['HeaderID' => $key,'RowID' => $this->ID])->first();
                     //If new create
-                    if (empty($value['before'])){
+                    if (!$cell){
                         $cell = new TableCell();
                         $cell->RowID = $this->ID;
                         $cell->HeaderID = $key;
                         $cell->Sort = $header->Sort;
-                        $cell->Value = $value['after'];
                     }
-                    //else update
-                    else{
-                        $cell = $this->Cells()->filter(['HeaderID' => $key,'RowID' => $this->ID])->first();
-                        if ($cell){
-                            $cell->Value = $value['after'];
-                        }
-                    }
+                    $cell->Value = $value['after'];
                     $cell->write();
                 }
                 
