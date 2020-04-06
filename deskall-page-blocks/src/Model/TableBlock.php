@@ -112,7 +112,7 @@ class TableBlock extends BaseElement implements Searchable
                 'Format' => array(
                     'title' => 'Breite',
                     'callback' => function ($record, $column, $grid) {
-                        return DropdownField::create($column,$record->fieldLabels()['Format'],['1' => 1]);
+                        return DropdownField::create($column,$record->fieldLabels()['Format'],['' => 'standard','uk-table-expand'  => 'erweitern','uk-table-shrink'   => 'schrumpfen']);
                     }
                 ),
                 // 'TextAlign' => array(
