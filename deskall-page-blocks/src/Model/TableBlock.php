@@ -153,22 +153,18 @@ class TableBlock extends BaseElement implements Searchable
         }
 
         if ($this->ID > 0 && $this->Headers()->exists()){
-            // $columns = [];
-            // foreach ($this->Headers() as $header) {
-            //     $columns[$header->Title] = array(
-            //         'title' => $header->Title,
-            //         'callback' => function ($record, $column, $grid) use ($header){
-            //             $field = TextareaField::create($column,$header->Title);
-            //             if ($record->ClassName == "TableRow"){
-            //                 $cell = $record->Cells()->filter('HeaderID',$header->ID)->first();
-            //                 if ($cell){
-            //                     $field->setValue($cell->Value);
-            //                 }
-            //             }
-            //             return $field;
-            //         }
-            //     );
-            // }
+            $columns = [];
+            $i = 1;
+            foreach ($this->Headers() as $header) {
+                $columns['Header'.$i] = array(
+                    'title' => $header->Title,
+                    'callback' => function ($record, $column, $grid){
+                    
+                        return TextareaField::create($column);
+                    }
+                );
+                $i++;
+            }
             $config2 = 
             GridFieldConfig::create()
             ->addComponent(new GridFieldButtonRow('before'))
@@ -179,7 +175,8 @@ class TableBlock extends BaseElement implements Searchable
             ->addComponent(new GridFieldAddNewInlineButton())
             ->addComponent(new GridFieldOrderableRows('Sort'))
             ->addComponent(new GridFieldShowHideAction());
-           
+            $config2->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields($columns);
+
             $rowsField = new GridField('Rows',$this->fieldLabels()['Rows'],$this->Rows(),$config2);
 
             $fields->addFieldToTab('Root.Rows',$rowsField);
