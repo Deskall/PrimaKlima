@@ -179,13 +179,7 @@ class TableBlock extends BaseElement implements Searchable
             ->addComponent(new GridFieldAddNewInlineButton())
             ->addComponent(new GridFieldOrderableRows('Sort'))
             ->addComponent(new GridFieldShowHideAction());
-            $config2->getComponentByType(GridFieldEditableColumns::class)->setDisplayFields(array(
-                'Spalte 1' => array(
-                    'title' => 'Spalte 1',
-                    'field' => TextareaField::class
-                )
-            ));
-
+           
             $rowsField = new GridField('Rows',$this->fieldLabels()['Rows'],$this->Rows(),$config2);
 
             $fields->addFieldToTab('Root.Rows',$rowsField);
