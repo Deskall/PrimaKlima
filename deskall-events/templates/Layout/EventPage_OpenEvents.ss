@@ -27,7 +27,7 @@
 							<table class="uk-table uk-table-small uk-table-striped uk-table-middle">
 								<tbody>
 								<% loop Dates %>
-								<tr><td><i class="icon icon-calendar uk-margin-small-right"></i>$Date</td><td><i class="icon icon-ios-location uk-margin-small-right"></i><%t Event.In 'in' %> $City</td><td>$Price.Nice</td><td><a href="$RegisterLink" class="uk-button button-gruen"><i class="icon icon-log-in uk-margin-small-right"></i><%t Event.RegisterNow 'jetzt anmelden' %></a></td></tr>
+								<tr><td><i class="icon icon-calendar uk-margin-small-right"></i>$Date</td><td><i class="icon icon-ios-location uk-margin-small-right"></i><%t Event.In 'in' %> $City</td><td>$Price.Nice</td><td><% if isFull %><i class="text-pink">ausgebucht</i><% else_if isOpen %><a href="$RegisterLink" class="uk-button button-gruen"><i class="icon icon-log-in uk-margin-small-right"></i><%t Event.RegisterNow 'jetzt anmelden' %></a><% end_if %></td></tr>
 								<% end_loop %>
 								</tbody>
 							</table>
