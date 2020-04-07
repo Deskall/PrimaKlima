@@ -147,13 +147,18 @@ class EventDate extends DataObject{
         
     }
 
+    public function getEventConfig(){
+        return EventConfig::get()->last();
+    }
+
+
     public function getConfirmedParticipants(){
         $num = $this->Participants()->filter('paid',1)->count();
         return DBField::create_field('Int',$num);
     }
 
     public function RegisterLink(){
-        return 'kurse-bereich/anmeldung/'.$this->Event()->URLSegment.'/'.$this->ID;
+        return $this->getEventConfig()->MainPage()->Link().'anmeldung/'.$this->Event()->URLSegment.'/'.$this->ID;
     }
 
     public function getOrderPrice(){
