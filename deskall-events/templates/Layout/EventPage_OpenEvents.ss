@@ -74,13 +74,13 @@
 									</div>
 									
 									<div class="uk-hidden@l">
-										<a class="uk-position-center-left uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-										<a class="uk-position-center-right uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
+										<a class="uk-position-center-left uk-dark uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+										<a class="uk-position-center-right uk-dark uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
 									</div>
 
 									<div class="uk-visible@l">
-										<a class="uk-position-center-left-out uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-										<a class="uk-position-center-right-out uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
+										<a class="uk-position-center-left-out uk-dark uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+										<a class="uk-position-center-right-out uk-dark uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
 									</div>
 									
 								</div>
@@ -97,22 +97,31 @@
 										<ul class="uk-slider-items uk-child-width-1-1" data-uk-height-match=".uk-card-body" data-uk-grid>
 									
 											<% if ActiveVideos.exists %>
-											<% loop ActiveVideos %>
-											<li class="uk-flex uk-flex-middle uk-flex-center">
-
-												<% if Type == "Datei" %>
-
-												<video data-uk-video width="480" height="360" controls>
-													<source src="$File.URL" type="video/{$File.getExtension}">
-													</video>
-
-													<% else %>
-													<a class="uk-inline uk-panel uk-link-muted uk-text-center" href="$URL" caption="$Title">
-														<figure>
-															<img src="$ThumbnailURL" width="400" alt="">
-														</figure>
-													</a>
-
+												<% loop ActiveVideos %>
+												<li class="uk-flex uk-flex-middle uk-flex-center">
+													<% if HTML %>
+														<div class="uk-grid-small uk-child-width-1-2@s" data-uk-grid>
+															<div>
+													<% end_if %>
+														<% if Type == "Datei" %>
+														<video data-uk-video width="480" height="360" controls>
+															<source src="$File.URL" type="video/{$File.getExtension}">
+															</video>
+														<% else %>
+															<a class="uk-inline uk-panel uk-link-muted uk-text-center" href="$URL" caption="$Title">
+																<figure>
+																	<img src="$ThumbnailURL" width="400" alt="">
+																</figure>
+															</a>
+														<% end_if %>
+													<% if HTML %>
+													</div>
+													<div>
+														<% if Title %>
+														<h4>$Title</h4>
+														<% end_if %>
+														$HTML
+													</div>
 													<% end_if %>
 												</li>
 												<% end_loop %>
