@@ -134,13 +134,17 @@ class Event extends DataObject{
         );
     }
 
+    public function getEventConfig(){
+        return EventConfig::get()->last();
+    }
+
 
     public function getFolderName(){
         return "Uploads/Kurse/".$this->URLSegment;
     }
 
     public function Link(){
-        return 'kurse-bereich/offene-kurse/'.$this->URLSegment;
+        return $this->getEventConfig()->MainPage()->Link().'offene-kurse/'.$this->URLSegment;
     }
 
     public function ActiveVideos(){
