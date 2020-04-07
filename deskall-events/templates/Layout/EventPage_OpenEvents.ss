@@ -1,3 +1,4 @@
+<% with Event %>
 <section class="uk-section uk-background-muted uk-padding-small">
 	<div class="uk-container">
 		<div class="breadcrumbs">
@@ -11,8 +12,6 @@
 </section>
 <section class="uk-section no-bg uk-section-small">
 	<div class="uk-container">
-		
-				<% with Event %>
 				<div class="element" id="event-{$ID}">
 					<h1>$Title</h1>
 					<div class="uk-panel">
@@ -116,7 +115,6 @@
 						</div>
 					</div>
 				</div>
-				<% end_with %>
-			
 	</div>
 </section>
+<% end_with %>
