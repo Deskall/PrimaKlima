@@ -140,7 +140,7 @@ class Event extends DataObject{
     }
 
     public function Link(){
-        return 'kurse/offene-kurse/'.$this->URLSegment;
+        return 'kurse-bereich/offene-kurse/'.$this->URLSegment;
     }
 
     public function ActiveVideos(){

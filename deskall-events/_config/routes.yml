@@ -4,4 +4,4 @@ After: '#coreroutes'
 ---
 SilverStripe\Control\Director:
   rules:
-    'kurse': 'EventPageController'
+    'kurse-bereich': 'EventPageController'

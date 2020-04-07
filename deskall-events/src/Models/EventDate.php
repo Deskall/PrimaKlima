@@ -148,7 +148,7 @@ class EventDate extends DataObject{
     }
 
     public function RegisterLink(){
-        return 'seminare/anmeldung/'.$this->Event()->URLSegment.'/'.$this->ID;
+        return 'kurse-bereich/anmeldung/'.$this->Event()->URLSegment.'/'.$this->ID;
     }
 
     public function getOrderPrice(){
