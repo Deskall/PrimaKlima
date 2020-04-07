@@ -1,0 +1,7 @@
+---
+Name: eventcontrollerroutes
+After: '#coreroutes'
+---
+SilverStripe\Control\Director:
+  rules:
+    'kurse': 'EventPageController'
