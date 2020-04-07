@@ -1,7 +1,7 @@
----
-Name: eventcontrollerroutes
-After: '#coreroutes'
----
-SilverStripe\Control\Director:
-  rules:
-    'kurse-bereich': 'EventPageController'
+# ---
+# Name: eventcontrollerroutes
+# After: '#coreroutes'
+# ---
+# SilverStripe\Control\Director:
+#   rules:
+#     'kurse-bereich': 'EventPageController'

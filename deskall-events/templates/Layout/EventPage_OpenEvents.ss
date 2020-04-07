@@ -1,10 +1,6 @@
 <section class="uk-section no-bg uk-section-small">
 	<div class="uk-container">
-		<div data-uk-grid>
-			<div class="uk-width-1-4">
-				<% include EventSidebar %>
-			</div>
-			<div class="uk-width-3-4">
+		
 				<% with Event %>
 				<div class="element" id="event-{$ID}">
 					<h1>$Title</h1>
@@ -110,7 +106,6 @@
 					</div>
 				</div>
 				<% end_with %>
-			</div>
-		</div>
+			
 	</div>
 </section>
