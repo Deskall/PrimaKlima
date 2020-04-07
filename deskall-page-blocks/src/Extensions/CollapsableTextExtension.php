@@ -17,7 +17,7 @@ class CollapsableTextExtension extends DataExtension {
     }
 
     public function updateCMSFields(FieldList $fields){
-        $fields->insertAfter('BlockVerticalAlignment',CheckboxField::create('CollapseText',$this->owner->fieldLabels()['CollapseText']));
+        $fields->insertAfter('HTML',CheckboxField::create('CollapseText',$this->owner->fieldLabels()['CollapseText']));
         $fields->insertAfter('CollapseText',NumericField::create('Limit',$this->owner->fieldLabels()['Limit'])->displayIf('CollapseText')->isChecked()->end());
     }
 
