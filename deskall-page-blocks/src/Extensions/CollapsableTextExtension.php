@@ -11,7 +11,7 @@ class CollapsableTextExtension extends DataExtension {
         'Limit' => 'Int'
     ];
 
-    public function updafeFieldLabels(&$labels){
+    public function updateFieldLabels(&$labels){
         $labels['CollapseText'] = 'Aufklappbar Text?';
         $labels['Limit'] = 'Text Länge';
     }
