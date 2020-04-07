@@ -142,7 +142,7 @@ class EventDate extends DataObject{
                 $this->Date = 'von '.$start->format('d.m.Y H:i').' bis '.$end->format('d.m.Y H:i');
             }
             else{
-                $this->Date = $start->format('d.m.Y H:i').' bis '.$end->format('H:i');
+                $this->Date = $start->format('d.m.Y H:i').' - '.$end->format('H:i').' Uhr';
             }
         
     }
