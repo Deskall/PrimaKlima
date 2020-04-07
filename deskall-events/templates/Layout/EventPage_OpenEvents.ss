@@ -3,7 +3,7 @@
 	<div class="uk-container">
 		<div class="breadcrumbs">
 			<ul class="uk-breadcrumb uk-margin-remove">
-			    <li><a href="$EventConfig.MainEventPage.Link">$EventConfig.MainEventPage.MenuTitle.XML</a></li>
+			    <li><a href="$EventConfig.MainPage.Link">$EventConfig.MainPage.MenuTitle.XML</a></li>
 			   
 			    <%-- <li><span>$Title</span></li> --%>
 			</ul>
