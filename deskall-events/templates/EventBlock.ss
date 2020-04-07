@@ -14,18 +14,28 @@
 				<% end_if %>
 				    <h3 class="uk-card-title">$Title</h3>
 				    <div class="uk-text-muted">$Subtitle</div>
+			        <div class="uk-margin uk-flex uk-flex-left">
+			        	<% if activeDates.Exists %>
+			        		<% with activeDates.first %>
+			    	    	<strong class="uk-margin-right"><%t Event.NextCourse 'Nächster Kurse:' %></strong><strong class="uk-margin-right"><i class="icon icon-calendar uk-margin-small-right"></i>$City</strong>
+			    	    	<% end_with %>
+			    	    <% else %>
+			    	    <p><i>Bisher ist kein Datum geplant</i></p>
+			       		 <% end_if %>
+			       	</div>
 				    $Description
 				    <div class="uk-text-right@m">
 				    	<a href="$Link" class="uk-button button-gruen" title="<%t Event.SeeDetails 'Details ansehen' %>"><%t Event.SeeDetails 'Details ansehen' %></a>
 				    </div>
-				    <% if activeDates.Exists %>
-				    <table class="uk-table uk-table-small uk-table-hover">
+				   
+
+				  <%--   <table class="uk-table uk-table-small uk-table-hover">
 				    	<% loop activeDates %>
 				    	<tr class="uk-padding-remove"><td>$City</td><td>$Date</td><td>$Price €*</td><td><% if isOpen %><a href="$RegisterLink"><%t Event.Register 'jetzt anmelden' %></a><% else %><% if isFull %><%t Event.Full 'Ausgebucht' %><% else %><%t Event.NotOpen 'Anmeldung nicht geöffnet' %><% end_if %><% end_if %></td></tr>
 				    	$EventDateStructuredData
 				    	<% end_loop %>
-				    </table>
-				    <% end_if %>
+				    </table> --%>
+				    
 				</div>
 			</div>
 		</div>
