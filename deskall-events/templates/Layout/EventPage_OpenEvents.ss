@@ -145,16 +145,22 @@
 						<% if Files.exists %>
 						<div class="uk-margin">
 							<h3><%t Event.Files 'Downloads:' %></h3>
-							<% loop Files %>
-							<div class="uk-flex uk-flex-middle">
-								<img src="$ThumbnailURL(120,120)" />
-								<div>
-									<strong>$Title</strong>
-									<div>$Extension - $Size</div>
-									<a href="$URL" target="_blank" data-uk-tooltip="title: Herunterladen"><i class="fa fa-download uk-margin-small-right" ></i><span class="file-name">$Name.LimitCharacters(30)</span></a>
-								</div>
-							</div>
-							<% end_loop %>
+							<table class="uk-table-small uk-table-middle">
+								<tbody>
+									<% loop Files %>
+									<tr>
+										<td><img src="$ThumbnailURL(120,120)" /></td>
+										<td>
+											<strong>$Title</strong>
+											<div><i>$Extension - $Size</i></div>
+										</td>
+										<td>
+											<a href="$URL" target="_blank" class="uk-button button-gruen" download><i class="icon icon-download uk-margin-small-right" ></i> herunterladen</a>
+										</td>
+									</tr>
+									<% end_loop %>
+								</tbody>
+							</table>
 						</div>
 						<% end_if %>
 						<div class="uk-margin">
