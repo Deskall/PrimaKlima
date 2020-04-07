@@ -54,9 +54,44 @@
 						<% if Images.exists %>
 						<div class="uk-margin">
 							<h3><%t Event.Images 'Bildergallerie' %></h3>
-							<div class="uk-position-relative" tabindex="-1" data-uk-slideshow="min-height: 300; max-height: 450; animation: fade">
+							<div data-uk-slider="<% if not infiniteLoop %>finite:true;<% end_if %><% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %>">
+								<div class="uk-position-relative uk-visible-toggle">
+									<div class="uk-slider-container">
+										<ul class="uk-slider-items $PicturesPerLine" data-uk-height-match=".uk-card-body" data-uk-grid>
+											<% loop Images.sort('SortOrder') %>
+												<li class="uk-flex uk-flex-middle uk-flex-center">
+													<a href="$getSourceURL" class="dk-lightbox" data-caption="$Description">
+														<img data-src="
+														<% if $getExtension == "svg" %>
+														$URL
+														<% else %>
+														$FocusFill(600,450).URL
+														<% end_if %>" alt="$Up.AltTag($Description,$Name,$up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+													</a>
+												</li>
+											<% end_loop %>
+										</ul>
+									</div>
+									
+									<div class="uk-hidden@l uk-light">
+										<a class="uk-position-center-left uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+										<a class="uk-position-center-right uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
+									</div>
 
-								<ul class="uk-slideshow-items" data-uk-lightbox>
+									<div class="uk-visible@l">
+										<a class="uk-position-center-left-out uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+										<a class="uk-position-center-right-out uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
+									</div>
+									
+								</div>
+								
+								<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+								
+
+							</div>
+							<%-- <div class="uk-position-relative" tabindex="-1" data-uk-slideshow="min-height: 300; max-height: 450; animation: fade">
+
+								<ul class="uk-slideshow-items " data-uk-lightbox>
 									<% if Images.exists %>
 									<% loop Images.sort('SortOrder') %>
 									<li class="uk-flex uk-flex-middle uk-flex-center">
@@ -76,7 +111,7 @@
 									<a class="uk-position-center-left uk-position-small uk-dark uk-text-primary" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
 									<a class="uk-position-center-right uk-position-small uk-dark uk-text-primary" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
 
-							</div>
+							</div> --%>
 						</div>
 						<% end_if %>
 						<% if ActiveVideos.exists %>
