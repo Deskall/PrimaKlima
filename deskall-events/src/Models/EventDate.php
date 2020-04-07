@@ -138,7 +138,12 @@ class EventDate extends DataObject{
         if (!$this->Date){
             $start = new \DateTime($this->Start);
             $end = new \DateTime($this->End);
-            $this->Date = 'von '.$start->format('d').' bis '.$end->format('d-m-Y');
+            if ($start->Day() != $end->Day()){
+                $this->Date = 'von '.$start->format('d.m.Y H:i').' bis '.$end->format('d.m.Y H:i');
+            }
+            else{
+                $this->Date = $start->format('d.m.Y H:i').' bis '.$end->format('H:i');
+            }
         }
     }
 
