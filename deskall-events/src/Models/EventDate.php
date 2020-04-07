@@ -135,7 +135,7 @@ class EventDate extends DataObject{
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        if (!$this->Date){
+        
             $start = new \DateTime($this->Start);
             $end = new \DateTime($this->End);
             if ($start->Day() != $end->Day()){
@@ -144,7 +144,7 @@ class EventDate extends DataObject{
             else{
                 $this->Date = $start->format('d.m.Y H:i').' bis '.$end->format('H:i');
             }
-        }
+        
     }
 
     public function getConfirmedParticipants(){
