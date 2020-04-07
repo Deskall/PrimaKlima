@@ -53,6 +53,7 @@
 						</div>
 						<% if Images.exists %>
 						<div class="uk-margin">
+							<h3><%t Event.Images 'Bildergallerie' %></h3>
 							<div class="uk-position-relative" tabindex="-1" data-uk-slideshow="min-height: 300; max-height: 450; animation: fade">
 
 								<ul class="uk-slideshow-items" data-uk-lightbox>
@@ -80,6 +81,7 @@
 						<% end_if %>
 						<% if ActiveVideos.exists %>
 						<div class="uk-margin">
+							<h3><%t Event.Videos 'Videos' %></h3>
 							<div class="uk-position-relative" tabindex="-1" data-uk-slideshow="min-height: 300; max-height: 450; animation: fade">
 
 								<ul class="uk-slideshow-items" data-uk-lightbox>
