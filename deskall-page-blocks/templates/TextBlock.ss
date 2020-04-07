@@ -74,7 +74,7 @@
 	<% else %>
 	<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 		<% if CollapseText %>
-		<div class="short-text toggle-text-{$ID}">$HTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
+		<div class="short-text toggle-text-{$ID}">$HTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary uk-box-shadow-medium" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
 		<div class="long-text toggle-text-{$ID}" hidden>$HTML</div>
 		<% end_if %>
 	</div>
