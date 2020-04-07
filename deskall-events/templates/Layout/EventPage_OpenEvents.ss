@@ -97,7 +97,7 @@
 											<% else %>
 											<a class="uk-inline uk-panel uk-link-muted uk-text-center" href="$URL" caption="$Title">
 												<figure>
-													<img src="$ThumbnailURL" width="400" alt="" class="uk-border-circle">
+													<img src="$ThumbnailURL" width="400" alt="">
 												</figure>
 											</a>
 
