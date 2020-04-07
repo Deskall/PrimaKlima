@@ -86,7 +86,9 @@ class TextBlock extends BaseElement implements Searchable
 
     private static $description = 'Content as text and image';
 
-
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
 
     public function getCMSFields()
     {
