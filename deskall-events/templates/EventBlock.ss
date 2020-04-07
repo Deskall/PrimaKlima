@@ -13,16 +13,17 @@
 				<div>
 				<% end_if %>
 				    <h3 class="uk-card-title">$Title</h3>
+				        <div class="uk-margin uk-flex uk-flex-left uk-text-small">
+				        	<% if activeDates.Exists %>
+				        		<% with activeDates.first %>
+				    	    	<strong class="uk-margin-right"><%t Event.NextCourse 'Nächster Kurse:' %></strong><strong class="uk-margin-right"><i class="icon icon-calendar uk-margin-small-right"></i>$Start.Nice</strong><strong class="uk-margin-right"><i class="icon icon-location uk-margin-small-right"></i>$City</strong>
+				    	    	<% end_with %>
+				    	    <% else %>
+				    	    <p><i>Bisher ist kein Datum geplant</i></p>
+				       		 <% end_if %>
+				       	</div>
 				    <div class="uk-text-muted">$Subtitle</div>
-			        <div class="uk-margin uk-flex uk-flex-left">
-			        	<% if activeDates.Exists %>
-			        		<% with activeDates.first %>
-			    	    	<strong class="uk-margin-right"><%t Event.NextCourse 'Nächster Kurse:' %></strong><strong class="uk-margin-right"><i class="icon icon-calendar uk-margin-small-right"></i>$Date</strong><strong class="uk-margin-right"><i class="icon icon-location uk-margin-small-right"></i>$City</strong>
-			    	    	<% end_with %>
-			    	    <% else %>
-			    	    <p><i>Bisher ist kein Datum geplant</i></p>
-			       		 <% end_if %>
-			       	</div>
+			        
 				    $Description
 				    <div class="uk-text-right@m">
 				    	<a href="$Link" class="uk-button button-gruen" title="<%t Event.SeeDetails 'Details ansehen' %>"><%t Event.SeeDetails 'Details ansehen' %></a>
