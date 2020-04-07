@@ -31,9 +31,11 @@ class Event extends DataObject{
         'Subtitle' => 'Text',
         'MenuTitle' => 'Varchar',
         'Description' => 'HTMLText',
+        'Content' => 'HTMLText',
         'URLSegment' => 'Varchar',
         'Time' => 'Varchar',
         'Target' => 'HTMLText',
+        'Duration' => 'Varchar',
         'Investition' => 'HTMLText',
         'Footer' => 'HTMLText'
     ];
@@ -76,8 +78,10 @@ class Event extends DataObject{
         $labels['Subtitle'] = _t(__CLASS__.'.Subtitle','SubTitel');
         $labels['MenuTitle'] = _t(__CLASS__.'.MenuTitle','Menu');
         $labels['Description'] = _t(__CLASS__.'.Description','Beschreibung');
+        $labels['Content'] = _t(__CLASS__.'.Content','Inhalt');
         $labels['Target'] = _t(__CLASS__.'.Target','Zielgruppe');
         $labels['Time'] = _t(__CLASS__.'.Time','Zeit');
+        $labels['Duration'] = _t(__CLASS__.'.Duration','Dauer');
         $labels['Investition'] = _t(__CLASS__.'.Investition','Preise');
         $labels['Footer'] = _t(__CLASS__.'.Footer','Extra Text');
         $labels['Files'] = _t(__CLASS__.'.Files','Dateien');
@@ -102,6 +106,8 @@ class Event extends DataObject{
         $fields->removeByName('Videos');
         $fields->removeByName('Dates');
         $fields->removeByName('CategoryID');
+
+        $fields->fieldByName('Root.Main.Description')->setRows(3);
 
         $fields->addFieldsToTab('Root.Files',[
         	SortableUploadField::create('Files',$this->fieldLabels()['Files'])->setIsMultiUpload(true)->setFolderName($this->getFolderName()),

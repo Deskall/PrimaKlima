@@ -4,8 +4,7 @@
 		<div class="breadcrumbs">
 			<ul class="uk-breadcrumb uk-margin-remove">
 			    <li><a href="$EventConfig.MainPage.Link">$EventConfig.MainPage.MenuTitle.XML</a></li>
-			   
-			    <%-- <li><span>$Title</span></li> --%>
+			    <li><span>$MenuTitle</span></li>
 			</ul>
 		</div>
 	</div>
@@ -14,8 +13,9 @@
 	<div class="uk-container">
 				<div class="element" id="event-{$ID}">
 					<h1>$Title</h1>
+					<% if Subtitle %><h2>$Subtitle</h2><% end_if %>
 					<div class="uk-panel">
-						<div class="uk-text-lead">$Intro</div>
+						<div class="uk-text-lead">$Description</div>
 						<% if Images.exists || ActiveVideos.exists %>
 						<div class="uk-margin">
 							<div class="uk-position-relative" tabindex="-1" data-uk-slideshow="min-height: 300; max-height: 450; animation: fade">
@@ -30,7 +30,7 @@
 											$URL
 											<% else %>
 											$FocusFill(600,450).URL
-											<% end_if %>" alt="$Up.AltTag($Description,$Name,$up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1" data-uk-img>
+											<% end_if %>" alt="$Up.AltTag($Description,$Name,$up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 uk-border-circle" data-uk-img>
 										</a>
 									</li>
 									<% end_loop %>
@@ -48,7 +48,7 @@
 											<% else %>
 											<a class="uk-inline uk-panel uk-link-muted uk-text-center" href="$URL" caption="$Title">
 												<figure>
-													<img src="$ThumbnailURL" width="400" alt="">
+													<img src="$ThumbnailURL" width="400" alt="" class="uk-border-circle">
 												</figure>
 											</a>
 
@@ -69,13 +69,24 @@
 							$Target
 						</div>
 						<div class="uk-margin">
+							<h3><%t Event.Dates 'Termine:' %></h3>
+							<% if Dates.exists %>
+							<table class="uk-table uk-table-small">
+								<tbody>
+								<% loop Dates %>
+								<tr><td>$Date <%t Event.In 'in' %> $City</td><td><a href="$RegisterLink" class="uk-button gruen-button" data-uk-tooltip="<%t Event.RegisterNow 'jetzt anmelden' %>"><i class="icon icon-register uk-margin-small-right"></i><%t Event.RegisterNow 'jetzt anmelden' %></a></td></tr>
+								<% end_loop %>
+								</tbody>
+							</table>
+							<% else %>
+							<p><%t Event.NoDates 'Keine Termine am Moment' %></p>
+							<% end_if %>
+						</div>
+						<div class="uk-margin">
 							<h3><%t Event.Content 'Seminarinhalte:' %></h3>
 							$Content
 						</div>
-						<div class="uk-margin">
-							<h3><%t Event.Extras 'Extras:' %></h3>
-							$Extras
-						</div>
+						
 						<div class="uk-margin">
 							<h3><%t Event.Duration 'Dauer:' %></h3>
 							$Duration
@@ -84,17 +95,7 @@
 							<h3><%t Event.Investition 'Investition:' %></h3>
 							$Investition
 						</div>
-						<div class="uk-margin">
-							<h3><%t Event.Dates 'Termine:' %></h3>
-							<% if Dates.exists %>
-							<% loop Dates %>
-							<div>$Date <%t Event.In 'in' %> $City - <a href="$RegisterLink" data-uk-tooltip="<%t Event.RegisterNow 'jetzt anmelden' %>"><%t Event.RegisterNow 'jetzt anmelden' %></a></div>
-							$EventDateStructuredData
-							<% end_loop %>
-							<% else %>
-							<p><%t Event.NoDates 'Keine Termine am Moment' %></p>
-							<% end_if %>
-						</div>
+						
 						<% if Files.exists %>
 						<div class="uk-margin">
 							<h3><%t Event.Files 'Downloads:' %></h3>
@@ -115,6 +116,12 @@
 						</div>
 					</div>
 				</div>
+
+				<% if Dates.exists %>
+					<% loop Dates %>
+					$EventDateStructuredData
+					<% end_loop %>
+				<% end_if %>
 	</div>
 </section>
 <% end_with %>
