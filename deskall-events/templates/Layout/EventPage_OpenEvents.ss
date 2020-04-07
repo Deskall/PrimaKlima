@@ -155,7 +155,7 @@
 											<div><i>$Extension - $Size</i></div>
 										</td>
 										<td>
-											<a href="$URL" target="_blank" class="uk-button button-gruen" download><i class="icon icon-download uk-margin-small-right" ></i> herunterladen</a>
+											<a href="$URL" target="_blank" class="uk-button button-gruen" download><i class="icon icon-ios-download uk-margin-small-right" ></i> herunterladen</a>
 										</td>
 									</tr>
 									<% end_loop %>
