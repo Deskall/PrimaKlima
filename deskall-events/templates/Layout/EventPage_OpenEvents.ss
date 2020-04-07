@@ -128,8 +128,15 @@
 											<% end_if %>
 										</ul>
 
-										<a class="uk-position-center-left uk-position-small uk-dark uk-text-primary" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
-										<a class="uk-position-center-right uk-position-small uk-dark uk-text-primary" data-uk-slidenav-next data-uk-slideshow-item="next"></a>
+										<div class="uk-hidden@l">
+											<a class="uk-position-center-left uk-dark uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+											<a class="uk-position-center-right uk-dark uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
+										</div>
+
+										<div class="uk-visible@l">
+											<a class="uk-position-center-left-out uk-dark uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+											<a class="uk-position-center-right-out uk-dark uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
+										</div>
 									</div>
 								</div>
 							</div>
