@@ -39,6 +39,10 @@ class DownloadBlock extends BaseElement implements Searchable
         'Files',
     ];
 
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
+
     private static $cascade_duplicates = [];
 
     private static $defaults = [

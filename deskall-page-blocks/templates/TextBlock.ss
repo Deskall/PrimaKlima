@@ -9,7 +9,12 @@
 				<% if LightBox %></a><% end_if %>
 			</div>
 			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+				<% if CollapseText %>
+				<div class="short-text toggle-text-{$ID}">$HTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary uk-box-shadow-large" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
+				<div class="long-text toggle-text-{$ID}" hidden>$HTML</div>
+				<% else %>
 				$HTML
+				<% end_if %>
 
 				<% if LinkableLinkID > 0 %>
 					<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
@@ -65,7 +70,12 @@
 				<% if LightBox %></a><% end_if %>
 			</div>
 			<div class="dk-text-content uk-width-1-1 <% if Layout == "above" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+				<% if CollapseText %>
+				<div class="short-text toggle-text-{$ID}">$HTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary uk-box-shadow-large" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
+				<div class="long-text toggle-text-{$ID}" hidden>$HTML</div>
+				<% else %>
 				$HTML
+				<% end_if %>
 				<% if LinkableLinkID > 0 %>
 					<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 				<% end_if %>
@@ -74,9 +84,11 @@
 	<% else %>
 	<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 		<% if CollapseText %>
-		<div class="short-text toggle-text-{$ID}">$HTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary uk-box-shadow-large" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
-		<div class="long-text toggle-text-{$ID}" hidden>$HTML</div>
-		<% end_if %>
+				<div class="short-text toggle-text-{$ID}">$HTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary uk-box-shadow-large" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
+				<div class="long-text toggle-text-{$ID}" hidden>$HTML</div>
+				<% else %>
+				$HTML
+				<% end_if %>
 	</div>
 	
 	<% if LinkableLinkID > 0 %>

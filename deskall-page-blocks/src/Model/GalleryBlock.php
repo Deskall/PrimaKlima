@@ -73,6 +73,10 @@ class GalleryBlock extends BaseElement implements Searchable
         'PicturesPerLine' => 'uk-child-width-1-3@s'
     ];
 
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
+
 
     private static $block_layouts = [
         'carousel' => 'Carousel',

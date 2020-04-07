@@ -62,6 +62,10 @@ class TableBlock extends BaseElement implements Searchable
 
     private static $cascade_duplicates = ['Headers','Rows'];
 
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
+
 
     private static $mobile_formats = [
         'stack' => 'Stapel',

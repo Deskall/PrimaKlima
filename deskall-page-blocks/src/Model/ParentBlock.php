@@ -55,6 +55,10 @@ class ParentBlock extends ElementList
 
     private static $cascade_duplicates = ['Elements'];
 
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
+
     public function getType()
     {
         return _t(__CLASS__ . '.BlockType', 'Parent Block');

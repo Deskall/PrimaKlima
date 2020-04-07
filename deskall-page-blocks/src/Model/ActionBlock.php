@@ -60,6 +60,10 @@ class ActionBlock extends BaseElement implements Searchable
         'Layout' => 'left'
     ];
 
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
+
     private static $block_actions = [
        'modal' => 'Modal',
        'dropdown' => 'Dropdown',

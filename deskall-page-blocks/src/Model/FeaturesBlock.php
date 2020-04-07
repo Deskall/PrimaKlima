@@ -50,7 +50,9 @@ class FeaturesBlock extends BaseElement implements Searchable
 
     private static $cascade_duplicates = ['Features'];
 
-
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
 
 
     private static $defaults = [

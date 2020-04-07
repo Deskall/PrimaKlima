@@ -73,6 +73,10 @@ class LargeImageBlock extends BaseElement implements Searchable{
         'parallax' => 'parallax' 
     ];
 
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
+
 
     public function getCMSFields(){
         $this->beforeUpdateCMSFields(function ($fields) {

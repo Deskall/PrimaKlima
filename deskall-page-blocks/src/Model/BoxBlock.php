@@ -54,6 +54,10 @@ class BoxBlock extends BaseElement implements Searchable
 
     private static $cascade_duplicates = ['Boxes'];
 
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
+
     private static $defaults = [
         'Layout' => 'standard',
         'Effect' => 'none',

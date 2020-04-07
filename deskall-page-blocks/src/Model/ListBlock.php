@@ -59,7 +59,9 @@ class ListBlock extends BaseElement implements Searchable
         'Items'
     ];
  
-
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
 
 /***********************************************************************/
     

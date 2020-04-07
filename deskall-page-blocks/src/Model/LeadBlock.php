@@ -30,7 +30,9 @@ class LeadBlock extends BaseElement implements Searchable
 
     private static $cascade_duplicates = [];
 
-    
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
 
     public function canDesactivate(){
         if ($this->isPrimary){

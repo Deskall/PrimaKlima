@@ -50,6 +50,10 @@ class MapBlock extends BaseElement implements Searchable
         'Height' => 'uk-height-medium'
     ];
 
+    private static $extensions = [
+        'CollapsableTextExtension'
+    ];
+
 
    
     private static $table_name = 'MapBlock';
