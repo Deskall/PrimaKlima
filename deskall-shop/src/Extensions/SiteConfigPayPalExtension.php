@@ -106,5 +106,9 @@ class SiteConfigPayPalExtension extends DataExtension
    
   }
 
+  public function activeCategories(){
+      return ProductCategory::get()->filter('isVisible',1);
+  }
+
   
 }

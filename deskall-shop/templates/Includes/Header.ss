@@ -24,10 +24,10 @@
 										<% end_loop %>
 									</ul>
 								</div>
-								<% else_if ClassName == "ShopPage" %>
+								<% else_if ID == $SiteConfig.ShopPage.ID %>
 								<div class="uk-navbar-dropdown">
 									<ul class="uk-nav uk-navbar-dropdown-nav">
-										<% loop activeCategories %>
+										<% loop $SiteConfig.activeCategories %>
 										<li class="uk-position-relative"><a href="$Link" title="$Title.XML">$Title.XML</a></li>
 										<% end_loop %>
 									</ul>
@@ -94,10 +94,10 @@
 											<% end_loop %>
 										</ul>
 									</div>
-									<% else_if ClassName == "ShopPage" %>
+									<% else_if ID == $SiteConfig.ShopPage.ID %>
 									<div class="uk-navbar-dropdown">
 										<ul class="uk-nav uk-navbar-dropdown-nav">
-											<% loop activeCategories %>
+											<% loop $SiteConfig.activeCategories %>
 											<li class="uk-position-relative"><a href="$Link" title="$Title.XML">$Title.XML</a></li>
 											<% end_loop %>
 										</ul>
