@@ -14,7 +14,7 @@
 			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a>3. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
-			<li class="account-tab" data-index="1">
+			<li class="account-tab" data-index="0">
 				
 					<div class="uk-panel uk-padding-small">
 						<h4><%t Checkout.Customer 'Ihre Angaben' %></h4>
@@ -29,7 +29,7 @@
 					<a class="uk-button button-gruen with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 				</div>
 			</li>
-			<li class="account-tab" data-index="2">
+			<li class="account-tab" data-index="1">
 				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
 				<div class="uk-margin">
 					<div class="uk-child-width-1-3@s" data-uk-grid data-uk-height-match=".uk-card">
@@ -61,7 +61,7 @@
 				$FieldHolder
 				<% end_with %>
 			</li>
-			<li class="account-tab" data-index="3">
+			<li class="account-tab" data-index="2">
 				<h3><%t Event.ReviewAndPay 'Prüfen und bestätigen Sie Ihre Anmeldung' %></h3>
 				<div class="uk-panel uk-padding-small">
 					<h3><%t Checkout.Voucher 'Gutschein' %></h3>
