@@ -148,7 +148,7 @@ class EventDate extends DataObject{
     }
 
     public function MwSt(){
-        $mwst = $this->Price * floatval($this->SiteConfig()->MwSt) / 100;
+        $mwst = $this->Price * floatval(SiteConfig::current_site_config()->MwSt) / 100;
         return DBCurrency::create()->setValue($mwst);
     }
 
