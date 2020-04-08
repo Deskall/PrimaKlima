@@ -1,3 +1,5 @@
+<% include HeaderSlide %>
+
 <section class="uk-section no-bg uk-section-small">
 	<div class="uk-container">
 		<div data-uk-grid>

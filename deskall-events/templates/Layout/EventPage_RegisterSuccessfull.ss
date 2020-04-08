@@ -1,10 +1,8 @@
+<% include HeaderSlide %>
+
 <section class="uk-section no-bg uk-section-small">
 	<div class="uk-container">
-		<div data-uk-grid>
-			<div class="uk-width-1-4">
-				<% include EventSidebar %>
-			</div>
-			<div class="uk-width-3-4">
+
 				<div class="element" id="event" data-event-id="$Date.ID">
 					<h1>$Title</h1>
 					<div class="uk-panel">
@@ -22,7 +20,6 @@
 						
 					</div>
 				</div>
-			</div>
-		</div>
+			
 	</div>
 </section>
