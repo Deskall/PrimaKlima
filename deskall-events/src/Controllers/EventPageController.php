@@ -107,7 +107,7 @@ class EventPageController extends PageController{
 					HiddenField::create('DateID')->setValue($dateid)
 				),
 				new FieldList(
-					FormAction::create('doRegisterBill', _t('MemberProfiles.REGISTER', 'Jetzt kostenplichtig registrieren'))->setUseButtonTag(true)->addExtraClass('uk-button button-blau')
+					FormAction::create('doRegisterBill', _t('MemberProfiles.REGISTER', 'Jetzt kostenplichtig registrieren'))->setUseButtonTag(true)->addExtraClass('uk-button button-gruen')
 				),
 				RequiredFields::create(['Gender','Name','Vorname','Email','Address','PostalCode','City','Country'])
 			);
