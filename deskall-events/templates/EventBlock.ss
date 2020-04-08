@@ -23,7 +23,7 @@
 <% end_if %>
 <% if activeEvents.exists %>
 	<% loop activeEvents %>
-	<section class="uk-section uk-padding-small <% if odd %>uk-background-muted<% end_if %>">
+	<section class="uk-section uk-padding <% if odd %>uk-background-muted<% end_if %>">
 		<div class="uk-container">
 			
 				<div class="uk-grid-small" data-uk-grid>
