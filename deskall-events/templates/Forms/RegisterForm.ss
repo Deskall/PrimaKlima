@@ -9,12 +9,34 @@
 
 	<div class="uk-container">
 		<ul id="tab-switcher" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
-			<li <% if $activeTab == "address" %>class="uk-active"<% end_if %>><a>3. <span><%t Shop.GiveAddress 'Angaben' %></span></a></li>
+			<li <% if $activeTab == "address" %>class="uk-active"<% end_if %>><a>1. <span><%t Shop.GiveAddress 'Angaben' %></span></a></li>
 			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a>2. <span><%t Shop.ChoosePayment 'Zahlungsmethod' %></span></a></li>
-			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a>4. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
+			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a>3. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
 			<li class="account-tab" data-index="1">
+				
+					<div class="uk-panel uk-padding-small">
+						<h4><%t Checkout.BillAddress 'Rechnungsadresse' %></h4>
+						$SiteConfig.BillPayLabel
+						<div class="uk-width-1-2@m">
+							<% with Fields.FieldByName('BillFields') %>
+								$FieldHolder
+							<% end_with %>
+							<div id="delivery-form-container" class="uk-margin" hidden>
+								<h4><%t Checkout.DeliveryAddress 'Lieferungsadresse' %></h4>
+								<% with Fields.FieldByName('DeliveryFields') %>
+									$FieldHolder
+								<% end_with %>
+							</div>
+						</div>
+					</div>
+				
+				<div class="uk-flex uk-flex-between">
+					<a class="uk-button button-gruen with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
+				</div>
+			</li>
+			<li class="account-tab" data-index="2">
 				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
 				<div class="uk-margin">
 					<div class="uk-child-width-1-3@s" data-uk-grid data-uk-height-match=".uk-card">
@@ -49,34 +71,11 @@
 				</div>
 				<div class="uk-flex uk-flex-between">
 					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
-					<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
+					<a class="uk-button button-gruen with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 				</div>
 				<% with Fields.FieldByName('PaymentType') %>
 				$FieldHolder
 				<% end_with %>
-			</li>
-			<li class="account-tab" data-index="2">
-				
-					<div class="uk-panel uk-padding-small">
-						<h4><%t Checkout.BillAddress 'Rechnungsadresse' %></h4>
-						$SiteConfig.BillPayLabel
-						<div class="uk-width-1-2@m">
-							<% with Fields.FieldByName('BillFields') %>
-								$FieldHolder
-							<% end_with %>
-							<div id="delivery-form-container" class="uk-margin" hidden>
-								<h4><%t Checkout.DeliveryAddress 'Lieferungsadresse' %></h4>
-								<% with Fields.FieldByName('DeliveryFields') %>
-									$FieldHolder
-								<% end_with %>
-							</div>
-						</div>
-					</div>
-				
-				<div class="uk-flex uk-flex-between">
-					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
-					<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
-				</div>
 			</li>
 			<li class="account-tab" data-index="3">
 				<h3><%t Checkout.ReviewAndPay 'Prüfen und bestätigen Sie Ihre Bestellung' %></h3>
@@ -87,7 +86,7 @@
 					<div class="uk-flex uk-flex-wrap">
 						<div class=" uk-width-medium uk-margin-small-right"><input type="text" name="voucher" class="uk-input" minlength="10" maxlength="10" placeholder="<%t Checkout.VoucherPLH 'zb: A12B3C4DEF' %>" /></div>
 						<div>
-							<a class="uk-button button-blau with-chevron uk-text-nowrap" data-check-voucher><%t Checkout.VoucherCheck 'Gutschein prüfen' %></a>
+							<a class="uk-button button-gruen with-chevron uk-text-nowrap" data-check-voucher><%t Checkout.VoucherCheck 'Gutschein prüfen' %></a>
 						</div>
 					</div>
 				</div>
