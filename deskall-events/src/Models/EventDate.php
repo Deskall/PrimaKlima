@@ -143,8 +143,12 @@ class EventDate extends DataObject{
             }
             else{
                 $this->Date = $start->format('d.m.Y H:i').' - '.$end->format('H:i').' Uhr';
-            }
-        
+            }   
+    }
+
+    public function MwSt(){
+        $mwst = $this->Price * floatval($this->SiteConfig()->MwSt) / 100;
+        return DBCurrency::create()->setValue($mwst);
     }
 
     public function getEventConfig(){
