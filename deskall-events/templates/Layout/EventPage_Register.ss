@@ -12,7 +12,7 @@
 <section class="uk-section no-bg uk-section-small">
 	<div class="uk-container">
 
-				<div class="uk-margin"><button class="uk-button uk-button-primary" onclick="window.history.back()"><i class="fa fa-chevron-left uk-margin-small-right"></i><%t Global.Back 'Zurück' %></button></div>
+				<%-- <div class="uk-margin"><button class="uk-button uk-button-primary" onclick="window.history.back()"><i class="fa fa-chevron-left uk-margin-small-right"></i><%t Global.Back 'Zurück' %></button></div> --%>
 				<div class="element" id="event" data-event-id="$Date.ID" data-price="$Date.Price">
 					<h1>$Title</h1>
 					<div class="uk-panel">
