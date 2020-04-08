@@ -75,16 +75,17 @@ class EventPageController extends PageController{
 				$this,
 				'RegisterForm',
 				new FieldList(
-					DropdownField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Bitte wählen')),
-					TextField::create('Name','Name'),
-					TextField::create('Vorname','Vorname'),
-					EmailField::create('Email','Email'),
-					TextField::create('Company','Firma'),
-					TextField::create('Address','Adresse'),
-					TextField::create('PostalCode','PLZ'),
-					TextField::create('City','Stadt'),
-					DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen')),
-					TextField::create('UIDNumber','UID-Nr.'),
+					CompositeField::create(
+						DropdownField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Bitte wählen')),
+						TextField::create('Name','Name'),
+						TextField::create('Vorname','Vorname'),
+						EmailField::create('Email','Email'),
+						TextField::create('Company','Firma'),
+						TextField::create('Address','Adresse'),
+						TextField::create('PostalCode','PLZ'),
+						TextField::create('City','Stadt'),
+						DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))
+					)->setName('CustomerFields'),
 					HiddenField::create('DateID')->setValue($dateid)
 				),
 				new FieldList(

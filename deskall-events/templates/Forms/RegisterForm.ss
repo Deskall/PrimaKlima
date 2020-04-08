@@ -17,10 +17,9 @@
 			<li class="account-tab" data-index="1">
 				
 					<div class="uk-panel uk-padding-small">
-						<h4><%t Checkout.BillAddress 'Rechnungsadresse' %></h4>
-						$SiteConfig.BillPayLabel
+						<h4><%t Checkout.Customer 'Ihre Angaben' %></h4>
 						<div class="uk-width-1-2@m">
-							<% with Fields.FieldByName('BillFields') %>
+							<% with Fields.FieldByName('CustomerFields') %>
 								$FieldHolder
 							<% end_with %>
 							<div id="delivery-form-container" class="uk-margin" hidden>
