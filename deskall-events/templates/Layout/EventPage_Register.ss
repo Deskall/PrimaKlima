@@ -16,12 +16,15 @@
 				<div class="element" id="event" data-event-id="$Date.ID" data-price="$Date.Price">
 					<h1>$Title</h1>
 					<div class="uk-panel">
-						<table class="uk-table uk-table-small">
-							<tr><td><%t Event.Label 'Seminar' %></td><td class="uk-table-expand">$Event.Title</td></tr>
-							<tr><td><%t Event.City 'Ort' %></td><td>$Date.City</td></tr>
-							<tr><td><%t Event.Dates 'Datum' %></td><td>$Date.Date</td></tr>
-							<tr><td><%t Event.Price 'Preis' %></td><td>$Date.Price €</td></tr>
+						<table class="uk-table uk-table-small uk-table-striped uk-table-middle">
+							<thead><th><%t Event.Dates 'Datum' %></th><th><%t Event.City 'Ort' %></th><th><%t Event.Price 'Preis' %></th></thead>
+							<tbody>
+							<% with Date %>
+							<tr><td><i class="icon icon-calendar uk-margin-small-right"></i>$Date</td><td><i class="icon icon-ios-location uk-margin-small-right"></i>$City</td><td>$Price.Nice</td></tr>
+							<% end_with %>
+							</tbody>
 						</table>
+						
 						<div class="uk-margin-large">
 							<h3><%t Event.Voucher 'Gutschein' %></h3>
 							<p><%t Event.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. und klicken Sie an "Gutschein prüfen".' %></p>
