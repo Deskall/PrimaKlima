@@ -17,6 +17,8 @@ use SilverStripe\View\Requirements;
 use SilverStripe\ORM\ValidationException;
 use PayPalCheckoutSdk\Orders\OrdersGetRequest;
 use SilverStripe\SiteConfig\SiteConfig;
+use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
+
 
 class EventPageController extends PageController{
 	private static $allowed_actions = ['OpenEvents','Register','RegisterForm','TransactionCompleted','RegisterSuccessfull', 'VoucherForm'];
@@ -52,9 +54,9 @@ class EventPageController extends PageController{
 		$config = SiteConfig::current_site_config();
 
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".$config->PayPalClientID."&currency=CHF&locale=de_CH");
-		Requirements::javascript("deskall-shop/javascript/shop.js");
-		Requirements::javascript("deskall-shop/javascript/jquery.validate.min.js");
-		Requirements::javascript("deskall-shop/javascript/messages_de.min.js");
+		Requirements::javascript("deskall-events/javascript/event.js");
+		Requirements::javascript("deskall-events/javascript/jquery.validate.min.js");
+		Requirements::javascript("deskall-events/javascript/messages_de.min.js");
 		$url = $request->param('URLSegment');
 		$id = $request->param('DateID');
 		if ($url && $id){
@@ -90,6 +92,14 @@ class EventPageController extends PageController{
 						TextField::create('City','Stadt'),
 						DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))
 					)->setName('CustomerFields'),
+					CompositeField::create(
+						// TextareaField::create('Comments','Bemerkungen'),
+						CheckboxField::create('AGB',DBHTMLText::create()->setValue(_t(__CLASS__.'.AGB','Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin. *', ['link' => $ppLink, 'link2' => '/agb'])))->setAttribute('class','uk-checkbox'),
+						NocaptchaField::create('Captcha')
+						
+					)->setName('SummaryFields'),
+					HiddenField::create('PaymentType'),
+					HiddenField::create('CourseID'),
 					HiddenField::create('DateID')->setValue($dateid)
 				),
 				new FieldList(
