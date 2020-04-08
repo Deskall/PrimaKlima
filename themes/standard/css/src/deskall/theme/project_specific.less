@@ -72,8 +72,6 @@ header {
 	}
 	.uk-logo{
 	    width: @header-logo-height * 0.5;
-	    background: #F8E4CE;
-	    border-radius: 50%;
 	    height: @header-logo-height * 0.5;
 	    text-align: center;
 	    padding:5px!important;
@@ -85,6 +83,7 @@ header {
 		    left:50%;
 		    transform:translate(-50%,-25%);
 		    z-index:990;
+		    padding:1px!important;
 	    }
 	}
 
@@ -106,9 +105,9 @@ header {
 		color:#F8E4CE;
 		font-size:6rem;
 	}
-	.uk-text-lead{
+	.uk-text-lead *{
 		.strong-font;
-		font-size:2.5rem;
+		font-size:1.5rem;
 		text-shadow: 0 0 5px #000,0 0 10px #000;
 	}
 	.uk-button{
@@ -116,26 +115,28 @@ header {
 		.uk-box-shadow-medium;
 	}
 }
-
-.text-gruen {
-  color: @gruen;
-  font-family: inherit;
-  *,:hover{
-  	color: @gruen;
-  }
+.leadblock * p {
+	font-family: @strong-font-family;
 }
-.text-blau {
-  color: @blau;
+.text-gruen, .text-gruen > a {
+  color: #7E9B00;
   font-family: inherit;
   *, :hover{
-  	 color: @blau;
+  	color: #9AC300;
   }
 }
-.text-pink {
-  color: @pink;
+.text-blau, .text-blau > a {
+  color: #2C9DA3;
   font-family: inherit;
   *, :hover{
-  	 color: @pink;
+  	 color: #45C8D0;
+  }
+}
+.text-pink, .text-pink > a  {
+  color: #FF298B;
+  font-family: inherit;
+  *, :hover{
+  	 color: #C9206D;
   }
 }
 
@@ -161,6 +162,7 @@ header {
     }
     &:hover{
     	color:inherit;
+    	box-shadow:none;
     }
 }
 
@@ -168,35 +170,67 @@ header {
 	.button;
 	background-color: #96AF29;
   	color: #fff;
+  	cursor:pointer;
+  	font-family: @strong-font-family;
+  	&:hover {
+  		color:#E7E7E7;
+  	}
 }
 .button-blau {
   .button;
   background-color: #66AFBA;
   color: #fff;
+  cursor:pointer;
+  font-family: @strong-font-family;
+  &:hover {
+  		color:#E7E7E7;
+  	}
 }
 .button-pink {
   background-color: #DC4C88;
   color: #fff;
+  cursor:pointer;
+  font-family: @strong-font-family;
+  &:hover {
+  		color:#E7E7E7;
+  	}
 }
 .button-gruen-linie{
 	 .button;
 	background-color:transparent;
 	border:1px solid #96AF29;
 	color: #96AF29;
+	cursor:pointer;
+	font-family: @strong-font-family;
+	&:hover {
+		color: #96AF29;
+  		opacity: 0.6;
+  	}
 }
 .button-blau-linie{
 	 .button;
 	background-color:transparent;
 	border:1px solid #66AFBA;
 	color: #66AFBA;
+	cursor:pointer;
+	font-family: @strong-font-family;
+	&:hover {
+		color: #66AFBA;
+  		opacity: 0.6;
+  	}
 }
 .button-pink-linie{
 	 .button;
 	background-color:transparent;
 	border:1px solid #DC4C88;
 	color: #DC4C88;
+	cursor:pointer;
+	font-family: @strong-font-family;
+	&:hover {
+		color: #DC4C88;
+  		opacity: 0.6;
+  	}
 }
-
 
 .boxblock{
 	img{
