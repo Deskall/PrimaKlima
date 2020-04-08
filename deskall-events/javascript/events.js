@@ -55,6 +55,52 @@ $(document).ready(function(){
 		$("#Form_RegisterForm_PaymentType").val($("input[name='PaymentMethod']:checked").val());
 	});
 
+	
+	function UpdateOrderPreview(productID,quantity,context = null){
+		//ici ajouter un
+		$.ajax({
+			url: '/shop/updateCart',
+			method: 'POST',
+			dataType: 'html',
+			data: {productID: productID,quantity: quantity, context: context}
+		}).done(function(response){
+			if (context == "checkout"){
+				$(".order-preview").each(function(){
+					$(this).empty().append(response);
+				});
+			}
+			else{
+				$("#offcanvas-usage-cart .order-preview").empty().append(response);
+				$("#cart-container").attr("hidden",false);
+			}
+		});
+	}
+
+	function UpdateOrderSummary(){
+		//ici ajouter un
+		$.ajax({
+			url: '/shop/updateCartSummary',
+			method: 'POST',
+			dataType: 'html'
+		}).done(function(response){
+			$(".summary-products").replaceWith(response);
+		});
+	}
+
+	function UpdateCartStep(){
+		var form = $("#Form_CheckoutForm");
+		$.ajax({
+			url: '/shop/updateCartData',
+			method: 'POST',
+			dataType: 'html',
+			data: {form: form.serialize()}
+		}).done(function(response){
+			$(".summary-products").each(function(){
+				$(this).empty().append(response);
+			});
+		});
+	}
+
 	//Voucher
 	$(document).on("click","[data-check-voucher]",function(){
 		$.post({

@@ -22,12 +22,6 @@
 							<% with Fields.FieldByName('CustomerFields') %>
 								$FieldHolder
 							<% end_with %>
-							<div id="delivery-form-container" class="uk-margin" hidden>
-								<h4><%t Checkout.DeliveryAddress 'Lieferungsadresse' %></h4>
-								<% with Fields.FieldByName('DeliveryFields') %>
-									$FieldHolder
-								<% end_with %>
-							</div>
 						</div>
 					</div>
 				
@@ -43,27 +37,18 @@
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-cash"></i></div>
 								<input id="cash-choice" class="uk-radio uk-margin-right" type="radio" name="PaymentMethod" value="cash" required="required"><label for="cash-choice"><%t Shop.CashPayLabel 'Barzahlung bei Abholung' %></label>
-								<div class="uk-margin">
-									Kosten für Porto und Verpackung CHF 0.00
-								</div>
 							</div>
 						</div>
 						<div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-ios-paper"></i></div>
 								<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="PaymentMethod" value="bill" required="required"><label for="bill-choice"><%t Shop.BillPayLabel 'Zahlung bei Rechnung' %></label>
-								<div class="uk-margin">
-									Kosten für Porto und Verpackung CHF 9.80
-								</div>
 							</div>
 						</div>
 						<div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-card"></i></div>
 								<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="PaymentMethod" value="online" required="required"><label for="online-choice"><%t Shop.OnlinePayLabel 'Zahlung online bei Kreditkarte oder PayPal-Konto' %></label>
-								<div class="uk-margin">
-									Kosten für Porto und Verpackung CHF 9.80
-								</div>
 							</div>
 						</div>
 					</div>
@@ -77,8 +62,7 @@
 				<% end_with %>
 			</li>
 			<li class="account-tab" data-index="3">
-				<h3><%t Checkout.ReviewAndPay 'Prüfen und bestätigen Sie Ihre Bestellung' %></h3>
-				<% if not Controller.activeCart.Voucher.exists %>
+				<h3><%t Event.ReviewAndPay 'Prüfen und bestätigen Sie Ihre Anmeldung' %></h3>
 				<div class="uk-panel uk-padding-small">
 					<h3><%t Checkout.Voucher 'Gutschein' %></h3>
 					<p><%t Checkout.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. und klicken Sie an "Gutschein prüfen".' %></p>
@@ -90,13 +74,9 @@
 					</div>
 				</div>
 				<hr>
-				<% end_if %>
 				
-					<% with Controller.activeCart %>
-					<div id="summary-products" class="summary-products">
-						<% include ShopCartSummary %>
-					</div>
-					<% end_with %>	
+				<div id="summary" class="summary-products">
+				</div>
 				
 				<hr>
 				
@@ -130,10 +110,7 @@
 			
 		</ul>
 	</div>
-	<% with Fields.FieldByName('CustomerID') %>
-	$FieldHolder
-	<% end_with %>
-	<% with Fields.FieldByName('CartID') %>
+	<% with Fields.FieldByName('DateID') %>
 	$FieldHolder
 	<% end_with %>
 	<% with Fields.FieldByName('SecurityID') %>
