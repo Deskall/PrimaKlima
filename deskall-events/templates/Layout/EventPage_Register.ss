@@ -2,11 +2,7 @@
 
 <section class="uk-section no-bg uk-section-small">
 	<div class="uk-container">
-		<div data-uk-grid>
-			<div class="uk-width-1-4">
-				<% include EventSidebar %>
-			</div>
-			<div class="uk-width-3-4">
+
 				<div class="uk-margin"><button class="uk-button uk-button-primary" onclick="window.history.back()"><i class="fa fa-chevron-left uk-margin-small-right"></i><%t Global.Back 'Zurück' %></button></div>
 				<div class="element" id="event" data-event-id="$Date.ID" data-price="$Date.Price">
 					<h1>$Title</h1>
@@ -47,7 +43,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			
 	</div>
 </section>
