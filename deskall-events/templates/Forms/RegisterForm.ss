@@ -76,7 +76,40 @@
 				<hr>
 				
 				<div id="summary" class="summary-course">
-					
+					<div class="uk-panel uk-background-muted uk-padding-small">
+						<h4><%t Checkout.SummaryTitle 'Ihre Bestellung' %></h4>
+						<table class="uk-table uk-table-small uk-table-striped uk-table-middle uk-table-justify uk-table-responsive">
+							<thead><th colspan="2"><%t Event.Kurs 'Kurs' %></th><th class="uk-text-right"><%t Event.Total 'Gesamtsumme' %></th></thead>
+							<tbody class="uk-table-divider">
+								<% with Controller.activeDate %>
+								<tr><td>$Title</td><td>$Price.Nice</td></tr>
+								<% end_with %>
+							
+								<tr id="voucher-row" hidden><td colspan="3" class="uk-text-right"><%t Event.Voucher 'Gutschein:' %></td><td id="voucher-price" class="uk-text-right">- </td></tr><% end_if %>
+								<tr><td colspan="3" class="uk-text-right"><%t Event.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td id="mwst-price" class="uk-text-right">$Controller.activeDate.MwSt.Nice</td></tr>
+								
+								<tr class="uk-table-divider"><td colspan="3" class="uk-text-right"><strong><%t Event.TotalPrice 'Preis inklusive MwSt.' %></strong></td><td class="uk-text-right"><strong id="total-price" data-price="$FullTotalPrice.Value">$Controller.activeDate.Price.Nice</strong></td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="uk-margin">
+						<div class="uk-panel uk-background-muted uk-padding-small">
+							<h4><%t Event.PaymentType 'Zahlungsart' %></h4>
+							<div id="payment-type"></div>
+						</div>
+					</div>
+					<div class="uk-margin">
+						<div class="<% if  PaymentMethod == "bill" || PaymentMethod == "online" %>uk-child-width-1-2@s uk-grid-match<% end_if %> uk-grid-small" data-uk-grid>
+							<div>
+								<div class="uk-panel uk-background-muted uk-padding-small">
+									<h4><%t Event.CustomerData 'Ihre Angaben' %></h4>
+									<p id="event-address">
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
 				</div>
 				
 				<hr>
