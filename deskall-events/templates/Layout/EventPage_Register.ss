@@ -1,5 +1,14 @@
 <% include HeaderSlide %>
-
+<section class="uk-section uk-background-muted uk-padding-small">
+	<div class="uk-container">
+		<div class="breadcrumbs">
+			<ul class="uk-breadcrumb uk-margin-remove">
+			    <li><a href="$EventConfig.MainPage.Link">$EventConfig.MainPage.MenuTitle.XML</a></li>
+			    <li><span>$MenuTitle</span></li>
+			</ul>
+		</div>
+	</div>
+</section>
 <section class="uk-section no-bg uk-section-small">
 	<div class="uk-container">
 
