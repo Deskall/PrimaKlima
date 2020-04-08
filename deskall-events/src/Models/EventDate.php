@@ -17,6 +17,7 @@ use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Control\Director;
 use SilverStripe\i18n\i18n;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\ORM\FieldType\DBCurrency;
 
 class EventDate extends DataObject{
 
