@@ -25,7 +25,7 @@
 	<% loop activeEvents %>
 	<section class="uk-section uk-padding-small <% if even %>uk-background-muted<% end_if %>">
 		<div class="uk-container">
-			<div class="uk-card uk-card-default uk-card-body">
+			
 				<div class="uk-grid-small" data-uk-grid>
 					<% if Images.first %>
 					<div class="uk-width-1-3@m">
@@ -54,7 +54,7 @@
 					   
 					</div>
 				</div>
-			</div>
+			
 		</div>
 	</div>
 	$EventStructuredData
