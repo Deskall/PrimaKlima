@@ -76,14 +76,18 @@ header {
 	    text-align: center;
 	    padding:5px!important;
 	    @media only screen and (min-width: @breakpoint-medium) {
-	    	width: @header-logo-height;
-	    	height: @header-logo-height;
+	    	width: @header-logo-height * 0.75;
+	    	height: @header-logo-height* 0.75;
 	    	position: absolute;
 		    top: 50%;
 		    left:50%;
 		    transform:translate(-50%,-25%);
 		    z-index:990;
 		    padding:1px!important;
+	    }
+	    @media only screen and (min-width: @breakpoint-large) {
+	    	width: @header-logo-height;
+	    	height: @header-logo-height;
 	    }
 	}
 
