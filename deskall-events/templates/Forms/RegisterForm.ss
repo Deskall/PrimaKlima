@@ -85,7 +85,7 @@
 								<tr><td>$Title</td><td>$Price.Nice</td></tr>
 								<% end_with %>
 							
-								<tr id="voucher-row" hidden><td colspan="3" class="uk-text-right"><%t Event.Voucher 'Gutschein:' %></td><td id="voucher-price" class="uk-text-right">- </td></tr><% end_if %>
+								<tr id="voucher-row" hidden><td colspan="3" class="uk-text-right"><%t Event.Voucher 'Gutschein:' %></td><td id="voucher-price" class="uk-text-right">- </td></tr>
 								<tr><td colspan="3" class="uk-text-right"><%t Event.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td id="mwst-price" class="uk-text-right">$Controller.activeDate.MwSt.Nice</td></tr>
 								
 								<tr class="uk-table-divider"><td colspan="3" class="uk-text-right"><strong><%t Event.TotalPrice 'Preis inklusive MwSt.' %></strong></td><td class="uk-text-right"><strong id="total-price" data-price="$FullTotalPrice.Value">$Controller.activeDate.Price.Nice</strong></td></tr>
