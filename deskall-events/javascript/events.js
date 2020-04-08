@@ -56,26 +56,6 @@ $(document).ready(function(){
 	});
 
 
-	function UpdateOrderPreview(productID,quantity,context = null){
-		//ici ajouter un
-		$.ajax({
-			url: '/kurse/updateCart',
-			method: 'POST',
-			dataType: 'html',
-			data: {productID: productID,quantity: quantity, context: context}
-		}).done(function(response){
-			if (context == "checkout"){
-				$(".order-preview").each(function(){
-					$(this).empty().append(response);
-				});
-			}
-			else{
-				$("#offcanvas-usage-cart .order-preview").empty().append(response);
-				$("#cart-container").attr("hidden",false);
-			}
-		});
-	}
-
 	function UpdateOrderSummary(){
 		//ici ajouter un
 		$.ajax({
@@ -105,7 +85,7 @@ $(document).ready(function(){
 	$(document).on("click","[data-check-voucher]",function(){
 		$.post({
 			url: cleanUrl(window.location.pathname)+'VoucherForm',
-			data:{code: $("input[name='voucher']").val(), package: $("#Form_RegisterForm_ProductID").val() },
+			data:{code: $("input[name='voucher']").val(), event: $("#Form_RegisterForm_DateID").val() },
 	        dataType: 'Json'
 		}).done(function(response){
 			if (response.status == "OK"){

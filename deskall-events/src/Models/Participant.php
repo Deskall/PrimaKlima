@@ -29,24 +29,22 @@ use SilverStripe\ORM\FieldType\DBField;
 /**
  * Custom extension to adjust to project specific need
  * 
- * @package deskall-events
+ * @package deskall-users
  */
 class Participant extends DataObject
 {
     private static $db = array(
+        'Name' => 'Varchar',
+        'Vorname' => 'Varchar',
+        'Email' => 'Varchar',
         'Company' => 'Varchar',
         'Gender'  => 'Varchar',
-        'Name' => 'Varchar',
-        'FirstName' => 'Varchar',
-        'Email' => 'Varchar',
-        'Birthdate' => 'Date',
-        'Street' => 'Varchar',
         'Address'  => 'Varchar',
-        'Region'  => 'Varchar',
         'PostalCode'  => 'Varchar',
         'City'  => 'Varchar',
         'Country'  => 'Varchar',
         'Phone'  => 'Varchar',
+        'UIDNumber' => 'Varchar'
      );
 
     private static $singular_name = "Teilnehmer";
@@ -64,16 +62,19 @@ class Participant extends DataObject
 
     public function fieldLabels($includerelation = true){
     $labels = parent::fieldLabels($includerelation);
-    $labels['Gender'] = _t(__CLASS__.'.Gender','Anrede');
     $labels['Name'] = _t(__CLASS__.'.Name','Name');
-    $labels['FirstName'] = _t(__CLASS__.'.FirstName','Vorname');
-    $labels['Email'] = _t(__CLASS__.'.Email','E-Mail');
+    $labels['Vorname'] = _t(__CLASS__.'.Vorname','Vorname');
+    $labels['Email'] = _t(__CLASS__.'.Email','E-Mail-Adresse');
+    $labels['Company'] = _t(__CLASS__.'.Company','Firma');
+    $labels['Gender'] = _t(__CLASS__.'.Gender','Anrede');
     $labels['Address'] = _t(__CLASS__.'.Address','Adresse');
     $labels['PostalCode'] = _t(__CLASS__.'.PostalCode','PLZ');
     $labels['City'] = _t(__CLASS__.'.City','Stadt');
     $labels['Country'] = _t(__CLASS__.'.Country','Land');
     $labels['Phone'] = _t(__CLASS__.'.Phone','Telefon');
-    $labels['Birthdate'] = _t(__CLASS__.'.Birthdate','Geburtsdatum');
+    $labels['Fax'] = _t(__CLASS__.'.Fax','Fax');
+    $labels['URL'] = _t(__CLASS__.'.URL','Website');
+    $labels['Title'] = _t(__CLASS__.'.Title','Name');
     $labels['printAddress'] = _t(__CLASS__.'.printAddress','Adresse');
     return $labels;
     }
