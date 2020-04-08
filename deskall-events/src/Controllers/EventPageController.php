@@ -172,7 +172,7 @@ class EventPageController extends PageController{
 				}
 				
 
-				return $this->redirect('kurse/anmeldung-gespeichert');
+				return $this->redirect('seminare/anmeldung-gespeichert');
 
 			}
 		
@@ -261,272 +261,6 @@ class EventPageController extends PageController{
 		return json_encode(["status" => 'NOT OK']);
 	}
 
-		//Payment for Bill and Cash
-	public function payBill($data,$form){
-		//retrieve cart
-		$cart = $this->activeCart();
-		if ($cart){
-			//Create and fill the customer
-			$customer = (ShopCustomer::get()->filter('Email',$data['Email'])->first()) ? ShopCustomer::get()->filter('Email',$data['Email'])->first() : new ShopCustomer();
-			$customer->update($data);
-			$customer->write();
-			//Create and fill the order
-			$order = new ShopOrder();
-			$order->CustomerID = $customer->ID;
-			$form->saveInto($order);
-			$duplicateFromCart = ['IP', 'TotalPrice','DiscountPrice', 'TransportPrice', 'FullTotalPrice', 'VoucherID'];
-			foreach ($duplicateFromCart as $key => $field) {
-				$order->{$field} = $cart->{$field};
-			}
-			$order->isPaid = false;
-
-			try {
-				//Write order
-				$order->write();
-
-				foreach ($cart->Products() as $p) {
-					$item = new OrderItem();
-					$item->createFromProduct($p);
-					$order->Items()->add($item);
-				}
-
-				//Create Receipt
-				$order->generatePDF();
-				//Send Confirmation Email (BCC to admin)
-				$order->sendEmail();
-				$this->getRequest()->getSession()->set('orderID',$order->ID);
-				
-				//clear cart
-				$cart->delete();
-				$this->getRequest()->getSession()->clear('shopcart_id');
-								
-				
-				return $this->Redirect(SiteConfig::current_site_config()->SuccessfullPage()->Link());
-				
-			} catch (ValidationException $e) {
-				$validationMessages = '';
-				foreach($e->getResult()->getMessages() as $error){
-					$validationMessages .= $error['message']."\n";
-				}
-				$form->sessionMessage($validationMessages, 'bad');
-				return $this->redirectBack();
-			}
-						
-		}
-						
-		//unguilty request, go back
-		return $this->redirectBack();
-	}
-
-	private static function buildRequestBody($data)
-    {
-    	//1. Amount, if not we return null
-    	
-    	if ($data->amount && $data->email){
-    		//2. Customer
-    		$member = (Security::getCurrentUser()) ? Security::getCurrentUser() : Member::get()->filter('Email',$data->email)->first();
-    		$customer = ($member) ? JobGiver::get()->filter('MemberID',$member->ID)->first() : null;
-	    	$payer = new stdClass();
-			if ($customer){
-		    	$name = new stdClass();
-		    	$name->given_name = ($customer->ContactPersonSurname && $customer->ContactPersonFirstName) ? $customer->ContactPersonFirstName : $customer->Member()->FirstName;
-		    	$name->surname = ($customer->ContactPersonSurname && $customer->ContactPersonFirstName) ? $customer->ContactPersonSurname : $customer->Member()->Surname;
-		    	$payer->name = $name;
-		    	$payer->email_address = ($customer->ContactPersonEmail) ? $customer->ContactPersonEmail : (($customer->CompanyEmail) ? $customer->CompanyEmail : $customer->Member()->Email);
-		    	$payer->phone = ($customer->ContactPersonTelephone) ? $customer->ContactPersonTelephone : $customer->Phone;
-		    	$address = new stdClass();
-		    	if ($customer->BillingAddressIsCompanyAddress){
-		    		if ($customer->Address){
-			    		$address->address_line_1 = $customer->Address;
-			    		$address->postal_code = $customer->PostalCode;
-			    		$address->admin_area_2 = $customer->City;
-			    		$address->country_code = strtoupper($customer->Country);
-			    		$payer->address = $address;
-			    	}
-		    	}
-		    	else{
-		    		if ($customer->BillingAddressStreet){
-			    		$address->address_line_1 = $customer->BillingAddressStreet;
-			    		$address->postal_code = $customer->BillingAddressPostalCode;
-			    		$address->admin_area_2 = $customer->BillingAddressPlace;
-			    		$address->country_code = strtoupper($customer->BillingAddressCountry);
-			    		$payer->address = $address;
-			    	}
-		    	}
-		    }
-		    else{
-		    	$payer->email_address = $data->email;
-		    }
-
-	        return array(
-	            'intent' => 'CAPTURE',
-	            'purchase_units' =>
-	                array(
-	                    0 =>
-	                        array(
-	                            'amount' =>
-	                                array(
-	                                    'value' => $data->amount,
-	                                    'currency_code' => 'EUR',
-	                                )
-	                        )
-	                ),
-	            'payer' => $payer
-
-	        );
-		    
-    		
-    	}
-
-    	return [];
-    	
-    }
-
-   
-
-	public function CreateTransaction(HTTPRequest $request){
-		
-		$data = json_decode($request->getBody());
-		
-		$amount = $data->amount;
-		if ($amount){
-			$OrderRequest = new OrdersCreateRequest();
-		    $OrderRequest->prefer('return=representation');
-		    $OrderRequest->body = self::buildRequestBody($data);
-		    // 3. Call PayPal to set up a transaction
-		    $client = PayPalClient::client();
-		    $response = $client->execute($OrderRequest);
-
-		    $debug = false;
-		    if ($debug)
-		    {
-		    ob_start();
-		     print_r( "Status Code: {$response->statusCode}\n");
-		     print_r( "Status: {$response->result->status}\n");
-		     print_r("Order ID: {$response->result->id}\n");
-		     print_r("Intent: {$response->result->intent}\n");
-		     print_r("Links:\n");
-		     foreach($response->result->links as $link)
-		     {
-		       print_r("\t{$link->rel}: {$link->href}\tCall Type: {$link->method}\n");
-		     }
-		     $result = ob_get_clean();
-		     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-payment.txt", $result);
-		     // To print the whole response body, uncomment the following line
-		     // echo json_encode($response->result, JSON_PRETTY_PRINT);
-		   }
-		}
-		else{
-			$response = ['message' => 'der Betrag fehlt. Bitte laden Sie die Seite wieder und probieren Sie noch ein Mal.'];
-		}
-
-	    // 4. Return a successful response to the client.
-	    $this->getResponse()->setBody(json_encode($response));
-
-	    $this->getResponse()->addHeader("Content-type", "application/json");
-
-	    return $this->getResponse();
-
-	}
-
-
-	public function TransactionCompleted(HTTPRequest $request){
-		
-		$data = $request->postVars();
-
-		$orderId = (isset($data['orderID'])) ? $data['orderID'] : null;
-		$cartId = (isset($data['cartID'])) ? $data['cartID'] : null;
-		
-		if ($orderId && $cartId ){
-			
-			$client = PayPalClient::client();
-			$response = $client->execute(new OrdersGetRequest($orderId));
-
-			
-			
-			if ($response->statusCode == "200"){
-				$cart = ShopCart::get()->byId($cartId);
-				if ($cart){
-					
-					$shipping_address = $response->result->purchase_units[0]->shipping->address;
-					//Create and fill the customer
-					$customer = (ShopCustomer::get()->filter('Email',$response->result->payer->email_address)->first()) ? ShopCustomer::get()->filter('Email',$response->result->payer->email_address)->first() : new ShopCustomer();
-					$duplicateFromCart = ['Name', 'FirstName','Email', 'PostalCode', 'Street', 'Address','Region','City','Country'];
-					foreach ($duplicateFromCart as $key => $field) {
-						$customer->{$field} = $cart->{$field};
-					}
-					$customer->DeliveryPostalCode = $shipping_address->postal_code;
-					$customer->DeliveryStreet = $shipping_address->address_line_1;
-					if (property_exists($shipping_address,'address_line_2')){
-						$customer->DeliveryAddress = $shipping_address->address_line_2;
-					}
-					if (property_exists($shipping_address,'admin_area_1')){
-						$customer->DeliveryRegion = $shipping_address->admin_area_1;
-					}
-					$customer->DeliveryCity = ucfirst(strtolower($shipping_address->admin_area_2));
-					$customer->DeliveryCountry = strtolower($shipping_address->country_code);
-					$customer->write();
-
-					//Create and fill the order
-					$order = new ShopOrder();
-					$duplicateFromCart = ['IP', 'TotalPrice','DiscountPrice', 'TransportPrice', 'FullTotalPrice', 'VoucherID','Name', 'FirstName','Email', 'PostalCode', 'Street', 'Address','Region','City','Country'];
-					foreach ($duplicateFromCart as $key => $field) {
-						$order->{$field} = $cart->{$field};
-					}
-
-					$order->DeliveryPostalCode = $shipping_address->postal_code;
-					$order->DeliveryStreet = $shipping_address->address_line_1;
-					if (property_exists($shipping_address,'address_line_2')){
-						$order->DeliveryAddress = $shipping_address->address_line_2;
-					}
-					if (property_exists($shipping_address,'admin_area_1')){
-						$order->DeliveryRegion = $shipping_address->admin_area_1;
-					}
-					$order->DeliveryCity = ucfirst(strtolower($shipping_address->admin_area_2));
-					$order->DeliveryCountry = strtolower($shipping_address->country_code);
-					$order->CustomerID = $customer->ID;
-					$order->isPaid = true;
-					$order->PaymentType = 'creditcard';
-					$order->PayPalOrderID = $orderId;
-
-					
-					
-					try {
-						//Write order
-						$order->write();
-						//Add Products
-						foreach ($cart->Products() as $p) {
-							$item = new OrderItem();
-							$item->createFromProduct($p);
-							$order->Items()->add($item);
-						}
-						
-						//Send Confirmation Email (BCC to admin)
-						$order->sendConfirmationEmail();
-
-						
-						//clear cart
-						$cart->delete();
-						$this->getRequest()->getSession()->clear('shopcart_id');
-										
-						
-						$this->getRequest()->getSession()->set('orderID',$order->ID);
-
-						return json_encode(["status" => 'OK', "redirecturl" => SiteConfig::current_site_config()->SuccessfullPage()->Link()]);
-						
-					} catch (Exception $e) {
-						$validationMessages = '';
-						foreach($e->getResult()->getMessages() as $error){
-							$validationMessages .= $error['message']."\n";
-						}
-						return json_encode(["status" => 'NOT OK', 'errors' => $validationMessages ]);
-					}
-				}
-			}
-		}
-		return json_encode(["status" => 'NOT OK']);
-	}
-
 	public function RegisterSuccessfull(HTTPRequest $request){
 		
 		$orderID = $request->getSession()->get('orderID');
@@ -541,21 +275,17 @@ class EventPageController extends PageController{
 	}
 
 	public function VoucherForm(HTTPRequest $request){
-		if ($request->postVar('code')){
-			$voucher = Coupon::get()->filter('Code',$request->postVar('code'))->first();
-			$id = $this->getRequest()->getSession()->get('eventcart_id');
-		    $cart = null;
-		    if ($id){
-		      $cart = ShopCart::get()->byId($id);
-		    }
-			if ($voucher && $cart){
+		if ($request->postVar('voucher') && $request->postVar('event')){
+			$voucher = Voucher::get()->filter('Token',$request->postVar('voucher'))->first();
+			$event = EventDate::get()->byId($request->postVar('event'));
+			if ($voucher && $event){
 				if ($voucher->isValid()){
-					$cart->VoucherID = $voucher->ID;
-					$cart->write();
+					$originalPrice = $event->Price;
+					$discountPrice = number_format ( $event->Price - ($event->Price*$voucher->Percent/100), 2);
 					return json_encode([
 						'status' => 'OK', 
-						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->NiceAmount().' gewährt.</p>', 
-						'NiceAmount' => $voucher->NiceAmount()->getValue(),
+						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->Percent.'% gewährt.</p>', 
+						'price' => $discountPrice,
 						'voucherID' => $voucher->ID
 					]);
 				}
@@ -567,7 +297,7 @@ class EventPageController extends PageController{
 				}
 			}
 		}
-		return json_encode(['status' => 'Not OK','message' => '<p>Ihre Gutschein ist ungültig.</p>']);
+		return json_encode(['status' => 'Not found']);
 	}
 
 }
