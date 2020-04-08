@@ -188,7 +188,8 @@ class HeaderSlide extends DataObject
 
     private static $summary_fields = [
         'SlideTitle',
-        'ImageThumbnail' 
+        'ImageThumbnail',
+        'Page.MenuTitle'
     ];
 
     function fieldLabels($includerelations = true) {
