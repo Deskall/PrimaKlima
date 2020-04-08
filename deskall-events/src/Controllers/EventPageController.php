@@ -95,7 +95,7 @@ class EventPageController extends PageController{
 						TextField::create('Address','Adresse'),
 						TextField::create('PostalCode','PLZ'),
 						TextField::create('City','Stadt'),
-						DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))
+						DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch')
 					)->setName('CustomerFields'),
 					CompositeField::create(
 						// TextareaField::create('Comments','Bemerkungen'),
@@ -107,7 +107,7 @@ class EventPageController extends PageController{
 					HiddenField::create('DateID')->setValue($dateid)
 				),
 				new FieldList(
-					FormAction::create('doRegisterBill', _t('MemberProfiles.REGISTER', 'Jetzt kostenplichtig registrieren'))->addExtraClass('uk-button PrimaryBackground')
+					FormAction::create('doRegisterBill', _t('MemberProfiles.REGISTER', 'Jetzt kostenplichtig registrieren'))->setUseButtonTag(true)->addExtraClass('uk-button button-blau')
 				),
 				RequiredFields::create(['Gender','Name','Vorname','Email','Address','PostalCode','City','Country'])
 			);
