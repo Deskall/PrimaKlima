@@ -129,7 +129,7 @@
 				
 			</li>
 
-			<% end_if %>
+			
 		</ul>
 	</div>
 	<% with Fields.FieldByName('CustomerID') %>
