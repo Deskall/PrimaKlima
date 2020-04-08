@@ -94,7 +94,7 @@
 						<div class="uk-margin">
 							<h3><%t Event.Videos 'Videos' %></h3>
 							<div data-uk-slider>
-								<div class="uk-position-relative uk-visible-toggle uk-padding">
+								<div class="uk-position-relative uk-visible-toggle">
 									<div class="uk-slider-container">
 										<ul class="uk-slider-items uk-child-width-1-1" data-uk-height-match=".uk-card-body" data-uk-grid>
 									
