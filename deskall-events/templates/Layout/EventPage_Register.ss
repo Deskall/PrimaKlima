@@ -17,10 +17,10 @@
 					<h1>$Title</h1>
 					<div class="uk-panel">
 						<table class="uk-table uk-table-small uk-table-striped uk-table-middle">
-							<thead><th><%t Event.Dates 'Datum' %></th><th><%t Event.City 'Ort' %></th><th><%t Event.Price 'Preis' %></th></thead>
+							<thead><th><%t Event.Title 'Kurs' %></th><th><%t Event.Dates 'Datum' %></th><th><%t Event.City 'Ort' %></th><th><%t Event.Price 'Preis' %></th></thead>
 							<tbody>
 							<% with Date %>
-							<tr><td><i class="icon icon-calendar uk-margin-small-right"></i>$Date</td><td><i class="icon icon-ios-location uk-margin-small-right"></i>$City</td><td>$Price.Nice</td></tr>
+							<tr><td>$Event.Title</td><td><i class="icon icon-calendar uk-margin-small-right"></i>$Date</td><td><i class="icon icon-ios-location uk-margin-small-right"></i>$City</td><td>$Price.Nice</td></tr>
 							<% end_with %>
 							</tbody>
 						</table>
