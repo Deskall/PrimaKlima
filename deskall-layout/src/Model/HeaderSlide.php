@@ -5,6 +5,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\CMS\Model\SiteTree;
@@ -34,7 +35,8 @@ class HeaderSlide extends DataObject
 
     private static $has_one = [
         'Parent' => SiteConfig::class,
-        'Image' => Image::class
+        'Image' => Image::class,
+        'Page' => SiteTree::class
     ];
 
     private static $defaults = [
@@ -209,7 +211,8 @@ class HeaderSlide extends DataObject
 
         $fields->removeByName('ParentID');
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
-        $fields->addFieldToTab('Root.Main',CheckboxField::create('isMainSlide',_t(__CLASS__.'isMainSlide','Slide principale (contient le titre de la page)')));
+        $fields->addFieldToTab('Root.Main',TreedropdownField::create('PageID',_t(__CLASS__.'.Page','Seite'), SiteTree::class));
+        // $fields->addFieldToTab('Root.Main',CheckboxField::create('isMainSlide',_t(__CLASS__.'isMainSlide','Slide principale (contient le titre de la page)')));
         $fields->addFieldToTab('Root.Main',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
         $fields->addFieldToTab('Root.Main',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
         $fields->FieldByName('Root.Main.Content')->setRows(3);
