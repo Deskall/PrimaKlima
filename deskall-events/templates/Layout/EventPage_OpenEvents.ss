@@ -102,8 +102,8 @@
 												<% loop ActiveVideos %>
 												<li class="uk-flex uk-flex-middle uk-flex-center">
 													<% if HTML %>
-														<div class="uk-grid-small uk-child-width-1-2@s" data-uk-grid>
-															<div>
+														<div class="uk-grid-small" data-uk-grid>
+															<div class="uk-width-1-3@s">
 													<% end_if %>
 														<% if Type == "Datei" %>
 														<video data-uk-video width="480" height="360" controls>
@@ -118,7 +118,7 @@
 														<% end_if %>
 													<% if HTML %>
 													</div>
-													<div>
+													<div class="uk-width-2-3@s">
 														<% if Title %>
 														<h4>$Title</h4>
 														<% end_if %>
