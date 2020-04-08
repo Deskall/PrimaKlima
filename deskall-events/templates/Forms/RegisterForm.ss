@@ -76,9 +76,7 @@
 				<hr>
 				
 				<div id="summary" class="summary-course">
-					<% with Controller.activeEventCart %>
-						<% include EventCartSummary %>
-					<% end_with %>
+					
 				</div>
 				
 				<hr>
