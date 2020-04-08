@@ -52,6 +52,9 @@ class EventPageController extends PageController{
 		$config = SiteConfig::current_site_config();
 
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".$config->PayPalClientID."&currency=CHF&locale=de_CH");
+		Requirements::javascript("deskall-shop/javascript/shop.js");
+		Requirements::javascript("deskall-shop/javascript/jquery.validate.min.js");
+		Requirements::javascript("deskall-shop/javascript/messages_de.min.js");
 		$url = $request->param('URLSegment');
 		$id = $request->param('DateID');
 		if ($url && $id){
