@@ -39,15 +39,15 @@ $(document).ready(function(){
 		if ($("input[name='PaymentMethod']:checked").val() == "bill"){
 			$("#card-form-container").attr('hidden','hidden');
 			$("#summary-bill-container").attr('hidden',false);
-			$("#Form_RegisterForm_action_payBill").attr('hidden',false);
+			$("#Form_RegisterForm_action_doRegisterBill").attr('hidden',false);
 		}
 		else if ( $("input[name='PaymentMethod']:checked").val() == "cash"){
 			$("#card-form-container").attr('hidden','hidden');
 			$("#summary-bill-container").attr('hidden',false);
-			$("#Form_RegisterForm_action_payBill").attr('hidden',false);
+			$("#Form_RegisterForm_action_doRegisterBill").attr('hidden',false);
 		}
 		else{
-			$("#Form_RegisterForm_action_payBill").attr('hidden','hidden');
+			$("#Form_RegisterForm_action_doRegisterBill").attr('hidden','hidden');
 			$("#summary-bill-container").attr('hidden','hidden');
 			$("#card-form-container").attr('hidden',false);
 		}
