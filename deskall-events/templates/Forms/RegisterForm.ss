@@ -76,6 +76,17 @@
 				<hr>
 				
 				<div id="summary" class="summary-course">
+					<div class="uk-margin">
+						<div class="<% if  PaymentMethod == "bill" || PaymentMethod == "online" %>uk-child-width-1-2@s uk-grid-match<% end_if %> uk-grid-small" data-uk-grid>
+							<div>
+								<div class="uk-panel uk-background-muted uk-padding-small">
+									<h4><%t Event.CustomerData 'Ihre Angaben' %></h4>
+									<p id="event-address">
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="uk-panel uk-background-muted uk-padding-small">
 						<h4><%t Checkout.SummaryTitle 'Ihre Bestellung' %></h4>
 						<table class="uk-table uk-table-small uk-table-striped uk-table-middle uk-table-justify uk-table-responsive">
@@ -98,17 +109,7 @@
 							<div id="payment-type"></div>
 						</div>
 					</div>
-					<div class="uk-margin">
-						<div class="<% if  PaymentMethod == "bill" || PaymentMethod == "online" %>uk-child-width-1-2@s uk-grid-match<% end_if %> uk-grid-small" data-uk-grid>
-							<div>
-								<div class="uk-panel uk-background-muted uk-padding-small">
-									<h4><%t Event.CustomerData 'Ihre Angaben' %></h4>
-									<p id="event-address">
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
+					
 
 				</div>
 				
