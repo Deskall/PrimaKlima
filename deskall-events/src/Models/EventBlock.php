@@ -15,7 +15,7 @@ class EventBlock extends BaseElement
 {
     private static $icon = 'font-icon-book-open';
     
-    private static $controller_template = 'BlockHolder';
+    private static $controller_template = 'EventBlockHolder';
 
     private static $controller_class = BlockController::class;
 
