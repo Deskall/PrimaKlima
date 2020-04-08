@@ -36,7 +36,7 @@
 					<div>
 					<% end_if %>
 					    <h3 class="uk-card-title">$Title</h3>
-					        <div class="uk-margin uk-flex uk-flex-left uk-text-nowrap uk-text-small">
+					        <div class="uk-margin uk-flex uk-flex-left uk-flex-wrap uk-text-small">
 					        	<% if activeDates.Exists %>
 					        		<% with activeDates.first %>
 					    	    	<strong class="uk-margin-right"><%t Event.NextCourse 'Nächster Kurse:' %></strong><strong class="uk-margin-right"><i class="icon icon-calendar uk-margin-small-right"></i>$Start.Nice</strong><strong class="uk-margin-right"><i class="icon icon-ios-location uk-margin-small-right"></i>$City</strong>
