@@ -8,6 +8,7 @@ use SilverStripe\Forms\HiddenField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\i18n\i18n;
