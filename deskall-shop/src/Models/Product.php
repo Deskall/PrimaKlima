@@ -71,6 +71,10 @@ class Product extends DataObject {
     }
 
 
+    public function HeaderSlide(){
+        return $this->Category()->getSiteConfig()->ShopPage()->HeaderSlide();
+    }
+
 
     public function getCMSFields() {
         $fields = parent::getCMSFields();

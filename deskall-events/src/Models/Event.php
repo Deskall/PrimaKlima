@@ -96,6 +96,10 @@ class Event extends DataObject{
         $this->URLSegment = URLSegmentFilter::create()->filter($this->MenuTitle);
     }
 
+    public function HeaderSlide(){
+        return $this->getEventConfig()->MainPage()->HeaderSlide();
+    }
+
 
     public function getCMSFields()
     {

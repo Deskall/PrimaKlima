@@ -151,6 +151,10 @@ class EventDate extends DataObject{
         return EventConfig::get()->last();
     }
 
+     public function HeaderSlide(){
+        return $this->Event()->HeaderSlide();
+    }
+
 
     public function getConfirmedParticipants(){
         $num = $this->Participants()->filter('paid',1)->count();

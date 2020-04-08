@@ -53,6 +53,10 @@ class ProductCategory extends DataObject {
         return $labels;
     }
 
+    public function HeaderSlide(){
+        return $this->getSiteConfig()->ShopPage()->HeaderSlide();
+    }
+
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
