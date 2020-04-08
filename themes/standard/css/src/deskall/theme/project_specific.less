@@ -287,8 +287,11 @@ header {
 //Specific to custom Page elements
 .dk-header-slide{
 	height:200px;
-	@media only screen and (min-width: @breakpoint-medium) {
+	@media only screen and (min-width: @breakpoint-small) {
 		height:250px;
+	}
+	@media only screen and (min-width: @breakpoint-medium) {
+		height:350px;
 	}
 	@media only screen and (min-width: @breakpoint-large) {
 		height:500px;
