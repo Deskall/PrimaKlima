@@ -22,7 +22,7 @@ use SilverStripe\Assets\Folder;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\FieldType\DBField;
 
-class Order extends DataObject{
+class EventOrder extends DataObject{
 
 	private static $singular_name = "Rechnung";
 
