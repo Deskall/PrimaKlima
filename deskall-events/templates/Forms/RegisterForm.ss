@@ -82,7 +82,7 @@
 							<thead><th colspan="2"><%t Event.Kurs 'Kurs' %></th><th class="uk-text-right"><%t Event.Total 'Gesamtsumme' %></th></thead>
 							<tbody class="uk-table-divider">
 								<% with Controller.activeDate %>
-								<tr><td>$Title</td><td>$Price.Nice</td></tr>
+								<tr><td>$Event.Title</td><td>$Price.Nice</td></tr>
 								<% end_with %>
 							
 								<tr id="voucher-row" hidden><td colspan="3" class="uk-text-right"><%t Event.Voucher 'Gutschein:' %></td><td id="voucher-price" class="uk-text-right">- </td></tr>
