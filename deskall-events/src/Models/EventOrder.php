@@ -52,8 +52,7 @@ class EventOrder extends DataObject{
 		'Date'   => EventDate::class,
 		'BillFile'  => File::class,
 		'ReceiptFile' => File::class,
-		'Voucher' => Voucher::class,
-		'Product' => Product::class
+		'Voucher' => EventCoupon::class,
 	);
 
 	private static $summary_fields = array(

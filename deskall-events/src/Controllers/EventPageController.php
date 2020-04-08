@@ -276,7 +276,7 @@ class EventPageController extends PageController{
 
 	public function VoucherForm(HTTPRequest $request){
 		if ($request->postVar('voucher') && $request->postVar('event')){
-			$voucher = Voucher::get()->filter('Token',$request->postVar('voucher'))->first();
+			$voucher = EventCoupon::get()->filter('Token',$request->postVar('voucher'))->first();
 			$event = EventDate::get()->byId($request->postVar('event'));
 			if ($voucher && $event){
 				if ($voucher->isValid()){
