@@ -25,7 +25,8 @@
 							</tbody>
 						</table>
 						
-						<div class="uk-margin-large">
+						$RegisterForm
+						<%-- <div class="uk-margin-large">
 							<h3><%t Event.Voucher 'Gutschein' %></h3>
 							<p><%t Event.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. und klicken Sie an "Gutschein prüfen".' %></p>
 							<form class="uk-form uk-form-horizontal" method="post" action="{$Link}VoucherForm" data-form-voucher>
@@ -52,7 +53,7 @@
 							    	<div id="paypal-button-container"></div>
 							    </li>
 							</ul>
-						</div>
+						</div> --%>
 					</div>
 				</div>
 			
