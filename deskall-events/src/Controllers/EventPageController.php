@@ -50,7 +50,7 @@ class EventPageController extends PageController{
 	public function Register(HTTPRequest $request){
 		$config = SiteConfig::current_site_config();
 
-		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".$config->PayPalClientID."&currency=EUR&locale=de_DE");
+		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".$config->PayPalClientID."&currency=CHF&locale=de_CH");
 		$url = $request->param('URLSegment');
 		$id = $request->param('DateID');
 		if ($url && $id){
