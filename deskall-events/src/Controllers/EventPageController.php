@@ -35,6 +35,11 @@ class EventPageController extends PageController{
 		parent::init();
 	}
 
+	public function activeDate(){
+		$id = $this->getRequest()->getSession()->get('eventdate_id');
+		return EventDate::get()->byId($id);
+	}
+
 	public function OpenEvents(HTTPRequest $request){
 		$url = $request->param('URLSegment');
 		if ($url){
@@ -52,9 +57,7 @@ class EventPageController extends PageController{
 	}
 
 	public function Register(HTTPRequest $request){
-		ini_set('display_errors', 1);
-		ini_set('display_startup_errors', 1);
-		error_reporting(E_ALL);
+
 		$config = SiteConfig::current_site_config();
 
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".$config->PayPalClientID."&currency=CHF&locale=de_CH");
@@ -68,6 +71,7 @@ class EventPageController extends PageController{
 			if ($event){
 				$date = $event->Dates()->byId($id);
 				if ($date){
+					$this->getRequest()->getSession()->set('eventdate_id',$date->ID);
 					return ['Title' => 'Anmeldung','Event' => $event, 'Date' => $date, 'CustomStructuredData' => $date->EventDateStructuredData()];
 				}
 			}
