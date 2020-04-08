@@ -1,22 +1,22 @@
-<section class="uk-section $Element.SectionPadding">
-		<div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
-			<% if not $Element.isChildren %><div class="uk-child-width-1-1 uk-grid-small" data-uk-grid>
-				<div class="$Element.Width"><% end_if %>
+<section class="uk-section $SectionPadding">
+		<div class="uk-container $TextAlign <% if $FullWidth %>uk-container-expand<% end_if %>">
+			<% if not $isChildren %><div class="uk-child-width-1-1 uk-grid-small" data-uk-grid>
+				<div class="$Width"><% end_if %>
 					<% if Element.isPrimary %>
-						<h1 class="$Element.TitleAlign">$getPage.Title</h1>
+						<h1 class="$TitleAlign">$getPage.Title</h1>
 					<% else %>
-						<% if Element.Title && $Element.ShowTitle %>
-							<% if $Element.isChildren %>
-								<h3 class="$Element.TitleAlign">$Element.Title</h3>
+						<% if Element.Title && $ShowTitle %>
+							<% if $isChildren %>
+								<h3 class="$TitleAlign">$Title</h3>
 							<% else %>
-								<h2 class="$Element.TitleAlign">$Element.Title</h2>
+								<h2 class="$TitleAlign">$Title</h2>
 							<% end_if %>
 						<% end_if %>
 					<% end_if %>
 					<div class="uk-panel">
 						$Element
 					</div>
-				<% if not $Element.isChildren %>
+				<% if not $isChildren %>
 				</div>
 			</div>
 			<% end_if %>
