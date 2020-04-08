@@ -28,7 +28,7 @@
 								<div class="uk-navbar-dropdown">
 									<ul class="uk-nav uk-navbar-dropdown-nav">
 										<% loop activeCategories %>
-										<li class="uk-position-relative"><a href="$Link" title="$Title.XML">$MenuTitle.XML</a></li>
+										<li class="uk-position-relative"><a href="$Link" title="$Title.XML">$Title.XML</a></li>
 										<% end_loop %>
 									</ul>
 								</div>
@@ -98,7 +98,7 @@
 									<div class="uk-navbar-dropdown">
 										<ul class="uk-nav uk-navbar-dropdown-nav">
 											<% loop activeCategories %>
-											<li class="uk-position-relative"><a href="$Link" title="$Title.XML">$MenuTitle.XML</a></li>
+											<li class="uk-position-relative"><a href="$Link" title="$Title.XML">$Title.XML</a></li>
 											<% end_loop %>
 										</ul>
 									</div>
