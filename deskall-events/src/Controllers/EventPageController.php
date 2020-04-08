@@ -51,6 +51,9 @@ class EventPageController extends PageController{
 	}
 
 	public function Register(HTTPRequest $request){
+		ini_set('display_errors', 1);
+		ini_set('display_startup_errors', 1);
+		error_reporting(E_ALL);
 		$config = SiteConfig::current_site_config();
 
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".$config->PayPalClientID."&currency=CHF&locale=de_CH");
