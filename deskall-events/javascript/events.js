@@ -136,7 +136,7 @@ $(document).ready(function(){
 	          	method: 'post',
 	          	data: {
 	            	orderID: data.orderID,
-	            	CourseID: $("input[name='CourseID']").val()
+	            	dateID: $("input[name='DateID']").val()
 	          	},
 	          	dataType: 'Json'
 	        }).done(function(response){

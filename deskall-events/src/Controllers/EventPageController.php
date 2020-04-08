@@ -54,7 +54,7 @@ class EventPageController extends PageController{
 		$config = SiteConfig::current_site_config();
 
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".$config->PayPalClientID."&currency=CHF&locale=de_CH");
-		Requirements::javascript("deskall-events/javascript/event.js");
+		Requirements::javascript("deskall-events/javascript/events.js");
 		Requirements::javascript("deskall-events/javascript/jquery.validate.min.js");
 		Requirements::javascript("deskall-events/javascript/messages_de.min.js");
 		$url = $request->param('URLSegment');
@@ -99,7 +99,6 @@ class EventPageController extends PageController{
 						
 					)->setName('SummaryFields'),
 					HiddenField::create('PaymentType'),
-					HiddenField::create('CourseID'),
 					HiddenField::create('DateID')->setValue($dateid)
 				),
 				new FieldList(
