@@ -3,7 +3,7 @@
 	<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
 		<% if UseMenu %>
 		<% loop Menu %>
-		<li class="$LinkingMode $ExtraMenuClass <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
+		<li class="$ClassName $LinkingMode $ExtraMenuClass <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
 			<% if ClassName == "EventPage" %>
 			<div class="uk-navbar-dropdown">
 				<ul class="uk-nav uk-navbar-dropdown-nav">
