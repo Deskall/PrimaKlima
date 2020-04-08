@@ -97,6 +97,7 @@ class EventPageController extends PageController{
 			if(is_array($this->getRequest()->getSession()->get('RegisterForm'))) {
 				$form->loadDataFrom($this->getRequest()->getSession()->get('RegisterForm'));
 			}
+			$form->setTemplate('Forms/RegisterForm');
 
 		return $form;
 		
