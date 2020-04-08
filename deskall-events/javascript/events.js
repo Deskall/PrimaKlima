@@ -55,11 +55,11 @@ $(document).ready(function(){
 		$("#Form_RegisterForm_PaymentType").val($("input[name='PaymentMethod']:checked").val());
 	});
 
-	
+
 	function UpdateOrderPreview(productID,quantity,context = null){
 		//ici ajouter un
 		$.ajax({
-			url: '/shop/updateCart',
+			url: '/kurse/updateCart',
 			method: 'POST',
 			dataType: 'html',
 			data: {productID: productID,quantity: quantity, context: context}
@@ -79,7 +79,7 @@ $(document).ready(function(){
 	function UpdateOrderSummary(){
 		//ici ajouter un
 		$.ajax({
-			url: '/shop/updateCartSummary',
+			url: '/kurse/updateCartSummary',
 			method: 'POST',
 			dataType: 'html'
 		}).done(function(response){
@@ -90,7 +90,7 @@ $(document).ready(function(){
 	function UpdateCartStep(){
 		var form = $("#Form_CheckoutForm");
 		$.ajax({
-			url: '/shop/updateCartData',
+			url: '/kurse/updateCartData',
 			method: 'POST',
 			dataType: 'html',
 			data: {form: form.serialize()}
