@@ -77,7 +77,8 @@ class EventPageController extends PageController{
 
 
 	public function RegisterForm(){
-		
+		$privacyPolicy = PrivatePolicyPage::get()->first();
+		$ppLink = ($privacyPolicy) ? $privacyPolicy->Link() : '/';
 		$dateid = $this->getRequest()->param('DateID');
 		
 			$form = new Form(
