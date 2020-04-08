@@ -18,6 +18,7 @@ use SilverStripe\ORM\ValidationException;
 use PayPalCheckoutSdk\Orders\OrdersGetRequest;
 use SilverStripe\SiteConfig\SiteConfig;
 use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 
 class EventPageController extends PageController{
