@@ -39,7 +39,7 @@
 						</div>
 						<% if Content %>
 						<div class="uk-margin">
-							<h3><%t Event.Content 'Seminarinhalte:' %></h3>
+							<h3><%t Event.Content 'Kurs-Inhalt:' %></h3>
 							$Content
 						</div>
 						<% end_if %>
@@ -50,7 +50,7 @@
 						</div>
 						<% end_if %>
 						<div class="uk-margin">
-							<h3><%t Event.Investition 'Investition:' %></h3>
+							<h3><%t Event.Investition 'Preise:' %></h3>
 							$Investition
 						</div>
 						<% if Images.exists %>
