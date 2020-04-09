@@ -154,7 +154,14 @@ class EventPageController extends PageController{
 				try {
 					//Write order
 					$order->write();
+					//Update Voucher
+					$order->Voucher()->Used = true;
+					$order->Voucher()->Count = $order->Voucher()->count - 1;
+					$order->Voucher()->write();
+
+					//Update Event Date
 					$date->Participants()->add($participant);
+
 					//Create Bill
 					$order->generatePDF();
 					//Send Email
@@ -259,6 +266,8 @@ class EventPageController extends PageController{
 					//Write order
 					$order->write();
 					$date->Participants()->add($participant,['paid' => 1]);
+					$date->Places = $date->Places - 1;
+					$date->write();
 					//Create Receipt
 					$order->generateQuittungPDF();
 					//Send Confirmation Email

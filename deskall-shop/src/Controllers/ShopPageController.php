@@ -158,6 +158,10 @@ class ShopPageController extends PageController{
 			try {
 				//Write order
 				$order->write();
+				//Update Voucher
+				$order->Voucher()->Used = true;
+				$order->Voucher()->Count = $order->Voucher()->count - 1;
+				$order->Voucher()->write();
 
 				foreach ($cart->Products() as $p) {
 					$item = new OrderItem();
@@ -369,6 +373,12 @@ class ShopPageController extends PageController{
 					try {
 						//Write order
 						$order->write();
+
+						//Update Voucher
+						$order->Voucher()->Used = true;
+						$order->Voucher()->Count = $order->Voucher()->count - 1;
+						$order->Voucher()->write();
+						
 						//Add Products
 						foreach ($cart->Products() as $p) {
 							$item = new OrderItem();

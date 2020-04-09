@@ -144,7 +144,10 @@ class EventDate extends DataObject{
             }
             else{
                 $this->Date = $start->format('d.m.Y H:i').' - '.$end->format('H:i').' Uhr';
-            }   
+            } 
+            if ($this->Places == 0){
+                $this->isFull = true;
+            }  
     }
 
     public function MwSt(){
@@ -170,23 +173,6 @@ class EventDate extends DataObject{
         return $this->getEventConfig()->MainPage()->Link().'anmeldung/'.$this->Event()->URLSegment.'/'.$this->ID;
     }
 
-    public function getOrderPrice(){
-        setlocale(LC_MONETARY, 'de_DE');
-        return DBField::create_field('Varchar',money_format('%i',$this->Price));
-    }
-
-
-    public function getOrderPriceNetto(){
-        $price = $this->Price * 100 / 107.7;
-        setlocale(LC_MONETARY, 'de_DE');
-        return DBField::create_field('Varchar',money_format('%i',$price));
-    }
-
-    public function getOrderMwSt(){
-        $price = $this->Price - ($this->Price * 100 / 107.7);
-        setlocale(LC_MONETARY, 'de_DE');
-        return DBField::create_field('Varchar',money_format('%i',$price));
-    }
 
     public function EventDateMetaTags(){
         $tags = '';
