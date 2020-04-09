@@ -48,7 +48,7 @@ $(document).ready(function(){
 			UIkit.tab(switcher).show(index-1);
 		}
 		if (form.valid() && $(this).attr('data-step') == "forward"){
-			var li = index+1;
+			var li = index+2;
 			console.log(switcher.find('li:nth-child('+li+')'));
 			switcher.find('li:nth-child('+li+')').removeClass('uk-disabled');
 			UIkit.tab(switcher).show(index+1);
