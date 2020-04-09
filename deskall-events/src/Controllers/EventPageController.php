@@ -177,7 +177,7 @@ class EventPageController extends PageController{
 		
 	}
 
-	public function RegisteSaved(){
+	public function RegisterSaved(){
 		
 		$orderID = $this->getRequest()->getSession()->get('orderID');
 	
