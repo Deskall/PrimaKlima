@@ -75,7 +75,7 @@ class EventOrder extends DataObject{
 
 	public function generateNummer(){
 		$Config = $this->getEventConfig();
-		$last = Order::get()->sort('ID','Desc')->first();
+		$last = EventOrder::get()->sort('ID','Desc')->first();
 		$increment = ($last) ? ($last->ID + 1) : 1;
 		$this->Nummer = number_format ( $Config->OrderNumberOffset + $increment , 0 ,  "." ,  "." );
 	}
