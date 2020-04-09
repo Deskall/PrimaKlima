@@ -91,14 +91,14 @@ class EventPageController extends PageController{
 				'RegisterForm',
 				new FieldList(
 					CompositeField::create(
-						DropdownField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Bitte wählen')),
-						TextField::create('Name','Name'),
-						TextField::create('Vorname','Vorname'),
-						EmailField::create('Email','Email'),
-						TextField::create('Company','Firma'),
-						TextField::create('Address','Adresse'),
-						TextField::create('PostalCode','PLZ'),
-						TextField::create('City','Stadt'),
+						DropdownField::create('Gender','Anrede',['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.GenderLabel','Bitte wählen'))->setValue('Herr'),
+						TextField::create('Name','Name')->setValue('Pacilly'),
+						TextField::create('Vorname','Vorname')->setValue('Guillaume'),
+						EmailField::create('Email','Email')->setValue('guillaume.pacilly@gmail.com'),
+						TextField::create('Company','Firma')->setValue('Deskall'),
+						TextField::create('Address','Adresse')->setValue('Oltnerstrasse 85'),
+						TextField::create('PostalCode','PLZ')->setValue('466'),
+						TextField::create('City','Stadt')->setValue('Aarburg'),
 						DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch')
 					)->setName('CustomerFields'),
 					CompositeField::create(
