@@ -1,5 +1,7 @@
 $(document).ready(function(){
-	
+	UIkit.util.on('#tab-switcher', 'beforeshow', function () {
+	   console.log('ici');
+	});
 	//if form not valid we go to correct tab
 	if ($("#Form_RegisterForm").length > 0 && $("#Form_RegisterForm").find('.message.validation').length > 0){
 		//search for errors
