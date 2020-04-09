@@ -164,7 +164,7 @@ class EventPageController extends PageController{
 					$form->sessionMessage($validationMessages, 'bad');
 					return $this->redirectBack();
 				}
-				
+				$this->getRequest()->getSession()->set('orderID',$order->ID);
 				$mainPage = $date->getEventConfig()->MainPage();
 				return $this->redirect($mainPage->Link().'anmeldung-bestaetigt');
 
