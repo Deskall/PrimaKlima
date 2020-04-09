@@ -51,10 +51,26 @@ class EventOrder extends DataObject{
 	);
 
 	private static $searchable_fields = [
-		'Nummer' => 'Rechnungsnummer',
-		'Participant.Name' => 'Teilnehmer Name',
-		'Participant.Email' => 'Teilnehmer E-Mail',
-		'Created.Nice' => 'Bestelldatum'
+		'Nummer' =>  array(
+           "field" => "TextField",
+           "filter" => "PartialMatchFilter",
+           "title" => 'Rechnungsnummer'
+        ),
+		'Participant.Name' array(
+           "field" => "TextField",
+           "filter" => "PartialMatchFilter",
+           "title" => 'Teilnehmer Name'
+        ),
+		'Participant.Email' => array(
+           "field" => "TextField",
+           "filter" => "PartialMatchFilter",
+           "title" => 'Teilnehmer E-Mail'
+        ),
+		'Created' => array(
+           "field" => "DateField",
+           "filter" => "ExactMatchFilter",
+           "title" => 'Anmeldungsdatum'
+        )
 	];
 
 	private static $default_sort = "Created DESC";
