@@ -165,7 +165,7 @@ class EventPageController extends PageController{
 				}
 				
 
-				return $this->redirect('kurse/anmeldung-gespeichert');
+				return $this->redirect('kurse/anmeldung-bestaetigt');
 
 			}
 		
@@ -194,7 +194,7 @@ class EventPageController extends PageController{
 				if ($response->statusCode == "200"){
 
 					//Create and fill the order
-					$order = new Order();
+					$order = new EventOrder();
 					if ($voucherID && $voucherID != ""){
 						$voucher = Voucher::get()->byId($voucherID);
 						if ($voucher){
