@@ -134,7 +134,7 @@ class EventPageController extends PageController{
 			if ($date){
 
 				//Save Order
-				$order = new Order();
+				$order = new EventOrder();
 				$form->saveInto($order);
 				//Check participant
 				$participant = Participant::get()->filter('Email',$data['Email'])->first();
@@ -146,17 +146,6 @@ class EventPageController extends PageController{
 				$order->DateID = $date->ID;
 				$order->ParticipantID = $participant->ID;
 				$order->isPaid = false;
-				$order->PaymentType = 'bill';
-
-				//Check if voucher
-				if (isset($data['voucher']) && !empty($data['voucher'])){
-					$voucher = Voucher::get()->byId($data['voucher']);
-					if ($voucher){
-						$discountPrice = number_format ( $date->Price - ($date->Price * $voucher->Percent/100), 2);
-						$order->Price = $discountPrice;
-						$order->VoucherID = $voucher->ID;
-					}
-				}
 
 				try {
 					//Write order
@@ -176,7 +165,7 @@ class EventPageController extends PageController{
 				}
 				
 
-				return $this->redirect('seminare/anmeldung-gespeichert');
+				return $this->redirect('kurse/anmeldung-gespeichert');
 
 			}
 		
