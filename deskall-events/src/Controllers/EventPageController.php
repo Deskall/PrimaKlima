@@ -265,7 +265,7 @@ class EventPageController extends PageController{
 			}
 		}
 
-		$mainPage = $date->getEventConfig()->MainPage();
+		$mainPage = EventConfig::get()->last()->MainPage();
 		return $this->redirect($mainPage->Link());
 	}
 
