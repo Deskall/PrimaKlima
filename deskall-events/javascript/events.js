@@ -49,6 +49,7 @@ $(document).ready(function(){
 		}
 		if (form.valid() && $(this).attr('data-step') == "forward"){
 			UIkit.tab(switcher).show(index+1);
+			switcher.find('li:nth-child('+index+')').removeClass('uk-disabled');
 		}
 	});
 	
