@@ -11,9 +11,21 @@ $(document).ready(function(){
 		UIkit.tab(switcher).show(index);
 	}
 
-	
+	$("#Form_RegisterForm_CustomerFields_Holder input,#Form_RegisterForm_CustomerFields_Holder select").on("change",function(){
+		UpdateAddress();
+	});
 		
-	
+	function UpdateAddress(){
+		var html = '<p>';
+		if ($("input[name='Company']").val()){
+			html += $("input[name='Company']").val()+'<br>';
+		}
+		html += $("select[name='Gender']").val()+' '+$("input[name='Vorname']").val()+' '+$("input[name='Name']").val()+'<br>';
+		html += $("input[name='Street']").val()+'<br>';
+		html += $("input[name='PostalCode']").val()+' '+$("input[name='City']").val()+'<br>';
+
+		$("#customer-address").html(html);
+	}
 		
 		
 	

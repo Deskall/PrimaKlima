@@ -81,8 +81,8 @@
 							<div>
 								<div class="uk-panel uk-background-muted uk-padding-small">
 									<h4><%t Event.CustomerData 'Ihre Angaben' %></h4>
-									<p id="event-address">
-									</p>
+									<div id="customer-address">
+									</div>
 								</div>
 							</div>
 						</div>
