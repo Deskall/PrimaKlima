@@ -9,6 +9,8 @@ use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\Control\Director;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DateField;
+use SilverStripe\ORM\Filters\PartialMatchFilter;
+use SilverStripe\ORM\Filters\ExactMatchFilter;
 
 class EventOrder extends DataObject{
 
@@ -54,23 +56,23 @@ class EventOrder extends DataObject{
 
 	private static $searchable_fields = [
 		'Nummer' =>  array(
-           "field" => "TextField",
-           "filter" => "PartialMatchFilter",
+           "field" => TextField::class,
+           "filter" => PartialMatchFilter::class,
            "title" => 'Rechnungsnummer'
         ),
 		'Participant.Name' => array(
-           "field" => "TextField",
-           "filter" => "PartialMatchFilter",
+           "field" => TextField::class,
+           "filter" => PartialMatchFilter::class,
            "title" => 'Teilnehmer Name'
         ),
 		'Participant.Email' => array(
-           "field" => "TextField",
-           "filter" => "PartialMatchFilter",
+           "field" => TextField::class,
+           "filter" => PartialMatchFilter::class,
            "title" => 'Teilnehmer E-Mail'
         ),
 		'Created' => array(
-           "field" => "DateField",
-           "filter" => "ExactMatchFilter",
+           "field" => DateField::class,
+           "filter" => ExactMatchFilter::class,
            "title" => 'Anmeldungsdatum'
         )
 	];
