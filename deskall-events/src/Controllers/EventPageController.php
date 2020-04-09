@@ -279,8 +279,8 @@ class EventPageController extends PageController{
 	}
 
 	public function VoucherForm(HTTPRequest $request){
-		if ($request->postVar('voucher') && $request->postVar('event')){
-			$voucher = EventCoupon::get()->filter('Code',$request->postVar('voucher'))->first();
+		if ($request->postVar('code') && $request->postVar('event')){
+			$voucher = EventCoupon::get()->filter('Code',$request->postVar('code'))->first();
 			$event = EventDate::get()->byId($request->postVar('event'));
 			if ($voucher && $event){
 				if ($voucher->isValid()){
@@ -309,7 +309,7 @@ class EventPageController extends PageController{
 				}
 			}
 		}
-		return json_encode(['status' => 'Not found']);
+		return json_encode(['status' => 'Not OK']);
 	}
 
 }
