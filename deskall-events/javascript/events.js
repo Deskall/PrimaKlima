@@ -96,7 +96,7 @@ $(document).ready(function(){
 	//Voucher
 	$(document).on("click","[data-check-voucher]",function(){
 		$.post({
-			url: cleanUrl(window.location.pathname)+'VoucherForm',
+			url: cleanUrl($("#event").attr('data-url'))+'VoucherForm',
 			data:{code: $("input[name='voucher']").val(), event: $("#Form_RegisterForm_DateID").val() },
 	        dataType: 'Json'
 		}).done(function(response){
