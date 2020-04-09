@@ -28,6 +28,9 @@ $(document).ready(function(){
 		html += $("select[name='Country'] option:selected").text();
 		html += '</p>';
 
+		html += '<p>'+$("input[name='Email']").val()+'<br>';
+		html += $("input[name='Phone']").val()+'</p>';
+
 		$("#customer-address").html(html);
 	}
 		
