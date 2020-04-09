@@ -164,8 +164,8 @@ class EventPageController extends PageController{
 					return $this->redirectBack();
 				}
 				
-
-				return $this->redirect('kurse/anmeldung-bestaetigt');
+				$mainPage = $date->getEventConfig()->MainPage();
+				return $this->redirect($mainPage->Link().'anmeldung-bestaetigt');
 
 			}
 		
@@ -254,11 +254,11 @@ class EventPageController extends PageController{
 		return json_encode(["status" => 'NOT OK']);
 	}
 
-	public function RegisterSuccessfull(HTTPRequest $request){
+	public function RegisterSuccessfull(){
 		
-		$orderID = $request->getSession()->get('orderID');
+		$orderID = $this->getRequest->getSession()->get('orderID');
 		if ($orderID){
-			$order = Order::get()->byId($orderID);
+			$order = EventOrder::get()->byId($orderID);
 			if ($order){
 				return ['Title' => 'Anmeldung bestätigt', 'Order' => $order, 'Event' => $order->Date()->Event(), 'Date' => $order->Date()];
 			}
