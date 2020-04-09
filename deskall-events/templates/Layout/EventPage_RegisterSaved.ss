@@ -6,7 +6,7 @@
 				<div class="element" id="event" data-event-id="$Date.ID">
 					<h1>$Title</h1>
 					<div class="uk-panel">
-						$EventConfig.PaymentConfirmedLabel
+						$EventConfig.RegistrationConfirmedLabel
 						<div class="uk-margin">
 							<a href="$Order.BillFile.URL" target="_blank" title="Rechnung herunterladen">Rechnung herunterladen</a>
 						</div>
