@@ -171,8 +171,7 @@ class EventOrder extends DataObject{
       	$src = dirname(__FILE__).'/../../..'.$config->BillFile()->getURL();
       	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/rechnung_'.$this->ID.'.pdf';
 
-      	$pdf->Addfont('Stone sans ITC','','stonesansitc.php');
-      	$pdf->Addfont('Lato','','lato.php');
+      
       	$pageCount = $pdf->setSourceFile($src);
       	for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
       		$pdf->SetPrintHeader(false);
@@ -180,8 +179,7 @@ class EventOrder extends DataObject{
             $templateId = $pdf->importPage($pageNo);
             $size = $pdf->getTemplateSize($templateId);
             $pdf->useTemplate($templateId);
-            $pdf->SetFont('Lato','',8);
-
+           
             $pdf->setXY(8,80);
             $pdf->WriteHtml($this->renderWith('OrderTable'));
 		}	
@@ -190,11 +188,11 @@ class EventOrder extends DataObject{
 		
 
 
-		$tmpFolder = "Uploads/Rechnungen/".$this->ID;
+		$tmpFolder = "Uploads/Kurse/Rechnungen/".$this->ID;
 		$folder = Folder::find_or_make($tmpFolder);
 		$file = ($this->BillFile()->exists()) ? $this->BillFile() : File::create();
 		$file->ParentID = $folder->ID;
-		$file->setFromLocalFile($output, 'Uploads/Rechnungen/'.$this->ID.'/Rechnung.pdf');
+		$file->setFromLocalFile($output, 'Uploads/Kurse/Rechnungen/'.$this->ID.'/Rechnung.pdf');
 		$file->write();
 		$file->publishSingle();
 
@@ -208,8 +206,7 @@ class EventOrder extends DataObject{
 	      	$src = dirname(__FILE__).'/../../..'.$config->ReceiptFile()->getURL();
 	      	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/quittung_'.$this->ID.'.pdf';
 
-	      	$pdf->Addfont('Stone sans ITC','','stonesansitc.php');
-	      	$pdf->Addfont('Lato','','lato.php');
+	      
 	      	$pageCount = $pdf->setSourceFile($src);
 	      	for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	      		$pdf->SetPrintHeader(false);
@@ -217,10 +214,10 @@ class EventOrder extends DataObject{
 	            $templateId = $pdf->importPage($pageNo);
 	            $size = $pdf->getTemplateSize($templateId);
 	            $pdf->useTemplate($templateId);
-	            $pdf->SetFont('Lato','',10);
+	           
 	            $pdf->setXY(100,80);
 	            $pdf->WriteHtml($this->renderWith('ReceiptTable'));
-	            $pdf->SetFont('Lato','',10);
+	           
 	            $pdf->setXY(30,86.5);
 	            $pdf->Write(0,$this->Nummer);
 	           
@@ -234,11 +231,11 @@ class EventOrder extends DataObject{
 			
 
 
-			$tmpFolder = "Uploads/Quittungen/".$this->ID;
+			$tmpFolder = "Uploads/Kurse/Quittungen/".$this->ID;
 			$folder = Folder::find_or_make($tmpFolder);
 			$file = ($this->ReceiptFile()->exists()) ? $this->ReceiptFile() : File::create();
 			$file->ParentID = $folder->ID;
-			$file->setFromLocalFile($output, 'Uploads/Quittungen/'.$this->ID.'/Quittung.pdf');
+			$file->setFromLocalFile($output, 'Uploads/Kurse/Quittungen/'.$this->ID.'/Quittung.pdf');
 			$file->write();
 			$file->publishSingle();
 

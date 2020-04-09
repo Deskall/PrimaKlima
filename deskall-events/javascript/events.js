@@ -1,7 +1,5 @@
 $(document).ready(function(){
-	UIkit.util.on('#tab-switcher', 'beforeshow', function () {
-	   console.log('ici');
-	});
+
 	//if form not valid we go to correct tab
 	if ($("#Form_RegisterForm").length > 0 && $("#Form_RegisterForm").find('.message.validation').length > 0){
 		//search for errors
@@ -48,8 +46,10 @@ $(document).ready(function(){
 			UIkit.tab(switcher).show(index-1);
 		}
 		if (form.valid() && $(this).attr('data-step') == "forward"){
+			if (index == 0){
+				UpdateAddress();
+			}
 			var li = index+2;
-			console.log(switcher.find('li:nth-child('+li+')'));
 			switcher.find('li:nth-child('+li+')').removeClass('uk-disabled');
 			UIkit.tab(switcher).show(index+1);
 		}
@@ -89,7 +89,7 @@ $(document).ready(function(){
 		}
 		var mwstPrice = coursePrice * 0.0707;
 		$("#event-mwst-price").html("CHF "+mwstPrice.toFixed(2));
-		$("#event-total-price").html("CHF "+coursePrice).attr('data-price',coursePrice);
+		$("#event-total-price").html("CHF "+coursePrice.toFixed(2)).attr('data-price',coursePrice);
 	}
 
 

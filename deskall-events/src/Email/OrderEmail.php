@@ -72,7 +72,7 @@ class OrderEmail extends Email
                 $absoluteBaseURL,
                 singleton(Security::class)->Link('login')
             ),
-            '$Customer.Title' => $Order->Participant()->getTitle(),
+            '$Customer.printTitle' => $Order->Participant()->getTitle(),
             '$Order.Created' => $createdDateObj->Nice(),
             '$Order.Data' => $Order->renderWith('Emails/OrderData'),
             '$Event.Title' => $Order->Date()->Event()->Title,
