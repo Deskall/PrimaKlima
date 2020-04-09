@@ -21,9 +21,11 @@ $(document).ready(function(){
 			html += $("input[name='Company']").val()+'<br>';
 		}
 		html += $("select[name='Gender']").val()+' '+$("input[name='Vorname']").val()+' '+$("input[name='Name']").val()+'<br>';
-		html += $("input[name='Street']").val()+'<br>';
+		html += $("input[name='Address']").val()+'<br>';
 		html += $("input[name='PostalCode']").val()+' '+$("input[name='City']").val()+'<br>';
-
+		html += $("select[name='Country'] option:selected").text();
+		html += '</p>';
+		
 		$("#customer-address").html(html);
 	}
 		
