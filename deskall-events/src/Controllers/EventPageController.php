@@ -60,9 +60,10 @@ class EventPageController extends PageController{
 	public function Register(HTTPRequest $request){
 
 		$config = SiteConfig::current_site_config();
+		$date = new \DateTime();
 
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".$config->PayPalClientID."&currency=CHF&locale=de_CH");
-		Requirements::javascript("deskall-events/javascript/events.js");
+		Requirements::javascript("deskall-events/javascript/events.js?v=".$date->getTimestamp());
 		Requirements::javascript("deskall-events/javascript/jquery.validate.min.js");
 		Requirements::javascript("deskall-events/javascript/messages_de.min.js");
 		$url = $request->param('URLSegment');
