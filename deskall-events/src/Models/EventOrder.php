@@ -107,7 +107,7 @@ class EventOrder extends DataObject{
 	}
 
 	public function MwSt(){
-		$mwst = $this->TotalPrice * floatval($this->SiteConfig()->MwSt) / 100;
+		$mwst = $this->TotalPrice * floatval($this->getSiteConfig()->MwSt) / 100;
 		return DBCurrency::create()->setValue($mwst);
 	}
 
@@ -182,24 +182,7 @@ class EventOrder extends DataObject{
 		return DBField::create_field('HTMLText',$html);
 	}
 
-	public function getOrderPrice(){
-	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$this->Price));
-	}
-
-
-	public function getOrderPriceNetto(){
-	    $price = $this->Price * 100 / 107.7;
-	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$price));
-	}
-
-	public function getOrderMwSt(){
-	    $price = $this->Price - ($this->Price * 100 / 107.7);
-	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$price));
-	}
-
+	
 	public function getReceipt(){
 		// $this->generateQuittungPDF();
 		$html = ($this->ReceiptFile()->exists()) ? $this->ReceiptFile()->forTemplate() : '(keine)';
