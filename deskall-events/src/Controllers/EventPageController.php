@@ -226,7 +226,6 @@ class EventPageController extends PageController{
 					$order = new EventOrder();
 					$order->Price = $date->Price;
 					$order->DateID = $date->ID;
-					$order->ParticipantID = $participant->ID;
 					$order->isPaid = true;
 					$order->PaymentType = 'creditcard';
 					$order->OrderID = $orderId;
@@ -272,7 +271,7 @@ class EventPageController extends PageController{
 						}
 						$participant->write();
 					}
-
+					$order->ParticipantID = $participant->ID;
 
 					//Write order
 					$order->write();
@@ -283,7 +282,7 @@ class EventPageController extends PageController{
 					$order->Voucher()->Used = true;
 					$order->Voucher()->Count = $order->Voucher()->count - 1;
 					$order->Voucher()->write();
-					
+
 					//Create Receipt
 					$order->generateQuittungPDF();
 					//Send Confirmation Email
