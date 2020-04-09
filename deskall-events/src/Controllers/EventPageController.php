@@ -152,6 +152,7 @@ class EventPageController extends PageController{
 				$order->DateID = $date->ID;
 				$order->ParticipantID = $participant->ID;
 				$order->isPaid = false;
+				$order->Price = $date->Price;
 
 				try {
 					//Write order

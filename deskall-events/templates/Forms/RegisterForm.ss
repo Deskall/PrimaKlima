@@ -149,6 +149,9 @@
 	<% with Fields.FieldByName('DateID') %>
 	$FieldHolder
 	<% end_with %>
+	<% with Fields.FieldByName('VoucherID') %>
+	$FieldHolder
+	<% end_with %>
 	<% with Fields.FieldByName('SecurityID') %>
 	$FieldHolder
 	<% end_with %>
