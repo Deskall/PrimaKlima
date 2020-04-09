@@ -105,9 +105,7 @@ class Participant extends DataObject
         }
         $html .= $this->Address.'<br/>'
         .$this->PostalCode.' - '.$this->City.'<br/>'
-        .$this->Country.'</p>'
-        .'<p><a href="mailto:'.$this->Email.'">'.$this->Email.'</a>'.'<br/>'
-        .$this->Phone.'</p>';
+        .i18n::getData()->getCountries()[strtolower($this->Country)].'</p>';
         $o = new DBHTMLText();
         $o->setValue($html);
         return $o;

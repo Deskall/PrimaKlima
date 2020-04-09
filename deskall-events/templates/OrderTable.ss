@@ -17,16 +17,16 @@
 <hr>
 <table cellpadding="2" cellspacing="2">
 	<thead>
-		<tr style="background-color:#EEEEEE;color:#666666;"><th width="210"><%t Event.Label 'Kurs' %></th><th width="100" align="center"><%t Event.PriceUnique 'Einzelpreis' %></th><th width="100" align="center"><%t Event.Quantity 'Menge' %></th><th width="120" align="right"><%t Event.SubTotal 'Gesamt' %></th></tr>
+		<tr style="background-color:#EEEEEE;color:#666666;"><th width="410"><%t Event.Label 'Kurs' %></th><th width="120" align="right"><%t Event.SubTotal 'Gesamt' %></th></tr>
 	</thead>
 	<tbody>
-		<tr><td width="210">$Date.Event.Title</td><td width="100" align="center">$OrderPrice</td><td width="100" align="center">1</td><td width="120" align="right">$OrderPrice</td></tr>
+		<tr><td width="410">$Date.Event.Title</td><td width="120" align="right">$OrderPrice</td></tr>
 		<% if Voucher.exists %>
-		<tr><td colspan="2"><%t Order.Voucher 'Gutschein' %></td><td align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
+		<tr><td width="410"><%t Order.Voucher 'Gutschein' %></td><td align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
 		<% end_if %>
 
-		<tr style="font-size:12px;"><td colspan="2" style="border-top:1px solid #ccc;"><%t Webshop.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td style="border-top:1px solid #ccc;" align="right">$MwSt.Nice</td></tr>
-		<tr style="font-size:14px;font-weight:bold;"><td colspan="2"><b><%t Event.TotalPrice 'Preis inklusive MwSt.' %></b></td><td align="right"><b>$TotalPrice.Nice</b></td></tr>
+		<tr style="font-size:12px;"><td width="410" style="border-top:1px solid #ccc;"><%t Webshop.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td style="border-top:1px solid #ccc;" align="right">$MwSt.Nice</td></tr>
+		<tr style="font-size:14px;font-weight:bold;"><td width="410"><b><%t Event.TotalPrice 'Preis inklusive MwSt.' %></b></td><td align="right"><b>$TotalPrice.Nice</b></td></tr>
 	</tbody>
 </table>
 <% if PaymentType == "bill" %>
