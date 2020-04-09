@@ -172,7 +172,7 @@ class Event extends DataObject{
     }
 
     public function ActiveDates(){
-        return $this->Dates()->filter('isVisible',1);
+        return $this->Dates()->filter(['isVisible' => 1,'Closed' => 0]);
     }
 
     public function EventMetaTags(){
