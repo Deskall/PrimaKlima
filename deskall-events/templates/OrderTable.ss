@@ -29,7 +29,11 @@
 		<tr style="font-size:14px;font-weight:bold;"><td width="410"><b><%t Event.TotalPrice 'Preis inklusive MwSt.' %></b></td><td align="right"><b>$TotalPrice.Nice</b></td></tr>
 	</tbody>
 </table>
-<% if PaymentType == "bill" %>
-<p style="font-size:12px;"><%t Bill.PayNow 'Der Gesamtbetrag ist ab sofort auf unser unten genanntes Konto zu zahlen.' %></p>
-$SiteConfig.BankAccount
+<% if isPaid %>
+<p style="font-size:16px;"><%t Order.paid 'Bezahlt' %></p>
+<% else %>
+	<% if PaymentType == "bill" %>
+	<p style="font-size:12px;"><%t Bill.PayNow 'Der Gesamtbetrag ist ab sofort auf unser unten genanntes Konto zu zahlen.' %></p>
+	$SiteConfig.BankAccount
+	<% end_if %>
 <% end_if %>
