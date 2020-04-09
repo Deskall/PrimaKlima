@@ -167,7 +167,7 @@ class EventPageController extends PageController{
 				}
 				$this->getRequest()->getSession()->set('orderID',$order->ID);
 				$mainPage = $date->getEventConfig()->MainPage();
-				return $this->redirect($mainPage->Link().'anmeldung-gespeichert');
+				return $this->redirect($mainPage->Link().'anmeldung-gesendet');
 
 			}
 		
