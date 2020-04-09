@@ -11,7 +11,3 @@
 </div>
 
 
-
-      <% with activeCart %>
-      <% include ShopCart %>
-      <% end_with %>

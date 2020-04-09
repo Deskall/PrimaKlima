@@ -141,3 +141,8 @@
 				
 	</div>
 </header>
+
+
+<% with activeCart %>
+<% include ShopCart %>
+<% end_with %>
