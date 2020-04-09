@@ -66,7 +66,7 @@ $(document).ready(function(){
 			$("#Form_RegisterForm_action_doRegisterBill").attr('hidden','hidden');
 			$("#summary-bill-container").attr('hidden','hidden');
 			$("#card-form-container").attr('hidden',false);
-			$("#payment-type").html('<p>'+$("label[for='card-choice']").html()+'</p>');
+			$("#payment-type").html('<p>'+$("label[for='online-choice']").html()+'</p>');
 		}
 	
 		$("#Form_RegisterForm_PaymentType").val($("input[name='PaymentMethod']:checked").val());
