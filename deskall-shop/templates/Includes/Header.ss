@@ -135,7 +135,7 @@
 		        </div> --%>
 			
 			<div class="uk-navbar-right uk-hidden@m">
-				<button class="uk-padding-remove dk-toggle-mobile-menu uk-margin-right" id="toggle-cart" data-uk-toggle="target: #cart-container" <% if $activeCart.countProducts == 0 %>hidden<% end_if %>><span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></button>
+				<button class="uk-padding-remove dk-toggle-mobile-cart uk-margin-right" id="toggle-cart" data-uk-toggle="target: #cart-container" <% if $activeCart.countProducts == 0 %>hidden<% end_if %>><span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></button>
 	            <button class="uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
 	        </div>
 		</nav>
