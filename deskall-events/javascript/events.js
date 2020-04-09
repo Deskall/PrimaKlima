@@ -82,8 +82,9 @@ $(document).ready(function(){
 
 
 	function UpdateOrderSummary(){
-		var coursePrice = parseFloat($("#course-price"));
-		var voucherPrice = parseFloat($("#voucher-price"));
+		var coursePrice = parseFloat($("#course-price").html());
+		console.log(coursePrice);
+		var voucherPrice = parseFloat($("#voucher-price").html());
 		if (voucherPrice){
 			coursePrice -= voucherPrice;
 		}
