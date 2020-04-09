@@ -170,7 +170,7 @@ class EventOrder extends DataObject{
 		$config = $this->getEventConfig();
 		$pdf = new Fpdi();
       	$src = Director::baseFolder().$config->BillFile()->getURL();
-      	$output = Director::baseFolder().'assets/Uploads/kurse/tmp/rechnung_'.$this->ID.'.pdf';
+      	$output = Director::baseFolder().'/assets/Uploads/kurse/tmp/rechnung_'.$this->ID.'.pdf';
 
       
       	$pageCount = $pdf->setSourceFile($src);
@@ -205,7 +205,7 @@ class EventOrder extends DataObject{
 			$config = $this->getEventConfig();
 			$pdf = new Fpdi();
 	      	$src = Director::baseFolder().$config->ReceiptFile()->getURL();
-	      	$output = Director::baseFolder().'assets/Uploads/kurse/tmp/quittung_'.$this->ID.'.pdf';
+	      	$output = Director::baseFolder().'/assets/Uploads/kurse/tmp/quittung_'.$this->ID.'.pdf';
 
 	      
 	      	$pageCount = $pdf->setSourceFile($src);
