@@ -243,7 +243,7 @@ class EventOrder extends DataObject{
 	            $pdf->useTemplate($templateId);
 	           
 	            $pdf->setXY(100,80);
-	            $pdf->WriteHtml($this->renderWith('ReceiptTable'));
+	            $pdf->WriteHtml($this->renderWith('OrderTable'));
 	           
 	            $pdf->setXY(30,86.5);
 	            $pdf->Write(0,$this->Nummer);
