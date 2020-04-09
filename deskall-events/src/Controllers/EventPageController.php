@@ -27,7 +27,7 @@ class EventPageController extends PageController{
 	private static $url_handlers = [
 		'offene-kurse/$URLSegment' => 'OpenEvents',
 		'anmeldung/$URLSegment/$DateID' => 'Register',
-		'anmeldung-gesendet' => 'RegisterSaved'
+		'anmeldung-gesendet' => 'RegisterSaved',
 		'transaktion-abgeschlossen' => 'TransactionCompleted',
 		'anmeldung-bestaetigt' => 'RegisterSuccessfull'
 	];
