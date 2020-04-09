@@ -201,7 +201,7 @@ class EventOrder extends DataObject{
 	}
 
 	public function getReceipt(){
-		$this->generateQuittungPDF();
+		// $this->generateQuittungPDF();
 		$html = ($this->ReceiptFile()->exists()) ? $this->ReceiptFile()->forTemplate() : '(keine)';
 		return DBField::create_field('HTMLText',$html);
 	}
