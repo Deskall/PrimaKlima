@@ -82,29 +82,16 @@ $(document).ready(function(){
 
 
 	function UpdateOrderSummary(){
-		//ici ajouter un
-		$.ajax({
-			url: '/kurse/updateCartSummary',
-			method: 'POST',
-			dataType: 'html'
-		}).done(function(response){
-			$(".summary-products").replaceWith(response);
-		});
+		var coursePrice = parseFloat($("#course-price"));
+		var voucherPrice = parseFloat($("#voucher-price"));
+		if (voucherPrice){
+			coursePrice -= voucherPrice;
+		}
+		var mwstPrice = coursePrice * 0.0707;
+		$("#mwst-price").html("CHF "+mwstPrice);
+		$("#total-price").html("CHF "+coursePrice);
 	}
 
-	function UpdateCartStep(){
-		var form = $("#Form_CheckoutForm");
-		$.ajax({
-			url: '/kurse/updateCartData',
-			method: 'POST',
-			dataType: 'html',
-			data: {form: form.serialize()}
-		}).done(function(response){
-			$(".summary-products").each(function(){
-				$(this).empty().append(response);
-			});
-		});
-	}
 
 	//Voucher
 	$(document).on("click","[data-check-voucher]",function(){
@@ -115,12 +102,17 @@ $(document).ready(function(){
 		}).done(function(response){
 			if (response.status == "OK"){
 				UIkit.modal.alert(response.message).then(function() {
+					$("input[name='VoucherID']").val(response.voucherID);
+					$("#voucher-price").html(response.discountPrice);
+					$("#voucher-row").attr('hidden',false);
 					UpdateOrderSummary();
 				});
 			}
 			else{
 				if (response.message){
 					UIkit.modal.alert(response.message);
+					$("#voucher-price").empty();
+					$("#voucher-row").attr('hidden','hidden')
 				}
 			}
 		}).fail(function(){

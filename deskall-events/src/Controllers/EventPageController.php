@@ -19,7 +19,7 @@ use PayPalCheckoutSdk\Orders\OrdersGetRequest;
 use SilverStripe\SiteConfig\SiteConfig;
 use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-
+use SilverStripe\ORM\FieldType\DBCurrency;
 
 class EventPageController extends PageController{
 	private static $allowed_actions = ['OpenEvents','Register','RegisterForm','TransactionCompleted','RegisterSuccessfull', 'VoucherForm'];
@@ -280,17 +280,25 @@ class EventPageController extends PageController{
 
 	public function VoucherForm(HTTPRequest $request){
 		if ($request->postVar('voucher') && $request->postVar('event')){
-			$voucher = EventCoupon::get()->filter('Token',$request->postVar('voucher'))->first();
+			$voucher = EventCoupon::get()->filter('Code',$request->postVar('voucher'))->first();
 			$event = EventDate::get()->byId($request->postVar('event'));
 			if ($voucher && $event){
 				if ($voucher->isValid()){
 					$originalPrice = $event->Price;
-					$discountPrice = number_format ( $event->Price - ($event->Price*$voucher->Percent/100), 2);
+					if ($voucher->AmountType == "relative"){
+						$discount = $originalPrice * floatval($voucher->Amount) / 100 ;
+					}
+					else{
+						$discount = $voucher->Amount;
+					}
+					
+					$discountPrice = DBCurrency::create()->setValue($discount);
 					return json_encode([
 						'status' => 'OK', 
-						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->Percent.'% gewährt.</p>', 
-						'price' => $discountPrice,
-						'voucherID' => $voucher->ID
+						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->NiceAmount().' gewährt.</p>', 
+						'NiceAmount' => $voucher->NiceAmount()->getValue(),
+						'voucherID' => $voucher->ID,
+						'discountPrice' => $discountPrice->Nice()
 					]);
 				}
 				else{
