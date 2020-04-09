@@ -23,6 +23,8 @@ class EventOrder extends DataObject{
 		'isPaid' => 'Boolean',
 		'PaymentType' => 'Varchar',
 		'Price' => 'Currency',
+		'DiscountPrice' => 'Currency',
+		'TotalPrice' => 'Currency',
 		'Name' => 'Varchar',
 		'Vorname' => 'Varchar',
 		'Email' => 'Varchar',
@@ -84,6 +86,29 @@ class EventOrder extends DataObject{
 		if (!$this->Nummer){
 			$this->generateNummer();
 		}
+		$this->writeTotalPrice();
+	}
+
+	public function writeTotalPrice(){
+		$price = $this->Price;
+		
+		if ($this->Voucher()->exists()){
+			if ($this->Voucher()->AmountType == "relative"){
+				$discount = $price * floatval($this->Voucher()->Amount) / 100 ;
+			}
+			else{
+				$discount = $this->Voucher()->Amount;
+			}
+			$this->DiscountPrice = $discount;
+			$price -= $discount;
+		}
+		
+		$this->TotalPrice = $price;
+	}
+
+	public function MwSt(){
+		$mwst = $this->TotalPrice * floatval($this->SiteConfig()->MwSt) / 100;
+		return DBCurrency::create()->setValue($mwst);
 	}
 
 	public function generateNummer(){
@@ -118,6 +143,9 @@ class EventOrder extends DataObject{
 
 	public function getPaymentResource(){
 		switch ($this->PaymentType){
+			case "cash":
+				$type = "Bargeld";
+			break;
 			case "bill":
 				$type = "Rechnung";
 			break;
@@ -193,7 +221,7 @@ class EventOrder extends DataObject{
             $size = $pdf->getTemplateSize($templateId);
             $pdf->useTemplate($templateId);
            
-            $pdf->setXY(8,80);
+            $pdf->setXY(8,50);
             $pdf->WriteHtml($this->renderWith('OrderTable'));
 		}	
 

@@ -1,3 +1,15 @@
+<table cellspacing="2">
+	<tr>
+		<td>
+			<address>
+			$Participant.printAddress
+			</address>
+		</td>
+		<td align="right">
+			<address><% if $SiteConfig.AddressTitle %> $SiteConfig.AddressTitle<br/><% end_if %><% if $SiteConfig.Address %>$SiteConfig.Address<br/><% end_if %><% if $SiteConfig.Code %> $SiteConfig.Code - $SiteConfig.City<br/><% end_if %><% if $SiteConfig.Country %>$SiteConfig.Country<% end_if %></address>
+		</td>
+	</tr>
+</table>
 <h2>Rechnung</h2>
 <table cellspacing="2">
 	<tr style="font-size:12px;"><td>Rechnung Nr. $Nummer</td><td>Kunde Nr. $Participant.ID</td><td align="right">Datum: $Created.format('dd.MM.Y')</td></tr>
@@ -5,13 +17,19 @@
 <hr>
 <table cellpadding="2" cellspacing="2">
 	<thead>
-		<tr style="background-color:#EEEEEE;color:#666666;"><th width="210">Leistung</th><th width="100" align="center">Einzelpreis</th><th width="100" align="center">Menge</th><th width="120" align="right">Gesamt</th></tr>
+		<tr style="background-color:#EEEEEE;color:#666666;"><th width="210"><%t Event.Label 'Kurs' %></th><th width="100" align="center"><%t Event.PriceUnique 'Einzelpreis' %></th><th width="100" align="center"><%t Event.Quantity 'Menge' %></th><th width="120" align="right"><%t Event.SubTotal 'Gesamt' %></th></tr>
 	</thead>
 	<tbody>
 		<tr><td width="210">$Date.Event.Title</td><td width="100" align="center">$OrderPrice</td><td width="100" align="center">1</td><td width="120" align="right">$OrderPrice</td></tr>
-		<tr><td colspan="3">Nettobetrag</td><td align="right">$OrderPriceNetto</td></tr>
-		<tr><td colspan="3">MwSt. inkl</td><td align="right">$OrderMwst</td></tr>
-		<tr style="font-size:12px;"><td colspan="3"><b>Gesamtbetrag</b></td><td align="right"><b>$OrderPrice</b></td></tr>
+		<% if Voucher.exists %>
+		<tr><td colspan="2"><%t Order.Voucher 'Gutschein' %></td><td align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
+		<% end_if %>
+
+		<tr style="font-size:12px;"><td colspan="2" style="border-top:1px solid #ccc;"><%t Webshop.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td style="border-top:1px solid #ccc;" align="right">$MwSt.Nice</td></tr>
+		<tr style="font-size:14px;font-weight:bold;"><td colspan="2"><b><%t Event.TotalPrice 'Preis inklusive MwSt.' %></b></td><td align="right"><b>$TotalPrice.Nice</b></td></tr>
 	</tbody>
 </table>
-<p style="font-size:12px;">Der Gesamtbetrag ist ab sofort auf unser unten genanntes Konto zu zahlen.</p>
+<% if PaymentType == "bill" %>
+<p style="font-size:12px;"><%t Bill.PayNow 'Der Gesamtbetrag ist ab sofort auf unser unten genanntes Konto zu zahlen.' %></p>
+$SiteConfig.BankAccount
+<% end_if %>
