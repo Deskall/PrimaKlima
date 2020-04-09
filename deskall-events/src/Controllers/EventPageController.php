@@ -290,7 +290,7 @@ class EventPageController extends PageController{
 
 						$this->getRequest()->getSession()->set('orderID',$order->ID);
 
-						return json_encode(["status" => 'OK', "redirecturl" => $date->EventConfig()->MainPage()->Link().'anmeldung-bestaetigt']);
+						return json_encode(["status" => 'OK', "redirecturl" => $date->getEventConfig()->MainPage()->Link().'anmeldung-bestaetigt']);
 						
 					} catch (Exception $e) {
 						$validationMessages = '';
