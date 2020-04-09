@@ -16,7 +16,7 @@
 				<div class="element" id="event" data-event-id="$Date.ID" data-price="$Date.Price" data-url="$Date.EventConfig.MainPage.Link">
 					<h1>$Title</h1>
 					<div class="uk-panel">
-						<table class="uk-table uk-table-small uk-table-striped uk-table-middle">
+						<table class="uk-table uk-table-small uk-table-striped uk-table-middle uk-table-responsive">
 							<thead><th><%t Event.Title 'Kurs' %></th><th><%t Event.Dates 'Datum' %></th><th><%t Event.City 'Ort' %></th><th><%t Event.Price 'Preis' %></th></thead>
 							<tbody>
 							<% with Date %>
