@@ -99,7 +99,7 @@ class EventPageController extends PageController{
 						TextField::create('Phone','Telefon')->setValue('0784106652'),
 						TextField::create('Company','Firma')->setValue('Deskall'),
 						TextField::create('Address','Adresse')->setValue('Oltnerstrasse 85'),
-						TextField::create('Address',_t(__CLASS__.'.Address','Adresszusatz')),
+						TextField::create('Address2',_t(__CLASS__.'.Address','Adresszusatz')),
 						TextField::create('PostalCode','PLZ')->setValue('466'),
 						TextField::create('City','Stadt')->setValue('Aarburg'),
 						TextField::create('Region',_t(__CLASS__.'.Region','Kanton')),
