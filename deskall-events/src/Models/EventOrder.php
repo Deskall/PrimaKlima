@@ -50,6 +50,13 @@ class EventOrder extends DataObject{
 		'Documents' => 'Dokumente'
 	);
 
+	private static $search_fields = [
+		'Nummer' => 'Rechnungsnummer',
+		'Participant.Name' => 'Teilnehmer Name',
+		'Participant.Email' => 'Teilnehmer E-Mail',
+		'Created.Nice' => 'Bestelldatum'
+	];
+
 	private static $default_sort = "Created DESC";
 
 	public function onBeforeWrite(){

@@ -21,7 +21,7 @@ class EventAdmin extends ModelAdmin{
 			'title' => 'Kurse'
 		],
 		'EventOrder' => [
-			'title' => 'Bestellungen'
+			'title' => 'Anmeldungen'
 		],
 		'EventCoupon' => [
 			'title' => 'Gutscheine'

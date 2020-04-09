@@ -80,8 +80,8 @@ class Participant extends DataObject
     }
 
     public function getTitle(){
-        $intro = ($this->Gender == "Frau") ? "Sehr geehrte Frau" : "Sehr geehrter Herr";
-        return DBField::create_field('Varchar', $intro.' '.$this->Vorname.' '.$this->Name);
+        // $intro = ($this->Gender == "Frau") ? "Sehr geehrte Frau" : "Sehr geehrter Herr";
+        return DBField::create_field('Varchar', $this->Gender.' '.$this->Vorname.' '.$this->Name);
     }
 
    
