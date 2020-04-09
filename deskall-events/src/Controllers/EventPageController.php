@@ -272,25 +272,33 @@ class EventPageController extends PageController{
 						$participant->write();
 					}
 					$order->ParticipantID = $participant->ID;
+					try {
+						//Write order
+						$order->write();
+						$date->Participants()->add($participant,['paid' => 1]);
+						$date->Places = $date->Places - 1;
+						$date->write();
+						//Update Voucher
+						$order->Voucher()->Used = true;
+						$order->Voucher()->Count = $order->Voucher()->count - 1;
+						$order->Voucher()->write();
 
-					//Write order
-					$order->write();
-					$date->Participants()->add($participant,['paid' => 1]);
-					$date->Places = $date->Places - 1;
-					$date->write();
-					//Update Voucher
-					$order->Voucher()->Used = true;
-					$order->Voucher()->Count = $order->Voucher()->count - 1;
-					$order->Voucher()->write();
+						//Create Receipt
+						$order->generateQuittungPDF();
+						//Send Confirmation Email
+						$order->SendConfirmationEmail();
 
-					//Create Receipt
-					$order->generateQuittungPDF();
-					//Send Confirmation Email
-					$order->SendConfirmationEmail();
+						$this->getRequest()->getSession()->set('orderID',$order->ID);
 
-					$this->getRequest()->getSession()->set('orderID',$order->ID);
-
-					return json_encode(["status" => 'OK']);
+						return json_encode(["status" => 'OK', "redirecturl" => $date->EventConfig()->MainPage()->Link().'anmeldung-bestaetigt']);
+						
+					} catch (Exception $e) {
+						$validationMessages = '';
+						foreach($e->getResult()->getMessages() as $error){
+							$validationMessages .= $error['message']."\n";
+						}
+						return json_encode(["status" => 'NOT OK', 'errors' => $validationMessages ]);
+					}
 				}
 				
 			}
