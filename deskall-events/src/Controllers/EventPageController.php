@@ -166,7 +166,7 @@ class EventPageController extends PageController{
 				}
 				$this->getRequest()->getSession()->set('orderID',$order->ID);
 				$mainPage = $date->getEventConfig()->MainPage();
-				return $this->redirect($mainPage->Link().'anmeldung-bestaetigt');
+				return $this->redirect($mainPage->Link().'anmeldung-gespeichert');
 
 			}
 		
@@ -174,6 +174,22 @@ class EventPageController extends PageController{
 
 		return $this->httpError(404);
 		
+	}
+
+	public function RegisteSaved(){
+		
+		$orderID = $this->getRequest()->getSession()->get('orderID');
+	
+		if ($orderID){
+			$order = EventOrder::get()->byId($orderID);
+			if ($order){
+				$this->getRequest()->getSession()->clear('orderID');
+				return ['Title' => 'Anmeldung gesendet', 'Order' => $order, 'Event' => $order->Date()->Event(), 'Date' => $order->Date()];
+			}
+		}
+
+		$mainPage = EventConfig::get()->last()->MainPage();
+		return $this->redirect($mainPage->Link());
 	}
 
 	public function TransactionCompleted(HTTPRequest $request){

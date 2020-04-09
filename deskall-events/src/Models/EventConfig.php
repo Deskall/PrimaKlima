@@ -13,6 +13,7 @@ class EventConfig extends DataObject
 {
     private static $db = array(
         'Title' => 'Varchar',
+        'RegistrationConfirmedLabel' => 'HTMLText',
         'PaymentConfirmedLabel' => 'HTMLText',
         'BillEmailSubject' => 'Varchar',
         'BillEmailBody' => 'HTMLText',
@@ -32,7 +33,7 @@ class EventConfig extends DataObject
        'ReceiptFile' => File::class
     ];
 
-    
+
     private static $owns = [
         'BillFile',
         'AGBFile',
@@ -50,6 +51,7 @@ class EventConfig extends DataObject
     $labels['Title'] = _t(__CLASS__.'.Title','Titel');
     $labels['MainPage'] = _t(__CLASS__.'.MainPage','Haupt Kurse Seite');
     $labels['AllEventsPage'] = _t(__CLASS__.'.AllEventsPage','Kurse Termine Seite');
+    $labels['RegistrationConfirmedLabel'] = _t(__CLASS__.'.RegistrationConfirmedLabel','Anmeldungsbestätigungstext');
     $labels['PaymentConfirmedLabel'] = _t(__CLASS__.'.PaymentConfirmedLabel','Zahlungsbestätigungstext');
     $labels['BillEmailSubject'] = _t(__CLASS__.'.BillEmailSubject','Rechnungsemail Betreff');
     $labels['BillEmailBody'] = _t(__CLASS__.'.BillEmailBody','Rechnungsemail Inhalt');
