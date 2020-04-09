@@ -21,6 +21,7 @@ use setasign\Fpdi\Tcpdf\Fpdi;
 use SilverStripe\Assets\Folder;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\Control\Director;
 
 class EventOrder extends DataObject{
 
