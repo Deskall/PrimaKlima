@@ -130,10 +130,7 @@ class EventPageController extends PageController{
 	}
 
 	public function doRegisterBill($data,$form){
-		ob_start();
-					print_r($data);
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+		
 		//Link to date
 		if (isset($data['DateID']) && !empty($data['DateID'])){
 			$date = EventDate::get()->byId($data['DateID']);

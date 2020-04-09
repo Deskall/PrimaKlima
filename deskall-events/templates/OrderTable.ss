@@ -20,7 +20,7 @@
 		<tr style="background-color:#EEEEEE;color:#666666;"><th width="410"><%t Event.Label 'Kurs' %></th><th width="120" align="right"><%t Event.SubTotal 'Gesamt' %></th></tr>
 	</thead>
 	<tbody>
-		<tr><td width="410">$Date.Event.Title</td><td width="120" align="right">$OrderPrice</td></tr>
+		<tr><td width="410">$Date.Event.Title</td><td width="120" align="right">$Price.Nice</td></tr>
 		<% if Voucher.exists %>
 		<tr><td width="410"><%t Order.Voucher 'Gutschein' %></td><td align="right"><%t Order.VoucherLabel 'Rabatt' %> - $Voucher.NiceAmount</td></tr>
 		<% end_if %>
