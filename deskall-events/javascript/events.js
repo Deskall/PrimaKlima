@@ -67,7 +67,7 @@ $(document).ready(function(){
 		}
 	
 		$("#Form_RegisterForm_PaymentType").val($("input[name='PaymentMethod']:checked").val());
-		$("#payment-type").html('<p>'+$("input[name='PaymentMethod']:checked").closest('label').html()++'</p>');
+		$("#payment-type").html('<p>'+$("input[name='PaymentMethod']:checked").closest('label').html()+'</p>');
 	});
 
 
