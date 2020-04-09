@@ -9,6 +9,7 @@ $(document).ready(function(){
 		//Update Package
 		$("#summary-package-"+$("#Form_CheckoutForm_ProductID").val()).attr('hidden',false);
 		UIkit.tab(switcher).show(index);
+		$('html, body').animate({scrollTop: switcher.offset().top }, 100);
 	}
 
 	$(document).on("change","input[name='DeliverySameAddress']",function(){
@@ -108,6 +109,8 @@ $(document).ready(function(){
 			UIkit.tab(switcher).show(index-1);
 		}
 		if (form.valid() && $(this).attr('data-step') == "forward"){
+			var li = index+2;
+			switcher.find('li:nth-child('+li+')').removeClass('uk-disabled');
 			UIkit.tab(switcher).show(index+1);
 			UpdateCartStep();
 		}
