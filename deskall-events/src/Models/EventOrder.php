@@ -56,7 +56,7 @@ class EventOrder extends DataObject{
            "filter" => "PartialMatchFilter",
            "title" => 'Rechnungsnummer'
         ),
-		'Participant.Name' array(
+		'Participant.Name' => array(
            "field" => "TextField",
            "filter" => "PartialMatchFilter",
            "title" => 'Teilnehmer Name'
