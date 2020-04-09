@@ -7,6 +7,8 @@ use SilverStripe\Assets\Folder;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\Control\Director;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\DateField;
 
 class EventOrder extends DataObject{
 
