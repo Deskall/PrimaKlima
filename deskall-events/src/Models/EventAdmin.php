@@ -20,9 +20,16 @@ class EventAdmin extends ModelAdmin{
 		'Event' => [
 			'title' => 'Kurse'
 		],
+		'EventOrder' => [
+			'title' => 'Bestellungen'
+		],
+		'EventCoupon' => [
+			'title' => 'Gutscheine'
+		],
 		'EventConfig' => [
 			'title' => 'Einstellungen'
-		]
+		],
+
 	];
 
 	public function getList(){
