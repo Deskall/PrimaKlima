@@ -110,6 +110,7 @@ class EventPageController extends PageController{
 						
 					)->setName('SummaryFields'),
 					HiddenField::create('PaymentType'),
+					HiddenField::create('VoucherID'),
 					HiddenField::create('DateID')->setValue($dateid)
 				),
 				new FieldList(
