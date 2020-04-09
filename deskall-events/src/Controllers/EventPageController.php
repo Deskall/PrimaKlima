@@ -260,11 +260,13 @@ class EventPageController extends PageController{
 		if ($orderID){
 			$order = EventOrder::get()->byId($orderID);
 			if ($order){
+				$request->getSession()->clear('orderID');
 				return ['Title' => 'Anmeldung bestätigt', 'Order' => $order, 'Event' => $order->Date()->Event(), 'Date' => $order->Date()];
 			}
 		}
 
-		return $this->httpError(404);
+		$mainPage = $date->getEventConfig()->MainPage();
+		return $this->redirect($mainPage->Link());
 	}
 
 	public function VoucherForm(HTTPRequest $request){
