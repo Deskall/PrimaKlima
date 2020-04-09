@@ -50,7 +50,7 @@ class EventOrder extends DataObject{
 		'Documents' => 'Dokumente'
 	);
 
-	private static $search_fields = [
+	private static $searchable_fields = [
 		'Nummer' => 'Rechnungsnummer',
 		'Participant.Name' => 'Teilnehmer Name',
 		'Participant.Email' => 'Teilnehmer E-Mail',
