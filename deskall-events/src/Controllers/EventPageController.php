@@ -95,6 +95,7 @@ class EventPageController extends PageController{
 						TextField::create('Name','Name')->setValue('Pacilly'),
 						TextField::create('Vorname','Vorname')->setValue('Guillaume'),
 						EmailField::create('Email','Email')->setValue('guillaume.pacilly@gmail.com'),
+						TextField::create('Phone','Telefon')->setValue('0784106652'),
 						TextField::create('Company','Firma')->setValue('Deskall'),
 						TextField::create('Address','Adresse')->setValue('Oltnerstrasse 85'),
 						TextField::create('PostalCode','PLZ')->setValue('466'),
