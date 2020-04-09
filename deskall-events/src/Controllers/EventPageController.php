@@ -254,13 +254,13 @@ class EventPageController extends PageController{
 		return json_encode(["status" => 'NOT OK']);
 	}
 
-	public function RegisterSuccessfull(HTTPRequest $request){
+	public function RegisterSuccessfull(){
 		
-		$orderID = $request->getSession()->get('orderID');
+		$orderID = $this->getRequest()->getSession()->get('orderID');
 		if ($orderID){
 			$order = EventOrder::get()->byId($orderID);
 			if ($order){
-				$request->getSession()->clear('orderID');
+				$this->getRequest()->getSession()->clear('orderID');
 				return ['Title' => 'Anmeldung bestätigt', 'Order' => $order, 'Event' => $order->Date()->Event(), 'Date' => $order->Date()];
 			}
 		}
