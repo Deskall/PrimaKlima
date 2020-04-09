@@ -107,11 +107,13 @@ $(document).ready(function(){
 		var index = parseInt(tab.attr('data-index'));
 		if ($(this).attr('data-step') == "backward"){
 			UIkit.tab(switcher).show(index-1);
+			$('html, body').animate({scrollTop: switcher.offset().top }, 100);
 		}
 		if (form.valid() && $(this).attr('data-step') == "forward"){
 			var li = index+2;
 			switcher.find('li:nth-child('+li+')').removeClass('uk-disabled');
 			UIkit.tab(switcher).show(index+1);
+			$('html, body').animate({scrollTop: switcher.offset().top }, 100);
 			UpdateCartStep();
 		}
 	});
