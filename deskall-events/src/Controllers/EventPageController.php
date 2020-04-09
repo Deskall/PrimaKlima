@@ -254,9 +254,9 @@ class EventPageController extends PageController{
 		return json_encode(["status" => 'NOT OK']);
 	}
 
-	public function RegisterSuccessfull(){
+	public function RegisterSuccessfull(HTTPRequest $request){
 		
-		$orderID = $this->getRequest->getSession()->get('orderID');
+		$orderID = $request->getSession()->get('orderID');
 		if ($orderID){
 			$order = EventOrder::get()->byId($orderID);
 			if ($order){
