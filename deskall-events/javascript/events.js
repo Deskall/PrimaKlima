@@ -84,14 +84,14 @@ $(document).ready(function(){
 	function UpdateOrderSummary(){
 		var coursePrice = parseFloat($("#event").attr('data-price'));
 		console.log(coursePrice);
-		var voucherPrice = parseFloat($("#voucher-price").html());
+		var voucherPrice = parseFloat($("#voucher-price").attr('data-price'));
 		console.log(voucherPrice);
 		if (voucherPrice){
 			coursePrice -= voucherPrice;
 		}
 		var mwstPrice = coursePrice * 0.0707;
 		console.log(mwstPrice);
-		$("#mwst-price").html("CHF "+mwstPrice);
+		$("#mwst-price").html("CHF "+mwstPrice.toFixed(2));
 		$("#total-price").html("CHF "+coursePrice).attr('data-price',coursePrice);
 	}
 
@@ -107,6 +107,7 @@ $(document).ready(function(){
 				UIkit.modal.alert(response.message).then(function() {
 					$("input[name='VoucherID']").val(response.voucherID);
 					$("#voucher-price").html(response.discountPrice);
+					$("#voucher-price").attr('data-price',response.discount);
 					$("#voucher-row").attr('hidden',false);
 					UpdateOrderSummary();
 				});
