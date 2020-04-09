@@ -70,6 +70,11 @@ class Event extends DataObject{
         'Files','Images','Videos','Dates'
     ];
 
+    private static $summary_fields = [
+        'Title',
+        'NiceDescription' => ['title' => 'Beschreibung']
+    ];
+
 
     function fieldLabels($includerelations = true) {
         $labels = parent::fieldLabels($includerelations);
@@ -98,6 +103,11 @@ class Event extends DataObject{
 
     public function HeaderSlide(){
         return $this->getEventConfig()->MainPage()->HeaderSlide();
+    }
+
+    public function NiceDescription(){
+        $t = DBHTMLText::create()->setValue($this->Description);
+        return $t->limitWordCount(50);
     }
 
 
