@@ -11,6 +11,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DateField;
 use SilverStripe\ORM\Filters\PartialMatchFilter;
 use SilverStripe\ORM\Filters\ExactMatchFilter;
+use SilverStripe\ORM\FieldType\DBCurrency;
 
 class EventOrder extends DataObject{
 
