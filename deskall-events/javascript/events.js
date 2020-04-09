@@ -89,6 +89,7 @@ $(document).ready(function(){
 		if (voucherPrice){
 			coursePrice -= voucherPrice;
 		}
+		console.log(coursePrice);
 		var mwstPrice = coursePrice * 0.0707;
 		console.log(mwstPrice);
 		$("#mwst-price").html("CHF "+mwstPrice.toFixed(2));
