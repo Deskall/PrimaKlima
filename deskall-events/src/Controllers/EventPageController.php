@@ -184,7 +184,7 @@ class EventPageController extends PageController{
 		if ($orderID){
 			$order = EventOrder::get()->byId($orderID);
 			if ($order){
-				$this->getRequest()->getSession()->clear('orderID');
+				// $this->getRequest()->getSession()->clear('orderID');
 				return ['Title' => 'Anmeldung gesendet', 'Order' => $order, 'Event' => $order->Date()->Event(), 'Date' => $order->Date()];
 			}
 		}
