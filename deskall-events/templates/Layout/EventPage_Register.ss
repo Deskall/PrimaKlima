@@ -24,8 +24,16 @@
 							<% end_with %>
 							</tbody>
 						</table>
+						<% if Date.isFull %>
+						<p><i><%t Date.isFullLabel 'Entschuldigung, dieser Kurs ist voll' %></i></p>
+						<% else_if not Date.isOpen %>
+						<p><i><%t Date.isNotOpenLabel 'Leider sind die Anmeldungen für diesen Kurs noch nicht offen' %></i></p>
+						<% else_if Date.isClose %>
+						<p><i><%t Date.isCloseLabel 'Entschuldigung, dieser Kurs ist vorbei.' %></i></p>
+						<% else %>
+							$RegisterForm
+						<% end_if %>
 						
-						$RegisterForm
 						<%-- <div class="uk-margin-large">
 							<h3><%t Event.Voucher 'Gutschein' %></h3>
 							<p><%t Event.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. und klicken Sie an "Gutschein prüfen".' %></p>

@@ -159,8 +159,12 @@ class EventDate extends DataObject{
         return EventConfig::get()->last();
     }
 
-     public function HeaderSlide(){
+    public function HeaderSlide(){
         return $this->Event()->HeaderSlide();
+    }
+
+    public function isClose(){
+        return DateTime::create($this->Start) > new DateTime();
     }
 
 
