@@ -45,7 +45,7 @@ class EventAdmin extends ModelAdmin{
 	    }
 
 	    if($this->modelClass == 'EventOrder' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
-	       $gridField->getConfig()->addComponent(new GridFieldDeleteAllAction());
+	       $gridField->getConfig()->addComponent(new GridFieldDeleteAllAction('before'));
 	    }
 
 	    return $form;
