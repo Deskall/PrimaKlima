@@ -242,16 +242,9 @@ class EventOrder extends DataObject{
 	            $size = $pdf->getTemplateSize($templateId);
 	            $pdf->useTemplate($templateId);
 	           
-	            $pdf->setXY(100,80);
+	            $pdf->setXY(8,50);
 	            $pdf->WriteHtml($this->renderWith('OrderTable'));
 	           
-	            $pdf->setXY(30,86.5);
-	            $pdf->Write(0,$this->Nummer);
-	           
-	            $pdf->WriteHtmlCell(100,30,30,105.5,$this->Participant()->Vorname.' '.$this->Participant()->Name);
-	            $pdf->WriteHtmlCell(100,30,30,126.5,$this->Date()->Event()->Title);
-	            $pdf->setXY(10,145);
-	            $pdf->WriteHtml($this->getSiteConfig()->Code.' - '.$this->getSiteConfig()->City.' / '.DBField::create_field('Date',$this->Created)->format('dd.MM.Y'));
 			}	
 
 			$pdf->Output($output,'F');
