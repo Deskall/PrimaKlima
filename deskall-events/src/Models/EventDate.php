@@ -166,7 +166,7 @@ class EventDate extends DataObject{
     }
 
     public function isClose(){
-        $past = $this->Start > date('Y-m-d');
+        $past = $this->Start < date('Y-m-d');
         if ($past){
             $this->Closed = true;
             $this->write();
