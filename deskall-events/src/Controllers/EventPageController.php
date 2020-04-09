@@ -99,8 +99,10 @@ class EventPageController extends PageController{
 						TextField::create('Phone','Telefon')->setValue('0784106652'),
 						TextField::create('Company','Firma')->setValue('Deskall'),
 						TextField::create('Address','Adresse')->setValue('Oltnerstrasse 85'),
+						TextField::create('Address',_t(__CLASS__.'.Address','Adresszusatz')),
 						TextField::create('PostalCode','PLZ')->setValue('466'),
 						TextField::create('City','Stadt')->setValue('Aarburg'),
+						TextField::create('Region',_t(__CLASS__.'.Region','Kanton')),
 						DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch')
 					)->setName('CustomerFields'),
 					CompositeField::create(
@@ -116,7 +118,7 @@ class EventPageController extends PageController{
 				new FieldList(
 					FormAction::create('doRegisterBill', _t('MemberProfiles.REGISTER', 'Jetzt kostenplichtig registrieren'))->setUseButtonTag(true)->addExtraClass('uk-button button-gruen')
 				),
-				RequiredFields::create(['Gender','Name','Vorname','Email','Address','PostalCode','City','Country'])
+				RequiredFields::create(['Gender','Name','Vorname','Email','Address','PostalCode','City','Country','Phone'])
 			);
 
 			$form->addExtraClass('uk-form-horizontal form-std');
@@ -223,7 +225,7 @@ class EventPageController extends PageController{
 					//Create and fill the order
 					$order = new EventOrder();
 					if ($voucherID && $voucherID != ""){
-						$voucher = Voucher::get()->byId($voucherID);
+						$voucher = EventCoupon::get()->byId($voucherID);
 						if ($voucher){
 							$discountPrice = number_format ( $date->Price - ($date->Price * $voucher->Percent/100), 2);
 							$order->Price = $discountPrice;

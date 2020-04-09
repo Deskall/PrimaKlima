@@ -138,12 +138,12 @@ $(document).ready(function(){
 	      	intent: 'CAPTURE',
 	  	    payer: {
 	  	        name: {
-	  	          given_name: $("input[name='FirstName']").val(),
+	  	          given_name: $("input[name='Vorname']").val(),
 	  	          surname: $("input[name='Name']").val()
 	  	        },
 	  	        address: {
-	  	          address_line_1: $("input[name='Street']").val(),
-	  	          address_line_2: $("input[name='Address']").val(),
+	  	          address_line_1: $("input[name='Address']").val(),
+	  	          address_line_2: $("input[name='Address2']").val(),
 	  	          admin_area_2: $("input[name='City']").val(),
 	  	          admin_area_1: $("input[name='Region']").val(),
 	  	          postal_code: $("input[name='PostalCode']").val(),
@@ -180,7 +180,8 @@ $(document).ready(function(){
 	          	method: 'post',
 	          	data: {
 	            	orderID: data.orderID,
-	            	dateID: $("input[name='DateID']").val()
+	            	dateID: $("input[name='DateID']").val(),
+	            	voucherID: $("input[name='VoucherID']").val()
 	          	},
 	          	dataType: 'Json'
 	        }).done(function(response){

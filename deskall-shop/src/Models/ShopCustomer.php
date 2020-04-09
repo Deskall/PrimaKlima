@@ -97,6 +97,7 @@ class ShopCustomer extends DataObject
     $labels['PostalCode'] = _t(__CLASS__.'.PostalCode','PLZ');
     $labels['City'] = _t(__CLASS__.'.City','Stadt');
     $labels['Country'] = _t(__CLASS__.'.Country','Land');
+    $labels['Region'] = _t(__CLASS__.'.Region','Kanton');
     $labels['BillAddress'] = _t(__CLASS__.'.BillAddress','Adresse (Rechnung)');
     $labels['BillPostalCode'] = _t(__CLASS__.'.BillPostalCode','PLZ (Rechnung)');
     $labels['BillCity'] = _t(__CLASS__.'.BillCity','Stadt (Rechnung)');

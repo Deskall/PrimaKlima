@@ -77,7 +77,7 @@ class ShopPageController extends PageController{
 				TextField::create('Address',_t(__CLASS__.'.Address','Adresse')),
 				TextField::create('PostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl *'))->setAttribute('data-required',true)->setValue('4663'),
 				TextField::create('City',_t(__CLASS__.'.City','Stadt *'))->setAttribute('data-required',true)->setValue('Aarburg'),
-				TextField::create('Region',_t(__CLASS__.'.Region','Bundesland')),
+				TextField::create('Region',_t(__CLASS__.'.Region','Kanton')),
 				DropdownField::create('Country',_t(__CLASS__.'.Country','Land *'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen *'))->setAttribute('data-required',true),
 				EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail-Adresse *'))->setAttribute('data-required',true)->setValue('guillaume.pacilly@gmail.com'),
 				TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon *'))->setAttribute('data-required',true)->setValue('0788911689'),
@@ -93,7 +93,7 @@ class ShopPageController extends PageController{
 				TextField::create('DeliveryAddress',_t(__CLASS__.'.Address','Adresse'))->setAttribute('data-required',true),
 				TextField::create('DeliveryPostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl *'))->setAttribute('data-required',true),
 				TextField::create('DeliveryCity',_t(__CLASS__.'.City','Stadt *'))->setAttribute('data-required',true),
-				TextField::create('DeliveryRegion',_t(__CLASS__.'.Region','Bundesland')),
+				TextField::create('DeliveryRegion',_t(__CLASS__.'.Region','Kanotn')),
 				DropdownField::create('DeliveryCountry',_t(__CLASS__.'.Country','Land'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen *'))->setAttribute('data-required',true)
 			)->setName('DeliveryFields'),
 			CompositeField::create(

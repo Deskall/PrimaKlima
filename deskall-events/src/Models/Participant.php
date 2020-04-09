@@ -40,8 +40,10 @@ class Participant extends DataObject
         'Company' => 'Varchar',
         'Gender'  => 'Varchar',
         'Address'  => 'Varchar',
+        'Address2'  => 'Varchar',
         'PostalCode'  => 'Varchar',
         'City'  => 'Varchar',
+        'Region'  => 'Varchar',
         'Country'  => 'Varchar',
         'Phone'  => 'Varchar',
         'UIDNumber' => 'Varchar'
@@ -68,8 +70,10 @@ class Participant extends DataObject
     $labels['Company'] = _t(__CLASS__.'.Company','Firma');
     $labels['Gender'] = _t(__CLASS__.'.Gender','Anrede');
     $labels['Address'] = _t(__CLASS__.'.Address','Adresse');
+    $labels['Address2'] = _t(__CLASS__.'.Address2','Adresszusatz');
     $labels['PostalCode'] = _t(__CLASS__.'.PostalCode','PLZ');
     $labels['City'] = _t(__CLASS__.'.City','Stadt');
+    $labels['Region'] = _t(__CLASS__.'.Region','Kanton');
     $labels['Country'] = _t(__CLASS__.'.Country','Land');
     $labels['Phone'] = _t(__CLASS__.'.Phone','Telefon');
     $labels['Fax'] = _t(__CLASS__.'.Fax','Fax');
