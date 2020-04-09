@@ -224,16 +224,17 @@ class EventPageController extends PageController{
 
 					//Create and fill the order
 					$order = new EventOrder();
+					$order->Price = $date->Price;
+					$order->DateID = $date->ID;
+					$order->ParticipantID = $participant->ID;
+					$order->isPaid = true;
+					$order->PaymentType = 'creditcard';
+					$order->OrderID = $orderId;
 					if ($voucherID && $voucherID != ""){
 						$voucher = EventCoupon::get()->byId($voucherID);
 						if ($voucher){
-							$discountPrice = number_format ( $date->Price - ($date->Price * $voucher->Percent/100), 2);
-							$order->Price = $discountPrice;
 							$order->VoucherID = $voucher->ID;
 						}
-					}
-					else{
-						$order->Price = $date->Price;
 					}
 					
 					$order->Name = ucfirst(strtolower($response->result->payer->name->surname));
@@ -246,6 +247,12 @@ class EventPageController extends PageController{
 					$order->City = ucfirst(strtolower($address->admin_area_2));
 					$order->Country = strtolower($address->country_code);
 
+					if (property_exists($address,'address_line_2')){
+						$order->Address2 = $address->address_line_2;
+					}
+					if (property_exists($address,'admin_area_1')){
+						$order->Region = $address->admin_area_1;
+					}
 					//Participant
 					$participant = Participant::get()->filter('Email',$response->result->payer->email_address)->first();
 					if (!$participant){
@@ -257,19 +264,26 @@ class EventPageController extends PageController{
 						$participant->Address = $address->address_line_1;
 						$participant->City = ucfirst(strtolower($address->admin_area_2));
 						$participant->Country = strtolower($address->country_code);
+						if (property_exists($address,'address_line_2')){
+							$participant->Address2 = $address->address_line_2;
+						}
+						if (property_exists($address,'admin_area_1')){
+							$participant->Region = $address->admin_area_1;
+						}
 						$participant->write();
 					}
-					$order->DateID = $date->ID;
-					$order->ParticipantID = $participant->ID;
-					$order->isPaid = true;
-					$order->PaymentType = 'creditcard';
-					$order->OrderID = $orderId;
+
 
 					//Write order
 					$order->write();
 					$date->Participants()->add($participant,['paid' => 1]);
 					$date->Places = $date->Places - 1;
 					$date->write();
+					//Update Voucher
+					$order->Voucher()->Used = true;
+					$order->Voucher()->Count = $order->Voucher()->count - 1;
+					$order->Voucher()->write();
+					
 					//Create Receipt
 					$order->generateQuittungPDF();
 					//Send Confirmation Email
