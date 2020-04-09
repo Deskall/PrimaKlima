@@ -16,6 +16,9 @@
 @pink:                                          #FF298B;
 @gruen:                                         #9AC300;
 @blau:                                          #66AFBA;
+@pinkhover:                                     #C9206D;
+@gruenhover:                                    #7E9B00;
+@blauhover:                                     #45C8D0;
 
 @box-title-font-size:                           2rem;
 
@@ -264,33 +267,36 @@ header {
 }
 
 .blau {
-	.fill-page(@blau);
+	.fill-page(@blau,@blauhover);
 	.uk-button-primary,.uk-button-secondary{
 		.button-blau;
 	}
 }
 .gruen {
-	.fill-page(@gruen);
+	.fill-page(@gruen,@gruenhover);
 	.uk-button-primary,.uk-button-secondary{
 		.button-gruen;
 	}
 }
 .pink {
-	.fill-page(@pink);
+	.fill-page(@pink,@pinkhover);
 	.uk-button-primary,.uk-button-secondary{
 		.button-pink;
 	}
 }
 
-.fill-page(@color){
+.fill-page(@color,@hover){
 	h1{
 		color:@color;
 	}
 	.dk-text-content, .breadcrumbs{
 		a {
 			color: @color;
+			&:hover{
+				color: @hover;
+			}
 			&:hover:after, &:after {
-	    		background-color: @color;
+	    		background-color: @hover;
 	    	}
 		}
 	}
