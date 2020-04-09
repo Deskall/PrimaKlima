@@ -168,8 +168,8 @@ class EventOrder extends DataObject{
 	public function generatePDF(){
 		$config = $this->getEventConfig();
 		$pdf = new Fpdi();
-      	$src = dirname(__FILE__).'/../../..'.$config->BillFile()->getURL();
-      	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/rechnung_'.$this->ID.'.pdf';
+      	$src = Director::baseFolder().$config->BillFile()->getURL();
+      	$output = Director::baseFolder().'assets/Uploads/kurse/tmp/rechnung_'.$this->ID.'.pdf';
 
       
       	$pageCount = $pdf->setSourceFile($src);
@@ -188,11 +188,11 @@ class EventOrder extends DataObject{
 		
 
 
-		$tmpFolder = "Uploads/Kurse/Rechnungen/".$this->ID;
+		$tmpFolder = "Uploads/kurse/Rechnungen/".$this->ID;
 		$folder = Folder::find_or_make($tmpFolder);
 		$file = ($this->BillFile()->exists()) ? $this->BillFile() : File::create();
 		$file->ParentID = $folder->ID;
-		$file->setFromLocalFile($output, 'Uploads/Kurse/Rechnungen/'.$this->ID.'/Rechnung.pdf');
+		$file->setFromLocalFile($output, 'Uploads/kurse/Rechnungen/'.$this->ID.'/Rechnung.pdf');
 		$file->write();
 		$file->publishSingle();
 
@@ -203,8 +203,8 @@ class EventOrder extends DataObject{
 	public function generateQuittungPDF(){
 			$config = $this->getEventConfig();
 			$pdf = new Fpdi();
-	      	$src = dirname(__FILE__).'/../../..'.$config->ReceiptFile()->getURL();
-	      	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/quittung_'.$this->ID.'.pdf';
+	      	$src = Director::baseFolder().$config->ReceiptFile()->getURL();
+	      	$output = Director::baseFolder().'assets/Uploads/kurse/tmp/quittung_'.$this->ID.'.pdf';
 
 	      
 	      	$pageCount = $pdf->setSourceFile($src);
@@ -231,11 +231,11 @@ class EventOrder extends DataObject{
 			
 
 
-			$tmpFolder = "Uploads/Kurse/Quittungen/".$this->ID;
+			$tmpFolder = "Uploads/kurse/Quittungen/".$this->ID;
 			$folder = Folder::find_or_make($tmpFolder);
 			$file = ($this->ReceiptFile()->exists()) ? $this->ReceiptFile() : File::create();
 			$file->ParentID = $folder->ID;
-			$file->setFromLocalFile($output, 'Uploads/Kurse/Quittungen/'.$this->ID.'/Quittung.pdf');
+			$file->setFromLocalFile($output, 'Uploads/kurse/Quittungen/'.$this->ID.'/Quittung.pdf');
 			$file->write();
 			$file->publishSingle();
 
