@@ -35,6 +35,7 @@ class EventDate extends DataObject{
         'Places' => 'Int',
         'isOpen' => 'Boolean(0)',
         'isFull' => 'Boolean(0)',
+        'Closed' => 'Boolean(0)',
         'Price' => 'Currency',
         'Start' => 'Datetime',
         'End' => 'Datetime'
@@ -83,6 +84,7 @@ class EventDate extends DataObject{
         $labels['Places'] = _t(__CLASS__.'.Places','Plätze zur Verfügung');
         $labels['isOpen'] = _t(__CLASS__.'.isOpen','ist Anmeldung möglich?');
         $labels['isFull'] = _t(__CLASS__.'.isFull','ist ausgebucht?');
+        $labels['Closed'] = _t(__CLASS__.'.Closed','ist geschlossen?');
         $labels['Price'] = _t(__CLASS__.'.Price','Preis');
         $labels['Main'] = _t(__CLASS__.'.Main','Haupt');
         $labels['Orders'] = _t(__CLASS__.'.Participants','Teilnehmer');
@@ -164,7 +166,12 @@ class EventDate extends DataObject{
     }
 
     public function isClose(){
-        return DateTime::create($this->Start) > new DateTime();
+        $past = DateTime::create($this->Start) > new DateTime();
+        if ($past){
+            $this->Closed = true;
+            $this->write();
+        }
+        return $past;
     }
 
 

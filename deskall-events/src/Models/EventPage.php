@@ -11,7 +11,7 @@ class EventPage extends Page {
 	}
 
 	public function activeEvents(){
-		return Event::get()->filter('isVisible',1);
+		return Event::get()->filter(['isVisible' => 1,'Closed' => 0]);
 	}
 
 	public function MainEventPage(){
