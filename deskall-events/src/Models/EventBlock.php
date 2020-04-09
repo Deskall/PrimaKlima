@@ -36,7 +36,7 @@ class EventBlock extends BaseElement
     }
 
     public function activeEvents(){
-        return Event::get()->filter(['isVisible' => 1,'Closed' => 0]);
+        return Event::get()->filter('isVisible',1);
     }
 
 }
