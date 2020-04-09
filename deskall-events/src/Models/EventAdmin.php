@@ -44,6 +44,10 @@ class EventAdmin extends ModelAdmin{
 	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
 	    }
 
+	    if($this->modelClass == 'EventOrder' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+	       $gridField->getConfig()->addComponent(new GridFieldDeleteAllAction());
+	    }
+
 	    return $form;
 	}
 
