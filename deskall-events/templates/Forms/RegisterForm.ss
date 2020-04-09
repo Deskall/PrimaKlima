@@ -77,12 +77,18 @@
 				
 				<div id="summary" class="summary-course">
 					<div class="uk-margin">
-						<div class="<% if  PaymentMethod == "bill" || PaymentMethod == "online" %>uk-child-width-1-2@s uk-grid-match<% end_if %> uk-grid-small" data-uk-grid>
+						<div class="uk-child-width-1-2@s uk-grid-match uk-grid-small" data-uk-grid>
 							<div>
 								<div class="uk-panel uk-background-muted uk-padding-small">
 									<h4><%t Event.CustomerData 'Ihre Angaben' %></h4>
 									<div id="customer-address">
 									</div>
+								</div>
+							</div>
+							<div>
+								<div class="uk-panel uk-background-muted uk-padding-small">
+									<h4><%t Event.PaymentType 'Zahlungsart' %></h4>
+									<div id="payment-type"></div>
 								</div>
 							</div>
 						</div>
@@ -103,12 +109,7 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="uk-margin">
-						<div class="uk-panel uk-background-muted uk-padding-small">
-							<h4><%t Event.PaymentType 'Zahlungsart' %></h4>
-							<div id="payment-type"></div>
-						</div>
-					</div>
+					
 					
 
 				</div>
