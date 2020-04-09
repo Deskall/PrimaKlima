@@ -89,7 +89,7 @@ $(document).ready(function(){
 		}
 		var mwstPrice = coursePrice * 0.0707;
 		$("#mwst-price").html("CHF "+mwstPrice);
-		$("#total-price").html("CHF "+coursePrice);
+		$("#total-price").html("CHF "+coursePrice).attr('data-price',coursePrice);
 	}
 
 
@@ -123,7 +123,7 @@ $(document).ready(function(){
 	});
 
 	function getPrice(){
-		return $("#full-total-price").attr('data-price');
+		return $("#total-price").attr('data-price');
 	}
 
 	function cleanUrl(url){
