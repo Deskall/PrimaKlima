@@ -22,11 +22,12 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\ORM\FieldType\DBCurrency;
 
 class EventPageController extends PageController{
-	private static $allowed_actions = ['OpenEvents','Register','RegisterForm','TransactionCompleted','RegisterSuccessfull', 'VoucherForm'];
+	private static $allowed_actions = ['OpenEvents','Register','RegisterForm','RegisterSaved','TransactionCompleted','RegisterSuccessfull', 'VoucherForm'];
 
 	private static $url_handlers = [
 		'offene-kurse/$URLSegment' => 'OpenEvents',
 		'anmeldung/$URLSegment/$DateID' => 'Register',
+		'anmeldung-gesendet' => 'RegisterSaved'
 		'transaktion-abgeschlossen' => 'TransactionCompleted',
 		'anmeldung-bestaetigt' => 'RegisterSuccessfull'
 	];
@@ -274,10 +275,7 @@ class EventPageController extends PageController{
 	public function RegisterSuccessfull(){
 		
 		$orderID = $this->getRequest()->getSession()->get('orderID');
-		ob_start();
-					print_r($orderID);
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+	
 		if ($orderID){
 			$order = EventOrder::get()->byId($orderID);
 			if ($order){
