@@ -298,7 +298,8 @@ class EventPageController extends PageController{
 						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->NiceAmount().' gewährt.</p>', 
 						'NiceAmount' => $voucher->NiceAmount()->getValue(),
 						'voucherID' => $voucher->ID,
-						'discountPrice' => $discountPrice->Nice()
+						'discountPrice' => $discountPrice->Nice(),
+						'discount' => $discountPrice->getValue()
 					]);
 				}
 				else{
