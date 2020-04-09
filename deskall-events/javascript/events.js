@@ -9,6 +9,7 @@ $(document).ready(function(){
 		//Update Package
 		$("#summary-package-"+$("#Form_RegisterForm_ProductID").val()).attr('hidden',false);
 		UIkit.tab(switcher).show(index);
+		UIkit.scroll(switcher);
 	}
 
 	$("#Form_RegisterForm_CustomerFields_Holder input,#Form_RegisterForm_CustomerFields_Holder select").on("change",function(){
