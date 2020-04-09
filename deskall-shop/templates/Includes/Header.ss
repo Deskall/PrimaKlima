@@ -135,6 +135,7 @@
 		        </div> --%>
 			
 			<div class="uk-navbar-right uk-hidden@m">
+				<a id="toggle-cart" data-uk-toggle="target: #cart-container" <% if $activeCart.countProducts == 0 %>hidden<% end_if %>>Warenkorb ( <small id="cart-articles-count">$activeCart.countProducts</small> )<span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></a>
 	            <button class="uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
 	        </div>
 		</nav>
