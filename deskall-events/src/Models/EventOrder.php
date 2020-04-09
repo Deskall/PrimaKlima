@@ -1,19 +1,4 @@
-<!--< ?php
-
-
-
-class EventOrder extends ShopOrder{
-
-	private static $has_one = ['Event' => EventDate::class];
-
-}
-
-
-
-
- -->
-
- <?php
+<?php
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\File;
