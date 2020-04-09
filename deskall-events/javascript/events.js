@@ -176,7 +176,7 @@ $(document).ready(function(){
 	        UIkit.modal.alert('Ihre Zahlung wurde berücksichtigt. Sie werden in wenigen Augenblicken weitergeleitet ...');
 	        // Call your server to save the transaction
 	        $.ajax({
-	        	url: cleanUrl(window.location.pathname)+'transaktion-abgeschlossen',
+	        	url: cleanUrl($("#event").attr('data-url'))+'transaktion-abgeschlossen',
 	          	method: 'post',
 	          	data: {
 	            	orderID: data.orderID,
