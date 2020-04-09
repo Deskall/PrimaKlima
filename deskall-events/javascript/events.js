@@ -25,7 +25,7 @@ $(document).ready(function(){
 		html += $("input[name='PostalCode']").val()+' '+$("input[name='City']").val()+'<br>';
 		html += $("select[name='Country'] option:selected").text();
 		html += '</p>';
-		
+
 		$("#customer-address").html(html);
 	}
 		
@@ -67,6 +67,7 @@ $(document).ready(function(){
 		}
 	
 		$("#Form_RegisterForm_PaymentType").val($("input[name='PaymentMethod']:checked").val());
+		$("#payment-type").html('<p>'+$("input[name='PaymentMethod']:checked").closest('label').html()++'</p>');
 	});
 
 
