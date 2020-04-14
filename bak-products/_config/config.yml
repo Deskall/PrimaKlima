@@ -1,4 +1,8 @@
+---
 Name: bak-products
+After:
+    - '#deskall-divers'
+    - '#deskall-page-blocks'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: bak-products
