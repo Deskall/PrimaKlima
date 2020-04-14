@@ -5,11 +5,11 @@
 </ul>
 
 <ul class="uk-switcher SecondaryBackground">
-    <li>
-    	<div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-padding-small" data-uk-grid>
+    <li class="uk-padding-top">
+    	<div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-padding-small" data-uk-grid data-uk-height-match="h3">
     		<% loop getCategories %>
     		<div>
-    			<h3>$Title</h3>
+    			<h3  class="uk-margin-remove">$Title</h3>
     			<% if $ProductCategoryImage %>
     			  <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1" />
     			<% end_if %>
@@ -18,7 +18,7 @@
 		    <% end_loop %>
 	    </div>
     </li>
-    <li>
+    <li class="uk-padding-top">
     	<div class="uk-child-width-1-1" data-uk-grid>
     		<% loop getCategories %>
     		<div>
