@@ -20,7 +20,7 @@ class ProductBlock extends TextBlock
 
     private static $description = 'Produkte Übersicht';
 
-
+    private static $db = ['test' => 'Varchar'];
 
     public function getCMSFields()
     {
