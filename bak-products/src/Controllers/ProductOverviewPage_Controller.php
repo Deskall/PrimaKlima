@@ -11,6 +11,7 @@ use SilverStripe\CMS\Model\SiteTree;
 use Bak\Products\Models\Product;
 use Bak\Products\Models\ProductCategory;
 use Bak\Products\Models\ProductUseArea;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class ProductOverviewPage_Controller extends PageController 
 {

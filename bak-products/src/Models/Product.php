@@ -22,6 +22,7 @@ class Product extends DataObject {
 
     private static $singular_name = 'Produkt';
     private static $plural_name = 'Produkte';
+    private static $table_name = 'BAK_Product';
 
     private static $db = array(
         'Name' => 'Text',

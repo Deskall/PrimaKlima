@@ -29,7 +29,8 @@ class ProductUsage extends DataObject {
 
     private static $singular_name = 'Anwendung';
     private static $plural_name = 'Anwendungen';
-
+    private static $table_name = 'BAK_ProductUsage';
+    
     private static $extensions = ['Sortable'];
   
 

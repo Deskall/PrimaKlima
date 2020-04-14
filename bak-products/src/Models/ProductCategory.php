@@ -32,7 +32,7 @@ class ProductCategory extends DataObject {
 
     private static $singular_name = 'Kategorie';
     private static $plural_name = 'Kategorien';
-
+    private static $table_name = 'BAK_ProductCategory';
 
 
     private static $default_sort = 'SortOrder ASC';
