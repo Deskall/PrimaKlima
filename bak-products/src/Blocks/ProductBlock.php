@@ -3,7 +3,8 @@
 namespace Bak\Products\Blocks;
 
 use TextBlock;
-
+use Bak\Products\Models\ProductUseArea;
+use Bak\Products\Models\ProductCategory;
 
 
 class ProductBlock extends TextBlock
@@ -32,6 +33,15 @@ class ProductBlock extends TextBlock
     public function getType()
     {
         return _t(__CLASS__ . '.BlockType', 'BAK Produkte Übersicht');
+    }
+
+
+    public function getCategories(){
+        return ProductCategory::get()->sort(array('SortOrder' => 'DESC'));
+    }
+
+    public function getUseArea(){
+        return ProductUseArea::get()->sort(array('SortOrder' => 'ASC'));
     }
 
 }
