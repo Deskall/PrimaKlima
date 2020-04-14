@@ -1,4 +1,4 @@
-<ul data-uk-tab class="uk-margin-remove">
+<ul data-uk-tab class="uk-margin-remove uk-child-width-expand">
     <li><a href="#"><%t ProductOverviewPage.KATEGORIE "Kategorie" %></a></li>
     <li><a href="#"><%t ProductOverviewPage.ANWENDUNG "Anwendung" %></a></li>
     <li><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></li>
