@@ -8,6 +8,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Convert;
 use Bak\Products\Models\Product;
+use Bak\Products\Models\ProductUseArea;
 
 class ProductUsage extends DataObject {
     private static $db = array(
@@ -19,7 +20,7 @@ class ProductUsage extends DataObject {
     );
 
     private static $has_one = array(
-      'UseArea' => 'ProductUseArea',
+      'UseArea' => ProductUseArea::class,
       'Image' => Image::class
     );
 
@@ -30,7 +31,7 @@ class ProductUsage extends DataObject {
     private static $singular_name = 'Anwendung';
     private static $plural_name = 'Anwendungen';
     private static $table_name = 'BAK_ProductUsage';
-    
+
     private static $extensions = ['Sortable'];
   
 
