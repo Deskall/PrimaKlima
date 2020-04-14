@@ -168,7 +168,7 @@ function filterProducts( filter, filterValue ){
         HTML = '<div class="product"><div class="col w-8"><h3>' + $('[data-product-list]').attr("data-no-products-found") + '</h3></div></div>';
     }
 
-    window.scrollTo(0, $('.product-filter-holder').offset().top);
+    window.scrollTo(0, $('.uk-switcher').offset().top);
 
 
     return HTML;
