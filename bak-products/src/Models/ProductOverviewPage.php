@@ -3,7 +3,7 @@
 namespace Bak\Products;
 
 use Page;
-use Page_Controller;
+use PageController;
 use SilverStripe\Security\Permission;
 use SilverStripe\Core\Convert;
 use SilverStripe\Control\Email\Email;
@@ -18,7 +18,7 @@ class ProductOverviewPage extends Page
     }
 }
   
-class ProductOverviewPage_Controller extends Page_Controller 
+class ProductOverviewPage_Controller extends PageController 
 {
 
     private static $allowed_actions = array(
