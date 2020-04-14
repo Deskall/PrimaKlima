@@ -37,11 +37,11 @@ class ProductBlock extends TextBlock
 
 
     public function getCategories(){
-        return ProductCategory::get()->sort(array('SortOrder' => 'DESC'));
+        return ProductCategory::get();
     }
 
     public function getUseArea(){
-        return ProductUseArea::get()->sort(array('SortOrder' => 'ASC'));
+        return ProductUseArea::get();
     }
 
 }
