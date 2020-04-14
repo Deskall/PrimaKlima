@@ -1,11 +1,38 @@
-<ul uk-tab>
+<ul data-uk-tab>
     <li><a href="#"><%t ProductOverviewPage.KATEGORIE "Kategorie" %></a></li>
     <li><a href="#"><%t ProductOverviewPage.ANWENDUNG "Anwendung" %></a></li>
     <li><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></li>
 </ul>
 
 <ul class="uk-switcher uk-margin">
-    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-    <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-    <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.</li>
-</ul><input data-search-products placeholder="
+    <li>
+    	<div class="uk-child-width-1-1" data-uk-grid>
+    		<% loop getCategories %>
+    		<div>
+    			<h3>$Title</h3>
+    			<% if $ProductCategoryImage %>
+    			  <img src="$ProductCategoryImage.CroppedFocusedImage(350,250).URL" alt="$T(Title)"/>
+    			<% end_if %>
+    			<div class="link-more">$T(Title) <span class="icon ion-ios-arrow-right"></span></div>
+		    </div>
+		    <% end_loop %>
+	    </div>
+    </li>
+    <li>
+    	<div class="uk-child-width-1-1" data-uk-grid>
+    		<% loop getCategories %>
+    		<div>
+    			<h2>$Title</h2>
+		    	<div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
+		    		<% loop Products %>
+		    		<div>
+		    			
+		    		</div>
+		    		<% end_loop %>
+		    	</div>
+		    </div>
+		    <% end_loop %>
+	    </div>
+	</li>
+    <li></li>
+</ul>
