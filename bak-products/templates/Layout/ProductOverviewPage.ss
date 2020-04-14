@@ -1,4 +1,4 @@
-<section class="content-holder big-content-holder">
+<section class="content-holder big-content-holder ici">
   <div class="container">
     <div class="col w-12">
       <h1 data-title-orig="$Title">$Title</h1>
