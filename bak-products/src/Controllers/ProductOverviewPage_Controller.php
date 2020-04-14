@@ -16,6 +16,11 @@ use SilverStripe\SiteConfig\SiteConfig;
 class ProductOverviewPageController extends PageController 
 {
 
+    public function init(){
+        parent::init();
+        Requirements::javascript('bak-products/javascript/bak-products.js');
+    }
+
     private static $allowed_actions = array(
         'category',
         'application',
