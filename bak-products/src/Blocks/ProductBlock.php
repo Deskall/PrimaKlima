@@ -2,11 +2,11 @@
 
 namespace Bak\Products\Blocks;
 
-use DNADesign\Elemental\Models\BaseElement;
-use SilverStripe\ORM\FieldType\DBField;
+use TextBlock;
 
 
-class ProductBlock extends BaseElement
+
+class ProductBlock extends TextBlock
 {
     private static $icon = 'font-icon-block-content';
 
@@ -32,12 +32,6 @@ class ProductBlock extends BaseElement
     public function getType()
     {
         return _t(__CLASS__ . '.BlockType', 'BAK Produkte Übersicht');
-    }
-
-    
-    public function getSummary()
-    {
-        return DBField::create_field('HTMLText', $this->HTML)->Summary(20);
     }
 
 }
