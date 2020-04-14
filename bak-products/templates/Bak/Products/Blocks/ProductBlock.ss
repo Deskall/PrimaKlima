@@ -11,7 +11,7 @@
     		<div>
     			<h3  class="uk-margin-remove">$Title</h3>
     			<% if $ProductCategoryImage %>
-    			  <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1" />
+    			  <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1  uk-margin-small-bottom" />
     			<% end_if %>
     			<div class="uk-text-right uk-margin-top">$Title <span class="icon ion-ios-arrow-right"></span></div>
 		    </div>
@@ -29,7 +29,7 @@
 		    			<a href="$Link($Top.Top.Locale)" class="col w-4" data-filter-name="$UseArea.Title">
 		    			  <div class="box clearfix">
 		    			    <% if $Image %>
-		    			        <img src="$Image.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1" />
+		    			        <img src="$Image.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1 uk-margin-small-bottom" />
 		    			    <% end_if %>
 		    			        $Description
 		    			        <div class="uk-text-right uk-margin-top"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span class="icon ion-ios-arrow-right"></span></div>
