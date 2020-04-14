@@ -11,7 +11,7 @@
     		<div>
     			<h3>$Title</h3>
     			<% if $ProductCategoryImage %>
-    			  <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title"/>
+    			  <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1" />
     			<% end_if %>
     			<div class="uk-text-right uk-margin-top">$Title <span class="icon ion-ios-arrow-right"></span></div>
 		    </div>
