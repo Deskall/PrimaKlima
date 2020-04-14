@@ -9,4 +9,4 @@ SilverStripe\Core\Manifest\ModuleManifest:
 
 BaseBlockExtension:
   blocks:
-    - ProductBlock
+    - Bak\Products\Blocks\ProductBlock
