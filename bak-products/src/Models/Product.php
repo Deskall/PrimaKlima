@@ -1,6 +1,6 @@
 <?php
 
-namespace Bak\Products;
+namespace Bak\Products\Models;
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Control\Director;
@@ -15,6 +15,8 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
+use Bak\Products\Models\ProductCategory;
+use Bak\Products\Models\ProductUseArea;
 
 class Product extends DataObject {
 

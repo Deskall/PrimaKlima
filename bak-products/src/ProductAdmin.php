@@ -9,13 +9,16 @@ use SilverStripe\Forms\GridField\GridFieldPrintButton;
 use SilverStripe\Forms\GridField\GridFieldPaginator;
 use SilverStripe\Forms\GridField\ridFieldPageCount;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use Bak\Products\Models\Product;
+use Bak\Products\Models\ProductCategory;
+use Bak\Products\Models\ProductUseArea;
 
 class ProductAdmin extends ModelAdmin {
 
     private static $managed_models = array(
-        'Product',
-        'ProductCategory',
-        'ProductUseArea'
+        Product::class,
+        ProductCategory::class,
+        ProductUseArea::class
     );
 
     private static $menu_priority = 3;

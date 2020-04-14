@@ -1,12 +1,13 @@
 <?php
 
-namespace Bak\Products;
+namespace Bak\Products\Models;
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
-use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Control\Director;
 use SilverStripe\View\Parsers\URLSegmentFilter;
+use Bak\Products\Models\Product;
+
 
 class ProductCategory extends DataObject {
 
@@ -26,7 +27,7 @@ class ProductCategory extends DataObject {
     private static $extensions = ['Sortable'];
 
     private static $belongs_many_many = array(
-    "Products" => "Product",
+    "Products" => Product::class,
     );
 
     private static $singular_name = 'Kategorie';
@@ -47,18 +48,9 @@ class ProductCategory extends DataObject {
    public function getCMSFields() {
 
     $fields = parent::getCMSFields();
-
-    $uploadImages = null;
-    $uploadImages = UploadField::create('ProductCategoryImage', 'Bild');
-    $uploadImages->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-    $uploadImages->setFolderName("Uploads/kategoriebilder/"); 
-
-
-    $fields->addFieldsToTab('Root.Main', array($uploadImages));
-
-
-
-
+    $uploadField = $fields->FieldByName('Root.Main.ProductCategoryImage');
+    $uploadField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
+    $uploadField->setFolderName("Uploads/kategoriebilder/"); 
 
     return $fields;
 

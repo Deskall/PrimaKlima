@@ -1,6 +1,6 @@
 <?php
 
-namespace Bak\Products;
+namespace Bak\Products\Models;
 
 use Page;
 

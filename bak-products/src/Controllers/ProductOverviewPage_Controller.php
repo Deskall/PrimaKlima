@@ -1,6 +1,6 @@
 <?php
 
-namespace Bak\Products;
+namespace Bak\Products\Controllers;
 
 use PageController;
 use SilverStripe\Core\Convert;
@@ -8,6 +8,9 @@ use SilverStripe\Control\Email\Email;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Control\Director;
 use SilverStripe\CMS\Model\SiteTree;
+use Bak\Products\Models\Product;
+use Bak\Products\Models\ProductCategory;
+use Bak\Products\Models\ProductUseArea;
 
 class ProductOverviewPage_Controller extends PageController 
 {

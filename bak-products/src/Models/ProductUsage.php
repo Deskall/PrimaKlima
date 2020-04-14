@@ -1,12 +1,13 @@
 <?php
 
-namespace Bak\Products;
+namespace Bak\Products\Models;
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Convert;
+use Bak\Products\Models\Product;
 
 class ProductUsage extends DataObject {
     private static $db = array(
@@ -23,7 +24,7 @@ class ProductUsage extends DataObject {
     );
 
     private static $belongs_many_many = array(
-      "Products" => "Product",
+      "Products" => Product::class,
     );
 
     private static $singular_name = 'Anwendung';

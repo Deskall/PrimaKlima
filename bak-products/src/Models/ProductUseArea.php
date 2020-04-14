@@ -1,6 +1,6 @@
 <?php
 
-namespace Bak\Products;
+namespace Bak\Products\Models;
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Core\Convert;
@@ -10,6 +10,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Control\Director;
+use Bak\Products\Models\ProductUsage;
 
 class ProductUseArea extends DataObject {
 
@@ -19,7 +20,7 @@ class ProductUseArea extends DataObject {
     );
 
     private static $has_many = array(
-    'Usages' => 'ProductUsage',
+    'Usages' => ProductUsage::class,
     );
 
     private static $extensions = ['Sortable'];
