@@ -4,7 +4,7 @@
     <li><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></li>
 </ul>
 
-<ul class="uk-switcher uk-margin">
+<ul class="uk-switcher uk-background-secondary">
     <li>
     	<div class="uk-child-width-1-1" data-uk-grid>
     		<% loop getCategories %>
