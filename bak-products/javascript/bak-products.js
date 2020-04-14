@@ -1,6 +1,7 @@
-$(document).ready(function(){
-    var products;
-    var categories;
+var products,
+    categories;
+
+$(document).ready(function(){  
     if( window.location.pathname.split("/")[1] == 'produkte' || window.location.pathname.split("/")[1] == 'products'){
         jQuery.ajax({
             type: "GET",
