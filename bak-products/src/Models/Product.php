@@ -57,7 +57,7 @@ class Product extends DataObject {
     );
 
     private static $many_many = array(
-      'Images' => Image::class
+      'Images' => Image::class,
       'Downloads' => File::class,
       'Downloads__en_US' => File::class,
       'Downloads__es_ES' => File::class,
