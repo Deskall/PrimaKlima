@@ -42,5 +42,10 @@
 		    <% end_loop %>
 	    </div>
 	</li>
-    <li></li>
+    <li>
+    	<div data-product-list class="product-list" data-no-products-found="<%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %>">
+    	  <a href="javascript: history.back()" class="close-products"></a>
+    	  <div class="holder"></div>
+    	</div>
+    </li>
 </ul>

@@ -13,7 +13,7 @@ use Bak\Products\Models\ProductCategory;
 use Bak\Products\Models\ProductUseArea;
 use SilverStripe\SiteConfig\SiteConfig;
 
-class ProductOverviewPage_Controller extends PageController 
+class ProductOverviewPageController extends PageController 
 {
 
     private static $allowed_actions = array(
@@ -35,7 +35,7 @@ class ProductOverviewPage_Controller extends PageController
 
 
     public function all(){
-        $products = Product::get()->sort(array('SortOrder' => 'DESC'));
+        $products = Product::get();
         $productList = array();
 
 
