@@ -6,7 +6,7 @@
 
 <ul class="uk-switcher SecondaryBackground">
     <li>
-    	<div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
+    	<div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-padding-small" data-uk-grid>
     		<% loop getCategories %>
     		<div>
     			<h3>$Title</h3>
