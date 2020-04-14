@@ -466,6 +466,14 @@ class SiteConfigLayoutExtension extends DataExtension
         $code = $this->owner->stat('constants_less')[$c->Code];
         file_put_contents($fullpath, "\n".$code.'-background:#'.$c->Color.';',FILE_APPEND);
         file_put_contents($fullpath, "\n".$code.'-color:#'.$c->FontColor.';',FILE_APPEND);
+        if ($c->Code == "BodyBackground"){
+          if ($c->LinkColor){
+            file_put_contents($fullpath, "\n".'@global-link-color:#'.$c->LinkColor.';',FILE_APPEND);
+          }
+          if ($c->LinkHoverColor){
+            file_put_contents($fullpath, "\n".'@global-link-hover-color:#'.$c->LinkHoverColor.';',FILE_APPEND);
+          }
+        }
       }
     }
     foreach ($this->owner->stat('constants_less') as $key => $value){
