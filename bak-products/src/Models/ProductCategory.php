@@ -29,18 +29,18 @@ class ProductCategory extends DataObject {
     "Products" => "Product",
     );
 
-    static $singular_name = 'Kategorie';
-    static $plural_name = 'Kategorien';
+    private static $singular_name = 'Kategorie';
+    private static $plural_name = 'Kategorien';
 
 
 
     private static $default_sort = 'SortOrder ASC';
 
-    static $summary_fields = array (
+    private static $summary_fields = array (
       'Title' => array('title' => 'Titel')
     );
 
-    static $searchable_fields = array (
+    private static $searchable_fields = array (
       'Title' => array('title' => 'Kategorie')
     );
 

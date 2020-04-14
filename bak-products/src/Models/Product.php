@@ -73,13 +73,13 @@ class Product extends DataObject {
     );
 
 
-    static $searchable_fields = array (
+    private static $searchable_fields = array (
       'Name' => array('title' => 'Produkt'),
       'Categories.Title' => array('title' => 'Kategorie'),
       'Usages.Title' => array('title' => 'Kategorie')
     );
 
-    static $summary_fields = array (
+    private static $summary_fields = array (
       'Name' => array('title' => 'Produkt'),
       'showCategories' => 'Kategorien',
       'showUsages' => 'Anwendungen'

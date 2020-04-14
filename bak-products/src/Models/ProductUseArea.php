@@ -25,8 +25,8 @@ class ProductUseArea extends DataObject {
     private static $extensions = ['Sortable'];
 
 
-    static $singular_name = 'Anwendungsbereich';
-    static $plural_name = 'Anwendungsbereiche';
+    private static $singular_name = 'Anwendungsbereich';
+    private static $plural_name = 'Anwendungsbereiche';
 
 
    public function getCMSFields() {

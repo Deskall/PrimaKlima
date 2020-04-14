@@ -18,11 +18,11 @@ class ProductAdmin extends ModelAdmin {
         'ProductUseArea'
     );
 
-    static $menu_priority = 3;
+    private static $menu_priority = 3;
 
     private static $url_segment = 'product';
     private static $menu_title = 'Produkte';
-    static $menu_icon = 'bak-products/img/icon-products.png';
+    private static $menu_icon = 'bak-products/img/icon-products.png';
     
     public $showImportForm = false;
 
