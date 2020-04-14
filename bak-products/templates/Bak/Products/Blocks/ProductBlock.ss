@@ -29,7 +29,7 @@
 		    			<a href="$Link($Top.Top.Locale)" class="col w-4" data-filter-name="$UseArea.Title">
 		    			  <div class="box clearfix">
 		    			    <% if $Image %>
-		    			        <img src="$Image.FocusFillMax(350,250).URL" alt="$Title"/>
+		    			        <img src="$Image.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1" />
 		    			    <% end_if %>
 		    			        $Description
 		    			        <div class="uk-text-right uk-margin-top"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span class="icon ion-ios-arrow-right"></span></div>
