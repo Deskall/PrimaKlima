@@ -1,0 +1,8 @@
+Name: bak-products
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: bak-products
+
+BaseBlockExtension:
+  blocks:
+    - ProductBlock
