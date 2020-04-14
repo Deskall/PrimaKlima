@@ -19,14 +19,22 @@
 	    </div>
     </li>
     <li>
-    	<div class="uk-child-width-1-1" data-uk-grid>
+    	<div class="uk-child-width-1-1 uk-padding-small" data-uk-grid>
     		<% loop getUseArea %>
     		<div>
     			<h2>$Title</h2>
 		    	<div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
 		    		<% loop Usages %>
 		    		<div>
-		    			
+		    			<a href="$Link($Top.Top.Locale)" class="col w-4" data-filter-name="$UseArea.Title">
+		    			  <div class="box clearfix">
+		    			    <% if $Image %>
+		    			        <img src="$Image.FocusFillMax(350,250).URL" alt="$Title"/>
+		    			    <% end_if %>
+		    			        $Description
+		    			        <div class="uk-text-right uk-margin-top"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span class="icon ion-ios-arrow-right"></span></div>
+		    			    </div>
+		    			</a>
 		    		</div>
 		    		<% end_loop %>
 		    	</div>
