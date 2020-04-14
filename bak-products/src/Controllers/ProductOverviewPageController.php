@@ -12,6 +12,7 @@ use Bak\Products\Models\Product;
 use Bak\Products\Models\ProductCategory;
 use Bak\Products\Models\ProductUseArea;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\View\Requirements;
 
 class ProductOverviewPageController extends PageController 
 {
