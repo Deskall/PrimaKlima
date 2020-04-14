@@ -37,7 +37,7 @@ class ProductUseArea extends DataObject {
     
     if ($this->ID){
       $gridfieldConfig = GridFieldConfig_RelationEditor::create();
-      $gridfieldConfig->addComponent(new GridFieldOrderableRows('SortOrder'));
+      $gridfieldConfig->addComponent(new GridFieldOrderableRows('Sort'));
       $UsagesField = new GridField(
               'Usages',
               'Anwendungen',
