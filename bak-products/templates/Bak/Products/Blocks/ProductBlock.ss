@@ -1,4 +1,4 @@
-<ul data-uk-tab>
+<ul data-uk-tab class="uk-margin-remove">
     <li><a href="#"><%t ProductOverviewPage.KATEGORIE "Kategorie" %></a></li>
     <li><a href="#"><%t ProductOverviewPage.ANWENDUNG "Anwendung" %></a></li>
     <li><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></li>
@@ -6,7 +6,7 @@
 
 <ul class="uk-switcher SecondaryBackground">
     <li>
-    	<div class="uk-child-width-1-1" data-uk-grid>
+    	<div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
     		<% loop getCategories %>
     		<div>
     			<h3>$Title</h3>
