@@ -13,7 +13,7 @@
     			<% if $ProductCategoryImage %>
     			  <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title"/>
     			<% end_if %>
-    			<div class="link-more">$Title <span class="icon ion-ios-arrow-right"></span></div>
+    			<div class="uk-text-right uk-margin-top">$Title <span class="icon ion-ios-arrow-right"></span></div>
 		    </div>
 		    <% end_loop %>
 	    </div>
