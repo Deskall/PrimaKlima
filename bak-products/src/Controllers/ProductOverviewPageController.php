@@ -100,7 +100,7 @@ class ProductOverviewPageController extends PageController
             array_push($productList, $tmp);
         }
 
-        $categories = ProductCategory::get()->sort(array('SortOrder' => 'DESC'));
+        $categories = ProductCategory::get();
         $categoriesList = array();
        
         foreach ($categories as $category) {
@@ -135,14 +135,6 @@ class ProductOverviewPageController extends PageController
         return json_encode(array('products' => $productList, 'categories' => $categoriesList));
     }
 
-
-	public function getCategories(){
- 		return ProductCategory::get()->sort(array('SortOrder' => 'DESC'));
- 	}
-
-    public function getUseArea(){
-        return ProductUseArea::get()->sort(array('SortOrder' => 'ASC'));
-    }
 
     public function category(SS_HTTPRequest $request){
         switch($this->Locale){
