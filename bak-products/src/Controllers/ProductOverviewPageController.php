@@ -175,9 +175,9 @@ class ProductOverviewPageController extends PageController
 
             $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
             $tags .= '<meta name="description" content="'._t('ProductPage.CATEGORIES','Produkt Kategorien').' - '.$this->MetaDescription.'">';
-            $tags .= '<link rel="alternate" type="text/html" title="Kategorien - '.Convert::raw2xml($this->getTranslation('de_DE')->Title).'" hreflang="de" href="'.Director::AbsoluteURL($this->getTranslation('de_DE')->Link().'kategorie').'" />' . "\n";
-            $tags .= '<link rel="alternate" type="text/html" title="Categories - '.Convert::raw2xml($this->getTranslation('en_US')->Title).'" hreflang="en" href="'.Director::AbsoluteURL($this->getTranslation('en_US')->Link().'category').'" />' . "\n";
-            $tags .= '<link rel="alternate" type="text/html" title="Categoria - '.Convert::raw2xml($this->getTranslation('es_ES')->Title).'" hreflang="es" href="'.Director::AbsoluteURL($this->getTranslation('es_ES')->Link().'categoria').'" />' . "\n";
+            // $tags .= '<link rel="alternate" type="text/html" title="Kategorien - '.Convert::raw2xml($this->getTranslation('de_DE')->Title).'" hreflang="de" href="'.Director::AbsoluteURL($this->getTranslation('de_DE')->Link().'kategorie').'" />' . "\n";
+            // $tags .= '<link rel="alternate" type="text/html" title="Categories - '.Convert::raw2xml($this->getTranslation('en_US')->Title).'" hreflang="en" href="'.Director::AbsoluteURL($this->getTranslation('en_US')->Link().'category').'" />' . "\n";
+            // $tags .= '<link rel="alternate" type="text/html" title="Categoria - '.Convert::raw2xml($this->getTranslation('es_ES')->Title).'" hreflang="es" href="'.Director::AbsoluteURL($this->getTranslation('es_ES')->Link().'categoria').'" />' . "\n";
 
             return array(
                 'showCategories' => true,
