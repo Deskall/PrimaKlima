@@ -60,7 +60,7 @@
   <div class="holder"></div>
 </div>
 
-<div data-filter-list="categories" class="filter-list uk-clearfix activ uk-padding-small">
+<div data-filter-list="categories" class="filter-list uk-clearfix active uk-padding-small">
 
     <% loop $getCategories %>
     <a href="$Link($Top.Locale)" class="col w-4" data-filter-name="$Title">
