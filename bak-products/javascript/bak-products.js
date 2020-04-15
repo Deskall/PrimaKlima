@@ -2,15 +2,7 @@ var products,
     categories;
 
 $(document).ready(function(){  
-    UIkit.util.on('#products-switcher', 'beforeshow', function () {
-        console.log($(this));
-        $('[data-search-products]').val("");
-        history.pushState({'filterList': $(this).attr('data-show-filter') }, $(this).attr('data-filter-name'), $(this).attr('href'));
-        // ga('set', 'page', $(this).attr('href'));
-        // ga('send', 'pageview');
-        $('h1').text($('h1').attr('data-title-orig'));
-        $('title').text($('h1').attr('data-title-orig'));
-    });
+
     if( window.location.pathname.split("/")[1] == 'produkte' || window.location.pathname.split("/")[1] == 'products'){
         jQuery.ajax({
             type: "GET",
