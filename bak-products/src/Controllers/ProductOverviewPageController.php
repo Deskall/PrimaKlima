@@ -19,7 +19,7 @@ class ProductOverviewPageController extends PageController
 
     public function init(){
         parent::init();
-        Requirements::javascript('bak-products/javascript/handlebar.min.js');
+        Requirements::javascript('bak-products/javascript/handlebars.min.js');
         Requirements::javascript('bak-products/javascript/bak-products.js');
     }
 
