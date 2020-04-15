@@ -41,7 +41,7 @@
 		    <% end_loop %>
 	    </div>
 	</li>
-    <li>
+    <li <% if Top.ShowUsages || Top.ShowCategories %> class="uk-active"<% end_if %>>
     	<div data-product-list class="product-list uk-padding-small" data-no-products-found="<%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %>">
     	  <a href="javascript: history.back()" class="close-products"></a>
     	  <div class="holder"></div>
