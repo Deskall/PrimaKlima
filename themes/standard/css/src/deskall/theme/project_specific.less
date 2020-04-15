@@ -16,6 +16,9 @@
 @pink:                                          #FF298B;
 @gruen:                                         #9AC300;
 @blau:                                          #66AFBA;
+@pinkhover:                                     #C9206D;
+@gruenhover:                                    #7E9B00;
+@blauhover:                                     #45C8D0;
 
 @box-title-font-size:                           2rem;
 
@@ -119,34 +122,50 @@ header {
 		.uk-box-shadow-medium;
 	}
 }
-.leadblock * p {
-	font-family: @strong-font-family;
+.leadblock * p, .uk-text-lead * {
+	font-family: @strong-font-family !important;
 }
-.text-gruen, .text-gruen > a {
-  color: #7E9B00;
-  font-family: inherit;
-  *, :hover{
-  	color: #9AC300;
-  }
+.dk-text-content p{
+	.text-gruen, .text-gruen > a {
+	  color: #7E9B00;
+	  font-family: inherit;
+	  *, :hover{
+	  	color: #9AC300;
+	  }
+	  &:hover:after, &:after{
+	  	background-color: #9AC300;
+	  }
+	}
+	.text-blau, .text-blau > a {
+	  color: #2C9DA3;
+	  font-family: inherit;
+	  *, :hover{
+	  	 color: #45C8D0;
+	  }
+	  &:hover:after, &:after{
+	  	background-color: #45C8D0;
+	  }
+	}
+	.text-pink, .text-pink > a  {
+	  color: #FF298B;
+	  font-family: inherit;
+	  *, :hover{
+	  	 color: #C9206D;
+	  }
+	  &:hover:after, &:after{
+	  	background-color: #C9206D;
+	  }
+	}
 }
-.text-blau, .text-blau > a {
-  color: #2C9DA3;
-  font-family: inherit;
-  *, :hover{
-  	 color: #45C8D0;
-  }
-}
-.text-pink, .text-pink > a  {
-  color: #FF298B;
-  font-family: inherit;
-  *, :hover{
-  	 color: #C9206D;
-  }
-}
+
 
 .button{
 	display: inline-block;
 	font-family: inherit;
+	*{
+		font-family: inherit;
+		color:inherit;
+	}
   	border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     padding:5px 30px;
@@ -241,36 +260,57 @@ header {
 		padding:20px;
 	}
 }
+.box-text * a {
+	color:@global-link-color;
+	&:hover{
+		color:#725E4B;
+	}
+}
 
 .uk-button{
 	.uk-border-rounded;
 	.uk-box-shadow-medium;
+	&:hover{
+    	box-shadow:none;
+    }
 }
 
 .blau {
-	.fill-page(@blau);
+	.fill-page(@blau,@blauhover);
+	.uk-button-primary,.uk-button-secondary{
+		.button-blau;
+	}
 }
 .gruen {
-	.fill-page(@gruen);
+	.fill-page(@gruen,@gruenhover);
+	.uk-button-primary,.uk-button-secondary{
+		.button-gruen;
+	}
 }
 .pink {
-	.fill-page(@pink);
+	.fill-page(@pink,@pinkhover);
+	.uk-button-primary,.uk-button-secondary{
+		.button-pink;
+	}
 }
 
-.fill-page(@color){
+.fill-page(@color,@hover){
 	h1{
 		color:@color;
 	}
-	.dk-text-content{
+	.dk-text-content, .breadcrumbs{
 		a {
 			color: @color;
-			&:hover:after, &:after {
+			&:hover{
+				color: @hover;
+			}
+			&:hover:after,&:after {
 	    		background-color: @color;
 	    	}
 		}
 	}
 	.uk-tab > li.uk-active > a{
-		border-color:@color;
+		border-bottom:3px solid @color;
 	}
 	.uk-radio:checked,
 	.uk-checkbox:checked,
@@ -361,4 +401,13 @@ header {
 	[data-uk-icon]{
 		width:20px;
 	}
+}
+[data-remove-product]{
+	color:@blau;
+	*{
+		color:@blau;
+	}
+}
+input[name='voucher']{
+	height:48px!important;
 }
