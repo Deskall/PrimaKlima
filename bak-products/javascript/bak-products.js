@@ -141,7 +141,7 @@ function filterProducts( filter, filterValue ){
     var results = {};
     results.products = [];
     var itemOK = false;
-    
+    console.log(products);
     for (i = 0; i < products.length; i++) {
         if( filter == "all" || ( products[i][filter] && ( products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ) ) ){
             results.products.push(products[i]);
