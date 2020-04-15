@@ -50,4 +50,4 @@
     </li>
 </ul>
 
-<% include BAK\\Products\\Includes\\ProductScript %>
+<% include BAK/Products/ProductScript %>
