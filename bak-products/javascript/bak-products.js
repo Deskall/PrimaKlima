@@ -166,7 +166,7 @@ function filterProducts( filter, filterValue ){
                 }
             }
 
-            HTML += '<div class="uk-text-right"><a href="' + products[i].link + '">' + products[i].linkText  + '  <span class="icon ion-ios-arrow-right"></span></a></div></div></div>';
+            HTML += '<div class="uk-text-right"><a href="' + products[i].link + '">' + products[i].linkText  + '  <span class="icon ion-ios-arrow-right"></span></a></div></div></div><hr>';
         }
 
     }
