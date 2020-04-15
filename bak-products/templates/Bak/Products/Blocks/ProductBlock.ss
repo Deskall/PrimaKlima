@@ -62,17 +62,17 @@
 
 <div data-filter-list="categories" class="filter-list uk-clearfix active uk-padding-small">
 
-    <% loop $getCategories %>
-    <a href="$Link($Top.Locale)" class="col w-4" data-filter-name="$Title">
-      <div class="box uk-clearfix">
-        <% if $Title %><h3>$Title</h3><% end_if %>
-        <% if $ProductCategoryImage %>
-          <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title"/>
-        <% end_if %>
-        <div class="link-more">$Title <span class="icon ion-ios-arrow-right"></span></div>
-      </div>
-    </a>
-    <% end_loop %>
+   <div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-padding-small" data-uk-grid data-uk-height-match="h3">
+            <% loop getCategories %>
+            <div>
+                <h3  class="uk-margin-remove">$Title</h3>
+                <% if $ProductCategoryImage %>
+                  <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1  uk-margin-small-bottom" />
+                <% end_if %>
+                <div class="uk-text-right uk-margin-top">$Title <span class="icon ion-ios-arrow-right"></span></div>
+            </div>
+            <% end_loop %>
+        </div>
 
 </div>
 
