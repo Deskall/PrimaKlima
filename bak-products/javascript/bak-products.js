@@ -142,7 +142,7 @@ function filterProducts( filter, filterValue ){
     results.products = [];
     var itemOK = false;
     console.log(products[i]);
-    for (i = 0; i < products.length; i++) {
+    for (var i = 0; i < products.length; i++) {
         if( filter == "all" || ( products[i][filter] && ( products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ) ) ){
             results.products.push(products[i]);
         }
