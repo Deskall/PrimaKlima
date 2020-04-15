@@ -82,7 +82,7 @@
 								$FieldHolder
 							<% end_with %>
 							<div id="delivery-form-container" class="uk-margin" hidden>
-								<h4><%t Checkout.DeliveryAddress 'Lieferungsadresse' %></h4>
+								<h4><%t Checkout.DeliveryAddress 'Lieferadresse' %></h4>
 								<% with Fields.FieldByName('DeliveryFields') %>
 									$FieldHolder
 								<% end_with %>
@@ -100,7 +100,7 @@
 				<% if not Controller.activeCart.Voucher.exists %>
 				<div class="uk-panel uk-padding-small">
 					<h3><%t Checkout.Voucher 'Gutschein' %></h3>
-					<p><%t Checkout.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. und klicken Sie an "Gutschein prüfen".' %></p>
+					<p><%t Checkout.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. ein und klicken Sie auf "Gutschein prüfen".' %></p>
 					<div class="uk-flex uk-flex-wrap">
 						<div class=" uk-width-medium uk-margin-small-right"><input type="text" name="voucher" class="uk-input" minlength="10" maxlength="10" placeholder="<%t Checkout.VoucherPLH 'zb: A12B3C4DEF' %>" /></div>
 						<div>

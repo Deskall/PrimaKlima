@@ -1,19 +1,4 @@
-<!--< ?php
-
-
-
-class EventOrder extends ShopOrder{
-
-	private static $has_one = ['Event' => EventDate::class];
-
-}
-
-
-
-
- -->
-
- <?php
+<?php
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\File;
@@ -21,6 +6,12 @@ use setasign\Fpdi\Tcpdf\Fpdi;
 use SilverStripe\Assets\Folder;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\Control\Director;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\DateField;
+use SilverStripe\ORM\Filters\PartialMatchFilter;
+use SilverStripe\ORM\Filters\ExactMatchFilter;
+use SilverStripe\ORM\FieldType\DBCurrency;
 
 class EventOrder extends DataObject{
 
@@ -33,14 +24,18 @@ class EventOrder extends DataObject{
 		'isPaid' => 'Boolean',
 		'PaymentType' => 'Varchar',
 		'Price' => 'Currency',
+		'DiscountPrice' => 'Currency',
+		'TotalPrice' => 'Currency',
 		'Name' => 'Varchar',
 		'Vorname' => 'Varchar',
 		'Email' => 'Varchar',
 		'Company' => 'Varchar',
 		'Gender'  => 'Varchar',
 		'Address'  => 'Varchar',
+		'Address2'  => 'Varchar',
 		'PostalCode'  => 'Varchar',
 		'City'  => 'Varchar',
+		'Region'  => 'Varchar',
 		'Country'  => 'Varchar',
 		'Phone'  => 'Varchar',
 		'UIDNumber' => 'Varchar',
@@ -64,6 +59,29 @@ class EventOrder extends DataObject{
 		'Documents' => 'Dokumente'
 	);
 
+	private static $searchable_fields = [
+		'Nummer' =>  array(
+           "field" => TextField::class,
+           "filter" => PartialMatchFilter::class,
+           "title" => 'Rechnungsnummer'
+        ),
+		'Participant.Name' => array(
+           "field" => TextField::class,
+           "filter" => PartialMatchFilter::class,
+           "title" => 'Teilnehmer Name'
+        ),
+		'Participant.Email' => array(
+           "field" => TextField::class,
+           "filter" => PartialMatchFilter::class,
+           "title" => 'Teilnehmer E-Mail'
+        ),
+		'Created' => array(
+           "field" => DateField::class,
+           "filter" => ExactMatchFilter::class,
+           "title" => 'Anmeldungsdatum'
+        )
+	];
+
 	private static $default_sort = "Created DESC";
 
 	public function onBeforeWrite(){
@@ -71,11 +89,34 @@ class EventOrder extends DataObject{
 		if (!$this->Nummer){
 			$this->generateNummer();
 		}
+		$this->writeTotalPrice();
+	}
+
+	public function writeTotalPrice(){
+		$price = $this->Price;
+		
+		if ($this->Voucher()->exists()){
+			if ($this->Voucher()->AmountType == "relative"){
+				$discount = $price * floatval($this->Voucher()->Amount) / 100 ;
+			}
+			else{
+				$discount = $this->Voucher()->Amount;
+			}
+			$this->DiscountPrice = $discount;
+			$price -= $discount;
+		}
+		
+		$this->TotalPrice = $price;
+	}
+
+	public function MwSt(){
+		$mwst = $this->TotalPrice * floatval($this->getSiteConfig()->MwSt) / 100;
+		return DBCurrency::create()->setValue($mwst);
 	}
 
 	public function generateNummer(){
 		$Config = $this->getEventConfig();
-		$last = Order::get()->sort('ID','Desc')->first();
+		$last = EventOrder::get()->sort('ID','Desc')->first();
 		$increment = ($last) ? ($last->ID + 1) : 1;
 		$this->Nummer = number_format ( $Config->OrderNumberOffset + $increment , 0 ,  "." ,  "." );
 	}
@@ -105,6 +146,9 @@ class EventOrder extends DataObject{
 
 	public function getPaymentResource(){
 		switch ($this->PaymentType){
+			case "cash":
+				$type = "Bargeld";
+			break;
 			case "bill":
 				$type = "Rechnung";
 			break;
@@ -141,26 +185,9 @@ class EventOrder extends DataObject{
 		return DBField::create_field('HTMLText',$html);
 	}
 
-	public function getOrderPrice(){
-	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$this->Price));
-	}
-
-
-	public function getOrderPriceNetto(){
-	    $price = $this->Price * 100 / 107.7;
-	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$price));
-	}
-
-	public function getOrderMwSt(){
-	    $price = $this->Price - ($this->Price * 100 / 107.7);
-	    setlocale(LC_MONETARY, 'de_DE');
-	    return DBField::create_field('Varchar',money_format('%i',$price));
-	}
-
+	
 	public function getReceipt(){
-		//$this->generateQuittungPDF();
+		// $this->generateQuittungPDF();
 		$html = ($this->ReceiptFile()->exists()) ? $this->ReceiptFile()->forTemplate() : '(keine)';
 		return DBField::create_field('HTMLText',$html);
 	}
@@ -168,11 +195,10 @@ class EventOrder extends DataObject{
 	public function generatePDF(){
 		$config = $this->getEventConfig();
 		$pdf = new Fpdi();
-      	$src = dirname(__FILE__).'/../../..'.$config->BillFile()->getURL();
-      	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/rechnung_'.$this->ID.'.pdf';
+      	$src = Director::baseFolder().$config->BillFile()->getURL();
+      	$output = Director::baseFolder().'/assets/Uploads/kurse/tmp/rechnung_'.$this->ID.'.pdf';
 
-      	$pdf->Addfont('Stone sans ITC','','stonesansitc.php');
-      	$pdf->Addfont('Lato','','lato.php');
+      
       	$pageCount = $pdf->setSourceFile($src);
       	for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
       		$pdf->SetPrintHeader(false);
@@ -180,9 +206,8 @@ class EventOrder extends DataObject{
             $templateId = $pdf->importPage($pageNo);
             $size = $pdf->getTemplateSize($templateId);
             $pdf->useTemplate($templateId);
-            $pdf->SetFont('Lato','',8);
-
-            $pdf->setXY(8,80);
+           
+            $pdf->setXY(8,50);
             $pdf->WriteHtml($this->renderWith('OrderTable'));
 		}	
 
@@ -190,11 +215,11 @@ class EventOrder extends DataObject{
 		
 
 
-		$tmpFolder = "Uploads/Rechnungen/".$this->ID;
+		$tmpFolder = "Uploads/kurse/Rechnungen/".$this->ID;
 		$folder = Folder::find_or_make($tmpFolder);
 		$file = ($this->BillFile()->exists()) ? $this->BillFile() : File::create();
 		$file->ParentID = $folder->ID;
-		$file->setFromLocalFile($output, 'Uploads/Rechnungen/'.$this->ID.'/Rechnung.pdf');
+		$file->setFromLocalFile($output, 'Uploads/kurse/Rechnungen/'.$this->ID.'/Rechnung.pdf');
 		$file->write();
 		$file->publishSingle();
 
@@ -205,11 +230,10 @@ class EventOrder extends DataObject{
 	public function generateQuittungPDF(){
 			$config = $this->getEventConfig();
 			$pdf = new Fpdi();
-	      	$src = dirname(__FILE__).'/../../..'.$config->ReceiptFile()->getURL();
-	      	$output = dirname(__FILE__).'/../../../assets/Uploads/tmp/quittung_'.$this->ID.'.pdf';
+	      	$src = Director::baseFolder().$config->ReceiptFile()->getURL();
+	      	$output = Director::baseFolder().'/assets/Uploads/kurse/tmp/quittung_'.$this->ID.'.pdf';
 
-	      	$pdf->Addfont('Stone sans ITC','','stonesansitc.php');
-	      	$pdf->Addfont('Lato','','lato.php');
+	      
 	      	$pageCount = $pdf->setSourceFile($src);
 	      	for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
 	      		$pdf->SetPrintHeader(false);
@@ -217,28 +241,21 @@ class EventOrder extends DataObject{
 	            $templateId = $pdf->importPage($pageNo);
 	            $size = $pdf->getTemplateSize($templateId);
 	            $pdf->useTemplate($templateId);
-	            $pdf->SetFont('Lato','',10);
-	            $pdf->setXY(100,80);
-	            $pdf->WriteHtml($this->renderWith('ReceiptTable'));
-	            $pdf->SetFont('Lato','',10);
-	            $pdf->setXY(30,86.5);
-	            $pdf->Write(0,$this->Nummer);
 	           
-	            $pdf->WriteHtmlCell(100,30,30,105.5,$this->Participant()->Vorname.' '.$this->Participant()->Name);
-	            $pdf->WriteHtmlCell(100,30,30,126.5,$this->Date()->Event()->Title);
-	            $pdf->setXY(10,145);
-	            $pdf->WriteHtml($this->getSiteConfig()->Code.' - '.$this->getSiteConfig()->City.' / '.DBField::create_field('Date',$this->Created)->format('dd.MM.Y'));
+	            $pdf->setXY(8,50);
+	            $pdf->WriteHtml($this->renderWith('OrderTable'));
+	           
 			}	
 
 			$pdf->Output($output,'F');
 			
 
 
-			$tmpFolder = "Uploads/Quittungen/".$this->ID;
+			$tmpFolder = "Uploads/kurse/Quittungen/".$this->ID;
 			$folder = Folder::find_or_make($tmpFolder);
 			$file = ($this->ReceiptFile()->exists()) ? $this->ReceiptFile() : File::create();
 			$file->ParentID = $folder->ID;
-			$file->setFromLocalFile($output, 'Uploads/Quittungen/'.$this->ID.'/Quittung.pdf');
+			$file->setFromLocalFile($output, 'Uploads/kurse/Quittungen/'.$this->ID.'/Quittung.pdf');
 			$file->write();
 			$file->publishSingle();
 

@@ -19,14 +19,15 @@ use PayPalCheckoutSdk\Orders\OrdersGetRequest;
 use SilverStripe\SiteConfig\SiteConfig;
 use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-
+use SilverStripe\ORM\FieldType\DBCurrency;
 
 class EventPageController extends PageController{
-	private static $allowed_actions = ['OpenEvents','Register','RegisterForm','TransactionCompleted','RegisterSuccessfull', 'VoucherForm'];
+	private static $allowed_actions = ['OpenEvents','Register','RegisterForm','RegisterSaved','TransactionCompleted','RegisterSuccessfull', 'VoucherForm'];
 
 	private static $url_handlers = [
 		'offene-kurse/$URLSegment' => 'OpenEvents',
 		'anmeldung/$URLSegment/$DateID' => 'Register',
+		'anmeldung-gesendet' => 'RegisterSaved',
 		'transaktion-abgeschlossen' => 'TransactionCompleted',
 		'anmeldung-bestaetigt' => 'RegisterSuccessfull'
 	];
@@ -59,9 +60,10 @@ class EventPageController extends PageController{
 	public function Register(HTTPRequest $request){
 
 		$config = SiteConfig::current_site_config();
+		$date = new \DateTime();
 
 		Requirements::javascript("https://www.paypal.com/sdk/js?client-id=".$config->PayPalClientID."&currency=CHF&locale=de_CH");
-		Requirements::javascript("deskall-events/javascript/events.js");
+		Requirements::javascript("deskall-events/javascript/events.js?v=".$date->getTimestamp());
 		Requirements::javascript("deskall-events/javascript/jquery.validate.min.js");
 		Requirements::javascript("deskall-events/javascript/messages_de.min.js");
 		$url = $request->param('URLSegment');
@@ -95,10 +97,13 @@ class EventPageController extends PageController{
 						TextField::create('Name','Name'),
 						TextField::create('Vorname','Vorname'),
 						EmailField::create('Email','Email'),
+						TextField::create('Phone','Telefon'),
 						TextField::create('Company','Firma'),
 						TextField::create('Address','Adresse'),
+						TextField::create('Address2',_t(__CLASS__.'.Address','Adresszusatz')),
 						TextField::create('PostalCode','PLZ'),
 						TextField::create('City','Stadt'),
+						TextField::create('Region',_t(__CLASS__.'.Region','Kanton')),
 						DropdownField::create('Country','Land')->setSource(i18n::getData()->getCountries())->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen'))->setValue('ch')
 					)->setName('CustomerFields'),
 					CompositeField::create(
@@ -108,12 +113,13 @@ class EventPageController extends PageController{
 						
 					)->setName('SummaryFields'),
 					HiddenField::create('PaymentType'),
+					HiddenField::create('VoucherID'),
 					HiddenField::create('DateID')->setValue($dateid)
 				),
 				new FieldList(
 					FormAction::create('doRegisterBill', _t('MemberProfiles.REGISTER', 'Jetzt kostenplichtig anmelden'))->setUseButtonTag(true)->addExtraClass('uk-button button-gruen')
 				),
-				RequiredFields::create(['Gender','Name','Vorname','Email','Address','PostalCode','City','Country'])
+				RequiredFields::create(['Gender','Name','Vorname','Email','Address','PostalCode','City','Country','Phone'])
 			);
 
 			$form->addExtraClass('uk-form-horizontal form-std');
@@ -127,14 +133,14 @@ class EventPageController extends PageController{
 	}
 
 	public function doRegisterBill($data,$form){
-
+		
 		//Link to date
 		if (isset($data['DateID']) && !empty($data['DateID'])){
 			$date = EventDate::get()->byId($data['DateID']);
 			if ($date){
 
 				//Save Order
-				$order = new Order();
+				$order = new EventOrder();
 				$form->saveInto($order);
 				//Check participant
 				$participant = Participant::get()->filter('Email',$data['Email'])->first();
@@ -146,22 +152,19 @@ class EventPageController extends PageController{
 				$order->DateID = $date->ID;
 				$order->ParticipantID = $participant->ID;
 				$order->isPaid = false;
-				$order->PaymentType = 'bill';
-
-				//Check if voucher
-				if (isset($data['voucher']) && !empty($data['voucher'])){
-					$voucher = Voucher::get()->byId($data['voucher']);
-					if ($voucher){
-						$discountPrice = number_format ( $date->Price - ($date->Price * $voucher->Percent/100), 2);
-						$order->Price = $discountPrice;
-						$order->VoucherID = $voucher->ID;
-					}
-				}
+				$order->Price = $date->Price;
 
 				try {
 					//Write order
 					$order->write();
+					//Update Voucher
+					$order->Voucher()->Used = true;
+					$order->Voucher()->Count = $order->Voucher()->count - 1;
+					$order->Voucher()->write();
+
+					//Update Event Date
 					$date->Participants()->add($participant);
+
 					//Create Bill
 					$order->generatePDF();
 					//Send Email
@@ -174,9 +177,9 @@ class EventPageController extends PageController{
 					$form->sessionMessage($validationMessages, 'bad');
 					return $this->redirectBack();
 				}
-				
-
-				return $this->redirect('seminare/anmeldung-gespeichert');
+				$this->getRequest()->getSession()->set('orderID',$order->ID);
+				$mainPage = $date->getEventConfig()->MainPage();
+				return $this->redirect($mainPage->Link().'anmeldung-gesendet');
 
 			}
 		
@@ -184,6 +187,22 @@ class EventPageController extends PageController{
 
 		return $this->httpError(404);
 		
+	}
+
+	public function RegisterSaved(){
+		
+		$orderID = $this->getRequest()->getSession()->get('orderID');
+	
+		if ($orderID){
+			$order = EventOrder::get()->byId($orderID);
+			if ($order){
+				$this->getRequest()->getSession()->clear('orderID');
+				return ['Title' => 'Anmeldung gesendet', 'Order' => $order, 'Event' => $order->Date()->Event(), 'Date' => $order->Date()];
+			}
+		}
+
+		$mainPage = EventConfig::get()->last()->MainPage();
+		return $this->redirect($mainPage->Link());
 	}
 
 	public function TransactionCompleted(HTTPRequest $request){
@@ -205,17 +224,17 @@ class EventPageController extends PageController{
 				if ($response->statusCode == "200"){
 
 					//Create and fill the order
-					$order = new Order();
+					$order = new EventOrder();
+					$order->Price = $date->Price;
+					$order->DateID = $date->ID;
+					$order->isPaid = true;
+					$order->PaymentType = 'creditcard';
+					$order->OrderID = $orderId;
 					if ($voucherID && $voucherID != ""){
-						$voucher = Voucher::get()->byId($voucherID);
+						$voucher = EventCoupon::get()->byId($voucherID);
 						if ($voucher){
-							$discountPrice = number_format ( $date->Price - ($date->Price * $voucher->Percent/100), 2);
-							$order->Price = $discountPrice;
 							$order->VoucherID = $voucher->ID;
 						}
-					}
-					else{
-						$order->Price = $date->Price;
 					}
 					
 					$order->Name = ucfirst(strtolower($response->result->payer->name->surname));
@@ -228,6 +247,12 @@ class EventPageController extends PageController{
 					$order->City = ucfirst(strtolower($address->admin_area_2));
 					$order->Country = strtolower($address->country_code);
 
+					if (property_exists($address,'address_line_2')){
+						$order->Address2 = $address->address_line_2;
+					}
+					if (property_exists($address,'admin_area_1')){
+						$order->Region = $address->admin_area_1;
+					}
 					//Participant
 					$participant = Participant::get()->filter('Email',$response->result->payer->email_address)->first();
 					if (!$participant){
@@ -239,25 +264,42 @@ class EventPageController extends PageController{
 						$participant->Address = $address->address_line_1;
 						$participant->City = ucfirst(strtolower($address->admin_area_2));
 						$participant->Country = strtolower($address->country_code);
+						if (property_exists($address,'address_line_2')){
+							$participant->Address2 = $address->address_line_2;
+						}
+						if (property_exists($address,'admin_area_1')){
+							$participant->Region = $address->admin_area_1;
+						}
 						$participant->write();
 					}
-					$order->DateID = $date->ID;
 					$order->ParticipantID = $participant->ID;
-					$order->isPaid = true;
-					$order->PaymentType = 'creditcard';
-					$order->OrderID = $orderId;
+					try {
+						//Write order
+						$order->write();
+						$date->Participants()->add($participant,['paid' => 1]);
+						$date->Places = $date->Places - 1;
+						$date->write();
+						//Update Voucher
+						$order->Voucher()->Used = true;
+						$order->Voucher()->Count = $order->Voucher()->count - 1;
+						$order->Voucher()->write();
 
-					//Write order
-					$order->write();
-					$date->Participants()->add($participant,['paid' => 1]);
-					//Create Receipt
-					$order->generateQuittungPDF();
-					//Send Confirmation Email
-					$order->SendConfirmationEmail();
+						//Create Receipt
+						$order->generateQuittungPDF();
+						//Send Confirmation Email
+						$order->SendConfirmationEmail();
 
-					$this->getRequest()->getSession()->set('orderID',$order->ID);
+						$this->getRequest()->getSession()->set('orderID',$order->ID);
 
-					return json_encode(["status" => 'OK']);
+						return json_encode(["status" => 'OK', "redirecturl" => $date->getEventConfig()->MainPage()->Link().'anmeldung-bestaetigt']);
+						
+					} catch (Exception $e) {
+						$validationMessages = '';
+						foreach($e->getResult()->getMessages() as $error){
+							$validationMessages .= $error['message']."\n";
+						}
+						return json_encode(["status" => 'NOT OK', 'errors' => $validationMessages ]);
+					}
 				}
 				
 			}
@@ -265,32 +307,44 @@ class EventPageController extends PageController{
 		return json_encode(["status" => 'NOT OK']);
 	}
 
-	public function RegisterSuccessfull(HTTPRequest $request){
+	public function RegisterSuccessfull(){
 		
-		$orderID = $request->getSession()->get('orderID');
+		$orderID = $this->getRequest()->getSession()->get('orderID');
+	
 		if ($orderID){
-			$order = Order::get()->byId($orderID);
+			$order = EventOrder::get()->byId($orderID);
 			if ($order){
+				$this->getRequest()->getSession()->clear('orderID');
 				return ['Title' => 'Anmeldung bestätigt', 'Order' => $order, 'Event' => $order->Date()->Event(), 'Date' => $order->Date()];
 			}
 		}
 
-		return $this->httpError(404);
+		$mainPage = EventConfig::get()->last()->MainPage();
+		return $this->redirect($mainPage->Link());
 	}
 
 	public function VoucherForm(HTTPRequest $request){
-		if ($request->postVar('voucher') && $request->postVar('event')){
-			$voucher = EventCoupon::get()->filter('Token',$request->postVar('voucher'))->first();
+		if ($request->postVar('code') && $request->postVar('event')){
+			$voucher = EventCoupon::get()->filter('Code',$request->postVar('code'))->first();
 			$event = EventDate::get()->byId($request->postVar('event'));
 			if ($voucher && $event){
 				if ($voucher->isValid()){
 					$originalPrice = $event->Price;
-					$discountPrice = number_format ( $event->Price - ($event->Price*$voucher->Percent/100), 2);
+					if ($voucher->AmountType == "relative"){
+						$discount = $originalPrice * floatval($voucher->Amount) / 100 ;
+					}
+					else{
+						$discount = $voucher->Amount;
+					}
+					
+					$discountPrice = DBCurrency::create()->setValue($discount);
 					return json_encode([
 						'status' => 'OK', 
-						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->Percent.'% gewährt.</p>', 
-						'price' => $discountPrice,
-						'voucherID' => $voucher->ID
+						'message' => '<p>Ihre Gutschein ist gültig. <br/>Auf Ihre Bestellung wird ein Rabatt von '.$voucher->NiceAmount().' gewährt.</p>', 
+						'NiceAmount' => $voucher->NiceAmount()->getValue(),
+						'voucherID' => $voucher->ID,
+						'discountPrice' => $discountPrice->Nice(),
+						'discount' => $discountPrice->getValue()
 					]);
 				}
 				else{
@@ -301,7 +355,7 @@ class EventPageController extends PageController{
 				}
 			}
 		}
-		return json_encode(['status' => 'Not found']);
+		return json_encode(['status' => 'Not OK']);
 	}
 
 }

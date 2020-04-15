@@ -40,8 +40,10 @@ class Participant extends DataObject
         'Company' => 'Varchar',
         'Gender'  => 'Varchar',
         'Address'  => 'Varchar',
+        'Address2'  => 'Varchar',
         'PostalCode'  => 'Varchar',
         'City'  => 'Varchar',
+        'Region'  => 'Varchar',
         'Country'  => 'Varchar',
         'Phone'  => 'Varchar',
         'UIDNumber' => 'Varchar'
@@ -68,8 +70,10 @@ class Participant extends DataObject
     $labels['Company'] = _t(__CLASS__.'.Company','Firma');
     $labels['Gender'] = _t(__CLASS__.'.Gender','Anrede');
     $labels['Address'] = _t(__CLASS__.'.Address','Adresse');
+    $labels['Address2'] = _t(__CLASS__.'.Address2','Adresszusatz');
     $labels['PostalCode'] = _t(__CLASS__.'.PostalCode','PLZ');
     $labels['City'] = _t(__CLASS__.'.City','Stadt');
+    $labels['Region'] = _t(__CLASS__.'.Region','Kanton');
     $labels['Country'] = _t(__CLASS__.'.Country','Land');
     $labels['Phone'] = _t(__CLASS__.'.Phone','Telefon');
     $labels['Fax'] = _t(__CLASS__.'.Fax','Fax');
@@ -80,8 +84,8 @@ class Participant extends DataObject
     }
 
     public function getTitle(){
-        $intro = ($this->Gender == "Frau") ? "Sehr geehrte Frau" : "Sehr geehrter Herr";
-        return DBField::create_field('Varchar', $intro.' '.$this->Vorname.' '.$this->Name);
+        // $intro = ($this->Gender == "Frau") ? "Sehr geehrte Frau" : "Sehr geehrter Herr";
+        return DBField::create_field('Varchar', $this->Gender.' '.$this->Vorname.' '.$this->Name);
     }
 
    
@@ -105,9 +109,7 @@ class Participant extends DataObject
         }
         $html .= $this->Address.'<br/>'
         .$this->PostalCode.' - '.$this->City.'<br/>'
-        .$this->Country.'</p>'
-        .'<p><a href="mailto:'.$this->Email.'">'.$this->Email.'</a>'.'<br/>'
-        .$this->Phone.'</p>';
+        .i18n::getData()->getCountries()[strtolower($this->Country)].'</p>';
         $o = new DBHTMLText();
         $o->setValue($html);
         return $o;

@@ -72,11 +72,11 @@ class OrderEmail extends Email
                 $absoluteBaseURL,
                 singleton(Security::class)->Link('login')
             ),
-            '$Customer.Title' => $Order->Participant()->getTitle(),
+            '$Customer.printTitle' => $Order->Participant()->getTitle(),
             '$Order.Created' => $createdDateObj->Nice(),
             '$Order.Data' => $Order->renderWith('Emails/OrderData'),
             '$Event.Title' => $Order->Date()->Event()->Title,
-            '$Event.Data' => $Order->Date()->renderWith('Emails/EventData')
+            '$Event.Data' => $Order->renderWith('Emails/EventData')
         );
         
         foreach (array('Company' , 'Email' , 'Address' , 'PostalCode' , 'City' , 'Country', 'Phone', 'Price' ) as $field) {

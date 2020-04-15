@@ -69,18 +69,18 @@ class ShopPageController extends PageController{
 			// HiddenField::create('CustomerID')->setValue($customer->ID),
 			// HiddenField::create('VoucherID'),
 			CompositeField::create(
-				TextField::create('Company',_t(__CLASS__.'.Company','Firma'))->setValue('Deskall'),
-				DropdownField::create('Gender',_t(__CLASS__.'.Gender','Anrede *'), ['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select')->setValue('Herr'),
-				TextField::create('FirstName',_t(__CLASS__.'.FirstName','Vorname *'))->setAttribute('data-required',true)->setValue('Guillaume'),
-				TextField::create('Name',_t(__CLASS__.'.Name','Name *'))->setAttribute('data-required',true)->setValue('Pacilly'),
-				TextField::create('Street',_t(__CLASS__.'.Street','Strasse *'))->setAttribute('data-required',true)->setValue('Oltnerstrasse 85'),
+				TextField::create('Company',_t(__CLASS__.'.Company','Firma')),
+				DropdownField::create('Gender',_t(__CLASS__.'.Gender','Anrede *'), ['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select'),
+				TextField::create('FirstName',_t(__CLASS__.'.FirstName','Vorname *'))->setAttribute('data-required',true),
+				TextField::create('Name',_t(__CLASS__.'.Name','Name *'))->setAttribute('data-required',true),
+				TextField::create('Street',_t(__CLASS__.'.Street','Strasse *'))->setAttribute('data-required',true),
 				TextField::create('Address',_t(__CLASS__.'.Address','Adresse')),
-				TextField::create('PostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl *'))->setAttribute('data-required',true)->setValue('4663'),
-				TextField::create('City',_t(__CLASS__.'.City','Stadt *'))->setAttribute('data-required',true)->setValue('Aarburg'),
-				TextField::create('Region',_t(__CLASS__.'.Region','Bundesland')),
+				TextField::create('PostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl *'))->setAttribute('data-required',true),
+				TextField::create('City',_t(__CLASS__.'.City','Stadt *'))->setAttribute('data-required',true),
+				TextField::create('Region',_t(__CLASS__.'.Region','Kanton')),
 				DropdownField::create('Country',_t(__CLASS__.'.Country','Land *'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen *'))->setAttribute('data-required',true),
-				EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail-Adresse *'))->setAttribute('data-required',true)->setValue('guillaume.pacilly@gmail.com'),
-				TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon *'))->setAttribute('data-required',true)->setValue('0788911689'),
+				EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail-Adresse *'))->setAttribute('data-required',true),
+				TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon *'))->setAttribute('data-required',true),
 				TextareaField::create('Additional',_t(__CLASS__.'.Additional','Zusätzliche Informationen'))->setRows(3),
 				CheckboxField::create('DeliverySameAddress',_t(__CLASS__.'.DeliverySameAddress','Diese Adresse auch als Lieferadresse verwenden?'))->setValue(1)->setAttribute('class','uk-checkbox')
 			)->setName('BillFields'),
@@ -93,7 +93,7 @@ class ShopPageController extends PageController{
 				TextField::create('DeliveryAddress',_t(__CLASS__.'.Address','Adresse'))->setAttribute('data-required',true),
 				TextField::create('DeliveryPostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl *'))->setAttribute('data-required',true),
 				TextField::create('DeliveryCity',_t(__CLASS__.'.City','Stadt *'))->setAttribute('data-required',true),
-				TextField::create('DeliveryRegion',_t(__CLASS__.'.Region','Bundesland')),
+				TextField::create('DeliveryRegion',_t(__CLASS__.'.Region','Kanotn')),
 				DropdownField::create('DeliveryCountry',_t(__CLASS__.'.Country','Land'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen *'))->setAttribute('data-required',true)
 			)->setName('DeliveryFields'),
 			CompositeField::create(
@@ -158,6 +158,10 @@ class ShopPageController extends PageController{
 			try {
 				//Write order
 				$order->write();
+				//Update Voucher
+				$order->Voucher()->Used = true;
+				$order->Voucher()->Count = $order->Voucher()->count - 1;
+				$order->Voucher()->write();
 
 				foreach ($cart->Products() as $p) {
 					$item = new OrderItem();
@@ -369,6 +373,12 @@ class ShopPageController extends PageController{
 					try {
 						//Write order
 						$order->write();
+
+						//Update Voucher
+						$order->Voucher()->Used = true;
+						$order->Voucher()->Count = $order->Voucher()->count - 1;
+						$order->Voucher()->write();
+						
 						//Add Products
 						foreach ($cart->Products() as $p) {
 							$item = new OrderItem();

@@ -26,10 +26,10 @@
 						<div class="uk-margin">
 							<h3><%t Event.Dates 'Termine:' %></h3>
 							<% if Dates.exists %>
-							<table class="uk-table uk-table-small uk-table-striped uk-table-middle">
+							<table class="uk-table uk-table-small uk-table-striped uk-table-middle uk-table-responsive">
 								<tbody>
 								<% loop Dates %>
-								<tr><td><i class="icon icon-calendar uk-margin-small-right"></i>$Date</td><td><i class="icon icon-ios-location uk-margin-small-right"></i><%t Event.In 'in' %> $City</td><td>$Price.Nice</td><td><% if isFull %><i class="text-pink">ausgebucht</i><% else_if isOpen %><a href="$RegisterLink" class="uk-button button-gruen"><i class="icon icon-log-in uk-margin-small-right"></i><%t Event.RegisterNow 'jetzt anmelden' %></a><% end_if %></td></tr>
+								<tr><td><i class="icon icon-calendar uk-margin-small-right"></i>$Date</td><td><i class="icon icon-ios-location uk-margin-small-right"></i><%t Event.In 'in' %> $City</td><td>$Price.Nice</td><td><% if isFull %><i class="text-pink">ausgebucht</i><% else %><%t Event.Places 'noch {Places} Plätze' Places=$Places %><% end_if %></td><td><% if isOpen && not isFull %><a href="$RegisterLink" class="uk-button button-gruen"><i class="icon icon-log-in uk-margin-small-right"></i><%t Event.RegisterNow 'jetzt anmelden' %></a><% end_if %></td></tr>
 								<% end_loop %>
 								</tbody>
 							</table>

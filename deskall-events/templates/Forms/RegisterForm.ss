@@ -10,8 +10,8 @@
 	<div class="uk-container">
 		<ul id="tab-switcher" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 			<li <% if $activeTab == "address" %>class="uk-active"<% end_if %>><a>1. <span><%t Shop.GiveAddress 'Angaben' %></span></a></li>
-			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a>2. <span><%t Shop.ChoosePayment 'Zahlungsart' %></span></a></li>
-			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a>3. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
+			<li class="uk-disabled <% if $activeTab == "profil" %>uk-active<% end_if %>"><a>2. <span><%t Shop.ChoosePayment 'Zahlungsart' %></span></a></li>
+			<li class="uk-disabled <% if $activeTab == "payment" %>uk-active<% end_if %>"><a>3. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
 			<li class="account-tab" data-index="0">
@@ -53,7 +53,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="uk-flex uk-flex-between">
+				<div class="uk-flex uk-flex-between uk-flex-middle">
 					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<a class="uk-button button-gruen with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 				</div>
@@ -77,12 +77,18 @@
 				
 				<div id="summary" class="summary-course">
 					<div class="uk-margin">
-						<div class="<% if  PaymentMethod == "bill" || PaymentMethod == "online" %>uk-child-width-1-2@s uk-grid-match<% end_if %> uk-grid-small" data-uk-grid>
+						<div class="uk-child-width-1-2@s uk-grid-match uk-grid-small" data-uk-grid>
 							<div>
 								<div class="uk-panel uk-background-muted uk-padding-small">
 									<h4><%t Event.CustomerData 'Ihre Angaben' %></h4>
-									<p id="event-address">
-									</p>
+									<div id="customer-address">
+									</div>
+								</div>
+							</div>
+							<div>
+								<div class="uk-panel uk-background-muted uk-padding-small">
+									<h4><%t Event.PaymentType 'Zahlungsart' %></h4>
+									<div id="payment-type"></div>
 								</div>
 							</div>
 						</div>
@@ -93,22 +99,16 @@
 							<thead><th colspan="2"><%t Event.Kurs 'Kurs' %></th><th class="uk-text-right"><%t Event.Total 'Gesamtsumme' %></th></thead>
 							<tbody class="uk-table-divider">
 								<% with Controller.activeDate %>
-								<tr><td colspan="2">$Event.Title</td><td class="uk-text-right">$Price.Nice</td></tr>
+								<tr><td colspan="2">$Event.Title</td><td class="uk-text-right" id="course-price">$Price.Nice</td></tr>
 								<% end_with %>
 							
-								<tr id="voucher-row" hidden><td colspan="2" class="uk-text-right"><%t Event.Voucher 'Gutschein:' %></td><td id="voucher-price" class="uk-text-right">- </td></tr>
-								<tr><td colspan="2" class="uk-text-right"><%t Event.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td id="mwst-price" class="uk-text-right">$Controller.activeDate.MwSt.Nice</td></tr>
-								
-								<tr class="uk-table-divider"><td colspan="2" class="uk-text-right"><strong><%t Event.TotalPrice 'Total inkl. MwSt.' %></strong></td><td class="uk-text-right"><strong id="total-price" data-price="$FullTotalPrice.Value">$Controller.activeDate.Price.Nice</strong></td></tr>
+								<tr id="voucher-row" hidden><td colspan="2" class="uk-text-right"><%t Event.Voucher 'Gutschein:' %></td><td  class="uk-text-right">- <span id="voucher-price"></span></td></tr>
+								<tr><td colspan="2" class="uk-text-right"><%t Event.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td id="event-mwst-price" class="uk-text-right">$Controller.activeDate.MwSt.Nice</td></tr>
+								<tr class="uk-table-divider"><td colspan="2" class="uk-text-right"><strong><%t Event.TotalPrice 'Total inkl. MwSt.' %></strong></td><td class="uk-text-right"><strong id="event-total-price" data-price="$Controller.activeDate.Price.Value">$Controller.activeDate.Price.Nice</strong></td></tr>
 							</tbody>
 						</table>
 					</div>
-					<div class="uk-margin">
-						<div class="uk-panel uk-background-muted uk-padding-small">
-							<h4><%t Event.PaymentType 'Zahlungsart' %></h4>
-							<div id="payment-type"></div>
-						</div>
-					</div>
+					
 					
 
 				</div>
@@ -131,7 +131,7 @@
 						</div>
 					</div>
 				
-				<div class="uk-margin uk-flex uk-flex-between">
+				<div class="uk-margin uk-flex uk-flex-between uk-flex-middle">
 					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<% if $Actions %>
 						<% loop $Actions %>
@@ -146,6 +146,9 @@
 		</ul>
 	</div>
 	<% with Fields.FieldByName('DateID') %>
+	$FieldHolder
+	<% end_with %>
+	<% with Fields.FieldByName('VoucherID') %>
 	$FieldHolder
 	<% end_with %>
 	<% with Fields.FieldByName('SecurityID') %>

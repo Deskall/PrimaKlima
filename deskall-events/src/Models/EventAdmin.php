@@ -20,9 +20,16 @@ class EventAdmin extends ModelAdmin{
 		'Event' => [
 			'title' => 'Kurse'
 		],
+		'EventOrder' => [
+			'title' => 'Anmeldungen'
+		],
+		'EventCoupon' => [
+			'title' => 'Gutscheine'
+		],
 		'EventConfig' => [
 			'title' => 'Einstellungen'
-		]
+		],
+
 	];
 
 	public function getList(){
@@ -35,6 +42,10 @@ class EventAdmin extends ModelAdmin{
 
 	    if($this->modelClass == 'Event' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
 	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
+	    }
+
+	    if($this->modelClass == 'EventOrder' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+	       $gridField->getConfig()->addComponent(new GridFieldDeleteAllAction('before'));
 	    }
 
 	    return $form;

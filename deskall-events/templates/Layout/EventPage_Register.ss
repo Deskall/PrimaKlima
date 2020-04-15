@@ -4,7 +4,7 @@
 		<div class="breadcrumbs">
 			<ul class="uk-breadcrumb uk-margin-remove">
 			    <li><a href="$EventConfig.MainPage.Link">$EventConfig.MainPage.MenuTitle.XML</a></li>
-			    <li><span>$Event.Title</span></li>
+			    <li><a href="$Event.Link">$Event.Title.XML</a></li>
 			</ul>
 		</div>
 	</div>
@@ -13,10 +13,10 @@
 	<div class="uk-container">
 
 				<%-- <div class="uk-margin"><button class="uk-button uk-button-primary" onclick="window.history.back()"><i class="fa fa-chevron-left uk-margin-small-right"></i><%t Global.Back 'Zurück' %></button></div> --%>
-				<div class="element" id="event" data-event-id="$Date.ID" data-price="$Date.Price">
+				<div class="element" id="event" data-event-id="$Date.ID" data-price="$Date.Price" data-url="$Date.EventConfig.MainPage.Link">
 					<h1>$Title</h1>
 					<div class="uk-panel">
-						<table class="uk-table uk-table-small uk-table-striped uk-table-middle">
+						<table class="uk-table uk-table-small uk-table-striped uk-table-middle uk-table-responsive">
 							<thead><th><%t Event.Title 'Kurs' %></th><th><%t Event.Dates 'Datum' %></th><th><%t Event.City 'Ort' %></th><th><%t Event.Price 'Preis' %></th></thead>
 							<tbody>
 							<% with Date %>
@@ -24,8 +24,16 @@
 							<% end_with %>
 							</tbody>
 						</table>
+						<% if Date.isFull %>
+						<p><i><%t Date.isFullLabel 'Entschuldigung, dieser Kurs ist voll' %></i></p>
+						<% else_if not Date.isOpen %>
+						<p><i><%t Date.isNotOpenLabel 'Leider sind die Anmeldungen für diesen Kurs noch nicht offen' %></i></p>
+						<% else_if Date.isClose %>
+						<p><i><%t Date.isCloseLabel 'Entschuldigung, dieser Kurs ist vorbei.' %></i></p>
+						<% else %>
+							$RegisterForm
+						<% end_if %>
 						
-						$RegisterForm
 						<%-- <div class="uk-margin-large">
 							<h3><%t Event.Voucher 'Gutschein' %></h3>
 							<p><%t Event.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. und klicken Sie an "Gutschein prüfen".' %></p>
