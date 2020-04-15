@@ -55,7 +55,8 @@ $(document).ready(function(){
             return false;
         });
 
-        $('[data-filter-list] a').on("click", function(){
+        $('[data-filter-list] a').on("click", function(e){
+             e.preventDefault();
             var filter = $(this).parents('[data-filter-list]').attr('data-filter-list');
             var filterValue = $(this).attr('href');
             var name = $(this).attr('data-filter-name');
