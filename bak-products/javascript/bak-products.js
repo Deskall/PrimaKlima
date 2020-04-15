@@ -151,7 +151,10 @@ function filterProducts( filter, filterValue ){
             }
 
             HTML += '<h3>' + products[i].name + '</h3>';
-            if( products[i].description ){
+            if( products[i].lead ){
+                HTML += '<p class="description">' + products[i].lead + '</p>';
+            }
+            else if( products[i].description ){
                 HTML += '<p class="description">' + products[i].description + '</p>';
             }else{
 

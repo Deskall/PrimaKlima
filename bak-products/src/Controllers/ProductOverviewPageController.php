@@ -70,6 +70,7 @@ class ProductOverviewPageController extends PageController
             switch ($locale){
                 case "de_DE":
                     $tmp['name'] = $product->Name;
+                    $tmp['lead'] = $product->Lead;
                     $tmp['description'] = $product->Description;
                     $tmp['features'] = $product->Features;
                     $tmp['linkText'] = 'Zum Produkt';
@@ -91,6 +92,7 @@ class ProductOverviewPageController extends PageController
                 break;
                 default:
                     $tmp['name'] = $product->Name;
+                    $tmp['lead'] = $product->Lead;
                     $tmp['description'] = $product->Description;
                     $tmp['features'] = $product->Features;
                     $tmp['linkText'] = 'Zum Produkt';
