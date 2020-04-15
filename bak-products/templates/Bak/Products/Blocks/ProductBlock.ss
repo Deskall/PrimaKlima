@@ -1,4 +1,4 @@
-<ul data-uk-tab class="uk-margin-remove uk-child-width-expand">
+<%-- <ul data-uk-tab class="uk-margin-remove uk-child-width-expand">
     <li <% if Top.ShowCategories %> class="uk-active"<% end_if %>><a href="produkte/kategorie"  data-show-filter="categories" data-filter-name="Kategorie" class="uk-width-1-1"><%t ProductOverviewPage.KATEGORIE "Kategorie" %><span class="uk-position-center-right uk-position-small"><i class="icon ion-ios-arrow-down"></i></span></a></li>
     <li <% if Top.ShowUsages %> class="uk-active"<% end_if %>><a href="produkte/anwendung"  data-show-filter="usages" data-filter-name="Anwendung" class="uk-width-1-1"><%t ProductOverviewPage.ANWENDUNG "Anwendung" %><span class="uk-position-center-right uk-position-small"><i class="icon ion-ios-arrow-down"></i></span></a></li>
     <li><a class="uk-width-1-1"><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /><span class="uk-position-center-right uk-position-small"><i class="icon ion-ios-search"></i></span></a></li>
@@ -47,7 +47,60 @@
     	  <div class="holder"></div>
     	</div>
     </li>
-</ul>
+</ul> --%>
+
+<div class="product-filter-holder clearfix">
+  <a data-show-filter="categories" href="<% if $Locale = "de_DE"%>produkte/kategorie<% else_if $Locale == "es_ES" %>productos/categoría<% else %>products/category<% end_if %>" data-filter-name="<%t ProductOverviewPage.KATEGORIE "Kategorie" %>" class="head active"><%t ProductOverviewPage.KATEGORIE "Kategorie" %></a>
+  <a data-show-filter="usages" href="<% if $Locale = "de_DE"%>produkte/anwendung<% else_if $Locale == "es_ES" %>productos/uso<% else %>products/application<% end_if %>" data-filter-name="<%t ProductOverviewPage.ANWENDUNG "Anwendung" %>" class="head"><%t ProductOverviewPage.ANWENDUNG "Anwendung" %></a>
+  <span class="head search"><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></span>
+</div>
+
+<div data-product-list class="product-list" data-no-products-found="<%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %>">
+  <a href="javascript: history.back()" class="close-products"></a>
+  <div class="holder"></div>
+</div>
+
+<div data-filter-list="categories" class="filter-list clearfix active">
+
+    <% loop $getCategories %>
+    <a href="$Link($Top.Locale)" class="col w-4" data-filter-name="$T(Title)">
+      <div class="box clearfix">
+        <% if $T(Title) %><h3>$T(Title)</h3><% end_if %>
+        <% if $ProductCategoryImage %>
+          <img src="$ProductCategoryImage.CroppedFocusedImage(350,250).URL" alt="$T(Title)"/>
+        <% end_if %>
+        <div class="link-more">$T(Title) <span class="icon ion-ios-arrow-right"></span></div>
+      </div>
+    </a>
+    <% end_loop %>
+
+</div>
+
+<div data-filter-list="usages" class="filter-list clearfix">
+    <% loop $getUseArea %>
+      <div class="blocks clearfix">
+        <% if $T(Title) %>
+          <div class="col w-12">
+            <h2>$T(Title)</h2>
+          </div>
+        <% end_if %>
+        <% if $Usages %>
+          <% loop $Usages %>
+         
+          <a href="$Link($Top.Top.Locale)" class="col w-4" data-filter-name="$UseArea.T(Title)">
+            <div class="box clearfix">
+              <% if $Image %>
+                  <img src="$Image.CroppedFocusedImage(350,250).URL" alt="$Title"/>
+              <% end_if %>
+                  $T(Description)
+                  <div class="link-more"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %><% include DefaultIcon %></div>
+              </div>
+          </a>
+          <% end_loop %>
+        <% end_if %>
+      </div>
+    <% end_loop %>
+</div>
 
 <%-- <script id="products-template" type="text/x-handlebars-template">
     {{#if products}}
