@@ -48,7 +48,7 @@ $(document).ready(function(){
 
         $('h1').text($('h1').attr('data-title-orig'));
         $('title').text($('h1').attr('data-title-orig'));
-        return false;
+        
     });
 
     $('[data-filter-list] a').on("click", function(){
