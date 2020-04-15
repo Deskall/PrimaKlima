@@ -43,7 +43,7 @@
 	    </div>
 	</li>
     <li>
-    	<div data-product-list class="product-list" data-no-products-found="<%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %>">
+    	<div data-product-list class="product-list uk-padding-small" data-no-products-found="<%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %>">
     	  <a href="javascript: history.back()" class="close-products"></a>
     	  <div class="holder"></div>
     	</div>
