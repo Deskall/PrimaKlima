@@ -4,8 +4,8 @@
     <li><a class="uk-width-1-1"><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /><span class="uk-position-center-right uk-position-small"><i class="icon ion-ios-search"></i></span></a></li>
 </ul>
 
-<ul id="products-switcher" class="uk-switcher" data-filter-list>
-    <li class="SecondaryBackground">
+<ul id="products-switcher" class="uk-switcher">
+    <li class="SecondaryBackground" data-filter-list>
     	<div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-padding-small" data-uk-grid data-uk-height-match="h3">
     		<% loop getCategories %>
     		<div>
@@ -18,7 +18,7 @@
 		    <% end_loop %>
 	    </div>
     </li>
-    <li class="SecondaryBackground">
+    <li class="SecondaryBackground" data-filter-list>
     	<div class="uk-child-width-1-1 uk-padding-small" data-uk-grid>
     		<% loop getUseArea %>
     		<div>
