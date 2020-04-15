@@ -142,13 +142,15 @@ function filterProducts( filter, filterValue ){
    
     for (var i = 0; i < products.length; i++) {
         if( filter == "all" || ( products[i][filter] && ( products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ) ) ){
-            HTML += '<div class="product">';
+            HTML += '<div class="product"><div data-uk-grid>';
             if( 'image' in products[i] ){
-
-                HTML += '<div class="col w-4"><a href="' + products[i].link + '"><img src="' + products[i].image + '" alt="' +  products[i].name + '" /></a></div>';
+                HTML += '<div class="uk-width-1-4@m"><a href="' + products[i].link + '"><img src="' + products[i].image + '" alt="' +  products[i].name + '" /></a></div></div><div class="uk-width-3-4@m">';
+            }
+            else{
+                HTML += '<div class="uk-width-1-1">';
             }
 
-            HTML += '<div class="col w-8"><h3>' + products[i].name + '</h3>';
+            HTML += '<h3>' + products[i].name + '</h3>';
             if( products[i].description ){
                 HTML += '<p class="description">' + products[i].description + '</p>';
             }else{
@@ -161,7 +163,7 @@ function filterProducts( filter, filterValue ){
                 }
             }
 
-            HTML += '</div><div class="link-more"><a href="' + products[i].link + '">' + products[i].linkText  + '  <span class="icon ion-ios-arrow-right"></span></a></div></div>';
+            HTML += '<div class="uk-text-right"><a href="' + products[i].link + '">' + products[i].linkText  + '  <span class="icon ion-ios-arrow-right"></span></a></div></div></div>';
         }
 
     }
