@@ -58,7 +58,7 @@ $(document).ready(function(){
         var filterValue = $(this).attr('href');
         var name = $(this).attr('data-filter-name');
 
-        UIKit.switcher("#products-switcher").show(2);
+        UIkit.switcher("#products-switcher").show(2);
         $("#products-switcher li.uk-active").removeClass('uk-active');
         $('[data-show-filter="' + $(this).parents('[data-filter-list]').attr('data-filter-list') + '"]').addClass('active');
 
