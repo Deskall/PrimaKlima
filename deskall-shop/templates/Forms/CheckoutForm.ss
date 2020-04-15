@@ -11,9 +11,9 @@
 		<ul id="tab-switcher" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a>1. <span><%t Shop.ShopCart 'Warenkorb' %></span></a></li>
 			<% if Controller.activeCart.Products.exists %>
-			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a>2. <span><%t Shop.PaymentMethod 'Zahlungsart' %></span></a></li>
-			<li <% if $activeTab == "address" %>class="uk-active"<% end_if %>><a>3. <span><%t Shop.GiveAddress 'Angaben' %></span></a></li>
-			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a>4. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
+			<li class="uk-disabled <% if $activeTab == "profil" %>uk-active<% end_if %>"><a>2. <span><%t Shop.PaymentMethod 'Zahlungsart' %></span></a></li>
+			<li class="uk-disabled <% if $activeTab == "address" %>uk-active<% end_if %>"><a>3. <span><%t Shop.GiveAddress 'Angaben' %></span></a></li>
+			<li class="uk-disabled <% if $activeTab == "payment" %>uk-active<% end_if %>"><a>4. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
 			<% end_if %>
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
