@@ -139,12 +139,12 @@ $(document).ready(function(){
 
 function filterProducts( filter, filterValue ){
     var results = {};
-    results.items = [];
+    results.products = [];
     var itemOK = false;
     
     for (i = 0; i < products.length; i++) {
         if( filter == "all" || ( products[i][filter] && ( products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ) ) ){
-            results.items.push(item);
+            results.products.push(products[i]);
         }
 
     }
