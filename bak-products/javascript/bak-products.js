@@ -34,9 +34,10 @@ $(document).ready(function(){
                 $(this).text( $(this).attr('data-filter-name'));
             });
 
-        })
+        });
 
-        $('[data-show-filter]').click(function(){
+        $('[data-show-filter]').click(function(e){
+            e.preventDefault();
             $('[data-show-filter],[data-filter-list], .head').removeClass('active');
             $('[data-search-products]').val("")
             $(this).addClass('active');
