@@ -65,11 +65,13 @@
    <div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-padding-small uk-padding-top-large" data-uk-grid data-uk-height-match="h3">
             <% loop getCategories %>
             <div>
+                <a href="$Link($Top.Locale)" class="uk-display-block" data-filter-name="$Title">
                 <h3 class="uk-margin-remove">$Title</h3>
                 <% if $ProductCategoryImage %>
                   <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1  uk-margin-small-bottom" />
                 <% end_if %>
                 <div class="uk-text-right uk-margin-top">$Title <span class="icon ion-ios-arrow-right"></span></div>
+                </a>
             </div>
             <% end_loop %>
         </div>
