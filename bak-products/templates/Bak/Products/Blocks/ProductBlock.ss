@@ -49,3 +49,5 @@
     	</div>
     </li>
 </ul>
+
+<% include ProductScript %>

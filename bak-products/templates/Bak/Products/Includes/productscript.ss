@@ -1,4 +1,4 @@
-<script id="courses-template" type="text/x-handlebars-template">
+<script id="products-template" type="text/x-handlebars-template">
     {{#if products}}
         {{#each products}}
             <div class="product">
