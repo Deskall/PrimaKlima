@@ -4,8 +4,8 @@
     <li><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></li>
 </ul>
 
-<ul class="uk-switcher SecondaryBackground">
-    <li>
+<ul class="uk-switcher">
+    <li class="SecondaryBackground">
     	<div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-padding-small" data-uk-grid data-uk-height-match="h3">
     		<% loop getCategories %>
     		<div>
@@ -18,7 +18,7 @@
 		    <% end_loop %>
 	    </div>
     </li>
-    <li>
+    <li class="SecondaryBackground">
     	<div class="uk-child-width-1-1 uk-padding-small" data-uk-grid>
     		<% loop getUseArea %>
     		<div>
@@ -50,7 +50,7 @@
     </li>
 </ul>
 
-<script id="products-template" type="text/x-handlebars-template">
+<%-- <script id="products-template" type="text/x-handlebars-template">
     {{#if products}}
         {{#each products}}
             <div class="product">
@@ -80,4 +80,4 @@
     {{else}}
         <div class="product"><h3><%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %></h3></div>
     {{/if}}
-</script>
+</script> --%>
