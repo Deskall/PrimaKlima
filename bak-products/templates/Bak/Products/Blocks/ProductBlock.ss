@@ -26,7 +26,7 @@
 		    		<% loop Usages %>
 		    		<div>
 		    			<a href="$Link($Top.Locale)" class="col w-4" data-filter-name="$UseArea.Title">
-		    			  <div class="box clearfix">
+		    			  <div class="box uk-clearfix">
 		    			    <% if $Image %>
 		    			        <img src="$Image.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1 uk-margin-small-bottom" />
 		    			    <% end_if %>
@@ -60,11 +60,11 @@
   <div class="holder"></div>
 </div>
 
-<div data-filter-list="categories" class="filter-list clearfix active">
+<div data-filter-list="categories" class="filter-list uk-clearfix active">
 
     <% loop $getCategories %>
     <a href="$Link($Top.Locale)" class="col w-4" data-filter-name="$Title">
-      <div class="box clearfix">
+      <div class="box uk-clearfix">
         <% if $Title %><h3>$Title</h3><% end_if %>
         <% if $ProductCategoryImage %>
           <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title"/>
@@ -76,9 +76,9 @@
 
 </div>
 
-<div data-filter-list="usages" class="filter-list clearfix">
+<div data-filter-list="usages" class="filter-list uk-clearfix">
     <% loop $getUseArea %>
-      <div class="blocks clearfix">
+      <div class="blocks uk-clearfix">
         <% if $Title %>
           <div class="col w-12">
             <h2>$Title</h2>
@@ -88,7 +88,7 @@
           <% loop $Usages %>
          
           <a href="$Link($Top.Top.Locale)" class="col w-4" data-filter-name="$UseArea.T(Title)">
-            <div class="box clearfix">
+            <div class="box uk-clearfix">
               <% if $Image %>
                   <img src="$Image.FocusFillMax(350,250).URL" alt="$Title"/>
               <% end_if %>
