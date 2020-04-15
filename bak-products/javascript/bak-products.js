@@ -10,6 +10,7 @@ $(document).ready(function(){
                 results = jQuery.parseJSON(data);
                 products = results.products;
                 categories = results.categories;
+                filterProducts( );
             }
         });
     }
