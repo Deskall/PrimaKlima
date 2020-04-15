@@ -100,7 +100,9 @@ $(document).ready(function(){
 
 
     window.onpopstate = function (e) {
+        console.log('la');
         if ( e.state && 'filter' in e.state){
+            console.log('ici');
             var filter = e.state.filter;
             var filterValue = e.state.filterValue;
 
