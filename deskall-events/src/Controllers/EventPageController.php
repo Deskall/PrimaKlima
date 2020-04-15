@@ -103,7 +103,7 @@ class EventPageController extends PageController{
 					)->setName('CustomerFields'),
 					CompositeField::create(
 						// TextareaField::create('Comments','Bemerkungen'),
-						CheckboxField::create('AGB',DBHTMLText::create()->setValue(_t(__CLASS__.'.AGB','Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin. *', ['link' => $ppLink, 'link2' => '/agb'])))->setAttribute('class','uk-checkbox'),
+						CheckboxField::create('AGB',DBHTMLText::create()->setValue(_t(__CLASS__.'.AGB','* Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin.', ['link' => $ppLink, 'link2' => '/agb'])))->setAttribute('class','uk-checkbox'),
 						NocaptchaField::create('Captcha')
 						
 					)->setName('SummaryFields'),
@@ -111,7 +111,7 @@ class EventPageController extends PageController{
 					HiddenField::create('DateID')->setValue($dateid)
 				),
 				new FieldList(
-					FormAction::create('doRegisterBill', _t('MemberProfiles.REGISTER', 'Jetzt kostenplichtig registrieren'))->setUseButtonTag(true)->addExtraClass('uk-button button-gruen')
+					FormAction::create('doRegisterBill', _t('MemberProfiles.REGISTER', 'Jetzt kostenplichtig anmelden'))->setUseButtonTag(true)->addExtraClass('uk-button button-gruen')
 				),
 				RequiredFields::create(['Gender','Name','Vorname','Email','Address','PostalCode','City','Country'])
 			);

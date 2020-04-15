@@ -8,9 +8,9 @@
 					<div class="uk-panel">
 						$EventConfig.PaymentConfirmedLabel
 						<div class="uk-margin">
-							<a href="$Order.ReceiptFile.URL" target="_blank" title="Quittung herunterladen">Quittung herunterladen</a>
+							<a href="$Order.ReceiptFile.URL" target="_blank" title="Quittung herunterladen"><%t Event.DownloadInvoice 'Quittung herunterladen' %></a>
 						</div>
-						<h4>Informations</h4>
+						<h4><%t Event.CourseData 'Kurs Informationen' %></h4>
 						<table class="uk-table uk-table-small">
 							<tr><td><%t Event.Label 'Seminar' %></td><td class="uk-table-expand">$Event.Title</td></tr>
 							<tr><td><%t Event.City 'Ort' %></td><td>$Date.City</td></tr>

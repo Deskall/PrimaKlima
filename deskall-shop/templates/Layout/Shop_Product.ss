@@ -61,7 +61,7 @@
 		            		<div>
 				              <table class="uk-table uk-table-justify uk-table-small">
 				              	<tr><td><strong>Preis:</strong></td><td><strong>$Price.Nice</strong>	</td></tr>
-				              	<tr><td>MwSt.:</td><td>7.7%</td></tr>
+				              	<tr><td>MwSt.:</td><td>{$Top.SiteConfig.MwSt}%</td></tr>
 				              	<tr><td>Zuzüglich Porto und Verpackung</td><td>&nbsp;</td></tr>
 				              </table>
 				          	</div>

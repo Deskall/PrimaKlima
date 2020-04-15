@@ -61,7 +61,7 @@ class ShopController extends PageController{
 		if ($URLSegment){
 			$product = Product::get()->filter('URLSegment',$URLSegment)->first();
 			if ($product){
-				return ['Title' => $product->Title, 'Product' => $product, 'ExtraCssClass' => 'blau' ];
+				return ['Title' => $product->Title, 'Product' => $product, 'ExtraCssClass' => 'blau', 'SiteConfig' => SiteConfig::current_site_config() ];
 			}
 		}
 		return $this->httpError(404);

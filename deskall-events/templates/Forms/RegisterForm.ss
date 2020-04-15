@@ -10,7 +10,7 @@
 	<div class="uk-container">
 		<ul id="tab-switcher" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 			<li <% if $activeTab == "address" %>class="uk-active"<% end_if %>><a>1. <span><%t Shop.GiveAddress 'Angaben' %></span></a></li>
-			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a>2. <span><%t Shop.ChoosePayment 'Zahlungsmethod' %></span></a></li>
+			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a>2. <span><%t Shop.ChoosePayment 'Zahlungsart' %></span></a></li>
 			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a>3. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
@@ -30,7 +30,7 @@
 				</div>
 			</li>
 			<li class="account-tab" data-index="1">
-				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsmethod' %></h3>
+				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsart' %></h3>
 				<div class="uk-margin">
 					<div class="uk-child-width-1-3@s" data-uk-grid data-uk-height-match=".uk-card">
 						<div>
@@ -65,7 +65,7 @@
 				<h3><%t Event.ReviewAndPay 'Prüfen und bestätigen Sie Ihre Anmeldung' %></h3>
 				<div class="uk-panel uk-padding-small">
 					<h3><%t Checkout.Voucher 'Gutschein' %></h3>
-					<p><%t Checkout.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. und klicken Sie an "Gutschein prüfen".' %></p>
+					<p><%t Checkout.VoucherLabel 'Geben Sie hier Ihre Gutschein-Nr. ein und klicken Sie auf "Gutschein prüfen".' %></p>
 					<div class="uk-flex uk-flex-wrap">
 						<div class=" uk-width-medium uk-margin-small-right"><input type="text" name="voucher" class="uk-input" minlength="10" maxlength="10" placeholder="<%t Checkout.VoucherPLH 'zb: A12B3C4DEF' %>" /></div>
 						<div>
@@ -99,7 +99,7 @@
 								<tr id="voucher-row" hidden><td colspan="2" class="uk-text-right"><%t Event.Voucher 'Gutschein:' %></td><td id="voucher-price" class="uk-text-right">- </td></tr>
 								<tr><td colspan="2" class="uk-text-right"><%t Event.MwSt 'Enthaltene Mehrwertsteuer:' %> $SiteConfig.MwSt %</td><td id="mwst-price" class="uk-text-right">$Controller.activeDate.MwSt.Nice</td></tr>
 								
-								<tr class="uk-table-divider"><td colspan="2" class="uk-text-right"><strong><%t Event.TotalPrice 'Preis inklusive MwSt.' %></strong></td><td class="uk-text-right"><strong id="total-price" data-price="$FullTotalPrice.Value">$Controller.activeDate.Price.Nice</strong></td></tr>
+								<tr class="uk-table-divider"><td colspan="2" class="uk-text-right"><strong><%t Event.TotalPrice 'Total inkl. MwSt.' %></strong></td><td class="uk-text-right"><strong id="total-price" data-price="$FullTotalPrice.Value">$Controller.activeDate.Price.Nice</strong></td></tr>
 							</tbody>
 						</table>
 					</div>
