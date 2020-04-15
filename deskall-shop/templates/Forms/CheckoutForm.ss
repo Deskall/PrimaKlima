@@ -64,7 +64,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="uk-flex uk-flex-between">
+				<div class="uk-flex uk-flex-between uk-flex-middle">
 					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 				</div>
@@ -90,7 +90,7 @@
 						</div>
 					</div>
 				
-				<div class="uk-flex uk-flex-between">
+				<div class="uk-flex uk-flex-between uk-flex-middle">
 					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<a class="uk-button button-blau with-chevron" data-step="forward"><%t Global.Forward 'Weiter' %></a>
 				</div>
@@ -135,7 +135,7 @@
 						</div>
 					</div>
 				
-				<div class="uk-margin uk-flex uk-flex-between">
+				<div class="uk-margin uk-flex uk-flex-between uk-flex-middle">
 					<a data-step="backward"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i><%t Global.Back 'Zurück' %></a>
 					<% if $Actions %>
 						<% loop $Actions %>
