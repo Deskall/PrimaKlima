@@ -98,12 +98,12 @@ class ShopPageController extends PageController{
 			)->setName('DeliveryFields'),
 			CompositeField::create(
 				// TextareaField::create('Comments','Bemerkungen'),
-				CheckboxField::create('AGB',DBHTMLText::create()->setValue(_t(__CLASS__.'.AGB','Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin. *', ['link' => $ppLink, 'link2' => '/agb'])))->setAttribute('class','uk-checkbox'),
+				CheckboxField::create('AGB',DBHTMLText::create()->setValue(_t(__CLASS__.'.AGBLABEL','* Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin.', ['link' => $ppLink, 'link2' => '/agb'])))->setAttribute('class','uk-checkbox'),
 				NocaptchaField::create('Captcha')
 				
 			)->setName('SummaryFields')
 		);
-		$actions = new FieldList(FormAction::create('payBill', _t('SHOP.BUY', 'Jetzt kostenpflichtig bestellen'))->addExtraClass('uk-button button-blau')->setUseButtonTag(true)->setButtonContent('<i class="uk-margin-small-right" data-uk-icon="cart"></i>'._t('SHOP.BUY', 'Jetzt kostenpflichtig bestellen')));
+		$actions = new FieldList(FormAction::create('payBill', _t('WEBSHOP.BUY', 'Jetzt kostenpflichtig bestellen'))->addExtraClass('uk-button button-blau')->setUseButtonTag(true)->setButtonContent('<i class="uk-margin-small-right" data-uk-icon="cart"></i>'._t('WEBSHOP.BUY', 'Jetzt kostenpflichtig bestellen')));
 		$required = RequiredFields::create(['AGB']);
 
 		$form = new Form(
