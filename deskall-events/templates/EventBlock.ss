@@ -39,7 +39,7 @@
 					        <div class="uk-margin uk-flex uk-flex-left uk-flex-wrap uk-text-small">
 					        	<% if activeDates.Exists %>
 					        		<% with activeDates.first %>
-					    	    	<strong class="uk-margin-right"><%t Event.NextCourse 'Nächster Kurse:' %></strong><strong class="uk-margin-right"><i class="icon icon-calendar uk-margin-small-right"></i>$Start.Nice</strong><strong class="uk-margin-right"><i class="icon icon-ios-location uk-margin-small-right"></i>$City</strong>
+					    	    	<strong class="uk-margin-right"><%t Event.NextCourse 'Nächster Kurs:' %></strong><strong class="uk-margin-right"><i class="icon icon-calendar uk-margin-small-right"></i>$Start.Nice</strong><strong class="uk-margin-right"><i class="icon icon-ios-location uk-margin-small-right"></i>$City</strong>
 					    	    	<% end_with %>
 					    	    <% else %>
 					    	    <p><i>Bisher ist kein Datum geplant</i></p>
