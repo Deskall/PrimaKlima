@@ -3,6 +3,7 @@ var products,
 
 $(document).ready(function(){  
     UIkit.util.on('#products-switcher', 'beforeshow', function () {
+        console.log($(this));
         $('[data-search-products]').val("");
         history.pushState({'filterList': $(this).attr('data-show-filter') }, $(this).attr('data-filter-name'), $(this).attr('href'));
         // ga('set', 'page', $(this).attr('href'));
