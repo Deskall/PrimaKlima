@@ -49,7 +49,7 @@
     </li>
 </ul> --%>
 
-<div class="product-filter-holder clearfix">
+<div class="product-filter-holder">
   <a data-show-filter="categories" href="<% if $Locale = "de_DE"%>produkte/kategorie<% else_if $Locale == "es_ES" %>productos/categoría<% else %>products/category<% end_if %>" data-filter-name="<%t ProductOverviewPage.KATEGORIE "Kategorie" %>" class="head active"><%t ProductOverviewPage.KATEGORIE "Kategorie" %></a>
   <a data-show-filter="usages" href="<% if $Locale = "de_DE"%>produkte/anwendung<% else_if $Locale == "es_ES" %>productos/uso<% else %>products/application<% end_if %>" data-filter-name="<%t ProductOverviewPage.ANWENDUNG "Anwendung" %>" class="head"><%t ProductOverviewPage.ANWENDUNG "Anwendung" %></a>
   <span class="head search"><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></span>
@@ -63,13 +63,13 @@
 <div data-filter-list="categories" class="filter-list clearfix active">
 
     <% loop $getCategories %>
-    <a href="$Link($Top.Locale)" class="col w-4" data-filter-name="$T(Title)">
+    <a href="$Link($Top.Locale)" class="col w-4" data-filter-name="$Title">
       <div class="box clearfix">
-        <% if $T(Title) %><h3>$T(Title)</h3><% end_if %>
+        <% if $Title %><h3>$Title</h3><% end_if %>
         <% if $ProductCategoryImage %>
-          <img src="$ProductCategoryImage.CroppedFocusedImage(350,250).URL" alt="$T(Title)"/>
+          <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title"/>
         <% end_if %>
-        <div class="link-more">$T(Title) <span class="icon ion-ios-arrow-right"></span></div>
+        <div class="link-more">$Title <span class="icon ion-ios-arrow-right"></span></div>
       </div>
     </a>
     <% end_loop %>
@@ -79,9 +79,9 @@
 <div data-filter-list="usages" class="filter-list clearfix">
     <% loop $getUseArea %>
       <div class="blocks clearfix">
-        <% if $T(Title) %>
+        <% if $Title %>
           <div class="col w-12">
-            <h2>$T(Title)</h2>
+            <h2>$Title</h2>
           </div>
         <% end_if %>
         <% if $Usages %>
@@ -90,10 +90,10 @@
           <a href="$Link($Top.Top.Locale)" class="col w-4" data-filter-name="$UseArea.T(Title)">
             <div class="box clearfix">
               <% if $Image %>
-                  <img src="$Image.CroppedFocusedImage(350,250).URL" alt="$Title"/>
+                  <img src="$Image.FocusFillMax(350,250).URL" alt="$Title"/>
               <% end_if %>
                   $T(Description)
-                  <div class="link-more"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %><% include DefaultIcon %></div>
+                  <div class="link-more"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %><span class="ion ion-ios-arrow-right"></div>
               </div>
           </a>
           <% end_loop %>
