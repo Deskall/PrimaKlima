@@ -49,7 +49,7 @@ class ShopController extends PageController{
 		if ($URLSegment){
 			$category = ProductCategory::get()->filter('URLSegment',$URLSegment)->first();
 			if ($category){
-				return ['Title' => $category->Title, 'Category' => $category, 'ExtraCssClass' => 'blau' ];
+				return ['Title' => $category->Title, 'Category' => $category, 'ExtraCssClass' => 'blau', 'activeCart' => $this->getActiveCartObject() ];
 			}
 		}
 		return $this->httpError(404);
@@ -61,7 +61,7 @@ class ShopController extends PageController{
 		if ($URLSegment){
 			$product = Product::get()->filter('URLSegment',$URLSegment)->first();
 			if ($product){
-				return ['Title' => $product->Title, 'Product' => $product, 'ExtraCssClass' => 'blau', 'SiteConfig' => SiteConfig::current_site_config() ];
+				return ['Title' => $product->Title, 'Product' => $product, 'ExtraCssClass' => 'blau', 'SiteConfig' => SiteConfig::current_site_config(), 'activeCart' => $this->getActiveCartObject() ];
 			}
 		}
 		return $this->httpError(404);
@@ -78,6 +78,19 @@ class ShopController extends PageController{
 	   $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
 	   
 	   return $cart->renderWith('Includes/ShopCart');
+	}
+
+	public function getActiveCartObject(){
+	   $id = $this->getRequest()->getSession()->get('shopcart_id');
+	   $cart = null;
+	   if ($id){
+	      $cart = ShopCart::get()->byId($id);
+	   }
+	   $cart = ($cart) ? $cart : new ShopCart();
+	   $cart->write();
+	   $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+	   
+	   return $cart;
 	}
 
 	public function updateCart(HTTPRequest $request){
