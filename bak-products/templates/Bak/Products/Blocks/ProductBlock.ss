@@ -45,7 +45,7 @@
     <li>
     	<div data-product-list class="product-list uk-padding-small" data-no-products-found="<%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %>">
     	  <a href="javascript: history.back()" class="close-products"></a>
-    	  <div class="holder"></div>
+    	  <div class="holder uk-grid-divider" data-uk-grid></div>
     	</div>
     </li>
 </ul>
