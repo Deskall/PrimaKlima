@@ -1,7 +1,7 @@
 <ul data-uk-tab class="uk-margin-remove uk-child-width-expand">
-    <li><a href="#"><%t ProductOverviewPage.KATEGORIE "Kategorie" %><span class="uk-flex-right"><i class="icon icon-chevron-down"></i></span></a></li>
-    <li><a href="#"><%t ProductOverviewPage.ANWENDUNG "Anwendung" %><span class="uk-flex-right"><i class="icon icon-chevron-down"></i></span></a></li>
-    <li><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /><span class="uk-flex-right"><i class="icon icon-search"></i></span></li>
+    <li><a href="#"><%t ProductOverviewPage.KATEGORIE "Kategorie" %><span class="uk-flex-right"><i class="icon ion-chevron-down"></i></span></a></li>
+    <li><a href="#"><%t ProductOverviewPage.ANWENDUNG "Anwendung" %><span class="uk-flex-right"><i class="icon ion-chevron-down"></i></span></a></li>
+    <li><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /><span class="uk-flex-right"><i class="icon ion-search"></i></span></li>
 </ul>
 
 <ul class="uk-switcher">
