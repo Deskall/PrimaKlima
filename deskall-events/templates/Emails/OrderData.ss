@@ -7,7 +7,6 @@
 		<td><b><%t Event.CustomerData 'Kunden Angaben' %></b><br/>$printAddress</td>
 	</tr>
 </table>
-
 <table cellpadding="2" cellspacing="2">
 	<thead>
 		<tr style="background-color:#EEEEEE;color:#666666;"><th width="410" align="left" style="padding-left:5px;"><%t Event.Kurs 'Kurs' %></th><th width="120" align="right" style="text-align:right;padding-right:5px"><%t Event.Total 'Gesamt' %></th></tr>

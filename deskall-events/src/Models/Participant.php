@@ -61,7 +61,6 @@ class Participant extends DataObject
         'Orders' => Order::class
     ];
 
-
     public function fieldLabels($includerelation = true){
     $labels = parent::fieldLabels($includerelation);
     $labels['Name'] = _t(__CLASS__.'.Name','Name');

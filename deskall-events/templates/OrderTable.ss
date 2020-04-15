@@ -10,9 +10,9 @@
 		</td>
 	</tr>
 </table>
-<h2>Rechnung</h2>
+<h2><%t Event.Bill 'Rechnung' %></h2>
 <table cellspacing="2">
-	<tr style="font-size:12px;"><td>Rechnung Nr. $Nummer</td><td>Kunde Nr. $Participant.ID</td><td align="right">Datum: $Created.format('dd.MM.Y')</td></tr>
+	<tr style="font-size:12px;"><td><%t Event.BillNumber 'Rechnung Nr.' %> $Nummer</td><td><%t Event.CustomerNumber 'Kunde Nr.' %> $Participant.ID</td><td align="right"><%t Event.Date 'Datum:' %> $Created.format('dd.MM.Y')</td></tr>
 </table>
 <hr>
 <table cellpadding="2" cellspacing="2">

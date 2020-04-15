@@ -32,10 +32,6 @@ $(document).ready(function(){
 
 		$("#customer-address").html(html);
 	}
-		
-		
-	
-
 
 	//Steps
 	$(document).on("click","[data-step]",function(){

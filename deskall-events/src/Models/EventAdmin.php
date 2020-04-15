@@ -50,5 +50,4 @@ class EventAdmin extends ModelAdmin{
 
 	    return $form;
 	}
-
 }

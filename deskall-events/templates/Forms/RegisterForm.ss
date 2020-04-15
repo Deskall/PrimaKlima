@@ -6,7 +6,6 @@
 	<% else %>
 	<p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
 	<% end_if %>
-
 	<div class="uk-container">
 		<ul id="tab-switcher" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 			<li <% if $activeTab == "address" %>class="uk-active"<% end_if %>><a>1. <span><%t Shop.GiveAddress 'Angaben' %></span></a></li>

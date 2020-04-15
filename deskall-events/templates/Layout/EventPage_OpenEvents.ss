@@ -1,5 +1,4 @@
 <% include HeaderSlide %>
-
 <% with Event %>
 <section class="uk-section uk-background-muted uk-padding-small">
 	<div class="uk-container">

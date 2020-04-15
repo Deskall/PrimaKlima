@@ -22,7 +22,6 @@ class OrderEmail extends Email
     private $config = null;
 
    
-
     /**
      * @param EventConfig $config
      * @param OrderDate $Order

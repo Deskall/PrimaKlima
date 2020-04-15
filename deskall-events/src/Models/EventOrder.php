@@ -198,7 +198,6 @@ class EventOrder extends DataObject{
       	$src = Director::baseFolder().$config->BillFile()->getURL();
       	$output = Director::baseFolder().'/assets/Uploads/kurse/tmp/rechnung_'.$this->ID.'.pdf';
 
-      
       	$pageCount = $pdf->setSourceFile($src);
       	for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
       		$pdf->SetPrintHeader(false);

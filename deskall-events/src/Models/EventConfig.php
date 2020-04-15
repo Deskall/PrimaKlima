@@ -33,7 +33,6 @@ class EventConfig extends DataObject
        'ReceiptFile' => File::class
     ];
 
-
     private static $owns = [
         'BillFile',
         'AGBFile',

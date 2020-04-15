@@ -57,7 +57,6 @@ class EventDate extends DataObject{
         'Participants' => ['paid' => 'Boolean(0)']
     ];
 
-
     private static $extensions = [
         'Activable',
         'Sortable'

@@ -75,7 +75,6 @@ class Event extends DataObject{
         'NiceDescription' => ['title' => 'Beschreibung']
     ];
 
-
     function fieldLabels($includerelations = true) {
         $labels = parent::fieldLabels($includerelations);
      
