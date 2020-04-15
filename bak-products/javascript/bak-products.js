@@ -144,7 +144,7 @@ function filterProducts( filter, filterValue ){
         if( filter == "all" || ( products[i][filter] && ( products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ) ) ){
             HTML += '<div class="product"><div data-uk-grid>';
             if( 'image' in products[i] ){
-                HTML += '<div class="uk-width-1-4@m"><a href="' + products[i].link + '"><img src="' + products[i].image + '" alt="' +  products[i].name + '" /></a></div></div><div class="uk-width-3-4@m">';
+                HTML += '<div class="uk-width-1-4@m"><a href="' + products[i].link + '"><img src="' + products[i].image + '" alt="' +  products[i].name + '" /></a></div><div class="uk-width-3-4@m">';
             }
             else{
                 HTML += '<div class="uk-width-1-1">';
