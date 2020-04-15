@@ -13,6 +13,7 @@ use Bak\Products\Models\ProductCategory;
 use Bak\Products\Models\ProductUseArea;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\View\Requirements;
+use SilverStripe\Control\HTTPRequest;
 
 class ProductOverviewPageController extends PageController 
 {
@@ -139,7 +140,7 @@ class ProductOverviewPageController extends PageController
     }
 
 
-    public function category(SS_HTTPRequest $request){
+    public function category(HTTPRequest $request){
         switch($this->Locale){
             case "de_DE":
             $urlsegment = 'URLSegment';
@@ -190,7 +191,7 @@ class ProductOverviewPageController extends PageController
     }
 
 
-    public function application(SS_HTTPRequest $request ){
+    public function application(HTTPRequest $request ){
          switch($this->Locale){
             case "de_DE":
             $urlsegment = 'URLSegment';
@@ -237,7 +238,7 @@ class ProductOverviewPageController extends PageController
 
 
 
-    public function detail(SS_HTTPRequest $request ){
+    public function detail(HTTPRequest $request ){
         switch($this->Locale){
             case "de_DE":
             $urlsegment = 'URLSegment';
