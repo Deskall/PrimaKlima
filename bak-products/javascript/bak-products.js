@@ -140,6 +140,8 @@ $(document).ready(function(){
 });
 
 function filterProducts( filter, filterValue ){
+    console.log(filter);
+    console.log(filterValue);
     var HTML = '';
     for (i = 0; i < products.length; i++) {
         if( filter == "all" || ( products[i][filter] && ( products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ) ) ){
