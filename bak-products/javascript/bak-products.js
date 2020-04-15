@@ -10,7 +10,7 @@ $(document).ready(function(){
                 results = jQuery.parseJSON(data);
                 products = results.products;
                 categories = results.categories;
-                filterProducts( );
+                $('[data-product-list]').find('.holder').html(filterProducts());
             }
         });
     }
