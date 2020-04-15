@@ -38,17 +38,13 @@ $(document).ready(function(){
     })
 
     $('[data-show-filter]').click(function(){
-        $('[data-show-filter],[data-filter-list], .head').removeClass('active');
-        $('[data-search-products]').val("")
-        $(this).addClass('active');
-        $('[data-filter-list=' + $(this).attr('data-show-filter') + ']').addClass('active');
-        $('[data-product-list]').removeClass('active');
+        $('[data-search-products]').val("");
         $('[data-show-filter]').each( function(){
             $(this).text( $(this).attr('data-filter-name'));
         });
         history.pushState({'filterList': $(this).attr('data-show-filter') }, $(this).attr('data-filter-name'), $(this).attr('href'));
-        ga('set', 'page', $(this).attr('href'));
-        ga('send', 'pageview');
+        // ga('set', 'page', $(this).attr('href'));
+        // ga('send', 'pageview');
 
         $('h1').text($('h1').attr('data-title-orig'));
         $('title').text($('h1').attr('data-title-orig'));
@@ -60,13 +56,11 @@ $(document).ready(function(){
         var filterValue = $(this).attr('href');
         var name = $(this).attr('data-filter-name');
 
-        $('.head').removeClass('active');
-        $('.filter-list').removeClass('active');
+        UIKit.switcher("#products-switcher").show(2);
+        $("#products-switcher li.uk-active").removeClass('uk-active');
         $('[data-show-filter="' + $(this).parents('[data-filter-list]').attr('data-filter-list') + '"]').addClass('active');
 
         $('[data-show-filter="' + $(this).parents('[data-filter-list]').attr('data-filter-list') + '"]').text( $(this).attr('data-filter-name') );
-
-        $('.product-list').addClass('active');
 
         $('[data-product-list]').find('.holder').html( filterProducts(filter, filterValue) );
 
@@ -96,8 +90,8 @@ $(document).ready(function(){
         }
        
 
-        ga('set', 'page', $(this).attr('href'));
-        ga('send', 'pageview');
+        // ga('set', 'page', $(this).attr('href'));
+        // ga('send', 'pageview');
         
         return false;
     });
