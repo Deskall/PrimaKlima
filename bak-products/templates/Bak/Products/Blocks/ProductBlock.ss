@@ -49,7 +49,7 @@
     </li>
 </ul> --%>
 
-<div class="product-filter-holder uk-flex uk-flex-between">
+<div class="product-filter-holder uk-flex">
   <a data-show-filter="categories" href="<% if $Locale = "de_DE"%>produkte/kategorie<% else_if $Locale == "es_ES" %>productos/categoría<% else %>products/category<% end_if %>" data-filter-name="<%t ProductOverviewPage.KATEGORIE "Kategorie" %>" class="head active"><%t ProductOverviewPage.KATEGORIE "Kategorie" %></a>
   <a data-show-filter="usages" href="<% if $Locale = "de_DE"%>produkte/anwendung<% else_if $Locale == "es_ES" %>productos/uso<% else %>products/application<% end_if %>" data-filter-name="<%t ProductOverviewPage.ANWENDUNG "Anwendung" %>" class="head"><%t ProductOverviewPage.ANWENDUNG "Anwendung" %></a>
   <span class="head search"><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></span>
@@ -60,7 +60,7 @@
   <div class="holder"></div>
 </div>
 
-<div data-filter-list="categories" class="filter-list uk-clearfix active">
+<div data-filter-list="categories" class="filter-list uk-clearfix activ uk-padding-small">
 
     <% loop $getCategories %>
     <a href="$Link($Top.Locale)" class="col w-4" data-filter-name="$Title">
