@@ -76,30 +76,29 @@
 
 </div>
 
-<div data-filter-list="usages" class="filter-list uk-clearfix">
-    <% loop $getUseArea %>
-      <div class="blocks uk-clearfix">
-        <% if $Title %>
-          <div class="col w-12">
-            <h2>$Title</h2>
-          </div>
-        <% end_if %>
-        <% if $Usages %>
-          <% loop $Usages %>
-         
-          <a href="$Link($Top.Top.Locale)" class="col w-4" data-filter-name="$UseArea.T(Title)">
-            <div class="box uk-clearfix">
-              <% if $Image %>
-                  <img src="$Image.FocusFillMax(350,250).URL" alt="$Title"/>
-              <% end_if %>
-                  $T(Description)
-                  <div class="link-more"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %><span class="ion ion-ios-arrow-right"></div>
-              </div>
-          </a>
-          <% end_loop %>
-        <% end_if %>
-      </div>
-    <% end_loop %>
+<div data-filter-list="usages" class="filter-list uk-clearfix  SecondaryBackground uk-padding-small">
+    <div class="uk-child-width-1-1 uk-padding-small" data-uk-grid>
+            <% loop getUseArea %>
+            <div>
+                <h2>$Title</h2>
+                <div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
+                    <% loop Usages %>
+                    <div>
+                        <a href="$Link($Top.Locale)" class="col w-4" data-filter-name="$UseArea.Title">
+                          <div class="box uk-clearfix">
+                            <% if $Image %>
+                                <img src="$Image.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1 uk-margin-small-bottom" />
+                            <% end_if %>
+                                $Description
+                                <div class="uk-text-right uk-margin-top"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span class="icon ion-ios-arrow-right"></span></div>
+                            </div>
+                        </a>
+                    </div>
+                    <% end_loop %>
+                </div>
+            </div>
+            <% end_loop %>
+        </div>
 </div>
 
 <%-- <script id="products-template" type="text/x-handlebars-template">
