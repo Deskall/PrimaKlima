@@ -6,7 +6,7 @@
 		<tr><td>$Title</td><td class="uk-text-center"><input type="number" value="$Quantity" min="1" class="uk-input" data-quantity="$ID"></td><td class="uk-text-right">$Price.Nice</td><td class="uk-text-center"><a data-remove-product="$ID"><i data-uk-icon="trash"></i></a></td></tr>
 		<% end_loop %>
 	</tbody>
-	<tfoot><tr><td class="uk-text-bold" colspan="2"><%t Webshop.TotalPrice 'Gesamt Betrag' %></td><td class="uk-text-bold uk-text-right">$TotalPrice.Nice</td><td>&nbsp;</td></tr></tfoot>
+	<tfoot><tr><td class="uk-text-bold" colspan="2"><%t Webshop.TotalPrice 'Total' %></td><td class="uk-text-bold uk-text-right">$TotalPrice.Nice</td><td>&nbsp;</td></tr></tfoot>
 </table>
 <% else %>
 <p><i>Ihr Warenkorb enthält keine Produkte</i></p>
