@@ -1,6 +1,6 @@
 <ul data-uk-tab class="uk-margin-remove uk-child-width-expand">
-    <li><a href="produkte/kategorie"  data-show-filter="categories" data-filter-name="Kategorie" class="uk-width-1-1"><%t ProductOverviewPage.KATEGORIE "Kategorie" %><span class="uk-position-center-right uk-position-small"><i class="icon ion-ios-arrow-down"></i></span></a></li>
-    <li><a href="produkte/anwendung"  data-show-filter="usages" data-filter-name="Anwendung" class="uk-width-1-1"><%t ProductOverviewPage.ANWENDUNG "Anwendung" %><span class="uk-position-center-right uk-position-small"><i class="icon ion-ios-arrow-down"></i></span></a></li>
+    <li <% if ShowCategories %> class="uk-active"<% end_if %>><a href="produkte/kategorie"  data-show-filter="categories" data-filter-name="Kategorie" class="uk-width-1-1"><%t ProductOverviewPage.KATEGORIE "Kategorie" %><span class="uk-position-center-right uk-position-small"><i class="icon ion-ios-arrow-down"></i></span></a></li>
+    <li <% if ShowUsages %> class="uk-active"<% end_if %>><a href="produkte/anwendung"  data-show-filter="usages" data-filter-name="Anwendung" class="uk-width-1-1"><%t ProductOverviewPage.ANWENDUNG "Anwendung" %><span class="uk-position-center-right uk-position-small"><i class="icon ion-ios-arrow-down"></i></span></a></li>
     <li><a class="uk-width-1-1"><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /><span class="uk-position-center-right uk-position-small"><i class="icon ion-ios-search"></i></span></a></li>
 </ul>
 <ul id="products-switcher" class="uk-switcher">
