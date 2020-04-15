@@ -17,7 +17,7 @@
 				    <h3 class="uk-card-title">$Title</h3>
 				    $Description
 				    <div class="uk-text-right@m">
-				    	<a href="$Link" class="uk-button button-blau"><%t Webshop.ToProducts 'Zum Produkte' %></a>
+				    	<a href="$Link" class="uk-button button-blau"><%t Webshop.ToProducts 'Zu den Produkten' %></a>
 				    </div>
 				</div>
 			</div>
