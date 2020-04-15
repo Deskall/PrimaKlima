@@ -141,18 +141,35 @@ function filterProducts( filter, filterValue ){
     var results = {};
     results.products = [];
     var itemOK = false;
-    console.log(products[i]);
+   
     for (var i = 0; i < products.length; i++) {
         if( filter == "all" || ( products[i][filter] && ( products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ) ) ){
-            results.products.push(products[i]);
+            HTML += '<div class="product">';
+            if( 'image' in products[i] ){
+
+                HTML += '<div class="col w-4"><a href="' + products[i].link + '"><img src="' + products[i].image + '" alt="' +  products[i].name + '" /></a></div>';
+            }
+
+            HTML += '<div class="col w-8"><h3>' + products[i].name + '</h3>';
+            if( products[i].description ){
+                HTML += '<p class="description">' + products[i].description + '</p>';
+            }else{
+
+                if( products[i].features ){
+                    HTML += '<p class="description">' + products[i].features + '</p>';
+                }
+                if( products[i].number ){
+                    HTML += '<p class="description">' + products[i].numberText  + ': ' +  products[i].number + '</p>';
+                }
+            }
+
+            HTML += '</div><div class="link-more"><a href="' + products[i].link + '">' + products[i].linkText  + '  <span class="icon ion-ios-arrow-right"></span></a></div></div>';
         }
 
     }
-    var source   = document.getElementById("products-template").innerHTML;
-    var template = Handlebars.compile(source);
-
-    window.scrollTo(0, $('.uk-switcher').offset().top);
-    var HTML     = template(results);
+    if( !HTML ){
+        HTML = '<div class="product"><div class="col w-8"><h3>' + $('[data-product-list]').attr("data-no-products-found") + '</h3></div></div>';
+    }
 
     return HTML;
 }
