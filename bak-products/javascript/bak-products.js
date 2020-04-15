@@ -47,8 +47,8 @@ $(document).ready(function(){
                 $(this).text( $(this).attr('data-filter-name'));
             });
             history.pushState({'filterList': $(this).attr('data-show-filter') }, $(this).attr('data-filter-name'), $(this).attr('href'));
-            ga('set', 'page', $(this).attr('href'));
-            ga('send', 'pageview');
+            // ga('set', 'page', $(this).attr('href'));
+            // ga('send', 'pageview');
 
             $('h1').text($('h1').attr('data-title-orig'));
             $('title').text($('h1').attr('data-title-orig'));
@@ -97,8 +97,8 @@ $(document).ready(function(){
             }
            
 
-            ga('set', 'page', $(this).attr('href'));
-            ga('send', 'pageview');
+            // ga('set', 'page', $(this).attr('href'));
+            // ga('send', 'pageview');
             
             return false;
         });
