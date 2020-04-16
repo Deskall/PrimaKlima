@@ -288,7 +288,7 @@ class ProductOverviewPageController extends PageController
 
 
     public function videos($ID){
-        $product = DataObject::get_by_id('Product',$ID);
+        $product = Product::get()->byId($ID);
         $content = null;
 
         foreach (explode("\n",$product->Videos) as $url){
@@ -321,7 +321,7 @@ class ProductOverviewPageController extends PageController
           return $this->redirectBack();
         }
         
-        $Product = DataObject::get_by_id('Product',$_POST['ID']);
+        $Product = Product::get()->byId($_POST['ID']);
         // Read Data
 
         $contents = array(
