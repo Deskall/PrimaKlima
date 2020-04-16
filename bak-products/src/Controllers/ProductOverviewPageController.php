@@ -3,6 +3,7 @@
 namespace Bak\Products\Controllers;
 
 use PageController;
+use HeaderSlide;
 use SilverStripe\Core\Convert;
 use SilverStripe\Control\Email\Email;
 use SilverStripe\ORM\DataObject;
