@@ -346,7 +346,7 @@ class Product extends DataObject {
     {
       "@context": "https://schema.org/",
       "@type": "Product",
-      "name": "'.$this->getLocalizedValue('Name').', '.str_replace("\n"," ",strip_tags($this->Lead)).'",
+      "name": "'.$this->Name.', '.str_replace("\n"," ",strip_tags($this->Lead)).'",
       "image": "'.Director::AbsoluteURL($this->MainImage()->getURL()).'",
       "description": "'.$this->getProductMetaDescription($Locale).'",
       "brand": {
