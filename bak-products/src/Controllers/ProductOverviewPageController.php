@@ -97,8 +97,7 @@ class ProductOverviewPageController extends PageController
                 default:
                     $tmp['name'] = $product->Name;
                     $tmp['lead'] = $product->Lead;
-                    $tmp['description'] = $product->Description;
-                    $tmp['features'] = $product->Features;
+                    $tmp['description'] = DBHTMLText::create()->setValue($product->Description)->limitWordCount(30);
                     $tmp['linkText'] = 'Zum Produkt';
                     $tmp['numberText'] = 'Best.-Nr.';
                 break;
