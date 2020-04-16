@@ -17,7 +17,37 @@
 
 							<div data-product-list class="product-list <% if showProducts %>active<% end_if %>" data-no-products-found="<%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %>">
 							  <a data-close-products class="close-products"></a>
-							  <div class="holder uk-padding uk-padding-remove-horizontal"></div>
+							  <div class="holder uk-padding uk-padding-remove-horizontal">
+							  	<% if SelectedCategory %>
+							  		<% with SelectedCategory %>
+							  	<% else_if SelectedUsage %>
+							  		<% with SelectedUsage %>
+							  	<% end_if %>
+								  	<% loop Products %>
+									  	<div class="product">
+									  	    <div data-uk-grid>
+									  	        <div class="uk-width-1-4@m">
+									  	            <a href="$Link($Top.Locale)"><img src="$MainImage.Pad(210,150)" alt="$Name" /></a>
+									  	        </div>
+									  	        <div class="uk-width-3-4@m">
+									  	            <h3>$Name</h3>
+									  	            <% if $Lead %>
+									  	            <p class="description">$Lead</p>
+									  	           <% else_if $Description %>
+									  	                <p class="description">$Description.LimitWordCount(30)</p>
+									  	            <% end_if %>
+									  	            <div class="uk-text-right">
+									  	                <a href="$Link($Top.Locale)"><%t Product.ToProduct 'Zum Produkt' %><span class="icon ion-ios-arrow-right"></span></a>
+									  	            </div>
+									  	        </div>
+									  	    </div>
+									  	</div>
+								  	<% end_loop %>
+								<% if SelectedUsage || SelectedCategory %>
+								 <% end_with %>
+								<% end_if %>
+								  
+							  </div>
 							</div>
 
 							<div data-filter-list="categories" class="filter-list uk-clearfix <% if ShowCategories %>active<% end_if %> SecondaryBackground uk-padding-small">
