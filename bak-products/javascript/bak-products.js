@@ -77,7 +77,7 @@ $(document).ready(function(){
 
             $('.product-list').addClass('active');
 
-            $('[data-product-list]').find('.holder').html( filterProducts(filter, filterValue) );
+            $('[data-product-list]').find('.holder').html( filterProducts(filter, name) );
 
 
             history.pushState({'filter': filter, 'filterValue' : filterValue}, $(this).attr('data-filter-name'), $(this).attr('href'));
