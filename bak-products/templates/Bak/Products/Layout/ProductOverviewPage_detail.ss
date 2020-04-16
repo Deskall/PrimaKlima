@@ -48,13 +48,13 @@
         <% end_if %>
 
         <% if $Product.Features %>
-        <div class="product-block dk-text-content">
+        <div class="product-block dk-text-content uk-margin-large-bottom">
           $Product.Features
         </div>
         <% end_if %>
 
         <% if $Product.Number %>
-        <div class="product-block">
+        <div class="product-block uk-margin-large-bottom">
           <%t ProductPage.NUMMER "Best.-Nr." %>: $Product.Number
         </div>
         <% end_if %>
@@ -63,7 +63,7 @@
 
 
         <% if $Product.Usages %>
-        <div class="product-block">
+        <div class="product-block uk-margin-large-bottom">
           <h2><%t ProductPage.ANWENDUNG "Einfache Anwendung" %></h2>
           <div class="image-block">
             <div class="owl-gallery owl-carousel owl-theme">
@@ -85,7 +85,7 @@
 
 
         <% if $Product.Images %>
-        <div class="product-block">
+        <div class="product-block uk-margin-large-bottom">
           <div class="image-block">
             <div class="owl-gallery owl-carousel owl-theme">
               <% loop $Product.Images.Sort('SortOrder') %>
@@ -100,7 +100,7 @@
 
 
         <% if $Product.Table %>
-        <div class="product-block table">
+        <div class="product-block table uk-margin-large-bottom">
           <h2><%t ProductPage.TECHNISCHEDATEN "Technische Daten" %></h2>
           $Product.Table
         </div>
@@ -109,7 +109,7 @@
 
         <% if $Locale = "de_DE"%>
           <% if $Product.Downloads %>
-          <div class="product-block">
+          <div class="product-block uk-margin-large-bottom">
             <h2><%t ProductPage.DOWNLOADS "Downloads" %></h2>
             <div class="download-block">
               <% loop $Product.Downloads.Sort('SortOrder') %>
@@ -120,7 +120,7 @@
           <% end_if %>
         <% else %>
           <% if $Product.Downloads__en_US %>
-          <div class="product-block">
+          <div class="product-block uk-margin-large-bottom">
             <h2><%t ProductPage.DOWNLOADS "Downloads" %></h2>
             <div class="download-block">
               <% loop $Product.Downloads__en_US.Sort('SortOrder') %>
@@ -133,7 +133,7 @@
 
 
         <% if $Product.Videos %>
-        <div class="product-block">
+        <div class="product-block uk-margin-large-bottom">
           <h2><%t ProductPage.VIDEOS "Videos" %></h2>
           <div class="video-block">
             <div class="owl-gallery owl-carousel owl-theme">
@@ -143,7 +143,7 @@
         </div>
         <% end_if %>
 
-        <div class="product-block">
+        <div class="product-block uk-margin-large-bottom">
           <h2><%t ProductPage.FORMTITLE "Jetzt Kontakt aufnehmen" %></h2>
           <div class="form-block">
            <div class="form-block">
