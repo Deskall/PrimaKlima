@@ -37,7 +37,7 @@ class Product extends DataObject {
         'URLSegment' => 'Varchar(250)',
         'ShowDetail' => 'Boolean(true)',
         'Number' => 'Varchar(250)',
-
+        'Videos' => 'Text',
         'MetaDescription' => 'Text',
         'MetaTitle' => 'Varchar(255)',
 
@@ -59,10 +59,6 @@ class Product extends DataObject {
     private static $has_one = array(
       'MainImage' => Image::class,
       'HeaderImage' =>  Image::class
-    );
-
-    private static $has_many = array(
-      'Videos' => ProductVideoObject::class
     );
 
     private static $many_many = array(
@@ -167,6 +163,10 @@ class Product extends DataObject {
   public function hasCategory($ID){
     $count = ManyManyList::create(Product::class,'BAK_Product_Categories','BAK_ProductID','BAK_ProductCategoryID')->filter(['BAK_ProductID' => $this->ID,'BAK_ProductCategoryID' => $ID] )->count();
     return ($count > 0) ? true : false;
+  }
+
+  public function videosUrl(){
+    return preg_split('/\r\n|\r|\n/', $this->Videos)
   }
     
   /**

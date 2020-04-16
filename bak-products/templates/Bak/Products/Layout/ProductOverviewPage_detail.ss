@@ -137,27 +137,13 @@
           <h2><%t ProductPage.VIDEOS "Videos" %></h2>
           <div class="video-block">
            <div class="uk-flex-center uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-small uk-height-large" data-uk-grid data-uk-lightbox>
-              <% loop Product.Videos %>
+              <% loop Product.videosUrl %>
               <div class="uk-card uk-card-default uk-child-width-1-2@s" data-uk-grid>
-                <% if Type == "Datei" %>
-                <div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
-                  <video data-uk-video width="480" height="360" controls>
-                    <source src="$File.URL" type="video/{$File.getExtension}">
-                    </video>
-                  </div>
-                <% else %>
-                  <div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" >
                     <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
                     </a>
-                  </div>
-                  <% end_if %>
-                  <div class="uk-card-body">
-                    <% if Title %><h3 class="uk-card-title">$Title</h3><% end_if %> 
-                    <% if HTML %><div class="dk-text-content">$HTML</div><% end_if %>
-                  </div>
-                </div>
-                <% end_loop %>
               </div>
+              <% end_loop %>
+            </div>
           </div>
         </div>
         <% end_if %>
