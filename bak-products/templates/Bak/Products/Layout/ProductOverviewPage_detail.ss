@@ -169,7 +169,7 @@
           <h2><%t ProductPage.FORMTITLE "Jetzt Kontakt aufnehmen" %></h2>
           <div class="form-block">
            <div class="form-block">
-            <form action="{$Link}SendProductForm" method="post" class="form-std">
+            <form action="{$Link}SendProductForm" method="post" class="form-std uk-grid">
               <span data-icon="&#xf213;"><input type="text" class="uk-input" name="name" placeholder="Name *" required/></span>
               <span data-icon="&#xf26c;"><input type="text" class="uk-input" name="firma" placeholder='<%t ProductPage.FIRMA "Firma" %>' /></span>
                  <!-- <span data-icon="&#xf3a3;"><input type="text" name="address" placeholder='<%t ProductPage.ADRESSE "Adresse *"%>' required/></span>
