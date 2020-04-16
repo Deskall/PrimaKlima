@@ -39,7 +39,7 @@ class Product extends DataObject {
         'URLSegment' => 'Varchar(250)',
         'ShowDetail' => 'Boolean(true)',
         'Number' => 'Varchar(250)',
-        'Videos' => 'Text',
+
         'MetaDescription' => 'Text',
         'MetaTitle' => 'Varchar(255)',
 
@@ -61,6 +61,10 @@ class Product extends DataObject {
     private static $has_one = array(
       'MainImage' => Image::class,
       'HeaderImage' =>  Image::class
+    );
+
+    private static $has_many = array(
+      'Videos' => ProductVideoObject::class
     );
 
     private static $many_many = array(
@@ -167,14 +171,6 @@ class Product extends DataObject {
     return ($count > 0) ? true : false;
   }
 
-  public function videosUrl(){
-    $urls = preg_split('/\r\n|\r|\n/', $this->Videos);
-    $videos = new ArrayList();
-    foreach ($urls as $key => $value) {
-      $videos->add(new ArrayData(['URL' => $value]));
-    }
-    return $videos;
-  }
     
   /**
      * Link to this DO
