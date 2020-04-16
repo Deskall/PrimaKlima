@@ -40,7 +40,7 @@
             <% loop $Product.Usages %>
               <% if $Image %>
               <div class="item">
-                <a href="$Image.Link" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$Image.CroppedFocusedImage(350,250).URL" alt="$Title"/></a>
+                <a href="$Image.Link" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$Image.FocusFillMax(350,250).URL" alt="$Title"/></a>
               </div>
               <% end_if %>
             <% end_loop %>
@@ -60,7 +60,7 @@
           <div class="owl-gallery owl-carousel owl-theme">
             <% loop $Product.Images.Sort('SortOrder') %>
               <div class="item">
-                <a href="$URL" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$CroppedFocusedImage(350,250).URL" alt="$Description"/></a>
+                <a href="$URL" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$FocusFillMax(350,250).URL" alt="$Description"/></a>
               </div>
             <% end_loop %>
           </div>
@@ -170,7 +170,7 @@
 
             <div id="captcha-{$ID}" class="g-recaptcha" data-sitekey="6LcBbrwUAAAAABu3UKDgco4rSFK_QspP7C0LokUA" data-size="invisible"></div>
 
-            <button><%t ProductPage.SENDENACHRICHT "Anfrage senden" %><% include DefaultIcon %></button>
+            <button><%t ProductPage.SENDENACHRICHT "Anfrage senden" %><span class="icon ion-chevron-right"></span></button>
             <input type="hidden" name="ID" value="$Product.ID" />
           </form>
          </div>
