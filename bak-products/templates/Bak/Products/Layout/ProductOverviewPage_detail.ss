@@ -31,23 +31,23 @@
         </ul>
       </div>
       <div class="uk-width-3-4@l uk-width-4-5@xl">
-        <h1>$Product.T(Lead)</h1>
+        <h1>$Product.Lead</h1>
 
 
         <% if $Product.MainImage %>
         <div class="text-block clearfix">
           <div class="content-image product-image">
-            <a class="clearfix" href="$Product.MainImage.URL" title="$Product.T(Description)" data-imagelightbox="{$Top.ID}f"><img src="$Product.MainImage.PaddedImage(350,250, FFFFFF).URL" alt="$Product.T(Description)" /></a>
+            <a class="clearfix" href="$Product.MainImage.URL" title="$Product.T(Description)" data-imagelightbox="{$Top.ID}f"><img src="$Product.MainImage.Pad(350,250, FFFFFF).URL" alt="$Product.T(Description)" /></a>
           </div>
           <div class="content-text">
-            <div class="lead-block">$Product.T(Description)</div>
+            <div class="lead-block">$Product.Description</div>
           </div>
         </div>
         <% else %>
-        <div class="lead-block">$Product.T(Description)</div>
+        <div class="lead-block">$Product.Description</div>
         <% end_if %>
 
-        <% if $Product.T(Features) %>
+        <% if $Product.Features %>
         <div class="product-block text-block">
           $Product.T(Features)
         </div>
@@ -70,7 +70,7 @@
               <% loop $Product.Usages %>
               <% if $Image %>
               <div class="item">
-                <a href="$Image.Link" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$Image.CroppedFocusedImage(350,250).URL" alt="$Title"/></a>
+                <a href="$Image.Link" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$Image.FocusFillMax(350,250).URL" alt="$Title"/></a>
               </div>
               <% end_if %>
               <% end_loop %>
@@ -90,7 +90,7 @@
             <div class="owl-gallery owl-carousel owl-theme">
               <% loop $Product.Images.Sort('SortOrder') %>
               <div class="item">
-                <a href="$URL" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$CroppedFocusedImage(350,250).URL" alt="$Description"/></a>
+                <a href="$URL" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$FocusFillMax(350,250).URL" alt="$Description"/></a>
               </div>
               <% end_loop %>
             </div>
