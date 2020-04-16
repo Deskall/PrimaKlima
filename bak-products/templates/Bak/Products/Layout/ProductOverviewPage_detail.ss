@@ -100,7 +100,7 @@
 
 
         <% if $Product.Table %>
-        <div class="product-block">
+        <div class="product-block table">
           <h2><%t ProductPage.TECHNISCHEDATEN "Technische Daten" %></h2>
           $Product.Table
         </div>

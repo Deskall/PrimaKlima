@@ -7,6 +7,10 @@ $(document).ready(function(){
         $(this).html( $(this).html().replace(new RegExp("On", 'g'), "<span>On</span>") ) ;
     });
 
+    $(".product-block.table table").each(function(){
+        $(this).addClass("uk-table uk-table-small uk-table-divider");
+    });
+
     if( window.location.pathname.split("/")[1] == 'produkte' || window.location.pathname.split("/")[1] == 'products'){
         jQuery.ajax({
             type: "GET",
