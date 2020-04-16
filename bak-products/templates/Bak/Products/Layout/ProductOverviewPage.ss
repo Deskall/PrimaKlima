@@ -24,7 +24,7 @@
 									  	<div class="product">
 									  	    <div data-uk-grid>
 									  	        <div class="uk-width-1-4@m">
-									  	            <a href="$Link($Top.Locale)"><img src="$MainImage.Pad(210,150)" alt="$Name" /></a>
+									  	            <a href="$Link($Top.Locale)"><img src="$MainImage.PaddedImage(210,150).URL" alt="$Name" /></a>
 									  	        </div>
 									  	        <div class="uk-width-3-4@m">
 									  	            <h3>$Name</h3>
@@ -48,7 +48,7 @@
 								 		  	<div class="product">
 								 		  	    <div data-uk-grid>
 								 		  	        <div class="uk-width-1-4@m">
-								 		  	            <a href="$Link($Top.Locale)"><img src="$MainImage.Pad(210,150)" alt="$Name" /></a>
+								 		  	            <a href="$Link($Top.Locale)"><img src="$MainImage.PaddedImage(210,150).URL" alt="$Name" /></a>
 								 		  	        </div>
 								 		  	        <div class="uk-width-3-4@m">
 								 		  	            <h3>$Name</h3>
