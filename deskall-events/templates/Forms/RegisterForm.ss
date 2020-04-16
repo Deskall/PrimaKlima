@@ -9,7 +9,7 @@
 	<div class="uk-container">
 		<ul id="tab-switcher" data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
 			<li <% if $activeTab == "address" %>class="uk-active"<% end_if %>><a>1. <span><%t Shop.GiveAddress 'Angaben' %></span></a></li>
-			<li class="uk-disabled <% if $activeTab == "profil" %>uk-active<% end_if %>"><a>2. <span><%t Shop.ChoosePayment 'Zahlungsart' %></span></a></li>
+			<li class="uk-disabled <% if $activeTab == "profil" %>uk-active<% end_if %>"><a>2. <span><%t Event.ChoosePayment 'Zahlungsart' %></span></a></li>
 			<li class="uk-disabled <% if $activeTab == "payment" %>uk-active<% end_if %>"><a>3. <span><%t Shop.Confirm 'Bestätigung' %></span></a></li>
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
@@ -29,7 +29,7 @@
 				</div>
 			</li>
 			<li class="account-tab" data-index="1">
-				<h3><%t Checkout.ChoosePaymentType 'Wählen Sie Ihre Zahlungsart' %></h3>
+				<h3><%t Event.ChoosePaymentType 'Wählen Sie Ihre Zahlungsart' %></h3>
 				<div class="uk-margin">
 					<div class="uk-child-width-1-3@s" data-uk-grid data-uk-height-match=".uk-card">
 						<div>
