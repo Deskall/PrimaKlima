@@ -173,7 +173,7 @@ class Product extends DataObject {
     foreach ($urls as $key => $value) {
       $videos->add(new ArrayData(['URL' => $value]));
     }
-    return $videos
+    return $videos;
   }
     
   /**
