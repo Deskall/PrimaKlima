@@ -8,11 +8,9 @@
               <div class="slide-text">$Product.HeaderText</div>
           </div>
       </div>
-      
-    </div>
-    <div class="uk-position-center-right">
-      <img src="$Product.HeaderImage.URL" />
-    </div>
+      <div class="uk-position-center-right">
+        <img src="$Product.HeaderImage.URL" />
+      </div>
   </div>
 </div>
 <% end_if %>
