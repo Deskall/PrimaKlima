@@ -150,7 +150,7 @@ class ProductOverviewPageController extends PageController
     }
 
     public function index(){
-        return ['showCategories' => true];
+        return ['ShowCategories' => true];
     }
 
 
