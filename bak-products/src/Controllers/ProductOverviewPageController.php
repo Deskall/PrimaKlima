@@ -52,7 +52,7 @@ class ProductOverviewPageController extends PageController
 
         foreach ($products as $product) {
 
-            $tmp =  array();
+            $tmp =  array('categories','usages');
 
             if( $product->MainImage()->Link() != "/assets/" ){
                 $tmp['image'] = $product->MainImage()->Pad(210,150)->Link();
