@@ -166,7 +166,7 @@ class Product extends DataObject {
   }
 
   public function videosUrl(){
-    return preg_split('/\r\n|\r|\n/', $this->Videos)
+    return preg_split('/\r\n|\r|\n/', $this->Videos);
   }
     
   /**
