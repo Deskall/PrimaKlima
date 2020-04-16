@@ -7,7 +7,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\Control\Director;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use Bak\Products\Models\Product;
-
+use SilverStripe\Core\Convert;
 
 class ProductCategory extends DataObject {
 
