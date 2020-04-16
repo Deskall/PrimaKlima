@@ -51,6 +51,7 @@ $(document).ready(function(){
 
         $('[data-show-filter]').click(function(e){
             e.preventDefault();
+            $("[data-close-products]").show();
             $('[data-show-filter],[data-filter-list], .head').removeClass('active');
             $('[data-search-products]').val("")
             $(this).addClass('active');
@@ -73,7 +74,7 @@ $(document).ready(function(){
             var filter = $(this).parents('[data-filter-list]').attr('data-filter-list');
             var filterValue = $(this).attr('href');
             var name = $(this).attr('data-filter-name');
-
+            $("[data-close-products]").show();
             $('.head').removeClass('active');
             $('.filter-list').removeClass('active');
             $('[data-show-filter="' + $(this).parents('[data-filter-list]').attr('data-filter-list') + '"]').addClass('active');
