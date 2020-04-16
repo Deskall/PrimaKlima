@@ -152,7 +152,7 @@
                               <figure>
                                 <img src="$ThumbnailURL" width="400" alt="" class="uk-width-1-1">
                                 <div class="uk-position-center">
-                                    <div class="dk-video-play"><span class="icon ion-ios-play-outline"></span></div>
+                                    <div class="dk-video-play"><span class="icon ion-ios-play"></span></div>
                                 </div>
                               </figure>
                             </a>
