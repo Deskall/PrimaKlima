@@ -115,9 +115,9 @@ class Product extends DataObject {
       $fields->removeByName('Categories');
       $fields->removeByName('Usages');
       $categoriesField = CheckboxSetField::create('Categories', 'Kategorien', $source = ProductCategory::get()->map("ID", "Title"));
-      $fields->addFieldToTab('Root.Main', $categoriesField );
+      $fields->insertAfter('Name', $categoriesField );
       $usagesField = CheckboxSetField::create('Usages', 'Anwendungen', $source = ProductUsage::get()->map("ID", "Title"));
-      $fields->addFieldToTab('Root.Main', $usagesField );
+      $fields->insertAfter('Categories', $usagesField );
 
 
       
