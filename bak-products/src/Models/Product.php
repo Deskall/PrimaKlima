@@ -111,7 +111,7 @@ class Product extends DataObject {
 
     public function fieldLabels($includerelation=true){
       $labels = parent::fieldLabels($includerelation);
-      $labels['Lead'] = 'Title';
+      $labels['Lead'] = 'Titel';
       $labels['Description'] = 'Lead';
 
       return $labels;
