@@ -151,12 +151,12 @@ function filterProducts( filter, filterValue ){
   console.log(filter);
     var HTML = '';
     var filterProduct = false;
-    for (i = 0; i < products.length; i++) {
+    for (i = 0; i < products.length; i++) { 
+        console.log(products[i].filter);
+        console.log(products[i][filter]);
         if( filter == "all"){
             filterProduct = true;
         }
-        console.log(products[i].filter);
-        console.log(products[i][filter]);
         else if ( products[i].filter ){
             console.log('ici');
             if (filter == "name" &&  products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ){
