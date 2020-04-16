@@ -35,11 +35,11 @@
 
 
         <% if $Product.MainImage %>
-        <div class="text-block clearfix">
-          <div class="content-image product-image">
+        <div data-uk-grid>
+          <div class="uk-width-1-3@m product-image">
             <a class="clearfix" href="$Product.MainImage.URL" title="$Product.Description" data-imagelightbox="{$Top.ID}f"><img src="$Product.MainImage.Pad(350,250, FFFFFF).URL" alt="$Product.Description" /></a>
           </div>
-          <div class="dk-text-content">
+          <div class="uk-width-2-3@m dk-text-content">
             <div class="uk-text-lead">$Product.Description</div>
           </div>
         </div>
