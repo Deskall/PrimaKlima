@@ -278,7 +278,8 @@ class ProductOverviewPageController extends PageController
             'Title' => $product->Name,
             'CustomMetaTitle' => $product->getProductMetaTitle($this->Locale ),
             'CustomMetaTags' => $product->ProductMetaTags($this->Locale),
-            'CustomStructuredData' => $product->StructuredData($this->Locale)
+            'CustomStructuredData' => $product->StructuredData($this->Locale),
+            'HeaderSlide' => HeaderSlide::get()->first()
         );
 
     }
