@@ -57,7 +57,7 @@
 
 <div data-product-list class="product-list" data-no-products-found="<%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %>">
   <a href="javascript: history.back()" class="close-products"></a>
-  <div class="holder uk-margin-large-top"></div>
+  <div class="holder uk-padding uk-padding-remove-horizontal"></div>
 </div>
 
 <div data-filter-list="categories" class="filter-list uk-clearfix active SecondaryBackground uk-padding-small">
