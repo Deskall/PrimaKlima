@@ -48,7 +48,7 @@
         <% end_if %>
 
         <% if $Product.Features %>
-        <div class="product-block text-block">
+        <div class="product-block dk-text-content">
           $Product.Features
         </div>
         <% end_if %>
