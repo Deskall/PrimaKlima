@@ -15,6 +15,7 @@ use Bak\Products\Models\ProductUsage;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\View\Requirements;
 use SilverStripe\Control\HTTPRequest;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ProductOverviewPageController extends PageController 
 {
