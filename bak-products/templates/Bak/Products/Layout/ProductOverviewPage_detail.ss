@@ -24,8 +24,8 @@
         <h2><%t ProductPage.PRODUKTE "Produkte" %></h2>
         <ul>
           <% loop $getCategories %>
-          <% if $T(Title) %>
-          <li class="<% if $Top.Product.hasCategory($ID) %>active<% end_if %>"><a href="$Link($Top.Locale)">$T(Title)</a></li>
+          <% if $Title %>
+          <li class="<% if $Top.Product.hasCategory($ID) %>active<% end_if %>"><a href="$Link($Top.Locale)">$Title</a></li>
           <% end_if %>
           <% end_loop %>
         </ul>
@@ -37,7 +37,7 @@
         <% if $Product.MainImage %>
         <div class="text-block clearfix">
           <div class="content-image product-image">
-            <a class="clearfix" href="$Product.MainImage.URL" title="$Product.T(Description)" data-imagelightbox="{$Top.ID}f"><img src="$Product.MainImage.Pad(350,250, FFFFFF).URL" alt="$Product.T(Description)" /></a>
+            <a class="clearfix" href="$Product.MainImage.URL" title="$Product.Description" data-imagelightbox="{$Top.ID}f"><img src="$Product.MainImage.Pad(350,250, FFFFFF).URL" alt="$Product.Name" /></a>
           </div>
           <div class="content-text">
             <div class="lead-block">$Product.Description</div>
@@ -49,7 +49,7 @@
 
         <% if $Product.Features %>
         <div class="product-block text-block">
-          $Product.T(Features)
+          $Product.Features
         </div>
         <% end_if %>
 
@@ -99,10 +99,10 @@
         <% end_if %> 
 
 
-        <% if $Product.T(Table) %>
+        <% if $Product.Table %>
         <div class="product-block">
           <h2><%t ProductPage.TECHNISCHEDATEN "Technische Daten" %></h2>
-          $Product.T(Table)
+          $Product.Table
         </div>
         <% end_if %>
 
