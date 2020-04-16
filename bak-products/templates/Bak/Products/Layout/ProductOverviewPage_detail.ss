@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="uk-position-center-right">
-          <img src="$Product.HeaderImage.URL" />
+          <img src="$Product.MainImage.URL" />
         </div>
     </div>
   </div>
