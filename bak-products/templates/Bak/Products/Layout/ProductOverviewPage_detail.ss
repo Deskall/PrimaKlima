@@ -211,7 +211,7 @@
 
                   <span data-icon="&#xf2bf;"><textarea name="message" placeholder='<%t ProductPage.NACHRICHT "Ihre Nachricht" %>'></textarea></span>
 
-                  <label class="acceptance" class=" uk-margin-small"><input type="checkbox" class="uk-checkbox" name="acceptance" required /><%t Main.ACCEPTANCE 'Sie erklären sich damit einverstanden, dass ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der <a href="/datenschutz">Datenschutzerklärung</a>. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt.' %></label>
+                  <label class="acceptance"><input type="checkbox" name="acceptance" required /><%t Main.ACCEPTANCE 'Sie erklären sich damit einverstanden, dass ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden. Weitere Informationen und Widerrufshinweise finden Sie in der <a href="/datenschutz">Datenschutzerklärung</a>. Eine Kopie Ihrer Nachricht wird an Ihre E-Mail-Adresse geschickt.' %></label>
 
                   <p class="acceptance"><small><%t NocaptchaField.GoogleTerms 'Diese Seite ist durch reCAPTCHA geschützt und unterliegt <a href="https://policies.google.com/privacy" target="_blank" rel="nofollow">der Datenschutzerklärung</a> und <a href="https://policies.google.com/terms" target="_blank" rel="nofollow">den Nutzungsbedingungen</a> von Google.' %>
                   </small></p>
