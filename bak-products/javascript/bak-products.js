@@ -148,7 +148,7 @@ $(document).ready(function(){
 });
 
 function filterProducts( filter, filterValue ){
-
+  console.log(filter);
     var HTML = '';
     var filterProduct = false;
     for (i = 0; i < products.length; i++) {
