@@ -20,7 +20,7 @@
 <section class="uk-section">
   <div class="uk-container">
     <div data-uk-grid>
-      <div class="uk-visible@m uk-width-1-4@l uk-width-1-5@xl">
+      <div class="uk-visible@m uk-width-1-3@m uk-width-1-4@l">
         <h2><%t ProductPage.PRODUKTE "Produkte" %></h2>
         <ul>
           <% loop $getCategories %>
@@ -30,7 +30,7 @@
           <% end_loop %>
         </ul>
       </div>
-      <div class="uk-width-3-4@l uk-width-4-5@xl">
+      <div class="uk-width-2-3@m uk-width-3-4@l">
         <h1>$Product.Lead</h1>
 
 
