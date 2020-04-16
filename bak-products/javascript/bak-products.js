@@ -152,7 +152,7 @@ function filterProducts( filter, filterValue ){
     var HTML = '';
     var filterProduct = false;
     for (i = 0; i < products.length; i++) { 
-        console.log(products[i].filter);
+        console.log(products[i]);
         console.log(products[i][filter]);
         if( filter == "all"){
             filterProduct = true;
