@@ -38,7 +38,7 @@ $(document).ready(function(){
 
     $("[data-close-products]").on("click",function(e){
         e.preventDefault();
-        $("[data-search-products]").val() = "";
+        $("[data-search-products]").val("");
         var search = $(this).val();
         $('[data-product-list]').find('.holder').html( filterProducts( "all" ) );
     });
