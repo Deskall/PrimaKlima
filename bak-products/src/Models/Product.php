@@ -165,7 +165,7 @@ class Product extends DataObject {
   }
 
   public function hasCategory($ID){
-    $count = ManyManyList::create(Product::class,'BAK_Product_Categories','ProductID','ProductCategoryID')->filter(['ProductID' => $this->ID,'ProductCategoryID' => $ID] )->count();
+    $count = ManyManyList::create(Product::class,'BAK_Product_Categories','BAK_ProductID','BAK_ProductCategoryID')->filter(['BAK_ProductID' => $this->ID,'BAK_ProductCategoryID' => $ID] )->count();
     return ($count > 0) ? true : false;
   }
     
