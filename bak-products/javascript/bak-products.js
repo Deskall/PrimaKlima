@@ -77,7 +77,7 @@ $(document).ready(function(){
 
             $('.product-list').addClass('active');
 
-            $('[data-product-list]').find('.holder').html( filterProducts(filter, name) );
+            $('[data-product-list]').find('.holder').html( filterProducts(filter, filterValue) );
 
 
             history.pushState({'filter': filter, 'filterValue' : filterValue}, $(this).attr('data-filter-name'), $(this).attr('href'));
@@ -148,31 +148,12 @@ $(document).ready(function(){
 });
 
 function filterProducts( filter, filterValue ){
-  console.log(filter);
+    console.log(filter);
+    console.log(filterValue);
     var HTML = '';
-    var filterProduct = false;
-    for (i = 0; i < products.length; i++) { 
-        console.log(products[i]);
-        console.log(products[i][filter]);
-        if( filter == "all"){
-            filterProduct = true;
-        }
-        else if ( products[i].filter ){
-            console.log('ici');
-            if (filter == "name" &&  products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ){
-                filterProduct = true;
-            }
-            else{
-                console.log(filter);
-                for (var j = 0; j < products[i][filter].length ; j++){
-                    console.log(products[i][filter][j].title);
-                    if (products[i][filter][j].title == filterValue){
-                        filterProduct = true;
-                    }
-                }
-            }
-        }
-        if (filterProduct){
+    for (i = 0; i < products.length; i++) {
+        if( filter == "all" || ( products[i][filter] && ( products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ) ) ){
+
             HTML += '<div class="product" data-uk-grid>';
             if( 'image' in products[i] ){
 

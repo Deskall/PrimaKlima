@@ -112,8 +112,14 @@ class Product extends DataObject {
     public function getCMSFields() {
 
       $fields = parent::getCMSFields();
-     
-
+      $fields->removeByName('Categories');
+      $fields->removeByName('Usages');
+      $categories = DataObject::get("ProductCategory")->sort(array('Category.Title'=>'ASC'));
+      $categoriesField = CheckboxSetField::create('Categories', 'Kategorien', $source = $categories->map("ID", "Title"));
+      $fields->addFieldToTab('Root.Global', $categoriesField );
+      $usages = DataObject::get("ProductUsage")->sort(array('Usage.Title'=>'ASC'));
+      $usagesField = CheckboxSetField::create('Usages', 'Anwendungen', $source = $usages->map("ID", "Title"));
+      $fields->addFieldToTab('Root.Main', $usagesField );
 
 
       
