@@ -20,7 +20,7 @@ $(document).ready(function(){
             $('.filter-list').removeClass('active');
             $(this).parents('.head').addClass('active');
             $('.product-list').addClass('active');
-
+            $("[data-close-products]").show();
             if( $(this).val().length > 0 ){
                 var search = $(this).val();
                 $('[data-product-list]').find('.holder').html( filterProducts( "name", search ) );
@@ -38,6 +38,7 @@ $(document).ready(function(){
 
     $("[data-close-products]").on("click",function(e){
         e.preventDefault();
+        $(this).hide();
         $("[data-search-products]").val("");
         var search = $(this).val();
         $('[data-product-list]').find('.holder').html( filterProducts( "all" ) );
