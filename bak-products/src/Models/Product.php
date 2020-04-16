@@ -297,7 +297,7 @@ class Product extends DataObject {
 
   public function getAllProducts( $Locale ){
 
-    $products = Product::get()->sort(array('SortOrder' => 'DESC'));
+    $products = Product::get()->sort(array('Sort' => 'DESC'));
     $str = "";
     switch($Locale){
       case "de_DE":
