@@ -151,9 +151,24 @@ function filterProducts( filter, filterValue ){
     console.log(filter);
     console.log(filterValue);
     var HTML = '';
+    var in = false;
     for (i = 0; i < products.length; i++) {
-        if( filter == "all" || ( products[i][filter] && ( products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ) ) ){
-
+        if( filter == "all"){
+            in = true;
+        }
+        else if ( products[i][filter] ){
+            if (filter == "name" &&  products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ){
+                in = true;
+            }
+            else{
+                for (var j = 0; j < products[i][filter].length ; j++){
+                    if (products[i][filter][j].title == filterValue){
+                        in = true;
+                    }
+                }
+            }
+        }
+        if (in){
             HTML += '<div class="product" data-uk-grid>';
             if( 'image' in products[i] ){
 
