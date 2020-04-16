@@ -137,7 +137,7 @@
           <h2><%t ProductPage.VIDEOS "Videos" %></h2>
           <div class="video-block">
             <div class="owl-gallery owl-carousel owl-theme">
-              $videos(Product.ID)
+              $videos($Product.ID)
             </div>
           </div>
         </div>
