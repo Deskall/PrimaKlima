@@ -145,15 +145,9 @@
                     <source src="$File.URL" type="video/{$File.getExtension}">
                     </video>
                   </div>
-                  <% else %>
-                  <div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
-                    <a class="uk-inline uk-panel uk-link-muted uk-text-center uk-width-1-1" href="$URL" caption="$Title">
-                      <figure>
-                        <img src="$ThumbnailURL" width="400" alt="" class="uk-width-1-1">
-                        <div class="uk-position-center">
-                            <div class="dk-video-play"><span class="fa fa-play-circle"></span></div>
-                        </div>
-                      </figure>
+                <% else %>
+                  <div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" >
+                    <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
                     </a>
                   </div>
                   <% end_if %>
