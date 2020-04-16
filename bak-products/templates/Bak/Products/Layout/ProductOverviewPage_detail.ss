@@ -138,7 +138,7 @@
           <div class="video-block">
            <div class="uk-flex-center uk-child-width-1-2@s uk-grid-small" data-uk-grid>
               <% loop Product.videosUrl %>
-              <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
+              <iframe src="$Me" width="1920" height="1080" frameborder="0" allowfullscreen data-uk-responsive data-uk-video="automute: true"></iframe>
               <% end_loop %>
             </div>
           </div>
