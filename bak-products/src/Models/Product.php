@@ -19,6 +19,7 @@ use Bak\Products\Models\ProductCategory;
 use Bak\Products\Models\ProductUseArea;
 use SilverStripe\Core\Convert;
 use Bak\Products\Models\ProductVideoObject;
+use SilverStripe\ORM\ManyManyList;
 
 class Product extends DataObject {
 
@@ -164,9 +165,7 @@ class Product extends DataObject {
   }
 
   public function hasCategory($ID){
-    $query = new SQLQuery();
-    $query->setFrom('Product_Categories')->setSelect('COUNT(*)')->addWhere('ProductID = '.$this->ID)->addWhere('ProductCategoryID = '.$ID);
-    $count = $query->execute()->value();
+    $count = ManyManyList::create('Product_Categories','ProductID','ProductCategoryID')->filter(['ProductID' = $this->ID,'ProductCategoryID' => $ID] )->count();
     return ($count > 0) ? true : false;
   }
     
