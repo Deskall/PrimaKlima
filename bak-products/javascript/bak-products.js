@@ -156,7 +156,7 @@ function filterProducts( filter, filterValue ){
             filterProduct = true;
         }
         console.log(products[i].filter);
-        console.log(products[i].[filter]);
+        console.log(products[i][filter]);
         else if ( products[i].filter ){
             console.log('ici');
             if (filter == "name" &&  products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ){
