@@ -36,13 +36,18 @@ $(document).ready(function(){
 
         });
 
-    // $("[data-close-products]").on("click",function(e){
-    //     e.preventDefault();
-    //     $(this).hide();
-    //     $("[data-search-products]").val("");
-    //     var search = $(this).val();
-    //     $('[data-product-list]').find('.holder').html( filterProducts( "all" ) );
-    // });
+        $("[data-close-products]").on("click",function(e){
+            e.preventDefault();
+            $(this).hide();
+            $('.head').removeClass('active');
+            $('[data-show-filter]').each(function(){
+                $(this).text( $(this).attr('data-filter-name'));
+            });
+            $("[data-search-products]").parents('.head').addClass('active');
+            $("[data-search-products]").val("");
+            var search = $(this).val();
+            $('[data-product-list]').find('.holder').html( filterProducts( "all" ) );
+        });
 
         $('[data-show-filter]').click(function(e){
             e.preventDefault();
