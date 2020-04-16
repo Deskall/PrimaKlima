@@ -12,7 +12,7 @@
 							<div class="product-filter-holder uk-flex">
 							  <a data-show-filter="categories" href="<% if $Locale = "de_DE"%>produkte/kategorie<% else_if $Locale == "es_ES" %>productos/categoría<% else %>products/category<% end_if %>" data-filter-name="<%t ProductOverviewPage.KATEGORIE "Kategorie" %>" class="head <% if ShowCategories %>active<% end_if %>"><% if SelectedCategory %>$SelectedCategory.Title<% else %><%t ProductOverviewPage.KATEGORIE "Kategorie" %><% end_if %></a>
 							  <a data-show-filter="usages" href="<% if $Locale = "de_DE"%>produkte/anwendung<% else_if $Locale == "es_ES" %>productos/uso<% else %>products/application<% end_if %>" data-filter-name="<%t ProductOverviewPage.ANWENDUNG "Anwendung" %>" class="head <% if ShowUsages %>active<% end_if %>"><% if SelectedUsage %>$SelectedUsage.Title<% else %><%t ProductOverviewPage.ANWENDUNG "Anwendung" %><% end_if %></a>
-							  <span class="head search <% if ShowProducts %>active<% end_if %>"><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></span>
+							  <span class="head search <% if showProducts %>active<% end_if %>"><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></span>
 							</div>
 
 							<div data-product-list class="product-list" data-no-products-found="<%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %>">
@@ -20,7 +20,7 @@
 							  <div class="holder uk-padding uk-padding-remove-horizontal"></div>
 							</div>
 
-							<div data-filter-list="categories" class="filter-list uk-clearfix active SecondaryBackground uk-padding-small">
+							<div data-filter-list="categories" class="filter-list uk-clearfix <% if ShowCategories %>active<% end_if %> SecondaryBackground uk-padding-small">
 
 							   <div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-padding-small uk-padding-top-large" data-uk-grid data-uk-height-match="h3">
 							            <% loop getCategories %>
@@ -38,7 +38,7 @@
 
 							</div>
 
-							<div data-filter-list="usages" class="filter-list uk-clearfix  SecondaryBackground uk-padding-small">
+							<div data-filter-list="usages" class="filter-list uk-clearfix  <% if ShowUsages %>active<% end_if %> SecondaryBackground uk-padding-small">
 							    <div class="uk-child-width-1-1 uk-padding-small" data-uk-grid>
 							            <% loop getUseArea %>
 							            <div>
