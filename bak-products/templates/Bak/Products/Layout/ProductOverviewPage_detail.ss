@@ -37,7 +37,7 @@
         <% if $Product.MainImage %>
         <div class="text-block clearfix">
           <div class="content-image product-image">
-            <a class="clearfix" href="$Product.MainImage.URL" title="$Product.Description" data-imagelightbox="{$Top.ID}f"><img src="$Product.MainImage.Pad(350,250, FFFFFF).URL" alt="$Product.Name" /></a>
+            <a class="clearfix" href="$Product.MainImage.URL" title="$Product.Description" data-imagelightbox="{$Top.ID}f"><img src="$Product.MainImage.Pad(350,250, FFFFFF).URL" alt="$Product.Description" /></a>
           </div>
           <div class="content-text">
             <div class="lead-block">$Product.Description</div>
