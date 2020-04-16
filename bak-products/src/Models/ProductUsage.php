@@ -57,7 +57,7 @@ class ProductUsage extends DataObject {
 
 
 
-   public function Link($Locale) {
+   public function Link($Locale = null) {
      switch ($Locale) {
         case 'de_DE':
           $URLSegment = '/produkte/anwendung/'.$this->URLSegment;
