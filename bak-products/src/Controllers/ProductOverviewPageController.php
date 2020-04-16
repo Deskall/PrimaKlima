@@ -52,19 +52,22 @@ class ProductOverviewPageController extends PageController
 
         foreach ($products as $product) {
 
-            $tmp =  array('categories','usages');
+            $tmp =  array();
 
             if( $product->MainImage()->Link() != "/assets/" ){
                 $tmp['image'] = $product->MainImage()->Pad(210,150)->Link();
             }
-
+            $cat = '';
             foreach( $product->Categories() as $category ){
-                $tmp['categories'] .= $category->Link($locale)." ";
+                $cat .= $category->Link($locale)." ";
             }
+            $tmp['categories'] = $cat;
 
+            $use = '';
             foreach( $product->Usages() as $usage ){
-                $tmp['usages'] .= $usage->Link($locale)." ";
+               $use .= $usage->Link($locale)." ";
             }
+            $tmp['usages'] = $use;
             $tmp['link'] = $product->Link($locale);
 
             $tmp['number'] = $product->Number;
