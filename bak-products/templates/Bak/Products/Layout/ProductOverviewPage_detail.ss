@@ -139,26 +139,28 @@
 
            <div class="uk-flex-center uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-small uk-height-large" data-uk-grid data-uk-lightbox>
               <% loop Product.Videos %>
-              <div class="uk-card uk-card-default uk-child-width-1-2@s" data-uk-grid>
-                <% if Type == "Datei" %>
-                <div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
-                  <video data-uk-video width="480" height="360" controls>
-                    <source src="$File.URL" type="video/{$File.getExtension}">
-                    </video>
-                  </div>
-                <% else %>
-                  <div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" >
-                    <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?autoplay=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1" width="1920" height="1080" frameborder="0" allowfullscreen uk-responsive uk-video="automute: true"></iframe>
-                    </a>
-                  </div>
-                  <% end_if %>
-                  <div class="uk-card-body">
-                    <% if Title %><h3 class="uk-card-title">$Title</h3><% end_if %> 
-                    <% if HTML %><div class="dk-text-content">$HTML</div><% end_if %>
-                  </div>
+                <div>
+                  <% if Type == "Datei" %>
+                        
+                          <video data-uk-video width="480" height="360" controls>
+                            <source src="$File.URL" type="video/{$File.getExtension}">
+                            </video>
+                         
+                          <% else %>
+                          <div class="uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
+                            <a class="uk-inline uk-panel uk-link-muted uk-text-center uk-width-1-1" href="$URL" caption="$Title">
+                              <figure>
+                                <img src="$ThumbnailURL" width="400" alt="" class="uk-width-1-1">
+                                <div class="uk-position-center">
+                                    <div class="dk-video-play"><span class="fa fa-play-circle"></span></div>
+                                </div>
+                              </figure>
+                            </a>
+                          </div>
+                    <% end_if %>
                 </div>
                 <% end_loop %>
-              </div>
+            </div>
           </div>
         </div>
         <% end_if %>
