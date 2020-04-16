@@ -43,6 +43,13 @@ class ProductOverviewPageController extends PageController
         'anwendung/$UsageArea/$Usage' => 'application'
     );
 
+    public function getCategories(){
+        return ProductCategory::get();
+    }
+
+    public function getUseArea(){
+        return ProductUseArea::get();
+    }
 
     public function all(){
         $products = Product::get();
@@ -144,7 +151,7 @@ class ProductOverviewPageController extends PageController
 
 
     public function category(HTTPRequest $request){
-        
+
         switch($this->Locale){
             case "de_DE":
             $urlsegment = 'URLSegment';
