@@ -137,7 +137,7 @@
           <h2><%t ProductPage.VIDEOS "Videos" %></h2>
           <div class="video-block">
 
-           <div class="uk-flex-center uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-small uk-height-large" data-uk-grid data-uk-lightbox>
+           <div class="uk-flex-left uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-small uk-height-large" data-uk-grid data-uk-lightbox>
               <% loop Product.Videos %>
                 <div>
                   <% if Type == "Datei" %>
@@ -147,7 +147,7 @@
                             </video>
                          
                           <% else %>
-                          <div class="uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
+                          <div data-uk-lightbox>
                             <a class="uk-inline uk-panel uk-link-muted uk-text-center uk-width-1-1" href="$URL" caption="$Title">
                               <figure>
                                 <img src="$ThumbnailURL" width="400" alt="" class="uk-width-1-1">
