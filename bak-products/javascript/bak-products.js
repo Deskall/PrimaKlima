@@ -146,7 +146,7 @@ function filterProducts( filter, filterValue ){
     for (i = 0; i < products.length; i++) {
         if( filter == "all" || ( products[i][filter] && ( products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ) ) ){
 
-            HTML += '<div class="product uk-margin-top" data-uk-grid>';
+            HTML += '<div class="product uk-margin-top-large" data-uk-grid>';
             if( 'image' in products[i] ){
 
                 HTML += '<div class="uk-width-1-1 uk-width-1-2@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"><a href="' + products[i].link + '"><img src="' + products[i].image + '" alt="' +  products[i].name + '" /></a></div>';
