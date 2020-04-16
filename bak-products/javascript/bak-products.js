@@ -146,13 +146,13 @@ function filterProducts( filter, filterValue ){
     for (i = 0; i < products.length; i++) {
         if( filter == "all" || ( products[i][filter] && ( products[i][filter].toLowerCase().indexOf( filterValue.toLowerCase() ) > -1 ) ) ){
 
-            HTML += '<div class="product">';
+            HTML += '<div class="product" data-uk-grid>';
             if( 'image' in products[i] ){
 
-                HTML += '<div class="col w-4"><a href="' + products[i].link + '"><img src="' + products[i].image + '" alt="' +  products[i].name + '" /></a></div>';
+                HTML += '<div class="uk-width-1-1 uk-width-1-2@s uk-width-1-4@m uk-width-1-5@l uk-width-1-6@xl"><a href="' + products[i].link + '"><img src="' + products[i].image + '" alt="' +  products[i].name + '" /></a></div>';
             }
 
-            HTML += '<div class="col w-8"><h3>' + products[i].name + '</h3>';
+            HTML += '<div class="uk-width-1-1 uk-width-1-2@s uk-width-3-4@m uk-width-4-5@l uk-width-5-6@xl"><h3>' + products[i].name + '</h3>';
             if( products[i].lead ){
                 HTML += '<p class="description">' + products[i].lead + '</p>';
             }
@@ -173,7 +173,7 @@ function filterProducts( filter, filterValue ){
 
     }
     if( !HTML ){
-        HTML = '<div class="product"><div class="col w-8"><h3>' + $('[data-product-list]').attr("data-no-products-found") + '</h3></div></div>';
+        HTML = '<div class="product"><div class="uk-width-1-1"><h3>' + $('[data-product-list]').attr("data-no-products-found") + '</h3></div></div>';
     }
 
     window.scrollTo(0, $('.product-filter-holder').offset().top);
