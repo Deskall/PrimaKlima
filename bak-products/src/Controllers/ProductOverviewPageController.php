@@ -149,6 +149,10 @@ class ProductOverviewPageController extends PageController
         return json_encode(array('products' => $productList, 'categories' => $categoriesList));
     }
 
+    public function index(){
+        return ['showCategories' => true];
+    }
+
 
     public function category(HTTPRequest $request){
 
