@@ -22,6 +22,7 @@ use Bak\Products\Models\ProductVideoObject;
 use SilverStripe\ORM\ManyManyList;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class Product extends DataObject {
 
@@ -325,8 +326,9 @@ class Product extends DataObject {
       }
       break;
     }
-
-    return $str;
+    $output = new DBHTMLText();
+    $output->setValue($str);
+    return $output;
   }
 
   public function StructuredData($Locale){

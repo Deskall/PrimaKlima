@@ -186,7 +186,7 @@
                   <span data-icon="&#xf2d2;"><input type="text" name="telephone" placeholder='<%t ProductPage.TELEFON "Telefon"%>' /></span>
 
                   <div class="dropdown" data-dropdown>
-                    <div class="dropdown-title" data-open-dropdown><%t ProductPage.INTERESSE "Ich interessiere mich für" %> <span class="product-name-holder">$Product.T(Name)</span></div>
+                    <div class="dropdown-title" data-open-dropdown><%t ProductPage.INTERESSE "Ich interessiere mich für" %> <span class="product-name-holder">$Product.Name</span></div>
                     <ul class="checked-options hidden" data-dropdown-checked-options>
 
                     </ul>
