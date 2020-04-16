@@ -1,6 +1,6 @@
 <?php
 
-namespace Bak\Products\Models;
+namespace Bak\Products;
 
 use Page;
 use Bak\Products\Controllers\ProductOverviewPageController;
