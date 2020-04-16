@@ -18,6 +18,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use Bak\Products\Models\ProductCategory;
 use Bak\Products\Models\ProductUseArea;
 use SilverStripe\Core\Convert;
+use Bak\Products\Models\ProductVideoObject;
 
 class Product extends DataObject {
 
@@ -33,7 +34,6 @@ class Product extends DataObject {
         'Features' => 'HTMLText',
         'Table' => 'HTMLText',
         'URLSegment' => 'Varchar(250)',
-        'Videos' => 'Text',
         'ShowDetail' => 'Boolean(true)',
         'Number' => 'Varchar(250)',
 
@@ -58,6 +58,10 @@ class Product extends DataObject {
     private static $has_one = array(
       'MainImage' => Image::class,
       'HeaderImage' =>  Image::class
+    );
+
+    private static $has_many = array(
+      'Videos' => ProductVideoObject::class
     );
 
     private static $many_many = array(
@@ -160,10 +164,10 @@ class Product extends DataObject {
   }
 
   public function hasCategory($ID){
-   //  $query = new SQLQuery();
-   //  $query->setFrom('Product_Categories')->setSelect('COUNT(*)')->addWhere('ProductID = '.$this->ID)->addWhere('ProductCategoryID = '.$ID);
-   // $count = $query->execute()->value();
-   // return ($count > 0) ? true : false;
+    $query = new SQLQuery();
+    $query->setFrom('Product_Categories')->setSelect('COUNT(*)')->addWhere('ProductID = '.$this->ID)->addWhere('ProductCategoryID = '.$ID);
+    $count = $query->execute()->value();
+    return ($count > 0) ? true : false;
   }
     
   /**
@@ -224,32 +228,6 @@ class Product extends DataObject {
         return array('Lead');
     }
 
-  /**
-   * Get the videos
-   * @return false|ArrayList
-   */
-  public function Urls()
-  {
-      if ($this->Videos){ 
-        $urls = array();
-        foreach (explode("\n",$this->Videos) as $url){
-          $urls[] = $url;
-        }
-        return $urls;
-      }
-
-      return false;
-  }
-
-  /**
-   * Get the embedded media
-   * @return false|Oembed_Result
-   */
-  public function Media($url)
-  {
-      // return Oembed::get_oembed_from_url($url, false);
-
-  }
 
   public function ProductMetaTags($locale) {
       $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
