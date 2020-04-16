@@ -17,6 +17,7 @@ use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use Bak\Products\Models\ProductCategory;
 use Bak\Products\Models\ProductUseArea;
+use SilverStripe\Core\Convert;
 
 class Product extends DataObject {
 
