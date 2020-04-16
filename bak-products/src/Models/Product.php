@@ -109,6 +109,14 @@ class Product extends DataObject {
       return $str;
     }
 
+    public function fieldLabels($includerelation=true){
+      $labels = parent::fieldLabels($includerelation);
+      $labels['Lead'] = 'Title';
+      $labels['Description'] = 'Lead';
+
+      return $labels;
+    }
+
 
     public function getCMSFields() {
 
