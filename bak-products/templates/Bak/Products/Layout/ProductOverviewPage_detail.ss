@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="uk-position-center-right">
-          <img src="$Product.HeaderImage.ScaleWidth(350).URL" />
+          <img src="$Product.HeaderImage.ScaleHeight(400).URL" />
         </div>
     </div>
   </div>
