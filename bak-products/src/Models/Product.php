@@ -20,6 +20,8 @@ use Bak\Products\Models\ProductUseArea;
 use SilverStripe\Core\Convert;
 use Bak\Products\Models\ProductVideoObject;
 use SilverStripe\ORM\ManyManyList;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
 
 class Product extends DataObject {
 
@@ -166,7 +168,12 @@ class Product extends DataObject {
   }
 
   public function videosUrl(){
-    return preg_split('/\r\n|\r|\n/', $this->Videos);
+    $urls = preg_split('/\r\n|\r|\n/', $this->Videos);
+    $videos = new ArrayList();
+    foreach ($urls as $key => $value) {
+      $videos->add(new ArrayData(['URL' => $value]));
+    }
+    return $videos
   }
     
   /**
