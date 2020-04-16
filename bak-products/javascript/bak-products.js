@@ -3,6 +3,10 @@ var products,
 
 $(document).ready(function(){  
 
+    $(".dk-header-slide .title").each( function(){
+        $(this).html( $(this).html().replace(new RegExp("On", 'g'), "<span>On</span>") ) ;
+    });
+
     if( window.location.pathname.split("/")[1] == 'produkte' || window.location.pathname.split("/")[1] == 'products'){
         jQuery.ajax({
             type: "GET",
