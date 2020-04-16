@@ -15,7 +15,7 @@
 							  <span class="head search <% if showProducts %>active<% end_if %>"><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></span>
 							</div>
 
-							<div data-product-list class="product-list" data-no-products-found="<%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %>">
+							<div data-product-list class="product-list <% if showProducts %>active<% end_if %>" data-no-products-found="<%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %>">
 							  <a data-close-products class="close-products"></a>
 							  <div class="holder uk-padding uk-padding-remove-horizontal"></div>
 							</div>
