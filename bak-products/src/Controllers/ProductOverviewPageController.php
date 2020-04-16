@@ -144,7 +144,7 @@ class ProductOverviewPageController extends PageController
 
 
     public function category(HTTPRequest $request){
-        print_('ici');
+        
         switch($this->Locale){
             case "de_DE":
             $urlsegment = 'URLSegment';
