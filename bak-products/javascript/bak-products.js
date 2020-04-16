@@ -148,8 +148,7 @@ $(document).ready(function(){
 });
 
 function filterProducts( filter, filterValue ){
-    console.log(filter);
-    console.log(filterValue);
+
     var HTML = '';
     var filterProduct = false;
     for (i = 0; i < products.length; i++) {
@@ -161,7 +160,9 @@ function filterProducts( filter, filterValue ){
                 filterProduct = true;
             }
             else{
+                console.log(filter);
                 for (var j = 0; j < products[i][filter].length ; j++){
+                    console.log(products[i][filter][j].title);
                     if (products[i][filter][j].title == filterValue){
                         filterProduct = true;
                     }
