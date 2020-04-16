@@ -219,8 +219,9 @@
 
 
                   <div id="captcha-{$ID}" class="g-recaptcha" data-sitekey="6LcBbrwUAAAAABu3UKDgco4rSFK_QspP7C0LokUA" data-size="invisible"></div>
-
-                  <button><%t ProductPage.SENDENACHRICHT "Anfrage senden" %><span class="icon ion-chevron-right"></span></button>
+                  <div class="uk-clearfix uk-text-right">
+                    <button><%t ProductPage.SENDENACHRICHT "Anfrage senden" %><span class="icon ion-chevron-right"></span></button>
+                  </div>
                   <input type="hidden" name="ID" value="$Product.ID" />
                 </form>
               </div>
