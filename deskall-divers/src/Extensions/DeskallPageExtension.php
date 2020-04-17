@@ -32,7 +32,26 @@ class DeskallPageExtension extends DataExtension
         '3' => 'Beide'
     ];
 
-   
+    public function ThemeDir(){
+        return SiteConfig::current_site_config()->getCurrentThemeDir();
+    }
+
+     public function CurrentThemeDir(){
+        return SiteConfig::current_site_config()->getCurrentThemeDir();
+    }
+
+    public function LastChangeJS(){
+        $srcDir = Director::baseFolder().$this->owner->ThemeDir().'/javascript/vendor';
+        $srcFiles = array_diff(scandir($srcDir), array('.', '..'));
+        $filetime = 0;
+        foreach($srcFiles as $key => $file) {
+            if( filemtime($srcDir."/".$file) > $filetime)
+            {
+                $filetime = filemtime($srcDir."/".$file);
+            }
+        }
+        return $filetime;
+    }
 
     public function updateCMSFields(FieldList $fields){
         if ($this->owner->ShowInMenus ){
