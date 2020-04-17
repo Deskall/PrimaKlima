@@ -1,5 +1,5 @@
 <% with Product %>
-<% include HeaderSlide %>
+<% include HeaderSlide MenuTitle=Title %>
 <section class="uk-section uk-background-muted uk-padding-small">
 	<div class="uk-container">
 		<div class="breadcrumbs">

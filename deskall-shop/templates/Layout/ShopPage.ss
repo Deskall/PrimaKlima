@@ -1,4 +1,4 @@
-<% include HeaderSlide %>
+<% include HeaderSlide  MenuTitle=MenuTitle %>
 
 $ElementalArea
 
