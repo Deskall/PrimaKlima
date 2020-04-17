@@ -1,4 +1,4 @@
-<% include HeaderSlide MenuTitle=Event.Title %>
+<% include HeaderSlide MenuTitle=$Event.Title %>
 <section class="uk-section uk-background-muted uk-padding-small">
 	<div class="uk-container">
 		<div class="breadcrumbs">
