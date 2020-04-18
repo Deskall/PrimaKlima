@@ -35,15 +35,15 @@
 						<div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-cash"></i></div>
-								<input id="cash-choice" class="uk-radio uk-margin-right" type="radio" name="PaymentMethod" value="cash" required="required"><label for="cash-choice"><%t Shop.CashPayLabel 'Barzahlung bei Abholung' %></label>
+								<input id="cash-choice" class="uk-radio uk-margin-right" type="radio" name="PaymentMethod" value="cash" required="required"><label for="cash-choice"><%t Event.CashPayLabel 'Barzahlung bei Kursbeginn' %></label>
 							</div>
 						</div>
-						<div>
+						<%-- <div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-ios-paper"></i></div>
-								<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="PaymentMethod" value="bill" required="required"><label for="bill-choice"><%t Shop.BillPayLabel 'Zahlung bei Rechnung' %></label>
+								<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="PaymentMethod" value="bill" required="required"><label for="bill-choice"><%t Event.BillPayLabel 'Zahlung bei Rechnung' %></label>
 							</div>
-						</div>
+						</div> --%>
 						<div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-card"></i></div>
