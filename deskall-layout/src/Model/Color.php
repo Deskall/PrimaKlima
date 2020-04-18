@@ -37,7 +37,7 @@ class Color extends DataObject{
     ];
 
     public function canCreate($member = null, $context = []){
-        if (SiteConfig::current_site_config()->Colors()->count() < 10){
+        if (Permission::check('ADMIN') || SiteConfig::current_site_config()->Colors()->count() < 10){
             return true;
         }
         return false;
