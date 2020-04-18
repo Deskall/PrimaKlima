@@ -14,7 +14,7 @@
 					<div class="uk-navbar-left <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class uk-flex-bottom">
 						<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
 							<% if UseMenu %>
-							<% loop Menu.limit(2) %>
+							<% loop Menu.limit(3) %>
 							<li class="$LinkingMode $ExtraMenuClass <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
 								<% if ClassName == "EventPage" %>
 								<div class="uk-navbar-dropdown">
@@ -84,7 +84,7 @@
 							<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
 								<% if UseMenu %>
 								<% loop Menu %>
-								<% if Pos == 3 || Pos == 4 %>
+								<% if Pos == 4 || Pos == 5 || Pos == 6 %>
 								<li class="$LinkingMode $ExtraMenuClass <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML">$MenuTitle.XML</a>
 									<% if ClassName == "EventPage" %>
 									<div class="uk-navbar-dropdown">
