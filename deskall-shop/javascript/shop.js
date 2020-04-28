@@ -15,9 +15,15 @@ $(document).ready(function(){
 	$(document).on("change","input[name='DeliverySameAddress']",function(){
 		if ($(this).is(':checked')){
 			$("#delivery-form-container").attr('hidden',"hidden");
+			$("#delivery-form-container [data-required]").each(function(){
+				$(this).prop('required',false);
+			});
 		}
 		else{
 			$("#delivery-form-container").attr('hidden',false);
+			$("#delivery-form-container [data-required]").each(function(){
+				$(this).prop('required',true);
+			});
 		}
 	});
 
@@ -104,7 +110,7 @@ $(document).ready(function(){
 		var switcher = $('#tab-switcher');
 		var tab = $(this).parents('li.account-tab');
 		var form = $(this).parents('form');
-		console.log(form.valid());
+
 		var index = parseInt(tab.attr('data-index'));
 		if ($(this).attr('data-step') == "backward"){
 			UIkit.tab(switcher).show(index-1);
