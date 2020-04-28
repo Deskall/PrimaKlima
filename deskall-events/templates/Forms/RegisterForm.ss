@@ -44,12 +44,12 @@
 								<input id="bill-choice" class="uk-radio uk-margin-right" type="radio" name="PaymentMethod" value="bill" required="required"><label for="bill-choice"><%t Event.BillPayLabel 'Zahlung bei Rechnung' %></label>
 							</div>
 						</div> --%>
-						<div>
+						<%-- <div>
 							<div class="uk-card uk-card-body uk-card-default uk-text-center">
 								<div class="icon-large"><i class="icon icon-card"></i></div>
 								<input id="online-choice" class="uk-radio uk-margin-right" type="radio" name="PaymentMethod" value="online" required="required"><label for="online-choice"><%t Shop.OnlinePayLabel 'Zahlung online bei Kreditkarte oder PayPal-Konto' %></label>
 							</div>
-						</div>
+						</div> --%>
 					</div>
 				</div>
 				<div class="uk-flex uk-flex-between uk-flex-middle">

@@ -1,6 +1,6 @@
 <header <% if $SiteConfig.StickyHeader %>class="dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
 	<div class="uk-container uk-container-medium uk-position-relative">
-		<nav class="uk-navbar-container uk-navbar-transparent subnav uk-visible@m" data-uk-navbar>
+		<nav class="uk-navbar-container uk-navbar-transparent subnav uk-visible@l" data-uk-navbar>
 		<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top') %>$forTemplate<% end_loop %>
 		</nav>
 		<nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
@@ -11,7 +11,7 @@
 				<div class="uk-navbar-center-left">
 					<div> --%>
 					<% with SiteConfig.activeMenuBlocks.filter('Class','main').first %>
-					<div class="uk-navbar-left <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class uk-flex-bottom">
+					<div class="uk-navbar-left <% if isMobile  %> uk-hidden@l <% else %>uk-visible@l<% end_if %> $Class uk-flex-bottom">
 						<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
 							<% if UseMenu %>
 							<% loop Menu.limit(3) %>
@@ -80,7 +80,7 @@
 		        <%-- <div class="uk-navbar-center-right">
 		        	<div> --%>
 						<% with SiteConfig.activeMenuBlocks.filter('Class','main').first %>
-						<div class="uk-navbar-right <% if isMobile  %> uk-hidden@m <% else %>uk-visible@m<% end_if %> $Class uk-flex-bottom">
+						<div class="uk-navbar-right <% if isMobile  %> uk-hidden@l <% else %>uk-visible@l<% end_if %> $Class uk-flex-bottom">
 							<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
 								<% if UseMenu %>
 								<% loop Menu %>
@@ -134,8 +134,8 @@
 				<%-- 	</div>
 		        </div> --%>
 			
-			<div class="uk-navbar-right uk-hidden@m">
-				<button class="uk-padding-remove dk-toggle-mobile-cart uk-margin-right" id="toggle-cart" data-uk-toggle="target: #cart-container" <% if $activeCart.countProducts == 0 %>hidden<% end_if %>><span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></button>
+			<div class="uk-navbar-right uk-hidden@l">
+				<button class="uk-padding-remove dk-toggle-mobile-cart uk-margin-right" id="toggle-cart" data-uk-toggle="target: #cart-container"><span class="uk-margin-small-left" data-uk-icon="icon: cart"></span></button>
 	            <button class="uk-padding-remove dk-toggle-mobile-menu" type="button" data-uk-navbar-toggle-icon data-uk-toggle="target: #offcanvas-flip"></button>
 	        </div>
 		</nav>
