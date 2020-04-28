@@ -79,8 +79,8 @@ class ShopPageController extends PageController{
 				TextField::create('City',_t(__CLASS__.'.City','Stadt')),
 				TextField::create('Region',_t(__CLASS__.'.Region','Kanton')),
 				DropdownField::create('Country',_t(__CLASS__.'.Country','Land'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen *')),
-				EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail-Adresse *')),
-				TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon *')),
+				EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail-Adresse')),
+				TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon')),
 				TextareaField::create('Additional',_t(__CLASS__.'.Additional','Zusätzliche Informationen'))->setRows(3),
 				CheckboxField::create('DeliverySameAddress',_t(__CLASS__.'.DeliverySameAddress','Diese Adresse auch als Lieferadresse verwenden?'))->setValue(1)->setAttribute('class','uk-checkbox')
 			)->setName('BillFields'),
@@ -104,7 +104,7 @@ class ShopPageController extends PageController{
 			)->setName('SummaryFields')
 		);
 		$actions = new FieldList(FormAction::create('payBill', _t('WEBSHOP.BUY', 'Jetzt kostenpflichtig bestellen'))->addExtraClass('uk-button button-blau')->setUseButtonTag(true)->setButtonContent('<i class="uk-margin-small-right" data-uk-icon="cart"></i>'._t('WEBSHOP.BUY', 'Jetzt kostenpflichtig bestellen')));
-		$required = RequiredFields::create(['Gender','FirstName','Name','Street','PostalCode','City','Country','AGB']);
+		$required = RequiredFields::create(['Gender','FirstName','Name','Street','PostalCode','City','Country','Email','Phone','AGB']);
 
 		$form = new Form(
 			$this,
