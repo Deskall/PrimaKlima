@@ -7,7 +7,7 @@
 			<a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML" <% if MenuIcon %>class="dk-link-with-icon"<% end_if %>>
 				<% if MenuIcon %>
 			        <span class="uk-margin-small-right" data-uk-icon="icon:  $MenuIcon;"></span> 
-				    <span class="dk-link-with-icon-text">$MenuTitle.XML</span>
+				    $MenuTitle.XML
                 <% else %>
                	$MenuTitle.XML
                 <% end_if %>
