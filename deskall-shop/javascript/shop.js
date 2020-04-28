@@ -104,6 +104,7 @@ $(document).ready(function(){
 		var switcher = $('#tab-switcher');
 		var tab = $(this).parents('li.account-tab');
 		var form = $(this).parents('form');
+		console.log(form.valid());
 		var index = parseInt(tab.attr('data-index'));
 		if ($(this).attr('data-step') == "backward"){
 			UIkit.tab(switcher).show(index-1);
