@@ -7,10 +7,8 @@
 			<a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML" <% if MenuIcon %>class="dk-link-with-icon"<% end_if %>>
 				<% if MenuIcon %>
 			        <span class="uk-margin-small-right" data-uk-icon="icon:  $MenuIcon;"></span> 
-				    $MenuTitle.XML
-                <% else %>
+				<% end_if %>   
                	$MenuTitle.XML
-                <% end_if %>
 			</a>
 			<% if Top.ShowSubLevels && Children %>
 			<div class="uk-navbar-dropdown">
@@ -20,10 +18,8 @@
 						<a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML" <% if MenuIcon %>class="dk-link-with-icon"<% end_if %>>
 							<% if MenuIcon %>
 			                <span class="uk-margin-small-right" data-uk-icon="icon:  $MenuIcon;"></span> 
-				            <span class="dk-link-with-icon-text">$MenuTitle.XML</span>
-			                <% else %>
-			               	$MenuTitle.XML
-			                <% end_if %>
+				            <% end_if %>
+				            $MenuTitle.XML
 							<% if Top.ShowSubLevels && Children %>
 							<div id="link-{$ID}" class="uk-position-center-right uk-position-small"><i class="fa fa-chevron-right uk-margin-small-left"></i></div>
 							<% end_if %>
