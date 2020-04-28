@@ -70,15 +70,15 @@ class ShopPageController extends PageController{
 			// HiddenField::create('VoucherID'),
 			CompositeField::create(
 				TextField::create('Company',_t(__CLASS__.'.Company','Firma')),
-				DropdownField::create('Gender',_t(__CLASS__.'.Gender','Anrede *'), ['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select'),
-				TextField::create('FirstName',_t(__CLASS__.'.FirstName','Vorname *')),
-				TextField::create('Name',_t(__CLASS__.'.Name','Name *')),
-				TextField::create('Street',_t(__CLASS__.'.Street','Strasse *')),
+				DropdownField::create('Gender',_t(__CLASS__.'.Gender','Anrede'), ['Herr' => 'Herr','Frau' => 'Frau'])->setAttribute('class','uk-select'),
+				TextField::create('FirstName',_t(__CLASS__.'.FirstName','Vorname')),
+				TextField::create('Name',_t(__CLASS__.'.Name','Name')),
+				TextField::create('Street',_t(__CLASS__.'.Street','Strasse')),
 				TextField::create('Address',_t(__CLASS__.'.Address','Adresse')),
-				TextField::create('PostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl *')),
-				TextField::create('City',_t(__CLASS__.'.City','Stadt *')),
+				TextField::create('PostalCode',_t(__CLASS__.'.PostalCode','Postleitzahl')),
+				TextField::create('City',_t(__CLASS__.'.City','Stadt')),
 				TextField::create('Region',_t(__CLASS__.'.Region','Kanton')),
-				DropdownField::create('Country',_t(__CLASS__.'.Country','Land *'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen *')),
+				DropdownField::create('Country',_t(__CLASS__.'.Country','Land'))->setSource(i18n::getData()->getCountries())->setValue('ch')->setAttribute('class','uk-select')->setEmptyString(_t(__CLASS__.'.CountryLabel','Land wählen *')),
 				EmailField::create('Email',_t(__CLASS__.'.Email','E-Mail-Adresse *')),
 				TextField::create('Phone',_t(__CLASS__.'.Phone','Telefon *')),
 				TextareaField::create('Additional',_t(__CLASS__.'.Additional','Zusätzliche Informationen'))->setRows(3),
@@ -104,7 +104,7 @@ class ShopPageController extends PageController{
 			)->setName('SummaryFields')
 		);
 		$actions = new FieldList(FormAction::create('payBill', _t('WEBSHOP.BUY', 'Jetzt kostenpflichtig bestellen'))->addExtraClass('uk-button button-blau')->setUseButtonTag(true)->setButtonContent('<i class="uk-margin-small-right" data-uk-icon="cart"></i>'._t('WEBSHOP.BUY', 'Jetzt kostenpflichtig bestellen')));
-		$required = RequiredFields::create(['AGB']);
+		$required = RequiredFields::create(['Gender','FirstName','Name','Street','PostalCode','City','Country','AGB']);
 
 		$form = new Form(
 			$this,
