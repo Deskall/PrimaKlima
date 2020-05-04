@@ -197,7 +197,7 @@ class Product extends DataObject {
 
            $fields->dataFieldByName('Actions')->getConfig()->getComponentByType(GridFieldAddExistingAutocompleter::class)->setSearchList(PriceDiscount::get()->filterByCallback(function($item, $list) {
                 return ($item->AllProducts || $item->Products()->byId($this->ID));
-            });
+            }));
 		}
 		
 		return $fields;
