@@ -240,20 +240,18 @@ class ShopPageController extends PageController
             $form->Fields()->insertBefore('Comments',TextField::create('Glasfaserdose','Bitte geben Sie Ihre Glasfaserdosen-Nummer ein:')->setAttribute('placeholder','B.110.123.456.X'))->setAttribute('required','required')->setAttribute('class','uk-input');
             $form->Fields()->insertAfter('Glasfaserdose',CheckboxField::create('UnknownGlasfaserdose','Ich kenne meine Glasfaserdosen-Nummer nicht.')->setAttribute('class','uk-checkbox'));
          }
-
+         $form->loadDataFrom($cart);
+         if ($cart->Birthdate){
+            $birthdate = new \DateTime($cart->Birthdate);
+            $day->setValue($birthdate->format('d'));
+            $month->setValue($birthdate->format('m'));
+            $year->setValue($birthdate->format('Y'));
+         }
       }
       
      
       $form->addExtraClass('form-std');
       $form->setTemplate('Forms/OrderForm');
-      $form->loadDataFrom($cart);
-      if ($cart->Birthdate){
-         $birthdate = new \DateTime($cart->Birthdate);
-         $day->setValue($birthdate->format('d'));
-         $month->setValue($birthdate->format('m'));
-         $year->setValue($birthdate->format('Y'));
-      }
-
    
       return $form;
    }
