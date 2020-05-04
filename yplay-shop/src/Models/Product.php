@@ -9,6 +9,7 @@ use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
@@ -194,8 +195,8 @@ class Product extends DataObject {
 		        )
 		    ]);
            $fields->addFieldToTab('Root.PriceVariations',new GridField('PriceVariations',$this->fieldLabels()['PriceVariations'],$this->PriceVariations(),$config));
-          
-           $fields->dataFieldByName('Actions')->getConfig()->getComponentByType(GridFieldAddExistingAutocompleter::class)->setSearchList(PriceDiscount::get()->filter('AllProducts',1));
+          	$fields->removeByName('Actions');
+          	$fields->addFieldToTab('Root.Actions', ListboxField::create('Actions',$this->fieldLabels()['Actions'],PriceDiscount::get()->map('ID','Title'),$this->Actions()));
 		}
 		
 		return $fields;
