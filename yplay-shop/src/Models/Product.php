@@ -194,10 +194,10 @@ class Product extends DataObject {
 		        )
 		    ]);
            $fields->addFieldToTab('Root.PriceVariations',new GridField('PriceVariations',$this->fieldLabels()['PriceVariations'],$this->PriceVariations(),$config));
-
-           $fields->dataFieldByName('Actions')->getConfig()->getComponentByType(GridFieldAddExistingAutocompleter::class)->setSearchList(PriceDiscount::get()->filterByCallback(function($item, $list) use ($this) {
-           		$class = $this->ClassName;
-                return ($item->AllProducts || $item->{$class}()->filter('ID',$this->ID)->count() > 0);
+          	$class = $this->ClassName;
+          	$id = $this->ID;
+           $fields->dataFieldByName('Actions')->getConfig()->getComponentByType(GridFieldAddExistingAutocompleter::class)->setSearchList(PriceDiscount::get()->filterByCallback(function($item, $list) use ($class,$id) {
+                return ($item->AllProducts || $item->{$class}()->filter('ID',$id)->count() > 0);
             }));
 		}
 		
