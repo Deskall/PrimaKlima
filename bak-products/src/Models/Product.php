@@ -146,7 +146,7 @@ class Product extends DataObject {
 
       $changes = $this->getChangedFields();
 
-      if (isset($changes['Videos']) && $changes['SourceURL']['Videos']) {
+      if (isset($changes['Videos']) && $changes['after']['Videos']) {
           $this->updateEmbedHTML();
       }
 
