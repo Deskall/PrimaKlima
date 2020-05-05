@@ -192,8 +192,6 @@ class Product extends DataObject {
   {
     $content = null;
     foreach (preg_split('/\r\n|[\r\n]/', trim($this->Videos)) as $url){
-      print_r($url);
-      print_r(urldecode($url));
      $html = $this->setFromURL($url);
      $content .= $html;
     }
