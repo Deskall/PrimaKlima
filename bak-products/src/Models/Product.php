@@ -190,10 +190,17 @@ class Product extends DataObject {
   public function updateEmbedHTML()
   {
     $content = null;
-    foreach (preg_split('/\r\n|[\r\n]/', $this->Videos) as $url){
-     $html = $this->setFromURL($url);
-     $content .= $html;
+    if ($this->Videos){
+      $content = '<div class="uk-grid-small uk-child-width-auto" data-uk-grid>';
+      foreach (preg_split('/\r\n|[\r\n]/', $this->Videos) as $url){
+       $html = $this->setFromURL($url);
+       if ($html){
+        $content .= '<div>'.$html.'</div>';
+       }
+      }
+      $content .= '</div>';
     }
+    
     $this->VideosHTML = $content;
   }
 
