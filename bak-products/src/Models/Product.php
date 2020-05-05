@@ -191,7 +191,7 @@ class Product extends DataObject {
   {
     $content = null;
     if ($this->Videos){
-      $content = '<div class="uk-grid-small uk-child-width-auto" data-uk-grid>';
+      $content = '<div class="uk-grid-small uk-child-width-1-2@m" data-uk-grid>';
       foreach (preg_split('/\r\n|[\r\n]/', $this->Videos) as $url){
        $html = $this->setFromURL($url);
        if ($html){
