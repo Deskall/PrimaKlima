@@ -126,7 +126,6 @@ class Product extends DataObject {
 
 
     public function getCMSFields() {
-
       $fields = parent::getCMSFields();
       $fields->removeByName('Categories');
       $fields->removeByName('Usages');
@@ -206,7 +205,8 @@ class Product extends DataObject {
       if ($url) {
           // array('image' => array('minImageWidth' => $this->Width, 'minImageHeight' => $this->Height)));
           $info = Embed::create($url);
-          $this->setFromEmbed($info);
+          $embed = $this->setFromEmbed($info);
+          return $embed;
       }
   }
 
