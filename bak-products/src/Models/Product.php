@@ -144,9 +144,8 @@ class Product extends DataObject {
 
   public function onBeforeWrite(){
 
-      $changes = $this->getChangedFields();
 
-      if (isset($changes['Videos']) && $changes['Videos']['after']) {
+      if ($this->isChanged('Videos')){
           $this->updateEmbedHTML();
       }
 
