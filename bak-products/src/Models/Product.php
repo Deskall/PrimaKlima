@@ -191,7 +191,7 @@ class Product extends DataObject {
   public function updateEmbedHTML()
   {
     $content = null;
-    foreach (preg_split('/\r\n|[\r\n]/', trim($this->Videos)) as $url){
+    foreach (preg_split('/\r\n|[\r\n]/', $this->Videos) as $url){
      $html = $this->setFromURL($url);
      $content .= $html;
     }
