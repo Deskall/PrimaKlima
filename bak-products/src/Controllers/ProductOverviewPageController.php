@@ -285,29 +285,6 @@ class ProductOverviewPageController extends PageController
 
     }
 
-   
-    
-
-
-    // public function videos($ID){
-    //     $product = Product::get()->byId($ID);
-    //     $content = null;
-
-    //     foreach (explode("\n",$product->Videos) as $url){
-    //         $videoObject = $product->Media(trim($url));
-    //         if( $videoObject ){
-    //             $content = $content.'<div class="item">'.str_replace( '?feature=oembed', '?rel=0',  $videoObject->HTML).'</div>';
-
-
-                
-    //         }
-    //     }
-    //     return $content;
-    // }
-
-
-
-
 
     function SendProductForm($data) {
         //Recaptcha validation

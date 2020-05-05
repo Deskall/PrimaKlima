@@ -23,6 +23,8 @@ use SilverStripe\ORM\ManyManyList;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use Embed\Adapters\Adapter;
+use Embed\Embed;
 
 class Product extends DataObject {
 
@@ -40,7 +42,8 @@ class Product extends DataObject {
         'URLSegment' => 'Varchar(250)',
         'ShowDetail' => 'Boolean(true)',
         'Number' => 'Varchar(250)',
-        'Videos' => 'HTMLText',
+        'Videos' => 'Text',
+        'VideosHTML' => 'HTMLText',
         'MetaDescription' => 'Text',
         'MetaTitle' => 'Varchar(255)',
 
@@ -127,6 +130,7 @@ class Product extends DataObject {
       $fields = parent::getCMSFields();
       $fields->removeByName('Categories');
       $fields->removeByName('Usages');
+      $fields->removeByName('VideosHTML');
       $categoriesField = CheckboxSetField::create('Categories', 'Kategorien', $source = ProductCategory::get()->map("ID", "Title"));
       $fields->insertAfter('Name', $categoriesField );
       $usagesField = CheckboxSetField::create('Usages', 'Anwendungen', $source = ProductUsage::get()->map("ID", "Title"));
@@ -166,6 +170,66 @@ class Product extends DataObject {
   public function hasCategory($ID){
     $count = ManyManyList::create(Product::class,'BAK_Product_Categories','BAK_ProductID','BAK_ProductCategoryID')->filter(['BAK_ProductID' => $this->ID,'BAK_ProductCategoryID' => $ID] )->count();
     return ($count > 0) ? true : false;
+  }
+
+  //Videos
+  /**
+   * @return $this
+   */
+  public function Embed()
+  {
+      $this->setFromURL($this->SourceURL);
+
+      return $this;
+  }
+
+  public function onBeforeWrite()
+  {
+      $changes = $this->getChangedFields();
+
+      if (isset($changes['Videos']) && $changes['SourceURL']['Videos']) {
+          $this->updateEmbedHTML();
+      }
+
+      parent::onBeforeWrite();
+  }
+
+  public function updateEmbedHTML()
+  {
+    $content = null;
+    foreach (explode("\n",$product->Videos) as $url){
+     $html = $this->setFromURL($url);
+     $content .= $html;
+    }
+    $this->VideosHTML = $content;
+  }
+
+  /**
+   * @param $url
+   */
+  public function setFromURL($url)
+  {
+      if ($url) {
+          // array('image' => array('minImageWidth' => $this->Width, 'minImageHeight' => $this->Height)));
+          $info = Embed::create($url);
+          $this->setFromEmbed($info);
+      }
+  }
+
+  /**
+   * @param Adapter $info
+   */
+  public function setFromEmbed(Adapter $info)
+  {
+      $this->Title = $info->getTitle();
+      $this->SourceURL = $info->getUrl();
+      $this->Width = $info->getWidth();
+      $this->Height = $info->getHeight();
+      $this->ThumbURL = $info->getImage();
+      $this->Description = $info->getDescription() ? $info->getDescription() : $info->getTitle();
+      $this->Type = $info->getType();
+      $embed = $info->getCode();
+      return $embed;
   }
 
     
