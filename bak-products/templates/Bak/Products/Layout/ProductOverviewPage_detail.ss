@@ -136,8 +136,8 @@
         <div class="product-block uk-margin-large-bottom">
           <h2><%t ProductPage.VIDEOS "Videos" %></h2>
           <div class="video-block">
-
-           <div class="uk-flex-left uk-child-width-1-2@s uk-grid-small" data-uk-grid data-uk-lightbox>
+            $Videos
+           <%-- <div class="uk-flex-left uk-child-width-1-2@s uk-grid-small" data-uk-grid data-uk-lightbox>
               <% loop Product.Videos %>
                 <div>
                   <% if Type == "Datei" %>
@@ -160,7 +160,7 @@
                     <% end_if %>
                 </div>
                 <% end_loop %>
-            </div>
+            </div> --%>
           </div>
         </div>
         <% end_if %>
