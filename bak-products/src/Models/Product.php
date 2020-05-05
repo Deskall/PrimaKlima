@@ -144,6 +144,11 @@ class Product extends DataObject {
 
   public function onBeforeWrite(){
 
+      $changes = $this->getChangedFields();
+
+      if (isset($changes['Videos']) && $changes['SourceURL']['Videos']) {
+          $this->updateEmbedHTML();
+      }
 
       $oldFolderName =  "Uploads/product-detail/".$this->URLSegment;
 
@@ -183,16 +188,6 @@ class Product extends DataObject {
       return $this;
   }
 
-  public function onBeforeWrite()
-  {
-      $changes = $this->getChangedFields();
-
-      if (isset($changes['Videos']) && $changes['SourceURL']['Videos']) {
-          $this->updateEmbedHTML();
-      }
-
-      parent::onBeforeWrite();
-  }
 
   public function updateEmbedHTML()
   {
