@@ -136,7 +136,7 @@
         <div class="product-block uk-margin-large-bottom">
           <h2><%t ProductPage.VIDEOS "Videos" %></h2>
           <div class="video-block">
-            $Videos
+            $Product.Videos
            <%-- <div class="uk-flex-left uk-child-width-1-2@s uk-grid-small" data-uk-grid data-uk-lightbox>
               <% loop Product.Videos %>
                 <div>
