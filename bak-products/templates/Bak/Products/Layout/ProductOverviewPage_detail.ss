@@ -22,10 +22,10 @@
     <div data-uk-grid>
       <div class="uk-visible@m uk-width-1-3@m uk-width-1-4@l">
         <h2><%t ProductPage.PRODUKTE "Produkte" %></h2>
-        <ul class="uk-iconnav uk-iconnav-vertical">
+        <ul class="uk-nav">
           <% loop $getCategories %>
           <% if $Title %>
-          <li class="<% if $Top.Product.hasCategory($ID) %>uk-active<% end_if %>"><a href="$Link($Top.Locale)" data-uk-icon="chevron-right">$Title</a></li>
+          <li class="<% if $Top.Product.hasCategory($ID) %>uk-active<% end_if %>"><a href="$Link($Top.Locale)"><span class="icon icon-chevron-right uk-margin-small-right"></span>$Title</a></li>
           <% end_if %>
           <% end_loop %>
         </ul>
