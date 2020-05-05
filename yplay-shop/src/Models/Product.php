@@ -9,11 +9,9 @@ use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
-use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldButtonRow;
@@ -195,8 +193,6 @@ class Product extends DataObject {
 		        )
 		    ]);
            $fields->addFieldToTab('Root.PriceVariations',new GridField('PriceVariations',$this->fieldLabels()['PriceVariations'],$this->PriceVariations(),$config));
-          	$fields->removeByName('Actions');
-          	$fields->addFieldToTab('Root.Actions', ListboxField::create('Actions',$this->fieldLabels()['Actions'],PriceDiscount::get()->map('ID','Title'),$this->Actions()));
 		}
 		
 		return $fields;

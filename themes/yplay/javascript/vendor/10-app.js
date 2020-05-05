@@ -24,7 +24,7 @@ $(document).ready(function(){
             defaultDate: input.attr('value'),
             minDate: input.attr('minDate'),
             maxDate: input.attr('maxDate'),
-            dateFormat: "d.m.Y",
+            // dateFormat: "d.m.Y",
             altInput: true,
             locale: {
               weekdays: {
