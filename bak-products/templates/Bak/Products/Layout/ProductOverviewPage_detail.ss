@@ -25,7 +25,7 @@
         <ul>
           <% loop $getCategories %>
           <% if $Title %>
-          <li class="<% if $Top.Product.hasCategory($ID) %>active<% end_if %>"><a href="$Link($Top.Locale)">$Title</a></li>
+          <li class="<% if $Top.Product.hasCategory($ID) %>uk-active<% end_if %>"><a href="$Link($Top.Locale)">$Title</a></li>
           <% end_if %>
           <% end_loop %>
         </ul>
