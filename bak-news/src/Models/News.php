@@ -10,8 +10,8 @@ use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Control\Director;
 
 class News extends DataObject {
-  static $singular_name = 'Neuigkeit';
-  static $plural_name = 'Neuigkeiten';
+  private static $singular_name = 'Neuigkeit';
+  private static $plural_name = 'Neuigkeiten';
 
   private static $db = array(
     'Title' => 'Varchar(250)',
@@ -23,25 +23,25 @@ class News extends DataObject {
     'Status' => 'Varchar(250)'
   );
 
-  static $defaults = array(
+  private static $defaults = array(
     'Title' => 'Neuer Eintrag',
     'URLSegment' => 'neuer-eintrag',
     'Status' => 'ToBePublished'
   );
 
-  static $indexes = array(
+  private static $indexes = array(
     'URLSegment' => true
   );
 
-  static $has_one = array(
+  private static $has_one = array(
     'Image' => Image::class
   );
 
-  static $many_many = array(
+  private static $many_many = array(
     'Categories' => NewsCategory::class
   );
 
-  static $summary_fields = array (
+  private static $summary_fields = array (
     'Title' => array('title' => 'Titel'),
     'showCategories' => 'Kategorien'
   );
