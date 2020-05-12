@@ -117,12 +117,14 @@ public function canArchive(){
 
 public function doArchive(){
   $this->Status = "archived";
+  $this->PublishDate = null;
   $this->ArchiveDate = date('Y-m-d H:i');
   $this->write();
 }
 
 public function doPublish(){
   $this->Status = "published";
+  $this->ArchiveDate = null;
   $this->PublishDate = date('Y-m-d H:i');
   $this->write();
 }

@@ -70,7 +70,7 @@ class GridFieldPublishItemRequestExtension extends DataExtension
       
         $record->doPublish();
         $message = _t(
-            __CLASS__ . '.NewsPublihed',
+            __CLASS__ . '.NewsPublished',
             'News {title} wurde veröffentlicht',
             [
                 'title' => Convert::raw2xml($record->Title)
