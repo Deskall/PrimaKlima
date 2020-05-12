@@ -8,6 +8,7 @@ use TractorCow\Fluent\Model\Locale;
 class FilterLocalExtension extends DataExtension
 {
     public function updateCMSFields(FieldList $fields){
+        $fields->addFieldToTab('Root.Main',$fields->FieldByName('Root.Locales.FilteredLocales'));
         // print_r('ici');
         //  $locales = $fields->FieldByName('Root.Locales.FilteredLocales');
         //  $fields->removeByName('FilteredLocales');
