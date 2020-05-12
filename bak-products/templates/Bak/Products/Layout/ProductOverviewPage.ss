@@ -1,5 +1,8 @@
-
-	$ElementalArea
+	<div class="element  bak__products__blocks__leadblock" id="leadblock-0">
+		<section class="uk-section  uk-section-small">
+			<h1 >$Title</h1>
+		</section>
+	</div>
 
 	<div class="element  bak__products__blocks__productblock" id="bakproductsblocksproductblock-0">
 	
