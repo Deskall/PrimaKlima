@@ -7,6 +7,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\DataObject;
 use Bak\News\Models\NewsCategory;
 use Bak\News\Models\News;
+use Bak\News\Controllers\NewsPageController;
 
 class NewsPage extends Page {
 
@@ -23,6 +24,11 @@ class NewsPage extends Page {
          $fields->addFieldToTab('Root.Main', $categoriesField, 'ContentImage');
 
          return $fields;
+    }
+
+    public function getControllerName()
+    {
+        return NewsPageController::class;
     }
 }
 
