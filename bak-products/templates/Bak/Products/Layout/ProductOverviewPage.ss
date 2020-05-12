@@ -6,6 +6,10 @@
 		</section>
 	</div>
 
+	<div id="description">
+	  $ElementalArea
+	</div>
+
 	<div class="element  bak__products__blocks__productblock" id="bakproductsblocksproductblock-0">
 	
 		<section class="uk-section  uk-section-small">
