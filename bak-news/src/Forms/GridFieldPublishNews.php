@@ -45,6 +45,7 @@ class GridFieldPublishNews implements GridField_ColumnProvider, GridField_Action
 	 * {@inheritDoc}
 	 */
 	public function getColumnContent($gridField, $record, $columnName){
+		return 'la';
 		if (!$record->canEdit()) {
 			return;
 		}
