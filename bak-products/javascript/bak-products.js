@@ -125,7 +125,7 @@ $(document).ready(function(){
 
             history.pushState({'filter': filter, 'filterValue' : filterValue}, $(this).attr('data-filter-name'), $(this).attr('href'));
 
-            $('h1').text($('h1').attr('data-title-orig') + "<br><small>" +$(this).attr('data-filter-name')+"</small>");
+            $('h1').text($('h1').attr('data-title-orig') + "\n" +$(this).attr('data-filter-name'));
             $('title').text($('h1').attr('data-title-orig') + ": " +$(this).attr('data-filter-name'));
 
             //Change description
