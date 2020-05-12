@@ -67,7 +67,7 @@ class ProductUseArea extends DataObject {
    public function Link() {
     $productPage = ProductOverviewPage::get()->first();
     if ($productPage){
-      $URLSegment = $productPage->Link()._t('BAK.USEAREASEGMENT','/anwendungsbereich/').$this->URLSegment;
+      return $productPage->Link()._t('BAK.USEAREASEGMENT','/anwendungsbereich/').$this->URLSegment;
     }
     return null;
   }

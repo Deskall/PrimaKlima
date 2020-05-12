@@ -61,7 +61,7 @@ class ProductUsage extends DataObject {
   public function Link() {
     $productPage = ProductOverviewPage::get()->first();
     if ($productPage){
-      $URLSegment = $productPage->Link()._t('BAK.USAGESEGMENT','/anwendung/').$this->URLSegment;
+      return $productPage->Link()._t('BAK.USAGESEGMENT','/anwendung/').$this->URLSegment;
     }
     return null;
   }
