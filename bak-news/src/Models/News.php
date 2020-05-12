@@ -177,16 +177,18 @@ class News_Validator extends RequiredFields {
     if ($data['Status'] == "ToBePublished"){
       $PublishDate = new \Datetime();
       $PublishDate->setTimestamp(strtotime($data['PublishDate']));
-      $ArchiveDate = new \Datetime();
-      $ArchiveDate->setTimestamp(strtotime($data['ArchiveDate']));
-
+      $ArchiveDate =  ($data['ArchiveDate']) ? new \Datetime() : null;
+      
       if ($PublishDate->format('Y-m-d') < date('Y-m-d H:i:s')){
         $this->validationError("PublishDate", "Das Datum der Veröffentlichung kann nicht in der Vergangenheit sein.", 'error');
         $valid = false;
       }
-      if ($PublishDate > $ArchiveDate){
-        $this->validationError("ArchiveDate", "Das ArchivesDatum muss nach dem Datum der Veröffentlichung sein.", 'error');
-        $valid = false;
+      if ($ArchiveDate){
+        $ArchiveDate->setTimestamp(strtotime($data['ArchiveDate']));
+        if ($PublishDate > $ArchiveDate){
+          $this->validationError("ArchiveDate", "Das ArchivesDatum muss nach dem Datum der Veröffentlichung sein.", 'error');
+          $valid = false;
+        }
       }
     }
     $valid = parent::php($data);
