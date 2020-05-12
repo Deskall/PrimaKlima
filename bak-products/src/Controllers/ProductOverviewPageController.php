@@ -90,7 +90,10 @@ class ProductOverviewPageController extends PageController
             array_push($productList, $tmp);
         }
 
-        print_r($productList);
+        ob_start();
+                    print_r($products->count());
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
         $categories = ProductCategory::get();
         $categoriesList = array();
