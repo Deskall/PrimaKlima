@@ -36,8 +36,8 @@
 					<div class="uk-width-1-1 uk-first-column">
 						<div class="uk-panel">
 							<div class="product-filter-holder uk-flex">
-							  <a data-show-filter="categories" href="<%t ProductOverviewPage.CategoryLink '{link}kategorien/' link=$Link %>" data-filter-name="<%t ProductOverviewPage.KATEGORIE "Kategorie" %>" class="head <% if ShowCategories || SelectedCategory %>active<% end_if %>"><% if SelectedCategory %>$SelectedCategory.Title<% else %><%t ProductOverviewPage.KATEGORIE "Kategorie" %><% end_if %></a>
-							  <a data-show-filter="usages" href="<%t ProductOverviewPage.UsageLink '{link}anwendungen/' link=$Link %>" data-filter-name="<%t ProductOverviewPage.ANWENDUNG "Anwendung" %>" class="head <% if ShowUsages || SelectedUsage %>active<% end_if %>"><% if SelectedUsage %>$SelectedUsage.Title<% else %><%t ProductOverviewPage.ANWENDUNG "Anwendung" %><% end_if %></a>
+							  <a data-show-filter="categories" href="<%t ProductOverviewPage.CategoryLink '{link}kategorie/' link=$Link %>" data-filter-name="<%t ProductOverviewPage.KATEGORIE "Kategorie" %>" class="head <% if ShowCategories || SelectedCategory %>active<% end_if %>"><% if SelectedCategory %>$SelectedCategory.Title<% else %><%t ProductOverviewPage.KATEGORIE "Kategorie" %><% end_if %></a>
+							  <a data-show-filter="usages" href="<%t ProductOverviewPage.UsageLink '{link}anwendung/' link=$Link %>" data-filter-name="<%t ProductOverviewPage.ANWENDUNG "Anwendung" %>" class="head <% if ShowUsages || SelectedUsage %>active<% end_if %>"><% if SelectedUsage %>$SelectedUsage.Title<% else %><%t ProductOverviewPage.ANWENDUNG "Anwendung" %><% end_if %></a>
 							  <span class="head search"><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></span>
 							</div>
 

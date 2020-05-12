@@ -127,7 +127,7 @@ class ProductOverviewPageController extends PageController
     public function category(HTTPRequest $request){
 
         if ($request->param('Category')){
-            $category = ProductCategory::get()->filter(array('URLSegment',$request->param('Category')))->First();
+            $category = ProductCategory::get()->filter('URLSegment',$request->param('Category'))->First();
             if(!$category) {
                 return $this->httpError(404,'Kategorie nicht gefunden.');
             }
@@ -159,28 +159,13 @@ class ProductOverviewPageController extends PageController
 
 
     public function application(HTTPRequest $request ){
-         switch($this->Locale){
-            case "de-DE":
-            $urlsegment = 'URLSegment';
-            break;
-            case "en-US":
-            $urlsegment = 'URLSegment__en-US';
-            break;
-            case "es-ES":
-            $urlsegment = 'URLSegment__es-ES';
-            break;
-            default:
-            $urlsegment = 'URLSegment';
-            break;
-        }
-        $usage = ProductUsage::get()->filter(array($urlsegment => $request->param('ID').'/'.$request->param('OtherID')))->First();
+        
+        $usage = ProductUsage::get()->filter('URLSegment',$request->param('ID').'/'.$request->param('OtherID'))->First();
         if(!$usage) {
 
           $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
           $tags .= '<meta name="description" content="'._t('ProductPage.ANWENDUNG','Produkt Anwendungen').' - '.$this->MetaDescription.'">';
-            // $tags .= '<link rel="alternate" type="text/html" title="Anwendungen - '.Convert::raw2xml($this->getTranslation('de-DE')->Title).'" hreflang="de" href="'.Director::AbsoluteURL($this->getTranslation('de-DE')->Link().'anwendung').'" />' . "\n";
-            // $tags .= '<link rel="alternate" type="text/html" title="Usages - '.Convert::raw2xml($this->getTranslation('en-US')->Title).'" hreflang="en" href="'.Director::AbsoluteURL($this->getTranslation('en-US')->Link().'application').'" />' . "\n";
-            // $tags .= '<link rel="alternate" type="text/html" title="Usos - '.Convert::raw2xml($this->getTranslation('es-ES')->Title).'" hreflang="es" href="'.Director::AbsoluteURL($this->getTranslation('es-ES')->Link().'uso').'" />' . "\n";
+          $tags .= $this->renderWith('FluentUsage_MetaTags');
 
       
             return array(
@@ -188,7 +173,7 @@ class ProductOverviewPageController extends PageController
                 'Locale' => $this->Locale,
                 'Title' => $this->Title.': '._t('ProductPage.ANWENDUNG','Anwendungen'),
                 'MetaTitle' => _t('ProductPage.ANWENDUNG','Produkt Anwendungen'),
-                'CustomMetaTags' =>  $tags,
+                'MetaTags' =>  $tags,
                 'isUsageOverview' => true
             );
         }else{
@@ -196,8 +181,8 @@ class ProductOverviewPageController extends PageController
                 'SelectedUsage' => $usage,
                 'showProducts' => true,
                 'Locale' => $this->Locale,
-                'CustomMetaTitle' => $usage->printMetaTitle($this->Locale),
-                'CustomMetaTags' => $usage->getMetaTags($this->Locale)
+                'MetaTitle' => $usage->printMetaTitle(),
+                'MetaTags' => $usage->getMetaTags()
             );
         }
 
