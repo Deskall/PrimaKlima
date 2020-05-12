@@ -18,5 +18,3 @@ SilverStripe\SiteConfig\SiteConfig:
 BAK\Products\Models\Product:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentExtension'
-    - 'FilterLocalExtension'
-    - 'FluentCascadeDeleteExtension'
