@@ -5,6 +5,7 @@ namespace Bak\Products;
 use SilverStripe\Admin\ModelAdmin;
 use SilverStripe\Forms\GridField\GridFieldExportButton;
 use SilverStripe\Forms\GridField\GridFieldPrintButton;
+use Bak\News\Forms\GridFieldPublishNews;
 
 class NewsAdmin extends ModelAdmin {
 
@@ -24,7 +25,7 @@ class NewsAdmin extends ModelAdmin {
 
     public function getEditForm($id = null, $fields = null) {
         $form = parent::getEditForm($id, $fields);
-        if($this->modelClass=='News' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
+        if($this->modelClass=='News' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass)))
         {
             $form->Fields()->fieldByName("News")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
             $form->Fields()->fieldByName("News")->getConfig()->removeComponentsByType(GridFieldPrintButton::class);  
