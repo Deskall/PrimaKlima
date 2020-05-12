@@ -25,6 +25,7 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use Embed\Adapters\Adapter;
 use Embed\Embed;
+use Bak\Products\ProductOverviewPage;
 
 class Product extends DataObject {
 
