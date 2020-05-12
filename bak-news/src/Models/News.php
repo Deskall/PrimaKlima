@@ -117,7 +117,7 @@ public function canArchive(){
 
 public function doArchive(){
   $this->Status = "archived";
-  $this->ArchiveDate = new \Datetime();
+  $this->ArchiveDate = date('Y-m-d H:i');
   $this->write();
 }
 
