@@ -136,7 +136,7 @@ class ProductOverviewPageController extends PageController
                     'SelectedCategory' => $category,
                     'showProducts' => true,
                     'MetaTitle' => $category->printMetaTitle(),
-                    'MetaTags' => $category->getMetaTags()
+                    'MetaTags' => DBHTMLText::create()->setValue($category->getMetaTags())
                 );
             }
         }
@@ -150,7 +150,7 @@ class ProductOverviewPageController extends PageController
                 'ShowCategories' => true,
                 'Title' => $this->Title.': '._t('ProductPage.CATEGORIES','Kategorien'),
                 'MetaTitle' => _t('ProductPage.CATEGORIES','Produkt Kategorien'),
-                'MetaTags' =>  $tags,
+                'MetaTags' =>  DBHTMLText::create()->setValue($tags),
                 'isCategoryOverview' => true
             );
 
@@ -173,7 +173,7 @@ class ProductOverviewPageController extends PageController
                 'Locale' => $this->Locale,
                 'Title' => $this->Title.': '._t('ProductPage.ANWENDUNG','Anwendungen'),
                 'MetaTitle' => _t('ProductPage.ANWENDUNG','Produkt Anwendungen'),
-                'MetaTags' =>  $tags,
+                'MetaTags' =>  DBHTMLText::create()->setValue($tags),
                 'isUsageOverview' => true
             );
         }else{
