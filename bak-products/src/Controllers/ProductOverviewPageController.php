@@ -304,7 +304,7 @@ class ProductOverviewPageController extends PageController
         //   return $this->redirectBack();
         // }
         
-        $Product = Product::get()->byId($_POST['ID']);
+        $Product = Product::get()->byId(intval($_POST['ID']));
         // Read Data
 
         $contents = array(
