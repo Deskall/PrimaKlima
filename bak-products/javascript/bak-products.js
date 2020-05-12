@@ -130,7 +130,7 @@ $(document).ready(function(){
             var description = '';
             var metadescription = '';
             if( filter == "all"){
-                 $("#description").empty();
+                 $("#description .dk-text-content").empty();
             }
             else{
                 for (i = 0; i < categories.length; i++) {
@@ -139,7 +139,7 @@ $(document).ready(function(){
                         metadescription = categories[i]['metadescription'];
                     } 
                 }
-                $("#description").empty().html(description);
+                $("#description .dk-text-content").empty().html(description);
                
                 $("meta[name='description']").attr('content',metadescription);
                 
