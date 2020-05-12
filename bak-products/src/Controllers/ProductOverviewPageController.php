@@ -240,7 +240,7 @@ class ProductOverviewPageController extends PageController
             'Product' => $product,
             'Title' => $product->Name,
             'CustomMetaTitle' => $product->getProductMetaTitle($this->Locale ),
-            'CustomMetaTags' => $product->ProductMetaTags($this->Locale),
+            'MetaTags' => $product->ProductMetaTags(),
             'CustomStructuredData' => $product->StructuredData($this->Locale),
             'HeaderSlide' => HeaderSlide::get()->first(),
             'Locales' => $product->Locales()
