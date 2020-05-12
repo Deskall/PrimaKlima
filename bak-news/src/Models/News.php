@@ -58,9 +58,9 @@ class News extends DataObject {
     return $str;
   }
 
-  function getCMSValidator(){
-   return new News_Validator();
- }
+ //  function getCMSValidator(){
+ //   return new News_Validator();
+ // }
 
  public function getCMSFields() {
   $fields = parent::getCMSFields();
