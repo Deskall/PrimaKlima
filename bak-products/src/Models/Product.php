@@ -288,7 +288,7 @@ class Product extends DataObject {
 
 
   public function ProductMetaTags() {
-      $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
+      $tags = '<meta http-equiv="Content-type" content="text/html; charset=utf-8">';
       $tags .= '<meta name="description" content="'.$this->getProductMetaDescription().'">';
       $tags .= '<link rel="alternate" type="text/html" title="'.Convert::raw2xml($this->Name).'" hreflang="de" href="'.Director::AbsoluteURL($this->Link('de_DE')).'" />' . "\n";
       $tags .= '<link rel="alternate" type="text/html" title="'.Convert::raw2xml($this->getLocalisedValue('Name','en_US')).'" hreflang="en" href="'.Director::AbsoluteURL($this->Link('en_US')).'" />' . "\n";
