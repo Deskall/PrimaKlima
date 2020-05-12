@@ -425,9 +425,7 @@ class ProductOverviewPageController extends PageController
         }
 
         // do redirect
-        $redirectPage = DataObject::get_by_id(SiteTree::class, $config->ConfimrationPageID);
-        $Link = $redirectPage->Link();
-        $this->redirect( $Link );
+        ($config->ConfirmationPage()) ? $this->redirect($config->ConfirmationPage()->Link()) : $this->redirectBack() ;
 
     }
 
