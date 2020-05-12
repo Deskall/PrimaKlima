@@ -9,7 +9,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Control\Director;
 use SilverStripe\View\Parsers\URLSegmentFilter;
-
+use SilverStripe\Versioned\Versioned;
 
 class News extends DataObject {
   private static $singular_name = 'Neuigkeit';
@@ -27,7 +27,7 @@ class News extends DataObject {
   );
 
   private static $extensions = [
-    'Versioned'
+    Versioned::class
   ];
 
   private static $defaults = array(
