@@ -121,7 +121,7 @@
 							                <div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
 							                    <% loop Usages %>
 							                    <div>
-							                        <a href="$UseArea.Link($Top.Locale)" class="col w-4" data-filter-name="$UseArea.Title">
+							                        <a href="$Link($Top.Locale)" class="col w-4" data-filter-name="$UseArea.Title">
 							                          <div class="box uk-clearfix">
 							                            <% if $Image %>
 							                                <img src="$Image.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1 uk-margin-small-bottom" />
