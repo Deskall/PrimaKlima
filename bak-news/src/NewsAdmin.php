@@ -29,6 +29,7 @@ class NewsAdmin extends ModelAdmin {
         $form = parent::getEditForm($id, $fields);
         if($this->modelClass== News::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass)))
         {
+            print_r($form->Fields);
             $form->Fields()->fieldByName("News")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
             $form->Fields()->fieldByName("News")->getConfig()->removeComponentsByType(GridFieldPrintButton::class);  
             $form->Fields()->fieldByName("News")->getConfig()->addComponent(new GridFieldPublishNews());
