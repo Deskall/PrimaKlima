@@ -164,7 +164,7 @@
           </div>
         </div>
         <% end_if %>
-
+$ContentLocale
         <div class="product-block uk-margin-large-bottom">
           <h2><%t ProductPage.FORMTITLE "Jetzt Kontakt aufnehmen" %></h2>
           <div class="form-block">
