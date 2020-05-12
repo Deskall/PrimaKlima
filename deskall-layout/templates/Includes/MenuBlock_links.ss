@@ -4,8 +4,8 @@
 		<% if UseMenu %>
 		<% loop Menu %>
 		<li class="$LinkingMode $ExtraMenuClass <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>">
-			<a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML" <% if MenuIcon %>class="dk-link-with-icon"<% end_if %>>
-				<% if MenuIcon %>
+			<a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML" <% if MenuIcon && MenuIcon != "none" %>class="dk-link-with-icon"<% end_if %>>
+				<% if MenuIcon && MenuIcon != "none" %>
 			        <span class="uk-margin-small-right" data-uk-icon="icon:  $MenuIcon;"></span> 
 				<% end_if %>   
                	$MenuTitle.XML
@@ -15,8 +15,8 @@
 				<ul class="uk-nav uk-navbar-dropdown-nav">
 					<% loop Children %>
 					<li class="uk-position-relative $LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %> $ExtraMenuClass">
-						<a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML" <% if MenuIcon %>class="dk-link-with-icon"<% end_if %>>
-							<% if MenuIcon %>
+						<a href="$Link" <% if ClassName == "SilverStripe\CMS\Model\RedirectorPage" && RedirectionType == "External" %>target="_blank"<% end_if %> title="$Title.XML" <% if MenuIcon && MenuIcon != "none" %>class="dk-link-with-icon"<% end_if %>>
+							<% if MenuIcon && MenuIcon != "none" %>
 			                <span class="uk-margin-small-right" data-uk-icon="icon:  $MenuIcon;"></span> 
 				            <% end_if %>
 				            $MenuTitle.XML

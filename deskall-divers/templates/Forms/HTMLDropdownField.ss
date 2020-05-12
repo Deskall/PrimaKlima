@@ -19,5 +19,3 @@
   <% end_loop %>
   </select>
 </div>
-
-
