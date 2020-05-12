@@ -288,7 +288,7 @@ class ProductOverviewPageController extends PageController
 
     function SendProductForm($data) {
         ob_start();
-                    print_r($data);
+                    print_r($_POST);
                     $result = ob_get_clean();
                     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         //Recaptcha validation
