@@ -39,9 +39,11 @@ class ProductOverviewPageController extends PageController
     private static $url_handlers = array (
         'detalle/$Product!' => 'detail',
         'categoria/$Category' => 'category',
+        'category/$Category' => 'category',
         'kategorie/$Category' => 'category',
         'uso/$UsageArea/$Usage' => 'application',
-        'anwendung/$UsageArea/$Usage' => 'application'
+        'anwendung/$UsageArea/$Usage' => 'application',
+        'application/$UsageArea/$Usage' => 'application'
     );
 
     public function getCategories(){
