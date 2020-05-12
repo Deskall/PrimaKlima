@@ -38,9 +38,9 @@ class NewsPageController extends PageController {
             $news = ManyManyList::create("News","News_Categories","NewsID","NewsCategoryID")->filter('Status','published')->sort(array('Created' => 'DESC'));
         }
         else {
-            print_r('ici');
             $news = News::get()->filter('Status','published')->sort(array('Created' => 'DESC'));
         }
+        return $news;
     }
 
     public function detail(HTTPRequest $request ){
