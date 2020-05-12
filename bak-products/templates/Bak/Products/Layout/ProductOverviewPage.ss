@@ -60,7 +60,7 @@
 									  	                <p class="description">$Description.LimitWordCount(30)</p>
 									  	            <% end_if %>
 									  	            <div class="uk-text-right">
-									  	                <a href="$Link($Top.Locale)"><%t Product.ToProduct 'Zum Produkt' %> <span class="icon ion-ios-arrow-right"></span></a>
+									  	                <a href="$Link($Top.Locale)"><%t Main.ZUMPRODUKT 'Zum Produkt' %> <span class="icon ion-ios-arrow-right"></span></a>
 									  	            </div>
 									  	        </div>
 									  	    </div>

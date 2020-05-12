@@ -83,8 +83,8 @@ class ProductOverviewPageController extends PageController
             $tmp['name'] = $product->Name;
             $tmp['lead'] = $product->Lead;
             $tmp['description'] = DBHTMLText::create()->setValue($product->Description)->limitWordCount(30);
-            $tmp['linkText'] = _t('BAK.ToProduct','Zum Produkt');
-            $tmp['numberText'] = _t('BAK.InvoiceNumber','Best.-Nr.');
+            $tmp['linkText'] = _t('Main.ZUMPRODUKT','Zum Produkt');
+            $tmp['numberText'] = _t('ProductPage.NUMMER','Best.-Nr.');
 
         
             array_push($productList, $tmp);
