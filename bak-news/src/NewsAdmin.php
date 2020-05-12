@@ -27,13 +27,13 @@ class NewsAdmin extends ModelAdmin {
 
     public function getEditForm($id = null, $fields = null) {
         $form = parent::getEditForm($id, $fields);
-        if($this->modelClass=='News' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass)))
+        if($this->modelClass== News::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass)))
         {
             $form->Fields()->fieldByName("News")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
             $form->Fields()->fieldByName("News")->getConfig()->removeComponentsByType(GridFieldPrintButton::class);  
             $form->Fields()->fieldByName("News")->getConfig()->addComponent(new GridFieldPublishNews());
         }
-        if($this->modelClass=='NewsCategory' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
+        if($this->modelClass== NewsCategory::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
         {
             $form->Fields()->fieldByName("NewsCategory")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
             $form->Fields()->fieldByName("NewsCategory")->getConfig()->removeComponentsByType(GridFieldPrintButton::class); 
