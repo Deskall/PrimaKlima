@@ -42,7 +42,7 @@ $(document).ready(function(){
     if( $(".bak__products__blocks__productblock").length > 0){
         jQuery.ajax({
             type: "GET",
-            url: $(".bak__products__blocks__productblock").attr('products-url'),
+            url: $(".bak__products__blocks__productblock").attr('data-products-url'),
             success: function (data) {
                 results = jQuery.parseJSON(data);
                 products = results.products;
