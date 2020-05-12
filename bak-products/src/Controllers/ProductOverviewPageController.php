@@ -230,24 +230,11 @@ class ProductOverviewPageController extends PageController
 
 
     public function detail(HTTPRequest $request ){
-        switch($this->Locale){
-            case "de-DE":
-            $urlsegment = 'URLSegment';
-            break;
-            case "en-US":
-            $urlsegment = 'URLSegment__en-US';
-            break;
-            case "es-ES":
-            $urlsegment = 'URLSegment__es-ES';
-            break;
-            default:
-            $urlsegment = 'URLSegment';
-            break;
-        }
-        $product = Product::get()->filter(array($urlsegment => $request->param('ID')))->First();
+        
+        $product = Product::get()->filter('URLSegment',$request->param('ID'))->first();
 
         if(!$product) {
-            return $this->httpError(404,'Produkt nicht gefunden.');
+            return $this->httpError(404,_t('BAK.ProductNotFound','Produkt nicht gefunden.'));
         }
         return array (
             'Product' => $product,
@@ -255,7 +242,8 @@ class ProductOverviewPageController extends PageController
             'CustomMetaTitle' => $product->getProductMetaTitle($this->Locale ),
             'CustomMetaTags' => $product->ProductMetaTags($this->Locale),
             'CustomStructuredData' => $product->StructuredData($this->Locale),
-            'HeaderSlide' => HeaderSlide::get()->first()
+            'HeaderSlide' => HeaderSlide::get()->first(),
+            'Locales' => $product->Locales()
         );
 
     }

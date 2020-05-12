@@ -9,6 +9,6 @@
 			<li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link.ATT" <% if $LinkingMode != 'invalid' %>rel="alternate" hreflang="$LocaleRFC1766"<% end_if %>>$Title.XML</a></li>
 			<% end_if %>
 		<% end_loop %>
-		</ul>
+		</ul> blabla
 	<% end_if %>
 </div>
