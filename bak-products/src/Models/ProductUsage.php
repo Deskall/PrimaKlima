@@ -57,49 +57,24 @@ class ProductUsage extends DataObject {
 
 
 
-   public function Link($Locale = null) {
-     switch ($Locale) {
-        case 'de_DE':
-          $URLSegment = '/produkte/anwendung/'.$this->URLSegment;
-          break;
-        case 'en_US':
-          $URLSegment = '/products/application/'.$this->URLSegment__en_US;
-          break;
-        case 'es_ES':
-          $URLSegment = '/productos/uso/'.$this->URLSegment__es_ES;
-          break;
-        default:
-          $URLSegment = '/produkte/anwendung/'.$this->URLSegment;
-          break;
-      }
-    return $URLSegment;
-
+  public function Link() {
+    $productPage = ProductOverviewPage::get()->first();
+    if ($productPage){
+      $URLSegment = $productPage->Link()._t('BAK.USAGESEGMENT','/anwendung/').$this->URLSegment;
     }
+    return null;
+  }
 
     /**
        * Aboslute Link to this DO
        * @return string
        */
-      public function AbsoluteLink($Locale = null) {
-        return Director::absoluteURL($this->Link($Locale));
+      public function AbsoluteLink() {
+        return Director::absoluteURL($this->Link());
       }
 
-    public function printMetaDescription( $Locale ){
-    switch($Locale){
-      case "de_DE":
-      $description = ( $this->MetaDescription ) ? $this->MetaDescription : strip_tags($this->Description);
-      break;
-      case "en_US":
-      $description = ( $this->MetaDescription__en_US ) ? $this->MetaDescription__en_US : strip_tags($this->Description__en_US);
-      break;
-      case "es_ES":
-      $description = ( $this->MetaDescription__es_ES ) ? $this->MetaDescription__es_ES : strip_tags($this->Description__es_ES);
-      break;
-      default:
-      $description = ( $this->MetaDescription ) ? $this->MetaDescription : strip_tags($this->Description);
-      break;
-    }
-
+  public function printMetaDescription( ){
+    $description = ( $this->MetaDescription ) ? $this->MetaDescription : strip_tags($this->Description);
     return $description;
   }
 

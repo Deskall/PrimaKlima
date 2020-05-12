@@ -65,30 +65,20 @@ class ProductCategory extends DataObject {
       parent::onBeforeWrite();
   }
 
-  public function Link($Locale) {
-      switch ($Locale) {
-        case 'de_DE':
-          $URLSegment = '/produkte/kategorie/'.$this->URLSegment;
-          break;
-        case 'en_US':
-          $URLSegment = '/products/category/'.$this->URLSegment__en_US;
-          break;
-        case 'es_ES':
-          $URLSegment = '/productos/categoria/'.$this->URLSegment__es_ES;
-          break;
-        default:
-          $URLSegment = '/produkte/kategorie/'.$this->URLSegment;
-          break;
-      }
-    return $URLSegment;
+  public function Link() {
+    $productPage = ProductOverviewPage::get()->first();
+    if ($productPage){
+      $URLSegment = $productPage->Link()._t('BAK.CATEGORYSEGMENT','/kategorie/').$this->URLSegment;
+    }
+    return null;
   }
 
   /**
      * Aboslute Link to this DO
      * @return string
      */
-    public function AbsoluteLink($Locale = null) {
-      return Director::absoluteURL($this->Link($Locale));
+    public function AbsoluteLink() {
+      return Director::absoluteURL($this->Link());
     }
 
   public function printMetaDescription( $Locale ){

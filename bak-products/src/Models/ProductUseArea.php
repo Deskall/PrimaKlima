@@ -60,35 +60,23 @@ class ProductUseArea extends DataObject {
 
   public function onBeforeWrite(){
       $this->URLSegment = URLSegmentFilter::create()->filter($this->Title);
-      $this->URLSegment_es_ES = URLSegmentFilter::create()->filter($this->Title__es_ES);
       parent::onBeforeWrite();
   }
 
-  public function Link($Locale) {
-      switch ($Locale) {
-        case 'de_DE':
-          $URLSegment = '/produkte/anwendungsbereich/'.$this->URLSegment;
-          break;
-        case 'en_US':
-          $URLSegment = '/products/usearea/'.$this->URLSegment;
-          break;
-        case 'es_ES':
-          $URLSegment = '/productos/alcance/'.$this->URLSegment;
-          break;
-        default:
-          $URLSegment = '/produkte/anwendungsbereich/'.$this->URLSegment;
-          break;
-      }
-
-        return $URLSegment;
+   public function Link() {
+    $productPage = ProductOverviewPage::get()->first();
+    if ($productPage){
+      $URLSegment = $productPage->Link()._t('BAK.USEAREASEGMENT','/anwendungsbereich/').$this->URLSegment;
     }
+    return null;
+  }
 
     /**
        * Aboslute Link to this DO
        * @return string
        */
-      public function AbsoluteLink($Locale = null) {
-        return Director::absoluteURL($this->Link($Locale));
+      public function AbsoluteLink() {
+        return Director::absoluteURL($this->Link());
       }
 
 
