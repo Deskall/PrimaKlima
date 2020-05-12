@@ -87,7 +87,7 @@ public function onBeforeWrite(){
   //     }
   //   }
   // }
-  
+
 
 
   parent::onBeforeWrite();
@@ -106,6 +106,26 @@ public function onBeforeWrite(){
 //   return ($count > 0) ? true : false;
 
 // }
+
+public function canPublish(){
+  return !$this->Status == "published";
+}
+
+public function canArchive(){
+  return $this->Status == "published";
+}
+
+public function doArchive(){
+  $this->Status = "archived";
+  $this->ArchiveDate = new \Datetime();
+  $this->write();
+}
+
+public function doPublish(){
+  $this->Status = "published";
+  $this->PublishDate = new \Datetime();
+  $this->write();
+}
 
   /**
      * Link to this DO
