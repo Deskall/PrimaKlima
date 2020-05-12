@@ -164,7 +164,7 @@ class ProductOverviewPageController extends PageController
         if(!$usage) {
 
           $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
-          $tags .= '<meta name="description" content="'._t('ProductPage.ANWENDUNG','Produkt Anwendungen').' - '.$this->MetaDescription.'">';
+          $tags .= '<meta name="description" content="'._t('ProductPage.ANWENDUNG','Produkt Anwendungen').'">';
           $tags .= $this->renderWith('FluentUsage_MetaTags');
 
       
