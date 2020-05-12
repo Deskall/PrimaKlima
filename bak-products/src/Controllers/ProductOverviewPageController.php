@@ -80,37 +80,12 @@ class ProductOverviewPageController extends PageController
             $tmp['link'] = $product->Link($locale);
 
             $tmp['number'] = $product->Number;
+            $tmp['name'] = $product->Name;
+            $tmp['lead'] = $product->Lead;
+            $tmp['description'] = DBHTMLText::create()->setValue($product->Description)->limitWordCount(30);
+            $tmp['linkText'] = _t('BAK.ToProduct','Zum Produkt');
+            $tmp['numberText'] = _t('BAK.InvoiceNumber','Best.-Nr.');
 
-            switch ($locale){
-                case "de-DE":
-                    $tmp['name'] = $product->Name;
-                    $tmp['lead'] = $product->Lead;
-                    $tmp['description'] = DBHTMLText::create()->setValue($product->Description)->limitWordCount(30);
-                    $tmp['linkText'] = 'Zum Produkt';
-                    $tmp['numberText'] = 'Best.-Nr.';
-                break;
-                case "en-US":
-                    $tmp['name'] = $product->Name__en-US;
-                    $tmp['description'] = $product->Description__en-US;
-                    $tmp['features'] = $product->Features__en-US;
-                    $tmp['linkText'] = 'Go to product';
-                    $tmp['numberText'] = 'Order-No.';
-                break;
-                case "es-ES":
-                    $tmp['name'] = $product->Name__es-ES;
-                    $tmp['description'] = $product->Description__es-ES;
-                    $tmp['features'] = $product->Features__es-ES;
-                    $tmp['linkText'] = 'Ir al producto';
-                    $tmp['numberText'] = 'Order-No.';
-                break;
-                default:
-                    $tmp['name'] = $product->Name;
-                    $tmp['lead'] = $product->Lead;
-                    $tmp['description'] = DBHTMLText::create()->setValue($product->Description)->limitWordCount(30);
-                    $tmp['linkText'] = 'Zum Produkt';
-                    $tmp['numberText'] = 'Best.-Nr.';
-                break;
-            }
         
             array_push($productList, $tmp);
         }
@@ -121,26 +96,8 @@ class ProductOverviewPageController extends PageController
         foreach ($categories as $category) {
 
             $tmp =  array();
-
-           switch( $locale){
-                case "de-DE":
-                    $tmp['title'] = $category->Title;
-                    $tmp['description'] = $category->Description;
-                break;
-                case "en-US":
-                    $tmp['title'] = $category->Title__en-US;
-                    $tmp['description'] = $category->Description__en-US;
-                break;
-
-                case "es-ES":
-                    $tmp['title'] = $category->Title__es-ES;
-                    $tmp['description'] = $category->Description_es-ES;
-                break;
-                default:
-                    $tmp['title'] = $category->Title;
-                    $tmp['description'] = $category->Description;
-                break;
-            }
+            $tmp['title'] = $category->Title;
+            $tmp['description'] = $category->Description;
 
             $tmp['metatitle'] = $category->printMetaTitle($locale);
             $tmp['metadescription'] = $category->printMetaDescription($locale);
@@ -154,27 +111,8 @@ class ProductOverviewPageController extends PageController
         foreach ($usages as $usage) {
 
             $tmp =  array();
-
-           switch( $locale){
-                case "de-DE":
-                    $tmp['title'] = $usage->Title;
-                    $tmp['description'] = $usage->Description;
-                break;
-                case "en-US":
-                    $tmp['title'] = $usage->Title__en-US;
-                    $tmp['description'] = $usage->Description__en-US;
-                break;
-
-                case "es-ES":
-                    $tmp['title'] = $usage->Title__es-ES;
-                    $tmp['description'] = $usage->Description_es-ES;
-                break;
-                default:
-                    $tmp['title'] = $usage->Title;
-                    $tmp['description'] = $usage->Description;
-                break;
-            }
-
+            $tmp['title'] = $usage->Title;
+            $tmp['description'] = $usage->Description;
             $tmp['metatitle'] = $usage->printMetaTitle($locale);
             $tmp['metadescription'] = $usage->printMetaDescription($locale);
 
