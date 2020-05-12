@@ -6,4 +6,4 @@ SilverStripe\Core\Manifest\ModuleManifest:
 
 SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
   extensions:
-    - MissionGridFieldItemRequestExtension
+    - GridFieldPublishItemRequestExtension
