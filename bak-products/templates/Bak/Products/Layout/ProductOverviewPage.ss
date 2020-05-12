@@ -5,7 +5,7 @@
 			</div>
 		</section>
 	</div>
-
+$ContentLocale
 	<div id="description">
 	  $ElementalArea
 	</div>
