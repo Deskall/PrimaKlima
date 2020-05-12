@@ -1,1 +1,9 @@
-config.yml
+---
+Name: bak-news
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: bak-news
+
+SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
+  extensions:
+    - MissionGridFieldItemRequestExtension
