@@ -288,17 +288,17 @@ class ProductOverviewPageController extends PageController
 
     function SendProductForm($data) {
         //Recaptcha validation
-        if (!array_key_exists('g-recaptcha-response', $_POST) || empty($_POST['g-recaptcha-response'])) {
-          return $this->redirectBack();
-        }
+        // if (!array_key_exists('g-recaptcha-response', $_POST) || empty($_POST['g-recaptcha-response'])) {
+        //   return $this->redirectBack();
+        // }
 
-        $response = $this->recaptchaHTTPPost($_POST['g-recaptcha-response']);
-        $response = json_decode($response, true);
+        // $response = $this->recaptchaHTTPPost($_POST['g-recaptcha-response']);
+        // $response = json_decode($response, true);
 
 
-        if ($response['success'] != 'true') {
-          return $this->redirectBack();
-        }
+        // if ($response['success'] != 'true') {
+        //   return $this->redirectBack();
+        // }
         
         $Product = Product::get()->byId($_POST['ID']);
         // Read Data
