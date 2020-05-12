@@ -56,9 +56,6 @@ class ProductOverviewPageController extends PageController
         $products = Product::get();
         $productList = array();
 
-
-        $locale = $this->ContentLocale;
-
         foreach ($products as $product) {
 
             $tmp =  array();
@@ -68,16 +65,16 @@ class ProductOverviewPageController extends PageController
             }
             $cat = '';
             foreach( $product->Categories() as $category ){
-                $cat .= $category->Link($locale)." ";
+                $cat .= $category->Link()." ";
             }
             $tmp['categories'] = $cat;
 
             $use = '';
             foreach( $product->Usages() as $usage ){
-               $use .= $usage->Link($locale)." ";
+               $use .= $usage->Link()." ";
             }
             $tmp['usages'] = $use;
-            $tmp['link'] = $product->Link($locale);
+            $tmp['link'] = $product->Link();
 
             $tmp['number'] = $product->Number;
             $tmp['name'] = $product->Name;
@@ -89,11 +86,7 @@ class ProductOverviewPageController extends PageController
         
             array_push($productList, $tmp);
         }
-
-        ob_start();
-                    print_r($products->count());
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+       
 
         $categories = ProductCategory::get();
         $categoriesList = array();
@@ -104,8 +97,8 @@ class ProductOverviewPageController extends PageController
             $tmp['title'] = $category->Title;
             $tmp['description'] = $category->Description;
 
-            $tmp['metatitle'] = $category->printMetaTitle($locale);
-            $tmp['metadescription'] = $category->printMetaDescription($locale);
+            $tmp['metatitle'] = $category->printMetaTitle();
+            $tmp['metadescription'] = $category->printMetaDescription();
 
             array_push($categoriesList, $tmp);
         }
@@ -118,8 +111,8 @@ class ProductOverviewPageController extends PageController
             $tmp =  array();
             $tmp['title'] = $usage->Title;
             $tmp['description'] = $usage->Description;
-            $tmp['metatitle'] = $usage->printMetaTitle($locale);
-            $tmp['metadescription'] = $usage->printMetaDescription($locale);
+            $tmp['metatitle'] = $usage->printMetaTitle();
+            $tmp['metadescription'] = $usage->printMetaDescription();
 
             array_push($usagesList, $tmp);
         }
@@ -133,22 +126,8 @@ class ProductOverviewPageController extends PageController
 
     public function category(HTTPRequest $request){
 
-        switch($this->Locale){
-            case "de-DE":
-            $urlsegment = 'URLSegment';
-            break;
-            case "en-US":
-            $urlsegment = 'URLSegment__en-US';
-            break;
-            case "es-ES":
-            $urlsegment = 'URLSegment__es-ES';
-            break;
-            default:
-            $urlsegment = 'URLSegment';
-            break;
-        }
         if ($request->param('Category')){
-            $category = ProductCategory::get()->filter(array($urlsegment => $request->param('Category')))->First();
+            $category = ProductCategory::get()->filter(array('URLSegment',$request->param('Category')))->First();
             if(!$category) {
                 return $this->httpError(404,'Kategorie nicht gefunden.');
             }
@@ -170,8 +149,7 @@ class ProductOverviewPageController extends PageController
             // $tags .= '<link rel="alternate" type="text/html" title="Categoria - '.Convert::raw2xml($this->getTranslation('es-ES')->Title).'" hreflang="es" href="'.Director::AbsoluteURL($this->getTranslation('es-ES')->Link().'categoria').'" />' . "\n";
 
             return array(
-                'showCategories' => true,
-                'Locale' => $this->Locale,
+                'ShowCategories' => true,
                 'Title' => $this->Title.': '._t('ProductPage.CATEGORIES','Kategorien'),
                 'MetaTitle' => _t('ProductPage.CATEGORIES','Produkt Kategorien'),
                 'CustomMetaTags' =>  $tags,
