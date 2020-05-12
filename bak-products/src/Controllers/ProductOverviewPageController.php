@@ -287,6 +287,10 @@ class ProductOverviewPageController extends PageController
 
 
     function SendProductForm($data) {
+        ob_start();
+                    print_r($data);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         //Recaptcha validation
         // if (!array_key_exists('g-recaptcha-response', $_POST) || empty($_POST['g-recaptcha-response'])) {
         //   return $this->redirectBack();
