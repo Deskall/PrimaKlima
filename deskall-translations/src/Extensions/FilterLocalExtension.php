@@ -7,7 +7,9 @@ use TractorCow\Fluent\Model\Locale;
 
 class FilterLocalExtension extends DataExtension
 {
-    
+    public function updateFieldLabels(&$labels){
+        $labels['Locales'] = "Sprachen";
+    }
 
     public function onBeforeWrite(){
     	parent::onBeforeWrite();

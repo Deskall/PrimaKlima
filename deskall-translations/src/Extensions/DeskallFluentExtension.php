@@ -8,9 +8,7 @@ use SilverStripe\ORM\DataObject;
 class DeskallFluentExtension extends FluentExtension 
 {
 
-  public function updateFieldLabels(&$labels){
-    $labels['Locales'] = "Sprachen";
-  }
+
 
   /**
   * Return the localised value for a given field and a given locale
