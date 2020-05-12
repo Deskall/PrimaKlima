@@ -48,7 +48,7 @@ class GridFieldPublishNews implements GridField_ColumnProvider, GridField_Action
 		if (!$record->canEdit()) {
 			return;
 		}
-		if ($record->Status != "Published"){
+		if ($record->Status != "published"){
 			$field = GridField_FormAction::create(
 				$gridField, 'Veröffentlichen' . $record->ID, false, "Publish", array('RecordID' => $record->ID)
 				)
@@ -56,7 +56,7 @@ class GridFieldPublishNews implements GridField_ColumnProvider, GridField_Action
 				->setAttribute('title', _t('SiteTree.BUTTONPUBLISH', 'Veröffentlichen'))
 				->setAttribute('data-icon', 'accept_disabled')
 				->setDescription(_t('News.BUTTONPUBLISHDESC', 'Veröffentlichen'));
-				return $field->Field();
+				return $field;
 		}
 		else{
 			$field = GridField_FormAction::create(
@@ -66,7 +66,7 @@ class GridFieldPublishNews implements GridField_ColumnProvider, GridField_Action
 				->setAttribute('title', _t('SiteTree.BUTTONARCHIVE', 'Archivieren'))
 				->setAttribute('data-icon', 'accept')
 				->setDescription(_t('News.BUTTONARCHIVEDESC', 'Archivieren'));
-				return $field->Field();
+				return $field;
 		}
 
 	}
