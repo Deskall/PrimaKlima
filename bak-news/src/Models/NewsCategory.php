@@ -4,6 +4,7 @@ namespace Bak\News\Models;
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\View\Parsers\URLSegmentFilter;
+use Bak\News\Models\News;
 
 class NewsCategory extends DataObject {
 
@@ -14,7 +15,7 @@ class NewsCategory extends DataObject {
 
 
   private static $belongs_many_many = array(
-    "News" => "News",
+    "News" => News::class,
   );
 
   private static $singular_name = 'Kategorie';
