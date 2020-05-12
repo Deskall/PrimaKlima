@@ -123,7 +123,7 @@ public function doArchive(){
 
 public function doPublish(){
   $this->Status = "published";
-  $this->PublishDate = new \Datetime();
+  $this->PublishDate = date();
   $this->write();
 }
 
