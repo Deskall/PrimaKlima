@@ -20,12 +20,12 @@
 <section class="uk-section">
   <div class="uk-container">
     <div data-uk-grid>
-      <div class="uk-visible@m uk-width-1-3@m uk-width-1-4@l">
+      <div class="uk-visible@m uk-width-1-3@m uk-width-1-4@l sidebar-products">
         <h2><%t ProductPage.PRODUKTE "Produkte" %></h2>
         <ul class="uk-nav">
           <% loop $getCategories %>
           <% if $Title %>
-          <li class="$Top.Product.Name <% if $Top.Product.hasCategory($ID) %>uk-active<% end_if %>"><a href="$Link($Top.Locale)"><span class="uk-margin-small-right" data-uk-icon="chevron-right"></span>$Title</a></li>
+          <li class="<% if $Top.Product.hasCategory($ID) %>uk-active<% end_if %>"><a href="$Link($Top.Locale)"><span class="uk-margin-small-right" data-uk-icon="chevron-right"></span>$Title</a></li>
           <% end_if %>
           <% end_loop %>
         </ul>
