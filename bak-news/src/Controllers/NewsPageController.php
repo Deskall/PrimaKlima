@@ -33,6 +33,7 @@ class NewsPageController extends PageController {
     );
 
     public function NewsList(){
+        print_r('ici');
         if ($this->Category()->ID > 0){
             $news = ManyManyList::create("News","News_Categories","NewsID","NewsCategoryID")->filter('Status','published')->sort(array('Created' => 'DESC'));
         }
