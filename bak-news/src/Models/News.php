@@ -26,6 +26,10 @@ class News extends DataObject {
     'Status' => 'Varchar(250)'
   );
 
+  private static $extensions = [
+    'Versioned'
+  ];
+
   private static $defaults = array(
     'Title' => 'Neuer Eintrag',
     'URLSegment' => 'neuer-eintrag',
