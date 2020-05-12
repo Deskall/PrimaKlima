@@ -82,24 +82,24 @@ class ProductOverviewPageController extends PageController
             $tmp['number'] = $product->Number;
 
             switch ($locale){
-                case "de_DE":
+                case "de-DE":
                     $tmp['name'] = $product->Name;
                     $tmp['lead'] = $product->Lead;
                     $tmp['description'] = DBHTMLText::create()->setValue($product->Description)->limitWordCount(30);
                     $tmp['linkText'] = 'Zum Produkt';
                     $tmp['numberText'] = 'Best.-Nr.';
                 break;
-                case "en_US":
-                    $tmp['name'] = $product->Name__en_US;
-                    $tmp['description'] = $product->Description__en_US;
-                    $tmp['features'] = $product->Features__en_US;
+                case "en-US":
+                    $tmp['name'] = $product->Name__en-US;
+                    $tmp['description'] = $product->Description__en-US;
+                    $tmp['features'] = $product->Features__en-US;
                     $tmp['linkText'] = 'Go to product';
                     $tmp['numberText'] = 'Order-No.';
                 break;
-                case "es_ES":
-                    $tmp['name'] = $product->Name__es_ES;
-                    $tmp['description'] = $product->Description__es_ES;
-                    $tmp['features'] = $product->Features__es_ES;
+                case "es-ES":
+                    $tmp['name'] = $product->Name__es-ES;
+                    $tmp['description'] = $product->Description__es-ES;
+                    $tmp['features'] = $product->Features__es-ES;
                     $tmp['linkText'] = 'Ir al producto';
                     $tmp['numberText'] = 'Order-No.';
                 break;
@@ -123,18 +123,18 @@ class ProductOverviewPageController extends PageController
             $tmp =  array();
 
            switch( $locale){
-                case "de_DE":
+                case "de-DE":
                     $tmp['title'] = $category->Title;
                     $tmp['description'] = $category->Description;
                 break;
-                case "en_US":
-                    $tmp['title'] = $category->Title__en_US;
-                    $tmp['description'] = $category->Description__en_US;
+                case "en-US":
+                    $tmp['title'] = $category->Title__en-US;
+                    $tmp['description'] = $category->Description__en-US;
                 break;
 
-                case "es_ES":
-                    $tmp['title'] = $category->Title__es_ES;
-                    $tmp['description'] = $category->Description_es_ES;
+                case "es-ES":
+                    $tmp['title'] = $category->Title__es-ES;
+                    $tmp['description'] = $category->Description_es-ES;
                 break;
                 default:
                     $tmp['title'] = $category->Title;
@@ -158,14 +158,14 @@ class ProductOverviewPageController extends PageController
     public function category(HTTPRequest $request){
 
         switch($this->Locale){
-            case "de_DE":
+            case "de-DE":
             $urlsegment = 'URLSegment';
             break;
-            case "en_US":
-            $urlsegment = 'URLSegment__en_US';
+            case "en-US":
+            $urlsegment = 'URLSegment__en-US';
             break;
-            case "es_ES":
-            $urlsegment = 'URLSegment__es_ES';
+            case "es-ES":
+            $urlsegment = 'URLSegment__es-ES';
             break;
             default:
             $urlsegment = 'URLSegment';
@@ -190,9 +190,9 @@ class ProductOverviewPageController extends PageController
 
             $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
             $tags .= '<meta name="description" content="'._t('ProductPage.CATEGORIES','Produkt Kategorien').' - '.$this->MetaDescription.'">';
-            // $tags .= '<link rel="alternate" type="text/html" title="Kategorien - '.Convert::raw2xml($this->getTranslation('de_DE')->Title).'" hreflang="de" href="'.Director::AbsoluteURL($this->getTranslation('de_DE')->Link().'kategorie').'" />' . "\n";
-            // $tags .= '<link rel="alternate" type="text/html" title="Categories - '.Convert::raw2xml($this->getTranslation('en_US')->Title).'" hreflang="en" href="'.Director::AbsoluteURL($this->getTranslation('en_US')->Link().'category').'" />' . "\n";
-            // $tags .= '<link rel="alternate" type="text/html" title="Categoria - '.Convert::raw2xml($this->getTranslation('es_ES')->Title).'" hreflang="es" href="'.Director::AbsoluteURL($this->getTranslation('es_ES')->Link().'categoria').'" />' . "\n";
+            // $tags .= '<link rel="alternate" type="text/html" title="Kategorien - '.Convert::raw2xml($this->getTranslation('de-DE')->Title).'" hreflang="de" href="'.Director::AbsoluteURL($this->getTranslation('de-DE')->Link().'kategorie').'" />' . "\n";
+            // $tags .= '<link rel="alternate" type="text/html" title="Categories - '.Convert::raw2xml($this->getTranslation('en-US')->Title).'" hreflang="en" href="'.Director::AbsoluteURL($this->getTranslation('en-US')->Link().'category').'" />' . "\n";
+            // $tags .= '<link rel="alternate" type="text/html" title="Categoria - '.Convert::raw2xml($this->getTranslation('es-ES')->Title).'" hreflang="es" href="'.Director::AbsoluteURL($this->getTranslation('es-ES')->Link().'categoria').'" />' . "\n";
 
             return array(
                 'showCategories' => true,
@@ -209,14 +209,14 @@ class ProductOverviewPageController extends PageController
 
     public function application(HTTPRequest $request ){
          switch($this->Locale){
-            case "de_DE":
+            case "de-DE":
             $urlsegment = 'URLSegment';
             break;
-            case "en_US":
-            $urlsegment = 'URLSegment__en_US';
+            case "en-US":
+            $urlsegment = 'URLSegment__en-US';
             break;
-            case "es_ES":
-            $urlsegment = 'URLSegment__es_ES';
+            case "es-ES":
+            $urlsegment = 'URLSegment__es-ES';
             break;
             default:
             $urlsegment = 'URLSegment';
@@ -227,9 +227,9 @@ class ProductOverviewPageController extends PageController
 
           $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
           $tags .= '<meta name="description" content="'._t('ProductPage.ANWENDUNG','Produkt Anwendungen').' - '.$this->MetaDescription.'">';
-            // $tags .= '<link rel="alternate" type="text/html" title="Anwendungen - '.Convert::raw2xml($this->getTranslation('de_DE')->Title).'" hreflang="de" href="'.Director::AbsoluteURL($this->getTranslation('de_DE')->Link().'anwendung').'" />' . "\n";
-            // $tags .= '<link rel="alternate" type="text/html" title="Usages - '.Convert::raw2xml($this->getTranslation('en_US')->Title).'" hreflang="en" href="'.Director::AbsoluteURL($this->getTranslation('en_US')->Link().'application').'" />' . "\n";
-            // $tags .= '<link rel="alternate" type="text/html" title="Usos - '.Convert::raw2xml($this->getTranslation('es_ES')->Title).'" hreflang="es" href="'.Director::AbsoluteURL($this->getTranslation('es_ES')->Link().'uso').'" />' . "\n";
+            // $tags .= '<link rel="alternate" type="text/html" title="Anwendungen - '.Convert::raw2xml($this->getTranslation('de-DE')->Title).'" hreflang="de" href="'.Director::AbsoluteURL($this->getTranslation('de-DE')->Link().'anwendung').'" />' . "\n";
+            // $tags .= '<link rel="alternate" type="text/html" title="Usages - '.Convert::raw2xml($this->getTranslation('en-US')->Title).'" hreflang="en" href="'.Director::AbsoluteURL($this->getTranslation('en-US')->Link().'application').'" />' . "\n";
+            // $tags .= '<link rel="alternate" type="text/html" title="Usos - '.Convert::raw2xml($this->getTranslation('es-ES')->Title).'" hreflang="es" href="'.Director::AbsoluteURL($this->getTranslation('es-ES')->Link().'uso').'" />' . "\n";
 
       
             return array(
@@ -256,14 +256,14 @@ class ProductOverviewPageController extends PageController
 
     public function detail(HTTPRequest $request ){
         switch($this->Locale){
-            case "de_DE":
+            case "de-DE":
             $urlsegment = 'URLSegment';
             break;
-            case "en_US":
-            $urlsegment = 'URLSegment__en_US';
+            case "en-US":
+            $urlsegment = 'URLSegment__en-US';
             break;
-            case "es_ES":
-            $urlsegment = 'URLSegment__es_ES';
+            case "es-ES":
+            $urlsegment = 'URLSegment__es-ES';
             break;
             default:
             $urlsegment = 'URLSegment';
@@ -308,7 +308,7 @@ class ProductOverviewPageController extends PageController
         // Read Data
 
         $contents = array(
-            'de_DE' => array(
+            'de-DE' => array(
                 'address' => 'Personalien',
                 'name' => 'Name',
                 'firma' => 'Firma',
@@ -322,7 +322,7 @@ class ProductOverviewPageController extends PageController
                 'message' => 'Nachricht'
 
             ),
-            'en_US' => array(
+            'en-US' => array(
                 'address' => 'Personal data',
                 'name' => 'Name',
                 'firma' => 'Company',
@@ -335,7 +335,7 @@ class ProductOverviewPageController extends PageController
                 'sendme' => 'Please send me',
                 'message' => 'Message',
             ),
-           'es_ES' => array(
+           'es-ES' => array(
               'address' => 'Información personal',
               'name' => 'Nombre',
               'firma' => 'Empresa',
