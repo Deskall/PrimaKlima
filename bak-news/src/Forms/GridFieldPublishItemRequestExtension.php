@@ -41,7 +41,7 @@ class GridFieldPublishItemRequestExtension extends DataExtension
             if ($record->ID > 0){
                 if ($record->canPublish()){
                     $publish = FormAction::create(
-                        'doPublish',
+                        'doPublishNews',
                         _t(__CLASS__.'.PUBLISH', 'Veröffentlichen')
                     )
                     ->setUseButtonTag(true)
@@ -60,7 +60,7 @@ class GridFieldPublishItemRequestExtension extends DataExtension
         return $actions;
     }
    
-    public function doPublish($data, $form)
+    public function doPublishNews($data, $form)
     {
        
         $record = $this->owner->getRecord();
