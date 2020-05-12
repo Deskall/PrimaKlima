@@ -18,7 +18,7 @@ class NewsPage extends Page {
 
     public function getCMSFields(){
          $fields = parent::getCMSFields();
-         $categories = NewsCategory::get()->sort('Categories.Title');
+         $categories = NewsCategory::get()->sort('Title');
          $categoriesField = DropdownField::create('CategoryID', 'Kategorie', $source = $categories->map("ID", "Title"))->setEmptyString('Alle Kategorien');
          $fields->addFieldToTab('Root.Main', $categoriesField, 'ContentImage');
 
