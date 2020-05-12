@@ -14,6 +14,7 @@ class HTMLDropdownField extends DropdownField{
 	protected $extraClasses = [];
 
 	private static $iconsList = [
+		'' => 'Keine',
 		'500px' => '500px',
 		'album' => 'album',
 		'arrow-down' => 'arrow-down',
