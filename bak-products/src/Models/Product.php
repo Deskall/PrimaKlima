@@ -239,22 +239,14 @@ class Product extends DataObject {
      * Link to this DO
      * @return string
      */
-    public function Link($Locale = null) {
-      switch ($Locale) {
-        case 'de_DE':
-          $URLSegment = '/produkte/detail/'.$this->URLSegment;
-          break;
-        case 'en_US':
-          $URLSegment = '/products/detail/'.$this->URLSegment__en_US;
-          break;
-        case 'es_ES':
-          $URLSegment = '/productos/detalle/'.$this->URLSegment__es_ES;
-          break;
-        default:
-          $URLSegment = '/produkte/detail/'.$this->URLSegment;
-          break;
+    public function Link() {
+     
+      $productPage = ProductOverviewPage::get()->first();
+      if ($productPage){
+        return $productPage->Link().'detail/'.$this->URLSegment;
       }
-      return $URLSegment;
+      
+      return null;
     }
 
     /**
@@ -262,7 +254,7 @@ class Product extends DataObject {
        * @return string
        */
       public function AbsoluteLink($Locale = null) {
-        return Director::absoluteURL($this->Link($Locale));
+        return Director::absoluteURL($this->Link());
       }
 
 
