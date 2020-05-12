@@ -185,41 +185,42 @@ $(document).ready(function(){
 
 	//PayPal
 	if ($('#paypal-button-container').length > 0){
-		var paypaloptions = {
-	      	intent: 'CAPTURE',
-	  	    payer: {
-	  	        name: {
-	  	          given_name: $("input[name='FirstName']").val(),
-	  	          surname: $("input[name='Name']").val()
-	  	        },
-	  	        address: {
-	  	          address_line_1: $("input[name='Street']").val(),
-	  	          address_line_2: $("input[name='Address']").val(),
-	  	          admin_area_2: $("input[name='City']").val(),
-	  	          admin_area_1: $("input[name='Region']").val(),
-	  	          postal_code: $("input[name='PostalCode']").val(),
-	  	          country_code: $("select[name='Country']").val().toUpperCase()
-	  	        },
-	  	        email_address: $("input[name='Email']").val(),
-	  	        phone: {
-	  	          phone_number: {
-	  	            national_number: $("input[name='Phone']").val()
-	  	          }
-	  	        }
-	  	    },
-	  	    purchase_units: [
-	  	        {
-	  	          amount: {
-	  	            value: getPrice(),
-	  	            currency_code: 'CHF'
-	  	          }
-	  	        }
-	  	    ]
-	    };
+		
 	    
 		paypal.Buttons({
 	    createOrder: function(data, actions) {
-	      return actions.order.create(paypaloptions);
+	    	var paypaloptions = {
+		      	intent: 'CAPTURE',
+		  	    payer: {
+		  	        name: {
+		  	          given_name: $("input[name='FirstName']").val(),
+		  	          surname: $("input[name='Name']").val()
+		  	        },
+		  	        address: {
+		  	          address_line_1: $("input[name='Street']").val(),
+		  	          address_line_2: $("input[name='Address']").val(),
+		  	          admin_area_2: $("input[name='City']").val(),
+		  	          admin_area_1: $("input[name='Region']").val(),
+		  	          postal_code: $("input[name='PostalCode']").val(),
+		  	          country_code: $("select[name='Country']").val().toUpperCase()
+		  	        },
+		  	        email_address: $("input[name='Email']").val(),
+		  	        phone: {
+		  	          phone_number: {
+		  	            national_number: $("input[name='Phone']").val()
+		  	          }
+		  	        }
+		  	    },
+		  	    purchase_units: [
+		  	        {
+		  	          amount: {
+		  	            value: getPrice(),
+		  	            currency_code: 'CHF'
+		  	          }
+		  	        }
+		  	    ]
+		    };
+	      	return actions.order.create(paypaloptions);
 	    },
 	    onApprove: function(data, actions) {
 	    	$('#paypal-button-container').hide().after('<p>Zahlung in Bearbeitung, bitte haben Sie einen Moment Geduld.</p><p>Bitte schließen Sie die Seite nicht und laden Sie sie nicht erneut.</p>');

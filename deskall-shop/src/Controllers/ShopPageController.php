@@ -376,7 +376,7 @@ class ShopPageController extends PageController{
 
 						//Update Voucher
 						$order->Voucher()->Used = true;
-						$order->Voucher()->Count = $order->Voucher()->count - 1;
+						$order->Voucher()->Count = $order->Voucher()->Count - 1;
 						$order->Voucher()->write();
 						
 						//Add Products
