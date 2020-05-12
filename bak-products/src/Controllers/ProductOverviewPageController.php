@@ -239,9 +239,9 @@ class ProductOverviewPageController extends PageController
         return array (
             'Product' => $product,
             'Title' => $product->Name,
-            'CustomMetaTitle' => $product->getProductMetaTitle($this->Locale ),
+            'MetaTitle' => $product->getProductMetaTitle(),
             'MetaTags' => DBHTMLText::create()->setValue($product->ProductMetaTags()),
-            'CustomStructuredData' => $product->StructuredData($this->Locale),
+            'StructuredData' => $product->StructuredData(),
             'HeaderSlide' => HeaderSlide::get()->first(),
             'Locales' => $product->Locales()
         );
