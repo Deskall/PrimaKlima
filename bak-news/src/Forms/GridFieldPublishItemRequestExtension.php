@@ -1,5 +1,7 @@
 <?php
 
+namespace Bak\News\Forms;
+
 use SilverStripe\Control\HTTPResponse;
 use SilverStripe\Core\Convert;
 use SilverStripe\Forms\FieldList;
