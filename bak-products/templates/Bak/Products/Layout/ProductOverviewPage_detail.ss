@@ -205,7 +205,7 @@
                       <label><input name="send[]" type="checkbox" value="<%t ProductPage.OFFERTEN 'Offerten' %>"/><%t ProductPage.OFFERTEN 'Offerten' %></label>
                     </div>
                   </div> -->
-                  <input type="hidden" name="locale" value="$Locale"/>
+                  <input type="hidden" name="locale" value="$ContentLocale"/>
 
 
 
