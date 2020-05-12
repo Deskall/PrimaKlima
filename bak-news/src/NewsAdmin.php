@@ -6,6 +6,8 @@ use SilverStripe\Admin\ModelAdmin;
 use SilverStripe\Forms\GridField\GridFieldExportButton;
 use SilverStripe\Forms\GridField\GridFieldPrintButton;
 use Bak\News\Forms\GridFieldPublishNews;
+use Bak\News\Models\NewsCategory;
+use Bak\News\Models\News;
 
 class NewsAdmin extends ModelAdmin {
 
