@@ -17,7 +17,7 @@ SilverStripe\SiteConfig\SiteConfig:
 
 BAK\Products\Models\Product:
   extensions:
-    - 'TractorCow\Fluent\Extension\FluentExtension'
+    - 'DeskallFluentExtension'
 
 BAK\Products\Models\ProductCategory:
   extensions:
