@@ -290,7 +290,7 @@ class Product extends DataObject {
   public function ProductMetaTags() {
       $tags = '<meta http-equiv="Content-type" content="text/html; charset=utf-8">';
       $tags .= '<meta name="description" content="'.$this->getProductMetaDescription().'">';
-      $tags .= $this->renderWith('BAK/Includes/FluentProduct_MetaTags');
+      $tags .= $this->renderWith('FluentProduct_MetaTags');
       // $tags .= '<link rel="alternate" type="text/html" title="'.Convert::raw2xml($this->Name).'" hreflang="de" href="'.Director::AbsoluteURL($this->Link('de_DE')).'" />' . "\n";
       // $tags .= '<link rel="alternate" type="text/html" title="'.Convert::raw2xml($this->getLocalisedValue('Name','en_US')).'" hreflang="en" href="'.Director::AbsoluteURL($this->Link('en_US')).'" />' . "\n";
       // $tags .= '<link rel="alternate" type="text/html" title="'.Convert::raw2xml($this->getLocalisedValue('Name','es_ES')).'" hreflang="es" href="'.Director::AbsoluteURL($this->Link('es_ES')).'" />' . "\n";
