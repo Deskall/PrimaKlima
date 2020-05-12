@@ -27,7 +27,7 @@ class PageLayoutExtension extends DataExtension {
 	  $fields->addFieldToTab('Root.Layout',TextField::create('ExtraCSSClass',$this->owner->fieldLabels()['ExtraCSSClass']));
 	  $fields->addFieldToTab('Root.Layout',TextField::create('ExtraHeaderClass',$this->owner->fieldLabels()['ExtraHeaderClass']));
 	  $fields->addFieldToTab('Root.Layout',TextField::create('ExtraMenuClass',$this->owner->fieldLabels()['ExtraMenuClass']));
-	  $fields->addFieldToTab('Root.Layout', HTMLDropdownField::create('MenuIcon',$this->owner->fieldLabels()['MenuIcon'], HTMLDropdownField::getSourceIcones(), 'check')->addExtraClass('columns'));
+	  $fields->addFieldToTab('Root.Layout', HTMLDropdownField::create('MenuIcon',$this->owner->fieldLabels()['MenuIcon'], HTMLDropdownField::getSourceIcones(), 'check')->setEmptyString(_t('PageLayout.IconLabel','Wählen Sie ein Icon'))->addExtraClass('columns'));
 
 	  
 	}
