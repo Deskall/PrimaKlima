@@ -108,7 +108,7 @@ public function onBeforeWrite(){
 // }
 
 public function canPublish(){
-  return !$this->Status == "published";
+  return $this->Status != "published";
 }
 
 public function canArchive(){
