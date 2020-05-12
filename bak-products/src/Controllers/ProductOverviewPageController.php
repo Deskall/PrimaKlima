@@ -135,24 +135,22 @@ class ProductOverviewPageController extends PageController
                 return array(
                     'SelectedCategory' => $category,
                     'showProducts' => true,
-                    'CustomMetaTitle' => $category->printMetaTitle($this->Locale),
-                    'CustomMetaTags' => $category->getMetaTags($this->Locale)
+                    'MetaTitle' => $category->printMetaTitle(),
+                    'MetaTags' => $category->getMetaTags()
                 );
             }
         }
      
 
             $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
-            $tags .= '<meta name="description" content="'._t('ProductPage.CATEGORIES','Produkt Kategorien').' - '.$this->MetaDescription.'">';
-            // $tags .= '<link rel="alternate" type="text/html" title="Kategorien - '.Convert::raw2xml($this->getTranslation('de-DE')->Title).'" hreflang="de" href="'.Director::AbsoluteURL($this->getTranslation('de-DE')->Link().'kategorie').'" />' . "\n";
-            // $tags .= '<link rel="alternate" type="text/html" title="Categories - '.Convert::raw2xml($this->getTranslation('en-US')->Title).'" hreflang="en" href="'.Director::AbsoluteURL($this->getTranslation('en-US')->Link().'category').'" />' . "\n";
-            // $tags .= '<link rel="alternate" type="text/html" title="Categoria - '.Convert::raw2xml($this->getTranslation('es-ES')->Title).'" hreflang="es" href="'.Director::AbsoluteURL($this->getTranslation('es-ES')->Link().'categoria').'" />' . "\n";
+            $tags .= '<meta name="description" content="'._t('ProductPage.CATEGORIES','Produkt Kategorien').'">';
+            $tags .= $this->renderWith('FluentCategory_MetaTags');
 
             return array(
                 'ShowCategories' => true,
                 'Title' => $this->Title.': '._t('ProductPage.CATEGORIES','Kategorien'),
                 'MetaTitle' => _t('ProductPage.CATEGORIES','Produkt Kategorien'),
-                'CustomMetaTags' =>  $tags,
+                'MetaTags' =>  $tags,
                 'isCategoryOverview' => true
             );
 
