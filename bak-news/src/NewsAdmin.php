@@ -5,7 +5,7 @@ namespace Bak\Products;
 use SilverStripe\Admin\ModelAdmin;
 use SilverStripe\Forms\GridField\GridFieldExportButton;
 use SilverStripe\Forms\GridField\GridFieldPrintButton;
-use Bak\News\Forms\GridFieldPublishNews;
+use Bak\News\Forms\GridFieldPublishAction;
 use Bak\News\Models\NewsCategory;
 use Bak\News\Models\News;
 
@@ -31,7 +31,7 @@ class NewsAdmin extends ModelAdmin {
         {
             $gridField->getConfig()->removeComponentsByType(GridFieldExportButton::class);
             $gridField->getConfig()->removeComponentsByType(GridFieldPrintButton::class);  
-            $gridField->getConfig()->addComponent(new GridFieldPublishNews());
+            $gridField->getConfig()->addComponent(new GridFieldPublishAction());
         }
         if($this->modelClass== NewsCategory::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
         {
