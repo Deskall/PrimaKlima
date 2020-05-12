@@ -14,6 +14,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 class News extends DataObject {
   private static $singular_name = 'Neuigkeit';
   private static $plural_name = 'Neuigkeiten';
+  private static $table_name = 'BAK_News';
 
   private static $db = array(
     'Title' => 'Varchar(250)',
