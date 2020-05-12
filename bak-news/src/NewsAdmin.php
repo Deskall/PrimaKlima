@@ -13,8 +13,8 @@ class NewsAdmin extends ModelAdmin {
         'NewsCategory'
     );
 
-    static $menu_priority = 2;
-    static $menu_icon = 'bak-news/img/news.png';
+    private static $menu_priority = 2;
+    private static $menu_icon = 'bak-news/img/news.png';
 
     private static $url_segment = 'news';
     private static $menu_title = 'Neuigkeiten';
