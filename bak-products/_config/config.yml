@@ -18,3 +18,15 @@ SilverStripe\SiteConfig\SiteConfig:
 BAK\Products\Models\Product:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentExtension'
+
+BAK\Products\Models\ProductCategory:
+  extensions:
+    - 'TractorCow\Fluent\Extension\FluentExtension'
+
+BAK\Products\Models\ProductUsage:
+  extensions:
+    - 'TractorCow\Fluent\Extension\FluentExtension'
+
+BAK\Products\Models\ProductUseArea:
+  extensions:
+    - 'TractorCow\Fluent\Extension\FluentExtension'
