@@ -129,7 +129,6 @@ class ProductOverviewPageController extends PageController
     public function category(HTTPRequest $request){
 
         if ($request->param('Category')){
-            print_r('ici');
             $category = ProductCategory::get()->filter('URLSegment',$request->param('Category'))->First();
             if(!$category) {
                 return $this->httpError(404,'Kategorie nicht gefunden.');

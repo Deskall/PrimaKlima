@@ -7,7 +7,6 @@
 	</div>
 	<div id="description">
 		<% if SelectedCategory || SelectedUsage %>
-		la
 		<div class="element  leadblock" id="leadblock-0-13">
 			<section class="uk-section  uk-section-small">
 				<div class="uk-container uk-text-left ">
