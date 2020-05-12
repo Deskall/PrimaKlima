@@ -33,7 +33,6 @@ class NewsPageController extends PageController {
     );
 
     public function NewsList(){
-        $locale = $this->Locale;
         if ($this->Category()->ID > 0){
             $news = ManyManyList::create("News","News_Categories","NewsID","NewsCategoryID")->filter('Status','Published')->sort(array('Created' => 'DESC'));
         }

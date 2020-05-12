@@ -4,7 +4,7 @@
 		<section class="uk-section uk-section-small">
 			<div class="uk-container">
 				<div data-uk-grid>
-					<% loop News %>
+					<% loop NewsList %>
 					<div>
 						<div class="uk-card">
 							<div class="uk-card-content">
