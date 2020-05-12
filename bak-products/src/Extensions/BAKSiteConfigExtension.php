@@ -37,7 +37,7 @@ class BAKSiteConfigExtension extends DataExtension
     $fields->addFieldsToTab('Root.Produkte',[
       new TextField("ReceiverEmail", "E-Mail Adressen Empfänger (kommagetrennt)"),
       new TextField("SubjectEmail", "E-Mail Betreff"),
-      new TextareaField("ContentEmail", "E-Mail Inhalt")),
+      new TextareaField("ContentEmail", "E-Mail Inhalt"),
       new EmailField('EmailSentFrom', 'E-Mail Absender'),
       new TextField("SubjectEmailConfirmation", "Email Betreff Bestätigung"),
       new TextareaField("ContentEmailConfirmation", "Email Inhalt Bestätigung"),
