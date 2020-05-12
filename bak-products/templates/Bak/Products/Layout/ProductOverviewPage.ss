@@ -32,12 +32,12 @@
 		<section class="uk-section  uk-section-small">
 					
 			<div class="uk-container uk-text-left ">
-				<div class="uk-child-width-1-1 uk-grid-small uk-grid uk-grid-stack" data-uk-grid="">
+				<div class="uk-child-width-1-1 uk-grid-small" data-uk-grid>
 					<div class="uk-width-1-1 uk-first-column">
 						<div class="uk-panel">
 							<div class="product-filter-holder uk-flex">
-							  <a data-show-filter="categories" href="<% if $Locale = "de_DE"%>produkte/kategorie<% else_if $Locale == "es_ES" %>productos/categoría<% else %>products/category<% end_if %>" data-filter-name="<%t ProductOverviewPage.KATEGORIE "Kategorie" %>" class="head <% if ShowCategories || SelectedCategory %>active<% end_if %>"><% if SelectedCategory %>$SelectedCategory.Title<% else %><%t ProductOverviewPage.KATEGORIE "Kategorie" %><% end_if %></a>
-							  <a data-show-filter="usages" href="<% if $Locale = "de_DE"%>produkte/anwendung<% else_if $Locale == "es_ES" %>productos/uso<% else %>products/application<% end_if %>" data-filter-name="<%t ProductOverviewPage.ANWENDUNG "Anwendung" %>" class="head <% if ShowUsages || SelectedUsage %>active<% end_if %>"><% if SelectedUsage %>$SelectedUsage.Title<% else %><%t ProductOverviewPage.ANWENDUNG "Anwendung" %><% end_if %></a>
+							  <a data-show-filter="categories" href="<%t ProductOverviewPage.CategoryLink '{link}/kategorie/' link=$Link %>" data-filter-name="<%t ProductOverviewPage.KATEGORIE "Kategorie" %>" class="head <% if ShowCategories || SelectedCategory %>active<% end_if %>"><% if SelectedCategory %>$SelectedCategory.Title<% else %><%t ProductOverviewPage.KATEGORIE "Kategorie" %><% end_if %></a>
+							  <a data-show-filter="usages" href="<%t ProductOverviewPage.UsageLink '{link}/anwendung/' link=$Link %>" data-filter-name="<%t ProductOverviewPage.ANWENDUNG "Anwendung" %>" class="head <% if ShowUsages || SelectedUsage %>active<% end_if %>"><% if SelectedUsage %>$SelectedUsage.Title<% else %><%t ProductOverviewPage.ANWENDUNG "Anwendung" %><% end_if %></a>
 							  <span class="head search"><input data-search-products placeholder="<%t ProductOverviewPage.Name 'Name' %>" /></span>
 							</div>
 
@@ -50,7 +50,7 @@
 									  	<div class="product">
 									  	    <div data-uk-grid>
 									  	        <div class="uk-width-1-4@m">
-									  	            <a href="$Link($Top.Locale)"><img src="$MainImage.Pad(210,150).URL" alt="$Name" /></a>
+									  	            <a href="$Link"><img src="$MainImage.Pad(210,150).URL" alt="$Name" /></a>
 									  	        </div>
 									  	        <div class="uk-width-3-4@m">
 									  	            <h3>$Name</h3>
@@ -60,7 +60,7 @@
 									  	                <p class="description">$Description.LimitWordCount(30)</p>
 									  	            <% end_if %>
 									  	            <div class="uk-text-right">
-									  	                <a href="$Link($Top.Locale)"><%t Main.ZUMPRODUKT 'Zum Produkt' %> <span class="icon ion-ios-arrow-right"></span></a>
+									  	                <a href="$Link"><%t Main.ZUMPRODUKT 'Zum Produkt' %> <span class="icon ion-ios-arrow-right"></span></a>
 									  	            </div>
 									  	        </div>
 									  	    </div>
@@ -74,7 +74,7 @@
 								 		  	<div class="product">
 								 		  	    <div data-uk-grid>
 								 		  	        <div class="uk-width-1-4@m">
-								 		  	            <a href="$Link($Top.Locale)"><img src="$MainImage.Pad(210,150).URL" alt="$Name" /></a>
+								 		  	            <a href="$Link"><img src="$MainImage.Pad(210,150).URL" alt="$Name" /></a>
 								 		  	        </div>
 								 		  	        <div class="uk-width-3-4@m">
 								 		  	            <h3>$Name</h3>
@@ -84,7 +84,7 @@
 								 		  	                <p class="description">$Description.LimitWordCount(30)</p>
 								 		  	            <% end_if %>
 								 		  	            <div class="uk-text-right">
-								 		  	                <a href="$Link($Top.Locale)"><%t Product.ToProduct 'Zum Produkt' %> <span class="icon ion-ios-arrow-right"></span></a>
+								 		  	                <a href="$Link"><%t Product.ToProduct 'Zum Produkt' %> <span class="icon ion-ios-arrow-right"></span></a>
 								 		  	            </div>
 								 		  	        </div>
 								 		  	    </div>
@@ -100,7 +100,7 @@
 							   <div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-padding-small uk-padding-top-large" data-uk-grid data-uk-height-match="h3">
 							            <% loop getCategories %>
 							            <div>
-							                <a href="$Link($Top.Locale)" class="uk-display-block" data-filter-name="$Title" data-type="category">
+							                <a href="$Link" class="uk-display-block" data-filter-name="$Title" data-type="category">
 							                <h3 class="uk-margin-remove">$Title</h3>
 							                <% if $ProductCategoryImage %>
 							                  <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1  uk-margin-small-bottom" />
@@ -121,7 +121,7 @@
 							                <div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
 							                    <% loop Usages %>
 							                    <div>
-							                        <a href="$Link($Top.Locale)" class="col w-4" data-filter-name="$Title"  data-type="usage">
+							                        <a href="$Link" class="col w-4" data-filter-name="$Title"  data-type="usage">
 							                          <div class="box uk-clearfix">
 							                            <% if $Image %>
 							                                <img src="$Image.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1 uk-margin-small-bottom" />
