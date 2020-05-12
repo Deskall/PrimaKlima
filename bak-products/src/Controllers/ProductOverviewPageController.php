@@ -148,7 +148,7 @@ class ProductOverviewPageController extends PageController
 
             return array(
                 'ShowCategories' => true,
-                'Title' => $this->Title.': '._t('ProductPage.CATEGORIES','Kategorien'),
+                'Title' => $this->Title.'- '._t('ProductPage.CATEGORIES','Kategorien'),
                 'MetaTitle' => _t('ProductPage.CATEGORIES','Produkt Kategorien'),
                 'MetaTags' =>  DBHTMLText::create()->setValue($tags),
                 'isCategoryOverview' => true
@@ -171,7 +171,7 @@ class ProductOverviewPageController extends PageController
             return array(
                 'ShowUsages' => true,
                 'Locale' => $this->Locale,
-                'Title' => $this->Title.': '._t('ProductPage.ANWENDUNG','Anwendungen'),
+                'Title' => $this->Title.' - '._t('ProductPage.ANWENDUNG','Anwendungen'),
                 'MetaTitle' => _t('ProductPage.ANWENDUNG','Produkt Anwendungen'),
                 'MetaTags' =>  DBHTMLText::create()->setValue($tags),
                 'isUsageOverview' => true
