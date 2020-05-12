@@ -11,6 +11,7 @@ use SilverStripe\Forms\LiteralField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Control\Director;
 use Bak\Products\Models\ProductUsage;
+use Bak\Products\ProductOverviewPage;
 
 class ProductUseArea extends DataObject {
 

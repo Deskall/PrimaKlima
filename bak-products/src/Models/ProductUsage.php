@@ -9,6 +9,7 @@ use SilverStripe\Control\Director;
 use SilverStripe\Core\Convert;
 use Bak\Products\Models\Product;
 use Bak\Products\Models\ProductUseArea;
+use Bak\Products\ProductOverviewPage;
 
 class ProductUsage extends DataObject {
     private static $db = array(
@@ -79,27 +80,14 @@ class ProductUsage extends DataObject {
   }
 
 
-  public function printMetaTitle( $Locale ){
-     switch($Locale){
-      case "de_DE":
-      $title = ( $this->MetaTitle ) ? $this->MetaTitle : $this->Name;
-      break;
-      case "en_US":
-       $title = ( $this->MetaTitle__en_US ) ? $this->MetaTitle__en_US : $this->Name__en_US;
-      break;
-      case "es_ES":
-       $title = ( $this->MetaTitle__es_ES ) ? $this->MetaTitle__es_ES : $this->Name__es_ES;
-      break;
-      default:
-       $title = ( $this->MetaTitle ) ? $this->MetaTitle : $this->Name;
-      break;
-    }
+  public function printMetaTitle(){
+    $title = ( $this->MetaTitle ) ? $this->MetaTitle : $this->Name;
     return $title;
   }
 
-    public function getMetaTags($locale) {
+  public function getMetaTags() {
         $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
-        $tags .= '<meta name="description" content="'.$this->printMetaDescription( $locale ).'">';
+        $tags .= '<meta name="description" content="'.$this->printMetaDescription().'">';
         $tags .= '<link rel="alternate" type="text/html" title="'.Convert::raw2xml($this->Title).'" hreflang="de" href="'.Director::AbsoluteURL($this->Link()).'" />' . "\n";
         $tags .= '<link rel="alternate" type="text/html" title="'.Convert::raw2xml($this->Title__en_US).'" hreflang="en" href="'.Director::AbsoluteURL($this->Link('en_US')).'" />' . "\n";
         $tags .= '<link rel="alternate" type="text/html" title="'.Convert::raw2xml($this->Title__es_ES).'" hreflang="es" href="'.Director::AbsoluteURL($this->Link('es_ES')).'" />' . "\n";
