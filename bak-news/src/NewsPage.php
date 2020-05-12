@@ -1,6 +1,6 @@
 <?php
 
-namespace Bak\Products;
+namespace Bak\News;
 
 use Page;
 use SilverStripe\Forms\DropdownField;

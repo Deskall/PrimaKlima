@@ -12,8 +12,8 @@ use Bak\News\Models\News;
 class NewsAdmin extends ModelAdmin {
 
     private static $managed_models = array(
-        'News',
-        'NewsCategory'
+        News::class,
+        NewsCategory::class
     );
 
     private static $menu_priority = 2;
