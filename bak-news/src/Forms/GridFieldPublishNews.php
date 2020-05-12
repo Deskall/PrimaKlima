@@ -88,12 +88,11 @@ class GridFieldPublishNews implements GridField_ColumnProvider, GridField_Action
 		}
 		switch($actionName){
 			case "publish":
-				$item->Status = 'Published';
+				$item->doPublish();
 				break;
 			case "archive": 
-				$item->Status = 'Archived';
+				$item->doArchive();
 				break;
 		}
-		$item->write();
 	}
 }
