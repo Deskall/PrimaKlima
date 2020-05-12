@@ -8,6 +8,8 @@ use BAK\News\Models\NewsCategory;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Control\Director;
+use SilverStripe\View\Parsers\URLSegmentFilter;
+
 
 class News extends DataObject {
   private static $singular_name = 'Neuigkeit';
