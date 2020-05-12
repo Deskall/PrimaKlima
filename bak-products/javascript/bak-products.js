@@ -39,7 +39,7 @@ $(document).ready(function(){
         $(this).parents("[data-dropdown]").find(".checked-options").html(listHTML);
     });
 
-    if( window.location.pathname.split("/")[1] == 'produkte' || window.location.pathname.split("/")[1] == 'products'){
+    if( $(".bak__products__blocks__productblock").length > 0){
         jQuery.ajax({
             type: "GET",
             url: window.location.pathname.split("/")[1]+"/all",
