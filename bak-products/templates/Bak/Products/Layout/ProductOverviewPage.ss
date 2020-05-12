@@ -27,7 +27,7 @@
 	  	<% end_if %>
 	</div>
 
-	<div class="element  bak__products__blocks__productblock" id="bakproductsblocksproductblock-0">
+	<div class="element  bak__products__blocks__productblock" id="bakproductsblocksproductblock-0" data-products-url="{$Link}all">
 	
 		<section class="uk-section  uk-section-small">
 					
