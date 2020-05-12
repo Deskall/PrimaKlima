@@ -1,5 +1,6 @@
 var products,
-    categories;
+    categories,
+    usages;
 
 $(document).ready(function(){  
 
@@ -46,6 +47,7 @@ $(document).ready(function(){
                 results = jQuery.parseJSON(data);
                 products = results.products;
                 categories = results.categories;
+                usages = results.usages;
             }
         });
     }
@@ -133,11 +135,21 @@ $(document).ready(function(){
                  $("#description .dk-text-content").empty();
             }
             else{
-                for (i = 0; i < categories.length; i++) {
-                    if( categories[i]['title'] && ( categories[i]['title'].toLowerCase().indexOf( name.toLowerCase() ) > -1 ) ) {
-                        description = categories[i]['description'];
-                        metadescription = categories[i]['metadescription'];
-                    } 
+                if ($(this).attr('data-type') == "category"){
+                    for (i = 0; i < categories.length; i++) {
+                        if( categories[i]['title'] && ( categories[i]['title'].toLowerCase().indexOf( name.toLowerCase() ) > -1 ) ) {
+                            description = categories[i]['description'];
+                            metadescription = categories[i]['metadescription'];
+                        } 
+                    }
+                }
+                if ($(this).attr('data-type') == "usage"){
+                    for (i = 0; i < usages.length; i++) {
+                        if( usages[i]['title'] && ( usages[i]['title'].toLowerCase().indexOf( name.toLowerCase() ) > -1 ) ) {
+                            description = usages[i]['description'];
+                            metadescription = usages[i]['metadescription'];
+                        }
+                    }
                 }
                 $("#description .dk-text-content").empty().html(description);
                

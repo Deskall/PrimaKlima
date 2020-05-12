@@ -57,7 +57,7 @@ class ProductOverviewPageController extends PageController
         $productList = array();
 
 
-        $locale = $this->Locale;
+        $locale = $this->ContentLocale;
 
         foreach ($products as $product) {
 
@@ -147,7 +147,40 @@ class ProductOverviewPageController extends PageController
 
             array_push($categoriesList, $tmp);
         }
-        return json_encode(array('products' => $productList, 'categories' => $categoriesList));
+
+        $usages = ProductUsage::get();
+        $usagesList = array();
+        
+        foreach ($usages as $usage) {
+
+            $tmp =  array();
+
+           switch( $locale){
+                case "de-DE":
+                    $tmp['title'] = $usage->Title;
+                    $tmp['description'] = $usage->Description;
+                break;
+                case "en-US":
+                    $tmp['title'] = $usage->Title__en-US;
+                    $tmp['description'] = $usage->Description__en-US;
+                break;
+
+                case "es-ES":
+                    $tmp['title'] = $usage->Title__es-ES;
+                    $tmp['description'] = $usage->Description_es-ES;
+                break;
+                default:
+                    $tmp['title'] = $usage->Title;
+                    $tmp['description'] = $usage->Description;
+                break;
+            }
+
+            $tmp['metatitle'] = $usage->printMetaTitle($locale);
+            $tmp['metadescription'] = $usage->printMetaDescription($locale);
+
+            array_push($usagesList, $tmp);
+        }
+        return json_encode(array('products' => $productList, 'categories' => $categoriesList, 'usages' => $usagesList));
     }
 
     public function index(){
