@@ -63,7 +63,7 @@ class GridFieldPublishAction implements GridField_ColumnProvider, GridField_Acti
                       ->setAttribute('title', _t('BakNews.Publish', 'Veröffentlichen'));  
         }
         
-        return $field;
+        return $field->field();
     }
 
     public function getActions($gridField) 
