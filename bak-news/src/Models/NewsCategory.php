@@ -1,5 +1,7 @@
 <?php
 
+namespace Bak\News\Models;
+
 class NewsCategory extends DataObject {
 
     private static $db = array(

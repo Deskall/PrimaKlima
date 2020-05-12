@@ -1,5 +1,7 @@
 <?php
 
+namespace Bak\Products;
+
 use SilverStripe\Admin\ModelAdmin;
 use SilverStripe\Forms\GridField\GridFieldExportButton;
 use SilverStripe\Forms\GridField\GridFieldPrintButton;
@@ -12,7 +14,7 @@ class NewsAdmin extends ModelAdmin {
     );
 
     static $menu_priority = 2;
-    static $menu_icon = 'themes/bak/img/news.png';
+    static $menu_icon = 'bak-news/img/news.png';
 
     private static $url_segment = 'news';
     private static $menu_title = 'Neuigkeiten';
