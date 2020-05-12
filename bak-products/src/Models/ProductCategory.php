@@ -69,7 +69,7 @@ class ProductCategory extends DataObject {
   public function Link() {
     $productPage = ProductOverviewPage::get()->first();
     if ($productPage){
-      return $productPage->Link()._t('BAK.CATEGORYSEGMENT','/kategorie/').$this->URLSegment;
+      return $productPage->Link()._t('BAK.CATEGORYSEGMENT','kategorie/').$this->URLSegment;
     }
     return null;
   }
