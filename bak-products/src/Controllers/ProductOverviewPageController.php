@@ -90,6 +90,8 @@ class ProductOverviewPageController extends PageController
             array_push($productList, $tmp);
         }
 
+        print_r($productList);
+
         $categories = ProductCategory::get();
         $categoriesList = array();
        
