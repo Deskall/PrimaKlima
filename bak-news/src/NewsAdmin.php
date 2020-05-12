@@ -1,0 +1,41 @@
+<?php
+
+use SilverStripe\Admin\ModelAdmin;
+use SilverStripe\Forms\GridField\GridFieldExportButton;
+use SilverStripe\Forms\GridField\GridFieldPrintButton;
+
+class NewsAdmin extends ModelAdmin {
+
+    private static $managed_models = array(
+        'News',
+        'NewsCategory'
+    );
+
+    static $menu_priority = 2;
+    static $menu_icon = 'themes/bak/img/news.png';
+
+    private static $url_segment = 'news';
+    private static $menu_title = 'Neuigkeiten';
+    public $showImportForm = false;
+
+
+
+    public function getEditForm($id = null, $fields = null) {
+        $form = parent::getEditForm($id, $fields);
+        if($this->modelClass=='News' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
+        {
+            $form->Fields()->fieldByName("News")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
+            $form->Fields()->fieldByName("News")->getConfig()->removeComponentsByType(GridFieldPrintButton::class);  
+            $form->Fields()->fieldByName("News")->getConfig()->addComponent(new GridFieldPublishNews());
+        }
+        if($this->modelClass=='NewsCategory' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
+        {
+            $form->Fields()->fieldByName("NewsCategory")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
+            $form->Fields()->fieldByName("NewsCategory")->getConfig()->removeComponentsByType(GridFieldPrintButton::class); 
+        }
+        return $form;
+    }
+}
+
+
+
