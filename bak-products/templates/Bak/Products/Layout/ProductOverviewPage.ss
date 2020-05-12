@@ -1,7 +1,7 @@
 	<div class="element  bak__products__blocks__leadblock" id="leadblock-0">
 		<section class="uk-section  uk-section-small">
 			<div class="uk-container">
-				<h1 data-title-orig="$Title">$Title</h1>
+				<h1 data-title-orig="$Title">$Title<% if SelectedCategory %>:$SelectedCategory.Title<% else_if SelectedUsage%>$SelectedUsage.Title<% end_if %></h1>
 			</div>
 		</section>
 	</div>
