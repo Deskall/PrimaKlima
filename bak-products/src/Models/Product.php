@@ -301,99 +301,41 @@ class Product extends DataObject {
 
 
 
-  public function getProductMetaDescription( $Locale ){
-    switch($Locale){
-      case "de_DE":
-      $description = ( $this->MetaDescription ) ? $this->MetaDescription : $this->Description;
-      break;
-      case "en_US":
-      $description = ( $this->MetaDescription__en_US ) ? $this->MetaDescription__en_US : $this->Description__en_US;
-      break;
-      case "es_ES":
-      $description = ( $this->MetaDescription__es_ES ) ? $this->MetaDescription__es_ES : $this->Description__es_ES;
-      break;
-      default:
-      $description = ( $this->MetaDescription ) ? $this->MetaDescription : $this->Description;
-      break;
-    }
-
+  public function getProductMetaDescription( ){
+    $description = ( $this->MetaDescription ) ? $this->MetaDescription : $this->Description;
     return $description;
   }
 
 
-  public function getProductMetaTitle( $Locale ){
-     switch($Locale){
-      case "de_DE":
-      $title = ( $this->MetaTitle ) ? $this->MetaTitle : $this->Categories()->First()->NameSingular.' '.$this->Name;
-      break;
-      case "en_US":
-       $title = ( $this->MetaTitle__en_US ) ? $this->MetaTitle__en_US : $this->Categories()->First()->NameSingular__en_US.' '.$this->Name__en_US;
-      break;
-      case "es_ES":
-       $title = ( $this->MetaTitle__es_ES ) ? $this->MetaTitle__es_ES : $this->Categories()->First()->NameSingular__es_ES.' '.$this->Name__es_ES;
-      break;
-      default:
-       $title = ( $this->MetaTitle ) ? $this->MetaTitle : $this->Categories()->First()->NameSingular.' '.$this->Name;
-      break;
-    }
+  public function getProductMetaTitle( ){
+    $title = ( $this->MetaTitle ) ? $this->MetaTitle : $this->Categories()->First()->NameSingular.' '.$this->Name;
     return $title;
   }
 
-  public function getAllProducts( $Locale ){
+  public function getAllProducts( ){
 
     $products = Product::get()->sort(array('Sort' => 'DESC'));
     $str = "";
-    switch($Locale){
-      case "de_DE":
-      foreach( $products as $product ){
-        if( $this->ID == $product->ID ){
-         $str .= '<label><input name="products[]" type="checkbox" checked="checked" value="'.$product->Name.'">'.$product->Name.'</label>';
-        }else{
-          $str .= '<label><input name="products[]" type="checkbox" value="'.$product->Name.'">'.$product->Name.'</label>';
-        }
+    foreach( $products as $product ){
+      if( $this->ID == $product->ID ){
+       $str .= '<label><input name="products[]" type="checkbox" checked="checked" value="'.$product->Name.'">'.$product->Name.'</label>';
+      }else{
+        $str .= '<label><input name="products[]" type="checkbox" value="'.$product->Name.'">'.$product->Name.'</label>';
       }
-      break;
-      case "en_US":
-      foreach( $products as $product ){
-        if( $this->ID == $product->ID ){
-         $str .= '<label><input name="products[]" type="checkbox" checked="checked" value="'.$product->Name__en_US.'">'.$product->Name__en_US.'</label>';
-        }else{
-          $str .= '<label><input name="products[]" type="checkbox" value="'.$product->Name__en_US.'">'.$product->Name__en_US.'</label>';
-        }
-      }
-      break;
-      case "es_ES":
-      foreach( $products as $product ){
-        if( $this->ID == $product->ID ){
-         $str .= '<label><input name="products[]" type="checkbox" checked="checked" value="'.$product->Name__es_ES.'">'.$product->Name__es_ES.'</label>';
-        }else{
-          $str .= '<label><input name="products[]" type="checkbox" value="'.$product->Name__es_ES.'">'.$product->Name__es_ES.'</label>';
-        }
-      }
-      break;
-      default:
-      foreach( $products as $product ){
-        if( $this->ID == $product->ID ){
-         $str .= '<label><input name="products[]" type="checkbox" checked="checked" value="'.$product->Name.'">'.$product->Name.'</label>';
-        }else{
-          $str .= '<label><input name="products[]" type="checkbox" value="'.$product->Name.'">'.$product->Name.'</label>';
-        }
-      }
-      break;
     }
     $output = new DBHTMLText();
     $output->setValue($str);
     return $output;
   }
 
-  public function StructuredData($Locale){
+  public function StructuredData(){
       $html = '<script type="application/ld+json">
     {
       "@context": "https://schema.org/",
       "@type": "Product",
       "name": "'.$this->Name.', '.str_replace("\n"," ",strip_tags($this->Lead)).'",
       "image": "'.Director::AbsoluteURL($this->MainImage()->getURL()).'",
-      "description": "'.$this->getProductMetaDescription($Locale).'",
+      "description": "'.$this->getProductMetaDescription().'",
       "brand": {
         "@type": "Thing",
         "name": "BAK AG"
