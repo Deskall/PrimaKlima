@@ -14,3 +14,10 @@ BaseBlockExtension:
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - BAK\Products\BAKSiteConfigExtension
+
+BAK\Products\Models\Product:
+  extensions:
+    - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
+    - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
+    - 'FilterLocalExtension'
+    - 'FluentCascadeDeleteExtension'
