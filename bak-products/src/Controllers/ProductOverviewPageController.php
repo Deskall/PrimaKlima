@@ -180,7 +180,6 @@ class ProductOverviewPageController extends PageController
                 return array(
                     'SelectedCategory' => $category,
                     'showProducts' => true,
-                    'Locale' => $this->Locale,
                     'CustomMetaTitle' => $category->printMetaTitle($this->Locale),
                     'CustomMetaTags' => $category->getMetaTags($this->Locale)
                 );

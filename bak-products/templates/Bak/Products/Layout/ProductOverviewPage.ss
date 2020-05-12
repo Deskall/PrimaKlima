@@ -5,9 +5,26 @@
 			</div>
 		</section>
 	</div>
-$ContentLocale
 	<div id="description">
-	  $ElementalArea
+		<% if SelectedCategory || SelectedUsage %>
+		<div class="element  leadblock" id="leadblock-0-13">
+			<section class="uk-section  uk-section-small">
+				<div class="uk-container uk-text-left ">
+					<div class="uk-panel">
+						<div class="dk-text-content uk-text-lead uk-text-left">
+							<% if SelectedCategory %>
+								$SelectedCategory.Description
+							<% else %>
+								$SelectedUsage.Description
+							<% end_if %>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<% else %>
+	  	$ElementalArea
+	  	<% end_if %>
 	</div>
 
 	<div class="element  bak__products__blocks__productblock" id="bakproductsblocksproductblock-0">
