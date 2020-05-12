@@ -2,11 +2,9 @@
     <a class="chosen-single" tabindex="0"></a>  
   <div class="chosen-drop"  tabindex="-1">
    <% loop $Options %>
-   <% if $Value != "" %>
     <div data-value="$Value" class="html-dropdown-option <% if $Selected %>selected<% end_if %> <% if $Disabled %>disabled<% end_if %>">
      $HTML
     </div>
-    <% end_if %>
   <% end_loop %>
   </div>
   <select $AttributesHTML>
