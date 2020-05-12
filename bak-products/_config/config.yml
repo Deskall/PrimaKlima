@@ -30,6 +30,3 @@ BAK\Products\Models\ProductUsage:
 BAK\Products\Models\ProductUseArea:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentExtension'
-
-TractorCow\Fluent\Extension\FluentDirectorExtension:
-  disable_default_prefix: true
