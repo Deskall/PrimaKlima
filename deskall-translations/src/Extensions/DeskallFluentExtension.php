@@ -3,7 +3,7 @@
 
 use TractorCow\Fluent\Extension\FluentExtension;
 use TractorCow\Fluent\State\FluentState;
-
+use SilverStripe\ORM\DataObject;
 
 class DeskallFluentExtension extends FluentExtension 
 {
