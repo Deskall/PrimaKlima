@@ -64,6 +64,7 @@ class News extends DataObject {
 
  public function getCMSFields() {
   $fields = parent::getCMSFields();
+  $fields->removeByName('Status');
   return $fields;
 }
 
