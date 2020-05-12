@@ -5,18 +5,20 @@ namespace Bak\News;
 use Page;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\DataObject;
+use Bak\News\Models\NewsCategory;
+use Bak\News\Models\News;
 
 class NewsPage extends Page {
 
     private static $table_name="BAK_NewsPage";
 
     private static $has_one = array(
-        'Category' => 'NewsCategory'
+        'Category' => NewsCategory::class
     );
 
     public function getCMSFields(){
          $fields = parent::getCMSFields();
-         $categories = DataObject::get("NewsCategory")->sort(array('Categories.Title'=>'ASC'));
+         $categories = NewsCategory::get()->sort('Categories.Title');
          $categoriesField = DropdownField::create('CategoryID', 'Kategorie', $source = $categories->map("ID", "Title"))->setEmptyString('Alle Kategorien');
          $fields->addFieldToTab('Root.Main', $categoriesField, 'ContentImage');
 
