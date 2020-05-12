@@ -8,6 +8,8 @@ use SilverStripe\ORM\DataObject;
 
 class NewsPage extends Page {
 
+    private static $table_name="BAK_NewsPage";
+
     private static $has_one = array(
         'Category' => 'NewsCategory'
     );
