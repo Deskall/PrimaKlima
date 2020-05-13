@@ -8,12 +8,18 @@
 					<div>
 						<div class="uk-card">
 							<div class="uk-card-content">
-								<h3>$Title</h3>
-								<% if $Lead %>
-								$Lead.LimitWordCount(20)
-								<% else %>
-								$Content.LimitWordCount(20)
-								<% end_if %>
+								<div class="uk-grid-small" data-uk-grid>
+								<div class="uk-width-1-3">
+									<img src="$Image.FocusFillMax(350,250).URL" />
+								</div>
+								<div class="uk-width-2-3">
+									<h3>$Title</h3>
+									<% if $Lead %>
+									$Lead.LimitWordCount(20)
+									<% else %>
+									$Content.LimitWordCount(20)
+									<% end_if %>
+								</div>
 							</div>
 						</div>
 					</div>
