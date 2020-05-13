@@ -45,19 +45,16 @@ class NewsPageController extends PageController {
 
     public function detail(HTTPRequest $request ){
         if ($request->param('News')){
-            $locale = $this->Locale;
             $news = News::get()->filter(array('URLSegment' => $request->param('News')))->first();
 
             if(!$news) {
                 return $this->httpError(404,'Diese Neuigkeit war nicht gefunden.');
             }
             $title = $news->Title;
-            $blocks = $news->Blocks();
 
             return array (
                 'News' => $news,
                 'Title' => $title,
-                'Blocks' => $blocks,
                 'MetaTags' => $this->NewsMetaTags($news)
             );
         }
