@@ -15,9 +15,9 @@
 									<div class="uk-width-2-3">
 										<h3>$Title</h3>
 										<% if $Lead %>
-										$Lead.LimitWordCount(20)
+										$Lead.LimitWordCount(50)
 										<% else %>
-										$Content.LimitWordCount(20)
+										$Content.LimitWordCount(50)
 										<% end_if %>
 									</div>
 								</div>
