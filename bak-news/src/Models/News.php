@@ -11,6 +11,7 @@ use SilverStripe\Control\Director;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use Bak\News\NewsPage;
 use DNADesign\Elemental\Extensions\ElementalAreasExtension;
+use DNADesign\Elemental\Models\ElementalArea;
 
 class News extends DataObject {
   private static $singular_name = 'Neuigkeit';
@@ -114,6 +115,23 @@ public function onBeforeWrite(){
   parent::onBeforeWrite();
 }
 
+/**
+ * Retrieve a elemental area relation name which this element owns
+ *
+ * @return string
+ */
+public function getOwnedAreaRelationName()
+{
+    $has_one = $this->config()->get('has_one');
+
+    foreach ($has_one as $relationName => $relationClass) {
+        if ($relationClass === ElementalArea::class && $relationName !== 'Parent') {
+            return $relationName;
+        }
+    }
+
+    return 'Elements';
+}
 
 
 // public function hasCategory($ID){
