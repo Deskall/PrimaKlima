@@ -3,12 +3,17 @@
 		<section class="uk-section uk-section-small">
 			<div class="uk-container">
 				<h1>$Title</h1>
-				<% if $Lead %>
-					$Lead
-				<% end_if %>
-				<% if $Content %>
-					$Content
-				<% end_if %>
+				<div class="uk-flex">
+					<% if Image %><img src="$Image.FitMax(250,150).URL" /><% end_if %>
+					<div class="dk-text-content">
+						<% if $Lead %>
+							$Lead
+						<% end_if %>
+						<% if $Content %>
+							$Content
+						<% end_if %>
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>
