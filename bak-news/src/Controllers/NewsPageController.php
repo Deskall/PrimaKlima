@@ -6,6 +6,7 @@ use PageController;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\ORM\ManyManyList;
 use Bak\News\Models\News;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class NewsPageController extends PageController {
 
@@ -66,6 +67,6 @@ class NewsPageController extends PageController {
         $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
         $tags .= '<meta name="description" content="'.strip_tags($news->Lead).'">';
 
-        return $tags;
+        return DBHTMLText::create()->setValue($tags);
     }
 }
