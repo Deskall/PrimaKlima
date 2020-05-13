@@ -7,3 +7,7 @@ SilverStripe\Core\Manifest\ModuleManifest:
 SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
   extensions:
     - Bak\News\Forms\GridFieldPublishItemRequestExtension
+
+BAK\News\Models\News:
+  extensions:
+    - 'TractorCow\Fluent\Extension\FluentExtension'
