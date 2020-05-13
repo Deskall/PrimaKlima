@@ -10,6 +10,7 @@ use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Control\Director;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use Bak\News\NewsPage;
+use DNADesign\Elemental\Extensions\ElementalAreasExtension;
 
 class News extends DataObject {
   private static $singular_name = 'Neuigkeit';
@@ -36,12 +37,30 @@ class News extends DataObject {
   );
 
   private static $has_one = array(
-    'Image' => Image::class
+    'Image' => Image::class,
+    'Elements' => ElementalArea::class
   );
 
   private static $many_many = array(
     'Categories' => NewsCategory::class
   );
+
+  private static $owns = [
+      'Elements'
+  ];
+
+  private static $cascade_deletes = [
+      'Elements'
+  ];
+
+  private static $cascade_duplicates = [
+      'Elements'
+  ];
+
+  private static $extensions = [
+      ElementalAreasExtension::class
+  ];
+
 
   private static $summary_fields = array (
     'Title' => array('title' => 'Titel'),
