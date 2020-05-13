@@ -56,7 +56,8 @@ class NewsPageController extends PageController {
             return array (
                 'News' => $news,
                 'Title' => $title,
-                'MetaTags' => $this->NewsMetaTags($news)
+                'MetaTags' => $this->NewsMetaTags($news),
+                'Locales' => $news->Locales()
             );
         }
 
