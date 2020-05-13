@@ -22,11 +22,11 @@
 										<div class="uk-text-right">
 											<a href="$Link"><%t News.SeeMore 'Mehr' %><span data-uk-icon="icon:chevron-right;ratio:0.8"></span></a>
 										</div>
+										<hr>
 									</div>
 								</div>
 							</div>
 						</div>
-						<hr>
 					</div>
 					<% end_loop %>
 				</div>
