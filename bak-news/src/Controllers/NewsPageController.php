@@ -67,7 +67,7 @@ class NewsPageController extends PageController {
     public function NewsMetaTags($news) {
         $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
         $tags .= '<meta name="description" content="'.strip_tags($news->Lead).'">';
-        $tags .= $this->renderWith('FluentNews_MetaTags');
+        $tags .= $news->renderWith('FluentNews_MetaTags');
 
         return DBHTMLText::create()->setValue($tags);
     }
