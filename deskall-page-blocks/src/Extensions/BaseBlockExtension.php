@@ -286,6 +286,8 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     public function getFolderName(){
 
         $parent = $this->owner->Parent()->getOwnerPage();
+
+        print_r($parent->ClassName);
        
         while(!$parent->hasMethod('generateFolderName')){
             $parent = $parent->Parent()->getOwnerPage();
