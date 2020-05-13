@@ -28,7 +28,6 @@ class News extends DataObject {
 
   private static $defaults = array(
     'Title' => 'Neuer Eintrag',
-    'URLSegment' => 'neuer-eintrag',
     'Status' => 'ToBePublished'
   );
 
@@ -71,7 +70,10 @@ class News extends DataObject {
 
 
 public function onBeforeWrite(){
-
+  if ($this->ID > 0){
+    $this->URLSegment = URLSegmentFilter::create()->filter($this->ID.$this->Title);
+  }
+  
   // $oldFolderName =  "Uploads/news-detail/".$this->URLSegment;
 
   // if($this->isChanged('Title')){

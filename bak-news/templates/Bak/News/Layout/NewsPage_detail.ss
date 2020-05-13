@@ -4,9 +4,9 @@
 			<div class="uk-container">
 				<h1>$Title</h1>
 				<% if $Lead %>
-				$Lead
+					$Lead
 				<% end_if %>
-				<% if Content %>
+				<% if $Content %>
 					$Content
 				<% end_if %>
 			</div>
