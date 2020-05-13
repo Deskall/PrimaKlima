@@ -16,4 +16,6 @@
 			</div>
 		</section>
 	</div>
+
+	$ElementalArea
 	<% end_with %>
