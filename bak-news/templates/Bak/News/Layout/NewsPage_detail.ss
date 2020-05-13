@@ -4,7 +4,7 @@
 			<div class="uk-container">
 				<h1>$Title</h1>
 				<div class="uk-flex">
-					<% if Image %><img src="$Image.FitMax(250,150).URL" /><% end_if %>
+					<% if Image %><img src="$Image.ScaleWidth(350).URL" /><% end_if %>
 					<div class="dk-text-content">
 						<% if $Lead %>
 							$Lead
