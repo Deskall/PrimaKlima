@@ -19,6 +19,9 @@
 										<% else %>
 										$Content.LimitWordCount(50)
 										<% end_if %>
+										<div class="uk-text-right">
+											<a href="$Link"><%t News.SeeMore 'Mehr' %></a>
+										</div>
 									</div>
 								</div>
 							</div>
