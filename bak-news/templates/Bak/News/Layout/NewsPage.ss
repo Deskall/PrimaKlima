@@ -20,7 +20,7 @@
 										$Content.LimitWordCount(50)
 										<% end_if %>
 										<div class="uk-text-right">
-											<a href="$Link"><%t News.SeeMore 'Mehr' %><span data-uk-icon="chevron-right"></span></a>
+											<a href="$Link"><%t News.SeeMore 'Mehr' %><span data-uk-icon="icon:chevron-right;ratio:0.8"></span></a>
 										</div>
 									</div>
 								</div>
