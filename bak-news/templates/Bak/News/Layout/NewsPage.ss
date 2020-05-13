@@ -23,6 +23,7 @@
 								</div>
 							</div>
 						</div>
+						<hr>
 					</div>
 					<% end_loop %>
 				</div>
