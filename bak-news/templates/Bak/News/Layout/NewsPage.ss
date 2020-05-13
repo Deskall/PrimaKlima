@@ -9,7 +9,7 @@
 						<div class="uk-card">
 							<div class="uk-card-content">
 								<div class="uk-grid-small" data-uk-grid>
-									<div class="uk-width-1-3">
+									<div class="uk-width-1-3 uk-text-center">
 										<% if Image %><img src="$Image.FitMax(250,150).URL" /><% end_if %>
 									</div>
 									<div class="uk-width-2-3">
