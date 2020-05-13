@@ -3,8 +3,7 @@
 		<section class="uk-section uk-section-small">
 			<div class="uk-container">
 				<h1>$Title</h1>
-				<div class="uk-flex">
-					<% if Image %><div class="uk-width-large"><img src="$Image.ScaleWidth(350).URL" /></div><% end_if %>
+					<% if Image %><img src="$Image.ScaleWidth(350).URL" class="uk-align-left uk-margin-remove-adjacent" /><% end_if %>
 					<div class="dk-text-content">
 						<% if $Lead %>
 							$Lead
