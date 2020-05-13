@@ -17,5 +17,7 @@
 		</section>
 	</div>
 
-	$ElementalArea
+	<% loop $Elements.ElementControllers %>
+    $Me
+    <% end_loop %>
 	<% end_with %>
