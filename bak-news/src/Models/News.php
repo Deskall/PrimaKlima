@@ -71,7 +71,7 @@ class News extends DataObject {
 
 public function onBeforeWrite(){
   if ($this->ID > 0){
-    $this->URLSegment = URLSegmentFilter::create()->filter($this->ID.$this->Title);
+    $this->URLSegment = URLSegmentFilter::create()->filter($this->ID.'-'.$this->Title);
   }
   
   // $oldFolderName =  "Uploads/news-detail/".$this->URLSegment;
