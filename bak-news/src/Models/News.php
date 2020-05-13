@@ -9,7 +9,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Control\Director;
 use SilverStripe\View\Parsers\URLSegmentFilter;
-
+use Bak\News\NewsPage;
 
 class News extends DataObject {
   private static $singular_name = 'Neuigkeit';
@@ -134,7 +134,10 @@ public function doPublish(){
      * @return string
      */
   public function Link() {
-    return _t('BakNews.Detail','detail').'/'.$this->URLSegment;
+    $page = NewsPage::get()->first();
+    if ($page){
+      return $page->Link()._t('BakNews.Detail','detail').'/'.$this->URLSegment;
+    }
   }
 
     /**
