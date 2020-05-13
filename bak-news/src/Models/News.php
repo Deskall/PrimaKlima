@@ -133,6 +133,10 @@ public function getOwnedAreaRelationName()
     return 'Elements';
 }
 
+public function getOwnerPage(){
+  return NewsPage::get()->first();
+}
+
 
 // public function hasCategory($ID){
 
