@@ -1,4 +1,3 @@
-	$ElementalArea
 	<% with News %>
 	<div class="element">
 		<section class="uk-section uk-section-small">
