@@ -38,7 +38,9 @@ class ProductAdmin extends ModelAdmin {
         //Import Usages
         $file = File::get()->byId(49);
         if ($file->exists()){
-            ProductUsage::get()->removeAll();
+            foreach (ProductUsage::get() as $u) {
+               $u->delete();
+            }
             // if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
             //     $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
             //     $headers = fgetcsv($handle, 0, $delimiter);
