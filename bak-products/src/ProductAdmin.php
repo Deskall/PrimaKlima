@@ -34,6 +34,30 @@ class ProductAdmin extends ModelAdmin {
     public function getEditForm($id = null, $fields = null) {
         $form = parent::getEditForm($id, $fields);
 
+        //Files references
+        $file = File::get()->byId(90);
+        if ($file->exists()){
+            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+                $headers = fgetcsv($handle, 0, $delimiter);
+                $imported = [0,6];
+                $files = [];
+                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+                    if ($line[0] != ""){
+                        $array = [];
+                        foreach ($imported as $key => $index) {
+                            $array[$headers[$index]] = trim($line[$index]);
+                        }
+                        $files[] = $array;
+                    }
+                }
+                fclose($handle);
+            }
+            ob_start();
+                        print_r($files);
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        }
 
         //Import Usages
         // $file = File::get()->byId(49);
@@ -69,6 +93,8 @@ class ProductAdmin extends ModelAdmin {
         //        $usage->write();
         //     }
         // }
+
+
 
         if($this->modelClass=='Product' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
             if($gridField instanceof GridField) {
