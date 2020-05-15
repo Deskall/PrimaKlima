@@ -56,7 +56,7 @@ class ProductAdmin extends ModelAdmin {
         // }
 
         //Import Products
-        $file = File::get()->byId(96);
+        $file = File::get()->byId(97);
         if ($file->exists()){
             if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
                 $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
@@ -73,30 +73,27 @@ class ProductAdmin extends ModelAdmin {
                     }
                 }
                 fclose($handle);
-                ob_start();
-                            print_r($products);
-                            $result = ob_get_clean();
-                            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-                foreach (Product::get() as $p) {
-                    $p->delete();
-                }
+                
+                // foreach (Product::get() as $p) {
+                //     $p->delete();
+                // }
                 foreach ($products as $key => $ref) {
-                   // $product = Product::get()->filter('RefID' , $ref['ID'])->first();
-                   // if (!$product){
-                   //  $product = new Product();
-                   // }
-                   // $product->RefID = $ref['ID'];
-                   // $product->Name = $ref['Name'];
-                   // $product->HeaderText = $ref['HeaderText'];
-                   // $product->Lead = $ref['Lead'];
-                   // $product->Description = $ref['Description'];
-                   // $product->Features = $ref['Features'];
-                   // $product->Table = $ref['Table'];
-                   // $product->Videos = $ref['Videos'];
-                   // $product->Number = $ref['Number'];
-                   // $product->MetaDescription = $ref['MetaDescription'];
-                   // $product->MetaTitle = $ref['MetaTitle'];
-                   // $product->Sort = $ref['SortOrder'];
+                   $product = Product::get()->filter('RefID' , $ref['ID'])->first();
+                   if (!$product){
+                    $product = new Product();
+                   }
+                   $product->RefID = $ref['ID'];
+                   $product->Name = $ref['Name'];
+                   $product->HeaderText = $ref['HeaderText'];
+                   $product->Lead = $ref['Lead'];
+                   $product->Description = $ref['Description'];
+                   $product->Features = $ref['Features'];
+                   $product->Table = $ref['Table'];
+                   $product->Videos = $ref['Videos'];
+                   $product->Number = $ref['Number'];
+                   $product->MetaDescription = $ref['MetaDescription'];
+                   $product->MetaTitle = $ref['MetaTitle'];
+                   $product->Sort = $ref['SortOrder'];
                    
                    // $product->Name = $ref['Name__en_US'];
                    // $product->HeaderText = $ref['HeaderText__en_US'];
@@ -121,7 +118,7 @@ class ProductAdmin extends ModelAdmin {
                    // $product->MetaTitle = $ref['MetaTitle__es_ES'];
 
 
-                   // $product->write();
+                   $product->write();
                 }
             }
         }
