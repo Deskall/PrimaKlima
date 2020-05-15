@@ -57,6 +57,18 @@ class ProductAdmin extends ModelAdmin {
                         print_r($usages);
                         $result = ob_get_clean();
                         file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+            foreach ($usages as $key => $ref) {
+               $usage = ProductUsage::get()->filter('RefID' , $ref['ID'])->first();
+               if (!$usage){
+                $usage = new ProductUsage();
+               }
+               $usage->RefID = $ref['ID'];
+               $usage->Title = $ref['Title'];
+               $usage->Description = $ref['Description'];
+               $usage->UseAreaID = $ref['UseAreaID'];
+               $usage->MetaTitle = $ref['MetaTitle'];
+               $usage->write();
+            }
         }
 
         if($this->modelClass=='Product' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
