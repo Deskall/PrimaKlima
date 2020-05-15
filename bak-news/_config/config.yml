@@ -11,3 +11,7 @@ SilverStripe\Forms\GridField\GridFieldDetailForm_ItemRequest:
 BAK\News\Models\News:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentExtension'
+
+BAK\News\NewsPage:
+  extensions:
+    - Terraformers\EmbargoExpiry\Extension\EmbargoExpiryExtension
