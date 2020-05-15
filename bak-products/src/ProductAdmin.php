@@ -132,7 +132,8 @@ class ProductAdmin extends ModelAdmin {
                         
                        
                         if (file_exists($filepath)){
-                            $image = File::setFromLocalFile($filepath);
+                            $image = new File();
+                            $image->setFromLocalFile($filepath);
                             $name = ltrim(strrchr($files[$ref['MainImageID']],"/"), '/');
                             $folder = Folder::find_or_make($product->getFolderName());
                             $image->ParentID = $folder->ID;
