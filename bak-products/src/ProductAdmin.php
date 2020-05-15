@@ -65,7 +65,7 @@ class ProductAdmin extends ModelAdmin {
                // $usage->Sort = $ref['SortOrder'];
                $usage->Description = $ref['Description__en_US'];
                // $usage->UseAreaID = $ref['UseAreaID'];
-               $usage->MetaTitle = $ref['MetaTitle__en_US'];
+               // $usage->MetaTitle = $ref['MetaTitle__en_US'];
                $usage->write();
             }
         }
