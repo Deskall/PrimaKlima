@@ -35,7 +35,7 @@ class ProductUseArea extends DataObject {
    public function getCMSFields() {
 
     $fields = parent::getCMSFields();
-    
+    $fields->removeByName('Usages');
     if ($this->ID){
       $gridfieldConfig = GridFieldConfig_RelationEditor::create();
       $gridfieldConfig->addComponent(new GridFieldOrderableRows('Sort'));
