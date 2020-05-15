@@ -147,7 +147,7 @@ class ProductAdmin extends ModelAdmin {
                    }
 
                 //    $product->write();
-                // }
+                }
             }
         }
 
