@@ -44,7 +44,7 @@ class ProductAdmin extends ModelAdmin {
                 $usages = [];
                 while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
                     if ($line[0] != ""){
-                        $array = []
+                        $array = [];
                         foreach ($imported as $key => $index) {
                             $array[$headers[$index]] = $line[$index];
                         }
