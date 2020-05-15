@@ -138,9 +138,9 @@ class Product extends DataObject {
       $fields->insertAfter('Name', $categoriesField );
       $usagesField = CheckboxSetField::create('Usages', 'Anwendungen', $source = ProductUsage::get()->map("ID", "Title"));
       $fields->insertAfter('Categories', $usagesField );
-      $fields->push(SortableUploadField::create('Downloads',_t(__CLASS__.'.Files','Dateien (DE)'))->setIsMultiUpload(true)->setFolderName($this->getFolderName());
-      $fields->push(SortableUploadField::create('Downloads__en_US',_t(__CLASS__.'.FilesEN','Dateien (EN)'))->setIsMultiUpload(true)->setFolderName($this->getFolderName());
-      $fields->push(SortableUploadField::create('Downloads__es_ES',_t(__CLASS__.'.FilesES','Dateien (SP)'))->setIsMultiUpload(true)->setFolderName($this->getFolderName());
+      $fields->push(SortableUploadField::create('Downloads',_t(__CLASS__.'.Files','Dateien (DE)'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()));
+      $fields->push(SortableUploadField::create('Downloads__en_US',_t(__CLASS__.'.FilesEN','Dateien (EN)'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()));
+      $fields->push(SortableUploadField::create('Downloads__es_ES',_t(__CLASS__.'.FilesES','Dateien (SP)'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()));
       
       return $fields;
 
