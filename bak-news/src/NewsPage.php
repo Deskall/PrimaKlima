@@ -14,7 +14,7 @@ class NewsPage extends Page {
 
     private static $table_name="BAK_NewsPage";
 
-    private static $can_be_root = false;
+    // private static $can_be_root = false;
 
     private static $db = array(
         'Lead' => 'HTMLText',
