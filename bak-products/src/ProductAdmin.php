@@ -129,12 +129,9 @@ class ProductAdmin extends ModelAdmin {
                     if ($ref['MainImageID'] > 0 && isset($files[$ref['MainImageID']])){
 
                         $filepath = str_replace("assets/Uploads", Director::baseFolder(),$files[$ref['MainImageID']]);
+                        
                         ob_start();
-                                    print_r( $filepath);
-                                    $result = ob_get_clean();
-                                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-                        ob_start();
-                                    print_r( strrchr("/",$files[$ref['MainImageID']]));
+                                    print_r( strrchr($files[$ref['MainImageID']],"/"));
                                     $result = ob_get_clean();
                                     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
                         // if (file_exists($filepath)){
