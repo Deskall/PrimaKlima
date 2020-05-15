@@ -19,7 +19,7 @@ de:
     LOCALECOPYTODRAFT: 'Als Entwurf kopieren'
     LOCALESTATUSFLUENTDRAFT: 'Für dieses Gebietsschema wurde ein Entwurf erstellt. Veröffentlichte Inhalte können jedoch weiterhin von einem anderen geerbt werden. Verwenden Sie die bereitgestellte Aktion "Speichern und veröffentlichen", um diesen Inhalt für dieses Gebietsschema zu veröffentlichen.'
     LOCALESTATUSFLUENTINHERITED: 'Der Inhalt dieser Seite wird möglicherweise von einem anderen Gebietsschema geerbt. Wenn Sie eine unabhängige Kopie dieser Seite erstellen möchten, verwenden Sie bitte eine der bereitgestellten Aktionen "Kopieren".'
-    LOCALESTATUSFLUENTINVISIBLE: 'This page will not be visible in this locale until it has been published.'
+    LOCALESTATUSFLUENTINVISIBLE: 'Diese Seite ist in diesem Gebietsschema erst sichtbar, wenn sie veröffentlicht wurde.'
   TractorCow\Fluent\Model\Domain:
     DEFAULT: 'Standardgebietsschema'
     DEFAULT_NONE: '(keine)'
