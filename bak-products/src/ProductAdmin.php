@@ -32,6 +32,31 @@ class ProductAdmin extends ModelAdmin {
     public function getEditForm($id = null, $fields = null) {
         $form = parent::getEditForm($id, $fields);
 
+
+        //Import Usages
+        $file = File::get()->byId(49);
+        if ($file->exists()){
+            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+                $headers = fgetcsv($handle, 0, $delimiter);
+                $imported = [0,4,5,6,8,9,11,12,13,14,15,16,17,19]
+                $usages = [];
+                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+                    if ($line[0] != ""){
+                        foreach ($imported as $key => $index) {
+                            $usages[] = [$headers[$index] => $line[$index]];
+                        }
+                        
+                    }
+                }
+                fclose($handle);
+            }
+            ob_start();
+                        print_r($usages);
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        }
+
         if($this->modelClass=='Product' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
             if($gridField instanceof GridField) {
                 $gridField->getConfig()->addComponent(new GridFieldOrderableRows('SortOrder'));
@@ -60,6 +85,38 @@ class ProductAdmin extends ModelAdmin {
         
         return $form;
     }
+
+    public static function getFileDelimiter($file, $checkLines = 2){
+        $file = new SplFileObject($file);
+        $delimiters = array(
+          ',',
+          '\t',
+          ';',
+          '|',
+          ':'
+        );
+        $results = array();
+        $i = 0;
+         while($file->valid() && $i <= $checkLines){
+            $line = $file->fgets();
+            foreach ($delimiters as $delimiter){
+                $regExp = '/['.$delimiter.']/';
+                $fields = preg_split($regExp, $line);
+                if(count($fields) > 1){
+                    if(!empty($results[$delimiter])){
+                        $results[$delimiter]++;
+                    } else {
+                        $results[$delimiter] = 1;
+                    }   
+                }
+            }
+           $i++;
+        }
+        $results = array_keys($results, max($results));
+        return $results[0];
+    }
+
+
 }
 
 
