@@ -26,8 +26,8 @@ class NewsPage extends Page {
 
     public function getCMSFields(){
         $fields = parent::getCMSFields();
-        $fields->fieldByName('Root.Main.Lead')->setRows(3);
-        $fields->fieldByName('Root.Main.Image')->setFolderName($this->generateFolderName());
+        // $fields->fieldByName('Root.Main.Lead')->setRows(3);
+        // $fields->fieldByName('Root.Main.Image')->setFolderName($this->generateFolderName());
         return $fields;
     }
 
