@@ -14,6 +14,8 @@ use Bak\Products\Models\ProductCategory;
 use Bak\Products\Models\ProductUseArea;
 use Bak\Products\Models\ProductUsage;
 use SilverStripe\Assets\File;
+use SilverStripe\Assets\Folder;
+use SilverStripe\Control\Director;
 
 class ProductAdmin extends ModelAdmin {
 
