@@ -40,7 +40,7 @@ class ProductAdmin extends ModelAdmin {
             if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
                 $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
                 $headers = fgetcsv($handle, 0, $delimiter);
-                $imported = [0,4,5,6,8,9,11,12,13,14,15,16,17,19]
+                $imported = [0,4,5,6,8,9,11,12,13,14,15,16,17,19];
                 $usages = [];
                 while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
                     if ($line[0] != ""){
