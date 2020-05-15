@@ -36,39 +36,39 @@ class ProductAdmin extends ModelAdmin {
 
 
         //Import Usages
-        $file = File::get()->byId(49);
-        if ($file->exists()){
-            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-                $headers = fgetcsv($handle, 0, $delimiter);
-                $imported = [0,4,5,6,8,9,11,12,13,14,15,16,17,19];
-                $usages = [];
-                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-                    if ($line[0] != ""){
-                        $array = [];
-                        foreach ($imported as $key => $index) {
-                            $array[$headers[$index]] = trim($line[$index]);
-                        }
-                        $usages[] = $array;
-                    }
-                }
-                fclose($handle);
-            }
+        // $file = File::get()->byId(49);
+        // if ($file->exists()){
+        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+        //         $headers = fgetcsv($handle, 0, $delimiter);
+        //         $imported = [0,4,5,6,8,9,11,12,13,14,15,16,17,19];
+        //         $usages = [];
+        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+        //             if ($line[0] != ""){
+        //                 $array = [];
+        //                 foreach ($imported as $key => $index) {
+        //                     $array[$headers[$index]] = trim($line[$index]);
+        //                 }
+        //                 $usages[] = $array;
+        //             }
+        //         }
+        //         fclose($handle);
+        //     }
             
-            foreach ($usages as $key => $ref) {
-               $usage = ProductUsage::get()->filter('RefID' , $ref['ID'])->first();
-               if (!$usage){
-                $usage = new ProductUsage();
-               }
-               // $usage->RefID = $ref['ID'];
-               $usage->Title = $ref['Title__es_ES'];
-               // $usage->Sort = $ref['SortOrder'];
-               $usage->Description = $ref['Description__es_ES'];
-               // $usage->UseAreaID = $ref['UseAreaID'];
-               // $usage->MetaTitle = $ref['MetaTitle__en_US'];
-               $usage->write();
-            }
-        }
+        //     foreach ($usages as $key => $ref) {
+        //        $usage = ProductUsage::get()->filter('RefID' , $ref['ID'])->first();
+        //        if (!$usage){
+        //         $usage = new ProductUsage();
+        //        }
+        //        // $usage->RefID = $ref['ID'];
+        //        $usage->Title = $ref['Title__es_ES'];
+        //        // $usage->Sort = $ref['SortOrder'];
+        //        $usage->Description = $ref['Description__es_ES'];
+        //        // $usage->UseAreaID = $ref['UseAreaID'];
+        //        // $usage->MetaTitle = $ref['MetaTitle__en_US'];
+        //        $usage->write();
+        //     }
+        // }
 
         if($this->modelClass=='Product' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
             if($gridField instanceof GridField) {
