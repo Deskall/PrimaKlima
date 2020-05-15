@@ -9,6 +9,8 @@ use Bak\News\Models\NewsCategory;
 use Bak\News\Models\News;
 use Bak\News\Controllers\NewsPageController;
 use SilverStripe\Assets\Image;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class NewsPage extends Page {
 
@@ -26,8 +28,8 @@ class NewsPage extends Page {
 
     public function getCMSFields(){
         $fields = parent::getCMSFields();
-        // $fields->fieldByName('Root.Main.Lead')->setRows(3);
-        // $fields->fieldByName('Root.Main.Image')->setFolderName($this->generateFolderName());
+        $fields->insertAfter('MenuTitle',HTMLEditorField::create('Lead',$this->fieldLabels()['Lead'])->setRows(3));
+         $fields->insertAfter('Lead',UploadField::create('Image',$this->fieldLabels()['Lead'])->setFolderName($this->generateFolderName()));
         return $fields;
     }
 
