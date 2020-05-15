@@ -125,25 +125,25 @@ class ProductAdmin extends ModelAdmin {
                    // $product->MetaTitle = $ref['MetaTitle__es_ES'];
 
                    //Files
-                   if ($product){
-                    if ($ref['MainImageID'] > 0 && isset($files[$ref['MainImageID']])){
+                   // if ($product){
+                   //  if ($ref['MainImageID'] > 0 && isset($files[$ref['MainImageID']])){
 
-                        $filepath = str_replace("assets/Uploads", Director::baseFolder(),$files[$ref['MainImageID']]);
+                   //      $filepath = str_replace("assets/Uploads", Director::baseFolder(),$files[$ref['MainImageID']]);
                         
                        
-                        if (file_exists($filepath)){
-                            $image = new File();
-                            $image->setFromLocalFile($filepath);
-                            $name = ltrim(strrchr($files[$ref['MainImageID']],"/"), '/');
-                            $folder = Folder::find_or_make($product->getFolderName());
-                            $image->ParentID = $folder->ID;
-                            $image->write();
-                            $product->MainImageID = $image->ID;
-                        }
-                    }
-                   }
+                   //      if (file_exists($filepath)){
+                   //          $image = new File();
+                   //          $image->setFromLocalFile($filepath);
+                   //          $name = ltrim(strrchr($files[$ref['MainImageID']],"/"), '/');
+                   //          $folder = Folder::find_or_make($product->getFolderName());
+                   //          $image->ParentID = $folder->ID;
+                   //          $image->write();
+                   //          $product->MainImageID = $image->ID;
+                   //      }
+                   //  }
+                   // }
 
-                   $product->write();
+                   // $product->write();
                 }
             }
         }
