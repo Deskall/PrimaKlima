@@ -12,6 +12,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Bak\Products\Models\Product;
 use Bak\Products\Models\ProductCategory;
 use Bak\Products\Models\ProductUseArea;
+use Bak\Products\Models\ProductUsage;
 use SilverStripe\Assets\File;
 
 class ProductAdmin extends ModelAdmin {
