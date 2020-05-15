@@ -82,29 +82,29 @@ class ProductAdmin extends ModelAdmin {
                    if (!$product){
                     $product = new Product();
                    }
-                   $product->RefID = $ref['ID'];
-                   $product->Name = $ref['Name'];
-                   $product->HeaderText = $ref['HeaderText'];
-                   $product->Lead = $ref['Lead'];
-                   $product->Description = $ref['Description'];
-                   $product->Features = $ref['Features'];
-                   $product->Table = $ref['Table'];
-                   $product->Videos = $ref['Videos'];
-                   $product->Number = $ref['Number'];
-                   $product->MetaDescription = $ref['MetaDescription'];
-                   $product->MetaTitle = $ref['MetaTitle'];
-                   $product->Sort = $ref['SortOrder'];
+                   // $product->RefID = $ref['ID'];
+                   // $product->Name = $ref['Name'];
+                   // $product->HeaderText = $ref['HeaderText'];
+                   // $product->Lead = $ref['Lead'];
+                   // $product->Description = $ref['Description'];
+                   // $product->Features = $ref['Features'];
+                   // $product->Table = $ref['Table'];
+                   // $product->Videos = $ref['Videos'];
+                   // $product->Number = $ref['Number'];
+                   // $product->MetaDescription = $ref['MetaDescription'];
+                   // $product->MetaTitle = $ref['MetaTitle'];
+                   // $product->Sort = $ref['SortOrder'];
                    
-                   // $product->Name = $ref['Name__en_US'];
-                   // $product->HeaderText = $ref['HeaderText__en_US'];
-                   // $product->Lead = $ref['Lead__en_US'];
-                   // $product->Description = $ref['Description__en_US'];
-                   // $product->Features = $ref['Features__en_US'];
-                   // $product->Table = $ref['Table__en_US'];
-                   // $product->Videos = $ref['Videos__en_US'];
-                   // $product->Number = $ref['Number__en_US'];
-                   // $product->MetaDescription = $ref['MetaDescription__en_US'];
-                   // $product->MetaTitle = $ref['MetaTitle__en_US'];
+                   $product->Name = $ref['Name__en_US'];
+                   $product->HeaderText = $ref['HeaderText__en_US'];
+                   $product->Lead = $ref['Lead__en_US'];
+                   $product->Description = $ref['Description__en_US'];
+                   $product->Features = $ref['Features__en_US'];
+                   $product->Table = $ref['Table__en_US'];
+                   $product->Videos = $ref['Videos__en_US'];
+                   $product->Number = $ref['Number__en_US'];
+                   $product->MetaDescription = $ref['MetaDescription__en_US'];
+                   $product->MetaTitle = $ref['MetaTitle__en_US'];
 
                    // $product->Name = $ref['Name__es_ES'];
                    // $product->HeaderText = $ref['HeaderText__es_ES'];
