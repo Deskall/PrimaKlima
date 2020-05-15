@@ -131,12 +131,16 @@ class Product extends DataObject {
       $fields->removeByName('Categories');
       $fields->removeByName('Usages');
       $fields->removeByName('VideosHTML');
+      $fields->removeByName('Downloads');
+      $fields->removeByName('Downloads__en_US');
+      $fields->removeByName('Downloads__es_ES');
       $categoriesField = CheckboxSetField::create('Categories', 'Kategorien', $source = ProductCategory::get()->map("ID", "Title"));
       $fields->insertAfter('Name', $categoriesField );
       $usagesField = CheckboxSetField::create('Usages', 'Anwendungen', $source = ProductUsage::get()->map("ID", "Title"));
       $fields->insertAfter('Categories', $usagesField );
-
-
+      $fields->push(SortableUploadField::create('Downloads',_t(__CLASS__.'.Files','Dateien (DE)'))->setIsMultiUpload(true)->setFolderName($this->getFolderName());
+      $fields->push(SortableUploadField::create('Downloads__en_US',_t(__CLASS__.'.FilesEN','Dateien (EN)'))->setIsMultiUpload(true)->setFolderName($this->getFolderName());
+      $fields->push(SortableUploadField::create('Downloads__es_ES',_t(__CLASS__.'.FilesES','Dateien (SP)'))->setIsMultiUpload(true)->setFolderName($this->getFolderName());
       
       return $fields;
 
@@ -149,24 +153,17 @@ class Product extends DataObject {
           $this->updateEmbedHTML();
       }
 
-      $oldFolderName =  "Uploads/product-detail/".$this->URLSegment;
-
-      if($this->isChanged('Title')){
-        $newFolderName = "Uploads/product-detail/". URLSegmentFilter::create()->filter($this->Title); 
-
-        if ( strcmp($oldFolderName, $newFolderName) != 0)   {
-            $imageFolder = Folder::find($oldFolderName);
-
-            if($imageFolder){
-              $imageFolder->setName(basename($newFolderName));
-              $imageFolder->write();
-            }
-        }
+      $changedFields = $this->getChangedFields();
+      //Update Folder Name
+      if ($this->isChanged('URLSegment') && ($changedFields['URLSegment']['before'] != $changedFields['URLSegment']['after'])){
+          $oldFolderPath = "Uploads/produkte/".$changedFields['URLSegment']['before'];
+          $newFolder = Folder::find_or_make($oldFolderPath);
+          $newFolder->Name = $changedFields['URLSegment']['after'];
+          $newFolder->Title = $changedFields['URLSegment']['after'];
+          $newFolder->write();
       }
 
       $this->URLSegment =  URLSegmentFilter::create()->filter($this->Name);
-      $this->URLSegment__en_US =  URLSegmentFilter::create()->filter($this->Name__en_US);
-      $this->URLSegment__es_ES =  URLSegmentFilter::create()->filter($this->Name__es_ES);
       
       parent::onBeforeWrite();
   }
