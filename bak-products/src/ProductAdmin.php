@@ -60,12 +60,12 @@ class ProductAdmin extends ModelAdmin {
                if (!$usage){
                 $usage = new ProductUsage();
                }
-               $usage->RefID = $ref['ID'];
-               $usage->Title = $ref['Title'];
-               $usage->Sort = $ref['SortOrder'];
-               $usage->Description = $ref['Description'];
-               $usage->UseAreaID = $ref['UseAreaID'];
-               $usage->MetaTitle = $ref['MetaTitle'];
+               // $usage->RefID = $ref['ID'];
+               $usage->Title = $ref['Title__en_US'];
+               // $usage->Sort = $ref['SortOrder'];
+               $usage->Description = $ref['Description__en_US'];
+               // $usage->UseAreaID = $ref['UseAreaID'];
+               $usage->MetaTitle = $ref['MetaTitle__en_US'];
                $usage->write();
             }
         }
