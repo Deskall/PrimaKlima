@@ -46,7 +46,7 @@ class ProductAdmin extends ModelAdmin {
                     if ($line[0] != ""){
                         $array = [];
                         foreach ($imported as $key => $index) {
-                            $array[$headers[$index]] = $line[$index];
+                            $array[$headers[$index]] = trim($line[$index]);
                         }
                         $usages[] = $array;
                     }
