@@ -1,7 +1,7 @@
 <?php
 
 namespace Bak\Products;
-
+use SplFileObject;
 use SilverStripe\Admin\ModelAdmin;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldExportButton;
