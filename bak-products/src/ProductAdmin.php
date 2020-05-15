@@ -130,22 +130,19 @@ class ProductAdmin extends ModelAdmin {
 
                         $filepath = str_replace("assets/Uploads", Director::baseFolder(),$files[$ref['MainImageID']]);
                         
-                        ob_start();
-                                    print_r( strrchr($files[$ref['MainImageID']],"/"));
-                                    $result = ob_get_clean();
-                                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-                        // if (file_exists($filepath)){
-                        //     $image = File::setFromLocalFile($filepath);
-                        //     $name = strrchr("/",$files[$ref['MainImageID']]);
-                        //     $folder = Folder::find_or_make($product->getFolderName());
-                        //     $image->ParentID = $folder->ID;
-                        //     $image->write();
-                        //     $product->MainImageID = $image->ID;
-                        // }
+                       
+                        if (file_exists($filepath)){
+                            $image = File::setFromLocalFile($filepath);
+                            $name = ltrim(strrchr($files[$ref['MainImageID']],"/"), '/');
+                            $folder = Folder::find_or_make($product->getFolderName());
+                            $image->ParentID = $folder->ID;
+                            $image->write();
+                            $product->MainImageID = $image->ID;
+                        }
                     }
                    }
 
-                //    $product->write();
+                   $product->write();
                 }
             }
         }
