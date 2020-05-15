@@ -47,7 +47,7 @@ class Product extends DataObject {
         'VideosHTML' => 'HTMLText',
         'MetaDescription' => 'Text',
         'MetaTitle' => 'Varchar(255)',
-
+        'RefID' => 'Int'
     );
 
 

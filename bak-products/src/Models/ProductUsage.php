@@ -17,7 +17,8 @@ class ProductUsage extends DataObject {
         'MetaTitle' => 'Varchar(250)',
         'Description' => 'Text',
         'MetaDescription' => 'Text',
-        'URLSegment' => 'Varchar(250)'
+        'URLSegment' => 'Varchar(250)',
+        'RefID' => 'Int'
     );
 
     private static $has_one = array(
