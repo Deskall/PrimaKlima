@@ -40,10 +40,10 @@ class ProductAdmin extends ModelAdmin {
             if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
                 $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
                 $headers = fgetcsv($handle, 0, $delimiter);
-                $imported = [0,6];
+                $imported = [0,1,6];
                 $files = [];
                 while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-                    if ($line[0] != ""){
+                    if ($line[0] != "" && $line[1] != "Folder"){
                         $array = [];
                         foreach ($imported as $key => $index) {
                             $array[$headers[$index]] = trim($line[$index]);
