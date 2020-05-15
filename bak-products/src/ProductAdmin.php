@@ -73,23 +73,26 @@ class ProductAdmin extends ModelAdmin {
                     }
                 }
                 fclose($handle);
+                foreach (Product::get() as $p) {
+                    $p->delete();
+                }
                 foreach ($products as $key => $ref) {
-                   $product = Product::get()->filter('RefID' , $ref['ID'])->first();
-                   if (!$product){
-                    $product = new Product();
-                   }
-                   $product->RefID = $ref['ID'];
-                   $product->Name = $ref['Name'];
-                   $product->HeaderText = $ref['HeaderText'];
-                   $product->Lead = $ref['Lead'];
-                   $product->Description = $ref['Description'];
-                   $product->Features = $ref['Features'];
-                   $product->Table = $ref['Table'];
-                   $product->Videos = $ref['Videos'];
-                   $product->Number = $ref['Number'];
-                   $product->MetaDescription = $ref['MetaDescription'];
-                   $product->MetaTitle = $ref['MetaTitle'];
-                   $product->Sort = $ref['SortOrder'];
+                   // $product = Product::get()->filter('RefID' , $ref['ID'])->first();
+                   // if (!$product){
+                   //  $product = new Product();
+                   // }
+                   // $product->RefID = $ref['ID'];
+                   // $product->Name = $ref['Name'];
+                   // $product->HeaderText = $ref['HeaderText'];
+                   // $product->Lead = $ref['Lead'];
+                   // $product->Description = $ref['Description'];
+                   // $product->Features = $ref['Features'];
+                   // $product->Table = $ref['Table'];
+                   // $product->Videos = $ref['Videos'];
+                   // $product->Number = $ref['Number'];
+                   // $product->MetaDescription = $ref['MetaDescription'];
+                   // $product->MetaTitle = $ref['MetaTitle'];
+                   // $product->Sort = $ref['SortOrder'];
                    
                    // $product->Name = $ref['Name__en_US'];
                    // $product->HeaderText = $ref['HeaderText__en_US'];
