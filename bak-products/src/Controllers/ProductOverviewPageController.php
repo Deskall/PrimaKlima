@@ -63,7 +63,15 @@ class ProductOverviewPageController extends PageController
             $tmp =  array();
 
             if( $product->MainImage()->Link() != "/assets/" ){
-                $tmp['image'] = $product->MainImage()->Link();
+                if ($product->MainImage()->Pad(210,150)){
+                    $tmp['image'] = $product->MainImage()->Pad(210,150)->Link();
+                }
+                else{
+                    ob_start();
+                    print_r($tmp['name']);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-name.txt", $result,FILE_APPEND);
+                }
             }
             $cat = '';
             foreach( $product->Categories() as $category ){
