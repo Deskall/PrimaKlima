@@ -10,6 +10,7 @@ SilverStripe\Core\Manifest\ModuleManifest:
 BaseBlockExtension:
   blocks:
     - Bak-Products-Blocks-ProductBlock
+    - Bak-Products-Blocks-ProductCategoryBlock
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
