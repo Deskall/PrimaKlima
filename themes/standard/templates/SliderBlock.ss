@@ -7,7 +7,7 @@
                     
                         <ul class="uk-slider-items uk-height-1-1">
                             <% loop ActiveSlides %>
-                            <li>
+                            <li class="uk-width-1-1">
                                 <div class="uk-position-relative uk-height-1-1">
                                     <div class="dk-slide-text uk-text-left">
                                         <div class="title">$Title</div>
