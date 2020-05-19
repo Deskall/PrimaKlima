@@ -10,7 +10,7 @@
                                 
                                     <div>
                                         <div class="uk-container uk-height-1-1 uk-position-relative">
-                                            <div class="uk-position-top-left">
+                                            <div class="uk-position-top-left uk-position-z-index">
                                                 <div class="dk-slide-text uk-text-left">
                                                     <div class="title">$Top.styledTitle($Title)</div>
                                                     <div class="slide-text">$Content</div>
