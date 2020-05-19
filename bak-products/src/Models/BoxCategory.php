@@ -8,7 +8,8 @@ use Bak\Products\Models\ProductCategory;
 
 class BoxCategory extends DataObject
 {
-    
+    private static $table_name = 'BAK_BoxCategory';
+
     private static $has_one = [
         'Parent' => ProductCategoryBlock::class,
         'Category' => ProductCategory::class
