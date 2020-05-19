@@ -33,4 +33,8 @@ BAK\Products\Models\ProductUseArea:
 
 SliderBlock:
   extensions:
-    - 'Bak\Products\BAKSliderBlockExtension'
+    - 'BAK\Products\BAKSliderBlockExtension'
+
+Sheadawson\Linkable\Models\Link:
+  extensions:
+    - 'BAK\Products\BAKProductLinkExtension'
