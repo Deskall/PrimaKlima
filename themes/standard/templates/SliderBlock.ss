@@ -24,15 +24,15 @@
                                   <img src="$Image.ScaleHeight(400).URL" />
                                 </div>
                                 <% end_if %>
-
+                                <% if LinkableLinkID > 0 %>
+                                <div class="uk-position-bottom-left">
+                                    <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+                                </div>
+                                <% end_if %>
                             </li>
                             <% end_loop %>
                         </ul>
-                        <% if LinkableLinkID > 0 %>
-                        <div class="uk-position-bottom-left">
-                            <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-                        </div>
-                        <% end_if %>
+                        
                         <div class="uk-position-bottom-center uk-padding-small">
                             <ul class="uk-slider-nav uk-dotnav"></ul>
                         </div>
