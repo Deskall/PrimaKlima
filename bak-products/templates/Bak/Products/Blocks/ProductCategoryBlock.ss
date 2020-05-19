@@ -13,14 +13,15 @@
 					<div class="box uk-transition-toggle uk-height-1-1" tabindex="0">
 		   				<a href="$Category.Link">
 							<h3 class="uk-margin">$Category.Title</h3>
+							<% if $Category.ProductCategoryImage %>
+						    	<div class="uk-flex uk-flex-center uk-flex-middle">
+						    		<img class="dk-icon uk-width-auto" src="$Category.ProductCategoryImage.Fit(300,300).URL" />
+						    	</div>
+						    <% end_if %>
 							<div class="uk-margin-top dk-box-content">
 						    	<div class="box-text"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span class="icon ion-ios-arrow-right"></span></div>
 						    </div>
-						    <% if $Category.Image %>
-						    	<div class="uk-flex uk-flex-center uk-flex-middle">
-						    		<img class="dk-icon uk-width-auto" src="$Category.Image.Fit(300,300).URL" />
-						    	</div>
-						    <% end_if %>
+						    
 						</a>
 					</div>
 					
