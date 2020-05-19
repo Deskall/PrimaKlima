@@ -118,7 +118,7 @@
 							            <% loop getUseArea %>
 							            <div>
 							                <h2>$Title</h2>
-							                <div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
+							                <div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-match" data-uk-grid>
 							                    <% loop Usages %>
 							                    <div>
 							                        <a href="$Link" class="uk-display-block" data-filter-name="$Title"  data-type="usage">
