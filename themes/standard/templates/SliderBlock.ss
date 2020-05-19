@@ -8,11 +8,13 @@
                         <ul class="uk-slider-items uk-height-1-1">
                             <% loop ActiveSlides %>
                             <li class="uk-width-1-1">
-                                <div class="uk-position-relative uk-height-1-1">
-                                    <div class="uk-container uk-height-1-1">
-                                        <div class="dk-slide-text uk-text-left">
-                                            <div class="title">$Title</div>
-                                            <div class="slide-text">$Content</div>
+                                <div class="uk-position-center-left">
+                                    <div class="uk-position-relative uk-height-1-1">
+                                        <div class="uk-container uk-height-1-1">
+                                            <div class="dk-slide-text uk-text-left">
+                                                <div class="title">$Title</div>
+                                                <div class="slide-text">$Content</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
