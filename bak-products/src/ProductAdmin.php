@@ -38,7 +38,7 @@ class ProductAdmin extends ModelAdmin {
         $form = parent::getEditForm($id, $fields);
 
         //Files references
-        $file = File::get()->byId(90);
+        $file = File::get()->byId(585);
         if ($file->exists()){
             if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
                 $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
@@ -64,7 +64,7 @@ class ProductAdmin extends ModelAdmin {
         //             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
         //Import Products
-        $file = File::get()->byId(97);
+        $file = File::get()->byId(584);
         if ($file->exists()){
             if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
                 $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
