@@ -10,6 +10,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class BAKSliderBlockExtension extends DataExtension 
 {
@@ -19,7 +20,7 @@ class BAKSliderBlockExtension extends DataExtension
   }
 
   public function styledTitle($string){
-    return str_replace("On","<span>On</span>",$string);
+    return DBHTMLText::create()->setValue(str_replace("On","<span>On</span>",$string));
   }
 
   
