@@ -6,10 +6,9 @@
                     
                         <ul class="uk-slideshow-items">
                             <% loop ActiveSlides %>
-                            <li >
-                                
+                            <li>
                                     <div>
-                                        <div class="uk-container uk-height-1-1 uk-position-relative">
+                                        <div class="uk-container">
                                             <div class="uk-position-top-left uk-position-z-index">
                                                 <div class="dk-slide-text uk-text-left">
                                                     <div class="title">$Top.styledTitle($Title)</div>
