@@ -46,50 +46,58 @@
 							  <div class="holder uk-padding uk-padding-remove-horizontal">
 							  	<% if SelectedCategory %>
 							  		<% with SelectedCategory %>
-								  	<% loop Products %>
-									  	<div class="product">
-									  	    <div data-uk-grid>
-									  	        <div class="uk-width-1-4@m">
-									  	            <a href="$Link"><img src="$MainImage.Pad(210,150).URL" alt="$Name" /></a>
-									  	        </div>
-									  	        <div class="uk-width-3-4@m">
-									  	            <h3>$Name</h3>
-									  	            <% if $Lead %>
-									  	            <p class="description">$Lead</p>
-									  	           <% else_if $Description %>
-									  	                <p class="description">$Description.LimitWordCount(30)</p>
-									  	            <% end_if %>
-									  	            <div class="uk-text-right">
-									  	                <a href="$Link"><%t Main.ZUMPRODUKT 'Zum Produkt' %> <span class="icon ion-ios-arrow-right"></span></a>
-									  	            </div>
-									  	        </div>
-									  	    </div>
-									  	</div>
-								  	<% end_loop %>
+							  		<% if Products.exists %>
+									  	<% loop Products %>
+										  	<div class="product">
+										  	    <div data-uk-grid>
+										  	        <div class="uk-width-1-4@m">
+										  	            <a href="$Link"><img src="$MainImage.Pad(210,150).URL" alt="$Name" /></a>
+										  	        </div>
+										  	        <div class="uk-width-3-4@m">
+										  	            <h3>$Name</h3>
+										  	            <% if $Lead %>
+										  	            <p class="description">$Lead</p>
+										  	           <% else_if $Description %>
+										  	                <p class="description">$Description.LimitWordCount(30)</p>
+										  	            <% end_if %>
+										  	            <div class="uk-text-right">
+										  	                <a href="$Link"><%t Main.ZUMPRODUKT 'Zum Produkt' %> <span class="icon ion-ios-arrow-right"></span></a>
+										  	            </div>
+										  	        </div>
+										  	    </div>
+										  	</div>
+									  	<% end_loop %>
+									<% else %>
+									<div class="product"><div class="uk-width-1-1"><h3><%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %></h3></div></div>
+									<% end_if %>
 								 	<% end_with %>
 								<% end_if %>
 								   	<% if SelectedUsage %>
 								   		<% with SelectedUsage %>
-								 	  	<% loop Products %>
-								 		  	<div class="product">
-								 		  	    <div data-uk-grid>
-								 		  	        <div class="uk-width-1-4@m">
-								 		  	            <a href="$Link"><img src="$MainImage.Pad(210,150).URL" alt="$Name" /></a>
-								 		  	        </div>
-								 		  	        <div class="uk-width-3-4@m">
-								 		  	            <h3>$Name</h3>
-								 		  	            <% if $Lead %>
-								 		  	            <p class="description">$Lead</p>
-								 		  	           <% else_if $Description %>
-								 		  	                <p class="description">$Description.LimitWordCount(30)</p>
-								 		  	            <% end_if %>
-								 		  	            <div class="uk-text-right">
-								 		  	                <a href="$Link"><%t Product.ToProduct 'Zum Produkt' %> <span class="icon ion-ios-arrow-right"></span></a>
-								 		  	            </div>
-								 		  	        </div>
-								 		  	    </div>
-								 		  	</div>
-								 	  	<% end_loop %>
+								   		<% if Products.exists %>
+									 	  	<% loop Products %>
+									 		  	<div class="product">
+									 		  	    <div data-uk-grid>
+									 		  	        <div class="uk-width-1-4@m">
+									 		  	            <a href="$Link"><img src="$MainImage.Pad(210,150).URL" alt="$Name" /></a>
+									 		  	        </div>
+									 		  	        <div class="uk-width-3-4@m">
+									 		  	            <h3>$Name</h3>
+									 		  	            <% if $Lead %>
+									 		  	            <p class="description">$Lead</p>
+									 		  	           <% else_if $Description %>
+									 		  	                <p class="description">$Description.LimitWordCount(30)</p>
+									 		  	            <% end_if %>
+									 		  	            <div class="uk-text-right">
+									 		  	                <a href="$Link"><%t Product.ToProduct 'Zum Produkt' %> <span class="icon ion-ios-arrow-right"></span></a>
+									 		  	            </div>
+									 		  	        </div>
+									 		  	    </div>
+									 		  	</div>
+									 	  	<% end_loop %>
+								 	  	<% else %>
+								 	  	<div class="product"><div class="uk-width-1-1"><h3><%t ProductOverviewPage.NOPRODUCTS "Keine Produkte gefunden" %></h3></div></div>
+								 	  	<% end_if %>
 								 	 	<% end_with %>
 								 	<% end_if %>
 							  </div>
