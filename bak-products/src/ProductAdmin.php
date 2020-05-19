@@ -38,25 +38,25 @@ class ProductAdmin extends ModelAdmin {
         $form = parent::getEditForm($id, $fields);
 
         // //Files references
-        // $file = File::get()->byId(585);
-        // if ($file->exists()){
-        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-        //         $headers = fgetcsv($handle, 0, $delimiter);
-        //         $imported = [0,6];
-        //         $files = [];
-        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-        //             if ($line[0] != "" && $line[1] != "Folder"){
-        //                 $array = [];
-        //                 foreach ($imported as $key => $index) {
-        //                     $array[$headers[$index]] = trim($line[$index]);
-        //                 }
-        //                 $files[$line[0]] = trim($line[6]);
-        //             }
-        //         }
-        //         fclose($handle);
-        //     }
-        // }
+        $file = File::get()->byId(585);
+        if ($file->exists()){
+            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+                $headers = fgetcsv($handle, 0, $delimiter);
+                $imported = [0,6];
+                $files = [];
+                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+                    if ($line[0] != "" && $line[1] != "Folder"){
+                        $array = [];
+                        foreach ($imported as $key => $index) {
+                            $array[$headers[$index]] = trim($line[$index]);
+                        }
+                        $files[$line[0]] = trim($line[6]);
+                    }
+                }
+                fclose($handle);
+            }
+        }
 
         // //Products / Categories
         // $file = File::get()->byId(1136);
