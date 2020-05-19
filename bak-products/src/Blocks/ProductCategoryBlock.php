@@ -4,8 +4,8 @@ namespace Bak\Products\Blocks;
 
 use TextBlock;
 use GridFieldShowHideAction;
-use Bak\Products\Models\ProductUseArea;
-use Bak\Products\Models\ProductCategory;
+
+use Bak\Products\Models\BoxCategory;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;

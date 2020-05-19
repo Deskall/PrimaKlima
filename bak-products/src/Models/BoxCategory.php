@@ -1,7 +1,10 @@
 <?php
 
-use SilverStripe\ORM\DataObject;
+namespace Bak\Products\Models;
 
+use SilverStripe\ORM\DataObject;
+use Bak\Products\Blocks\ProductCategoryBlock;
+use Bak\Products\Models\ProductCategory;
 
 class BoxCategory extends DataObject
 {
