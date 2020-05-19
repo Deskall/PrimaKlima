@@ -3,9 +3,9 @@
     <div class="dk-header-slide-home uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="$FocusFill(350,350).URL" data-srcset="$FocusFill(350,350).URL 320w, $FocusFill(650,450).URL 650w, $FocusFill(1200,600).URL 1200w, $FocusFillMax(2000,750).URL 1500w" alt="" data-sizes="100vw" data-uk-img><% end_with %>
         <section class="uk-section uk-width-1-1 uk-height-1-1 uk-padding-remove uk-position-relative">
            
-                <div data-uk-slideshow="autoplay:true;" class="uk-height-1-1">
+                <div data-uk-slideshow="autoplay:true;">
                     
-                        <ul class="uk-slideshow-items uk-height-1-1">
+                        <ul class="uk-slideshow-items">
                             <% loop ActiveSlides %>
                             <li class="uk-width-1-1">
                                 
