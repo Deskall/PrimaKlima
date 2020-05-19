@@ -100,7 +100,7 @@ $(document).ready(function(){
             history.pushState({'filterList': $(this).attr('data-show-filter') }, $(this).attr('data-filter-name'), $(this).attr('href'));
             // ga('set', 'page', $(this).attr('href'));
             // ga('send', 'pageview');
-
+            UIkit.update(element = document.body, type = 'update');
             $('h1').text($('h1').attr('data-title-orig'));
             $('title').text($('h1').attr('data-title-orig'));
             return false;
