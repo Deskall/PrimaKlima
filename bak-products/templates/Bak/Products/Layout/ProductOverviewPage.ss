@@ -118,7 +118,7 @@
 							            <% loop getUseArea %>
 							            <div>
 							                <h2>$Title</h2>
-							                <div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-match" data-uk-grid>
+							                <div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid data-uk-height-match=".description">
 							                    <% loop Usages %>
 							                    <div>
 							                        <a href="$Link" class="uk-display-block" data-filter-name="$Title"  data-type="usage">
@@ -126,7 +126,7 @@
 							                            <% if $Image %>
 							                                <img src="$Image.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1 uk-margin-small-bottom" />
 							                            <% end_if %>
-							                                $Description
+							                                <div class="description">$Description</div>
 							                                <div class="uk-text-right uk-margin-top"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span class="icon ion-ios-arrow-right"></span></div>
 							                            </div>
 							                        </a>
