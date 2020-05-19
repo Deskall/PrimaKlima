@@ -77,24 +77,24 @@ class ProductAdmin extends ModelAdmin {
         //     }
         // }
 
-        //Products / Usages
-        $file = File::get()->byId(1135);
-        if ($file->exists()){
-            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-                $headers = fgetcsv($handle, 0, $delimiter);
-                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-                    if ($line[0] != ""){
-                        $product = Product::get()->filter('RefID',$line[1])->first();
-                        $usage = ProductUsage::get()->filter('RefID',$line[2])->first();
-                        if ($product && $usage){
-                          $usage->Products()->add($product);
-                        }
-                    }
-                }
-                fclose($handle);
-            }
-        }
+        // //Products / Usages
+        // $file = File::get()->byId(1135);
+        // if ($file->exists()){
+        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+        //         $headers = fgetcsv($handle, 0, $delimiter);
+        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+        //             if ($line[0] != ""){
+        //                 $product = Product::get()->filter('RefID',$line[1])->first();
+        //                 $usage = ProductUsage::get()->filter('RefID',$line[2])->first();
+        //                 if ($product && $usage){
+        //                   $usage->Products()->add($product);
+        //                 }
+        //             }
+        //         }
+        //         fclose($handle);
+        //     }
+        // }
 
         // ob_start();
         //             print_r($files);
