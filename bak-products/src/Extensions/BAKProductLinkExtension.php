@@ -21,8 +21,8 @@ class BAKProductLinkExtension extends DataExtension {
     $products = Product::get()->sort('Name');
     $fields->addFieldToTab('Root.Main', 
       DropdownField::create('Product','Produkt',$products->map('ID','Name'))
-      ->setEmptyString('Bitte wählen Sie ein Produkt aus.')
-      ->displayIf('Type')->isEqualTo('Product')->end());
+      ->setEmptyString('Bitte wählen Sie ein Produkt aus.'));
+      // ->displayIf('Type')->isEqualTo('Product')->end());
   }
   
 }
