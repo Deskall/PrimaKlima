@@ -12,7 +12,6 @@
 					
 					<div class="box uk-transition-toggle uk-height-1-1" tabindex="0">
 		   				<a href="$Category.Link">
-						<% if Top.Layout == "inversed" %>
 							<h3 class="uk-margin">$Title</h3>
 							<div class="uk-margin-top dk-box-content">
 						    	<div class="box-text"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span class="icon ion-ios-arrow-right"></span></div>
