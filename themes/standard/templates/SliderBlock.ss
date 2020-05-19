@@ -6,9 +6,9 @@
                     <div class="uk-position-relative uk-height-1-1 uk-width-1-1" tab="-1">
                         <ul class="uk-slideshow-items">
                             <% loop ActiveSlides %>
-                            <li >
+                            <li class="uk-height-1-1" >
                                 
-                                    <div>
+                                    <div class="uk-height-1-1">
                                         <div class="uk-container uk-height-1-1 uk-position-relative">
                                             <div class="uk-position-top-left uk-position-z-index">
                                                 <div class="dk-slide-text uk-text-left">
