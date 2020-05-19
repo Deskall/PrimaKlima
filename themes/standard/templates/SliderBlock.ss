@@ -28,7 +28,12 @@
                             </li>
                             <% end_loop %>
                         </ul>
-                        <div class="uk-position-bottom-center uk-position-small">
+                        <% if LinkableLinkID > 0 %>
+                        <div class="uk-position-bottom-left">
+                            <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+                        </div>
+                        <% end_if %>
+                        <div class="uk-position-bottom-center uk-padding-small">
                             <ul class="uk-slider-nav uk-dotnav"></ul>
                         </div>
                 </div>
