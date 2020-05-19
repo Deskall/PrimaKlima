@@ -20,9 +20,10 @@ class BAKProductLinkExtension extends DataExtension {
   public function updateCMSFields(FieldList $fields) {
     $products = Product::get()->sort('Name');
     $fields->addFieldToTab('Root.Main', 
-      $product = DropdownField::create('Product','Produkt',$products->map('ID','Name'))
+      $product = DropdownField::create('ProductID','Produkt',$products->map('ID','Name'))
       ->setEmptyString('Bitte wählen Sie ein Produkt aus.'));
     
+    $product->displayIf('Type')->isEqualTo('Product');
   }
   
 }
