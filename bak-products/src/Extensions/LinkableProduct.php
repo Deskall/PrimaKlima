@@ -8,7 +8,7 @@ class LinkableProduct extends DataExtension {
 
 	public function updateLinkForm($form){
 		$fields = $form->Fields();
-		$linkType = $fields->dataFieldByName('LinkType');
+		$linkType = $fields->dataFieldByName('Type');
 		$source = $linkType->getSource();
 		$source['Product'] = "Produktseite";
 		$linkType->setSource($source);
