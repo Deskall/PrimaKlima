@@ -10,7 +10,7 @@ use SilverStripe\Forms\DropdownField;
 class BAKProductLinkExtension extends DataExtension {
 
   private static $types = [
-    "Product"
+    "Product" => "Produkt"
   ];
 
   private static $has_one = [
@@ -24,7 +24,7 @@ class BAKProductLinkExtension extends DataExtension {
       $product = DropdownField::create('ProductID','Produkt',$products->map('ID','Name'))
       ->setEmptyString('Bitte wählen Sie ein Produkt aus.'));
     
-    $product->displayIf('Type')->isEqualTo('Product');
+    $product->displayIf('Type')->isEqualTo('Product')->end();
   }
   
 }
