@@ -4,7 +4,7 @@
         <section class="uk-section uk-width-1-1 uk-position-relative">
             <div class="uk-container">
                 <div data-uk-slider>
-                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                    
                         <ul class="uk-slider-items">
                             <% loop ActiveSlides %>
                             <li>
@@ -22,7 +22,7 @@
                             </li>
                             <% end_loop %>
                         </ul>
-                    </div>
+                    
                 </div>
             </div>
         </section>
