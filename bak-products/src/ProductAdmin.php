@@ -186,50 +186,50 @@ class ProductAdmin extends ModelAdmin {
         //     }
         // }
 
-        // //Products / Downloads ES
-        // $file = File::get()->byId(1211);
-        // if ($file->exists()){
-        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-        //         $headers = fgetcsv($handle, 0, $delimiter);
-        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-        //             if ($line[0] != ""){
-        //                 $product = Product::get()->filter('RefID',$line[1])->first();
-        //                 $file = isset($files[$line[2]]) ? $files[$line[2]] : null;
-        //                 if ($product && $file){
+        //Products / Downloads ES
+        $file = File::get()->byId(1211);
+        if ($file->exists()){
+            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+                $headers = fgetcsv($handle, 0, $delimiter);
+                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+                    if ($line[0] != ""){
+                        $product = Product::get()->filter('RefID',$line[1])->first();
+                        $file = isset($files[$line[2]]) ? $files[$line[2]] : null;
+                        if ($product && $file && strpos($file,"download/")){
 
-        //                      $filepath = str_replace("assets/Uploads", Director::baseFolder(),$file);
+                             $filepath = str_replace("assets/Uploads", Director::baseFolder(),$file);
                              
                             
-        //                      if (file_exists($filepath)){
-        //                          $file = new File();
-        //                          $file->setFromLocalFile($filepath);
-        //                          $name = ltrim(strrchr($file,"/"), '/');
-        //                          $folder = Folder::find_or_make($product->getFolderName());
-        //                          $file->ParentID = $folder->ID;
-        //                          $file->write();
-        //                          $file->publishSingle();
-        //                          $product->Downloads__es_ES()->add($file,['SortOrder' => $line[3]]);
-        //                      }
-        //                      else{
-        //                        ob_start();
-        //                               print_r('no file: '.$filepath);
-        //                               $result = ob_get_clean();
-        //                               file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-downloads.txt", $result,FILE_APPEND);
-        //                      }
-        //                  }
-        //                  else{
-        //                               ob_start();
-        //                               print_r('not found: '.$line[0]);
-        //                               $result = ob_get_clean();
-        //                               file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-downloads.txt", $result,FILE_APPEND);
-        //                  }
-        //               }
+                             if (file_exists($filepath)){
+                                 $file = new File();
+                                 $file->setFromLocalFile($filepath);
+                                 $name = ltrim(strrchr($file,"/"), '/');
+                                 $folder = Folder::find_or_make($product->getFolderName());
+                                 $file->ParentID = $folder->ID;
+                                 $file->write();
+                                 $file->publishSingle();
+                                 $product->Downloads__es_ES()->add($file,['SortOrder' => $line[3]]);
+                             }
+                             else{
+                               ob_start();
+                                      print_r('no file: '.$filepath);
+                                      $result = ob_get_clean();
+                                      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-downloads.txt", $result,FILE_APPEND);
+                             }
+                         }
+                         else{
+                                      ob_start();
+                                      print_r('not found: '.$line[0]);
+                                      $result = ob_get_clean();
+                                      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-downloads.txt", $result,FILE_APPEND);
+                         }
+                      }
                     
-        //         }
-        //         fclose($handle);
-        //     }
-        // }
+                }
+                fclose($handle);
+            }
+        }
 
         // ob_start();
         //             print_r($files);
