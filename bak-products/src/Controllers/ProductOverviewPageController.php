@@ -174,11 +174,20 @@ class ProductOverviewPageController extends PageController
             if(!$usage) {
                 return $this->httpError(404,_t('BAK.ProductNotFound','Produkt nicht gefunden.'));
             }
+            return array(
+                'SelectedUsage' => $usage,
+                'showProducts' => true,
+                'Locale' => $this->Locale,
+                'MetaTitle' => $usage->printMetaTitle(),
+                'MetaTags' => DBHTMLText::create()->setValue($usage->getMetaTags())
+            );
+            
+        }else{
             $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
             $tags .= '<meta name="description" content="'._t('ProductPage.ANWENDUNG','Produkt Anwendungen').'">';
             $tags .= $this->renderWith('FluentUsage_MetaTags');
 
-      
+            
             return array(
                 'ShowUsages' => true,
                 'Locale' => $this->Locale,
@@ -186,14 +195,6 @@ class ProductOverviewPageController extends PageController
                 'MetaTitle' => _t('ProductPage.ANWENDUNG','Produkt Anwendungen'),
                 'MetaTags' =>  DBHTMLText::create()->setValue($tags),
                 'isUsageOverview' => true
-            );
-        }else{
-            return array(
-                'SelectedUsage' => $usage,
-                'showProducts' => true,
-                'Locale' => $this->Locale,
-                'MetaTitle' => $usage->printMetaTitle(),
-                'MetaTags' => DBHTMLText::create()->setValue($usage->getMetaTags())
             );
         }
 
