@@ -18,6 +18,7 @@ class BAKProductLinkExtension extends DataExtension {
   ];
 
   public function updateCMSFields(FieldList $fields) {
+    $fields->removeByName('ProductID');
     $products = Product::get()->sort('Name');
     $fields->addFieldToTab('Root.Main', 
       $product = DropdownField::create('ProductID','Produkt',$products->map('ID','Name'))
