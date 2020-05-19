@@ -120,7 +120,7 @@
 							                <h2>$Title</h2>
 							                <div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid data-uk-height-match=".description">
 							                    <% loop Usages %>
-							                    <div>
+							                    <div class="uk-margin-small-bottom">
 							                        <a href="$Link" class="uk-display-block" data-filter-name="$Title"  data-type="usage">
 							                          <div class="box uk-clearfix">
 							                            <% if $Image %>
