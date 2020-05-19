@@ -1,7 +1,6 @@
 		<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 			$HTML
 		</div>
-		hello 
 		<% if LinkableLinkID > 0 %>
 			<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 		<% end_if %>
@@ -15,7 +14,7 @@
 							<h3 class="uk-margin uk-text-truncate">$MenuTitle</h3>
 							<% if $Image %>
 						    	<div class="uk-flex uk-flex-center uk-flex-middle">
-						    		<img class="dk-icon uk-width-auto" src="$Image.Pad(300,300).URL" />
+						    		<img class="dk-icon uk-width-auto" src="$Image.Pad(300,300, #FFFFFF).URL" />
 						    	</div>
 						    <% end_if %>
 							<div class="uk-margin-top dk-box-content">
