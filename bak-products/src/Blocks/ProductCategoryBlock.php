@@ -57,4 +57,8 @@ class ProductCategoryBlock extends TextBlock
         return _t(__CLASS__ . '.BlockType', 'Kategorie Boxen');
     }
 
+    public function ActiveBoxes(){
+        return $this->Boxes()->filter('isVisible',1)->sort('Sort');
+    }
+
 }
