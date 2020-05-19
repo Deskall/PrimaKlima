@@ -2,6 +2,7 @@
 namespace Bak\Products;
 
 use SilverStripe\ORM\DataExtension;
+use Bak\Products\Models\Product;
 
 class LinkableProduct extends DataExtension {
 
