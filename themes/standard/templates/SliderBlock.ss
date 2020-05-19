@@ -7,7 +7,7 @@
                         <ul class="uk-slideshow-items">
                             <% loop ActiveSlides %>
                             <li>
-                                    <div>
+                                    <div class="uk-section">
                                         <div class="uk-container">
                                             <div class="uk-position-top-left uk-position-z-index">
                                                 <div class="dk-slide-text uk-text-left">
