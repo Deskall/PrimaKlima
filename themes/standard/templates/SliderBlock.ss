@@ -9,8 +9,8 @@
                             <% loop ActiveSlides %>
                             <li class="uk-width-1-1">
                                 
-                                    <div class="uk-position-relative uk-height-1-1">
-                                        <div class="uk-container uk-height-1-1">
+                                    <div class=" uk-height-1-1">
+                                        <div class="uk-container uk-height-1-1 uk-position-relative">
                                             <div class="uk-position-center-left">
                                                 <div class="dk-slide-text uk-text-left">
                                                     <div class="title">$Title</div>
