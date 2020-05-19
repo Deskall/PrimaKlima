@@ -28,7 +28,7 @@ class BAKLastNewsBlock extends TextBlock
 
 
     public function getNews(){
-        return NewsPage::get()->sort('Created','Desc');
+        return NewsPage::get()->sort('Created','Desc')->limit(3);
     }
 
 }
