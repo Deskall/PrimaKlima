@@ -40,6 +40,6 @@ Sheadawson\Linkable\Models\Link:
   extensions:
     - 'BAK\Products\BAKProductLinkExtension'
 
-Sheadawson\Linkable\Forms\LinkField:
-  extensions:
-    - Bak\Products\LinkableProduct
+# Sheadawson\Linkable\Forms\LinkField:
+#   extensions:
+#     - Bak\Products\LinkableProduct
