@@ -34,7 +34,7 @@
                         </ul>
                         
                         <div class="uk-position-bottom-center uk-padding-small">
-                            <ul class="uk-slider-nav uk-dotnav"></ul>
+                            <ul class="uk-slideshow-nav uk-dotnav"></ul>
                         </div>
                     </div>
                 </div>
