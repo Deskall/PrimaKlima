@@ -157,7 +157,7 @@ $(document).ready(function(){
                 
             }
            
-
+            UIkit.update(element = document.body, type = 'update');
             // ga('set', 'page', $(this).attr('href'));
             // ga('send', 'pageview');
             
