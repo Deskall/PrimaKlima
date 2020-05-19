@@ -3,6 +3,7 @@
 namespace Bak\Products\Blocks;
 
 use TextBlock;
+use GridFieldShowHideAction;
 use Bak\Products\Models\ProductUseArea;
 use Bak\Products\Models\ProductCategory;
 use SilverStripe\Forms\GridField\GridField;
