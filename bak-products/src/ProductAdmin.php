@@ -231,7 +231,7 @@ class ProductAdmin extends ModelAdmin {
                         $image = new Image();
                         $image->setFromLocalFile($filepath);
                         $name = ltrim(strrchr($files[$ref['ImageID']],"/"), '/');
-                        $folder = Folder::find_or_make($usage->getFolderName());
+                        $folder = Folder::find_or_make("Uploads/anwendungsbilder");
                         $image->ParentID = $folder->ID;
                         $image->write();
                         $image->publishSingle();
