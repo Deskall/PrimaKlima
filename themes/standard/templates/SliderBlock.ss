@@ -17,6 +17,11 @@
                                                     <div class="slide-text">$Content</div>
                                                 </div>
                                             </div>
+                                            <% if LinkableLinkID > 0 %>
+                                            <div class="uk-position-bottom-left">
+                                                <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+                                            </div>
+                                            <% end_if %>
                                         </div>
                                     </div>
                                 <% if $Image %>
@@ -24,11 +29,7 @@
                                   <img src="$Image.ScaleHeight(400).URL" />
                                 </div>
                                 <% end_if %>
-                                <% if LinkableLinkID > 0 %>
-                                <div class="uk-position-bottom-left">
-                                    <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-                                </div>
-                                <% end_if %>
+                              
                             </li>
                             <% end_loop %>
                         </ul>
