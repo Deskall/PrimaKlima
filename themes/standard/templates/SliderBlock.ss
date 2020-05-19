@@ -24,9 +24,11 @@
                                   <img src="$Image.ScaleHeight(400).URL" />
                                 </div>
                                 <% end_if %>
+
                             </li>
                             <% end_loop %>
                         </ul>
+                        <ul class="uk-slider-nav uk-dotnav"></ul>
                     
                 </div>
             
