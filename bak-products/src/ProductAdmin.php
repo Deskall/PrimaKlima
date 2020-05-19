@@ -191,59 +191,59 @@ class ProductAdmin extends ModelAdmin {
 
        
         //Import Usages
-        $file = File::get()->byId(586);
-        if ($file->exists()){
-            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-                $headers = fgetcsv($handle, 0, $delimiter);
-                $imported = [0,4,5,6,8,9,11,12,13,14,15,16,17,19];
-                $usages = [];
-                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-                    if ($line[0] != ""){
-                        $array = [];
-                        foreach ($imported as $key => $index) {
-                            $array[$headers[$index]] = trim($line[$index]);
-                        }
-                        $usages[] = $array;
-                    }
-                }
-                fclose($handle);
-            }
+        // $file = File::get()->byId(586);
+        // if ($file->exists()){
+        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+        //         $headers = fgetcsv($handle, 0, $delimiter);
+        //         $imported = [0,4,5,6,8,9,11,12,13,14,15,16,17,19];
+        //         $usages = [];
+        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+        //             if ($line[0] != ""){
+        //                 $array = [];
+        //                 foreach ($imported as $key => $index) {
+        //                     $array[$headers[$index]] = trim($line[$index]);
+        //                 }
+        //                 $usages[] = $array;
+        //             }
+        //         }
+        //         fclose($handle);
+        //     }
             
-            foreach ($usages as $key => $ref) {
-               $usage = ProductUsage::get()->filter('RefID' , $ref['ID'])->first();
-               if (!$usage){
-                $usage = new ProductUsage();
-               }
-               // $usage->RefID = $ref['ID'];
-               // $usage->Title = $ref['Title__es_ES'];
-               // $usage->Sort = $ref['SortOrder'];
-               // $usage->Description = $ref['Description__es_ES'];
-               // $usage->UseAreaID = $ref['UseAreaID'];
-               // $usage->MetaTitle = $ref['MetaTitle__en_US'];
+        //     foreach ($usages as $key => $ref) {
+        //        $usage = ProductUsage::get()->filter('RefID' , $ref['ID'])->first();
+        //        if (!$usage){
+        //         $usage = new ProductUsage();
+        //        }
+        //        // $usage->RefID = $ref['ID'];
+        //        // $usage->Title = $ref['Title__es_ES'];
+        //        // $usage->Sort = $ref['SortOrder'];
+        //        // $usage->Description = $ref['Description__es_ES'];
+        //        // $usage->UseAreaID = $ref['UseAreaID'];
+        //        // $usage->MetaTitle = $ref['MetaTitle__en_US'];
 
-                if ($ref['ImageID'] > 0 && isset($files[$ref['ImageID']])){
+        //         if ($ref['ImageID'] > 0 && isset($files[$ref['ImageID']])){
 
-                    $filepath = str_replace("assets/Uploads", Director::baseFolder(),$files[$ref['ImageID']]);
+        //             $filepath = str_replace("assets/Uploads", Director::baseFolder(),$files[$ref['ImageID']]);
                     
                    
-                    if (file_exists($filepath)){
-                        $image = new Image();
-                        $image->setFromLocalFile($filepath);
-                        $name = ltrim(strrchr($files[$ref['ImageID']],"/"), '/');
-                        $folder = Folder::find_or_make("Uploads/anwendungsbilder");
-                        $image->ParentID = $folder->ID;
-                        $image->write();
-                        $image->publishSingle();
-                        $usage->ImageID = $image->ID;
-                        $usage->{'Image.ID'} = $image->ID;
-                    }
-                }
+        //             if (file_exists($filepath)){
+        //                 $image = new Image();
+        //                 $image->setFromLocalFile($filepath);
+        //                 $name = ltrim(strrchr($files[$ref['ImageID']],"/"), '/');
+        //                 $folder = Folder::find_or_make("Uploads/anwendungsbilder");
+        //                 $image->ParentID = $folder->ID;
+        //                 $image->write();
+        //                 $image->publishSingle();
+        //                 $usage->ImageID = $image->ID;
+        //                 $usage->{'Image.ID'} = $image->ID;
+        //             }
+        //         }
                
 
-               $usage->write();
-            }
-        }
+        //        $usage->write();
+        //     }
+        // }
 
 
 
