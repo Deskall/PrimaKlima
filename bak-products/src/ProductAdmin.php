@@ -86,7 +86,7 @@ class ProductAdmin extends ModelAdmin {
                 while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
                     if ($line[0] != ""){
                         $product = Product::get()->filter('RefID',$line[1])->first();
-                        $usage = ProductUage::get()->filter('RefID',$line[2])->first();
+                        $usage = ProductUsage::get()->filter('RefID',$line[2])->first();
                         if ($product && $usage){
                           $usage->Products()->add($product);
                         }
