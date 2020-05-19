@@ -101,7 +101,7 @@
 							            <% loop getCategories %>
 							            <div>
 							                <a href="$Link" class="uk-display-block" data-filter-name="$Title" data-type="category">
-							                <h3 class="uk-margin-remove">$Title</h3>
+							                <h3>$Title</h3>
 							                <% if $ProductCategoryImage %>
 							                  <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1  uk-margin-small-bottom" />
 							                <% end_if %>
