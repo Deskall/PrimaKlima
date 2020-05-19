@@ -18,5 +18,9 @@ class BAKSliderBlockExtension extends DataExtension
    return HeaderSlide::get()->first();
   }
 
+  public function styledTitle($string){
+    return str_replace("On","<span>On</span>",$string);
+  }
+
   
 }
