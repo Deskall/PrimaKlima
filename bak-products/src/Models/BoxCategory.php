@@ -20,4 +20,11 @@ class BoxCategory extends DataObject
         'Activable'
     ];
 
+    public function getCMSFields(){
+    	$fields = parent::getCMSFields();
+    	$fields->removeByName('ParentID');
+
+    	return $fields;
+    }
+
 }
