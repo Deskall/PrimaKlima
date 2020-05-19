@@ -5,7 +5,7 @@
            
                 <div data-uk-slideshow="autoplay:true;" class="uk-height-1-1">
                     
-                        <ul class="uk-slider-items uk-height-1-1">
+                        <ul class="uk-slideshow-items uk-height-1-1">
                             <% loop ActiveSlides %>
                             <li class="uk-width-1-1">
                                 
