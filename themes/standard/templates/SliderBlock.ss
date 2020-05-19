@@ -1,9 +1,9 @@
 <% if HeaderSlide %>
   <% with HeaderSlide.Image %>
-    <div class="dk-header-slide-home uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="$FocusFill(350,350).URL" data-srcset="$FocusFill(350,350).URL 320w, $FocusFill(650,450).URL 650w, $FocusFill(1200,600).URL 1200w, $FocusFillMax(2000,750).URL 1500w" alt="" data-sizes="100vw" data-uk-img><% end_with %>
+    <div class="dk-header-slide-home uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-position-relative" data-src="$FocusFill(350,350).URL" data-srcset="$FocusFill(350,350).URL 320w, $FocusFill(650,450).URL 650w, $FocusFill(1200,600).URL 1200w, $FocusFillMax(2000,750).URL 1500w" alt="" data-sizes="100vw" data-uk-img><% end_with %>
            
-                <div class="uk-height-1-1 uk-width-1-1" data-uk-slideshow="autoplay:true;min-height: 350;animation: fade;">
-                    <div class="uk-position-relative uk-height-1-1 uk-width-1-1" tab="-1">
+                <div data-uk-slideshow="autoplay:true;min-height: 350;animation: fade;">
+                    
                         <ul class="uk-slideshow-items">
                             <% loop ActiveSlides %>
                             <li >
@@ -36,7 +36,7 @@
                         <div class="uk-position-bottom-center uk-padding-small">
                             <ul class="uk-slideshow-nav uk-dotnav"></ul>
                         </div>
-                    </div>
+                   
                 </div>
             
     </div>
