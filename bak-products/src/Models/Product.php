@@ -127,6 +127,15 @@ class Product extends DataObject {
 
 
     public function getCMSFields() {
+
+      // foreach (Product::get() as $p) {
+      //   $folder = Folder::find_or_make()
+      // }
+
+      $folder = Folder::find_or_make($this->getFolderName());
+      print_r($folder->ID);
+
+
       $fields = parent::getCMSFields();
       $fields->removeByName('Categories');
       $fields->removeByName('Usages');
