@@ -38,25 +38,25 @@ class ProductAdmin extends ModelAdmin {
         $form = parent::getEditForm($id, $fields);
 
         // //Files references
-        $file = File::get()->byId(585);
-        if ($file->exists()){
-            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-                $headers = fgetcsv($handle, 0, $delimiter);
-                $imported = [0,6];
-                $files = [];
-                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-                    if ($line[0] != "" && $line[1] != "Folder"){
-                        $array = [];
-                        foreach ($imported as $key => $index) {
-                            $array[$headers[$index]] = trim($line[$index]);
-                        }
-                        $files[$line[0]] = trim($line[6]);
-                    }
-                }
-                fclose($handle);
-            }
-        }
+        // $file = File::get()->byId(585);
+        // if ($file->exists()){
+        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+        //         $headers = fgetcsv($handle, 0, $delimiter);
+        //         $imported = [0,6];
+        //         $files = [];
+        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+        //             if ($line[0] != "" && $line[1] != "Folder"){
+        //                 $array = [];
+        //                 foreach ($imported as $key => $index) {
+        //                     $array[$headers[$index]] = trim($line[$index]);
+        //                 }
+        //                 $files[$line[0]] = trim($line[6]);
+        //             }
+        //         }
+        //         fclose($handle);
+        //     }
+        // }
 
         // //Products / Categories
         // $file = File::get()->byId(1136);
@@ -237,92 +237,92 @@ class ProductAdmin extends ModelAdmin {
         //             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
         //Import Products
-        $file = File::get()->byId(584);
-        if ($file->exists()){
-            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-                $headers = fgetcsv($handle, 0, $delimiter);
-                $imported = [0,4,5,6,7,8,9,11,12,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,37,38,39,40,41,42,43,44,45,46,48,49,50,51];
-                $products = [];
-                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-                    if ($line[0] != ""){
-                        $array = [];
-                        foreach ($imported as $key => $index) {
-                            $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
-                        }
-                        $products[] = $array;
-                    }
-                }
-                fclose($handle);
+        // $file = File::get()->byId(584);
+        // if ($file->exists()){
+        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+        //         $headers = fgetcsv($handle, 0, $delimiter);
+        //         $imported = [0,4,5,6,7,8,9,11,12,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,37,38,39,40,41,42,43,44,45,46,48,49,50,51];
+        //         $products = [];
+        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+        //             if ($line[0] != ""){
+        //                 $array = [];
+        //                 foreach ($imported as $key => $index) {
+        //                     $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
+        //                 }
+        //                 $products[] = $array;
+        //             }
+        //         }
+        //         fclose($handle);
                 
-                // foreach (Product::get() as $p) {
-                //     $p->delete();
-                // }
-                foreach ($products as $key => $ref) {
-                   $product = Product::get()->filter('RefID' , $ref['ID'])->first();
-                   if (!$product){
-                    $product = new Product();
-                   }
-                   // $product->RefID = $ref['ID'];
-                   // $product->Name = $ref['Name'];
-                   // $product->HeaderText = $ref['HeaderText'];
-                   // $product->Lead = $ref['Lead'];
-                   // $product->Description = $ref['Description'];
-                   // $product->Features = $ref['Features'];
-                   // $product->Table = $ref['Table'];
-                   // $product->Videos = $ref['Videos'];
-                   // $product->Number = $ref['Number'];
-                   // $product->MetaDescription = $ref['MetaDescription'];
-                   // $product->MetaTitle = $ref['MetaTitle'];
-                   // $product->Sort = $ref['SortOrder'];
+        //         // foreach (Product::get() as $p) {
+        //         //     $p->delete();
+        //         // }
+        //         foreach ($products as $key => $ref) {
+        //            $product = Product::get()->filter('RefID' , $ref['ID'])->first();
+        //            if (!$product){
+        //             $product = new Product();
+        //            }
+        //            // $product->RefID = $ref['ID'];
+        //            // $product->Name = $ref['Name'];
+        //            // $product->HeaderText = $ref['HeaderText'];
+        //            // $product->Lead = $ref['Lead'];
+        //            // $product->Description = $ref['Description'];
+        //            // $product->Features = $ref['Features'];
+        //            // $product->Table = $ref['Table'];
+        //            // $product->Videos = $ref['Videos'];
+        //            // $product->Number = $ref['Number'];
+        //            // $product->MetaDescription = $ref['MetaDescription'];
+        //            // $product->MetaTitle = $ref['MetaTitle'];
+        //            // $product->Sort = $ref['SortOrder'];
                    
-                   // $product->Name = $ref['Name__en_US'];
-                   // $product->HeaderText = $ref['HeaderText__en_US'];
-                   // $product->Lead = $ref['Lead__en_US'];
-                   // $product->Description = $ref['Description__en_US'];
-                   // $product->Features = $ref['Features__en_US'];
-                   // $product->Table = $ref['Table__en_US'];
-                   // $product->Videos = $ref['Videos__en_US'];
-                   // $product->Number = $ref['Number__en_US'];
-                   // $product->MetaDescription = $ref['MetaDescription__en_US'];
-                   // $product->MetaTitle = $ref['MetaTitle__en_US'];
+        //            // $product->Name = $ref['Name__en_US'];
+        //            // $product->HeaderText = $ref['HeaderText__en_US'];
+        //            // $product->Lead = $ref['Lead__en_US'];
+        //            // $product->Description = $ref['Description__en_US'];
+        //            // $product->Features = $ref['Features__en_US'];
+        //            // $product->Table = $ref['Table__en_US'];
+        //            // $product->Videos = $ref['Videos__en_US'];
+        //            // $product->Number = $ref['Number__en_US'];
+        //            // $product->MetaDescription = $ref['MetaDescription__en_US'];
+        //            // $product->MetaTitle = $ref['MetaTitle__en_US'];
 
-                   // $product->Name = $ref['Name__es_ES'];
-                   // $product->HeaderText = $ref['HeaderText__es_ES'];
-                   // $product->Lead = $ref['Lead__es_ES'];
-                   // $product->Description = $ref['Description__es_ES'];
-                   // $product->Features = $ref['Features__es_ES'];
-                   // $product->Table = $ref['Table__es_ES'];
-                   // $product->Videos = $ref['Videos__es_ES'];
-                   // $product->Number = $ref['Number__es_ES'];
-                   // $product->MetaDescription = $ref['MetaDescription__es_ES'];
-                   // $product->MetaTitle = $ref['MetaTitle__es_ES'];
+        //            // $product->Name = $ref['Name__es_ES'];
+        //            // $product->HeaderText = $ref['HeaderText__es_ES'];
+        //            // $product->Lead = $ref['Lead__es_ES'];
+        //            // $product->Description = $ref['Description__es_ES'];
+        //            // $product->Features = $ref['Features__es_ES'];
+        //            // $product->Table = $ref['Table__es_ES'];
+        //            // $product->Videos = $ref['Videos__es_ES'];
+        //            // $product->Number = $ref['Number__es_ES'];
+        //            // $product->MetaDescription = $ref['MetaDescription__es_ES'];
+        //            // $product->MetaTitle = $ref['MetaTitle__es_ES'];
 
-                   // Files
-                   if ($product && !$product->MainImage()->exists()){
-                    if ($ref['MainImageID'] > 0 && isset($files[$ref['MainImageID']])){
+        //            // Files
+        //            if ($product && !$product->MainImage()->exists()){
+        //             if ($ref['MainImageID'] > 0 && isset($files[$ref['MainImageID']])){
 
-                        $filepath = str_replace("assets/Uploads", Director::baseFolder(),$files[$ref['MainImageID']]);
+        //                 $filepath = str_replace("assets/Uploads", Director::baseFolder(),$files[$ref['MainImageID']]);
                         
                        
-                        if (file_exists($filepath)){
-                            $image = new Image();
-                            $image->setFromLocalFile($filepath);
-                            $name = ltrim(strrchr($files[$ref['MainImageID']],"/"), '/');
-                            $folder = Folder::find_or_make($product->getFolderName());
-                            $image->ParentID = $folder->ID;
-                            $image->write();
-                            $image->publishSingle();
-                            $product->MainImageID = $image->ID;
-                            $product->{'MainImage.ID'} = $image->ID;
-                        }
-                    }
-                   }
+        //                 if (file_exists($filepath)){
+        //                     $image = new Image();
+        //                     $image->setFromLocalFile($filepath);
+        //                     $name = ltrim(strrchr($files[$ref['MainImageID']],"/"), '/');
+        //                     $folder = Folder::find_or_make($product->getFolderName());
+        //                     $image->ParentID = $folder->ID;
+        //                     $image->write();
+        //                     $image->publishSingle();
+        //                     $product->MainImageID = $image->ID;
+        //                     $product->{'MainImage.ID'} = $image->ID;
+        //                 }
+        //             }
+        //            }
 
-                   $product->write();
-                }
-            }
-        }
+        //            $product->write();
+        //         }
+        //     }
+        // }
 
        
         // //Import Usages
