@@ -15,4 +15,9 @@ class BoxCategory extends DataObject
         'Category' => ProductCategory::class
     ];
 
+    private static $extensions = [
+        'Sortable',
+        'Activable'
+    ];
+
 }
