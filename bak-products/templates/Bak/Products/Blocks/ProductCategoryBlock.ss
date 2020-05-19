@@ -12,7 +12,7 @@
 					
 					<div class="box uk-transition-toggle uk-height-1-1" tabindex="0">
 		   				<a href="$Category.Link">
-							<h3 class="uk-margin">$Category.Title</h3>
+							<h3 class="uk-margin uk-text-truncate">$Category.Title</h3>
 							<% if $Category.ProductCategoryImage %>
 						    	<div class="uk-flex uk-flex-center uk-flex-middle">
 						    		<img class="dk-icon uk-width-auto" src="$Category.ProductCategoryImage.Fit(300,300).URL" />
