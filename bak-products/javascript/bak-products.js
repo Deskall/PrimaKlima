@@ -158,7 +158,6 @@ $(document).ready(function(){
             }
            
             UIkit.update(element = document.body, type = 'update');
-            $(window).trigger('resize');
             // ga('set', 'page', $(this).attr('href'));
             // ga('send', 'pageview');
             
