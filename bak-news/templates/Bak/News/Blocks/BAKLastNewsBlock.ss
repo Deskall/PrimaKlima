@@ -18,7 +18,7 @@
 						    	</div>
 						    <% end_if %>
 							<div class="uk-margin-top dk-box-content">
-								<div class="dk-text-content">$Lead.limitWordCount(20)</div>
+								<div class="dk-text-content uk-margin-small">$Lead.limitWordCount(20)</div>
 						    	<div class="box-text"><%t News.WEITER 'weiterlesen' %><span data-uk-icon="icon:chevron-right;ratio:0.8"></span></div>
 						    </div>
 						</a>
