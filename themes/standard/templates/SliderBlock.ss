@@ -28,7 +28,7 @@
                             </li>
                             <% end_loop %>
                         </ul>
-                        <div class="uk-position-bottom-center">
+                        <div class="uk-position-bottom-center uk-position-small">
                             <ul class="uk-slider-nav uk-dotnav"></ul>
                         </div>
                 </div>
