@@ -18,7 +18,7 @@
                                                 </div>
                                             </div>
                                             <% if LinkableLinkID > 0 %>
-                                            <div class="uk-position-bottom-left">
+                                            <div class="uk-position-bottom-left uk-padding-large uk-padding-remove-horizontal">
                                                 <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
                                             </div>
                                             <% end_if %>
