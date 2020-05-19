@@ -30,3 +30,7 @@ BAK\Products\Models\ProductUsage:
 BAK\Products\Models\ProductUseArea:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentExtension'
+
+SliderBlock:
+  extensions:
+    - 'Bak\Products\BAKSliderBlockExtension'
