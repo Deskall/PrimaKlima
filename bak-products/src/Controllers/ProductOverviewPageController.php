@@ -169,13 +169,14 @@ class ProductOverviewPageController extends PageController
 
 
     public function application(HTTPRequest $request ){
-        
-        $usage = ProductUsage::get()->filter('URLSegment',$request->param('UsageArea').'/'.$request->param('Usage'))->First();
-        if(!$usage) {
-
-          $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
-          $tags .= '<meta name="description" content="'._t('ProductPage.ANWENDUNG','Produkt Anwendungen').'">';
-          $tags .= $this->renderWith('FluentUsage_MetaTags');
+        if($request->param('UsageArea')){
+            $usage = ProductUsage::get()->filter('URLSegment',$request->param('UsageArea').'/'.$request->param('Usage'))->First();
+            if(!$usage) {
+                return $this->httpError(404,_t('BAK.ProductNotFound','Produkt nicht gefunden.'));
+            }
+            $tags = '<meta name="generator" content="SilverStripe - http://silverstripe.org"><meta http-equiv="Content-type" content="text/html; charset=utf-8">';
+            $tags .= '<meta name="description" content="'._t('ProductPage.ANWENDUNG','Produkt Anwendungen').'">';
+            $tags .= $this->renderWith('FluentUsage_MetaTags');
 
       
             return array(
