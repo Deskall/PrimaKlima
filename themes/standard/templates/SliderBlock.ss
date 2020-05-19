@@ -17,7 +17,7 @@
                                     </div>
                                 </div>
                                 <% if $Image %>
-                                <div class="uk-position-center-right">
+                                <div class="uk-position-bottom-right">
                                   <img src="$Image.ScaleHeight(400).URL" />
                                 </div>
                                 <% end_if %>
