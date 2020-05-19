@@ -28,8 +28,9 @@
                             </li>
                             <% end_loop %>
                         </ul>
-                        <ul class="uk-slider-nav uk-dotnav"></ul>
-                    
+                        <div class="uk-position-bottom-center">
+                            <ul class="uk-slider-nav uk-dotnav"></ul>
+                        </div>
                 </div>
             
         </section>
