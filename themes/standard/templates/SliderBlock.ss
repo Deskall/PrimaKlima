@@ -26,7 +26,7 @@
                         </ul>
                     
                 </div>
-            </div>
+            
         </section>
     </div>
 <% end_if %>
