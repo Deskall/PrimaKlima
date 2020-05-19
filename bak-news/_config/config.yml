@@ -7,3 +7,7 @@ SilverStripe\Core\Manifest\ModuleManifest:
 BAK\News\NewsPage:
   extensions:
     - Terraformers\EmbargoExpiry\Extension\EmbargoExpiryExtension
+
+BaseBlockExtension:
+  blocks:
+    - Bak-News-Blocks-BAKLastNewsBlock
