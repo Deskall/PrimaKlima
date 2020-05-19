@@ -63,12 +63,12 @@ class ProductOverviewPageController extends PageController
             $tmp =  array();
 
             if( $product->MainImage()->Link() != "/assets/" ){
-                if ($product->MainImage()->Pad(210,150)){
+                if ($product->MainImage()->exists()){
                     $tmp['image'] = $product->MainImage()->Pad(210,150)->Link();
                 }
                 else{
                     ob_start();
-                    print_r($tmp['name']);
+                    print_r($product->Name);
                     $result = ob_get_clean();
                     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-name.txt", $result,FILE_APPEND);
                 }
