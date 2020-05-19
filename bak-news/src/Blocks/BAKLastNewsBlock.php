@@ -20,6 +20,8 @@ class BAKLastNewsBlock extends TextBlock
 
     private static $description = 'Letzte Neuigkeiten Block';
 
+    private static $db = ['test' => 'Varchar'];
+
 
     public function getType()
     {
