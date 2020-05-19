@@ -7,21 +7,20 @@
                         <ul class="uk-slideshow-items">
                             <% loop ActiveSlides %>
                             <li>
-                                    <div class="uk-section">
-                                        <div class="uk-container">
-                                            <div class="uk-position-top-left uk-position-z-index">
-                                                <div class="dk-slide-text uk-text-left">
-                                                    <div class="title">$Top.styledTitle($Title)</div>
-                                                    <div class="slide-text">$Content</div>
-                                                </div>
-                                            </div>
-                                            <% if LinkableLinkID > 0 %>
-                                            <div class="uk-position-bottom-left uk-padding-large uk-padding-remove-horizontal">
-                                                <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-                                            </div>
-                                            <% end_if %>
+                                <div class="uk-position-top-left uk-position-z-index">
+                                    <div class="uk-container">
+                                        <div class="dk-slide-text uk-text-left">
+                                            <div class="title">$Top.styledTitle($Title)</div>
+                                            <div class="slide-text">$Content</div>
                                         </div>
                                     </div>
+                                </div>
+                                <% if LinkableLinkID > 0 %>
+                                <div class="uk-position-bottom-left uk-padding-large uk-padding-remove-horizontal">
+                                    <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+                                </div>
+                                <% end_if %>
+                                      
                                 <% if $Image %>
                                 <div class="uk-position-bottom-right">
                                   <img src="$Image.ScaleHeight(400).URL" />
