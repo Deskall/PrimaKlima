@@ -3,6 +3,7 @@ namespace Bak\Products;
 
 use SilverStripe\ORM\DataExtension;
 use Bak\Products\Models\Product;
+use SilverStripe\Forms\DropdownField;
 
 class LinkableProduct extends DataExtension {
 
