@@ -118,7 +118,7 @@
           <% if $Product.Downloads %>
           <div class="product-block uk-margin-large-bottom">
             <h2><%t ProductPage.DOWNLOADS "Downloads" %></h2>
-            <div class="download-block">
+            <div class="downloadblock">
               <% loop $Product.Downloads.Sort('SortOrder') %>
               <a href="$URL" target="_blank">$Title</a>
               <% end_loop %>
@@ -129,7 +129,7 @@
           <% if $Product.Downloads__en_US %>
           <div class="product-block uk-margin-large-bottom">
             <h2><%t ProductPage.DOWNLOADS "Downloads" %></h2>
-            <div class="download-block">
+            <div class="downloadblock">
               <% loop $Product.Downloads__en_US.Sort('SortOrder') %>
               <a href="$URL" target="_blank">$Title</a>
               <% end_loop %>
