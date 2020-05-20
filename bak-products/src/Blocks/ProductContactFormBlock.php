@@ -8,6 +8,7 @@ use Bak\Products\Models\ProductCategory;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\CMS\Model\SiteTree;
 
 class ProductContactFormBlock extends TextBlock
 {
