@@ -82,8 +82,8 @@
                   <% end_loop %>
                 </ul>
                 <div class="uk-flex uk-flex-between">
-                  <a href="#" data-uk-slider-item="previous">...</a>
-                  <a href="#" data-uk-slider-item="next">...</a>
+                  <a href="#" data-uk-slider-item="previous"><span data-uk-icon="chevron-left"></span></a>
+                  <a href="#" data-uk-slider-item="next"><span data-uk-icon="chevron-right"></span></a>
                 </div>
             </div>
           </div>
@@ -106,6 +106,10 @@
                   </li>
                   <% end_loop %>
                 </ul>
+                <div class="uk-flex uk-flex-between">
+                  <a href="#" data-uk-slider-item="previous"><span data-uk-icon="chevron-left"></span></a>
+                  <a href="#" data-uk-slider-item="next"><span data-uk-icon="chevron-right"></span></a>
+                </div>
             </div>
           </div>
         </div>
