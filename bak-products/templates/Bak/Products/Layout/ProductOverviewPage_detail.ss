@@ -71,12 +71,12 @@
         <div class="product-block uk-margin-large-bottom">
           <h2><%t ProductPage.ANWENDUNG "Einfache Anwendung" %></h2>
           <div class="image-block">
-            <div class="uk-position-relative" tabindex="-1" data-uk-slider>
+            <div class="uk-position-relative" tabindex="-1" data-uk-slider data-uk-lightbox>
                 <ul class="uk-slider-items uk-child-width-1-2@s">
                   <% loop $Product.Usages %>
                   <% if $Image %>
                     <li>
-                      <a href="$Image.Link" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$Image.FocusFillMax(350,250).URL" alt="$Title"/></a>
+                      <a href="$Image.Link" title="$Description" class="uk-width-1-1 uk-height-1-1"><img src="$Image.FocusFill(350,350).URL" alt="$Title"/></a>
                     </li>
                   <% end_if %>
                   <% end_loop %>
