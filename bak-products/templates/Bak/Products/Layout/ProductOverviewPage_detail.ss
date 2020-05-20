@@ -76,7 +76,7 @@
                   <% loop $Product.Usages %>
                   <% if $Image %>
                     <li class="uk-text-center">
-                      <a href="$Image.Link" title="$Description" class="uk-width-1-1 uk-height-1-1"><img src="$Image.FocusFill(400,350).URL" alt="$Title"/></a>
+                      <a href="$Image.Link" title="$Description" class="uk-width-1-1 uk-height-1-1"><img src="$Image.FocusFill(400,350).URL" alt="$Title" class="uk-width-1-1 uk-height-1-1" /></a>
                     </li>
                   <% end_if %>
                   <% end_loop %>
