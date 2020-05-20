@@ -10,7 +10,7 @@
 							<div class="uk-card-content">
 								<div class="uk-grid-small uk-flex-middle" data-uk-grid>
 									<div class="uk-width-1-3 uk-text-center">
-										<% if Image %><img src="$Image.FitMax(250,150).URL" /><% end_if %>
+										<% if Image %><img src="$Image.FocusFillMax(350,250).URL" /><% end_if %>
 									</div>
 									<div class="uk-width-2-3">
 										<h3>$Title</h3>
