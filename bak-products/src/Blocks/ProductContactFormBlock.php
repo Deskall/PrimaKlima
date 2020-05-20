@@ -33,6 +33,8 @@ class ProductContactFormBlock extends TextBlock
         'TextEmailConfirmation' => 'Text'
     ];
 
+    private static $has_one = ['RelatedPage' => SiteTree::class];
+
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
