@@ -9,6 +9,7 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\CMS\Model\SiteTree;
+use Bak\Products\ProductOverviewPage;
 
 class ProductContactFormBlock extends TextBlock
 {
