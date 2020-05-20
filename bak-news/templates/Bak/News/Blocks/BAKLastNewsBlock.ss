@@ -6,7 +6,7 @@
 		<% end_if %>
 		<div data-uk-height-match="target:h3;row:false;" class="uk-margin">
 			<div data-uk-height-match="target:.dk-box-content .box-text;">
-				<div class="uk-child-width-1-2@s uk-child-width-1-4@l uk-grid-medium" data-uk-grid data-uk-height-match="target:img;row:false;">
+				<div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-medium" data-uk-grid data-uk-height-match="target:img;row:false;">
 					<% loop News %>
 					
 					<div class="box uk-transition-toggle uk-height-1-1" tabindex="0">
