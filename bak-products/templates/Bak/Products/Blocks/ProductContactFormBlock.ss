@@ -1,6 +1,6 @@
 <div class="form-block">
  <div class="form-block">
-  <form action="{$Link}SendProductForm" method="post" class="form-std">
+  <form action="{$ProductPageLink}SendProductForm" method="post" class="form-std">
     <span data-icon="&#xf213;"><input type="text" name="name" placeholder="<%t ProductPage.Name 'Name *' %>" required/></span>
     <span data-icon="&#xf26c;"><input type="text" name="firma" placeholder='<%t ProductPage.FIRMA "Firma" %>' /></span>
        <!-- <span data-icon="&#xf3a3;"><input type="text" name="address" placeholder='<%t ProductPage.ADRESSE "Adresse *"%>' required/></span>

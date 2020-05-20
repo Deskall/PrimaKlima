@@ -54,5 +54,9 @@ class ProductContactFormBlock extends TextBlock
         return _t(__CLASS__ . '.BlockType', 'BAK Kontaktformular Block');
     }
 
+    public function ProductPageLink(){
+        return ProductOverviewPage::get()->first()->Link();
+    }
+
 
 }
