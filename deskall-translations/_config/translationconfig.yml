@@ -13,7 +13,7 @@ SilverStripe\CMS\Model\SiteTree:
 
 SilverStripe\SiteConfig\Siteconfig:
   extensions:
-    - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
+    - 'TractorCow\Fluent\Extension\FluentExtension'
 
 TractorCow\Fluent\Model\Locale:
   extensions:
