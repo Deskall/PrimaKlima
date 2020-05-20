@@ -15,7 +15,9 @@
                                                     <div class="title">$Top.styledTitle($Title)</div>
                                                     <div class="slide-text">$Content</div>
                                                     <% if LinkableLinkID > 0 %>
-                                                    <% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+                                                    <% with $LinkableLink %>
+                                                        <a href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %> class="uk-button button-{$Background}" <% if hasIcone %>data-uk-icon="icon: $Icone"<% end_if %> <% if Embedded %>data-type="iframe"<% end_if %>>$Title</a>
+                                                    <% end_with %>
                                                     <% end_if %>
                                                 </div>
                                             </div>
