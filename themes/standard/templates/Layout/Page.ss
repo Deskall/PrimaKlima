@@ -1,7 +1,7 @@
 <div class="uk-container">
 	<div data-uk-grid>
 		<div class="uk-width-1-3@m uk-width-1-4@l uk-visible@m">
-			<% if currentLevel > 1 %>
+			<% if PageLevel > 1 %>
 			<% with Level(1) %>
 				<div class="uk-visible@m uk-width-1-3@m uk-width-1-4@l sidebar-products">
 			        <h2>$Title</h2>
