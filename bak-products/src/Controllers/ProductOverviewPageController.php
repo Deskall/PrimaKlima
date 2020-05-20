@@ -244,7 +244,7 @@ class ProductOverviewPageController extends PageController
         // Read Data
 
         $contents = array(
-            'de-DE' => array(
+            'de_DE' => array(
                 'address' => 'Personalien',
                 'name' => 'Name',
                 'firma' => 'Firma',
@@ -258,7 +258,7 @@ class ProductOverviewPageController extends PageController
                 'message' => 'Nachricht'
 
             ),
-            'en-US' => array(
+            'en_US' => array(
                 'address' => 'Personal data',
                 'name' => 'Name',
                 'firma' => 'Company',
@@ -271,7 +271,7 @@ class ProductOverviewPageController extends PageController
                 'sendme' => 'Please send me',
                 'message' => 'Message',
             ),
-           'es-ES' => array(
+           'es_ES' => array(
               'address' => 'Información personal',
               'name' => 'Nombre',
               'firma' => 'Empresa',
