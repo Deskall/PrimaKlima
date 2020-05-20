@@ -81,6 +81,10 @@
                   <% end_if %>
                   <% end_loop %>
                 </ul>
+                <div class="uk-flex uk-flex-between">
+                  <a href="#" data-uk-slider-item="previous">...</a>
+                  <a href="#" data-uk-slider-item="next">...</a>
+                </div>
             </div>
           </div>
         </div>
