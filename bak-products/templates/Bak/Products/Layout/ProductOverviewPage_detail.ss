@@ -72,7 +72,7 @@
           <h2><%t ProductPage.ANWENDUNG "Einfache Anwendung" %></h2>
           <div class="image-block">
             <div class="uk-position-relative" tabindex="-1" data-uk-slider >
-                <ul class="uk-slider-items uk-child-width-1-2@s" data-uk-lightbox>
+                <ul class="uk-slider-items uk-child-width-1-2@s uk-grid" data-uk-lightbox>
                   <% loop $Product.Usages %>
                   <% if $Image %>
                     <li class="uk-text-center">
