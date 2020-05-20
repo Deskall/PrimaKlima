@@ -29,7 +29,8 @@ class NewsPage extends Page {
     public function getCMSFields(){
         $fields = parent::getCMSFields();
         $fields->insertAfter('MenuTitle',HTMLEditorField::create('Lead',$this->fieldLabels()['Lead'])->setRows(3));
-         $fields->insertAfter('Lead',UploadField::create('Image',$this->fieldLabels()['Lead'])->setFolderName($this->generateFolderName()));
+         $fields->insertAfter('Lead',HTMLEditorField::create('Content',$this->fieldLabels()['Content']));
+        $fields->insertAfter('Content',UploadField::create('Image',$this->fieldLabels()['Lead'])->setFolderName($this->generateFolderName()));
         return $fields;
     }
 
