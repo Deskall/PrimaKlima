@@ -99,16 +99,16 @@
         <div class="product-block uk-margin-large-bottom">
           <div class="image-block">
             <div class="uk-position-relative" tabindex="-1" data-uk-slider>
-                <ul class="uk-slider-items uk-child-width-1-2@s">
+                <ul class="uk-slider-items uk-child-width-1-2@s uk-grid" data-uk-lightbox>
                   <% loop $Product.Images.Sort('SortOrder') %>
                   <li>
-                    <a href="$URL" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$FocusFillMax(350,250).URL" alt="$Description"/></a>
+                    <a href="$URL" title="$Description" class="uk-width-1-1 uk-height-1-1"><img src="$FocusFillMax(400,350).URL" alt="$Description" class="uk-width-1-1 uk-height-1-1"/></a>
                   </li>
                   <% end_loop %>
                 </ul>
                 <div class="uk-flex uk-flex-between">
-                  <a href="#" data-uk-slider-item="previous"><span data-uk-icon="chevron-left"></span></a>
-                  <a href="#" data-uk-slider-item="next"><span data-uk-icon="chevron-right"></span></a>
+                  <a data-uk-slider-item="previous"><span data-uk-icon="icon:chevron-left;ratio:2;"></span></a>
+                  <a data-uk-slider-item="next"><span data-uk-icon="icon:chevron-right;ratio:2;"></span></a>
                 </div>
             </div>
           </div>
