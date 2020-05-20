@@ -1,5 +1,5 @@
 <div class="form-block">
-	$ContentLocale
+	$getPage.ContentLocale
  <div class="form-block">
   <form action="{$ProductPageLink}SendProductForm" method="post" class="form-std">
     <span data-icon="&#xf213;"><input type="text" name="name" placeholder="<%t ProductPage.Name 'Name *' %>" required/></span>
