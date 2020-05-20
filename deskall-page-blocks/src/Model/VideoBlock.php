@@ -137,13 +137,6 @@ class VideoBlock extends BaseElement implements Searchable
      */
     public function setFromEmbed(Adapter $info)
     {
-        $this->Title = $info->getTitle();
-        $this->SourceURL = $info->getUrl();
-        $this->Width = $info->getWidth();
-        $this->Height = $info->getHeight();
-        $this->ThumbURL = $info->getImage();
-        $this->Description = $info->getDescription() ? $info->getDescription() : $info->getTitle();
-        $this->Type = $info->getType();
         $embed = $info->getCode();
         return $embed;
     }
