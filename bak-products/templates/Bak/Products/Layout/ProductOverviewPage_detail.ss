@@ -75,7 +75,7 @@
                 <ul class="uk-slider-items uk-child-width-1-2@s" data-uk-lightbox>
                   <% loop $Product.Usages %>
                   <% if $Image %>
-                    <li>
+                    <li class="uk-text-center">
                       <a href="$Image.Link" title="$Description" class="uk-width-1-1 uk-height-1-1"><img src="$Image.FocusFill(400,350).URL" alt="$Title"/></a>
                     </li>
                   <% end_if %>
