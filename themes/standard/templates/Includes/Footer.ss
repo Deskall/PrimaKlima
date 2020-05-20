@@ -97,7 +97,7 @@
 		    	<div class="title-container">
 		    		<h3 class="uk-margin-small-bottom">$Title</h3>
 		    	</div>
-		    	<ul class="uk-list dk-list uk-margin-remove-top">
+		    	<ul class="uk-list dk-list uk-margin-remove-top uk-column-1-2">
 				    <% loop $activeLinks %>
 						$forTemplate
 					<% end_loop %>
