@@ -92,12 +92,14 @@
         <% if $Product.Images %>
         <div class="product-block uk-margin-large-bottom">
           <div class="image-block">
-            <div class="owl-gallery owl-carousel owl-theme">
-              <% loop $Product.Images.Sort('SortOrder') %>
-              <div class="item">
-                <a href="$URL" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$FocusFillMax(350,250).URL" alt="$Description"/></a>
-              </div>
-              <% end_loop %>
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-uk-slider>
+                <ul class="uk-slider-items uk-child-width-1-2@s">
+                  <% loop $Product.Images.Sort('SortOrder') %>
+                  <li>
+                    <a href="$URL" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$FocusFillMax(350,250).URL" alt="$Description"/></a>
+                  </li>
+                  <% end_loop %>
+                </ul>
             </div>
           </div>
         </div>
