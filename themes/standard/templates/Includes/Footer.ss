@@ -9,7 +9,7 @@
 			 	</div>
 			 	<ul class="uk-list dk-list dk-list-with-icon uk-margin-remove-top" data-uk-grid>
 			 		<% if $SiteConfig.Address != "" %>
-			 		<li><span data-uk-icon="icon: location;"></span>
+			 		<li class="uk-width-1-1"><span data-uk-icon="icon: location;"></span>
 			 			<a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title" rel="nofollow">
 			 				<% if $SiteConfig.Address %>
 				 			$SiteConfig.Address,
@@ -24,7 +24,7 @@
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Email %>
-			 		<li class="uk-width-1-3">
+			 		<li class="uk-width-1-2">
 			 			<span data-uk-icon="icon: mail;"></span>
 			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title" target="_blank" rel="noopener noreferrer">
 			 				$SiteConfig.Email
@@ -32,7 +32,7 @@
 			 		</li>
 			 		<% end_if %>
 			 		<% if SiteConfig.Phone %>
-			 		<li class="uk-width-1-3">
+			 		<li class="uk-width-1-2">
 			 			<span data-uk-icon="icon: receiver;"></span>
 			 			$SiteConfig.Phone
 			 		</li>
