@@ -287,34 +287,34 @@ class ProductOverviewPageController extends PageController
         );
 
         // address
-        $address = '<p><strong>'.$contents[$this->ContentLocale]['address'].': </strong>'."<br/>";
-        $address .= $contents[$this->ContentLocale]['name'].': '.$_POST['name']."<br/>";
+        $address = '<p><strong>'.$contents[$this->Locale]['address'].': </strong>'."<br/>";
+        $address .= $contents[$this->Locale]['name'].': '.$_POST['name']."<br/>";
         if (isset($_POST['firma'])){
-             $address .= $contents[$this->ContentLocale]['firma'].': '.$_POST['firma']."<br/>";
+             $address .= $contents[$this->Locale]['firma'].': '.$_POST['firma']."<br/>";
         }
        
-       // $address .= $contents[$this->ContentLocale]['str'].': '.$_POST['address']."<br/>";
-       // $address .= $contents[$this->ContentLocale]['ort'].': '.$_POST['ort']."<br/>";
-        $address .= $contents[$this->ContentLocale]['land'].': '.$_POST['land']."<br/>";
-        $address .= $contents[$this->ContentLocale]['email'].': '.$_POST['email']."<br/>";
+       // $address .= $contents[$this->Locale]['str'].': '.$_POST['address']."<br/>";
+       // $address .= $contents[$this->Locale]['ort'].': '.$_POST['ort']."<br/>";
+        $address .= $contents[$this->Locale]['land'].': '.$_POST['land']."<br/>";
+        $address .= $contents[$this->Locale]['email'].': '.$_POST['email']."<br/>";
         if (isset($_POST['telephone'])){
-            $address .= $contents[$this->ContentLocale]['phone'].': '.$_POST['telephone']."</p>";
+            $address .= $contents[$this->Locale]['phone'].': '.$_POST['telephone']."</p>";
         }
         // products
         if( $_POST['products'] ){
-            $products = '<p><strong>'.$contents[$this->ContentLocale]['products'].': </strong>'."<br/>";
+            $products = '<p><strong>'.$contents[$this->Locale]['products'].': </strong>'."<br/>";
             $products .= implode ( "<br/>" , $_POST['products'] )."</p>";
         }
 
         // data to send
         if( $_POST['send'] ){
-            $send = '<p><strong>'.$contents[$this->ContentLocale]['sendme'].': </strong>'."<br/>";
+            $send = '<p><strong>'.$contents[$this->Locale]['sendme'].': </strong>'."<br/>";
             $send .= implode ( "<br/>" , $_POST['send'] )."</p>";
         }      
 
         // data to send
         if( $_POST['message'] ){
-            $message = '<p><strong>'.$contents[$this->ContentLocale]['message'].': </strong>'."<br/>";
+            $message = '<p><strong>'.$contents[$this->Locale]['message'].': </strong>'."<br/>";
             $message .= nl2br($_POST['message'])."</p>";
         }
 
