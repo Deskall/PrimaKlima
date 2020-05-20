@@ -1,9 +1,9 @@
 <div class="uk-container">
 	<div data-uk-grid>
-		<div class="uk-width-1-3@m uk-width-1-4@l uk-visible@m">
+		<div class="uk-visible@m uk-width-1-3@m uk-width-1-4@l uk-visible@m">
 			<% if PageLevel > 1 %>
 			<% with Level(1) %>
-				<div class="uk-visible@m uk-width-1-3@m uk-width-1-4@l sidebar-products">
+				<div class="sidebar-products">
 			        <h3>$Title</h3>
 			        <ul class="uk-nav">
 			          <% loop $Children %>
