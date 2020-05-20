@@ -71,19 +71,19 @@
         <div class="product-block uk-margin-large-bottom">
           <h2><%t ProductPage.ANWENDUNG "Einfache Anwendung" %></h2>
           <div class="image-block">
-            <div class="uk-position-relative" tabindex="-1" data-uk-slider data-uk-lightbox>
-                <ul class="uk-slider-items uk-child-width-1-2@s">
+            <div class="uk-position-relative" tabindex="-1" data-uk-slider >
+                <ul class="uk-slider-items uk-child-width-1-2@s" data-uk-lightbox>
                   <% loop $Product.Usages %>
                   <% if $Image %>
                     <li>
-                      <a href="$Image.Link" title="$Description" class="uk-width-1-1 uk-height-1-1"><img src="$Image.FocusFill(450,350).URL" alt="$Title"/></a>
+                      <a href="$Image.Link" title="$Description" class="uk-width-1-1 uk-height-1-1"><img src="$Image.FocusFill(400,350).URL" alt="$Title"/></a>
                     </li>
                   <% end_if %>
                   <% end_loop %>
                 </ul>
                 <div class="uk-flex uk-flex-between">
-                  <a href="#" data-uk-slider-item="previous"><span data-uk-icon="chevron-left"></span></a>
-                  <a href="#" data-uk-slider-item="next"><span data-uk-icon="chevron-right"></span></a>
+                  <a data-uk-slider-item="previous"><span data-uk-icon="chevron-left"></span></a>
+                  <a data-uk-slider-item="next"><span data-uk-icon="chevron-right"></span></a>
                 </div>
             </div>
           </div>
