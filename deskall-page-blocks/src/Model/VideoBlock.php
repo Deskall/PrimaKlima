@@ -11,14 +11,8 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use g4b0\SearchableDataObjects\Searchable;
-use SilverStripe\Forms\GridField\GridField;
-use SilverStripe\Forms\GridField\GridFieldConfig;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
-use SilverStripe\Forms\GridField\GridFieldDeleteAction;
-use SilverStripe\Forms\GridField\GridFieldButtonRow;
-use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
-use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
+use Embed\Adapters\Adapter;
+use Embed\Embed;
 
 class VideoBlock extends BaseElement implements Searchable
 {
@@ -38,6 +32,8 @@ class VideoBlock extends BaseElement implements Searchable
 
 	private static $db = [
 		'HTML' => 'HTMLText',
+        'Videos' => 'Text',
+        'VideosHTML' => 'HTMLText',
         'VideoPerLine' => 'Varchar(255)'
 	];
 
@@ -57,9 +53,6 @@ class VideoBlock extends BaseElement implements Searchable
         'uk-child-width-1-3@s' => '3'
     ];
 
-    private static $has_many = ['Videos' => VideoObject::class];
-
-    private static $cascade_duplicates = [];
 
 	/**
 	 * Color to customize the vimeo player.
@@ -72,7 +65,7 @@ class VideoBlock extends BaseElement implements Searchable
 		$fields = parent::getCMSFields();
 		$fields->removeByName('VideoPerLine');
 		$fields->removeByName('Layout');
-        $fields->removeByName('Videos');
+        $fields->removeByName('VideosHTML');
 		  
             $fields
                 ->fieldByName('Root.Main.HTML')
@@ -84,20 +77,72 @@ class VideoBlock extends BaseElement implements Searchable
 				OptionsetField::create('Layout','Format', $this->getTranslatedSourceFor(__CLASS__,'block_layouts'))
 			)->setTitle(_t(__CLASS__.'.BlockLayout','Layout'))->setName('BlockLayout'));
        
-            $config = GridFieldConfig_RecordEditor::create();
-                $config->addComponent(new GridFieldOrderableRows('Sort'));
-                if (singleton('VideoObject')->hasExtension('Activable')){
-                     $config->addComponent(new GridFieldShowHideAction());
-                }
-                $videosField = new GridField('Videos',_t(__CLASS__.'.Videos','Videos'),$this->Videos(),$config);
-                $fields->addFieldToTab('Root.Main',$videosField);
         
         return $fields;
 	}
 
-    public function ActiveVideos(){
-        return $this->Videos()->filter('isVisible',1);
+    //Videos
+    /**
+     * @return $this
+     */
+    public function Embed()
+    {
+        $this->setFromURL($this->SourceURL);
+
+        return $this;
     }
+
+
+    public function updateEmbedHTML()
+    {
+      $content = null;
+      if ($this->Videos){
+        $content = ($this->Layout == "carousel") ? '<li class="uk-height-1-1">' : '';
+        foreach (preg_split('/\r\n|[\r\n]/', $this->Videos) as $url){
+         $html = $this->setFromURL($url);
+         if ($html){
+          $html = str_replace("<iframe ","<iframe data-uk-responsive ",$html);
+          $content .= '<div>'.$html.'</div>';
+         }
+        }
+        $content .= ($this->Layout == "carousel") ? '</li>' : '';
+      }
+      
+      $this->VideosHTML = $content;
+    }
+
+    /**
+     * @param $url
+     */
+    public function setFromURL($url)
+    {
+        if ($url) {
+            // array('image' => array('minImageWidth' => $this->Width, 'minImageHeight' => $this->Height)));
+            $info = Embed::create($url);
+            $embed = $this->setFromEmbed($info);
+            return $embed;
+        }
+    }
+
+    /**
+     * @param Adapter $info
+     */
+    public function setFromEmbed(Adapter $info)
+    {
+        $this->Title = $info->getTitle();
+        $this->SourceURL = $info->getUrl();
+        $this->Width = $info->getWidth();
+        $this->Height = $info->getHeight();
+        $this->ThumbURL = $info->getImage();
+        $this->Description = $info->getDescription() ? $info->getDescription() : $info->getTitle();
+        $this->Type = $info->getType();
+        $embed = $info->getCode();
+        return $embed;
+    }
+
+      
+
+   
 
 	// public function getThumbnailURL( $url ){
 	// 	$media =  $this->Media($url);
