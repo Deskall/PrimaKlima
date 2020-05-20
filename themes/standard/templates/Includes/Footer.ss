@@ -4,8 +4,10 @@
 			<% loop $SiteConfig.activeFooterBlocks %>
 		    <div class="$Width $Layout $Class">
 		    	<% if Type == "address" %>
+		    	<div class="title-container">
+			 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
+			 	</div>
 			 	<ul class="uk-list dk-list dk-list-with-icon uk-margin-remove-top" data-uk-grid>
-			 		<li class="uk-width-1-1"><h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3></li>
 			 		<% if $SiteConfig.Address != "" %>
 			 		<li class="uk-width-1-1"><span data-uk-icon="icon: location;"></span>
 			 			<a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title" rel="nofollow">
