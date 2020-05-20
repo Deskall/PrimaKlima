@@ -21,76 +21,21 @@
 				 		</a>
 				</div>
 				<% end_if %>
-			 	<ul class="uk-list dk-list dk-list-with-icon uk-margin-remove-top" data-uk-grid>
-			 		<% if $SiteConfig.Address != "" %>
-			 		<li class="uk-width-1-1"><span data-uk-icon="icon: location;"></span>
-			 			<a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title" rel="nofollow">
-			 				<% if $SiteConfig.Address %>
-				 			$SiteConfig.Address,
-				 			<% end_if %>
-				 			<% if $SiteConfig.Code %>
-				 			$SiteConfig.Code $SiteConfig.City,
-				 			<% end_if %>
-				 			<% if $SiteConfig.Country %>
-				 			$SiteConfig.Country
-				 			<% end_if %>
-				 		</a>
-			 		</li>
-			 		<% end_if %>
-			 		<% if SiteConfig.Email %>
-			 		<li class="uk-width-1-2">
-			 			<span data-uk-icon="icon: mail;"></span>
+				<div class="uk-flex uk-flex-left">
+					<% if SiteConfig.Email %>
+					<div><span data-uk-icon="icon: mail;"></span>
 			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title" target="_blank" rel="noopener noreferrer">
 			 				$SiteConfig.Email
 			 			</a>
-			 		</li>
+			 		</div>
 			 		<% end_if %>
 			 		<% if SiteConfig.Phone %>
-			 		<li class="uk-width-1-2">
-			 			<span data-uk-icon="icon: receiver;"></span>
-			 			$SiteConfig.Phone
-			 		</li>
+			 		<div>
+				 		<span data-uk-icon="icon: receiver;"></span>
+				 		$SiteConfig.Phone
+				 	</div>
 			 		<% end_if %>
-			 		<%-- <% if SiteConfig.Mobile %>
-			 		<li>
-			 			<span data-uk-icon="icon: phone;"></span>
-				 		$SiteConfig.Mobile
-			 		</li>
-			 		<% end_if %>
-			 		<% if SiteConfig.Fax %>
-			 		<li>
-			 			<span data-uk-icon="icon: print;"></span>
-				 		$SiteConfig.Fax
-			 		</li>
-			 		<% end_if %>
-			 		<% if SiteConfig.Notfall %>
-			 		<li>
-			 			<span data-uk-icon="icon: bell;"></span>
-				 		$SiteConfig.Notfall
-			 		</li>
-			 		<% end_if %>
-			 		<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
-			 		<li>
-			 			<ul class="uk-iconnav uk-padding-remove uk-margin-remove">
-			 				<% if SiteConfig.Facebook %>
-			 				<li><a href="$SiteConfig.Facebook" target="_blank" data-uk-icon="facebook" rel="nofollow"></a></li>
-			 				<% end_if %>
-			 				<% if SiteConfig.Twitter %>
-			 				<li><a href="$SiteConfig.Twitter" target="_blank" data-uk-icon="twitter" rel="nofollow"></a></li>
-			 				<% end_if %>
-			 				<% if SiteConfig.Linkedin %>
-			 				<li><a href="$SiteConfig.Linkedin" target="_blank" data-uk-icon="linkedin" rel="nofollow"></a></li>
-			 				<% end_if %>
-			 				<% if SiteConfig.Xing %>
-			 				<li><a href="$SiteConfig.Xing" target="_blank" data-uk-icon="xing" rel="nofollow"></a></li>
-			 				<% end_if %>
-			 				<% if SiteConfig.Instagram %>
-			 				<li><a href="$SiteConfig.Instagram" target="_blank" data-uk-icon="instagram" rel="nofollow"></a></li>
-			 				<% end_if %>
-			 			</ul>
-			 		</li>
-			 		<% end_if %> --%>
-		        </ul>
+				</div>
 		        <% else_if Type == "content" %>
 		        <div class="title-container">
 		    		<h3 class="uk-margin-small-bottom">$Title</h3>
