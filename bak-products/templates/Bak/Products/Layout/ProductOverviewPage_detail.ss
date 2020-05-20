@@ -71,14 +71,16 @@
         <div class="product-block uk-margin-large-bottom">
           <h2><%t ProductPage.ANWENDUNG "Einfache Anwendung" %></h2>
           <div class="image-block">
-            <div class="owl-gallery owl-carousel owl-theme">
-              <% loop $Product.Usages %>
-              <% if $Image %>
-              <div class="item">
-                <a href="$Image.Link" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$Image.FocusFillMax(350,250).URL" alt="$Title"/></a>
-              </div>
-              <% end_if %>
-              <% end_loop %>
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-uk-slider>
+                <ul class="uk-slider-items uk-child-width-1-2@s">
+                  <% loop $Product.Usages %>
+                  <% if $Image %>
+                    <li>
+                      <a href="$Image.Link" title="$Description" data-imagelightbox="{$Top.ID}f"><img src="$Image.FocusFillMax(350,250).URL" alt="$Title"/></a>
+                    </li>
+                  <% end_if %>
+                  <% end_loop %>
+                </ul>
             </div>
           </div>
         </div>
