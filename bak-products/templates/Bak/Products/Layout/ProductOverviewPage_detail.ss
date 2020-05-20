@@ -71,7 +71,7 @@
         <div class="product-block uk-margin-large-bottom">
           <h2><%t ProductPage.ANWENDUNG "Einfache Anwendung" %></h2>
           <div class="image-block">
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-uk-slider>
+            <div class="uk-position-relative" tabindex="-1" data-uk-slider>
                 <ul class="uk-slider-items uk-child-width-1-2@s">
                   <% loop $Product.Usages %>
                   <% if $Image %>
@@ -98,7 +98,7 @@
         <% if $Product.Images %>
         <div class="product-block uk-margin-large-bottom">
           <div class="image-block">
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-uk-slider>
+            <div class="uk-position-relative" tabindex="-1" data-uk-slider>
                 <ul class="uk-slider-items uk-child-width-1-2@s">
                   <% loop $Product.Images.Sort('SortOrder') %>
                   <li>
