@@ -11,6 +11,7 @@ BaseBlockExtension:
   blocks:
     - Bak-Products-Blocks-ProductBlock
     - Bak-Products-Blocks-ProductCategoryBlock
+    - Bak-Products-Blocks-ProductContactFormBlock
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
