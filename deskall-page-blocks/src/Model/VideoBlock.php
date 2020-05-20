@@ -81,6 +81,13 @@ class VideoBlock extends BaseElement implements Searchable
         return $fields;
 	}
 
+    public function onBeforeWrite(){
+        if ($this->isChanged('Videos')){
+            $this->updateEmbedHTML();
+        }
+        parent::onBeforeWrite();
+    }
+
     //Videos
     /**
      * @return $this
