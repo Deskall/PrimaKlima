@@ -7,6 +7,19 @@
 		    	<div class="title-container">
 			 		<h3 class="uk-margin-small-bottom">$SiteConfig.AddressTitle</h3>
 			 	</div>
+			 	<% if $SiteConfig.Address != "" %>
+			 	<div><a href="https://www.google.com/maps/place/{$SiteConfig.Address.URLATT},{$SiteConfig.Code.URLATT}+{$SiteConfig.City.URLATT},+{$SiteConfig.Country.URLATT}/" target="_blank" title="$SiteConfig.Title" rel="nofollow">
+			 				<% if $SiteConfig.Address %>
+				 			$SiteConfig.Address,
+				 			<% end_if %>
+				 			<% if $SiteConfig.Code %>
+				 			$SiteConfig.Code $SiteConfig.City,
+				 			<% end_if %>
+				 			<% if $SiteConfig.Country %>
+				 			$SiteConfig.Country
+				 			<% end_if %>
+				 		</a>
+				 </div>
 			 	<ul class="uk-list dk-list dk-list-with-icon uk-margin-remove-top" data-uk-grid>
 			 		<% if $SiteConfig.Address != "" %>
 			 		<li class="uk-width-1-1"><span data-uk-icon="icon: location;"></span>
