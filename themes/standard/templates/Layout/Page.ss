@@ -7,7 +7,7 @@
 			        <h3>$Title</h3>
 			        <ul class="uk-nav">
 			          <% loop $Children %>
-			          <li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" title="$MenuLink.XML" class="uk-position-relative"><span class="uk-margin-small-right uk-position-left" data-uk-icon="chevron-right"></span>$MenuTitle-XML</a></li>
+			          <li class="$LinkingMode <% if LinkingMode == "current" || LinkingMode == "section" %>uk-active<% end_if %>"><a href="$Link" title="$MenuLink.XML" class="uk-position-relative"><span class="uk-margin-small-right uk-position-left" data-uk-icon="chevron-right"></span>$MenuTitle.XML</a></li>
 			          <% end_loop %>
 			        </ul>
 			     </div>
