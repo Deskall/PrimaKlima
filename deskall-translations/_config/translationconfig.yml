@@ -10,7 +10,11 @@ After: '#versionedfiles'
 SilverStripe\CMS\Model\SiteTree:
   extensions:
     - 'FluentCascadeDeleteExtension'
-    
+
+SilverStripe\SiteConfig\Siteconfig:
+  extensions:
+    - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
+
 TractorCow\Fluent\Model\Locale:
   extensions:
     - PublishInDefaultLocaleExtension
