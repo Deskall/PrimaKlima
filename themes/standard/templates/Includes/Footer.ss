@@ -19,7 +19,8 @@
 				 			$SiteConfig.Country
 				 			<% end_if %>
 				 		</a>
-				 </div>
+				</div>
+				<% end_if %>
 			 	<ul class="uk-list dk-list dk-list-with-icon uk-margin-remove-top" data-uk-grid>
 			 		<% if $SiteConfig.Address != "" %>
 			 		<li class="uk-width-1-1"><span data-uk-icon="icon: location;"></span>
