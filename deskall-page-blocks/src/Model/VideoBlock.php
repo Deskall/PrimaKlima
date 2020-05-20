@@ -271,26 +271,9 @@ class VideoBlock extends BaseElement implements Searchable
      * @return array
      */
     public function getContentFields() {
-        return array('HTML','VideosContent');
+        return array('HTML');
     }
 
-    public function getVideosContent(){
-        $html = '';
-        if ($this->Videos()->count() > 0){
-            $html .= '<ul>';
-            foreach ($this->Videos() as $video) {
-                $html .= '<li>';
-                if ($video->Title){
-                    $html .= $video->Title."\n";
-                }
-                if ($video->HTML){
-                    $html .= $video->HTML;
-                }
-                $html .= '</li>';
-            }
-            $html .='</ul>';
-        }
-        return $html;
-    }
+    
 /************ END SEARCHABLE ***************************/
 }
