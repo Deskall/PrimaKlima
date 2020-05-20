@@ -23,7 +23,7 @@
 				<% end_if %>
 				<div class="uk-flex uk-flex-left">
 					<% if SiteConfig.Email %>
-					<div><span data-uk-icon="icon: mail;"></span>
+					<div class="uk-margin-small-right"><span data-uk-icon="icon: mail;"></span>
 			 			<a href="mailTo:{$SiteConfig.Email}" title="<%t SiteConfig.EmailTitleTag 'Email zu' %> $SiteConfig.Title" target="_blank" rel="noopener noreferrer">
 			 				$SiteConfig.Email
 			 			</a>
