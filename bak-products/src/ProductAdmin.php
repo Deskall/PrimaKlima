@@ -236,7 +236,7 @@ class ProductAdmin extends ModelAdmin {
         //             $result = ob_get_clean();
         //             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
-        Import Products
+        //Import Products
         $file = File::get()->byId(584);
         if ($file->exists()){
             if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
