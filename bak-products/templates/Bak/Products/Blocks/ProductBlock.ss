@@ -12,7 +12,7 @@
     			<% if $ProductCategoryImage %>
     			  <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1  uk-margin-small-bottom" />
     			<% end_if %>
-    			<div class="uk-text-right uk-margin-top">$Title <span class="icon ion-ios-arrow-right"></span></div>
+    			<div class="uk-text-right uk-margin-top">$Title <span data-uk-icon="icon:chevron-right;ratio:0.8"></span></div>
 		    </div>
 		    <% end_loop %>
 	    </div>
@@ -31,7 +31,7 @@
 		    			        <img src="$Image.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1 uk-margin-small-bottom" />
 		    			    <% end_if %>
 		    			        $Description
-		    			        <div class="uk-text-right uk-margin-top"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span class="icon ion-ios-arrow-right"></span></div>
+		    			        <div class="uk-text-right uk-margin-top"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span data-uk-icon="icon:chevron-right;ratio:0.8"></span></div>
 		    			    </div>
 		    			</a>
 		    		</div>
@@ -70,7 +70,7 @@
                 <% if $ProductCategoryImage %>
                   <img src="$ProductCategoryImage.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1  uk-margin-small-bottom" />
                 <% end_if %>
-                <div class="uk-text-right uk-margin-top">$Title <span class="icon ion-ios-arrow-right"></span></div>
+                <div class="uk-text-right uk-margin-top">$Title <span data-uk-icon="icon:chevron-right;ratio:0.8"></span></div>
                 </a>
             </div>
             <% end_loop %>
@@ -92,7 +92,7 @@
                                 <img src="$Image.FocusFillMax(350,250).URL" alt="$Title" class="uk-width-1-1 uk-margin-small-bottom" />
                             <% end_if %>
                                 $Description
-                                <div class="uk-text-right uk-margin-top"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span class="icon ion-ios-arrow-right"></span></div>
+                                <div class="uk-text-right uk-margin-top"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span data-uk-icon="icon:chevron-right;ratio:0.8"></span></div>
                             </div>
                         </a>
                     </div>
@@ -124,7 +124,7 @@
                             {{/if}}
                         {{/if}}
                         <div class="uk-text-right">
-                            <a href="{{link}}">{{linkText}}<span class="icon ion-ios-arrow-right"></span></a>
+                            <a href="{{link}}">{{linkText}}<span data-uk-icon="icon:chevron-right;ratio:0.8"></span></a>
                         </div>
                     </div>
                 </div>

@@ -227,7 +227,7 @@ function filterProducts( filter, filterValue ){
                 }
             }
 
-            HTML += '<div class="link-more"><a href="' + products[i].link + '">' + products[i].linkText  + '  <span class="icon ion-ios-arrow-right"></span></a></div></div></div><div><hr></div>';
+            HTML += '<div class="link-more"><a href="' + products[i].link + '">' + products[i].linkText  + '  <span data-uk-icon="icon:chevron-right;ratio:0.8"></span></a></div></div></div><div><hr></div>';
         }
 
     }
