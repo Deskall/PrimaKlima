@@ -9,11 +9,7 @@
                 <div class="slide-text">$Product.HeaderText</div>
             </div>
         </div>
-        <% if $Product.HeaderImage %>
-        <div class="uk-position-center-right uk-visible@m">
-          <img src="$Product.HeaderImage.ScaleHeight(400).URL" />
-        </div>
-        <div class="uk-position-bottom-right uk-hidden@m">
+        <div class="uk-position-bottom-right">
           <img src="$Product.HeaderImage.ScaleHeight(400).URL" />
         </div>
         <% end_if %>
