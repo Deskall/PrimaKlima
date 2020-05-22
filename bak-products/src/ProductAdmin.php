@@ -387,8 +387,6 @@ class ProductAdmin extends ModelAdmin {
                 $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
                 $gridField->getConfig()->removeComponentsByType(GridFieldExportButton::class);
                 $gridField->getConfig()->removeComponentsByType(GridFieldPrintButton::class);
-                $gridField->getConfig()->removeComponentsByType(GridFieldPaginator::class);
-                $gridField->getConfig()->removeComponentsByType(GridFieldPageCount::class);
             }        
         }
 
