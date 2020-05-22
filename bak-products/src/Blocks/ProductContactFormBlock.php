@@ -10,6 +10,8 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\CMS\Model\SiteTree;
 use Bak\Products\ProductOverviewPage;
+use Bak\Products\Models\Product;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ProductContactFormBlock extends TextBlock
 {
@@ -58,6 +60,22 @@ class ProductContactFormBlock extends TextBlock
     public function ProductPageLink(){
         return ProductOverviewPage::get()->first()->Link();
     }
+
+    public function getProducts( ){
+
+       $products = Product::get()->sort(array('Sort' => 'DESC'));
+       $str = "";
+       foreach( $products as $product ){
+         if( $this->ID == $product->ID ){
+          $str .= '<label><input name="products[]" type="checkbox" checked="checked" value="'.$product->Name.'">'.$product->Name.'</label>';
+         }else{
+           $str .= '<label><input name="products[]" type="checkbox" value="'.$product->Name.'">'.$product->Name.'</label>';
+         }
+       }
+       $output = new DBHTMLText();
+       $output->setValue($str);
+       return $output;
+     }
 
 
 }

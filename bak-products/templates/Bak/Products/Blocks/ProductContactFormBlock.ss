@@ -21,7 +21,7 @@
 
           </ul>
           <div class="dropdown-content hidden">
-            $Product.getAllProducts($getPage.Locale)
+            $getProducts
           </div>
         </div>
 
