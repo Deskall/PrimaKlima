@@ -36,6 +36,7 @@ class ProductAdmin extends ModelAdmin {
 
     public function getEditForm($id = null, $fields = null) {
         $form = parent::getEditForm($id, $fields);
+        print_r('ici');
 
         // //Files references
         // $file = File::get()->byId(585);
