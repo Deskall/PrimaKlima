@@ -266,8 +266,8 @@ class ProductAdmin extends ModelAdmin {
                    // $product->RefID = $ref['ID'];
                    // $product->Name = $ref['Name'];
                    // $product->HeaderText = $ref['HeaderText'];
-                   $product->Lead = $ref['Lead'];
-                   $product->Description = $ref['Description'];
+                   // $product->Lead = $ref['Lead'];
+                   // $product->Description = $ref['Description'];
                    // $product->Features = $ref['Features'];
                    // $product->Table = $ref['Table'];
                    // $product->Videos = $ref['Videos'];
@@ -278,8 +278,8 @@ class ProductAdmin extends ModelAdmin {
                    
                    // $product->Name = $ref['Name__en_US'];
                    // $product->HeaderText = $ref['HeaderText__en_US'];
-                   // $product->Lead = $ref['Lead__en_US'];
-                   // $product->Description = $ref['Description__en_US'];
+                   $product->Lead = $ref['Lead__en_US'];
+                   $product->Description = $ref['Description__en_US'];
                    // $product->Features = $ref['Features__en_US'];
                    // $product->Table = $ref['Table__en_US'];
                    // $product->Videos = $ref['Videos__en_US'];
