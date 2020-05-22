@@ -394,7 +394,7 @@ class ProductAdmin extends ModelAdmin {
 
         if($this->modelClass=='ProductCategory' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass)))  {
             if($gridField instanceof GridField) {
-                $gridField->getConfig()->addComponent(new GridFieldOrderableRows('SortOrder'));
+                $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
             }
             $form->Fields()->fieldByName("ProductCategory")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
 	        $form->Fields()->fieldByName("ProductCategory")->getConfig()->removeComponentsByType(GridFieldPrintButton::class);
@@ -402,10 +402,11 @@ class ProductAdmin extends ModelAdmin {
 
         if($this->modelClass=='ProductUseArea' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
             if($gridField instanceof GridField) {
-                $gridField->getConfig()->addComponent(new GridFieldOrderableRows('SortOrder'));
+                $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
             }
             $form->Fields()->fieldByName("ProductUseArea")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
             $form->Fields()->fieldByName("ProductUseArea")->getConfig()->removeComponentsByType(GridFieldPrintButton::class);
+
         }
         
         return $form;
