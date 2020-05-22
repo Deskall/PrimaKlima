@@ -12,7 +12,6 @@
         <div class="uk-position-bottom-right">
           <img src="$Product.HeaderImage.ScaleHeight(400).URL" />
         </div>
-        <% end_if %>
     </div>
   </div>
 </section>
