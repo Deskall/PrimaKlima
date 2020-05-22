@@ -267,7 +267,7 @@ class ProductAdmin extends ModelAdmin {
                    // $product->Name = $ref['Name'];
                    // $product->HeaderText = $ref['HeaderText'];
                    $product->Lead = $ref['Lead'];
-                   // $product->Description = $ref['Description'];
+                   $product->Description = $ref['Description'];
                    // $product->Features = $ref['Features'];
                    // $product->Table = $ref['Table'];
                    // $product->Videos = $ref['Videos'];
