@@ -2,6 +2,7 @@
 
 namespace Bak\Products\Models;
 
+use Sortable;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
 use SilverStripe\Control\Director;
@@ -25,7 +26,7 @@ class ProductCategory extends DataObject {
     'ProductCategoryImage' => Image::class,
     );
 
-    private static $extensions = ['Sortable'];
+    private static $extensions = [Sortable::class];
 
     private static $belongs_many_many = array(
     "Products" => Product::class,
