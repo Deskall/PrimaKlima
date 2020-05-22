@@ -237,32 +237,32 @@ class ProductAdmin extends ModelAdmin {
         //             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 
         //Import Products
-        $file = File::get()->byId(584);
-        if ($file->exists()){
-            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-                $headers = fgetcsv($handle, 0, $delimiter);
-                $imported = [0,4,5,6,7,8,9,11,12,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,37,38,39,40,41,42,43,44,45,46,48,49,50,51];
-                $products = [];
-                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-                    if ($line[0] != ""){
-                        $array = [];
-                        foreach ($imported as $key => $index) {
-                            $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
-                        }
-                        $products[] = $array;
-                    }
-                }
-                fclose($handle);
+        // $file = File::get()->byId(584);
+        // if ($file->exists()){
+        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+        //         $headers = fgetcsv($handle, 0, $delimiter);
+        //         $imported = [0,4,5,6,7,8,9,11,12,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,37,38,39,40,41,42,43,44,45,46,48,49,50,51];
+        //         $products = [];
+        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+        //             if ($line[0] != ""){
+        //                 $array = [];
+        //                 foreach ($imported as $key => $index) {
+        //                     $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
+        //                 }
+        //                 $products[] = $array;
+        //             }
+        //         }
+        //         fclose($handle);
                 
                 // foreach (Product::get() as $p) {
                 //     $p->delete();
                 // }
-                foreach ($products as $key => $ref) {
-                   $product = Product::get()->filter('RefID' , $ref['ID'])->first();
-                   if (!$product){
-                    $product = new Product();
-                   }
+                // foreach ($products as $key => $ref) {
+                //    $product = Product::get()->filter('RefID' , $ref['ID'])->first();
+                //    if (!$product){
+                //     $product = new Product();
+                //    }
                    // $product->RefID = $ref['ID'];
                    // $product->Name = $ref['Name'];
                    // $product->HeaderText = $ref['HeaderText'];
@@ -289,8 +289,8 @@ class ProductAdmin extends ModelAdmin {
 
                    // $product->Name = $ref['Name__es_ES'];
                    // $product->HeaderText = $ref['HeaderText__es_ES'];
-                   $product->Lead = $ref['Lead__es_ES'];
-                   $product->Description = $ref['Description__es_ES'];
+                   // $product->Lead = $ref['Lead__es_ES'];
+                   // $product->Description = $ref['Description__es_ES'];
                    // $product->Features = $ref['Features__es_ES'];
                    // $product->Table = $ref['Table__es_ES'];
                    // $product->Videos = $ref['Videos__es_ES'];
@@ -319,10 +319,10 @@ class ProductAdmin extends ModelAdmin {
                    //  }
                    // }
 
-                   $product->write();
-                }
-            }
-        }
+        //            $product->write();
+        //         }
+        //     }
+        // }
 
        
         // //Import Usages
