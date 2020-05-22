@@ -19,7 +19,7 @@
 						    	</div>
 						    <% end_if %>
 							<div class="uk-margin-top dk-box-content">
-						    	<div class="box-text"><%t ProductOverviewPage.PRODUKTE "Passende Produkte" %> <span class="icon ion-ios-arrow-right"></span></div>
+						    	<div class="box-text"><%t HomePage.GOTOCATEGORY "zu den Produkte" %> <span class="icon ion-ios-arrow-right"></span></div>
 						    </div>
 						    
 						</a>
