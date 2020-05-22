@@ -13,8 +13,8 @@
 		   				<a href="$Link">
 							<h3 class="uk-margin uk-text-truncate">$MenuTitle</h3>
 							<% if $Image %>
-						    	<div class="uk-flex uk-flex-center uk-flex-middle">
-						    		<img class="dk-icon uk-width-auto" src="$Image.Fill(300,300).URL" />
+						    	<div class="uk-flex uk-flex-left uk-flex-center@m uk-flex-middle">
+						    		<img src="$Image.ScaleWidth(300).CropHeight(300).URL" />
 						    	</div>
 						    <% end_if %>
 							<div class="uk-margin-top dk-box-content">
