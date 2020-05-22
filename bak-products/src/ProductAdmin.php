@@ -36,7 +36,6 @@ class ProductAdmin extends ModelAdmin {
 
     public function getEditForm($id = null, $fields = null) {
         $form = parent::getEditForm($id, $fields);
-        print_r('ici');
 
         // //Files references
         // $file = File::get()->byId(585);
@@ -383,7 +382,7 @@ class ProductAdmin extends ModelAdmin {
 
 
 
-        if($this->modelClass=='Product' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+        if($this->modelClass == Product::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
             if($gridField instanceof GridField) {
                 $gridField->getConfig()->addComponent(new GridFieldOrderableRows('SortOrder'));
             }
@@ -393,19 +392,20 @@ class ProductAdmin extends ModelAdmin {
             $form->Fields()->fieldByName("Product")->getConfig()->removeComponentsByType(GridFieldPageCount::class);
         }
 
-        if($this->modelClass=='ProductCategory' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass)))  {
-           
-            $form->Fields()->fieldByName("ProductCategory")->addComponent(new GridFieldOrderableRows('Sort'));
+        if($this->modelClass == ProductCategory::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass)))  {
+            if($gridField instanceof GridField) {
+                $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
+            }
             $form->Fields()->fieldByName("ProductCategory")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
 	        $form->Fields()->fieldByName("ProductCategory")->getConfig()->removeComponentsByType(GridFieldPrintButton::class);
         }
 
-        if($this->modelClass=='ProductUseArea' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
-     
-            $form->Fields()->fieldByName("ProductUseArea")->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
+        if($this->modelClass == ProductUseArea::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+            if($gridField instanceof GridField) {
+                $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
+            }
             $form->Fields()->fieldByName("ProductUseArea")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
             $form->Fields()->fieldByName("ProductUseArea")->getConfig()->removeComponentsByType(GridFieldPrintButton::class);
-
         }
         
         return $form;
