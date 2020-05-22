@@ -14,7 +14,7 @@
 		   				<a href="$Category.Link">
 							<h3 class="uk-margin uk-text-truncate">$Category.Title</h3>
 							<% if $Category.ProductCategoryImage %>
-						    	<div class="uk-flex uk-flex-center@m uk-flex-middle">
+						    	<div class="uk-flex uk-flex-left uk-flex-center@m uk-flex-middle">
 						    		<img class="dk-icon uk-width-auto" src="$Category.ProductCategoryImage.Fit(300,300).URL" />
 						    	</div>
 						    <% end_if %>
