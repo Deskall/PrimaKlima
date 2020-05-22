@@ -14,7 +14,7 @@
 							<h3 class="uk-margin uk-text-truncate">$MenuTitle</h3>
 							<% if $Image %>
 						    	<div class="uk-flex uk-flex-left uk-flex-center@m uk-flex-middle">
-						    		<img src="$Image.ScaleWidth(450).CropHeight(200).URL" />
+						    		<img src="$Image.ScaleWidth(450).CropHeight(300).URL" />
 						    	</div>
 						    <% end_if %>
 							<div class="uk-margin-top dk-box-content">
