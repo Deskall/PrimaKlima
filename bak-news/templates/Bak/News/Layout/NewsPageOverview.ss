@@ -8,12 +8,12 @@
 					<div>
 						<div class="uk-card">
 							<div class="uk-card-content">
+								<h3>$Title</h3>
 								<div class="uk-grid-small uk-flex-middle" data-uk-grid>
 									<div class="uk-width-1-3 uk-text-center">
 										<% if Image %><img src="$Image.ScaleWidth(450).FocusCropHeight(300).URL" /><% end_if %>
 									</div>
 									<div class="uk-width-2-3">
-										<h3>$Title</h3>
 										<div class="dk-text-content">
 											<% if $Lead %>
 											$Lead.LimitWordCount(50)
