@@ -11,7 +11,7 @@
 					
 					<div class="box uk-transition-toggle uk-height-1-1" tabindex="0">
 		   				<a href="$Link">
-							<h3 class="uk-margin uk-text-truncate">$MenuTitle</h3>
+							<h3 class="uk-margin uk-text-truncate">$Title</h3>
 							<% if $Image %>
 						    	<div class="uk-flex uk-flex-left uk-flex-center@m uk-flex-middle">
 						    		<img src="$Image.ScaleWidth(450).FocusCropHeight(300).URL" />
