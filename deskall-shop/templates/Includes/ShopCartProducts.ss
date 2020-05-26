@@ -2,6 +2,7 @@
 				<tbody>
 					<% if Products.exists %>
 					<% loop Products.Sort('Sort') %>
+					$VariantID
 						<% if VariantID > 0 %>
 						ici
 							<tr><td class="uk-text-truncate uk-table-expand" colspan="2">$Title - $Variants.byId($VariantID).Title <% if Quantity > 1 %> * $Quantity<% end_if %></td></tr>
