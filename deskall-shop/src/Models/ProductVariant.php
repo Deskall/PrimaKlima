@@ -55,16 +55,17 @@ class ProductVariant extends DataObject {
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        $changedFields = $this->getChangedFields();
-        if ($this->isChanged('Default')){
-            if ($changedFields['Default']['after'] == 1){
-               $pvs = $this->Product()->Variants()->filter('Default',1)->exclude('ID',$this->ID);
-                foreach ($pvs as $pv) {
-                    $pv->Default = false;
-                    $pv->write();
-                }
-            }
+        
+    }
+
+    public function Standard(){
+        $pvs = $this->Product()->Variants()->filter('Default',1);
+        foreach ($pvs as $pv) {
+            $pv->Default = false;
+            $pv->write();
         }
+        $this->Default = 1;
+        $this->write();
     }
 
 }
