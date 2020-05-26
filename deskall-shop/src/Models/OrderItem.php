@@ -46,7 +46,7 @@ class OrderItem extends DataObject {
 
     public function createFromVariant($variant,$quantity){
         $this->VariantID = $variant->ID;
-        $this->Title = $variant->FullTitle();
+        $this->Title = $variant->getFullTitle();
         $this->PriceUnique = $variant->Price;
         $this->Price = $variant->Price * $quantity;
         $this->Quantity = $quantity;

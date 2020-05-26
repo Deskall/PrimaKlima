@@ -77,6 +77,10 @@ class ProductVariant extends DataObject {
         $this->write();
     }
 
+    public function getFullTitle(){
+        return $this->Product()->Title.' - '.$this->Title;
+    }
+
 }
 
 

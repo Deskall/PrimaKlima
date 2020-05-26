@@ -122,7 +122,6 @@ class ShopController extends PageController{
 				   		else{
 				   			$item = new OrderItem();
 				   			$item->createFromProduct($product, $quantity);
-				   			$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort, 'Subtotal' => $product->Price * $quantity, 'VariantID' => $variantID]);
 				   		}
 
 				   		$cart->Products()->add($item,['SortOrder' => $sort]);
