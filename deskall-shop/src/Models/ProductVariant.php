@@ -67,6 +67,16 @@ class ProductVariant extends DataObject {
         $this->write();
     }
 
+    public function soldoff(){
+        $this->Stock = "soldOff";
+        $this->write();
+    }
+
+    public function onstocl(){
+        $this->Stock = "onStock";
+        $this->write();
+    }
+
 }
 
 
