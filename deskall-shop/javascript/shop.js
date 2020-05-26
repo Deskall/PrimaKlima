@@ -76,12 +76,12 @@ $(document).ready(function(){
 			}
 		}
 		else{
-			price = $("#total-price").attr('data-price');
+			price = $(".product-form #total-price").attr('data-price');
 		}
 		totalPrice = parseInt(quantity) * parseFloat(price);
 		totalPrice = totalPrice.toFixed(2);
 		console.log(totalPrice);
-		$("#total-price").text("CHF "+totalPrice);
+		$(".product-form #total-price").text("CHF "+totalPrice);
 	}
 
 	function UpdateOrderPreview(productID,quantity,context){
