@@ -91,9 +91,9 @@ class Product extends DataObject {
         $config = new GridFieldConfig_RecordEditor();
         $config->removeComponentsByType([GridFieldDataColumns::class,GridFieldAddNewButton::class, GridFieldDeleteAction::class])
             ->addComponent(new GridFieldEditableColumns())
-            ->addComponent(new GridFieldAddNewInlineButton()
+            ->addComponent(new GridFieldAddNewInlineButton())
             ->addComponent(new GridFieldOrderableRows('Sort'))
-            ->addComponent(new GridFieldStandardVariantAction()
+            ->addComponent(new GridFieldStandardVariantAction())
             ->addComponent(new GridFieldDeleteAction());
         $fields->fieldbyName('Root.Variants.Variants')->setConfig($config);
         return $fields;
