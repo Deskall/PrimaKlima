@@ -17,7 +17,7 @@
 				$Lead
 			</div>
 		</div>
-		<div class="uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
+		<div class="uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid data-uk-height-match=".dk-text-content">
 			<% loop activeProducts %>
 			<div>
 				<div class="uk-card uk-card-body uk-text-center">
@@ -25,7 +25,7 @@
 					<div class="uk-margin-small">
 						<img src="$MainBild.FocusFill(250,250).URL" data-uk-img class="uk-border-circle" alt="$MainBild.Alt" />
 					</div>
-					<div class="uk-margin-small uk-text-small">
+					<div class="uk-margin-small uk-text-small dk-text-content">
 					<% if Lead %>$Lead.limitWordCount(25)<% else %>$Description.limitWordCount(25)<% end_if %>
 					</div>
 					<div class="uk-margin-small">
