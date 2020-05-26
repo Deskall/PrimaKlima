@@ -92,16 +92,19 @@ class Product extends DataObject {
         $fields->removeByName('CategoryID');
         $fields->removeByName('Images');
         $fields->insertAfter('MainBild',SortableUploadField::create('Images',$this->fieldLabels()['Images'])->setIsMultiUpload(true)->setFolderName($this->getFolderName()));
-        $config = new GridFieldConfig_Base();
-        $config->removeComponentsByType([GridFieldDataColumns::class])
-            ->addComponent(new GridFieldButtonRow('before'))
-            ->addComponent(new GridFieldEditableColumns())
-            ->addComponent(new GridFieldAddNewInlineButton())
-            ->addComponent(new GridFieldOrderableRows('Sort'))
-            ->addComponent(new GridFieldStockAction())
-            ->addComponent(new GridFieldStandardVariantAction())
-            ->addComponent(new GridFieldDeleteAction());
-        $fields->fieldbyName('Root.Variants.Variants')->setConfig($config);
+        if ($this->ID > 0){
+           $config = new GridFieldConfig_Base();
+            $config->removeComponentsByType([GridFieldDataColumns::class])
+                ->addComponent(new GridFieldButtonRow('before'))
+                ->addComponent(new GridFieldEditableColumns())
+                ->addComponent(new GridFieldAddNewInlineButton())
+                ->addComponent(new GridFieldOrderableRows('Sort'))
+                ->addComponent(new GridFieldStockAction())
+                ->addComponent(new GridFieldStandardVariantAction())
+                ->addComponent(new GridFieldDeleteAction());
+            $fields->fieldbyName('Root.Variants.Variants')->setConfig($config); 
+        }
+        
         return $fields;
     }
 
