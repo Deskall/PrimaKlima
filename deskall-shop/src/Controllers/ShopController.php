@@ -99,7 +99,7 @@ class ShopController extends PageController{
 	      $cart = ShopCart::get()->byId($id);
 	      	if ($cart){
 				$productID = $request->postVar('productID');
-				$variantID = $request->postVar('varianteID');
+				$variantID = $request->postVar('variantID');
 			   	if ($productID){
 				   	$product = Product::get()->byId($productID);
 				   	if ($product){
