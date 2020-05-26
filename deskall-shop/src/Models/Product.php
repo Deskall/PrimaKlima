@@ -94,6 +94,7 @@ class Product extends DataObject {
             ->addComponent(new GridFieldEditableColumns())
             ->addComponent(new GridFieldAddNewInlineButton())
             ->addComponent(new GridFieldOrderableRows('Sort'))
+            ->addComponent(new GridFieldStockAction())
             ->addComponent(new GridFieldStandardVariantAction())
             ->addComponent(new GridFieldDeleteAction());
         $fields->fieldbyName('Root.Variants.Variants')->setConfig($config);
