@@ -151,10 +151,6 @@ class EventDate extends DataObject{
             }  
     }
 
-    public function MwSt(){
-        $mwst = $this->Price * floatval(SiteConfig::current_site_config()->MwSt) / 100;
-        return DBCurrency::create()->setValue($mwst);
-    }
 
     /** VAT Price Calculation
     ** Formula: VAT = [ Price Tax incl. / ( ( 100 + Rate) / 100 ) ] * (Rate / 100)
