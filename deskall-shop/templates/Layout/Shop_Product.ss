@@ -93,7 +93,7 @@
 			        			<strong><%t Product.Price 'Preis' %></strong>
 			        		</div>
 			        		<div class="uk-width-1-2 uk-width-2-3@m">
-			        			<strong data-price-standard="$StandardPrice">$StandardPrice.Nices</strong>
+			        			<strong data-price-standard="$StandardPrice">$StandardPrice.Nice</strong>
 			        		</div>
 			        	</div>
 			        	<div class="uk-margin" data-uk-grid>
