@@ -56,6 +56,19 @@
 		        	<% if Description %>
 		        		<div class="uk-margin">$Description</div>
 		        	<% end_if %>
+		        	<% if Variants.exists %>
+		        	<div class="uk-margin" data-uk-grid>
+		        		<div class="uk-width-1-2 uk-width-1-3@m">
+		        			<strong><%t Product.Content 'Inhalt' %></strong>
+		        		</div>
+		        		<div class="uk-width-1-2 uk-width-2-3@m">
+		        			<select class="uk-select" name="variants">
+		        				<% loop Variants %>
+		        				<option value="$ID" <% if Default %>selected<% end_if %>>$Title</option>
+		        				<% end_loop %>
+		        			</select>
+		        		</div>
+		        	</div>
 		            <div class="uk-margin">
 		            	<div class="uk-child-width-1-2@s uk-grid-small uk-flex-middle" data-uk-grid>
 		            		<div>

@@ -9,7 +9,8 @@ class ProductVariant extends DataObject {
     private static $db = array(
         'Title' => 'Varchar(255)',
         'Price' => 'Currency',
-        'Stock' => 'Varchar(255)'
+        'Stock' => 'Varchar(255)',
+        'default' => 'Boolean(0)'
     );
 
 
@@ -37,6 +38,7 @@ class ProductVariant extends DataObject {
         $labels['Price'] = _t('Product.Price', 'Preis');
         $labels['Product'] =  _t('Product.Product', 'Produkt');
         $labels['Stock'] =  _t('Product.Stock', 'Lagerbestand');
+        $labels['Default'] =  _t('Product.Default', 'standard?');
         return $labels;
     }
 
