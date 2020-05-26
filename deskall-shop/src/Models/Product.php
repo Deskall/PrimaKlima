@@ -111,6 +111,13 @@ class Product extends DataObject {
             $newFolder->Name = $changedFields['URLSegment']['after'];
             $newFolder->write();
         }
+        if ($this->Variants()->exists()){
+            if (!$this->StandardVariant()){
+                $standard = $this->Variants()->first();
+                $standard->Default = true;
+                $standard->write();
+            }
+        }
     }
 
     public function getFolderName(){

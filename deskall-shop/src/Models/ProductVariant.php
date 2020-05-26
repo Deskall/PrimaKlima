@@ -62,14 +62,6 @@ class ProductVariant extends DataObject {
                     $pv->write();
                 }
             }
-            else{
-                if(!$this->Product()->StandardVariant()){
-                    $pv = $this->Product()->Variants()->first();
-                    $pv->Default = 1;
-                    $pv->write();
-                }
-            }
-            
         }
     }
 
