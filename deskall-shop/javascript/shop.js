@@ -26,7 +26,13 @@ $(document).ready(function(){
 			});
 		}
 	});
+	$(document).on("change",".product-form select",function(){
+		console.log('ici');
+	});
 
+	$(document).on("change",".product-form input[name='quantity']",function(){
+		console.log('la');
+	});
 	$(document).on("click",".add-to-cart",function(){
 		UpdateOrderPreview($(this).attr('data-product-id'),1,'webshop');
 		$("#link-shop").attr("hidden","hidden");
@@ -51,12 +57,10 @@ $(document).ready(function(){
 			$(".order-preview").empty().append(response);
 		});
 	});
-	
-		
-	
-		
-		
-	
+	var quantity,
+	variant,
+	price,
+	totalPrice;
 
 
 	function UpdateOrderPreview(productID,quantity,context){
