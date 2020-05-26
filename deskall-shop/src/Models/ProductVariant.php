@@ -32,6 +32,8 @@ class ProductVariant extends DataObject {
         'Sortable'
     ];
 
+    private static $defaults = ['Stock' => 'onStock'];
+
     public function fieldLabels($includerelation = true){
         $labels = parent::fieldLabels($includerelation);
         $labels['Title'] = _t('Product.Title', 'Titel');

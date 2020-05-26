@@ -46,6 +46,8 @@ class Product extends DataObject {
         'Title' => 'Titel',
     );
 
+    private static $defaults = ['Stock' => 'onStock'];
+
     private static $has_one = array(
         'Category' =>  ProductCategory::class,
         'MainBild' => Image::class
