@@ -12,7 +12,7 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig;
-use SilverStripe\Forms\GridField\GridFieldConfig_Base;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridFieldDataColumns;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
@@ -88,12 +88,13 @@ class Product extends DataObject {
         $fields->removeByName('CategoryID');
         $fields->removeByName('Images');
         $fields->insertAfter('MainBild',SortableUploadField::create('Images',$this->fieldLabels()['Images'])->setIsMultiUpload(true)->setFolderName($this->getFolderName()));
-        $config = new GridFieldConfig_Base();
-        $config->removeComponentsByType([GridFieldDataColumns::class])
+        $config = new GridFieldConfig_RecordEditor();
+        $config->removeComponentsByType([GridFieldDataColumns::class,GridFieldAddNewButton::class, GridFieldDeleteAction::class])
             ->addComponent(new GridFieldEditableColumns())
-            ->addComponent(new GridFieldAddNewInlineButton())
+            ->addComponent(new GridFieldAddNewInlineButton()
             ->addComponent(new GridFieldOrderableRows('Sort'))
-            ->addComponent(new GridFieldStandardVariantAction());
+            ->addComponent(new GridFieldStandardVariantAction()
+            ->addComponent(new GridFieldDeleteAction());
         $fields->fieldbyName('Root.Variants.Variants')->setConfig($config);
         return $fields;
     }
