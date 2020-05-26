@@ -90,7 +90,10 @@ class Product extends DataObject {
         $fields->insertAfter('MainBild',SortableUploadField::create('Images',$this->fieldLabels()['Images'])->setIsMultiUpload(true)->setFolderName($this->getFolderName()));
         $config = new GridFieldConfig_RecordEditor();
         $config->removeComponentsByType([GridFieldDataColumns::class,GridFieldAddNewButton::class])
-            ->addComponent(new GridFieldEditableColumns())->addComponent(new GridFieldAddNewInlineButton())->addComponent(new GridFieldOrderableRows('Sort'));
+            ->addComponent(new GridFieldEditableColumns())
+            ->addComponent(new GridFieldAddNewInlineButton())
+            ->addComponent(new GridFieldOrderableRows('Sort'))
+            ->addComponent(new GridFieldStandardVariantAction());
         $fields->fieldbyName('Root.Variants.Variants')->setConfig($config);
         return $fields;
     }
