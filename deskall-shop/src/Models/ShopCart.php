@@ -58,7 +58,7 @@ class ShopCart extends DataObject {
 	];
 
 	private static $many_many_extraFields = [
-		'Products' => ['SortOrder' => 'Int', 'Quantity' => 'Int', 'Subtotal' => 'Currency']
+		'Products' => ['SortOrder' => 'Int', 'Quantity' => 'Int', 'Subtotal' => 'Currency', 'VariantID' => 'Int']
 	];
 
 	private static $summary_fields = [
@@ -210,7 +210,13 @@ class ShopCart extends DataObject {
 		$price = 0;
 		if ($this->Products()->exists()){
 			foreach ($this->Products() as $product) {
-				$price += $product->Price * $product->Quantity;
+				if ($product->VariantID > 0){
+					$variant = ProductVariant::get()->byId($product->VariantID);
+					$price += $variant->Price * $product->Quantity;
+				}
+				else{
+					$price += $product->Price * $product->Quantity;
+				}
 			}
 		}
 		if ($this->Voucher()->exists()){
