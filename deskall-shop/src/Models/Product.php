@@ -12,6 +12,7 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig;
+use SilverStripe\Forms\GridField\GridFieldDataColumns;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridFieldButtonRow;
 use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
