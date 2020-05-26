@@ -56,7 +56,7 @@
 	        	<% if Description %>
 	        		<div class="uk-margin">$Description</div>
 	        	<% end_if %>
-	        	<div class="uk-child-width-1-2@s uk-grid-small"  data-uk-grid>
+	        	<div class="uk-child-width-1-2@s uk-grid-small uk-flex-bottom"  data-uk-grid>
 	        		<div>
 			        	<% if Variants.exists %>
 			        	<div class="uk-margin" data-uk-grid>
