@@ -28,6 +28,7 @@ use Bummzack\SortableFile\Forms\SortableUploadField;
 use SilverStripe\Assets\Image;
 use SilverStripe\Assets\Folder;
 use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\ORM\FieldType\DBCurrency;
 
 class Product extends DataObject {
 
@@ -145,9 +146,12 @@ class Product extends DataObject {
 
     public function StandardPrice(){
         if ($this->Variants()->exists()){
-            return $this->StandardVariant()->Price;
+            $price = $this->StandardVariant()->Price;
         }
-        return $this->Price;
+        else{
+            $price = $this->Price;
+        }
+        return DBCurrency::create()->setValue($price);
     }
 
 }
