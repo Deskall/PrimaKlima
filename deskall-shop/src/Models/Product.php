@@ -50,6 +50,8 @@ class Product extends DataObject {
 
     private static $many_many_extraFields = ['Images' => ['Sort' => 'Int']];
 
+    private static $has_many = ['Variants' => ProductVariant::class];
+
     private static $singular_name = 'Produkt';
     private static $plural_name = 'Produkte';
 
@@ -67,6 +69,7 @@ class Product extends DataObject {
         $labels['Category'] = _t('Product.Category', 'Kategorie');
         $labels['MainBild'] = _t('Product.MainBild', 'Hauptbild');
         $labels['Images'] =  _t('Product.Images', 'Bilder');
+        $labels['Variants'] =  _t('Product.Variants', 'Produkt Varianten');
         return $labels;
     }
 
