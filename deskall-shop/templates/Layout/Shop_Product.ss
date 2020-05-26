@@ -66,7 +66,7 @@
 				        		<div class="uk-width-1-2 uk-width-2-3@m">
 				        			<select class="uk-select" name="variant">
 				        				<% loop Variants %>
-				        				<option value="$ID" data-title="$Title" data-price="$Price" <% if Default %>selected<% end_if %>>$Title - $Price.Nice</option>
+				        				<option value="$ID" data-title="$Title" data-price="$Price" data-stock="$Stock" <% if Default %>selected<% end_if %>>$Title - $Price.Nice</option>
 				        				<% end_loop %>
 				        			</select>
 				        		</div>
@@ -93,7 +93,7 @@
 				        			<strong><%t Product.Price 'Preis' %></strong>
 				        		</div>
 				        		<div class="uk-width-1-2 uk-width-2-3@m">
-				        			<strong data-price-standard="$Price">$Price.Nice</strong>
+				        			<strong id="total-price" data-price-standard="$Price">$Price.Nice</strong>
 				        		</div>
 				        	</div>
 				        	<% end_with %>
@@ -119,7 +119,7 @@
 				        			<strong><%t Product.Price 'Preis' %></strong>
 				        		</div>
 				        		<div class="uk-width-1-2 uk-width-2-3@m">
-				        			<strong data-price-standard="$Price">$Price.Nice</strong>
+				        			<strong id="total-price" data-price-standard="$Price">$Price.Nice</strong>
 				        		</div>
 				        	</div>
 			        	<% end_if %>

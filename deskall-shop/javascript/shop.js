@@ -27,11 +27,10 @@ $(document).ready(function(){
 		}
 	});
 	$(document).on("change",".product-form select",function(){
-		console.log('ici');
+		UpdateProductData();
 	});
-
 	$(document).on("change",".product-form input[name='quantity']",function(){
-		console.log('la');
+		UpdateProductData();
 	});
 	$(document).on("click",".add-to-cart",function(){
 		UpdateOrderPreview($(this).attr('data-product-id'),1,'webshop');
@@ -57,11 +56,32 @@ $(document).ready(function(){
 			$(".order-preview").empty().append(response);
 		});
 	});
+
 	var quantity,
 	variant,
 	price,
+	stock,
 	totalPrice;
-
+	function UpdateProductData(){
+		quantity = $(".product-form input[name='quantity']").val();
+		if ($("select[name='variant']").length > 0){
+			price = $("select[name='variant'] option:selected").attr('data-price');
+			stock = $("select[name='variant'] option:selected").attr('data-stock');
+			if (stock == "onStock" ){
+				$("#availability").html('<span class="text-gruen">im Lager</span>');
+			}
+			else {
+				$("#availability").html('<span class="text-rot">Ausverkauft</span>');
+			}
+		}
+		else{
+			price = $("#total-price").attr('data-price');
+		}
+		totalPrice = parseInt(quantity) * parseFloat(price);
+		totalPrice = totalPrice.toFixed(2);
+		console.log(totalPrice);
+		$("#total-price").text("CHF "+totalPrice);
+	}
 
 	function UpdateOrderPreview(productID,quantity,context){
 		//ici ajouter un
