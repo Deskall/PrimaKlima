@@ -33,16 +33,18 @@ $(document).ready(function(){
 		UpdateProductData();
 	});
 	$(document).on("click",".add-to-cart",function(){
-		quantity = $(".product-form input[name='quantity']").val();
-		product = $(this).attr('data-product-id');
-		variant = ( $(".product-form select[name='variant']").length > 0) ? $(".product-form select[name='variant']").val() : 0;
-		
-		UpdateOrderPreview($(this).attr('data-product-id'), quantity, variant, 'webshop');
-		
-		$("#link-shop").attr("hidden","hidden");
-		$("#toggle-cart").attr("hidden",false);
-		var count = parseInt($("#cart-articles-count").text()) + 1;
-		$("#cart-articles-count").text(count);
+		if (!$(this).is(':disabled')){
+			quantity = $(".product-form input[name='quantity']").val();
+			product = $(this).attr('data-product-id');
+			variant = ( $(".product-form select[name='variant']").length > 0) ? $(".product-form select[name='variant']").val() : 0;
+			
+			UpdateOrderPreview($(this).attr('data-product-id'), quantity, variant, 'webshop');
+			
+			$("#link-shop").attr("hidden","hidden");
+			$("#toggle-cart").attr("hidden",false);
+			var count = parseInt($("#cart-articles-count").text()) + 1;
+			$("#cart-articles-count").text(count);
+		}
 	});
 
 	$(document).on("change","input[data-quantity]",function(){
