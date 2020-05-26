@@ -99,13 +99,14 @@ class ShopController extends PageController{
 	      $cart = ShopCart::get()->byId($id);
 	      	if ($cart){
 				$productID = $request->postVar('productID');
+				$variantID = $request->postVar('varianteID');
 			   	if ($productID){
 				   	$product = Product::get()->byId($productID);
 				   	if ($product){
 				   		$quantity = ($request->postVar('quantity')) ? $request->postVar('quantity') : 1;
 				   		$sort = $p->SortOrder;
 				   		//check if already in cart
-				   		if ($p = $cart->Products()->byId($productID)){
+				   		if ($p = $cart->Products()->filter(['ID' => $productID, 'VariantID' => $variantID)){
 				   			//Context: if Webshop, we simply add 1, else we are in Checkout and must respect the quantity given
 				   			if ($request->postVar('context') && $request->postVar('context') == 'webshop'){
 				   				$quantity = $p->Quantity + $quantity;
@@ -113,8 +114,15 @@ class ShopController extends PageController{
 				   		}else{
 				   			$sort = $cart->Products()->count() + 1;
 				   		}
-				   		
-				   		$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort, 'Subtotal' => $product->Price * $quantity]);
+				   		if ($variantID > 0){
+				   			$variant = ProductVariant::get()->byId($variantID);
+				   			if ($variant){
+				   				$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort, 'Subtotal' => $variant->Price * $quantity, 'VariantID' => $variantID]);
+				   			}
+				   		}
+				   		else{
+				   			$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort, 'Subtotal' => $product->Price * $quantity]);
+				   		}
 				   		$cart->write();
 				   	}
 				}

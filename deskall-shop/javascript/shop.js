@@ -33,7 +33,12 @@ $(document).ready(function(){
 		UpdateProductData();
 	});
 	$(document).on("click",".add-to-cart",function(){
-		UpdateOrderPreview($(this).attr('data-product-id'),1,'webshop');
+		quantity = $(".product-form input[name='quantity']").val();
+		product = $(this).attr('data-product-id');
+		variant = ( $(".product-form select[name='variant']").length > 0) ? $(".product-form select[name='variant']").val() : 0;
+		
+		UpdateOrderPreview($(this).attr('data-product-id'), quantity, productclass, 'webshop');
+		
 		$("#link-shop").attr("hidden","hidden");
 		$("#toggle-cart").attr("hidden",false);
 		var count = parseInt($("#cart-articles-count").text()) + 1;
@@ -80,17 +85,16 @@ $(document).ready(function(){
 		}
 		totalPrice = parseInt(quantity) * parseFloat(price);
 		totalPrice = totalPrice.toFixed(2);
-		console.log(totalPrice);
 		$(".product-form #total-price").text("CHF "+totalPrice);
 	}
 
-	function UpdateOrderPreview(productID,quantity,context){
+	function UpdateOrderPreview(productID, quantity, variantID, context){
 		//ici ajouter un
 		$.ajax({
 			url: '/shop/updateCart',
 			method: 'POST',
 			dataType: 'html',
-			data: {productID: productID,quantity: quantity, context: context}
+			data: {productID: productID, quantity: quantity, variantID: variantID, context: context}
 		}).done(function(response){
 			if (context == "checkout"){
 				$(".order-preview").each(function(){
