@@ -132,6 +132,17 @@ class Product extends DataObject {
         return ShopPage::get()->first()->Link();
     }
 
+    public function StandardVariant(){
+        return $this->Variants()->filter('Default',1)->first();
+    }
+
+    public function StandardPrice(){
+        if ($this->Variants()->exists()){
+            return $this->StandardVariant()->Price;
+        }
+        return $this->Price;
+    }
+
 }
 
 

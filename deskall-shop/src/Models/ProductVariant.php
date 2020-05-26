@@ -52,6 +52,26 @@ class ProductVariant extends DataObject {
         return $fields;
     }
 
+    public function onAfterWrite(){
+        if ($this->isChanged('Default')){
+            if ($this->Default == 1){
+               $pv = $this->Product()->Variants()->filter('Default',1)->exclude('ID',$this->ID);
+                foreach ($pvs as $pv) {
+                    $pv->Default = false;
+                    $pv->write();
+                }
+            }
+            else{
+                if(!$this->Product()->StandardVariant()){
+                    $pv = $this->Product()->Variants()->first();
+                    $pv->Default = 1;
+                    $pv->write();
+                }
+            }
+            
+        }
+    }
+
 }
 
 

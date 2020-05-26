@@ -56,7 +56,7 @@
 	        	<% if Description %>
 	        		<div class="uk-margin">$Description</div>
 	        	<% end_if %>
-	        	<div class="uk-child-width-1-2@s uk-grid-small uk-flex-bottom"  data-uk-grid>
+	        	<div class="uk-child-width-1-2@s uk-grid-small uk-flex-bottom product-form"  data-uk-grid>
 	        		<div>
 			        	<% if Variants.exists %>
 			        	<div class="uk-margin" data-uk-grid>
@@ -93,7 +93,7 @@
 			        			<strong><%t Product.Price 'Preis' %></strong>
 			        		</div>
 			        		<div class="uk-width-1-2 uk-width-2-3@m">
-			        			<strong>$Price.Nice</strong>
+			        			<strong data-price-standard="$StandardPrice">$StandardPrice.Nices</strong>
 			        		</div>
 			        	</div>
 			        	<div class="uk-margin" data-uk-grid>
