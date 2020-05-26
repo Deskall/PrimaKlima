@@ -33,7 +33,7 @@ $(document).ready(function(){
 		UpdateProductData();
 	});
 	$(document).on("click",".add-to-cart",function(){
-		if (!$(this).is(':disabled')){
+		if (!$(this).prop('disabled')){
 			quantity = $(".product-form input[name='quantity']").val();
 			product = $(this).attr('data-product-id');
 			variant = ( $(".product-form select[name='variant']").length > 0) ? $(".product-form select[name='variant']").val() : 0;
@@ -70,7 +70,7 @@ $(document).ready(function(){
 	stock,
 	totalPrice;
 	function UpdateProductData(){
-		$(".add-to-cart").attr('disabled',false);
+		$(".add-to-cart").prop('disabled',false);
 		quantity = $(".product-form input[name='quantity']").val();
 		if ($("select[name='variant']").length > 0){
 			price = $("select[name='variant'] option:selected").attr('data-price');
@@ -81,7 +81,7 @@ $(document).ready(function(){
 			}
 			else {
 				$("#availability").html('<span class="text-pink">Ausverkauft</span>');
-				$(".add-to-cart").attr('disabled',true);
+				$(".add-to-cart").prop('disabled',true);
 			}
 		}
 		else{
