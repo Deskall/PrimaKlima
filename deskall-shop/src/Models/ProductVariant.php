@@ -17,7 +17,8 @@ class ProductVariant extends DataObject {
     private static $summary_fields = array(
         'Title' => 'Titel',
         'Price' => 'Preis',
-        'Stock' => 'Lagerbestand'
+        'Stock' => 'Lagerbestand',
+        'Default' => 'Standard?'
     );
 
     private static $has_one = array(
