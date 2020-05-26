@@ -72,7 +72,7 @@ class ProductVariant extends DataObject {
         $this->write();
     }
 
-    public function onstocl(){
+    public function onstock(){
         $this->Stock = "onStock";
         $this->write();
     }
