@@ -72,7 +72,7 @@ $(document).ready(function(){
 				$("#availability").html('<span class="text-gruen">im Lager</span>');
 			}
 			else {
-				$("#availability").html('<span class="text-rot">Ausverkauft</span>');
+				$("#availability").html('<span class="text-pink">Ausverkauft</span>');
 			}
 		}
 		else{
