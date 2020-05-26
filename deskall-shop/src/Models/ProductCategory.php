@@ -84,7 +84,7 @@ class ProductCategory extends DataObject {
         $fields->fieldByName('Root.Main.Image')->setFolderName($this->getFolderName());
         if ($this->ID > 0 ){
             $config = new GridFieldConfig_RecordEditor();
-            $config->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldDuplicateAction());
+            $config->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldStockAction());
             $fields->fieldByName('Root.Products.Products')->setConfig($config);
         }
         

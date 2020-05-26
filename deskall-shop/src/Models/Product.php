@@ -37,7 +37,8 @@ class Product extends DataObject {
         'Lead' => 'HTMLText',
         'Description' => 'HTMLText',
         'Price' => 'Currency',
-        'URLSegment' => 'Varchar(255)'
+        'URLSegment' => 'Varchar(255)',
+        'Stock' => 'Varchar(255)'
     );
 
 
@@ -74,6 +75,7 @@ class Product extends DataObject {
         $labels['MainBild'] = _t('Product.MainBild', 'Hauptbild');
         $labels['Images'] =  _t('Product.Images', 'Bilder');
         $labels['Variants'] =  _t('Product.Variants', 'Produkt Varianten');
+        $labels['Stock'] =  _t('Product.Stock', 'Lagerbestand');
         return $labels;
     }
 
@@ -159,6 +161,16 @@ class Product extends DataObject {
             $price = $this->Price;
         }
         return DBCurrency::create()->setValue($price);
+    }
+
+    public function soldoff(){
+        $this->Stock = "soldOff";
+        $this->write();
+    }
+
+    public function onstock(){
+        $this->Stock = "onStock";
+        $this->write();
     }
 
 }

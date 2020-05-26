@@ -47,7 +47,6 @@ class ProductVariant extends DataObject {
         $fields = parent::getCMSFields();
         $fields->removeByName('ProductID');
         $fields->removeByName('Stock');
-        $fields->addFieldToTab('Root.Main',OptionsetField::create('Stock',$this->fieldLabels()['Stock'],['onStock' => _t('Product.onStock','Am Lager'), 'soldOff' => _t('Product.SoldOff','Ausverkauft')]));
 
         return $fields;
     }

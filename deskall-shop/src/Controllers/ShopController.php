@@ -114,9 +114,11 @@ class ShopController extends PageController{
 					   			$p->write();
 					   		}else{
 					   			$variant = ProductVariant::get()->byId($variantID);
-					   			$item = new OrderItem();
-					   			$item->createFromVariant($variant, $quantity);
-					   			$cart->Products()->add($item);
+					   			if ($variant && $variant->Stock == "onStock"){
+					   				$item = new OrderItem();
+					   				$item->createFromVariant($variant, $quantity);
+					   				$cart->Products()->add($item);
+					   			}
 					   		}
 				   		}
 				   		//Else Product
@@ -127,9 +129,11 @@ class ShopController extends PageController{
 					   			$p->Quantity = $quantity;
 					   			$p->write();
 					   		}else{
-					   			$item = new OrderItem();
-					   			$item->createFromProduct($product, $quantity);
-					   			$cart->Products()->add($item);
+					   			if ($product->Stock == "onStock"){
+						   			$item = new OrderItem();
+						   			$item->createFromProduct($product, $quantity);
+						   			$cart->Products()->add($item);
+						   		}
 					   		}
 				   		}
 				   		$cart->write();
