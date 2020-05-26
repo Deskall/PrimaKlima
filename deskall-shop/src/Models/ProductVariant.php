@@ -10,7 +10,7 @@ class ProductVariant extends DataObject {
         'Title' => 'Varchar(255)',
         'Price' => 'Currency',
         'Stock' => 'Varchar(255)',
-        'default' => 'Boolean(0)'
+        'Default' => 'Boolean(0)'
     );
 
 
