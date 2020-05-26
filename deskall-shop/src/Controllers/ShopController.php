@@ -110,21 +110,28 @@ class ShopController extends PageController{
 					   		//check if already in cart
 					   		if ($p = $cart->Products()->filter('VariantID', $variantID)->first()){
 					   			$quantity = $p->Quantity + $quantity;
+					   			$p->Quantity = $quantity;
+					   			$p->write();
 					   		}else{
-					   			$sort = $cart->Products()->count() + 1;
+					   			$variant = ProductVariant::get()->byId($variantID);
+					   			$item = new OrderItem();
+					   			$item->createFromVariant($variant, $quantity);
+					   			$cart->Products()->add($item);
 					   		}
-					   		
-					   		$variant = ProductVariant::get()->byId($variantID);
-					   		$item = new OrderItem();
-					   		$item->createFromVariant($variant, $quantity);
 				   		}
 				   		//Else Product
 				   		else{
-				   			$item = new OrderItem();
-				   			$item->createFromProduct($product, $quantity);
+				   			//check if already in cart
+				   			if ($p = $cart->Products()->filter('ProductID', $productID)->first()){
+				   				$quantity = $p->Quantity + $quantity;
+					   			$p->Quantity = $quantity;
+					   			$p->write();
+					   		}else{
+					   			$item = new OrderItem();
+					   			$item->createFromProduct($product, $quantity);
+					   			$cart->Products()->add($item);
+					   		}
 				   		}
-
-				   		$cart->Products()->add($item,['SortOrder' => $sort]);
 				   		$cart->write();
 				   	}
 				}
