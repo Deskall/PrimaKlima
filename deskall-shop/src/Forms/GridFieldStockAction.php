@@ -36,9 +36,7 @@ class GridFieldStockAction implements GridField_ColumnProvider, GridField_Action
     {
         if(!$record->canEdit()) return;
 
-        if(!$record->canActivate()) return;
-
-        if ($record->isVisible && $record->canDesactivate()){
+        if ($record->Stock == "onStock" ){
             $field = GridField_FormAction::create(
                 $gridField,
                 'soldoff'.$record->ID,
@@ -50,7 +48,7 @@ class GridFieldStockAction implements GridField_ColumnProvider, GridField_Action
                 ->setDescription(_t('Product.SOLDOFF', 'als ausverkauft markieren'));
                 return $field->Field();
         }
-        if (!$record->isVisible && $record->canActivate()){
+        if ($record->Stock == "soldOff" ){
           $field = GridField_FormAction::create(
             $gridField,
             'onstock'.$record->ID,
