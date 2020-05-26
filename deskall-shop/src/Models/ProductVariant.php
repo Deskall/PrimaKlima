@@ -58,7 +58,7 @@ class ProductVariant extends DataObject {
         
     }
 
-    public function Standard(){
+    public function standard(){
         $pvs = $this->Product()->Variants()->filter('Default',1);
         foreach ($pvs as $pv) {
             $pv->Default = false;
