@@ -147,7 +147,7 @@ class Product extends DataObject {
 
     public function LowerPrice(){
         if ($this->Variants()->exists()){
-            $price = $this->StandardVariant()->sort('Price','ASC')->Price;
+            $price = $this->Variants()->sort('Price','ASC')->Price;
         }
         else{
             $price = $this->Price;
