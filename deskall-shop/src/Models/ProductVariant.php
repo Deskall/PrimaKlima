@@ -53,7 +53,7 @@ class ProductVariant extends DataObject {
         return $fields;
     }
 
-    public function onAfterWrite(){
+    public function onBeforeWrite(){
         if ($this->isChanged('Default')){
             if ($this->Default == 1){
                $pvs = $this->Product()->Variants()->filter('Default',1)->exclude('ID',$this->ID);
