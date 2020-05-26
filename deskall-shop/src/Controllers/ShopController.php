@@ -121,7 +121,7 @@ class ShopController extends PageController{
 				   			}
 				   		}
 				   		else{
-				   			$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort, 'Subtotal' => $product->Price * $quantity]);
+				   			$cart->Products()->add($product,['Quantity' => $quantity, 'SortOrder' => $sort, 'Subtotal' => $product->Price * $quantity, 'VariantID' => $variantID]);
 				   		}
 				   		$cart->write();
 				   	}
