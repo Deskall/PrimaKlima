@@ -88,15 +88,25 @@
 			        			<span id="availability"></span>
 			        		</div>
 			        	</div>
+			        	<div class="uk-margin" data-uk-grid>
+			        		<div class="uk-width-1-2 uk-width-1-3@m">
+			        			<strong><%t Product.Price 'Preis' %></strong>
+			        		</div>
+			        		<div class="uk-width-1-2 uk-width-2-3@m">
+			        			<strong>$Price.Nice</strong>
+			        		</div>
+			        	</div>
+			        	<div class="uk-margin" data-uk-grid>
+			        		<div class="uk-width-1-2 uk-width-1-3@m">
+			        			<strong><%t Product.VAT 'MwSt.:' %></strong>
+			        		</div>
+			        		<div class="uk-width-1-2 uk-width-2-3@m">
+			        			{$Top.SiteConfig.MwSt}%
+			        		</div>
+			        	</div>
 			            <div class="uk-margin">
-			            	<div class="uk-child-width-1-2@s uk-grid-small uk-flex-middle" data-uk-grid>
-			            		<div>
-					              <table class="uk-table uk-table-justify uk-table-small">
-					              	<tr><td><strong>Preis:</strong></td><td><strong>$Price.Nice</strong>	</td></tr>
-					              	<tr><td>MwSt.:</td><td>{$Top.SiteConfig.MwSt}%</td></tr>
-					              	<tr><td>Zuzüglich Porto und Verpackung</td><td>&nbsp;</td></tr>
-					              </table>
-					          	</div>
+			            	<div>
+					            <%t Product.TransportCostLabel 'Zuzüglich Porto und Verpackung' %>
 					        </div>
 					    </div>
 					</div>
