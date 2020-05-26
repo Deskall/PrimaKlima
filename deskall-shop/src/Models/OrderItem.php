@@ -15,7 +15,9 @@ class OrderItem extends DataObject {
 
     private static $has_one = array(
         'Order' => ShopOrder::class,
-        'Product' => Product::class
+        'Cart' => ShopCart::class,
+        'Product' => Product::class,
+        'Variant' => ProductVariant::class
     );
 
     private static $extensions = ['Sortable'];
@@ -32,13 +34,23 @@ class OrderItem extends DataObject {
     }
 
 
-    public function createFromProduct($product){
+    public function createFromProduct($product,$quantity){
         $this->ProductID = $product->ID;
         $this->Title = $product->Title;
         $this->PriceUnique = $product->Price;
-        $this->Price = $product->Price * $product->Quantity;
-        $this->Quantity = $product->Quantity;
+        $this->Price = $product->Price * $quantity;
+        $this->Quantity = $quantity;
         $this->Sort = $product->SortOrder;
+        $this->write();
+    }
+
+    public function createFromVariant($variant,$quantity){
+        $this->VariantID = $variant->ID;
+        $this->Title = $variant->FullTitle();
+        $this->PriceUnique = $variant->Price;
+        $this->Price = $variant->Price * $quantity;
+        $this->Quantity = $quantity;
+        $this->Sort = $variant->SortOrder;
         $this->write();
     }
 

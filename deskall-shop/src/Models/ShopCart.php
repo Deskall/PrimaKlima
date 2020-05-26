@@ -53,12 +53,8 @@ class ShopCart extends DataObject {
 		'Voucher' => Coupon::class
 	];
 
-	private static $many_many = [
-		'Products' => Product::class,
-	];
-
-	private static $many_many_extraFields = [
-		'Products' => ['SortOrder' => 'Int', 'Quantity' => 'Int', 'Subtotal' => 'Currency', 'VariantID' => 'Int']
+	private static $has_many = [
+		'Products' => OrderItem::class,
 	];
 
 	private static $summary_fields = [
