@@ -77,7 +77,7 @@
 			        			<strong><%t Product.Quantity 'Menge' %></strong>
 			        		</div>
 			        		<div class="uk-width-1-2 uk-width-2-3@m">
-			        			<input class="uk-input" type="number" min="1" name="quantity" />
+			        			<input class="uk-input" type="number" min="1" name="quantity" value="1" />
 			        		</div>
 			        	</div>
 			        	<div class="uk-margin" data-uk-grid>
