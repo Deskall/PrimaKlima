@@ -69,6 +69,7 @@
 		        			</select>
 		        		</div>
 		        	</div>
+		        	<% end_if %>
 		            <div class="uk-margin">
 		            	<div class="uk-child-width-1-2@s uk-grid-small uk-flex-middle" data-uk-grid>
 		            		<div>
