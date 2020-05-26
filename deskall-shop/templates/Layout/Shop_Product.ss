@@ -59,43 +59,70 @@
 	        	<div class="uk-child-width-1-2@s uk-grid-small uk-flex-bottom product-form"  data-uk-grid>
 	        		<div>
 			        	<% if Variants.exists %>
-			        	<div class="uk-margin" data-uk-grid>
-			        		<div class="uk-width-1-2 uk-width-1-3@m">
-			        			<strong><%t Product.Content 'Inhalt' %></strong>
-			        		</div>
-			        		<div class="uk-width-1-2 uk-width-2-3@m">
-			        			<select class="uk-select" name="variant">
-			        				<% loop Variants %>
-			        				<option value="$ID" data-title="$Title" data-price="$Price" <% if Default %>selected<% end_if %>>$Title</option>
-			        				<% end_loop %>
-			        			</select>
-			        		</div>
-			        	</div>
+				        	<div class="uk-margin" data-uk-grid>
+				        		<div class="uk-width-1-2 uk-width-1-3@m">
+				        			<strong><%t Product.Content 'Inhalt' %></strong>
+				        		</div>
+				        		<div class="uk-width-1-2 uk-width-2-3@m">
+				        			<select class="uk-select" name="variant">
+				        				<% loop Variants %>
+				        				<option value="$ID" data-title="$Title" data-price="$Price" <% if Default %>selected<% end_if %>>$Title</option>
+				        				<% end_loop %>
+				        			</select>
+				        		</div>
+				        	</div>
+				        	<div class="uk-margin" data-uk-grid>
+				        		<div class="uk-width-1-2 uk-width-1-3@m">
+				        			<strong><%t Product.Quantity 'Menge' %></strong>
+				        		</div>
+				        		<div class="uk-width-1-2 uk-width-2-3@m">
+				        			<input class="uk-input" type="number" min="1" name="quantity" value="1" />
+				        		</div>
+				        	</div>
+				        	<% with StandardVariant %>
+				        	<div class="uk-margin" data-uk-grid>
+				        		<div class="uk-width-1-2 uk-width-1-3@m">
+				        			<strong><%t Product.Availability 'Lagerbestand' %></strong>
+				        		</div>
+				        		<div class="uk-width-1-2 uk-width-2-3@m">
+				        			<span id="availability"><% if $Stock == "onStock" %><span class="text-gruen">im Lager</span><% else %><span class="text-rot">Ausverkauft</span><% end_if %></span>
+				        		</div>
+				        	</div>
+				        	<div class="uk-margin" data-uk-grid>
+				        		<div class="uk-width-1-2 uk-width-1-3@m">
+				        			<strong><%t Product.Price 'Preis' %></strong>
+				        		</div>
+				        		<div class="uk-width-1-2 uk-width-2-3@m">
+				        			<strong data-price-standard="$Price">$Price.Nice</strong>
+				        		</div>
+				        	</div>
+				        	<% end_with %>
+				        <% else %>
+				        	<div class="uk-margin" data-uk-grid>
+				        		<div class="uk-width-1-2 uk-width-1-3@m">
+				        			<strong><%t Product.Quantity 'Menge' %></strong>
+				        		</div>
+				        		<div class="uk-width-1-2 uk-width-2-3@m">
+				        			<input class="uk-input" type="number" min="1" name="quantity" value="1" />
+				        		</div>
+				        	</div>
+				        	<div class="uk-margin" data-uk-grid>
+				        		<div class="uk-width-1-2 uk-width-1-3@m">
+				        			<strong><%t Product.Availability 'Lagerbestand' %></strong>
+				        		</div>
+				        		<div class="uk-width-1-2 uk-width-2-3@m">
+				        			<span id="availability"><% if $Stock == "onStock" %><span class="text-gruen">im Lager</span><% else %><span class="text-rot">Ausverkauft</span><% end_if %></span>
+				        		</div>
+				        	</div>
+				        	<div class="uk-margin" data-uk-grid>
+				        		<div class="uk-width-1-2 uk-width-1-3@m">
+				        			<strong><%t Product.Price 'Preis' %></strong>
+				        		</div>
+				        		<div class="uk-width-1-2 uk-width-2-3@m">
+				        			<strong data-price-standard="$Price">$Price.Nice</strong>
+				        		</div>
+				        	</div>
 			        	<% end_if %>
-			        	<div class="uk-margin" data-uk-grid>
-			        		<div class="uk-width-1-2 uk-width-1-3@m">
-			        			<strong><%t Product.Quantity 'Menge' %></strong>
-			        		</div>
-			        		<div class="uk-width-1-2 uk-width-2-3@m">
-			        			<input class="uk-input" type="number" min="1" name="quantity" value="1" />
-			        		</div>
-			        	</div>
-			        	<div class="uk-margin" data-uk-grid>
-			        		<div class="uk-width-1-2 uk-width-1-3@m">
-			        			<strong><%t Product.Availability 'Lagerbestand' %></strong>
-			        		</div>
-			        		<div class="uk-width-1-2 uk-width-2-3@m">
-			        			<span id="availability"></span>
-			        		</div>
-			        	</div>
-			        	<div class="uk-margin" data-uk-grid>
-			        		<div class="uk-width-1-2 uk-width-1-3@m">
-			        			<strong><%t Product.Price 'Preis' %></strong>
-			        		</div>
-			        		<div class="uk-width-1-2 uk-width-2-3@m">
-			        			<strong data-price-standard="$StandardPrice">$StandardPrice.Nice</strong>
-			        		</div>
-			        	</div>
 			        	<div class="uk-margin" data-uk-grid>
 			        		<div class="uk-width-1-2 uk-width-1-3@m">
 			        			<strong><%t Product.VAT 'MwSt.:' %></strong>
