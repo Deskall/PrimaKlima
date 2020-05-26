@@ -66,7 +66,7 @@
 			        		<div class="uk-width-1-2 uk-width-2-3@m">
 			        			<select class="uk-select" name="variant">
 			        				<% loop Variants %>
-			        				<option value="$ID" <% if Default %>selected<% end_if %>>$Title</option>
+			        				<option value="$ID" data-title="$Title" data-price="$Price" <% if Default %>selected<% end_if %>>$Title</option>
 			        				<% end_loop %>
 			        			</select>
 			        		</div>
