@@ -66,6 +66,7 @@ $(document).ready(function(){
 		quantity = $(".product-form input[name='quantity']").val();
 		if ($("select[name='variant']").length > 0){
 			price = $("select[name='variant'] option:selected").attr('data-price');
+			console.log(price);
 			stock = $("select[name='variant'] option:selected").attr('data-stock');
 			if (stock == "onStock" ){
 				$("#availability").html('<span class="text-gruen">im Lager</span>');
