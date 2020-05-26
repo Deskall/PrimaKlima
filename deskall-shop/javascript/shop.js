@@ -59,7 +59,7 @@ $(document).ready(function(){
 	
 
 
-	function UpdateOrderPreview(productID,quantity,context = null){
+	function UpdateOrderPreview(productID,quantity,context){
 		//ici ajouter un
 		$.ajax({
 			url: '/shop/updateCart',

@@ -255,8 +255,12 @@ class ShopCart extends DataObject {
 		return SiteConfig::current_site_config();
 	}
 
+	/** VAT Price Calculation
+	** Formula: VAT = [ Price Tax incl. / ( ( 100 + Rate) / 100 ) ] * (Rate / 100)
+	*/
 	public function MwSt(){
-		$mwst = $this->TotalPrice * floatval($this->SiteConfig()->MwSt) / 100;
+		$mwst = ( $this->TotalPrice / (  (100 + floatval($this->SiteConfig()->MwSt) ) / 100 ) ) * ( ( floatval($this->SiteConfig()->MwSt) / 100) ) ;
+		$mwst = number_format($mwst,2);
 		return DBCurrency::create()->setValue($mwst);
 	}
 

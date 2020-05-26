@@ -109,8 +109,12 @@ class EventOrder extends DataObject{
 		$this->TotalPrice = $price;
 	}
 
+	/** VAT Price Calculation
+	** Formula: VAT = [ Price Tax incl. / ( ( 100 + Rate) / 100 ) ] * (Rate / 100)
+	*/
 	public function MwSt(){
-		$mwst = $this->TotalPrice * floatval($this->getSiteConfig()->MwSt) / 100;
+		$mwst = ( $this->TotalPrice / (  (100 + floatval($this->getSiteConfig()->MwSt) ) / 100 ) ) * ( ( floatval($this->getSiteConfig()->MwSt) / 100) ) ;
+		$mwst = number_format($mwst,2);
 		return DBCurrency::create()->setValue($mwst);
 	}
 

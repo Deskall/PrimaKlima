@@ -226,37 +226,15 @@ class ShopOrder extends DataObject{
 		return DBField::create_field('HTMLText',$html);
 	}
 
+	/** VAT Price Calculation
+	** Formula: VAT = [ Price Tax incl. / ( ( 100 + Rate) / 100 ) ] * (Rate / 100)
+	*/
 	public function MwSt(){
-		$mwst = $this->TotalPrice * floatval($this->getSiteConfig()->MwSt) / 100;
+		$mwst = ( $this->TotalPrice / (  (100 + floatval($this->getSiteConfig()->MwSt) ) / 100 ) ) * ( ( floatval($this->getSiteConfig()->MwSt) / 100) ) ;
 		$mwst = number_format($mwst,2);
 		return DBCurrency::create()->setValue($mwst);
 	}
 
-	// public function getOrderPrice(){
-	//     setlocale(LC_MONETARY, 'de_DE');
-	//     return DBField::create_field('Varchar',money_format('%i',$this->FullTotalPrice));
-	// }
-
-	// public function getOrderSubPrice(){
-	//     setlocale(LC_MONETARY, 'de_DE');
-	//     $price = $this->Price;
-	//     return DBField::create_field('Varchar',money_format('%i',$price));
-	// }
-
-
-	// public function getOrderPriceNetto(){
-	//     $price = $this->Price * 100 / 107.7;
-	   
-	//     setlocale(LC_MONETARY, 'de_DE');
-	//     return DBField::create_field('Varchar',money_format('%i',$price));
-	// }
-
-	// public function getOrderMwSt(){
-	//     // $price = $this->Price - ($this->Price * 100 / 107.7);
-	//     $price = 0;
-	//     setlocale(LC_MONETARY, 'de_DE');
-	//     return DBField::create_field('Varchar',money_format('%i',$price));
-	// }
 
 	public function getReceipt(){
 		// $this->generateQuittungPDF();
