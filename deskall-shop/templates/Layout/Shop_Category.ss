@@ -29,7 +29,7 @@
 					<% if Lead %>$Lead.limitWordCount(25)<% else %>$Description.limitWordCount(25)<% end_if %>
 					</div>
 					<div class="uk-margin-small">
-						<strong><%t Product.StartPrice 'ab' %> $Price.Nice</strong>
+						<strong><%t Product.StartPrice 'ab' %> $LowerPrice.Nice</strong>
 					</div>
 					<a href="$Link" class="uk-button button-blau"><%t Webshop.ToProduct 'Zum Produkt' %></a>
 				</div>
