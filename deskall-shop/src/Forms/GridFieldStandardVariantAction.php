@@ -43,13 +43,13 @@ class GridFieldStandardVariantAction implements GridField_ColumnProvider, GridFi
                 '',
                 "standard",
                 ['RecordID' => $record->ID]
-            )->addExtraClass('grid-field__icon-action font-icon-check-mark-circle btn--icon-large action action-detail')
+            )->addExtraClass('grid-field__icon-action font-icon-circle-star btn--icon-large action action-detail')
                 ->setAttribute('title', _t('SiteTree.StandardVariant', 'als standard Variant markieren'))
                 ->setDescription(_t('Global.StandardVariant', 'als standard Variant markieren'));
                 return $field->Field();
         }
         else{
-            return '<span class="action grid-field__icon-action font-icon-check-mark-circle icon-primary btn--icon-large action action-detail form-group--no-label">
+            return '<span class="action grid-field__icon-action font-icon-circle-star icon-primary btn--icon-large action action-detail form-group--no-label">
                 <span class="btn__title"></span>
             </span>';
         }
