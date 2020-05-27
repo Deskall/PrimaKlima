@@ -91,6 +91,7 @@ class Product extends DataObject {
         $fields = parent::getCMSFields();
         $fields->removeByName('CategoryID');
         $fields->removeByName('Images');
+        $fields->removeByName('Stock');
         $fields->insertAfter('MainBild',SortableUploadField::create('Images',$this->fieldLabels()['Images'])->setIsMultiUpload(true)->setFolderName($this->getFolderName()));
         if ($this->ID > 0){
            $config = new GridFieldConfig_Base();
@@ -130,6 +131,11 @@ class Product extends DataObject {
                 $standard = $this->Variants()->first();
                 $standard->Default = true;
                 $standard->write();
+            }
+            if ($this->Stock == "soldOff"){
+                foreach ($this->Variants() as $pv) {
+                    $pv->soldoff();
+                }
             }
         }
     }
