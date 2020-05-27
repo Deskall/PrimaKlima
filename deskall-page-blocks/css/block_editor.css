@@ -1,5 +1,6 @@
 .block-header-preview{
 	margin-bottom:10px;
+	position: relative;
 }
 .elemental-preview__detail .slide-container{
 	
@@ -38,6 +39,7 @@
 .locales-container{
 	position: absolute;
 	right:0;
+	display: inline;
 }
 .locales-container span {
 	background-color: #008a00;
