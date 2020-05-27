@@ -5,8 +5,12 @@
             <div class="elemental-preview__detail">
                 <h3><% if Title %>$Title <% end_if %><small>$Type</small></h3>
             </div>
+            <% if Locales %>
+                <% loop Locales %>
+                    $Locale
+                <% end_loop %>
+            <% end_if %>
         </div>
-
         <div class="elemental-preview__detail">
             <% if $ContentImage %>
             	<% if ContentImage.getExtension == "svg" %><img src="$ContentImage.URL" width="100" height="100" /><% else %> $ContentImage.Fit(100,100)<% end_if %>
