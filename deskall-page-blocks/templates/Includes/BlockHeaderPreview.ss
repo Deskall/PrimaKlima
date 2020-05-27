@@ -4,8 +4,10 @@
         <h3><% if Title %>$Title <% end_if %><small>$Type</small></h3>
     </div>
     <% if Locales %>
-    <% loop Locales %>
-        <span>$Title</span>
-    <% end_loop %>
+    <div class="locales-container">
+        <% loop Locales %>
+            <span>$Title</span>
+        <% end_loop %>
+    </div>
     <% end_if %>
 </div>

@@ -34,3 +34,13 @@
 .cms-edit-form .elemental-add-existing-autocompleter {
 	max-width: 100%;
 }
+
+.locales-container{
+	text-align: right;
+}
+.locales-container span {
+	background-color: #008a00;
+	border:1px solid #008a00;
+	padding:5px;
+	color:#FFFFFF;
+}
