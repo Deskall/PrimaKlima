@@ -1,12 +1,7 @@
 
 <div class="elemental-preview">
     <a href="$CMSEditLink" class="elemental-edit">
-        <div class="block-header-preview">
-            <div class="elemental-preview__icon">$Icon</div>
-            <div class="elemental-preview__detail">
-                <h3><% if Title %>$Title <% end_if %><small>$Type</small></h3>
-            </div>
-        </div>
+        <% include BlockHeaderPreview %>
 
         <div class="elemental-preview__detail">
             <% if $ActiveSlides %>

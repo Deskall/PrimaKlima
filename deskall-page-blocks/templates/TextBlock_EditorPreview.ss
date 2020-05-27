@@ -1,16 +1,6 @@
 <div class="elemental-preview">
     <a href="$CMSEditLink" class="elemental-edit">
-        <div class="block-header-preview">
-            <div class="elemental-preview__icon">$Icon</div>
-            <div class="elemental-preview__detail">
-                <h3><% if Title %>$Title <% end_if %><small>$Type</small></h3>
-            </div>
-            <% if Locales %>
-                <% loop Locales %>
-                    $Title
-                <% end_loop %>
-            <% end_if %>
-        </div>
+       <% include BlockHeaderPreview %>
         <div class="elemental-preview__detail">
             <% if $ContentImage %>
             	<% if ContentImage.getExtension == "svg" %><img src="$ContentImage.URL" width="100" height="100" /><% else %> $ContentImage.Fit(100,100)<% end_if %>
