@@ -3,9 +3,9 @@
     <div class="elemental-preview__detail">
         <h3><% if Title %>$Title <% end_if %><small>$Type</small></h3>
     </div>
-    <% if Locales %>
+    <% if FilteredLocales %>
     <div class="locales-container">
-        <% loop Locales %>
+        <% loop FilteredLocales %>
             <span>$Title</span>
         <% end_loop %>
     </div>
