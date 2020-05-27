@@ -86,6 +86,7 @@ $(document).ready(function(){
 		}
 		else{
 			price = $(".product-form #total-price").attr('data-price');
+			console.log(price);
 		}
 		totalPrice = parseInt(quantity) * parseFloat(price);
 		totalPrice = totalPrice.toFixed(2);

@@ -119,7 +119,7 @@
 				        			<strong><%t Product.Price 'Preis' %></strong>
 				        		</div>
 				        		<div class="uk-width-1-2 uk-width-2-3@m">
-				        			<strong id="total-price" data-price-standard="$Price.Nice">$Price.Nice</strong>
+				        			<strong id="total-price" data-price-standard="$Price">$Price.Nice</strong>
 				        		</div>
 				        	</div>
 			        	<% end_if %>
