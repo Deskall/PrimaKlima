@@ -7,7 +7,7 @@
             </div>
             <% if Locales %>
                 <% loop Locales %>
-                    $Locale
+                    $Title
                 <% end_loop %>
             <% end_if %>
         </div>
