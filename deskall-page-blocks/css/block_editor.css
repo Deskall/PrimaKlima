@@ -36,7 +36,8 @@
 }
 
 .locales-container{
-	text-align: right;
+	position: absolute;
+	right:0;
 }
 .locales-container span {
 	background-color: #008a00;
