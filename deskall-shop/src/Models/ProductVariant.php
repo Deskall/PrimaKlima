@@ -76,6 +76,7 @@ class ProductVariant extends DataObject {
     public function onstock(){
         $this->Stock = "onStock";
         $this->write();
+        $this->Product()->onstock();
     }
 
     public function getFullTitle(){
