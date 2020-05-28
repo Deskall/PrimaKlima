@@ -550,6 +550,7 @@ class SiteConfigLayoutExtension extends DataExtension
       $Auth_Password = 'G[hEI+}4_"';
       curl_setopt($req, CURLOPT_HEADER, true);
       curl_setopt($req, CURLOPT_USERPWD, "{$Auth_Username}:{$Auth_Password}");
+      curl_setopt($req, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
       curl_setopt($req, CURLOPT_POST, true);
       curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
       curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
