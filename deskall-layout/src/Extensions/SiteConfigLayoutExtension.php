@@ -544,10 +544,12 @@ class SiteConfigLayoutExtension extends DataExtension
               $url = Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/'.$value);
           }
         }
-      $req = curl_init($url);
+    
       $postdata = [];
       $Auth_Username = "guillaume.pacilly";
       $Auth_Password = 'G[hEI+}4_"';
+      $req = curl_init();
+      curl_setopt($req, CURLOPT_URL, $url);
       curl_setopt($req, CURLOPT_HEADER, true);
       curl_setopt($req, CURLOPT_USERPWD, "{$Auth_Username}:{$Auth_Password}");
       curl_setopt($req, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
