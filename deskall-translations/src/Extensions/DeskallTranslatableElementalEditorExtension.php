@@ -15,7 +15,7 @@ class DeskallTranslatableElementalEditorExtension extends DataExtension
     	$gridfield->getConfig()
         ->addComponent(new GridFieldDeleteInAllLocalesAction());
 
-        $this->owner->extend('updateField', $gridField);
+        $this->owner->extend('updateField', $gridfield);
     }
    
 
