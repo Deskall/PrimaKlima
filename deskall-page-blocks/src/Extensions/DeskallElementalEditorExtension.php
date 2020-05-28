@@ -44,6 +44,8 @@ class DeskallElementalEditorExtension extends DataExtension
         if ($gridfield->name == "Elements"){
             $gridfield->getConfig()->addComponent(new GridFieldBlockOrderAction());
         }
+
+        $this->extend('updateField', $gridField);
     }
    
 
