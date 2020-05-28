@@ -29,8 +29,9 @@ use SilverStripe\Assets\Image;
 use SilverStripe\Assets\Folder;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\ORM\FieldType\DBCurrency;
+use g4b0\SearchableDataObjects\Searchable;
 
-class Product extends DataObject {
+class Product extends DataObject implements Searchable{
 
     private static $db = array(
         'Title' => 'Varchar(255)',
@@ -183,6 +184,48 @@ class Product extends DataObject {
         $this->Stock = "onStock";
         $this->write();
     }
+
+
+    /************* SEARCHABLE FUNCTIONS ******************/
+
+
+        /**
+         * Filter array
+         * eg. array('Disabled' => 0);
+         * @return array
+         */
+        public static function getSearchFilter() {
+            return array();
+        }
+
+        /**
+         * FilterAny array (optional)
+         * eg. array('Disabled' => 0, 'Override' => 1);
+         * @return array
+         */
+        public static function getSearchFilterAny() {
+            return array();
+        }
+
+
+        /**
+         * Fields that compose the Title
+         * eg. array('Title', 'Subtitle');
+         * @return array
+         */
+        public function getTitleFields() {
+            return array('Title');
+        }
+
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array('Lead','Description');
+        }
+    /************ END SEARCHABLE ***************************/
 
 }
 

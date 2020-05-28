@@ -8,8 +8,9 @@ use SilverStripe\ORM\DB;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\SiteConfig\SiteConfig;
+use g4b0\SearchableDataObjects\Searchable;
 
-class ProductCategory extends DataObject {
+class ProductCategory extends DataObject implements Searchable{
 
     private static $db = array(
         'Title' => 'Varchar(255)',
@@ -113,6 +114,47 @@ class ProductCategory extends DataObject {
         return SiteConfig::current_site_config();
     }
 
+
+    /************* SEARCHABLE FUNCTIONS ******************/
+
+
+        /**
+         * Filter array
+         * eg. array('Disabled' => 0);
+         * @return array
+         */
+        public static function getSearchFilter() {
+            return array();
+        }
+
+        /**
+         * FilterAny array (optional)
+         * eg. array('Disabled' => 0, 'Override' => 1);
+         * @return array
+         */
+        public static function getSearchFilterAny() {
+            return array();
+        }
+
+
+        /**
+         * Fields that compose the Title
+         * eg. array('Title', 'Subtitle');
+         * @return array
+         */
+        public function getTitleFields() {
+            return array('Title');
+        }
+
+        /**
+         * Fields that compose the Content
+         * eg. array('Teaser', 'Content');
+         * @return array
+         */
+        public function getContentFields() {
+            return array('Description');
+        }
+    /************ END SEARCHABLE ***************************/
 }
 
 
