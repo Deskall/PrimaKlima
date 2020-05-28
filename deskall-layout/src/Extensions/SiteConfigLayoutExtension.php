@@ -546,7 +546,6 @@ class SiteConfigLayoutExtension extends DataExtension
         }
       $req = curl_init($url);
       $postdata = [];
-      $postdata = [];
       $Auth_Username = "guillaume.pacilly";
       $Auth_Password = 'G[hEI+}4_"';
       curl_setopt($req, CURLOPT_HEADER, true);
