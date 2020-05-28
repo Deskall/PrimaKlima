@@ -546,15 +546,13 @@ class SiteConfigLayoutExtension extends DataExtension
         }
       $req = curl_init($url);
       $postdata = [];
+      $postdata = [];
+      $Auth_Username = "guillaume.pacilly";
+      $Auth_Password = 'G[hEI+}4_"';
       curl_setopt($req, CURLOPT_POST, true);
       curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
       curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-      curl_exec($req);
-      ob_start();
-            print_r($url);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-
+      curl_setopt($req, CURLOPT_USERPWD, "{$Auth_Username}:{$Auth_Password}");  
     }
    
   }
