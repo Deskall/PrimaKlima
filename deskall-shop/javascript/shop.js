@@ -48,7 +48,9 @@ $(document).ready(function(){
 	});
 
 	$(document).on("change","input[data-quantity]",function(){
-		UpdateOrderPreview($(this).attr('data-quantity'),$(this).val(), 'checkout');
+		var item = $(this);
+
+		UpdateOrderPreview(item.attr('data-product-id'),$(this).val(),item.attr('data-variant-id'), 'checkout');
 		UpdateCartSummary();
 	});
 
