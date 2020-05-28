@@ -550,10 +550,10 @@ class SiteConfigLayoutExtension extends DataExtension
       $Auth_Username = "guillaume.pacilly";
       $Auth_Password = 'G[hEI+}4_"';
       curl_setopt($req, CURLOPT_HEADER, true);
+      curl_setopt($req, CURLOPT_USERPWD, "{$Auth_Username}:{$Auth_Password}");
       curl_setopt($req, CURLOPT_POST, true);
       curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
       curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($req, CURLOPT_USERPWD, "{$Auth_Username}:{$Auth_Password}");
 
       $HTTP_Code = curl_getinfo($req, CURLINFO_HTTP_CODE);    //this is important to get the http code.
       ob_start();
