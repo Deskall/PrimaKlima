@@ -60,11 +60,16 @@ class GridFieldDeleteInAllLocalesAction implements GridField_ColumnProvider, Gri
         $item = $gridField->getList()->byID($arguments['RecordID']);
         if($actionName == 'deleteall') {
             // perform your action here
-            foreach ($item->FilteredLocales() as $locale) {
-                FluentState::singleton()->withState(function (FluentState $newState) use ($item,$locale) {
-                    $newState->setLocale($locale);
-                    $item->delete();
-                });
+            if ($item->FilteredLocales()->exists()){
+                foreach ($item->FilteredLocales() as $locale) {
+                    FluentState::singleton()->withState(function (FluentState $newState) use ($item,$locale) {
+                        $newState->setLocale($locale->Locale);
+                        $item->delete();
+                    });
+                }
+            }
+            else{
+                $item->delete();
             }
             // output a success message to the user
             Controller::curr()->getResponse()->setStatusCode(
