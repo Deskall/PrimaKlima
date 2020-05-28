@@ -106,6 +106,11 @@ class ProductCategory extends DataObject implements Searchable{
         return 'shop/kategorie/'.$this->URLSegment;
     }
 
+    public function getRealPage(){
+       return ShopPage::get()->first();
+    }
+
+
     public function activeProducts(){
         return $this->Products()->filter('isVisible',1)->sort('Sort');
     }

@@ -155,6 +155,10 @@ class Product extends DataObject implements Searchable{
         return 'shop/produkt/'.$this->URLSegment;
     }
 
+    public function getRealPage(){
+       return ShopPage::get()->first();
+    }
+
 
     public function OrderLink(){
         return ShopPage::get()->first()->Link();
