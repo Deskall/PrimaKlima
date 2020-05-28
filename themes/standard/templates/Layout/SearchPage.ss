@@ -5,7 +5,7 @@ $ElementalArea
 <div id="Content" class="searchResults">
     <section class="uk-section">
         <div class="uk-container">
-        
+        $SearchForm
 
 
         <div class="dk-text-content uk-text-lead">
