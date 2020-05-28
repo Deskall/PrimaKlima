@@ -128,7 +128,9 @@ class ShopController extends PageController{
 				   		else{
 				   			//check if already in cart
 				   			if ($p = $cart->Products()->filter('ProductID', $productID)->first()){
-				   				$quantity = $p->Quantity + $quantity;
+				   				if ($request->postVar('context') && $request->postVar('context') != "checkout"){
+				   					$quantity = $p->Quantity + $quantity;
+				   				}
 					   			$p->Quantity = $quantity;
 					   			$p->write();
 					   		}else{
