@@ -8,12 +8,10 @@ use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 class DeskallTranslatableElementalEditorExtension extends DataExtension 
 {
    
-
-     public function updateField($gridfield){
-     	$types = $this->owner->getTypes();
-        
-    	$gridfield->getConfig()
-        ->addComponent(new GridFieldDeleteInAllLocalesAction());
+	//To finish
+    public function updateField($gridfield){
+    	// $gridfield->getConfig()
+     //    ->addComponent(new GridFieldDeleteInAllLocalesAction());
     }
    
 
