@@ -238,12 +238,7 @@ $(document).ready(function(){
 		  	          postal_code: $("input[name='PostalCode']").val(),
 		  	          country_code: $("select[name='Country']").val().toUpperCase()
 		  	        },
-		  	        email_address: $("input[name='Email']").val(),
-		  	        phone: {
-		  	          phone_number: {
-		  	            national_number: $("input[name='Phone']").val()
-		  	          }
-		  	        }
+		  	        email_address: $("input[name='Email']").val()
 		  	    },
 		  	    purchase_units: [
 		  	        {
