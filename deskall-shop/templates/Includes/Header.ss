@@ -51,7 +51,12 @@
 					<% loop $activeLinks %>
 					$forTemplate
 					<% end_loop %>
-					<li>ici</li>
+					<li>
+						<form class="search-form uk-flex uk-flex-between" method="GET" action="{$Link}SearchForm">
+							<input type="text" class="uk-input" minlength="3" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
+							<button type="submit"><i data-uk-icon="search"></i></button>
+						</form>
+					</li>
 				</ul>		  
 			</div>
 			<% else %>
