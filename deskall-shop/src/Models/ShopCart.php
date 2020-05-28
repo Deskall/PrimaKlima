@@ -130,7 +130,7 @@ class ShopCart extends DataObject {
 			case "cash":
 				$type = "Bargeld";
 			break;
-			case "creditcard":
+			case "online":
 				$type = "PayPal / Kreditkarte";
 			break;
 			default:
