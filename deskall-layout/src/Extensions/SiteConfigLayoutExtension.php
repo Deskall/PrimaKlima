@@ -554,12 +554,12 @@ class SiteConfigLayoutExtension extends DataExtension
       curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
       curl_setopt($req, CURLOPT_USERPWD, "{$Auth_Username}:{$Auth_Password}");
 
-      $HTTP_Code = curl_getinfo($ch, CURLINFO_HTTP_CODE);    //this is important to get the http code.
+      $HTTP_Code = curl_getinfo($req, CURLINFO_HTTP_CODE);    //this is important to get the http code.
       ob_start();
             print_r($HTTP_Code);
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-      curl_close($ch);
+      curl_close($req);
     }
    
   }
