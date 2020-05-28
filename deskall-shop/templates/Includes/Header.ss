@@ -4,7 +4,7 @@
 		<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top') %>
 			$forTemplate
 			<% if $Pos = 2 %>
-			ici
+			$ID
 			<% end_if %>
 		<% end_loop %>
 		</nav>
