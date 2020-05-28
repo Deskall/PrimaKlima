@@ -54,8 +54,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderFontColor' => 'Varchar(7)',
     'HeaderFontSize' => 'Varchar(255)',
     'HeaderFontMobileSize' => 'Varchar(255)',
-    'HeaderMainMenuItemSize' => 'Varchar(255)',
-    'HeaderSubMenuItemSize' => 'Varchar(255)',
+    'HeaderMenuItemSize' => 'Varchar(255)',
     'HeaderHoverFontColor' => 'Varchar(7)',
     'HeaderHeight' => 'Varchar(255)',
     'HeaderCollapsedHeight' => 'Varchar(255)',
@@ -65,7 +64,6 @@ class SiteConfigLayoutExtension extends DataExtension
     'StickyHeader' => 'Boolean(0)',
     'BackContent' => 'Boolean(0)',
     'HeaderLogoHeight' => 'Varchar(255)',
-    'HeaderMobileLogoHeight' => 'Varchar(255)',
     'DropdownSubMenuWidth' => 'Varchar(255)',
     'DropdownSubMenuBackground' => 'Varchar(255)',
     'DropdownSubMenuColor' => 'Varchar(255)',
@@ -119,11 +117,9 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderHeight' => '@header-menu-height',
     'HeaderFontSize' => '@dk-main-nav-font-size',
     'HeaderMobileFontSize' => '@dk-main-nav-font-size-mobile',
-    'HeaderMainMenuItemSize' => '@navbar-main-nav-item-height',
-    'HeaderSubMenuItemSize' => '@navbar-sub-nav-item-height',
+    'HeaderMenuItemSize' => '@navbar-nav-item-height',
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
     'HeaderLogoHeight' => '@header-logo-height',
-    'HeaderMobileLogoHeight' => '@header-mobile-logo-height',
     'DropdownSubMenuWidth' => '@dk-navbar-dropdown-width',
     'DropdownSubMenuBackground' => '@main-subnavi-background',
     'DropdownSubMenuColor' => '@main-subnavi-color',
@@ -322,12 +318,10 @@ class SiteConfigLayoutExtension extends DataExtension
       ),
       FieldGroup::create(
         TextField::create('HeaderHeight',_t(__CLASS__.'.HeaderHeight','Höhe')),
-        TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Header Höhe')),
-        TextField::create('HeaderMainMenuItemSize',_t(__CLASS__.'.HeaderMainMenuItemHeight','Haupt Menu Item Höhe')),
-        TextField::create('HeaderSubMenuItemSize',_t(__CLASS__.'.HeaderSubMenuItemHeight','Sekondäre Menu Item Höhe')),
+        TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Höhe')),
+        TextField::create('HeaderMenuItemSize',_t(__CLASS__.'.HeaderItemHeight','Menu Item Höhe')),
         TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse')),
-        TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe')),
-        TextField::create('HeaderMobileLogoHeight',_t(__CLASS__.'.HeaderMobileLogHeight','Mobile Header Logo Höhe'))
+        TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe'))
       ),
       TextField::create('ExtraHeaderClass',_t(__CLASS__.'.ExtraHeaderClass','Custom CSS für header')),
       FieldGroup::create(
@@ -512,7 +506,7 @@ class SiteConfigLayoutExtension extends DataExtension
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
       /** global background element and font color **/
-      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';.dk-text-content a, .calltoaction-container *{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}&:after{background-color:#'.$c->LinkHoverColor.';}}}*:not(input,select,textarea){color:#'.$c->FontColor.';}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';.dk-text-content a, .calltoaction-container *{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}&:after{background-color:#'.$c->LinkHoverColor.';}}}*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
       file_put_contents($fullpath, "\n".".uk-button.button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.'!important;*{color:#'.$c->FontColor.'!important;}&:hover,&:focus,&:active{color:#'.$c->LinkHoverColor.'!important;*{color:#'.$c->LinkHoverColor.'!important;}}&:hover{background-color:darken(#'.$c->Color.', 5%);}&:active{background-color:darken(#'.$c->Color.', 10%);}}',FILE_APPEND);
       /** CSS Class for Call To Form Button **/
@@ -527,8 +521,6 @@ class SiteConfigLayoutExtension extends DataExtension
       file_put_contents($fullpath,"\n".'.'.$c->Code.'.dk-overlay:after{background-color:fade(#'.$c->Color.',50%);}'
         ."\n".'.'.$c->Code.'.dk-overlay .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->LinkHoverColor.';}'
         ."\n".'.'.$c->Code.'.dk-overlay *{color:#'.$c->FontColor.';}',FILE_APPEND);
-       /*** Css class for Short Text Overlays **/
-      file_put_contents($fullpath,"\n".'.'.$c->Code.' .dk-text-content .short-text .button-container{background-image: linear-gradient(to bottom, transparent, #'.$c->Color.');}',FILE_APPEND);
     }
 
     //Provide extension for project specific stuff
@@ -544,25 +536,14 @@ class SiteConfigLayoutExtension extends DataExtension
               $url = Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/'.$value);
           }
         }
-    
+      $req = curl_init($url);
       $postdata = [];
-      $Auth_Username = 'dominique.mouloud';
-      $Auth_Password = 'S=Eik.Cd3a';
-      $req = curl_init();
-      curl_setopt($req, CURLOPT_URL, $url);
-      curl_setopt($req, CURLOPT_HEADER, true);
-      curl_setopt($req, CURLOPT_USERPWD, "{$Auth_Username}:{$Auth_Password}");
-      curl_setopt($req, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
       curl_setopt($req, CURLOPT_POST, true);
       curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
       curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+      curl_exec($req);
+    
 
-      $HTTP_Code = curl_getinfo($req, CURLINFO_HTTP_CODE);    //this is important to get the http code.
-      ob_start();
-            print_r($HTTP_Code);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-      curl_close($req);
     }
    
   }
