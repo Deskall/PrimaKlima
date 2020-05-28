@@ -26,6 +26,9 @@ $(document).ready(function(){
 			});
 		}
 	});
+	if ($(".product-form").length > 0){
+		UpdateProductData();
+	}
 	$(document).on("change",".product-form select",function(){
 		UpdateProductData();
 	});

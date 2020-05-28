@@ -11,6 +11,6 @@
 <% else %>
 <p><i>Ihr Warenkorb enthält keine Produkte</i></p>
 <div class="uk-margin">
-	<a href="$Webshop.Link" class="uk-button button-WebshopBackground">Zum Webshop<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+	<a href="$Webshop.Link" class="uk-button button-blau">Zum Webshop<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
 </div>
 <% end_if %>
