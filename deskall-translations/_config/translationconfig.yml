@@ -5,7 +5,10 @@ TractorCow\Fluent\Extension\FluentDirectorExtension:
   disable_default_prefix: true
 ---
 Name: translatableblocks
-After: '#versionedfiles'
+After:
+  - '#versionedfiles'
+  - '#deskall-divers'
+  - '#deskall-page-blocks'
 ---
 SilverStripe\CMS\Model\SiteTree:
   extensions:
