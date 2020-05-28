@@ -50,8 +50,8 @@ $(document).ready(function(){
 	$(document).on("change","input[data-quantity]",function(){
 		var item = $(this);
 
-		UpdateOrderPreview(item.attr('data-product-id'),$(this).val(),item.attr('data-variant-id'), 'checkout');
-		UpdateCartSummary();
+		UpdateOrderPreview(item.attr('data-product'),$(this).val(),item.attr('data-variant'), 'checkout');
+		UpdateOrderSummary();
 	});
 
 	$(document).on("click","[data-remove-product]",function(){
