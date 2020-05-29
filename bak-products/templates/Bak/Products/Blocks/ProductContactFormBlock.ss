@@ -48,8 +48,7 @@
       </div>
 
 
-        <%-- <div id="captcha-{$ID}" class="g-recaptcha" data-sitekey="6LcBbrwUAAAAABu3UKDgco4rSFK_QspP7C0LokUA" data-size="invisible"></div> --%>
-        <div id="captcha-{$ID}" class="g-recaptcha" data-sitekey="6LchV0kUAAAAAO933jAsFfyjanFlxT2nbRd1s5Tc" data-size="invisible"></div>
+        <div id="captcha-{$ID}" class="g-recaptcha" data-sitekey="6LcBbrwUAAAAABu3UKDgco4rSFK_QspP7C0LokUA" data-size="invisible"></div>
         <div class="uk-clearfix uk-text-right">
           <button><%t ProductPage.SENDENACHRICHT "Anfrage senden" %><i class="icon ion-chevron-right"></i></button>
         </div>

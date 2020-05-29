@@ -66,12 +66,6 @@ class ProductOverviewPageController extends PageController
                 if ($product->MainImage()->exists()){
                     $tmp['image'] = $product->MainImage()->Pad(210,150)->Link();
                 }
-                else{
-                    ob_start();
-                    print_r($product->Name);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-name.txt", $result,FILE_APPEND);
-                }
             }
             $cat = '';
             foreach( $product->Categories() as $category ){
@@ -223,22 +217,19 @@ class ProductOverviewPageController extends PageController
 
 
     function SendProductForm($data) {
-        ob_start();
-                    print_r($this->Locale);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
         //Recaptcha validation
-        // if (!array_key_exists('g-recaptcha-response', $_POST) || empty($_POST['g-recaptcha-response'])) {
-        //   return $this->redirectBack();
-        // }
+        if (!array_key_exists('g-recaptcha-response', $_POST) || empty($_POST['g-recaptcha-response'])) {
+          return $this->redirectBack();
+        }
 
-        // $response = $this->recaptchaHTTPPost($_POST['g-recaptcha-response']);
-        // $response = json_decode($response, true);
+        $response = $this->recaptchaHTTPPost($_POST['g-recaptcha-response']);
+        $response = json_decode($response, true);
 
 
-        // if ($response['success'] != 'true') {
-        //   return $this->redirectBack();
-        // }
+        if ($response['success'] != 'true') {
+          return $this->redirectBack();
+        }
         
         $Product = Product::get()->byId(intval($_POST['ID']));
         // Read Data
@@ -365,6 +356,67 @@ class ProductOverviewPageController extends PageController
 
     }
 
+    public function recaptchaHTTPPost($responseStr)
+    {
+        $postVars = array(
+            'secret'   => '6LcBbrwUAAAAAOlhEKzbVV-yIKUnF05RkUwCVimW',
+            'remoteip' => $_SERVER['REMOTE_ADDR'],
+            'response' => $responseStr,
+        );
+        $client = $this->getHTTPClient();
+        $response = $client->post('https://www.google.com/recaptcha/api/siteverify', $postVars);
 
+        return $response->getBody();
+    }
+
+
+    public function setHTTPClient($client)
+    {
+        $this->client = $client;
+        return $this;
+    }
+
+
+    public function getHTTPClient()
+    {
+        if (!$this->client) {
+            $this->client = new RecaptchaField_HTTPClient();
+        }
+
+        return $this->client;
+    }
 
 }
+
+
+  class RecaptchaField_HTTPClient extends Object
+  {
+
+      /**
+       * @param String $url
+       * @param $postVars
+       * @return String HTTPResponse
+       */
+      public function post($url, $postVars)
+      {
+          $ch = curl_init($url);
+          
+          curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($ch, CURLOPT_USERAGENT, 'reCAPTCHA/PHP');
+          // we need application/x-www-form-urlencoded
+          curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postVars));
+          $response = curl_exec($ch);
+
+          if (class_exists('HTTPResponse')) {
+              $responseObj = new HTTPResponse();
+          } else {
+              // 2.3 backwards compat
+              $responseObj = new HttpResponse();
+          }
+          $responseObj->setBody($response); // 2.2. compat
+          $responseObj->addHeader('Content-Type', 'application/json');
+          return $responseObj;
+      }
+  }
+
