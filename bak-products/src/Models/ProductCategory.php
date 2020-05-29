@@ -47,6 +47,10 @@ class ProductCategory extends DataObject {
       'Title' => array('title' => 'Kategorie')
     );
 
+    public function canView($member = null) {
+        return true;
+    }
+
    public function getCMSFields() {
 
     $fields = parent::getCMSFields();

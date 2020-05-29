@@ -97,6 +97,10 @@ class Product extends DataObject {
       'showUsages' => 'Anwendungen'
     );
 
+    public function canView($member = null) {
+        return true;
+    }
+
     protected function showCategories() {
 
       $categories = $this->Categories();

@@ -31,6 +31,9 @@ class ProductUseArea extends DataObject {
     private static $plural_name = 'Anwendungsbereiche';
     private static $table_name = 'BAK_ProductUseArea';
 
+    public function canView($member = null) {
+        return true;
+    }
 
    public function getCMSFields() {
 

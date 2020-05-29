@@ -36,7 +36,9 @@ class ProductUsage extends DataObject {
 
     private static $extensions = ['Sortable'];
   
-
+    public function canView($member = null) {
+        return true;
+    }
 
    public function getCMSFields() {
 
