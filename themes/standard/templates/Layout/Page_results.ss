@@ -3,7 +3,6 @@ $ElementalArea
 <section class="uk-section uk-padding-remove-vertical">
     <div class="uk-container">
         <div id="Content" class="searchResults">
-            $SearchForm
             <div class="dk-text-content uk-text-lead">
                 <p ><%t SearchPage.QUERY 'Sie suchten nach' %> &quot;{$Query.XML}&quot;</p>
             </div>
