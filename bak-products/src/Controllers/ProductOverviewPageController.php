@@ -4,6 +4,7 @@ namespace Bak\Products\Controllers;
 
 use PageController;
 use HeaderSlide;
+use Object;
 use SilverStripe\Core\Convert;
 use SilverStripe\Control\Email\Email;
 use SilverStripe\ORM\DataObject;
