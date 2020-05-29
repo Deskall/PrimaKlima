@@ -5,7 +5,6 @@
 <div id="Content" class="searchResults">
     <section class="uk-section">
         <div class="uk-container">
-        la
         <h1><%t Page.SEARCHRESULTS 'Suchergebnisse' %></h1>
 
 
