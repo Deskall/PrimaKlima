@@ -46,16 +46,4 @@ class DeskallPageControllerExtension extends Extension
         }
         return $filetime;
     }
-
-    public function SearchSuggestions(){
-        $conn = DB::get_conn();
-        $list = new ArrayList();
-        $query = "SELECT \"Title\" FROM \"SearchableDataObjects\" ";
-
-        $results = DB::query($query);
-        foreach ($results as $row) {
-            $list->push(new ArrayData($row));
-        }
-        return $list;
-    }
 }
