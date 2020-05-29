@@ -171,7 +171,7 @@ class Product extends DataObject implements Searchable{
 
     public function LowerPrice(){
         if ($this->Variants()->exists()){
-            $price = $this->Variants()->sort('Price','ASC')->Price;
+            $price = $this->Variants()->sort('Price','ASC')->first()->Price;
         }
         else{
             $price = $this->Price;
