@@ -2,9 +2,8 @@
 
 $ElementalArea
 
-ici
 <div id="Content" class="searchResults">
-    <section class="uk-section">
+    <section class="uk-section uk-padding-remove-vertical">
         <div class="uk-container">
         $SearchForm
 
