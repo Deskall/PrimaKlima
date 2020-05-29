@@ -33,11 +33,6 @@ class NewsPage extends Page {
         $fields->insertAfter('Content',UploadField::create('Image',$this->fieldLabels()['Lead'])->setFolderName($this->generateFolderName()));
         return $fields;
     }
-
-    public function getControllerName()
-    {
-        return NewsPageController::class;
-    }
 }
 
   
