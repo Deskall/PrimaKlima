@@ -48,6 +48,7 @@ class DeskallPageControllerExtension extends Extension
 
     public function SearchSuggestions(){
         $conn = DB::get_conn();
+        $list = new ArrayList();
         $query = "SELECT \"Title\" FROM \"SearchableDataObjects\" ";
 
         $results = DB::query($query);
