@@ -4,7 +4,8 @@ use SilverStripe\CMS\Model\SiteTree;
 use g4b0\SearchableDataObjects\Searchable;
 
 use SilverStripe\Forms\TextareaField;
-use SilverStripe\Control\Session;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Core\Injector\Injector;
 
 class Page extends SiteTree implements Searchable
 {
@@ -56,12 +57,15 @@ class Page extends SiteTree implements Searchable
 
      //search related
      public function notInListYet( $link ){
-      $results = ( Session::get('searchresults') ) ?  Session::get('searchresults') : array();
+      $request = Injector::inst()->get(HTTPRequest::class);
+      $session = $request->getSession();
+
+      $results = ( $session->get('searchresults') ) ?  $session->get('searchresults') : array();
  
 
       if( !in_array($link, $results) ){
         array_push($results, $link);
-        Session::set('searchresults',$results);
+        $session->set('searchresults',$results);
         return 1;
       }else{
         return 0;
@@ -69,7 +73,9 @@ class Page extends SiteTree implements Searchable
     }
 
     public function clearSearchresultSession(){
-     Session::clear('searchresults');
+      $request = Injector::inst()->get(HTTPRequest::class);
+      $session = $request->getSession();
+      $session->clear('searchresults');
     }
 
 
