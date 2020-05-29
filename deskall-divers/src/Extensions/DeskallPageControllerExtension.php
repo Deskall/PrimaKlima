@@ -4,6 +4,9 @@ use SilverStripe\Core\Extension;
 use SilverStripe\Control\Director;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\ORM\DB;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Core\Convert;
 
 class DeskallPageControllerExtension extends Extension
 {
@@ -41,5 +44,16 @@ class DeskallPageControllerExtension extends Extension
             }
         }
         return $filetime;
+    }
+
+    public function SearchSuggestions(){
+        $conn = DB::get_conn();
+        $query = "SELECT \"Title\" FROM \"SearchableDataObjects\" ";
+
+        $results = DB::query($query);
+        foreach ($results as $row) {
+            $list->push($row['Title']);
+        }
+        return $list;
     }
 }

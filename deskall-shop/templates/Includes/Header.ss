@@ -55,11 +55,9 @@
 						<form class="search-form uk-flex uk-flex-between" method="GET" action="suchen/SearchForm">
 							<input list="search-suggestions" type="text" class="uk-input" minlength="3" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
 							<datalist id="search-suggestions">
-							    <option value="Chocolate">
-							    <option value="Coconut">
-							    <option value="Mint">
-							    <option value="Strawberry">
-							    <option value="Vanilla">
+							    <% loop SearchSuggestions %>
+							    <option value="$Title">
+							    <% end_loop %>
 							</datalist>
 							<button type="submit"><i data-uk-icon="search"></i></button>
 						</form>
