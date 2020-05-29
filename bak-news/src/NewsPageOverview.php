@@ -16,11 +16,6 @@ class NewsPageOverview extends Page {
     private static $allowed_children = [NewsPage::class];
 
     private static $icon = "bak-news/img/news.png";
-
-    public function getControllerName()
-    {
-        return NewsPageController::class;
-    }
 }
 
   
