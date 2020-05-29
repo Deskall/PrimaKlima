@@ -4,7 +4,6 @@ namespace Bak\Products\Controllers;
 
 use PageController;
 use HeaderSlide;
-use Object;
 use SilverStripe\Core\Convert;
 use SilverStripe\Control\Email\Email;
 use SilverStripe\ORM\DataObject;
@@ -356,68 +355,68 @@ class ProductOverviewPageController extends PageController
         ($config->ConfirmationPage()) ? $this->redirect($config->ConfirmationPage()->Link()) : $this->redirectBack() ;
 
     }
-
-    public function recaptchaHTTPPost($responseStr)
-    {
-        $postVars = array(
-            'secret'   => '6LcBbrwUAAAAAOlhEKzbVV-yIKUnF05RkUwCVimW',
-            'remoteip' => $_SERVER['REMOTE_ADDR'],
-            'response' => $responseStr,
-        );
-        $client = $this->getHTTPClient();
-        $response = $client->post('https://www.google.com/recaptcha/api/siteverify', $postVars);
-
-        return $response->getBody();
-    }
-
-
-    public function setHTTPClient($client)
-    {
-        $this->client = $client;
-        return $this;
-    }
-
-
-    public function getHTTPClient()
-    {
-        if (!$this->client) {
-            $this->client = new RecaptchaField_HTTPClient();
-        }
-
-        return $this->client;
-    }
-
 }
+//     public function recaptchaHTTPPost($responseStr)
+//     {
+//         $postVars = array(
+//             'secret'   => '6LcBbrwUAAAAAOlhEKzbVV-yIKUnF05RkUwCVimW',
+//             'remoteip' => $_SERVER['REMOTE_ADDR'],
+//             'response' => $responseStr,
+//         );
+//         $client = $this->getHTTPClient();
+//         $response = $client->post('https://www.google.com/recaptcha/api/siteverify', $postVars);
+
+//         return $response->getBody();
+//     }
 
 
-  class RecaptchaField_HTTPClient extends Object
-  {
+//     public function setHTTPClient($client)
+//     {
+//         $this->client = $client;
+//         return $this;
+//     }
 
-      /**
-       * @param String $url
-       * @param $postVars
-       * @return String HTTPResponse
-       */
-      public function post($url, $postVars)
-      {
-          $ch = curl_init($url);
+
+//     public function getHTTPClient()
+//     {
+//         if (!$this->client) {
+//             $this->client = new RecaptchaField_HTTPClient();
+//         }
+
+//         return $this->client;
+//     }
+
+// }
+
+
+//   class RecaptchaField_HTTPClient extends Object
+//   {
+
+//       *
+//        * @param String $url
+//        * @param $postVars
+//        * @return String HTTPResponse
+       
+//       public function post($url, $postVars)
+//       {
+//           $ch = curl_init($url);
           
-          curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-          curl_setopt($ch, CURLOPT_USERAGENT, 'reCAPTCHA/PHP');
-          // we need application/x-www-form-urlencoded
-          curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postVars));
-          $response = curl_exec($ch);
+//           curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+//           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//           curl_setopt($ch, CURLOPT_USERAGENT, 'reCAPTCHA/PHP');
+//           // we need application/x-www-form-urlencoded
+//           curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postVars));
+//           $response = curl_exec($ch);
 
-          if (class_exists('HTTPResponse')) {
-              $responseObj = new HTTPResponse();
-          } else {
-              // 2.3 backwards compat
-              $responseObj = new HttpResponse();
-          }
-          $responseObj->setBody($response); // 2.2. compat
-          $responseObj->addHeader('Content-Type', 'application/json');
-          return $responseObj;
-      }
-  }
+//           if (class_exists('HTTPResponse')) {
+//               $responseObj = new HTTPResponse();
+//           } else {
+//               // 2.3 backwards compat
+//               $responseObj = new HttpResponse();
+//           }
+//           $responseObj->setBody($response); // 2.2. compat
+//           $responseObj->addHeader('Content-Type', 'application/json');
+//           return $responseObj;
+//       }
+//   }
 
