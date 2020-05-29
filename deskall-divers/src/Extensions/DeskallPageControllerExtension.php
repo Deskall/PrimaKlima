@@ -4,10 +4,7 @@ use SilverStripe\Core\Extension;
 use SilverStripe\Control\Director;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\SiteConfig\SiteConfig;
-use SilverStripe\ORM\DB;
-use SilverStripe\ORM\ArrayList;
-use SilverStripe\Core\Convert;
-use SilverStripe\View\ArrayData;
+
 
 class DeskallPageControllerExtension extends Extension
 {
