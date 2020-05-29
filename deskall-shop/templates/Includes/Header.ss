@@ -53,7 +53,7 @@
 					<% end_loop %>
 					<li>
 						<form class="search-form uk-flex uk-flex-between" method="GET" action="suchen/SearchForm">
-							<input list="search-suggestions" type="text" class="uk-input" minlength="3" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
+							<input list="search-suggestions" autocomplete="off" type="text" class="uk-input" minlength="3" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
 							<datalist id="search-suggestions">
 							    <% loop Suggestions %>
 							    <option value="$Title">
