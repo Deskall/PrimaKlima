@@ -7,6 +7,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\DB;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Core\Convert;
+use SilverStripe\View\ArrayData;
 
 class DeskallPageControllerExtension extends Extension
 {
@@ -53,7 +54,7 @@ class DeskallPageControllerExtension extends Extension
 
         $results = DB::query($query);
         foreach ($results as $row) {
-            $list->push($row['Title']);
+            $list->push(new ArrayData($row));
         }
         return $list;
     }
