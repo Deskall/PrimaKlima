@@ -34,7 +34,7 @@ $ElementalArea
                                 <a href="$Link" class="uk-link" data-uk-icon="chevron-right"><%t SearchPage.Read 'Seite anzeigen' %></a>
                     <% else %>
 
-                                <% if $Title %><h3>$Title.LimitWordCount</h3><% end_with %><% end_if %>
+                                <% if $Title %><h3>$Title.LimitWordCount</h3><% end_if %>
                                 <p>$Content.ContextSummary(100,$Query.XML,true)</p>
                                 <a href="$Link" class="uk-link" data-uk-icon="chevron-right"><%t SearchPage.Read 'Seite anzeigen' %></a>
                         
