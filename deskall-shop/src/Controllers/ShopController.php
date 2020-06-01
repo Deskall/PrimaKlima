@@ -104,7 +104,7 @@ class ShopController extends PageController{
 				   	$product = Product::get()->byId($productID);
 				   	if ($product){
 				   		$quantity = ($request->postVar('quantity')) ? $request->postVar('quantity') : 1;
-				   		$sort = $p->SortOrder;
+				   		
 				   		//If Variant
 				   		if ($variantID > 0){
 					   		//check if already in cart
@@ -114,6 +114,7 @@ class ShopController extends PageController{
 					   				$quantity = $p->Quantity + $quantity;
 					   			}
 					   			$p->Quantity = $quantity;
+					   			$sort = $p->SortOrder;
 					   			$p->write();
 					   		}else{
 					   			$variant = ProductVariant::get()->byId($variantID);
@@ -132,6 +133,7 @@ class ShopController extends PageController{
 				   					$quantity = $p->Quantity + $quantity;
 				   				}
 					   			$p->Quantity = $quantity;
+					   			$sort = $p->SortOrder;
 					   			$p->write();
 					   		}else{
 					   			if ($product->Stock == "onStock"){
