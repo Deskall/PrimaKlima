@@ -142,7 +142,7 @@
           </div>
           <% end_if %>
         <% else_if $ContentLocale = "es-ES" %>
-          <% if $Product.Downloads__es_ES" %>
+          <% if $Product.Downloads__es_ES %>
           <div class="product-block uk-margin-large-bottom">
             <h2><%t ProductPage.DOWNLOADS "Downloads" %></h2>
             <div class="downloadblock">
