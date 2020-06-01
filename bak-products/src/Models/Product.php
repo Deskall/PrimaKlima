@@ -73,6 +73,7 @@ class Product extends DataObject {
       'Downloads' => File::class,
       'Downloads__en_US' => File::class,
       'Downloads__es_ES' => File::class,
+      'Downloads__fr_FR' => File::class,
       'Categories' => ProductCategory::class,
       'Usages' => ProductUsage::class
     );
@@ -81,6 +82,7 @@ class Product extends DataObject {
       'Downloads' => array('SortOrder' => 'Int'),
       'Downloads__en_US' => array('SortOrder' => 'Int'),
       'Downloads__es_ES' => array('SortOrder' => 'Int'),
+      'Downloads__fr_FR' => array('SortOrder' => 'Int'),
       'Images' => array('SortOrder' => 'Int'),
     );
 
@@ -139,6 +141,7 @@ class Product extends DataObject {
       $fields->removeByName('Downloads');
       $fields->removeByName('Downloads__en_US');
       $fields->removeByName('Downloads__es_ES');
+      $fields->removeByName('Downloads__fr_FR');
       $fields->removeByName('Images');
       $categoriesField = CheckboxSetField::create('Categories', 'Kategorien', $source = ProductCategory::get()->map("ID", "Title"));
       $fields->insertAfter('Name', $categoriesField );

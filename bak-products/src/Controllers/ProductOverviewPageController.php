@@ -41,9 +41,11 @@ class ProductOverviewPageController extends PageController
         'categoria/$Category' => 'category',
         'category/$Category' => 'category',
         'kategorie/$Category' => 'category',
+        'categorie/$Category' => 'category',
         'uso/$UsageArea/$Usage' => 'application',
         'anwendung/$UsageArea/$Usage' => 'application',
-        'application/$UsageArea/$Usage' => 'application'
+        'application/$UsageArea/$Usage' => 'application',
+        'utilisation/$UsageArea/$Usage' => 'application',
     );
 
     public function getCategories(){
@@ -274,6 +276,19 @@ class ProductOverviewPageController extends PageController
               'products' => 'Productos',
               'sendme' => 'Por favor envíame',
               'message' => 'Mensaje',
+          ),
+           'fr_FR' => array(
+              'address' => 'Données personelles',
+              'name' => 'Nom',
+              'firma' => 'Entreprise',
+              'str' => 'Adresse',
+              'ort' => 'Code postal / Ville',
+              'land' => 'Pays',
+              'email' => 'courrier électronique',
+              'phone' => 'Teléphone',
+              'products' => 'Produits',
+              'sendme' => 'Veuillez m\'envoyer',
+              'message' => 'Message',
           )
         );
 

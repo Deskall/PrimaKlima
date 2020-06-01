@@ -119,7 +119,7 @@
         <% end_if %>
 
 
-        <% if $ContentLocale = "de-DE"%>
+        <% if $ContentLocale = "de-DE" %>
           <% if $Product.Downloads %>
           <div class="product-block uk-margin-large-bottom">
             <h2><%t ProductPage.DOWNLOADS "Downloads" %></h2>
@@ -130,7 +130,7 @@
             </div>
           </div>
           <% end_if %>
-        <% else %>
+        <% else_if $ContentLocale = "en-US" %>
           <% if $Product.Downloads__en_US %>
           <div class="product-block uk-margin-large-bottom">
             <h2><%t ProductPage.DOWNLOADS "Downloads" %></h2>
@@ -140,7 +140,29 @@
               <% end_loop %>
             </div>
           </div>
-        <% end_if %>
+          <% end_if %>
+        <% else_if $ContentLocale = "es-ES" %>
+          <% if $Product.Downloads__es_ES" %>
+          <div class="product-block uk-margin-large-bottom">
+            <h2><%t ProductPage.DOWNLOADS "Downloads" %></h2>
+            <div class="downloadblock">
+              <% loop $Product.Downloads__es_ES.Sort('SortOrder') %>
+              <a href="$URL" target="_blank">$Title</a>
+              <% end_loop %>
+            </div>
+          </div>
+          <% end_if %>
+        <% else_if $ContentLocale = "fr-FR" %>
+          <% if $Product.Downloads__fr_FR %>
+          <div class="product-block uk-margin-large-bottom">
+            <h2><%t ProductPage.DOWNLOADS "Downloads" %></h2>
+            <div class="downloadblock">
+              <% loop $Product.Downloads__fr_FR.Sort('SortOrder') %>
+              <a href="$URL" target="_blank">$Title</a>
+              <% end_loop %>
+            </div>
+          </div>
+          <% end_if %>
         <% end_if %>
 
 
