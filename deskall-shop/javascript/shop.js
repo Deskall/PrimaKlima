@@ -38,7 +38,7 @@ $(document).ready(function(){
 			product = $(this).attr('data-product-id');
 			variant = ( $(".product-form select[name='variant']").length > 0) ? $(".product-form select[name='variant']").val() : 0;
 			
-			UpdateOrderPreview($(this).attr('data-product-id'), quantity, variant, 'webshop');
+			UpdateOrderPreview(product, quantity, variant, 'webshop');
 			
 			$("#link-shop").attr("hidden","hidden");
 			$("#toggle-cart").attr("hidden",false);

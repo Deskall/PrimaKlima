@@ -138,7 +138,8 @@
 					    </div>
 					</div>
 		          	<div>
-		          		<div class="uk-margin"><a class="uk-button button-blau uk-width-1-1 add-to-cart <% if $Stock == "soldOff" %>uk-disabled<% end_if %>" data-product-id="$ID" <% if $Stock == "soldOff" %>disabled<% end_if %>><i class="uk-margin-small-right" data-uk-icon="cart"></i><%t Webshop.ToCart 'in den Warenkorb' %></a></div>
+
+		          		<div class="uk-margin"><a class="uk-button button-blau uk-width-1-1 add-to-cart <% if Variants.exists %><% if $StandardVariant.Stock == "soldOff" %>uk-disabled<% end_if %><% else %><% if $Stock == "soldOff" %>uk-disabled<% end_if %><% end_if %>" data-product-id="$ID" <% if $Stock == "soldOff" %>disabled<% end_if %>><i class="uk-margin-small-right" data-uk-icon="cart"></i><%t Webshop.ToCart 'in den Warenkorb' %></a></div>
 		          		<%-- <div class="uk-margin">agb, konditionen</div> --%>
 		          	</div>
 		        </div>
