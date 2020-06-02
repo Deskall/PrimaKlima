@@ -8,7 +8,7 @@
 			<tbody>
 			<% loop PayTVPackages %>
 			<tr class="product" data-price="$getMonthlyPrice" data-value="$ProductCode">
-				<td><input type="checkbox" class="uk-checkbox" name="$ProductCode" <% if getMonthlyPrice == 0 %>checked readonly<% end_if %>></td>
+				<td><input type="checkbox" class="uk-checkbox" name="$ProductCode" <% if getMonthlyPrice == 0 %>checked readonly disabled<% end_if %>></td>
 				<td>$Title<br><small class="uk-visible@m">$Subtitle</small></td>
 				<td class="uk-table-shrink uk-text-nowrap">$PrintPriceString</td>
 			</tr>
