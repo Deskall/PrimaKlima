@@ -56,7 +56,7 @@
 	        	<% if Description %>
 	        		<div class="uk-margin">$Description</div>
 	        	<% end_if %>
-	        	<div class="uk-child-width-1-2@s uk-grid-small uk-flex-bottom product-form"  data-uk-grid>
+	        	<div class="uk-child-width-1-2@m uk-grid-small uk-flex-bottom product-form"  data-uk-grid>
 	        		<div>
 			        	<% if Variants.exists %>
 				        	<div class="uk-margin" data-uk-grid>
@@ -72,27 +72,27 @@
 				        		</div>
 				        	</div>
 				        	<div class="uk-margin" data-uk-grid>
-				        		<div class="uk-width-1-2">
+				        		<div class="uk-width-1-2 uk-width-1-3@m">
 				        			<strong><%t Product.Quantity 'Menge' %></strong>
 				        		</div>
-				        		<div class="uk-width-1-2">
+				        		<div class="uk-width-1-2 uk-width-2-3@m">
 				        			<input class="uk-input" type="number" min="1" name="quantity" value="1" />
 				        		</div>
 				        	</div>
 				        	<% with StandardVariant %>
 				        	<div class="uk-margin" data-uk-grid>
-				        		<div class="uk-width-1-2">
+				        		<div class="uk-width-1-2 uk-width-1-3@m">
 				        			<strong><%t Product.Availability 'Lagerbestand' %></strong>
 				        		</div>
-				        		<div class="uk-width-1-2">
+				        		<div class="uk-width-1-2 uk-width-2-3@m">
 				        			<span id="availability"><% if $Stock == "onStock" %><span class="text-gruen">im Lager</span><% else %><span class="text-pink">Ausverkauft</span><% end_if %></span>
 				        		</div>
 				        	</div>
 				        	<div class="uk-margin" data-uk-grid>
-				        		<div class="uk-width-1-2">
+				        		<div class="uk-width-1-2 uk-width-1-3@m">
 				        			<strong><%t Product.Price 'Preis' %></strong>
 				        		</div>
-				        		<div class="uk-width-1-2">
+				        		<div class="uk-width-1-2 uk-width-2-3@m">
 				        			<strong id="total-price" data-price="$Price">$Price.Nice</strong>
 				        		</div>
 				        	</div>
