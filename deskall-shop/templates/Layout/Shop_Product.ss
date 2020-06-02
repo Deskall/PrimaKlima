@@ -72,27 +72,27 @@
 				        		</div>
 				        	</div>
 				        	<div class="uk-margin" data-uk-grid>
-				        		<div class="uk-width-1-2 uk-width-1-3@m">
+				        		<div class="uk-width-1-2">
 				        			<strong><%t Product.Quantity 'Menge' %></strong>
 				        		</div>
-				        		<div class="uk-width-1-2 uk-width-2-3@m">
+				        		<div class="uk-width-1-2">
 				        			<input class="uk-input" type="number" min="1" name="quantity" value="1" />
 				        		</div>
 				        	</div>
 				        	<% with StandardVariant %>
 				        	<div class="uk-margin" data-uk-grid>
-				        		<div class="uk-width-1-2 uk-width-1-3@m">
+				        		<div class="uk-width-1-2">
 				        			<strong><%t Product.Availability 'Lagerbestand' %></strong>
 				        		</div>
-				        		<div class="uk-width-1-2 uk-width-expand@m">
+				        		<div class="uk-width-1-2">
 				        			<span id="availability"><% if $Stock == "onStock" %><span class="text-gruen">im Lager</span><% else %><span class="text-pink">Ausverkauft</span><% end_if %></span>
 				        		</div>
 				        	</div>
 				        	<div class="uk-margin" data-uk-grid>
-				        		<div class="uk-width-1-2 uk-width-1-3@m">
+				        		<div class="uk-width-1-2">
 				        			<strong><%t Product.Price 'Preis' %></strong>
 				        		</div>
-				        		<div class="uk-width-1-2 uk-width-2-3@m">
+				        		<div class="uk-width-1-2">
 				        			<strong id="total-price" data-price="$Price">$Price.Nice</strong>
 				        		</div>
 				        	</div>
