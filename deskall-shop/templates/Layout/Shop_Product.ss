@@ -84,7 +84,7 @@
 				        		<div class="uk-width-1-2 uk-width-1-3@m">
 				        			<strong><%t Product.Availability 'Lagerbestand' %></strong>
 				        		</div>
-				        		<div class="uk-width-1-2 uk-width-2-3@m">
+				        		<div class="uk-width-1-2 uk-width-expand@m">
 				        			<span id="availability"><% if $Stock == "onStock" %><span class="text-gruen">im Lager</span><% else %><span class="text-pink">Ausverkauft</span><% end_if %></span>
 				        		</div>
 				        	</div>
