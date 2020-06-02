@@ -85,7 +85,7 @@
 				        			<strong><%t Product.Availability 'Lagerbestand' %></strong>
 				        		</div>
 				        		<div class="uk-width-1-2 uk-width-2-3@m">
-				        			<span id="availability"><% if $Stock == "onStock" %><span class="text-gruen">im Lager</span><% else %><span class="text-pink">Ausverkauft</span><% end_if %></span>
+				        			<span id="availability"><% if $Stock == "onStock" %><span class="text-gruen">am Lager</span><% else %><span class="text-pink">Ausverkauft</span><% end_if %></span>
 				        		</div>
 				        	</div>
 				        	<div class="uk-margin" data-uk-grid>
@@ -111,7 +111,7 @@
 				        			<strong><%t Product.Availability 'Lagerbestand' %></strong>
 				        		</div>
 				        		<div class="uk-width-1-2 uk-width-2-3@m">
-				        			<span id="availability"><% if $Stock == "onStock" %><span class="text-gruen">im Lager</span><% else %><span class="text-pink">Ausverkauft</span><% end_if %></span>
+				        			<span id="availability"><% if $Stock == "onStock" %><span class="text-gruen">am Lager</span><% else %><span class="text-pink">Ausverkauft</span><% end_if %></span>
 				        		</div>
 				        	</div>
 				        	<div class="uk-margin" data-uk-grid>

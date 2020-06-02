@@ -45,6 +45,7 @@ class Product extends DataObject implements Searchable{
 
     private static $summary_fields = array(
         'Title' => 'Titel',
+        'NiceStock' => 'Lagerbestand'
     );
 
     private static $defaults = ['Stock' => 'onStock'];
@@ -85,6 +86,10 @@ class Product extends DataObject implements Searchable{
 
     public function HeaderSlide(){
         return $this->Category()->getSiteConfig()->ShopPage()->HeaderSlide();
+    }
+
+    public function NiceStock(){
+        return ($this->Stock == "onStock") ? "am Lager" : "Ausverkauft";
     }
 
 

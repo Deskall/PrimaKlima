@@ -58,7 +58,7 @@ class ProductVariant extends DataObject {
     }
 
     public function NiceStock(){
-        return ($this->Stock == "onStock") ? "im Lager" : "Ausverkauft";
+        return ($this->Stock == "onStock") ? "am Lager" : "Ausverkauft";
     }
 
     public function standard(){
