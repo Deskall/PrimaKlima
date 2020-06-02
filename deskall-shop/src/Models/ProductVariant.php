@@ -13,11 +13,13 @@ class ProductVariant extends DataObject {
         'Default' => 'Boolean(0)'
     );
 
+    private static $defaults = ['Stock' => 'onStock'];
+
 
     private static $summary_fields = array(
         'Title' => 'Titel',
         'Price' => 'Preis',
-        'Stock' => 'Lagerbestand'
+        'NiceStock' => 'Lagerbestand'
     );
 
     private static $has_one = array(
@@ -55,7 +57,10 @@ class ProductVariant extends DataObject {
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        
+    }
+
+    public function NiceStock(){
+        return ($this->Stock == "onStock") ? "im Lager" : "Ausverkauft";
     }
 
     public function standard(){
