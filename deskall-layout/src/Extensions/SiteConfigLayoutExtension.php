@@ -530,6 +530,7 @@ class SiteConfigLayoutExtension extends DataExtension
        /*** Css class for Short Text Overlays **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.' .dk-text-content .short-text .button-container{background-image: linear-gradient(to bottom, transparent, #'.$c->Color.');}',FILE_APPEND);
        /*** Css class for Form Elements **/
+      file_put_contents($fullpath,"\n".'.'.$c->Code.' .uk-input,.uk-textarea,.uk-select {background-color: rgba(255,255,255,0.6);}',FILE_APPEND);
       file_put_contents($fullpath,"\n".'.'.$c->Code.' .uk-form-label {color: #'.$c->FontColor.';}',FILE_APPEND);
       file_put_contents($fullpath,"\n".'.'.$c->Code.' input[type="checkbox"],'.$c->Code.' input[type="radio"]{ &:focus,&:checked,&:indeterminate{background-color: #'.$c->LinkColor.';color: #'.$c->LinkHoverColor.';}}',FILE_APPEND);
     }
