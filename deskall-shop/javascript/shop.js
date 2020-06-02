@@ -78,7 +78,7 @@ $(document).ready(function(){
 			price = $("select[name='variant'] option:selected").attr('data-price');
 			stock = $("select[name='variant'] option:selected").attr('data-stock');
 			if (stock == "onStock" ){
-				$("#availability").html('<span class="text-gruen">im Lager</span>');
+				$("#availability").html('<span class="text-gruen">am Lager</span>');
 			}
 			else {
 				$("#availability").html('<span class="text-pink">Ausverkauft</span>');
