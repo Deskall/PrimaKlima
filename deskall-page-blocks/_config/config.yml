@@ -23,11 +23,6 @@ ParentBlock:
   extensions:
     - 'VirtualBlockExtension'
 
-
-DNADesign\Elemental\ElementalEditor:
-  extensions:
-    - DeskallElementalEditorExtension
-
 Page:
   extensions:
     - PageBlocksExtension
