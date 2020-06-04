@@ -23,7 +23,6 @@ ParentBlock:
   extensions:
     - 'VirtualBlockExtension'
 
-
 Page:
   extensions:
     - PageBlocksExtension
