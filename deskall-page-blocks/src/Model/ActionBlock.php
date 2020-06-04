@@ -219,11 +219,14 @@ class ActionBlock extends BaseElement implements Searchable
 
     public function getPageElements(){
         $parent = $this->Parent()->getOwnerPage();
-        while(!$parent->hasMethod('generateFolderName')){
-            $parent = $parent->Parent()->getOwnerPage();
+        if ($parent) {
+            while(!$parent->hasMethod('generateFolderName')){
+                $parent = $parent->Parent()->getOwnerPage();
+            }
+            $blocks = $parent->ElementalArea()->Elements();
+            return $blocks->map('ID','NiceTitle');
         }
-        $blocks = $parent->ElementalArea()->Elements();
-        return $blocks->map('ID','NiceTitle');
+        return null;
     }
 
     /************* TRANLSATIONS *******************/
