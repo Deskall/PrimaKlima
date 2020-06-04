@@ -52,6 +52,12 @@ class CreateWebsiteTask extends BuildTask
             'Email' => 'rahel.beyli@deskall.ch',
             'Password' => 'deskall24$'
         ],
+        '5' => [
+            'FirstName' => 'Sonja',
+            'Surname' => 'Degen',
+            'Email' => 'sonja.degen@deskall.ch',
+            'Password' => 'deskall24$'
+        ],
     ];
 
     protected $title = 'Create Website';
