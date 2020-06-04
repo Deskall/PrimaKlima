@@ -226,7 +226,7 @@ class ActionBlock extends BaseElement implements Searchable
             $blocks = $parent->ElementalArea()->Elements();
             return $blocks->map('ID','NiceTitle');
         }
-        return null;
+        return [];
     }
 
     /************* TRANLSATIONS *******************/
