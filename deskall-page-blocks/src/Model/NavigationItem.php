@@ -80,6 +80,7 @@ class NavigationItem extends DataObject{
 			return $this->Action()->Title;
 		}
 		if ($this->Target()->exists()){
+			print_r('target');
 			return $this->Target()->Title;
 		}
 		if ($this->LinkableLink()->exists()){
