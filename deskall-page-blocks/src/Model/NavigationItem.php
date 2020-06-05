@@ -73,19 +73,24 @@ class NavigationItem extends DataObject{
 	}
 
 	public function getNiceTitle(){
-		print_r('ici');
+		$title = ''
+		print_r($this->ID);
 		if ($this->Title != ""){
-			return $title;
+			$title = $this->Title;
 		}
+		print_r($title);
 		if ($this->Action()->exists()){
-			return $this->Action()->Title;
+			$title = $this->Action()->Title;
 		}
+		print_r($title);
 		if ($this->Target()->exists()){
-			
-			return $this->Target()->Title;
+			$title = $this->Target()->Title;
 		}
+		print_r($title);
 		if ($this->LinkableLink()->exists()){
-			return $this->LinkableLink()->Title;
+			$title = $this->LinkableLink()->Title;
 		}
+		print_r($title);
+		return $title;
 	}
 }
