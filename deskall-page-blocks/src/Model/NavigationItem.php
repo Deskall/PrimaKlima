@@ -73,7 +73,7 @@ class NavigationItem extends DataObject{
 	}
 
 	public function getNiceTitle(){
-		$title = ''
+		$title = '';
 		print_r($this->ID);
 		if ($this->Title != ""){
 			$title = $this->Title;
