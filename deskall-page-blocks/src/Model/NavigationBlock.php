@@ -102,6 +102,4 @@ class NavigationBlock extends BaseElement
         return HTMLDropdownField::getSourceIcones();
     }
 
- 
-
 }
