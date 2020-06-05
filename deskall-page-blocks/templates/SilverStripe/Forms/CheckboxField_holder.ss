@@ -1,7 +1,7 @@
 <div id="$HolderID" class="field<% if extraClass %> $extraClass<% end_if %>">
 	<div class="uk-form-controls">
 		<div class="uk-flex uk-flex-left">
-		<div>$Field</div>
+		<div class="uk-margin-small-right">$Field</div>
 		<label class="right" for="$ID">$Title</label>
 		</div>
 		<% if $Message %><span class="message $MessageType">$Message</span><% end_if %>
