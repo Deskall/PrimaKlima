@@ -73,7 +73,7 @@ class NavigationItem extends DataObject{
 	}
 
 	public function NiceTitle(){
-		if ($this->Title){
+		if ($this->Title != ""){
 			return $title;
 		}
 		if ($this->Action()->exists()){
