@@ -72,6 +72,14 @@ class NavigationItem extends DataObject{
 		return $fields;
 	}
 
+	public function onBeforeWrite(){
+		parent::onBeforeWrite();
+		$changedFields = $this->changedFields();
+		if ($this->isChanged('ItemType')){
+			
+		}
+	}
+
 	public function getNiceTitle(){
 		$title = '';
 		print_r($this->ID);
