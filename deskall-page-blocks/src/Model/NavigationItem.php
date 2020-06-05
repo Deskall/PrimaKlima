@@ -72,7 +72,8 @@ class NavigationItem extends DataObject{
 		return $fields;
 	}
 
-	public function NiceTitle(){
+	public function getNiceTitle(){
+		print_r('ici');
 		if ($this->Title != ""){
 			return $title;
 		}
@@ -80,7 +81,7 @@ class NavigationItem extends DataObject{
 			return $this->Action()->Title;
 		}
 		if ($this->Target()->exists()){
-			print_r('target');
+			
 			return $this->Target()->Title;
 		}
 		if ($this->LinkableLink()->exists()){
