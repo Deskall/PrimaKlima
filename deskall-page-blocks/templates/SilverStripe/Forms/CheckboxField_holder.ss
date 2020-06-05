@@ -1,4 +1,4 @@
-<div id="$HolderID" class="field<% if extraClass %> $extraClass<% end_if %>">
+<div data-ici id="$HolderID" class="field<% if extraClass %> $extraClass<% end_if %>">
 	<div class="uk-form-controls">
 		$Field
 		<label class="right" for="$ID">$Title</label>
