@@ -4,7 +4,6 @@
 		<% loop Items %>
 	    	<li class="uk-width-1-1 uk-width-auto@m">
 	    		<% if ItemType == "block" || ItemType == "scrolltop" %> 
-	    		ici
 	    		<a href="#{$TargetLink}" class="uk-button button-{$BackgroundColor}" data-uk-scroll="offset:50">$NiceTitle</a>
 	    		<% else_if ItemType == "target" %>
 	    		<a data-uk-toggle="target: {$TargetLink}" class="uk-button  button-{$BackgroundColor}">$NiceTitle</a>
