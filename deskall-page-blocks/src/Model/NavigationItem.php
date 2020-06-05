@@ -76,29 +76,34 @@ class NavigationItem extends DataObject{
 		parent::onBeforeWrite();
 		$changedFields = $this->changedFields();
 		if ($this->isChanged('ItemType')){
-			
+			switch ($changedFields['ItemType']['after']){
+				case "block":
+					$this->ActionID = 0;
+				break;
+				case "target":
+					$this->TargetID = 0;
+				break;
+				case "link":
+				case "scrolltop":
+					$this->ActionID = 0;
+					$this->TargetID = 0;
+				break;
+			}
 		}
 	}
 
 	public function getNiceTitle(){
-		$title = '';
-		print_r($this->ID);
-		if ($this->Title != ""){
-			$title = $this->Title;
+		if ($this->Title){
+			return $this->Title;
 		}
-		print_r($title);
 		if ($this->Action()->exists()){
-			$title = $this->Action()->Title;
+			return $this->Action()->Title;
 		}
-		print_r($title);
 		if ($this->Target()->exists()){
-			$title = $this->Target()->Title;
+			return $this->Target()->Title;
 		}
-		print_r($title);
 		if ($this->LinkableLink()->exists()){
-			$title = $this->LinkableLink()->Title;
+			return $this->LinkableLink()->Title;
 		}
-		print_r($title);
-		return $title;
 	}
 }
