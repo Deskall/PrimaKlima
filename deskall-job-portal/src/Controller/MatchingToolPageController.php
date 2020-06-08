@@ -75,7 +75,6 @@ class MatchingToolPageController extends PageController{
 					}
 				}
 			}
-			$fields->push(DropdownField::create($param->ID,$param->Title,$param->Children()->map('ID','Title')));
 		}
 
 		$form = new Form(
