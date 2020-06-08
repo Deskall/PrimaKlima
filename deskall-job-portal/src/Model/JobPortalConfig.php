@@ -18,6 +18,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\HeaderField;
@@ -80,7 +81,8 @@ class JobPortalConfig extends DataObject
 
     private static $has_many = [
         'Parameters' => JobParameter::class,
-        'ProfilParameters' => ProfilParameter::class
+        'ProfilParameters' => ProfilParameter::class,
+        'QueryParameters' => ProfilParameter::class
     ];
 
     private static $owns = [
@@ -107,7 +109,7 @@ class JobPortalConfig extends DataObject
     $labels['AfterRefusalCandidatureEmailSubject'] = _t(__CLASS__.'.AfterRefusalCandidatureEmailSubject','Titel der Email - Bewerbung abgelehnt');
     $labels['CandidatureEmailSubject'] = _t(__CLASS__.'.CandidatureEmailSubject','Titel der Email - Bewerbung');
     $labels['CandidatureEmailBody'] = _t(__CLASS__.'.CandidatureEmailBody','Inhalt der Email - Bewerbung');
-    
+    $labels['QueryParameters'] = _t(__CLASS__.'.QueryParameters','Matching Tool Parameter (Prio 1)');
     return $labels;
     }
 
@@ -203,6 +205,7 @@ class JobPortalConfig extends DataObject
        $config2 = GridFieldConfig_RecordEditor::create()->addComponent(new GridFieldOrderableRows('Sort'));
        $fields->addFieldToTab('Root.Profile',GridField::create('ProfilParameters','Profil Parameters',$this->ProfilParameters(),$config2));
 
+       $fields->addFieldToTab('Root.MatchingTool',ListboxField::create('QueryParameters','MatchingTool Parameter (Prio 1)',$this->QueryParameters(), ProfilParameter::get()->map('ID','Title')));
 
        return $fields;
     }
