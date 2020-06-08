@@ -38,7 +38,7 @@ class MatchingToolPageController extends PageController{
 					foreach ($child->children() as $subchild) {
 						switch ($subchild->FieldType){
 							case "text":
-								$fields->push(DropdownField::create($subchild->ID,$subchild->Title));
+								$fields->push(DropdownField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
 								break;
 							case "dropdown":
 								$fields->push(DropdownField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
@@ -58,7 +58,7 @@ class MatchingToolPageController extends PageController{
 				else{
 					switch ($child->FieldType){
 						case "text":
-							$fields->push(DropdownField::create($child->ID,$child->Title));
+							$fields->push(DropdownField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
 							break;
 						case "dropdown":
 							$fields->push(DropdownField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
