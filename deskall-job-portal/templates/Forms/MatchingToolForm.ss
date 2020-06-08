@@ -11,6 +11,7 @@
 		<div>
 			$FieldHolder
 		</div>
+		<% end_loop %>
 	</div>
 	<% with Fields.FieldByName('CustomerID') %>
 	$FieldHolder
