@@ -7,6 +7,7 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Security\Security;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\HeaderField;
 
 class MatchingToolPageController extends PageController{
 
@@ -26,7 +27,52 @@ class MatchingToolPageController extends PageController{
 			HiddenField::create('CustomerID')->setValue($JobGiver->ID)
 		);
 
-		foreach (ProfilParameter::get() as $param) {
+		foreach (ProfilParameter::get()->filter('ParentID',0) as $group) {
+			$fields->push(HeaderField::create($group->ID,$group->Title,4));
+			foreach ($group->children() as $child) {
+				if ($child->isGroup){
+					$fields->push(HeaderField::create($child->ID,$child->Title,6));
+					'text' => 'Text', 'dropdown' => 'Dropdown', 'multiple' => 'Mehrere Werte', 'multiple-free' => 'Mehrere Werte (neue Werte erlaubt)','range' => 'Schieberegler'
+					foreach ($child->children() as $subchild) {
+						switch ($subchild->FieldType){
+							case "text":
+								$fields->push(TextField::create($subchild->ID,$subchild->Title));
+								break;
+							case "dropdown":
+								$fields->push(DropdownField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+								break;
+							case "multiple":
+								$fields->push(CheckboxSetField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+								break;
+							case "multiple-free":
+								$fields->push(ListboxField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+								break;
+							case "range":
+								$fields->push(TextField::create($subchild->ID,$subchild->Title)->setAttribute('type','range'));
+								break;
+						}
+					}
+				}
+				else{
+					switch ($child->FieldType){
+						case "text":
+							$fields->push(TextField::create($child->ID,$child->Title));
+							break;
+						case "dropdown":
+							$fields->push(DropdownField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
+							break;
+						case "multiple":
+							$fields->push(CheckboxSetField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
+							break;
+						case "multiple-free":
+							$fields->push(ListboxField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
+							break;
+						case "range":
+							$fields->push(TextField::create($child->ID,$child->Title)->setAttribute('type','range'));
+							break;
+					}
+				}
+			}
 			$fields->push(DropdownField::create($param->ID,$param->Title,$param->Children()->map('ID','Title')));
 		}
 
