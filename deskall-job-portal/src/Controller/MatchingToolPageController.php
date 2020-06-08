@@ -32,7 +32,6 @@ class MatchingToolPageController extends PageController{
 			foreach ($group->children() as $child) {
 				if ($child->isGroup){
 					$fields->push(HeaderField::create($child->ID,$child->Title,6));
-					'text' => 'Text', 'dropdown' => 'Dropdown', 'multiple' => 'Mehrere Werte', 'multiple-free' => 'Mehrere Werte (neue Werte erlaubt)','range' => 'Schieberegler'
 					foreach ($child->children() as $subchild) {
 						switch ($subchild->FieldType){
 							case "text":
