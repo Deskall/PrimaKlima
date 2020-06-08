@@ -70,10 +70,6 @@ SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   extensions:
     - SubObjectPermission
 
-SilverStripe\UserForms\UserForm:
-  cascade_duplicates:
-    - 'EmailRecipients'
-
 SilverStripe\UserForms\Control\UserDefinedFormController:
   extensions:
     - UserDefinedFormControllerExtension
@@ -95,6 +91,9 @@ DNADesign\ElementalUserForms\Model\ElementForm:
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
   block_default_userforms_js: true
   block_default_userforms_css: true
+  # cascade_duplicates:
+  #   - 'EmailRecipients'
+  #   - 'Fields'
 
 SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
     default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NocaptchaProtector

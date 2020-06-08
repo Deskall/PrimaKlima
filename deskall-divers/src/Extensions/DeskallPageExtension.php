@@ -37,6 +37,10 @@ class DeskallPageExtension extends DataExtension
         return SiteConfig::current_site_config()->getCurrentThemeDir();
     }
 
+     public function CurrentThemeDir(){
+        return SiteConfig::current_site_config()->getCurrentThemeDir();
+    }
+
     public function LastChangeJS(){
         $srcDir = Director::baseFolder().$this->owner->ThemeDir().'/javascript/vendor';
         $srcFiles = array_diff(scandir($srcDir), array('.', '..'));

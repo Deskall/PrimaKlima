@@ -36,7 +36,8 @@ class BoxBlock extends BaseElement implements Searchable
         'BoxTextAlign' => 'Varchar(255)',
         'PictureWidth' => 'Int',
         'PictureHeight' => 'Int',
-        'FullLink' => 'Boolean(0)'
+        'FullLink' => 'Boolean(0)',
+        'RoundedImage' => 'Boolean(0)'
     ];
 
     private static $has_many = [
@@ -102,7 +103,8 @@ class BoxBlock extends BaseElement implements Searchable
         ]
     ];
 
-     private static $boxes_text_alignments = [
+
+    private static $boxes_text_alignments = [
         'uk-text-left' =>  [
             'value' => 'uk-text-left',
             'title' => 'Links Ausrichtung',
@@ -126,7 +128,6 @@ class BoxBlock extends BaseElement implements Searchable
     ];
 
 
-
     private static $table_name = 'BoxBlock';
 
     private static $singular_name = 'Boxen Block';
@@ -148,6 +149,7 @@ class BoxBlock extends BaseElement implements Searchable
             $fields->removeByName('Effect');
             $fields->removeByName('Layout');
             $fields->removeByName('FullLink');
+            $fields->removeByName('RoundedImage');
 
             $fields->FieldByName('Root.Main.HTML')->setRows(5);
                 
@@ -157,7 +159,8 @@ class BoxBlock extends BaseElement implements Searchable
                 HTMLOptionsetField::create('BoxTextAlign',_t(__CLASS__.'.BoxTextAlignment','Boxen Textausrichtung'),$this->stat('boxes_text_alignments')),
                 HTMLOptionsetField::create('BoxPerLine',_t(__CLASS__.'.BoxPerLine','Boxen per Linie'), $this->stat('boxes_per_line')),
                 DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt auf Mouseover'), $this->getTranslatedSourceFor(__CLASS__,'effects')),
-                CheckboxField::create('FullLink',_t(__CLASS__.'.FullLink','ganze Box anklickbar?'))
+                CheckboxField::create('FullLink',_t(__CLASS__.'.FullLink','ganze Box anklickbar?')),
+                CheckboxField::create('RoundedImage',_t(__CLASS__.'.RoundedImage','Rund Bilder?'))
                 )->setTitle(_t(__CLASS__.'.BoxFormat','Boxen Format'))->setName('BoxLayout'));
                 
                 $config = GridFieldConfig_RecordEditor::create();

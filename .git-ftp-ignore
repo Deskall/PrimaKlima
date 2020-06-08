@@ -18,6 +18,10 @@ log.txt
 *.zip
 /cache/!.gitkeep
 
+robots.txt
+.htaccess
+.DS_Store
+
 themes/standard/css/src/deskall/theme/project_specific.less
 themes/standard/css/src/deskall/theme/user_defined.less
 themes/standard/css/src/deskall/theme/colors.less
@@ -29,7 +33,17 @@ themes/standard/javascript/main.min.js
 themes/standard/javascript/main.js
 
 themes/standard/javascript/vendor/11-project-specific.js
-
-
+themes/standard/android-chrome-192x192.png
+themes/standard/android-chrome-512x512.png
+themes/standard/apple-touch-icon.png
+themes/standard/browserconfig.xml
+themes/standard/favicon-16x16.png
+themes/standard/favicon-32x32.png
+themes/standard/favicon.ico
+themes/standard/mstile-150x150.png
+themes/standard/safari-pinned-tab.svg
+themes/standard/site.webmanifest
+themes/standard/templates/Page.ss
+themes/standard/css/src/deskall/theme/editorstyle.less
 
 composer.json

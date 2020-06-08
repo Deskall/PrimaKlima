@@ -1,7 +1,7 @@
 <li data-level="$Level"  <% if LinkableLink.Embedded %>data-uk-lightbox <% end_if %>>
 	<% with LinkableLink %>
 	    <% if $LinkURL %>
-	     	<a  href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %> class="<% if $Background %>uk-button button-{$Background}<% end_if %> <% if hasIcone %>dk-link-with-icon<% end_if %>" <% if Embedded %>data-type="iframe"<% end_if %>>
+	     	<a  href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %> class="<% if $Background != "no-bg" %>uk-button button-{$Background}<% end_if %> <% if hasIcone %>dk-link-with-icon<% end_if %>" <% if Embedded %>data-type="iframe"<% end_if %>>
                 <% if hasIcone %>
                 <% if $Icone %><span class="uk-margin-small-right" data-uk-icon="icon:  $Icone;"></span><% end_if %> 
 	            <span class="dk-link-with-icon-text">$Title</span>

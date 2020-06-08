@@ -8,6 +8,10 @@ SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - SiteConfigLayoutExtension
 
+Page:
+  extensions:
+    - PageLayoutExtension
+
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - deskall-layout/css/layout.css
