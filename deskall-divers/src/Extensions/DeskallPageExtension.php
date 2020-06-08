@@ -33,11 +33,8 @@ class DeskallPageExtension extends DataExtension
         '3' => 'Beide'
     ];
 
-    public function CurrentThemeDir(){
-        return SiteConfig::current_site_config()->getCurrentThemeDir();
-    }
 
-     public function CurrentThemeDir(){
+    public function CurrentThemeDir(){
         return SiteConfig::current_site_config()->getCurrentThemeDir();
     }
 
