@@ -88,7 +88,8 @@ class JobGiver extends DataObject
 
     private static $has_many = [
         'Missions' => Mission::class,
-        'Orders' => ShopOrder::class
+        'Orders' => ShopOrder::class,
+        'Queries' => MatchingQuery::class
     ];
 
     private static $defaults = [
