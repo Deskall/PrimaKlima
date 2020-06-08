@@ -32,47 +32,68 @@ class MatchingToolPageController extends PageController{
 
 		foreach (ProfilParameter::get()->filter('ParentID',0) as $group) {
 			$fields->push(HeaderField::create($group->ID,$group->Title,4));
-			foreach ($group->children() as $child) {
-				if ($child->isGroup){
-					$fields->push(HeaderField::create($child->ID,$child->Title,6));
-					foreach ($child->children() as $subchild) {
-						switch ($subchild->FieldType){
+			if ($group->isGroup) {
+				foreach ($group->children() as $child) {
+					if ($child->isGroup){
+						$fields->push(HeaderField::create($child->ID,$child->Title,6));
+						foreach ($child->children() as $subchild) {
+							switch ($subchild->FieldType){
+								case "text":
+									$fields->push(DropdownField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+									break;
+								case "dropdown":
+									$fields->push(DropdownField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+									break;
+								case "multiple":
+									$fields->push(CheckboxSetField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+									break;
+								case "multiple-free":
+									$fields->push(ListboxField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+									break;
+								case "range":
+									$fields->push(TextField::create($subchild->ID,$subchild->Title)->setAttribute('type','range'));
+									break;
+							}
+						}
+					}
+					else{
+						switch ($child->FieldType){
 							case "text":
-								$fields->push(DropdownField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+								$fields->push(DropdownField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
 								break;
 							case "dropdown":
-								$fields->push(DropdownField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+								$fields->push(DropdownField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
 								break;
 							case "multiple":
-								$fields->push(CheckboxSetField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+								$fields->push(CheckboxSetField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
 								break;
 							case "multiple-free":
-								$fields->push(ListboxField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+								$fields->push(ListboxField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
 								break;
 							case "range":
-								$fields->push(TextField::create($subchild->ID,$subchild->Title)->setAttribute('type','range'));
+								$fields->push(TextField::create($child->ID,$child->Title)->setAttribute('type','range'));
 								break;
 						}
 					}
 				}
-				else{
-					switch ($child->FieldType){
-						case "text":
-							$fields->push(DropdownField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
-							break;
-						case "dropdown":
-							$fields->push(DropdownField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
-							break;
-						case "multiple":
-							$fields->push(CheckboxSetField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
-							break;
-						case "multiple-free":
-							$fields->push(ListboxField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
-							break;
-						case "range":
-							$fields->push(TextField::create($child->ID,$child->Title)->setAttribute('type','range'));
-							break;
-					}
+			}
+			else{
+				switch ($group->FieldType){
+					case "text":
+						$fields->push(DropdownField::create($group->ID,$group->Title,$group->Values()->map('ID','Title')));
+						break;
+					case "dropdown":
+						$fields->push(DropdownField::create($group->ID,$group->Title,$group->Values()->map('ID','Title')));
+						break;
+					case "multiple":
+						$fields->push(CheckboxSetField::create($group->ID,$group->Title,$group->Values()->map('ID','Title')));
+						break;
+					case "multiple-free":
+						$fields->push(ListboxField::create($group->ID,$group->Title,$group->Values()->map('ID','Title')));
+						break;
+					case "range":
+						$fields->push(TextField::create($group->ID,$group->Title)->setAttribute('type','range'));
+						break;
 				}
 			}
 		}
