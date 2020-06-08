@@ -10,7 +10,7 @@
 				</div>
 				<div class="uk-width-2-3@s uk-with-3-4@m uk-width-4-5@l uk-width-5-6@l">
 					<h2>Matching Tool - Suche nach Kompatibilität</h2>
-					$MatchingQueryForm
+					$MatchingToolForm
 					<div id="results"></div>
 				</div>
 			</div>
