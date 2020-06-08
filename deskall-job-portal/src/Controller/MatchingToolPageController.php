@@ -45,10 +45,10 @@ class MatchingToolPageController extends PageController{
 									$fields->push(DropdownField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
 									break;
 								case "multiple":
-									$fields->push(CheckboxSetField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+									$fields->push(CheckboxSetField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
 									break;
 								case "multiple-free":
-									$fields->push(ListboxField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+									$fields->push(ListboxField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
 									break;
 								case "range":
 									$fields->push(TextField::create($subchild->ID,$subchild->Title)->setAttribute('type','range')->setAttribute('class','uk-range'));
@@ -65,10 +65,10 @@ class MatchingToolPageController extends PageController{
 								$fields->push(DropdownField::create($child->ID,$child->Title,$child->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
 								break;
 							case "multiple":
-								$fields->push(CheckboxSetField::create($child->ID,$child->Title,$child->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+								$fields->push(CheckboxSetField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
 								break;
 							case "multiple-free":
-								$fields->push(ListboxField::create($child->ID,$child->Title,$child->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+								$fields->push(ListboxField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
 								break;
 							case "range":
 								$fields->push(TextField::create($child->ID,$child->Title)->setAttribute('type','range')->setAttribute('class','uk-range'));
@@ -86,10 +86,10 @@ class MatchingToolPageController extends PageController{
 						$fields->push(DropdownField::create($group->ID,$group->Title,$group->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
 						break;
 					case "multiple":
-						$fields->push(CheckboxSetField::create($group->ID,$group->Title,$group->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+						$fields->push(CheckboxSetField::create($group->ID,$group->Title,$group->Values()->map('ID','Title')));
 						break;
 					case "multiple-free":
-						$fields->push(ListboxField::create($group->ID,$group->Title,$group->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+						$fields->push(ListboxField::create($group->ID,$group->Title,$group->Values()->map('ID','Title')));
 						break;
 					case "range":
 						$fields->push(TextField::create($group->ID,$group->Title)->setAttribute('type','range')->setAttribute('class','uk-range'));
