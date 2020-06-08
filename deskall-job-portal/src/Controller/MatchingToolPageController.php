@@ -8,6 +8,9 @@ use SilverStripe\Security\Security;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\HeaderField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\Forms\ListboxField;
 
 class MatchingToolPageController extends PageController{
 
