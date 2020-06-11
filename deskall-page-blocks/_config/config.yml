@@ -99,6 +99,6 @@ DNADesign\ElementalUserForms\Model\ElementForm:
 SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
     default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NocaptchaProtector
 
-Sheadawson\Linkable\Models\Link:
+Sheadawson\Linkable\Extensions\LinkableSiteTreeExtension:
   extensions:
     - BlockLinkExtension
