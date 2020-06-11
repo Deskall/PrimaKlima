@@ -64,7 +64,7 @@
 	<% end_if %>
 </div>
 
-<div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
+<div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-flex-center uk-text-center uk-grid-match products-container uk-margin-top" data-uk-grid data-dk-height-match=".product-body">
 <% loop filteredItems %>
     <div class="dk-transition-toggle-not-mobile">
     	
