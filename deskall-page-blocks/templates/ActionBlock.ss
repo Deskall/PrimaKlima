@@ -73,7 +73,7 @@
 
 <% if InteractionType == "offcanvas" %>
 <div id="offcanvas-container-{$ID}" data-uk-offcanvas="mode: $Effect;<% if OffcanvasPosition == "right" %>flip: true;<% end_if %><% if OffcanvasOverlay %>overlay: true;<% end_if %>">
-        <div class="uk-offcanvas-bar $ButtonBackground">
+        <div class="uk-offcanvas-bar $ActionBackground">
             <button class="uk-offcanvas-close" type="button" data-uk-close></button>
 	         	<% if Title and ShowTitle %><h3 class="uk-modal-title">$Title</h3><% end_if %>
 	          	<% include TextBlock %>
