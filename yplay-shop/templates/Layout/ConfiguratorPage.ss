@@ -196,7 +196,7 @@
 							            	<% end_loop %>
 							            </div>
 							            <% else_if alternativeProducts.exists %>
-							            <div class="uk-grid-small uk-grid-match uk-child-width-auto" data-uk-grid>
+							            <div class="uk-grid-small uk-grid-match uk-child-1-3@m" data-uk-grid>
 							            	<% loop alternativeProducts %>
 							            	<div>
 							            		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">
