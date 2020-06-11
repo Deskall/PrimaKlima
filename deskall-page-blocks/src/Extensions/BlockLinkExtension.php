@@ -8,7 +8,6 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\LabelField;
 use SilverStripe\CMS\Model\SiteTree;
 use DNADesign\Elemental\Models\BaseElement;
-use Sheadawson\DependentDropdown\Forms\DependentDropdownField;
 
 class BlockLinkExtension extends DataExtension
 {
@@ -24,31 +23,27 @@ class BlockLinkExtension extends DataExtension
 
 
     public function updateCMSFields(FieldList $fields){
-        ob_start();
-                    print_r($fields);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $fields->removeByName('BlockID');
-        $SiteTreeField = $fields->FieldByName('Root.SiteTreeID');
-        $fields->addFieldToTab('Root.Main',
-            DependentDropdownField::create('BlockID', _t(__CLASS__.'.Block','Block von dieser Seite'), function($val){
-               $blockstree = array(0 => _t(__CLASS__.'.Label','bestehende Block kopieren'));
-               $page = SiteTree::get()->byId($val);
-               if ($page->exists()){
-                   if ($page->ElementalAreaID > 0){
-                       foreach ($page->ElementalArea()->Elements() as $block) {
-                           $blockstree[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
-                           if ($block->ClassName == "ParentBlock"){
-                               foreach ($block->Elements()->Elements() as $underblock) {
-                               $blockstree[$underblock->ID] = "  ".$block->NiceTitle(). " > ".$underblock->singleton($underblock->ClassName)->getType(). " > ".$underblock->NiceTitle();
-                               }
-                           }
-                       }
-                   }
-               }
-               return $blockstree; 
-            })->setDepends($SiteTreeField)
-            ->displayIf('Type')->isEqualTo('SiteTree')->end()
-        );
+            $blocks = $this->getBlockTree();
+            $fields->addFieldToTab('Root.Main',DropdownField::create('BlockID',_t(__CLASS__.'.Block','Block von dieser Seite'),$blocks)->displayIf('Type')->isEqualTo('SiteTree')->end());
+    }
+
+    protected function getBlockTree(){
+        $blockstree = array(0 => _t(__CLASS__.'.Label','Bitte block wählen'));
+        $page = $this->owner->SiteTree();
+        if ($page->exists()){
+            if ($page->ElementalAreaID > 0){
+                foreach ($page->ElementalArea()->Elements() as $block) {
+                    $blockstree[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
+                    if ($block->ClassName == "ParentBlock"){
+                        foreach ($block->Elements()->Elements() as $underblock) {
+                        $blockstree[$underblock->ID] = "  ".$block->NiceTitle(). " > ".$underblock->singleton($underblock->ClassName)->getType(). " > ".$underblock->NiceTitle();
+                        }
+                    }
+                }
+            }
+        }
+            
+        return $blockstree;
     }
 }
