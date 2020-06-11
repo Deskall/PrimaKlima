@@ -210,6 +210,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('Animation');
         $fields->removeByName('BackgroundImageEffect');
         $fields->removeByName('SectionPadding');
+        $fields->removeByName('Links');
 
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');
