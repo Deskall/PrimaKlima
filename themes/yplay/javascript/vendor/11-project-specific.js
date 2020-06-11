@@ -244,6 +244,9 @@ $(document).ready(function(){
 		
 		$(document).on("click",".step",function(){
 			if (!$(this).hasClass('backwards')){
+				//Check daten && Update Session Data
+				var form = $(this).parents('form');
+				var valid = form.valid();
 				//Special case for birthdate
 				if ($(this).parents('[data-step]').attr('data-step') == "step-1"){
 					if ($("input[name='Birthdate']").val() == ""){
@@ -254,11 +257,8 @@ $(document).ready(function(){
 						return false;
 					}
 				}
-
-				//Check daten && Update Session Data
-				var form = $(this).parents('form');
 			
-				if (form.valid()){
+				if (valid){
 					UpdateCartData();
 					UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
 					$(':focus').blur();
