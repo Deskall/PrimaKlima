@@ -1,7 +1,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><% if MetaTitle %>$MetaTitle<% else %>$Title<% end_if %></title>
 $MetaTags(false)
-
 <!-- StructuredData -->
 $StructuredData
 $StructuredBreadcrumbs
