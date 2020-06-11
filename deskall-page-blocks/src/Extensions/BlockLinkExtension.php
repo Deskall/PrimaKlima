@@ -50,4 +50,18 @@ class BlockLinkExtension extends DataExtension
         }
         return $blockstree;
     }
+
+    public function onAfterWrite(){
+        parent::onAfterWrite();
+        if (!$this->owner->Title && $this->owner->Type == "block") {
+            $this->owner->Title = $this->owner->Block()->Title;
+        }
+    }
+
+    public function updateLinkURL($LinkURL){
+        if ($this->owner->Type == "block"){
+            $LinkURL = $this->owner->Block()->Link();
+        }
+    }
+            
 }
