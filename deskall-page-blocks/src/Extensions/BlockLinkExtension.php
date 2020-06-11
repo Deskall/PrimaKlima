@@ -51,6 +51,14 @@ class BlockLinkExtension extends DataExtension
         return $blockstree;
     }
 
+    public function onBeforeWrite(){
+        parent::onBeforeWrite();
+        ob_start();
+            print_r($this->owner);
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+    }
+
     public function onAfterWrite(){
         parent::onAfterWrite();
         if (!$this->owner->Title && $this->owner->Type == "block") {
