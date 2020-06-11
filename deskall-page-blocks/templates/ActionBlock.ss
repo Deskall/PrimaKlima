@@ -4,9 +4,6 @@
 			<% if $Trigger %>
 			    <button class="uk-button button-{$ButtonBackground} $ButtonPosition" data-uk-toggle="target: #content-container-{$ID}" type="button" data-uk-icon="icon: $Icone">$Trigger</button>
 			<% end_if %>
-			<div id="content-container-{$ID}" data-uk-dropdown="pos: $DropdownPosition;mode:$DropdownTrigger;">
-				<% include TextBlock %>
-			</div>
 		</div>
 		<% else_if InteractionType == "offcanvas" %>
 		    <button class="uk-button button-{$ButtonBackground} $ButtonPositiont" type="button" data-uk-toggle="target: #offcanvas-container-{$ID}">$Trigger</button>
@@ -20,7 +17,9 @@
 			<% end_if %>
 		<% end_if %>
 </div>
-
+<div id="content-container-{$ID}" data-uk-dropdown="pos: $DropdownPosition;mode:$DropdownTrigger;">
+	<% include TextBlock %>
+</div>
 <% if InteractionType == "modal" %>
 <div id="content-container-{$ID}" class="$ModalSize" data-uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-padding-remove">
