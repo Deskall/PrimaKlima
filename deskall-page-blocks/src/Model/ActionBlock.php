@@ -164,6 +164,7 @@ class ActionBlock extends BaseElement implements Searchable
         $fields->removeByName('ModalScroll');
         $fields->removeByName('Target');
         $fields->removeByName('Layout');
+        $fields->removeByName('ActionBackground');
         //$title = $fields->fieldByName('Root.Main.TitleAndDisplayed');
       //  $fields->removeByName('TitleAndDisplayed');
 
