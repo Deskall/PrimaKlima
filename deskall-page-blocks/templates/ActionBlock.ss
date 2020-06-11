@@ -77,7 +77,7 @@
             <button class="uk-offcanvas-close" type="button" data-uk-close></button>
 	         	<% if Title and ShowTitle %><h3 class="uk-modal-title">$Title</h3><% end_if %>
 	          	<% include TextBlock %>
-            <button class="uk-button dk-margin-responsive" type="button" data-uk-toggle="target: #offcanvas-container-{$ID}">$CloseText</button>
+            <a class="dk-margin-responsive" data-uk-toggle="target: #offcanvas-container-{$ID}">$CloseText</a>
         </div>
     </div>
 <% end_if %>
