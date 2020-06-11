@@ -24,8 +24,12 @@ class BlockLinkExtension extends DataExtension
 
 
     public function updateCMSFields(FieldList $fields){
+        ob_start();
+                    print_r($fields);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $fields->removeByName('BlockID');
-        $SiteTreeField = $fields->dataFieldByName('Root.Main.SiteTreeID');
+        $SiteTreeField = $fields->FieldByName('Root.SiteTreeID');
         $fields->addFieldToTab('Root.Main',
             DependentDropdownField::create('BlockID', _t(__CLASS__.'.Block','Block von dieser Seite'), function($val){
                $blockstree = array(0 => _t(__CLASS__.'.Label','bestehende Block kopieren'));
