@@ -8,6 +8,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\LabelField;
 use SilverStripe\CMS\Model\SiteTree;
 use DNADesign\Elemental\Models\BaseElement;
+use Sheadawson\DependentDropdown\Forms\DependentDropdownField;
 
 class BlockLinkExtension extends DataExtension
 {
@@ -24,16 +25,15 @@ class BlockLinkExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields){
         $fields->removeByName('BlockID');
-        if ($this->owner->ID > 0){
-            $blocks = $this->getBlockTree();
-            $fields->addFieldToTab('Root.Main',DropdownField::create('BlockID',_t(__CLASS__.'.Block','Block von dieser Seite'),$blocks)->displayIf('Type')->isEqualTo('SiteTree')->end());
-        }
-        $fields->addFieldToTab('Root.Main',LabelField::create('Block',_t(__CLASS__.'.Block','Block von dieser Seite (bitte zuerst Seite Wählen und speichern)'))->displayIf('Type')->isEqualTo('SiteTree')->end());
+        $fields->addFieldToTab('Root.Main',
+            DependentDropdownField::create('BlockID', _t(__CLASS__.'.Block','Block von dieser Seite'), $this->getBlockTree())->setDepends('SiteTreeID')
+            ->displayIf('Type')->isEqualTo('SiteTree')->end()
+        );
     }
 
-    protected function getBlockTree(){
+    protected function getBlockTree($pageid){
         $blockstree = array(0 => _t(__CLASS__.'.Label','bestehende Block kopieren'));
-        $page = $this->owner->SiteTree();
+        $page = SiteTree::get()->byId($pageid);
         if ($page->exists()){
             if ($page->ElementalAreaID > 0){
                 foreach ($page->ElementalArea()->Elements() as $block) {
