@@ -11,7 +11,7 @@ use DNADesign\Elemental\Models\BaseElement;
 
 class BlockLinkExtension extends DataExtension
 {
-    private static $types = ['block' => 'bestimmt Block von dieser Website'] 
+    private static $types = ['block' => 'bestimmt Block von dieser Website']; 
 
     private static $has_one = [
         'Block' => BaseElement::class
@@ -25,8 +25,8 @@ class BlockLinkExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields){
         $fields->removeByName('BlockID');
-            $blocks = $this->getBlockTree();
-            $fields->addFieldToTab('Root.Main',DropdownField::create('BlockID',_t(__CLASS__.'.Block','Block von dieser Seite'),$blocks)->displayIf('Type')->isEqualTo('Block')->end());
+        $blocks = $this->getBlockTree();
+        $fields->addFieldToTab('Root.Main',DropdownField::create('BlockID',_t(__CLASS__.'.Block','Block von dieser Seite'),$blocks)->displayIf('Type')->isEqualTo('Block')->end());
     }
 
     protected function getBlockTree(){
