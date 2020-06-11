@@ -4,9 +4,6 @@
 			<% if $Trigger %>
 			    <button class="uk-button button-{$ButtonBackground} $ButtonPosition" data-uk-toggle="target: #content-container-{$ID}" type="button" data-uk-icon="icon: $Icone">$Trigger</button>
 			<% end_if %>
-			<div data-uk-dropdown="pos: $DropdownPosition;mode:$DropdownTrigger;">
-				 <% include TextBlock %>
-			</div>
 		</div>
 		<% else_if InteractionType == "offcanvas" %>
 		    <button class="uk-button button-{$ButtonBackground} $ButtonPositiont" type="button" data-uk-toggle="target: #offcanvas-container-{$ID}">$Trigger</button>
@@ -82,5 +79,10 @@
 <div id="toggle-container-{$ID}" hidden>
 	<% if Title and ShowTitle %><h3>$Title</h3><% end_if %>
 	<% include TextBlock %>      
+</div>
+<% end_if %>
+<% if InteractionType == "dropdown" %>
+<div id="content-container-{$ID}" data-uk-dropdown="pos: $DropdownPosition;mode:$DropdownTrigger;">
+	<% include TextBlock %>
 </div>
 <% end_if %>
