@@ -3,9 +3,7 @@
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\DropdownField;
-use SilverStripe\Forms\CheckboxField;
-use SilverStripe\Forms\LabelField;
+use SilverStripe\Forms\GroupedDropdownField;
 use SilverStripe\CMS\Model\SiteTree;
 use DNADesign\Elemental\Models\BaseElement;
 
@@ -26,7 +24,7 @@ class BlockLinkExtension extends DataExtension
     public function updateCMSFields(FieldList $fields){
         $fields->removeByName('BlockID');
         $blocks = $this->getBlockTree();
-        $fields->addFieldToTab('Root.Main',DropdownField::create('BlockID',_t(__CLASS__.'.Block','Block von dieser Seite'),$blocks)->displayIf('Type')->isEqualTo('block')->end());
+        $fields->addFieldToTab('Root.Main',GroupedDropdownField::create('BlockID',_t(__CLASS__.'.Block','Block von dieser Seite'),$blocks)->displayIf('Type')->isEqualTo('block')->end());
     }
 
     protected function getBlockTree(){
