@@ -151,6 +151,14 @@ class ProductCategory extends DataObject {
 		return $products;
 	}
 
+	public function filteredOptions(){
+		$options = $this->Options()->filter('ClassName',ProductOption::class)->filterByCallback(function($item, $list) {
+		    return ($item->shouldDisplay() && $item->isAvailable());
+		});
+
+		return $options;
+	}
+
 	public function getPreselected(){
 		//depend on current availaibility
 		$request = Injector::inst()->get(HTTPRequest::class);

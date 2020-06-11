@@ -99,6 +99,15 @@
 		        		 </div>
 		        	</div>
 		        	<% end_loop %>
+		        <% else_if Top.ProductType == "options" %>
+		        	<% loop activeOptions %>
+		        	<div class="product-item">
+		        		 <strong>$Title</strong>
+		        		 <div>
+		        			 $Subtitle
+		        		 </div>
+		        	</div>
+		        	<% end_loop %>
 		        <% end_if %>
 		    </div>
 	        <div class="product-footer">
