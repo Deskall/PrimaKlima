@@ -26,7 +26,7 @@ class BlockLinkExtension extends DataExtension
         $fields->removeByName('BlockID');
         if ($this->owner->ID > 0){
             $blocks = $this->owner->getBlockTree();
-            $fields->addFieldToTab('Root.Main',DropdownField::create('BlockID',_t(__CLASS__.'.Block','Block von dieser Seite'),$blocks)->displayIf('Type')->isEqualTo('SiteTree')->end());
+            $fields->addFieldToTab('Root.Main',DropdownField::create('BlockID',_t(__CLASS__.'.Block','Block von dieser Seite'),$blocks)->displayIf('Type')->isEqualTo('SiteTree')->end(), 'SiteTree');
         }
         $fields->addFieldToTab('Root.Main',LabelField::create('Block',_t(__CLASS__.'.Block','Block von dieser Seite (bitte zuerst Seite Wählen und speichern)'))->displayIf('Type')->isEqualTo('SiteTree')->end(), 'SiteTreeID');
     }
