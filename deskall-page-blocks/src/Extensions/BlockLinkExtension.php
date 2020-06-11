@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\LabelField;
