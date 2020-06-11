@@ -24,29 +24,28 @@ class BlockLinkExtension extends DataExtension
 
 
     public function updateCMSFields(FieldList $fields){
+        $
         $fields->removeByName('BlockID');
         $fields->addFieldToTab('Root.Main',
-            DependentDropdownField::create('BlockID', _t(__CLASS__.'.Block','Block von dieser Seite'), 'getBlockTree')->setDepends('SiteTreeID')
+            DependentDropdownField::create('BlockID', _t(__CLASS__.'.Block','Block von dieser Seite'), function($val){
+               $blockstree = array(0 => _t(__CLASS__.'.Label','bestehende Block kopieren'));
+               $page = SiteTree::get()->byId($val);
+               if ($page->exists()){
+                   if ($page->ElementalAreaID > 0){
+                       foreach ($page->ElementalArea()->Elements() as $block) {
+                           $blockstree[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
+                           if ($block->ClassName == "ParentBlock"){
+                               foreach ($block->Elements()->Elements() as $underblock) {
+                               $blockstree[$underblock->ID] = "  ".$block->NiceTitle(). " > ".$underblock->singleton($underblock->ClassName)->getType(). " > ".$underblock->NiceTitle();
+                               }
+                           }
+                       }
+                   }
+               }
+                   
+               return $blockstree; 
+            })->setDepends('SiteTreeID')
             ->displayIf('Type')->isEqualTo('SiteTree')->end()
         );
-    }
-
-    protected function getBlockTree($pageid){
-        $blockstree = array(0 => _t(__CLASS__.'.Label','bestehende Block kopieren'));
-        $page = SiteTree::get()->byId($pageid);
-        if ($page->exists()){
-            if ($page->ElementalAreaID > 0){
-                foreach ($page->ElementalArea()->Elements() as $block) {
-                    $blockstree[$block->ID] = $block->singleton($block->ClassName)->getType(). " > ".$block->NiceTitle();
-                    if ($block->ClassName == "ParentBlock"){
-                        foreach ($block->Elements()->Elements() as $underblock) {
-                        $blockstree[$underblock->ID] = "  ".$block->NiceTitle(). " > ".$underblock->singleton($underblock->ClassName)->getType(). " > ".$underblock->NiceTitle();
-                        }
-                    }
-                }
-            }
-        }
-            
-        return $blockstree;
     }
 }
