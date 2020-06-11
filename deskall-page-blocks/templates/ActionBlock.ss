@@ -2,7 +2,10 @@
 		<% if InteractionType == "dropdown" %>
 		<div class="uk-inline uk-width-1-1">
 			<% if $Trigger %>
-			    <button id="dropdown-toggle-{$ID}" class="uk-button button-{$ButtonBackground} $ButtonPosition" type="button" data-uk-icon="icon: $Icone">$Trigger</button>
+			    <button id="dropdown-toggle-{$ID}" class="uk-button button-{$ButtonBackground} $ButtonPosition trigger-{$ID}" type="button" data-uk-toggle=".trigger-{$ID}" data-uk-icon="icon: $Icone">$Trigger</button>
+			<% end_if %>
+			<% if CloseText %>
+			<button id="dropdown-toggle-{$ID}" class="uk-button button-{$ButtonBackground} $ButtonPosition trigger-{$ID}" type="button" data-uk-toggle=".trigger-{$ID}" data-uk-icon="icon: $Icone">$CloseText</button>
 			<% end_if %>
 		</div>
 		<% else_if InteractionType == "offcanvas" %>
