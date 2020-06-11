@@ -20,9 +20,11 @@
 			<% end_if %>
 		<% end_if %>
 </div>
+<% if InteractionType == "dropdown" %>
 <div data-uk-dropdown="pos: $DropdownPosition;mode:$DropdownTrigger;toggle=#dropdown-toggle-{$ID}">
 	<% include TextBlock %>
 </div>
+<% end_if %>
 <% if InteractionType == "modal" %>
 <div id="content-container-{$ID}" class="$ModalSize" data-uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-padding-remove">
