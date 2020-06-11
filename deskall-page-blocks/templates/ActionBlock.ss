@@ -5,7 +5,7 @@
 			    <button id="dropdown-toggle-{$ID}" class="uk-button button-{$ButtonBackground} $ButtonPosition trigger-{$ID}" type="button" data-uk-toggle=".trigger-{$ID}" data-uk-icon="icon: $Icone">$Trigger</button>
 			<% end_if %>
 			<% if CloseText %>
-			<button id="dropdown-toggle-{$ID}" class="uk-button button-{$ButtonBackground} $ButtonPosition trigger-{$ID}" type="button" data-uk-toggle=".trigger-{$ID}" data-uk-icon="icon: $Icone">$CloseText</button>
+			<button id="dropdown-toggle-{$ID}" class="uk-button button-{$ButtonBackground} $ButtonPosition trigger-{$ID}" type="button" data-uk-toggle=".trigger-{$ID}" data-uk-icon="icon: $Icone" hidden>$CloseText</button>
 			<% end_if %>
 		</div>
 		<% else_if InteractionType == "offcanvas" %>
