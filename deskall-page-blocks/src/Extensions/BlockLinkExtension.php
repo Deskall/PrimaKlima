@@ -9,7 +9,7 @@ use DNADesign\Elemental\Models\BaseElement;
 
 class BlockLinkExtension extends DataExtension
 {
-    private static $types = ['block' => 'bestimmt Block von dieser Website']; 
+    private static $types = ['Block' => 'bestimmt Block von dieser Website']; 
 
     private static $has_one = [
         'Block' => BaseElement::class
@@ -24,7 +24,7 @@ class BlockLinkExtension extends DataExtension
     public function updateCMSFields(FieldList $fields){
         $fields->removeByName('BlockID');
         $blocks = $this->getBlockTree();
-        $fields->addFieldToTab('Root.Main',GroupedDropdownField::create('BlockID',_t(__CLASS__.'.Block','Block von dieser Seite'),$blocks)->displayIf('Type')->isEqualTo('block')->end());
+        $fields->addFieldToTab('Root.Main',GroupedDropdownField::create('BlockID',_t(__CLASS__.'.Block','Block von dieser Seite'),$blocks)->displayIf('Type')->isEqualTo('Block')->end());
     }
 
     protected function getBlockTree(){
@@ -51,23 +51,16 @@ class BlockLinkExtension extends DataExtension
         return $blockstree;
     }
 
-    public function onBeforeWrite(){
-        parent::onBeforeWrite();
-        ob_start();
-            print_r($this->owner);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-    }
 
     public function onAfterWrite(){
         parent::onAfterWrite();
-        if (!$this->owner->Title && $this->owner->Type == "block") {
+        if (!$this->owner->Title && $this->owner->Type == "Block") {
             $this->owner->Title = $this->owner->Block()->Title;
         }
     }
 
     public function updateLinkURL($LinkURL){
-        if ($this->owner->Type == "block"){
+        if ($this->owner->Type == "Block"){
             $LinkURL = $this->owner->Block()->Link();
         }
     }
