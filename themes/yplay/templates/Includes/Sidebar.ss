@@ -24,7 +24,7 @@
 	<% loop LateralSections %>
 	<button class="uk-button $ButtonFarbe" type="button" data-uk-toggle="target: #offcanvas-usage-{$ID}">$ButtonTitle<% if $ButtonIcon %><span class="uk-margin-small-left" data-uk-icon="icon: $ButtonIcon"></span><% end_if %></button>
 	<div id="offcanvas-usage-{$ID}" data-uk-offcanvas="flip:true;">
-		<div class="uk-offcanvas-bar dk-middle-offcanvas <% if ButtonFarbe %>$ButtonFarbe<% else %>default<% end_if %>">
+		<div class="uk-offcanvas-bar dk-middle-offcanvas $ButtonFarbe">
 			<button class="uk-offcanvas-close" type="button" data-uk-close></button>
 			<h3>$Title</h3>
 			$Text
