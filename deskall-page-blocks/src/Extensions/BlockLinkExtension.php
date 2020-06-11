@@ -29,7 +29,7 @@ class BlockLinkExtension extends DataExtension
 
     protected function getBlockTree(){
         $blockstree = array(0 => _t(__CLASS__.'.Label','Bitte Block wählen'));
-        $Pages = Page::get()->sort('ParentID ASC, Sort ASC');
+        $Pages = Page::get()->sort('Sort ASC');
         foreach ($Pages as $page) {
             if ($page->ElementalAreaID > 0){
                 $blocks = array();
