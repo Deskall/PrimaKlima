@@ -45,6 +45,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'BackgroundImage' => Image::class,
     ];
 
+    private static $has_many = [
+        'Links' => Link::class,
+    ];
+
     private static $owns =[
         'BackgroundImage'
     ];
