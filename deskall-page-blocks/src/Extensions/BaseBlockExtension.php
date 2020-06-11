@@ -20,6 +20,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Core\ClassInfo;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\TextareaField;
+use Sheadawson\Linkable\Models\Link;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
