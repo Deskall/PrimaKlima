@@ -240,44 +240,44 @@ footer.uk-section{
 }
 //teasing block
 .teasingblock{
-	.shape-container{
-		z-index:-1;
-		.shape{
-			position:absolute;
-		}
-	}
-	.shape-parallelogram{
-		width: 50%;
-		height: 80%;
-		.shape{
-		  width: 100%;
-		  height: 100%;
-	      transform: skew(20deg);
-	      background: @tv;
-		}
-	}
-	.shape-triangle{
-		width: 50%;
-		height: 50%;
-		.shape{
-			width: 0;
-	      	height: 0;
-		}
-		&.uk-position-left{
-			.shape{
-				border-bottom: 300px solid @tv;
-				border-right: 300px solid transparent;
-				left:0;
-			}
-		}
-		&.uk-position-right{
-			.shape{
-				border-bottom: 300px solid @tv;
-				border-left: 300px solid transparent;
-				right:0;
-			}
-		}
-	}
+	// .shape-container{
+	// 	z-index:-1;
+	// 	.shape{
+	// 		position:absolute;
+	// 	}
+	// }
+	// .shape-parallelogram{
+	// 	width: 50%;
+	// 	height: 80%;
+	// 	.shape{
+	// 	  width: 100%;
+	// 	  height: 100%;
+	//       transform: skew(20deg);
+	//       background: @tv;
+	// 	}
+	// }
+	// .shape-triangle{
+	// 	width: 50%;
+	// 	height: 50%;
+	// 	.shape{
+	// 		width: 0;
+	//       	height: 0;
+	// 	}
+	// 	&.uk-position-left{
+	// 		.shape{
+	// 			border-bottom: 300px solid @tv;
+	// 			border-right: 300px solid transparent;
+	// 			left:0;
+	// 		}
+	// 	}
+	// 	&.uk-position-right{
+	// 		.shape{
+	// 			border-bottom: 300px solid @tv;
+	// 			border-left: 300px solid transparent;
+	// 			right:0;
+	// 		}
+	// 	}
+	// }
 }
 
 /* The switch - the box around the slider */
@@ -563,6 +563,10 @@ body.ShopPage{
 		color:@internet;
 		font-style:italic;
 		font-size: 0.875rem;
+	}
+	.full-width-option{
+		list-style: none;
+		padding-left: 0;
 	}
 }
 label.error, p.error{
