@@ -74,7 +74,7 @@ class NavigationItem extends DataObject{
 
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
-		$changedFields = $this->changedFields();
+		$changedFields = $this->getChangedFields();
 		if ($this->isChanged('ItemType')){
 			switch ($changedFields['ItemType']['after']){
 				case "block":
