@@ -52,8 +52,8 @@ class BlockLinkExtension extends DataExtension
     }
 
 
-    public function onAfterWrite(){
-        parent::onAfterWrite();
+    public function onBeforeWrite(){
+        parent::onBeforeWrite();
         if (!$this->owner->Title && $this->owner->Type == "Block") {
             $this->owner->Title = $this->owner->Block()->Title;
         }
