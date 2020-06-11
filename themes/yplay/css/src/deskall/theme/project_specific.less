@@ -94,7 +94,15 @@ header .uk-navbar-nav .uk-navbar-dropdown .uk-navbar-dropdown-nav.menu-section-l
 .hook-slider-font(){
 	*{
 		color:@white-background;
+	}
+	h1, h2, .uk-text-lead{
 		text-shadow:2px 2px 4px @black-background;
+	}
+	.dk-slide-text{
+		min-width:100%;
+		@media only screen and (min-width: @breakpoint-small) {
+			min-width: none;
+		}
 	}
 }
 //BReadcrumbs
