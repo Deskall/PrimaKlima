@@ -9,7 +9,7 @@
 			<% loop PayTVPackages %>
 			<tr class="product" data-price="$getMonthlyPrice" data-value="$ProductCode">
 				<td><input type="checkbox" class="uk-checkbox" name="$ProductCode" <% if getMonthlyPrice == 0 %>checked readonly disabled<% end_if %>></td>
-				<td class="uk-flex uk-flex-middle"><span>$Title</span><% if BestSeller %><span class="uk-label uk-margin-right">Besteller</span><% end_if %><br><small class="uk-visible@m">$Subtitle</small></td>
+				<td><% if BestSeller %><div class="uk-flex uk-flex-middle"><span>$Title</span><span class="uk-label uk-margin-right">Besteller</span></div><% else %>$Title<% end_if %><br><small class="uk-visible@m">$Subtitle</small></td>
 				<td class="uk-table-shrink uk-text-nowrap">$PrintPriceString</td>
 			</tr>
 			<% end_loop %>
