@@ -175,8 +175,10 @@ footer.uk-section{
 
 //Specific to custom Page elements
 .dk-middle-offcanvas{
-	background-color: @global-muted-background;
-	color:@global-color;
+	&.default{
+		background-color: @global-muted-background;
+		color:@global-color;
+	}
 	&:not(.cart-offcanvas) *{
 		color: inherit;
 	}
