@@ -64,7 +64,7 @@
 						</div>
 					</form>
 				<% else %>
-					<p class="uk-text-primary">Ihre Region: $activePLZ.Code - $activePLZ.City <a href="{$getPage.Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a></p>
+					<p class="standard-font">Ihre Region: $activePLZ.Code - $activePLZ.City <a href="{$getPage.Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a></p>
 				<% end_if %>
 			</div>
 
