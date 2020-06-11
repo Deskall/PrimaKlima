@@ -85,6 +85,12 @@ class ShopCart extends DataObject {
 		return $labels;
 	}
 
+	public function getCMSFields(){
+		$fields = parent::getCMSFields();
+		$fields->removeByname('IP');
+		return $fields;
+	}
+
 	
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
