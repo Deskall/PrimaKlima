@@ -26,7 +26,7 @@ class BlockLinkExtension extends DataExtension
     public function updateCMSFields(FieldList $fields){
         $fields->removeByName('BlockID');
         $fields->addFieldToTab('Root.Main',
-            DependentDropdownField::create('BlockID', _t(__CLASS__.'.Block','Block von dieser Seite'), $this->getBlockTree())->setDepends('SiteTreeID')
+            DependentDropdownField::create('BlockID', _t(__CLASS__.'.Block','Block von dieser Seite'), 'getBlockTree')->setDepends('SiteTreeID')
             ->displayIf('Type')->isEqualTo('SiteTree')->end()
         );
     }
