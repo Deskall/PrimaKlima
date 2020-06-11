@@ -191,11 +191,11 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
 
     public function updateCMSFields(FieldList $fields){
-        foreach (BaseElement::get() as $b) {
-           if(ClassInfo::exists($b->Parent()->OwnerClassName)){
-            $b->write();
-            }
-        }
+        // foreach (BaseElement::get() as $b) {
+        //    if(ClassInfo::exists($b->Parent()->OwnerClassName)){
+        //     $b->write();
+        //     }
+        // }
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
