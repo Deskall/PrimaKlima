@@ -1,8 +1,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title><% if MetaTitle %>$MetaTitle<% else %>$Title<% end_if %></title>
 $MetaTags(false)
-<script>document.cookie='resolution='+Math.max(screen.width,screen.height)+("devicePixelRatio" in window ? ","+devicePixelRatio : ",1")+'; path=/';</script>
-
 <!-- StructuredData -->
 $StructuredData
 $StructuredBreadcrumbs
