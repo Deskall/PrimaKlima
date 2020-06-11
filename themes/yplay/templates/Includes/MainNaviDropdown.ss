@@ -10,7 +10,7 @@
 					<div>
 						<div class="uk-padding-small">
 							<div class="uk-flex uk-margin">
-								<% if Image %><img width="30" height="30"  class="menu-section-img" <% if $Image.getExtension == "svg" %>data-uk-svg src="$Image.URL"<% else %>src="$Image.FitMax(30,30).URL"<% end_if %>><% end_if %>
+								<% if Image %><img width="30" height="30"  class="menu-section-img" <% if $Image.getExtension == "svg" %>src="$Image.URL"<% else %>src="$Image.FitMax(30,30).URL"<% end_if %>><% end_if %>
 								<div class="<% if Image %>uk-margin-small-left<% end_if %> menu-section-title">$Title</div>
 							</div>
 							<div class="menu-section-text">$Text</div>
