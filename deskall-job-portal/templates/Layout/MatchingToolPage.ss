@@ -2,7 +2,7 @@
 	$ElementalArea
 	<section class="uk-section uk-section-small">
 		<div class="uk-container">
-			<% if Results.exists %>
+			<% if Results %>
 			<div data-uk-grid>
 				<div class="uk-width-1-3@s uk-with-1-4@m uk-width-1-5@l uk-width-1-6@l">
 					<div data-uk-sticky="offset:100">
