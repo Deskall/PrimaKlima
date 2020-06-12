@@ -112,7 +112,11 @@ class MatchingToolPageController extends PageController{
 	}
 
 	public function doMatch($data, Form $form){
-	
+		ob_start();
+					print_r($data);
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
 		try {
 			//Algorythm
 		} catch (ValidationException $e) {
