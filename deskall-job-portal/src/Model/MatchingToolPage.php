@@ -16,6 +16,7 @@ class MatchingToolPage extends Page {
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->addFieldToTab('Root.MatchingToolSettings',HTMLEditorField::create('MatchingToolExplanation',$this->fieldLabels()['MatchingToolExplanation'])->setRows(5));
+		return $fields;
 	}
 	
 	public function canCreate( $member = null, $context = []){
