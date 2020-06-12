@@ -41,7 +41,7 @@
 						    <div>
 						        <div class="uk-card uk-card-default uk-card-body">
 						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding uk-h1">80%</span>
+						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding-small">80%</span>
 						        		</div>
 						        		<div class="uk-width-1-3">
 						        			<img src="https://via.placeholder.com/150x200" />
@@ -64,7 +64,7 @@
 						    <div>
 						        <div class="uk-card uk-card-default uk-card-body">
 						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding uk-h1">80%</span>
+						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding-small">80%</span>
 						        		</div>
 						        		<div class="uk-width-1-3">
 						        			<img src="https://via.placeholder.com/150x200" />
@@ -87,7 +87,7 @@
 						    <div>
 						        <div class="uk-card uk-card-default uk-card-body">
 						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding uk-h1">80%</span>
+						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding-small">80%</span>
 						        		</div>
 						        		<div class="uk-width-1-3">
 						        			<img src="https://via.placeholder.com/150x200" />
@@ -110,7 +110,7 @@
 						    <div>
 						        <div class="uk-card uk-card-default uk-card-body">
 						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding uk-h1">80%</span>
+						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding-small">80%</span>
 						        		</div>
 						        		<div class="uk-width-1-3">
 						        			<img src="https://via.placeholder.com/150x200" />
@@ -133,7 +133,7 @@
 						    <div>
 						        <div class="uk-card uk-card-default uk-card-body">
 						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding uk-h1">80%</span>
+						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding-small">80%</span>
 						        		</div>
 						        		<div class="uk-width-1-3">
 						        			<img src="https://via.placeholder.com/150x200" />
