@@ -14,7 +14,7 @@
 				<div class="uk-width-1-2@s uk-width-2-3@m">
 					<h2>Matching Tool - Ergebnisse</h2>
 					<div id="results">
-						<div class="uk-grid-small uk-child-width-expand@s uk-text-center" data-uk-grid="masonry:true">
+						<div class="uk-grid-small uk-child-width-1-2@s uk-width-1-3@m uk-text-center" data-uk-grid="masonry:true">
 						    <div>
 						        <div class="uk-card uk-card-default uk-card-body">
 						        	<div class="uk-grid-small" data-uk-grid>
