@@ -32,6 +32,9 @@
 						        			</table>
 						        		</div>
 						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+						        		<div class="uk-text-center">
+						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
+						        		</div>
 						        	</div>
 						        </div>
 						    </div>
