@@ -38,6 +38,121 @@
 						        	</div>
 						        </div>
 						    </div>
+						    <div>
+						        <div class="uk-card uk-card-default uk-card-body">
+						        	<div class="uk-grid-small" data-uk-grid>
+						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding uk-h1">80%</span>
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        			<img src="https://via.placeholder.com/150x200" />
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        			<table>
+						        				<tr><td>Name</td><td>XXXX</td></tr>
+						        				<tr><td>Ort</td><td>XXXX</td></tr>
+						        				<tr><td>Email</td><td>XXXX</td></tr>
+						        				<tr><td>Telefon</td><td>XXXX</td></tr>
+						        			</table>
+						        		</div>
+						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+						        		<div class="uk-text-center">
+						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
+						        		</div>
+						        	</div>
+						        </div>
+						    </div>
+						    <div>
+						        <div class="uk-card uk-card-default uk-card-body">
+						        	<div class="uk-grid-small" data-uk-grid>
+						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding uk-h1">80%</span>
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        			<img src="https://via.placeholder.com/150x200" />
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        			<table>
+						        				<tr><td>Name</td><td>XXXX</td></tr>
+						        				<tr><td>Ort</td><td>XXXX</td></tr>
+						        				<tr><td>Email</td><td>XXXX</td></tr>
+						        				<tr><td>Telefon</td><td>XXXX</td></tr>
+						        			</table>
+						        		</div>
+						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+						        		<div class="uk-text-center">
+						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
+						        		</div>
+						        	</div>
+						        </div>
+						    </div>
+						    <div>
+						        <div class="uk-card uk-card-default uk-card-body">
+						        	<div class="uk-grid-small" data-uk-grid>
+						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding uk-h1">80%</span>
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        			<img src="https://via.placeholder.com/150x200" />
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        			<table>
+						        				<tr><td>Name</td><td>XXXX</td></tr>
+						        				<tr><td>Ort</td><td>XXXX</td></tr>
+						        				<tr><td>Email</td><td>XXXX</td></tr>
+						        				<tr><td>Telefon</td><td>XXXX</td></tr>
+						        			</table>
+						        		</div>
+						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+						        		<div class="uk-text-center">
+						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
+						        		</div>
+						        	</div>
+						        </div>
+						    </div>
+						    <div>
+						        <div class="uk-card uk-card-default uk-card-body">
+						        	<div class="uk-grid-small" data-uk-grid>
+						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding uk-h1">80%</span>
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        			<img src="https://via.placeholder.com/150x200" />
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        			<table>
+						        				<tr><td>Name</td><td>XXXX</td></tr>
+						        				<tr><td>Ort</td><td>XXXX</td></tr>
+						        				<tr><td>Email</td><td>XXXX</td></tr>
+						        				<tr><td>Telefon</td><td>XXXX</td></tr>
+						        			</table>
+						        		</div>
+						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+						        		<div class="uk-text-center">
+						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
+						        		</div>
+						        	</div>
+						        </div>
+						    </div>
+						    <div>
+						        <div class="uk-card uk-card-default uk-card-body">
+						        	<div class="uk-grid-small" data-uk-grid>
+						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding uk-h1">80%</span>
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        			<img src="https://via.placeholder.com/150x200" />
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        			<table>
+						        				<tr><td>Name</td><td>XXXX</td></tr>
+						        				<tr><td>Ort</td><td>XXXX</td></tr>
+						        				<tr><td>Email</td><td>XXXX</td></tr>
+						        				<tr><td>Telefon</td><td>XXXX</td></tr>
+						        			</table>
+						        		</div>
+						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+						        		<div class="uk-text-center">
+						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
+						        		</div>
+						        	</div>
+						        </div>
+						    </div>
 						</div>
 					</div>
 				</div>
