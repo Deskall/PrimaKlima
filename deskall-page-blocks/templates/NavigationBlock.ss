@@ -1,6 +1,6 @@
 
 
-<ul class="uk-subnav $TextAlign" data-uk-margin>
+<ul class="uk-subnav uk-flex <% if $TextAlign == "uk-text-left" %>uk-flex-left<% else_if $TextAlign == "uk-text-right"%>uk-flex-right<% else_if $TextAlign == "uk-text-center" %>uk-flex-center<% else %>uk-flex-between<% end_if %>" data-uk-margin>
 		<% loop Items %>
 	    	<li class="uk-width-1-1 uk-width-auto@m">
 	    		<% if ItemType == "block" || ItemType == "scrolltop" %> 
