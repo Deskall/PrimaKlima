@@ -6,7 +6,7 @@
 			<div data-uk-grid>
 				<div class="uk-width-1-2@s uk-width-1-3@m">
 					<div data-uk-sticky="offset:100">
-						<div class="uk-background-muted">
+						<div class="">
 							<h3>Filter</h3>
 						</div>
 					</div>
@@ -14,15 +14,25 @@
 				<div class="uk-width-1-2@s uk-width-2-3@m">
 					<h2>Matching Tool - Ergebnisse</h2>
 					<div id="results">
-						<div class="uk-grid-small uk-child-width-expand@s uk-text-center" data-uk-grid>
+						<div class="uk-grid-small uk-child-width-expand@s uk-text-center" data-uk-grid="masonry:true">
 						    <div>
-						        <div class="uk-card uk-card-default uk-card-body">Item</div>
-						    </div>
-						    <div>
-						        <div class="uk-card uk-card-default uk-card-body">Item</div>
-						    </div>
-						    <div>
-						        <div class="uk-card uk-card-default uk-card-body">Item</div>
+						        <div class="uk-card uk-card-default uk-card-body">
+						        	<div class="uk-grid-small" data-uk-grid>
+						        		<div>Kompatibilität <span class="uk-label-success">80%</span>
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        		</div>
+						        		<div class="uk-width-1-3">
+						        			<table>
+						        				<tr><td>Name</td><td>XXXX</td></tr>
+						        				<tr><td>Ort</td><td>XXXX</td></tr>
+						        				<tr><td>Email</td><td>XXXX</td></tr>
+						        				<tr><td>Telefon</td><td>XXXX</td></tr>
+						        			</table>
+						        		</div>
+						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+						        	</div>
+						        </div>
 						    </div>
 						</div>
 					</div>
