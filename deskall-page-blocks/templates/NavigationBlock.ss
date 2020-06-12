@@ -1,6 +1,6 @@
 
 
-<div class="$TextAlign" data-uk-margin data-uk-grid>
+<div class="uk-flex <% if $TextAlign == "uk-text-left" %>uk-flex-left<% else_if $TextAlign == "uk-text-right"%>uk-flex-right<% else_if $TextAlign == "uk-text-center" %>uk-flex-center<% else %>uk-flex-between<% end_if %>" data-uk-margin data-uk-grid>
 		<% loop Items %>
 	    	<div class="uk-width-1-1 uk-width-auto@m">
 	    		<% if ItemType == "block" || ItemType == "scrolltop" %> 
