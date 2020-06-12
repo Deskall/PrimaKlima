@@ -721,6 +721,11 @@ body{
 	.element:not(.parentblock) > .uk-section:not(.with-background){
 		.fill-block(@color);
 	}
+	.element.parentblock > .uk-section:not(.with-background){
+		h1,h2 {
+			color:@color;
+		}
+	}
 }
 
 .fill-block(@color){
