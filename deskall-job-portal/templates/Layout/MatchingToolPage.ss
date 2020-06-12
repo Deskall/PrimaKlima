@@ -21,7 +21,7 @@
 						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding uk-h1">80%</span>
 						        		</div>
 						        		<div class="uk-width-1-3">
-						        			<img src="https://via.placeholder.com/100x150" />
+						        			<img src="https://via.placeholder.com/150x200" />
 						        		</div>
 						        		<div class="uk-width-1-3">
 						        			<table>
