@@ -18,7 +18,7 @@
 						    <div>
 						        <div class="uk-card uk-card-default uk-card-body">
 						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div>Kompatibilität <span class="uk-label-success">80%</span>
+						        		<div class="uk-width-1-1">Kompatibilität <span class="uk-label-success">80%</span>
 						        		</div>
 						        		<div class="uk-width-1-3">
 						        		</div>
