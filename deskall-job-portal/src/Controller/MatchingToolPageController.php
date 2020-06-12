@@ -114,7 +114,7 @@ class MatchingToolPageController extends PageController{
 	public function doMatch($data, Form $form){
 	
 		try {
-			
+			//Algorythm
 		} catch (ValidationException $e) {
 			$validationMessages = '';
 			foreach($e->getResult()->getMessages() as $error){
@@ -125,6 +125,6 @@ class MatchingToolPageController extends PageController{
 		}
 		
 		
-		return $this->redirectBack();
+		return ['Matches' => true];
 	}
 }
