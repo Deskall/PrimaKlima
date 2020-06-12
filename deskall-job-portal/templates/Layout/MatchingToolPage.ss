@@ -4,14 +4,28 @@
 		<div class="uk-container">
 			<% if Matches %>
 			<div data-uk-grid>
-				<div class="uk-width-1-3@s uk-with-1-4@m uk-width-1-5@l uk-width-1-6@l">
+				<div class="uk-width-1-2@s uk-with-1-3@m">
 					<div data-uk-sticky="offset:100">
-						<h3>Filter</h3>
+						<div class="uk-background-muted">
+							<h3>Filter</h3>
+						</div>
 					</div>
 				</div>
-				<div class="uk-width-2-3@s uk-with-3-4@m uk-width-4-5@l uk-width-5-6@l">
+				<div class="uk-width-1-2@s uk-with-2-3@m">
 					<h2>Matching Tool - Ergebnisse</h2>
-					<div id="results">$Matches</div>
+					<div id="results">
+						<div class="uk-grid-small uk-child-width-expand@s uk-text-center" data-uk-grid>
+						    <div>
+						        <div class="uk-card uk-card-default uk-card-body">Item</div>
+						    </div>
+						    <div>
+						        <div class="uk-card uk-card-default uk-card-body">Item</div>
+						    </div>
+						    <div>
+						        <div class="uk-card uk-card-default uk-card-body">Item</div>
+						    </div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<% else %>
