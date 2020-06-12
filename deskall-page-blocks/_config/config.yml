@@ -1,7 +1,8 @@
 ---
 Name: deskall-page-blocks
 After:
-    - '#deskall-divers'
+  - '#linkable'
+  - '#deskall-divers'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-page-blocks
@@ -97,3 +98,7 @@ DNADesign\ElementalUserForms\Model\ElementForm:
 
 SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
     default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NocaptchaProtector
+
+Sheadawson\Linkable\Models\Link:
+  extensions:
+    - BlockLinkExtension
