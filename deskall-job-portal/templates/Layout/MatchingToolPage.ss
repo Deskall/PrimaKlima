@@ -16,6 +16,7 @@
 			</div>
 			<% else %>
 			<h2>Matching Tool - Suche nach Kompatibilität</h2>
+			$MatchingToolExplanation
 			$MatchingToolForm
 			<% end_if %>
 		</div>
