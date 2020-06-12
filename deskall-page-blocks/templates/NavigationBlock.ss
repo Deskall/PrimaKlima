@@ -1,8 +1,8 @@
 
 
-<ul class="uk-subnav uk-flex <% if $TextAlign == "uk-text-left" %>uk-flex-left<% else_if $TextAlign == "uk-text-right"%>uk-flex-right<% else_if $TextAlign == "uk-text-center" %>uk-flex-center<% else %>uk-flex-between<% end_if %>" data-uk-margin>
+<div class="$TextAlign" data-uk-margin data-uk-grid>
 		<% loop Items %>
-	    	<li class="uk-width-1-1 uk-width-auto@m">
+	    	<div class="uk-width-1-1 uk-width-auto@m">
 	    		<% if ItemType == "block" || ItemType == "scrolltop" %> 
 	    		<a href="#{$TargetLink}" class="uk-button button-{$BackgroundColor}" data-uk-scroll="offset:50">$NiceTitle</a>
 	    		<% else_if ItemType == "target" %>
@@ -16,6 +16,6 @@
 						<% end_with %>
 					<% end_if %>
 	    		<% end_if %>
-	    	</li>
+	    	</div>
 	   <% end_loop %>
-	</ul>
+	</div>
