@@ -1,6 +1,6 @@
 
 
-<ul class="uk-subnav uk-flex-{$TextAlignment} $ID $ClassName" data-uk-margin>
+<ul class="uk-subnav $TextAlign" data-uk-margin>
 		<% loop Items %>
 	    	<li class="uk-width-1-1 uk-width-auto@m">
 	    		<% if ItemType == "block" || ItemType == "scrolltop" %> 
