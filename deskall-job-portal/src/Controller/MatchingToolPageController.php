@@ -39,19 +39,19 @@ class MatchingToolPageController extends PageController{
 						foreach ($child->children() as $subchild) {
 							switch ($subchild->FieldType){
 								case "text":
-									$fields->push(DropdownField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+									$fields->push(DropdownField::create($subchild->Title,$subchild->Title,$subchild->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
 									break;
 								case "dropdown":
-									$fields->push(DropdownField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+									$fields->push(DropdownField::create($subchild->Title,$subchild->Title,$subchild->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
 									break;
 								case "multiple":
-									$fields->push(CheckboxSetField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+									$fields->push(CheckboxSetField::create($subchild->Title,$subchild->Title,$subchild->Values()->map('ID','Title')));
 									break;
 								case "multiple-free":
-									$fields->push(ListboxField::create($subchild->ID,$subchild->Title,$subchild->Values()->map('ID','Title')));
+									$fields->push(ListboxField::create($subchild->Title,$subchild->Title,$subchild->Values()->map('ID','Title')));
 									break;
 								case "range":
-									$fields->push(TextField::create($subchild->ID,$subchild->Title)->setAttribute('type','range')->setAttribute('class','uk-range'));
+									$fields->push(TextField::create($subchild->Title,$subchild->Title)->setAttribute('type','range')->setAttribute('class','uk-range'));
 									break;
 							}
 						}
@@ -59,19 +59,19 @@ class MatchingToolPageController extends PageController{
 					else{
 						switch ($child->FieldType){
 							case "text":
-								$fields->push(DropdownField::create($child->ID,$child->Title,$child->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+								$fields->push(DropdownField::create($child->Title,$child->Title,$child->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
 								break;
 							case "dropdown":
-								$fields->push(DropdownField::create($child->ID,$child->Title,$child->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+								$fields->push(DropdownField::create($child->Title,$child->Title,$child->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
 								break;
 							case "multiple":
-								$fields->push(CheckboxSetField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
+								$fields->push(CheckboxSetField::create($child->Title,$child->Title,$child->Values()->map('ID','Title')));
 								break;
 							case "multiple-free":
-								$fields->push(ListboxField::create($child->ID,$child->Title,$child->Values()->map('ID','Title')));
+								$fields->push(ListboxField::create($child->Title,$child->Title,$child->Values()->map('ID','Title')));
 								break;
 							case "range":
-								$fields->push(TextField::create($child->ID,$child->Title)->setAttribute('type','range')->setAttribute('class','uk-range'));
+								$fields->push(TextField::create($child->Title,$child->Title)->setAttribute('type','range')->setAttribute('class','uk-range'));
 								break;
 						}
 					}
@@ -80,19 +80,19 @@ class MatchingToolPageController extends PageController{
 			else{
 				switch ($group->FieldType){
 					case "text":
-						$fields->push(DropdownField::create($group->ID,$group->Title,$group->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+						$fields->push(DropdownField::create($group->Title,$group->Title,$group->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
 						break;
 					case "dropdown":
-						$fields->push(DropdownField::create($group->ID,$group->Title,$group->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+						$fields->push(DropdownField::create($group->Title,$group->Title,$group->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
 						break;
 					case "multiple":
-						$fields->push(CheckboxSetField::create($group->ID,$group->Title,$group->Values()->map('ID','Title')));
+						$fields->push(CheckboxSetField::create($group->Title,$group->Title,$group->Values()->map('ID','Title')));
 						break;
 					case "multiple-free":
-						$fields->push(ListboxField::create($group->ID,$group->Title,$group->Values()->map('ID','Title')));
+						$fields->push(ListboxField::create($group->Title,$group->Title,$group->Values()->map('ID','Title')));
 						break;
 					case "range":
-						$fields->push(TextField::create($group->ID,$group->Title)->setAttribute('type','range')->setAttribute('class','uk-range'));
+						$fields->push(TextField::create($group->Title,$group->Title)->setAttribute('type','range')->setAttribute('class','uk-range'));
 						break;
 				}
 			}
