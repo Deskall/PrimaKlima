@@ -27,7 +27,7 @@ class MatchingToolPageController extends PageController{
 		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$fields = FieldList::create(
 			HiddenField::create('CustomerID')->setValue($JobGiver->ID),
-			TextField::create('Compatibility',_t('MatchingTool.Compatibility','Kompatibilität (%)'))->setAttribute('class','uk-range')->setAttribute('type','range')->setAttribute('min',0)->setAttribute('max',100)->setAttribute('step',5);
+			TextField::create('Compatibility',_t('MatchingTool.Compatibility','Kompatibilität (%)'))->setAttribute('class','uk-range')->setAttribute('type','range')->setAttribute('min',0)->setAttribute('max',100)->setAttribute('step',5)
 		);
 
 		foreach (ProfilParameter::get()->filter('ParentID',0) as $group) {
