@@ -698,7 +698,7 @@ body{
 	h1{
 		color:@color;
 	}
-	main .element > .uk-section:not(.with-background) a:not(.uk-button){
+	main .element:not(.parentblock) > .uk-section:not(.with-background) a:not(.uk-button){
 		color:@color;
 	}
 	main .dk-button,.bestseller{
@@ -718,7 +718,7 @@ body{
 	.uk-dotnav > .uk-active > * {
 		background: fade(@color, 60%);
 	}
-	.element > .uk-section:not(.with-background){
+	.element:not(.parentblock) > .uk-section:not(.with-background){
 		.fill-block(@color);
 	}
 }
