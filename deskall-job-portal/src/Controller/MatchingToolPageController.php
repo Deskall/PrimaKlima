@@ -138,7 +138,7 @@ class MatchingToolPageController extends PageController{
 						$queryP->ParameterID = $param->ID;
 						$queryP->Title = $param->Title;
 						if (is_array($value)){
-							$queryP->Value = implode(','$value);
+							$queryP->Value = implode(',',$value);
 						}
 						else{
 							$queryP->Value = $value;
