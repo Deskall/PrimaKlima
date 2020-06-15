@@ -122,7 +122,7 @@ class MatchingToolPageController extends PageController{
 					print_r($data);
 					$result = ob_get_clean();
 					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-
+		$matches = null;
 		try {
 			//save query
 			$query = new MatchingQuery();
@@ -130,19 +130,26 @@ class MatchingToolPageController extends PageController{
 			$exclude = ['CustomerID','Compatibility','SecurityID','action_doMatch'];
 			foreach ($data as $key => $value) {
 				if (!in_array($key, $exclude)){
-					$param = ProfilParameter::get()->
-					if (is_array($value)){
-
+					$id = substr($key,0,strpos($key,'-'));
+					$param = ProfilParameter::get()->byId($id);
+					if ($param) {
+						$queryP = new MatchingQueryParameter();
+						$queryP->QueryID = $query;
+						$queryP->ParameterID = $param->ID;
+						$queryP->Title = $param->Title;
+						if (is_array($value)){
+							$queryP->Value = implode(','$value);
+						}
+						else{
+							$queryP->Value = $value
+						}
+						$queryP->write();
 					}
+					
 				}
 			}
-			//Loop all candidat and estimate comptibility
-			foreach(Candidat::get() as $candidat){
-
-			}
-			// return results
-
-			//Algorythm
+			$matches = $query->getMatches();
+			
 		} catch (ValidationException $e) {
 			$validationMessages = '';
 			foreach($e->getResult()->getMessages() as $error){
@@ -153,6 +160,6 @@ class MatchingToolPageController extends PageController{
 		}
 		
 		
-		return ['Matches' => true];
+		return ['Matches' => $matches];
 	}
 }

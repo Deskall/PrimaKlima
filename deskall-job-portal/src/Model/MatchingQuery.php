@@ -65,4 +65,10 @@ class MatchingQuery extends DataObject
     $fields = parent::getCMSFields();
     return $fields;
   }
+
+  public function getMatches(){
+    $this->estimateCompatibilities();
+    return $this->Results()->filter('Compatibility:GreaterThanOrEqual',$this->Compatibility);
+  }
+
 }
