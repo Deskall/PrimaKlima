@@ -27,7 +27,7 @@ class MatchingToolPageController extends PageController{
 		$actions = new FieldList(FormAction::create('doMatch', _t('MatchingTool.SEARCH', 'Suchen'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'. _t('MatchingTool.SEARCH', 'Suchen')));
 		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$fields = FieldList::create(
-			HiddenField::create('CustomerID')->setValue($JobGiver->ID),
+			$customer = HiddenField::create('CustomerID'),
 			TextField::create('Compatibility',_t('MatchingTool.Compatibility','Kompatibilität (%)'))->setAttribute('class','uk-range')->setAttribute('type','range')->setAttribute('min',0)->setAttribute('max',100)->setAttribute('step',5)
 		);
 
@@ -97,6 +97,10 @@ class MatchingToolPageController extends PageController{
 						break;
 				}
 			}
+		}
+
+		if ($JobGiver){
+			$customer->setValue($JobGiver->ID);
 		}
 
 		$form = new Form(
