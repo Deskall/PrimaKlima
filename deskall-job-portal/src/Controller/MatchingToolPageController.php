@@ -141,7 +141,7 @@ class MatchingToolPageController extends PageController{
 							$queryP->Value = implode(','$value);
 						}
 						else{
-							$queryP->Value = $value
+							$queryP->Value = $value;
 						}
 						$queryP->write();
 					}
