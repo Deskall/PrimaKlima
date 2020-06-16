@@ -63,6 +63,22 @@ class ProfilParameter extends JobParameter
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
+        //Weight
+        if (!$this->Weight){
+          if ($this->Parent()->exists()){
+            $children = $this->Parent()->Children();
+            $i = $children->count();
+            $p = 100;
+            foreach ($children as $child) {
+              if ($child->Weight){
+                $p -= $child->Weight; 
+                $i--;
+              }
+             
+            }
+            $this->Weight = $p / $i;
+          }
+        }
        
     }
 
@@ -77,6 +93,9 @@ class ProfilParameter extends JobParameter
 
     public function getCMSFields()
     {
+      foreach (ProfilParameter::get() as $p) {
+        $p->write();
+      }
        $fields = parent::getCMSFields();
        $fields->removeByName('ParentID');
        $fields->removeByName('Children');
