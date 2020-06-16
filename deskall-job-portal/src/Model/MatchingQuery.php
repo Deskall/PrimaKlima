@@ -68,14 +68,41 @@ class MatchingQuery extends DataObject
 
   public function getMatches(){
     $this->estimateCompatibilities();
-    return $this->Results()->filter('Compatibility:GreaterThanOrEqual',$this->Compatibility);
+    return $this->Results();
   }
 
   //Algorythm
   public function estimateCompatibilities(){
-    //1. Main profil data = 20%
-    //2. other 80%
-      //2.1 
+    //1. Main profil data = 40%
+    $position = $this->Parameters()->filter('Title','Position')->first()->Value;
+    //2. other 60%
+      //Weight given by parameter in CMS
+    $candidats = Candidat::get();
+    foreach ($candidats as $c) {
+      $compatibility = 0;
+      //1.has position
+      $hasPosition = false;
+      if ($c->CVItems()->exists()){
+        foreach ($c->CVItems() as $job) {
+          if ($job->Position == $position){
+            $hasPosition = true;
+            break;
+          }
+        }
+      }
+      if ($hasPosition){
+        $compatibility += 40;
+      }
+
+      if ($compatibility >= $this->Compatibility){
+        $result = new MatchingResult();
+        $result->Compatibility = $compatibility;
+        $result->CandidatID = $c->ID;
+        $result->write();
+        $this->Results()->add($result);
+      }
+      
+    }
   }
 
 }
