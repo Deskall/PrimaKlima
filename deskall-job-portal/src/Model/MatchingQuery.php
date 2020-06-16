@@ -113,11 +113,12 @@ class MatchingQuery extends DataObject
             print_r('param: '.$qp->Title."\n");
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-            ob_start();
-                print_r('weight: '.$param->relativeWeight()."\n");
-                $result = ob_get_clean();
-                file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+           
         $param = $qp->Parameter();
+        ob_start();
+            print_r('weight: '.$param->relativeWeight()."\n");
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
         $weight = $param->Weight;
         $assigned = $c->Parameters()->filter('Title',$qp->Title)->first();
         if ($assigned) {
