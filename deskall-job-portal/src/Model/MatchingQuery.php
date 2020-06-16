@@ -73,12 +73,20 @@ class MatchingQuery extends DataObject
 
   //Algorythm
   public function estimateCompatibilities(){
+    ob_start();
+          print_r('start estimation - compatibility: '.$this->Compatibility."<br/>");
+          $result = ob_get_clean();
+          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     //1. Main profil data = 40%
     $position = $this->Parameters()->filter('Title','Position')->first()->Value;
     //2. other 60%
       //Weight given by parameter in CMS
     $candidats = Candidat::get();
     foreach ($candidats as $c) {
+      ob_start();
+          print_r('bewerber '.$c->ID."<br/>");
+          $result = ob_get_clean();
+          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       $compatibility = 60;
       //1.has position
       $hasPosition = false;
@@ -93,7 +101,10 @@ class MatchingQuery extends DataObject
       if ($hasPosition){
         $compatibility += 40;
       }
-
+      ob_start();
+          print_r('bewerber '.$compatibility."<br/>");
+          $result = ob_get_clean();
+          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       if ($compatibility >= $this->Compatibility){
         $result = new MatchingResult();
         $result->Compatibility = $compatibility;
