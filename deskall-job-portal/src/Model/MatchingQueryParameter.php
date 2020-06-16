@@ -14,7 +14,7 @@ class MatchingQueryParameter extends DataObject
     private static $plural_name = "Matching Tool Suche Parameter";
 
     private static $has_one = [
-        'Parameter' => ProfilParameter::class,
+        'Parameter' => JobParameter::class,
         'Query' => MatchingQuery::class
     ];
 
