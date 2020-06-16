@@ -38,7 +38,7 @@ class MatchingQuery extends DataObject
   ];
 
   private static $cascade_deletes = [
-    'Results'
+    'Results', 'Parameters'
   ];
 
 
