@@ -108,7 +108,7 @@ class MatchingQuery extends DataObject
             case "text":
             case "dropdown":
               if ($qp->Value == $assigned->Value){
-                $compatibility += $assigned->relativeWeight();
+                $compatibility += $param->relativeWeight();
               }
             break;
             case "multiple":
@@ -118,10 +118,10 @@ class MatchingQuery extends DataObject
             case "range":
               $wanted = $qp->Value;
               if ($wanted >= $assigned->Value){
-                $compatibility += $assigned->relativeWeight();
+                $compatibility += $param->relativeWeight();
               }
               else{
-                $compatibility += $assigned->relativeWeight() * ($assigned->Value / $wanted);
+                $compatibility += $param->relativeWeight() * ($assigned->Value / $wanted);
               }
             break;
           }
