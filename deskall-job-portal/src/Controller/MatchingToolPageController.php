@@ -128,6 +128,13 @@ class MatchingToolPageController extends PageController{
 			$query->write();
 			$exclude = ['CustomerID','Compatibility','SecurityID','action_doMatch'];
 			foreach ($data as $key => $value) {
+				if ($key == "Position"){
+					$queryP = new MatchingQueryParameter();
+					$queryP->Title = "Position";
+					$queryP->Value = $value;
+					$queryP->write();
+					$query->Parameters()->add($queryP);
+				}
 				if (!in_array($key, $exclude)){
 					$id = substr($key,0,strpos($key,'-'));
 					$param = ProfilParameter::get()->byId($id);
