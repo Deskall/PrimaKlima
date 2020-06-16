@@ -356,7 +356,7 @@ class Candidat extends DataObject
             'Position' => array (
                 'title' => _t('KOCH.Position', 'Position'),
                 'callback' => function ($record, $column){
-                    return TextField::create('Position', _t('KOCH.Position', 'Position'))->setAttribute('list','position_suggestions');
+                    return TextField::create('Position', _t('KOCH.Position', 'Position'));
                 }
             ),
             'Description' => array (

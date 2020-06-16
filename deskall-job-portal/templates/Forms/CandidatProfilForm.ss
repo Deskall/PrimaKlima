@@ -72,11 +72,6 @@
 			
 		</div>
 
-		<%-- datalist for position: help sanytize input --%>
-		<datalist id="position_suggestions">
-			<option value="test">
-		</datalist>
-
 		<div>
 			<h3><%t JobSucher.FilesTitle 'Ihre Unterlagen' %></h3>
 			<div id="Form_CandidatProfilForm_Files_Holder" class="field uk-margin-small">

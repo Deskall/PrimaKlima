@@ -79,7 +79,7 @@ class MatchingQuery extends DataObject
       //Weight given by parameter in CMS
     $candidats = Candidat::get();
     foreach ($candidats as $c) {
-      $compatibility = 0;
+      $compatibility = 60;
       //1.has position
       $hasPosition = false;
       if ($c->CVItems()->exists()){
