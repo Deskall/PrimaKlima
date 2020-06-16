@@ -28,6 +28,9 @@ class JobPortalAdmin extends ModelAdmin{
 		'Candidat' => [
 			'title' => 'Kandidaten'
 		],
+		'MatchingQuery' => [
+			'title' => 'Matching Tool Anfragen'
+		],
 		'JobPortalConfig' => [
 			'title' => 'Einstellungen'
 		]
