@@ -28,7 +28,8 @@ class MatchingToolPageController extends PageController{
 		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$fields = FieldList::create(
 			$customer = HiddenField::create('OwnerID'),
-			TextField::create('Compatibility',_t('MatchingTool.Compatibility','Kompatibilität (%)'))->setAttribute('class','uk-range')->setAttribute('type','range')->setAttribute('min',0)->setAttribute('max',100)->setAttribute('step',5)
+			TextField::create('Compatibility',_t('MatchingTool.Compatibility','Kompatibilität (%)'))->setAttribute('class','uk-range')->setAttribute('type','range')->setAttribute('min',0)->setAttribute('max',100)->setAttribute('step',5),
+			CheckboxSetField::create('Positions',_t('MatchingTool.Positions','Position'),JobParameter::get()->byId(4)->Values()->map('ID','Title'))
 		);
 
 		foreach (ProfilParameter::get()->filter('ParentID',0) as $group) {
