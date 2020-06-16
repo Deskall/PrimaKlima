@@ -117,12 +117,12 @@ class MatchingToolPageController extends PageController{
 	}
 
 	public function doMatch($data, Form $form){
+		$this->getRequest()->getSession()->clear('query_id');
 
 		ob_start();
 					print_r($data);
 					$result = ob_get_clean();
 					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-		$matches = null;
 		try {
 			//save query
 			$query = new MatchingQuery();
@@ -149,7 +149,7 @@ class MatchingToolPageController extends PageController{
 					
 				}
 			}
-			$matches = $query->getMatches();
+			$this->getRequest()->getSession()->set('query_id',$query->ID);
 			
 		} catch (ValidationException $e) {
 			$validationMessages = '';
@@ -161,6 +161,6 @@ class MatchingToolPageController extends PageController{
 		}
 		
 		
-		return ['Matches' => $matches];
+		return $this->redirectBack();
 	}
 }
