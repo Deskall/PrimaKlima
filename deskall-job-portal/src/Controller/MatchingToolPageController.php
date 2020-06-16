@@ -162,8 +162,8 @@ class MatchingToolPageController extends PageController{
 		return $this->redirectBack();
 	}
 
-	public function activeQuery(HTTPRequest $request){
-		$id = $request->getSession()->get('query_id');
+	public function activeQuery(){
+		$id = $this->getRequest()->getSession()->get('query_id');
 		if ($id){
 			$query = MatchingQuery::get()->byId($id);
 			return $query;
