@@ -132,6 +132,10 @@ class MatchingToolPageController extends PageController{
 			foreach ($data as $key => $value) {
 				if (!in_array($key, $exclude)){
 					$id = substr($key,0,strpos($key,'-'));
+					ob_start();
+								print_r($id);
+								$result = ob_get_clean();
+								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
 					$param = ProfilParameter::get()->byId($id);
 					if ($param) {
 						$queryP = new MatchingQueryParameter();
