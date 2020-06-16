@@ -80,27 +80,13 @@ class MatchingQuery extends DataObject
     //1. Main profil data = 40%
     $positionID = $this->Parameters()->filter('Title','Position')->first()->Value;
     $position = JobParameterValue::get()->byId($positionID);
-    ob_start();
-        print_r('position gesucht: '.$position->Title."<br/>");
-        $result = ob_get_clean();
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-    //2. other 60%
-      //Weight given by parameter in CMS
     $candidats = Candidat::get();
     foreach ($candidats as $c) {
-      ob_start();
-          print_r('bewerber: '.$c->ID."<br/>");
-          $result = ob_get_clean();
-          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       $compatibility = 0;
       //1.has position
       $hasPosition = false;
       if ($c->CVItems()->exists()){
         foreach ($c->CVItems() as $job) {
-          ob_start();
-              print_r('position: '.$job->Position."<br/>");
-              $result = ob_get_clean();
-              file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
           if ($job->Position == $position->Title){
             $hasPosition = true;
             break;
@@ -110,6 +96,42 @@ class MatchingQuery extends DataObject
       if ($hasPosition){
         $compatibility += 40;
       }
+
+      //2. other 60%
+        //Weight given by parameter in CMS
+      foreach($this->Parameters()->exclude('Title','Position') as $qp){
+        $param = $qp->Parameter();
+        $weight = $param->Weight;
+        $assigned = $c->Parameters()->filter('Title',$p->Title)->first();
+        if ($assigned) {
+          switch($param->FieldType){
+            case "text":
+            case "dropdown":
+              if ($p->Value == $assigned->Value){
+                $compatibility += $assigned->relativeWeight();
+              }
+            break;
+            case "multiple":
+            break;
+            case "multiple-free":
+            break;
+            case "range":
+              $wanted = $p->Value;
+              if ($wanted >= $assigned->Value){
+                $compatibility += $assigned->relativeWeight();
+              }
+              else{
+                $compatibility += $assigned->relativeWeight() * ($assigned->Value / $wanted);
+              }
+            break;
+          }
+        }
+        
+      }
+
+
+
+
       ob_start();
           print_r('compatibility: '.$compatibility."<br/>");
           $result = ob_get_clean();

@@ -94,6 +94,16 @@ class ProfilParameter extends JobParameter
        
     }
 
+    public function relativeWeight(){
+      $weight = $this->Weight / 100;
+      $parent = $this->Parent();
+      while($parent->exists()){
+        $weight = $weight * ($parent->weight / 100);
+        $parent = $parent->Parent();
+      }
+      return $weight;
+    }
+
 
 
     public function getCMSFields()
