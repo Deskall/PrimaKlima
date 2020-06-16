@@ -74,7 +74,7 @@ class MatchingQuery extends DataObject
   //Algorythm
   public function estimateCompatibilities(){
     ob_start();
-          print_r('start estimation - compatibility: '.$this->Compatibility."<br/>");
+          print_r('start estimation - compatibility: '.$this->Compatibility."\n");
           $result = ob_get_clean();
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     //1. Main profil data = 40%
@@ -83,7 +83,7 @@ class MatchingQuery extends DataObject
     $candidats = Candidat::get();
     foreach ($candidats as $c) {
       ob_start();
-          print_r('start bewerber: '.$c->ID."<br/>");
+          print_r('start bewerber: '.$c->ID."\n");
           $result = ob_get_clean();
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       $compatibility = 0;
@@ -102,7 +102,7 @@ class MatchingQuery extends DataObject
       }
 
       ob_start();
-          print_r('compatibility: '.$compatibility."<br/>");
+          print_r('compatibility: '.$compatibility."\n");
           $result = ob_get_clean();
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
 
@@ -110,7 +110,7 @@ class MatchingQuery extends DataObject
         //Weight given by parameter in CMS
       foreach($this->Parameters()->exclude('Title','Position') as $qp){
         ob_start();
-            print_r('param: '.$qp->Title."<br/>");
+            print_r('param: '.$qp->Title."\n");
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
         $param = $qp->Parameter();
@@ -140,7 +140,15 @@ class MatchingQuery extends DataObject
           }
         }
         ob_start();
-            print_r('compatibility: '.$compatibility."<br/>");
+            print_r('wanted: '.$qp->Value."\n");
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+             ob_start();
+            print_r('given: '.$assigned->Value."\n");
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+        ob_start();
+            print_r('compatibility: '.$compatibility."\n");
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       }
@@ -149,7 +157,7 @@ class MatchingQuery extends DataObject
 
 
       ob_start();
-          print_r('compatibility: '.$compatibility."<br/>");
+          print_r('compatibility: '.$compatibility."\n");
           $result = ob_get_clean();
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       if ($compatibility >= $this->Compatibility){
