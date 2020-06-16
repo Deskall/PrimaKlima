@@ -102,12 +102,12 @@ class MatchingQuery extends DataObject
       foreach($this->Parameters()->exclude('Title','Position') as $qp){
         $param = $qp->Parameter();
         $weight = $param->Weight;
-        $assigned = $c->Parameters()->filter('Title',$p->Title)->first();
+        $assigned = $c->Parameters()->filter('Title',$qp->Title)->first();
         if ($assigned) {
           switch($param->FieldType){
             case "text":
             case "dropdown":
-              if ($p->Value == $assigned->Value){
+              if ($qp->Value == $assigned->Value){
                 $compatibility += $assigned->relativeWeight();
               }
             break;
@@ -116,7 +116,7 @@ class MatchingQuery extends DataObject
             case "multiple-free":
             break;
             case "range":
-              $wanted = $p->Value;
+              $wanted = $qp->Value;
               if ($wanted >= $assigned->Value){
                 $compatibility += $assigned->relativeWeight();
               }
