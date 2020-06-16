@@ -79,6 +79,10 @@ class MatchingQuery extends DataObject
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     //1. Main profil data = 40%
     $position = $this->Parameters()->filter('Title','Position')->first()->Value;
+    ob_start();
+        print_r('position gesucht: '.$position."<br/>");
+        $result = ob_get_clean();
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
     //2. other 60%
       //Weight given by parameter in CMS
     $candidats = Candidat::get();
