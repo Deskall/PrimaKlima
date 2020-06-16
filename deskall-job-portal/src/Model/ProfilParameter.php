@@ -45,6 +45,11 @@ class ProfilParameter extends JobParameter
       'Children'
     ];
 
+    private static $summary_fields = [
+       'Title',
+       'Weight'
+    ];
+
 
     public function fieldLabels($includerelation = true){
 	    $labels = parent::fieldLabels($includerelation);
@@ -93,9 +98,6 @@ class ProfilParameter extends JobParameter
 
     public function getCMSFields()
     {
-      foreach (ProfilParameter::get() as $p) {
-        $p->write();
-      }
        $fields = parent::getCMSFields();
        $fields->removeByName('ParentID');
        $fields->removeByName('Children');
