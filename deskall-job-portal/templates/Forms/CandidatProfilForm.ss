@@ -73,7 +73,7 @@
 		</div>
 
 		<%-- datalist for position: help sanytize input --%>
-		<datalist id="position-suggestions">
+		<datalist id="position_suggestions">
 			<option value="test">
 		</datalist>
 
