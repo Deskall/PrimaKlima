@@ -84,14 +84,18 @@ class MatchingQuery extends DataObject
     $candidats = Candidat::get();
     foreach ($candidats as $c) {
       ob_start();
-          print_r('bewerber '.$c->ID."<br/>");
+          print_r('bewerber: '.$c->ID."<br/>");
           $result = ob_get_clean();
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-      $compatibility = 60;
+      $compatibility = 0;
       //1.has position
       $hasPosition = false;
       if ($c->CVItems()->exists()){
         foreach ($c->CVItems() as $job) {
+          ob_start();
+              print_r('position: '.$job->Position."<br/>");
+              $result = ob_get_clean();
+              file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
           if ($job->Position == $position){
             $hasPosition = true;
             break;
@@ -102,7 +106,7 @@ class MatchingQuery extends DataObject
         $compatibility += 40;
       }
       ob_start();
-          print_r('bewerber '.$compatibility."<br/>");
+          print_r('compatibility: '.$compatibility."<br/>");
           $result = ob_get_clean();
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       if ($compatibility >= $this->Compatibility){
