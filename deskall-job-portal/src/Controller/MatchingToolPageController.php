@@ -10,6 +10,7 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 
@@ -29,7 +30,7 @@ class MatchingToolPageController extends PageController{
 		$fields = FieldList::create(
 			$customer = HiddenField::create('OwnerID'),
 			TextField::create('Compatibility',_t('MatchingTool.Compatibility','Kompatibilität (%)'))->setAttribute('class','uk-range')->setAttribute('type','range')->setAttribute('min',0)->setAttribute('max',100)->setAttribute('step',5),
-			CheckboxSetField::create('Positions',_t('MatchingTool.Positions','Position'),JobParameter::get()->byId(4)->Values()->map('ID','Title'))
+			OptionsetField::create('Positions',_t('MatchingTool.Positions','Position'),JobParameter::get()->byId(4)->Values()->map('ID','Title'))
 		);
 
 		foreach (ProfilParameter::get()->filter('ParentID',0) as $group) {
