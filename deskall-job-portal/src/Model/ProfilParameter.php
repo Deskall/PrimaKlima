@@ -69,7 +69,7 @@ class ProfilParameter extends JobParameter
     public function onBeforeWrite(){
         parent::onBeforeWrite();
         //Weight
-        if (!$this->Weight){
+        if ($this->Weight == 0){
           if ($this->Parent()->exists()){
             $children = $this->Parent()->Children();
             $i = $children->count();
