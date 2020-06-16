@@ -113,6 +113,10 @@ class MatchingQuery extends DataObject
             print_r('param: '.$qp->Title."\n");
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+            ob_start();
+                print_r('weight: '.$param->relativeWeight()."\n");
+                $result = ob_get_clean();
+                file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
         $param = $qp->Parameter();
         $weight = $param->Weight;
         $assigned = $c->Parameters()->filter('Title',$qp->Title)->first();
@@ -130,7 +134,7 @@ class MatchingQuery extends DataObject
             break;
             case "range":
               $wanted = $qp->Value;
-              if ($wanted >= $assigned->Value){
+              if ($assigned->Value >= $wanted ){
                 $compatibility += $param->relativeWeight();
               }
               else{
