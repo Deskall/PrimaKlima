@@ -75,7 +75,7 @@ class ProfilParameter extends JobParameter
             $i = $children->count();
             $p = 100;
             foreach ($children as $child) {
-              if ($child->Weight){
+              if ($child->Weight > 0){
                 $p -= $child->Weight; 
                 $i--;
               }
