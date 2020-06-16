@@ -16,144 +16,49 @@
 					<h2>Matching Tool - Ergebnisse</h2>
 					<div id="results">
 						<div class="uk-grid-small uk-child-width-1-2@m" data-uk-grid="masonry:true">
-						    <div>
-						        <div class="uk-card uk-card-default uk-card-body">
-						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding-small">80%</span>
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<img src="https://via.placeholder.com/150x200" />
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<table>
-						        				<tr><td>Name</td><td>XXXX</td></tr>
-						        				<tr><td>Ort</td><td>XXXX</td></tr>
-						        				<tr><td>Email</td><td>XXXX</td></tr>
-						        				<tr><td>Telefon</td><td>XXXX</td></tr>
-						        			</table>
-						        		</div>
-						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-						        		<div class="uk-text-center">
-						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
-						        		</div>
-						        	</div>
-						        </div>
-						    </div>
-						    <div>
-						        <div class="uk-card uk-card-default uk-card-body">
-						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding-small">75%</span>
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<img src="https://via.placeholder.com/150x200" />
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<table>
-						        				<tr><td>Name</td><td>XXXX</td></tr>
-						        				<tr><td>Ort</td><td>XXXX</td></tr>
-						        				<tr><td>Email</td><td>XXXX</td></tr>
-						        				<tr><td>Telefon</td><td>XXXX</td></tr>
-						        			</table>
-						        		</div>
-						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-						        		<div class="uk-text-center">
-						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
-						        		</div>
-						        	</div>
-						        </div>
-						    </div>
-						    <div>
-						        <div class="uk-card uk-card-default uk-card-body">
-						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div class="uk-position-top-right"><span class="uk-label-success uk-padding-small">70%</span>
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<img src="https://via.placeholder.com/150x200" />
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<table>
-						        				<tr><td>Name</td><td>XXXX</td></tr>
-						        				<tr><td>Ort</td><td>XXXX</td></tr>
-						        				<tr><td>Email</td><td>XXXX</td></tr>
-						        				<tr><td>Telefon</td><td>XXXX</td></tr>
-						        			</table>
-						        		</div>
-						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-						        		<div class="uk-text-center">
-						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
-						        		</div>
-						        	</div>
-						        </div>
-						    </div>
-						    <div>
-						        <div class="uk-card uk-card-default uk-card-body">
-						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div class="uk-position-top-right"><span class="uk-label-warning uk-padding-small">60%</span>
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<img src="https://via.placeholder.com/150x200" />
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<table>
-						        				<tr><td>Name</td><td>XXXX</td></tr>
-						        				<tr><td>Ort</td><td>XXXX</td></tr>
-						        				<tr><td>Email</td><td>XXXX</td></tr>
-						        				<tr><td>Telefon</td><td>XXXX</td></tr>
-						        			</table>
-						        		</div>
-						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-						        		<div class="uk-text-center">
-						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
-						        		</div>
-						        	</div>
-						        </div>
-						    </div>
-						    <div>
-						        <div class="uk-card uk-card-default uk-card-body">
-						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div class="uk-position-top-right"><span class="uk-label-warning uk-padding-small">50%</span>
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<img src="https://via.placeholder.com/150x200" />
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<table>
-						        				<tr><td>Name</td><td>XXXX</td></tr>
-						        				<tr><td>Ort</td><td>XXXX</td></tr>
-						        				<tr><td>Email</td><td>XXXX</td></tr>
-						        				<tr><td>Telefon</td><td>XXXX</td></tr>
-						        			</table>
-						        		</div>
-						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-						        		<div class="uk-text-center">
-						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
-						        		</div>
-						        	</div>
-						        </div>
-						    </div>
-						    <div>
-						        <div class="uk-card uk-card-default uk-card-body">
-						        	<div class="uk-grid-small" data-uk-grid>
-						        		<div class="uk-position-top-right"><span class="uk-label-danger uk-padding-small">40%</span>
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<img src="https://via.placeholder.com/150x200" />
-						        		</div>
-						        		<div class="uk-width-1-3">
-						        			<table>
-						        				<tr><td>Name</td><td>XXXX</td></tr>
-						        				<tr><td>Ort</td><td>XXXX</td></tr>
-						        				<tr><td>Email</td><td>XXXX</td></tr>
-						        				<tr><td>Telefon</td><td>XXXX</td></tr>
-						        			</table>
-						        		</div>
-						        		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan condimentum ipsum eu placerat. Nulla ac sem non tellus condimentum viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-						        		<div class="uk-text-center">
-						        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
-						        		</div>
-						        	</div>
-						        </div>
-						    </div>
+							<% if activeQuery.Results %>
+								<% loop activeQuery.Results %>
+							    <div>
+							        <div class="uk-card uk-card-default uk-card-body">
+							        	<div class="uk-grid-small" data-uk-grid>
+							        		<div class="uk-position-top-right"><span class="<% if Compatibility > 70 %>uk-label-success<% else_if Compatibility > 50 %>uk-label-warning<% else %>uk-label-danger<% end_if %> uk-padding-small">{$Compatibility}%</span>
+							        		</div>
+							        		<% if isVisible %>
+								        		<% with Candidat %>
+								        		<div class="uk-width-1-3">
+								        			<img src="$Picture.URL" />
+								        		</div>
+								        		<div class="uk-width-1-3">
+								        			<table>
+								        				<tr><td>Name</td><td>$Member.FirstName $Member.Surname</td></tr>
+								        				<tr><td>Ort</td><td>$Member.City</td></tr>
+								        				<tr><td>Email</td><td>$Member.Email</td></tr>
+								        				<tr><td>Telefon</td><td>$Phone</td></tr>
+								        			</table>
+								        		</div>
+								        		<% end_with %>
+							        		<% else %>
+							        		<div class="uk-width-1-3">
+							        			<img src="https://via.placeholder.com/150x200" />
+							        		</div>
+							        		<div class="uk-width-1-3">
+							        			<table>
+							        				<tr><td>Name</td><td>XXXX</td></tr>
+							        				<tr><td>Ort</td><td>XXXX</td></tr>
+							        				<tr><td>Email</td><td>XXXX</td></tr>
+							        				<tr><td>Telefon</td><td>XXXX</td></tr>
+							        			</table>
+							        		</div>
+							        		<% end_if %>
+							        		$Description
+							        		<div class="uk-text-center">
+							        			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
+							        		</div>
+							        	</div>
+							        </div>
+							    </div>
+							    <% end_loop %>
+						    <% end_if %>
 						</div>
 					</div>
 				</div>
