@@ -78,9 +78,10 @@ class MatchingQuery extends DataObject
           $result = ob_get_clean();
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     //1. Main profil data = 40%
-    $position = $this->Parameters()->filter('Title','Position')->first()->Value;
+    $positionID = $this->Parameters()->filter('Title','Position')->first()->Value;
+    $position = JobParameterValue::get()->byId($positionID);
     ob_start();
-        print_r('position gesucht: '.$position."<br/>");
+        print_r('position gesucht: '.$position->Title."<br/>");
         $result = ob_get_clean();
         file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
     //2. other 60%
@@ -100,7 +101,7 @@ class MatchingQuery extends DataObject
               print_r('position: '.$job->Position."<br/>");
               $result = ob_get_clean();
               file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-          if ($job->Position == $position){
+          if ($job->Position == $position->Title){
             $hasPosition = true;
             break;
           }
