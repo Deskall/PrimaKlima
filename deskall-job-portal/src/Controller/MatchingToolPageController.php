@@ -164,11 +164,12 @@ class MatchingToolPageController extends PageController{
 
 	public function activeQuery(){
 		$id = $this->getRequest()->getSession()->get('query_id');
+		$this->getRequest()->getSession()->clear('query_id');
 		if ($id){
 			$query = MatchingQuery::get()->byId($id);
 			return $query;
 		}
-		$this->getRequest()->getSession()->clear('query_id');
+
 		return null;
 	}
 }
