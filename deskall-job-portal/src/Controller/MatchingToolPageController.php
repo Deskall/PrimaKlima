@@ -134,7 +134,7 @@ class MatchingToolPageController extends PageController{
 					$param = ProfilParameter::get()->byId($id);
 					if ($param) {
 						$queryP = new MatchingQueryParameter();
-						$queryP->QueryID = $query;
+						$queryP->QueryID = $query->ID;
 						$queryP->ParameterID = $param->ID;
 						$queryP->Title = $param->Title;
 						if (is_array($value)){
