@@ -27,7 +27,7 @@ class MatchingToolPageController extends PageController{
 		$actions = new FieldList(FormAction::create('doMatch', _t('MatchingTool.SEARCH', 'Suchen'))->addExtraClass('uk-button PrimaryBackground')->setUseButtonTag(true)->setButtonContent('<i class="icon icon-checkmark uk-margin-small-right"></i>'. _t('MatchingTool.SEARCH', 'Suchen')));
 		$JobGiver = JobGiver::get()->filter('MemberID',Security::getCurrentUser()->ID)->first();
 		$fields = FieldList::create(
-			$customer = HiddenField::create('CustomerID'),
+			$customer = HiddenField::create('OwnerID'),
 			TextField::create('Compatibility',_t('MatchingTool.Compatibility','Kompatibilität (%)'))->setAttribute('class','uk-range')->setAttribute('type','range')->setAttribute('min',0)->setAttribute('max',100)->setAttribute('step',5)
 		);
 
@@ -119,10 +119,6 @@ class MatchingToolPageController extends PageController{
 	public function doMatch($data, Form $form){
 		$this->getRequest()->getSession()->clear('query_id');
 
-		ob_start();
-					print_r($data);
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		try {
 			//save query
 			$query = new MatchingQuery();
@@ -132,10 +128,6 @@ class MatchingToolPageController extends PageController{
 			foreach ($data as $key => $value) {
 				if (!in_array($key, $exclude)){
 					$id = substr($key,0,strpos($key,'-'));
-					ob_start();
-								print_r($id);
-								$result = ob_get_clean();
-								file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
 					$param = ProfilParameter::get()->byId($id);
 					if ($param) {
 						$queryP = new MatchingQueryParameter();
