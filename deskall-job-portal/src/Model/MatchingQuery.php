@@ -82,6 +82,10 @@ class MatchingQuery extends DataObject
     $position = JobParameterValue::get()->byId($positionID);
     $candidats = Candidat::get();
     foreach ($candidats as $c) {
+      ob_start();
+          print_r('start bewerber: '.$c->ID."<br/>");
+          $result = ob_get_clean();
+          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       $compatibility = 0;
       //1.has position
       $hasPosition = false;
@@ -97,9 +101,18 @@ class MatchingQuery extends DataObject
         $compatibility += 40;
       }
 
+      ob_start();
+          print_r('compatibility: '.$compatibility."<br/>");
+          $result = ob_get_clean();
+          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+
       //2. other 60%
         //Weight given by parameter in CMS
       foreach($this->Parameters()->exclude('Title','Position') as $qp){
+        ob_start();
+            print_r('param: '.$qp->Title."<br/>");
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
         $param = $qp->Parameter();
         $weight = $param->Weight;
         $assigned = $c->Parameters()->filter('Title',$qp->Title)->first();
@@ -126,7 +139,10 @@ class MatchingQuery extends DataObject
             break;
           }
         }
-        
+        ob_start();
+            print_r('compatibility: '.$compatibility."<br/>");
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       }
 
 
