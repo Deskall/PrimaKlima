@@ -127,6 +127,7 @@ class MatchingToolPageController extends PageController{
 			//save query
 			$query = new MatchingQuery();
 			$form->saveInto($query);
+			$query->write();
 			$exclude = ['CustomerID','Compatibility','SecurityID','action_doMatch'];
 			foreach ($data as $key => $value) {
 				if (!in_array($key, $exclude)){
