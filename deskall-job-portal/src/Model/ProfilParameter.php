@@ -102,6 +102,9 @@ class ProfilParameter extends JobParameter
        $fields->removeByName('ParentID');
        $fields->removeByName('Children');
        $fields->removeByName('Values');
+       foreach (ProfilParameter::get() as $p) {
+         $p->write();
+       }
       
        if ($this->ID > 0){
        	$fields->fieldByName('Root.Main.FieldType')->hideIf('isGroup')->isChecked()->end();
