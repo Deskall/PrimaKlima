@@ -71,4 +71,11 @@ class MatchingQuery extends DataObject
     return $this->Results()->filter('Compatibility:GreaterThanOrEqual',$this->Compatibility);
   }
 
+  //Algorythm
+  public function estimateCompatibilities(){
+    //1. Main profil data = 20%
+    //2. other 80%
+      //2.1 
+  }
+
 }
