@@ -58,6 +58,8 @@
 							        </div>
 							    </div>
 							    <% end_loop %>
+							<% else %>
+							<p><%t MatchingTool.noResults 'Es gibt keine Ergebnisse.' %></p>
 						    <% end_if %>
 						</div>
 					</div>
