@@ -147,6 +147,8 @@ class MatchingToolPageController extends PageController{
 					
 				}
 			}
+			//Generate Matches
+			$query->getMatches();
 			$this->getRequest()->getSession()->set('query_id',$query->ID);
 			
 		} catch (ValidationException $e) {
