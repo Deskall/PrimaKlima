@@ -3,6 +3,7 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\DateField;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\DropdownField;
 
 class CursusItem extends DataObject {
 
@@ -10,7 +11,8 @@ class CursusItem extends DataObject {
 		'StartDate' => 'Date',
 		'EndDate' => 'Date',
 		'School' => 'Varchar',
-		'Diplom' => 'Varchar'	
+		'Diplom' => 'Varchar',
+		'Degree' => 'Varchar'	
 	);
 
 	private static $has_one = array(
@@ -36,6 +38,7 @@ class CursusItem extends DataObject {
 		$fields->addFieldToTab('Root.Main', DateField::create('EndDate', _t('KOCH.EndDate', 'Bis'))->setConfig('dateformat', 'YYYY/MM')->setConfig('showcalendar', true) );
 		$fields->addFieldToTab('Root.Main', TextField::create('School', _t('KOCH.School', 'Schule')) );
 		$fields->addFieldToTab('Root.Main', TextField::create('Diplom', _t('KOCH.Diplom', 'Ausbildung')) );
+		$fields->addFieldToTab('Root.Main', DropdownField::create('Degree', _t('KOCH.Degree', 'Abschluss'),ProfilParameter::get()->byId(18)->Values()->map('ID','Title'))->setEmptyString('Bitte wählen'));
 		return $fields;
 	}
 

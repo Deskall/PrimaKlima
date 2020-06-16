@@ -11,7 +11,7 @@ class CVItem extends DataObject {
 		'EndDate' => 'Date',
 		'Company' => 'Varchar',
 		'Position' => 'Varchar',
-		'Description' => 'Text'		
+		'Description' => 'Text'	
 	);
 
 	private static $has_one = array(
