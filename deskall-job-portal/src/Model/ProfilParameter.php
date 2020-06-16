@@ -98,7 +98,7 @@ class ProfilParameter extends JobParameter
       $weight = $this->Weight / 100;
       $parent = $this->Parent();
       while($parent->exists()){
-        $weight = $weight * ($parent->weight / 100);
+        $weight = $weight * ($parent->Weight / 100);
         $parent = $parent->Parent();
       }
       return $weight;
