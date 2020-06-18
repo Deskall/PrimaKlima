@@ -47,9 +47,7 @@
     </ul>
     <% if Nav == "dots" || Nav == "both" %>
     <div class="uk-position-bottom uk-position-large">
-        <div class="uk-text-center">
-            <ul class="uk-slideshow-nav uk-dotnav"></ul>
-        </div>
+        <ul class="uk-slideshow-nav uk-dotnav uk-flex-center"></ul>
     </div>
     <% end_if %>
     <% if Nav == "controls" || Nav == "both" %>
