@@ -221,9 +221,9 @@ class ShopController extends PageController
    public function checkNewCustomer(){
       $cart = $this->getActiveCartObject();
       if ($cart){
-         if ($cart->hasPremiumSender() && !$cart->hasCategory('yplay-tv')){
+         if ($cart->hasPremiumSender() && !$cart->hasCategory('yplay-watch')){
             //TV Abo is required, redirection to configurator
-            $tvCategory = ProductCategory::get()->filter('Code','yplay-tv')->first();
+            $tvCategory = ProductCategory::get()->filter('Code','yplay-watch')->first();
             $preselected = $tvCategory->getPreselected();
             return json_encode(['link' => $preselected->OrderLink()]);
          }
