@@ -514,6 +514,7 @@ $(document).ready(function(){
 	function InitCustomer(){
 		$.ajax({
 			url: '/shop-functions/checkCustomer',
+			method: 'POST',
 			dataType: 'json',
 			data: {isCustomer: $("input[name='ExistingCustomer']").val()}
 		}).done(function(response){
