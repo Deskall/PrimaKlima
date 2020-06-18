@@ -244,6 +244,10 @@ $(document).ready(function(){
 		
 		$(document).on("click",".step",function(){
 			if (!$(this).hasClass('backwards')){
+				//Process for new customers
+				if ($(this).hasClass('customer-button')){
+					InitNewCustomer();
+				}
 				//Check daten && Update Session Data
 				var form = $(this).parents('form');
 				var valid = form.valid();
@@ -442,7 +446,6 @@ $(document).ready(function(){
 	}
 
 	function UpdateCart(options){
-		console.log(options);
 		$(".order-preview").addClass('loading').append('<div class="uk-position-center uk-position-z-index"><span data-uk-spinner="ratio: 3"></span></div>');
 		$.ajax({
 			url: '/shop-functions/updateCartOptions',
@@ -498,6 +501,23 @@ $(document).ready(function(){
 			$(this).find('.step.forward').attr('data-target',i+1);
 			$(this).find('.step.backwards').attr('data-target',i-1);
 			i++;
+		});
+	}
+
+	/**
+	* if new customer, we apply specific rules
+	* like aufschaltgebühr
+	* like product requirements
+	* ...
+	*/
+	function InitNewCustomer(){
+		$.ajax({
+			url: '/shop-functions/checkNewCustomer',
+		}).done(function(response){
+			console.log(response);
+			if (response.link){
+				window.location.href = response.link;
+			}
 		});
 	}
 

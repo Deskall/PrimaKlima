@@ -204,6 +204,20 @@ class ShopCart extends DataObject {
 		return $confirm;
 	}
 
+	public function hasPremiumSender(){
+		if ($this->Options()->exists()){
+			$paytvpackage = ProductOption::get()->filter('Code','pay-tv-pakete')->first();
+			if ($paytvpackage){
+				foreach ($this->Options() as $option) {
+					if ($option->Group()->exists() && $option->GroupID == $paytvpackage->ID){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 	// public function requireCategory($code){
 	// 	$required = false;
 		
