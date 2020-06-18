@@ -235,7 +235,7 @@ class ShopPageController extends PageController
 
          //3. Glasfaserdose
          if ($cart->Availability == "Fiber" || 
-            ( !$cart->Availability && $this->activePLZ()->exists() && $this->activePLZ()->Availability == "Fiber")
+            ( !$cart->Availability && $this->activePLZ() && $this->activePLZ()->Availability == "Fiber")
          ){
             $form->Fields()->insertBefore('Comments',TextField::create('Glasfaserdose','Bitte geben Sie Ihre Glasfaserdosen-Nummer ein:')->setAttribute('placeholder','B.110.123.456.X'))->setAttribute('required','required')->setAttribute('class','uk-input');
             $form->Fields()->insertAfter('Glasfaserdose',CheckboxField::create('UnknownGlasfaserdose','Ich kenne meine Glasfaserdosen-Nummer nicht.')->setAttribute('class','uk-checkbox'));
