@@ -511,9 +511,9 @@ $(document).ready(function(){
 	* like product requirements
 	* ...
 	*/
-	function InitNewCustomer(){
+	function InitCustomer(){
 		$.ajax({
-			url: '/shop-functions/checkNewCustomer',
+			url: '/shop-functions/checkCustomer',
 			dataType: 'json'
 		}).done(function(response){
 			console.log(response);

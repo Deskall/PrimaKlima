@@ -14,7 +14,7 @@ use SilverStripe\ORM\ArrayList;
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'smartcard', 'checkNewCustomer']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'smartcard', 'checkCustomer']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
@@ -218,15 +218,20 @@ class ShopController extends PageController
 
    /* from checkout, if new Customer, we check rules to apply
    */
-   public function checkNewCustomer(){
+   public function checkCustomer(){
       $cart = $this->getActiveCartObject();
+      $isCustomer = $this->getRequest()->postVar('isCustomer');
       if ($cart){
-         if ($cart->hasPremiumSender() && !$cart->hasCategory('yplay-watch')){
-            //TV Abo is required, redirection to configurator
-            $tvCategory = ProductCategory::get()->filter('Code','yplay-watch')->first();
-            $preselected = $tvCategory->getPreselected();
-            return json_encode(['link' => $preselected->OrderLink()]);
+         //Rules for new customer
+         if (!$isCustomer){
+            if ($cart->hasPremiumSender() && !$cart->hasCategory('yplay-watch')){
+               //TV Abo is required, redirection to configurator
+               $tvCategory = ProductCategory::get()->filter('Code','yplay-watch')->first();
+               $preselected = $tvCategory->getPreselected();
+               return json_encode(['link' => $preselected->OrderLink()]);
+            }
          }
+         
       }
 
       return json_encode(['message' => 'nothing to do']);
