@@ -247,7 +247,7 @@ $(document).ready(function(){
 				//Process for new customers
 				var proceed = true;
 				if ($(this).hasClass('customer-button')){
-					proceed = InitNewCustomer();
+					proceed = InitCustomer();
 				}
 				if (proceed) {
 					//Check daten && Update Session Data
