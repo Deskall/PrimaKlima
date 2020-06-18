@@ -514,10 +514,11 @@ $(document).ready(function(){
 	function InitNewCustomer(){
 		$.ajax({
 			url: '/shop-functions/checkNewCustomer',
+			dataType: 'json'
 		}).done(function(response){
 			console.log(response);
 			if (response.link){
-				// window.location.href = response.link;
+				window.location.href = response.link;
 			}
 			else {
 				return true;
