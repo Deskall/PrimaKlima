@@ -65,7 +65,7 @@ class ProductBlock extends TextBlock
                 if ($this->Category()->exists()){
                     return $this->Category()->filteredProducts();
                 }
-                return $this->Products()->filterByCallback(function($item, $list) {
+                return $this->Products()->filter('isVisible',1)->filterByCallback(function($item, $list) {
                     return ($item->shouldDisplay() && $item->isAvailable());
                 });
             break;
@@ -84,7 +84,7 @@ class ProductBlock extends TextBlock
                 if ($this->Category()->exists()){
                     return $this->Category()->filteredOptions();
                 }
-                return $this->Options()->filterByCallback(function($item, $list) {
+                return $this->Options()->filter('isVisible',1)->filterByCallback(function($item, $list) {
                     return ($item->shouldDisplay() && $item->isAvailable());
                 });
             break;
