@@ -245,42 +245,43 @@ $(document).ready(function(){
 		$(document).on("click",".step",function(){
 			if (!$(this).hasClass('backwards')){
 				//Process for new customers
+				var proceed = true;
 				if ($(this).hasClass('customer-button')){
-					InitNewCustomer();
+					proceed = InitNewCustomer();
 				}
-				//Check daten && Update Session Data
-				var form = $(this).parents('form');
-				var valid = form.valid();
-				//Special case for birthdate
-				if ($(this).parents('[data-step]').attr('data-step') == "step-1"){
-					if ($("input[name='Birthdate']").val() == ""){
-						$("#birthdate-empty").attr('hidden',false);
-						return false;
-					}
-					if ($("input[name='Birthdate']").hasClass("error")){
-						return false;
-					}
-				}
-			
-				if (valid){
-					UpdateCartData();
-					UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
-					$(':focus').blur();
-					$('html, body').animate({scrollTop: $("#order-form-steps").offset().top - 110  }, 500);
-					$("#order-nav").find('li.uk-active').removeClass('uk-active');
-					var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
-					if (nav.hasClass('dk-inactive')){
-						nav.removeClass('dk-inactive');
-						//Update cart steps
-						UpdateCartStep(nav.attr('data-nav'));
+				if (proceed) {
+					//Check daten && Update Session Data
+					var form = $(this).parents('form');
+					var valid = form.valid();
+					//Special case for birthdate
+					if ($(this).parents('[data-step]').attr('data-step') == "step-1"){
+						if ($("input[name='Birthdate']").val() == ""){
+							$("#birthdate-empty").attr('hidden',false);
+							return false;
+						}
+						if ($("input[name='Birthdate']").hasClass("error")){
+							return false;
+						}
 					}
 					
-					if (!nav.hasClass('uk-active')){
-						nav.addClass('uk-active');
+					if (valid){
+						UpdateCartData();
+						UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
+						$(':focus').blur();
+						$('html, body').animate({scrollTop: $("#order-form-steps").offset().top - 110  }, 500);
+						$("#order-nav").find('li.uk-active').removeClass('uk-active');
+						var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
+						if (nav.hasClass('dk-inactive')){
+							nav.removeClass('dk-inactive');
+							//Update cart steps
+							UpdateCartStep(nav.attr('data-nav'));
+						}
+						
+						if (!nav.hasClass('uk-active')){
+							nav.addClass('uk-active');
+						}
 					}
 				}
-				
-				
 			}
 			else{
 				UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
@@ -516,7 +517,10 @@ $(document).ready(function(){
 		}).done(function(response){
 			console.log(response);
 			if (response.link){
-				window.location.href = response.link;
+				// window.location.href = response.link;
+			}
+			else {
+				return true;
 			}
 		});
 	}
