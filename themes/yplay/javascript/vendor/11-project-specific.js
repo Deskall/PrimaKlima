@@ -519,12 +519,12 @@ $(document).ready(function(){
 			data: {isCustomer: $("input[name='ExistingCustomer']").val()}
 		}).done(function(response){
 			console.log(response);
-			if (response.link){
-				window.location.href = response.link;
-			}
-			else {
-				return true;
-			}
+			// if (response.link){
+			// 	window.location.href = response.link;
+			// }
+			// else {
+			// 	return true;
+			// }
 		});
 	}
 
