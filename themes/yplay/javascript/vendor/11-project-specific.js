@@ -518,7 +518,6 @@ $(document).ready(function(){
 			dataType: 'json',
 			data: {isNewCustomer: $("input[name='ExistingCustomer']").val()}
 		}).done(function(response){
-			console.log(response);
 			if (response.link){
 				window.location.href = response.link;
 			}
