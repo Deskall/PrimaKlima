@@ -206,7 +206,7 @@ class ShopCart extends DataObject {
 
 	public function hasPremiumSender(){
 		if ($this->Options()->exists()){
-			$paytvpackage = ProductOption::get()->filter('Code','pay-tv-pakete')->first();
+			$paytvpackage = ProductOption::get()->filter('ProductCode','pay-tv-pakete')->first();
 			if ($paytvpackage){
 				foreach ($this->Options() as $option) {
 					if ($option->Group()->exists() && $option->GroupID == $paytvpackage->ID){
