@@ -220,10 +220,10 @@ class ShopController extends PageController
    */
    public function checkCustomer(){
       $cart = $this->getActiveCartObject();
-      $isCustomer = $this->getRequest()->postVar('isCustomer');
+      $isNewCustomer = $this->getRequest()->postVar('isNewCustomer');
       if ($cart){
          //Rules for new customer
-         if (!$isCustomer){
+         if ($isNewCustomer){
             if ($cart->hasPremiumSender() && !$cart->hasCategory('yplay-watch')){
                //TV Abo is required, redirection to configurator
                $tvCategory = ProductCategory::get()->filter('Code','yplay-watch')->first();

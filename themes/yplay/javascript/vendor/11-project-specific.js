@@ -516,15 +516,15 @@ $(document).ready(function(){
 			url: '/shop-functions/checkCustomer',
 			method: 'POST',
 			dataType: 'json',
-			data: {isCustomer: $("input[name='ExistingCustomer']").val()}
+			data: {isNewCustomer: $("input[name='ExistingCustomer']").val()}
 		}).done(function(response){
 			console.log(response);
-			// if (response.link){
-			// 	window.location.href = response.link;
-			// }
-			// else {
-			// 	return true;
-			// }
+			if (response.link){
+				window.location.href = response.link;
+			}
+			else {
+				return true;
+			}
 		});
 	}
 
