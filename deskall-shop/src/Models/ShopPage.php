@@ -24,7 +24,11 @@ class ShopPage extends Page {
 	}
 
 	public function activePackages(){
-		return Package::get()->filter('isVisible',1);
+		return $this->Packages()->filter('isVisible',1);
+	}
+
+	public function activeProducts(){
+		return $this->Products()->filter('isVisible',1);
 	}
 
 	public function activeParameters(){
