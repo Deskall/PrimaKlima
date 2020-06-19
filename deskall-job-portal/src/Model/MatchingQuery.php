@@ -131,8 +131,8 @@ class MatchingQuery extends DataObject
             break;
             case "multiple":
             case "multiple-free":
-            $wantedArray = explode($qp->Value,',');
-            $assignedArray = explode($assigned->Value,';-;');
+            $wantedArray = explode(',',$qp->Value);
+            $assignedArray = explode(';-;',$assigned->Value);
             $in = 0;
             foreach($wantedArray as $wanted){
               if (in_array($wanted,$assignedArray)){
