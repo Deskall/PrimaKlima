@@ -9,18 +9,6 @@ use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\DropDownField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-use SilverStripe\Forms\ListboxField;
-use SilverStripe\Forms\GridField\GridField;
-use SilverStripe\Forms\GridField\GridFieldConfig;
-use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
-use SilverStripe\Forms\GridField\GridFieldButtonRow;
-use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
-use SilverStripe\Forms\GridField\GridFieldDeleteAction;
-use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
-use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use SilverStripe\i18n\i18n;
-use SilverStripe\ORM\ArrayList;
-use SilverStripe\View\ArrayData;
 
 class Product extends DataObject {
 
@@ -32,12 +20,6 @@ class Product extends DataObject {
         'Price' => 'Currency',
         'SalePrice' => 'Currency'
     );
-
-    private static $many_many = array(
-        'Features' => PackageConfigItem::class,
-    );
-
-    private static $cascade_duplicates = ['Features'];
 
 
     private static $summary_fields = array(
@@ -65,23 +47,6 @@ class Product extends DataObject {
         $fields->addFieldToTab('Root.Global', NumericField::create('NumOfAds', _t('Package.NumOfAds', 'Anzahl Kontaktanzeigen')) );
 
 
-        $fields->addFieldToTab('Root.Global', ListboxField::create('Features', _t('Package.Features', 'Features'), PackageConfigItem::get()->map('ID','Title')->toArray())->setAttribute('data-placeholder', _t('Package.Choose', 'Bitte Wählen')) );
-
-        $OptionField = new GridField(
-            'PackegeOptions',
-            _t('PACKAGE.PackegeOptions', 'Optionen'),
-            $this->PackegeOptions(),
-            GridFieldConfig::create()
-                ->addComponent(new GridFieldButtonRow('before'))
-                ->addComponent(new GridFieldTitleHeader())
-                ->addComponent(new GridFieldEditableColumns())
-                ->addComponent(new GridFieldDeleteAction())
-                ->addComponent(new GridFieldAddNewInlineButton())
-                ->addComponent(new GridFieldOrderableRows('SortOrder'))
-        );
-
-        
-
         $fields->addFieldToTab('Root.Global', HTMLEditorField::create('Description', _t('Package.Beschreibung', 'Beschreibung'))->setRows(5) );
         $fields->addFieldToTab('Root.Global', TextField::create('NumOfAdsTitle', _t('Package.NumOfAds', 'Anzahl Kontaktanzeigen')) );
 
@@ -98,14 +63,6 @@ class Product extends DataObject {
         }
     }
 
-    public function getParameters(){
-        $parameters = [];
-        $features = PackageConfigItem::get()->filter('isVisible',1);
-        foreach ($features as $f) {
-            $parameters[$f->ID] = ['title' => $f->Title, 'included' => $this->Features()->byId($f->ID)];
-        }
-        return new ArrayList($parameters);
-    }
 
     public function OrderLink(){
         return ShopPage::get()->first()->Link();
