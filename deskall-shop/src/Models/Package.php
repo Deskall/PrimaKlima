@@ -158,7 +158,7 @@ class Package extends DataObject {
     }
 
     public function OrderLink(){
-        return ShopPage::get()->first()->Link();
+        return ShopPage::get()->filter('Goods','package')->first()->Link();
     }
 
 }
