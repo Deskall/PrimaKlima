@@ -16,7 +16,7 @@
 		<ul id="component-tab" class="uk-switcher">
 			<li class="account-tab" data-index="0">
 				<h3><%t Checkout.ChoosePackage 'Wählen Sie Ihre Paket nach Mass' %></h3>
-				<div class="uk-child-width-auto uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
+				<div class="uk-child-width-1-3@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
 					<% if Controller.Goods == "package" %>
 					<% loop Controller.activePackages %>
 					    <div class="dk-transition-toggle-not-mobile">
