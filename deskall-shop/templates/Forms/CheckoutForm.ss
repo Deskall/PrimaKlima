@@ -17,7 +17,8 @@
 			<li class="account-tab" data-index="0">
 				<h3><%t Checkout.ChoosePackage 'Wählen Sie Ihre Paket nach Mass' %></h3>
 				<div class="uk-child-width-auto uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
-					<% loop Controller.activePackages %>
+					<% if Goods == "package" %>
+					<% loop activePackages %>
 					    <div class="dk-transition-toggle-not-mobile">
 					    	
 					        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
@@ -48,6 +49,25 @@
 						    </div>
 					    </div>
 					<% end_loop %>
+					<% else %>
+					<% loop activeProducts %>
+					    <div class="dk-transition-toggle-not-mobile">
+					        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
+						        <h3 class="uk-card-title">$Title</h3>
+						        <div class="product-body">
+						        	<div class="uk-margin">$NumOfAdsTitle</div>
+							    </div>
+						        <div class="product-footer">
+						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
+						        	<div class="uk-margin">
+						        		<a data-package-choice="$ID" data-price="$Price" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+						        	</div>
+						        	<div class="footer-text">$FooterText</div>
+						    	</div>
+						    </div>
+					    </div>
+					<% end_loop %>
+					<% end_if %>
 				</div>
 				<% with Fields.FieldByName('ProductID') %>
 				$FieldHolder
