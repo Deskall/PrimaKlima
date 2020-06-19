@@ -102,24 +102,11 @@ class MatchingQuery extends DataObject
       }
 
       $compatibility = 0;
-      ob_start();
-          print_r('compatibility: '.$compatibility."\n");
-          $result = ob_get_clean();
-          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
 
       //2. other 60%
         //Weight given by parameter in CMS
       foreach($this->Parameters()->exclude('Title','Position') as $qp){
-        ob_start();
-            print_r('param: '.$qp->Title."\n");
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-           
         $param = $qp->Parameter();
-        ob_start();
-            print_r('weight: '.$param->relativeWeight()."\n");
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
         $weight = $param->Weight;
         $assigned = $c->Parameters()->filter('Title',$qp->Title)->first();
         if ($assigned) {
@@ -141,14 +128,6 @@ class MatchingQuery extends DataObject
               }
             }
             $compatibility += $param->relativeWeight() * $in / count($wantedArray);
-            ob_start();
-                print_r($wantedArray);
-                $result = ob_get_clean();
-                file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-              ob_start();
-                  print_r($assignedArray);
-                  $result = ob_get_clean();
-                  file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
             break;
             case "range":
               $wanted = $qp->Value;
@@ -161,18 +140,6 @@ class MatchingQuery extends DataObject
             break;
           }
         }
-        ob_start();
-            print_r('wanted: '.$qp->Value."\n");
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-             ob_start();
-            print_r('given: '.$assigned->Value."\n");
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-        ob_start();
-            print_r('compatibility: '.$compatibility."\n");
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       }
 
 
@@ -184,6 +151,14 @@ class MatchingQuery extends DataObject
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
 
       $secondCompatibility = 60 * $compatibility;
+      ob_start();
+          print_r('compatibility: '.$secondCompatibility."\n");
+          $result = ob_get_clean();
+          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+          ob_start();
+              print_r('compatibility: '.$mainCompatibility."\n");
+              $result = ob_get_clean();
+              file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       $total = $mainCompatibility + $secondCompatibility;
       if ($total >= $this->Compatibility){
         $result = new MatchingResult();
