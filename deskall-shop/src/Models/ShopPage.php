@@ -10,7 +10,6 @@ class ShopPage extends Page {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->removebyName('Goods');
 		$fields->addFieldToTab('Root.Goods',ListboxField::create('Packages','Pakete',Package::get()->map('ID','Title'),$this->Packages()));
 		return $fields;
 	}

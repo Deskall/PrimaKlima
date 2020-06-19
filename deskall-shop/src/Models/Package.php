@@ -160,7 +160,7 @@ class Package extends DataObject {
     }
 
     public function OrderLink(){
-        return ShopPage::get()->filter('Goods','package')->first()->Link();
+        return $this->Page()->Link();
     }
 
 }
