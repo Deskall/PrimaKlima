@@ -86,7 +86,7 @@ class MatchingQuery extends DataObject
           print_r('start bewerber: '.$c->ID."\n");
           $result = ob_get_clean();
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-      $compatibility = 0;
+      $mainCompatibility = 0;
       //1.has position
       $hasPosition = false;
       if ($c->CVItems()->exists()){
@@ -98,9 +98,10 @@ class MatchingQuery extends DataObject
         }
       }
       if ($hasPosition){
-        $compatibility += 40;
+        $mainCompatibility += 40;
       }
 
+      $compatibility = 0;
       ob_start();
           print_r('compatibility: '.$compatibility."\n");
           $result = ob_get_clean();
@@ -181,9 +182,12 @@ class MatchingQuery extends DataObject
           print_r('compatibility: '.$compatibility."\n");
           $result = ob_get_clean();
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-      if ($compatibility >= $this->Compatibility){
+
+      $secondCompatibility = 60 * $compatibility;
+      $total = $mainCompatibility + $secondCompatibility;
+      if ($total >= $this->Compatibility){
         $result = new MatchingResult();
-        $result->Compatibility = $compatibility;
+        $result->Compatibility = $total;
         $result->CandidatID = $c->ID;
         $result->write();
         $this->Results()->add($result);
