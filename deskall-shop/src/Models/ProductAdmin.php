@@ -22,7 +22,7 @@ class ProductAdmin extends ModelAdmin{
 		'Package' => [
 			'title' => 'Pakete'
 		],
-		'Produkt' => [
+		'Product' => [
 			'title' => 'Produkte'
 		],
 		'PackageConfigItem' => [
