@@ -6,16 +6,14 @@ use SilverStripe\Forms\ListboxField;
 
 class ShopPage extends Page {
 
-	private static $db = ['Goods' => 'Varchar(255)'];
 
-	private static $many_many= ['Products' => Product::class,'Packages' => Package::class];
+	private static $has_many= ['Packages' => Package::class];
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->removebyName('Goods');
 		$fields->addFieldToTab('Root.Goods',DropdownField::create('Goods','Typ',['package' => 'Pakete', 'product' => 'Produkte']));
-		$fields->addFieldToTab('Root.Goods',ListboxField::create('Products','Produkte',Product::get()->map('ID','Title'),$this->Products())->displayIf('Goods')->isEqualTo('product')->end());
-		$fields->addFieldToTab('Root.Goods',ListboxField::create('Packages','Pakete',Package::get()->map('ID','Title'),$this->Packages())->displayIf('Goods')->isEqualTo('package')->end());
+		$fields->addFieldToTab('Root.Goods',ListboxField::create('Packages','Pakete',Package::get()->map('ID','Title'),$this->Packages()));
 		return $fields;
 	}
 
@@ -27,9 +25,6 @@ class ShopPage extends Page {
 		return $this->Packages()->filter('isVisible',1);
 	}
 
-	public function activeProducts(){
-		return $this->Products()->filter('isVisible',1);
-	}
 
 	public function activeParameters(){
 	    return PackageConfigItem::get()->filter('isVisible',1);

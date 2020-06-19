@@ -41,6 +41,8 @@ class Package extends DataObject {
         'Features' => PackageConfigItem::class,
     );
 
+    private static $has_one = ['Page' => ShopPage::class];
+
     private static $has_many = array(
         'PackegeOptions' => 'PackageOption',
     );
