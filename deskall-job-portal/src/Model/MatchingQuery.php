@@ -152,11 +152,11 @@ class MatchingQuery extends DataObject
 
       $secondCompatibility = 60 * $compatibility;
       ob_start();
-          print_r('compatibility: '.$secondCompatibility."\n");
+          print_r('second compatibility: '.$secondCompatibility."\n");
           $result = ob_get_clean();
           file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
           ob_start();
-              print_r('compatibility: '.$mainCompatibility."\n");
+              print_r('main compatibility: '.$mainCompatibility."\n");
               $result = ob_get_clean();
               file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
       $total = $mainCompatibility + $secondCompatibility;

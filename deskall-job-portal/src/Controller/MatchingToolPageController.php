@@ -30,7 +30,7 @@ class MatchingToolPageController extends PageController{
 		$fields = FieldList::create(
 			$customer = HiddenField::create('OwnerID'),
 			TextField::create('Compatibility',_t('MatchingTool.Compatibility','Kompatibilität (%)'))->setAttribute('class','uk-range')->setAttribute('type','range')->setAttribute('min',0)->setAttribute('max',100)->setAttribute('step',5),
-			OptionsetField::create('4-Position',_t('MatchingTool.Position','Position'),JobParameter::get()->byId(4)->Values()->map('Title','Title'))
+			OptionsetField::create('4-Position',_t('MatchingTool.Position','Position'),JobParameter::get()->byId(4)->Values()->map('ID','Title'))
 		);
 
 		foreach (ProfilParameter::get()->filter('ParentID',0) as $group) {
