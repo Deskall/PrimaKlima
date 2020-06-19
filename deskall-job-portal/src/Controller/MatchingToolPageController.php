@@ -30,7 +30,7 @@ class MatchingToolPageController extends PageController{
 		$fields = FieldList::create(
 			$customer = HiddenField::create('OwnerID'),
 			TextField::create('Compatibility',_t('MatchingTool.Compatibility','Kompatibilität (%)'))->setAttribute('class','uk-range')->setAttribute('type','range')->setAttribute('min',0)->setAttribute('max',100)->setAttribute('step',5),
-			OptionsetField::create('4-Position',_t('MatchingTool.Position','Position'),JobParameter::get()->byId(4)->Values()->map('ID','Title'))
+			OptionsetField::create('4-Position',_t('MatchingTool.Position','Position'),JobParameter::get()->byId(4)->Values()->map('Title','Title'))
 		);
 
 		foreach (ProfilParameter::get()->filter('ParentID',0) as $group) {
@@ -42,16 +42,16 @@ class MatchingToolPageController extends PageController{
 						foreach ($child->children() as $subchild) {
 							switch ($subchild->FieldType){
 								case "text":
-									$fields->push(DropdownField::create($subchild->ID.'-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title,$subchild->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+									$fields->push(DropdownField::create($subchild->ID.'-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title,$subchild->Values()->map('Title','Title'))->setAttribute('class','uk-select'));
 									break;
 								case "dropdown":
-									$fields->push(DropdownField::create($subchild->ID.'-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title,$subchild->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+									$fields->push(DropdownField::create($subchild->ID.'-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title,$subchild->Values()->map('Title','Title'))->setAttribute('class','uk-select'));
 									break;
 								case "multiple":
-									$fields->push(CheckboxSetField::create($subchild->ID.'-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title,$subchild->Values()->map('ID','Title')));
+									$fields->push(CheckboxSetField::create($subchild->ID.'-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title,$subchild->Values()->map('Title','Title')));
 									break;
 								case "multiple-free":
-									$fields->push(ListboxField::create($subchild->ID.'-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title,$subchild->Values()->map('ID','Title')));
+									$fields->push(ListboxField::create($subchild->ID.'-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title,$subchild->Values()->map('Title','Title')));
 									break;
 								case "range":
 									$fields->push(TextField::create($subchild->ID.'-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title)->setAttribute('type','range')->setAttribute('class','uk-range')->setAttribute('min',$subchild->Min)->setAttribute('max',$subchild->Max)->setAttribute('step',1));
@@ -62,16 +62,16 @@ class MatchingToolPageController extends PageController{
 					else{
 						switch ($child->FieldType){
 							case "text":
-								$fields->push(DropdownField::create($child->ID.'-'.URLSegmentFilter::create()->filter($child->Title),$child->Title,$child->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+								$fields->push(DropdownField::create($child->ID.'-'.URLSegmentFilter::create()->filter($child->Title),$child->Title,$child->Values()->map('Title','Title'))->setAttribute('class','uk-select'));
 								break;
 							case "dropdown":
-								$fields->push(DropdownField::create($child->ID.'-'.URLSegmentFilter::create()->filter($child->Title),$child->Title,$child->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+								$fields->push(DropdownField::create($child->ID.'-'.URLSegmentFilter::create()->filter($child->Title),$child->Title,$child->Values()->map('Title','Title'))->setAttribute('class','uk-select'));
 								break;
 							case "multiple":
-								$fields->push(CheckboxSetField::create($child->ID.'-'.URLSegmentFilter::create()->filter($child->Title),$child->Title,$child->Values()->map('ID','Title')));
+								$fields->push(CheckboxSetField::create($child->ID.'-'.URLSegmentFilter::create()->filter($child->Title),$child->Title,$child->Values()->map('Title','Title')));
 								break;
 							case "multiple-free":
-								$fields->push(ListboxField::create($child->ID.'-'.URLSegmentFilter::create()->filter($child->Title),$child->Title,$child->Values()->map('ID','Title')));
+								$fields->push(ListboxField::create($child->ID.'-'.URLSegmentFilter::create()->filter($child->Title),$child->Title,$child->Values()->map('Title','Title')));
 								break;
 							case "range":
 								$fields->push(TextField::create($child->ID.'-'.URLSegmentFilter::create()->filter($child->Title),$child->Title)->setAttribute('type','range')->setAttribute('class','uk-range')->setAttribute('min',$child->Min)->setAttribute('max',$child->Max)->setAttribute('step',1));
@@ -83,16 +83,16 @@ class MatchingToolPageController extends PageController{
 			else{
 				switch ($group->FieldType){
 					case "text":
-						$fields->push(DropdownField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title,$group->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+						$fields->push(DropdownField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title,$group->Values()->map('Title','Title'))->setAttribute('class','uk-select'));
 						break;
 					case "dropdown":
-						$fields->push(DropdownField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title,$group->Values()->map('ID','Title'))->setAttribute('class','uk-select'));
+						$fields->push(DropdownField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title,$group->Values()->map('Title','Title'))->setAttribute('class','uk-select'));
 						break;
 					case "multiple":
-						$fields->push(CheckboxSetField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title,$group->Values()->map('ID','Title')));
+						$fields->push(CheckboxSetField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title,$group->Values()->map('Title','Title')));
 						break;
 					case "multiple-free":
-						$fields->push(ListboxField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title,$group->Values()->map('ID','Title')));
+						$fields->push(ListboxField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title,$group->Values()->map('Title','Title')));
 						break;
 					case "range":
 						$fields->push(TextField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title)->setAttribute('type','range')->setAttribute('class','uk-range')->setAttribute('min',$group->Min)->setAttribute('max',$group->Max)->setAttribute('step',1));
