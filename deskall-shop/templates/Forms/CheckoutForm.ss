@@ -14,7 +14,7 @@
 			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a><%t Shop.Confirm '3. Bestätigung' %></a></li>
 		</ul>
 		<ul id="component-tab" class="uk-switcher">
-			<li class="account-tab" data-index="0">
+			<li class="account-tab" data-index="0" data-uk-height-match="h3">
 				<h3><%t Checkout.ChoosePackage 'Wählen Sie Ihre Paket nach Mass' %></h3>
 				<div class="uk-child-width-1-3@m uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
 					<% loop Controller.activePackages %>
