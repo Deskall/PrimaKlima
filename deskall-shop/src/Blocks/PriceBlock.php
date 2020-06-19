@@ -6,6 +6,7 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\Forms\ListboxField;
 
 class PriceBlock extends BaseElement implements Searchable{
 
@@ -19,21 +20,23 @@ class PriceBlock extends BaseElement implements Searchable{
 		'Lead' => 'HTMLText',
 	);
 
+    private static $many_many = [
+        'Packages' => Package::class
+    ];
+
 
 	public function getCMSFields()
 	{
 		$fields = parent::getCMSFields();
-
-
-
 		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('Lead', _t('TextBlock.Lead', 'Lead'))->setRows(10) );
+        $fields->addFieldToTab('Root.Main',ListboxField::create('Packages','Pakete',Package::get()->map('ID','Title'),$this->Packages()));
 		$this->extend('updateCMSFields', $fields);
 
 		return $fields;
 	}
 
     public function activePackages(){
-        return Package::get()->filter('isVisible',1);
+        return $this->Packages()->filter('isVisible',1);
     }
 
     public function activeParameters(){
