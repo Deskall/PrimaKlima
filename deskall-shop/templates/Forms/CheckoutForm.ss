@@ -18,7 +18,7 @@
 				<h3><%t Checkout.ChoosePackage 'Wählen Sie Ihre Paket nach Mass' %></h3>
 				<div class="uk-child-width-auto uk-flex-center uk-text-center uk-grid-match products-container" data-uk-grid data-dk-height-match=".product-body">
 					<% if Goods == "package" %>
-					<% loop activePackages %>
+					<% loop Controller.activePackages %>
 					    <div class="dk-transition-toggle-not-mobile">
 					    	
 					        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
@@ -50,7 +50,7 @@
 					    </div>
 					<% end_loop %>
 					<% else %>
-					<% loop activeProducts %>
+					<% loop Controller.activeProducts %>
 					    <div class="dk-transition-toggle-not-mobile">
 					        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
 						        <h3 class="uk-card-title">$Title</h3>
