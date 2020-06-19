@@ -131,6 +131,15 @@ class MatchingQuery extends DataObject
             break;
             case "multiple":
             case "multiple-free":
+            $wantedArray = explode($qp->Value,',');
+            $assignedArray = explode($assigned->Value,';-;');
+            $in = 0;
+            foreach($wantedArray as $wanted){
+              if (in_array($wanted,$assignedArray)){
+                $in++;
+              }
+            }
+            $compatibility += $param->relativeWeight() * $in / count($wantedArray);
             ob_start();
                 print_r('value: '.$qp->Value."\n");
                 $result = ob_get_clean();
