@@ -132,11 +132,11 @@ class MatchingQuery extends DataObject
             case "multiple":
             case "multiple-free":
             ob_start();
-                print_r('value: '.$qp->Value)."\n");
+                print_r('value: '.$qp->Value."\n");
                 $result = ob_get_clean();
                 file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
               ob_start();
-                  print_r('value assigned: '.$assigned->Value)."\n");
+                  print_r('value assigned: '.$assigned->Value."\n");
                   $result = ob_get_clean();
                   file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
             break;
