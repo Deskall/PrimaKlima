@@ -177,7 +177,7 @@
 								</li>
 								<li>
 									<% if CurrentCustomer.lastMatchQueries.count > 0 %>
-									<table class="uk-table uk-table-responsive uk-table-small">
+									<table class="uk-table uk-table-responsive uk-table-small uk-table-border uk-text-small">
 										<thead><th><%t JobGiver.MatchTH1 'Datum' %></th><th class="uk-table-expand"><%t JobGiver.MatchTH2 'Anfrage' %></th><th><%t JobGiver.MatchTH3 'Ergebnisse' %></th><th><%t JobGiver.MatchTH4 'Matches' %></th><th>&nbsp;</th>
 										</thead>
 										<tbody>
