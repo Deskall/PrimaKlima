@@ -96,7 +96,12 @@ class ShopOrder extends DataObject{
 		if ($this->isPaid){
 			$this->isActive = true;
 		}
-		$this->RemainingOffers = $this->Product()->NumOfAds;
+		if ($this->Product()->ClassName == Package::class){
+			$this->RemainingOffers = $this->Product()->NumOfAds;
+		}
+		if ($this->Product()->ClassName == MatchingToolPackage::class){
+			$this->Credits = $this->Product()->Credits;
+		}
 	}
 
 	public function generateNummer(){
