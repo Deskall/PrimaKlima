@@ -167,12 +167,22 @@
 							</ul>
 							<ul class="uk-switcher">
 								<li>
-									<% loop CurrentCustomer.Matches %>
-									<% end_loop %> 
+									<% if CurrentCustomer.Matches %>
+										<% loop CurrentCustomer.Matches %>
+										<% end_loop %> 
+									<% else %>
+									<p><i><%t JobGiver.NoMatches 'Derzeit keine Match.' %></i></p>
+									<a href="" class="uk-button button-PrimaryBackground">zum Matching Tool</a>
+									<% end_if %>
 								</li>
 								<li>
-									<% loop CurrentCustomer.lastMatchQueries %>
-									<% end_loop %> 
+									<% if CurrentCustomer.lastMatchQueries %>
+										<% loop CurrentCustomer.lastMatchQueries %>
+										<% end_loop %>
+									<% else %>
+									<p><i><%t JobGiver.NoQueries 'Derzeit keine Anfragen.' %></i></p>
+									<a href="" class="uk-button button-PrimaryBackground">zum Matching Tool</a>
+									<% end_if %>
 								</li>
 							</ul>
 						</div>
