@@ -1,8 +1,8 @@
 <div data-uk-grid class="uk-grid-small">
 	<div class="uk-width-1-3@s uk-width-1-4@m">
 		<ul data-uk-tab="connect: #component-tab; animation: uk-animation-fade" class="uk-tab-left">
-			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t JobGiver.Account '1. Adressangaben' %></a></li>
-			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t JobGiver.Profil '2. Firmenporträt' %></a></li>
+			<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t JobGiver.Contact '1. Kontaktangaben' %></a></li>
+			<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t JobGiver.CompanyProfil '2. Firmenporträt' %></a></li>
 			<li <% if $activeTab == "offers" %>class="uk-active"<% end_if %>><a><%t JobGiver.jobOffers '3. Inserate' %></a></li>
 			<li <% if $activeTab == "ads" %>class="uk-active"<% end_if %>><a><%t JobGiver.Candidatures '4. Bewerbungen' %></a></li>
 			<li <% if $activeTab == "matching" %>class="uk-active"<% end_if %>><a><%t JobGiver.Matches '5. Matching Tool' %></a></li>
