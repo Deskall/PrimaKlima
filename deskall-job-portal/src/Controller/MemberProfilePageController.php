@@ -81,6 +81,10 @@ class MemberProfilePageController extends PageController{
 		
 	}
 
+	public function MatchingToolPage(){
+	   return MatchingToolPage::get()->first();
+	}
+
 	public function index(){
 		$this->getRequest()->getSession()->clear('offer_id');
 		return [];
