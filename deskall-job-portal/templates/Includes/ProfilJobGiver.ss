@@ -1,4 +1,4 @@
-<ul data-uk-tab="connect: #component-tab; animation: uk-animation-fade">
+<ul data-uk-tab="connect: #component-tab; animation: uk-animation-fade" class="uk-tab-left">
 								<li <% if not $activeTab || $activeTab == "account" %>class="uk-active"<% end_if %>><a><%t JobGiver.Account '1. Adressangaben' %></a></li>
 								<li <% if $activeTab == "profil" %>class="uk-active"<% end_if %>><a><%t JobGiver.Profil '2. Firmenporträt' %></a></li>
 								<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a><%t JobGiver.Payment '3. Pakete' %></a></li>
