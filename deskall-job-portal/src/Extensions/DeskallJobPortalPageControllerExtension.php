@@ -56,7 +56,7 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
        return JobPortalConfig::get()->first();
     }
 
-    public function getMatchingToolPage(){
+    public function MatchingToolPage(){
        return MatchingToolPage::get()->first();
     }
 
