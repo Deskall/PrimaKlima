@@ -71,6 +71,10 @@ class MatchingQuery extends DataObject
     return $this->Results();
   }
 
+  public function activeMatches(){
+    return $this->Results()->filter('isVisible',1);
+  }
+
   //Algorythm
   public function estimateCompatibilities(){
     ob_start();
