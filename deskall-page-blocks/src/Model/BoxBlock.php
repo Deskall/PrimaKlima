@@ -197,7 +197,7 @@ class BoxBlock extends BaseElement implements Searchable
     public function onBeforeWrite(){
         parent::onBeforeWrite();
         $widthF = 2500;
-        $widthN = 1200;
+        $widthN = 1280;
         $padding = 30; //must be the same as less global-gutter variable
         $ratio = 1.4; 
         $width = ($this->FullWidth) ? $widthF / static::$boxes_per_line[$this->BoxPerLine]['title'] : $widthN /  static::$boxes_per_line[$this->BoxPerLine]['title'];
