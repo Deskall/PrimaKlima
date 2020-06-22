@@ -167,7 +167,7 @@
 							</ul>
 							<ul class="uk-switcher">
 								<li>
-									<% if CurrentCustomer.Matches %>
+									<% if CurrentCustomer.Matches.count > 0 %>
 										<% loop CurrentCustomer.Matches %>
 										<% end_loop %> 
 									<% else %>
@@ -176,7 +176,7 @@
 									<% end_if %>
 								</li>
 								<li>
-									<% if CurrentCustomer.lastMatchQueries %>
+									<% if CurrentCustomer.lastMatchQueries.count > 0 %>
 										<% loop CurrentCustomer.lastMatchQueries %>
 										<% end_loop %>
 									<% else %>
