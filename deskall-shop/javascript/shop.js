@@ -107,7 +107,10 @@ $(document).ready(function(){
 	          amount: {
 	            value: getPrice()
 	          }
-	        }]
+	        }],
+		  	application_context: {
+			  shipping_preference: 'NO_SHIPPING'
+			}
 	      });
 	    },
 	    onApprove: function(data, actions) {
