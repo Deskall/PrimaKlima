@@ -6,7 +6,7 @@
 			<li <% if $activeTab == "offers" %>class="uk-active"<% end_if %>><a><%t JobGiver.jobOffers '3. Inserate' %></a></li>
 			<li <% if $activeTab == "ads" %>class="uk-active"<% end_if %>><a><%t JobGiver.Candidatures '4. Bewerbungen' %></a></li>
 			<li <% if $activeTab == "matching" %>class="uk-active"<% end_if %>><a><%t JobGiver.Matches '5. Matching Tool' %></a></li>
-			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a><%t JobGiver.Orders '6. Bestellungen' %></a></li>
+			<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a><%t JobGiver.OrdersList '6. Bestellungen' %></a></li>
 		</ul>
 	</div>
 	<div class="uk-width-2-3@s uk-width-3-4@m">
@@ -173,7 +173,7 @@
 			</li>
 			<li class="account-tab">
 				<div class="uk-panel uk-background-muted uk-padding-small">
-					<h2><%t JobGiver.PaymentTitle 'Pakete' %></h2>
+					<h2><%t JobGiver.OrdersTitle 'Bestellungen' %></h2>
 					<div class="member-section-container">
 						$Portal.PaymentTabHTML
 						<div class="uk-margin">
