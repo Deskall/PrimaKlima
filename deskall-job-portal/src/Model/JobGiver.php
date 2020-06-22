@@ -270,7 +270,7 @@ class JobGiver extends DataObject
     }
 
     public function Matches(){
-        $matches = DataList::create(MatchingResult::class);
+        $matches = DataList::create();
         foreach ($this->Queries() as $query) {
             foreach ($query->Results()->filter('isVisible',1) as $match) {
                 $matches->add($match);
