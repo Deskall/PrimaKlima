@@ -182,7 +182,7 @@
 										</thead>
 										<tbody>
 										<% loop CurrentCustomer.lastMatchQueries %>
-										<tr><td>$Created.Date</td><td>$Position</td><td>$Results.count</td><td>$Results.filter('isVisible',1).count</td><td><a href="$Link" class="uk-button"><i data-uk-icon="play"></i></a></td></tr>
+										<tr><td>$Created.Date</td><td>$Position</td><td>$Results.count</td><td>$Results.filter('isVisible',1).count</td><td><a href="$Link" class="uk-button button-SecondaryBackground"><i data-uk-icon="play"></i></a></td></tr>
 										<% end_loop %>
 										</tbody>
 									</table>
