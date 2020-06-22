@@ -168,8 +168,13 @@
 							<ul class="uk-switcher">
 								<li>
 									<% if CurrentCustomer.Matches.count > 0 %>
+									<div class="uk-grid-small uk-child-width-1-2@m" data-uk-grid="masonry:true">
 										<% loop CurrentCustomer.Matches %>
-										<% end_loop %> 
+										<div>
+									        <% include MatchCard %>
+									    </div>
+										<% end_loop %>
+									</div>
 									<% else %>
 									<p><i><%t JobGiver.NoMatches 'Derzeit keine Match.' %></i></p>
 									<a href="" class="uk-button button-PrimaryBackground">zum Matching Tool</a>
@@ -177,7 +182,7 @@
 								</li>
 								<li>
 									<% if CurrentCustomer.lastMatchQueries.count > 0 %>
-									<table class="uk-table uk-table-responsive uk-table-small uk-table-border uk-text-small">
+									<table class="uk-table uk-table-responsive uk-table-small uk-table-border">
 										<thead><th><%t JobGiver.MatchTH1 'Datum' %></th><th class="uk-table-expand"><%t JobGiver.MatchTH2 'Anfrage' %></th><th><%t JobGiver.MatchTH3 'Ergebnisse' %></th><th><%t JobGiver.MatchTH4 'Matches' %></th><th>&nbsp;</th>
 										</thead>
 										<tbody>
