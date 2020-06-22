@@ -35,13 +35,13 @@
 					<div class="member-section-container">
 						$Portal.PaymentTabHTML
 						<div class="uk-margin">
-							<% if CurrentCustomer.activeOrder %>
+							<% if CurrentCustomer.activeOrderJobOffer %>
 							<h4><%t MemberPage.MoreTitle 'Inserate verfügbar' %></h4>
 							<p><%t MemberPage.OffersAvailable 'Ihr Abonnement ist aktiv, Sie durfen Inserate jetzt freischalten!' %></p>
 							<table class="uk-table uk-table-small uk-table-justify uk-table-responsive">
 								<thead></th><th><%t MemberPage.OrdersTableTH1 'Paket' %></th><th><%t MemberPage.OrdersTableTH4 'Gültig bis' %></th><th><%t MemberPage.OrdersTableTH5 'Verbleibende Anzeige' %></th></thead>
 								<tbody>
-								<% with CurrentCustomer.activeOrder %>
+								<% with CurrentCustomer.activeOrderJobOffer %>
 								<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td><% if EndValidity %>$EndValidity.Nice<% else %>$Product.RunTime $Product.RunTimeCurrency <%t Order.EndValidityEmptyLabel 'nach Veröffentlichung Ihres ersten Angebots' %><% end_if %></td><td><% if $Product.NumOfAds > 0 %>$RemainingOffers<% else %>$Product.NumOfAdsTitle<% end_if %></td></tr>
 								<% end_with %>
 								</tbody>
@@ -83,7 +83,7 @@
 					</div>
 					<div class="toggle-new-offer">
 						<a id="new-offer" class="uk-button uk-button-primary" data-uk-toggle=".toggle-new-offer"><%t Offer.Create 'jetzt neu Inserat erfassen' %></a>
-						<% if not CurrentCustomer.activeOrder %>
+						<% if not CurrentCustomer.activeOrderJobOffer %>
 						<p><%t MemberPage.CannotPublish 'Sie können derzeit keine Inserate freischalten. Sie können aber dennoch Inserate als Entwurf erfassen und zu einem späteren Zeitpunkt freischalten.' %></p>
 						<% end_if %>
 						<% if CurrentCustomer.Missions.exists %>
@@ -189,13 +189,13 @@
 					<div class="member-section-container">
 						$Portal.MatchingToolTabHTML
 						<div class="uk-margin">
-							<% if CurrentCustomer.activeOrder %>
+							<% if CurrentCustomer.activeOrderMatchingTool %>
 							<h4><%t MemberPage.MoreTitle 'Inserate verfügbar' %></h4>
 							<p><%t MemberPage.OffersAvailable 'Ihr Abonnement ist aktiv, Sie durfen Inserate jetzt freischalten!' %></p>
 							<table class="uk-table uk-table-small uk-table-justify uk-table-responsive">
 								<thead></th><th><%t MemberPage.OrdersTableTH1 'Paket' %></th><th><%t MemberPage.OrdersTableTH4 'Gültig bis' %></th><th><%t MemberPage.OrdersTableTH5 'Verbleibende Anzeige' %></th></thead>
 								<tbody>
-								<% with CurrentCustomer.activeOrder %>
+								<% with CurrentCustomer.activeOrderMatchingTool %>
 								<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td><% if EndValidity %>$EndValidity.Nice<% else %>$Product.RunTime $Product.RunTimeCurrency <%t Order.EndValidityEmptyLabel 'nach Veröffentlichung Ihres ersten Angebots' %><% end_if %></td><td><% if $Product.NumOfAds > 0 %>$RemainingOffers<% else %>$Product.NumOfAdsTitle<% end_if %></td></tr>
 								<% end_with %>
 								</tbody>

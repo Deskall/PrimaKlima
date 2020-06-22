@@ -35,7 +35,8 @@ class ShopOrder extends DataObject{
 		'EndValidity' => 'Date',
 		'RemainingOffers' => 'Int',
 		'isActive' => 'Boolean(0)',
-		'PayPalOrderID' => 'Varchar'
+		'PayPalOrderID' => 'Varchar',
+		'Credits' => 'Int'
 	);
 
 	private static $has_one = array(
@@ -170,6 +171,10 @@ class ShopOrder extends DataObject{
 	}
 
 	public function getOrderStatus(){
+
+	}
+
+	public function isMatchingOrder(){
 
 	}
 

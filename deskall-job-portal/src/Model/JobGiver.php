@@ -142,7 +142,6 @@ class JobGiver extends DataObject
     $labels['ReasonWhy'] = _t('ARBEITGEBER.ReasonWhy', 'Warum sollten Sie bei uns arbeiten?');
     $labels['Nummer'] = _t('ARBEITGEBER.Nummer', 'Kunden-Nr.');
 
-
     return $labels;
     }
 
@@ -249,8 +248,12 @@ class JobGiver extends DataObject
         return $str;
     }
 
-    public function activeOrder(){
-        return $this->Orders()->filter('isActive',1)->first();
+    public function activeOrderJobOffer(){
+        return $this->Orders()->filter('isActive',1)->filterByCallback(function($item, $list) { return $item->Product()->ClassName == Package::class; })->first();
+    }
+
+    public function activeOrderMatchingTool(){
+        return $this->Orders()->filter('isActive',1)->filterByCallback(function($item, $list) { return $item->Product()->ClassName == MatchingToolPackage::class; })->first();
     }
 
     public function stagedOrder(){
