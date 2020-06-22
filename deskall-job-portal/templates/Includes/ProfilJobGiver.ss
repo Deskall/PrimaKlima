@@ -148,22 +148,14 @@
 						$Portal.MatchingToolTabHTML
 						<div class="uk-margin">
 							<% if CurrentCustomer.activeOrderMatchingTool %>
-							<h4><%t MemberPage.MoreTitle 'Inserate verfügbar' %></h4>
-							<p><%t MemberPage.OffersAvailable 'Ihr Abonnement ist aktiv, Sie durfen Inserate jetzt freischalten!' %></p>
-							<table class="uk-table uk-table-small uk-table-justify uk-table-responsive">
-								<thead></th><th><%t MemberPage.OrdersTableTH1 'Paket' %></th><th><%t MemberPage.OrdersTableTH4 'Gültig bis' %></th><th><%t MemberPage.OrdersTableTH5 'Verbleibende Anzeige' %></th></thead>
-								<tbody>
-								<% with CurrentCustomer.activeOrderMatchingTool %>
-								<tr><td class="uk-table-expand"><%t MemberPage.Package 'Paket' %> $Product.Title</td><td><% if EndValidity %>$EndValidity.Nice<% else %>$Product.RunTime $Product.RunTimeCurrency <%t Order.EndValidityEmptyLabel 'nach Veröffentlichung Ihres ersten Angebots' %><% end_if %></td><td><% if $Product.NumOfAds > 0 %>$RemainingOffers<% else %>$Product.NumOfAdsTitle<% end_if %></td></tr>
-								<% end_with %>
-								</tbody>
-							</table>
+							<h4><%t MemberPage.AvailableMatchingTitle 'Matching Tool verfügbar' %></h4>
+							<p><%t MemberPage.AvailableMatching 'Ihr Matching-Tool Abonnement ist aktiv, Sie durfen Match jetzt suchen!' %></p>
 							<% else %>
-								<h4><%t MemberPage.NoMoreTitle 'Keine Inserate verfügbar' %></h4>
-								<% if CurrentCustomer.stagedOrder %>
-								<p><%t MemberPage.waitingPayment 'Achtung, Sie können derzeit keine neuen Inserate mehr schalten, da Sie noch unbezahlte Rechnungen offen haben.<br>Sobald diese bezahlt sind, können Sie Ihre Inserate freischatlen.' %></p>
+								<h4><%t MemberPage.NoMoreMatchTitle 'Keine Kredite verfügbar' %></h4>
+								<% if CurrentCustomer.stagedOrderMatchingTool %>
+								<p><%t MemberPage.waitingMatchingPayment 'Achtung, Sie können derzeit keine Kontakt Informationen erhalten, da Sie noch unbezahlte Rechnungen offen haben.<br>Sobald diese bezahlt sind, können Sie Ihre Match anschauen.' %></p>
 								<% else %>
-								<p><%t MemberPage.NoMore 'Achtung, Sie können derzeit keine neuen Inserate mehr schalten.<br>Bestellen Sie ein neues Paket, um neuen Inserate zu freischatlen.' %></p>
+								<p><%t MemberPage.NoMoreMatch 'Achtung, Sie können derzeit keine Kontakt Informationen von Match erhalten.<br>Bestellen Sie jetzt ein neues Paket!' %></p>
 								<a class="uk-button uk-button-primary" href="$ShopPage.Link"><%t Payment.OrderPackage 'jetzt Paket bestellen' %></a>
 								<% end_if %>
 							<% end_if %>
