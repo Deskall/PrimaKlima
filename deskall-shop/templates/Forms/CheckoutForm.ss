@@ -132,7 +132,7 @@
 					<% if ClassName == "MatchingToolPackage" %>
 					<div id="summary-package-{$ID}" class="summary-package" hidden>
 						<table class="uk-table uk-table-small">
-							<thead><th><%t Checkout.SummaryTableTH1 'Paket' %></th><th><%t Checkout.SummaryTableTH3 'Kredite' %></th><th><%t Checkout.SummaryTableTH2 'Preis' %></th></thead>
+							<thead><th><%t Checkout.SummaryTableTH1 'Paket' %></th><th><%t Checkout.SummaryTableTH3bis 'Kredite' %></th><th><%t Checkout.SummaryTableTH2 'Preis' %></th></thead>
 							<tbody id="package-summary"><tr><td><strong>$Title</strong></td><td>$CreditsTitle</td><td class="price uk-text-bold">$Price €</td></tr></tbody>
 						</table>
 					</div>
