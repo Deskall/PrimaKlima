@@ -270,12 +270,11 @@ class JobGiver extends DataObject
     }
 
     public function Matches(){
-        $matches = DataList::create();
-        foreach ($this->Queries() as $query) {
-            foreach ($query->Results()->filter('isVisible',1) as $match) {
-                $matches->add($match);
-            }
-        }
+        $id = $this->ID;
+        $matches = DataList::create(MatchingResult::class)->filterByCallback(function($item, $list) use ($id){ 
+            return $item->isVisible == 1 && $item->Query()->OwnerID == $id; 
+        });
+        
         return $matches->sort('Created','ASC');
     }
 
