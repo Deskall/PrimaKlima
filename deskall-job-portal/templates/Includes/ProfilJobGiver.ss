@@ -193,7 +193,7 @@
 									</table>
 									<% else %>
 									<p><i><%t JobGiver.NoQueries 'Derzeit keine Anfragen.' %></i></p>
-									<a href="$MatchingToolPage.Link" class="uk-button button-PrimaryBackground">zum Matching Tool</a>
+									<a href="$Controller.MatchingToolPage.Link" class="uk-button button-PrimaryBackground">zum Matching Tool</a>
 									<% end_if %>
 								</li>
 							</ul>
