@@ -178,11 +178,11 @@
 								<li>
 									<% if CurrentCustomer.lastMatchQueries.count > 0 %>
 									<table class="uk-table uk-table-responsive uk-table-small">
-										<thead><th><%t JobGiver.MatchTH1 'Datum' %></th><th><%t JobGiver.MatchTH2 'Anfrage' %></th><th><%t JobGiver.MatchTH3 'Ergebnisse' %></th><th><%t JobGiver.MatchTH4 'Matches' %></th>
+										<thead><th><%t JobGiver.MatchTH1 'Datum' %></th><th class="uk-table-expand"><%t JobGiver.MatchTH2 'Anfrage' %></th><th><%t JobGiver.MatchTH3 'Ergebnisse' %></th><th><%t JobGiver.MatchTH4 'Matches' %></th><th>&nbsp;</th>
 										</thead>
 										<tbody>
 										<% loop CurrentCustomer.lastMatchQueries %>
-										<tr><td>$Created.Nice</td><td>$Position</td><td>$Results.count</td><td>$Results.filter('isVisible',1).count</td></tr>
+										<tr><td>$Created.Date</td><td>$Position</td><td>$Results.count</td><td>$Results.filter('isVisible',1).count</td><td><a href="$Link" class="uk-button"><i data-uk-icon="play"></i></a></td></tr>
 										<% end_loop %>
 										</tbody>
 									</table>
