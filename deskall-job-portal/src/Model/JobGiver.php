@@ -257,7 +257,11 @@ class JobGiver extends DataObject
     }
 
     public function stagedOrder(){
-        return $this->Orders()->filter('isPaid',0)->first();
+        return $this->Orders()->filter('isPaid',0)->filterByCallback(function($item, $list) { return $item->Product()->ClassName == Package::class; })->first();
+    }
+
+    public function stagedOrderMatching(){
+        return $this->Orders()->filter('isPaid',0)->filterByCallback(function($item, $list) { return $item->Product()->ClassName == MatchingToolPackage::class; })->first();
     }
 
 
