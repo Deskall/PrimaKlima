@@ -31,6 +31,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use SilverStripe\Forms\CompositeField;
+use SilverStripe\ORM\DataList;
 
 /**
  * Custom extension to adjust to project specific need
@@ -262,6 +263,20 @@ class JobGiver extends DataObject
 
     public function stagedOrderMatchingTool(){
         return $this->Orders()->filter('isPaid',0)->filterByCallback(function($item, $list) { return $item->Product()->ClassName == MatchingToolPackage::class; })->first();
+    }
+
+    public function lastMatchQueries(){
+        return $this->Queries()->sort('Created','DESC')->limit(10);
+    }
+
+    public function Matches(){
+        $matches = DataList::create(MatchingResult::class);
+        foreach ($this->Queries() as $query) {
+            foreach ($query->Results()->filter('isVisible',1) as $match) {
+                $matches->add($match);
+            }
+        }
+        return $matches->sort('Created','ASC');
     }
 
 
