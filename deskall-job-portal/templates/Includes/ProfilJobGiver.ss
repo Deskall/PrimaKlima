@@ -160,6 +160,24 @@
 								<% end_if %>
 							<% end_if %>
 						</div>
+						<div class="uk-margin">
+							<ul data-uk-tab="animation: uk-animation-fade">
+								<li class="uk-active"><a><%t JobGiver.Matches '1. Matches' %></a></li>
+								<li class="uk-active"><a><%t JobGiver.LastSearch '2. Matching Anfragen' %></a></li>
+							</ul>
+							<ul class="uk-switcher">
+								<li>
+									<h4><%t JobGiver.MatchesTitle '1. Ihre Matches' %></h4>
+									<% loop CurrentCustomer.Matches %>
+									<% end_loop %> 
+								</li>
+								<li>
+									<h4><%t JobGiver.LastSearchTitle '2. Ihre letzte Anfragen' %></h4>
+									<% loop CurrentCustomer.MatchQueries %>
+									<% end_loop %> 
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</li>
