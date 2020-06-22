@@ -188,7 +188,7 @@
 									</table>
 									<% else %>
 									<p><i><%t JobGiver.NoQueries 'Derzeit keine Anfragen.' %></i></p>
-									<a href="" class="uk-button button-PrimaryBackground">zum Matching Tool</a>
+									<a href="" class="uk-button uk-button-small button-PrimaryBackground">zum Matching Tool</a>
 									<% end_if %>
 								</li>
 							</ul>
