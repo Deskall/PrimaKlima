@@ -4,6 +4,7 @@
 								<li <% if $activeTab == "payment" %>class="uk-active"<% end_if %>><a><%t JobGiver.Payment '3. Paket bestellen' %></a></li>
 								<li <% if $activeTab == "offers" %>class="uk-active"<% end_if %>><a><%t JobGiver.Offers '4. Inserate erstellen' %></a></li>
 								<li <% if $activeTab == "ads" %>class="uk-active"<% end_if %>><a><%t JobGiver.Ads '5. Bewerbungen verwalten' %></a></li>
+								<li <% if $activeTab == "matching" %>class="uk-active"<% end_if %>><a><%t JobGiver.MatchingTool '6. Matching Tool' %></a></li>
 							</ul>
 						
 							<ul id="component-tab" class="uk-switcher">
@@ -178,6 +179,15 @@
 										        </p>
 										    </div>
 										</div>
+								</li>
+								<li class="account-tab matching-tool-data-tab">
+									<div class="uk-panel uk-background-muted uk-padding-small">
+										<h2><%t JobGiver.MatchingTool '6. Matching Tool' %></h2>
+										<div class="member-section-container">
+											$Portal.MatchingToolTabHTML
+											
+										</div>
+									</div>
 								</li>
 							</ul>
 
