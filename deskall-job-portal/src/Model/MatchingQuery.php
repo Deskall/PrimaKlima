@@ -93,7 +93,7 @@ class MatchingQuery extends DataObject
       $mainCompatibility = 0;
       //1.has position
       $hasPosition = false;
-      if ($c->CVItems()->exists()){
+      if ($position && $c->CVItems()->exists()){
         foreach ($c->CVItems() as $job) {
           if ($job->Position == $position->Title){
             $hasPosition = true;
