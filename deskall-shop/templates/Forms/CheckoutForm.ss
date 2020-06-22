@@ -21,7 +21,30 @@
 					    <div class="dk-transition-toggle-not-mobile">
 					    	
 					        <div class="uk-card uk-card-default uk-border-rounded uk-card-body uk-box-shadow-medium uk-transition-scale-up uk-transition-opaque uk-position-relative">
-						        
+						        <% if ClassName == "MatchingToolPackage" %>
+						        <h3 class="uk-card-title">$Title</h3>
+						        <div class="product-body">
+						        	<div class="uk-margin">$CreditsTitle</div>
+						        	<% loop $Features %>
+						        		<div class="uk-margin">$Title</div>
+						        	<% end_loop %>   
+							    </div>
+						        <div class="product-footer">
+						        	<% if PackegeOptions %>
+						        	<select name="package-option" class="uk-select">
+						        		<% loop PackegeOptions %>
+						        		<option value="$ID" data-price="$Price" data-runtime="$Title">$Title $Price €</option>
+						        		<% end_loop %>
+						        	</select>
+						        	<% else %>
+						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
+						        	<% end_if %>
+						        	<div class="uk-margin">
+						        		<a data-package-choice="$ID" data-price="$Price" data-type="$ClassName" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+						        	</div>
+						        	<div class="footer-text">$FooterText</div>
+						    	</div>
+						        <% else %>
 						        <h3 class="uk-card-title">$Title</h3>
 						        <div class="product-body">
 						        	<div class="uk-margin">$RunTimeTitle</div>
@@ -41,10 +64,11 @@
 						        	<div class="product-price uk-text-large uk-text-bold">$Price €</div>
 						        	<% end_if %>
 						        	<div class="uk-margin">
-						        		<a data-package-choice="$ID" data-price="$Price" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
+						        		<a data-package-choice="$ID" data-price="$Price" data-type="$ClassName" class="uk-button uk-button-primary"><%t Checkout.Order 'Bestellen' %><i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>
 						        	</div>
 						        	<div class="footer-text">$FooterText</div>
 						    	</div>
+						    	<% end_if %>
 						    </div>
 					    </div>
 					<% end_loop %>
