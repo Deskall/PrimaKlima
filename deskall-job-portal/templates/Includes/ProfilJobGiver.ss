@@ -177,8 +177,15 @@
 								</li>
 								<li>
 									<% if CurrentCustomer.lastMatchQueries.count > 0 %>
+									<table class="uk-table uk-table-responsive uk-table-small">
+										<thead><th><%t JobGiver.MatchTH1 'Datum' %></th><th><%t JobGiver.MatchTH2 'Anfrage' %></th><th><%t JobGiver.MatchTH3 'Ergebnisse' %></th><th><%t JobGiver.MatchTH4 'Matches' %></th>
+										</thead>
+										<tbody>
 										<% loop CurrentCustomer.lastMatchQueries %>
+										<tr><td>$Created.Nice</td><td>$Position</td><td>$Results.count</td><td>$Results.filter('isVisible',1).count</td></tr>
 										<% end_loop %>
+										</tbody>
+									</table>
 									<% else %>
 									<p><i><%t JobGiver.NoQueries 'Derzeit keine Anfragen.' %></i></p>
 									<a href="" class="uk-button button-PrimaryBackground">zum Matching Tool</a>
