@@ -45,6 +45,7 @@ class ProductAdmin extends ModelAdmin{
 	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction());
 	    }
 	    if($this->modelClass == 'Package' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
+
 	       $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction());
 	    }
 	    if($this->modelClass == 'MatchingToolPackage' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
@@ -56,7 +57,9 @@ class ProductAdmin extends ModelAdmin{
 
 	public function getList(){
 		$list = parent::getList();
-		
+		if($this->modelClass == 'Package') {
+			$list = $list->filter('ClassName',Package::class);
+		}
 		return $list;
 	}
 
