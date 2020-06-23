@@ -141,6 +141,10 @@ class ShopPageController extends PageController{
 								//Write order
 								$order->write();
 								//Write customer
+								if ($order->Product()->ClassName == MatchingToolPackage::class){
+									$customer->Credits += $order->Product()->Credits;
+								}
+								
 								$customer->write();
 
 								//Create Receipt

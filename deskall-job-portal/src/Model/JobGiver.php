@@ -72,7 +72,9 @@ class JobGiver extends DataObject
         'Cipher' => 'Varchar(255)', 
         'ReasonWhy' => 'HTMLText',  
         'FlatrateEndDate' => 'Date',
-        'Nummer' => 'Varchar'
+        'Nummer' => 'Varchar',
+
+        'Credits' => 'Int'
      );
 
     private static $singular_name = "Arbeitgeber";
