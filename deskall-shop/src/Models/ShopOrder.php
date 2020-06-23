@@ -50,7 +50,7 @@ class ShopOrder extends DataObject{
 
 	private static $summary_fields = array(
 		'Nummer' => 'Rechnungsnummer',
-		'Customer.printAddress' => 'Kunde',
+		'NiceAddress' => 'Kunde',
 		'Email' => 'Email',
 		'PaidStatus' => 'Bezahlt',
 		'PaymentResource' => 'Zahlungsmethod',
@@ -117,6 +117,28 @@ class ShopOrder extends DataObject{
 		$html = $this->renderWith('ShopOrderCMS');
 		$fields->push(LiteralField::create('Order',$html));
 		return $fields;
+	}
+
+	public function NiceAddress($full = true){
+	    $html = '<p>';
+	    if ($this->Company){
+	        $html .= $this->Company.'<br/>';
+	    }
+	    if ($this->Name){
+	        $html .= $this->Vorname.' '.$this->Name.'<br/>';
+	    }
+	    if ($this->Address){
+	        $html .= $this->Address.'<br/>';
+	    }
+	    
+	    $html .= $this->PostalCode.' - '.$this->City.'</p>';
+	    if ($full){
+	        $html .= '<p><a href="mailto:'.$this->Email.'">'.$this->Email.'</a>'.'<br/>'
+	    .$this->Phone.'</p>';
+	    }
+	    $o = new DBHTMLText();
+	    $o->setValue($html);
+	    return $o;
 	}
 
 	public function canMarkAsPaid(){
