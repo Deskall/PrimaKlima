@@ -149,7 +149,6 @@
 						<div class="uk-margin">
 							<% if CurrentCustomer.activeOrderMatchingTool %>
 							<h4><%t MemberPage.AvailableMatchingTitle 'Matching Tool verfügbar' %> $CurrentCustomer.Credits </h4>
-							<p><strong><%t MemberPage.RemainingCredits 'Verbleibende Kredite:' %> $</p>
 							<p><i data-uk-icon="info" class="uk-margin-right"></i><%t MemberPage.AvailableMatching 'Ihr Matching-Tool Abonnement ist aktiv, Sie durfen Match jetzt suchen!' %></p>
 							<% else %>
 								<h4><%t MemberPage.NoMoreMatchTitle 'Keine Kredite verfügbar' %></h4>
