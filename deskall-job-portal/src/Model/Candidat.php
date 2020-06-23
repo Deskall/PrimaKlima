@@ -317,6 +317,13 @@ class Candidat extends DataObject
         return $today->diff($Birthdate)->format('%y').' '._t('Candidat.Years','Jahre alt') ;
     }
 
+    public function getCurrentPosition(){
+        if ($this->CVItems()->exists()){
+            return $this->CVItems()->last()->Position;
+        }
+        return null;
+    }
+
     
 
 

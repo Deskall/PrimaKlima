@@ -15,23 +15,12 @@
 				<tr><td>Telefon</td><td>$Phone</td></tr>
 			</table>
 		</div>
+		<div class="uk-text-center">
+			<a class="uk-button uk-button-primary" href="">Jetzt Kontakt erhalten</a>
+		</div>
 		<% end_with %>
 		<% else %>
-		<div class="uk-width-1-3">
-			<img src="https://via.placeholder.com/150x200" />
-		</div>
-		<div class="uk-width-1-3">
-			<table>
-				<tr><td>Name</td><td>XXXX</td></tr>
-				<tr><td>Ort</td><td>XXXX</td></tr>
-				<tr><td>Email</td><td>XXXX</td></tr>
-				<tr><td>Telefon</td><td>XXXX</td></tr>
-			</table>
-		</div>
+		<div class="uk-card-title">$CurrentPosition</div>
 		<% end_if %>
-		$Description
-		<div class="uk-text-center">
-			<a class="uk-button uk-button-primary">Jetzt Kontakt erhalten</a>
-		</div>
 	</div>
 </div>
