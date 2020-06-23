@@ -148,7 +148,7 @@
 						$Portal.MatchingToolTabHTML
 						<div class="uk-margin">
 							<% if CurrentCustomer.activeOrderMatchingTool %>
-							<div class="uk-text-success"><%t MemberPage.AvailableMatchingTitle Kredite verfügbar' %> $CurrentCustomer.Credits</div>
+							<div class="uk-text-success"><%t MemberPage.AvailableMatchingTitle 'Kredite verfügbar' %> $CurrentCustomer.Credits</div>
 							<p><i data-uk-icon="info" class="uk-margin-right"></i><%t MemberPage.AvailableMatching 'Ihr Matching-Tool Abonnement ist aktiv, Sie durfen Match jetzt suchen!' %></p>
 							<% else %>
 								<h4><%t MemberPage.NoMoreMatchTitle 'Keine Kredite verfügbar' %></h4>
