@@ -3,6 +3,7 @@
 	<section class="uk-section uk-section-small">
 		<div class="uk-container">
 			<% if activeQuery %>
+			<div><a href="{$Controller.Link}neue-anfrage">Neue Anfrage</a></div>
 			<% with activeQuery %>
 			<div class="uk-panel uk-background-muted uk-padding">
 				<h3>Ihre Anfrage</h3>
