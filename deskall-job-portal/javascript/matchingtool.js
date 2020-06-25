@@ -9,6 +9,7 @@ $(document).ready(function(){
 		var id = $(this).attr('data-contact');
 		$.ajax({
 			url: cleanUrl(window.location.pathname)+'/showMatch',
+			method: 'POST',
 			dataType: 'html',
 			data: {resultId: id}
 		}).done(function(response){
