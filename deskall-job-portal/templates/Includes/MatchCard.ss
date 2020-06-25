@@ -33,7 +33,7 @@
 			</table>
 			<% end_with %>
 			<div class="uk-text-center">
-				<a class="uk-button uk-button-primary" href="#ontact-modal-{$ID}" data-uk-toggle>Jetzt Kontakt erhalten</a>
+				<a class="uk-button uk-button-primary" href="#contact-modal-{$ID}" data-uk-toggle>Jetzt Kontakt erhalten</a>
 			</div>
 			<div id="contact-modal-{$ID}" data-uk-modal>
 			    <div class="uk-modal-dialog">
