@@ -16,10 +16,11 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class MatchingToolPageController extends PageController{
 
-	private static $allowed_actions = ['MatchingToolForm'];
+	private static $allowed_actions = ['MatchingToolForm','showMatch'];
 
 	public function init(){
 		parent::init();
+		Requirements::javascript('deskall-job-portal/javascript/matchingtool.js');
 	}
 
 	
@@ -173,6 +174,19 @@ class MatchingToolPageController extends PageController{
 			return $query;
 		}
 
+		return null;
+	}
+
+	public function showMatch(HTTPRequest $request){
+		$id = $request->postVar('resultId');
+		if ($id){
+			$result = MatchingResult::get()->byId($id);
+			if ($result){
+				$result->isVisible = true;
+				$result->write();
+				return $result->renderWith('Includes/MatchCard');
+			}
+		}
 		return null;
 	}
 }
