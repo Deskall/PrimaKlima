@@ -5,16 +5,19 @@ $(document).ready(function(){
 		UIkit.modal($("#contact-modal")).show();
 	});
 	$(document).on("click","[data-contact]",function(){
-		var card = $(this).parents('.uk-card');
 		var id = $(this).attr('data-contact');
-		$.ajax({
-			url: cleanUrl(window.location.pathname)+'/showMatch',
-			method: 'POST',
-			dataType: 'html',
-			data: {resultId: id}
-		}).done(function(response){
-			card.replaceWith(response);
-		});
+		if (id){
+			var card = $("#match-card-"+id);
+			$.ajax({
+				url: cleanUrl(window.location.pathname)+'/showMatch',
+				method: 'POST',
+				dataType: 'html',
+				data: {resultId: id}
+			}).done(function(response){
+				card.replaceWith(response);
+				Ikit.modal($("#contact-modal")).hide();
+			});
+		}
 	});
 });
 
