@@ -15,7 +15,7 @@ $(document).ready(function(){
 				data: {resultId: id}
 			}).done(function(response){
 				card.replaceWith(response);
-				Ikit.modal($("#contact-modal")).hide();
+				UIkit.modal($("#contact-modal")).hide();
 			});
 		}
 	});
