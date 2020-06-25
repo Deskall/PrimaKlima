@@ -97,7 +97,8 @@ class MatchingToolPageController extends PageController{
 						$fields->push(ListboxField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title,$group->Values()->map('Title','Title')));
 						break;
 					case "range":
-						$fields->push(TextField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title)->setAttribute('type','range')->setAttribute('class','uk-range')->setAttribute('min',$group->Min)->setAttribute('max',$group->Max)->setAttribute('step',1));
+						$fields->push(TextField::create($group->ID.'-range-'.URLSegmentFilter::create()->filter($group->Title),$group->Title)->setAttribute('type','range')->setAttribute('class','uk-range')->setAttribute('min',$group->Min)->setAttribute('max',$group->Max)->setAttribute('step',1));
+						$fields->push(TextField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title)->setAttribute('class','uk-input uk-width-small')->setAttribute('min',$group->Min)->setAttribute('max',$group->Max));
 						break;
 				}
 			}
