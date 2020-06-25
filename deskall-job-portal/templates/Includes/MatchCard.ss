@@ -10,17 +10,15 @@
 		<div class="uk-width-2-3">
 			<table>
 				<tr><td>Name</td><td>$Member.FirstName $Member.Surname</td></tr>
-				<tr><td>Ort</td><td>$Member.City</td></tr>
 				<tr><td>Email</td><td>$Member.Email</td></tr>
 				<tr><td>Telefon</td><td>$Phone</td></tr>
 			</table>
 		</div>
 		<div class="uk-text-center">
-			<a class="uk-button uk-button-primary" href="">Jetzt Kontakt aufnehmen</a>
+			<a class="uk-button uk-button-primary" href="mailto:$Member.Email">Jetzt Kontakt aufnehmen</a>
 		</div>
 		<% end_with %>
 		<% else %>
-		
 		<div class="uk-width-1-3">
 			<img src="https://via.placeholder.com/150x120" />
 		</div>
