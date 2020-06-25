@@ -3,6 +3,16 @@
 	<section class="uk-section uk-section-small">
 		<div class="uk-container">
 			<% if activeQuery %>
+			<% with activeQuery %>
+			<div class="uk-panel uk-background-muted uk-padding">
+				<h3>Ihre Anfrage</h3>
+				<div>
+					<% loop Parameters %>
+					<div>$Title</div><div>$Value</div>
+					<% end_loop %>
+				</div>
+			</div>
+			<% end_with %>
 			<div data-uk-grid>
 				<%-- <div class="uk-width-1-2@s uk-width-1-3@m">
 					<div data-uk-sticky="offset:100">
