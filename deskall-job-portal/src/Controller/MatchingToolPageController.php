@@ -168,7 +168,7 @@ class MatchingToolPageController extends PageController{
 		}
 		
 		
-		return $this->redirect('ergebnisse');
+		return $this->redirect('Results');
 	}
 
 	public function Results(HTTPRequest $request){
