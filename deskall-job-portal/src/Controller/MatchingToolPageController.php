@@ -17,17 +17,13 @@ use SilverStripe\View\Requirements;
 
 class MatchingToolPageController extends PageController{
 
-	private static $allowed_actions = ['MatchingToolForm','showMatch','Results'];
+	private static $allowed_actions = ['MatchingToolForm','showMatch'];
 
-	private static $url_handlers = [
-		'ergebnisse' => 'Results'
-	];
 
 	public function init(){
 		parent::init();
 		Requirements::javascript('deskall-job-portal/javascript/matchingtool.js');
 	}
-
 	
 	public function MatchingToolForm(){
 
@@ -164,25 +160,15 @@ class MatchingToolPageController extends PageController{
 				$validationMessages .= $error['message']."\n";
 			}
 			$form->sessionMessage($validationMessages, 'bad');
-			return $this->redirectBack();
 		}
 		
 		
-		return $this->redirect('matching-tool/ergebnisse');
-	}
-
-	public function Results(HTTPRequest $request){
-		$id = $this->getRequest()->getSession()->get('query_id');
-		$query = MatchingQuery::get()->byId($id);
-		if (!$query){
-			$this->redirect('index');
-		} 
-		return ['Title' => 'Ergebnisse', 'Query' => $query];
+		return $this->redirectBack();
 	}
 
 	public function activeQuery(){
 		$id = $this->getRequest()->getSession()->get('query_id');
-		$this->getRequest()->getSession()->clear('query_id');
+		
 		if ($id){
 			$query = MatchingQuery::get()->byId($id);
 			return $query;
