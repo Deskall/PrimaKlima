@@ -3,10 +3,10 @@
 	<section class="uk-section uk-section-small">
 		<div class="uk-container">
 			<% if activeQuery %>
-			<div><a href="{$Controller.Link}neue-anfrage">Neue Anfrage</a></div>
+			<div><a href="{$Controller.Link}neue-anfrage"><%t MatchingTool.NewQuery 'Neue Anfrage' %></a></div>
 			<% with activeQuery %>
 			<div class="uk-panel uk-background-muted uk-padding">
-				<h3>Ihre Anfrage</h3>
+				<h3><%t MatchingTool.YourQuery 'Ihre Anfrage' %></h3>
 				<div>
 					<% loop Parameters %>
 					<div>$Title</div><div>$Value</div>
@@ -24,7 +24,7 @@
 				</div>
 				<div class="uk-width-1-2@s uk-width-2-3@m"> --%>
 				<div class="uk-width-1-1">
-					<h2>Ergebnisse</h2>
+					<h2><%t MatchingTool.Results 'Ergebnisse' %></h2>
 					<div id="results">
 						<div class="uk-grid-small uk-child-width-1-2@m" data-uk-grid="masonry:true">
 							<% if activeQuery.Results %>
@@ -42,7 +42,7 @@
 			</div>
 			<% include MatchModal %>
 			<% else %>
-			<h2>Suche nach Kompatibilität</h2>
+			<h2><%t MatchingTool.QueryLabel 'Suche nach Kompatibilität' %></h2>
 			$MatchingToolExplanation
 			$MatchingToolForm
 			<% end_if %>
