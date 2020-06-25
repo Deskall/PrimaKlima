@@ -13,6 +13,7 @@ use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\View\Requirements;
 
 class MatchingToolPageController extends PageController{
 
