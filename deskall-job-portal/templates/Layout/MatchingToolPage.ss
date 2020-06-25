@@ -13,7 +13,7 @@
 				</div>
 				<div class="uk-width-1-2@s uk-width-2-3@m"> --%>
 				<div class="uk-width-1-1">
-					<h2>Matching Tool - Ergebnisse</h2>
+					<h2>Ergebnisse</h2>
 					<div id="results">
 						<div class="uk-grid-small uk-child-width-1-2@m" data-uk-grid="masonry:true">
 							<% if activeQuery.Results %>
@@ -31,7 +31,7 @@
 			</div>
 			<% include MatchModal %>
 			<% else %>
-			<h2>Matching Tool - Suche nach Kompatibilität</h2>
+			<h2>Suche nach Kompatibilität</h2>
 			$MatchingToolExplanation
 			$MatchingToolForm
 			<% end_if %>
