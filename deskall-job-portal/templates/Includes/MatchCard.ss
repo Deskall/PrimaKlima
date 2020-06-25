@@ -16,11 +16,20 @@
 			</table>
 		</div>
 		<div class="uk-text-center">
-			<a class="uk-button uk-button-primary" href="">Jetzt Kontakt erhalten</a>
+			<a class="uk-button uk-button-primary" href="">Jetzt Kontakt aufnehmen</a>
 		</div>
 		<% end_with %>
 		<% else %>
+		<% with Candidat %>
 		<div class="uk-card-title">$CurrentPosition</div>
+		<table>
+			<tr><td>Erfahrung</td><td>$ExperienceYears</td></tr>
+			<tr><td>Sprachen</td><td>$Languages</td></tr>
+		</table>
+		<div class="uk-text-center">
+			<a class="uk-button uk-button-primary" href="">Jetzt Kontakt erhalten</a>
+		</div>
+		<% end_with %>
 		<% end_if %>
 	</div>
 </div>

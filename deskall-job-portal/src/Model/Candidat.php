@@ -323,6 +323,12 @@ class Candidat extends DataObject
         }
         return null;
     }
+    public function getLanguages(){
+        if ($this->Parameters()->filter('Title','Sprachen')->exists()){
+            return $this->Parameters()->filter('Title','Sprachen')->first()->Value;
+        }
+        return null;
+    }
 
     
 
