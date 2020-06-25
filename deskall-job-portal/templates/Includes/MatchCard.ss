@@ -35,7 +35,6 @@
 			<div class="uk-text-center">
 				<a class="uk-button uk-button-primary" data-contact-modal="$ID">Jetzt Kontakt erhalten</a>
 			</div>
-			
 		</div>
 		<% end_if %>
 	</div>

@@ -29,6 +29,7 @@
 					</div>
 				</div>
 			</div>
+			<% include MatchModal %>
 			<% else %>
 			<h2>Matching Tool - Suche nach Kompatibilität</h2>
 			$MatchingToolExplanation
@@ -36,6 +37,5 @@
 			<% end_if %>
 		</div>
 	</section>
-
 
 
