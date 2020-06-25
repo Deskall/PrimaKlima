@@ -3,7 +3,7 @@
 	<section class="uk-section uk-section-small">
 		<div class="uk-container">
 			<% if activeQuery %>
-			<div><a href="{$Top.Link}neue-anfrage"><%t MatchingTool.NewQuery 'Neue Anfrage' %></a></div>
+			<div><a href="{$Top.Parent.Link}neue-anfrage"><%t MatchingTool.NewQuery 'Neue Anfrage' %></a></div>
 			<% with activeQuery %>
 			<div class="uk-panel uk-background-muted uk-padding">
 				<h3><%t MatchingTool.YourQuery 'Ihre Anfrage' %></h3>
