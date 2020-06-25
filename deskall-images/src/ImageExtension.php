@@ -342,6 +342,15 @@ class ImageExtension extends Extension
 
     public function OptimiseImage($url,$path){
         $optimiser = new DeskallImageOptimiser();
+        ob_start();
+            print_r($url);
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        ob_start();
+            print_r($path);
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+
         $optimiser->Optimise($url,$path);
     }
 
