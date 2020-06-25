@@ -14,8 +14,10 @@
 				<tr><td>Telefon</td><td>$Phone</td></tr>
 			</table>
 		</div>
-		<div class="uk-text-center">
-			<a class="uk-button uk-button-primary" href="mailto:$Member.Email">Jetzt Kontakt aufnehmen</a>
+		<div class="uk-width-1-1">
+			<div class="uk-text-center">
+				<a class="uk-button uk-button-primary" href="mailto:$Member.Email">Jetzt Kontakt aufnehmen</a>
+			</div>
 		</div>
 		<% end_with %>
 		<% else %>
@@ -30,6 +32,8 @@
 				<tr><td>Sprachen</td><td>$Languages</td></tr>
 			</table>
 			<% end_with %>
+		</div>
+		<div class="uk-width-1-1">
 			<div class="uk-text-center">
 				<a class="uk-button uk-button-primary" data-contact-modal="$ID">Jetzt Kontakt erhalten</a>
 			</div>

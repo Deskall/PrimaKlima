@@ -17,7 +17,11 @@ use SilverStripe\View\Requirements;
 
 class MatchingToolPageController extends PageController{
 
-	private static $allowed_actions = ['MatchingToolForm','showMatch'];
+	private static $allowed_actions = ['MatchingToolForm','showMatch','Results'];
+
+	private static $url_handlers = [
+		'ergebnisse' => 'Results'
+	];
 
 	public function init(){
 		parent::init();
@@ -164,7 +168,16 @@ class MatchingToolPageController extends PageController{
 		}
 		
 		
-		return $this->redirectBack();
+		return $this->redirect('ergebnisse');
+	}
+
+	public function Results(HTTPRequest $request){
+		$id = $this->getRequest()->getSession()->get('query_id');
+		$query = MatchingQuery::get()->byId($id);
+		if (!$query){
+			$this->redirect('index');
+		} 
+		return ['Title' => 'Ergebnisse', 'Query' => $query];
 	}
 
 	public function activeQuery(){
