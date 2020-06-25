@@ -59,8 +59,8 @@ class MatchingToolPageController extends PageController{
 									$fields->push(ListboxField::create($subchild->ID.'-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title,$subchild->Values()->map('Title','Title')));
 									break;
 								case "range":
-									$fields->push(TextField::create($group->ID.'-range-'.URLSegmentFilter::create()->filter($group->Title),$group->Title)->setAttribute('type','range')->setAttribute('class','uk-range')->setAttribute('min',$group->Min)->setAttribute('max',$group->Max)->setAttribute('step',1));
-									$fields->push(TextField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title)->setAttribute('class','uk-input uk-width-small')->setAttribute('min',$group->Min)->setAttribute('max',$group->Max));
+									$fields->push(TextField::create($subchild->ID.'-range-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title)->setAttribute('type','range')->setAttribute('class','uk-range')->setAttribute('min',$subchild->Min)->setAttribute('max',$subchild->Max)->setAttribute('step',1));
+									$fields->push(TextField::create($subchild->ID.'-'.URLSegmentFilter::create()->filter($subchild->Title),$subchild->Title)->setAttribute('class','uk-input uk-width-small')->setAttribute('min',$subchild->Min)->setAttribute('max',$subchild->Max));
 									break;
 							}
 						}
@@ -80,8 +80,8 @@ class MatchingToolPageController extends PageController{
 								$fields->push(ListboxField::create($child->ID.'-'.URLSegmentFilter::create()->filter($child->Title),$child->Title,$child->Values()->map('Title','Title')));
 								break;
 							case "range":
-								$fields->push(TextField::create($group->ID.'-range-'.URLSegmentFilter::create()->filter($group->Title),$group->Title)->setAttribute('type','range')->setAttribute('class','uk-range')->setAttribute('min',$group->Min)->setAttribute('max',$group->Max)->setAttribute('step',1));
-								$fields->push(TextField::create($group->ID.'-'.URLSegmentFilter::create()->filter($group->Title),$group->Title)->setAttribute('class','uk-input uk-width-small')->setAttribute('min',$group->Min)->setAttribute('max',$group->Max));
+								$fields->push(TextField::create($child->ID.'-range-'.URLSegmentFilter::create()->filter($child->Title),$child->Title)->setAttribute('type','range')->setAttribute('class','uk-range')->setAttribute('min',$child->Min)->setAttribute('max',$child->Max)->setAttribute('step',1));
+								$fields->push(TextField::create($child->ID.'-'.URLSegmentFilter::create()->filter($child->Title),$child->Title)->setAttribute('class','uk-input uk-width-small')->setAttribute('min',$child->Min)->setAttribute('max',$child->Max));
 								break;
 						}
 					}
