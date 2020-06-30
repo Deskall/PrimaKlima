@@ -61,7 +61,7 @@ class CodeBlock extends BaseElement
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        if ($this->Position != "normal"){
+        if ($this->Position != "normal" || !$this->Display){
              $this->isVisible = 0;
         }
        
