@@ -18,7 +18,8 @@ class CodeBlock extends BaseElement
 
     private static $db = [
         'Script' => 'HTMLText',
-        'Position' => 'Varchar(255)'
+        'Position' => 'Varchar(255)',
+        'Display' => 'Boolean(0)'
     ];
 
    
@@ -49,6 +50,8 @@ class CodeBlock extends BaseElement
             $fields->addFieldToTab('Root.Main', TextareaField::create('Script','Script')->setDescription(_t(__CLASS__.'.ScriptLabel','Bitte Kopieren Sie hier die Scripts mit "<script></script>" tags')));            
 
             $fields->addFieldToTab('Root.Main',DropdownField::create('Position',_t(__CLASS__.'.ScriptPosition','Script Position'), $this->getTranslatedSourceFor(__CLASS__,'block_positions')));
+
+            $fields->addFieldToTab('Root.Main',CheckboxField::create('Display',_t(__CLASS__.'.Display','Block anzeigen?'))->displayIf('Position')->isEqualTo('normal')->end());
 
         });
         return parent::getCMSFields();
