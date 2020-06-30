@@ -10,7 +10,7 @@
 			$Element
 		</div>
 		<% else %>
-		$Element.Script
+		<div hidden>$Element.Script</div>
 		<% end_if %>
 	<% end_if %>
 <% end_if %>
