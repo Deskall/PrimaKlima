@@ -64,6 +64,9 @@ class CodeBlock extends BaseElement
         if ($this->Position != "normal" || !$this->Display){
              $this->isVisible = 0;
         }
+        if ($this->Display){
+            $this->isVisible = 1;
+        }
        
     }
 
