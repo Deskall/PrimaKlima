@@ -48,6 +48,7 @@ class CodeBlock extends BaseElement
             $fields->removeByName('Layout');
             $fields->removeByName('TitleAndDisplayed');
             $fields->removeByName('Script');
+            $fields->removeByName('Display');
             $fields->addFieldToTab('Root.Main', TextareaField::create('Script','Script')->setDescription(_t(__CLASS__.'.ScriptLabel','Bitte Kopieren Sie hier die Scripts mit "<script></script>" tags')));            
 
             $fields->addFieldToTab('Root.Main',DropdownField::create('Position',_t(__CLASS__.'.ScriptPosition','Script Position'), $this->getTranslatedSourceFor(__CLASS__,'block_positions')));
