@@ -35,6 +35,8 @@ class ShopConfigExtension extends DataExtension
        'WishNumberTitle' => 'Varchar',
        'WishNumberBody' => 'HTMLText',
        'Conditions' => 'HTMLText'
+       'ActivationPrice' => 'Currency',
+       'ActivationPriceLabel' => 'HTMLText'
     );
 
     private static $has_one = [
@@ -69,6 +71,8 @@ class ShopConfigExtension extends DataExtension
       $labels['AGBPage'] = _t(__CLASS__.'.AGBPage','AGB Seite');
       $labels['MobileAGBPage'] = _t(__CLASS__.'.MobileAGBPage','Mobile AGB Seite');
       $labels['Conditions'] = _t(__CLASS__.'.Conditions','Konditionen');
+      $labels['ActivationPrice'] = _t(__CLASS__.'.ActivationPrice','Aufschaltgebühr');
+      $labels['ActivationPriceLabel'] = _t(__CLASS__.'.ActivationPriceLabel','Aufschaltgebühr - Hinweis in Bestellübersicht');
     }
 
    
@@ -89,7 +93,9 @@ class ShopConfigExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields)
     {
-       
+       $fields->addFieldToTab('Root.Shop',TextField::create('ActivationPrice',$this->owner->fieldLabels()['ActivationPrice']));
+       $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('ActivationPriceLabel',$this->owner->fieldLabels()['ActivationPriceLabel'])->setRows(3));
+       $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',TextField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']));
        $fields->addFieldToTab('Root.Shop',TextField::create('PLZModalTitle',$this->owner->fieldLabels()['PLZModalTitle']));
@@ -135,7 +141,8 @@ class ShopConfigExtension extends DataExtension
 
         $variables = array(
             '$SiteName'       => $this->owner->Title,
-            '$Datum'          => date('d.m.Y')
+            '$Datum'          => date('d.m.Y'),
+            '$Aufschaltgebühr' => $this->owner->ActivationPrice
             // '$LoginLink'      => Controller::join_links(
             //     $absoluteBaseURL,
             //     singleton(Security::class)->Link('login')
