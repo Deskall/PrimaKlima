@@ -755,10 +755,9 @@ $(document).ready(function(){
 				dataType: 'json',
 				data: {options: paytvpackages}
 			}).done(function(response){
-				cons
 				$(this).removeClass('loading');
 				if (response.link){
-					window.location.href = response.link;
+					window.location.pathname = response.link;
 				}
 				else{
 					console.log(response.error);
