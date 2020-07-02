@@ -95,7 +95,8 @@ class ShopConfigExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
       foreach (Product::get() as $product){
-        $product->ActivationPrice = null;
+        $product->UniquePrice = null;
+        $product->UniquePriceLabel = null;
         $product->write();
       }
        $fields->addFieldToTab('Root.Shop',TextField::create('ActivationPrice',$this->owner->fieldLabels()['ActivationPrice']));
