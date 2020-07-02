@@ -222,6 +222,8 @@ class ShopController extends PageController
       $cart = $this->getActiveCartObject();
       $isCustomer = $this->getRequest()->postVar('isCustomer');
       if ($cart){
+         $cart->ExistingCustomer = $isCustomer;
+         $cart->write();
          //Rules for new customer
          if (!$isCustomer){
             if ($cart->hasPremiumSender() && !$cart->hasCategory('yplay-watch')){

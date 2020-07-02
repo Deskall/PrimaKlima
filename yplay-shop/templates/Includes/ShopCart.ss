@@ -31,6 +31,11 @@
 <% end_if %>
 <% if $TotalUniquePrice > 0 %>
 <strong class="uk-text-small">Einmalige Kosten</strong>
+<% if not $ExistingCustomer %>
+<div class="uk-margin-small">
+	$ActivationPriceLabel
+</div>
+<% end_if %>
 <% if Package.exists && $Package.PriceGain.gainU < 0 %><p>Sie sparen {$Package.PriceGain.gainU}%</p><% end_if %>
 <table id="unique-costs" class="uk-table uk-table-small uk-table-justify">
 	<tbody>
@@ -81,13 +86,6 @@
 <div class="uk-margin-small">
 	<a data-uk-toggle="#modal-conditions" data-uk-icon="chevron-right">Konditionen</a>
 </div>
-<% if not $isCustomer %>
-<div class="uk-margin-small">
-	<div class="uk-text-small">
-		$ActivationPriceLabel
-	</div>
-</div>
-<% end_if %>
 <%-- <div class="uk-margin-small">
 	<div class="uk-flex uk-flex-middle">
 		<img src="$ThemeDir/img/gift-solid.svg" class="uk-margin-small-right" width="50">
