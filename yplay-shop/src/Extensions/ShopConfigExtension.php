@@ -18,6 +18,7 @@ use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\Tabset;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\ORM\FieldType\DBCurrency;
 
 class ShopConfigExtension extends DataExtension
 {
@@ -146,7 +147,7 @@ class ShopConfigExtension extends DataExtension
         $variables = array(
             '$SiteName'       => $this->owner->Title,
             '$Datum'          => date('d.m.Y'),
-            '$Aufschaltgebühr' => $this->owner->ActivationPrice->Nice()
+            '$Aufschaltgebühr' => DBCurrency::create()->setValue($this->owner->ActivationPrice)->Nice()
             // '$LoginLink'      => Controller::join_links(
             //     $absoluteBaseURL,
             //     singleton(Security::class)->Link('login')
