@@ -84,7 +84,7 @@
 <% if not $isCustomer %>
 <div class="uk-margin-small">
 	<div class="uk-text-small">
-		$SiteConfig.ActivationPriceLabel
+		$SiteConfig.parseString(ActivationPriceLabel)
 	</div>
 </div>
 <% end_if %>
