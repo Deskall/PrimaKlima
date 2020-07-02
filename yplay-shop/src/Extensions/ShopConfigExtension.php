@@ -135,7 +135,7 @@ class ShopConfigExtension extends DataExtension
     }
 
 
-    public function parseString($string,$order)
+    public function parseString($string,$order=null)
     {
 
 
