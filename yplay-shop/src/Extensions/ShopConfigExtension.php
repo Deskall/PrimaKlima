@@ -93,6 +93,10 @@ class ShopConfigExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields)
     {
+      foreach (Product::get() as $product){
+        $product->ActivationPrice = null;
+        $product->write();
+      }
        $fields->addFieldToTab('Root.Shop',TextField::create('ActivationPrice',$this->owner->fieldLabels()['ActivationPrice']));
        $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('ActivationPriceLabel',$this->owner->fieldLabels()['ActivationPriceLabel'])->setRows(3));
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
@@ -142,7 +146,7 @@ class ShopConfigExtension extends DataExtension
         $variables = array(
             '$SiteName'       => $this->owner->Title,
             '$Datum'          => date('d.m.Y'),
-            '$Aufschaltgebühr' => $this->owner->ActivationPrice
+            '$Aufschaltgebühr' => $this->owner->ActivationPrice->Nice()
             // '$LoginLink'      => Controller::join_links(
             //     $absoluteBaseURL,
             //     singleton(Security::class)->Link('login')
