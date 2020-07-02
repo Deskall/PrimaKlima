@@ -29,13 +29,13 @@
 	</tfoot>
 </table>
 <% end_if %>
-<% if $TotalUniquePrice > 0 %>
-<strong class="uk-text-small">Einmalige Kosten</strong>
 <% if not $ExistingCustomer %>
 <div class="uk-margin-small">
 	$ActivationPriceLabel
 </div>
 <% end_if %>
+<% if $TotalUniquePrice > 0 %>
+<strong class="uk-text-small">Einmalige Kosten</strong>
 <% if Package.exists && $Package.PriceGain.gainU < 0 %><p>Sie sparen {$Package.PriceGain.gainU}%</p><% end_if %>
 <table id="unique-costs" class="uk-table uk-table-small uk-table-justify">
 	<tbody>
