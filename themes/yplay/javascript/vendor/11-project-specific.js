@@ -77,7 +77,7 @@ $(document).ready(function(){
 		packages = [],
 		productsOfPackages = [],
 		updateRun;
-
+		console.log('ici');
 		
 		var url = window.location.pathname;
 		$.ajax({
