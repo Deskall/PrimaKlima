@@ -748,13 +748,14 @@ $(document).ready(function(){
 		});
 
 		$(document).on("click",".paytvblock [data-submit-paytv]",function(){
-
+			console.log('ici');
 			$.ajax({
 				url: '/shop-functions/smartcard/',
 				method: 'POST',
 				dataType: 'json',
 				data: {options: paytvpackages}
 			}).done(function(response){
+				cons
 				$(this).removeClass('loading');
 				if (response.link){
 					window.location.href = response.link;
