@@ -247,7 +247,9 @@ $(document).ready(function(){
 				//Process for new customers
 				var proceed = true;
 				if ($(this).hasClass('customer-button')){
-					proceed = InitCustomer();
+					proceed = false;
+					InitCustomer();
+					$(this).addClass('is-reviewed');
 				}
 				if (proceed) {
 					//Check daten && Update Session Data
@@ -522,7 +524,7 @@ $(document).ready(function(){
 				window.location.href = response.link;
 			}
 			else {
-				return true;
+				$(".is-reviewed.customer-button").removeClass("customer-button").trigger('click');
 			}
 		});
 	}
