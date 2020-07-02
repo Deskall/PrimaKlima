@@ -259,4 +259,9 @@ class ShopCart extends DataObject {
 	public function getSiteConfig(){
 		return SiteConfig::current_site_config();
 	}
+
+	public function ActivationPriceLabel(){
+		$config = $this->getSiteConfig();
+		return DBHTMLText::create()->setValue($config->parseString($config->ActivationPriceLabel));
+	}
 }
