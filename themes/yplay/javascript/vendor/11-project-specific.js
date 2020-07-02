@@ -516,7 +516,7 @@ $(document).ready(function(){
 			url: '/shop-functions/checkCustomer',
 			method: 'POST',
 			dataType: 'json',
-			data: {isNewCustomer: $("input[name='ExistingCustomer']").val()}
+			data: {isCustomer: $("input[name='ExistingCustomer']").val()}
 		}).done(function(response){
 			if (response.link){
 				window.location.href = response.link;
