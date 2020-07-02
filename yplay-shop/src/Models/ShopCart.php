@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class ShopCart extends DataObject {
 
@@ -253,5 +254,9 @@ class ShopCart extends DataObject {
 
 	public function isEmpty(){
 		return (!$this->Package()->exists() && !$this->Products()->exists() && !$this->Options()->exists());
+	}
+
+	public function getSiteConfig(){
+		return SiteConfig::current_site_config();
 	}
 }
