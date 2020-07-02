@@ -15,7 +15,7 @@
 		<% if DownloadsTitle %><h3>$DownloadsTitle</h3><% end_if %>
 		<div class="$FilesTextAlign $FilesColumns" data-uk-grid>
 		<% loop Files %>
-		<div  class="uk-text-truncate">
+		<div class="uk-text-truncate">
 			<a href="$URL" title="Download $Title" target="_blank">$Title</a>
 		</div>
 		<% end_loop %>
