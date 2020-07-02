@@ -81,6 +81,13 @@
 <div class="uk-margin-small">
 	<a data-uk-toggle="#modal-conditions" data-uk-icon="chevron-right">Konditionen</a>
 </div>
+<% if not $isCustomer %>
+<div class="uk-margin-small">
+	<div class="uk-text-small">
+		$Config.ActivationPriceLabel
+	</div>
+</div>
+<% end_if %>
 <%-- <div class="uk-margin-small">
 	<div class="uk-flex uk-flex-middle">
 		<img src="$ThemeDir/img/gift-solid.svg" class="uk-margin-small-right" width="50">
