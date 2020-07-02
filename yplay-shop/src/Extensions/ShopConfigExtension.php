@@ -34,7 +34,7 @@ class ShopConfigExtension extends DataExtension
        'MobileStepBody' => 'HTMLText',
        'WishNumberTitle' => 'Varchar',
        'WishNumberBody' => 'HTMLText',
-       'Conditions' => 'HTMLText'
+       'Conditions' => 'HTMLText',
        'ActivationPrice' => 'Currency',
        'ActivationPriceLabel' => 'HTMLText'
     );
