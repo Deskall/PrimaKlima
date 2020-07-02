@@ -1,4 +1,4 @@
-
+	<% if HTML %>
 	<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 		<% if CollapseText %>
 				<div class="short-text toggle-text-{$ID}">$HTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary uk-box-shadow-large" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
@@ -7,11 +7,7 @@
 				$HTML
 			<% end_if %>
 	</div>
-	
-	<% if LinkableLinkID > 0 %>
-		<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 	<% end_if %>
-
 	<% if Headers.exists %>
 	<% if MobileFormat == "overflow" %><div class="uk-overflow-auto"><% end_if %>
 	<table class="uk-table <% if Striped %>uk-table-striped<% end_if %> <% if Divider %>uk-table-divider<% end_if %> <% if Hover %>uk-table-hover<% end_if %> <% if MobileFormat == "stack" %>uk-table-responsive<% end_if %>">
@@ -32,4 +28,8 @@
 		</tbody>
 	</table>
 	<% if MobileFormat == "overflow" %></div><% end_if %>
+	<% end_if %>
+
+	<% if LinkableLinkID > 0 %>
+		<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 	<% end_if %>
