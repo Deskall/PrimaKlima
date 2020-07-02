@@ -94,11 +94,7 @@ class ShopConfigExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields)
     {
-      foreach (Product::get() as $product){
-        $product->UniquePrice = null;
-        $product->UniquePriceLabel = null;
-        $product->write();
-      }
+ 
        $fields->addFieldToTab('Root.Shop',TextField::create('ActivationPrice',$this->owner->fieldLabels()['ActivationPrice']));
        $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('ActivationPriceLabel',$this->owner->fieldLabels()['ActivationPriceLabel'])->setRows(3));
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
