@@ -225,6 +225,7 @@ $(document).ready(function(){
 
 		UpdateOrder();
 		InitStep();
+		InitNav();
 		var validator = $("#Form_OrderForm").validate({
 			errorPlacement: function(error, element) {
 			    error.appendTo( element.parents(".uk-form-controls") );
@@ -482,20 +483,20 @@ $(document).ready(function(){
 
 	function InitNav(){
 		var li = $("#order-nav li.uk-active");
-		var active  = $("#order-nav-switcher li.uk-active");
+		var active  = $("#order-form-steps li.uk-active");
 		switch(li.attr('data-nav')){
 			case "1":
 				var index = (active) ? active.attr('data-index') : 0;
 				console.log(index);
-				UIkit.switcher("#order-nav-switcher", {active: index });
+				UIkit.switcher("#order-form-steps").show(index);
 				break;
 			case "2":
 				var index = (active) ? active.attr('data-index') : 4;
-				UIkit.switcher("#order-nav-switcher", {active: index });
+				UIkit.switcher("#order-form-steps").show(index);
 				break;
 			case "3":
 				var count = parseInt($("#order-form-steps > li").length - 1);
-				UIkit.switcher("#order-nav-switcher").show(count);
+				UIkit.switcher("#order-form-steps").show(count);
 				break;
 		}
 	}
@@ -508,7 +509,6 @@ $(document).ready(function(){
 			$(this).find('.step.backwards').attr('data-target',i-1);
 			i++;
 		});
-		InitNav();
 	}
 
 	/**
