@@ -222,7 +222,7 @@ $(document).ready(function(){
 
 	//Shop Page script
 	if ($('body').hasClass('ShopPage')){
-		var switcher;
+		var switcher = UIkit.switcher("#order-nav-switcher");
 		UpdateOrder();
 		InitStep();
 		InitNav();
@@ -483,17 +483,16 @@ $(document).ready(function(){
 
 	function InitNav(){
 		var li = $("#order-nav li.uk-active");
-		console.log(li.attr('data-nav'));
 		switch(li.attr('data-nav')){
 			case "1":
-				switcher = UIkit.switcher("#order-nav-switcher").show(0);
+				switcher.show(0);
 				break;
 			case "2":
-				switcher = UIkit.switcher("#order-nav-switcher").show(4);
+				switcher.show(4);
 				break;
 			case "3":
 				var count = parseInt($("#order-form-steps > li").length - 1);
-				switcher = UIkit.switcher("#order-nav-switcher").show(count);
+				switcher.show(count);
 				break;
 		}
 	}
