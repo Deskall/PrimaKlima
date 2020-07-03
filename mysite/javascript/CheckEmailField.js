@@ -10,4 +10,4 @@ $.validator.addMethod("data-referent-name", function(value, element,attr) {
    	return true;
    }
     return false;
-}, "Bitte geben Sie eine gültige schweizer oder deutsche Telefonnummer ein");
+}, "Die beiden E-Mail-Adressen stimmen nicht überein");
