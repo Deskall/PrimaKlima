@@ -486,14 +486,14 @@ $(document).ready(function(){
 		console.log(li.attr('data-nav'));
 		switch(li.attr('data-nav')){
 			case "1":
-				switcher = UIkit.switcher("#order-nav-switcher", {active: 0});
+				switcher = UIkit.switcher("#order-nav-switcher").show(0);
 				break;
 			case "2":
-				switcher = UIkit.switcher("#order-nav-switcher", {active: 4});
+				switcher = UIkit.switcher("#order-nav-switcher").show(4);
 				break;
 			case "3":
 				var count = parseInt($("#order-form-steps > li").length - 1);
-				switcher = UIkit.switcher("#order-nav-switcher", {active: count});
+				switcher = UIkit.switcher("#order-nav-switcher").show(count);
 				break;
 		}
 	}
