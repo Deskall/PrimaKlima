@@ -2,6 +2,9 @@
 
 use SilverStripe\UserForms\Model\EditableFormField\EditableEmailField;
 use SilverStripe\View\Requirements;
+use SilverStripe\Forms\EmailField;
+use SilverStripe\UserForms\Model\EditableFormField;
+
 /**
  * Second Email input field with validation based on first Email field.
  */
