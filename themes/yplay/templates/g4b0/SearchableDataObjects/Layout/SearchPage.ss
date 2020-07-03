@@ -13,7 +13,7 @@
 <section class="uk-section uk-section-small">
     <div class="uk-container">
         <div class="uk-padding-large">
-            <h2>Suche</h2>
+            <h1>$Title</h1>
             <form class="search-form uk-flex uk-flex-between" method="GET" action="{$Link}SearchForm">
                 <input type="text" class="uk-input" minlength="3" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
                 <button type="submit"><i data-uk-icon="search"></i></button>
@@ -40,4 +40,6 @@
         </div>
     </div>
 </section>
+
+$ElementalArea
     
