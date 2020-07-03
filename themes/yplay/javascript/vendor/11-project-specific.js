@@ -226,7 +226,7 @@ $(document).ready(function(){
 
 		UpdateOrder();
 		InitStep();
-		InitNav();
+		
 		var validator = $("#Form_OrderForm").validate({
 			errorPlacement: function(error, element) {
 			    error.appendTo( element.parents(".uk-form-controls") );
@@ -507,6 +507,7 @@ $(document).ready(function(){
 			$(this).find('.step.backwards').attr('data-target',i-1);
 			i++;
 		});
+		InitNav();
 	}
 
 	/**
