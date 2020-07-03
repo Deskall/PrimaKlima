@@ -6,6 +6,6 @@ $(document).ready(function(){
 
 $.validator.addMethod("data-referent-name", function(value, element) {
     console.log(value);
-    console.log(element.attr('data-referent-name'));
+    console.log(element);
     return false;
 }, "Bitte geben Sie eine gültige schweizer oder deutsche Telefonnummer ein");
