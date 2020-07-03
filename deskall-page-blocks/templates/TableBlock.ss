@@ -20,43 +20,43 @@
 			<% loop $Rows %>
 			<tr>
 				<% if $Header1 %>
-					<td><% if MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',1).first.Title}:</span><% end_if %>$Header1
+					<td><% if Top.MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',1).first.Title}:</span><% end_if %>$Header1
 					</td>
 				<% end_if %>
 				<% if $Header2 %>
-					<td><% if MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',2).first.Title}:</span><% end_if %>$Header2
+					<td><% if Top.MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',2).first.Title}:</span><% end_if %>$Header2
 					</td>
 				<% end_if %>
 				<% if $Header3 %>
-					<td><% if MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',3).first.Title}:</span><% end_if %>$Header3
+					<td><% if Top.MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',3).first.Title}:</span><% end_if %>$Header3
 					</td>
 				<% end_if %>
 				<% if $Header4 %>
-					<td><% if MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',4).first.Title}:</span><% end_if %>$Header4
+					<td><% if Top.MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',4).first.Title}:</span><% end_if %>$Header4
 					</td>
 				<% end_if %>
 				<% if $Header5 %>
-					<td><% if MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',5).first.Title}:</span><% end_if %>$Header5
+					<td><% if Top.MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',5).first.Title}:</span><% end_if %>$Header5
 					</td>
 				<% end_if %>
 				<% if $Header6 %>
-					<td><% if MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',6).first.Title}:</span><% end_if %>$Header6
+					<td><% if Top.MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',6).first.Title}:</span><% end_if %>$Header6
 					</td>
 				<% end_if %>
 				<% if $Header7 %>
-					<td><% if MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',7).first.Title}:</span><% end_if %>$Header7
+					<td><% if Top.MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',7).first.Title}:</span><% end_if %>$Header7
 					</td>
 				<% end_if %>
 				<% if $Header8 %>
-					<td><% if MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',8).first.Title}:</span><% end_if %>$Header8
+					<td><% if Top.MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',8).first.Title}:</span><% end_if %>$Header8
 					</td>
 				<% end_if %>
 				<% if $Header9 %>
-					<td><% if MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',9).first.Title}:</span><% end_if %>$Header9
+					<td><% if Top.MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',9).first.Title}:</span><% end_if %>$Header9
 					</td>
 				<% end_if %>
 				<% if $Header10 %>
-					<td><% if MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',10).first.Title}:</span><% end_if %>$Header10
+					<td><% if Top.MobileFormat == "stack" %><span class="uk-hidden@m uk-margin-small-right">{$Top.Headers.filter('Sort',10).first.Title}:</span><% end_if %>$Header10
 					</td>
 				<% end_if %>
 			</tr>
