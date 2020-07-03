@@ -19,7 +19,9 @@ class PostalCode extends DataObject {
 	    'YplaY' => 'Boolean(0)',
 	    'Externe' => 'Boolean(0)',
 	    'URL' => 'Varchar',
-	    'OldID' => 'Int'
+	    'OldID' => 'Int',
+	    'Layer' => 'Varchar',
+	    'Netz' => 'Varchar',
 	);
 
 	private static $singular_name = 'Postleitzahl';
@@ -28,6 +30,8 @@ class PostalCode extends DataObject {
 	private static $summary_fields = [
 	  'Code',
 	  'City',
+	  'Layer',
+	  'Netz',
 	  'StandardOffer',
 	  'AlternateOffer',
 	  'TVType' => 'TV-Angebot',
