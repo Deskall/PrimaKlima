@@ -483,6 +483,7 @@ $(document).ready(function(){
 
 	function InitNav(){
 		var li = $("#order-nav li.uk-active");
+		console.log(li.attr('data-nav'));
 		switch(li.attr('data-nav')){
 			case "1":
 				switcher = UIkit.switcher("#order-nav-switcher", {active: 0});
