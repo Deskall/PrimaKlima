@@ -30,7 +30,7 @@
 </table>
 <% end_if %>
 <% if not $ExistingCustomer || $ExistingCustomer < 1 %>
-<div class="uk-margin-small">
+<div class="uk-margin-small activation-text">
 	$ActivationPriceLabel
 </div>
 <% end_if %>
