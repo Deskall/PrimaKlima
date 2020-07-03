@@ -224,8 +224,8 @@ $(document).ready(function(){
 	if ($('body').hasClass('ShopPage')){
 
 		UpdateOrder();
-		InitNav();
 		InitStep();
+		InitNav();
 		var validator = $("#Form_OrderForm").validate({
 			errorPlacement: function(error, element) {
 			    error.appendTo( element.parents(".uk-form-controls") );
