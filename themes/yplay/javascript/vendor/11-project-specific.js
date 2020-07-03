@@ -386,7 +386,7 @@ $(document).ready(function(){
 			UIkit.update(document.body, type = 'update');
 		});
 
-		$(document).on("click","li[data-step='options'] tr td:not(:first-child)",function(e){
+		$(document).on("click","li[data-step='options'] tr td:not(:first-child):not(.multiple)",function(e){
 
 			if ($(this).parents('tr').find('input').is(":checked")){
 				$(this).parents('tr').find('input').prop("checked",false).trigger("change");
