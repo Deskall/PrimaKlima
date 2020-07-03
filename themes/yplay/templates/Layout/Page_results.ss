@@ -10,7 +10,7 @@
 	                <button type="submit"><i data-uk-icon="search"></i></button>
 	        </form>
 
-	        <div class="dk-text-content uk-text-lead">
+	        <div class="dk-text-content uk-text-lead uk-margin-top">
 	            <p ><%t SearchPage.QUERY 'Sie suchten nach' %> &quot;{$Query.XML}&quot;</p>
 	        </div>
 
