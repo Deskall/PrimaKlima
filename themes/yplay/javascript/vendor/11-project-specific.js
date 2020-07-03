@@ -286,7 +286,7 @@ $(document).ready(function(){
 				}
 			}
 			else{
-				UIkit.switcher("#order-nav-switcher").show(0);
+				UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
 				$('html, body').animate({scrollTop: $("#order-form-steps").offset().top - 110  }, 500);
 				$(':focus').blur();
 				$("#order-nav").find('li.uk-active').removeClass('uk-active');
