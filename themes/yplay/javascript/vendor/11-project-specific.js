@@ -286,7 +286,6 @@ $(document).ready(function(){
 				}
 			}
 			else{
-				console.log($(this).attr('data-target'));
 				UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
 				$('html, body').animate({scrollTop: $("#order-form-steps").offset().top - 110  }, 500);
 				$(':focus').blur();

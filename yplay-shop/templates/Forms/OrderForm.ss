@@ -40,8 +40,8 @@
                         	<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
                         	<div class="uk-margin-large-top">
 	                        	<div class="uk-flex uk-flex-around">
-	                        		<button class="uk-button step forward customer-button <% if Controller.activeCart.ExistingCustomer == 1 %>uk-button-primary<% end_if %>" data-nav="1" type="button" data-value="1">Ja</button>
-	                        		<button class="uk-button step forward customer-button <% if Controller.activeCart.ExistingCustomer == 2 %>uk-button-primary<% end_if %>" data-nav="1" type="button" data-value="2">Nein</button>
+	                        		<button class="uk-button step forward customer-button <% if Controller.activeCart.ExistingCustomer == 1 %>uk-active<% end_if %>" data-nav="1" type="button" data-value="1">Ja</button>
+	                        		<button class="uk-button step forward customer-button <% if Controller.activeCart.ExistingCustomer == 2 %>uk-active<% end_if %>" data-nav="1" type="button" data-value="2">Nein</button>
 	                             </div>
 	                         </div>
 	                         <% with Fields.FieldByName('ExistingCustomer') %>
