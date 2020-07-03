@@ -35,7 +35,7 @@
     <p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
     <% end_if %>
             <ul id="order-form-steps" class="uk-switcher">
-                <li class="uk-active uk-margin-top" data-step="customer" data-index="0">
+                <li class="<% if not Controller.activeCart.ExistingCustomer || Controller.activeCart.ExistingCustomer == 0 %>uk-active<% end_if %> uk-margin-top" data-step="customer" data-index="0">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
                         	<div class="uk-margin-large-top">
@@ -55,7 +55,7 @@
                         </div>
                         
                 </li>
-                <li id="address" class="uk-margin" data-step="step-1">
+                <li id="address" class="uk-margin <% if Controller.activeCart.ExistingCustomer > 0 %>uk-active<% end_if %>" data-step="step-1">
                         <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
                            <h3>Ihre Angaben</h3>
                         	<% with Fields.FieldByName('Step1') %>

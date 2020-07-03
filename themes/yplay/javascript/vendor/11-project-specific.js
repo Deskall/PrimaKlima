@@ -487,11 +487,11 @@ $(document).ready(function(){
 		switch(li.attr('data-nav')){
 			case "1":
 				var index = (active) ? active.attr('data-index') : 0;
-				UIkit.switcher("#order-nav-switcher").show(index);
+				UIkit.switcher("#order-nav-switcher", {active: index }).show();
 				break;
 			case "2":
 				var index = (active) ? active.attr('data-index') : 4;
-				UIkit.switcher("#order-nav-switcher").show(index);
+				UIkit.switcher("#order-nav-switcher", {active: index }).show();
 				break;
 			case "3":
 				var count = parseInt($("#order-form-steps > li").length - 1);
