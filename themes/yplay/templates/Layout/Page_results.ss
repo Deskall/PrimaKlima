@@ -4,25 +4,15 @@
 <div id="Content" class="searchResults">
     <section class="uk-section">
         <div class="uk-container">
-        <form class="search-form uk-flex uk-flex-between" method="GET" action="{$Link}SearchForm">
-                <input type="text" class="uk-input" minlength="3" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
-                <button type="submit"><i data-uk-icon="search"></i></button>
-        </form>
+        	<h1><%t Page.SEARCHRESULTS 'Suchergebnisse' %></h1>
+	        <form class="search-form uk-flex uk-flex-between" method="GET" action="{$Link}SearchForm">
+	                <input type="text" class="uk-input" minlength="3" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
+	                <button type="submit"><i data-uk-icon="search"></i></button>
+	        </form>
 
-
-
-        <div class="dk-text-content uk-text-lead">
-            <p ><%t SearchPage.QUERY 'Sie suchten nach' %> &quot;{$Query.XML}&quot;</p>
-        </div>
-
-        
-        <h1><%t Page.SEARCHRESULTS 'Suchergebnisse' %></h1>
-
-        
-
-
-
-
+	        <div class="dk-text-content uk-text-lead">
+	            <p ><%t SearchPage.QUERY 'Sie suchten nach' %> &quot;{$Query.XML}&quot;</p>
+	        </div>
 
         <% if $Results %>
            <ul class="uk-list uk-list-divider">
