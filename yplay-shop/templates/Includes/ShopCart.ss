@@ -78,7 +78,7 @@
 		<% end_loop %>
 		<% end_if %>
 		<% if $ExistingCustomer == 2 %>
-		<tr><td>Aufschaltgebühr</td><td>$SiteConfig.ActivationPrice.Nice</td></tr>
+		<tr><td>Aufschaltgebühr</td><td class="uk-text-right">$SiteConfig.ActivationPrice.Nice</td></tr>
 		<% end_if %>
 	</tbody>
 	<tfoot>
