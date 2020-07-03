@@ -203,10 +203,9 @@
                 <li class="uk-margin" data-step="options">
                     
                         <h3>Optionen</h3>
-                        <ul data-uk-accordion>
+                        <ul data-uk-accordion class="options">
+                            <% loop Controller.filteredOptions.groupedBy(CategoryTitle) %>
                             <li>
-                                <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top uk-child-width-1-1 options" data-uk-grid>
-                                	<% loop Controller.filteredOptions.groupedBy(CategoryTitle) %>
                                 	 <div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-body uk-transition-toggle">
     						           	<a class="uk-accordion-title"><h4 class="uk-card-title">$CategoryTitle</h4></a>
                                         <div class="uk-accordion-content">
@@ -225,9 +224,8 @@
         						           	</table>
                                         </div>
     						         </div>
-                                	<% end_loop %>
-                                </div>
                             </li>
+                            <% end_loop %>
                         </ul>
                             <div class="uk-margin-top uk-flex uk-flex-around">
                             	<a class="step backwards uk-button uk-button-muted" data-nav="<% if Controller.activeCart.hasCategory('yplay-talk') || Controller.activeCart.hasCategory('yplay-mobile') %>2<% else %>1<% end_if %>"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
