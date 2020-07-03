@@ -33,7 +33,7 @@ class ShopCart extends DataObject {
 		'PhoneOption' => 'Varchar',
 		'ExistingPhone' => 'Varchar',
 		'WishPhone' => 'Varchar',
-		'ExistingCustomer' => 'Boolean(0)',
+		'ExistingCustomer' => 'Int',
 		'Availability' => 'Varchar'
 	];
 
@@ -157,6 +157,10 @@ class ShopCart extends DataObject {
 
 	public function writeTotalUniquePrice(){
 		$price = 0;
+		//For new customer we apply activation price
+		if ($this->ExistingCustomer == 2){
+			$price += $this->getSiteConfig()->ActivationPrice;
+		}
 		if ($this->Package()->exists()){
 			$price += $this->Package()->getPriceUnique();
 			$price += $this->Package()->getFees();

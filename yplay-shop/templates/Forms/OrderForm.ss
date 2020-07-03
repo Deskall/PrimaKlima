@@ -41,7 +41,7 @@
                         	<div class="uk-margin-large-top">
 	                        	<div class="uk-flex uk-flex-around">
 	                        		<button class="uk-button step forward customer-button" data-nav="1" type="button" data-value="1">Ja</button>
-	                        		<button class="uk-button step forward customer-button" data-nav="1" type="button" data-value="0">Nein</button>
+	                        		<button class="uk-button step forward customer-button" data-nav="1" type="button" data-value="2">Nein</button>
 	                             </div>
 	                         </div>
 	                         <% with Fields.FieldByName('ExistingCustomer') %>

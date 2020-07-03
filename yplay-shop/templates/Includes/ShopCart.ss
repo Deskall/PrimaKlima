@@ -29,7 +29,7 @@
 	</tfoot>
 </table>
 <% end_if %>
-<% if not $ExistingCustomer %>
+<% if $ExistingCustomer == 0 %>
 <div class="uk-margin-small">
 	$ActivationPriceLabel
 </div>
@@ -76,6 +76,9 @@
 			<tr><td>$ActivationPriceLabe</td><td class="uk-text-right">CHF $getFees<% if Quantity > 1 %> * $Quantity<% end_if %></td></tr>
 			<% end_if %>
 		<% end_loop %>
+		<% end_if %>
+		<% if $ExistingCustomer == 2 %>
+		<tr><td>Aufschaltgebühr</td><td>$SiteConfig.ActivationPrice.Nice</td></tr>
 		<% end_if %>
 	</tbody>
 	<tfoot>
