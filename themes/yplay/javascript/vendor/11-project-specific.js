@@ -525,8 +525,8 @@ $(document).ready(function(){
 				window.location.href = response.link;
 			}
 			else {
-				console.log('ici');
 				$(".is-reviewed").removeClass("customer-button").trigger('click');
+				UpdateCart();
 			}
 		});
 	}
