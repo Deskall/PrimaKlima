@@ -77,7 +77,6 @@ $(document).ready(function(){
 		packages = [],
 		productsOfPackages = [],
 		updateRun;
-		console.log('ici');
 		
 		var url = window.location.pathname;
 		$.ajax({
@@ -225,8 +224,8 @@ $(document).ready(function(){
 	if ($('body').hasClass('ShopPage')){
 
 		UpdateOrder();
-		InitStep();
-		InitNav();
+		// InitStep();
+		// InitNav();
 		var validator = $("#Form_OrderForm").validate({
 			errorPlacement: function(error, element) {
 			    error.appendTo( element.parents(".uk-form-controls") );
