@@ -544,17 +544,6 @@ body.ShopPage{
 		tr:hover{
 			cursor:pointer;
 		}
-		.uk-accordion-title{
-			position:relative;
-			&:after{
-				position: absolute;
-			    content: '\e985';
-			    font-family: 'icomoon';
-			    right: 0;
-			    top: 50%;
-			    transform: translateY(-50%);
-			}			
-		}
 		.multiple input{
 			width:50px;
 			background:transparent;
@@ -848,4 +837,16 @@ body{
 			max-height:650px;
 		}
 	}
+}
+
+.uk-accordion-title{
+	position:relative;
+	&:after{
+		position: absolute;
+	    content: '\e985';
+	    font-family: 'icomoon';
+	    right: 0;
+	    top: 50%;
+	    transform: translateY(-50%);
+	}			
 }
