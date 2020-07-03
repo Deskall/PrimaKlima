@@ -485,6 +485,7 @@ $(document).ready(function(){
 	function InitNav(){
 		var li = $("#order-nav li.uk-active");
 		var active = $("#order-nav-switcher li.uk-active");
+		console.log(active);
 		switch(li.attr('data-nav')){
 			case "1":
 				var index = (active) ? active.attr('data-index') : 0;
