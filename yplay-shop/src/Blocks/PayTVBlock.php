@@ -26,11 +26,15 @@ class PayTVBlock extends TextBlock
 
     private static $description = 'Zeigt Premiumsender Pakete';
 
+    private static $db = [
+        'Height' => 'Varchar'
+    ];
+
 
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-       
+        $fields->addFieldToTab('Root.Main',DropdownField::create('Height','Premiumsender List Höhe',['small' => 'Kleine', '' => 'Standard', 'big' => 'Gross']));
 
         return $fields;
     }

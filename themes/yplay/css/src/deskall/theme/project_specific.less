@@ -836,6 +836,24 @@ body{
 		@media only screen and (min-width:@breakpoint-large){
 			max-height:650px;
 		}
+		&.small{
+			max-height:150px;
+			@media only screen and (min-width:@breakpoint-medium){
+				max-height:250px;
+			}
+			@media only screen and (min-width:@breakpoint-large){
+				max-height:350px;
+			}
+		}
+		&.big{
+			max-height:450px;
+			@media only screen and (min-width:@breakpoint-medium){
+				max-height:850px;
+			}
+			@media only screen and (min-width:@breakpoint-large){
+				max-height:1250px;
+			}
+		}
 	}
 }
 
