@@ -161,7 +161,7 @@
 						<div class="uk-margin">
 							<ul data-uk-accordion>
 							    <li class="WhiteBackground uk-padding-small uk-box-shadow-medium uk-margin">
-							        <a class="uk-accordion-title">$OtherOffersTitle</a>
+							        <a href="#" class="uk-accordion-title">$OtherOffersTitle</a>
 							        <div class="uk-accordion-content">
 							           	$OtherOffersLabel
 							           	<% if alternativePackages.exists %>
