@@ -14,8 +14,8 @@
 	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "3" %>class="uk-active"<% else_if Controller.activeCart.CurrentStep < 3 %>class="dk-inactive"<% end_if %> data-nav="3"><a>3. <span class="uk-visible@m">Überprüfung</span></a></li>
 	   	        </ul>
 	   	        <ul id="order-nav-switcher" data-uk-switcher="connect:#order-form-steps" hidden>
-	   	            <li class="<% if not Controller.activeCart.ExistingCustomer || Controller.activeCart.ExistingCustomer == 0 %>uk-active<% end_if %>"><a>ist Kunde?</a></li>
-                    <li class="<% if Controller.activeCart.ExistingCustomer > 0 %>uk-active<% end_if %>"><a>Kundendaten</a></li>
+	   	            <li><a>ist Kunde?</a></li>
+                    <li><a>Kundendaten</a></li>
                     <li><a>Kundendaten 2</a></li>
 	   	            <li><a>Adresse / Rechnung</a></li>
 	   	            <% if Controller.activeCart && Controller.activeCart.hasCategory('yplay-talk') %><li><a >Telefon</a></li><% end_if %>
@@ -35,7 +35,7 @@
     <p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
     <% end_if %>
             <ul id="order-form-steps" class="uk-switcher">
-                <li class="<% if not Controller.activeCart.ExistingCustomer || Controller.activeCart.ExistingCustomer == 0 %>uk-active<% end_if %> uk-margin-top" data-step="customer" data-index="0">
+                <li class="uk-margin" data-step="customer" data-index="0">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
                         	<div class="uk-margin-large-top">
@@ -55,7 +55,7 @@
                         </div>
                         
                 </li>
-                <li id="address" class="uk-margin <% if Controller.activeCart.ExistingCustomer > 0 %>uk-active<% end_if %>" data-step="step-1">
+                <li id="address" class="uk-margin" data-step="step-1">
                         <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
                            <h3>Ihre Angaben</h3>
                         	<% with Fields.FieldByName('Step1') %>
