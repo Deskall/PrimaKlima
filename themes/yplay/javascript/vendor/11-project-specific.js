@@ -488,15 +488,15 @@ $(document).ready(function(){
 			case "1":
 				var index = (active) ? active.attr('data-index') : 0;
 				console.log(index);
-				UIkit.switcher("#order-form-steps").show(index);
+				UIkit.switcher("#order-nav-switcher").show(index);
 				break;
 			case "2":
 				var index = (active) ? active.attr('data-index') : 4;
-				UIkit.switcher("#order-form-steps").show(index);
+				UIkit.switcher("#order-nav-switcher", {active: index });
 				break;
 			case "3":
 				var count = parseInt($("#order-form-steps > li").length - 1);
-				UIkit.switcher("#order-form-steps").show(count);
+				UIkit.switcher("#order-nav-switcher").show(count);
 				break;
 		}
 	}
