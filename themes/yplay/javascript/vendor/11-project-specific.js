@@ -287,7 +287,7 @@ $(document).ready(function(){
 			}
 			else{
 				console.log($(this).attr('data-target'));
-				switcher.show($(this).attr('data-target')-1);
+				switcher.show(1);
 				$('html, body').animate({scrollTop: $("#order-form-steps").offset().top - 110  }, 500);
 				$(':focus').blur();
 				$("#order-nav").find('li.uk-active').removeClass('uk-active');
