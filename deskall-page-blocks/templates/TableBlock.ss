@@ -18,7 +18,7 @@
 		</thead>
 		<tbody>
 			<% loop $Rows %>
-			<tr><% if $Header1 %><td>$Top.Headers.filter('Sort',1).Title $Header1</td><% end_if %><% if $Header2 %><td>$Header2</td><% end_if %>
+			<tr><% if $Header1 %><td>$Top.Headers.filter('Sort',1).first.Title $Header1</td><% end_if %><% if $Header2 %><td>$Header2</td><% end_if %>
 				<% if $Header3 %><td>$Header3</td><% end_if %><% if $Header4 %><td>$Header4</td><% end_if %>
 				<% if $Header5 %><td>$Header5</td><% end_if %><% if $Header6 %><td>$Header6</td><% end_if %>
 				<% if $Header7 %><td>$Header7</td><% end_if %><% if $Header8 %><td>$Header8</td><% end_if %>
