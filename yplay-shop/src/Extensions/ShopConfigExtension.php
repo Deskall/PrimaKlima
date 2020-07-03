@@ -31,6 +31,7 @@ class ShopConfigExtension extends DataExtension
        'PLZModalTitle' => 'Varchar',
        'PLZModalBody' => 'HTMLText',
        'ConfiguratorTitle' => 'Varchar',
+       'ExistingNumberLabel' => 'HTMLText',
        'MobileStepTitle' => 'Varchar',
        'MobileStepBody' => 'HTMLText',
        'WishNumberTitle' => 'Varchar',
@@ -74,6 +75,7 @@ class ShopConfigExtension extends DataExtension
       $labels['Conditions'] = _t(__CLASS__.'.Conditions','Konditionen');
       $labels['ActivationPrice'] = _t(__CLASS__.'.ActivationPrice','Aufschaltgebühr');
       $labels['ActivationPriceLabel'] = _t(__CLASS__.'.ActivationPriceLabel','Aufschaltgebühr - Hinweis in Bestellübersicht');
+      $labels['ExistingNumberLabel'] = _t(__CLASS__.'.ExistingNumberLabel','Bestehende Nummer Erklärung');
     }
 
    
@@ -111,6 +113,7 @@ class ShopConfigExtension extends DataExtension
           CompositeField::create(
           [
             HTMLEditorField::create('Conditions',$this->owner->fieldLabels()['Conditions']),
+            HTMLEditorField::create('ExistingNumberLabel',$this->owner->fieldLabels()['ExistingNumberLabel']),
             TextField::create('MobileStepTitle',$this->owner->fieldLabels()['MobileStepTitle']),
             HTMLEditorField::create('MobileStepBody',$this->owner->fieldLabels()['MobileStepBody']),
             TextField::create('WishNumberTitle',$this->owner->fieldLabels()['WishNumberTitle']),

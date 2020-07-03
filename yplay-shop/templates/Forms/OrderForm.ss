@@ -163,7 +163,7 @@
                                     $Field
                                 </div>
                                 <div>
-                                    <i>$Title</i>
+                                    $SiteConfig.ExistingNumberLabel
                                 </div>
                             </div>
                             <% end_with %>
