@@ -142,7 +142,7 @@ class YplaYPageControllerExtension extends Extension
               return ($item->shouldDisplay() && $this->owner->activeCart()->hasCategory($item->Category()->Code) );
             }
             return $item->shouldDisplay();
-       })->sort('CategoryTitle');
+       })->sort('CategorySort');
        
        return GroupedList::create($options);
     }
