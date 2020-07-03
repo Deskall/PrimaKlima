@@ -224,8 +224,8 @@ $(document).ready(function(){
 	if ($('body').hasClass('ShopPage')){
 
 		UpdateOrder();
-		// InitStep();
-		// InitNav();
+		InitNav();
+		InitStep();
 		var validator = $("#Form_OrderForm").validate({
 			errorPlacement: function(error, element) {
 			    error.appendTo( element.parents(".uk-form-controls") );
@@ -483,16 +483,12 @@ $(document).ready(function(){
 
 	function InitNav(){
 		var li = $("#order-nav li.uk-active");
-		var active = $("#order-nav-switcher li.uk-active");
-		console.log(active);
 		switch(li.attr('data-nav')){
 			case "1":
-				var index = (active) ? active.attr('data-index') : 0;
-				UIkit.switcher("#order-nav-switcher").show(index);
+				UIkit.switcher("#order-nav-switcher").show(0);
 				break;
 			case "2":
-			var index = (active) ? active.attr('data-index') : 4;
-				UIkit.switcher("#order-nav-switcher").show(index);
+				UIkit.switcher("#order-nav-switcher").show(4);
 				break;
 			case "3":
 				var count = parseInt($("#order-form-steps > li").length - 1);
@@ -755,7 +751,6 @@ $(document).ready(function(){
 		});
 
 		$(document).on("click",".paytvblock [data-submit-paytv]",function(){
-			console.log('ici');
 			$.ajax({
 				url: '/shop-functions/smartcard/',
 				method: 'POST',
