@@ -205,8 +205,7 @@
                         <h3>Optionen</h3>
                         <ul data-uk-accordion class="options">
                             <% loop Controller.filteredOptions.groupedBy(CategoryTitle) %>
-                            <li>
-                                	 <div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-body uk-transition-toggle">
+                            <li class="uk-card uk-card-hover uk-box-shadow-medium uk-card-body uk-transition-toggle">
     						           	<a class="uk-accordion-title"><h4 class="uk-card-title">$CategoryTitle</h4></a>
                                         <div class="uk-accordion-content">
         						           	<table class="uk-table uk-table-small uk-table-hover">
@@ -223,7 +222,6 @@
         							           	<% end_loop %>
         						           	</table>
                                         </div>
-    						         </div>
                             </li>
                             <% end_loop %>
                         </ul>
