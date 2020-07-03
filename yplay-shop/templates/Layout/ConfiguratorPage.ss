@@ -156,7 +156,7 @@
 						</div>
 						<% end_loop %>
 						<div class="uk-margin uk-hidden@m">
-							<a href="$ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
+							<a href="$ShopPage.Link" class="uk-button BlackBackground uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
 						</div>
 						<div class="uk-margin">
 							<ul data-uk-accordion>
