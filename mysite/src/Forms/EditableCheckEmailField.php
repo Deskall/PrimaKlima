@@ -40,7 +40,8 @@ class EditableCheckEmailField extends EditableEmailField
     }
 
     public function getFormField()
-    {
+    {   Requirements::javascript('yplay-shop/javascript/jquery.validate.min.js');
+        Requirements::javascript('yplay-shop/javascript/messages_de.min.js');
         Requirements::javascript('mysite/javascript/CheckEmailField.js');
         $field = EmailField::create($this->Name, $this->Title ?: false, $this->Default)
             ->setFieldHolderTemplate(EditableFormField::class . '_holder')
