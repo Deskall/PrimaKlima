@@ -29,7 +29,7 @@
 	</tfoot>
 </table>
 <% end_if %>
-<% if $ExistingCustomer == 0 %>
+<% if !$ExistingCustomer %>
 <div class="uk-margin-small">
 	$ActivationPriceLabel
 </div>
