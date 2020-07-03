@@ -61,6 +61,7 @@ class EditableCheckEmailField extends EditableEmailField
         parent::updateFormField($field);
 
         $field->setAttribute('data-rule-email', true);
+        $field->setAttribute('data-referent-name',$this->Referent()->Name);
     }
 
     public function validateField($data, $form)
