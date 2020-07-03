@@ -28,7 +28,7 @@ class EditableCheckEmailField extends EditableEmailField
         $fields = parent::getCMSFields();
         $referents = $this->Parent()->Fields()->filter('ClassName',EditableEmailField::class);
         if ($referents){
-            $fields->insertAfter('Title',DropdownField::create('Referent','Referenz',$referents->map('ID','Title'))->setEmptyString('Bitte E-Mail Feld auswählen'));
+            $fields->insertAfter('Title',DropdownField::create('ReferentID','Referenz',$referents->map('ID','Title'))->setEmptyString('Bitte E-Mail Feld auswählen'));
         }
         
         return $fields;
