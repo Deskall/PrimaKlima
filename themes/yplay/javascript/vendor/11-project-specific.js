@@ -486,6 +486,7 @@ $(document).ready(function(){
 		var li = $("#order-nav li.uk-active");
 		switch(li.attr('data-nav')){
 			case "1":
+			console.log(li.attr('data-index'));
 				UIkit.switcher("#order-nav-switcher").show(li.attr('data-index'));
 				break;
 			case "2":
