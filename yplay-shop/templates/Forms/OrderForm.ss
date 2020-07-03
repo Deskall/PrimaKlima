@@ -7,7 +7,7 @@
    
 	   <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
 	       		<ul id="order-nav" class="uk-navbar-nav uk-width-1-1 uk-flex uk-flex-around">
-	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "1" || not Controller.activeCart.CurrentStep %>class="uk-active"<% end_if %> data-nav="2"><a>1. <span class="uk-visible@m">Kundendaten</span></a></li>
+	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "1" || not Controller.activeCart.CurrentStep %>class="uk-active"<% end_if %> data-nav="1"><a>1. <span class="uk-visible@m">Kundendaten</span></a></li>
 	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "2" %>class="uk-active"<% else_if Controller.activeCart.CurrentStep < 2 %>class="dk-inactive"<% end_if %> data-nav="2">
 	   	                <a>2. <span class="uk-visible@m">Bestellungsdaten</span></a>
 	   	            </li>
