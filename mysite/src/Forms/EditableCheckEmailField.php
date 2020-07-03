@@ -62,7 +62,7 @@ class EditableCheckEmailField extends EditableEmailField
 
         $field->setAttribute('data-rule-email', true);
         $field->setAttribute('data-referent-name',$this->Referent()->Name);
-        $field->setAttribute('autocomplete','off');
+        $field->setAttribute('autocomplete','second-email-'.date());
     }
 
     public function validateField($data, $form)
