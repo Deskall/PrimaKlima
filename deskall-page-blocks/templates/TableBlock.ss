@@ -10,15 +10,15 @@
 	<% end_if %>
 	<% if Headers.exists %>
 	<% if MobileFormat == "overflow" %><div class="uk-overflow-auto"><% end_if %>
-	<table class="uk-table <% if Striped %>uk-table-striped<% end_if %> <% if Divider %>uk-table-divider<% end_if %> <% if Hover %>uk-table-hover<% end_if %> <% if MobileFormat == "stack" %>uk-table-responsive<% end_if %>">
+	<table class="uk-table <% if MobileFormat == "stack" %>uk-visible@m<% end_if %><% if Striped %>uk-table-striped<% end_if %> <% if Divider %>uk-table-divider<% end_if %> <% if Hover %>uk-table-hover<% end_if %> <% if MobileFormat == "stack" %>uk-table-responsive<% end_if %>">
 		<thead>
 			<% loop Headers %>
-				<th class="$Format $TextAlign uk-text-nowrap">$Title</th>
+				<th class="$Format $TextAlign mt-nowrap">$Title</th>
 			<% end_loop %>
 		</thead>
 		<tbody>
 			<% loop $Rows %>
-			<tr><% if $Header1 %><td>$Header1</td><% end_if %><% if $Header2 %><td>$Header2</td><% end_if %>
+			<tr><% if $Header1 %><td>$Up.Headers.filter('Sort',1).Title $Header1</td><% end_if %><% if $Header2 %><td>$Header2</td><% end_if %>
 				<% if $Header3 %><td>$Header3</td><% end_if %><% if $Header4 %><td>$Header4</td><% end_if %>
 				<% if $Header5 %><td>$Header5</td><% end_if %><% if $Header6 %><td>$Header6</td><% end_if %>
 				<% if $Header7 %><td>$Header7</td><% end_if %><% if $Header8 %><td>$Header8</td><% end_if %>
@@ -27,6 +27,7 @@
 			<% end_loop %>
 		</tbody>
 	</table>
+
 	<% if MobileFormat == "overflow" %></div><% end_if %>
 	<% end_if %>
 
