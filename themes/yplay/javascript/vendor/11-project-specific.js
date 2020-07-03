@@ -483,11 +483,9 @@ $(document).ready(function(){
 
 	function InitNav(){
 		var li = $("#order-nav li.uk-active");
-		var active  = $("#order-form-steps li.uk-active");
 		switch(li.attr('data-nav')){
 			case "1":
-				var index = (active) ? active.attr('data-index') : 0;
-				switcher = UIkit.switcher("#order-nav-switcher", {active: index});
+				switcher = UIkit.switcher("#order-nav-switcher", {active: 0});
 				break;
 			case "2":
 				var index = (active) ? active.attr('data-index') : 4;
