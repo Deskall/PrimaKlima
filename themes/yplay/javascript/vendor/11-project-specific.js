@@ -222,7 +222,7 @@ $(document).ready(function(){
 
 	//Shop Page script
 	if ($('body').hasClass('ShopPage')){
-
+		var switcher;
 		UpdateOrder();
 		InitStep();
 		InitNav();
@@ -235,7 +235,7 @@ $(document).ready(function(){
 		//Check if form error
 		if ($(".message.required").length > 0){
 			var tab = $(".message.required").parents('li');
-			UIkit.switcher("#order-nav-switcher").show(tab.attr('data-index'));
+			switcher.show(tab.attr('data-index'));
 			
 		}
 
@@ -268,7 +268,7 @@ $(document).ready(function(){
 					
 					if (valid){
 						UpdateCartData();
-						UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
+						switcher.show($(this).attr('data-target'));
 						$(':focus').blur();
 						$('html, body').animate({scrollTop: $("#order-form-steps").offset().top - 110  }, 500);
 						$("#order-nav").find('li.uk-active').removeClass('uk-active');
@@ -287,7 +287,7 @@ $(document).ready(function(){
 			}
 			else{
 				console.log($(this).attr('data-target'));
-				UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
+				switcher.show($(this).attr('data-target'));
 				$('html, body').animate({scrollTop: $("#order-form-steps").offset().top - 110  }, 500);
 				$(':focus').blur();
 				$("#order-nav").find('li.uk-active').removeClass('uk-active');
@@ -311,14 +311,14 @@ $(document).ready(function(){
 				$(this).addClass('uk-active');
 				switch($(this).attr('data-nav')){
 					case "1":
-						UIkit.switcher("#order-nav-switcher").show(0);
+						switcher.show(0);
 						break;
 					case "2":
-						UIkit.switcher("#order-nav-switcher").show(4);
+						switcher.show(4);
 						break;
 					case "3":
 						var count = parseInt($("#order-form-steps > li").length - 1);
-						UIkit.switcher("#order-nav-switcher").show(count);
+						switcher.show(count);
 						break;
 				}
 			}
@@ -489,15 +489,15 @@ $(document).ready(function(){
 			case "1":
 				var index = (active) ? active.attr('data-index') : 0;
 				console.log(index);
-				UIkit.switcher("#order-nav-switcher").show(index);
+				switcher = UIkit.switcher("#order-nav-switcher", {active: index});
 				break;
 			case "2":
 				var index = (active) ? active.attr('data-index') : 4;
-				UIkit.switcher("#order-nav-switcher", {active: index });
+				switcher = UIkit.switcher("#order-nav-switcher", {active: index});
 				break;
 			case "3":
 				var count = parseInt($("#order-form-steps > li").length - 1);
-				UIkit.switcher("#order-nav-switcher").show(count);
+				switcher = UIkit.switcher("#order-nav-switcher", {active: count});
 				break;
 		}
 	}
