@@ -35,13 +35,13 @@
     <p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
     <% end_if %>
             <ul id="order-form-steps" class="uk-switcher">
-                <li class="uk-active uk-margin-top" data-step="customer" data-index="0">
+                <li class="<% if not ExistingCustomer || ExistingCustomer == 0 %>uk-active<% end_if %> uk-margin-top" data-step="customer" data-index="0">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
                         	<div class="uk-margin-large-top">
 	                        	<div class="uk-flex uk-flex-around">
-	                        		<button class="uk-button step forward customer-button" data-nav="1" type="button" data-value="1">Ja</button>
-	                        		<button class="uk-button step forward customer-button" data-nav="1" type="button" data-value="2">Nein</button>
+	                        		<button class="uk-button step forward customer-button <% if ExistingCustomer == 1 %>uk-button-primary<% end_if %>" data-nav="1" type="button" data-value="1">Ja</button>
+	                        		<button class="uk-button step forward customer-button <% if ExistingCustomer == 2 %>uk-button-primary<% end_if %>" data-nav="1" type="button" data-value="2">Nein</button>
 	                             </div>
 	                         </div>
 	                         <% with Fields.FieldByName('ExistingCustomer') %>
@@ -55,7 +55,7 @@
                         </div>
                         
                 </li>
-                <li id="address" class="uk-margin" data-step="step-1">
+                <li id="address" class="uk-margin <% if ExistingCustomer > 0 %>uk-active<% end_if %>" data-step="step-1">
                         <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top" data-uk-grid>
                            <h3>Ihre Angaben</h3>
                         	<% with Fields.FieldByName('Step1') %>
