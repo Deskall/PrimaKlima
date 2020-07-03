@@ -217,7 +217,7 @@
                                                         <tr data-ic><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox <% if Single %>pseudo-radio<% end_if %>" name="$Group.ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> ></td><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
         								           		<% end_loop %>
         								           	<% else %>
-        								           	<tr data-la><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox" name="$ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> ></td><td <% if not Multiple %>colspan="2">$Title</td><% if Multiple %><td><input type="number" name="quantity-{$ProductCode}" class="uk-input quantity" min="1" <% if not $inCart %>hidden<% end_if %>" /></td><% end_if %><td class="uk-text-right">$PrintPriceString</td></tr>
+        								           	<tr data-la><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox" name="$ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> ></td><td <% if not Multiple %>colspan="2">$Title</td><% if Multiple %><td class="multiple"><input type="number" name="quantity-{$ProductCode}" class="uk-input quantity" min="1" <% if not $inCart %>hidden<% end_if %>" /></td><% end_if %><td class="uk-text-right">$PrintPriceString</td></tr>
         								           	<% end_if %>
         							           	<% end_loop %>
         						           	</table>
