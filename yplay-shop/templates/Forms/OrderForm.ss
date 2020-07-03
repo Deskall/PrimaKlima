@@ -35,7 +35,7 @@
     <p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
     <% end_if %>
             <ul id="order-form-steps" class="uk-switcher">
-                <li class="uk-margin" data-step="customer" data-index="0">
+                <li class="uk-margin uk-margin-top" data-step="customer" data-index="0">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
                         	<div class="uk-margin-large-top">

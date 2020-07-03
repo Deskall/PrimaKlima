@@ -489,8 +489,7 @@ $(document).ready(function(){
 				switcher = UIkit.switcher("#order-nav-switcher", {active: 0});
 				break;
 			case "2":
-				var index = (active) ? active.attr('data-index') : 4;
-				switcher = UIkit.switcher("#order-nav-switcher", {active: index});
+				switcher = UIkit.switcher("#order-nav-switcher", {active: 4});
 				break;
 			case "3":
 				var count = parseInt($("#order-form-steps > li").length - 1);
