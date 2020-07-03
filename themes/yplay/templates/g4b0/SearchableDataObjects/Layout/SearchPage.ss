@@ -12,7 +12,6 @@
    
 <section class="uk-section uk-section-small">
     <div class="uk-container">
-        <div class="uk-padding-large">
             <h1>$Title</h1>
             <form class="search-form uk-flex uk-flex-between" method="GET" action="{$Link}SearchForm">
                 <input type="text" class="uk-input" minlength="3" required name="Search" placeholder="<%t Search.PLACEHOLDER 'Suche auf dieser Website...' %>" />
@@ -37,7 +36,6 @@
             </div>
             <hr>
             <p>Finden Sie <a href="$FAQPageLink">hier</a> alle Antworten für häufig gestellte Fragen über Dienste, Geräte, Zahlungsarten und Vieles mehr.</p>
-        </div>
     </div>
 </section>
 
