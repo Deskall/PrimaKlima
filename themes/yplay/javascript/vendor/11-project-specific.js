@@ -1,6 +1,6 @@
 // Smart app banner android
 let deferredPrompt;
-// var btnAdd = document.getElementById('smart-app');
+var btnAdd = document.getElementById('smart-app');
 // console.log(btnAdd);
 
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -9,12 +9,12 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
   // Update UI notify the user they can add to home screen
-  // btnAdd.style.display = 'block';
+  btnAdd.style.display = 'block';
 });
 
 btnAdd.addEventListener('click', (e) => {
   // hide our user interface that shows our A2HS button
-  // btnAdd.style.display = 'none';
+  btnAdd.style.display = 'none';
   // Show the prompt
   deferredPrompt.prompt();
   // Wait for the user to respond to the prompt
