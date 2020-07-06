@@ -22,8 +22,6 @@
 
     </div>
    <% include MetaDown %>
-   <div class="uk-margin-large">
-    <button id="smart-app" class="uk-button button-PrimaryBackground">Smartapp</button>
-   </div>
+    <button id="smart-app" class="uk-button button-PrimaryBackground" style="display:none;">Smartapp</button>
   </body>
 </html>
