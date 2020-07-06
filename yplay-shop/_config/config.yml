@@ -29,7 +29,3 @@ PageController:
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - yplay-shop/css/yplay_shop.css
-
-CustomerMoveBlock:
-  default_scripts:
-    - yplay-shop/javascript/customermove.js

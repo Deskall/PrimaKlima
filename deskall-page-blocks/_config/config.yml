@@ -9,7 +9,6 @@ SilverStripe\Core\Manifest\ModuleManifest:
 
 DNADesign\Elemental\Controllers\ElementController:
   include_default_styles: false
-  include_default_scripts: true
 
 DNADesign\Elemental\Models\BaseElement:
   default_global_elements: true
