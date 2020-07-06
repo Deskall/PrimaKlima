@@ -115,7 +115,7 @@ class PostalCode extends DataObject {
 		// 	$this->YplaY = false;
 		// }
 		if (!$this->Shop()->exists()){
-			$shop = Shop::get()->filter('PostalCode',$this->Code)->first();
+			$shop = Shop::get()->filter('PLZ',$this->Code)->first();
 			if ($shop){
 				$this->ShopID = $shop->ID;
 			}
