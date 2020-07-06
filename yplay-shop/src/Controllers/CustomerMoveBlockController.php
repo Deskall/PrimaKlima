@@ -1,6 +1,6 @@
 <?php
 
-use SilverStripe\Control;\HTTPRequest;
+use SilverStripe\Control\HTTPRequest;
 use SilverStripe\View\Requirements;
 
 class CustomerMoveBlockController extends BlockController
