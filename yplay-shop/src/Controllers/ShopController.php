@@ -247,7 +247,7 @@ class ShopController extends PageController
            $plz = PostalCode::get()->filter('Code',$code)->first();
            if ($plz){
                $shop = $plz->Shop();
-               if ($shop){
+               if ($shop->exists()){
                    return $shop->renderWith('Includes/ShopTemplate');
                }
                return DBHTMLText::create()->setValue('<p>Es gibt keine Partner für diese Region</p>');
