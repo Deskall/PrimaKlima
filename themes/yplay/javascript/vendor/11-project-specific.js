@@ -1,6 +1,7 @@
 // Smart app banner android
 let deferredPrompt;
 var btnAdd = document.getElementById('smart-app');
+console.log(btnAdd);
 
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
