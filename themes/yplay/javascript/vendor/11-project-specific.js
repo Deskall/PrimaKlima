@@ -797,9 +797,10 @@ $(document).ready(function(){
 		var code = $(this).find('input').val();
 		$.ajax({
 			url: 'shop-functions/CheckPartnerForCode/'+code+'/',
-			dataType: 'Json'
+			dataType: 'html'
 		}).done(function(response){
 			console.log(response);
+			$("#partner-result").empty().append(response);
 		});
 	});
 });

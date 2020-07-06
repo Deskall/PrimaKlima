@@ -11,6 +11,7 @@ use SilverStripe\Security\Member;
 use SilverStripe\View\Requirements;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Control\HTTPRequest;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class ShopController extends PageController
 {
@@ -247,13 +248,13 @@ class ShopController extends PageController
            if ($plz){
                $shop = $plz->Shop();
                if ($shop){
-                   return json_encode(['shop' => $shop]);
+                   return $shop->renderWidth('Includes/ShopTemplate');
                }
-               return json_encode(['message' => 'Es gibt keine Partner für diese Region']);
+               return DBHTMLText::create()->setValue('<p>Es gibt keine Partner für diese Region</p>');
            }
-           return json_encode(['message' => 'Unbekannte Region']);
+           return DBHTMLText::create()->setValue('<p>Unbekannte Region</p>');
        }
-       return json_encode(['message' => 'Unbekannte Region']);
+       return DBHTMLText::create()->setValue('<p>Unbekannte Region</p>');
    }
    
 }
