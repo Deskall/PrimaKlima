@@ -18,6 +18,6 @@
 			<p class="uk-text-muted">Ihre Region: $activePLZ.Code - $activePLZ.City <a href="{$getPage.Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled uk-text-muted"></i></a></p>
 		<% end_if %>
 	</div>
-	<div id="partner-results">
+	<div id="partner-results" class="shop-list link-block clearfix uk-margin-top">
 	</div>
 </div>
