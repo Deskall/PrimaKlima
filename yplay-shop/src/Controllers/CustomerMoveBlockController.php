@@ -2,8 +2,9 @@
 
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\View\Requirements;
+use DNADesign\Elemental\Controllers\ElementController;
 
-class CustomerMoveBlockController extends BlockController
+class CustomerMoveBlockController extends ElementController
 {
     private static $allowed_actions = ['CheckPartnerForCode'];
 
@@ -11,9 +12,34 @@ class CustomerMoveBlockController extends BlockController
         'partner-finden/$Code' => 'CheckPartnerForCode'
     ];
 
-    public function forTemplate(){
-        Requirements::javascript('yplay-shop/javascript/customermove.js');
-        return parent::forTemplate();
+
+    /**
+     * Renders the managed {@link BaseElement} wrapped with the current
+     * {@link ElementController}.
+     *
+     * @return string HTML
+     */
+    public function forTemplate()
+    {
+        $defaultStyles = $this->config()->get('default_styles');
+        if ($this->config()->get('include_default_styles') && !empty($defaultStyles)) {
+            foreach ($defaultStyles as $stylePath) {
+                Requirements::css($stylePath);
+            }
+        }
+        $defaultScripts = $this->config()->get('default_scripts');
+         if (!empty($defaultScripts)) {
+            foreach ($defaultScripts as $jsPath) {
+                Requirements::javascript($jsPath);
+            }
+        }
+
+        $template = $this->element->config()->get('controller_template');
+
+        return $this->renderWith([
+            'type' => 'Layout',
+            $template
+        ]);
     }
 
     public function CheckPartnerForCode(HTTPRequest $request){
