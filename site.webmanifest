@@ -13,6 +13,10 @@
       "sizes": "512x512"
     }
   ],
+  "background_color": "#1d1d1b",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#1d1d1b",
   "prefer_related_applications": true,
   "related_applications": [
     {
