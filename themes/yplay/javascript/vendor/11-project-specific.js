@@ -791,8 +791,9 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-	$(document).on("submit",".customer-form",function(e){
+	$(document).on("submit",".customer-move-form",function(e){
 		e.preventDefault();
+		console.log('ici');
 		var code = $(this).find('input').val();
 		$.ajax({
 			url: 'shop-functions/CheckPartnerForCode/'+code+'/',
