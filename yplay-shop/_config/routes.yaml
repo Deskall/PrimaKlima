@@ -5,4 +5,3 @@ After: '#coreroutes'
 SilverStripe\Control\Director:
   rules:
     'shop-functions': 'ShopController'
-    'umzug': 'CustomerMoveBlockController'

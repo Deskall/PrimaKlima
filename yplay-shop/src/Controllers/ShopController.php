@@ -10,11 +10,12 @@ use SilverStripe\i18n\i18n;
 use SilverStripe\Security\Member;
 use SilverStripe\View\Requirements;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\Control\HTTPRequest;
 
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'smartcard', 'checkCustomer']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'smartcard', 'checkCustomer', 'CheckPartnerForCode']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
@@ -237,6 +238,22 @@ class ShopController extends PageController
       }
 
       return json_encode(['message' => 'nothing to do']);
+   }
+
+   public function CheckPartnerForCode(HTTPRequest $request){
+       $code = trim($request->param('Code'));
+       if ($code){
+           $plz = PostalCode::get()->filter('Code',$code)->first();
+           if ($plz){
+               $shop = $plz->Shop();
+               if ($shop){
+                   return json_encode(['shop' => $shop]);
+               }
+               return json_encode(['message' => 'Es gibt keine Partner für diese Region']);
+           }
+           return json_encode(['message' => 'Unbekannte Region']);
+       }
+       return json_encode(['message' => 'Unbekannte Region']);
    }
    
 }

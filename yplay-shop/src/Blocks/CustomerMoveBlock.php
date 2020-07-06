@@ -14,7 +14,7 @@ class CustomerMoveBlock extends TextBlock
     
     private static $controller_template = 'BlockHolder';
 
-    private static $controller_class = CustomerMoveBlockController::class;
+    private static $controller_class = BlockController::class;
 
     private static $help_text = "Kunden Umzug Block";
 
