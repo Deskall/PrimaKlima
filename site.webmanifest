@@ -1,8 +1,6 @@
 {
   "short_name": "YplaY TV",
   "name": "YplaY TV",
-  "description": "This application is a mobile TV client for our customers who have subscribed to YplaY TV (formerly "GIB IPTV"). To use the application, you must be an active participant registered on the TV platform. Check with your provider to see if the YplaY TV (formerly "GIB IPTV") brand is supported.
-  The application offers qualified users the option to user the IPTV offer from their IPTV box also on a mobile device anywhere in Switzerland where an internet connection (at least 2-3 Mbps) is available. In addition, it is possible to create and customize program lists as well as to schedule recordings that are viewed on TV at home or on mobile devices.",
   "icons": [
     {
       "src": "/themes/yplay/img/yplay-smartapp-192.png",
@@ -15,10 +13,6 @@
       "sizes": "512x512"
     }
   ],
-  "background_color": "#1d1d1b",
-  "display": "standalone",
-  "scope": "/",
-  "theme_color": "#1d1d1b",
   "prefer_related_applications": true,
   "related_applications": [
     {
