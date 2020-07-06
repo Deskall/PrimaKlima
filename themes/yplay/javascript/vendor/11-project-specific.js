@@ -1,22 +1,19 @@
 // Smart app banner android
 let deferredPrompt;
-let btnAdd;
 
-console.log('heeee');
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Update UI notify the user they can add to home screen
-  btnAdd = document.getElementById('smart-app-button');
-  console.log(btnAdd);
-  btnAdd.style.display = 'block';
+$(window).on('beforeinstallprompt', function(e){
+	console.log('defe')
+	e.preventDefault();
+	// Stash the event so it can be triggered later.
+	deferredPrompt = e;
+	// Update UI notify the user they can add to home screen
+	$('#smart-app-button').attr('hidden',false);
+	
 });
 
-btnAdd.addEventListener('click', (e) => {
+$('#smart-app-button').on("click",function(e){
   // hide our user interface that shows our A2HS button
-  btnAdd.style.display = 'none';
+  $(this).attr('hidden','hidden');
   // Show the prompt
   deferredPrompt.prompt();
   // Wait for the user to respond to the prompt
