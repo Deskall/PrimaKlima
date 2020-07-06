@@ -72,6 +72,10 @@ class ProductOption extends Product {
 		return $this->Category()->Title;
 	}
 
+	public function getCategorySort(){
+		return $this->Category()->Title;
+	}
+
 	public function PrintPriceString(){
 		if (!$this->hasOptions){
 			return parent::PrintPriceString();
@@ -85,9 +89,7 @@ class ProductOption extends Product {
 		if ($session->get('shopcart_id')){
 			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
 			if ($cart){
-				if ($cart->Options()->byId($this->ID)){
-					return true;
-				}
+				return $cart->Options()->byId($this->ID);
 			}
 		}
 		return false;

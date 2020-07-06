@@ -39,7 +39,6 @@
 				        <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
 				   </div>
 				   <button class="uk-button uk-button-primary" type="submit">Region prüfen</button>
-				   
 				</div>
 			</form>
 			<% else %>
@@ -156,7 +155,7 @@
 						</div>
 						<% end_loop %>
 						<div class="uk-margin uk-hidden@m">
-							<a href="$ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
+							<a href="$ShopPage.Link" class="uk-button BlackBackground uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
 						</div>
 						<div class="uk-margin">
 							<ul data-uk-accordion>
@@ -168,7 +167,7 @@
 							            <div class="uk-grid-small uk-grid-match uk-child-width-1-3@m" data-uk-grid>
 							            	<% loop alternativePackages %>
 							            	<div>
-							            		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">
+							            		<div class="uk-card uk-card-default uk-card-hover uk-card-body">
 							            		    <h3 class="uk-card-title">$Title</h3>
 							            		    <strong>$PrintPriceString</strong>
 							            		    <table class="uk-table uk-table-divider uk-table-justify uk-table-middle">
@@ -188,15 +187,15 @@
 								            		    	<% end_loop %>
 								            		    <% end_if %>
 							            		    </table>
-							            		    <div class="uk-margin uk-transition-fade">
-							            		    	<a class="uk-button BlackBackground" href="{$Top.ShopPage.Link}paket/$ID"><%t ConfiguratorPage.Order 'Bestellen' %></a>
+							            		    <div class="uk-margin">
+							            		    	<a class="uk-button BlackBackground uk-display-block" href="{$Top.ShopPage.Link}paket/$ID"><%t ConfiguratorPage.Order 'Bestellen' %></a>
 							            		    </div>
 							            		</div>
 							            	</div>
 							            	<% end_loop %>
 							            </div>
 							            <% else_if alternativeProducts.exists %>
-							            <div class="uk-grid-small uk-grid-match uk-child-width-auto" data-uk-grid>
+							            <div class="uk-grid-small uk-grid-match uk-child-1-3@m" data-uk-grid>
 							            	<% loop alternativeProducts %>
 							            	<div>
 							            		<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-transition-toggle">

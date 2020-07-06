@@ -221,7 +221,7 @@ class ShopPageController extends PageController
          //Add Dependent Fields
          //1. Phone
          if ($cart->hasCategory('yplay-talk')){
-            $form->Fields()->push(OptionSetField::create('PhoneOption','Label',['existing' => 'Bestehende Rufnummer(n) übernehmen', 'new' => 'Neue Rufnummer(n) bestellen', 'wish' => 'Wunschnummer bestellen'])->setAttribute('required','required'));
+            $form->Fields()->push(OptionSetField::create('PhoneOption','Label',['existing' => 'Bestehende Rufnummer(n) übernehmen', 'new' => 'Neue Rufnummer(n) bestellen', 'wish' => 'Wunschnummer bestellen'])->setAttribute('required','required')->setAttribute('class','full-width-option'));
             $form->Fields()->push(TextField::create('ExistingPhone','Bei einer Übernahme der Rufnummer die bestehenden Verträge bitte NICHT kündigen. Wir übernehmen dies für Sie.')->setAttribute('placeholder','Bitte geben Sie Ihre bestehende Nummer ein.'));
             $form->Fields()->push(TextField::create('WishPhone','Label')->setAttribute('placeholder','Ihre Wunschnummer'));
             $form->getValidator()->addRequiredField('PhoneOption');
@@ -235,7 +235,7 @@ class ShopPageController extends PageController
 
          //3. Glasfaserdose
          if ($cart->Availability == "Fiber" || 
-            ( !$cart->Availability && $this->activePLZ()->exists() && $this->activePLZ()->Availability == "Fiber")
+            ( !$cart->Availability && $this->activePLZ() && $this->activePLZ()->Availability == "Fiber")
          ){
             $form->Fields()->insertBefore('Comments',TextField::create('Glasfaserdose','Bitte geben Sie Ihre Glasfaserdosen-Nummer ein:')->setAttribute('placeholder','B.110.123.456.X'))->setAttribute('required','required')->setAttribute('class','uk-input');
             $form->Fields()->insertAfter('Glasfaserdose',CheckboxField::create('UnknownGlasfaserdose','Ich kenne meine Glasfaserdosen-Nummer nicht.')->setAttribute('class','uk-checkbox'));

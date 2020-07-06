@@ -18,6 +18,7 @@ use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\Tabset;
 use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\ORM\FieldType\DBCurrency;
 
 class ShopConfigExtension extends DataExtension
 {
@@ -30,11 +31,14 @@ class ShopConfigExtension extends DataExtension
        'PLZModalTitle' => 'Varchar',
        'PLZModalBody' => 'HTMLText',
        'ConfiguratorTitle' => 'Varchar',
+       'ExistingNumberLabel' => 'HTMLText',
        'MobileStepTitle' => 'Varchar',
        'MobileStepBody' => 'HTMLText',
        'WishNumberTitle' => 'Varchar',
        'WishNumberBody' => 'HTMLText',
-       'Conditions' => 'HTMLText'
+       'Conditions' => 'HTMLText',
+       'ActivationPrice' => 'Currency',
+       'ActivationPriceLabel' => 'HTMLText'
     );
 
     private static $has_one = [
@@ -69,6 +73,9 @@ class ShopConfigExtension extends DataExtension
       $labels['AGBPage'] = _t(__CLASS__.'.AGBPage','AGB Seite');
       $labels['MobileAGBPage'] = _t(__CLASS__.'.MobileAGBPage','Mobile AGB Seite');
       $labels['Conditions'] = _t(__CLASS__.'.Conditions','Konditionen');
+      $labels['ActivationPrice'] = _t(__CLASS__.'.ActivationPrice','Aufschaltgebühr');
+      $labels['ActivationPriceLabel'] = _t(__CLASS__.'.ActivationPriceLabel','Aufschaltgebühr - Hinweis in Bestellübersicht');
+      $labels['ExistingNumberLabel'] = _t(__CLASS__.'.ExistingNumberLabel','Bestehende Nummer Erklärung');
     }
 
    
@@ -89,7 +96,10 @@ class ShopConfigExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields)
     {
-       
+ 
+       $fields->addFieldToTab('Root.Shop',TextField::create('ActivationPrice',$this->owner->fieldLabels()['ActivationPrice']));
+       $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('ActivationPriceLabel',$this->owner->fieldLabels()['ActivationPriceLabel'])->setRows(3));
+       $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',TextField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']));
        $fields->addFieldToTab('Root.Shop',TextField::create('PLZModalTitle',$this->owner->fieldLabels()['PLZModalTitle']));
@@ -103,6 +113,7 @@ class ShopConfigExtension extends DataExtension
           CompositeField::create(
           [
             HTMLEditorField::create('Conditions',$this->owner->fieldLabels()['Conditions']),
+            HTMLEditorField::create('ExistingNumberLabel',$this->owner->fieldLabels()['ExistingNumberLabel']),
             TextField::create('MobileStepTitle',$this->owner->fieldLabels()['MobileStepTitle']),
             HTMLEditorField::create('MobileStepBody',$this->owner->fieldLabels()['MobileStepBody']),
             TextField::create('WishNumberTitle',$this->owner->fieldLabels()['WishNumberTitle']),
@@ -129,13 +140,14 @@ class ShopConfigExtension extends DataExtension
     }
 
 
-    public function parseString($string,$order)
+    public function parseString($string,$order=null)
     {
 
 
         $variables = array(
             '$SiteName'       => $this->owner->Title,
-            '$Datum'          => date('d.m.Y')
+            '$Datum'          => date('d.m.Y'),
+            '$Aufschaltgebühr' => DBCurrency::create()->setValue($this->owner->ActivationPrice)->Nice()
             // '$LoginLink'      => Controller::join_links(
             //     $absoluteBaseURL,
             //     singleton(Security::class)->Link('login')
@@ -146,19 +158,19 @@ class ShopConfigExtension extends DataExtension
            foreach (array('Name', 'Vorname', 'Email','Gender','Price') as $field) {
               $variables["\$Order.$field"] = $order->$field;
            }
-        }
+           if ($order->Customer()){
+              foreach (array('Gender','Name','FirstName','Email', 'Birthdate','Address','City','PostalCode') as $field) {
+                 $variables["\$Customer.$field"] = $order->Customer()->$field;
+              }
+           
 
-
-        if ($order->Customer()){
-           foreach (array('Gender','Name','FirstName','Email', 'Birthdate','Address','City','PostalCode') as $field) {
-              $variables["\$Customer.$field"] = $order->Customer()->$field;
-           }
-        
-
-           foreach (array('printAddress','printTitle') as $method) {
-              $variables["\$Customer.$method"] = $order->Customer()->{$method}();
+              foreach (array('printAddress','printTitle') as $method) {
+                 $variables["\$Customer.$method"] = $order->Customer()->{$method}();
+              }
            }
         }
+
+
         
         
 

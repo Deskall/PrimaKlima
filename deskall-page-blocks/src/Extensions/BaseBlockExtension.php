@@ -20,6 +20,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Core\ClassInfo;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\TextareaField;
+use Sheadawson\Linkable\Models\Link;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -43,6 +44,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     private static $has_one = [
         'BackgroundImage' => Image::class,
+    ];
+
+    private static $has_many = [
+        'Links' => Link::class,
     ];
 
     private static $owns =[
@@ -205,6 +210,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('Animation');
         $fields->removeByName('BackgroundImageEffect');
         $fields->removeByName('SectionPadding');
+        $fields->removeByName('Links');
 
         $extracss = $fields->fieldByName('Root.Settings.ExtraClass');
         $fields->removeByName('Settings');

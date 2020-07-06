@@ -144,11 +144,19 @@ class ProductCategory extends DataObject {
 	}
 
 	public function filteredProducts(){
-		$products = $this->Products()->filter('ClassName',Product::class)->filterByCallback(function($item, $list) {
+		$products = $this->Products()->filter(['ClassName' => Product::class, 'isVisible' => 1])->filterByCallback(function($item, $list) {
 		    return ($item->shouldDisplay() && $item->isAvailable());
 		});
 
 		return $products;
+	}
+
+	public function filteredOptions(){
+		$options = $this->Options()->filter(['ClassName' => ProductOption::class, 'isVisible' => 1])->filterByCallback(function($item, $list) {
+		    return ($item->shouldDisplay() && $item->isAvailable());
+		});
+
+		return $options;
 	}
 
 	public function getPreselected(){

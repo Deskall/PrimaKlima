@@ -10,6 +10,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use g4b0\SearchableDataObjects\Searchable;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class ActionBlock extends BaseElement implements Searchable
 {
@@ -45,7 +46,8 @@ class ActionBlock extends BaseElement implements Searchable
         'OffcanvasOverlay' => 'Boolean(0)',
         'OffcanvasPosition' => 'Varchar(255)',
         'DropdownPosition' => 'Varchar(255)',
-        'DropdownBoundary' => 'Boolean(0)'
+        'DropdownBoundary' => 'Boolean(0)',
+        'ActionBackground' => 'Varchar(255)'
     ];
 
     private static $has_one = [
@@ -162,6 +164,7 @@ class ActionBlock extends BaseElement implements Searchable
         $fields->removeByName('ModalScroll');
         $fields->removeByName('Target');
         $fields->removeByName('Layout');
+        $fields->removeByName('ActionBackground');
         //$title = $fields->fieldByName('Root.Main.TitleAndDisplayed');
       //  $fields->removeByName('TitleAndDisplayed');
 
@@ -192,6 +195,7 @@ class ActionBlock extends BaseElement implements Searchable
         $fields->addFieldToTab('Root.LayoutTab',Wrapper::create(CompositeField::create(
             DropdownField::create('OffcanvasPosition',_t(__CLASS__.'.OffcanvasPosition','Offcanvas Position'), $this->getTranslatedSourceFor(__CLASS__,'offcanvas_position')),
             CheckboxField::create('OffcanvasOverlay',_t(__CLASS__.'.OffcanvasOverlay','Offcanvas Overlay')),
+            HTMLDropdownField::create('ActionBackground',_t(__CLASS__.'.ActionBackground','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
             DropdownField::create('Effect',_t(__CLASS__.'.OffcanvasEffect','Offcanvas Effekt'), $this->getTranslatedSourceFor(__CLASS__,'block_effects'))
         )->setTitle(_t(__CLASS__.'.OffcanvasLayout','Offcanvas Format'))->setName('OffcanvasLayout')));
 

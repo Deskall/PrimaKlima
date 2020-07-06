@@ -29,6 +29,11 @@
 	</tfoot>
 </table>
 <% end_if %>
+<% if not $ExistingCustomer || $ExistingCustomer < 1 %>
+<div class="uk-margin-small activation-text">
+	$ActivationPriceLabel
+</div>
+<% end_if %>
 <% if $TotalUniquePrice > 0 %>
 <strong class="uk-text-small">Einmalige Kosten</strong>
 <% if Package.exists && $Package.PriceGain.gainU < 0 %><p>Sie sparen {$Package.PriceGain.gainU}%</p><% end_if %>
@@ -71,6 +76,9 @@
 			<tr><td>$ActivationPriceLabe</td><td class="uk-text-right">CHF $getFees<% if Quantity > 1 %> * $Quantity<% end_if %></td></tr>
 			<% end_if %>
 		<% end_loop %>
+		<% end_if %>
+		<% if $ExistingCustomer == 2 %>
+		<tr><td>Aufschaltgebühr</td><td class="uk-text-right">$SiteConfig.ActivationPrice.Nice</td></tr>
 		<% end_if %>
 	</tbody>
 	<tfoot>

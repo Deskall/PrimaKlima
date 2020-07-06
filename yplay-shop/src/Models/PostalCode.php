@@ -19,7 +19,9 @@ class PostalCode extends DataObject {
 	    'YplaY' => 'Boolean(0)',
 	    'Externe' => 'Boolean(0)',
 	    'URL' => 'Varchar',
-	    'OldID' => 'Int'
+	    'OldID' => 'Int',
+	    'Layer' => 'Varchar',
+	    'Netz' => 'Varchar',
 	);
 
 	private static $singular_name = 'Postleitzahl';
@@ -28,6 +30,8 @@ class PostalCode extends DataObject {
 	private static $summary_fields = [
 	  'Code',
 	  'City',
+	  'Layer',
+	  'Netz',
 	  'StandardOffer',
 	  'AlternateOffer',
 	  'TVType' => 'TV-Angebot',
@@ -63,7 +67,9 @@ class PostalCode extends DataObject {
 
 	public function getCMSFields() {
 	    $fields = parent::getCMSFields();
+	    $fields->removeByName('OldID');
 	    $fields->FieldByName('Root.Main')->setTitle('Ortschaft Angaben');
+	    $fields->addFieldToTab('Root.Main', DropdownField::create('Layer',$this->fieldLabels()['Layer'],['Layer 1' => 'Layer 1', 'Layer 2' => 'Layer 2', 'Layer 1&2' => 'Layer 1&2'])->setEmptyString('Bitte auswählen')->hideIf('Externe')->isChecked()->end());
 	    $fields->addFieldToTab('Root.Main', DropdownField::create('SubsiteID',$this->fieldLabels()['Subsite'],Subsite::get()->map('ID','Title'))->setEmptyString('YplaY')->hideIf('Externe')->isChecked()->end());
 	    $fields->addFieldToTab('Root.Main', CheckboxField::create('Externe',$this->fieldLabels()['Externe']));
 	    $fields->addFieldToTab('Root.Main', TextField::create('URL',$this->fieldLabels()['URL'])->displayIf('Externe')->isChecked()->end());

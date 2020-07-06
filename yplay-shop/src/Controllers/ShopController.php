@@ -14,7 +14,7 @@ use SilverStripe\ORM\ArrayList;
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'smartcard']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'smartcard', 'checkCustomer']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
@@ -53,6 +53,16 @@ class ShopController extends PageController
       }
       
       return json_encode($products);
+   }
+
+   public function getActiveCartObject(){
+      $products = [];
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+      return $cart;
    }
 
 
@@ -189,7 +199,7 @@ class ShopController extends PageController
       //retrieve cart in session
       $id = $this->getRequest()->getSession()->get('shopcart_id');
       $form = $this->getRequest()->postVar('form');
-     
+
       $cart = null;
       if ($id){
          $cart = ShopCart::get()->byId($id);
@@ -204,6 +214,29 @@ class ShopController extends PageController
 
       return;
       
-   } 
+   }
+
+   /* from checkout, if new Customer, we check rules to apply
+   */
+   public function checkCustomer(){
+      $cart = $this->getActiveCartObject();
+      $isCustomer = $this->getRequest()->postVar('isCustomer');
+      if ($cart){
+         $cart->ExistingCustomer = $isCustomer;
+         $cart->write();
+         //Rules for new customer
+         if (!$isCustomer){
+            if ($cart->hasPremiumSender() && !$cart->hasCategory('yplay-watch')){
+               //TV Abo is required, redirection to configurator
+               $tvCategory = ProductCategory::get()->filter('Code','yplay-watch')->first();
+               $preselected = $tvCategory->getPreselected();
+               return json_encode(['link' => $preselected->OrderLink()]);
+            }
+         }
+         
+      }
+
+      return json_encode(['message' => 'nothing to do']);
+   }
    
 }

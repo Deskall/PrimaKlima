@@ -18,10 +18,9 @@
 @card-default-title-color:                     @global-emphasis-background;
 @card-default-hover-background:                darken(@card-default-background, 5%);
 
-@form-background:                              rgba(255,255,255,0.6);
+@form-background:                              @global-muted-background;
 @form-color:  								   @global-color;
 @form-radio-checked-background:                @global-emphasis-background;
-@global-emphasis-color:                        @global-emphasis-background;
 @form-radio-checked-focus-background:          darken(@form-radio-checked-background, 10%);
 @form-message-border-color:                    transparent;
 @form-message-background-color:                transparent;
@@ -95,7 +94,15 @@ header .uk-navbar-nav .uk-navbar-dropdown .uk-navbar-dropdown-nav.menu-section-l
 .hook-slider-font(){
 	*{
 		color:@white-background;
+	}
+	h1, h2, .uk-text-lead{
 		text-shadow:2px 2px 4px @black-background;
+	}
+	.dk-slide-text{
+		min-width:80%;
+		@media only screen and (min-width: @breakpoint-small) {
+			min-width: auto;
+		}
 	}
 }
 //BReadcrumbs
@@ -168,7 +175,10 @@ footer.uk-section{
 
 //Specific to custom Page elements
 .dk-middle-offcanvas{
-
+	&.no-bg{
+		background-color: @global-muted-background;
+		color:@global-color;
+	}
 	&:not(.cart-offcanvas) *{
 		color: inherit;
 	}
@@ -233,44 +243,44 @@ footer.uk-section{
 }
 //teasing block
 .teasingblock{
-	.shape-container{
-		z-index:-1;
-		.shape{
-			position:absolute;
-		}
-	}
-	.shape-parallelogram{
-		width: 50%;
-		height: 80%;
-		.shape{
-		  width: 100%;
-		  height: 100%;
-	      transform: skew(20deg);
-	      background: @tv;
-		}
-	}
-	.shape-triangle{
-		width: 50%;
-		height: 50%;
-		.shape{
-			width: 0;
-	      	height: 0;
-		}
-		&.uk-position-left{
-			.shape{
-				border-bottom: 300px solid @tv;
-				border-right: 300px solid transparent;
-				left:0;
-			}
-		}
-		&.uk-position-right{
-			.shape{
-				border-bottom: 300px solid @tv;
-				border-left: 300px solid transparent;
-				right:0;
-			}
-		}
-	}
+	// .shape-container{
+	// 	z-index:-1;
+	// 	.shape{
+	// 		position:absolute;
+	// 	}
+	// }
+	// .shape-parallelogram{
+	// 	width: 50%;
+	// 	height: 80%;
+	// 	.shape{
+	// 	  width: 100%;
+	// 	  height: 100%;
+	//       transform: skew(20deg);
+	//       background: @tv;
+	// 	}
+	// }
+	// .shape-triangle{
+	// 	width: 50%;
+	// 	height: 50%;
+	// 	.shape{
+	// 		width: 0;
+	//       	height: 0;
+	// 	}
+	// 	&.uk-position-left{
+	// 		.shape{
+	// 			border-bottom: 300px solid @tv;
+	// 			border-right: 300px solid transparent;
+	// 			left:0;
+	// 		}
+	// 	}
+	// 	&.uk-position-right{
+	// 		.shape{
+	// 			border-bottom: 300px solid @tv;
+	// 			border-left: 300px solid transparent;
+	// 			right:0;
+	// 		}
+	// 	}
+	// }
 }
 
 /* The switch - the box around the slider */
@@ -524,7 +534,7 @@ body.ShopPage{
 				background-color: #eee;
 				color:@global-color;
 			}
-			&:hover{
+			&:hover, &.uk-active{
 				background-color: @global-emphasis-background;
 				color:@white-background;
 			}
@@ -533,6 +543,12 @@ body.ShopPage{
 	li[data-step="options"]{
 		tr:hover{
 			cursor:pointer;
+		}
+		.multiple input{
+			width:50px;
+			background:transparent;
+			border-bottom: 1px solid #ddd;
+			text-align: center;
 		}
 	}
 	#Form_OrderForm_Gender > li{
@@ -557,6 +573,10 @@ body.ShopPage{
 		font-style:italic;
 		font-size: 0.875rem;
 	}
+	.full-width-option{
+		list-style: none;
+		padding-left: 0;
+	}
 }
 label.error, p.error{
 	color:@internet;
@@ -580,7 +600,9 @@ label.error, p.error{
 	}
 
 }
-
+.activation-text *{
+	font-size: 0.875rem;
+}
 //Productblock
 .productblock{
 	
@@ -684,7 +706,7 @@ body{
 	h1{
 		color:@color;
 	}
-	main .element .uk-section:not(.with-background) a:not(.uk-button){
+	main .element:not(.parentblock) > .uk-section:not(.with-background) a:not(.uk-button){
 		color:@color;
 	}
 	main .dk-button,.bestseller{
@@ -704,7 +726,15 @@ body{
 	.uk-dotnav > .uk-active > * {
 		background: fade(@color, 60%);
 	}
-	.element .uk-section:not(.with-background){
+	.element:not(.parentblock):not(.children) > .uk-section:not(.with-background){
+		.fill-block(@color);
+	}
+	.element.parentblock > .uk-section:not(.with-background){
+		h1,h2 {
+			color:@color;
+		}
+	}
+	.element.parentblock > .uk-section:not(.with-background) .children > .uk-section:not(.with-background){
 		.fill-block(@color);
 	}
 }
@@ -806,5 +836,40 @@ body{
 		@media only screen and (min-width:@breakpoint-large){
 			max-height:650px;
 		}
+		&.small{
+			max-height:150px;
+			@media only screen and (min-width:@breakpoint-medium){
+				max-height:250px;
+			}
+			@media only screen and (min-width:@breakpoint-large){
+				max-height:350px;
+			}
+		}
+		&.big{
+			max-height:450px;
+			@media only screen and (min-width:@breakpoint-medium){
+				max-height:850px;
+			}
+			@media only screen and (min-width:@breakpoint-large){
+				max-height:1250px;
+			}
+		}
 	}
+}
+
+.uk-accordion-title{
+	position:relative;
+	&:after{
+		position: absolute;
+	    content: '\e985';
+	    font-family: 'icomoon';
+	    right: 0;
+	    top: 50%;
+	    transform: translateY(-50%);
+	}			
+}
+li.uk-open > .uk-accordion-title{
+	&:after{
+	   content: '\e999';
+	}			
 }

@@ -77,7 +77,6 @@ $(document).ready(function(){
 		packages = [],
 		productsOfPackages = [],
 		updateRun;
-
 		
 		var url = window.location.pathname;
 		$.ajax({
@@ -223,10 +222,10 @@ $(document).ready(function(){
 
 	//Shop Page script
 	if ($('body').hasClass('ShopPage')){
-
+		var switcher = UIkit.switcher("#order-nav-switcher");
 		UpdateOrder();
-		InitNav();
 		InitStep();
+		InitNav();
 		var validator = $("#Form_OrderForm").validate({
 			errorPlacement: function(error, element) {
 			    error.appendTo( element.parents(".uk-form-controls") );
@@ -236,7 +235,7 @@ $(document).ready(function(){
 		//Check if form error
 		if ($(".message.required").length > 0){
 			var tab = $(".message.required").parents('li');
-			UIkit.switcher("#order-nav-switcher").show(tab.attr('data-index'));
+			switcher.show(tab.attr('data-index'));
 			
 		}
 
@@ -244,42 +243,50 @@ $(document).ready(function(){
 		
 		$(document).on("click",".step",function(){
 			if (!$(this).hasClass('backwards')){
-				//Special case for birthdate
-				if ($(this).parents('[data-step]').attr('data-step') == "step-1"){
-					if ($("input[name='Birthdate']").val() == ""){
-						$("#birthdate-empty").attr('hidden',false);
-						return false;
-					}
-					if ($("input[name='Birthdate']").hasClass("error")){
-						return false;
-					}
+				//Process for new customers
+				var proceed = true;
+				if ($(this).hasClass('customer-button')){
+					proceed = false;
+					$(this).addClass('is-reviewed');
+					InitCustomer();
+					
 				}
-
-				//Check daten && Update Session Data
-				var form = $(this).parents('form');
-			
-				if (form.valid()){
-					UpdateCartData();
-					UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
-					$(':focus').blur();
-					$('html, body').animate({scrollTop: $("#order-form-steps").offset().top - 110  }, 500);
-					$("#order-nav").find('li.uk-active').removeClass('uk-active');
-					var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
-					if (nav.hasClass('dk-inactive')){
-						nav.removeClass('dk-inactive');
-						//Update cart steps
-						UpdateCartStep(nav.attr('data-nav'));
+				if (proceed) {
+					//Check daten && Update Session Data
+					var form = $(this).parents('form');
+					var valid = form.valid();
+					//Special case for birthdate
+					if ($(this).parents('[data-step]').attr('data-step') == "step-1"){
+						if ($("input[name='Birthdate']").val() == ""){
+							$("#birthdate-empty").attr('hidden',false);
+							return false;
+						}
+						if ($("input[name='Birthdate']").hasClass("error")){
+							return false;
+						}
 					}
 					
-					if (!nav.hasClass('uk-active')){
-						nav.addClass('uk-active');
+					if (valid){
+						UpdateCartData();
+						switcher.show($(this).attr('data-target'));
+						$(':focus').blur();
+						$('html, body').animate({scrollTop: $("#order-form-steps").offset().top - 110  }, 500);
+						$("#order-nav").find('li.uk-active').removeClass('uk-active');
+						var nav = $("#order-nav").find('li[data-nav="'+$(this).attr('data-nav')+'"]');
+						if (nav.hasClass('dk-inactive')){
+							nav.removeClass('dk-inactive');
+							//Update cart steps
+							UpdateCartStep(nav.attr('data-nav'));
+						}
+						
+						if (!nav.hasClass('uk-active')){
+							nav.addClass('uk-active');
+						}
 					}
 				}
-				
-				
 			}
 			else{
-				UIkit.switcher("#order-nav-switcher").show($(this).attr('data-target'));
+				switcher.show($(this).attr('data-target'));
 				$('html, body').animate({scrollTop: $("#order-form-steps").offset().top - 110  }, 500);
 				$(':focus').blur();
 				$("#order-nav").find('li.uk-active').removeClass('uk-active');
@@ -303,14 +310,14 @@ $(document).ready(function(){
 				$(this).addClass('uk-active');
 				switch($(this).attr('data-nav')){
 					case "1":
-						UIkit.switcher("#order-nav-switcher").show(0);
+						switcher.show(0);
 						break;
 					case "2":
-						UIkit.switcher("#order-nav-switcher").show(4);
+						switcher.show(4);
 						break;
 					case "3":
 						var count = parseInt($("#order-form-steps > li").length - 1);
-						UIkit.switcher("#order-nav-switcher").show(count);
+						switcher.show(count);
 						break;
 				}
 			}
@@ -379,7 +386,7 @@ $(document).ready(function(){
 			UIkit.update(document.body, type = 'update');
 		});
 
-		$(document).on("click","li[data-step='options'] tr td:not(:first-child)",function(e){
+		$(document).on("click","li[data-step='options'] tr td:not(:first-child):not(.multiple)",function(e){
 
 			if ($(this).parents('tr').find('input').is(":checked")){
 				$(this).parents('tr').find('input').prop("checked",false).trigger("change");
@@ -410,6 +417,7 @@ $(document).ready(function(){
 							quantityInput.val(1);
 						}
 						quantityInput.attr('hidden',false);
+						quantityInput.prev('span').attr('hidden',false);
 						options.push({
 							'code' : $(this).attr('data-value'),
 							'quantity': quantityInput.val()
@@ -425,6 +433,7 @@ $(document).ready(function(){
 				}
 				else{
 					$(this).parents('tr').find('input.quantity').val(0).attr('hidden','hidden');
+					$(this).parents('tr').find('input.quantity').prev('span').attr('hidden','hidden');
 				}
 			});
 			UpdateCart(options);
@@ -442,7 +451,6 @@ $(document).ready(function(){
 	}
 
 	function UpdateCart(options){
-		console.log(options);
 		$(".order-preview").addClass('loading').append('<div class="uk-position-center uk-position-z-index"><span data-uk-spinner="ratio: 3"></span></div>');
 		$.ajax({
 			url: '/shop-functions/updateCartOptions',
@@ -479,14 +487,14 @@ $(document).ready(function(){
 		var li = $("#order-nav li.uk-active");
 		switch(li.attr('data-nav')){
 			case "1":
-				UIkit.switcher("#order-nav-switcher").show(0);
+				switcher.show(0);
 				break;
 			case "2":
-				UIkit.switcher("#order-nav-switcher").show(4);
+				switcher.show(4);
 				break;
 			case "3":
 				var count = parseInt($("#order-form-steps > li").length - 1);
-				UIkit.switcher("#order-nav-switcher").show(count);
+				switcher.show(count);
 				break;
 		}
 	}
@@ -498,6 +506,29 @@ $(document).ready(function(){
 			$(this).find('.step.forward').attr('data-target',i+1);
 			$(this).find('.step.backwards').attr('data-target',i-1);
 			i++;
+		});
+	}
+
+	/**
+	* if new customer, we apply specific rules
+	* like aufschaltgebühr
+	* like product requirements
+	* ...
+	*/
+	function InitCustomer(){
+		$.ajax({
+			url: '/shop-functions/checkCustomer',
+			method: 'POST',
+			dataType: 'json',
+			data: {isCustomer: $("input[name='ExistingCustomer']").val()}
+		}).done(function(response){
+			if (response.link){
+				window.location.href = response.link;
+			}
+			else {
+				$(".is-reviewed").removeClass("customer-button").trigger('click');
+				UpdateCart();
+			}
 		});
 	}
 
@@ -722,7 +753,6 @@ $(document).ready(function(){
 		});
 
 		$(document).on("click",".paytvblock [data-submit-paytv]",function(){
-
 			$.ajax({
 				url: '/shop-functions/smartcard/',
 				method: 'POST',
@@ -731,7 +761,7 @@ $(document).ready(function(){
 			}).done(function(response){
 				$(this).removeClass('loading');
 				if (response.link){
-					window.location.href = response.link;
+					window.location.pathname = response.link;
 				}
 				else{
 					console.log(response.error);

@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class ShopCart extends DataObject {
 
@@ -32,7 +33,7 @@ class ShopCart extends DataObject {
 		'PhoneOption' => 'Varchar',
 		'ExistingPhone' => 'Varchar',
 		'WishPhone' => 'Varchar',
-		'ExistingCustomer' => 'Boolean(0)',
+		'ExistingCustomer' => 'Int',
 		'Availability' => 'Varchar'
 	];
 
@@ -83,6 +84,12 @@ class ShopCart extends DataObject {
 		$labels['HouseNumber'] = _t(__CLASS__.'.HouseNumber','Haus-Nr.');
 		
 		return $labels;
+	}
+
+	public function getCMSFields(){
+		$fields = parent::getCMSFields();
+		$fields->removeByName('IP');
+		return $fields;
 	}
 
 	
@@ -150,6 +157,10 @@ class ShopCart extends DataObject {
 
 	public function writeTotalUniquePrice(){
 		$price = 0;
+		//For new customer we apply activation price
+		if ($this->ExistingCustomer == 2){
+			$price += $this->getSiteConfig()->ActivationPrice;
+		}
 		if ($this->Package()->exists()){
 			$price += $this->Package()->getPriceUnique();
 			$price += $this->Package()->getFees();
@@ -198,6 +209,20 @@ class ShopCart extends DataObject {
 		return $confirm;
 	}
 
+	public function hasPremiumSender(){
+		if ($this->Options()->exists()){
+			$paytvpackage = ProductOption::get()->filter('ProductCode','pay-tv-pakete')->first();
+			if ($paytvpackage){
+				foreach ($this->Options() as $option) {
+					if ($option->Group()->exists() && $option->GroupID == $paytvpackage->ID){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 	// public function requireCategory($code){
 	// 	$required = false;
 		
@@ -233,5 +258,14 @@ class ShopCart extends DataObject {
 
 	public function isEmpty(){
 		return (!$this->Package()->exists() && !$this->Products()->exists() && !$this->Options()->exists());
+	}
+
+	public function getSiteConfig(){
+		return SiteConfig::current_site_config();
+	}
+
+	public function ActivationPriceLabel(){
+		$config = $this->getSiteConfig();
+		return DBHTMLText::create()->setValue($config->parseString($config->ActivationPriceLabel));
 	}
 }

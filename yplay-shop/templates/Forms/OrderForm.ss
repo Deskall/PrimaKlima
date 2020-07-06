@@ -14,7 +14,7 @@
 	   	            <li <% if Controller.activeCart && Controller.activeCart.CurrentStep == "3" %>class="uk-active"<% else_if Controller.activeCart.CurrentStep < 3 %>class="dk-inactive"<% end_if %> data-nav="3"><a>3. <span class="uk-visible@m">Überprüfung</span></a></li>
 	   	        </ul>
 	   	        <ul id="order-nav-switcher" data-uk-switcher="connect:#order-form-steps" hidden>
-	   	            <li class="uk-active"><a>ist Kunde?</a></li>
+	   	            <li><a>ist Kunde?</a></li>
                     <li><a>Kundendaten</a></li>
                     <li><a>Kundendaten 2</a></li>
 	   	            <li><a>Adresse / Rechnung</a></li>
@@ -35,13 +35,13 @@
     <p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
     <% end_if %>
             <ul id="order-form-steps" class="uk-switcher">
-                <li class="uk-active uk-margin-top" data-step="customer" data-index="0">
+                <li class="uk-margin uk-margin-top" data-step="customer" data-index="0">
                         <div class="uk-grid-small uk-child-width-1-1" data-uk-grid>
                         	<h3><%t Order.ExitingCustomerTitle 'Sind Sie bereits YplaY-Kunde?' %></h3>
                         	<div class="uk-margin-large-top">
 	                        	<div class="uk-flex uk-flex-around">
-	                        		<button class="uk-button step forward customer-button" data-nav="1" type="button" data-value="1">Ja</button>
-	                        		<button class="uk-button step forward customer-button" data-nav="1" type="button" data-value="0">Nein</button>
+	                        		<button class="uk-button step forward customer-button <% if Controller.activeCart.ExistingCustomer == 1 %>uk-active<% end_if %>" data-nav="1" type="button" data-value="1">Ja</button>
+	                        		<button class="uk-button step forward customer-button <% if Controller.activeCart.ExistingCustomer == 2 %>uk-active<% end_if %>" data-nav="1" type="button" data-value="2">Nein</button>
 	                             </div>
 	                         </div>
 	                         <% with Fields.FieldByName('ExistingCustomer') %>
@@ -163,7 +163,7 @@
                                     $Field
                                 </div>
                                 <div>
-                                    <i>$Title</i>
+                                    $SiteConfig.ExistingNumberLabel
                                 </div>
                             </div>
                             <% end_with %>
@@ -203,27 +203,28 @@
                 <li class="uk-margin" data-step="options">
                     
                         <h3>Optionen</h3>
-                            
-                            <div class="uk-grid-small uk-child-width-1-1 uk-flex uk-flex-top uk-child-width-1-1 options" data-uk-grid>
-                            	<% loop Controller.filteredOptions.groupedBy(CategoryTitle) %>
-                            	 <div class="uk-card uk-card-hover uk-box-shadow-medium uk-card-body uk-transition-toggle">
-						           	<h4 class="uk-card-title">$CategoryTitle</h4>
-						           	<table class="uk-table uk-table-small uk-table-hover">
-						           		<% loop Children %>
-							           		<% if hasOptions %>
-                                                <tr><td colspan="3"><strong>$Title</strong></td></tr>
-								           		<% loop Options %>
-								           		<%-- <tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox <% if Single %>pseudo-radio<% end_if %>" name="$Group.ProductCode" data-value="$ProductCode" <% if Multiple %>data-is-multiple="true"<% end_if %><% if $inCart %>checked="checked"<% end_if %> ></td><td>$Title</td><% if Multiple %><td><input type="number" name="quantity-{$ProductCode}" class="uk-input quantity" <% if not $inCart %>hidden<% end_if %>" /></td><% end_if %><td class="uk-text-right">$PrintPriceString</td></tr> --%>
-                                                <tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox <% if Single %>pseudo-radio<% end_if %>" name="$Group.ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> ></td><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
-								           		<% end_loop %>
-								           	<% else %>
-								           	<tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox" name="$ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> ></td><td>$Title</td><td class="uk-text-right">$PrintPriceString</td></tr>
-								           	<% end_if %>
-							           	<% end_loop %>
-						           	</table>
-						         </div>
-                            	<% end_loop %>
-                            </div>
+                        <ul data-uk-accordion class="options">
+                            <% loop Controller.filteredOptions.groupedBy(CategoryTitle) %>
+                            <li class="uk-card uk-card-hover uk-box-shadow-medium uk-card-body uk-transition-toggle">
+    						           	<a class="uk-accordion-title"><h4 class="uk-card-title">$CategoryTitle</h4></a>
+                                        <div class="uk-accordion-content">
+        						           	<table class="uk-table uk-table-small uk-table-middle uk-table-hover">
+        						           		<% loop Children %>
+        							           		<% if hasOptions %>
+                                                        <tr><td colspan="3"><strong>$Title</strong></td></tr>
+        								           		<% loop Options %>
+        								           		<%-- <tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox <% if Single %>pseudo-radio<% end_if %>" name="$Group.ProductCode" data-value="$ProductCode" <% if Multiple %>data-is-multiple="true"<% end_if %><% if $inCart %>checked="checked"<% end_if %> ></td><td>$Title</td><% if Multiple %><td><input type="number" name="quantity-{$ProductCode}" class="uk-input quantity" <% if not $inCart %>hidden<% end_if %>" /></td><% end_if %><td class="uk-text-right">$PrintPriceString</td></tr> --%>
+                                                        <tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox <% if Single %>pseudo-radio<% end_if %>" name="$Group.ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> <% if Multiple %>data-is-multiple="true"<% end_if %>></td><td <% if not Multiple %>colspan="2"<% end_if %>>$Title</td><% if Multiple %><td class="multiple"><span class="uk-margin-small-right">Anzahl</span><input type="number" name="quantity-{$ProductCode}" class="uk-input quantity" value="$inCart.Quantity" /></td><% end_if %><td class="uk-text-right">$PrintPriceString</td></tr>
+        								           		<% end_loop %>
+        								           	<% else %>
+        								           	<tr><td class="uk-table-shrink"><input type="checkbox" class="uk-checkbox" name="$ProductCode" data-value="$ProductCode" <% if $inCart %>checked="checked"<% end_if %> <% if Multiple %>data-is-multiple="true"<% end_if %>></td><td <% if not Multiple %>colspan="2"<% end_if %>>$Title</td><% if Multiple %><td class="multiple"><span class="uk-margin-small-right">Anzahl</span><input type="number" name="quantity-{$ProductCode}" class="uk-input quantity" value="$inCart.Quantity" /></td><% end_if %><td class="uk-text-right">$PrintPriceString</td></tr>
+        								           	<% end_if %>
+        							           	<% end_loop %>
+        						           	</table>
+                                        </div>
+                            </li>
+                            <% end_loop %>
+                        </ul>
                             <div class="uk-margin-top uk-flex uk-flex-around">
                             	<a class="step backwards uk-button uk-button-muted" data-nav="<% if Controller.activeCart.hasCategory('yplay-talk') || Controller.activeCart.hasCategory('yplay-mobile') %>2<% else %>1<% end_if %>"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
                 	            <a class="step forward uk-button" data-nav="3">Weiter<i class="uk-margin-small-left" data-uk-icon="chevron-right"></i></a>

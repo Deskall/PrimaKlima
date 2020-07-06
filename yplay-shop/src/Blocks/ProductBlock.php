@@ -26,7 +26,7 @@ class ProductBlock extends TextBlock
 
     private static $has_one = ['Category' => ProductCategory::Class];
 
-    private static $many_many = ['Products' => Product::class];
+    private static $many_many = ['Products' => Product::class, 'Options' => ProductOption::class];
 
     private static $table_name = 'ProductBlock';
 
@@ -43,7 +43,7 @@ class ProductBlock extends TextBlock
         $fields->removeByName('ProductType');
         $fields->insertBefore('TitleAndDisplayed',DropdownField::create('ProductType','Typ',['products' => 'Produkte','packages' => 'Pakete','options' => 'Optionen'])->setEmptyString('Bitte Typ auswählen'));
        
-        $fields->FieldByName('Root.Main.CategoryID')->displayIf('Type')->isEqualTo('products');
+        $fields->FieldByName('Root.Main.CategoryID')->displayIf('Type')->isEqualTo('products')->orIf('Type')->isEqualTo('options')->end();
 
         return $fields;
     }
@@ -65,7 +65,7 @@ class ProductBlock extends TextBlock
                 if ($this->Category()->exists()){
                     return $this->Category()->filteredProducts();
                 }
-                return $this->Products()->filterByCallback(function($item, $list) {
+                return $this->Products()->filter('isVisible',1)->filterByCallback(function($item, $list) {
                     return ($item->shouldDisplay() && $item->isAvailable());
                 });
             break;
@@ -80,8 +80,13 @@ class ProductBlock extends TextBlock
                     return ($item->shouldDisplay() && $item->isAvailable());
                 });
             break;
-            case "optionen":
-               // 
+            case "options":
+                if ($this->Category()->exists()){
+                    return $this->Category()->filteredOptions();
+                }
+                return $this->Options()->filter('isVisible',1)->filterByCallback(function($item, $list) {
+                    return ($item->shouldDisplay() && $item->isAvailable());
+                });
             break;
         }
     }
