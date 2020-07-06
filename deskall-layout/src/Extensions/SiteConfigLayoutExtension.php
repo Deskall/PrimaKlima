@@ -512,7 +512,7 @@ class SiteConfigLayoutExtension extends DataExtension
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
       /** global background element and font color **/
-      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';h1,h2,h3,h4,h5,h6{color:#'.$c->FontColor.';}.dk-text-content a, .calltoaction-container *{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}&:after{background-color:#'.$c->LinkHoverColor.';}}}*:not(input,select,textarea){color:#'.$c->FontColor.';}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';h1,h2,h3,h4,h5,h6{color:#'.$c->FontColor.';}.dk-text-content a, .downloads a, .calltoaction-container *{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}&:after{background-color:#'.$c->LinkHoverColor.';}}}*:not(input,select,textarea){color:#'.$c->FontColor.';}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
       file_put_contents($fullpath, "\n".".uk-button.button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.'!important;*{color:#'.$c->FontColor.'!important;}&:hover,&:focus,&:active{color:#'.$c->LinkHoverColor.'!important;*{color:#'.$c->LinkHoverColor.'!important;}}&:hover{background-color:darken(#'.$c->Color.', 5%);}&:active{background-color:darken(#'.$c->Color.', 10%);}}',FILE_APPEND);
       /** CSS Class for Call To Form Button **/
@@ -534,6 +534,9 @@ class SiteConfigLayoutExtension extends DataExtension
       file_put_contents($fullpath,"\n".'.'.$c->Code.'{.uk-input,.uk-textarea,.uk-select {background-color: rgba(255,255,255,0.6);}}',FILE_APPEND);
       file_put_contents($fullpath,"\n".'.'.$c->Code.' .uk-form-label {color: #'.$c->FontColor.';}',FILE_APPEND);
       file_put_contents($fullpath,"\n".'.'.$c->Code.' input[type="checkbox"],'.$c->Code.' input[type="radio"]{ &:focus,&:checked,&:indeterminate{background-color: #'.$c->LinkColor.';color: #'.$c->LinkHoverColor.';}}',FILE_APPEND);
+      file_put_contents($fullpath,"\n".'.'.$c->Code.' label.error, .'.$c->Code.' p.error {color: #'.$c->FontColor.';}',FILE_APPEND);
+       /*** Css class for Table Elements **/
+      file_put_contents($fullpath,"\n".'.'.$c->Code.' .uk-table-striped > tr:nth-of-type(odd), .'.$c->Code.' .uk-table-striped tbody tr:nth-of-type(odd){background:lighten(#'.$c->Color.',5%);color:darken(#'.$c->FontColor.',10%);}',FILE_APPEND);
     }
 
     //Provide extension for project specific stuff
