@@ -9,12 +9,14 @@ BaseBlockExtension:
     #- TeasingBlock
     - HDSmartcardBlock
     - PayTVBlock
+    - CustomerMoveBlock
   children_blocks:
     - ProductBlock
     - MarketingBlock
     #- TeasingBlock
     - HDSmartcardBlock
     - PayTVBlock
+    - CustomerMoveBlock
 
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
