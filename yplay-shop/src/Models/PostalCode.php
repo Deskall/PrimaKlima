@@ -39,7 +39,8 @@ class PostalCode extends DataObject {
 	];
 
 	private static $has_one = [
-	    'Subsite'=> Subsite::class
+	    'Subsite'=> Subsite::class,
+	    'Shop' => Shop::class
 	];
 
 	private static $belongs_many_many= [
@@ -59,6 +60,7 @@ class PostalCode extends DataObject {
 	    $labels['YplaY'] = 'Diese Ortschaft ist auch für YplaY verfügbar';
 	    $labels['Externe'] = 'Wird zu einer externe Website weiterleiten';
 	    $labels['URL'] = 'URL der externe Website';
+	    $labels['Shop'] = 'Dediziert Partner';
 	    // $labels['ownedPackages'] = 'Pakete';
 	    // $labels['ownedProducts'] = 'Produkte';
 
@@ -66,6 +68,9 @@ class PostalCode extends DataObject {
 	}
 
 	public function getCMSFields() {
+		foreach (PostalCode::get() as $p) {
+			$p->write();
+		}
 	    $fields = parent::getCMSFields();
 	    $fields->removeByName('OldID');
 	    $fields->FieldByName('Root.Main')->setTitle('Ortschaft Angaben');
@@ -77,7 +82,7 @@ class PostalCode extends DataObject {
 	    $fields->addFieldToTab('Root.Main', DropdownField::create('StandardOffer',$this->fieldLabels()['StandardOffer'], array('Cable' => 'Cable', 'Fiber' => 'Fiber'))->setEmptyString('Bitte Typ auswählen')->hideIf('Externe')->isChecked()->end());
 	    $fields->addFieldToTab('Root.Main', DropdownField::create('AlternateOffer',$this->fieldLabels()['AlternateOffer'], array('' => 'Keine','Cable' => 'Cable','Fiber' => 'Fiber', 'DSL' => 'DSL'))->setEmptyString('Bitte Typ auswählen')->hideIf('Externe')->isChecked()->end());
 	    $fields->addFieldToTab('Root.Main', DropdownField::create('TVType',$this->fieldLabels()['TVType'], array('DVBC' => 'DVB-C', 'IPTV' => 'IPTV'))->setEmptyString('Bitte Typ auswählen')->hideIf('Externe')->isChecked()->end());
-
+	    $fields->addFieldToTab('Root.Main', DropdownField::create('ShopID',$this->fieldLabels()['Shop'], Shop::get()->map('ID','Title'))->setEmptyString('Bitte Typ auswählen')->hideIf('Externe')->isChecked()->end());
 	    
 	    // $fields->addFieldToTab('Root.Main', TextField::create('URL','Externe Bestellung URL (Falls es keine Subsite gibt)'));
 
@@ -109,6 +114,12 @@ class PostalCode extends DataObject {
 		// if ($this->SubsiteID == 0){
 		// 	$this->YplaY = false;
 		// }
+		if (!$this->Shop()->exists()){
+			$shop = Shop::get()->filter('PostalCode',$this->Code)->first();
+			if ($shop){
+				$this->ShopID = $shop->ID;
+			}
+		}
 	}
 
 
