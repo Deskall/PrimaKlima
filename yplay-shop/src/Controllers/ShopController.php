@@ -250,6 +250,10 @@ class ShopController extends PageController
                if ($shop->exists()){
                    return $shop->renderWith('Includes/ShopTemplate');
                }
+               else{
+                  $dslOffers = Product::get()->filter('Availability','DSL');
+                  return $this->customise(['Offers' => $dslOffers])->renderWith('Includes/DSLOffers');
+               }
                return DBHTMLText::create()->setValue('<p>Es gibt keine Partner für diese Region</p>');
            }
            return DBHTMLText::create()->setValue('<p>Unbekannte Region</p>');
