@@ -1,7 +1,7 @@
 // Smart app banner android
 let deferredPrompt;
 
-$(window).on('beforeinstallprompt', function(e){
+window.addEventListener('beforeinstallprompt', function(e) {
 	console.log('defe')
 	e.preventDefault();
 	// Stash the event so it can be triggered later.
