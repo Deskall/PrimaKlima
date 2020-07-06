@@ -6,7 +6,7 @@
 		<p>$Message</p>
 		<% end_if %>
 		<% if not activePLZ %>
-			<form method="POST" action="{$getPage.Link}plz-speichern" class="form-std plz-form">
+			<form method="POST" class="form-std plz-form customer-move-form">
 				<div class="uk-flex uk-flex-left uk-flex-top">
 				   <div>
 				        <input class="uk-input uk-text-center" type="text" name="plz-choice" required="required" placeholder="Ihrer PLZ">
