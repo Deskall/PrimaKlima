@@ -1,19 +1,19 @@
 // Smart app banner android
 let deferredPrompt;
+var btnAdd = document.getElementById('smart-app');
 
-window.addEventListener('beforeinstallprompt', function(e) {
-	console.log('defe')
-	e.preventDefault();
-	// Stash the event so it can be triggered later.
-	deferredPrompt = e;
-	// Update UI notify the user they can add to home screen
-	$('#smart-app-button').attr('hidden',false);
-	
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI notify the user they can add to home screen
+  btnAdd.style.display = 'block';
 });
 
-$('#smart-app-button').on("click",function(e){
+btnAdd.addEventListener('click', (e) => {
   // hide our user interface that shows our A2HS button
-  $(this).attr('hidden','hidden');
+  btnAdd.style.display = 'none';
   // Show the prompt
   deferredPrompt.prompt();
   // Wait for the user to respond to the prompt
@@ -55,8 +55,6 @@ var isMobile = {
 
 
 $(document).ready(function(){
-	//Smart App Banner
-
 	if ($(".sidebar-menu").length > 0){
 		var right = ($(".sidebar-menu").width() - $(".sidebar-menu").height()) / 2 ;
 		$(".sidebar-menu").css("right", '-'+right+'px');
