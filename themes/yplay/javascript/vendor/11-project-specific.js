@@ -800,7 +800,7 @@ $(document).ready(function(){
 			dataType: 'html'
 		}).done(function(response){
 			console.log(response);
-			$("#partner-result").empty().append(response);
+			$("#partner-results").empty().append(response);
 		});
 	});
 });
