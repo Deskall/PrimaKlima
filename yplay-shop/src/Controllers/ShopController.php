@@ -248,7 +248,7 @@ class ShopController extends PageController
            if ($plz){
                $shop = $plz->Shop();
                if ($shop){
-                   return $shop->renderWidth('Includes/ShopTemplate');
+                   return $shop->renderWith('Includes/ShopTemplate');
                }
                return DBHTMLText::create()->setValue('<p>Es gibt keine Partner für diese Region</p>');
            }
