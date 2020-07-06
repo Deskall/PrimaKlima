@@ -1,3 +1,4 @@
+<div><p>Es gibt leider keine dediziert YplaY Partner für diese Region. Geniessen Sie unsere DSL Angebote!</p></div>
 <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-flex-center uk-text-center uk-grid-match products-container uk-margin-top" data-uk-grid data-dk-height-match=".product-body">
 <% loop Offers %>
     <div class="dk-transition-toggle-not-mobile">
