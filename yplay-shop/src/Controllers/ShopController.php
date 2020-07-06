@@ -241,7 +241,7 @@ class ShopController extends PageController
    }
 
    public function CheckPartnerForCode(HTTPRequest $request){
-       $code = trim($request->param('Code'));
+       $code = trim($request->param('ID'));
        if ($code){
            $plz = PostalCode::get()->filter('Code',$code)->first();
            if ($plz){
