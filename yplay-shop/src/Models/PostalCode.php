@@ -68,9 +68,9 @@ class PostalCode extends DataObject {
 	}
 
 	public function getCMSFields() {
-		foreach (PostalCode::get() as $p) {
-			$p->write();
-		}
+		// foreach (PostalCode::get() as $p) {
+		// 	$p->write();
+		// }
 	    $fields = parent::getCMSFields();
 	    $fields->removeByName('OldID');
 	    $fields->FieldByName('Root.Main')->setTitle('Ortschaft Angaben');
