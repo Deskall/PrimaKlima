@@ -23,4 +23,10 @@ class VirtualBlock extends ElementVirtual{
     {
         return _t(__CLASS__ . '.BlockType', 'Block verknüpfen');
     }
+
+    public function getCMSFields(){
+        $fields = parent::getCMSFields();
+        $fields->removeByName('Root.Layout');
+        return $fields;
+    }
 }
