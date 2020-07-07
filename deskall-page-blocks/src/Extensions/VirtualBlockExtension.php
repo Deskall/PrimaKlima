@@ -95,6 +95,7 @@ class VirtualBlockExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
         $fields->removeByName('LinkableLinkID');
+        $fields->removeByName('Layout');
         $global = $fields->dataFieldByName('AvailableGlobally');
 
         if ($global) {
