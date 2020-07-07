@@ -7,6 +7,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\CheckboxField;
 
 class CodeBlock extends BaseElement
 {
@@ -18,7 +19,8 @@ class CodeBlock extends BaseElement
 
     private static $db = [
         'Script' => 'HTMLText',
-        'Position' => 'Varchar(255)'
+        'Position' => 'Varchar(255)',
+        'Display' => 'Boolean(0)'
     ];
 
    
@@ -46,9 +48,12 @@ class CodeBlock extends BaseElement
             $fields->removeByName('Layout');
             $fields->removeByName('TitleAndDisplayed');
             $fields->removeByName('Script');
+            $fields->removeByName('Display');
             $fields->addFieldToTab('Root.Main', TextareaField::create('Script','Script')->setDescription(_t(__CLASS__.'.ScriptLabel','Bitte Kopieren Sie hier die Scripts mit "<script></script>" tags')));            
 
             $fields->addFieldToTab('Root.Main',DropdownField::create('Position',_t(__CLASS__.'.ScriptPosition','Script Position'), $this->getTranslatedSourceFor(__CLASS__,'block_positions')));
+
+            $fields->addFieldToTab('Root.Main',CheckboxField::create('Display',_t(__CLASS__.'.Display','Block anzeigen?'))->displayIf('Position')->isEqualTo('normal')->end());
 
         });
         return parent::getCMSFields();
@@ -56,8 +61,11 @@ class CodeBlock extends BaseElement
 
     public function onBeforeWrite(){
         parent::onBeforeWrite();
-        if ($this->Position != "normal"){
+        if ($this->Position != "normal" || !$this->Display){
              $this->isVisible = 0;
+        }
+        if ($this->Display){
+            $this->isVisible = 1;
         }
        
     }
