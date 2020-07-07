@@ -43,9 +43,9 @@ class ProductOption extends Product {
 		$fields->dataFieldByName('BestSeller')->hideIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('RecurringPrice')->hideIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('UniquePrice')->hideIf('hasOptions')->isChecked();
-		$fields->dataFieldByName('ActivationPrice')->hideIf('hasOptions')->isChecked();
+		// $fields->dataFieldByName('ActivationPrice')->hideIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('UniquePriceLabel')->hideIf('hasOptions')->isChecked();
-		$fields->dataFieldByName('ActivationPriceLabel')->hideIf('hasOptions')->isChecked();
+		// $fields->dataFieldByName('ActivationPriceLabel')->hideIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('Multiple')->hideIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('Single')->displayIf('hasOptions')->isChecked();
 		$fields->dataFieldByName('Unit')->hideIf('hasOptions')->isChecked();
