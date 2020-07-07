@@ -160,6 +160,8 @@ class Product extends DataObject {
 		// $fields->removeByName('ProductCode');
 		$fields->removeByName('CategoryID');
 		$fields->removeByName('FooterText');
+		$fields->removeByName('ActivationPrice');
+		$fields->removeByName('ActivationPriceLabel');
 		
 		
 		$fields->fieldByName('Root.Main.Unit')->displayIf('RecurringPrice')->isNotChecked();
