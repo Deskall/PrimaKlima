@@ -26,7 +26,7 @@ class VirtualBlock extends ElementVirtual{
 
     public function getCMSFields(){
         $fields = parent::getCMSFields();
-        $fields->removeByName('Root.Layout');
+        $fields->removeByName('Layout');
         return $fields;
     }
 }
