@@ -27,6 +27,7 @@ class VirtualBlock extends ElementVirtual{
     public function getCMSFields(){
         $fields = parent::getCMSFields();
         $fields->removeByName('Layout');
+        $fields->removeByName('LinkableLinkID');
         return $fields;
     }
 }
