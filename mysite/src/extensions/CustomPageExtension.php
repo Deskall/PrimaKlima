@@ -13,17 +13,11 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class CustomPageExtension extends DataExtension
 {
-    private static $many_many = ['MenuSections' => MenuSection::class, 'LateralSections' => LateralSection::class];
+    private static $many_many = ['LateralSections' => LateralSection::class];
 
-    private static $owns = ['MenuSections', 'LateralSections'];
+    private static $owns = ['LateralSections'];
 
     public function updateCMSFields(FieldList $fields){
-        $fields->removeByName('MenuSections');
-        if ($this->owner->ShowInMainMenu){
-            $fields->addFieldToTab('Root.Menu',
-                GridField::create('MenuSections','Menu Sektionen',$this->owner->MenuSections()->filter('ClassName',MenuSection::class),GridFieldConfig_RelationEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDeleteAction()))
-            );
-        }
 
         $fields->removeByName('LateralSections');
         $fields->addFieldToTab('Root.Sidebar',
@@ -40,9 +34,4 @@ class CustomPageExtension extends DataExtension
         return ShopPage::get()->first();
     }
 
-    public function activeMenuSections(){
-        return $this->owner->MenuSections()->filter(['ClassName' => MenuSection::class, 'isVisible' => 1]);
-    }
-
-   
 }
