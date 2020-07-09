@@ -23,11 +23,4 @@ class VirtualBlock extends ElementVirtual{
     {
         return _t(__CLASS__ . '.BlockType', 'Block verknüpfen');
     }
-
-    public function getCMSFields(){
-        $fields = parent::getCMSFields();
-        $fields->removeByName('LinkableLinkID');
-        $fields->removeFieldFromTab('Root','LayoutTab');
-        return $fields;
-    }
 }
