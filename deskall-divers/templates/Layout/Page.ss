@@ -12,4 +12,3 @@
 		</section>
 		<% end_if %>
 	<% end_if %>
-<% end_if %>
