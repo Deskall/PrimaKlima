@@ -29,8 +29,11 @@ class PageController extends ContentController
     }
 
     public function index(){
-        print_r($this->ClassName);
-        // if ($this->ClassName)
-        // return $this->httpError(500);
+
+        if ($this->ClassName != SilverStripe\ErrorPage\ErrorPage::class){
+            return $this->httpError(500);
+        }
+        
+        return [];
     }
 }
