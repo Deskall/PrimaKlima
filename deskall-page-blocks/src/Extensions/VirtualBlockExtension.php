@@ -144,6 +144,11 @@ class VirtualBlockExtension extends DataExtension
                 $fields->removeByName('VirtualClones');
             }
         }
+
+        if ($this->owner->ClassName == VirtualBlock::class){
+            $fields->removeByName('LinkableLinkID');
+            $fields->removeFieldFromTab('Root','LayoutTab');
+        }
     }
 
     /**
