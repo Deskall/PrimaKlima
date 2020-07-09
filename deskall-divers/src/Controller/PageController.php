@@ -27,13 +27,4 @@ class PageController extends ContentController
         // You can include any CSS or JS required by your project here.
         // See: https://docs.silverstripe.org/en/developer_guides/templates/requirements/
     }
-
-    public function index(){
-
-        if ($this->ClassName != SilverStripe\ErrorPage\ErrorPage::class){
-            return $this->httpError(500);
-        }
-        
-        return [];
-    }
 }
