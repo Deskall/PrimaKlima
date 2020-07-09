@@ -29,6 +29,8 @@ class PageController extends ContentController
     }
 
     public function index(){
-        return $this->httpError(500);
+        print_r($this->ClassName);
+        // if ($this->ClassName)
+        // return $this->httpError(500);
     }
 }
