@@ -214,10 +214,15 @@ class DeskallJobPortalPageControllerExtension extends DataExtension
 
             $config = JobPortalConfig::get()->first();
 
-            return [
+            // return [
+            //     'Title'   => $config->dbObject('AfterConfirmationTitle'),
+            //     'Content' => DBHTMLText::create()->setValue($config->parseString($config->dbObject('AfterConfirmationContent')))
+            // ];
+
+            return $this->customise([
                 'Title'   => $config->dbObject('AfterConfirmationTitle'),
                 'Content' => DBHTMLText::create()->setValue($config->parseString($config->dbObject('AfterConfirmationContent')))
-            ];
+            ])->redirect($this->Link());
            
     }
 
