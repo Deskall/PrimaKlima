@@ -66,8 +66,9 @@ class ShopPageController extends PageController{
 			)->setName('BillFields'),
 			CompositeField::create(
 				// TextareaField::create('Comments','Bemerkungen'),
-				CheckboxField::create('AGB',DBHTMLText::create()->setValue(_t(__CLASS__.'.AGB','Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin. *', ['link' => PrivatePolicyPage::get()->first()->Link(), 'link2' => '/agb'])))->setAttribute('class','uk-checkbox'),
-				NocaptchaField::create('Captcha')
+				CheckboxField::create('AGB',DBHTMLText::create()->setValue(_t(__CLASS__.'.AGB','Hiermit bestätige ich, dass ich sowohl die <a href="{link}" target="_blank">Datenschutzerklärung</a> wie auch die <a href="{link2}" target="_blank">AGB</a> gelesen habe und mit beiden einverstanden bin. *', ['link' => PrivatePolicyPage::get()->first()->Link(), 'link2' => '/agb'])))->setAttribute('class','uk-checkbox')
+				// ,
+				// NocaptchaField::create('Captcha')
 				
 			)->setName('SummaryFields')
 		);
