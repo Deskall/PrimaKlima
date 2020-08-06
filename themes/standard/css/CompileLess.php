@@ -5,14 +5,6 @@ require_once "less/lessc.inc.php";
 $rootDir = substr(__DIR__,0,strpos(__DIR__,"/css"));
 
 $theme = substr($rootDir,strrpos(__DIR__, "themes/"));
-ob_start();
-			print_r($rootDir."\n");
-			$result = ob_get_clean();
-			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-			ob_start();
-			print_r($theme."\n".'------');
-			$result = ob_get_clean();
-			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
 $filecore = str_replace(".min","",basename($_SERVER['REQUEST_URI'],".css"));
 $filename = basename($_SERVER['REQUEST_URI'],".css").".css";
@@ -34,10 +26,6 @@ if ($filename == "editortocompile.css"){
 if($css_compiled){
 		// set correct paths
 		$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
-		ob_start();
-		print_r($fontdir."\n".'------');
-		$result = ob_get_clean();
-		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 		$css_compiled = str_replace("url('/fonts","url('/_resources".$fontdir,$css_compiled);
 		
 		$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/_resources/".$theme."/css/src/images/backgrounds/",$css_compiled);
