@@ -29,8 +29,8 @@ if($css_compiled){
 		$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
 		$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
 		
-		$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/".$theme."/css/src/images/backgrounds/",$css_compiled);
-		$css_live = str_replace("url('../fonts","url('/".$theme."/fonts",$css_compiled);
+		$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/_resources/".$theme."/css/src/images/backgrounds/",$css_compiled);
+		$css_live = str_replace("url('../fonts","url('/_resources/".$theme."/fonts",$css_compiled);
 		
 		
 		
