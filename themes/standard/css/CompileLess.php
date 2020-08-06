@@ -34,6 +34,10 @@ if ($filename == "editortocompile.css"){
 if($css_compiled){
 		// set correct paths
 		$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
+		ob_start();
+		print_r($fontdir."\n".'------');
+		$result = ob_get_clean();
+		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 		$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
 		
 		$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/".$theme."/css/src/images/backgrounds/",$css_compiled);
