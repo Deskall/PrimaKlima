@@ -26,6 +26,7 @@ ParentBlock:
 
 Page:
   extensions:
+    - DNADesign\Elemental\Extensions\ElementalPageExtension
     - PageBlocksExtension
 
 Slide:
