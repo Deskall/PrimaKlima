@@ -9,6 +9,8 @@ use g4b0\SearchableDataObjects\Searchable;
 
 class LeadBlock extends BaseElement implements Searchable
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-menu';
     
     private static $controller_template = 'BlockHolder';
