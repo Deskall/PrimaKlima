@@ -38,10 +38,10 @@ if($css_compiled){
 		print_r($fontdir."\n".'------');
 		$result = ob_get_clean();
 		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-		$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
+		$css_compiled = str_replace("url('/fonts","url('/_resources".$fontdir,$css_compiled);
 		
-		$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/".$theme."/css/src/images/backgrounds/",$css_compiled);
-		$css_live = str_replace("url('../fonts","url('/".$theme."/fonts",$css_compiled);
+		$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/_resources/".$theme."/css/src/images/backgrounds/",$css_compiled);
+		$css_live = str_replace("url('../fonts","url('/_resources/".$theme."/fonts",$css_compiled);
 		
 		
 		
