@@ -5,7 +5,14 @@ require_once "less/lessc.inc.php";
 $rootDir = substr(__DIR__,0,strpos(__DIR__,"/css"));
 
 $theme = substr($rootDir,strrpos(__DIR__, "themes/"));
-
+ob_start();
+			print_r($rootDir);
+			$result = ob_get_clean();
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+			ob_start();
+			print_r($theme);
+			$result = ob_get_clean();
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
 $filecore = str_replace(".min","",basename($_SERVER['REQUEST_URI'],".css"));
 $filename = basename($_SERVER['REQUEST_URI'],".css").".css";
@@ -29,8 +36,8 @@ if($css_compiled){
 		$fontdir = str_replace("/css","/fonts", dirname($_SERVER['REQUEST_URI']));
 		$css_compiled = str_replace("url('/fonts","url('".$fontdir,$css_compiled);
 		
-		$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/_resources/".$theme."/css/src/images/backgrounds/",$css_compiled);
-		$css_live = str_replace("url('../fonts","url('/_resources/".$theme."/fonts",$css_compiled);
+		$css_compiled = str_replace($_SERVER['DOCUMENT_ROOT']."/themes/images/backgrounds/","/".$theme."/css/src/images/backgrounds/",$css_compiled);
+		$css_live = str_replace("url('../fonts","url('/".$theme."/fonts",$css_compiled);
 		
 		
 		
