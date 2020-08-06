@@ -6,11 +6,11 @@ $rootDir = substr(__DIR__,0,strpos(__DIR__,"/css"));
 
 $theme = substr($rootDir,strrpos(__DIR__, "themes/"));
 ob_start();
-			print_r($rootDir);
+			print_r($rootDir."\n");
 			$result = ob_get_clean();
 			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 			ob_start();
-			print_r($theme);
+			print_r($theme."\n".'------');
 			$result = ob_get_clean();
 			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
