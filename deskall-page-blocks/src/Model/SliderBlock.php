@@ -31,6 +31,8 @@ class SliderBlock extends BaseElement implements Searchable
 
     private static $controller_class = BlockController::class;
 
+    private static $inline_editable = false;
+
     private static $db = [
         'Animation' => 'Varchar(255)',
         'Autoplay' => 'Boolean(1)',

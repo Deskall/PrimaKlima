@@ -10,6 +10,8 @@ use g4b0\SearchableDataObjects\Searchable;
 
 class TextBlock extends BaseElement implements Searchable
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-block-content';
     
     private static $controller_template = 'BlockHolder';

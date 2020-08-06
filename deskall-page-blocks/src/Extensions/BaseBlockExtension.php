@@ -25,8 +25,6 @@ use Sheadawson\Linkable\Models\Link;
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
 
-    private static $inline_editable = false;
-
     private static $db = [
         'isPrimary' => 'Boolean(0)',
         'FullWidth' => 'Boolean(0)',
