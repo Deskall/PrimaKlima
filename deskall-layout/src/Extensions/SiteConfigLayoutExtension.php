@@ -171,12 +171,12 @@ class SiteConfigLayoutExtension extends DataExtension
   //   'top' => [
   //           'value' => 'top',
   //           'title' => 'Oben',
-  //           'icon' => '/deskall-page-blocks/images/icon-menu-top.svg'
+  //           'icon' => '/_resources/deskall-page-blocks/images/icon-menu-top.svg'
   //   ],
   //   'left' => [
   //           'value' => 'left',
   //           'title' => 'Links',
-  //           'icon' => '/deskall-page-blocks/images/icon-menu-left.svg'
+  //           'icon' => '/_resources/deskall-page-blocks/images/icon-menu-left.svg'
   //   ]
   // ];
 

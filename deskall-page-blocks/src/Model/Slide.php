@@ -55,47 +55,47 @@ class Slide extends DataObject
         'uk-position-bottom-left' =>  [
             'value' => 'uk-position-bottom-left',
             'title' => 'Bottom left',
-            'icon' => '/deskall-page-blocks/images/icon-text-bottom-left.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-bottom-left.svg'
         ],
         'uk-position-bottom-center' =>  [
             'value' => 'uk-position-bottom-center',
             'title' => 'Bottom center',
-            'icon' => '/deskall-page-blocks/images/icon-text-bottom-center.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-bottom-center.svg'
         ],
         'uk-position-bottom-right' =>  [
             'value' => 'uk-position-bottom-right',
             'title' => 'Bottom right',
-            'icon' => '/deskall-page-blocks/images/icon-text-bottom-right.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-bottom-right.svg'
         ],
         'uk-position-center-left' =>  [
             'value' => 'uk-position-center-left',
             'title' => 'Center left',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-left.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-center-left.svg'
         ],
         'uk-position-center' =>  [
             'value' => 'uk-position-center',
             'title' => 'Center',
-            'icon' => '/deskall-page-blocks/images/icon-text-center.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-center.svg'
         ],
         'uk-position-center-right' =>  [
             'value' => 'uk-position-center-right',
             'title' => 'Center right',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-right.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-center-right.svg'
         ],
         'uk-position-top-left' =>  [
             'value' => 'uk-position-top-left',
             'title' => 'Top left',
-            'icon' => '/deskall-page-blocks/images/icon-text-top-left.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-top-left.svg'
         ],
         'uk-position-top-center' =>  [
             'value' => 'uk-position-top-center',
             'title' => 'Top center',
-            'icon' => '/deskall-page-blocks/images/icon-text-top-center.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-top-center.svg'
         ],
         'uk-position-top-right' =>  [
             'value' => 'uk-position-top-right',
             'title' => 'Top right',
-            'icon' => '/deskall-page-blocks/images/icon-text-top-right.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-top-right.svg'
         ]
        
        
@@ -105,22 +105,22 @@ class Slide extends DataObject
         'uk-text-left' =>  [
             'value' => 'uk-text-left',
             'title' => 'Links Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
         'uk-text-right' => [
             'value' => 'uk-text-right',
             'title' => 'Rechts Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
         'uk-text-center' =>  [
             'value' => 'uk-text-center',
             'title' => 'Mittel Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-center-align.svg'
         ],
         'uk-text-justify' =>  [
             'value' => 'uk-text-justify',
             'title' => 'Justify Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-justify-align.svg'
         ]
     ];
 
@@ -144,27 +144,27 @@ class Slide extends DataObject
         '1' =>  [
             'value' => '1',
             'title' => '1 Spalte',
-            'icon' => '/deskall-page-blocks/images/icon-text.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text.svg'
         ],
         'uk-column-1-2@s' =>  [
             'value' => 'uk-column-1-2@s',
             'title' => '2 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-2-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-2-columns.svg'
         ],
         'uk-column-1-2@s uk-column-1-3@m' =>  [
             'value' => 'uk-column-1-2@s uk-column-1-3@m',
             'title' => '3 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-3-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-3-columns.svg'
         ],
         'uk-column-1-2@s uk-column-1-4@m' =>  [
             'value' => 'uk-column-1-2@s uk-column-1-4@m',
             'title' => '4 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-4-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-4-columns.svg'
         ],
         'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' =>  [
             'value' => 'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l',
             'title' => '5 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-5-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-5-columns.svg'
         ]
     ];
 

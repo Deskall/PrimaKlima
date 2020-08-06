@@ -47,12 +47,12 @@ class FormBlockExtension extends DataExtension
         'standard' =>  [
             'value' => 'standard',
             'title' => 'Standard Formular Layout',
-            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
         'vertical' => [
             'value' => 'vertical',
             'title' => 'Vertical Formular',
-            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right-align.svg'
         ]
     ];
 
