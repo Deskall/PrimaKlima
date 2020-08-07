@@ -17,7 +17,7 @@ class MenuLink extends LayoutLink{
 		$fields = parent::getCMSFields();
 		$fields->removeByName('ParentID');
 		$fields->removeByName('BlockID');
-		$fields->fieldByName('Root.Children')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
+		$fields->fieldByName('Root.Children.Children')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
 
 		return $fields;
 	}
