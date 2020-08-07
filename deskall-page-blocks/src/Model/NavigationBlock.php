@@ -30,6 +30,7 @@ class NavigationBlock extends BaseElement
 
     private static $controller_class = BlockController::class;
 
+    private static $inline_editable = false;
 
     private static $has_many = [
         'Items' => NavigationItem::class
