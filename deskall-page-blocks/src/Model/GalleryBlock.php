@@ -26,6 +26,8 @@ use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class GalleryBlock extends BaseElement implements Searchable
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-block-carousel';
     
     private static $controller_template = 'BlockHolder';
