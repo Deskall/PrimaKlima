@@ -1,7 +1,7 @@
 <?php
 
 class HomePage extends Page {
-	private static $icon = "HomePage";
+	private static $icon = "font-icon-home";
 
 	private static $description = "Startseite";
 
