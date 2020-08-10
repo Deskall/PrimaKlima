@@ -216,6 +216,7 @@ class Slide extends DataObject
         $fields->removeByName('SliderID');
         $fields->removeByName('ParentID');
         $fields->dataFieldByName('Image')->setFolderName($this->getFolderName());
+        $fields->dataFieldByName('File')->setFolderName($this->getFolderName());
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isMainSlide',_t(__CLASS__.'isMainSlide','Slide principale (contient le titre de la page)')));
         $fields->addFieldToTab('Root.Main',DropdownField::create('Effect',_t(__CLASS__.'.Effect','Effekt'), $this->getTranslatedSourceFor(__CLASS__,'effects')));
         $fields->addFieldToTab('Root.Main',TextField::create('EffectOptions',_t(__CLASS__.'.EffectOptions','Effekt Optionen')));
