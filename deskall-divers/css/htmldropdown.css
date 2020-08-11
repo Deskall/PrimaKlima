@@ -1,7 +1,7 @@
 .htmldropdown select{
     display: none;
 }
-.html-dropdown{
+/*.html-dropdown{
 	position: relative;
     display: inline-block;
     vertical-align: middle;
@@ -12,8 +12,8 @@
     user-select: none;
     width: 100%;
     vertical-align: bottom;
-    overflow: auto;
-}
+    overflow: auto!important;
+}*/
 
 .htmldropdown.columns .html-dropdown-option{
 	display: inline-flex;
