@@ -6,16 +6,16 @@
     display: inline-block;
     vertical-align: middle;
     font-size: 13px;
-    -webkit-user-select: none;
+/*    -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    user-select: none;*/
     width: 100%;
     vertical-align: bottom;
 }
 
 .htmldropdown.columns .html-dropdown-option{
-	display: inline-flex;
+	/*display: inline-flex;*/
     width:48%;
     margin:auto;       
 }
@@ -48,10 +48,10 @@
 	font-size: 40px;
 }
 
-.html-dropdown .chosen-drop.active{
+/*.html-dropdown .chosen-drop.active{
     clip: auto;
     white-space: normal;
-}
+}*/
 .field .chosen-container-single .chosen-single div.option-html{
     width:100%;
     position: relative;
