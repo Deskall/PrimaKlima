@@ -72,7 +72,7 @@ class GalleryBlock extends BaseElement implements Searchable
 
     private static $defaults = [
         'Layout' => 'carousel',
-        'PicturesPerLine' => 'uk-child-width-1-2@s uk-child-width-1-3@s'
+        'PicturesPerLine' => 'uk-child-width-1-2@s uk-child-width-1-3@m'
     ];
 
 
