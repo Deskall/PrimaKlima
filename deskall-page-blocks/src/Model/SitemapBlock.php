@@ -8,6 +8,8 @@ use SilverStripe\CMS\Model\SiteTree;
 
 class SitemapBlock extends BaseElement
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-sitemap';
     
     private static $controller_template = 'BlockHolder';

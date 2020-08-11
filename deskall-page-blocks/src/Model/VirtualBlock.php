@@ -4,7 +4,8 @@ use DNADesign\ElementalVirtual\Model\ElementVirtual;
 use DNADesign\ElementalVirtual\Control\ElementVirtualLinkedController;
 
 class VirtualBlock extends ElementVirtual{
-	private static $icon = 'font-icon-link';
+	
+    private static $icon = 'font-icon-link';
 
 	private static $table_name = 'VirtualBlock';
 

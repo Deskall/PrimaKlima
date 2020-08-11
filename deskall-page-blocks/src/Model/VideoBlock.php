@@ -22,7 +22,9 @@ use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 
 class VideoBlock extends BaseElement implements Searchable
 {
-	private static $icon = 'font-icon-block-media';
+	private static $inline_editable = false;
+    
+    private static $icon = 'font-icon-block-media';
     
     private static $controller_template = 'BlockHolder';
 

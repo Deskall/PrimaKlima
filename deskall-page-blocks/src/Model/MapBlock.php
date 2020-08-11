@@ -16,6 +16,8 @@ use g4b0\SearchableDataObjects\Searchable;
 
 class MapBlock extends BaseElement implements Searchable
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-globe-1';
     
     private static $controller_template = 'BlockHolder';

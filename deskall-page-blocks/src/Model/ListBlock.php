@@ -17,6 +17,8 @@ use g4b0\SearchableDataObjects\Searchable;
 
 class ListBlock extends BaseElement implements Searchable
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-list';
     
     private static $controller_template = 'BlockHolder';
