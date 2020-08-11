@@ -206,8 +206,9 @@ class GalleryBlock extends BaseElement implements Searchable
         parent::onBeforeWrite();
         $widthF = 2500;
         $widthN = 1200;
-        $ratio = 1.4; 
-        $width = ($this->FullWidth) ? $widthF / static::$pictures_per_line[$this->PicturesPerLine] : $widthN /  static::$pictures_per_line[$this->PicturesPerLine];
+        $ratio = 1.4;
+        $pictures_per_line = ($this->PicturesPerLine) ? static::$pictures_per_line[$this->PicturesPerLine] : 3;
+        $width = ($this->FullWidth) ? $widthF / $pictures_per_line : $widthN / $pictures_per_line;
         $height = $width / $ratio;
 
         $this->PictureWidth = $width;
