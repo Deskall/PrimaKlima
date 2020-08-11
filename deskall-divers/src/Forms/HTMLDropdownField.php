@@ -215,7 +215,7 @@ class HTMLDropdownField extends DropdownField{
 	public function createOptionAttributes($params) {
 		$attributes = [];
 		// if(isset($params['Attributes'])) {
-		// 	if(is_array($params['Attributes'])) {
+		if(is_array($params['Attributes'])) {
 		// 		$attributes = $params['Attributes'];
 		// 	} else {
 				foreach($params['Attributes'] as $k => $v) {
@@ -225,7 +225,7 @@ class HTMLDropdownField extends DropdownField{
 					);
 				}
 		// 	}
-		// }
+		}
 		return $attributes;
 	}
 
