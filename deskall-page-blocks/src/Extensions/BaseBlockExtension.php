@@ -276,7 +276,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         // ie. If two elemental blocks have the same title, it'll append '-2', '-3'
         $result = $titleAsURL;
         $count = 1;
-        while (BaseElement::get()->filter('AnchorTitle',$result)->exists()) {
+        while (BaseElement::get()->filter('AnchorTitle',$result)->exclude('ID',$this->owner->ID)->exists()) {
             ++$count;
             $result = $titleAsURL . '-' . $count;
         }
