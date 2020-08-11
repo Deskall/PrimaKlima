@@ -13,6 +13,8 @@ use g4b0\SearchableDataObjects\Searchable;
 
 class ActionBlock extends BaseElement implements Searchable
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-plus-circled';
     
     private static $controller_template = 'BlockHolder';
