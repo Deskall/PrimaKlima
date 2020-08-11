@@ -303,9 +303,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $last = $this->owner->Parent()->Elements()->sort('Sort','DESC')->first();
             $this->owner->Sort = ($last) ? $last->Sort + 1 : 1;
         }
-        if (!$this->owner->AnchorTitle){
-            $this->owner->AnchorTitle = $this->generateAnchorTitle();
-        }
+        
+        $this->owner->AnchorTitle = $this->generateAnchorTitle();
+        
         if ($this->owner->isPrimary){
             foreach(BaseElement::get()->filter('isPrimary',1)->exclude('ID',$this->owner->ID) as $primary){
                 if ($primary->getRealPage() && $this->owner->getRealPage() && $primary->getRealPage()->ID == $this->owner->getRealPage()->ID){
