@@ -12,6 +12,7 @@
     user-select: none;
     width: 100%;
     vertical-align: bottom;
+    overflow: auto;
 }
 
 .htmldropdown.columns .html-dropdown-option{
@@ -48,8 +49,9 @@
 	font-size: 40px;
 }
 
-.html-dropdown.chosen-container{
-   overflow: scroll;
+.html-dropdown .chosen-drop.active{
+    clip: auto;
+    white-space: normal;
 }
 .field .chosen-container-single .chosen-single div.option-html{
     width:100%;
