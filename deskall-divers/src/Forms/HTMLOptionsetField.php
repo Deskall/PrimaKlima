@@ -40,7 +40,7 @@ class HTMLOptionsetField extends OptionsetField{
 
 	protected function getHtmlFieldOption($value, $icon, $title, $odd)
     {
-        return new ArrayData(array(
+        return array(
             'ID' => $this->getOptionID($value),
             'Class' => $this->getOptionClass($value, $odd),
             'Name' => $this->getOptionName(),
@@ -49,6 +49,6 @@ class HTMLOptionsetField extends OptionsetField{
             'Title' => $title,
             'isChecked' => $this->isSelectedValue($value, $this->Value()),
             'isDisabled' => $this->isDisabledValue($value)
-        ));
+        );
     }
 }

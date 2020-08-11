@@ -168,14 +168,14 @@ class HTMLDropdownField extends DropdownField{
 			$disabled = (in_array('', $this->disabledItems, true)) ? 'disabled' : false;
 			$empty = $this->getEmptyString();
 			
-			$options[] = new ArrayData(array(
+			$options[] = array(
 				'Value' => '',
 				'Title' => $empty,
 				'Selected' => $selected,
 				'Disabled' => $disabled,
 				'HTML' => $empty,
 				'Attributes' => $this->createOptionAttributes($empty)
-			));
+			);
 		}
         
 		if($source) {
@@ -199,33 +199,33 @@ class HTMLDropdownField extends DropdownField{
 				}
 				$html = new DBHTMLText();
 				$html->setValue($params['HTML']);
-				$options[] = new ArrayData(array(
+				$options[] = array(
 					'Title' => $params['Title'],
 					'Value' => $value,
 					'Selected' => $selected,
 					'Disabled' => $disabled,
 					'HTML' => $html ,
 					'Attributes' => $this->createOptionAttributes($params)
-				));
+				);
 			}
 		}
-		$properties = array_merge($properties, array('Options' => new ArrayList($options)));
+		$properties = array_merge($properties, array('Options' => $options));
 		return FormField::Field($properties);
 	}
 	public function createOptionAttributes($params) {
-		$attributes = new ArrayList();
-		if(isset($params['Attributes'])) {
-			if($params['Attributes'] instanceOf ArrayList) {
-				$attributes = $params['Attributes'];
-			} else {
+		$attributes = [];
+		// if(isset($params['Attributes'])) {
+		// 	if(is_array($params['Attributes'])) {
+		// 		$attributes = $params['Attributes'];
+		// 	} else {
 				foreach($params['Attributes'] as $k => $v) {
-					$attributes->push(new ArrayData(array(
+					$attributes[] = array(
 						'Name' => $k,
 						'Value' => $v
-					)));
+					);
 				}
-			}
-		}
+		// 	}
+		// }
 		return $attributes;
 	}
 
