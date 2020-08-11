@@ -48,7 +48,7 @@
 	font-size: 40px;
 }
 
-.html-dropdown .chosen-container{
+.html-dropdown.chosen-container{
    overflow: scroll;
 }
 .field .chosen-container-single .chosen-single div.option-html{
