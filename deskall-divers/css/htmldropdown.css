@@ -1,19 +1,10 @@
 .htmldropdown select{
     display: none;
 }
-/*.html-dropdown{
-	position: relative;
-    display: inline-block;
-    vertical-align: middle;
+.html-dropdown{
     font-size: 13px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    width: 100%;
     vertical-align: bottom;
-    overflow: auto!important;
-}*/
+}
 
 .htmldropdown.columns .html-dropdown-option{
 	display: inline-flex;
@@ -49,10 +40,7 @@
 	font-size: 40px;
 }
 
-.html-dropdown .chosen-drop.active{
-    clip: auto;
-    white-space: normal;
-}
+
 .field .chosen-container-single .chosen-single div.option-html{
     width:100%;
     position: relative;

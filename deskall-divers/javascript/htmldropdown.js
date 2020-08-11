@@ -257,7 +257,7 @@
       		},
       		showOptions: function(){
       			this.find('.chosen-drop').toggleClass('active').focus();
-                        this.toggleClass('.chosen-container-active');
+                        this.toggleClass('chosen-container-active');
       		},
       		writeValue: function(){
       			var option = this.find('.html-dropdown-option.selected');
