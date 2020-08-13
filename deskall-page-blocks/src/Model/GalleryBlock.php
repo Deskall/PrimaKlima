@@ -207,6 +207,7 @@ class GalleryBlock extends BaseElement implements Searchable
         $widthF = 2500;
         $widthN = 1200;
         $refWith = ($this->FullWidth) ? $widthF  : $widthN ;
+
         switch ($this->Width){
             case 'uk-width-1-1@s uk-width-1-5@m':
             $blockWidth = $refWith * 0.2;
@@ -235,7 +236,10 @@ class GalleryBlock extends BaseElement implements Searchable
                 $blockWidth = $refWith;
             break;
         }
-
+        ob_start();
+                    print_r($blockWidth);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $ratio = 1.4;
         $pictures_per_line = ($this->PicturesPerLine) ? static::$pictures_per_line[$this->PicturesPerLine] : 3;
         $width = $blockWidth / $pictures_per_line;
