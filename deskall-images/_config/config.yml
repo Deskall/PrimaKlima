@@ -2,6 +2,7 @@
 Name: deskall-images
 After:
     - '#focuspoint'
+    - '#tinypngconfig'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-images
@@ -15,8 +16,8 @@ SilverStripe\Assets\Image:
     - svg
   MaxWidth: 2500
   MaxHeight: 2500
-  optimise_tiny: false
-  memory: 512M
+  optimise_tiny: true
+  memory: 128M
   extensions:
     - ImageExtension
 
@@ -38,7 +39,7 @@ SilverStripe\Assets\File:
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:
     properties:
-      Quality: 75
+      Quality: 90
   Intervention\Image\ImageManager:
     constructor:
       - { driver: imagick }
