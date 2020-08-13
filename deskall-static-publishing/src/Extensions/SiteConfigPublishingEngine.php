@@ -21,7 +21,7 @@ class SiteConfigPublishingEngine extends DataExtension
 
     public function onAfterWrite()
     {
-        $this->rebuildCss();
+        // $this->rebuildCss();
         $this->flushChanges();
     }
 
@@ -45,4 +45,9 @@ class SiteConfigPublishingEngine extends DataExtension
         $job->setJobData(0, 0, false, $jobData, []);
         $queue->queueJob($job);
     }
+
+    public function updateCMSActions($actions){
+        print_r('ici');
+    }
+
 }
