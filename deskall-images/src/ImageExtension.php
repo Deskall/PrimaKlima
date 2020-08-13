@@ -8,9 +8,6 @@ use SilverStripe\View\Requirements;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
 use SilverStripe\Control\Director;
-use SilverStripe\Assets\Image_Backend;
-use SilverStripe\Assets\InterventionBackend;
-use Kinglozzer\SilverStripeTinyPng\CompressedEncoder;
 
 class ImageExtension extends Extension
 {
@@ -343,30 +340,9 @@ class ImageExtension extends Extension
 
     //Optimise with tynigPNG
 
-    public function OptimiseImage(){
-        // $optimiser = new DeskallImageOptimiser();
-        // $optimiser->Optimise($url,$path);
-        return $this->owner->Compressed();
-        // $variant = $this->owner->variantName(__FUNCTION__);
-        // return $this->owner->manipulateImage(
-        //     $variant,
-        //     function (Image_Backend $backend)  {
-
-        //         // If the backend is not the InterventionBackend, return the unmodified source
-        //         if (!($backend instanceof InterventionBackend)) {
-        //             return $backend;
-        //         }
-
-        //         /** @var Image $resource */
-        //         $resource = $backend->getImageResource();
-        //         $encoder = $resource->getDriver()->encoder;
-        //         $resource->getDriver()->encoder = CompressedEncoder::create(
-        //             $encoder,
-        //             $this->config()->tinypng_api_key
-        //         );
-        //         return $backend;
-        //     }
-        // );
+    public function OptimiseImage($url,$path){
+        $optimiser = new DeskallImageOptimiser();
+        $optimiser->Optimise($url,$path);
     }
 
 
