@@ -12,6 +12,8 @@ class DeskallImageOptimiser {
     		\Tinify\setKey($this->getApiKey());
 			$source = \Tinify\fromUrl($url);
 			$source->toFile($path);
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-tiny-image.txt","\n"."url: " . $url, FILE_APPEND);
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-tiny-image.txt","\n"."path: " . $path, FILE_APPEND);
 		} catch(\Tinify\AccountException $e) {
 		    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-tiny-image.txt","\n"."account: " . $e->getMessage(), FILE_APPEND);
 		    // Verify your API key and account limit.
