@@ -13,20 +13,20 @@ SilverStripe\AssetAdmin\Forms\ImageFormFactory:
 SilverStripe\Assets\Image:
   allowed_extensions:
     - svg
-  MaxWidth: 2500
-  MaxHeight: 2500
+  #MaxWidth: 2500
+  #MaxHeight: 2500
   optimise_tiny: false
-  memory: 128M
+  #memory: 256M
   extensions:
     - ImageExtension
 
 SilverStripe\Filesystem\Storage\DBFile:
   extensions:
     - ImageExtension
-  force_resample: true
+  #force_resample: true
 
 SilverStripe\Assets\File:
-  force_resample: true
+  #force_resample: true
   allowed_extensions:
     - svg
   app_categories:
@@ -38,7 +38,7 @@ SilverStripe\Assets\File:
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:
     properties:
-      Quality: 90
+      Quality: 80
   Intervention\Image\ImageManager:
     constructor:
       - { driver: imagick }
