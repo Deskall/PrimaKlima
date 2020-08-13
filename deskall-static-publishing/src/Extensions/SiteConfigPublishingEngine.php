@@ -9,6 +9,7 @@ use SilverStripe\StaticPublishQueue\Job\StaticCacheFullBuildJob;
 use Symbiote\QueuedJobs\Services\QueuedJobService;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Control\Director;
+use SilverStripe\Forms\FieldList;
 
 /**
  * This extension couples to the StaticallyPublishable and StaticPublishingTrigger implementations
@@ -46,7 +47,7 @@ class SiteConfigPublishingEngine extends DataExtension
         $queue->queueJob($job);
     }
 
-    public function updateCMSActions($actions){
+    public function updateCMSActions(FieldList $actions){
         print_r('ici');
     }
 
