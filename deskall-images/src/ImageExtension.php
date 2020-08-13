@@ -59,10 +59,9 @@ class ImageExtension extends Extension
         $this->owner->publishSingle();
         if ($this->owner->config()->get('optimise_tiny') && !$this->owner->Optimised){
             //Optimise via TinyPNG API
-            $this->OptimiseImage(Director::absoluteBaseURL().'public'.$this->owner->getSourceURL(), $_SERVER['DOCUMENT_ROOT'].'/public'.$this->owner->getSourceURL());
+            $this->OptimiseImage(Director::absoluteURL($this->owner->getSourceURL()), $_SERVER['DOCUMENT_ROOT'].$this->owner->getSourceURL());
             $this->owner->Optimised = 1;
             $this->owner->write();
-            $this->owner->publishSingle();
         }
         
         //Resize image to fit max Width and Height before resampling
