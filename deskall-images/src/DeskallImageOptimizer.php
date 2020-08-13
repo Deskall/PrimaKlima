@@ -9,7 +9,7 @@ class DeskallImageOptimiser {
 
 	public function Optimise($url, $path){
 		try {
-    		\Tinify\setKey($this->getApiKey());
+    		\Tinify\setKey('JJqVVtCMrcr0gDHcMDsZgD1F14KTztnC');
 			$source = \Tinify\fromUrl($url);
 			$source->toFile($path);
 			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-tiny-image.txt","\n"."url: " . $url, FILE_APPEND);

@@ -15,7 +15,7 @@ SilverStripe\Assets\Image:
     - svg
   #MaxWidth: 2500
   #MaxHeight: 2500
-  optimise_tiny: false
+  optimise_tiny: true
   #memory: 256M
   extensions:
     - ImageExtension
