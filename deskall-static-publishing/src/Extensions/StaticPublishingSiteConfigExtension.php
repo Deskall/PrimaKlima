@@ -13,7 +13,7 @@ class StaticPublishingSiteConfigExtension extends LeftAndMainExtension
     public function flushChanges()
     {
         SiteConfig::current_site_config()->flushChanges();
-        $this->response->addHeader('X-Status', rawurlencode(_t('SiteConfig' . '.FLUSHEDCACHE', 'HTML Cache wurde aktualisiert')));
+        $this->owner->getResponse()->addHeader('X-Status', rawurlencode(_t('SiteConfig' . '.FLUSHEDCACHE', 'HTML Cache wurde aktualisiert')));
     }
 
 }
