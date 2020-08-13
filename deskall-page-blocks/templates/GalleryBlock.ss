@@ -137,7 +137,7 @@
 						<% else_if Up.PaddedImages %>
 						$FitMax($Up.PictureWidth,$Up.PictureHeight).URL
 						<% else %>
-						$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL
+						$FocusFill($Up.PictureWidth,$Up.PictureHeight).Compressed.URL
 						<% end_if %>
 						<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="uk-width-1-1 $Top.ImagePadding <% if $Top.RoundedImage %>uk-border-circle<% end_if %>" data-uk-img>
 					</li>
