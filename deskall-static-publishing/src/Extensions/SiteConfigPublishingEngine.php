@@ -50,7 +50,7 @@ class SiteConfigPublishingEngine extends DataExtension
 
     public function updateCMSActions(FieldList $actions){
         $actions->push(FormAction::create(
-                    'flush_changes',
+                    'flushChanges',
                     _t('SiteConfig' . '.FLUSHCACHE', 'HTML Cache aktualisieren')
                 )->addExtraClass('btn-primary font-icon-sync')
         );
