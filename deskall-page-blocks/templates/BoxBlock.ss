@@ -30,7 +30,7 @@
 						    	<% else %>
 						    	
 						    		<% if not Top.FullLink %><a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description"><% end_if %>
-						    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
+						    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).Compressed.URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).Compressed.URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
 							    	<% if not Top.FullLink %></a><% end_if %>
 							    
 						    	<% end_if %>
@@ -44,7 +44,7 @@
 						    	<% else %>
 						    	
 						    		<% if not Top.FullLink %><a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description"><% end_if %>
-						    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
+						    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).Compressed.URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).Compressed.URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
 							    	<% if not Top.FullLink %></a><% end_if %>
 							    
 						    	<% end_if %>
@@ -66,7 +66,7 @@
 						    	<% else %>
 						    	
 						    		<% if not Top.FullLink %><a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description"><% end_if %>
-						    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img/>
+						    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).Compressed.URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).Compressed.URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img/>
 							    	<% if not Top.FullLink %></a><% end_if %>
 							    
 						    	<% end_if %>

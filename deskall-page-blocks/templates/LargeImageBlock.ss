@@ -1,20 +1,20 @@
 	<% if Effect == "fixed" %>
 	<div class="$Height uk-background-cover uk-background-fixed uk-light <% if Background %>$Background dk-overlay <% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" <% if Image.exists %>
-		data-src="$Image.ScaleWidth(1500).URL"
-	    data-srcset="$Image.ScaleWidth(650).URL 650w,
-	                  $Image.ScaleWidth(1200).URL 1200w,
-	                  $Image.ScaleWidth(1600).URL 1600w,
-	                  $Image.URL 2500w"
+		data-src="$Image.ScaleWidth(1500).Compressed.URL"
+	    data-srcset="$Image.ScaleWidth(650).Compressed.URL 650w,
+	                  $Image.ScaleWidth(1200).Compressed.URL 1200w,
+	                  $Image.ScaleWidth(1600).Compressed.URL 1600w,
+	                  $Image.Compressed.URL 2500w"
 	    sizes="100vw" data-uk-img<% end_if %>>
 	<% else %>
 	<div class="$Height uk-background-cover uk-light <% if Background %>$Background dk-overlay <% end_if %><% if Effect == "fixed" %>uk-background-fixed<% end_if %> <% if Height == "viewport" %>uk-height-viewport<% end_if %>" 
 		<% if Image.exists %>
-		data-src="$Image.FocusFillMax(1600,$ImageHeight).URL"
-	    data-srcset="$Image.FocusFillMax(650,$ImageHeight).URL 650w,
-	                  $Image.FocusFillMax(1200,$ImageHeight).URL 1200w,
-	                  $Image.FocusFillMax(1600,$ImageHeight).URL 1600w,
-	                  $Image.FocusFillMax(2500,$ImageHeight).URL 2500w,
-	                  $Image.FocusFillMax(5000,$ImageHeight).URL 5000w"
+		data-src="$Image.FocusFillMax(1600,$ImageHeight).Compressed.URL"
+	    data-srcset="$Image.FocusFillMax(650,$ImageHeight).Compressed.URL 650w,
+	                  $Image.FocusFillMax(1200,$ImageHeight).Compressed.URL 1200w,
+	                  $Image.FocusFillMax(1600,$ImageHeight).Compressed.URL 1600w,
+	                  $Image.FocusFillMax(2500,$ImageHeight).Compressed.URL 2500w,
+	                  $Image.FocusFillMax(5000,$ImageHeight).Compressed.URL 5000w"
 	    sizes="100vw"
 	    data-uk-img<% end_if %>
 	>
