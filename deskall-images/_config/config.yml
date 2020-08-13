@@ -43,9 +43,6 @@ SilverStripe\Core\Injector\Injector:
     constructor:
       - { driver: imagick }
 
-Kinglozzer\SilverStripeTinyPng\ImageExtension:
-  tinypng_api_key: 'JJqVVtCMrcr0gDHcMDsZgD1F14KTztnC'
-
 # ImageExtension:
 #   successStatuses:
 #     - 0
