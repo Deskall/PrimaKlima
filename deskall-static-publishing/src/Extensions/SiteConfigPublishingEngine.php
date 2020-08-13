@@ -48,7 +48,11 @@ class SiteConfigPublishingEngine extends DataExtension
     }
 
     public function updateCMSActions(FieldList $actions){
-        print_r('ici');
+        $actions->push(FormAction::create(
+                    'flush_cache',
+                    _t('SiteConfig' . '.FLUSHCACHE', 'HTML Cache aktualisieren')
+                )->addExtraClass('btn-primary font-icon-sync')
+        );
     }
 
 }

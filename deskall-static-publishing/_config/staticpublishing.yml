@@ -31,3 +31,7 @@ ListItem:
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - SiteConfigPublishingEngine
+
+ThemeLeftAndMain:
+  extensions:
+    - StaticPublishingSiteConfigExtension
