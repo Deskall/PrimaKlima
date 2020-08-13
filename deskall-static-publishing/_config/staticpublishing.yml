@@ -1,0 +1,33 @@
+---
+Name: mystaticpublishqueue
+After: '#staticpublishqueue'
+---
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\StaticPublishQueue\Publisher:
+    class: SilverStripe\StaticPublishQueue\Publisher\FilesystemPublisher
+    properties:
+      fileExtension: html
+
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - PublishableBlock
+    - BlockPublishingEngine
+
+Slide:
+  extensions:
+    - PublishableBlock
+    - BlockPublishingEngine
+
+Box:
+  extensions:
+    - PublishableBlock
+    - BlockPublishingEngine
+
+ListItem:
+  extensions:
+    - PublishableBlock
+    - BlockPublishingEngine
+
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SiteConfigPublishingEngine
