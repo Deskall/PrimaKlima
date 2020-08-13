@@ -2,7 +2,6 @@
 Name: deskall-images
 After:
     - '#focuspoint'
-    - '#tinypngconfig'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-images
