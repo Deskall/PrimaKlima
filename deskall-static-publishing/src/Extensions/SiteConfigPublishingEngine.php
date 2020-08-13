@@ -10,6 +10,7 @@ use Symbiote\QueuedJobs\Services\QueuedJobService;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Control\Director;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormAction;
 
 /**
  * This extension couples to the StaticallyPublishable and StaticPublishingTrigger implementations
@@ -49,7 +50,7 @@ class SiteConfigPublishingEngine extends DataExtension
 
     public function updateCMSActions(FieldList $actions){
         $actions->push(FormAction::create(
-                    'flush_cache',
+                    'flush_changes',
                     _t('SiteConfig' . '.FLUSHCACHE', 'HTML Cache aktualisieren')
                 )->addExtraClass('btn-primary font-icon-sync')
         );
