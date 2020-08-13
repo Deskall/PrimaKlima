@@ -7,6 +7,7 @@ use SilverStripe\StaticPublishQueue\Extension\Publishable\PublishableSiteTree;
 use SilverStripe\StaticPublishQueue\Job;
 use SilverStripe\StaticPublishQueue\Publisher;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\Core\Environment;
 
 /**
  * Adds all pages to the queue for caching. Best implemented on a cron via StaticCacheFullBuildTask.
@@ -44,6 +45,7 @@ class DeskallStaticCacheFullBuildJob extends Job
      */
     public function process()
     {
+        Environment::increaseMemoryLimitTo();
         $chunkSize = self::config()->get('chunk_size');
         $count = 0;
         $ProcessedURLs = [];
