@@ -44,7 +44,7 @@ SilverStripe\Core\Injector\Injector:
       - { driver: imagick }
 
 Kinglozzer\SilverStripeTinyPng\ImageExtension:
-  tinypng_api_key: 'gG1Tujhnd39tTlK5Wg8fKwbN6a3HVDA4'
+  tinypng_api_key: 'JJqVVtCMrcr0gDHcMDsZgD1F14KTztnC'
 
 # ImageExtension:
 #   successStatuses:
