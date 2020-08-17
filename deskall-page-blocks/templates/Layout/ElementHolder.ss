@@ -5,6 +5,6 @@
 </div>
 <% else %>
 	<% if Element.ClassName == "CodeBlock" && Element.Position == "normal" %>
-	$Element.Script
+	<div hidden>$Element</div>
 	<% end_if %>
 <% end_if %>

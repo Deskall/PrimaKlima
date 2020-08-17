@@ -193,11 +193,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
 
     public function updateCMSFields(FieldList $fields){
-        // foreach (BaseElement::get() as $b) {
-        //    if(ClassInfo::exists($b->Parent()->OwnerClassName)){
-        //     $b->write();
-        //     }
-        // }
+
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
@@ -293,12 +289,16 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     public function getFolderName(){
 
-        $parent = $this->owner->Parent()->getOwnerPage();
+        $parent = $this->owner->Parent();
+        if ($parent && $parent->getOwnerPage()){
+            $page = $parent->getOwnerPage();
        
-        while(!$parent->hasMethod('generateFolderName')){
-            $parent = $parent->Parent()->getOwnerPage();
+            while(!$page->hasMethod('generateFolderName')){
+                $page = $page->Parent()->getOwnerPage();
+            }
+            return $page->generateFolderName();
         }
-        return $parent->generateFolderName();
+        return null;
     }
 
     public function onBeforeWrite(){
@@ -342,7 +342,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
     public function isFirst(){
-        if ($this->owner->isChildren()){
+        if ($this->owner->Parent()->getOwnerPage() && $this->owner->isChildren()){
             return $this->owner->ID == $this->owner->Parent()->getOwnerPage()->Elements()->Elements()->first()->ID;
         }
         return false;
