@@ -20,7 +20,7 @@
 					<div class="uk-card uk-card-default uk-child-width-auto" data-uk-grid>
 						<% if Type == "Datei" %>
 						<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
-							<video data-uk-video="automute: true;autoplay: false;" width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
+							<video data-uk-video="autoplay: false;" width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
 								<source src="$File.URL" type="video/{$File.getExtension}">
 								</video>
 							</div>
@@ -64,7 +64,7 @@
 		<div class="uk-card uk-card-default uk-child-width-auto" data-uk-grid>
 			<% if Type == "Datei" %>
 			<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
-				<video data-uk-video="automute: true;autoplay: false;" width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
+				<video data-uk-video="autoplay: false;" width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
 					<source src="$File.URL" type="video/{$File.getExtension}">
 					</video>
 				</div>
