@@ -78,9 +78,9 @@
 			 		<% end_if %>
 		        </ul>
 		        <% else_if Type == "content" %>
-		        <div class="title-container">
+		        <% if Title %><div class="title-container">
 		    		<h3 class="uk-margin-small-bottom">$Title</h3>
-		    	</div>
+		    	</div><% end_if %>
 		    	$Content
 		    	<% else_if Type == "logo" %>
 		    	<div>
