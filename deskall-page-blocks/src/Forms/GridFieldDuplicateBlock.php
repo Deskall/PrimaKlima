@@ -169,6 +169,12 @@ class GridFieldDuplicateBlock implements GridField_HTMLProvider, GridField_URLHa
 					if ($block->ClassName == "ParentBlock"){
 						foreach ($block->Elements()->Elements() as $underblock) {
 						$blocks[$underblock->ID] = "  ".$block->NiceTitle(). " > ".$underblock->singleton($underblock->ClassName)->getType(). " > ".$underblock->NiceTitle();
+							if ($underblock->ClassName == "ParentBlock"){
+								foreach ($underblock->Elements()->Elements() as $underunderblock) {
+								$blocks[$underunderblock->ID] = "  ".$block->NiceTitle(). " > ".$underblock->NiceTitle(). " > ".$underunderblock->singleton($underunderblock->ClassName)->getType(). " > ".$underunderblock->NiceTitle();
+								
+								}
+							}
 						}
 					}
 				}
