@@ -1,4 +1,3 @@
-<% include HeaderSlide %>
 $ElementalArea
 <section class="uk-section uk-padding-remove-vertical">
     <div class="uk-container">
