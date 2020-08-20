@@ -28,17 +28,15 @@
                         <% if $BaseClass == 'SilverStripe\CMS\Model\SiteTree' %>
                                     <h3><% if $MenuTitle %>$MenuTitle<% else %><% if $Title %>$Title.LimitWordCount<% else %>$Parent.MenuTitle.LimitWordCount<% end_if %><% end_if %></h3>
                                     <p>$Content.ContextSummary(100,$Query.XML,true)</p>
-                                    <a href="$Link" class="uk-link" data-uk-icon="chevron-right"><%t SearchPage.Read 'Seite anzeigen' %></a>
-
                      <% else_if $BaseClass == 'DNADesign\Elemental\Models\BaseElement' %>
 
                                 <% with $getPage %><h3><% if $MenuTitle %>$MenuTitle.LimitWordCount<% else %><% if $Title %>$Title.LimitWordCount<% else %>$Parent.MenuTitle.LimitWordCount<% end_if %><% end_if %></h3><% end_with %>
                                 <% if Title %><strong>$Title.LimitWordCount</strong><% end_if %>
                                 <p>$Content.ContextSummary(100,$Query.XML,true)</p>
-                                <a href="$Link" class="uk-link" data-uk-icon="chevron-right"><%t SearchPage.Read 'Seite anzeigen' %></a>
-
-                        
                     <% end_if %>
+                    <div>
+                        <a href="$Link" class="uk-link" data-uk-icon="chevron-right"><%t SearchPage.Read 'Seite anzeigen' %></a>
+                    </div>
                 </li>
             <% end_loop %>
         </ul>
