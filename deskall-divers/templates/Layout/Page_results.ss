@@ -1,5 +1,5 @@
 $ElementalArea
-<section class="uk-section uk-padding-remove-vertical">
+<section class="uk-section uk-section-small">
     <div class="uk-container">
         <div id="Content" class="searchResults">
             <div class="dk-text-content uk-text-lead">
