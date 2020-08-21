@@ -12,7 +12,7 @@
 		<% if Products.exists %>
 		<% loop Products.Sort('SortOrder') %>
 			<% if RecurringPrice %>
-				<tr><td>$Title</td><td class="uk-text-right"><% if $ActionMonthlyPrice %><s>$getMonthlyPrice</s> $PrintPriceString<% else %>$PrintPriceString<% end_if %><% if Quantity > 1 %> * $Quantity<% end_if %></td></tr>
+				<tr><td>$Title</td><td class="uk-text-right"><% if $ActionMonthlyPrice >= 0 %><s>$getMonthlyPrice</s> $PrintPriceString<% else %>$PrintPriceString<% end_if %><% if Quantity > 1 %> * $Quantity<% end_if %></td></tr>
 				<% end_if %>
 			<% end_loop %>
 		<% end_if %>
