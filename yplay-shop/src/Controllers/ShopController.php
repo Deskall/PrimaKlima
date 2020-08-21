@@ -78,10 +78,6 @@ class ShopController extends PageController
          $cart = ShopCart::get()->byId($id);
       }
       if (!$cart && (count($products) > 0 || $packageID > 0)){
-         ob_start();
-         print_r('ici');
-         $result = ob_get_clean();
-         file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
          $cart = new ShopCart();
          $cart->IP = $this->getRequest()->getIp();
          if ($this->activePLZ()->exists()){
@@ -93,10 +89,6 @@ class ShopController extends PageController
       }
 
       if ($cart && (count($products) > 0 || $packageID > 0)){
-         ob_start();
-         print_r('la');
-         $result = ob_get_clean();
-         file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
          //apply package and product
          $cart->PackageID = $packageID;
          if ($cart->PackageID > 0){
@@ -107,10 +99,6 @@ class ShopController extends PageController
          if ($products){
             $i = 1;
             foreach ($products as $code ) {
-               ob_start();
-         print_r($code);
-         $result = ob_get_clean();
-         file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
                if (!in_array($code,$productIds)){
                   $product = Product::get()->filter('ProductCode',$code)->first();
                   if ($product){
