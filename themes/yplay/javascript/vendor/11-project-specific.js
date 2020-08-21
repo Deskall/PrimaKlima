@@ -109,7 +109,7 @@ $(document).ready(function(){
 			else{
 				$(this).parents('.category').removeClass('disabled').addClass('activated');
 			}
-			UpdateOrder();
+			UpdateOrder('change cat');
 		});
 
 		//Handle the product slider
@@ -172,7 +172,8 @@ $(document).ready(function(){
 		
 	}
 
-	function UpdateOrder(){
+	function UpdateOrder(origin = null){
+		console.log(origin);
 		productsOfPackages = [];
 		products = [];
 		var chosenPackageID = 0;

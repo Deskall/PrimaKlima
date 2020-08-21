@@ -107,6 +107,10 @@ class ShopController extends PageController
          if ($products){
             $i = 1;
             foreach ($products as $code ) {
+               ob_start();
+         print_r($code);
+         $result = ob_get_clean();
+         file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
                if (!in_array($code,$productIds)){
                   $product = Product::get()->filter('ProductCode',$code)->first();
                   if ($product){
