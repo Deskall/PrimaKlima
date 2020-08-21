@@ -22,10 +22,10 @@
 			<ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid uk-grid-match" data-uk-height-match=".uk-card-body">
 				<% loop ActiveVideos %>
 				<li class="uk-height-1-1">
-					<div class="uk-card uk-card-default uk-child-width-1-2@s" data-uk-grid>
+					<div class="uk-card uk-card-default uk-child-width-auto" data-uk-grid>
 						<% if Type == "Datei" %>
 						<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
-							<video data-uk-video width="480" height="360" controls>
+							<video data-uk-video="autoplay: false;" width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
 								<source src="$File.URL" type="video/{$File.getExtension}">
 								</video>
 							</div>
@@ -66,10 +66,10 @@
 	<% else %>
 	<div class="uk-flex-center $VideoPerLine uk-grid-small uk-height-large" data-uk-grid data-uk-lightbox>
 		<% loop ActiveVideos %>
-		<div class="uk-card uk-card-default uk-child-width-1-2@s" data-uk-grid>
+		<div class="uk-card uk-card-default uk-child-width-auto" data-uk-grid>
 			<% if Type == "Datei" %>
 			<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
-				<video data-uk-video width="480" height="360" controls>
+				<video data-uk-video="autoplay: false;" width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
 					<source src="$File.URL" type="video/{$File.getExtension}">
 					</video>
 				</div>

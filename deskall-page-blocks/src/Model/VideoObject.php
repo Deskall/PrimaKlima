@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\File;
+use SilverStripe\Assets\Image;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
@@ -27,10 +28,11 @@ class VideoObject extends DataObject{
 
 	private static $has_one = [
 		'Parent' => VideoBlock::class,
-		'File' => File::class
+		'File' => File::class,
+		'VideoPreview' => Image::class
 	];
 
-	private static $owns = ['File'];
+	private static $owns = ['File', 'VideoPreview'];
 
 	private static $extensions = ['Activable','Sortable'];
 
@@ -51,6 +53,7 @@ class VideoObject extends DataObject{
 		$fields->removeByName('ParentID');
 		$fields->removeByName('ThumbnailURL');
 		$fields->fieldByName('Root.Main.File')->setFolderName($this->Parent()->getFolderName())->setAllowedFileCategories('video')->displayIf('Type')->isEqualTo('Datei');
+		$fields->fieldByName('Root.Main.VideoPreview')->setFolderName($this->Parent()->getFolderName())->setAllowedFileCategories('image')->displayIf('Type')->isEqualTo('Datei');
 
 		$fields->fieldByName('Root.Main.VideoID')->displayIf('Type')->isEqualTo('Link');
 		$fields->addFieldToTab('Root.Main',DropdownField::create('Player',_t(__CLASS__.'Player','Player'),['youtube'=>'You Tube','vimeo' => 'Vimeo', /*'dailymotion' => 'Dailymotion'*/])->setEmptyString('Player wählen')->displayIf('Type')->isEqualTo('Link')->end(),'VideoID');

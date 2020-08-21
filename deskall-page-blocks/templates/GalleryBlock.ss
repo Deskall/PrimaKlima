@@ -1,4 +1,4 @@
-<% if TextPosition == "before" %>
+<% if TextPosition == "before" && $HTML %>
 <div class="uk-margin-bottom dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	<% if CollapseText %>
 		<div class="short-text toggle-text-{$ID}">$HTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary uk-box-shadow-large" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
@@ -236,7 +236,7 @@
 	<% end_if %>
 <% end_if %>
 
-<% if TextPosition == "after" %>
+<% if TextPosition == "after" && $HTML %>
 <div class="uk-margin-top dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	$HTML
 </div>
