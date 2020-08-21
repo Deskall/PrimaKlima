@@ -77,7 +77,7 @@ class ShopController extends PageController
       if ($id){
          $cart = ShopCart::get()->byId($id);
       }
-      if (!$cart && (count($products) > 0 || $packageID > 0)){
+      if (!$cart && ((is_array($products) && count($products) > 0) || $packageID > 0)){
          $cart = new ShopCart();
          $cart->IP = $this->getRequest()->getIp();
          if ($this->activePLZ()->exists()){
@@ -88,7 +88,7 @@ class ShopController extends PageController
          $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
       }
 
-      if ($cart && (count($products) > 0 || $packageID > 0)){
+      if ($cart && ((is_array($products) && count($products) > 0) || $packageID > 0)){
          //apply package and product
          $cart->PackageID = $packageID;
          if ($cart->PackageID > 0){
