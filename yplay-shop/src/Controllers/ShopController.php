@@ -93,6 +93,10 @@ class ShopController extends PageController
       }
 
       if ($cart && (count($products) > 0 || $packageID > 0)){
+         ob_start();
+         print_r('la');
+         $result = ob_get_clean();
+         file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
          //apply package and product
          $cart->PackageID = $packageID;
          if ($cart->PackageID > 0){
