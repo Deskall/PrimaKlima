@@ -5,10 +5,10 @@
             <div class="team-box uk-transition-toggle">
                 <div class="uk-inline-clip  uk-light" tabindex="0">
                     <img src="$Image.ScaleWidth(350).CropHeight(250).URL" alt="$Title">
-                    <div class="uk-position-bottom team-title uk-transition-slide-top">
+                    <div class="uk-position-bottom team-title">
                         <div><strong class="title">$Title</strong></div>
                         <div class="function">$Function</div>
-                        <div class="uk-transition-fade">
+                        <div class="uk-transition-fade uk-transition-slide-bottom">
                             <div><a href="mailto:$Email">$Email</a></div>
                             <div><a href="tel:$Telephone">$Telephone</a></div>
                         </div>
