@@ -109,7 +109,7 @@ $(document).ready(function(){
 			else{
 				$(this).parents('.category').removeClass('disabled').addClass('activated');
 			}
-			UpdateOrder('change cat');
+			UpdateOrder();
 		});
 
 		//Handle the product slider
@@ -172,8 +172,7 @@ $(document).ready(function(){
 		
 	}
 
-	function UpdateOrder(origin = null){
-		console.log(origin);
+	function UpdateOrder(){
 		productsOfPackages = [];
 		products = [];
 		var chosenPackageID = 0;
@@ -183,8 +182,7 @@ $(document).ready(function(){
 		$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
 			products.push($(this).attr('data-value'));
 		});
-		console.log(products);
-		console.log(productsOfPackages);
+	
 		//Compare to see if any package matches the selected products
 		$.each(packages,function(i,v){
 			if (compareArrays(v['Products'],productsOfPackages)){
