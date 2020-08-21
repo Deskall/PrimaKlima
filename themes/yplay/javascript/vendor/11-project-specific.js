@@ -166,9 +166,7 @@ $(document).ready(function(){
 			}
 		});
 		$("#loading-block").remove();
-		$("#products-hidden-container").slideDown();
-		
-		
+		$("#products-hidden-container").slideDown();		
 	}
 
 	function UpdateOrder(){
