@@ -2,9 +2,7 @@
 
 use SilverStripe\CMS\Model\SiteTree;
 use g4b0\SearchableDataObjects\Searchable;
-
 use SilverStripe\Forms\TextareaField;
-use SilverStripe\Control\Session;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Injector\Injector;
 
@@ -57,7 +55,6 @@ class Page extends SiteTree implements Searchable
 
      //search related
      public function notInListYet( $link ){
-
       $request = Injector::inst()->get(HTTPRequest::class);
       $session = $request->getSession();
 
@@ -78,7 +75,6 @@ class Page extends SiteTree implements Searchable
       $session = $request->getSession();
       $session->clear('searchresults');
     }
-
 
     public function getPrivatePolicyPage(){
       return PrivatePolicyPage::get()->first();
