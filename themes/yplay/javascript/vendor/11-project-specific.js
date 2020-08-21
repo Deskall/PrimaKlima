@@ -165,7 +165,7 @@ $(document).ready(function(){
 				}
 			}
 		});
-		
+		console.log('ici');
 		$("#loading-block").remove();
 		$("#products-hidden-container").slideDown();
 		
