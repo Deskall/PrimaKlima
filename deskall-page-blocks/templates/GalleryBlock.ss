@@ -1,4 +1,4 @@
-<% if TextPosition == "before" %>
+<% if TextPosition == "before" && $HTML %>
 <div class="uk-margin-bottom dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	$HTML
 </div>
@@ -231,7 +231,7 @@
 	<% end_if %>
 <% end_if %>
 
-<% if TextPosition == "after" %>
+<% if TextPosition == "after" && $HTML %>
 <div class="uk-margin-top dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 	$HTML
 </div>
