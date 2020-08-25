@@ -47,7 +47,7 @@ class PageBlocksExtension extends DataExtension {
 
 	public function onBeforeWrite(){
 		parent::onBeforeWrite();
-		$this->owner->checkLead();
+		// $this->owner->checkLead();
 	}
 
 	public function onBeforeDelete(){
