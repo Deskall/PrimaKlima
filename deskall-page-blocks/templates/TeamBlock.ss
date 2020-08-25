@@ -3,7 +3,7 @@
         <% loop Boxes %>
         <div>
             <div class="team-box uk-transition-toggle">
-                <div class="uk-inline-clip  uk-light" tabindex="0">
+                <div class="uk-inline-clip uk-light" tabindex="0">
                     <img src="$Image.ScaleWidth(350).CropHeight(250).URL" alt="$Title">
                     <div class="team-title">
                         <div><strong class="title">$Title</strong></div>
