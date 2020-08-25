@@ -125,8 +125,8 @@ class VideoBlock extends BaseElement implements Searchable
     public function setFromURL($url)
     {
         if ($url) {
-            // array('image' => array('minImageWidth' => $this->Width, 'minImageHeight' => $this->Height)));
-            $info = Embed::create($url);
+            $config = array('image' => array('minImageWidth' => 1200, 'minImageHeight' => 450)));
+            $info = Embed::create($url, $config);
             $embed = $this->setFromEmbed($info);
             return $embed;
         }
