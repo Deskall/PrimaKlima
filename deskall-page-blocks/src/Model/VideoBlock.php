@@ -108,7 +108,7 @@ class VideoBlock extends BaseElement implements Searchable
         foreach (preg_split('/\r\n|[\r\n]/', $this->Videos) as $url){
          $html = $this->setFromURL($url);
          if ($html){
-         
+            $html = str_replace('?feature=oembed','?feature=oembed&rel=0',$html);
           $content .= ($this->Layout == "carousel") ? '<li class="uk-height-1-1">' : '<div>';
           $content .= $html;
           $content .= ($this->Layout == "carousel") ? '</li>' : '</div>';
