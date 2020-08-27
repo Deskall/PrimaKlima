@@ -533,7 +533,7 @@ class SiteConfigLayoutExtension extends DataExtension
        /*** Css class for Form Elements **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.'{.uk-input,.uk-textarea,.uk-select {background-color: rgba(255,255,255,0.6);}}',FILE_APPEND);
       file_put_contents($fullpath,"\n".'.'.$c->Code.' .uk-form-label {color: #'.$c->FontColor.';}',FILE_APPEND);
-      file_put_contents($fullpath,"\n".'.'.$c->Code.' input[type="checkbox"],'.$c->Code.' input[type="radio"]{ &:focus,&:checked,&:indeterminate{background-color: #'.$c->LinkColor.';color: #'.$c->LinkHoverColor.';}}',FILE_APPEND);
+      file_put_contents($fullpath,"\n".'.'.$c->Code.' input[type="checkbox"],'.$c->Code.' input[type="radio"]{ &:focus,&:checked{background-color: #'.$c->LinkColor.';color: #'.$c->LinkHoverColor.';}}',FILE_APPEND);
       file_put_contents($fullpath,"\n".'.'.$c->Code.' label.error, .'.$c->Code.' p.error {color: #'.$c->FontColor.';}',FILE_APPEND);
        /*** Css class for Table Elements **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.' .uk-table-striped > tr:nth-of-type(odd), .'.$c->Code.' .uk-table-striped tbody tr:nth-of-type(odd){background:lighten(#'.$c->Color.',5%);color:darken(#'.$c->FontColor.',10%);}',FILE_APPEND);
