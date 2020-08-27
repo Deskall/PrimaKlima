@@ -37,6 +37,8 @@ class ShopOrder extends DataObject{
 		'AGB' => 'Boolean(0)',
 		'AGBMobile' => 'Boolean(0)',
 		'PreviousProvider' => 'Varchar',
+		'PaymentTyp' => 'Varchar',
+		'Origin' => 'Varchar',
 		'Comments' => 'Text'
 	);
 
