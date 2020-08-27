@@ -73,7 +73,7 @@ class ProductOption extends Product {
 	}
 
 	public function getCategorySort(){
-		return $this->Category()->Title;
+		return $this->Category()->Sort;
 	}
 
 	public function PrintPriceString(){
