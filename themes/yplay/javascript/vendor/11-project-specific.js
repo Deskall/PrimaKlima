@@ -394,7 +394,9 @@ $(document).ready(function(){
 			}
 		});
 		
-		
+		if ($(".options input[type='checkbox']").length > 0){
+			UpdateOptions();
+		}
 
 		function UpdateOptions(){
 			var options = [];
