@@ -83,9 +83,4 @@ class MenuSection extends DataObject{
 	public function activeLinks(){
 		return $this->Links()->filter('isVisible',1)->sort('Sort');
 	}
-
-	public function activeLinks(){
-		return $this->Links()->filter('isVisible',1)->sort('Sort');
-	}
-	
 }
