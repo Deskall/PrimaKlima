@@ -519,7 +519,7 @@ class SiteConfigLayoutExtension extends DataExtension
       file_put_contents($fullpath, "\n".".userform .button-".$c->Code.' .uk-button{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /*** Css class for Slideshow controls **/
       file_put_contents($fullpath,
-        "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:darken(#'.$c->Color.',10%);border-color:#'.$c->FontColor.';}' 
+        "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:darken(#'.$c->Color.',5%);border-color:#'.$c->Color.';}' 
         ."\n".'.'.$c->Code.' .uk-dotnav > .uk-active > *{background-color:#'.$c->LinkHoverColor.';}'
         ."\n".'.'.$c->Code.' .uk-dotnav > * > :hover, .'.$c->Code.' .uk-dotnav > * > :focus {background-color:#'.$c->LinkColor.';}'
         ."\n".'.'.$c->Code.' .uk-slidenav {color: #'.$c->LinkColor.';&:hover,&:focus{color: #'.$c->LinkHoverColor.';}}',FILE_APPEND);
