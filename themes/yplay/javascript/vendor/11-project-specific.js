@@ -405,8 +405,7 @@ $(document).ready(function(){
 							if(quantityInput.val() < 1 ){
 								quantityInput.val(1);
 							}
-							quantityInput.attr('hidden',false);
-							quantityInput.prev('span').attr('hidden',false);
+							$(this).parents('tr').find('.multiple').attr('hidden',false);
 							options.push({
 								'code' : $(this).attr('data-value'),
 								'quantity': quantityInput.val()
@@ -421,8 +420,8 @@ $(document).ready(function(){
 						
 					}
 					else{
-						$(this).parents('tr').find('input.quantity').val(0).attr('hidden','hidden');
-						$(this).parents('tr').find('input.quantity').prev('span').attr('hidden','hidden');
+						$(this).parents('tr').find('input.quantity').val(0);
+						$(this).parents('tr').find('.multiple').attr('hidden','hidden');
 					}
 			});
 
