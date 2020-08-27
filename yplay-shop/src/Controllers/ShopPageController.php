@@ -194,6 +194,7 @@ class ShopPageController extends PageController
             CompositeField::create(
                HeaderField::create('OtherTitle','Weitere Angaben',3),
                DropdownField::create('PreviousProvider','Bisheriger Anbieter',['YplaY' => 'YplaY', 'Swisscom' => 'Swisscom', 'Sunrise' => 'Sunrise','UPC' => 'UPC','Andere' => 'Andere'])->setEmptyString('Bitte wählen')->setAttribute('class','uk-select'),
+               DropdownField::create('PaymentTyp','Zahlungsart',['Email' => 'Email Rechnung', 'Paper' => 'Papier Rechnung (CHF 2.50 / Mt.)', 'Lastschriftverfahren' => 'Lastschriftverfahren','DebitDirect' => 'Debit Direct (Postfinance)','eBanking' => 'eBanking Rechnung'])->setEmptyString('Bitte wählen')->setValue('Email')->setAttribute('class','uk-select'),
                TextareaField::create('Comments','Bemerkungen'),
                // CheckboxField::create('Newsletter','Ich abonniere den Newsletter'),
                CheckboxField::create('AGB',DBHTMLText::create()->setValue('Ich bin mit den <a href="'.$agbpage->Link().'" target="_blank" title="AGB anschauen">AGB</a> einverstanden'))->setAttribute('class','uk-checkbox'),
