@@ -393,9 +393,43 @@ $(document).ready(function(){
 				$(this).parents('tr').find('input').prop("checked",true).trigger("change");
 			}
 		});
+		
+		
+
+		function UpdateOptions(){
+			var options = [];
+			$(".options input[type='checkbox']").each(function(){
+					if ($(this).is(':checked')){
+						if ($(this).attr('data-is-multiple')){
+							var quantityInput = $(this).parents('tr').find('input.quantity');
+							if(quantityInput.val() < 1 ){
+								quantityInput.val(1);
+							}
+							quantityInput.attr('hidden',false);
+							quantityInput.prev('span').attr('hidden',false);
+							options.push({
+								'code' : $(this).attr('data-value'),
+								'quantity': quantityInput.val()
+							});
+						}
+						else{
+							options.push({
+								'code' : $(this).attr('data-value'),
+								'quantity':1
+							});
+						}
+						
+					}
+					else{
+						$(this).parents('tr').find('input.quantity').val(0).attr('hidden','hidden');
+						$(this).parents('tr').find('input.quantity').prev('span').attr('hidden','hidden');
+					}
+			});
+
+			return options;
+		}
 
 		$(document).on("change",".options input",function(){
-			var options = [];
 			//handle pseudo-checkbox radio fields
 			if ($(this).hasClass('pseudo-radio')){
 				var value = $(this).attr('data-value');
@@ -405,34 +439,7 @@ $(document).ready(function(){
 					}
 				});
 			}
-			UpdateCart(options);
-		});
-		$(document).on("change",".options input[type='checkbox']", function(){
-			if ($(this).is(':checked')){
-				if ($(this).attr('data-is-multiple')){
-					var quantityInput = $(this).parents('tr').find('input.quantity');
-					if(quantityInput.val() < 1 ){
-						quantityInput.val(1);
-					}
-					quantityInput.attr('hidden',false);
-					quantityInput.prev('span').attr('hidden',false);
-					options.push({
-						'code' : $(this).attr('data-value'),
-						'quantity': quantityInput.val()
-					});
-				}
-				else{
-					options.push({
-						'code' : $(this).attr('data-value'),
-						'quantity':1
-					});
-				}
-				
-			}
-			else{
-				$(this).parents('tr').find('input.quantity').val(0).attr('hidden','hidden');
-				$(this).parents('tr').find('input.quantity').prev('span').attr('hidden','hidden');
-			}
+			options = UpdateOptions();
 			UpdateCart(options);
 		});
 
