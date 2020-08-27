@@ -194,7 +194,7 @@ class ShopPageController extends PageController
             CompositeField::create(
                HeaderField::create('OtherTitle','Weitere Angaben',3),
                DropdownField::create('PreviousProvider','Bisheriger Anbieter',['YplaY' => 'YplaY', 'Swisscom' => 'Swisscom', 'Sunrise' => 'Sunrise','UPC' => 'UPC','Andere' => 'Andere'])->setEmptyString('Bitte wählen')->setAttribute('class','uk-select'),
-               DropdownField::create('Origin','Wie sind Sie auf YplaY aufmerksam geworden?',['Empfehlung' => 'Empfehlung aus dem Umfeld', 'Google' => 'Google', 'Instagram' => 'Instagram','Twitter' => 'Twitter','Facebook' => 'Facebook','Linkedin' => 'Linkedin','Werbeplakat' => 'Werbeplakat','Zeitung' => 'Zeitung','Andere' => 'Andere']),
+               DropdownField::create('Origin','Wie sind Sie auf YplaY aufmerksam geworden?',['Empfehlung' => 'Empfehlung aus dem Umfeld', 'Google' => 'Google', 'Instagram' => 'Instagram','Twitter' => 'Twitter','Facebook' => 'Facebook','Linkedin' => 'Linkedin','Werbeplakat' => 'Werbeplakat','Zeitung' => 'Zeitung','Andere' => 'Andere'])->setEmptyString('Bitte wählen')->setAttribute('class','uk-select'),
                DropdownField::create('PaymentTyp','Zahlungsart',['Email' => 'Email Rechnung', 'Paper' => 'Papier Rechnung (CHF 2.50 / Mt.)', 'Lastschriftverfahren' => 'Lastschriftverfahren','DebitDirect' => 'Debit Direct (Postfinance)','eBanking' => 'eBanking Rechnung'])->setEmptyString('Bitte wählen')->setValue('Email')->setAttribute('class','uk-select'),
                TextareaField::create('Comments','Bemerkungen'),
                // CheckboxField::create('Newsletter','Ich abonniere den Newsletter'),
