@@ -193,6 +193,7 @@ class ShopPageController extends PageController
             )->setName('BillFields'),
             CompositeField::create(
                HeaderField::create('OtherTitle','Weitere Angaben',3),
+               DropdownField::create('PreviousProvider','Bisheriger Anbieter',['YplaY' => 'YplaY', 'Swisscom' => 'Swisscom', 'Sunrise' => 'Sunrise','UPC' => 'UPC','Andere' => 'Andere'])->setEmptyString('Bitte wählen'),
                TextareaField::create('Comments','Bemerkungen'),
                // CheckboxField::create('Newsletter','Ich abonniere den Newsletter'),
                CheckboxField::create('AGB',DBHTMLText::create()->setValue('Ich bin mit den <a href="'.$agbpage->Link().'" target="_blank" title="AGB anschauen">AGB</a> einverstanden'))->setAttribute('class','uk-checkbox'),

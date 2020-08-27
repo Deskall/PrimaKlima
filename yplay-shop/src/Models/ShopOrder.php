@@ -36,6 +36,7 @@ class ShopOrder extends DataObject{
 		'UniquePrice' => 'Currency',
 		'AGB' => 'Boolean(0)',
 		'AGBMobile' => 'Boolean(0)',
+		'PreviousProvider' => 'Varchar',
 		'Comments' => 'Text'
 	);
 
