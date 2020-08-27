@@ -405,35 +405,34 @@ $(document).ready(function(){
 					}
 				});
 			}
-
-		
-			$(".options input[type='checkbox']").each(function(){
-				if ($(this).is(':checked')){
-					if ($(this).attr('data-is-multiple')){
-						var quantityInput = $(this).parents('tr').find('input.quantity');
-						if(quantityInput.val() < 1 ){
-							quantityInput.val(1);
-						}
-						quantityInput.attr('hidden',false);
-						quantityInput.prev('span').attr('hidden',false);
-						options.push({
-							'code' : $(this).attr('data-value'),
-							'quantity': quantityInput.val()
-						});
+			UpdateCart(options);
+		});
+		$(document).on("change",".options input[type='checkbox']", function(){
+			if ($(this).is(':checked')){
+				if ($(this).attr('data-is-multiple')){
+					var quantityInput = $(this).parents('tr').find('input.quantity');
+					if(quantityInput.val() < 1 ){
+						quantityInput.val(1);
 					}
-					else{
-						options.push({
-							'code' : $(this).attr('data-value'),
-							'quantity':1
-						});
-					}
-					
+					quantityInput.attr('hidden',false);
+					quantityInput.prev('span').attr('hidden',false);
+					options.push({
+						'code' : $(this).attr('data-value'),
+						'quantity': quantityInput.val()
+					});
 				}
 				else{
-					$(this).parents('tr').find('input.quantity').val(0).attr('hidden','hidden');
-					$(this).parents('tr').find('input.quantity').prev('span').attr('hidden','hidden');
+					options.push({
+						'code' : $(this).attr('data-value'),
+						'quantity':1
+					});
 				}
-			});
+				
+			}
+			else{
+				$(this).parents('tr').find('input.quantity').val(0).attr('hidden','hidden');
+				$(this).parents('tr').find('input.quantity').prev('span').attr('hidden','hidden');
+			}
 			UpdateCart(options);
 		});
 
