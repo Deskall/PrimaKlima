@@ -46,7 +46,7 @@
 				<p><span data-uk-spinner="ratio: 2" class="uk-margin-right"></span>Produkte werden geladen. Einen Moment bitte.</p>
 			</div>
 			<div id="products-hidden-container">
-				<div class="uk-grid-small" data-uk-grid>
+				<div class="uk-grid-small uk-grid-match" data-uk-grid>
 					<div class="uk-width-2-3@m">
 						<% loop activeCategories %>
 						<div class="category uk-text-center $Code uk-margin-large" <% if not Mandatory %>data-disabled="$isDisabled"<% end_if %> data-mandatory="$Mandatory">
