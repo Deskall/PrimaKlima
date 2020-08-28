@@ -16,6 +16,23 @@
 		<div class="uk-slider-container">
 			<ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid" data-uk-height-match="li">
 				$VideosHTML
+				<% if VideoObjects.exists %>
+				<% loop VideoObjects %>
+					<li class="uk-height-1-1">
+						<div class="uk-card uk-card-default uk-child-width-auto" data-uk-grid>
+							<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
+								<video data-uk-video="autoplay: false;" width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
+									<source src="$File.URL" type="video/{$File.getExtension}">
+								</video>
+							</div>
+							<div class="uk-card-body">
+								<% if Title %><h3 class="uk-card-title">$Title</h3><% end_if %> 
+								<% if HTML %><div class="dk-text-content">$HTML</div><% end_if %>
+							</div>
+						</div>
+					</li>
+				<% end_loop %>
+				<% end_if %>
 			</ul>
 		
 			<div class="uk-hidden@s">

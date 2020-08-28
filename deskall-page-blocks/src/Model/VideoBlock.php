@@ -43,6 +43,8 @@ class VideoBlock extends BaseElement implements Searchable
 
     private static $has_many = ['VideoObjects' => VideoObject::class];
 
+    private static $owns = ['VideoObjects'];
+
     private static $defaults = [
         'Layout' => 'carousel',
         'VideoPerLine' => 'uk-child-width-1-2@s'
