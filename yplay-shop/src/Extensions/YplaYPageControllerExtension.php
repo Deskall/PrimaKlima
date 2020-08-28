@@ -137,7 +137,7 @@ class YplaYPageControllerExtension extends Extension
 
 
     public function filteredOptions(){
-       $options = ProductOption::get()->filter('GroupID',0)->filterByCallback(function($item, $list) {
+       $options = ProductOption::get()->filter(['GroupID' => 0, 'isVisible' => 1])->filterByCallback(function($item, $list) {
             if ($this->owner->activeCart()){
               return ($item->shouldDisplay() && $this->owner->activeCart()->hasCategory($item->Category()->Code) );
             }
