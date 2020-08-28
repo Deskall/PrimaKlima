@@ -163,6 +163,10 @@ class VideoBlock extends BaseElement implements Searchable
         return $embed;
     }
 
+    public function activeVideos(){
+        return $this->VideoObjects()->filter('isVisible',1)->sort('Sort');
+    }
+
       
 
    
