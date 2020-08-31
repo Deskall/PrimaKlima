@@ -51,6 +51,7 @@
 .html-dropdown .chosen-drop.active{
     clip: auto;
     white-space: normal;
+    clip-path: none;
 }
 .field .chosen-container-single .chosen-single div.option-html{
     width:100%;
