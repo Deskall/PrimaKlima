@@ -4,7 +4,7 @@
 .html-dropdown{
     font-size: 13px;
 }
-.htmldropdown.chosen-container{
+.html-dropdown.chosen-container{
     overflow: inherit;
 }
 .htmldropdown.columns .html-dropdown-option{
