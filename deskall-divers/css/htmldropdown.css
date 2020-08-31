@@ -40,7 +40,7 @@
 }
 
 .html-dropdown .chosen-drop.active{
-    clip: auto;
+    clip-path: auto;
     white-space: normal;
 }
 .field .chosen-container-single .chosen-single div.option-html{
