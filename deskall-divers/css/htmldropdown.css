@@ -1,0 +1,67 @@
+.htmldropdown select{
+    display: none;
+}
+.html-dropdown{
+    font-size: 13px;
+}
+
+.htmldropdown.columns .html-dropdown-option{
+    display: inline-flex;
+    width:48%;
+    margin:auto;       
+}
+.htmldropdown.colors .html-dropdown-option{
+    display: block;
+    width: 100%;
+}
+.htmldropdown.colors .chosen-container-single .chosen-single {
+   padding:0;
+}
+.htmldropdown.colors .html-dropdown-option .option-html.background p{
+    padding: 5px 10px;
+    margin:0;
+}
+@media only screen and (min-width:780px){ 
+    .htmldropdown.columns .html-dropdown-option{
+        width:32.5%;
+    }
+    .cms-container--split-mode .htmldropdown.columns .html-dropdown-option{
+        width:49%;
+    }
+}
+.html-dropdown-option:hover{
+    background-color: #3875d7;
+    background-image: linear-gradient(#3875d7 20%,#2a62bc 90%);
+    color: #fff;
+    cursor:pointer;
+}
+.html-dropdown-option i:before {
+    font-size: 40px;
+}
+
+.html-dropdown .chosen-drop.active{
+    clip: auto;
+    white-space: normal;
+}
+.field .chosen-container-single .chosen-single div.option-html{
+    width:100%;
+    position: relative;
+}
+.chosen-drop .option-html {
+    padding:10px;
+}
+.option-html.background p{
+    padding:0 5px;
+}
+.option-html i{
+    font-size: 20px;
+   
+}
+.option-html i:before{
+    vertical-align: middle;
+}
+
+.option-html svg{
+    vertical-align: middle;
+    margin-right:10px;
+}
