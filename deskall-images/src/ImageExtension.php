@@ -8,6 +8,7 @@ use SilverStripe\View\Requirements;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
 use SilverStripe\Control\Director;
+use SilverStripe\Core\Environment;
 
 class ImageExtension extends Extension
 {
@@ -57,7 +58,7 @@ class ImageExtension extends Extension
 
         //Publish
         $this->owner->publishSingle();
-        if ($this->owner->config()->get('optimise_tiny') && !$this->owner->Optimised){
+        if (Environment::getEnv('APP_OPTIMISE_TINY'); && !$this->owner->Optimised){
             //Optimise via TinyPNG API
             $this->OptimiseImage(Director::absoluteURL($this->owner->getSourceURL()), $_SERVER['DOCUMENT_ROOT'].$this->owner->getSourceURL());
             $this->owner->Optimised = 1;
