@@ -2,6 +2,7 @@
 Name: deskall-images
 After:
     - '#focuspoint'
+    - '#ScaledUploads'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-images
