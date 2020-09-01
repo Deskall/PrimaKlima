@@ -65,6 +65,7 @@ class ImageExtension extends Extension
             $this->owner->write();
         }
         
+        $this->owner->publishSingle();
         //Resize image to fit max Width and Height before resampling
         // $width = $this->owner->config()->get('MaxWidth');
         // $height = $this->owner->config()->get('MaxHeight');
