@@ -59,6 +59,10 @@ class ImageExtension extends Extension
         //Publish
         // $this->owner->publishSingle();
         if (Environment::getEnv('APP_OPTIMISE_TINY') && !$this->owner->Optimised){
+            ob_start();
+                        print_r('ici');
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-image.txt", $result);
             //Optimise via TinyPNG API
             $this->OptimiseImage(Director::absoluteURL($this->owner->getSourceURL()), $_SERVER['DOCUMENT_ROOT'].$this->owner->getSourceURL());
             $this->owner->Optimised = 1;
