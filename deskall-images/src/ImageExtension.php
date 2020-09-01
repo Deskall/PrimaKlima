@@ -52,46 +52,6 @@ class ImageExtension extends Extension
         'Description' => 'Text',
         'Optimised' => 'Boolean(0)'
     ];
-
-
-    public function onAfterLoadIntoFile($file){
-        parent::onAfterLoadIntoFile($file);
-        //Publish
-        $file->publishSingle();
-        if (Environment::getEnv('APP_OPTIMISE_TINY') && !$file->Optimised){
-            //Optimise via TinyPNG API
-            ob_start();
-                        print_r('ici');
-                        $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-            $this->OptimiseImage(Director::absoluteURL($$file->getSourceURL()), $_SERVER['DOCUMENT_ROOT'].$file->getSourceURL());
-            $file->Optimised = 1;
-            $file->write();
-        }
-        
-        // $this->owner->publishSingle();
-        //Resize image to fit max Width and Height before resampling
-        // $width = $this->owner->config()->get('MaxWidth');
-        // $height = $this->owner->config()->get('MaxHeight');
-        // $backend = $this->owner->getImageBackend();
-        // $resource = $backend->getImageResource();
-        // if ($this->owner->getExtension() != "svg"){
-        //     if ($width >= $height){
-        //         $resource->widen($width,function ($constraint) {
-        //             $constraint->upsize();
-        //         });
-        //     }
-        //     if ($height > $width){
-        //         $resource->heighten($width,function ($constraint) {
-        //             $constraint->upsize();
-        //         });
-        //     }
-        // }
-        
-        // $backend->setImageResource($resource);
-    }
-
-
    
     //  * A wildcard method for handling responsive sets as template functions,
     //  * e.g. $MyImage.ResponsiveSet1
@@ -341,15 +301,5 @@ class ImageExtension extends Extension
     // {
     //     return $this->getResponsiveSets();
     // }
-
-
-
-    //Optimise with tynigPNG
-
-    public function OptimiseImage($url,$path){
-        $optimiser = new DeskallImageOptimiser();
-        $optimiser->Optimise($url,$path);
-    }
-
 
 }
