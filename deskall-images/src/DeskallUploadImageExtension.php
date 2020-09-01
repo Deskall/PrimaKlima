@@ -9,7 +9,6 @@ class DeskallUploadImageExtension extends Extension
 
 
     public function onAfterLoadIntoFile($file){
-        parent::onAfterLoadIntoFile($file);
         //Publish
         $file->publishSingle();
         if (Environment::getEnv('APP_OPTIMISE_TINY') && !$file->Optimised){
