@@ -53,12 +53,13 @@ Axllent\ScaledUploads\ScaledUploads:
   force_resampling: true    # Force re-saving the image even if it is smaller - default false
 
 # Compress Images on the fly
-# Kinglozzer\SilverStripeTinyPng\ImageExtension:
-#   tinypng_api_key: '`APP_TINYPNG_APIKEY`'
+Kinglozzer\SilverStripeTinyPng\ImageExtension:
+  tinypng_api_key: '`APP_TINYPNG_APIKEY`'
 
-SilverStripe\Assets\Upload:
-  extensions:
-    - DeskallUploadImageExtension
+# NOT WORKING
+# SilverStripe\Assets\Upload:
+#   extensions:
+#     - DeskallUploadImageExtension
 
 # ImageExtension:
 #   successStatuses:
