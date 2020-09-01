@@ -57,7 +57,7 @@ class ImageExtension extends Extension
     public function onAfterUpload(){
 
         //Publish
-        $this->owner->publishSingle();
+        // $this->owner->publishSingle();
         if (Environment::getEnv('APP_OPTIMISE_TINY') && !$this->owner->Optimised){
             //Optimise via TinyPNG API
             $this->OptimiseImage(Director::absoluteURL($this->owner->getSourceURL()), $_SERVER['DOCUMENT_ROOT'].$this->owner->getSourceURL());
