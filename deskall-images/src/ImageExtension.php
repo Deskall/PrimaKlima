@@ -54,22 +54,18 @@ class ImageExtension extends Extension
     ];
 
 
-    public function onAfterUpload(){
-
+    public function onAfterLoadIntoFile($file){
+        parent::onAfterLoadIntoFile($file);
         //Publish
-        // $this->owner->publishSingle();
-        if (Environment::getEnv('APP_OPTIMISE_TINY') && !$this->owner->Optimised){
-            ob_start();
-                        print_r('ici');
-                        $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-image.txt", $result);
+        $file->publishSingle();
+        if (Environment::getEnv('APP_OPTIMISE_TINY') && !$file->Optimised){
             //Optimise via TinyPNG API
-            $this->OptimiseImage(Director::absoluteURL($this->owner->getSourceURL()), $_SERVER['DOCUMENT_ROOT'].$this->owner->getSourceURL());
-            $this->owner->Optimised = 1;
-            $this->owner->write();
+            $this->OptimiseImage(Director::absoluteURL($$file->getSourceURL()), $_SERVER['DOCUMENT_ROOT'].$file->getSourceURL());
+            $file->Optimised = 1;
+            $file->write();
         }
         
-        $this->owner->publishSingle();
+        // $this->owner->publishSingle();
         //Resize image to fit max Width and Height before resampling
         // $width = $this->owner->config()->get('MaxWidth');
         // $height = $this->owner->config()->get('MaxHeight');
