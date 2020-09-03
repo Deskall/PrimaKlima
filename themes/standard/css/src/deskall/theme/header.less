@@ -14,7 +14,10 @@ header{
 		}
 	}
 	.uk-logo, .svg-logo{
-		height: @header-logo-height;
+		height: @header-mobile-logo-height;
+		@media only screen and (min-width:@breakpoint-medium){
+			height: @header-logo-height;
+		}
 	}
 	&.dk-background-header{
 		background:@dk-background-header;
