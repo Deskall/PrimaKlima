@@ -2,6 +2,7 @@
 Name: deskall-images
 After:
     - '#focuspoint'
+    - '#ScaledUploads'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-images
@@ -13,20 +14,20 @@ SilverStripe\AssetAdmin\Forms\ImageFormFactory:
 SilverStripe\Assets\Image:
   allowed_extensions:
     - svg
-  MaxWidth: 2500
-  MaxHeight: 2500
-  optimise_tiny: true
-  memory: 512M
+  #MaxWidth: 2500
+  #MaxHeight: 2500
+  optimise_tiny: '`APP_OPTIMISE_TINY`'
+  #memory: 256M
   extensions:
     - ImageExtension
 
 SilverStripe\Filesystem\Storage\DBFile:
   extensions:
     - ImageExtension
-  force_resample: true
+  #force_resample: true
 
 SilverStripe\Assets\File:
-  force_resample: true
+  #force_resample: true
   allowed_extensions:
     - svg
   app_categories:
@@ -38,11 +39,27 @@ SilverStripe\Assets\File:
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:
     properties:
-      Quality: 75
+      Quality: 80
   Intervention\Image\ImageManager:
     constructor:
       - { driver: imagick }
 
+# Resize Image to proper Web dimensions
+Axllent\ScaledUploads\ScaledUploads:
+  max_width: 2880            # Maximum width - default 960
+  max_height: 2400           # Maximum height - default 800
+  auto_rotate: true         # Automatically rotate images that rely on exif information for rotation - default true
+  bypass: false             # Bypass (skip) this plugin when uploading - default false
+  force_resampling: true    # Force re-saving the image even if it is smaller - default false
+
+# Compress Images on the fly
+Kinglozzer\SilverStripeTinyPng\ImageExtension:
+  tinypng_api_key: '`APP_TINYPNG_APIKEY`'
+
+# NOT WORKING
+# SilverStripe\Assets\Upload:
+#   extensions:
+#     - DeskallUploadImageExtension
 
 # ImageExtension:
 #   successStatuses:

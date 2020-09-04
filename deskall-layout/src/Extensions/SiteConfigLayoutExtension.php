@@ -117,7 +117,10 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderHeight' => '@header-menu-height',
     'HeaderFontSize' => '@dk-main-nav-font-size',
     'HeaderMobileFontSize' => '@dk-main-nav-font-size-mobile',
-    'HeaderMenuItemSize' => '@navbar-nav-item-height',
+    'HeaderMainMenuItemSize' => [
+      '@navbar-main-nav-item-height',
+      '@navbar-nav-item-height'],
+    'HeaderSubMenuItemSize' => '@navbar-sub-nav-item-height',
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
     'HeaderLogoHeight' => '@header-logo-height',
     'DropdownSubMenuWidth' => '@dk-navbar-dropdown-width',

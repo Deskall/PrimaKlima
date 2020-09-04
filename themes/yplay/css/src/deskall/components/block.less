@@ -45,4 +45,13 @@
 	@media only screen and (min-width:@breakpoint-medium){
 		padding: @intrablock-padding-vertical-m 0;
 	}
+	&.with-background{
+		padding: @intrablock-padding-vertical;
+		@media only screen and (min-width:@breakpoint-small){
+			padding: @intrablock-padding-vertical-s;
+		}
+		@media only screen and (min-width:@breakpoint-medium){
+			padding: @intrablock-padding-vertical-m;
+		}
+	}
 }

@@ -1,11 +1,12 @@
 <?php
+use SilverStripe\Core\Environment;
 
 class DeskallImageOptimiser {
-	protected $api_key = 'gG1Tujhnd39tTlK5Wg8fKwbN6a3HVDA4';
 
 	public function Optimise($url, $path){
+		$key = Environment::getEnv('APP_TINYPNG_APIKEY');
 		try {
-    		\Tinify\setKey($this->api_key);
+    		\Tinify\setKey($key);
 			$source = \Tinify\fromUrl($url);
 			$source->toFile($path);
 		} catch(\Tinify\AccountException $e) {
