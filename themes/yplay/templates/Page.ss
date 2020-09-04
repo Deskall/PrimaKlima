@@ -2,7 +2,7 @@
 <html lang="$ContentLocale" dir="ltr">
   <head>
      <% include Meta %>
-     <meta name="apple-itunes-app" content="app-id=1460260115, affiliate-data=myAffiliateData, app-argument=$Link">
+     <meta name="apple-itunes-app" content="app-id=428835098, affiliate-data=myAffiliateData, app-argument=$Link">
   </head>
   <body class="$ClassName $Level(1).ExtraCSSClass">
     $SiteConfig.BodyScripts
