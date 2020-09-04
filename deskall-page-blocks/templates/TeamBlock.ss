@@ -1,4 +1,4 @@
-<div class="uk-child-width-1-2@m uk-child-width-1-3@l uk-grid-small" data-uk-grid>
+<div class="uk-child-width-auto uk-grid-small" data-uk-grid>
     <% if Boxes.exists %>
         <% loop Boxes %>
         <div>
