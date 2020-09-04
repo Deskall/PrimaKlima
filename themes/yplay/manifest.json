@@ -1,0 +1,49 @@
+{
+  "name": "YplaY",
+  "short_name": "YplaY",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color" : "#ffffff" ,
+  "theme_color": "#ffffff",
+  "description": "Schnelles Internet bis 1 Gbit/s, TV mit Replay und Festnetztelefonie mit CH-Flatrate über das Glasfasernetz. Jetzt umsteigen zu YplaY.",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.sbc.gib.multiscreen"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/themes/yplay/apple-icon-57x57.png",
+      "sizes": "57x57",
+      "type": "image/png",
+      "density": "1.0"
+    },
+    {
+      "src": "/themes/yplay/apple-icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "density": "1.5"
+    },
+    {
+      "src": "/themes/yplay/apple-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": "3.0"
+    },
+    {
+      "src": "/themes/yplay/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "density": "4.0"
+    },
+    {
+      "src": "/themes/yplay/android-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "density": "4.0"
+    }
+  ]
+}
