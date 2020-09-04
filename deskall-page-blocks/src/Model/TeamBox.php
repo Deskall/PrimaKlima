@@ -8,6 +8,7 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\Versioned\Versioned;
 
 class TeamBox extends DataObject {
 
@@ -25,6 +26,7 @@ class TeamBox extends DataObject {
 	);
 
 	private static $extensions = [
+		Versioned::class,
 		'Activable',
 		'Sortable'
 	];
