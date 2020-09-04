@@ -11,18 +11,16 @@ use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use g4b0\SearchableDataObjects\Searchable;
+use Embed\Adapters\Adapter;
+use Embed\Embed;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
-use SilverStripe\Forms\GridField\GridFieldDeleteAction;
-use SilverStripe\Forms\GridField\GridFieldButtonRow;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
-use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 
 class VideoBlock extends BaseElement implements Searchable
 {
-	private static $icon = 'font-icon-block-media';
+    private static $icon = 'font-icon-block-media';
     
     private static $controller_template = 'BlockHolder';
 
@@ -36,23 +34,29 @@ class VideoBlock extends BaseElement implements Searchable
 
     private static $description = 'Video Karousel';
 
-	private static $db = [
-		'HTML' => 'HTMLText',
+    private static $db = [
+        'HTML' => 'HTMLText',
+        'Videos' => 'Text',
+        'VideosHTML' => 'HTMLText',
         'VideoPerLine' => 'Varchar(255)'
-	];
+    ];
 
-	private static $defaults = [
-		'Layout' => 'carousel',
-		'VideoPerLine' => 'uk-child-width-1-2@s'
-	];
+    private static $has_many = ['VideoObjects' => VideoObject::class];
 
-	private static $block_layouts = [
+    private static $owns = ['VideoObjects'];
+
+    private static $defaults = [
+        'Layout' => 'carousel',
+        'VideoPerLine' => 'uk-child-width-1-2@s'
+    ];
+
+    private static $block_layouts = [
         'carousel' => 'Carousel',
         'grid' => 'Grid'
     ];
 
     private static $videos_per_line = [
-    	'uk-child-width-1-1' => '1',
+        'uk-child-width-1-1' => '1',
         'uk-child-width-1-2@s' => '2',
         'uk-child-width-1-3@s' => '3'
     ];
@@ -63,75 +67,144 @@ class VideoBlock extends BaseElement implements Searchable
 
     private static $has_many = ['Videos' => VideoObject::class];
 
-    private static $cascade_duplicates = [];
+    /**
+     * Color to customize the vimeo player.
+     * Can be set via config.yml
+     * @var string
+     */
+    private static $player_color = '44BBFF';
 
-	/**
-	 * Color to customize the vimeo player.
-	 * Can be set via config.yml
-	 * @var string
-	 */
-	private static $player_color = '44BBFF';
+    public function fieldLabels($includerelation = true){
+        $labels = parent::fieldLabels($includerelation);
+        $labels['Videos'] = 'URLs der extern Videos (1 per Linie)';
 
-	public function getCMSFields() {
-		$fields = parent::getCMSFields();
-		$fields->removeByName('VideoPerLine');
-		$fields->removeByName('Layout');
-        $fields->removeByName('Videos');
-		  
-            $fields
-                ->fieldByName('Root.Main.HTML')
-                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'))
-                ->setRows(5);
-   
-			$fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-				DropdownField::create('VideoPerLine',_t(__CLASS__.'.VideoPerLine','Videos per Linie'), $this->getTranslatedSourceFor(__CLASS__,'videos_per_line')),
-				OptionsetField::create('Layout','Format', $this->getTranslatedSourceFor(__CLASS__,'block_layouts'))
-			)->setTitle(_t(__CLASS__.'.BlockLayout','Layout'))->setName('BlockLayout'));
-       
-            $config = GridFieldConfig_RecordEditor::create();
-                $config->addComponent(new GridFieldOrderableRows('Sort'));
-                if (singleton('VideoObject')->hasExtension('Activable')){
-                     $config->addComponent(new GridFieldShowHideAction());
-                }
-                $videosField = new GridField('Videos',_t(__CLASS__.'.Videos','Videos'),$this->Videos(),$config);
-                $fields->addFieldToTab('Root.Main',$videosField);
-        
-        return $fields;
-	}
-
-    public function ActiveVideos(){
-        return $this->Videos()->filter('isVisible',1);
+        return $labels;
     }
 
-	// public function getThumbnailURL( $url ){
-	// 	$media =  $this->Media($url);
-	// 	$ThumbnailUrl = ($media) ? $media->thumbnail_url : false;
-	// 	return $ThumbnailUrl;
-	// }
+    public function getCMSFields() {
+        $fields = parent::getCMSFields();
+        $fields->removeByName('VideoPerLine');
+        $fields->removeByName('Layout');
+        $fields->removeByName('VideosHTML');
+          
+            $fields
+                ->fieldByName('Root.Main.HTML')
+                ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Inhalt'))
+                ->setRows(5);
+   
+            $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+                DropdownField::create('VideoPerLine',_t(__CLASS__.'.VideoPerLine','Videos per Linie'), $this->getTranslatedSourceFor(__CLASS__,'videos_per_line')),
+                OptionsetField::create('Layout','Format', $this->getTranslatedSourceFor(__CLASS__,'block_layouts'))
+            )->setTitle(_t(__CLASS__.'.BlockLayout','Layout'))->setName('BlockLayout'));
+        
+        $config = GridFieldConfig_RecordEditor::create();
+            $config->addComponent(new GridFieldOrderableRows('Sort'));
+            if (singleton('VideoObject')->hasExtension('Activable')){
+                 $config->addComponent(new GridFieldShowHideAction());
+            }
+            $videosField = new GridField('VideoObjects',_t(__CLASS__.'.Videos','Video Dateien'),$this->VideoObjects(),$config);
+            $fields->addFieldToTab('Root.Main',$videosField);
+        
+        return $fields;
+    }
 
-	// function GetVideoThumbs(){
-	// 	$content = '';
-	// 	if( $this->countVideos() < 2){
-	// 	    $thumbnail = $this->getThumbnailURL(trim($this->VideoList));
-	// 	    if( $thumbnail ){
-	// 	        $content .= '<img src="'.$thumbnail.'" class="img-full"/>';
-	// 	    }
-	// 	}else{
-	// 		$count = 0;
-	// 		foreach (explode("\n",$this->VideoList) as $url){
-	// 		    $thumbnail = $this->getThumbnailURL(trim($url));
-	// 		    if( $thumbnail ){
-	// 		        $content .= '<img src="'.$thumbnail.'" class="img-left"/>';
-	// 		    }
-	// 		    $count++;
-	// 		    if( $count == 2 ){
-	// 		    	break;
-	// 		    }
-	// 		}
-	// 	}
+    public function onBeforeWrite(){
+        if ($this->isChanged('Videos')){
+            $this->updateEmbedHTML();
+        }
+        parent::onBeforeWrite();
+    }
 
-	// 	return $content;
-	// }
+    //Videos
+    /**
+     * @return $this
+     */
+    public function Embed()
+    {
+        $this->setFromURL($this->SourceURL);
+
+        return $this;
+    }
+
+
+    public function updateEmbedHTML()
+    {
+      $content = null;
+      if ($this->Videos){
+        $content = '';
+        foreach (preg_split('/\r\n|[\r\n]/', $this->Videos) as $url){
+         $html = $this->setFromURL($url);
+         if ($html){
+            $html = str_replace('?feature=oembed','?feature=oembed&rel=0',$html);
+          $content .= ($this->Layout == "carousel") ? '<li class="uk-height-1-1">' : '<div>';
+          $content .= $html;
+          $content .= ($this->Layout == "carousel") ? '</li>' : '</div>';
+         }
+        }
+      }
+      
+      $this->VideosHTML = $content;
+    }
+
+    /**
+     * @param $url
+     */
+    public function setFromURL($url)
+    {
+        if ($url) {
+            // $config = array('min_image_width' => 1200, 'min_image_height' => 450);
+            $info = Embed::create($url);
+            $embed = $this->setFromEmbed($info);
+            return $embed;
+        }
+    }
+
+    /**
+     * @param Adapter $info
+     */
+    public function setFromEmbed(Adapter $info)
+    {
+        $embed = $info->getCode();
+        return $embed;
+    }
+
+    public function activeVideos(){
+        return $this->VideoObjects()->filter('isVisible',1)->sort('Sort');
+    }
+
+      
+
+   
+
+    // public function getThumbnailURL( $url ){
+    //  $media =  $this->Media($url);
+    //  $ThumbnailUrl = ($media) ? $media->thumbnail_url : false;
+    //  return $ThumbnailUrl;
+    // }
+
+    // function GetVideoThumbs(){
+    //  $content = '';
+    //  if( $this->countVideos() < 2){
+    //      $thumbnail = $this->getThumbnailURL(trim($this->VideoList));
+    //      if( $thumbnail ){
+    //          $content .= '<img src="'.$thumbnail.'" class="img-full"/>';
+    //      }
+    //  }else{
+    //      $count = 0;
+    //      foreach (explode("\n",$this->VideoList) as $url){
+    //          $thumbnail = $this->getThumbnailURL(trim($url));
+    //          if( $thumbnail ){
+    //              $content .= '<img src="'.$thumbnail.'" class="img-left"/>';
+    //          }
+    //          $count++;
+    //          if( $count == 2 ){
+    //              break;
+    //          }
+    //      }
+    //  }
+
+    //  return $content;
+    // }
 
     // public function Videos(){
     //  $content = '';
@@ -149,27 +222,27 @@ class VideoBlock extends BaseElement implements Searchable
     //  return $output;    
     // }
 
-	// function getVideos(){
-	// 	$videos = '';
-	// 	if ($this->VideoList != ""){
-	// 		foreach (explode("\n",$this->VideoList) as $url){
-	// 			$videoObject = $this->Media(trim($url));
-	// 		    if( $videoObject ){
-	// 			    $videos .= '<li class="uk-height-1-1">'.$videoObject->code.'</li>';
-	// 			}
-	// 		}
-	// 	}
-		
-	// 	$html = DBHTMLText::create();
-	// 	$html->setValue($videos);
-	// 	return $html;
-	// }
+    // function getVideos(){
+    //  $videos = '';
+    //  if ($this->VideoList != ""){
+    //      foreach (explode("\n",$this->VideoList) as $url){
+    //          $videoObject = $this->Media(trim($url));
+    //          if( $videoObject ){
+    //              $videos .= '<li class="uk-height-1-1">'.$videoObject->code.'</li>';
+    //          }
+    //      }
+    //  }
+        
+    //  $html = DBHTMLText::create();
+    //  $html->setValue($videos);
+    //  return $html;
+    // }
 
-	// public function Media($url) {
-	// 	return Embed::create($url);
-	// }
+    // public function Media($url) {
+    //  return Embed::create($url);
+    // }
 
-	 public function getSummary()
+     public function getSummary()
     {
         return DBField::create_field('HTMLText', $this->HTML)->Summary(20);
     }
@@ -230,26 +303,9 @@ class VideoBlock extends BaseElement implements Searchable
      * @return array
      */
     public function getContentFields() {
-        return array('HTML','VideosContent');
+        return array('HTML');
     }
 
-    public function getVideosContent(){
-        $html = '';
-        if ($this->Videos()->count() > 0){
-            $html .= '<ul>';
-            foreach ($this->Videos() as $video) {
-                $html .= '<li>';
-                if ($video->Title){
-                    $html .= $video->Title."\n";
-                }
-                if ($video->HTML){
-                    $html .= $video->HTML;
-                }
-                $html .= '</li>';
-            }
-            $html .='</ul>';
-        }
-        return $html;
-    }
+    
 /************ END SEARCHABLE ***************************/
 }

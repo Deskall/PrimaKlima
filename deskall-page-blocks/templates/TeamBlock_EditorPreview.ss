@@ -9,9 +9,14 @@
 
         <div class="elemental-preview__detail">
             <% if Boxes.exists %>
-                <% loop Boxes %>
-                <div><img src=$Image.Thumbnail(80,80).URL /></div>
-                <% end_loop %>
+            <table>
+                <tr>
+                    <% loop Boxes.limit(3) %>
+                    <td><img src=$Image.Thumbnail(80,80).URL width="80" height="80" /></td>
+                    <% end_loop %>
+                    <td>...</td>
+                </tr>
+            </table>
             <% end_if %>
         </div>
     </a>
