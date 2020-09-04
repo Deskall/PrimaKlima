@@ -31,6 +31,7 @@ class TeamBox extends DataObject {
 		'Sortable'
 	];
 
+	private static $owns = ['Image'];
 	
 	private static $summary_fields = [
 		'Thumbnail' => 'Bild',
