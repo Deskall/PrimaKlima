@@ -47,7 +47,6 @@ class Slide extends DataObject
     ];
 
     private static $block_text_positions = [
-
         'uk-position-bottom-left' =>  [
             'value' => 'uk-position-bottom-left',
             'title' => 'Bottom left',

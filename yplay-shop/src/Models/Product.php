@@ -134,7 +134,7 @@ class Product extends DataObject {
 
 	public function PrintPriceString(){
 		if ($this->RecurringPrice){
-			if ($this->getActionMonthlyPrice() > 0){
+			if ($this->getActionMonthlyPrice() ){
 				return DBText::create()->setValue('CHF '.$this->getActionMonthlyPrice().' / Mt.');
 			}
 			return DBText::create()->setValue('CHF '.$this->getMonthlyPrice().' / Mt.');
@@ -160,6 +160,8 @@ class Product extends DataObject {
 		// $fields->removeByName('ProductCode');
 		$fields->removeByName('CategoryID');
 		$fields->removeByName('FooterText');
+		$fields->removeByName('ActivationPrice');
+		$fields->removeByName('ActivationPriceLabel');
 		
 		
 		$fields->fieldByName('Root.Main.Unit')->displayIf('RecurringPrice')->isNotChecked();
@@ -200,6 +202,10 @@ class Product extends DataObject {
 
 	//To do: elaborate with Actions
 	public function getActionMonthlyPrice(){
+		ob_start();
+					print_r('product: '.$this->ProductCode."\n");
+					$result = ob_get_clean();
+					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-products.txt", $result);
 		$discounts = $this->Actions();
 		if ($discounts){
 			if ($this->activePLZ()){
@@ -218,8 +224,17 @@ class Product extends DataObject {
 		}
 		if ($discounts->count() > 0){
 			$discount = $discounts->first();
+			ob_start();
+						print_r('discount: '.$discount->Title."\n");
+						$result = ob_get_clean();
+						file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-products.txt", $result, FILE_APPEND);
+			ob_start();
+						print_r('price: '.$discount->Value."\n");
+						$result = ob_get_clean();
+						file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-products.txt", $result, FILE_APPEND);
 			return $discount->Value;
 		}
+		return null;
 	}
 
 	public function getMonthlyPrice(){

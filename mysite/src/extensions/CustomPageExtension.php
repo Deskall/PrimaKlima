@@ -13,12 +13,12 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class CustomPageExtension extends DataExtension
 {
-    private static $many_many = ['LateralSections' => LateralSection::class];
+
+    private static $many_many = [ 'LateralSections' => LateralSection::class];
 
     private static $owns = ['LateralSections'];
 
     public function updateCMSFields(FieldList $fields){
-
         $fields->removeByName('LateralSections');
         $fields->addFieldToTab('Root.Sidebar',
              GridField::create('LateralSections','Sidebar Menu Sektionen',$this->owner->LateralSections(),GridFieldConfig_RelationEditor::create()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDeleteAction()))
@@ -33,5 +33,4 @@ class CustomPageExtension extends DataExtension
     public function ShopPage(){
         return ShopPage::get()->first();
     }
-
 }

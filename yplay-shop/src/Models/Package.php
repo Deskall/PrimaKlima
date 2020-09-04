@@ -44,8 +44,11 @@ class Package extends Product {
 		$fields->removeByName('Unit');
 		if ($this->ID > 0){
 			$fields->dataFieldByName('Products')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction());
-			$fields->dataFieldByName('Products')->getConfig()->getComponentByType(GridFieldAddExistingAutocompleter::class)->setSearchList(Product::get()->filter(['ClassName' => Product::class,'Availability' => ['Immer',$this->Availability]]));
-			
+			$source = ($this->Availability == "Immer") ? Product::get()->filter('ClassName',Product::class) : Product::get()->filter([
+				'ClassName' => Product::class,
+				'Availability' => ['Immer', $this->Availability]
+			]);
+			$fields->dataFieldByName('Products')->getConfig()->getComponentByType(GridFieldAddExistingAutocompleter::class)->setSearchList($source);
 		}
 		
 		return $fields;

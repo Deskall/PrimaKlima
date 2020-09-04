@@ -1,4 +1,4 @@
-<% if $TotalMonthlyPrice > 0 %>
+
 <strong class="uk-text-small">Monatliche Kosten</strong>
 <% if Package.exists && $Package.PriceGain.gainM < 0 %><p>Sie sparen mit diesem Kombiabo {$Package.PriceGain.gainM}%</p><% end_if %>
 <table id="monthly-costs" class="uk-table uk-table-small uk-table-justify">
@@ -12,7 +12,7 @@
 		<% if Products.exists %>
 		<% loop Products.Sort('SortOrder') %>
 			<% if RecurringPrice %>
-				<tr><td>$Title</td><td class="uk-text-right"><% if $ActionMonthlyPrice %><s>$getMonthlyPrice</s> $PrintPriceString<% else %>$PrintPriceString<% end_if %><% if Quantity > 1 %> * $Quantity<% end_if %></td></tr>
+				<tr><td>$Title</td><td class="uk-text-right"><% if $ActionMonthlyPrice  %><s>$getMonthlyPrice</s> $PrintPriceString<% else %>$PrintPriceString<% end_if %><% if Quantity > 1 %> * $Quantity<% end_if %></td></tr>
 				<% end_if %>
 			<% end_loop %>
 		<% end_if %>
@@ -28,7 +28,6 @@
 		<tr><td>Total (monatlich)</td><td id="total-monthly-price" class="uk-text-right uk-text-bold">$PrintMonthlyPrice</td></tr>
 	</tfoot>
 </table>
-<% end_if %>
 <% if not $ExistingCustomer || $ExistingCustomer < 1 %>
 <div class="uk-margin-small activation-text">
 	$ActivationPriceLabel

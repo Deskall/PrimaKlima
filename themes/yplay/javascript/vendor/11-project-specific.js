@@ -195,11 +195,8 @@ $(document).ready(function(){
 				}
 			}
 		});
-		
 		$("#loading-block").remove();
-		$("#products-hidden-container").slideDown();
-		
-		
+		$("#products-hidden-container").slideDown();		
 	}
 
 	function UpdateOrder(){
@@ -212,6 +209,7 @@ $(document).ready(function(){
 		$('.category:not(.disabled) .slider-products .uk-slider-items li.uk-active').each(function(){
 			products.push($(this).attr('data-value'));
 		});
+	
 		//Compare to see if any package matches the selected products
 		$.each(packages,function(i,v){
 			if (compareArrays(v['Products'],productsOfPackages)){
@@ -425,9 +423,44 @@ $(document).ready(function(){
 				$(this).parents('tr').find('input').prop("checked",true).trigger("change");
 			}
 		});
+		
+		if ($(".options input[type='checkbox']").length > 0){
+			UpdateOptions();
+		}
+
+		function UpdateOptions(){
+			var options = [];
+			$(".options input[type='checkbox']").each(function(){
+					if ($(this).is(':checked')){
+						if ($(this).attr('data-is-multiple')){
+							var quantityInput = $(this).parents('tr').find('input.quantity');
+							if(quantityInput.val() < 1 ){
+								quantityInput.val(1);
+							}
+							$(this).parents('tr').find('.multiple > div').attr('hidden',false);
+							options.push({
+								'code' : $(this).attr('data-value'),
+								'quantity': quantityInput.val()
+							});
+						}
+						else{
+							options.push({
+								'code' : $(this).attr('data-value'),
+								'quantity':1
+							});
+						}
+						
+					}
+					else{
+						$(this).parents('tr').find('input.quantity').val(0);
+						$(this).parents('tr').find('.multiple > div ').attr('hidden','hidden');
+					}
+			});
+
+			return options;
+		}
 
 		$(document).on("change",".options input",function(){
-			var options = [];
 			//handle pseudo-checkbox radio fields
 			if ($(this).hasClass('pseudo-radio')){
 				var value = $(this).attr('data-value');
@@ -437,35 +470,7 @@ $(document).ready(function(){
 					}
 				});
 			}
-
-		
-			$(".options input[type='checkbox']").each(function(){
-				if ($(this).is(':checked')){
-					if ($(this).attr('data-is-multiple')){
-						var quantityInput = $(this).parents('tr').find('input.quantity');
-						if(quantityInput.val() < 1 ){
-							quantityInput.val(1);
-						}
-						quantityInput.attr('hidden',false);
-						quantityInput.prev('span').attr('hidden',false);
-						options.push({
-							'code' : $(this).attr('data-value'),
-							'quantity': quantityInput.val()
-						});
-					}
-					else{
-						options.push({
-							'code' : $(this).attr('data-value'),
-							'quantity':1
-						});
-					}
-					
-				}
-				else{
-					$(this).parents('tr').find('input.quantity').val(0).attr('hidden','hidden');
-					$(this).parents('tr').find('input.quantity').prev('span').attr('hidden','hidden');
-				}
-			});
+			options = UpdateOptions();
 			UpdateCart(options);
 		});
 

@@ -54,8 +54,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderFontColor' => 'Varchar(7)',
     'HeaderFontSize' => 'Varchar(255)',
     'HeaderFontMobileSize' => 'Varchar(255)',
-    'HeaderMainMenuItemSize' => 'Varchar(255)',
-    'HeaderSubMenuItemSize' => 'Varchar(255)',
+    'HeaderMenuItemSize' => 'Varchar(255)',
     'HeaderHoverFontColor' => 'Varchar(7)',
     'HeaderHeight' => 'Varchar(255)',
     'HeaderCollapsedHeight' => 'Varchar(255)',
@@ -65,7 +64,6 @@ class SiteConfigLayoutExtension extends DataExtension
     'StickyHeader' => 'Boolean(0)',
     'BackContent' => 'Boolean(0)',
     'HeaderLogoHeight' => 'Varchar(255)',
-    'HeaderMobileLogoHeight' => 'Varchar(255)',
     'DropdownSubMenuWidth' => 'Varchar(255)',
     'DropdownSubMenuBackground' => 'Varchar(255)',
     'DropdownSubMenuColor' => 'Varchar(255)',
@@ -125,7 +123,6 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderSubMenuItemSize' => '@navbar-sub-nav-item-height',
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
     'HeaderLogoHeight' => '@header-logo-height',
-    'HeaderMobileLogoHeight' => '@header-mobile-logo-height',
     'DropdownSubMenuWidth' => '@dk-navbar-dropdown-width',
     'DropdownSubMenuBackground' => '@main-subnavi-background',
     'DropdownSubMenuColor' => '@main-subnavi-color',
@@ -324,12 +321,10 @@ class SiteConfigLayoutExtension extends DataExtension
       ),
       FieldGroup::create(
         TextField::create('HeaderHeight',_t(__CLASS__.'.HeaderHeight','Höhe')),
-        TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Header Höhe')),
-        TextField::create('HeaderMainMenuItemSize',_t(__CLASS__.'.HeaderMainMenuItemHeight','Haupt Menu Item Höhe')),
-        TextField::create('HeaderSubMenuItemSize',_t(__CLASS__.'.HeaderSubMenuItemHeight','Sekondäre Menu Item Höhe')),
+        TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Höhe')),
+        TextField::create('HeaderMenuItemSize',_t(__CLASS__.'.HeaderItemHeight','Menu Item Höhe')),
         TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse')),
-        TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe')),
-        TextField::create('HeaderMobileLogoHeight',_t(__CLASS__.'.HeaderMobileLogHeight','Mobile Header Logo Höhe'))
+        TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe'))
       ),
       TextField::create('ExtraHeaderClass',_t(__CLASS__.'.ExtraHeaderClass','Custom CSS für header')),
       FieldGroup::create(
@@ -561,10 +556,7 @@ class SiteConfigLayoutExtension extends DataExtension
       curl_setopt($req, CURLOPT_POSTFIELDS, $postdata);
       curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
       curl_exec($req);
-      ob_start();
-            print_r($url);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+    
 
     }
    
