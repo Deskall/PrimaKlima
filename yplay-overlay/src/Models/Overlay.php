@@ -93,7 +93,7 @@ class Overlay extends DataObject{
 
 		//Other display options
 		$fields->fieldByName('Root.Main.CountDown')->displayIf('Type')->isEqualTo('Text')->end();
-		$fields->fieldByName('Root.Main.CountDownDate')->displayIf('Type')->isEqualTo('Text')->end();
+		$fields->fieldByName('Root.Main.CountDownDate')->displayIf('CountDown')->isChecked()->end();
 		$fields->fieldByName('Root.Main.Subtitle')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.Content')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.LinkableLinkID')->displayIf('Type')->isEqualTo('Text')->end();
