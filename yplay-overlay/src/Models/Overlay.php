@@ -35,7 +35,8 @@ class Overlay extends DataObject{
 	];
 
 	private static $has_one = [
-		'BackgroundImage' => Image::class
+		'BackgroundImage' => Image::class,
+		'FormBlock' => FormBlock::class
 	];
 
 	private static $extensions = [
