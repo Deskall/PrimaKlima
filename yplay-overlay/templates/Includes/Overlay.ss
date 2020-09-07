@@ -15,6 +15,11 @@
 		        		$Content
 		        	</div>
 		        	<% end_if %>
+		        	<% if FormBlock.exists %>
+		        	<% with FormBlock.Controller %>
+		        		$Me
+		        	<% end_with %>
+		        	<% end_if %>
 		        </div>
 		        <div class="uk-modal-footer uk-text-right">
 		        	<button class="uk-button button-$CloseButtonBackground uk-modal-close" type="button">$CloseButtonText</button>
