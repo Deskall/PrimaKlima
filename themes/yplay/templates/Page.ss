@@ -22,7 +22,6 @@
 
     </div>
     <% if Overlay.exists %>
-    Hello
       <% with Overlay %>
         <% include Overlay %>
       <% end_with %>
