@@ -3,7 +3,7 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\DropdownField;
-use SilverStripe\Forms\NumberField;
+use SilverStripe\Forms\NumericField;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\SiteConfig\SiteConfig;
@@ -76,7 +76,7 @@ class Overlay extends DataObject{
 		
 		$fields->addFieldsToTab('Root.Trigger', [
 			DropdownField::create('TriggerType', $this->fieldLabels()['TriggerType'],['Time' => 'Zeit', 'Out' => 'Browser Abschluss / Seite wechseln'])->setEmptyString('Bitte wählen'),
-			NumberField::create('TriggerTime',$this->fieldLabels()['TriggerTime'] )->displayIf('TriggerType')->isEqualTo('Time')->end(),
+			NumericField::create('TriggerTime',$this->fieldLabels()['TriggerTime'] )->displayIf('TriggerType')->isEqualTo('Time')->end(),
 			DropdownField::create('TriggerFrequency', $this->fieldLabels()['TriggerFrequency'],['Once' => 'Einmal (per Session)', 'Always' => 'Immer'])->setEmptyString('Bitte wählen')
 		])->setTitle('Auslösung');
 
