@@ -46,6 +46,15 @@ class Overlay extends DataObject{
 		'Linkable'
 	];
 
+	private static $defaults = [
+		'CloseButtonText' => 'Zurück',
+		'ValidButtonText' => 'Einverstanden',
+		'TriggerType' => 'Time',
+		'TriggerTime' => '5',
+		'TriggerFrequency' => 'Once'
+	];
+
+
     public function fieldLabels($includerelations = true) {
 	    $labels = parent::fieldLabels($includerelations);
 	    $labels['Title'] = 'Titel';
@@ -106,4 +115,14 @@ class Overlay extends DataObject{
 
 		return $fields;
 	}
+
+	public function validate() {
+        $result = parent::validate();
+
+        if(!$this->Type) {
+            $result->addError('Bitte Art auswählen');
+        }
+
+        return $result;
+    }
 }
