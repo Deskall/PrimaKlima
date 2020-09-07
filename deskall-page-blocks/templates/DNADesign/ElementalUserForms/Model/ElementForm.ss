@@ -21,7 +21,6 @@
 					$HTML
 				</div>
 				<% end_if %>
-ici
 			    $CustomForm
 			   <% if not $isChildren %>
 			    	</div>

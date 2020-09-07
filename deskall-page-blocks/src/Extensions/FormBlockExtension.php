@@ -154,6 +154,10 @@ class FormBlockExtension extends DataExtension
     public function Link($action = null)
     {
         $current = Controller::curr();
+        ob_start();
+                    print_r('link from extension');
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         if ($action === 'finished') {
             if ($this->owner->isChildren()){
               return Controller::join_links(
