@@ -3,7 +3,7 @@
     	<div class="<% if BackgroundImage.exists %>uk-cover-container<% end_if %> <% if BackgroundColor %>$BackgroundColor dk-overlay<% end_if %>" <% if BackgroundImage.exists %>style="background-image: url($BackgroundImage.FocusFill(600,800).URL);"<% end_if %>>
     		<div class="modal-container">
 		        <button class="uk-modal-close-default" type="button" data-uk-close></button>
-		        <% if Title %>
+		        <% if Title || CountDown %>
 		        <div class="uk-modal-header">
 		        	<% if CountDown %>
 		        	<div class="uk-grid-small uk-child-width-auto uk-flex uk-flex-middle" data-uk-grid data-uk-countdown="date: $CountDownDate">
@@ -28,21 +28,24 @@
 		        	    </div>
 		        	</div>
 		        	<% end_if %>
+		        	<% if Title %>
 		            <h2 class="uk-modal-title">$Title</h2>
+		            <% end_if %>
 		        </div>
 		        <% end_if %>
 		        <div class="uk-modal-body">
-		        	<% if FormBlock.exists %>
-			        	<% with FormBlock.Controller %>
-			        		$Me
-			        	<% end_with %>
-		        	<% else %>
-			        	<% if Subtitle %><h3>$Subtitle</h3><% end_if %>
-			        	<% if Content %>
-			        	<div class="dk-text-content">
-			        		$Content
-			        	</div>
-			        	<% end_if %>
+		        	<% if Subtitle %><h3>$Subtitle</h3><% end_if %>
+			        <% if Content %><div class="dk-text-content">$Content</div><% end_if %>
+		        	<% if Type == "Form" %>
+			        	<% if FormBlock.exists %>
+				        	<% with FormBlock.Controller %>
+				        		$Me
+				        	<% end_with %>
+				        <% end_if %>
+				    <% else_if Type == "Newsletter" %>
+				    	$NewsletterForm
+				    <% else_if Type == "Bewertung" %>
+				    	Bewertung
 		        	<% end_if %>
 		        </div>
 		        <% if not FormBlock.exists %>
