@@ -65,8 +65,6 @@ class VideoBlock extends BaseElement implements Searchable
         'CollapsableTextExtension'
     ];
 
-    private static $has_many = ['Videos' => VideoObject::class];
-
     /**
      * Color to customize the vimeo player.
      * Can be set via config.yml
