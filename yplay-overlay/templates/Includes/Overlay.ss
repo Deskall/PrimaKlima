@@ -9,16 +9,17 @@
 		        </div>
 		        <% end_if %>
 		        <div class="uk-modal-body">
-		        	<% if Subtitle %><h3>$Subtitle</h3><% end_if %>
-		        	<% if Content %>
-		        	<div class="dk-text-content">
-		        		$Content
-		        	</div>
-		        	<% end_if %>
 		        	<% if FormBlock.exists %>
-		        	<% with FormBlock.Controller %>
-		        		$Me
-		        	<% end_with %>
+			        	<% with FormBlock.Controller %>
+			        		$Me
+			        	<% end_with %>
+		        	<% else %>
+			        	<% if Subtitle %><h3>$Subtitle</h3><% end_if %>
+			        	<% if Content %>
+			        	<div class="dk-text-content">
+			        		$Content
+			        	</div>
+			        	<% end_if %>
 		        	<% end_if %>
 		        </div>
 		        <div class="uk-modal-footer uk-text-right">

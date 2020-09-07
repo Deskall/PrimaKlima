@@ -9,8 +9,7 @@ use SilverStripe\Control\Controller;
 
 class OverlayFormController extends ElementFormController
 {
-
-	 private static $allowed_actions = [
+	private static $allowed_actions = [
         'finished'
     ];
 
@@ -22,11 +21,8 @@ class OverlayFormController extends ElementFormController
     			return $this->redirect($redirectPage->Link());
     		}
     	}
-    	
     	parent::finished();
-        
     }
-
 
     /**
      * @param string $action
@@ -35,10 +31,6 @@ class OverlayFormController extends ElementFormController
      */
     public function Link($action = null)
     {  
-        ob_start();
-                    print_r('OverlayFormController');
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $id = $this->element->ID;
         if ($this->element->isChildren()){
             $segment = Controller::join_links('children', $id, $this->element->Parent()->getOwnerPage()->ID, $action);
@@ -56,8 +48,6 @@ class OverlayFormController extends ElementFormController
         if ($controller = $this->getParentController()) {
             return $controller->Link($segment);
         }
-
-       
 
         return $segment;
     }
