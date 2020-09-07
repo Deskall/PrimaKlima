@@ -18,7 +18,12 @@
 		        </div>
 		        <div class="uk-modal-footer uk-text-right">
 		        	<button class="uk-button button-$CloseButtonBackground uk-modal-close" type="button">$CloseButtonText</button>
-		        	<button class="uk-button button-$ValidButtonBackground" type="button">$ValidButtonText</button>
+		        	<% if LinkableLink.exists %>
+		        	<% with LinkableLink %>
+		        	<a href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %> class="<% if Background %>uk-button button-{$Background}<% end_if %>" <% if hasIcone %>data-uk-icon="icon: $Icone"<% end_if %> <% if Embedded %>data-type="iframe"<% end_if %>>$Title</a>
+		        	<% end_with %>
+		        	<% end_if %>
+		        	<%-- <button class="uk-button button-$ValidButtonBackground" type="button">$ValidButtonText</button> --%>
 		        </div>
 		    </div>
 	    </div>
