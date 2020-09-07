@@ -3,7 +3,6 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\DropdownField;
-use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\SiteConfig\SiteConfig;
@@ -29,7 +28,7 @@ class Overlay extends DataObject{
 	];
 
 	private static $has_many = [
-		'Pages' => SiteTree::class
+		'Pages' => Page::class
 	];
 
 	private static $has_one = [
