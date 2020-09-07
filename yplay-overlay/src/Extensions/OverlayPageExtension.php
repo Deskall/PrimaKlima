@@ -11,6 +11,6 @@ class OverlayPageExtension extends DataExtension {
 
 	public function updateFields(FieldList $fields) {
 		$source = Overlay::get();
-		$fields->addFieldToTab('Root.Main', DropdownField::create('OverlayID','Overlay',$source)->setEmptyString('Bitte wählen'));
+		$fields->addFieldToTab('Root.Main.Overlay', DropdownField::create('OverlayID','Overlay',$source)->setEmptyString('Bitte wählen'));
 	}
 }
