@@ -43,6 +43,7 @@
 				        	<% end_with %>
 				        <% end_if %>
 				    <% else_if Type == "Newsletter" %>
+				    ici
 				    	$Top.NewsletterForm
 				    <% else_if Type == "Bewertung" %>
 				    	Bewertung
