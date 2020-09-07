@@ -1,4 +1,4 @@
-<div id="overlay-$ID" class="overlay-modal" data-uk-modal data-trigger-type="$TriggerType" <% if TriggerType == "Time" %>data-trigger-time="$TriggerTime"<% end_if %>>
+<div id="overlay-$ID" class="overlay-modal" data-triggered="false" data-uk-modal data-trigger-type="$TriggerType" <% if TriggerType == "Time" %>data-trigger-time="$TriggerTime"<% end_if %>>
     <div class="uk-modal-dialog">
     	<div class="<% if BackgroundImage.exists %>uk-cover-container<% end_if %> <% if BackgroundColor %>$BackgroundColor dk-overlay<% end_if %>" <% if BackgroundImage.exists %>style="background-image: url($BackgroundImage.FocusFill(600,800).URL);"<% end_if %>>
     		<div class="modal-container">

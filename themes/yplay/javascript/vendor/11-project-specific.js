@@ -814,7 +814,7 @@ $(document).ready(function(){
 	let overlay;
 	if ($(".overlay-modal").length > 0){
 		overlay = $(".overlay-modal");
-		if (overlay.attr('data-trigger-type') == 'Time' && !overlay.attr('data-triggered')){
+		if (overlay.attr('data-trigger-type') == 'Time' && overlay.attr('data-triggered') == "false"){
 			setTimeout(function(){
 				UIkit.modal("#" + overlay.attr('id')).show();
 				overlay.attr('data-triggered',true);
@@ -822,7 +822,7 @@ $(document).ready(function(){
 		}
 		else{
 			$(document).bind("mouseleave", function(e) {
-				if (!overlay.attr('data-triggered')){
+				if (overlay.attr('data-triggered') == "false"){
 				    if (e.pageY - $(window).scrollTop() <= 1) {    
 				       UIkit.modal("#" + overlay.attr('id')).show();
 				       overlay.attr('data-triggered',true);
