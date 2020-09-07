@@ -1,5 +1,5 @@
 <div id="overlay-$ID" class="overlay-modal" data-uk-modal>
-    <div class="uk-modal-dialog">
+    <div class="uk-modal-dialog <% if BackgroundImage.exists %>uk-cover-container<% end_if %>" <% if BackgroundImage.exists %>style="background-image: url($BackgroundImage.URL);">
         <button class="uk-modal-close-default" type="button" data-uk-close></button>
         <% if Title %>
         <div class="uk-modal-header">
