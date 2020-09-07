@@ -75,7 +75,7 @@ class OverlayContentControllerExtension extends Extension
         $required = new RequiredFields(['Email','Captcha']);
 
         $form = new Form($this->owner, 'NewsletterForm', $fields, $actions, $required);
-        $form->setClass('form-std uk-form-horizontal');
+        $form->addExtraClass('form-std uk-form-horizontal');
 
         return $form;
     }
