@@ -69,7 +69,7 @@ class OverlayContentControllerExtension extends Extension
         );
 
         $actions = new FieldList(
-            FormAction::create('registerToNewsletter')->setTitle($this->Overlay()->ValidButtonText)
+            FormAction::create('registerToNewsletter')->setTitle($this->owner->Overlay()->ValidButtonText)
         );
 
         $required = new RequiredFields(['Email','Captcha']);
