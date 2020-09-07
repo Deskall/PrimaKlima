@@ -22,6 +22,7 @@
 			        	<% end_if %>
 		        	<% end_if %>
 		        </div>
+		        <% if not FormBlock.exists %>
 		        <div class="uk-modal-footer uk-text-right">
 		        	<button class="uk-button button-$CloseButtonBackground uk-modal-close" type="button">$CloseButtonText</button>
 		        	<% if LinkableLink.exists %>
@@ -31,6 +32,7 @@
 		        	<% end_if %>
 		        	<%-- <button class="uk-button button-$ValidButtonBackground" type="button">$ValidButtonText</button> --%>
 		        </div>
+		        <% end_if %>
 		    </div>
 	    </div>
     </div>
