@@ -73,11 +73,11 @@ class OverlayContentControllerExtension extends Extension
             ->setAttribute('data-uk-icon','chevron-right')
         );
 
-        $required = new RequiredFields(['Email','Captcha']);
+        $required = new RequiredFields(['Email']);
 
         $form = new Form($this->owner, 'NewsletterForm', $fields, $actions, $required);
         $form->addExtraClass('form-std uk-form-horizontal');
-
+        $form->enableSpamProtection();
         return $form;
     }
 
