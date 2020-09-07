@@ -3,6 +3,7 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\CMS\Model\SiteTree;
 
 class Overlay extends DataObject{
 
@@ -16,6 +17,10 @@ class Overlay extends DataObject{
 		'Content' => 'HTMLText',
 		'CountDown' => 'Boolean(0)',
 		'CountDownDate' => 'Datetime'
+	];
+
+	private static $has_many = [
+		'Pages' => SiteTree:class
 	];
 
 
