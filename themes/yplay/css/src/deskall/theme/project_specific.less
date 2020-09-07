@@ -878,7 +878,12 @@ li.uk-open > .uk-accordion-title{
 	}			
 }
 //Overlay
-.dk-overlay > .modal-container{
-	position:relative;
-	z-index: 2;
+.dk-overlay {
+	.uk-modal-header, .uk-modal-footer{
+		background-color.transparent;
+	}
+	> .modal-container{
+		position:relative;
+		z-index: 2;
+	}
 }
