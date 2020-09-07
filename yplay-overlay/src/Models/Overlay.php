@@ -75,6 +75,7 @@ class Overlay extends DataObject{
 		$fields->removeByName('TriggerType');
 		$fields->removeByName('TriggerTime');
 		$fields->removeByName('TriggerFrequency');
+		$fields->removeByName('CountDownDate');
 
 		$fields->insertBefore('Title',DropdownField::create('Type', $this->fieldLabels()['Type'],['Newsletter' => 'Newsletter Anmeldung', 'Form' => 'Formular (Umfrage, Rezension)', 'Bewertung' => 'Bewertung', 'Text' => 'Inhalt (mit CountDown Möglichkeit)'])->setEmptyString('Bitte wählen'));
 		
@@ -91,9 +92,10 @@ class Overlay extends DataObject{
 			HTMLDropdownField::create('ValidButtonBackground',$this->fieldLabels()['ValidButtonBackground'],SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors')
 		]);
 
+		$fields->insertAfter('CountDown', Wrapper::create(DatetimeField::create('CountDownDate', $this->fieldLabels()['CountDownDate']))->displayIf('CountDown')->isChecked()->end());
+
 		//Other display options
 		$fields->fieldByName('Root.Main.CountDown')->displayIf('Type')->isEqualTo('Text')->end();
-		$fields->fieldByName('Root.Main.CountDownDate')->displayIf('CountDown')->isChecked()->end();
 		$fields->fieldByName('Root.Main.Subtitle')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.Content')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.LinkableLinkID')->displayIf('Type')->isEqualTo('Text')->end();
