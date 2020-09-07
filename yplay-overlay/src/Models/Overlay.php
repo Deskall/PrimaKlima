@@ -25,7 +25,9 @@ class Overlay extends DataObject{
 		'TriggerType' => 'Varchar(255)',
 		'TriggerFrequency' => 'Varchar(255)',
 		'TriggerTime' => 'Int',
-		'BackgroundColor' => 'Varchar(255)'
+		'BackgroundColor' => 'Varchar(255)',
+		'CloseButtonBackground' => 'Varchar(255)',
+		'ValidButtonBackground' => 'Varchar(255)'
 	];
 
 	private static $has_many = [
