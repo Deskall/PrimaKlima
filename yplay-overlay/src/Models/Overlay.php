@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
+use SilverStripe\Forms\DropdownField;
 
 class Overlay extends DataObject{
 
@@ -36,7 +37,8 @@ class Overlay extends DataObject{
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->fieldByName('Root.Main.Type')->setSource(['Newsletter' => 'Newsletter Anmeldung', 'Form' => 'Formular', 'Bewertung' => 'Bewertung', 'Text' => 'Inhalt (mit CountDown Möglichkeit)']);
+		$fields->removeFieldByName('Type');
+		$fields->insertBefore('Title',DropdownField::create('Type', $this->fieldLabels()['Type'],['Newsletter' => 'Newsletter Anmeldung', 'Form' => 'Formular', 'Bewertung' => 'Bewertung', 'Text' => 'Inhalt (mit CountDown Möglichkeit)']));
 
 		return $fields;
 	}
