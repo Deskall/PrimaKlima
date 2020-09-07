@@ -1,0 +1,6 @@
+---
+Name: yplay-overlay-config
+---
+Page:
+  extensions:
+    - 'OverlayPageExtension'
