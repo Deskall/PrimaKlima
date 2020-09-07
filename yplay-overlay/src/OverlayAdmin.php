@@ -19,6 +19,9 @@ class OverlayAdmin extends ModelAdmin{
 	private static $managed_models = [
 		'Overlay' => [
 			'title' => 'Overlays'
+		],
+		'OverlayForm' => [
+			'title' => 'Formulare (Zb. Umfrage)'
 		]
 	];
 

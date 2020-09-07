@@ -7,7 +7,7 @@ use SilverStripe\Forms\NumericField;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\SiteConfig\SiteConfig;
-use DNADesign\ElementalUserForms\Model\ElementForm;
+
 
 class Overlay extends DataObject{
 
@@ -37,7 +37,7 @@ class Overlay extends DataObject{
 
 	private static $has_one = [
 		'BackgroundImage' => Image::class,
-		'FormBlock' => ElementForm::class
+		'FormBlock' => OverlayForm::class
 	];
 
 	private static $extensions = [
