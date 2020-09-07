@@ -64,12 +64,12 @@ class OverlayContentControllerExtension extends Extension
 
     public function NewsletterForm(){
         $fields = new FieldList(
-            EmailField::create('Email', 'Ihre E-Mail-Adresse'),
+            EmailField::create('Email', 'Ihre E-Mail-Adresse')->setAttribute('Class','uk-input'),
             NocaptchaField::create('Captcha')
         );
 
         $actions = new FieldList(
-            FormAction::create('registerToNewsletter')->setTitle($this->owner->Overlay()->ValidButtonText)
+            FormAction::create('registerToNewsletter')->setTitle($this->owner->Overlay()->ValidButtonText)->setAttribute('Class','uk-button button-PrimaryBackground')->setUseButtonTag(true)
         );
 
         $required = new RequiredFields(['Email','Captcha']);
