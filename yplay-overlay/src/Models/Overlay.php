@@ -36,7 +36,7 @@ class Overlay extends DataObject{
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		// $fields->fieldByName('Root.Main.CategoryID')->setEmptyString('Bitte Kategorie auswählen');
+		$fields->fieldByName('Root.Main.Type')->setSource(['Newsletter' => 'Newsletter Anmeldung', 'Form' => 'Formular', 'Bewertung' => 'Bewertung', 'Text' => 'Inhalt (mit CountDown Möglichkeit)']);
 
 		return $fields;
 	}
