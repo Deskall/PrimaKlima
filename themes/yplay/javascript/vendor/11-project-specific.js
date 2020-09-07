@@ -814,17 +814,21 @@ $(document).ready(function(){
 	let overlay;
 	if ($(".overlay-modal").length > 0){
 		overlay = $(".overlay-modal");
-		if (overlay.attr('data-trigger-type') == 'Time'){
-			setTimeout(function(){
-				UIkit.modal("#" + overlay.attr('id')).show();
-			}, overlay.attr('data-trigger-time') * 1000);
-		}
-		else{
-			$(document).bind("mouseleave", function(e) {
-			    if (e.pageY - $(window).scrollTop() <= 1) {    
-			       UIkit.modal("#" + overlay.attr('id')).show();
-			    }
-			});
+		if (!overlay.attr('data-triggered')) {
+			if (overlay.attr('data-trigger-type') == 'Time'){
+				setTimeout(function(){
+					UIkit.modal("#" + overlay.attr('id')).show();
+					overlay.attr('data-triggered',true);
+				}, overlay.attr('data-trigger-time') * 1000);
+			}
+			else{
+				$(document).bind("mouseleave", function(e) {
+				    if (e.pageY - $(window).scrollTop() <= 1) {    
+				       UIkit.modal("#" + overlay.attr('id')).show();
+				       overlay.attr('data-triggered',true);
+				    }
+				});
+			}
 		}
 	}
 });
