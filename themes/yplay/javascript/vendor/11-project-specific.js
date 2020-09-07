@@ -822,6 +822,7 @@ $(document).ready(function(){
 		}
 		else{
 			$(document).bind("mouseleave", function(e) {
+				console.log(overlay.attr('data-triggered'));
 				if (overlay.attr('data-triggered') == "false"){
 				    if (e.pageY - $(window).scrollTop() <= 1) {    
 				       UIkit.modal("#" + overlay.attr('id')).show();
