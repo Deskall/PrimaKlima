@@ -819,5 +819,12 @@ $(document).ready(function(){
 				UIkit.modal("#" + overlay.attr('id')).show();
 			}, overlay.attr('data-trigger-time') * 1000);
 		}
+		else{
+			$(document).bind("mouseleave", function(e) {
+			    if (e.pageY - $(window).scrollTop() <= 1) {    
+			       UIkit.modal("#" + overlay.attr('id')).show();
+			    }
+			});
+		}
 	}
 });
