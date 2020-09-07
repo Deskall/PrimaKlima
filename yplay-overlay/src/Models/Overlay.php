@@ -20,7 +20,7 @@ class Overlay extends DataObject{
 	];
 
 	private static $has_many = [
-		'Pages' => SiteTree:class
+		'Pages' => SiteTree::class
 	];
 
 
