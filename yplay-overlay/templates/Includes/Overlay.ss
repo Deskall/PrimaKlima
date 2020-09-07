@@ -43,7 +43,7 @@
 				        	<% end_with %>
 				        <% end_if %>
 				    <% else_if Type == "Newsletter" %>
-				    	$NewsletterForm
+				    	$Top.NewsletterForm
 				    <% else_if Type == "Bewertung" %>
 				    	Bewertung
 		        	<% end_if %>
