@@ -83,13 +83,13 @@ class OverlayContentControllerExtension extends Extension
 
     public function registerToNewsletter($data, Form $form){
 
-        ob_start();
-                    print_r($data);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        //TO DO : Newsletter API --> Waiting for tool choice
 
-        $form->sessionMessage('Email ' . $data['Email'] . 'registriert!', 'success');
+        //TO DO: Emails?
 
+        $form->sessionMessage('Email ' . $data['Email'] . ' registriert!', 'success');
+
+        //TO DO: Redirect to succss page?
         return $this->owner->redirectBack();
     }
 }
