@@ -5,6 +5,29 @@
 		        <button class="uk-modal-close-default" type="button" data-uk-close></button>
 		        <% if Title %>
 		        <div class="uk-modal-header">
+		        	<% if CountDown %>
+		        	<div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date: 2020-09-14T12:21:00+00:00">
+		        	    <div>
+		        	        <div class="uk-countdown-number uk-countdown-days"></div>
+		        	        <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Days</div>
+		        	    </div>
+		        	    <div class="uk-countdown-separator">:</div>
+		        	    <div>
+		        	        <div class="uk-countdown-number uk-countdown-hours"></div>
+		        	        <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Hours</div>
+		        	    </div>
+		        	    <div class="uk-countdown-separator">:</div>
+		        	    <div>
+		        	        <div class="uk-countdown-number uk-countdown-minutes"></div>
+		        	        <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Minutes</div>
+		        	    </div>
+		        	    <div class="uk-countdown-separator">:</div>
+		        	    <div>
+		        	        <div class="uk-countdown-number uk-countdown-seconds"></div>
+		        	        <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Seconds</div>
+		        	    </div>
+		        	</div>
+		        	<% end_if %>
 		            <h2 class="uk-modal-title">$Title</h2>
 		        </div>
 		        <% end_if %>
