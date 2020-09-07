@@ -44,7 +44,7 @@
 				        <% end_if %>
 				    <% else_if Type == "Newsletter" %>
 				    ici
-				    	$Top.NewsletterForm
+				    	$Top.Controller.NewsletterForm
 				    <% else_if Type == "Bewertung" %>
 				    	Bewertung
 		        	<% end_if %>
