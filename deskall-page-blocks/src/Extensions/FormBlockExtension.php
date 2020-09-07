@@ -117,6 +117,10 @@ class FormBlockExtension extends DataExtension
     {
         $controller = UserDefinedFormController::create($this->owner);
         $current = Controller::curr();
+        ob_start();
+                    print_r($current->ClassName);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $controller->setRequest($current->getRequest());
         $form = $controller->Form();
 
@@ -136,10 +140,6 @@ class FormBlockExtension extends DataExtension
           );
         }
         else{
-          ob_start();
-                    print_r('custom form');
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
            $form->setFormAction(
             Controller::join_links(
                 $current->Link(),
@@ -151,17 +151,12 @@ class FormBlockExtension extends DataExtension
 
         }
        
-       
         return $form;
     }
 
     public function Link($action = null)
     {
         $current = Controller::curr();
-        ob_start();
-                    print_r('link from extension');
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         if ($action === 'finished') {
             if ($this->owner->isChildren()){
               return Controller::join_links(
