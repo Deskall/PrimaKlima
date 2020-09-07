@@ -16,10 +16,6 @@ class OverlayContentControllerExtension extends Extension
 
     public function handleElement()
     {
-        ob_start();
-            print_r('ici');
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $id = $this->owner->getRequest()->param('ID');
 
         if (!$id) {
@@ -42,6 +38,14 @@ class OverlayContentControllerExtension extends Extension
                 ->filter('ID', $id)
                 ->First();
 
+            if ($element) {
+                return $element->getController();
+            }
+        }
+
+        //Overlays
+        if ($elementOwner->Overlay()->exists()){
+            $element = $elementOwner->Overlay()->FormBlock();
             if ($element) {
                 return $element->getController();
             }
