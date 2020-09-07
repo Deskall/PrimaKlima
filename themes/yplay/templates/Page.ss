@@ -22,9 +22,7 @@
 
     </div>
     <% if Overlay.exists %>
-      <% with Overlay %>
         <% include Overlay %>
-      <% end_with %>
     <% end_if %>
    <% include MetaDown %>
   </body>
