@@ -3,6 +3,7 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\NumberField;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\SiteConfig\SiteConfig;
@@ -36,7 +37,8 @@ class Overlay extends DataObject{
 	];
 
 	private static $extensions = [
-		Versioned::class
+		Versioned::class,
+		'Linkable'
 	];
 
     public function fieldLabels($includerelations = true) {
@@ -54,6 +56,8 @@ class Overlay extends DataObject{
 	 	$labels['TriggerTime'] = 'Zeit zum Auslösen (Sekunden)';
 	 	$labels['BackgroundColor'] = 'Hintergrundfarbe';
 	 	$labels['BackgroundImage'] = 'Hintergrundbild';
+	 	$labels['CloseButtonBackground'] = 'Hintergrundfarbe des Buttons zum Schließen';
+	 	$labels['ValidButtonBackground'] = 'Hintergrundfarbe des Buttons zum Senden';
 	    return $labels;
 	}
 
@@ -62,11 +66,25 @@ class Overlay extends DataObject{
 		$fields->removeByName('Type');
 		$fields->removeByName('BackgroundColor');
 		$fields->removeByName('BackgroundImage');
+		$fields->removeByName('CloseButtonBackground');
+		$fields->removeByName('ValidButtonBackground');
+		$fields->removeByName('TriggerType');
+		$fields->removeByName('TriggerTime');
+		$fields->removeByName('TriggerFrequency');
 
-		$fields->insertBefore('Title',DropdownField::create('Type', $this->fieldLabels()['Type'],['Newsletter' => 'Newsletter Anmeldung', 'Form' => 'Formular (Umfrage, Rezension)', 'Bewertung' => 'Bewertung', 'Text' => 'Inhalt (mit CountDown Möglichkeit)']));
+		$fields->insertBefore('Title',DropdownField::create('Type', $this->fieldLabels()['Type'],['Newsletter' => 'Newsletter Anmeldung', 'Form' => 'Formular (Umfrage, Rezension)', 'Bewertung' => 'Bewertung', 'Text' => 'Inhalt (mit CountDown Möglichkeit)'])->setEmptyString('Bitte wählen'));
+		
+		$fields->addFieldsToTab('Root.Trigger', [
+			DropdownField::create('TriggerType', $this->fieldLabels()['TriggerType'],['Time' => 'Zeit', 'Out' => 'Browser Abschluss / Seite wechseln'])->setEmptyString('Bitte wählen')),
+			NumberField::create('TriggerTime',$this->fieldLabels()['TriggerTime'] )->displayIf('TriggerType')->isEqualTo('Time')->end()),
+			DropdownField::create('TriggerFrequency', $this->fieldLabels()['TriggerFrequency'],['Once' => 'Einmal (per Session)', 'Always' => 'Immer'])->setEmptyString('Bitte wählen')),
+		])->setTitle('Auslösung');
+
 		$fields->addFieldsToTab('Root.Layout', [
 			HTMLDropdownField::create('BackgroundColor',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
-			UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName('Uploads/Overlays')
+			UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName('Uploads/Overlays'),
+			HTMLDropdownField::create('CloseButtonBackground',$this->fieldLabels()['CloseButtonBackground'],SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'),
+			HTMLDropdownField::create('ValidButtonBackground',$this->fieldLabels()['ValidButtonBackground'],SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors')
 		]);
 
 		return $fields;
