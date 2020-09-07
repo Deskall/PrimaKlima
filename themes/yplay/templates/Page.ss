@@ -13,7 +13,6 @@
 
           <% include ScrollUp %>
       </main>
-      $ClassName
       <% if $ID > 0 && $ClassName != "SilverStripe\ErrorPage\ErrorPage" %> 
         <% include Sidebar %> 
         <% include Modals %>
