@@ -35,7 +35,7 @@ $(window).ready(function(){
 	  e.preventDefault();
 	  // Stash the event so it can be triggered later.
 	  deferredPrompt = e;
-	  console.log('ici');
+	  $(".smart-app-container").attr("hidden",false);
 	});
 });
 
