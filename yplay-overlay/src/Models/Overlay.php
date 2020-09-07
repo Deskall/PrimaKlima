@@ -75,9 +75,9 @@ class Overlay extends DataObject{
 		$fields->insertBefore('Title',DropdownField::create('Type', $this->fieldLabels()['Type'],['Newsletter' => 'Newsletter Anmeldung', 'Form' => 'Formular (Umfrage, Rezension)', 'Bewertung' => 'Bewertung', 'Text' => 'Inhalt (mit CountDown Möglichkeit)'])->setEmptyString('Bitte wählen'));
 		
 		$fields->addFieldsToTab('Root.Trigger', [
-			DropdownField::create('TriggerType', $this->fieldLabels()['TriggerType'],['Time' => 'Zeit', 'Out' => 'Browser Abschluss / Seite wechseln'])->setEmptyString('Bitte wählen')),
-			NumberField::create('TriggerTime',$this->fieldLabels()['TriggerTime'] )->displayIf('TriggerType')->isEqualTo('Time')->end()),
-			DropdownField::create('TriggerFrequency', $this->fieldLabels()['TriggerFrequency'],['Once' => 'Einmal (per Session)', 'Always' => 'Immer'])->setEmptyString('Bitte wählen')),
+			DropdownField::create('TriggerType', $this->fieldLabels()['TriggerType'],['Time' => 'Zeit', 'Out' => 'Browser Abschluss / Seite wechseln'])->setEmptyString('Bitte wählen'),
+			NumberField::create('TriggerTime',$this->fieldLabels()['TriggerTime'] )->displayIf('TriggerType')->isEqualTo('Time')->end(),
+			DropdownField::create('TriggerFrequency', $this->fieldLabels()['TriggerFrequency'],['Once' => 'Einmal (per Session)', 'Always' => 'Immer'])->setEmptyString('Bitte wählen')
 		])->setTitle('Auslösung');
 
 		$fields->addFieldsToTab('Root.Layout', [
