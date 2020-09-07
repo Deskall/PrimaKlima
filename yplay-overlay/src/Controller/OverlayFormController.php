@@ -69,10 +69,6 @@ class OverlayFormController extends ElementFormController
      */
     public function forTemplate()
     {
-        ob_start();
-                    print_r('la');
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $defaultStyles = $this->config()->get('default_styles');
         if ($this->config()->get('include_default_styles') && !empty($defaultStyles)) {
             foreach ($defaultStyles as $stylePath) {
