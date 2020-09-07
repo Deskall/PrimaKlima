@@ -27,15 +27,16 @@
 //       deferredPrompt = null;
 //     });
 // });
+$(window).ready(function(){
+	let deferredPrompt;
 
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  console.log('ici');
+	window.addEventListener('beforeinstallprompt', (e) => {
+	  // Prevent Chrome 67 and earlier from automatically showing the prompt
+	  e.preventDefault();
+	  // Stash the event so it can be triggered later.
+	  deferredPrompt = e;
+	  console.log('ici');
+	});
 });
 
 var screensize = $(window).width();
