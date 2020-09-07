@@ -4,6 +4,12 @@
 use DNADesign\Elemental\Models\ElementalArea;
 use DNADesign\Elemental\Extensions\ElementalAreasExtension;
 use SilverStripe\Core\Extension;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\EmailField;
+use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 
 class OverlayContentControllerExtension extends Extension
 {
@@ -11,7 +17,8 @@ class OverlayContentControllerExtension extends Extension
      * @var array
      */
     private static $allowed_actions = array(
-        'handleElement'
+        'handleElement',
+        'NewsletterForm'
     );
 
     public function handleElement()
@@ -53,5 +60,28 @@ class OverlayContentControllerExtension extends Extension
 
         user_error('Element $id not found for this page', E_USER_ERROR);
         return false;
+    }
+
+    public function NewsletterForm(){
+        $fields = new FieldList(
+            EmailField::create('Email', 'Ihre E-Mail-Adresse'),
+            NocaptchaField::create('Captcha')
+        );
+
+        $actions = new FieldList(
+            FormAction::create('registerToNewsletter')->setTitle($this->Overlay()->ValidButtonText)
+        );
+
+        $required = new RequiredFields(['Email','Captcha']);
+
+        $form = new Form($this->owner, 'NewsletterForm', $fields, $actions, $required);
+
+        return $form;
+    }
+
+    public function registerToNewsletter($data, Form $form){
+        $form->sessionMessage('Email ' . $data['Email'] . 'registriert!', 'success');
+
+        return $this->redirectBack();
     }
 }
