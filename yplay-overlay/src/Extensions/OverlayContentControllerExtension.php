@@ -84,6 +84,6 @@ class OverlayContentControllerExtension extends Extension
     public function registerToNewsletter($data, Form $form){
         $form->sessionMessage('Email ' . $data['Email'] . 'registriert!', 'success');
 
-        return $this->redirectBack();
+        return $this->owner->redirectBack();
     }
 }
