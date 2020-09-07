@@ -814,7 +814,7 @@ $(document).ready(function(){
 	let overlay;
 	if ($(".overlay-modal").length > 0){
 		overlay = $(".overlay-modal");
-		if (!overlay.attr('data-triggered')) {
+		if (overlay.attr('data-triggered') !== "true") {
 			if (overlay.attr('data-trigger-type') == 'Time'){
 				setTimeout(function(){
 					UIkit.modal("#" + overlay.attr('id')).show();
