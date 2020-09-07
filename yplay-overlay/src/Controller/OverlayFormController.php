@@ -35,6 +35,10 @@ class OverlayFormController extends ElementFormController
      */
     public function Link($action = null)
     {  
+        ob_start();
+                    print_r('OverlayFormController');
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $id = $this->element->ID;
         if ($this->element->isChildren()){
             $segment = Controller::join_links('children', $id, $this->element->Parent()->getOwnerPage()->ID, $action);
@@ -42,10 +46,7 @@ class OverlayFormController extends ElementFormController
         else{
             $segment = Controller::join_links('element', $id, $action);
         }
-        ob_start();
-                    print_r($segment);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        
         $page = Director::get_current_page();
 
         if ($page && !($page instanceof ElementController)) {
