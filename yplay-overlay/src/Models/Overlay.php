@@ -54,7 +54,7 @@ class Overlay extends DataObject{
 	    $labels['CountDown'] = 'mit Rückwärts Zähler?';
 	 	$labels['CountDownDate'] = 'Rückwärts bis';
 	 	$labels['CloseButtonText'] = 'Titel des Buttons zum Schließen';
-	 	$labels['CountDownDate'] = 'Titel des Buttons zum Senden';
+	 	$labels['ValidButtonText'] = 'Titel des Buttons zum Senden';
 	 	$labels['TriggerType'] = 'Auslösungsart';
 	    $labels['TriggerFrequency'] = 'Auslösung';
 	 	$labels['TriggerTime'] = 'Zeit zum Auslösen (Sekunden)';
@@ -90,6 +90,12 @@ class Overlay extends DataObject{
 			HTMLDropdownField::create('CloseButtonBackground',$this->fieldLabels()['CloseButtonBackground'],SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'),
 			HTMLDropdownField::create('ValidButtonBackground',$this->fieldLabels()['ValidButtonBackground'],SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors')
 		]);
+
+		//Other display options
+		$fields->fieldByName('Root.Subtitle')->hideIf('Type')->isEqualTo('Form')->end();
+		$fields->fieldByName('Root.Content')->hideIf('Type')->isEqualTo('Form')->end();
+		$fields->fieldByName('Root.ValidButtonBackground')->hideIf('Type')->isEqualTo('Form')->orIf('LinkableLinkID')->isNotEqualTo(0)->end();
+		$fields->fieldByName('Root.ValidButtonText')->hideIf('Type')->isEqualTo('Form')->orIf('LinkableLinkID')->isNotEqualTo(0)->end();
 
 		return $fields;
 	}
