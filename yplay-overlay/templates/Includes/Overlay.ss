@@ -6,7 +6,7 @@
 		        <% if Title %>
 		        <div class="uk-modal-header">
 		        	<% if CountDown %>
-		        	<div class="uk-grid-small uk-child-width-auto" uk-grid uk-countdown="date: $CountDownDate">
+		        	<div class="uk-grid-small uk-child-width-auto" data-uk-grid data-uk-countdown="date: $CountDownDate">
 		        	    <div>
 		        	        <div class="uk-countdown-number uk-countdown-days"></div>
 		        	        <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Tage</div>
