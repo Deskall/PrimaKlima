@@ -808,3 +808,10 @@ $(document).ready(function(){
 		});
 	});
 });
+
+//overlay
+$(document).ready(function(){
+	if ($(".overlay-modal").length > 0){
+		UIkit.modal("#" + $(".overlay-modal").attr('id')).show();
+	}
+});
