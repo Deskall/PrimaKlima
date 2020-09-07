@@ -136,6 +136,10 @@ class FormBlockExtension extends DataExtension
           );
         }
         else{
+          ob_start();
+                    print_r('custom form');
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
            $form->setFormAction(
             Controller::join_links(
                 $current->Link(),
