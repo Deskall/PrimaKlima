@@ -127,6 +127,7 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('PaddedImages');
             $fields->removeByName('lightboxOff');
             $fields->removeByName('Boxes');
+            $fields->removeByName('Logos');
             $fields->removeByName('infiniteLoop');
             $fields->removeByName('ImagePadding');
             $fields->removeByName('RoundedImage');
@@ -211,6 +212,10 @@ class GalleryBlock extends BaseElement implements Searchable
 
     public function activeBoxes(){
         return $this->Boxes()->filter('isVisible',1);
+    }
+
+    public function activeLogos(){
+        return $this->Logos()->filter('isVisible',1);
     }
 
     public function onBeforeWrite(){

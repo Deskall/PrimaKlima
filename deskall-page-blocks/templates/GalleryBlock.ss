@@ -95,7 +95,7 @@
 		<div class="uk-position-relative">
 			<div class="uk-slider-container uk-light">
 				<ul class="uk-slider-items $PicturesPerLine" data-uk-grid >
-					<% loop OrderedImages %>
+					<% loop activeLogos %>
 					<li class="uk-flex uk-flex-middle uk-flex-center">
 						<% if LinkableLinkID > 0 %>
 						<% with LinkableLink %>
