@@ -97,11 +97,17 @@
 				<ul class="uk-slider-items $PicturesPerLine" data-uk-grid >
 					<% loop OrderedImages %>
 					<li class="uk-flex uk-flex-middle uk-flex-center">
+						<% if LinkableLinkID > 0 %>
+						<% with LinkableLink %>
+						<a href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %>>
+						<% end_with %>
+						<% end_if %>
 						<figure>
 							<img data-src="
 							<% if $getExtension == "svg" %> $URL <% else %> <% if Up.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else_if Up.PaddedImages %> $FitMax($Up.PictureWidth,$Up.PictureHeight).URL<% else %>$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %><% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="<% if $getExtension == "svg" %>uk-slide-logo-svg<% else %>uk-slide-logo<% end_if %>  $Top.ImagePadding <% if $Top.RoundedImage %>uk-border-circle<% end_if %>" data-uk-img>
 							<% if Description %><figcaption>$Description</figcaption><% end_if %>
 						</figure>
+						<% if LinkableLinkID > 0 %></a><% end_if %>
 					</li>
 					<% end_loop %>
 				</ul>
