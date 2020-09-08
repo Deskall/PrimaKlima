@@ -185,7 +185,7 @@ class GalleryBlock extends BaseElement implements Searchable
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             
-           $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Name' => 'Dateiname'))->displayIf('ItemType')->isEqualTo('images')->orIf('ItemType')->isEqualTo('logos')->end(),'HTML');
+           $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Name' => 'Dateiname'))->displayIf('ItemType')->isEqualTo('images')->end(),'HTML');
 
 
 
