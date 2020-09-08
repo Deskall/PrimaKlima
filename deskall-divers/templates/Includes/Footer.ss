@@ -55,7 +55,7 @@
 				 		$SiteConfig.Notfall
 			 		</li>
 			 		<% end_if %>
-			 		<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagramm %>
+			 		<% if SiteConfig.Facebook || SiteConfig.Twitter || SiteConfig.Linkedin || SiteConfig.Xing || SiteConfig.Instagram %>
 			 		<li>
 			 			<ul class="uk-iconnav uk-padding-remove uk-margin-remove">
 			 				<% if SiteConfig.Facebook %>
