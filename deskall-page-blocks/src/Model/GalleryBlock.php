@@ -160,9 +160,9 @@ class GalleryBlock extends BaseElement implements Searchable
                 $config2 = GridFieldConfig_RecordEditor::create();
                 $config2->addComponent(new GridFieldOrderableRows('Sort'));
                 if (singleton('LogoItem')->hasExtension('Activable')){
-                     $config->addComponent(new GridFieldShowHideAction());
+                     $config2->addComponent(new GridFieldShowHideAction());
                 }
-                $logosField = new GridField('Logos',_t(__CLASS__.'.Logos','Logos'),$this->Logos(),$config);
+                $logosField = new GridField('Logos',_t(__CLASS__.'.Logos','Logos'),$this->Logos(),$config2);
                 $logosField->displayIf('ItemType')->isEqualTo('logos')->end();
                 $fields->addFieldToTab('Root.Main',$logosField,'HTML');
             }
