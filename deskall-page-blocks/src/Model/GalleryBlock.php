@@ -55,7 +55,8 @@ class GalleryBlock extends BaseElement implements Searchable
     ];
 
     private static $has_many = [
-        'Boxes' => Box::class
+        'Boxes' => Box::class,
+        'Logos' => LogoItem::class
     ];
 
     private static $many_many_extraFields = [
@@ -63,7 +64,7 @@ class GalleryBlock extends BaseElement implements Searchable
     ];
 
     private static $owns = [
-        'Images','Boxes'
+        'Images','Boxes', 'Logos'
     ];
 
     private static $cascade_duplicates = ['Boxes'];
@@ -141,17 +142,29 @@ class GalleryBlock extends BaseElement implements Searchable
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
          
-            $fields->addFieldToTab('Root.Main',Wrapper::create(SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()))->displayIf('ItemType')->isEqualTo('images')->orIf('ItemType')->isEqualTo('logos')->end(),'HTML');
+            $fields->addFieldToTab('Root.Main',Wrapper::create(SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()))->displayIf('ItemType')->isEqualTo('images')->end(),'HTML');
 
-            $config = GridFieldConfig_RecordEditor::create();
-            $config->addComponent(new GridFieldOrderableRows('Sort'));
-            if (singleton('Box')->hasExtension('Activable')){
-                 $config->addComponent(new GridFieldShowHideAction());
-            }
+            
             if ($this->ItemType == "boxes"){
+                $config = GridFieldConfig_RecordEditor::create();
+                $config->addComponent(new GridFieldOrderableRows('Sort'));
+                if (singleton('Box')->hasExtension('Activable')){
+                     $config->addComponent(new GridFieldShowHideAction());
+                }
                 $boxesField = new GridField('Boxes',_t(__CLASS__.'.Boxes','Boxen'),$this->Boxes(),$config);
                 $boxesField->displayIf('ItemType')->isEqualTo('boxes')->end();
                 $fields->addFieldToTab('Root.Main',$boxesField,'HTML');
+            }
+           
+            if ($this->ItemType == "logos"){
+                $config2 = GridFieldConfig_RecordEditor::create();
+                $config2->addComponent(new GridFieldOrderableRows('Sort'));
+                if (singleton('LogoItem')->hasExtension('Activable')){
+                     $config->addComponent(new GridFieldShowHideAction());
+                }
+                $logosField = new GridField('Logos',_t(__CLASS__.'.Logos','Logos'),$this->Logos(),$config);
+                $logosField->displayIf('ItemType')->isEqualTo('logos')->end();
+                $fields->addFieldToTab('Root.Main',$logosField,'HTML');
             }
           
 
