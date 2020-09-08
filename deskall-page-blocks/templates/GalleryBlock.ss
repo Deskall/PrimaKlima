@@ -91,7 +91,6 @@
 		</div>
 	<% end_if %>
 <% else_if ItemType == "logos" %>
-la
 	<div data-uk-slider="<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %><% if not infiniteLoop %>finite:true;<% end_if %>">
 		<div class="uk-position-relative">
 			<div class="uk-slider-container uk-light">
@@ -104,8 +103,7 @@ la
 						<% end_with %>
 						<% end_if %>
 						<figure>
-							<img data-src="
-							<% if $getExtension == "svg" %> $URL <% else %> <% if Up.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else_if Up.PaddedImages %> $FitMax($Up.PictureWidth,$Up.PictureHeight).URL<% else %>$FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %><% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="<% if $getExtension == "svg" %>uk-slide-logo-svg<% else %>uk-slide-logo<% end_if %>  $Top.ImagePadding <% if $Top.RoundedImage %>uk-border-circle<% end_if %>" data-uk-img>
+							<img data-src="<% if $getExtension == "svg" %>$URL<% else %><% if Up.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else_if Up.PaddedImages %>$Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %><% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)"  class="<% if $getExtension == "svg" %>uk-slide-logo-svg<% else %>uk-slide-logo<% end_if %>  $Top.ImagePadding <% if $Top.RoundedImage %>uk-border-circle<% end_if %>" data-uk-img>
 							<% if Description %><figcaption>$Description</figcaption><% end_if %>
 						</figure>
 						<% if LinkableLinkID > 0 %></a><% end_if %>
