@@ -18,7 +18,7 @@ class DeskallElementContentControllerExtension extends Extension
     public function handleElement()
     {
         $id = $this->owner->getRequest()->param('ID');
-
+        print_r($id);
         if (!$id) {
             user_error('No element ID supplied', E_USER_ERROR);
             return false;
