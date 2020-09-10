@@ -136,28 +136,28 @@ class FormBlockExtension extends DataExtension
         return $form;
     }
 
-    public function Link($action = null)
-    {
-        $current = Controller::curr();
-        if ($action === 'finished') {
-            if ($this->owner->isChildren()){
-              return Controller::join_links(
-                  str_replace('element','children',$current->Link()),
-                  $this->owner->Parent()->getOwnerPage()->ID,
-                  'finished'
-              );
-            }
-            else{
-              return Controller::join_links(
-                  $current->Link(),
-                  'finished'
-              );
-            }
+    // public function Link($action = null)
+    // {
+    //     $current = Controller::curr();
+    //     if ($action === 'finished') {
+    //         if ($this->owner->isChildren()){
+    //           return Controller::join_links(
+    //               str_replace('element','children',$current->Link()),
+    //               $this->owner->Parent()->getOwnerPage()->ID,
+    //               'finished'
+    //           );
+    //         }
+    //         else{
+    //           return Controller::join_links(
+    //               $current->Link(),
+    //               'finished'
+    //           );
+    //         }
             
-        }
+    //     }
 
-        return parent::Link($action);
-    }
+    //     return parent::Link($action);
+    // }
 
 
 }
