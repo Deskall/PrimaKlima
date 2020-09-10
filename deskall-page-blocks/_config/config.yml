@@ -82,6 +82,7 @@ SilverStripe\Forms\FormField:
 SilverStripe\CMS\Controllers\ContentController:
   extensions:
     - DeskallContentControllerExtension
+    - DeskallElementContentControllerExtension
   url_handlers:
     'children/$ID!/$OTHERID!': 'handleChildren'
 
