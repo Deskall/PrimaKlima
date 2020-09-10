@@ -1,32 +1,75 @@
 <?php
 
-use DNADesign\ElementalUserForms\Control\ElementFormController;
+use DNADesign\Elemental\Controllers\ElementController;
 use SilverStripe\Control\Director;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\View\Requirements;
 use SilverStripe\Control\Controller;
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\UserForms\Control\UserDefinedFormController;
+use SilverStripe\UserForms\Form\UserForm;
 
-class DeskallFormController extends ElementFormController
+class DeskallFormController extends ElementController
 {
-
-	 private static $allowed_actions = [
+    private static $allowed_actions = [
+        'Form',
+        'process',
         'finished'
     ];
 
-	public function finished()
+    /**
+     * @var UserDefinedFormController
+     */
+    protected $userFormController;
+
+    protected function init()
     {
-    	if ($this->element->RedirectPageID > 0){
-    		$redirectPage = DataObject::get_by_id(SiteTree::class,$this->element->RedirectPageID);
-    		if ($redirectPage){
-    			return $this->redirect($redirectPage->Link());
-    		}
-    	}
-    	
-    	parent::finished();
-        
+        parent::init();
+
+        $controller = $this->getUserFormController() ?: UserDefinedFormController::create($this->element);
+        $controller->setRequest($this->getRequest());
+        $controller->doInit();
+
+        $this->setUserFormController($controller);
     }
 
+    /**
+     * @return UserForm
+     */
+    public function Form()
+    {
+        return $this->getUserFormController()->Form();
+    }
+
+    public function process($data)
+    {
+        $user = $this->getUserFormController();
+
+        return $user->process($data, $user->Form());
+    }
+
+    public function finished()
+    {
+        $user = $this->getUserFormController();
+
+        $user->finished();
+
+        $page = $this->getPage();
+        $controller = Injector::inst()->create($page->getControllerName(), $this->element->getPage());
+        $element = $this->element;
+
+        if ($this->element->RedirectPageID > 0){
+            $redirectPage = DataObject::get_by_id(SiteTree::class,$this->element->RedirectPageID);
+            if ($redirectPage){
+                return $this->redirect($redirectPage->Link());
+            }
+        }
+
+        return $controller->customise([
+            'Content' => $element->renderWith($element->getRenderTemplates('_ReceivedFormSubmission')),
+        ]);
+    }
 
     /**
      * @param string $action
@@ -34,14 +77,9 @@ class DeskallFormController extends ElementFormController
      * @return string
      */
     public function Link($action = null)
-    {  
+    {
         $id = $this->element->ID;
-        if ($this->element->isChildren()){
-            $segment = Controller::join_links('children', $id, $this->element->Parent()->getOwnerPage()->ID, $action);
-        }
-        else{
-            $segment = Controller::join_links('element', $id, $action);
-        }
+        $segment = Controller::join_links('element', $id, $action);
         $page = Director::get_current_page();
 
         if ($page && !($page instanceof ElementController)) {
@@ -56,32 +94,24 @@ class DeskallFormController extends ElementFormController
     }
 
     /**
-     * Renders the managed {@link BaseElement} wrapped with the current
-     * {@link ElementController}.
+     * Return the associated UserDefinedFormController
      *
-     * @return string HTML
+     * @return UserDefinedFormController
      */
-    public function forTemplate()
+    public function getUserFormController()
     {
-        $defaultStyles = $this->config()->get('default_styles');
-        if ($this->config()->get('include_default_styles') && !empty($defaultStyles)) {
-            foreach ($defaultStyles as $stylePath) {
-                Requirements::css($stylePath);
-            }
-        }
-        $defaultScripts = $this->config()->get('default_scripts');
-         if (!empty($defaultScripts)) {
-            foreach ($defaultScripts as $jsPath) {
-                Requirements::javascript($jsPath);
-            }
-        }
-
-        $template = $this->element->config()->get('controller_template');
-
-        return $this->renderWith([
-            'type' => 'Layout',
-            $template
-        ]);
+        return $this->userFormController;
     }
 
+    /**
+     * Set the associated UserDefinedFormController
+     *
+     * @param UserDefinedFormController $controller
+     * @return $this
+     */
+    public function setUserFormController(UserDefinedFormController $controller)
+    {
+        $this->userFormController = $controller;
+        return $this;
+    }
 }
