@@ -1,7 +1,6 @@
 ---
 Name: deskall-page-blocks
 After:
-  - '#elemental'
   - '#linkable'
   - '#deskall-divers'
 ---
