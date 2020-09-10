@@ -121,7 +121,11 @@ class FormBlockExtension extends DataExtension
         $form = $controller->Form();
 
         if ($current && $current->getAction() == 'finished') {
-            return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
+          ob_start();
+      print_r('ici');
+      $result = ob_get_clean();
+      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+            return $controller->redirect($this->RedirectPage()->Link());
         }
         
         if ($this->owner->isChildren()){
