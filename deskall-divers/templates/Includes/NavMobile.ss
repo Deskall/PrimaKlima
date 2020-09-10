@@ -5,7 +5,7 @@
            <div class="uk-margin-top">
            <% loop SiteConfig.activeMobileMenuBlocks %>
 				<% if Type == 'form' %>
-					<div class="$Layout $Width uk-visible@m">$Top.SearchForm</div>
+					<div class="$Layout $Width">$Top.SearchForm</div>
 				<% else_if Type == "Languages" %>
 					<% include MenuBlock_Languages Locales=Top.Locales %>
 				<% else %>
