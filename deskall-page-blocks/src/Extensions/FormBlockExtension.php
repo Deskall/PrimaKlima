@@ -110,46 +110,46 @@ class FormBlockExtension extends DataExtension
   }
 
 
-  /**
-     * @return UserForm
-     */
-    public function CustomForm()
-    {
-        $controller = UserDefinedFormController::create($this->owner);
-        $current = Controller::curr();
-        $controller->setRequest($current->getRequest());
-        $form = $controller->Form();
+  // /**
+  //    * @return UserForm
+  //    */
+  //   public function CustomForm()
+  //   {
+  //       $controller = UserDefinedFormController::create($this->owner);
+  //       $current = Controller::curr();
+  //       $controller->setRequest($current->getRequest());
+  //       $form = $controller->Form();
 
-        if ($current && $current->getAction() == 'finished') {
-            return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
-        }
+  //       if ($current && $current->getAction() == 'finished') {
+  //           return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
+  //       }
         
-        // if ($this->owner->isChildren()){
-        //   $form->setFormAction(
-        //       Controller::join_links(
-        //           $current->Link(),
-        //           'children',
-        //           $this->owner->ID,
-        //           $this->owner->Parent()->getOwnerPage()->ID,
-        //           'Form'
-        //       )
-        //   );
-        // }
-        // else{
-           $form->setFormAction(
-            Controller::join_links(
-                $current->Link(),
-                'element',
-                $this->owner->ID,
-                'Form'
-            )
-          );
+  //       // if ($this->owner->isChildren()){
+  //       //   $form->setFormAction(
+  //       //       Controller::join_links(
+  //       //           $current->Link(),
+  //       //           'children',
+  //       //           $this->owner->ID,
+  //       //           $this->owner->Parent()->getOwnerPage()->ID,
+  //       //           'Form'
+  //       //       )
+  //       //   );
+  //       // }
+  //       // else{
+  //          $form->setFormAction(
+  //           Controller::join_links(
+  //               $current->Link(),
+  //               'element',
+  //               $this->owner->ID,
+  //               'Form'
+  //           )
+  //         );
 
-        // }
+  //       // }
        
        
-        return $form;
-    }
+  //       return $form;
+  //   }
 
     // public function Link($action = null)
     // {
