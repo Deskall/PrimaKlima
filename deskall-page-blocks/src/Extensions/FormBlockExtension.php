@@ -22,7 +22,7 @@ class FormBlockExtension extends DataExtension
 
     private static $description = 'Formular';
 
-   
+    private static $controller_class = DeskallFormController::class;
     
    private static $db = [
     'ButtonBackground' => 'Varchar(255)',
@@ -57,7 +57,7 @@ class FormBlockExtension extends DataExtension
     ];
 
 
-   private static $controller_class = DeskallFormController::class;
+   
 
    public function updateCMSFields(FieldList $fields){
     $fields->removeByName('Layout');
@@ -124,55 +124,55 @@ class FormBlockExtension extends DataExtension
             return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
         }
         
-        if ($this->owner->isChildren()){
-          $form->setFormAction(
-              Controller::join_links(
-                  $current->Link(),
-                  'children',
-                  $this->owner->ID,
-                  $this->owner->Parent()->getOwnerPage()->ID,
-                  'Form'
-              )
-          );
-        }
-        else{
+        // if ($this->owner->isChildren()){
+        //   $form->setFormAction(
+        //       Controller::join_links(
+        //           $current->Link(),
+        //           'children',
+        //           $this->owner->ID,
+        //           $this->owner->Parent()->getOwnerPage()->ID,
+        //           'CustomForm'
+        //       )
+        //   );
+        // }
+        // else{
            $form->setFormAction(
             Controller::join_links(
                 $current->Link(),
                 'element',
                 $this->owner->ID,
-                'Form'
+                'CustomForm'
             )
           );
 
-        }
+        // }
        
        
         return $form;
     }
 
-    public function Link($action = null)
-    {
-        $current = Controller::curr();
-        if ($action === 'finished') {
-            if ($this->owner->isChildren()){
-              return Controller::join_links(
-                  str_replace('element','children',$current->Link()),
-                  $this->owner->Parent()->getOwnerPage()->ID,
-                  'finished'
-              );
-            }
-            else{
-              return Controller::join_links(
-                  $current->Link(),
-                  'finished'
-              );
-            }
+    // public function Link($action = null)
+    // {
+    //     $current = Controller::curr();
+    //     if ($action === 'finished') {
+    //         if ($this->owner->isChildren()){
+    //           return Controller::join_links(
+    //               str_replace('element','children',$current->Link()),
+    //               $this->owner->Parent()->getOwnerPage()->ID,
+    //               'finished'
+    //           );
+    //         }
+    //         else{
+    //           return Controller::join_links(
+    //               $current->Link(),
+    //               'finished'
+    //           );
+    //         }
             
-        }
+    //     }
 
-        return parent::Link($action);
-    }
+    //     return parent::Link($action);
+    // }
 
 
 }
