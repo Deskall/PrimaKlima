@@ -12,6 +12,10 @@ class DeskallFormController extends ElementFormController
 
 	public function finished()
     {
+        ob_start();
+            print_r('la');
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     	if ($this->element->RedirectPageID > 0){
     		$redirectPage = DataObject::get_by_id(SiteTree::class,$this->element->RedirectPageID);
     		if ($redirectPage){
@@ -31,6 +35,10 @@ class DeskallFormController extends ElementFormController
      */
     public function Link($action = null)
     {  
+        ob_start();
+                    print_r('ici');
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $id = $this->element->ID;
         if ($this->element->isChildren()){
             $segment = Controller::join_links('children', $id, $this->element->Parent()->getOwnerPage()->ID, $action);
