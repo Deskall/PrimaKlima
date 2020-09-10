@@ -18,7 +18,6 @@ class DeskallElementContentControllerExtension extends Extension
     public function handleElement()
     {
         $id = $this->owner->getRequest()->param('ID');
-        print_r($id);
         if (!$id) {
             user_error('No element ID supplied', E_USER_ERROR);
             return false;
@@ -41,11 +40,10 @@ class DeskallElementContentControllerExtension extends Extension
         // If children block we loop until we find last parent
         while ($element->hasMethod('isChildren') && $element->isChildren()){
             $element = $element->Parent()->getOwnerPage();
-            print_r($element->ID);
         }
         foreach ($elementalAreaRelations as $elementalAreaRelation) {
             $element = $elementOwner->$elementalAreaRelation()->Elements()
-                ->filter('ID', $id)
+                ->filter('ID', $element->ID)
                 ->First();
 
             if ($element) {
