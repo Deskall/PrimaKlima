@@ -39,7 +39,10 @@ class DeskallFormController extends ElementController
      */
     public function Form()
     {
-        print_r('la');
+       ob_start();
+            print_r('ici');
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         return $this->getUserFormController()->Form();
     }
 
