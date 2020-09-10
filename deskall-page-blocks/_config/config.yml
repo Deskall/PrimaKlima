@@ -82,10 +82,9 @@ SilverStripe\Forms\FormField:
 
 SilverStripe\CMS\Controllers\ContentController:
   extensions:
-    # - DeskallContentControllerExtension
-    - DeskallElementContentControllerExtension
-  # url_handlers:
-  #   'children/$ID!/$OTHERID!': 'handleChildren'
+    - DeskallContentControllerExtension
+  url_handlers:
+    'children/$ID!/$OTHERID!': 'handleChildren'
 
 
 DNADesign\ElementalUserForms\Model\ElementForm:

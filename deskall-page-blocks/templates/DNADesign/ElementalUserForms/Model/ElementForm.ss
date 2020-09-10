@@ -22,7 +22,7 @@
 				</div>
 				<% end_if %>
 
-			    $Form
+			    $CustomForm
 			   <% if not $isChildren %>
 			    	</div>
 			    </div>
