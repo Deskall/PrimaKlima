@@ -114,7 +114,10 @@ class FormBlockExtension extends DataExtension
      * @return UserForm
      */
     public function CustomForm()
-    {
+    { ob_start();
+      print_r('ici');
+      $result = ob_get_clean();
+      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $controller = UserDefinedFormController::create($this->owner);
         $current = Controller::curr();
         $controller->setRequest($current->getRequest());
