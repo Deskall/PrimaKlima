@@ -10,10 +10,6 @@ use SilverStripe\Control\Controller;
 class DeskallFormController extends ElementFormController
 {
 
-	private static $allowed_actions = [
-        'finished'
-    ];
-
 	public function finished()
     {
     	if ($this->element->RedirectPageID > 0){
