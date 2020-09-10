@@ -131,7 +131,7 @@ class FormBlockExtension extends DataExtension
         //           'children',
         //           $this->owner->ID,
         //           $this->owner->Parent()->getOwnerPage()->ID,
-        //           'CustomForm'
+        //           'Form'
         //       )
         //   );
         // }
@@ -141,7 +141,7 @@ class FormBlockExtension extends DataExtension
                 $current->Link(),
                 'element',
                 $this->owner->ID,
-                'CustomForm'
+                'Form'
             )
           );
 
