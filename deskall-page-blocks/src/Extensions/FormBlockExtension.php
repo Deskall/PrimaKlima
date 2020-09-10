@@ -114,36 +114,14 @@ class FormBlockExtension extends DataExtension
      * @return UserForm
      */
     public function CustomForm()
-    { ob_start();
-      print_r('ici');
-      $result = ob_get_clean();
-      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+    { 
         $controller = UserDefinedFormController::create($this->owner);
         $current = Controller::curr();
         $controller->setRequest($current->getRequest());
         $form = $controller->Form();
 
-        if ($current && $current->getAction() == 'finished') {
-          ob_start();
-      print_r('ici');
-      $result = ob_get_clean();
-      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-            return $controller->redirect($this->RedirectPage()->Link());
-        }
         
-        if ($this->owner->isChildren()){
-          $form->setFormAction(
-              Controller::join_links(
-                  $current->Link(),
-                  'children',
-                  $this->owner->ID,
-                  $this->owner->Parent()->getOwnerPage()->ID,
-                  'Form'
-              )
-          );
-        }
-        else{
-           $form->setFormAction(
+      $form->setFormAction(
             Controller::join_links(
                 $current->Link(),
                 'element',
@@ -152,7 +130,7 @@ class FormBlockExtension extends DataExtension
             )
           );
 
-        }
+        
        
        
         return $form;
