@@ -41,6 +41,7 @@ class DeskallElementContentControllerExtension extends Extension
         // If children block we loop until we find last parent
         while ($element->isChildren()){
             $element = $element->Parent();
+            print_r($element->ID);
         }
         foreach ($elementalAreaRelations as $elementalAreaRelation) {
             $element = $elementOwner->$elementalAreaRelation()->Elements()
