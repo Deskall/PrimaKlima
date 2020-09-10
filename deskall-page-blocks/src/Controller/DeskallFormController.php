@@ -10,12 +10,12 @@ use SilverStripe\Control\Controller;
 class DeskallFormController extends ElementFormController
 {
 
+	 private static $allowed_actions = [
+        'finished'
+    ];
+
 	public function finished()
     {
-        ob_start();
-            print_r('la');
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     	if ($this->element->RedirectPageID > 0){
     		$redirectPage = DataObject::get_by_id(SiteTree::class,$this->element->RedirectPageID);
     		if ($redirectPage){
@@ -28,36 +28,32 @@ class DeskallFormController extends ElementFormController
     }
 
 
-    // /**
-    //  * @param string $action
-    //  *
-    //  * @return string
-    //  */
-    // public function Link($action = null)
-    // {  
-    //     ob_start();
-    //                 print_r('ici');
-    //                 $result = ob_get_clean();
-    //                 file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-    //     $id = $this->element->ID;
-    //     if ($this->element->isChildren()){
-    //         $segment = Controller::join_links('children', $id, $this->element->Parent()->getOwnerPage()->ID, $action);
-    //     }
-    //     else{
-    //         $segment = Controller::join_links('element', $id, $action);
-    //     }
-    //     $page = Director::get_current_page();
+    /**
+     * @param string $action
+     *
+     * @return string
+     */
+    public function Link($action = null)
+    {  
+        $id = $this->element->ID;
+        if ($this->element->isChildren()){
+            $segment = Controller::join_links('children', $id, $this->element->Parent()->getOwnerPage()->ID, $action);
+        }
+        else{
+            $segment = Controller::join_links('element', $id, $action);
+        }
+        $page = Director::get_current_page();
 
-    //     if ($page && !($page instanceof ElementController)) {
-    //         return $page->Link($segment);
-    //     }
+        if ($page && !($page instanceof ElementController)) {
+            return $page->Link($segment);
+        }
 
-    //     if ($controller = $this->getParentController()) {
-    //         return $controller->Link($segment);
-    //     }
+        if ($controller = $this->getParentController()) {
+            return $controller->Link($segment);
+        }
 
-    //     return $segment;
-    // }
+        return $segment;
+    }
 
     /**
      * Renders the managed {@link BaseElement} wrapped with the current

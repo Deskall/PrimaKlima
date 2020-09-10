@@ -114,14 +114,29 @@ class FormBlockExtension extends DataExtension
      * @return UserForm
      */
     public function CustomForm()
-    { 
+    {
         $controller = UserDefinedFormController::create($this->owner);
         $current = Controller::curr();
         $controller->setRequest($current->getRequest());
         $form = $controller->Form();
 
+        if ($current && $current->getAction() == 'finished') {
+            return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
+        }
         
-      $form->setFormAction(
+        if ($this->owner->isChildren()){
+          $form->setFormAction(
+              Controller::join_links(
+                  $current->Link(),
+                  'children',
+                  $this->owner->ID,
+                  $this->owner->Parent()->getOwnerPage()->ID,
+                  'Form'
+              )
+          );
+        }
+        else{
+           $form->setFormAction(
             Controller::join_links(
                 $current->Link(),
                 'element',
@@ -130,34 +145,34 @@ class FormBlockExtension extends DataExtension
             )
           );
 
-        
+        }
        
        
         return $form;
     }
 
-    // public function Link($action = null)
-    // {
-    //     $current = Controller::curr();
-    //     if ($action === 'finished') {
-    //         if ($this->owner->isChildren()){
-    //           return Controller::join_links(
-    //               str_replace('element','children',$current->Link()),
-    //               $this->owner->Parent()->getOwnerPage()->ID,
-    //               'finished'
-    //           );
-    //         }
-    //         else{
-    //           return Controller::join_links(
-    //               $current->Link(),
-    //               'finished'
-    //           );
-    //         }
+    public function Link($action = null)
+    {
+        $current = Controller::curr();
+        if ($action === 'finished') {
+            if ($this->owner->isChildren()){
+              return Controller::join_links(
+                  str_replace('element','children',$current->Link()),
+                  $this->owner->Parent()->getOwnerPage()->ID,
+                  'finished'
+              );
+            }
+            else{
+              return Controller::join_links(
+                  $current->Link(),
+                  'finished'
+              );
+            }
             
-    //     }
+        }
 
-    //     return parent::Link($action);
-    // }
+        return parent::Link($action);
+    }
 
 
 }
