@@ -10,7 +10,7 @@ use SilverStripe\Control\Controller;
 class DeskallFormController extends ElementFormController
 {
 
-	 private static $allowed_actions = [
+	private static $allowed_actions = [
         'finished'
     ];
 
@@ -36,10 +36,6 @@ class DeskallFormController extends ElementFormController
     public function Link($action = null)
     {  
         $id = $this->element->ID;
-        ob_start();
-            print_r($action);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
         if ($this->element->isChildren()){
             $segment = Controller::join_links('children', $id, $this->element->Parent()->getOwnerPage()->ID, $action);
         }
