@@ -124,18 +124,18 @@ class FormBlock extends ElementForm
         $controller->setRequest($current->getRequest());
         $form = $controller->Form();
         
-        if ($this->isChildren()){
-          $form->setFormAction(
-              Controller::join_links(
-                  $current->Link(),
-                  'children',
-                  $this->ID,
-                  $this->Parent()->getOwnerPage()->ID,
-                  'Form'
-              )
-          );
-        }
-        else{
+        // if ($this->isChildren()){
+        //   $form->setFormAction(
+        //       Controller::join_links(
+        //           $current->Link(),
+        //           'children',
+        //           $this->ID,
+        //           $this->Parent()->getOwnerPage()->ID,
+        //           'Form'
+        //       )
+        //   );
+        // }
+        // else{
            $form->setFormAction(
             Controller::join_links(
                 $current->Link(),
@@ -145,34 +145,13 @@ class FormBlock extends ElementForm
             )
           );
 
-        }
+        // }
        
        
         return $form;
     }
 
-    public function Link($action = null)
-    {
-        $current = Controller::curr();
-        if ($action === 'finished') {
-            if ($this->isChildren()){
-              return Controller::join_links(
-                  str_replace('element','children',$current->Link()),
-                  $this->Parent()->getOwnerPage()->ID,
-                  'finished'
-              );
-            }
-            else{
-              return Controller::join_links(
-                  $current->Link(),
-                  'finished'
-              );
-            }
-            
-        }
-
-        return parent::Link($action);
-    }
+    
 
 
 }

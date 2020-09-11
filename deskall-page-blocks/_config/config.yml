@@ -78,10 +78,10 @@ SilverStripe\UserForms\Model\Recipient\EmailRecipient:
 
 SilverStripe\CMS\Controllers\ContentController:
   extensions:
-    - DeskallContentControllerExtension
+   # - DeskallContentControllerExtension
     - DeskallElementContentControllerExtension
-  url_handlers:
-    'children/$ID!/$OTHERID!': 'handleChildren'
+  #url_handlers:
+  #  'children/$ID!/$OTHERID!': 'handleChildren'
 
 
 DNADesign\ElementalUserForms\Model\ElementForm:
