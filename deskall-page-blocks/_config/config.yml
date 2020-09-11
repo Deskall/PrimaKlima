@@ -73,10 +73,6 @@ SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   extensions:
     - SubObjectPermission
 
-SilverStripe\UserForms\Control\UserDefinedFormController:
-  extensions:
-    - UserDefinedFormControllerExtension
-
 SilverStripe\Forms\FormField:
   extensions:
   - 'DeskallFormFieldExtension'
