@@ -13,26 +13,15 @@ class MigrateFormElement extends BuildTask
 
     public function run($request)
     {
-        // TODO: needs rewriting for multiple elemental areas
-
         $count = 0;
+        $forms = ElementForm::get();
         foreach ($forms as $form) {
-            $pages = $pageType::get()->filter('ElementalAreaID', 0);
-            foreach ($pages as $page) {
-                $content = $page->Content;
-                $page->Content = '';
-                // trigger area relations to be setup
-                $page->write();
-                $area = $page->ElementalArea();
-                $element = new ElementContent();
-                $element->Title = 'Auto migrated content';
-                $element->HTML = $content;
-                $element->ParentID = $area->ID;
-                $element->write();
-            }
-            $count += $pages->Count();
-            echo 'Migrated ' . $pages->Count() . ' ' . $pageType . ' pages\' content<br>';
+            $newForm = new DeskallForm($form->toMap());
+            $newForm->write();
+            $form->delete();
+            $count ++;
         }
-        echo 'Finished migrating ' . $count . ' pages\' content<br>';
+        
+        echo 'Finished migrating ' . $count . ' forms<br>';
     }
 }
