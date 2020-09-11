@@ -120,6 +120,10 @@ class FormBlockExtension extends DataExtension
         $controller->setRequest($current->getRequest());
         $form = $controller->Form();
        
+        if ($current && $current->getAction() == 'finished') {
+            return $controller->redirect($this->owner->RedirectPage()->Link());
+        }
+        
         if ($this->owner->isChildren()){
           $form->setFormAction(
               Controller::join_links(
