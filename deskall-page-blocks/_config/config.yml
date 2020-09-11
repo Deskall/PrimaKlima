@@ -70,7 +70,7 @@ SilverStripe\Admin\LeftAndMain:
 
 SilverStripe\CMS\Controllers\ContentController:
   extensions:
-    - DeskallContentControllerExtension
+    - DeskallElementControllerExtension
 
 FormBlock:
   email_template_directory: deskall-page-blocks/templates/emails/
