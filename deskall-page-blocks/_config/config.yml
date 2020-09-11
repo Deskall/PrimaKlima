@@ -1,6 +1,7 @@
 ---
 Name: deskall-page-blocks
 After:
+  - '#elemental'
   - '#linkable'
   - '#deskall-divers'
 ---
@@ -63,32 +64,33 @@ SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - deskall-page-blocks/css/block_editor.css
 
-#FormBlock:
-#  email_template_directory: deskall-page-blocks/templates/emails/
+FormBlock:
+  email_template_directory: deskall-page-blocks/templates/emails/
 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   allow_unbound_recipient_fields: true
   extensions:
     - SubObjectPermission
 
-#SilverStripe\UserForms\Control\UserDefinedFormController:
-#  extensions:
-#    - UserDefinedFormControllerExtension
+SilverStripe\UserForms\Control\UserDefinedFormController:
+  extensions:
+    - UserDefinedFormControllerExtension
 
 SilverStripe\Forms\FormField:
   extensions:
   - 'DeskallFormFieldExtension'
 
-#SilverStripe\CMS\Controllers\ContentController:
-#  extensions:
-#    - DeskallContentControllerExtension
-#  url_handlers:
-#    'children/$ID!/$OTHERID!': 'handleChildren'
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - DeskallContentControllerExtension
+    - DeskallElementContentControllerExtension
+  url_handlers:
+    'children/$ID!/$OTHERID!': 'handleChildren'
 
 
 DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
-  #  - FormBlockExtension
+    - FormBlockExtension
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
   block_default_userforms_js: true
   block_default_userforms_css: true
