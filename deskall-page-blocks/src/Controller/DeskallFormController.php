@@ -67,7 +67,7 @@ class DeskallFormController extends ElementController
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
 
-        return $controller->redirect($element->RedirectPage()->Link());
+        return $controller->redirect($this->element->RedirectPage()->Link());
 
         // return $controller->customise([
         //     'Content' => $element->renderWith($element->getRenderTemplates('_ReceivedFormSubmission')),
