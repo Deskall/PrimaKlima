@@ -3,6 +3,7 @@
 /* Migrate ElementForm to DeskallForm */
 
 use SilverStripe\Dev\BuildTask;
+use DNADesign\ElementalUserForms\Model\ElementForm;
 
 class MigrateFormElement extends BuildTask
 {
