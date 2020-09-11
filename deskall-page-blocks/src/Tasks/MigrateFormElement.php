@@ -23,13 +23,16 @@ class MigrateFormElement extends BuildTask
             unset($data['ClassName']);
             $newForm = new FormBlock($data);
             $newForm->write();
+            $fields = $form->fields();
+            $recs = EmailRecipient::get()->filter('FormID',$form->ID);
 
             //Upadte Recipient and Fields
-            foreach ($form->fields() as $field) {
-                $field->ParentID = $newForm->ID; 
+            foreach ($fields as $field) {
+                $field->ParentID = $newForm->ID;
+                $field->ParentClass = $newForm->ClassName;
                 $field->write();
             }
-            foreach (EmailRecipient::get()->filter('FormID',$form->ID) as $rec) {
+            foreach ($recs as $rec) {
                 $rec->FormID = $newForm->ID; 
                 $rec->write();
             }
