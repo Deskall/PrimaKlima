@@ -115,7 +115,7 @@ class FormBlockExtension extends DataExtension
      */
     public function CustomForm()
     {
-        $controller = DeskallFormController::create($this->owner);
+        $controller = DeskallFormController::create();
         print_r($controller->ClassName);
         $current = Controller::curr();
         $controller->setRequest($current->getRequest());
