@@ -4,6 +4,7 @@
 
 use SilverStripe\Dev\BuildTask;
 use DNADesign\ElementalUserForms\Model\ElementForm;
+use SilverStripe\UserForms\Model\Recipient\EmailRecipient;
 
 class MigrateFormElement extends BuildTask
 {
