@@ -117,7 +117,7 @@ class FormBlock extends ElementForm
   /**
      * @return UserForm
      */
-    public function CustomForm()
+    public function Form()
     {
         $controller = UserDefinedFormController::create($this);
         $current = Controller::curr();
