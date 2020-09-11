@@ -1,115 +1,178 @@
 <?php
-
-namespace DNADesign\ElementalUserForms\Control;
-
-use DNADesign\Elemental\Controllers\ElementController;
-use SilverStripe\Control\Controller;
-use SilverStripe\Control\Director;
-use SilverStripe\Core\Injector\Injector;
+use DNADesign\ElementalUserForms\Model\ElementForm;
+use SilverStripe\ORM\DataExtension;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TreeDropdownField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\UserForms\Control\UserDefinedFormController;
-use SilverStripe\UserForms\Form\UserForm;
+use SilverStripe\UserForms\UserForm;
+use SilverStripe\Control\Controller;
+use DNADesign\ElementalUserForms\Control\ElementFormController;
+use SilverStripe\Forms\RequiredFields;
+use g4b0\SearchableDataObjects\Searchable;
+use SilverStripe\Forms\TextField;
+use SilverStripe\UserForms\Model\Recipient\EmailRecipient;
 
-class ElementFormController extends ElementController
+class FormBlock extends ElementForm 
 {
-    private static $allowed_actions = [
-        'Form',
-        'process',
-        'finished'
+
+  private static $controller_template = 'ElementHolder';
+
+  private static $description = 'Formular';
+
+  private static $controller_class = DeskallFormController::class;
+    
+   private static $db = [
+    'ButtonBackground' => 'Varchar(255)',
+    'HTML' => 'HTMLText'
+   ];
+
+   private static $defaults = [
+    'ShowLabels' => 1,
+    'Layout' => 'standard'
+  ];
+
+   private static $has_one = [
+    'RedirectPage' => SiteTree::class
+   ];
+
+   public function fieldLabels($includerelation = true){
+    $labels = parent::fieldLabels($includerelation);
+    $labels['ButtonBackground'] = _t('Form.ButtonBackground','Button Hintergrundfarbe');
+    return $labels;
+   }
+
+    private static $block_layouts = [
+        'standard' =>  [
+            'value' => 'standard',
+            'title' => 'Standard Formular Layout',
+            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+        ],
+        'vertical' => [
+            'value' => 'vertical',
+            'title' => 'Vertical Formular',
+            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+        ]
     ];
 
-    /**
-     * @var UserDefinedFormController
-     */
-    protected $userFormController;
 
-    protected function init()
-    {
-        parent::init();
+   
 
-        $controller = $this->getUserFormController() ?: UserDefinedFormController::create($this->element);
-        $controller->setRequest($this->getRequest());
-        $controller->doInit();
+   public function getCMSFields(){
+    $fields = parent::getCMSFields();
+    $fields->removeByName('Layout');
+    $fields->removeByName('TextLayout');
+    $fields->removeByName('RedirectPageID');
+    $fields->removeByName('FormOptions');
+     $fields->addFieldToTab('Root.Main',TreeDropdownField::create('RedirectPageID',_t('Form.RedirectPage', 'erfolgreiche Einreichungsseite'), SiteTree::class));
+      $fields->addFieldToTab('Root.LayoutTab',TextField::create('SubmitButtonText',_t('Form.SubmitButtonText','Button Text')));
+     $fields->addFieldToTab('Root.LayoutTab',HTMLDropdownField::create('ButtonBackground',_t('Form.ButtonBackground','Button Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'));
 
-        $this->setUserFormController($controller);
+     $fields->fieldByName('Root.FormFields')->setTitle(_t('Form.FormFields','Felder'));
+     $fields->fieldByName('Root.Submissions')->setTitle(_t('Form.Submissions','Anfragen'));
+     $fields->fieldByName('Root.Recipients')->setTitle(_t('Form.Recipients','Empfänger'));
+     if ($this->ID == 0){ 
+      $fields->removeByName('FormFields');
+      $fields->removeByName('Submissions');
+      $fields->removeByName('Recipients');
+     }
+
+     return $fields;
+   
+   }
+
+  public function validate(){
+    $result = parent::validate();
+    if ($this->RedirectPageID == 0){
+      $result->addError(_t("FORMBLOCK.REDIRECTPAGEREQUIRED", "Bitte Einreichungsseite auswählen"));
     }
+    return $result;
+  }
 
-    /**
+  public function getType()
+  {
+    return _t(__CLASS__ . '.BlockType', 'Formular');
+  }
+
+  public function onAfterDuplicate($origin){
+    $recipients = EmailRecipient::get()->filter('FormID',$origin->ID);
+    foreach($recipients as $recipient){
+      $newR = $recipient->duplicate(false);
+      $newR->FormID = $this->ID;
+      $newR->write();
+    }
+  }
+
+  public function onBeforeDelete(){
+    parent::onBeforeDelete();
+    $recipients = EmailRecipient::get()->filter('FormID',$this->ID);
+    foreach($recipients as $recipient){
+      $recipient->delete();
+    }
+  }
+
+
+  /**
      * @return UserForm
      */
-    public function Form()
+    public function CustomForm()
     {
-        return $this->getUserFormController()->Form();
+        $controller = UserDefinedFormController::create($this);
+        $current = Controller::curr();
+        $controller->setRequest($current->getRequest());
+        $form = $controller->Form();
+        
+        if ($this->isChildren()){
+          $form->setFormAction(
+              Controller::join_links(
+                  $current->Link(),
+                  'children',
+                  $this->ID,
+                  $this->Parent()->getOwnerPage()->ID,
+                  'Form'
+              )
+          );
+        }
+        else{
+           $form->setFormAction(
+            Controller::join_links(
+                $current->Link(),
+                'element',
+                $this->ID,
+                'Form'
+            )
+          );
+
+        }
+       
+       
+        return $form;
     }
 
-    public function process($data)
-    {
-        $user = $this->getUserFormController();
-
-        return $user->process($data, $user->Form());
-    }
-
-    public function finished()
-    {
-        $user = $this->getUserFormController();
-
-        $user->finished();
-
-        $page = $this->getPage();
-        $controller = Injector::inst()->create($page->getControllerName(), $this->element->getPage());
-        $element = $this->element;
-
-        ob_start();
-                    print_r('pusi la');
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-
-        return $controller->redirect('/');
-        return $controller->customise([
-            'Content' => $element->renderWith($element->getRenderTemplates('_ReceivedFormSubmission')),
-        ]);
-    }
-
-    /**
-     * @param string $action
-     *
-     * @return string
-     */
     public function Link($action = null)
     {
-        $id = $this->element->ID;
-        $segment = Controller::join_links('element', $id, $action);
-        $page = Director::get_current_page();
-
-        if ($page && !($page instanceof ElementController)) {
-            return $page->Link($segment);
+        $current = Controller::curr();
+        if ($action === 'finished') {
+            if ($this->isChildren()){
+              return Controller::join_links(
+                  str_replace('element','children',$current->Link()),
+                  $this->Parent()->getOwnerPage()->ID,
+                  'finished'
+              );
+            }
+            else{
+              return Controller::join_links(
+                  $current->Link(),
+                  'finished'
+              );
+            }
+            
         }
 
-        if ($controller = $this->getParentController()) {
-            return $controller->Link($segment);
-        }
-
-        return $segment;
+        return parent::Link($action);
     }
 
-    /**
-     * Return the associated UserDefinedFormController
-     *
-     * @return UserDefinedFormController
-     */
-    public function getUserFormController()
-    {
-        return $this->userFormController;
-    }
 
-    /**
-     * Set the associated UserDefinedFormController
-     *
-     * @param UserDefinedFormController $controller
-     * @return $this
-     */
-    public function setUserFormController(UserDefinedFormController $controller)
-    {
-        $this->userFormController = $controller;
-        return $this;
-    }
 }
