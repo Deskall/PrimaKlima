@@ -124,7 +124,7 @@ class FormBlockExtension extends DataExtension
                     $result = ob_get_clean();
                     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
         if ($current && $current->getAction() == 'finished') {
-            return $controller->redirect($this->owner->RedirectPage()->Link());
+            return PageController::create()->redirect($this->owner->RedirectPage()->Link());
         }
         
         if ($this->owner->isChildren()){
