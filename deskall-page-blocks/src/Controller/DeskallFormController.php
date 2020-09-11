@@ -53,9 +53,10 @@ class DeskallFormController extends ElementController
 
         $user->finished();
 
-        $page = $this->getPage();
-        $controller = Injector::inst()->create($page->getControllerName(), $this->element->getPage());
+        $page = $this->element->getPage();
+        $controller = Injector::inst()->create($page->getControllerName(), $page);
         $element = $this->element;
+
 
         ob_start();
             print_r('je suis la');
