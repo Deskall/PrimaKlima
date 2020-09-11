@@ -58,7 +58,6 @@ class DeskallContentControllerExtension extends Extension
     // }
 
     public function handleElement(){
-        user_error('Blablabla', E_USER_ERROR);
         $id = $this->owner->getRequest()->param('ID');
 
         if (!$id) {
@@ -66,25 +65,35 @@ class DeskallContentControllerExtension extends Extension
             return false;
         }
 
-        /** @var SiteTree $elementOwner */
-        $elementOwner = $this->owner->data();
-
-        $elementalAreaRelations = $this->owner->getElementalRelations();
-
-        if (!$elementalAreaRelations) {
-            user_error(get_class($this->owner) . ' has no ElementalArea relationships', E_USER_ERROR);
+        $element = BaseElement::get()->byId($id);
+        if (!$element) {
+            user_error('No element found', E_USER_ERROR);
             return false;
         }
 
-        foreach ($elementalAreaRelations as $elementalAreaRelation) {
-            $element = $elementOwner->$elementalAreaRelation()->Elements()
-                ->filter('ID', $id)
-                ->First();
-
-            if ($element) {
-                return $element->getController();
-            }
+        if ($element) {
+            return $element->getController();
         }
+        
+        /** @var SiteTree $elementOwner */
+        // $elementOwner = $this->owner->data();
+
+        // $elementalAreaRelations = $this->owner->getElementalRelations();
+
+        // if (!$elementalAreaRelations) {
+        //     user_error(get_class($this->owner) . ' has no ElementalArea relationships', E_USER_ERROR);
+        //     return false;
+        // }
+
+        // foreach ($elementalAreaRelations as $elementalAreaRelation) {
+        //     $element = $elementOwner->$elementalAreaRelation()->Elements()
+        //         ->filter('ID', $id)
+        //         ->First();
+
+        //     if ($element) {
+        //         return $element->getController();
+        //     }
+        // }
 
         user_error('Element $id not found for this page', E_USER_ERROR);
         return false;
