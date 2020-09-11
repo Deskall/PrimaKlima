@@ -87,7 +87,6 @@ SilverStripe\CMS\Controllers\ContentController:
 
 DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
-    - FormBlockExtension
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
   block_default_userforms_js: true
   block_default_userforms_css: true
