@@ -80,12 +80,11 @@ class FormBlockExtension extends DataExtension
    
    }
 
-  public function validate(){
-    $result = parent::validate();
+  public function validate(SilverStripe\ORM\ValidationResult $validationResult){
     if ($this->owner->RedirectPageID == 0){
-      $result->addError(_t("FORMBLOCK.REDIRECTPAGEREQUIRED", "Bitte Einreichungsseite auswählen"));
+      $validationResult->addError(_t("FORMBLOCK.REDIRECTPAGEREQUIRED", "Bitte Einreichungsseite auswählen"));
     }
-    return $result;
+    return $validationResult;
   }
 
   public function getType()
