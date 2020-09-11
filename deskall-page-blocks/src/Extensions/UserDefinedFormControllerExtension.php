@@ -13,4 +13,8 @@ class UserDefinedFormControllerExtension extends Extension
 		$email->setHTMLTemplate('emails/userform_email');
 	}
 
+	public function updateReceivedFormSubmissionData($data) {
+		return $this->owner->redirect('/');
+	}
+
 }

@@ -80,12 +80,13 @@ class FormBlockExtension extends DataExtension
    
    }
 
-  public function getCMSValidator()
-      {
-          return new RequiredFields([
-              'RedirectPageID'
-          ]);
-      }
+  public function validate(){
+    $result = parent::validate();
+    if ($this->owner->RedirectPageID == 0){
+      $result->addError(_t("FORMBLOCK.REDIRECTPAGEREQUIRED", "Bitte Einreichungsseite auswählen"));
+    }
+    return $result;
+  }
 
   public function getType()
   {
