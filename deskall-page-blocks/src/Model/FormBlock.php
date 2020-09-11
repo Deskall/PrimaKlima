@@ -114,65 +114,65 @@ class FormBlock extends ElementForm
   }
 
 
-  // /**
-  //    * @return UserForm
-  //    */
-  //   public function Form()
-  //   {
-  //       $controller = UserDefinedFormController::create($this);
-  //       $current = Controller::curr();
-  //       $controller->setRequest($current->getRequest());
-  //       $form = $controller->Form();
+  /**
+     * @return UserForm
+     */
+    public function Form()
+    {
+        $controller = UserDefinedFormController::create($this);
+        $current = Controller::curr();
+        $controller->setRequest($current->getRequest());
+        $form = $controller->Form();
         
-  //       if ($this->isChildren()){
-  //         $form->setFormAction(
-  //             Controller::join_links(
-  //                 $current->Link(),
-  //                 'children',
-  //                 $this->ID,
-  //                 $this->Parent()->getOwnerPage()->ID,
-  //                 'Form'
-  //             )
-  //         );
-  //       }
-  //       else{
-  //          $form->setFormAction(
-  //           Controller::join_links(
-  //               $current->Link(),
-  //               'element',
-  //               $this->ID,
-  //               'Form'
-  //           )
-  //         );
+        if ($this->isChildren()){
+          $form->setFormAction(
+              Controller::join_links(
+                  $current->Link(),
+                  'children',
+                  $this->ID,
+                  $this->Parent()->getOwnerPage()->ID,
+                  'Form'
+              )
+          );
+        }
+        else{
+           $form->setFormAction(
+            Controller::join_links(
+                $current->Link(),
+                'element',
+                $this->ID,
+                'Form'
+            )
+          );
 
-  //       }
+        }
        
        
-  //       return $form;
-  //   }
+        return $form;
+    }
 
-    // public function Link($action = null)
-    // {
-    //     $current = Controller::curr();
-    //     if ($action === 'finished') {
-    //         if ($this->isChildren()){
-    //           return Controller::join_links(
-    //               str_replace('element','children',$current->Link()),
-    //               $this->Parent()->getOwnerPage()->ID,
-    //               'finished'
-    //           );
-    //         }
-    //         else{
-    //           return Controller::join_links(
-    //               $current->Link(),
-    //               'finished'
-    //           );
-    //         }
+    public function Link($action = null)
+    {
+        $current = Controller::curr();
+        if ($action === 'finished') {
+            if ($this->isChildren()){
+              return Controller::join_links(
+                  str_replace('element','children',$current->Link()),
+                  $this->Parent()->getOwnerPage()->ID,
+                  'finished'
+              );
+            }
+            else{
+              return Controller::join_links(
+                  $current->Link(),
+                  'finished'
+              );
+            }
             
-    //     }
+        }
 
-    //     return parent::Link($action);
-    // }
+        return parent::Link($action);
+    }
 
 
 }
