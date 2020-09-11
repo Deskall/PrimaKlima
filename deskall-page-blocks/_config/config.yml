@@ -68,21 +68,14 @@ SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - deskall-page-blocks/css/block_editor.css
 
-FormBlock:
-  email_template_directory: deskall-page-blocks/templates/emails/
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - DeskallContentControllerExtension
 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   allow_unbound_recipient_fields: true
   extensions:
     - SubObjectPermission
-
-SilverStripe\CMS\Controllers\ContentController:
-  extensions:
-    - DeskallContentControllerExtension
-    #- DeskallElementContentControllerExtension
-  url_handlers:
-    'children/$ID!/$OTHERID!': 'handleChildren'
-
 
 DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
