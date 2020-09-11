@@ -73,11 +73,7 @@ SilverStripe\CMS\Controllers\ContentController:
     - DeskallContentControllerExtension
   url_handlers:
     'children/$ID!/$OTHERID!': 'handleChildren'
-    
-
-FormBlock:
-  email_template_directory: deskall-page-blocks/templates/emails/
-
+ 
 SilverStripe\UserForms\Model\Recipient\EmailRecipient:
   allow_unbound_recipient_fields: true
   extensions:
