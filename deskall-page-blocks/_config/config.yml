@@ -59,8 +59,6 @@ VideoObject:
 
 SilverStripe\UserForms\Control\UserDefinedFormController:
   finished_anchor: ''
-  extensions:
-    - UserDefinedFormControllerExtension
 
 SilverStripe\UserForms\Form\UserForm:
   extensions:
