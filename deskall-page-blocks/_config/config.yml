@@ -57,6 +57,9 @@ VideoObject:
   extensions:
     - SubObjectPermission
 
+SilverStripe\UserForms\Control\UserDefinedFormController:
+  finished_anchor: ''
+
 SilverStripe\UserForms\Form\UserForm:
   extensions:
    - UserDefinedFormExtension
