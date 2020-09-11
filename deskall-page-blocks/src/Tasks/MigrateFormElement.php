@@ -17,8 +17,9 @@ class MigrateFormElement extends BuildTask
         $count = 0;
         $forms = ElementForm::get();
         foreach ($forms as $form) {
-            $newForm = new FormBlock();
-            $newForm->write();
+             print_r($form->toMap());
+            // $newForm = new FormBlock();
+            // $newForm->write();
             $count ++;
         }
         

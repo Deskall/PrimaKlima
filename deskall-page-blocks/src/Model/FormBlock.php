@@ -14,20 +14,26 @@ use SilverStripe\Forms\RequiredFields;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\TextField;
 use SilverStripe\UserForms\Model\Recipient\EmailRecipient;
+use DNADesign\Elemental\Models\BaseElement;
 
-class FormBlock extends ElementForm 
+class FormBlock extends BaseElement 
 {
+  use UserForm;
 
   private static $controller_template = 'ElementHolder';
 
   private static $description = 'Formular';
 
   private static $controller_class = DeskallFormController::class;
+
+  private static $singular_name = 'Formular';
+
+  private static $plural_name = 'Formulare';
     
-   private static $db = [
+  private static $db = [
     'ButtonBackground' => 'Varchar(255)',
     'HTML' => 'HTMLText'
-   ];
+  ];
 
    private static $defaults = [
     'ShowLabels' => 1,
