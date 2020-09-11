@@ -57,9 +57,11 @@ class DeskallFormController extends ElementController
         $controller = Injector::inst()->create($page->getControllerName(), $this->element->getPage());
         $element = $this->element;
 
-        return $controller->customise([
-            'Content' => $element->renderWith($element->getRenderTemplates('_ReceivedFormSubmission')),
-        ]);
+        return $controller->redirect($element->RedirectPage()->Link());
+
+        // return $controller->customise([
+        //     'Content' => $element->renderWith($element->getRenderTemplates('_ReceivedFormSubmission')),
+        // ]);
     }
 
     /**
