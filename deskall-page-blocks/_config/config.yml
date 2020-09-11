@@ -71,6 +71,9 @@ SilverStripe\Admin\LeftAndMain:
 SilverStripe\CMS\Controllers\ContentController:
   extensions:
     - DeskallContentControllerExtension
+  url_handlers:
+    'children/$ID!/$OTHERID!': 'handleChildren'
+    
 
 FormBlock:
   email_template_directory: deskall-page-blocks/templates/emails/
