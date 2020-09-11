@@ -22,6 +22,16 @@ class MigrateFormElement extends BuildTask
             unset($data['ClassName']);
             $newForm = new FormBlock($data);
             $newForm->write();
+
+            //Upadte Recipient and Fields
+            foreach ($form->fields() as $field) {
+                $field->ParentID = $newForm->ID; 
+                $field->write();
+            }
+            foreach ($form->recipients() as $rec) {
+                $rec->FormID = $newForm->ID; 
+                $rec->write();
+            }
             $count ++;
         }
         
