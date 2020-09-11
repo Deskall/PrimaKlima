@@ -34,9 +34,11 @@ class MigrateFormElement extends BuildTask
             }
             foreach ($recs as $rec) {
                 $rec->FormID = $newForm->ID;
-                $rec->FormClass = $rec->ClassName;
+                $rec->FormClass = $newForm->ClassName;
                 $rec->write();
             }
+            $newForm->publish();
+            $form->delete();
             $count ++;
         }
         
