@@ -28,7 +28,7 @@ class MigrateFormElement extends BuildTask
                 $field->ParentID = $newForm->ID; 
                 $field->write();
             }
-            foreach ($form->recipients() as $rec) {
+            foreach (EmailRecipient::get()->filter('FormID',$form->ID) as $rec) {
                 $rec->FormID = $newForm->ID; 
                 $rec->write();
             }
