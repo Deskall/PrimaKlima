@@ -1,6 +1,7 @@
 ---
 Name: deskall-page-blocks
 After:
+  - '#userformsconfig'
   - '#elemental'
   - '#linkable'
   - '#deskall-divers'

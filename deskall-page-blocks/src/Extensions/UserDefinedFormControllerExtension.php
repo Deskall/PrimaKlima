@@ -5,8 +5,6 @@ use SilverStripe\Core\Extension;
 
 class UserDefinedFormControllerExtension extends Extension
 {
-	private static $finished_anchor = '';
-
 	
 	public function updateEmail($email, $recipient, $emailData){
 
@@ -14,6 +12,10 @@ class UserDefinedFormControllerExtension extends Extension
 	}
 
 	public function updateReceivedFormSubmissionData($data) {
+		ob_start();
+			print_r('la');
+			$result = ob_get_clean();
+			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
 		return $this->owner->redirect('/');
 	}
 
