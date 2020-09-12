@@ -91,7 +91,8 @@ class GalleryBlock extends BaseElement implements Searchable
         'uk-child-width-1-2@s' => '2',
         'uk-child-width-1-2@s uk-child-width-1-3@m' => '3',
         'uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l' => '4',
-        'uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-5@l' => '5'
+        'uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-5@l' => '5',
+        'uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l' => '6'
     ];
 
     private static $image_padding = [
