@@ -12,7 +12,7 @@ class Page extends SiteTree implements Searchable
 
     public function getCMSFields(){
       $fields = parent::getCMSFields();
-
+      $fields->replaceField('Title',TextareaField::create('Title','Seitenname'));
       return $fields;
     }
 
