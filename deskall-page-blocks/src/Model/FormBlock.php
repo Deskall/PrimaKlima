@@ -85,9 +85,9 @@ class FormBlock extends ElementForm
 
   public function validate(){
     $result = parent::validate();
-    // if ($this->RedirectPageID == 0){
-    //   $result->addError(_t("FORMBLOCK.REDIRECTPAGEREQUIRED", "Bitte Einreichungsseite auswählen"));
-    // }
+    if ($this->RedirectPageID == 0){
+      $result->addError(_t("FORMBLOCK.REDIRECTPAGEREQUIRED", "Bitte Einreichungsseite auswählen"));
+    }
     return $result;
   }
 

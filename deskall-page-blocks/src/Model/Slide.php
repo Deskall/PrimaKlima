@@ -270,6 +270,14 @@ class Slide extends DataObject
         return $this->Parent()->getPage();
     }
 
+    public function onAfterWrite(){
+        parent::onAfterWrite();
+        if ($this->isMainSlide && !$this->Parent()->isPrimary){
+            $this->Parent()->isPrimary = 1;
+            $this->Parent()->write();
+        }
+    }
+
     public function onAfterPublish(){
         if ($this->Parent()){
             $this->Parent()->publishSingle();

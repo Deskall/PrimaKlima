@@ -23,6 +23,9 @@ class MigrateFormElement extends BuildTask
             unset($data['ID']);
             unset($data['ClassName']);
             $newForm = new FormBlock($data);
+            if ($newForm->RedirectPageID == 0){
+                $newForm->RedirectPageID = HomePage::get()->first()->ID;
+            }
             $newForm->write();
             $fields = $form->fields();
             $recs = EmailRecipient::get()->filter('FormID',$form->ID);
