@@ -109,7 +109,7 @@ class Overlay extends DataObject{
 		//Other display options
 		$fields->fieldByName('Root.Main.CountDown')->displayIf('Type')->isEqualTo('Text')->end();
 		$fields->fieldByName('Root.Main.Content')->hideIf('Type')->isEqualTo('Form')->end();
-		$fields->fieldByName('Root.Main.AGBText')->displayIf('Type')->isEqualTo('Newsletter')->end();
+		$fields->fieldByName('Root.Main.AGBText')->displayIf('Type')->isEqualTo('Newsletter')->orIf('Type')->isEqualTo('Bewertung')->end();
 		$fields->fieldByName('Root.Main.ValidButtonText')->displayIf('Type')->isEqualTo('Newsletter')->end();
 		$fields->fieldByName('Root.Layout.ValidButtonBackground')->hideUnless('Type')->isEqualTo('Newsletter')->end();
 		$fields->fieldByName('Root.Main.FormBlockID')->displayIf('Type')->isEqualTo('Form')->end();
