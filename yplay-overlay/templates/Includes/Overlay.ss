@@ -9,22 +9,22 @@
 		        	<div class="uk-grid-small uk-child-width-auto uk-flex uk-flex-middle" data-uk-grid data-uk-countdown="date: $Overlay.CountDownDate">
 		        	    <div>
 		        	        <div class="uk-countdown-number uk-countdown-days"></div>
-		        	        <div class="uk-countdown-label uk-visible@s">Tage</div>
+		        	        <div class="uk-countdown-label uk-visible@s"></div>
 		        	    </div>
 		        	    <div class="uk-countdown-separator">:</div>
 		        	    <div>
 		        	        <div class="uk-countdown-number uk-countdown-hours"></div>
-		        	        <div class="uk-countdown-label uk-visible@s">Uhren</div>
+		        	        <div class="uk-countdown-label uk-visible@s"></div>
 		        	    </div>
 		        	    <div class="uk-countdown-separator">:</div>
 		        	    <div>
 		        	        <div class="uk-countdown-number uk-countdown-minutes"></div>
-		        	        <div class="uk-countdown-label uk-visible@s">Minuten</div>
+		        	        <div class="uk-countdown-label uk-visible@s"></div>
 		        	    </div>
 		        	    <div class="uk-countdown-separator">:</div>
 		        	    <div>
 		        	        <div class="uk-countdown-number uk-countdown-seconds"></div>
-		        	        <div class="uk-countdown-label uk-visible@s">Sekunden</div>
+		        	        <div class="uk-countdown-label uk-visible@s"></div>
 		        	    </div>
 		        	</div>
 		        	<% end_if %>
