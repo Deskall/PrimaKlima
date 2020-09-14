@@ -856,7 +856,7 @@ $(document).ready(function(){
 
 	$(document).on("click","#Form_BewertungForm_action_doRate", function(e){
 		e.preventDefault();
-		if (typeof $("#Form_BewertungForm_Rate").val() == "undefined"){
+		if (typeof $("#Form_BewertungForm_Bewertung").val() == "undefined"){
 			$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
 			return false;
 		}
