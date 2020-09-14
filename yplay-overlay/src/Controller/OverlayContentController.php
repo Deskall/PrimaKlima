@@ -24,7 +24,7 @@ class OverlayContentController extends PageController
      */
     private static $allowed_actions = array(
         'handleElement',
-        'NewsletterForm'
+        'NewsletterForm',
         'BewertungForm'
     );
 
