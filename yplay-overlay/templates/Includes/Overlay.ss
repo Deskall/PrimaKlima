@@ -45,8 +45,11 @@
 				    <% else_if $Overlay.Type == "Newsletter" %>
 				    	$NewsletterForm
 				    <% else_if $Overlay.Type == "Bewertung" %>
-				    	Bewertung
-				    	<div class="rating" data-rate-value=6></div>
+					    <div class="uk-flex uk-flex-fleft">
+					    	<label>Bewertung</label>
+					    	<div class="rating" data-rate-value=6></div>
+					    	<div class="rate"></div>
+					    </div>
 				    	$BewertungForm
 		        	<% end_if %>
 		        </div>
