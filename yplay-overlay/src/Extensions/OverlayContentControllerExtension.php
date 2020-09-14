@@ -77,7 +77,7 @@ class OverlayContentControllerExtension extends Extension
             ->setAttribute('data-uk-icon','chevron-right')
         );
 
-        $required = new RequiredFields(['Email']);
+        $required = new RequiredFields(['Email', 'AGB']);
 
         $form = new Form($this->owner, 'NewsletterForm', $fields, $actions, $required);
         $form->addExtraClass('form-std');
