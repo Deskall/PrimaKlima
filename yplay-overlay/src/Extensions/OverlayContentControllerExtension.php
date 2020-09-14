@@ -141,15 +141,15 @@ class OverlayContentControllerExtension extends Extension
             $form->saveInto($rate);
             $rate->write();
 
-            //Send mails
-            // $config = SiteConfig::current_site_config();
-            // $str = $this->owner->parseString($config->ProductEmailContent, $data);
-            // $html = new DBHTMLText();
-            // $html->setValue($str);
-            // $Body = $this->owner->renderWith('Emails/base_email',array('Subject' => $config->ProductEmailSubject, 'Lead' => '', 'Body' => $html, 'Footer' => '', 'SiteConfig' => $config));
-            // $email = new Email($config->Email, $data['Email'],$config->ProductEmailSubject, $Body);
-            // $email->setBCC($config->Email);
-            // $email->send();
+            // Send mail
+            $config = SiteConfig::current_site_config();
+            $str = $this->owner->Overlay()->parseString($this->owner->Overlay()->EmailText, $this->owner->AbsoluteLink());
+            $html = new DBHTMLText();
+            $html->setValue($str);
+            $Body = $this->owner->renderWith('Emails/base_email',array('Subject' => $this->owner->Overlay()->EmailSubject, 'Lead' => '', 'Body' => $html, 'Footer' => $this->owner->Overlay()->Footer, 'SiteConfig' => $config));
+            $email = new Email($this->owner->Overlay()->EmailSender, $this->owner->Overlay()->EmailReceiver,$this->owner->Overlay()->EmailSubject, $Body);
+            $email->setReplyTo($this->owner->Overlay()->ReplyTo);
+            $email->send();
            
            $this->owner->redirect($this->owner->Overlay()->RedirectPage()->Link());
        
