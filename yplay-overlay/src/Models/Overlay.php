@@ -183,7 +183,7 @@ class Overlay extends DataObject{
             ).'" target="_blank">gesehen</a>',
             '$exportLink'    => '<a href="'.Controller::join_links(
                 $absoluteBaseURL,
-                'admin/overlay/rates'
+                'admin/overlay/Rate'
             ).'" target="_blank">exportiert</a>',
             '$URL' => '<a href="'.$url.'" target="_blank">'.$url.'</a>',
         );
