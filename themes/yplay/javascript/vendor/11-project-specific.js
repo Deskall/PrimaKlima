@@ -865,6 +865,7 @@ $(document).ready(function(){
 		}
 		else{
 			form = $("#Form_BewertungForm").serialize();
+			console.log(form);
 			$.ajax({
 				url: $("#Form_BewertungForm").attr('action'),
 				method: 'POST',
