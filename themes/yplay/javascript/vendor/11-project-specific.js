@@ -848,18 +848,18 @@ $(document).ready(function(){
 		   ratedFill: "#1D1D1B",
 		   normalFill: "#EEEEEE"
 		}).on("rateyo.change", function (e, data) {
+			$("#error-rating").remove();
             var rating = data.rating;
             $(this).next().text(rating).attr('hidden',false);
             $("#Form_BewertungForm_Bewertung").val(rating);
         });;
 	}
 
-	$(document).on("click","#Form_BewertungForm_action_doRate", function(e){
-		console.log($("#Form_BewertungForm_Bewertung").val());
-		if ( $("#Form_BewertungForm_Bewertung").val() == ""){
-			console.log('la');
-			$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
-			e.preventDefault();
-		}
-	});
+	// $(document).on("click","#Form_BewertungForm_action_doRate", function(e){
+	// 	$("#error-rating").remove();
+	// 	if ( $("#Form_BewertungForm_Bewertung").val() == ""){
+	// 		$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
+	// 		e.preventDefault();
+	// 	}
+	// });
 });
