@@ -10,6 +10,7 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use Sheadawson\Linkable\Forms\LinkField;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 
 class Overlay extends DataObject{
 
@@ -112,6 +113,10 @@ class Overlay extends DataObject{
 		$fields->fieldByName('Root.Main.ValidButtonText')->displayIf('Type')->isEqualTo('Newsletter')->end();
 		$fields->fieldByName('Root.Layout.ValidButtonBackground')->displayIf('Type')->isEqualTo('Newsletter')->end();
 		$fields->fieldByName('Root.Main.FormBlockID')->displayIf('Type')->isEqualTo('Form')->end();
+
+		//Pages
+		$fields->fieldByName('Root.Pages')->setTitle('Verknüpfene Seiten');
+		$fields->fieldByName('Root.Pages.Pages')->getConfig()->removeComponentbyTypes([GridFieldAddNewButton::class])
 
 		return $fields;
 	}
