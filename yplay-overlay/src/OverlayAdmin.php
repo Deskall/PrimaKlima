@@ -1,14 +1,7 @@
 <?php
 
 use SilverStripe\Admin\ModelAdmin;
-use SilverStripe\Forms\GridField\GridField;
-use SilverStripe\Assets\File;
-use SilverStripe\Assets\Image;
-use SilverStripe\Assets\Folder;
-use SilverStripe\ORM\ArrayList;
-use SilverStripe\View\ArrayData;
-use SilverStripe\ORM\DB;
-use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 
 class OverlayAdmin extends ModelAdmin{
 
@@ -22,12 +15,17 @@ class OverlayAdmin extends ModelAdmin{
 		],
 		'OverlayForm' => [
 			'title' => 'Formulare (Zb. Umfrage)'
+		],
+		'Rate' => [
+			'title' => 'Bewertungen'
 		]
 	];
 
 	public function getEditForm($id = null, $fields = null) {
 	    $form = parent::getEditForm($id, $fields);
-
+	    if($this->modelClass== Rate::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))){
+            $form->Fields()->fieldByName("Rate")->getConfig()->removeComponentsByType(GridFieldAddNewButton::class);
+        }
 	    return $form;
 	}
 
