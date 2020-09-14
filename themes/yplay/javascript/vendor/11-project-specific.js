@@ -845,7 +845,7 @@ $(document).ready(function(){
 	if ($(".rating").length > 0){
 		var options = {
 		    max_value: 5,
-		    step_size: 0.1,
+		    step_size: 1,
 		    initial_value: 0,
 		    selected_symbol_type: 'utf8_star', // Must be a key from symbols
 		    cursor: 'pointer',
