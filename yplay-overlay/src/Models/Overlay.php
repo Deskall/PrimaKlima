@@ -170,7 +170,7 @@ class Overlay extends DataObject{
             );
         }
 
-    public function getParsedString($string, $url) {
+    public function parseString($string, $url) {
         $absoluteBaseURL = $this->BaseURL();
         $variables = array(
             '$SiteName'       => SiteConfig::current_site_config()->Title,
