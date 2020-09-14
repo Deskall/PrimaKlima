@@ -854,7 +854,7 @@ $(document).ready(function(){
         });;
 	}
 
-	$(document).on("click","#Form_BewertungForm_doRate", function(e){
+	$(document).on("click","#Form_BewertungForm_action_doRate", function(e){
 		console.log($("#Form_BewertungForm_Bewertung").val());
 		if ( $("#Form_BewertungForm_Bewertung").val() == ""){
 			console.log('la');
