@@ -151,7 +151,7 @@ class OverlayContentControllerExtension extends Extension
             // $email->setBCC($config->Email);
             // $email->send();
            
-           $this->owner->redirect('/vielen-dank-fuer-ihre-anfrage');
+           $this->owner->redirect($this->owner->Overlay()->RedirectPage()->Link());
        
         } catch (ValidationException $e) {
             $validationMessages = '';
