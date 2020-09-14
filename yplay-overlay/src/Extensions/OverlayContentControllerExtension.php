@@ -107,7 +107,7 @@ class OverlayContentControllerExtension extends Extension
         $form->sessionMessage('Email ' . $data['Email'] . ' registriert!', 'success');
 
         //TO DO: Redirect to succss page?
-        return $this->owner->redirectBack();
+        return $this->owner->redirect('/');
     }
 
     public function BewertungForm(){
