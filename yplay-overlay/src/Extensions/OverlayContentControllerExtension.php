@@ -24,10 +24,8 @@ class OverlayContentControllerExtension extends Extension
         'NewsletterForm'
     );
 
-    public function init(){
-        parent::init();
+    public function onAfterInit(){
         if ($this->owner->Overlay()->exists() && $this->owner->Overlay()->Type == "Bewertung"){
-            print_r('ici');
             Requirements::javascript('yplay-overlay/javascript/rater.min.js');
         }
     }
