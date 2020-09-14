@@ -129,6 +129,7 @@ class OverlayContentControllerExtension extends Extension
         $required = new RequiredFields(['Bewertung','AGB']);
 
         $form = new Form($this->owner, 'BewertungForm', $fields, $actions, $required);
+        $form->enableSpamProtection();
         $form->addExtraClass('form-std');
         return $form;
     }
