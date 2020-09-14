@@ -856,25 +856,25 @@ $(document).ready(function(){
         });;
 	}
 
-	$(document).on("click","#Form_BewertungForm_action_doRate", function(e){
-		$("#error-rating").remove();
+	// $(document).on("click","#Form_BewertungForm_action_doRate", function(e){
+	// 	$("#error-rating").remove();
 		
-		if ( $("#Form_BewertungForm_Bewertung").val() == ""){
-			$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
-			e.preventDefault();
-		}
-		// else{
-		// 	formData = $("#Form_BewertungForm").serialize();
-		// 	console.log(formData);
-		// 	$.ajax({
-		// 		url: $("#Form_BewertungForm").attr('action'),
-		// 		method: 'POST',
-		// 		data: formData
-		// 	}).done(function(response){
-		// 		console.log(response);
-		// 	});
-		// }
-	});
+	// 	if ( $("#Form_BewertungForm_Bewertung").val() == ""){
+	// 		$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
+	// 		e.preventDefault();
+	// 	}
+	// 	// else{
+	// 	// 	formData = $("#Form_BewertungForm").serialize();
+	// 	// 	console.log(formData);
+	// 	// 	$.ajax({
+	// 	// 		url: $("#Form_BewertungForm").attr('action'),
+	// 	// 		method: 'POST',
+	// 	// 		data: formData
+	// 	// 	}).done(function(response){
+	// 	// 		console.log(response);
+	// 	// 	});
+	// 	// }
+	// });
 	$(window).on('submit', '.js-ajax-form', function(e) {
 		$("#error-rating").remove();
         var $form = $(this);
