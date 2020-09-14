@@ -150,8 +150,10 @@ class OverlayContentControllerExtension extends Extension
             // $email = new Email($config->Email, $data['Email'],$config->ProductEmailSubject, $Body);
             // $email->setBCC($config->Email);
             // $email->send();
-            return $this->owner->redirect($this->owner->Link('complete'));
-            $form->sessionMessage('Vielen herzlichen Dank für Ihre Zeit'."\n".'Wir freuen uns, Sie zu unseren Kunden zählen zu dürfen. Sofern Sie noch kein Kunde sind, so freuen wir uns Sie in naher Zukunft als Kunden begrüssen zu dürfen', 'success');
+            if ($request->isAjax()) {
+                return json_encode(['text' => 'Vielen herzlichen Dank für Ihre Zeit'."\n".'Wir freuen uns, Sie zu unseren Kunden zählen zu dürfen. Sofern Sie noch kein Kunde sind, so freuen wir uns Sie in naher Zukunft als Kunden begrüssen zu dürfen']);
+            }
+       
         } catch (ValidationException $e) {
             $validationMessages = '';
             foreach($e->getResult()->getMessages() as $error){
@@ -167,13 +169,6 @@ class OverlayContentControllerExtension extends Extension
 
     public function complete(HTTPRequest $request) {
       //if the request is an ajax request, then only render the include
-      if ($request->isAjax()) {
-          return $this->renderWith('Form_complete');
-      }
-      //otherwise, render the full HTML response
-      return $this->renderWith(array(
-          'Page_complete',
-          'Page',
-      ));
+      
     }
 }
