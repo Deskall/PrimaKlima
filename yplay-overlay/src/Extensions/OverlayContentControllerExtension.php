@@ -150,7 +150,7 @@ class OverlayContentControllerExtension extends Extension
             // $email = new Email($config->Email, $data['Email'],$config->ProductEmailSubject, $Body);
             // $email->setBCC($config->Email);
             // $email->send();
-            return $this->owner->redirect($this->Link('complete'));
+            return $this->owner->redirect($this->owner->Link('complete'));
             $form->sessionMessage('Vielen herzlichen Dank für Ihre Zeit'."\n".'Wir freuen uns, Sie zu unseren Kunden zählen zu dürfen. Sofern Sie noch kein Kunde sind, so freuen wir uns Sie in naher Zukunft als Kunden begrüssen zu dürfen', 'success');
         } catch (ValidationException $e) {
             $validationMessages = '';
