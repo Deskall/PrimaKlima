@@ -134,7 +134,7 @@ class OverlayContentControllerExtension extends Extension
         return $form;
     }
 
-    public function doRate($data, Form $form){
+    public function doRate($data, Form $form, $request){
         try {
             //Save Rate
             $rate = new Rate();
