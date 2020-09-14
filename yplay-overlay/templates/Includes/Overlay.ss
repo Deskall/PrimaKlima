@@ -47,6 +47,7 @@
 				    <% else_if $Overlay.Type == "Bewertung" %>
 				    	Bewertung
 				    	<div class="rating" data-rate-value=6></div>
+				    	$BewertungForm
 		        	<% end_if %>
 		        </div>
 		        <% if $Overlay.Type == "Text" %>
