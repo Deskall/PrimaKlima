@@ -13,3 +13,4 @@ SilverStripe\CMS\Controllers\ContentController:
     - OverlayContentControllerExtension
   url_handlers:
     'element/$ID!': 'handleElement'
+    'bewertung-senden' : 'BewertungForm'

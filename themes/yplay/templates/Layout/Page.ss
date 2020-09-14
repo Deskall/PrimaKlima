@@ -22,5 +22,3 @@
 		</section>
 		<% end_if %>
 	<% end_if %>
-
-$ModalTitle

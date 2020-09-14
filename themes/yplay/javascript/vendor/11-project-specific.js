@@ -843,6 +843,7 @@ $(document).ready(function(){
 	}
 
 	if ($(".rating").length > 0){
+		let form;
 		$(".rating").rateYo({
 		   starWidth: "30px",
 		   ratedFill: "#1D1D1B",
@@ -857,9 +858,21 @@ $(document).ready(function(){
 
 	$(document).on("click","#Form_BewertungForm_action_doRate", function(e){
 		$("#error-rating").remove();
+		e.preventDefault();
 		if ( $("#Form_BewertungForm_Bewertung").val() == ""){
 			$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
-			e.preventDefault();
+			return false;
+		}
+		else{
+			form = $("#Form_BewertungForm").serialize();
+			$.ajax({
+				url: '/bewertung-senden/',
+				method: 'POST',
+				dataType: 'json',
+				data: {data: form}
+			}).done(function(response){
+				console.log(response);
+			});
 		}
 	});
 });
