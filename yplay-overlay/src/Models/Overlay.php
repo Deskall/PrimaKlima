@@ -114,7 +114,7 @@ class Overlay extends DataObject{
 		$fields->fieldByName('Root.Main.Subtitle')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.Content')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Layout.ValidButtonBackground')->hideIf('Type')->isEqualTo('Form')->end();
-		$fields->fieldByName('Root.Main.ValidButtonText')->hideIf('Type')->isEqualTo('Form')->end();
+		// $fields->fieldByName('Root.Main.ValidButtonText')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.FormBlockID')->displayIf('Type')->isEqualTo('Form')->end();
 
 		return $fields;
