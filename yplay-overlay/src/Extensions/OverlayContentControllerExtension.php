@@ -21,7 +21,8 @@ class OverlayContentControllerExtension extends Extension
      */
     private static $allowed_actions = array(
         'handleElement',
-        'NewsletterForm'
+        'NewsletterForm',
+        'BewertungForm'
     );
 
     public function onAfterInit(){
@@ -93,6 +94,42 @@ class OverlayContentControllerExtension extends Extension
     }
 
     public function registerToNewsletter($data, Form $form){
+
+        //TO DO : Newsletter API --> Waiting for tool choice
+
+        //TO DO: Emails?
+
+        $form->sessionMessage('Email ' . $data['Email'] . ' registriert!', 'success');
+
+        //TO DO: Redirect to succss page?
+        return $this->owner->redirectBack();
+    }
+
+    public function BewertungForm(){
+        $fields = new FieldList(
+            HiddenField::create('Date')->setValue(date('d.m.Y')),
+            HiddenField::create('PLZ')->setValue($this->owner->getRequest()->getSession()->get('active_plz')),
+            HiddenField::create('Bewertung'),
+            TextareaField::create('Bemerkungen','Bemerkungen')->setAttribute('maxlength',500)->setAttribute('class','uk-textarea')->setRows('10'),
+            CheckboxField::create('AGB',DBHTMLText::create()->setValue('<label for="Form_BewertungForm_AGB">'.$this->owner->Overlay()->AGBText.'</label>'))->setAttribute('class','uk-checkbox'),
+            NocaptchaField::create('Captcha')
+        );
+
+        $actions = new FieldList(
+            FormAction::create('cancel')->setTitle($this->owner->Overlay()->CloseButtonText)->addExtraClass('uk-button button-'.$this->owner->Overlay()->CloseButtonBackground.' uk-modal-close')->setUseButtonTag(true),
+            FormAction::create('doRate')->setTitle($this->owner->Overlay()->ValidButtonText)->addExtraClass('uk-button button-PrimaryBackground')->addExtraClass('dk-button-icon')->setUseButtonTag(true)
+            ->setAttribute('data-uk-icon','chevron-right')
+        );
+
+        $required = new RequiredFields(['Bewertung','AGB']);
+
+        $form = new Form($this->owner, 'BewertungForm', $fields, $actions, $required);
+        $form->addExtraClass('form-std');
+        $form->enableSpamProtection();
+        return $form;
+    }
+
+    public function doRate($data, Form $form){
 
         //TO DO : Newsletter API --> Waiting for tool choice
 
