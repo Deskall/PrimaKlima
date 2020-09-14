@@ -10,7 +10,7 @@ class Rate extends DataObject{
 
 	private static $db = [
 		'Datum' => 'Date',
-		'Bewertung' => 'Decimal(2)',
+		'Bewertung' => 'Varchar',
 		'Bemerkungen' => 'Text',
 		'PLZ' => 'Varchar(255)'
 	];
@@ -20,13 +20,18 @@ class Rate extends DataObject{
 	private static $summary_fields = [
 		'Datum',
 		'Bewertung',
-		'PLZ'
+		'PLZ',
+		'Bemerkungen'
 	];
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		
 		return $fields;
+	}
+
+	public function canEdit($member = null){
+		return false;
 	}
 
 }
