@@ -108,7 +108,7 @@ class PageController extends ContentController
 
         $form = new Form($this, 'NewsletterForm', $fields, $actions, $required);
         $form->addExtraClass('form-std');
-        $form->enableSpamProtection();
+        // $form->enableSpamProtection();
         return $form;
     }
 
