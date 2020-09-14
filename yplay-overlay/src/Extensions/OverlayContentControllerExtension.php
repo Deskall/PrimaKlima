@@ -129,7 +129,7 @@ class OverlayContentControllerExtension extends Extension
 
         $form = new Form($this->owner, 'BewertungForm', $fields, $actions, $required);
         $form->addExtraClass('form-std');
-        $form->setTemplate('Forms/RatingForm.ss')
+        $form->setTemplate('Forms/RatingForm.ss');
         return $form;
     }
 
