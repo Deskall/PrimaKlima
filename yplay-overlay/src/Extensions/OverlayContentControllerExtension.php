@@ -97,7 +97,7 @@ class OverlayContentControllerExtension extends Extension
         return $form;
     }
 
-    public function registerToNewsletter($data, Form $form){
+    public function registerToNewsletter($data, Form $form, $request){
 
         echo 'ici';
         //TO DO : Newsletter API --> Waiting for tool choice
