@@ -114,15 +114,14 @@ class PageController extends ContentController
 
     public function registerToNewsletter($data, Form $form){
 
-        echo 'ici';
         //TO DO : Newsletter API --> Waiting for tool choice
 
         //TO DO: Emails?
 
-        $form->sessionMessage('Email ' . $data['Email'] . ' registriert!', 'success');
+        // $form->sessionMessage('Email ' . $data['Email'] . ' registriert!', 'success');
 
         //TO DO: Redirect to succss page?
-        return $this->redirect('/');
+        return $this->redirectBack();
     }
 
     public function BewertungForm(){
