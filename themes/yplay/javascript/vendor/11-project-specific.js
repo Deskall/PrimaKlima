@@ -849,5 +849,9 @@ $(document).ready(function(){
 			(minutes > 1) ? $(this).find('.uk-countdown-minutes').next('.uk-countdown-label').text('Minuten') : $(this).find('.uk-countdown-minutes').next('.uk-countdown-label').text('Minute');
 			(seconds > 1) ? $(this).find('.uk-countdown-seconds').next('.uk-countdown-label').text('Sekunden') : $(this).find('.uk-countdown-seconds').next('.uk-countdown-label').text('Sekund');
 		});
+
+		$(document).on("change","[data-uk-countdown]",function(){
+			console.log('has changed');
+		});
 	}
 });
