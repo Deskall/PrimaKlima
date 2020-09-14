@@ -22,6 +22,10 @@ class Overlay extends DataObject{
 		'Title' => 'Varchar(255)',
 		'Content' => 'HTMLText',
 		'AGBText' => 'HTMLText',
+		'EmailSubject' => 'Varchar(255)',
+		'EmailSender' => 'Varchar(255)',
+		'EmailReceiver' => 'Varchar(255)',
+		'EmailText' => 'HTMLText',
 		'CountDown' => 'Boolean(0)',
 		'CountDownDate' => 'Datetime',
 		'CloseButtonText' => 'Varchar(255)',
@@ -31,7 +35,7 @@ class Overlay extends DataObject{
 		'TriggerTime' => 'Int',
 		'BackgroundColor' => 'Varchar(255)',
 		'CloseButtonBackground' => 'Varchar(255)',
-		'ValidButtonBackground' => 'Varchar(255)'
+		'ValidButtonBackground' => 'Varchar(255)',
 	];
 
 	private static $has_many = [
@@ -64,6 +68,10 @@ class Overlay extends DataObject{
 	    $labels['Type'] = 'Art';
 	    $labels['Content'] = 'Inhalt';
 	    $labels['AGBText'] = 'Datenschutz Einverständnis';
+	    $labels['EmailSender'] = 'Email Betreff';
+	    $labels['EmailSender'] = 'Email Absender';
+	    $labels['EmailReceiver'] = 'Email Empfänger';
+	 	$labels['EmailText'] = 'Email Text';
 	    $labels['CountDown'] = 'mit Rückwärts Zähler?';
 	 	$labels['CountDownDate'] = 'Rückwärts bis';
 	 	$labels['CloseButtonText'] = 'Titel des Buttons zum Schließen';
@@ -116,6 +124,10 @@ class Overlay extends DataObject{
 		$fields->fieldByName('Root.Layout.ValidButtonBackground')->hideUnless('Type')->isEqualTo('Newsletter')->end();
 		$fields->fieldByName('Root.Main.FormBlockID')->displayIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.RedirectPageID')->displayIf('Type')->isEqualTo('Newsletter')->orIf('Type')->isEqualTo('Bewertung')->end();
+		$fields->fieldByName('Root.Main.EmailSender')->displayIf('Type')->isEqualTo('Newsletter')->orIf('Type')->isEqualTo('Bewertung')->end();
+		$fields->fieldByName('Root.Main.EmailReceiver')->displayIf('Type')->isEqualTo('Newsletter')->orIf('Type')->isEqualTo('Bewertung')->end();
+		$fields->fieldByName('Root.Main.EmailSubject')->displayIf('Type')->isEqualTo('Newsletter')->orIf('Type')->isEqualTo('Bewertung')->end();
+		$fields->fieldByName('Root.Main.EmailText')->displayIf('Type')->isEqualTo('Newsletter')->orIf('Type')->isEqualTo('Bewertung')->end();
 
 		//Pages
 		$fields->fieldByName('Root.Pages')->setTitle('Verknüpfene Seiten');
