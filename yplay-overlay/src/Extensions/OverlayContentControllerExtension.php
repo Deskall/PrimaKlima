@@ -148,7 +148,7 @@ class OverlayContentControllerExtension extends Extension
             $str = $this->owner->Overlay()->parseString($this->owner->Overlay()->EmailText, $this->owner->AbsoluteLink());
             $html = new DBHTMLText();
             $html->setValue($str);
-            $Body = $this->owner->renderWith('Emails/base_email',array('Subject' => $this->owner->Overlay()->EmailSubject, 'Lead' => '', 'Body' => $html, 'Footer' => $this->owner->Overlay()->Footer, 'SiteConfig' => $config));
+            $Body = $this->owner->renderWith('Emails/base_email',array('Subject' => $this->owner->Overlay()->EmailSubject, 'Lead' => '', 'Body' => $html, 'Footer' => DBHTMLText::create()->setValue($this->owner->Overlay()->Footer), 'SiteConfig' => $config));
             $email = new Email($this->owner->Overlay()->EmailSender, $this->owner->Overlay()->EmailReceiver,$this->owner->Overlay()->EmailSubject, $Body);
             $email->setReplyTo($this->owner->Overlay()->ReplyTo);
             $email->send();
