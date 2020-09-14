@@ -9,6 +9,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
+use Sheadawson\Linkable\Forms\LinkField;
 
 class Overlay extends DataObject{
 
@@ -88,6 +89,7 @@ class Overlay extends DataObject{
 		$fields->removeByName('TriggerTime');
 		$fields->removeByName('TriggerFrequency');
 		$fields->removeByName('CountDownDate');
+		$fields->removeByName('LinkableLinkID');
 
 		$fields->insertBefore('Title',DropdownField::create('Type', $this->fieldLabels()['Type'],['Newsletter' => 'Newsletter Anmeldung', 'Form' => 'Formular (Umfrage, Rezension)', 'Bewertung' => 'Bewertung', 'Text' => 'Inhalt (mit CountDown Möglichkeit)'])->setEmptyString('Bitte wählen'));
 		
@@ -106,11 +108,12 @@ class Overlay extends DataObject{
 
 		$fields->insertAfter('CountDown', Wrapper::create(DatetimeField::create('CountDownDate', $this->fieldLabels()['CountDownDate']))->displayIf('CountDown')->isChecked()->end());
 
+		$fields->addFieldToTab('Root.Main', Wrapper::create(LinkField::create('LinkableLinkID', 'Link'))->displayIf('Type')->isEqualTo('Text')->end());
+
 		//Other display options
 		$fields->fieldByName('Root.Main.CountDown')->displayIf('Type')->isEqualTo('Text')->end();
 		$fields->fieldByName('Root.Main.Subtitle')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.Content')->hideIf('Type')->isEqualTo('Form')->end();
-		$fields->fieldByName('Root.Main.LinkableLinkID')->hideIf('Type')->isNotEqualTo('Text')->end();
 		$fields->fieldByName('Root.Layout.ValidButtonBackground')->hideIf('Type')->isEqualTo('Form')->orIf('LinkableLinkID')->isGreaterThan(0)->end();
 		$fields->fieldByName('Root.Main.ValidButtonText')->hideIf('Type')->isEqualTo('Form')->orIf('LinkableLinkID')->isGreaterThan(0)->end();
 		$fields->fieldByName('Root.Main.FormBlockID')->displayIf('Type')->isEqualTo('Form')->end();
