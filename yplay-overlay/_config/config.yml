@@ -7,7 +7,3 @@ After:
 Page:
   extensions:
     - 'OverlayPageExtension'
-
-PageController:
-  url_handlers:
-    'element/$ID!': 'handleElement'
