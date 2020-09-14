@@ -9,7 +9,5 @@ Page:
     - 'OverlayPageExtension'
 
 PageController:
-  extensions:
-    - OverlayContentControllerExtension
   url_handlers:
     'element/$ID!': 'handleElement'
