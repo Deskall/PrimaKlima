@@ -854,7 +854,7 @@ $(document).ready(function(){
         });;
 	}
 
-	$(document).submit("#Form_BewertungForm", function(e){
+	$("#Form_BewertungForm").submit(function(e){
 		console.log($("#Form_BewertungForm_Bewertung").val());
 		if ( $("#Form_BewertungForm_Bewertung").val() == ""){
 			console.log('la');
