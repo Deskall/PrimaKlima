@@ -16,6 +16,7 @@ use SilverStripe\Forms\ReadonlyField;
 use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\View\Requirements;
+use SilverStripe\Control\Controller;
 
 class OverlayContentControllerExtension extends Extension
 {
@@ -90,7 +91,7 @@ class OverlayContentControllerExtension extends Extension
 
         $required = new RequiredFields(['Email', 'AGB']);
 
-        $form = new Form($this->owner, 'NewsletterForm', $fields, $actions, $required);
+        $form = new Form(Controller::curr(), 'NewsletterForm', $fields, $actions, $required);
         $form->addExtraClass('form-std');
         $form->enableSpamProtection();
         return $form;
@@ -127,7 +128,7 @@ class OverlayContentControllerExtension extends Extension
 
         $required = new RequiredFields(['Bewertung','AGB']);
 
-        $form = new Form($this->owner, 'BewertungForm', $fields, $actions, $required);
+        $form = new Form(Controller::curr(), 'BewertungForm', $fields, $actions, $required);
         $form->addExtraClass('form-std');
         $form->enableSpamProtection();
         return $form;
