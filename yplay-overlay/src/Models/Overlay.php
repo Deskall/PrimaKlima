@@ -185,7 +185,7 @@ class Overlay extends DataObject{
                 $absoluteBaseURL,
                 'admin/overlay/rates'
             ).'" target="_blank">exportiert</a>',
-            '$URL' => '<a href="'.$url'" target="_blank">'.$url.'</a>',
+            '$URL' => '<a href="'.$url.'" target="_blank">'.$url.'</a>',
         );
         
         return str_replace(array_keys($variables), array_values($variables), $string);
