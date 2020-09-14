@@ -869,7 +869,6 @@ $(document).ready(function(){
 			$.ajax({
 				url: $("#Form_BewertungForm").attr('action'),
 				method: 'POST',
-				dataType: 'json',
 				data: {data: form}
 			}).done(function(response){
 				console.log(response);
