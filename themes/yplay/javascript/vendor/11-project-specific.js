@@ -866,7 +866,7 @@ $(document).ready(function(){
 		else{
 			form = $("#Form_BewertungForm").serialize();
 			$.ajax({
-				url: '/bewertung-senden/',
+				url: $("#Form_BewertungForm").attr('action'),
 				method: 'POST',
 				dataType: 'json',
 				data: {data: form}
