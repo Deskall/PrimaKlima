@@ -863,16 +863,16 @@ $(document).ready(function(){
 			$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
 			return false;
 		}
-		else{
-			formData = $("#Form_BewertungForm").serialize();
-			console.log(formData);
-			$.ajax({
-				url: $("#Form_BewertungForm").attr('action'),
-				method: 'POST',
-				data: formData
-			}).done(function(response){
-				console.log(response);
-			});
-		}
+		// else{
+		// 	formData = $("#Form_BewertungForm").serialize();
+		// 	console.log(formData);
+		// 	$.ajax({
+		// 		url: $("#Form_BewertungForm").attr('action'),
+		// 		method: 'POST',
+		// 		data: formData
+		// 	}).done(function(response){
+		// 		console.log(response);
+		// 	});
+		// }
 	});
 });
