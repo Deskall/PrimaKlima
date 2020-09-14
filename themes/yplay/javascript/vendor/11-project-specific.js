@@ -864,12 +864,12 @@ $(document).ready(function(){
 			return false;
 		}
 		else{
-			form = $("#Form_BewertungForm").serialize();
-			console.log(form);
+			formData = $("#Form_BewertungForm").serialize();
+			console.log(formData);
 			$.ajax({
 				url: $("#Form_BewertungForm").attr('action'),
 				method: 'POST',
-				data: {data: form}
+				data: formData
 			}).done(function(response){
 				console.log(response);
 			});
