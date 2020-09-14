@@ -841,4 +841,8 @@ $(document).ready(function(){
 			(days > 1) ? $(this).find('.uk-countdown-days').next('.uk-countdown-label').text('Tage') : $(this).find('.uk-countdown-days').next('.uk-countdown-label').text('Tag');
 		});
 	}
+
+	if ($(".rating").length > 0){
+		$(".rating").rate();
+	}
 });
