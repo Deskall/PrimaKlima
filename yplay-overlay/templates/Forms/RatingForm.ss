@@ -1,7 +1,11 @@
 <% if $IncludeFormTag %>
 <form $AttributesHTML>
 <% end_if %>
-ET ON EST OU LA?
+	<label class="uk-margin-small">Bewertung *</label>
+    <div class="uk-flex uk-flex-left uk-flex-middle">
+    	<div class="rating"></div>
+    	<div class="rate" hidden></div>
+    </div>
 	<% if $Message %>
 	<p id="{$FormName}_error" class="message $MessageType">$Message</p>
 	<% else %>
