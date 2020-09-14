@@ -116,7 +116,7 @@ class Overlay extends DataObject{
 
 		//Pages
 		$fields->fieldByName('Root.Pages')->setTitle('Verknüpfene Seiten');
-		$fields->fieldByName('Root.Pages.Pages')->getConfig()->removeComponentbyTypes([GridFieldAddNewButton::class])
+		$fields->fieldByName('Root.Pages.Pages')->getConfig()->removeComponentsByType([GridFieldAddNewButton::class])
 
 		return $fields;
 	}
