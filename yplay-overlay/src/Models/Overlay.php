@@ -89,7 +89,6 @@ class Overlay extends DataObject{
 		$fields->removeByName('TriggerTime');
 		$fields->removeByName('TriggerFrequency');
 		$fields->removeByName('CountDownDate');
-		$fields->removeByName('LinkableLinkID');
 
 		$fields->insertBefore('Title',DropdownField::create('Type', $this->fieldLabels()['Type'],['Newsletter' => 'Newsletter Anmeldung', 'Form' => 'Formular (Umfrage, Rezension)', 'Bewertung' => 'Bewertung', 'Text' => 'Inhalt (mit CountDown Möglichkeit)'])->setEmptyString('Bitte wählen'));
 		
@@ -108,7 +107,6 @@ class Overlay extends DataObject{
 
 		$fields->insertAfter('CountDown', Wrapper::create(DatetimeField::create('CountDownDate', $this->fieldLabels()['CountDownDate']))->displayIf('CountDown')->isChecked()->end());
 
-		$fields->addFieldToTab('Root.Main', Wrapper::create(LinkField::create('LinkableLinkID', 'Link'))->hideIf('Type')->isNotEqualTo('Text')->end());
 
 		//Other display options
 		$fields->fieldByName('Root.Main.CountDown')->displayIf('Type')->isEqualTo('Text')->end();
