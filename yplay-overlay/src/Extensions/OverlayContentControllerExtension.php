@@ -65,6 +65,7 @@ class OverlayContentControllerExtension extends Extension
     public function NewsletterForm(){
         $fields = new FieldList(
             EmailField::create('Email', 'Ihre E-Mail-Adresse')->setAttribute('Class','uk-input'),
+            EditableHTMLCheckbox::create('Datenschutz',$this->owner->Overlay()->AGBText),
             NocaptchaField::create('Captcha')
         );
 

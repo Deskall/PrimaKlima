@@ -20,6 +20,7 @@ class Overlay extends DataObject{
 		'Title' => 'Varchar(255)',
 		'Subtitle' => 'Varchar(255)',
 		'Content' => 'HTMLText',
+		'AGBText' => 'HTMLText',
 		'CountDown' => 'Boolean(0)',
 		'CountDownDate' => 'Datetime',
 		'CloseButtonText' => 'Varchar(255)',
@@ -61,6 +62,7 @@ class Overlay extends DataObject{
 	    $labels['Type'] = 'Art';
 	    $labels['Subtitle'] = 'Untertitel';
 	    $labels['Content'] = 'Inhalt';
+	    $labels['AGBText'] = 'Datenschutz Einverständnis';
 	    $labels['CountDown'] = 'mit Rückwärts Zähler?';
 	 	$labels['CountDownDate'] = 'Rückwärts bis';
 	 	$labels['CloseButtonText'] = 'Titel des Buttons zum Schließen';
