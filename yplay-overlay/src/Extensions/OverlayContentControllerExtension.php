@@ -29,7 +29,7 @@ class OverlayContentControllerExtension extends Extension
     );
 
     public function onAfterInit(){
-        if ($this->owner->Overlay()->exists() && $this->owner->Overlay()->Type == "Bewertung"){
+        if ($this->owner->hasMethod('Overlay') && $this->owner->Overlay()->exists() && $this->owner->Overlay()->Type == "Bewertung"){
             Requirements::javascript('yplay-overlay/javascript/jquery.rateyo.min.js');
             Requirements::css('yplay-overlay/css/jquery.rateyo.min.css');
         }
