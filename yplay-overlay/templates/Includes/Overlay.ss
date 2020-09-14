@@ -8,32 +8,32 @@
 		        	<% if $Overlay.Title %>
 		            <h2 class="uk-modal-title">$Overlay.Title</h2>
 		            <% end_if %>
+		            <% if $Overlay.CountDown %>
+		            <div class="uk-grid-small uk-child-width-auto uk-flex uk-flex-middle" data-uk-grid data-uk-countdown="date: $Overlay.CountDownDate">
+		                <div>
+		                    <div class="uk-countdown-number uk-countdown-days"></div>
+		                    <div class="uk-countdown-label uk-visible@s"></div>
+		                </div>
+		                <div class="uk-countdown-separator">:</div>
+		                <div>
+		                    <div class="uk-countdown-number uk-countdown-hours"></div>
+		                    <div class="uk-countdown-label uk-visible@s">St.</div>
+		                </div>
+		                <div class="uk-countdown-separator">:</div>
+		                <div>
+		                    <div class="uk-countdown-number uk-countdown-minutes"></div>
+		                    <div class="uk-countdown-label uk-visible@s">Min.</div>
+		                </div>
+		                <div class="uk-countdown-separator">:</div>
+		                <div>
+		                    <div class="uk-countdown-number uk-countdown-seconds"></div>
+		                    <div class="uk-countdown-label uk-visible@s">Sek.</div>
+		                </div>
+		            </div>
+		            <% end_if %>
 		        </div>
 		        <% end_if %>
 		        <div class="uk-modal-body">
-		        	<% if $Overlay.CountDown %>
-		        	<div class="uk-grid-small uk-child-width-auto uk-flex uk-flex-middle" data-uk-grid data-uk-countdown="date: $Overlay.CountDownDate">
-		        	    <div>
-		        	        <div class="uk-countdown-number uk-countdown-days"></div>
-		        	        <div class="uk-countdown-label uk-visible@s"></div>
-		        	    </div>
-		        	    <div class="uk-countdown-separator">:</div>
-		        	    <div>
-		        	        <div class="uk-countdown-number uk-countdown-hours"></div>
-		        	        <div class="uk-countdown-label uk-visible@s">St.</div>
-		        	    </div>
-		        	    <div class="uk-countdown-separator">:</div>
-		        	    <div>
-		        	        <div class="uk-countdown-number uk-countdown-minutes"></div>
-		        	        <div class="uk-countdown-label uk-visible@s">Min.</div>
-		        	    </div>
-		        	    <div class="uk-countdown-separator">:</div>
-		        	    <div>
-		        	        <div class="uk-countdown-number uk-countdown-seconds"></div>
-		        	        <div class="uk-countdown-label uk-visible@s">Sek.</div>
-		        	    </div>
-		        	</div>
-		        	<% end_if %>
 		        	<% if $Overlay.Subtitle %><h3>$Overlay.Subtitle</h3><% end_if %>
 			        <% if $Overlay.Content %><div class="dk-text-content">$Overlay.Content</div><% end_if %>
 		        	<% if $Overlay.Type == "Form" %>
