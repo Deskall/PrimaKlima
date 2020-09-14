@@ -1,6 +1,8 @@
 ---
 Name: yplay-config
 ---
+SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
+  default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NocaptchaProtector
 
 UndefinedOffset\NoCaptcha\Forms\NocaptchaField:
     site_key: "6LdUrl8UAAAAABu20XIulQ4Tcvn8bujn2aUWXYP_" #Your site key (required)
