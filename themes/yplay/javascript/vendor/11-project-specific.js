@@ -854,12 +854,10 @@ $(document).ready(function(){
         });;
 	}
 
-	$(document).on("click","#Form_BewertungForm_action_doRate", function(e){
-		e.preventDefault();
+	$(document).on("submit","#Form_BewertungForm", function(e){
 		if ( $("#Form_BewertungForm_Bewertung").val() == ""){
 			$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
 			return false;
 		}
-		return true;
 	});
 });
