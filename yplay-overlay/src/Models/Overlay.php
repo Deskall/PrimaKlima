@@ -102,8 +102,8 @@ class Overlay extends DataObject{
 		$fields->addFieldsToTab('Root.Layout', [
 			HTMLDropdownField::create('BackgroundColor',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
 			UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName('Uploads/Overlays'),
-			HTMLDropdownField::create('CloseButtonBackground',$this->fieldLabels()['CloseButtonBackground'],SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'),
-			HTMLDropdownField::create('ValidButtonBackground',$this->fieldLabels()['ValidButtonBackground'],SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors')
+			HTMLDropdownField::create('CloseButtonBackground',$this->fieldLabels()['CloseButtonBackground'],SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors')
+			// HTMLDropdownField::create('ValidButtonBackground',$this->fieldLabels()['ValidButtonBackground'],SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors')
 		]);
 
 		$fields->insertAfter('CountDown', Wrapper::create(DatetimeField::create('CountDownDate', $this->fieldLabels()['CountDownDate']))->displayIf('CountDown')->isChecked()->end());
@@ -113,7 +113,7 @@ class Overlay extends DataObject{
 		$fields->fieldByName('Root.Main.CountDown')->displayIf('Type')->isEqualTo('Text')->end();
 		$fields->fieldByName('Root.Main.Subtitle')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.Content')->hideIf('Type')->isEqualTo('Form')->end();
-		$fields->fieldByName('Root.Layout.ValidButtonBackground')->hideIf('Type')->isEqualTo('Form')->end();
+		// $fields->fieldByName('Root.Layout.ValidButtonBackground')->hideIf('Type')->isEqualTo('Form')->end();
 		// $fields->fieldByName('Root.Main.ValidButtonText')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.FormBlockID')->displayIf('Type')->isEqualTo('Form')->end();
 
