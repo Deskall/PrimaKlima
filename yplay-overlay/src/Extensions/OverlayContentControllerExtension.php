@@ -151,18 +151,16 @@ class OverlayContentControllerExtension extends Extension
             // $email->send();
             $form->sessionMessage('Vielen Dank ' . $data['Name']."\n".'Ihre Anfrage wurde erfolgreich gesendet', 'success');
 
-            return $this->redirectBack();
-
         } catch (ValidationException $e) {
             $validationMessages = '';
             foreach($e->getResult()->getMessages() as $error){
                 $validationMessages .= $error['message']."\n";
             }
             $form->sessionMessage($validationMessages, 'bad');
-            return $this->redirectBack();
+            return $this->owner->redirectBack();
         }
 
-        return $this->redirectBack();
+        return $this->owner->redirectBack();
 
     }
 }
