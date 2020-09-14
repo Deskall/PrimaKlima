@@ -129,6 +129,7 @@ class OverlayContentControllerExtension extends Extension
 
         $form = new Form($this->owner, 'BewertungForm', $fields, $actions, $required);
         $form->addExtraClass('form-std');
+        $form->setTemplate('Forms/RatingForm.ss')
         return $form;
     }
 
@@ -148,8 +149,7 @@ class OverlayContentControllerExtension extends Extension
             // $email = new Email($config->Email, $data['Email'],$config->ProductEmailSubject, $Body);
             // $email->setBCC($config->Email);
             // $email->send();
-            return json_encode(['title' => 'Test']);
-            $form->sessionMessage(DBHTMLText::create()->setValue('<h2>Vielen herzlichen Dank für Ihre Zeit</h2><p>Wir freuen uns, Sie zu unseren Kunden zählen zu dürfen. Sofern Sie noch kein Kunde sind, so freuen wir uns Sie in naher Zukunft als Kunden begrüssen zu dürfen.</p>', 'success'));
+            $form->sessionMessage(DBHTMLText::create()->setValue('<h2>Vielen herzlichen Dank für Ihre Zeit</h2><p>Wir freuen uns, Sie zu unseren Kunden zählen zu dürfen. Sofern Sie noch kein Kunde sind, so freuen wir uns Sie in naher Zukunft als Kunden begrüssen zu dürfen.</p>'), 'success');
         } catch (ValidationException $e) {
             $validationMessages = '';
             foreach($e->getResult()->getMessages() as $error){
