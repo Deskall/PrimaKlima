@@ -17,6 +17,12 @@ class Rate extends DataObject{
 
 	private static $has_one = ['Overlay' => Overlay::class];
 
+	private static $summary_fields = [
+		'Datum',
+		'Bewertung',
+		'PLZ'
+	];
+
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		
