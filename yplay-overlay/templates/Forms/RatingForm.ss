@@ -1,3 +1,6 @@
+<% if MessageType == "success" %>
+$Message
+<% else %>
 <% if $IncludeFormTag %>
 <form $AttributesHTML>
 <% end_if %>
@@ -29,4 +32,5 @@
 	<% end_if %>
 <% if $IncludeFormTag %>
 </form>
+<% end_if %>
 <% end_if %>
