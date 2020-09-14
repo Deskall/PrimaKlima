@@ -855,6 +855,7 @@ $(document).ready(function(){
 	}
 
 	$(document).on("submit","#Form_BewertungForm", function(e){
+		console.log($("#Form_BewertungForm_Bewertung").val());
 		if ( $("#Form_BewertungForm_Bewertung").val() == ""){
 			console.log('la');
 			$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
