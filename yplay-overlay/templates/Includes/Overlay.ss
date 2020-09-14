@@ -14,17 +14,17 @@
 		        	    <div class="uk-countdown-separator">:</div>
 		        	    <div>
 		        	        <div class="uk-countdown-number uk-countdown-hours"></div>
-		        	        <div class="uk-countdown-label uk-visible@s"></div>
+		        	        <div class="uk-countdown-label uk-visible@s">St.</div>
 		        	    </div>
 		        	    <div class="uk-countdown-separator">:</div>
 		        	    <div>
 		        	        <div class="uk-countdown-number uk-countdown-minutes"></div>
-		        	        <div class="uk-countdown-label uk-visible@s"></div>
+		        	        <div class="uk-countdown-label uk-visible@s">Min.</div>
 		        	    </div>
 		        	    <div class="uk-countdown-separator">:</div>
 		        	    <div>
 		        	        <div class="uk-countdown-number uk-countdown-seconds"></div>
-		        	        <div class="uk-countdown-label uk-visible@s"></div>
+		        	        <div class="uk-countdown-label uk-visible@s">Sek.</div>
 		        	    </div>
 		        	</div>
 		        	<% end_if %>

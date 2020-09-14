@@ -835,23 +835,19 @@ $(document).ready(function(){
 	}
 
 	if ($("[data-uk-countdown]").length > 0 ){
-		let days,
-		hours,
-		minutes,
-		seconds;
+		let days;
+		// hours,
+		// minutes,
+		// seconds;
 		$("[data-uk-countdown]").each(function(){
 			days = parseInt($(this).find('.uk-countdown-days').text());
-			hours = parseInt($(this).find('.uk-countdown-hours').text());
-			minutes = parseInt($(this).find('.uk-countdown-minutes').text());
-			seconds = parseInt($(this).find('.uk-countdown-seconds').text());
+			// hours = parseInt($(this).find('.uk-countdown-hours').text());
+			// minutes = parseInt($(this).find('.uk-countdown-minutes').text());
+			// seconds = parseInt($(this).find('.uk-countdown-seconds').text());
 			(days > 1) ? $(this).find('.uk-countdown-days').next('.uk-countdown-label').text('Tage') : $(this).find('.uk-countdown-days').next('.uk-countdown-label').text('Tag');
-			(hours > 1) ? $(this).find('.uk-countdown-hours').next('.uk-countdown-label').text('Stunden') : $(this).find('.uk-countdown-hours').next('.uk-countdown-label').text('Stunde');
-			(minutes > 1) ? $(this).find('.uk-countdown-minutes').next('.uk-countdown-label').text('Minuten') : $(this).find('.uk-countdown-minutes').next('.uk-countdown-label').text('Minute');
-			(seconds > 1) ? $(this).find('.uk-countdown-seconds').next('.uk-countdown-label').text('Sekunden') : $(this).find('.uk-countdown-seconds').next('.uk-countdown-label').text('Sekund');
-		});
-
-		$(document).on("change","[data-uk-countdown]",function(){
-			console.log('has changed');
+			// (hours > 1) ? $(this).find('.uk-countdown-hours').next('.uk-countdown-label').text('Stunden') : $(this).find('.uk-countdown-hours').next('.uk-countdown-label').text('Stunde');
+			// (minutes > 1) ? $(this).find('.uk-countdown-minutes').next('.uk-countdown-label').text('Minuten') : $(this).find('.uk-countdown-minutes').next('.uk-countdown-label').text('Minute');
+			// (seconds > 1) ? $(this).find('.uk-countdown-seconds').next('.uk-countdown-label').text('Sekunden') : $(this).find('.uk-countdown-seconds').next('.uk-countdown-label').text('Sekund');
 		});
 	}
 });
