@@ -177,15 +177,15 @@ class Overlay extends DataObject{
         $absoluteBaseURL = Director::absoluteBaseURL();
         $variables = array(
             '$SiteName'       => SiteConfig::current_site_config()->Title,
-            '$viewLink'      => Controller::join_links(
+            '$viewLink'      => '<a href="'.Controller::join_links(
                 $absoluteBaseURL,
                 $this->getCMSEditLink()
-            ),
-            '$exportLink'    => Controller::join_links(
+            ).'" target="_blank">gesehen</a>',
+            '$exportLink'    => '<a href="'.Controller::join_links(
                 $absoluteBaseURL,
                 'admin/overlay/rates'
-            ),
-            '$URL' => $url,
+            ).'" target="_blank">exportiert</a>',
+            '$URL' => '<a href="'.$url'" target="_blank">'.$url.'</a>',
         );
         
         return str_replace(array_keys($variables), array_values($variables), $string);
