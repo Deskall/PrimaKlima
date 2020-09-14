@@ -8,8 +8,6 @@ Page:
   extensions:
     - 'OverlayPageExtension'
 
-SilverStripe\CMS\Controllers\ContentController:
-  extensions:
-    - OverlayContentControllerExtension
+PageController:
   url_handlers:
     'element/$ID!': 'handleElement'
