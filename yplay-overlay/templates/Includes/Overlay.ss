@@ -47,7 +47,7 @@
 				    <% else_if $Overlay.Type == "Bewertung" %>
 				    	<label class="uk-margin-small">Bewertung *</label>
 					    <div class="uk-flex uk-flex-left uk-flex-middle">
-					    	<div class="rating" data-rate-value=6></div>
+					    	<div class="rating"></div>
 					    	<div class="rate"></div>
 					    </div>
 				    	$BewertungForm

@@ -847,19 +847,17 @@ $(document).ready(function(){
 		   starWidth: "40px"
 		}).on("rateyo.change", function (e, data) {
             var rating = data.rating;
-            $(this).next().text(rating);
+            $(this).next().text(rating).attr('hidden',false);
             $("#Form_BewertungForm_Rate").val(rating);
         });;
 	}
 
 	$(document).on("click","#Form_BewertungForm_action_doRate", function(e){
 		e.preventDefault();
-		console.log($("#Form_BewertungForm_Rate").val());
 		if (typeof $("#Form_BewertungForm_Rate").val() == "undefined"){
-			console.log('la');
-			$(".rating").after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
+			$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
 			return false;
 		}
-		return false;
+		$("#Form_BewertungForm").submit();
 	});
 });
