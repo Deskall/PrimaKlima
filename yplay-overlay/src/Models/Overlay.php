@@ -82,7 +82,6 @@ class Overlay extends DataObject{
 		$fields->removeByName('BackgroundColor');
 		$fields->removeByName('BackgroundImage');
 		$fields->removeByName('CloseButtonBackground');
-		$fields->removeByName('ValidButtonText');
 		$fields->removeByName('TriggerType');
 		$fields->removeByName('TriggerTime');
 		$fields->removeByName('TriggerFrequency');
