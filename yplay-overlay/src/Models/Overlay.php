@@ -19,19 +19,16 @@ class Overlay extends DataObject{
 	private static $db = [
 		'Type' => 'Varchar(255)',
 		'Title' => 'Varchar(255)',
-		'Subtitle' => 'Varchar(255)',
 		'Content' => 'HTMLText',
 		'AGBText' => 'HTMLText',
 		'CountDown' => 'Boolean(0)',
 		'CountDownDate' => 'Datetime',
 		'CloseButtonText' => 'Varchar(255)',
-		'ValidButtonText' => 'Varchar(255)',
 		'TriggerType' => 'Varchar(255)',
 		'TriggerFrequency' => 'Varchar(255)',
 		'TriggerTime' => 'Int',
 		'BackgroundColor' => 'Varchar(255)',
-		'CloseButtonBackground' => 'Varchar(255)',
-		'ValidButtonBackground' => 'Varchar(255)'
+		'CloseButtonBackground' => 'Varchar(255)'
 	];
 
 	private static $has_many = [
@@ -61,20 +58,17 @@ class Overlay extends DataObject{
 	    $labels = parent::fieldLabels($includerelations);
 	    $labels['Title'] = 'Titel';
 	    $labels['Type'] = 'Art';
-	    $labels['Subtitle'] = 'Untertitel';
 	    $labels['Content'] = 'Inhalt';
 	    $labels['AGBText'] = 'Datenschutz Einverständnis';
 	    $labels['CountDown'] = 'mit Rückwärts Zähler?';
 	 	$labels['CountDownDate'] = 'Rückwärts bis';
 	 	$labels['CloseButtonText'] = 'Titel des Buttons zum Schließen';
-	 	$labels['ValidButtonText'] = 'Titel des Buttons zum Senden';
 	 	$labels['TriggerType'] = 'Auslösungsart';
 	    $labels['TriggerFrequency'] = 'Auslösung';
 	 	$labels['TriggerTime'] = 'Zeit zum Auslösen (Sekunden)';
 	 	$labels['BackgroundColor'] = 'Hintergrundfarbe';
 	 	$labels['BackgroundImage'] = 'Hintergrundbild';
 	 	$labels['CloseButtonBackground'] = 'Hintergrundfarbe des Buttons zum Schließen';
-	 	$labels['ValidButtonBackground'] = 'Hintergrundfarbe des Buttons zum Senden';
 	    return $labels;
 	}
 
@@ -84,7 +78,6 @@ class Overlay extends DataObject{
 		$fields->removeByName('BackgroundColor');
 		$fields->removeByName('BackgroundImage');
 		$fields->removeByName('CloseButtonBackground');
-		$fields->removeByName('ValidButtonBackground');
 		$fields->removeByName('ValidButtonText');
 		$fields->removeByName('TriggerType');
 		$fields->removeByName('TriggerTime');
@@ -103,7 +96,6 @@ class Overlay extends DataObject{
 			HTMLDropdownField::create('BackgroundColor',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
 			UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName('Uploads/Overlays'),
 			HTMLDropdownField::create('CloseButtonBackground',$this->fieldLabels()['CloseButtonBackground'],SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors')
-			// HTMLDropdownField::create('ValidButtonBackground',$this->fieldLabels()['ValidButtonBackground'],SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors')
 		]);
 
 		$fields->insertAfter('CountDown', Wrapper::create(DatetimeField::create('CountDownDate', $this->fieldLabels()['CountDownDate']))->displayIf('CountDown')->isChecked()->end());
@@ -111,10 +103,8 @@ class Overlay extends DataObject{
 
 		//Other display options
 		$fields->fieldByName('Root.Main.CountDown')->displayIf('Type')->isEqualTo('Text')->end();
-		$fields->fieldByName('Root.Main.Subtitle')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.Content')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.AGBText')->displayIf('Type')->isEqualTo('Newsletter')->end();
-		// $fields->fieldByName('Root.Main.ValidButtonText')->hideIf('Type')->isEqualTo('Form')->end();
 		$fields->fieldByName('Root.Main.FormBlockID')->displayIf('Type')->isEqualTo('Form')->end();
 
 		return $fields;
