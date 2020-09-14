@@ -99,6 +99,7 @@ class OverlayContentControllerExtension extends Extension
 
     public function registerToNewsletter($data, Form $form){
 
+        echo 'ici';
         //TO DO : Newsletter API --> Waiting for tool choice
 
         //TO DO: Emails?
