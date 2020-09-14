@@ -852,7 +852,7 @@ $(document).ready(function(){
         });;
 	}
 
-	$(document).on("submit","#Form_BewertungForm", function(e){
+	$("#Form_BewertungForm").submit(function(e){
 		e.preventDefault();
 		console.log('la');
 		if ($("#Form_BewertungForm_Rate").val() == ""){
