@@ -178,7 +178,7 @@ class Overlay extends DataObject{
                 $absoluteBaseURL,
                 $this->getCMSEditLink()
             ),
-            '$ConfirmLink'    => Controller::join_links(
+            '$exportLink'    => Controller::join_links(
                 $absoluteBaseURL,
                 'admin/overlay/rates'
             ),

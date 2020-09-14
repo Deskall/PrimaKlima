@@ -18,6 +18,7 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\View\Requirements;
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPRequest;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class OverlayContentControllerExtension extends Extension
 {
