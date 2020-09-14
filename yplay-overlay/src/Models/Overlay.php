@@ -108,7 +108,7 @@ class Overlay extends DataObject{
 
 		$fields->insertAfter('CountDown', Wrapper::create(DatetimeField::create('CountDownDate', $this->fieldLabels()['CountDownDate']))->displayIf('CountDown')->isChecked()->end());
 
-		$fields->addFieldToTab('Root.Main', Wrapper::create(LinkField::create('LinkableLinkID', 'Link'))->displayIf('Type')->isEqualTo('Text')->end());
+		$fields->addFieldToTab('Root.Main', Wrapper::create(LinkField::create('LinkableLinkID', 'Link'))->hideIf('Type')->isEqualNotTo('Text')->end());
 
 		//Other display options
 		$fields->fieldByName('Root.Main.CountDown')->displayIf('Type')->isEqualTo('Text')->end();
