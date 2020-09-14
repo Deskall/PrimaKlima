@@ -116,7 +116,7 @@ class OverlayContentControllerExtension extends Extension
         $fields = new FieldList(
             HiddenField::create('OverlayID')->setValue($this->owner->OverlayID),
             HiddenField::create('Datum')->setValue(date('d.m.Y')),
-            HiddenField::create('PLZ')->setValue($this->owner->getRequest()->getSession()->get('active_plz')),
+            $plz = HiddenField::create('PLZ'),
             HiddenField::create('Bewertung'),
             TextareaField::create('Bemerkungen','Bemerkungen')->setAttribute('maxlength',500)->setAttribute('class','uk-textarea')->setRows('5'),
             CheckboxField::create('AGB',DBHTMLText::create()->setValue('<label for="Form_BewertungForm_AGB">'.$this->owner->Overlay()->AGBText.'</label>'))->setAttribute('class','uk-checkbox')
@@ -129,6 +129,13 @@ class OverlayContentControllerExtension extends Extension
         );
 
         $required = new RequiredFields(['Bewertung','AGB']);
+
+        if ($this->owner->getRequest()->getSession()->get('active_plz')){
+            $code = PostalCode::get()->byId($this->owner->getRequest()->getSession()->get('active_plz'));
+            if ($code){
+                $plz->setValue($code->Code);
+            }
+        }
 
         $form = new Form($this->owner, 'BewertungForm', $fields, $actions, $required);
         $form->addExtraClass('form-std js-ajax-form');
