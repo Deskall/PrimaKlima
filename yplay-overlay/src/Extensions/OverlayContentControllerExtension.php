@@ -93,7 +93,7 @@ class OverlayContentControllerExtension extends Extension
 
         $form = new Form($this->owner, 'NewsletterForm', $fields, $actions, $required);
         $form->addExtraClass('form-std');
-        $form->enableSpamProtection();
+        // $form->enableSpamProtection();
         return $form;
     }
 
