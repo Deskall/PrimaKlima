@@ -7,3 +7,9 @@ After:
 Page:
   extensions:
     - 'OverlayPageExtension'
+
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - OverlayContentControllerExtension
+  url_handlers:
+    'element/$ID!': 'handleElement'
