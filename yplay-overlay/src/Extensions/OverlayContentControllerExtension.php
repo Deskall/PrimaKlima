@@ -10,6 +10,8 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\HiddenField;
 use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\View\Requirements;
