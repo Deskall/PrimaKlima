@@ -4,7 +4,7 @@
     		<div class="modal-container">
 		        <button class="uk-modal-close-default" type="button" data-uk-close></button>
 		        <% if $Overlay.Title || $Overlay.CountDown %>
-		        <div class="uk-modal-header">
+		        <div class="uk-modal-header uk-padding-small">
 		        	<% if $Overlay.CountDown %>
 		        	<div class="uk-grid-small uk-child-width-auto uk-flex uk-flex-middle" data-uk-grid data-uk-countdown="date: $Overlay.CountDownDate">
 		        	    <div>
