@@ -857,7 +857,7 @@ $(document).ready(function(){
 	$(document).on("submit","#Form_BewertungForm", function(e){
 		if ( $("#Form_BewertungForm_Bewertung").val() == ""){
 			$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
-			return false;
+			e.preventDefault();
 		}
 	});
 });
