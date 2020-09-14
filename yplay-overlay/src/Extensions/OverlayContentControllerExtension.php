@@ -109,12 +109,12 @@ class OverlayContentControllerExtension extends Extension
 
     public function BewertungForm(){
         $fields = new FieldList(
-            HiddenField::create('Date')->setValue(date('d.m.Y')),
+            HiddenField::create('OverlayID')->setValue($this->owner->OverlayID),
+            HiddenField::create('Datum')->setValue(date('d.m.Y')),
             HiddenField::create('PLZ')->setValue($this->owner->getRequest()->getSession()->get('active_plz')),
             HiddenField::create('Bewertung'),
             TextareaField::create('Bemerkungen','Bemerkungen')->setAttribute('maxlength',500)->setAttribute('class','uk-textarea')->setRows('10'),
-            CheckboxField::create('AGB',DBHTMLText::create()->setValue('<label for="Form_BewertungForm_AGB">'.$this->owner->Overlay()->AGBText.'</label>'))->setAttribute('class','uk-checkbox'),
-            NocaptchaField::create('Captcha')
+            CheckboxField::create('AGB',DBHTMLText::create()->setValue('<label for="Form_BewertungForm_AGB">'.$this->owner->Overlay()->AGBText.'</label>'))->setAttribute('class','uk-checkbox')
         );
 
         $actions = new FieldList(
@@ -132,14 +132,33 @@ class OverlayContentControllerExtension extends Extension
     }
 
     public function doRate($data, Form $form){
+        try {
+            //Save Rate
+            $rate = new Rate();
+            $form->saveInto($rate);
+            $rate->write();
 
-        //TO DO : Newsletter API --> Waiting for tool choice
+            //Send mails
+            // $config = SiteConfig::current_site_config();
+            // $str = $this->parseString($config->ProductEmailContent, $data);
+            // $html = new DBHTMLText();
+            // $html->setValue($str);
+            // $Body = $this->renderWith('Emails/base_email',array('Subject' => $config->ProductEmailSubject, 'Lead' => '', 'Body' => $html, 'Footer' => '', 'SiteConfig' => $config));
+            // $email = new Email($config->Email, $data['Email'],$config->ProductEmailSubject, $Body);
+            // $email->setBCC($config->Email);
+            // $email->send();
+            $form->sessionMessage('Vielen Dank ' . $data['Name']."\n".'Ihre Anfrage wurde erfolgreich gesendet', 'success');
 
-        //TO DO: Emails?
+        } catch (ValidationException $e) {
+            $validationMessages = '';
+            foreach($e->getResult()->getMessages() as $error){
+                $validationMessages .= $error['message']."\n";
+            }
+            $form->sessionMessage($validationMessages, 'bad');
+            return $this->redirectBack();
+        }
 
-        $form->sessionMessage('Email ' . $data['Email'] . ' registriert!', 'success');
+        return $this->redirectBack();
 
-        //TO DO: Redirect to succss page?
-        return $this->owner->redirectBack();
     }
 }
