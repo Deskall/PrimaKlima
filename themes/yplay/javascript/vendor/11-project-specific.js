@@ -845,6 +845,9 @@ $(document).ready(function(){
 			minutes = parseInt($(this).find('.uk-countdown-minutes').text());
 			seconds = parseInt($(this).find('.uk-countdown-seconds').text());
 			(days > 1) ? $(this).find('.uk-countdown-days').next('.uk-countdown-label').text('Tage') : $(this).find('.uk-countdown-days').next('.uk-countdown-label').text('Tag');
+			(hours > 1) ? $(this).find('.uk-countdown-hours').next('.uk-countdown-label').text('Uhren') : $(this).find('.uk-countdown-hours').next('.uk-countdown-label').text('Uhr');
+			(minutes > 1) ? $(this).find('.uk-countdown-minutes').next('.uk-countdown-label').text('Minuten') : $(this).find('.uk-countdown-minutes').next('.uk-countdown-label').text('Minute');
+			(seconds > 1) ? $(this).find('.uk-countdown-seconds').next('.uk-countdown-label').text('Sekunden') : $(this).find('.uk-countdown-seconds').next('.uk-countdown-label').text('Sekund');
 		});
 	}
 });
