@@ -150,9 +150,8 @@ class OverlayContentControllerExtension extends Extension
             // $email = new Email($config->Email, $data['Email'],$config->ProductEmailSubject, $Body);
             // $email->setBCC($config->Email);
             // $email->send();
-            if ($request->isAjax()) {
-                return json_encode(['text' => 'Vielen herzlichen Dank für Ihre Zeit'."\n".'Wir freuen uns, Sie zu unseren Kunden zählen zu dürfen. Sofern Sie noch kein Kunde sind, so freuen wir uns Sie in naher Zukunft als Kunden begrüssen zu dürfen']);
-            }
+           
+           $this->owner->redirect('/vielen-dank-fuer-ihre-anfrage');
        
         } catch (ValidationException $e) {
             $validationMessages = '';
@@ -165,10 +164,5 @@ class OverlayContentControllerExtension extends Extension
 
         return $this->owner->redirectBack();
 
-    }
-
-    public function complete(HTTPRequest $request) {
-      //if the request is an ajax request, then only render the include
-      
     }
 }
