@@ -860,6 +860,5 @@ $(document).ready(function(){
 			$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
 			return false;
 		}
-		$("#Form_BewertungForm").submit();
 	});
 });
