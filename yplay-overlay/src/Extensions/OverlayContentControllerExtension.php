@@ -116,7 +116,8 @@ class OverlayContentControllerExtension extends Extension
             HiddenField::create('PLZ')->setValue($this->owner->getRequest()->getSession()->get('active_plz')),
             HiddenField::create('Bewertung'),
             TextareaField::create('Bemerkungen','Bemerkungen')->setAttribute('maxlength',500)->setAttribute('class','uk-textarea')->setRows('5'),
-            CheckboxField::create('AGB',DBHTMLText::create()->setValue('<label for="Form_BewertungForm_AGB">'.$this->owner->Overlay()->AGBText.'</label>'))->setAttribute('class','uk-checkbox')
+            CheckboxField::create('AGB',DBHTMLText::create()->setValue('<label for="Form_BewertungForm_AGB">'.$this->owner->Overlay()->AGBText.'</label>'))->setAttribute('class','uk-checkbox'),
+            NocaptchaField::create('Captcha')
         );
 
         $actions = new FieldList(
@@ -128,7 +129,6 @@ class OverlayContentControllerExtension extends Extension
         $required = new RequiredFields(['Bewertung','AGB']);
 
         $form = new Form($this->owner, 'BewertungForm', $fields, $actions, $required);
-        $form->enableSpamProtection();
         $form->addExtraClass('form-std');
         return $form;
     }
