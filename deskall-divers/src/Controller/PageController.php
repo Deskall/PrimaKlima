@@ -1,6 +1,21 @@
 <?php
 
 use SilverStripe\CMS\Controllers\ContentController;
+use DNADesign\Elemental\Models\ElementalArea;
+use DNADesign\Elemental\Extensions\ElementalAreasExtension;
+use SilverStripe\Core\Extension;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\ReadonlyField;
+use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
+use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\View\Requirements;
 
 class PageController extends ContentController
 {
@@ -91,13 +106,13 @@ class PageController extends ContentController
 
         $required = new RequiredFields(['Email', 'AGB']);
 
-        $form = new Form(Controller::curr(), 'NewsletterForm', $fields, $actions, $required);
+        $form = new Form($this, 'NewsletterForm', $fields, $actions, $required);
         $form->addExtraClass('form-std');
         $form->enableSpamProtection();
         return $form;
     }
 
-    public function registerToNewsletter($data, Form $form, $request){
+    public function registerToNewsletter($data, Form $form){
 
         echo 'ici';
         //TO DO : Newsletter API --> Waiting for tool choice
@@ -128,7 +143,7 @@ class PageController extends ContentController
 
         $required = new RequiredFields(['Bewertung','AGB']);
 
-        $form = new Form(Controller::curr(), 'BewertungForm', $fields, $actions, $required);
+        $form = new Form($this, 'BewertungForm', $fields, $actions, $required);
         $form->addExtraClass('form-std');
         $form->enableSpamProtection();
         return $form;
