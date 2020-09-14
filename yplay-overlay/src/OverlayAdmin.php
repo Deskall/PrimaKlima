@@ -2,6 +2,7 @@
 
 use SilverStripe\Admin\ModelAdmin;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldImportButton;
 
 class OverlayAdmin extends ModelAdmin{
 
@@ -24,7 +25,7 @@ class OverlayAdmin extends ModelAdmin{
 	public function getEditForm($id = null, $fields = null) {
 	    $form = parent::getEditForm($id, $fields);
 	    if($this->modelClass== Rate::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))){
-            $form->Fields()->fieldByName("Rate")->getConfig()->removeComponentsByType(GridFieldAddNewButton::class);
+            $form->Fields()->fieldByName("Rate")->getConfig()->removeComponentsByType([GridFieldAddNewButton::class, GridFieldImportButton::class]);
         }
 	    return $form;
 	}
