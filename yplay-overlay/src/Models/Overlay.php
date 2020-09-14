@@ -40,7 +40,8 @@ class Overlay extends DataObject{
 
 	private static $has_one = [
 		'BackgroundImage' => Image::class,
-		'FormBlock' => OverlayForm::class
+		'FormBlock' => OverlayForm::class,
+		'RedirectPage' => Page::class
 	];
 
 	private static $extensions = [
@@ -74,6 +75,7 @@ class Overlay extends DataObject{
 	 	$labels['BackgroundImage'] = 'Hintergrundbild';
 	 	$labels['CloseButtonBackground'] = 'Hintergrundfarbe des Buttons zum Schließen';
 	 	$labels['ValidButtonBackground'] = 'Hintergrundfarbe des Buttons zum Senden';
+	 	$labels['RedirectPage'] = 'Erfolgreich Einreichung Seite';
 	    return $labels;
 	}
 
@@ -113,6 +115,7 @@ class Overlay extends DataObject{
 		$fields->fieldByName('Root.Main.ValidButtonText')->displayIf('Type')->isEqualTo('Newsletter')->end();
 		$fields->fieldByName('Root.Layout.ValidButtonBackground')->hideUnless('Type')->isEqualTo('Newsletter')->end();
 		$fields->fieldByName('Root.Main.FormBlockID')->displayIf('Type')->isEqualTo('Form')->end();
+		$fields->fieldByName('Root.Main.RedirectPageID')->displayIf('Type')->isEqualTo('Newsletter')->orIf('Type')->isEqualTo('Bewertung')->end();
 
 		//Pages
 		$fields->fieldByName('Root.Pages')->setTitle('Verknüpfene Seiten');
