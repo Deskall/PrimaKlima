@@ -11,6 +11,9 @@ use SilverStripe\SiteConfig\SiteConfig;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use Sheadawson\Linkable\Forms\LinkField;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Control\Director;
+use SilverStripe\Control\Controller;
+use SilverStripe\Core\Injector\Injector;
 
 class Overlay extends DataObject{
 
@@ -171,7 +174,7 @@ class Overlay extends DataObject{
         }
 
     public function parseString($string, $url) {
-        $absoluteBaseURL = $this->BaseURL();
+        $absoluteBaseURL = Director::absoluteBaseURL();
         $variables = array(
             '$SiteName'       => SiteConfig::current_site_config()->Title,
             '$viewLink'      => Controller::join_links(
