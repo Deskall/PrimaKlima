@@ -875,4 +875,40 @@ $(document).ready(function(){
 		// 	});
 		// }
 	});
+	$(window).on('submit', '.js-ajax-form', function(e) {
+		$("#error-rating").remove();
+        var $form = $(this);
+        var formData = $form.serialize();
+        var formAction = $form.prop('action');
+        var formMethod = $form.prop('method');
+        var encType = $form.prop('enctype');
+        if ( $("#Form_BewertungForm_Bewertung").val() == ""){
+        	$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
+        }
+        $.ajax({
+            beforeSend: function(jqXHR,settings) {
+                if ($form.prop('isSending')) {
+                    return false;
+                }
+                $form.prop('isSending',true);
+            },
+            complete: function(jqXHR,textStatus) {
+                $form.prop('isSending',false);
+            },
+            contentType: encType,
+            data: formData,
+            error: function(jqXHR, textStatus, errorThrown) {
+                window.location = window.location;
+            },
+            success: function(data, textStatus, jqXHR) {
+                var $holder = $form.parent();
+                $holder.fadeOut('normal',function() {
+                    $holder.html(data).fadeIn();
+                });
+            },
+            type: formMethod,
+            url: formAction
+        });
+        e.preventDefault();
+	});
 });

@@ -128,7 +128,7 @@ class OverlayContentControllerExtension extends Extension
         $required = new RequiredFields(['Bewertung','AGB']);
 
         $form = new Form($this->owner, 'BewertungForm', $fields, $actions, $required);
-        $form->addExtraClass('form-std');
+        $form->addExtraClass('form-std js-ajax-form');
         $form->setTemplate('Forms/RatingForm');
         return $form;
     }
