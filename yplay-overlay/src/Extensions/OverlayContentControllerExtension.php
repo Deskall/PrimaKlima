@@ -19,6 +19,7 @@ use SilverStripe\View\Requirements;
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Control\Email\Email;
 
 class OverlayContentControllerExtension extends Extension
 {
