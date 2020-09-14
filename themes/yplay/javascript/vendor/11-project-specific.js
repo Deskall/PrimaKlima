@@ -849,7 +849,7 @@ $(document).ready(function(){
 		}).on("rateyo.change", function (e, data) {
             var rating = data.rating;
             $(this).next().text(rating).attr('hidden',false);
-            $("#Form_BewertungForm_Rate").val(rating);
+            $("#Form_BewertungForm_Bewertung").val(rating);
         });;
 	}
 
