@@ -843,7 +843,6 @@ $(document).ready(function(){
 	}
 
 	if ($(".rating").length > 0){
-		let form;
 		$(".rating").rateYo({
 		   starWidth: "30px",
 		   ratedFill: "#1D1D1B",
@@ -856,59 +855,11 @@ $(document).ready(function(){
         });;
 	}
 
-	// $(document).on("click","#Form_BewertungForm_action_doRate", function(e){
-	// 	$("#error-rating").remove();
-		
-	// 	if ( $("#Form_BewertungForm_Bewertung").val() == ""){
-	// 		$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
-	// 		e.preventDefault();
-	// 	}
-	// 	// else{
-	// 	// 	formData = $("#Form_BewertungForm").serialize();
-	// 	// 	console.log(formData);
-	// 	// 	$.ajax({
-	// 	// 		url: $("#Form_BewertungForm").attr('action'),
-	// 	// 		method: 'POST',
-	// 	// 		data: formData
-	// 	// 	}).done(function(response){
-	// 	// 		console.log(response);
-	// 	// 	});
-	// 	// }
-	// });
-	$(window).on('submit', '.js-ajax-form', function(e) {
+	$(document).on("click","#Form_BewertungForm_action_doRate", function(e){
 		$("#error-rating").remove();
-        var $form = $(this);
-        var formData = $form.serialize();
-        var formAction = $form.prop('action');
-        var formMethod = $form.prop('method');
-        var encType = $form.prop('enctype');
-        if ( $("#Form_BewertungForm_Bewertung").val() == ""){
-        	$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
-        }
-        $.ajax({
-            beforeSend: function(jqXHR,settings) {
-                if ($form.prop('isSending')) {
-                    return false;
-                }
-                $form.prop('isSending',true);
-            },
-            complete: function(jqXHR,textStatus) {
-                $form.prop('isSending',false);
-            },
-            contentType: encType,
-            data: formData,
-            error: function(jqXHR, textStatus, errorThrown) {
-                window.location = window.location;
-            },
-            success: function(data, textStatus, jqXHR) {
-                var $holder = $form.parent();
-                $holder.fadeOut('normal',function() {
-                    $holder.html(data).fadeIn();
-                });
-            },
-            type: formMethod,
-            url: formAction
-        });
-        e.preventDefault();
+		if ( $("#Form_BewertungForm_Bewertung").val() == ""){
+			$(".rating").parent().after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
+			e.preventDefault();
+		}
 	});
 });
