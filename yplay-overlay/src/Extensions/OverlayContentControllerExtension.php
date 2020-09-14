@@ -12,6 +12,7 @@ use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\CheckboxField;
 use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\View\Requirements;
 
 class OverlayContentControllerExtension extends Extension
 {
@@ -22,6 +23,12 @@ class OverlayContentControllerExtension extends Extension
         'handleElement',
         'NewsletterForm'
     );
+
+    public function init(){
+        if ($this->Overlay()->exists() && $this->Overlay()->Type == "Bewertung"){
+            Requirements::javascript('yplay-overlay/javascript/rater.min.js');
+        }
+    }
 
     public function handleElement()
     {
