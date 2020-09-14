@@ -28,12 +28,12 @@ class OverlayContentControllerExtension extends Extension
         'BewertungForm'
     );
 
-    public function onAfterInit(){
-        if ($this->owner->hasMethod('Overlay') && $this->owner->Overlay()->exists() && $this->owner->Overlay()->Type == "Bewertung"){
-            Requirements::javascript('yplay-overlay/javascript/jquery.rateyo.min.js');
-            Requirements::css('yplay-overlay/css/jquery.rateyo.min.css');
-        }
-    }
+    // public function onAfterInit(){
+    //     if ($this->owner->hasMethod('Overlay') && $this->owner->Overlay()->exists() && $this->owner->Overlay()->Type == "Bewertung"){
+    //         Requirements::javascript('yplay-overlay/javascript/jquery.rateyo.min.js');
+    //         Requirements::css('yplay-overlay/css/jquery.rateyo.min.css');
+    //     }
+    // }
 
     public function handleElement()
     {
