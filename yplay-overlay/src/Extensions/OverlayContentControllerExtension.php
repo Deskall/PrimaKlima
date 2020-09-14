@@ -162,7 +162,5 @@ class OverlayContentControllerExtension extends Extension
             return $this->owner->redirectBack();
         }
 
-        return $this->owner->redirectBack();
-
     }
 }
