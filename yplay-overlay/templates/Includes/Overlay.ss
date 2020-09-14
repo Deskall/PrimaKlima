@@ -5,6 +5,12 @@
 		        <button class="uk-modal-close-default" type="button" data-uk-close></button>
 		        <% if $Overlay.Title || $Overlay.CountDown %>
 		        <div class="uk-modal-header">
+		        	<% if $Overlay.Title %>
+		            <h2 class="uk-modal-title">$Overlay.Title</h2>
+		            <% end_if %>
+		        </div>
+		        <% end_if %>
+		        <div class="uk-modal-body">
 		        	<% if $Overlay.CountDown %>
 		        	<div class="uk-grid-small uk-child-width-auto uk-flex uk-flex-middle" data-uk-grid data-uk-countdown="date: $Overlay.CountDownDate">
 		        	    <div>
@@ -28,12 +34,6 @@
 		        	    </div>
 		        	</div>
 		        	<% end_if %>
-		        	<% if $Overlay.Title %>
-		            <h2 class="uk-modal-title">$Overlay.Title</h2>
-		            <% end_if %>
-		        </div>
-		        <% end_if %>
-		        <div class="uk-modal-body">
 		        	<% if $Overlay.Subtitle %><h3>$Overlay.Subtitle</h3><% end_if %>
 			        <% if $Overlay.Content %><div class="dk-text-content">$Overlay.Content</div><% end_if %>
 		        	<% if $Overlay.Type == "Form" %>
