@@ -10,6 +10,7 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\EmailField;
 use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class OverlayContentControllerExtension extends Extension
 {
@@ -65,7 +66,7 @@ class OverlayContentControllerExtension extends Extension
     public function NewsletterForm(){
         $fields = new FieldList(
             EmailField::create('Email', 'Ihre E-Mail-Adresse')->setAttribute('Class','uk-input'),
-            EditableHTMLCheckbox::create('Datenschutz',$this->owner->Overlay()->AGBText),
+            CheckboxField::create('AGB',DBHTMLText::create()->setValue($this->owner->Overlay()->AGBText))->setAttribute('class','uk-checkbox'),
             NocaptchaField::create('Captcha')
         );
 
