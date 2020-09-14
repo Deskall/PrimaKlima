@@ -845,6 +845,9 @@ $(document).ready(function(){
 	if ($(".rating").length > 0){
 		$(".rating").rateYo({
 		   starWidth: "40px"
-		});
+		}).on("rateyo.change", function (e, data) {
+            var rating = data.rating;
+            $(this).next().text(rating);
+        });;
 	}
 });
