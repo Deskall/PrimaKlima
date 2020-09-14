@@ -19,8 +19,6 @@
 <% else %>
     <div class="userform-fields">
         <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
-      
-       
     </div>
 <% end_if %>
 

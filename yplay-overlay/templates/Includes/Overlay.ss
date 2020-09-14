@@ -1,5 +1,4 @@
-
- <div id="overlay-$Overlay.ID" class="overlay-modal" data-triggered="false" data-uk-modal data-trigger-type="$Overlay.TriggerType" <% if $Overlay.TriggerType == "Time" %>data-trigger-time="$Overlay.TriggerTime"<% end_if %>>
+<div id="overlay-$Overlay.ID" class="overlay-modal" data-triggered="false" data-uk-modal data-trigger-type="$Overlay.TriggerType" <% if $Overlay.TriggerType == "Time" %>data-trigger-time="$Overlay.TriggerTime"<% end_if %>>
     <div class="uk-modal-dialog">
     	<div class="<% if $Overlay.BackgroundImage.exists %>uk-cover-container<% end_if %> <% if $Overlay.BackgroundColor %>$Overlay.BackgroundColor dk-overlay<% end_if %>" <% if $Overlay.BackgroundImage.exists %>style="background-image: url($Overlay.BackgroundImage.FocusFill(600,800).URL);"<% end_if %>>
     		<div class="modal-container">
@@ -49,7 +48,7 @@
 				    	Bewertung
 		        	<% end_if %>
 		        </div>
-		        <% if not $Overlay.FormBlock.exists %>
+		        <% if $Overlay.Type == "Text" %>
 		        <div class="uk-modal-footer uk-text-right">
 		        	<button class="uk-button button-$Overlay.CloseButtonBackground uk-modal-close" type="button">$Overlay.CloseButtonText</button>
 		        	<% if $Overlay.LinkableLink.exists %>
@@ -57,7 +56,6 @@
 		        	<a href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %> class="<% if Background %>uk-button button-{$Background}<% end_if %>" <% if hasIcone %>data-uk-icon="icon: $Icone"<% end_if %> <% if Embedded %>data-type="iframe"<% end_if %>>$Title</a>
 		        	<% end_with %>
 		        	<% end_if %>
-		        	<%-- <button class="uk-button button-$ValidButtonBackground" type="button">$ValidButtonText</button> --%>
 		        </div>
 		        <% end_if %>
 		    </div>

@@ -69,6 +69,7 @@ class OverlayContentControllerExtension extends Extension
         );
 
         $actions = new FieldList(
+            FormAction::create('cancel')->setTitle($this->owner->Overlay()->CloseButtonText)->addExtraClass('uk-button button-'.$this->owner->Overlay()->CloseButtonBackground.' uk-modal-close')->setUseButtonTag(true),
             FormAction::create('registerToNewsletter')->setTitle($this->owner->Overlay()->ValidButtonText)->addExtraClass('uk-button button-PrimaryBackground')->addExtraClass('dk-button-icon')->setUseButtonTag(true)
             ->setAttribute('data-uk-icon','chevron-right')
         );
