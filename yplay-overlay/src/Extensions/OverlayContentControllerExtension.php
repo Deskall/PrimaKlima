@@ -114,7 +114,7 @@ class OverlayContentControllerExtension extends Extension
             HiddenField::create('OverlayID')->setValue($this->owner->OverlayID),
             HiddenField::create('Datum')->setValue(date('d.m.Y')),
             HiddenField::create('PLZ')->setValue($this->owner->getRequest()->getSession()->get('active_plz')),
-            ReadonlyField::create('Bewertung'),
+            HiddenField::create('Bewertung'),
             TextareaField::create('Bemerkungen','Bemerkungen')->setAttribute('maxlength',500)->setAttribute('class','uk-textarea')->setRows('5'),
             CheckboxField::create('AGB',DBHTMLText::create()->setValue('<label for="Form_BewertungForm_AGB">'.$this->owner->Overlay()->AGBText.'</label>'))->setAttribute('class','uk-checkbox')
         );

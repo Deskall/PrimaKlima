@@ -848,6 +848,15 @@ $(document).ready(function(){
 		}).on("rateyo.change", function (e, data) {
             var rating = data.rating;
             $(this).next().text(rating);
+            $("#Form_BewertungForm_Rate").val(rating);
         });;
 	}
+
+	$(document).on("submit","#Form_BewertungForm", function(e){
+		e.preventDefault();
+		if ($("#Form_BewertungForm_Rate").val() == ""){
+			$(".rating").after('<p id="error-rating">Bitte geben Sie Ihre Bewertung ein.</p>');
+			return false;
+		}
+	});
 });
