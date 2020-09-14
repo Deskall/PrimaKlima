@@ -1,6 +1,6 @@
 <?php
 
-use SilverStripe\CMS\Controllers\ContentController;
+
 use DNADesign\Elemental\Models\ElementalArea;
 use DNADesign\Elemental\Extensions\ElementalAreasExtension;
 use SilverStripe\Core\Extension;
@@ -17,7 +17,7 @@ use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\View\Requirements;
 
-class OverlayContentController extends ContentController
+class OverlayContentController extends Extension
 {
     /**
      * @var array
