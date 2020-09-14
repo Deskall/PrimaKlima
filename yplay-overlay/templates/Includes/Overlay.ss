@@ -48,7 +48,7 @@
 				    	<label class="uk-margin-small">Bewertung *</label>
 					    <div class="uk-flex uk-flex-left uk-flex-middle">
 					    	<div class="rating"></div>
-					    	<div class="rate"></div>
+					    	<div class="rate" hidden></div>
 					    </div>
 				    	$BewertungForm
 		        	<% end_if %>
