@@ -845,7 +845,8 @@ $(document).ready(function(){
 	if ($(".rating").length > 0){
 		$(".rating").rateYo({
 		   starWidth: "30px",
-		   ratedFill: "#1D1D1B"
+		   ratedFill: "#1D1D1B",
+		   normalFill: "#EEEEEE"
 		}).on("rateyo.change", function (e, data) {
             var rating = data.rating;
             $(this).next().text(rating).attr('hidden',false);
