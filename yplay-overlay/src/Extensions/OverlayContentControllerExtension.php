@@ -26,7 +26,7 @@ class OverlayContentControllerExtension extends Extension
 
     public function init(){
         parent::init();
-        if ($this->Overlay()->exists() && $this->Overlay()->Type == "Bewertung"){
+        if ($this->owner->Overlay()->exists() && $this->owner->Overlay()->Type == "Bewertung"){
             Requirements::javascript('yplay-overlay/javascript/rater.min.js');
         }
     }
