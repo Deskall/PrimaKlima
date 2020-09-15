@@ -844,7 +844,7 @@ $(document).ready(function(){
 
 	if ($(".rating").length > 0){
 		$(".rating").rateYo({
-		   starWidth: "30px",
+		   starWidth: "60px",
 		   ratedFill: "#1D1D1B",
 		   normalFill: "#EEEEEE"
 		}).on("rateyo.change", function (e, data) {
