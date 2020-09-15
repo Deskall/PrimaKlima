@@ -16,13 +16,13 @@
 	  	<% end_if %>
 		
 	  	<% if $ShowPinterest %>
-		 	<a class="uk-icon-button uk-margin-right" data-uk-icon="pinterest" href="http://pinterest.com/pin/create/button/?url={$getPage.AbsoluteLink.URLATT}&media={$BaseHref}{}&description={$getPage.Title}" class="pin-it-button pinterest" count-layout="horizontal" target="_blank"></a>
+		 	<a class="uk-icon-button uk-margin-right" data-uk-icon="pinterest" href="http://pinterest.com/pin/create/button/?url={$getPage.AbsoluteLink.URLATT}&media={$BaseHref}{}&description={$getPage.Title}" target="_blank"></a>
 		<% end_if %>
 		<% if $ShowLinkedin %>
-		 	<a class="uk-icon-button uk-margin-right" data-uk-icon="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={$getPage.AbsoluteLink.URLATT}" class="pin-it-button pinterest" count-layout="horizontal" target="_blank"></a>
+		 	<a class="uk-icon-button uk-margin-right" data-uk-icon="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={$getPage.AbsoluteLink.URLATT}" target="_blank"></a>
 		<% end_if %>
 		<% if $ShowXing %>
-		 	<a class="uk-icon-button uk-margin-right" data-uk-icon="xing" href="http://pinterest.com/pin/create/button/?url={$getPage.AbsoluteLink.URLATT}&media={$BaseHref}{}&description={$getPage.Title}" class="pin-it-button pinterest" count-layout="horizontal" target="_blank"></a>
+		 	<a class="uk-icon-button uk-margin-right" data-uk-icon="xing" href="https://www.xing.com/spi/shares/new?url={$getPage.AbsoluteLink.URLATT}" target="_blank"></a>
 		<% end_if %>
 	</div>
 </div>
