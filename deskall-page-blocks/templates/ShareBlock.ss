@@ -14,9 +14,7 @@
 		<% if $ShowTwitter %>
 	    <a class="uk-icon-button uk-margin-right" data-uk-icon="twitter" href="https://twitter.com/intent/tweet?url={$getPage.AbsoluteLink.URLATT}" target="_blank"></a>
 	  	<% end_if %>
-		<% if $ShowGoogle %>
-	    <a class="uk-icon-button uk-margin-right" data-uk-icon="google" href="https://plus.google.com/share?url={$getPage.AbsoluteLink.URLATT}" target="_blank"></a>
-	  	<% end_if %>
+		
 	  	<% if $ShowPinterest %>
 		 	<a class="uk-icon-button uk-margin-right" data-uk-icon="pinterest" href="http://pinterest.com/pin/create/button/?url={$getPage.AbsoluteLink.URLATT}&media={$BaseHref}{}&description={$getPage.Title}" class="pin-it-button pinterest" count-layout="horizontal" target="_blank"></a>
 		<% end_if %>
