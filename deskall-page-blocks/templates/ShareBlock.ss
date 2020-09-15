@@ -19,7 +19,7 @@
 		 	<a class="uk-icon-button uk-margin-right" data-uk-icon="pinterest" href="http://pinterest.com/pin/create/button/?url={$getPage.AbsoluteLink.URLATT}&media={$BaseHref}{}&description={$getPage.Title}" class="pin-it-button pinterest" count-layout="horizontal" target="_blank"></a>
 		<% end_if %>
 		<% if $ShowLinkedin %>
-		 	<a class="uk-icon-button uk-margin-right" data-uk-icon="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={$getPage.AbsoluteLink.URLATT}&title={$getPage.Title.URLATT}&source={$SiteConfig.Title.URLATT}" class="pin-it-button pinterest" count-layout="horizontal" target="_blank"></a>
+		 	<a class="uk-icon-button uk-margin-right" data-uk-icon="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url={$getPage.AbsoluteLink.URLATT}" class="pin-it-button pinterest" count-layout="horizontal" target="_blank"></a>
 		<% end_if %>
 		<% if $ShowXing %>
 		 	<a class="uk-icon-button uk-margin-right" data-uk-icon="xing" href="http://pinterest.com/pin/create/button/?url={$getPage.AbsoluteLink.URLATT}&media={$BaseHref}{}&description={$getPage.Title}" class="pin-it-button pinterest" count-layout="horizontal" target="_blank"></a>
