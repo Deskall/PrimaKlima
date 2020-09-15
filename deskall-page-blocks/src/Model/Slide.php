@@ -40,6 +40,10 @@ class Slide extends DataObject
         'File' => File::class
     ];
 
+    private static $owns = [
+        'Image', 'File'
+    ];
+
     private static $defaults = [
         'TextAlign' => 'uk-text-left',
         'TitleAlign' => 'uk-text-left',
