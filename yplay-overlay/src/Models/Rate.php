@@ -18,6 +18,7 @@ class Rate extends DataObject{
 	private static $has_one = ['Overlay' => Overlay::class];
 
 	private static $summary_fields = [
+		'Overlay.Title' => ['title' => 'Overlay'],
 		'Datum',
 		'Bewertung',
 		'PLZ',
