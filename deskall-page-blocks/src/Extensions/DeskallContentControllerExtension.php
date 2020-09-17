@@ -5,7 +5,7 @@
 use DNADesign\Elemental\Models\ElementalArea;
 use DNADesign\Elemental\Extensions\ElementalAreasExtension;
 use SilverStripe\Core\Extension;
-
+use DNADesign\Elemental\Models\BaseElement;
 class DeskallContentControllerExtension extends Extension
 {
     /**
