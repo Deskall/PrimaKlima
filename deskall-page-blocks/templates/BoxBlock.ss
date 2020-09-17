@@ -46,7 +46,7 @@
 						    	<% if $Image.getExtension == "svg" %>
 						    	<div class="uk-flex uk-flex-center uk-flex-middle">
 						    		<figure>
-							    		<img class="dk-icon uk-width-auto <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>"  />
+							    		<img class="dk-icon uk-width-auto <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>" style="width:{$Up.PictureWidth}px;height:<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>px;" />
 							    		<% if Image.Description %><figcaption>$Image.Description</figcaption><% end_if %>
 							    	</figure>
 						    	</div>
@@ -74,7 +74,7 @@
 						    	<% if $Image.getExtension == "svg" %>
 						    	<div class="uk-flex uk-flex-center uk-flex-middle">
 						    		<figure>
-						    		<img class="dk-icon uk-width-auto <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>"  />
+						    		<img class="dk-icon uk-width-auto <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>" style="width:{$Up.PictureWidth}px;height:<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>px;" />
 						    		<% if Image.Description %><figcaption>$Image.Description</figcaption><% end_if %>
 						    		</figure>
 						    	</div>
