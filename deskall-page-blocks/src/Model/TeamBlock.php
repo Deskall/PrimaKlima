@@ -48,6 +48,10 @@ class TeamBlock extends BaseElement implements Searchable
 		return $fields;
 	}
 
+	public function activeBoxes(){
+		return $this->Boxes()->filter('isVisible',1)->sort('Sort');
+	}
+
 
 	public function getType()
 	{
