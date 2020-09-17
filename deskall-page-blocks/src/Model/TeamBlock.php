@@ -27,6 +27,10 @@ class TeamBlock extends BaseElement implements Searchable
 		'Boxes' => TeamBox::class
 	);
 
+	private static $owns = [
+		'Boxes'
+	];
+
 
 	public function getCMSFields()
 	{
