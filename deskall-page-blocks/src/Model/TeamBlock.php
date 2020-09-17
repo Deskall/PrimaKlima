@@ -38,7 +38,7 @@ class TeamBlock extends BaseElement implements Searchable
 	            'Teammitglieder',
 	            $this->Boxes(),
 	            GridFieldConfig_RecordEditor::create()
-	            ->addComponentByType(new GridFieldOrderableRows('Sort'))
+	            ->addComponent(new GridFieldOrderableRows('Sort'))
 	        );
 
 	        $fields->addFieldToTab('Root.Main', $BoxesField);
