@@ -1,6 +1,6 @@
 <div class="uk-child-width-auto uk-grid-small" data-uk-grid>
-    <% if Boxes.exists %>
-        <% loop Boxes %>
+    <% if activeBoxes.exists %>
+        <% loop activeBoxes %>
         <div>
             <div class="team-box uk-transition-toggle">
                 <div class="uk-inline-clip uk-light" tabindex="0">
