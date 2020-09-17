@@ -9,6 +9,7 @@ use SilverStripe\Assets\Image;
 use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class TeamBlock extends BaseElement implements Searchable
 {
@@ -37,6 +38,7 @@ class TeamBlock extends BaseElement implements Searchable
 	            'Teammitglieder',
 	            $this->Boxes(),
 	            GridFieldConfig_RecordEditor::create()
+	            ->addComponentByType(new GridFieldOrderableRows('Sort'))
 	        );
 
 	        $fields->addFieldToTab('Root.Main', $BoxesField);
