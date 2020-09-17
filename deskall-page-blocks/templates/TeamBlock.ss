@@ -1,4 +1,4 @@
-<div class="uk-child-width-auto uk-grid-small" data-uk-grid>
+<div class="uk-child-width-auto uk-grid-small uk-grid-match" data-uk-grid>
     <% if activeBoxes.exists %>
         <% loop activeBoxes %>
         <div>
