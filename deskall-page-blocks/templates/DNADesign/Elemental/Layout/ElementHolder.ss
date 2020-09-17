@@ -1,6 +1,6 @@
 
 <% if $Element.ClassName == "DNADesign\ElementalVirtual\Model\ElementVirtual" %>
-<div class="element $ClassName $LinkedElement.ClassName<% if $LinkedElement.ExtraClass %> $LinkedElement.ExtraClass<% end_if %>" id="e{$LinkedElement.ID}">
+<div class="element <% if $Element.isChildren %>children<% end_if %> $ClassName $LinkedElement.ClassName<% if $LinkedElement.ExtraClass %> $LinkedElement.ExtraClass<% end_if %>" id="e{$LinkedElement.ID}">
     $LinkedElement
 </div>
 <% else_if Element.isVisible %>
