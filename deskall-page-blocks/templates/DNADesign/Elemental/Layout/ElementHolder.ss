@@ -1,5 +1,5 @@
-$Element.ClassName
-<% if $Element.ClassName == "VirtualBlock" %>
+
+<% if $Element.ClassName == "DNADesign\ElementalVirtual\Model\ElementVirtual" %>
 ici
 	$Element
 <% else_if Element.isVisible %>
