@@ -1,4 +1,4 @@
-<div class="uk-child-width-auto uk-grid-small uk-grid-match" data-uk-grid data-uk-height-match="">
+<div class="uk-child-width-auto uk-grid-small uk-grid-match" data-uk-grid data-uk-height-match=".team-image">
     <% if activeBoxes.exists %>
         <% loop activeBoxes %>
         <div>
