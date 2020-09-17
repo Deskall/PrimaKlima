@@ -1,4 +1,6 @@
+$Element.ClassName
 <% if $Element.ClassName == "VirtualBlock" %>
+ici
 	$Element
 <% else_if Element.isVisible %>
 <div class="element <% if $Element.isChildren %>children<% end_if %> <% if $Element.Width %>$Element.Width<% end_if %> <% if $Element.isFirstMobile %>uk-flex-first<% end_if %> <% if $Element.isFirst %>uk-flex-first@m<% end_if %> $SimpleClassName.LowerCase<% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="$Element.AnchorTitle">
