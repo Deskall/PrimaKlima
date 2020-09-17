@@ -1,10 +1,12 @@
-<div class="uk-child-width-auto uk-grid-small uk-grid-match" data-uk-grid>
+<div class="uk-child-width-auto uk-grid-small uk-grid-match" data-uk-grid data-uk-height-match="">
     <% if activeBoxes.exists %>
         <% loop activeBoxes %>
         <div>
             <div class="team-box uk-transition-toggle">
                 <div class="uk-inline-clip uk-light" tabindex="0">
-                    <img src="$Image.ScaleWidth(350).CropHeight(250).URL" alt="$Title">
+                    <div class="team-image">
+                        <img src="$Image.ScaleWidth(350).CropHeight(250).URL" alt="$Title">
+                    </div>
                     <div class="team-title">
                         <div><strong class="title">$Title</strong></div>
                         <div class="function">$Function</div>
