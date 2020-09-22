@@ -34,6 +34,7 @@ use SilverStripe\View\SSViewer;
 
 class SiteConfigLayoutExtension extends DataExtension 
 {
+
   private static $db = [
     'Theme' => 'Varchar',
     'HeaderBackground' => 'Varchar(7)',
@@ -189,10 +190,6 @@ class SiteConfigLayoutExtension extends DataExtension
     }
   }
 
-  public function getCurrentThemePath(){
-    return '/public/_resources/themes/'.$this->owner->Theme;
-  }
-
   public function getCurrentThemeDir(){
     return '/themes/'.$this->owner->Theme;
   }
@@ -201,17 +198,13 @@ class SiteConfigLayoutExtension extends DataExtension
     return Director::AbsoluteURL($this->owner->getCurrentThemeDir());
   }
 
-  public function getAbsoluteCurrentThemepath(){
-    return Director::AbsoluteURL($this->owner->getCurrentThemePath());
-  }
-
   public function getUserDefinedFile(){
 
-    return $this->owner->getCurrentThemePath().'/css/src/deskall/theme/user_defined.less';
+    return $this->owner->getCurrentThemeDir().'/css/src/deskall/theme/user_defined.less';
   }
 
   public function getBackgroundColorsFile(){
-    return $this->owner->getCurrentThemePath().'/css/src/deskall/theme/colors.less';
+    return $this->owner->getCurrentThemeDir().'/css/src/deskall/theme/colors.less';
   }
 
   public function getLayoutFields() {
@@ -553,7 +546,7 @@ class SiteConfigLayoutExtension extends DataExtension
   public function RegenerateCss(){
     $files = ['body.min.css','head.min.css','editortocompile.css'];
     foreach ($files as $key => $value) {
-      $url = $this->owner->getAbsoluteCurrentThemePath().'/css/'.$value;
+      $url = $this->owner->getAbsoluteCurrentThemeDir().'/css/'.$value;
       if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
           if ($this->owner->SubsiteID > 0){
               $url = Director::AbsoluteURL('themes/'.$this->owner->Subsite()->Theme.'/css/'.$value);
