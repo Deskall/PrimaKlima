@@ -43,6 +43,10 @@ Page:
     - PageBlocksExtension
   disallowed_elements:
       - DNADesign\Elemental\Models\ElementContent
+      - DNADesign\ElementalList\Model\ElementList
+      - DNADesign\ElementalUserForms\Model\ElementForm
+      - VirtualBlock
+      - DuplicateBlock
 
 Slide:
   extensions:
