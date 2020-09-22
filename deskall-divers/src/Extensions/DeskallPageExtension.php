@@ -36,11 +36,11 @@ class DeskallPageExtension extends DataExtension
     ];
 
     public function ThemeDir(){
-        return SiteConfig::current_site_config()->getCurrentThemePath();
+        return SiteConfig::current_site_config()->getCurrentThemeDir();
     }
 
      public function CurrentThemeDir(){
-        return SiteConfig::current_site_config()->getCurrentThemePath();
+        return SiteConfig::current_site_config()->getCurrentThemeDir();
     }
 
     public function LastChangeJS(){
