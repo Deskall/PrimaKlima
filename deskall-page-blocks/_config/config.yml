@@ -45,6 +45,7 @@ Page:
       - DNADesign\Elemental\Models\ElementContent
       - DNADesign\ElementalList\Model\ElementList
       - DNADesign\ElementalUserForms\Model\ElementForm
+      - DNADesign\ElementalVirtual\Model\ElementVirtual
       - VirtualBlock
       - DuplicateBlock
 
