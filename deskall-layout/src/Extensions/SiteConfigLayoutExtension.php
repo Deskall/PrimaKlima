@@ -203,11 +203,11 @@ class SiteConfigLayoutExtension extends DataExtension
 
   public function getUserDefinedFile(){
 
-    return $this->owner->getCurrentThemeDir().'/css/src/deskall/theme/user_defined.less';
+    return $this->owner->getCurrentThemePath().'/css/src/deskall/theme/user_defined.less';
   }
 
   public function getBackgroundColorsFile(){
-    return $this->owner->getCurrentThemeDir().'/css/src/deskall/theme/colors.less';
+    return $this->owner->getCurrentThemePath().'/css/src/deskall/theme/colors.less';
   }
 
   public function getLayoutFields() {
