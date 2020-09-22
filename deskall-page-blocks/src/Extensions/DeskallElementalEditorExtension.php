@@ -1,11 +1,11 @@
 <?php
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
 use DNADesign\ElementalVirtual\Forms\ElementalGridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 
-class DeskallElementalEditorExtension extends DataExtension 
+class DeskallElementalEditorExtension extends Extension 
 {
     public function updateGetTypes(&$types){
 
