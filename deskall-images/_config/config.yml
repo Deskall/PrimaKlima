@@ -2,6 +2,7 @@
 Name: deskall-images
 After:
     - '#focuspoint'
+    - '#ScaledUploads'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-images
@@ -15,7 +16,7 @@ SilverStripe\Assets\Image:
     - svg
   #MaxWidth: 2500
   #MaxHeight: 2500
-  optimise_tiny: false
+  optimise_tiny: '`APP_OPTIMISE_TINY`'
   #memory: 256M
   extensions:
     - ImageExtension
@@ -53,7 +54,13 @@ Axllent\ScaledUploads\ScaledUploads:
 
 # Compress Images on the fly
 Kinglozzer\SilverStripeTinyPng\ImageExtension:
-  tinypng_api_key: 'JJqVVtCMrcr0gDHcMDsZgD1F14KTztnC'
+  tinypng_api_key: '`APP_TINYPNG_APIKEY`'
+
+# NOT WORKING
+# SilverStripe\Assets\Upload:
+#   extensions:
+#     - DeskallUploadImageExtension
+
 
 # ImageExtension:
 #   successStatuses:

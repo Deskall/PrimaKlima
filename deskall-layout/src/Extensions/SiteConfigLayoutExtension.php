@@ -119,7 +119,9 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderHeight' => '@header-menu-height',
     'HeaderFontSize' => '@dk-main-nav-font-size',
     'HeaderMobileFontSize' => '@dk-main-nav-font-size-mobile',
-    'HeaderMainMenuItemSize' => '@navbar-main-nav-item-height',
+    'HeaderMainMenuItemSize' => [
+      '@navbar-main-nav-item-height',
+      '@navbar-nav-item-height'],
     'HeaderSubMenuItemSize' => '@navbar-sub-nav-item-height',
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
     'HeaderLogoHeight' => '@header-logo-height',
@@ -519,7 +521,7 @@ class SiteConfigLayoutExtension extends DataExtension
       file_put_contents($fullpath, "\n".".userform .button-".$c->Code.' .uk-button{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /*** Css class for Slideshow controls **/
       file_put_contents($fullpath,
-        "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:#'.$c->LinkColor.';border-color:#'.$c->FontColor.';}' 
+        "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:darken(#'.$c->Color.',5%);border-color:#'.$c->Color.';}' 
         ."\n".'.'.$c->Code.' .uk-dotnav > .uk-active > *{background-color:#'.$c->LinkHoverColor.';}'
         ."\n".'.'.$c->Code.' .uk-dotnav > * > :hover, .'.$c->Code.' .uk-dotnav > * > :focus {background-color:#'.$c->LinkColor.';}'
         ."\n".'.'.$c->Code.' .uk-slidenav {color: #'.$c->LinkColor.';&:hover,&:focus{color: #'.$c->LinkHoverColor.';}}',FILE_APPEND);
@@ -527,13 +529,14 @@ class SiteConfigLayoutExtension extends DataExtension
       /*** Css class for Background Overlays **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.'.dk-overlay:after{background-color:fade(#'.$c->Color.',50%);}'
         ."\n".'.'.$c->Code.'.dk-overlay .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->LinkHoverColor.';}'
+        ."\n".'.'.$c->Code.'.with-overlay{background-color:fade(#'.$c->Color.',50%);*{color:#'.$c->FontColor.';}}'
         ."\n".'.'.$c->Code.'.dk-overlay *{color:#'.$c->FontColor.';}',FILE_APPEND);
        /*** Css class for Short Text Overlays **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.' .dk-text-content .short-text .button-container{background-image: linear-gradient(to bottom, transparent, #'.$c->Color.');}',FILE_APPEND);
        /*** Css class for Form Elements **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.'{.uk-input,.uk-textarea,.uk-select {background-color: rgba(255,255,255,0.6);}}',FILE_APPEND);
       file_put_contents($fullpath,"\n".'.'.$c->Code.' .uk-form-label {color: #'.$c->FontColor.';}',FILE_APPEND);
-      file_put_contents($fullpath,"\n".'.'.$c->Code.' input[type="checkbox"],'.$c->Code.' input[type="radio"]{ &:focus,&:checked,&:indeterminate{background-color: #'.$c->LinkColor.';color: #'.$c->LinkHoverColor.';}}',FILE_APPEND);
+      file_put_contents($fullpath,"\n".'.'.$c->Code.' input[type="checkbox"],'.$c->Code.' input[type="radio"]{ &:focus,&:checked{background-color: #'.$c->LinkColor.';color: #'.$c->LinkHoverColor.';}}',FILE_APPEND);
       file_put_contents($fullpath,"\n".'.'.$c->Code.' label.error, .'.$c->Code.' p.error {color: #'.$c->FontColor.';}',FILE_APPEND);
        /*** Css class for Table Elements **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.' .uk-table-striped > tr:nth-of-type(odd), .'.$c->Code.' .uk-table-striped tbody tr:nth-of-type(odd){background:lighten(#'.$c->Color.',5%);color:darken(#'.$c->FontColor.',10%);}',FILE_APPEND);

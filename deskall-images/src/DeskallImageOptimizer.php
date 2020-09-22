@@ -1,15 +1,12 @@
 <?php
-
 use SilverStripe\Core\Environment;
 
 class DeskallImageOptimiser {
-	public function getApiKey(){
-		return Environment::getEnv('APP_TINYPNG_APIKEY');
-	}
 
 	public function Optimise($url, $path){
+		$key = Environment::getEnv('APP_TINYPNG_APIKEY');
 		try {
-    		\Tinify\setKey('JJqVVtCMrcr0gDHcMDsZgD1F14KTztnC');
+    		\Tinify\setKey($key);
 			$source = \Tinify\fromUrl($url);
 			$source->toFile($path);
 			file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-tiny-image.txt","\n"."url: " . $url, FILE_APPEND);

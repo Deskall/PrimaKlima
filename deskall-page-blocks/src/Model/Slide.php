@@ -47,11 +47,7 @@ class Slide extends DataObject
     ];
 
     private static $block_text_positions = [
-        '' =>  [
-            'value' => '',
-            'title' => 'Keine',
-            'icon' => 'Keine'
-        ],
+
         'uk-position-bottom-left' =>  [
             'value' => 'uk-position-bottom-left',
             'title' => 'Bottom left',
@@ -273,6 +269,14 @@ class Slide extends DataObject
 
     public function getPage(){
         return $this->Parent()->getPage();
+    }
+
+    public function onAfterWrite(){
+        parent::onAfterWrite();
+        if ($this->isMainSlide && !$this->Parent()->isPrimary){
+            $this->Parent()->isPrimary = 1;
+            $this->Parent()->write();
+        }
     }
 
     public function onAfterPublish(){

@@ -3,6 +3,13 @@
 }
 .html-dropdown{
     font-size: 13px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100%;
+    vertical-align: bottom;
+    overflow: inherit!important;
 }
 
 .htmldropdown.columns .html-dropdown-option{
@@ -42,6 +49,7 @@
 .html-dropdown .chosen-drop.active{
     clip: auto;
     white-space: normal;
+    clip-path: none;
 }
 .field .chosen-container-single .chosen-single div.option-html{
     width:100%;

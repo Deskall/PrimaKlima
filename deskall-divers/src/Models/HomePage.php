@@ -1,7 +1,8 @@
 <?php
 
 class HomePage extends Page {
-	// private static $icon = "font-icon-home";
+
+	private static $icon_class = "font-icon-home";
 
 	private static $icon_class = "font-icon-home";
 	

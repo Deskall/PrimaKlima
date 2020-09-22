@@ -52,6 +52,12 @@ class CreateWebsiteTask extends BuildTask
             'Email' => 'rahel.beyli@deskall.ch',
             'Password' => 'deskall24$'
         ],
+        '5' => [
+            'FirstName' => 'Sonja',
+            'Surname' => 'Degen',
+            'Email' => 'sonja.degen@deskall.ch',
+            'Password' => 'deskall24$'
+        ],
     ];
 
     protected $title = 'Create Website';
@@ -91,6 +97,10 @@ class CreateWebsiteTask extends BuildTask
             $homepage->URLSegment = RootURLController::config()->default_homepage_link;
             $homepage->Sort = 1;
             $homepage->write();
+            $lb = new LeadBlock();
+            $lb->ParentID = $homepage->ElementalAreaID;
+            $lb->isPrimary = 1;
+            $lb->write();
             $homepage->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
             $homepage->flushCache();
         }
@@ -100,6 +110,10 @@ class CreateWebsiteTask extends BuildTask
             $aboutus->Title = 'Über uns';
             $aboutus->Sort = 2;
             $aboutus->write();
+            $lb2 = new LeadBlock();
+            $lb2->ParentID = $aboutus->ElementalAreaID;
+            $lb2->isPrimary = 1;
+            $lb2->write();
             $aboutus->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
             $aboutus->flushCache();
         }
@@ -108,6 +122,10 @@ class CreateWebsiteTask extends BuildTask
             $contactus->Title = 'Kontakt';
             $contactus->Sort = 3;
             $contactus->write();
+            $lb3 = new LeadBlock();
+            $lb3->ParentID = $contactus->ElementalAreaID;
+            $lb3->isPrimary = 1;
+            $lb3->write();
             $contactus->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
             $contactus->flushCache();
         }
@@ -129,6 +147,10 @@ class CreateWebsiteTask extends BuildTask
             $imp->ParentID = $services->ID;
             $imp->write();
             //Create blocks
+            $lb4 = new LeadBlock();
+            $lb4->ParentID = $imp->ElementalAreaID;
+            $lb4->isPrimary = 1;
+            $lb4->write();
             $impb1 = new TextBlock();
             $impb1->ParentID = $imp->ElementalAreaID;
             $impb1->Sort = 2;
@@ -160,6 +182,7 @@ class CreateWebsiteTask extends BuildTask
             $sp->write();
             //Create Sitemap block
             $spb = new SitemapBlock();
+            $spb->isPrimary = 1;
             $spb->ParentID = $sp->ElementalAreaID;
             $spb->Sort = 2;
             $spb->write();
