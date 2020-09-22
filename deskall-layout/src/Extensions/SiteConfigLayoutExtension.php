@@ -34,10 +34,6 @@ use SilverStripe\View\SSViewer;
 
 class SiteConfigLayoutExtension extends DataExtension 
 {
-  protected $user_defined_file = '/themes/standard/css/src/deskall/theme/user_defined.less';
-  protected $background_colors = '/themes/standard/css/src/deskall/theme/colors.less';
-  protected $path_to_themes = '/deskall-layout/config/theme.yml';
-
   private static $db = [
     'Theme' => 'Varchar',
     'HeaderBackground' => 'Varchar(7)',
@@ -194,7 +190,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function getCurrentThemeDir(){
-    return '/themes/'.$this->owner->Theme;
+    return 'public/_resources/themes/'.$this->owner->Theme;
   }
 
   public function getAbsoluteCurrentThemeDir(){
