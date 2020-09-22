@@ -23,8 +23,8 @@ DNADesign\Elemental\Models\BaseElement:
     - 'VirtualBlockExtension'
 
 UndefinedOffset\NoCaptcha\Forms\NocaptchaField:
-    site_key: "`APP_GOOGLE_RECAPTCHA_SITEKEY`" #Your site key (required)
-    secret_key: "`APP_GOOGLE_RECAPTCHA_SECRETKEY`" #Your secret key (required)
+    site_key: '`APP_GOOGLE_RECAPTCHA_SITEKEY`' #Your site key (required)
+    secret_key: '`APP_GOOGLE_RECAPTCHA_SECRETKEY`' #Your secret key (required)
     verify_ssl: true #Allows you to disable php-curl's SSL peer verification by setting this to false (optional, defaults to true)
     default_theme: "light" #Default theme color (optional, light or dark, defaults to light)
     default_type: "image" #Default captcha type (optional, image or audio, defaults to image)
