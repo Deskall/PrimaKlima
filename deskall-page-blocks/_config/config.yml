@@ -22,10 +22,6 @@ DNADesign\Elemental\Models\BaseElement:
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
     - 'VirtualBlockExtension'
 
-DNADesign\Elemental\ElementalEditor:
-  extensions:
-    - DeskallElementalEditorExtension
-
 UndefinedOffset\NoCaptcha\Forms\NocaptchaField:
     site_key: "6LchV0kUAAAAAO933jAsFfyjanFlxT2nbRd1s5Tc" #Your site key (required)
     secret_key: "6LchV0kUAAAAAHKpjpvSU8RRv7GgtSvGd7DunxFu" #Your secret key (required)

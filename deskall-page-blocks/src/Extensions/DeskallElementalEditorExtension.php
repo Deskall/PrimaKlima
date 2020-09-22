@@ -1,4 +1,5 @@
 <?php
+/* DEPRECATED -- TO REPLACE WITH ELEMENTALAREAEXTENSION */
 
 use SilverStripe\Core\Extension;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
