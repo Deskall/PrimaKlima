@@ -201,6 +201,10 @@ class SiteConfigLayoutExtension extends DataExtension
     return Director::AbsoluteURL($this->owner->getCurrentThemeDir());
   }
 
+  public function getAbsoluteCurrentThemepath(){
+    return Director::AbsoluteURL($this->owner->getCurrentThemePath());
+  }
+
   public function getUserDefinedFile(){
 
     return $this->owner->getCurrentThemePath().'/css/src/deskall/theme/user_defined.less';
