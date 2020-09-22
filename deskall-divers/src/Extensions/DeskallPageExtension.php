@@ -16,6 +16,9 @@ use SilverStripe\Subsites\Extensions\SiteTreeSubsites;
 use SilverStripe\Subsites\Extensions\FileSubsites;
 use SilverStripe\Subsites\Model\Subsite;
 use SilverStripe\Subsites\State\SubsiteState;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Control\HTTPRequest;
+use SilverStripe\Core\Injector\Injector;
 
 class DeskallPageExtension extends DataExtension
 {
@@ -41,7 +44,7 @@ class DeskallPageExtension extends DataExtension
     }
 
     public function LastChangeJS(){
-        $srcDir = Director::baseFolder().$this->owner->ThemeDir().'/javascript/vendor';
+        $srcDir = Director::baseFolder().'/themes/standard/javascript/vendor';
         $srcFiles = array_diff(scandir($srcDir), array('.', '..'));
         $filetime = 0;
         foreach($srcFiles as $key => $file) {
@@ -54,6 +57,7 @@ class DeskallPageExtension extends DataExtension
     }
 
     public function updateCMSFields(FieldList $fields){
+        $fields->replaceField('Title',TextareaField::create('Title','Seitenname'));
         if ($this->owner->ShowInMenus ){
             $field = OptionsetField::create('ShowInMainMenu',_t(__CLASS__.'.ShowInMainMenuLabel','In welchem Menu sollt diese Seite anzeigen ?'), $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
             $fields->insertAfter($field,'MenuTitle');
@@ -121,6 +125,34 @@ class DeskallPageExtension extends DataExtension
         
         parent::onBeforeWrite();
     }
+
+    public function getPrivatePolicyPage(){
+      return PrivatePolicyPage::get()->first();
+    }
+
+    //search related
+    public function notInListYet( $link ){
+      $request = Injector::inst()->get(HTTPRequest::class);
+      $session = $request->getSession();
+
+      $results = ( $session->get('searchresults') ) ?  $session->get('searchresults') : array();
+    
+
+      if( !in_array($link, $results) ){
+        array_push($results, $link);
+        $session->set('searchresults',$results);
+        return 1;
+      }else{
+        return 0;
+      }
+    }
+
+    public function clearSearchresultSession(){
+      $request = Injector::inst()->get(HTTPRequest::class);
+      $session = $request->getSession();
+      $session->clear('searchresults');
+    }
+
 
 
       /************* TRANLSATIONS *******************/

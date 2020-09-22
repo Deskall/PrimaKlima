@@ -94,6 +94,7 @@ class VirtualBlockExtension extends DataExtension
      */
     public function updateCMSFields(FieldList $fields)
     {
+        
         $global = $fields->dataFieldByName('AvailableGlobally');
 
         if ($global) {
@@ -142,6 +143,11 @@ class VirtualBlockExtension extends DataExtension
             } else {
                 $fields->removeByName('VirtualClones');
             }
+        }
+
+        if ($this->owner->ClassName == ElementVirtual::class){
+            $fields->removeByName('LinkableLinkID');
+            $fields->removeFieldFromTab('Root','LayoutTab');
         }
     }
 

@@ -1,7 +1,10 @@
 ---
 Name: deskall-page-blocks
 After:
-    - '#deskall-divers'
+  - '#userformsconfig'
+  - '#elemental'
+  - '#linkable'
+  - '#deskall-divers'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-page-blocks
@@ -19,14 +22,32 @@ DNADesign\Elemental\Models\BaseElement:
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
     - 'VirtualBlockExtension'
 
+UndefinedOffset\NoCaptcha\Forms\NocaptchaField:
+    site_key: "6LchV0kUAAAAAO933jAsFfyjanFlxT2nbRd1s5Tc" #Your site key (required)
+    secret_key: "6LchV0kUAAAAAHKpjpvSU8RRv7GgtSvGd7DunxFu" #Your secret key (required)
+    verify_ssl: true #Allows you to disable php-curl's SSL peer verification by setting this to false (optional, defaults to true)
+    default_theme: "light" #Default theme color (optional, light or dark, defaults to light)
+    default_type: "image" #Default captcha type (optional, image or audio, defaults to image)
+    default_size: "invisible" #Default size (optional, normal, compact or invisible, defaults to normal)
+    default_badge: "bottomright" #Default badge position (bottomright, bottomleft or inline, defaults to bottomright)
+    #proxy_server: "" #Your proxy server address (optional)
+    #proxy_auth: "" #Your proxy server authentication information (optional)
+
 ParentBlock:
   extensions:
     - 'VirtualBlockExtension'
 
-
 Page:
   extensions:
+    - DNADesign\Elemental\Extensions\ElementalPageExtension
     - PageBlocksExtension
+  disallowed_elements:
+      - DNADesign\Elemental\Models\ElementContent
+      - DNADesign\ElementalList\Model\ElementList
+      - DNADesign\ElementalUserForms\Model\ElementForm
+      - DNADesign\ElementalVirtual\Model\ElementVirtual
+      - VirtualBlock
+      - DuplicateBlock
 
 Slide:
   extensions:
@@ -50,29 +71,21 @@ VideoObject:
   extensions:
     - SubObjectPermission
 
+SilverStripe\UserForms\Control\UserDefinedFormController:
+  finished_anchor: ''
+  extensions:
+    - UserDefinedFormControllerExtension
+
 SilverStripe\UserForms\Form\UserForm:
   extensions:
    - UserDefinedFormExtension
 
+SilverStripe\UserForms\Model\UserDefinedForm:
+  upgrade_on_build: false
+
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - deskall-page-blocks/css/block_editor.css
-
-FormBlock:
-  email_template_directory: deskall-page-blocks/templates/emails/
-
-SilverStripe\UserForms\Model\Recipient\EmailRecipient:
-  allow_unbound_recipient_fields: true
-  extensions:
-    - SubObjectPermission
-
-SilverStripe\UserForms\Control\UserDefinedFormController:
-  extensions:
-    - UserDefinedFormControllerExtension
-
-SilverStripe\Forms\FormField:
-  extensions:
-  - 'DeskallFormFieldExtension'
 
 SilverStripe\CMS\Controllers\ContentController:
   extensions:
@@ -80,11 +93,24 @@ SilverStripe\CMS\Controllers\ContentController:
   url_handlers:
     'children/$ID!/$OTHERID!': 'handleChildren'
 
+SilverStripe\UserForms\Model\Recipient\EmailRecipient:
+  allow_unbound_recipient_fields: true
+  extensions:
+    - SubObjectPermission
 
 DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
-    - FormBlockExtension
+    - 'ElementFormExtension'
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
+  block_default_userforms_js: true
+  block_default_userforms_css: true
+  # cascade_duplicates:
+  #   - 'EmailRecipients'
+  #   - 'Fields'
 
 SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension:
     default_spam_protector: UndefinedOffset\NoCaptcha\Forms\NocaptchaProtector
+
+Sheadawson\Linkable\Models\Link:
+  extensions:
+    - BlockLinkExtension

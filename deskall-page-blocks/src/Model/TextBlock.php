@@ -10,6 +10,8 @@ use g4b0\SearchableDataObjects\Searchable;
 
 class TextBlock extends BaseElement implements Searchable
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-block-content';
     
     private static $controller_template = 'BlockHolder';
@@ -51,22 +53,22 @@ class TextBlock extends BaseElement implements Searchable
         'left' => [
             'value' => 'left',
             'title' => 'Links',
-            'icon' => '/deskall-page-blocks/images/icon-text-left.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left.svg'
         ],
         'right' => [
             'value' => 'right',
             'title' => 'Rechts',
-            'icon' => '/deskall-page-blocks/images/icon-text-right.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right.svg'
         ],
         'under' => [
             'value' => 'under',
             'title' => 'Unten',
-            'icon' => '/deskall-page-blocks/images/icon-text-under.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-under.svg'
         ],
         'above' => [
             'value' => 'above',
             'title' => 'Oben',
-            'icon' => '/deskall-page-blocks/images/icon-text-above.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-above.svg'
         ],
     ];
 

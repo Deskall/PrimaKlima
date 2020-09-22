@@ -8,6 +8,8 @@ use SilverStripe\Assets\Image;
 
 class ShareBlock extends BaseElement
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-external-link';
     
     private static $controller_template = 'BlockHolder';

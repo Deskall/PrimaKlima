@@ -24,6 +24,8 @@ use g4b0\SearchableDataObjects\Searchable;
 
 class FeaturesBlock extends BaseElement implements Searchable
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-block-file-list';
     
     private static $controller_template = 'BlockHolder';
@@ -63,27 +65,27 @@ class FeaturesBlock extends BaseElement implements Searchable
         'uk-child-width-1-1' =>  [
             'value' => 'uk-child-width-1-1',
             'title' => '1 Spalte',
-            'icon' => '/deskall-page-blocks/images/icon-text.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text.svg'
         ],
         'uk-child-width-1-2@s' =>  [
             'value' => 'uk-child-width-1-2@s',
             'title' => '2 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-2-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-2-columns.svg'
         ],
         'uk-child-width-1-2@s uk-child-width-1-3@m' =>  [
             'value' => 'uk-child-width-1-2@s uk-child-width-1-3@m',
             'title' => '3 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-3-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-3-columns.svg'
         ],
         'uk-child-width-1-1@s uk-child-width-1-4@m' =>  [
             'value' => 'uk-child-width-1-1@s uk-child-width-1-4@m',
             'title' => '4 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-4-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-4-columns.svg'
         ],
         'uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l' =>  [
             'value' => 'uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l',
             'title' => '5 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-5-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-5-columns.svg'
         ]
     ];
 
@@ -92,17 +94,17 @@ class FeaturesBlock extends BaseElement implements Searchable
         'uk-flex-left uk-text-left' =>  [
             'value' => 'uk-flex-left uk-text-left',
             'title' => 'Links Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
         'uk-flex-right uk-text-right' =>  [
             'value' => 'uk-flex-right uk-text-right',
             'title' => 'Rechts Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
         'uk-flex-center uk-text-center' => [
             'value' => 'uk-flex-center uk-text-center',
             'title' => 'Mittel Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-center-align.svg'
         ]
     ];
 
@@ -110,22 +112,22 @@ class FeaturesBlock extends BaseElement implements Searchable
         'left' => [
             'value' => 'left',
             'title' => 'Links',
-            'icon' => '/deskall-page-blocks/images/icon-text-left.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left.svg'
         ],
         'right' => [
             'value' => 'right',
             'title' => 'Rechts',
-            'icon' => '/deskall-page-blocks/images/icon-text-right.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right.svg'
         ],
         'under' => [
             'value' => 'under',
             'title' => 'Unten',
-            'icon' => '/deskall-page-blocks/images/icon-text-under.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-under.svg'
         ],
         'above' => [
             'value' => 'above',
             'title' => 'Oben',
-            'icon' => '/deskall-page-blocks/images/icon-text-above.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-above.svg'
         ],
     ];
 

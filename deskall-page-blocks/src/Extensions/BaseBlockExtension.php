@@ -20,6 +20,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Core\ClassInfo;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\TextareaField;
+use Sheadawson\Linkable\Models\Link;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -45,6 +46,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'BackgroundImage' => Image::class,
     ];
 
+    private static $has_many = [
+        'Links' => Link::class,
+    ];
+
     private static $owns =[
         'BackgroundImage'
     ];
@@ -66,11 +71,12 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'BoxBlock',
         'FeaturesBlock',
         'ListBlock',
-        'DNADesign-ElementalUserForms-Model-ElementForm',
+        'FormBlock',
         'DownloadBlock',
         'LargeImageBlock',
         'ParentBlock',
         'LeadBlock',
+        'TeamBlock',
         'NavigationBlock',
         'MapBlock',
         'VideoBlock',
@@ -89,9 +95,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'BoxBlock',
         'FeaturesBlock',
         'ListBlock',
-        'DNADesign-ElementalUserForms-Model-ElementForm',
+        'FormBlock',
         'DownloadBlock',
         'ParentBlock',
+        'TeamBlock',
         'NavigationBlock',
         'MapBlock',
         'VideoBlock',
@@ -118,22 +125,22 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'uk-text-left' =>  [
             'value' => 'uk-text-left',
             'title' => 'Links Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
         'uk-text-right' => [
             'value' => 'uk-text-right',
             'title' => 'Rechts Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
         'uk-text-center' =>  [
             'value' => 'uk-text-center',
             'title' => 'Mittel Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-center-align.svg'
         ],
         'uk-text-justify@s' =>  [
             'value' => 'uk-text-justify@s',
             'title' => 'Justify Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-justify-align.svg'
         ]
     ];
 
@@ -144,27 +151,27 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         '1' =>  [
             'value' => '1',
             'title' => '1 Spalte',
-            'icon' => '/deskall-page-blocks/images/icon-text.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text.svg'
         ],
         'uk-column-1-2@s' =>  [
             'value' => 'uk-column-1-2@s',
             'title' => '2 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-2-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-2-columns.svg'
         ],
         'uk-column-1-2@s uk-column-1-3@m' =>  [
             'value' => 'uk-column-1-2@s uk-column-1-3@m',
             'title' => '3 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-3-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-3-columns.svg'
         ],
         'uk-column-1-2@s uk-column-1-4@m' =>  [
             'value' => 'uk-column-1-2@s uk-column-1-4@m',
             'title' => '4 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-4-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-4-columns.svg'
         ],
         'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' =>  [
             'value' => 'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l',
             'title' => '5 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-5-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-5-columns.svg'
         ]
     ];
 
@@ -186,11 +193,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
 
     public function updateCMSFields(FieldList $fields){
-        // foreach (BaseElement::get() as $b) {
-        //    if(ClassInfo::exists($b->Parent()->OwnerClassName)){
-        //     $b->write();
-        //     }
-        // }
+
         $fields->removeByName('Background');
         $fields->removeByName('BackgroundImage');
         $fields->removeByName('FullWidth');
@@ -275,7 +278,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         // ie. If two elemental blocks have the same title, it'll append '-2', '-3'
         $result = $titleAsURL;
         $count = 1;
-        while (BaseElement::get()->filter('AnchorTitle',$result)->exists()) {
+        while (BaseElement::get()->filter('AnchorTitle',$result)->exclude('ID',$this->owner->ID)->exists()) {
             ++$count;
             $result = $titleAsURL . '-' . $count;
         }
@@ -286,7 +289,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     public function getFolderName(){
 
         $parent = $this->owner->Parent();
-
         if ($parent && $parent->getOwnerPage()){
             $page = $parent->getOwnerPage();
        
@@ -303,9 +305,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $last = $this->owner->Parent()->Elements()->sort('Sort','DESC')->first();
             $this->owner->Sort = ($last) ? $last->Sort + 1 : 1;
         }
-        if (!$this->owner->AnchorTitle){
-            $this->owner->AnchorTitle = $this->generateAnchorTitle();
-        }
+        
+        $this->owner->AnchorTitle = $this->generateAnchorTitle();
+        
         if ($this->owner->isPrimary){
             foreach(BaseElement::get()->filter('isPrimary',1)->exclude('ID',$this->owner->ID) as $primary){
                 if ($primary->getRealPage() && $this->owner->getRealPage() && $primary->getRealPage()->ID == $this->owner->getRealPage()->ID){
@@ -342,7 +344,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     }
 
     public function isFirst(){
-        if ($this->owner->isChildren()){
+        if ($this->owner->Parent()->getOwnerPage() && $this->owner->isChildren()){
             return $this->owner->ID == $this->owner->Parent()->getOwnerPage()->Elements()->Elements()->first()->ID;
         }
         return false;

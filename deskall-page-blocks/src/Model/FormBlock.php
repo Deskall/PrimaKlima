@@ -15,14 +15,14 @@ use g4b0\SearchableDataObjects\Searchable;
 use SilverStripe\Forms\TextField;
 use SilverStripe\UserForms\Model\Recipient\EmailRecipient;
 
-class FormBlockExtension extends DataExtension 
+class FormBlock extends ElementForm 
 {
 
-    private static $controller_template = 'ElementHolder';
+  private static $controller_template = 'ElementHolder';
 
-    private static $description = 'Formular';
+  private static $description = 'Formular';
 
-   
+  private static $controller_class = DeskallFormController::class;
     
    private static $db = [
     'ButtonBackground' => 'Varchar(255)',
@@ -38,28 +38,30 @@ class FormBlockExtension extends DataExtension
     'RedirectPage' => SiteTree::class
    ];
 
-   public function updateFieldLabels(&$labels){
-      $labels['ButtonBackground'] = _t('Form.ButtonBackground','Button Hintergrundfarbe');
+   public function fieldLabels($includerelation = true){
+    $labels = parent::fieldLabels($includerelation);
+    $labels['ButtonBackground'] = _t('Form.ButtonBackground','Button Hintergrundfarbe');
+    return $labels;
    }
-
 
     private static $block_layouts = [
         'standard' =>  [
             'value' => 'standard',
             'title' => 'Standard Formular Layout',
-            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
         'vertical' => [
             'value' => 'vertical',
             'title' => 'Vertical Formular',
-            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right-align.svg'
         ]
     ];
 
 
-   private static $controller_class = DeskallFormController::class;
+   
 
-   public function updateCMSFields(FieldList $fields){
+   public function getCMSFields(){
+    $fields = parent::getCMSFields();
     $fields->removeByName('Layout');
     $fields->removeByName('TextLayout');
     $fields->removeByName('RedirectPageID');
@@ -71,21 +73,23 @@ class FormBlockExtension extends DataExtension
      $fields->fieldByName('Root.FormFields')->setTitle(_t('Form.FormFields','Felder'));
      $fields->fieldByName('Root.Submissions')->setTitle(_t('Form.Submissions','Anfragen'));
      $fields->fieldByName('Root.Recipients')->setTitle(_t('Form.Recipients','Empfänger'));
-     if ($this->owner->ID == 0){ 
+     if ($this->ID == 0){ 
       $fields->removeByName('FormFields');
       $fields->removeByName('Submissions');
       $fields->removeByName('Recipients');
      }
 
+     return $fields;
    
    }
 
-  public function getCMSValidator()
-      {
-          return new RequiredFields([
-              'RedirectPageID'
-          ]);
-      }
+  public function validate(){
+    $result = parent::validate();
+    // if ($this->RedirectPageID == 0){
+    //   $result->addError(_t("FORMBLOCK.REDIRECTPAGEREQUIRED", "Bitte Einreichungsseite auswählen"));
+    // }
+    return $result;
+  }
 
   public function getType()
   {
@@ -96,14 +100,14 @@ class FormBlockExtension extends DataExtension
     $recipients = EmailRecipient::get()->filter('FormID',$origin->ID);
     foreach($recipients as $recipient){
       $newR = $recipient->duplicate(false);
-      $newR->FormID = $this->owner->ID;
+      $newR->FormID = $this->ID;
       $newR->write();
     }
   }
 
   public function onBeforeDelete(){
     parent::onBeforeDelete();
-    $recipients = EmailRecipient::get()->filter('FormID',$this->owner->ID);
+    $recipients = EmailRecipient::get()->filter('FormID',$this->ID);
     foreach($recipients as $recipient){
       $recipient->delete();
     }
@@ -113,24 +117,20 @@ class FormBlockExtension extends DataExtension
   /**
      * @return UserForm
      */
-    public function CustomForm()
+    public function Form()
     {
-        $controller = UserDefinedFormController::create($this->owner);
+        $controller = UserDefinedFormController::create($this);
         $current = Controller::curr();
         $controller->setRequest($current->getRequest());
         $form = $controller->Form();
-
-        if ($current && $current->getAction() == 'finished') {
-            return $controller->renderWith(UserDefinedFormController::class .'_ReceivedFormSubmission');
-        }
         
-        if ($this->owner->isChildren()){
+        if ($this->isChildren()){
           $form->setFormAction(
               Controller::join_links(
                   $current->Link(),
                   'children',
-                  $this->owner->ID,
-                  $this->owner->Parent()->getOwnerPage()->ID,
+                  $this->ID,
+                  $this->Parent()->getOwnerPage()->ID,
                   'Form'
               )
           );
@@ -140,7 +140,7 @@ class FormBlockExtension extends DataExtension
             Controller::join_links(
                 $current->Link(),
                 'element',
-                $this->owner->ID,
+                $this->ID,
                 'Form'
             )
           );
@@ -155,10 +155,10 @@ class FormBlockExtension extends DataExtension
     {
         $current = Controller::curr();
         if ($action === 'finished') {
-            if ($this->owner->isChildren()){
+            if ($this->isChildren()){
               return Controller::join_links(
                   str_replace('element','children',$current->Link()),
-                  $this->owner->Parent()->getOwnerPage()->ID,
+                  $this->Parent()->getOwnerPage()->ID,
                   'finished'
               );
             }

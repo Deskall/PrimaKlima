@@ -46,6 +46,9 @@ class NavigationItem extends DataObject{
 					break;
 				}
 			break;
+			case 'scrolltop':
+				return 'header';
+			break;
 			default:
 				return null;
 				break;
@@ -58,7 +61,7 @@ class NavigationItem extends DataObject{
 		$fields->removeByName('ActionID');
 		$fields->removeByName('TargetID');
 		$fields->addFieldToTab('Root.Main',TextField::create('Title',_t(__CLASS__."Title",'Titel'))->setAttribute('Placeholder','wird den Block- /Seitetitel benutzen falls leer.')->hideIf('ItemType')->isEqualTo('link')->end());
-		$fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Menu Typ',['block' => 'Scroll zu Element','target' => 'Aktion', 'link' => 'Link']));
+		$fields->addFieldToTab('Root.Main',DropdownField::create('ItemType','Menu Typ',['block' => 'Scroll zu Element','target' => 'Aktion', 'link' => 'Link', 'scrolltop' => 'Scroll nach oben']));
 		$fields->addFieldToTab('Root.Main',Wrapper::create(DropdownField::create('ActionID','Aktion',$this->Parent()->Parent()->Elements()->filter('ClassName','HiddenActionBlock')->exclude('ID',$this->ParentID)->map('ID','AnchorTitle'))->setEmptyString('Aktion auswählen'))->displayIf('ItemType')->isEqualTo('target')->end());
 		$fields->addFieldToTab('Root.Main',Wrapper::create(DropdownField::create('TargetID','Seite Block',$this->Parent()->Parent()->Elements()->exclude(['ID' => $this->ParentID, 'ClassName' => 'HiddenActionBlock'])->map('ID','Title'))->setEmptyString('Block auswählen'))->displayIf('ItemType')->isEqualTo('block')->end());
 		$fields->addFieldToTab('Root.Main',HTMLDropdownField::create('BackgroundColor',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'));
@@ -69,9 +72,29 @@ class NavigationItem extends DataObject{
 		return $fields;
 	}
 
-	public function NiceTitle(){
+	public function onBeforeWrite(){
+		parent::onBeforeWrite();
+		$changedFields = $this->getChangedFields();
+		if ($this->isChanged('ItemType')){
+			switch ($changedFields['ItemType']['after']){
+				case "block":
+					$this->ActionID = 0;
+				break;
+				case "target":
+					$this->TargetID = 0;
+				break;
+				case "link":
+				case "scrolltop":
+					$this->ActionID = 0;
+					$this->TargetID = 0;
+				break;
+			}
+		}
+	}
+
+	public function getNiceTitle(){
 		if ($this->Title){
-			return $title;
+			return $this->Title;
 		}
 		if ($this->Action()->exists()){
 			return $this->Action()->Title;

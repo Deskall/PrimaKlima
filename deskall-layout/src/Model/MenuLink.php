@@ -1,5 +1,6 @@
 <?php
 
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class MenuLink extends LayoutLink{
 
@@ -16,6 +17,9 @@ class MenuLink extends LayoutLink{
 		$fields = parent::getCMSFields();
 		$fields->removeByName('ParentID');
 		$fields->removeByName('BlockID');
+		if ($this->ID > 0){
+			$fields->fieldByName('Root.Children.Children')->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
+		}
 
 		return $fields;
 	}

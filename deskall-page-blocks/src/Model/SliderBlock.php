@@ -77,12 +77,12 @@ class SliderBlock extends BaseElement implements Searchable
         'slideshow' => [
             'value' => 'slideshow',
             'title' => 'Slideshow',
-            'icon' => '/deskall-page-blocks/images/icon-slide-fullwidth.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-slide-fullwidth.svg'
         ],
         'slider' => [
             'value' => 'slider',
             'title' => 'Slider',
-            'icon' => '/deskall-page-blocks/images/icon-slide-contained.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-slide-contained.svg'
         ],
     ];
 
@@ -91,22 +91,22 @@ class SliderBlock extends BaseElement implements Searchable
         'small' => [
             'value' => 'small',
             'title' => 'klein',
-            'icon' => '/deskall-page-blocks/images/icon-slide-fullwidth.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-slide-fullwidth.svg'
         ],
         'medium' => [
             'value' => 'medium',
             'title' => 'mittel',
-            'icon' => '/deskall-page-blocks/images/icon-slide-medium.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-slide-medium.svg'
         ],
         'large' => [
             'value' => 'large',
             'title' => 'gross',
-            'icon' => '/deskall-page-blocks/images/icon-slide-large.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-slide-large.svg'
         ],
         'viewport' => [
             'value' => 'viewport',
             'title' => 'Vollbild',
-            'icon' => '/deskall-page-blocks/images/icon-slide-fullscreen.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-slide-fullscreen.svg'
         ],
     ];
 
@@ -122,22 +122,22 @@ class SliderBlock extends BaseElement implements Searchable
         'none' => [
             'value' => 'none',
             'title' => 'klein',
-            'icon' => '/deskall-page-blocks/images/icon-slide-fullscreen.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-slide-fullscreen.svg'
         ],
         'dots' => [
             'value' => 'dots',
             'title' => 'Dots',
-            'icon' => '/deskall-page-blocks/images/icon-slide-dots.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-slide-dots.svg'
         ],
         'controls' => [
             'value' => 'controls',
             'title' => 'Kontrol',
-            'icon' => '/deskall-page-blocks/images/icon-slide-arrows.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-slide-arrows.svg'
         ],
         'both' => [
             'value' => 'both',
             'title' => 'Beides',
-            'icon' => '/deskall-page-blocks/images/icon-slide-both.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-slide-both.svg'
         ],
     ];
 

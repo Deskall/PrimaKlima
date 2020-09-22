@@ -31,7 +31,7 @@ class SEOPageExtension extends DataExtension
 
     public function onBeforeWrite(){
     	parent::onBeforeWrite();
-    	if (!$this->owner->isChanged('MetaTitle',2)){
+    	if (!$this->owner->MetaTitle){
     		$this->owner->MetaTitle = strip_tags($this->owner->Title);
     	}
     }

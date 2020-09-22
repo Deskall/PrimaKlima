@@ -484,3 +484,21 @@ de:
       one: 'A Virtual block'
       other: '{count} Virtual blocks'
     SINGULARNAME: 'Virtual block'
+  DNADesign\ElementalVirtual\Extensions\BaseElementExtension:
+    GridFieldTitle: Titel
+    GridFieldUsedOn: 'Benutzt auf'
+    LinkedTo: 'Verbunden mit'
+    OriginalContentFrom: 'Das ursprüngliche Inhaltselement wird angezeigt'
+    OtherPages: 'Andere Seiten'
+  DNADesign\ElementalVirtual\Forms\ElementalGridFieldUnlinkAction:
+    UnlinkRelation: 'Unverbinden'
+  DNADesign\ElementalVirtual\Model\ElementVirtual:
+    BlockType: Virtuell
+    InvalidPublishStateError: Fehler
+    InvalidPublishStateWarning: 'Fehler: Das ursprüngliche Element wird nicht veröffentlicht. Dieses Element funktioniert auf der Live-Site erst, wenn Sie auf den folgenden Link klicken und ihn veröffentlichen'
+    PLURALNAME: Blöcke
+    PLURALS:
+      one: 'Ein virtuell Block'
+      other: '{count} Blöcke'
+    SINGULARNAME: 'virtuell Block'
+    VirtualDescription: 'Dies ist eine virtuelle Kopie eines Elements.'

@@ -15,7 +15,9 @@ use SilverStripe\ORM\FieldType\DBField;
 use g4b0\SearchableDataObjects\Searchable;
 
 class LargeImageBlock extends BaseElement implements Searchable{
-	private static $icon = 'font-icon-image';
+	private static $inline_editable = false;
+    
+    private static $icon = 'font-icon-image';
 
 	private static $singular_name = 'banner';
 

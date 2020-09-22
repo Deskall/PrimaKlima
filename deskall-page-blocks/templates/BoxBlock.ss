@@ -25,12 +25,19 @@
 						    <% if Image %>
 						    	<% if $Image.getExtension == "svg" %>
 						    	<div class="uk-flex uk-flex-center uk-flex-middle">
-						    		<img class="dk-icon uk-width-auto <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>" />
+						    		<figure>
+						    		<img class="dk-icon uk-width-auto <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>" style="width:{$Up.PictureWidth}px;height:<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>px;" />
+						    		<% if Image.Description %><figcaption>$Image.Description</figcaption><% end_if %>
+						    		</figure>
 						    	</div>
 						    	<% else %>
 						    	
 						    		<% if not Top.FullLink %><a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description"><% end_if %>
-						    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
+
+						    			<figure>
+							    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
+							    			<% if Image.Description %><figcaption>$Image.Description</figcaption><% end_if %>
+							    		</figure>
 							    	<% if not Top.FullLink %></a><% end_if %>
 							    
 						    	<% end_if %>
@@ -39,12 +46,19 @@
 						     <% if Image %>
 						    	<% if $Image.getExtension == "svg" %>
 						    	<div class="uk-flex uk-flex-center uk-flex-middle">
-						    		<img class="dk-icon uk-width-auto <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>"  />
+						    		<figure>
+							    		<img class="dk-icon uk-width-auto <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>" style="width:{$Up.PictureWidth}px;height:<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>px;" />
+							    		<% if Image.Description %><figcaption>$Image.Description</figcaption><% end_if %>
+							    	</figure>
 						    	</div>
 						    	<% else %>
 						    	
 						    		<% if not Top.FullLink %><a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description"><% end_if %>
-						    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
+
+						    			<figure>
+							    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img />
+							    			<% if Image.Description %><figcaption>$Image.Description</figcaption><% end_if %>
+							    		</figure>
 							    	<% if not Top.FullLink %></a><% end_if %>
 							    
 						    	<% end_if %>
@@ -61,12 +75,19 @@
 						     <% if Image %>
 						    	<% if $Image.getExtension == "svg" %>
 						    	<div class="uk-flex uk-flex-center uk-flex-middle">
-						    		<img class="dk-icon uk-width-auto <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>"  />
+						    		<figure>
+						    		<img class="dk-icon uk-width-auto <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)"  width="$Up.PictureWidth" height="<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>" style="width:{$Up.PictureWidth}px;height:<% if Top.RoundedImage %>$Up.PictureWidth<% else %>$Up.PictureHeight<% end_if %>px;" />
+						    		<% if Image.Description %><figcaption>$Image.Description</figcaption><% end_if %>
+						    		</figure>
 						    	</div>
 						    	<% else %>
 						    	
 						    		<% if not Top.FullLink %><a href="$Image.getSourceURL" class="dk-lightbox" data-caption="$Image.Description"><% end_if %>
-						    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img/>
+
+						    			<figure>
+							    			<img class="uk-width-1-1 <% if Top.RoundedImage %>uk-border-circle<% end_if %> <% if Top.Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" data-src="<% if Top.RoundedImage %>$Image.FocusFill($Up.PictureWidth,$Up.PictureWidth).URL<% else %>$Image.FocusFill($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Top.AltTag($Image.Description, $Image.Name, $Title)" title="$Top.TitleTag($Image.Name,$Title)" data-uk-img/>
+							    			<% if Image.Description %><figcaption>$Image.Description</figcaption><% end_if %>
+							    		</figure>
 							    	<% if not Top.FullLink %></a><% end_if %>
 							    
 						    	<% end_if %>

@@ -22,8 +22,9 @@ use g4b0\SearchableDataObjects\Searchable;
 
 class BoxBlock extends BaseElement implements Searchable
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-block-layout';
-
     
     private static $controller_template = 'BlockHolder';
 
@@ -64,17 +65,17 @@ class BoxBlock extends BaseElement implements Searchable
         'standard' => [
             'value' => 'standard',
             'title' => 'Titel, Bild, Inhalt',
-            'icon' => '/deskall-page-blocks/images/icon-box-standard.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-box-standard.svg'
         ],
         'mixed' => [
             'value' => 'mixed',
             'title' => 'Bild, Titel, Inhalt',
-            'icon' => '/deskall-page-blocks/images/icon-box-mixed.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-box-mixed.svg'
         ],
         'inversed' => [
             'value' => 'inversed',
             'title' => 'Titel,Inhalt,Bild',
-            'icon' => '/deskall-page-blocks/images/icon-box-inversed.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-box-inversed.svg'
         ]
     ];
 
@@ -89,17 +90,17 @@ class BoxBlock extends BaseElement implements Searchable
         'uk-child-width-1-2@s' => [
             'value' => 'uk-child-width-1-2@s',
             'title' => '2',
-            'icon' => '/deskall-page-blocks/images/icon-box-2.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-box-2.svg'
         ],
         'uk-child-width-1-3@s' => [
             'value' => 'uk-child-width-1-3@s',
             'title' => '3',
-            'icon' => '/deskall-page-blocks/images/icon-box-3.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-box-3.svg'
         ],
         'uk-child-width-1-2@s uk-child-width-1-4@m' => [
             'value' => 'uk-child-width-1-2@s uk-child-width-1-4@m',
             'title' => '4',
-            'icon' => '/deskall-page-blocks/images/icon-box-4.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-box-4.svg'
         ]
     ];
 
@@ -107,22 +108,22 @@ class BoxBlock extends BaseElement implements Searchable
         'uk-text-left' =>  [
             'value' => 'uk-text-left',
             'title' => 'Links Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
         'uk-text-right' =>  [
             'value' => 'uk-text-right',
             'title' => 'Rechts Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
         'uk-text-center' => [
             'value' => 'uk-text-center',
             'title' => 'Mittel Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-center-align.svg'
         ],
         'uk-text-justify' => [
             'value' => 'uk-text-justify',
             'title' => 'Justify Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-justify-align.svg'
         ]
     ];
 
@@ -197,7 +198,7 @@ class BoxBlock extends BaseElement implements Searchable
     public function onBeforeWrite(){
         parent::onBeforeWrite();
         $widthF = 2500;
-        $widthN = 1200;
+        $widthN = 1280;
         $padding = 30; //must be the same as less global-gutter variable
         $ratio = 1.4; 
         $width = ($this->FullWidth) ? $widthF / static::$boxes_per_line[$this->BoxPerLine]['title'] : $widthN /  static::$boxes_per_line[$this->BoxPerLine]['title'];

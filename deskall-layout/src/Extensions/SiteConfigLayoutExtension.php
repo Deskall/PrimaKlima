@@ -34,9 +34,6 @@ use SilverStripe\View\SSViewer;
 
 class SiteConfigLayoutExtension extends DataExtension 
 {
-  protected $user_defined_file = '/themes/standard/css/src/deskall/theme/user_defined.less';
-  protected $background_colors = '/themes/standard/css/src/deskall/theme/colors.less';
-  protected $path_to_themes = '/deskall-layout/config/theme.yml';
 
   private static $db = [
     'Theme' => 'Varchar',
@@ -54,7 +51,8 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderFontColor' => 'Varchar(7)',
     'HeaderFontSize' => 'Varchar(255)',
     'HeaderFontMobileSize' => 'Varchar(255)',
-    'HeaderMenuItemSize' => 'Varchar(255)',
+    'HeaderMainMenuItemSize' => 'Varchar(255)',
+    'HeaderSubMenuItemSize' => 'Varchar(255)',
     'HeaderHoverFontColor' => 'Varchar(7)',
     'HeaderHeight' => 'Varchar(255)',
     'HeaderCollapsedHeight' => 'Varchar(255)',
@@ -64,6 +62,7 @@ class SiteConfigLayoutExtension extends DataExtension
     'StickyHeader' => 'Boolean(0)',
     'BackContent' => 'Boolean(0)',
     'HeaderLogoHeight' => 'Varchar(255)',
+    'HeaderMobileLogoHeight' => 'Varchar(255)',
     'DropdownSubMenuWidth' => 'Varchar(255)',
     'DropdownSubMenuBackground' => 'Varchar(255)',
     'DropdownSubMenuColor' => 'Varchar(255)',
@@ -117,9 +116,13 @@ class SiteConfigLayoutExtension extends DataExtension
     'HeaderHeight' => '@header-menu-height',
     'HeaderFontSize' => '@dk-main-nav-font-size',
     'HeaderMobileFontSize' => '@dk-main-nav-font-size-mobile',
-    'HeaderMenuItemSize' => '@navbar-nav-item-height',
+    'HeaderMainMenuItemSize' => [
+      '@navbar-main-nav-item-height',
+      '@navbar-nav-item-height'],
+    'HeaderSubMenuItemSize' => '@navbar-sub-nav-item-height',
     'HeaderCollapsedHeight' => '@header-menu-collapsed-height',
     'HeaderLogoHeight' => '@header-logo-height',
+    'HeaderMobileLogoHeight' => '@header-mobile-logo-height',
     'DropdownSubMenuWidth' => '@dk-navbar-dropdown-width',
     'DropdownSubMenuBackground' => '@main-subnavi-background',
     'DropdownSubMenuColor' => '@main-subnavi-color',
@@ -167,12 +170,12 @@ class SiteConfigLayoutExtension extends DataExtension
   //   'top' => [
   //           'value' => 'top',
   //           'title' => 'Oben',
-  //           'icon' => '/deskall-page-blocks/images/icon-menu-top.svg'
+  //           'icon' => '/_resources/deskall-page-blocks/images/icon-menu-top.svg'
   //   ],
   //   'left' => [
   //           'value' => 'left',
   //           'title' => 'Links',
-  //           'icon' => '/deskall-page-blocks/images/icon-menu-left.svg'
+  //           'icon' => '/_resources/deskall-page-blocks/images/icon-menu-left.svg'
   //   ]
   // ];
 
@@ -318,10 +321,12 @@ class SiteConfigLayoutExtension extends DataExtension
       ),
       FieldGroup::create(
         TextField::create('HeaderHeight',_t(__CLASS__.'.HeaderHeight','Höhe')),
-        TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Höhe')),
-        TextField::create('HeaderMenuItemSize',_t(__CLASS__.'.HeaderItemHeight','Menu Item Höhe')),
+        TextField::create('HeaderCollapsedHeight',_t(__CLASS__.'.HeaderCollapsedHeight','Mobile Header Höhe')),
+        TextField::create('HeaderMainMenuItemSize',_t(__CLASS__.'.HeaderMainMenuItemHeight','Haupt Menu Item Höhe')),
+        TextField::create('HeaderSubMenuItemSize',_t(__CLASS__.'.HeaderSubMenuItemHeight','Sekondäre Menu Item Höhe')),
         TextField::create('HeaderFontSize',_t(__CLASS__.'.HeaderFontSize','Navigation Schriftgrösse')),
-        TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe'))
+        TextField::create('HeaderLogoHeight',_t(__CLASS__.'.HeaderLogHeight','Header Logo Höhe')),
+        TextField::create('HeaderMobileLogoHeight',_t(__CLASS__.'.HeaderMobileLogHeight','Mobile Header Logo Höhe'))
       ),
       TextField::create('ExtraHeaderClass',_t(__CLASS__.'.ExtraHeaderClass','Custom CSS für header')),
       FieldGroup::create(
@@ -506,27 +511,32 @@ class SiteConfigLayoutExtension extends DataExtension
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
       /** global background element and font color **/
-      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';h1,h2,h3,h4,h5,h6{color:#'.$c->FontColor.';}.dk-text-content a, .calltoaction-container *{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}&:after{background-color:#'.$c->LinkHoverColor.';}}}*:not(input,select,textarea){color:#'.$c->FontColor.';}}',FILE_APPEND);
+      file_put_contents($fullpath, "\n".".".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.';h1,h2,h3,h4,h5,h6{color:#'.$c->FontColor.';}.dk-text-content a, .downloads a, .calltoaction-container *{color:#'.$c->LinkColor.';&:after{background-color:#'.$c->LinkColor.';}&:active,&:hover{color:#'.$c->LinkHoverColor.';*{color:#'.$c->LinkHoverColor.';}&:after{background-color:#'.$c->LinkHoverColor.';}}}*:not(input,select,textarea){color:#'.$c->FontColor.';}}',FILE_APPEND);
       /** CSS Class for Call To Action Link **/
       file_put_contents($fullpath, "\n".".uk-button.button-".$c->Code.'{background-color:#'.$c->Color.';color:#'.$c->FontColor.'!important;*{color:#'.$c->FontColor.'!important;}&:hover,&:focus,&:active{color:#'.$c->LinkHoverColor.'!important;*{color:#'.$c->LinkHoverColor.'!important;}}&:hover{background-color:darken(#'.$c->Color.', 5%);}&:active{background-color:darken(#'.$c->Color.', 10%);}}',FILE_APPEND);
       /** CSS Class for Call To Form Button **/
       file_put_contents($fullpath, "\n".".userform .button-".$c->Code.' .uk-button{background-color:#'.$c->Color.';color:#'.$c->FontColor.';*{color:#'.$c->FontColor.';}}',FILE_APPEND);
       /*** Css class for Slideshow controls **/
       file_put_contents($fullpath,
-        "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:transparent;border-color:#'.$c->FontColor.';}' 
-        ."\n".'.'.$c->Code.' .uk-dotnav > .uk-active > *{background-color:#'.$c->FontColor.';}'
-        ."\n".'.'.$c->Code.' .uk-dotnav > * > :hover, .'.$c->Code.' .uk-dotnav > * > :focus {background-color:#'.$c->FontColor.';}',FILE_APPEND);
+        "\n".'.'.$c->Code.' .uk-dotnav > * > *{background-color:darken(#'.$c->Color.',5%);border-color:#'.$c->Color.';}' 
+        ."\n".'.'.$c->Code.' .uk-dotnav > .uk-active > *{background-color:#'.$c->LinkHoverColor.';}'
+        ."\n".'.'.$c->Code.' .uk-dotnav > * > :hover, .'.$c->Code.' .uk-dotnav > * > :focus {background-color:#'.$c->LinkColor.';}'
+        ."\n".'.'.$c->Code.' .uk-slidenav {color: #'.$c->LinkColor.';&:hover,&:focus{color: #'.$c->LinkHoverColor.';}}',FILE_APPEND);
       file_put_contents($fullpath, "\n".".uk-active .menu-title-".$c->Code.'{border-color:#'.$c->Color.';}',FILE_APPEND);
       /*** Css class for Background Overlays **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.'.dk-overlay:after{background-color:fade(#'.$c->Color.',50%);}'
         ."\n".'.'.$c->Code.'.dk-overlay .uk-panel a:not(.dk-lightbox):not(.uk-button):not(.uk-slidenav):not(.uk-dotnav):hover:after{background-color:#'.$c->LinkHoverColor.';}'
+        ."\n".'.'.$c->Code.'.with-overlay{background-color:fade(#'.$c->Color.',50%);*{color:#'.$c->FontColor.';}}'
         ."\n".'.'.$c->Code.'.dk-overlay *{color:#'.$c->FontColor.';}',FILE_APPEND);
        /*** Css class for Short Text Overlays **/
       file_put_contents($fullpath,"\n".'.'.$c->Code.' .dk-text-content .short-text .button-container{background-image: linear-gradient(to bottom, transparent, #'.$c->Color.');}',FILE_APPEND);
        /*** Css class for Form Elements **/
-      file_put_contents($fullpath,"\n".'.'.$c->Code.' .uk-input,.uk-textarea,.uk-select {background-color: rgba(255,255,255,0.6);}',FILE_APPEND);
+      file_put_contents($fullpath,"\n".'.'.$c->Code.'{.uk-input,.uk-textarea,.uk-select {background-color: rgba(255,255,255,0.6);}}',FILE_APPEND);
       file_put_contents($fullpath,"\n".'.'.$c->Code.' .uk-form-label {color: #'.$c->FontColor.';}',FILE_APPEND);
-      file_put_contents($fullpath,"\n".'.'.$c->Code.' input[type="checkbox"],'.$c->Code.' input[type="radio"]{ &:focus,&:checked,&:indeterminate{background-color: #'.$c->LinkColor.';color: #'.$c->LinkHoverColor.';}}',FILE_APPEND);
+      file_put_contents($fullpath,"\n".'.'.$c->Code.' input[type="checkbox"],'.$c->Code.' input[type="radio"]{ &:focus,&:checked{background-color: #'.$c->LinkColor.';color: #'.$c->LinkHoverColor.';}}',FILE_APPEND);
+      file_put_contents($fullpath,"\n".'.'.$c->Code.' label.error, .'.$c->Code.' p.error {color: #'.$c->FontColor.';}',FILE_APPEND);
+       /*** Css class for Table Elements **/
+      file_put_contents($fullpath,"\n".'.'.$c->Code.' .uk-table-striped > tr:nth-of-type(odd), .'.$c->Code.' .uk-table-striped tbody tr:nth-of-type(odd){background:lighten(#'.$c->Color.',5%);color:darken(#'.$c->FontColor.',10%);}',FILE_APPEND);
     }
 
     //Provide extension for project specific stuff

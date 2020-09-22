@@ -26,6 +26,8 @@ use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 class GalleryBlock extends BaseElement implements Searchable
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-block-carousel';
     
     private static $controller_template = 'BlockHolder';
@@ -55,7 +57,8 @@ class GalleryBlock extends BaseElement implements Searchable
     ];
 
     private static $has_many = [
-        'Boxes' => Box::class
+        'Boxes' => Box::class,
+        'Logos' => LogoItem::class
     ];
 
     private static $many_many_extraFields = [
@@ -63,14 +66,14 @@ class GalleryBlock extends BaseElement implements Searchable
     ];
 
     private static $owns = [
-        'Images','Boxes'
+        'Images','Boxes', 'Logos'
     ];
 
     private static $cascade_duplicates = ['Boxes'];
 
     private static $defaults = [
         'Layout' => 'carousel',
-        'PicturesPerLine' => 'uk-child-width-1-3@s'
+        'PicturesPerLine' => 'uk-child-width-1-2@s uk-child-width-1-3@m'
     ];
 
 
@@ -90,7 +93,8 @@ class GalleryBlock extends BaseElement implements Searchable
         'uk-child-width-1-2@s' => '2',
         'uk-child-width-1-2@s uk-child-width-1-3@m' => '3',
         'uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l' => '4',
-        'uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-5@l' => '5'
+        'uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-5@l' => '5',
+        'uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6@l' => '6'
     ];
 
     private static $image_padding = [
@@ -126,6 +130,7 @@ class GalleryBlock extends BaseElement implements Searchable
             $fields->removeByName('PaddedImages');
             $fields->removeByName('lightboxOff');
             $fields->removeByName('Boxes');
+            $fields->removeByName('Logos');
             $fields->removeByName('infiniteLoop');
             $fields->removeByName('ImagePadding');
             $fields->removeByName('RoundedImage');
@@ -141,17 +146,29 @@ class GalleryBlock extends BaseElement implements Searchable
                 ->fieldByName('Root.Main.HTML')
                 ->setTitle(_t(__CLASS__ . '.ContentLabel', 'Content'));
          
-            $fields->addFieldToTab('Root.Main',Wrapper::create(SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()))->displayIf('ItemType')->isEqualTo('images')->orIf('ItemType')->isEqualTo('logos')->end(),'HTML');
+            $fields->addFieldToTab('Root.Main',Wrapper::create(SortableUploadField::create('Images',_t(__CLASS__.'.Images','Bilder'))->setIsMultiUpload(true)->setFolderName($this->getFolderName()))->displayIf('ItemType')->isEqualTo('images')->end(),'HTML');
 
-            $config = GridFieldConfig_RecordEditor::create();
-            $config->addComponent(new GridFieldOrderableRows('Sort'));
-            if (singleton('Box')->hasExtension('Activable')){
-                 $config->addComponent(new GridFieldShowHideAction());
-            }
+            
             if ($this->ItemType == "boxes"){
+                $config = GridFieldConfig_RecordEditor::create();
+                $config->addComponent(new GridFieldOrderableRows('Sort'));
+                if (singleton('Box')->hasExtension('Activable')){
+                     $config->addComponent(new GridFieldShowHideAction());
+                }
                 $boxesField = new GridField('Boxes',_t(__CLASS__.'.Boxes','Boxen'),$this->Boxes(),$config);
                 $boxesField->displayIf('ItemType')->isEqualTo('boxes')->end();
                 $fields->addFieldToTab('Root.Main',$boxesField,'HTML');
+            }
+           
+            if ($this->ItemType == "logos"){
+                $config2 = GridFieldConfig_RecordEditor::create();
+                $config2->addComponent(new GridFieldOrderableRows('Sort'));
+                if (singleton('LogoItem')->hasExtension('Activable')){
+                     $config2->addComponent(new GridFieldShowHideAction());
+                }
+                $logosField = new GridField('Logos',_t(__CLASS__.'.Logos','Logos'),$this->Logos(),$config2);
+                $logosField->displayIf('ItemType')->isEqualTo('logos')->end();
+                $fields->addFieldToTab('Root.Main',$logosField,'HTML');
             }
           
 
@@ -171,7 +188,7 @@ class GalleryBlock extends BaseElement implements Searchable
                 )->setTitle(_t(__CLASS__.'.GalleryBlockLayout','Galerie Layout'))->setName('GalleryBlockLayout')
             );
             
-           $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Name' => 'Dateiname'))->displayIf('ItemType')->isEqualTo('images')->orIf('ItemType')->isEqualTo('logos')->end(),'HTML');
+           $fields->addFieldToTab('Root.Main',DropdownField::create('SortAttribute','Sortieren nach',array('SortOrder' => 'Ordnung', 'Name' => 'Dateiname'))->displayIf('ItemType')->isEqualTo('images')->end(),'HTML');
 
 
 
@@ -200,12 +217,51 @@ class GalleryBlock extends BaseElement implements Searchable
         return $this->Boxes()->filter('isVisible',1);
     }
 
+    public function activeLogos(){
+        return $this->Logos()->filter('isVisible',1);
+    }
+
     public function onBeforeWrite(){
         parent::onBeforeWrite();
         $widthF = 2500;
         $widthN = 1200;
-        $ratio = 1.4; 
-        $width = ($this->FullWidth) ? $widthF / static::$pictures_per_line[$this->PicturesPerLine] : $widthN /  static::$pictures_per_line[$this->PicturesPerLine];
+        $refWith = ($this->FullWidth) ? $widthF  : $widthN ;
+
+        switch ($this->Width){
+            case 'uk-width-1-1@s uk-width-1-5@m':
+            $blockWidth = $refWith * 0.2;
+            break;
+            case 'uk-width-1-1@s uk-width-1-4@m':
+            $blockWidth = $refWith * 0.25;
+            break;
+            case 'uk-width-1-1@s uk-width-1-3@m':
+            $blockWidth = $refWith * 0.333;
+            break;
+            case 'uk-width-1-1@s uk-width-1-2@m':
+            $blockWidth = $refWith * 0.50;
+            break;
+            case 'uk-width-1-1@s uk-width-2-3@m':
+            $blockWidth = $refWith * 0.667;
+            break;
+            case 'uk-width-1-1@s uk-width-3-4@m':
+            $blockWidth = $refWith * 0.75;
+            break;
+            case 'uk-width-1-1':
+            case 'uk-width-auto':
+            case 'uk-width-expand':
+            $blockWidth = $refWith;
+            break;
+            default:
+                $blockWidth = $refWith;
+            break;
+        }
+        ob_start();
+                    print_r($blockWidth);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        $ratio = 1.4;
+        $pictures_per_line = ($this->PicturesPerLine) ? static::$pictures_per_line[$this->PicturesPerLine] : 3;
+        $width = $blockWidth / $pictures_per_line;
         $height = $width / $ratio;
 
         $this->PictureWidth = $width;

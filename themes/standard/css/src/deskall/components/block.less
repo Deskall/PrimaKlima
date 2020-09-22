@@ -36,7 +36,18 @@
 	}
 }
 
-
+.element:not(.children) > .uk-section.with-background{
+	padding-right: 10px;
+	padding-left: 10px;
+	@media only screen and (min-width:@breakpoint-small){
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	@media only screen and (min-width:@breakpoint-medium){
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+}
 .element:not(.children) > .uk-section.uk-section-small{
 	padding: @intrablock-padding-vertical 0;
 	@media only screen and (min-width:@breakpoint-small){
@@ -44,5 +55,14 @@
 	}
 	@media only screen and (min-width:@breakpoint-medium){
 		padding: @intrablock-padding-vertical-m 0;
+	}
+	&.with-background{
+		padding: @intrablock-padding-vertical;
+		@media only screen and (min-width:@breakpoint-small){
+			padding: @intrablock-padding-vertical-s;
+		}
+		@media only screen and (min-width:@breakpoint-medium){
+			padding: @intrablock-padding-vertical-m;
+		}
 	}
 }

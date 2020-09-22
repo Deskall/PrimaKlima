@@ -57,12 +57,12 @@ class ListItem extends DataObject
         'left' => [
             'value' => 'left',
             'title' => 'Links',
-            'icon' => '/deskall-page-blocks/images/icon-text-left.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left.svg'
         ],
         'right' => [
             'value' => 'right',
             'title' => 'Rechts',
-            'icon' => '/deskall-page-blocks/images/icon-text-right.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right.svg'
         ]
     ];
 
@@ -70,22 +70,22 @@ class ListItem extends DataObject
         'uk-text-left' =>  [
             'value' => 'uk-text-left',
             'title' => 'Links Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-left-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left-align.svg'
         ],
         'uk-text-right' => [
             'value' => 'uk-text-right',
             'title' => 'Rechts Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-right-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right-align.svg'
         ],
         'uk-text-center' =>  [
             'value' => 'uk-text-center',
             'title' => 'Mittel Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-center-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-center-align.svg'
         ],
         'uk-text-justify' =>  [
             'value' => 'uk-text-justify',
             'title' => 'Justify Ausrichtung',
-            'icon' => '/deskall-page-blocks/images/icon-text-justify-align.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-justify-align.svg'
         ]
     ];
 
@@ -93,27 +93,27 @@ class ListItem extends DataObject
         '1' =>  [
             'value' => '1',
             'title' => '1 Spalte',
-            'icon' => '/deskall-page-blocks/images/icon-text.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text.svg'
         ],
         'uk-column-1-2@s' =>  [
             'value' => 'uk-column-1-2@s',
             'title' => '2 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-2-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-2-columns.svg'
         ],
         'uk-column-1-2@s uk-column-1-3@m' =>  [
             'value' => 'uk-column-1-2@s uk-column-1-3@m',
             'title' => '3 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-3-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-3-columns.svg'
         ],
         'uk-column-1-2@s uk-column-1-4@m' =>  [
             'value' => 'uk-column-1-2@s uk-column-1-4@m',
             'title' => '4 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-4-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-4-columns.svg'
         ],
         'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' =>  [
             'value' => 'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l',
             'title' => '5 Spalten',
-            'icon' => '/deskall-page-blocks/images/icon-text-5-columns.svg'
+            'icon' => '/_resources/deskall-page-blocks/images/icon-text-5-columns.svg'
         ]
     ];
 
