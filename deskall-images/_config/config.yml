@@ -16,7 +16,7 @@ SilverStripe\Assets\Image:
     - svg
   #MaxWidth: 2500
   #MaxHeight: 2500
-  optimise_tiny: '`APP_OPTIMISE_TINY`'
+  optimise_tiny: false
   #memory: 256M
   extensions:
     - ImageExtension
@@ -54,7 +54,7 @@ Axllent\ScaledUploads\ScaledUploads:
 
 # Compress Images on the fly
 Kinglozzer\SilverStripeTinyPng\ImageExtension:
-  tinypng_api_key: '`APP_TINYPNG_APIKEY`'
+  tinypng_api_key: 'JJqVVtCMrcr0gDHcMDsZgD1F14KTztnC'
 
 # NOT WORKING
 # SilverStripe\Assets\Upload:
