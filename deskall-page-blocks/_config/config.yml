@@ -41,6 +41,8 @@ Page:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
     - PageBlocksExtension
+  disallowed_elements:
+      - DNADesign\Elemental\Models\ElementContent
 
 Slide:
   extensions:
