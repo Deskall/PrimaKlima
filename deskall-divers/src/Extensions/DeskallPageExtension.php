@@ -19,10 +19,12 @@ use SilverStripe\Subsites\State\SubsiteState;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 class DeskallPageExtension extends DataExtension
 {
      private static $db = [
+        'TitleDisplayed' => 'HTMLText',
         'ShowInMainMenu' => 'Int'
     ];
 
@@ -57,7 +59,7 @@ class DeskallPageExtension extends DataExtension
     }
 
     public function updateCMSFields(FieldList $fields){
-        $fields->replaceField('Title',TextareaField::create('Title','Seitenname'));
+        $fields->insertAfter('Title',HTMLEditorField::create('TitleDisplayed','Seiten Titel'));
         if ($this->owner->ShowInMenus ){
             $field = OptionsetField::create('ShowInMainMenu',_t(__CLASS__.'.ShowInMainMenuLabel','In welchem Menu sollt diese Seite anzeigen ?'), $this->owner->getTranslatedSourceFor(__CLASS__,'menu_level'));
             $fields->insertAfter($field,'MenuTitle');
