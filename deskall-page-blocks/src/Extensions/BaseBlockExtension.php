@@ -36,7 +36,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'TextColumnsDivider' => 'Boolean(0)',
         'Width' => 'Varchar',
         'Animation' => 'Varchar',
-        'AnimationTarget' => 'Varchar',
         'BackgroundImageEffect' => 'Boolean(0)',
         'SectionPadding' => 'Varchar',
         'AnchorTitle' => 'Varchar'
@@ -205,7 +204,6 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->removeByName('AvailableGlobally');
         $fields->removeByName('Width');
         $fields->removeByName('Animation');
-        $fields->removeByName('AnimationTarget');
         $fields->removeByName('BackgroundImageEffect');
         $fields->removeByName('SectionPadding');
 
@@ -225,8 +223,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
             UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()),
             CheckboxField::create('BackgroundImageEffect',_t(__CLASS__.'.BackgroundImageEffect','Behobenes Scrollen des Bildes?')),
-            TextField::create('Animation',_t(__CLASS__.'.Animation','Animation')),
-            TextField::create('AnimationTarget',_t(__CLASS__.'.AnimationTarget','Betroffene Elemente'))
+            TextField::create('Animation',_t(__CLASS__.'.Animation','Animation'))
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
             HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),
