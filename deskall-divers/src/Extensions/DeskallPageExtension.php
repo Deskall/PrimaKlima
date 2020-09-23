@@ -23,7 +23,7 @@ use SilverStripe\Core\Injector\Injector;
 class DeskallPageExtension extends DataExtension
 {
      private static $db = [
-        'TitleDisplayed' => 'HTMLText',
+        'TitleDisplayed' => 'Text',
         'ShowInMainMenu' => 'Int'
     ];
 
