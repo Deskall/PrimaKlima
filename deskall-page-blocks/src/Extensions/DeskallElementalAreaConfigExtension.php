@@ -1,8 +1,8 @@
 <?php
 
-use SilverStripe\Core\Extension;
+use SilverStripe\ORM\DataExtension;
 
-class DeskallElementalAreaConfigExtension extends Extension{
+class DeskallElementalAreaConfigExtension extends DataExtension{
 	
 	public function updateConfig(){
 		$this->owner->addComponent(new GridFieldShowHideAction());
