@@ -1,5 +1,7 @@
 ---
 Name: deskall-seo
+After:
+    - '#deskall-divers'
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-seo
