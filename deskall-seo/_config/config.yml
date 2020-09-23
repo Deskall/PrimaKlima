@@ -6,7 +6,7 @@ After:
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-seo
 
-Page:
+SilverStripe\CMS\Models\SiteTree:
   extensions:
     - Deskall\SEO\SEOPageExtension
 

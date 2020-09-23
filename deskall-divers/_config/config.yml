@@ -7,8 +7,11 @@ SilverStripe\Core\Manifest\ModuleManifest:
 Page:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
-    - DeskallPageExtension
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
+
+SilverStripe\CMS\Models\SiteTree:
+  extensions:
+    - DeskallPageExtension
 
 PageController:
   extensions:
