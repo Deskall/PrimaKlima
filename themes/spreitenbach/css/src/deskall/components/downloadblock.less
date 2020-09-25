@@ -1,0 +1,58 @@
+.downloadblock{
+	a{
+		text-decoration: none;
+		position: relative;
+		padding: 10px;
+		padding-left: 40px;
+		
+	}
+ 	a:hover{
+		text-decoration: none;
+	}
+ 	a:after{
+		
+		position: absolute;
+		display: block;
+		font-family: 'icomoon'!important;
+		left: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+		content:"\f016";
+	}
+ 	a[href$=".pdf"]:after{
+		content:"\f1c1";
+	}
+
+ 	a[href$=".doc"]:after,
+ 	a[href$=".docx"]:after{
+		content:"\f1c2";
+	}
+
+	a[href$=".xls"]:after,
+	a[href$=".xlsx"]:after{
+		content:"\f1c3";
+	}
+	a[href$=".ppt"]:after,
+	a[href$=".pptx"]:after{
+		content:"\f1c4";
+	}
+
+	a[href$=".tar.gz"]:after,
+	a[href$=".rar"]:after,
+	a[href$=".zip"]:after{
+		content:"\f1c6";
+	}
+
+	a[href$=".svg"]:after,
+	a[href$=".tif"]:after,
+	a[href$=".png"]:after,
+	a[href$=".eps"]:after,
+	a[href$=".bmp"]:after,
+	a[href$=".gif"]:after,
+	a[href$=".ai"]:after,
+	a[href$=".psd"]:after,
+	a[href$=".jpeg"]:after,
+	a[href$=".jpg"]:after{
+		content:"\f1c5";
+	}
+}

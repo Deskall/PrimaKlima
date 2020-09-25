@@ -1,0 +1,43 @@
+[22-Nov-2019 15:58:48 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[22-Nov-2019 15:58:48 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[22-Nov-2019 15:58:48 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[22-Nov-2019 15:58:48 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[22-Nov-2019 15:58:48 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[22-Nov-2019 15:58:48 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[22-Nov-2019 15:58:48 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:02:55 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=2019-11-23%2015:02:54.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:02:55 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=2019-11-23%2015:02:54.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:02:55 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=2019-11-23%2015:02:54.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:02:55 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=2019-11-23%2015:02:54.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:02:55 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=2019-11-23%2015:02:54.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:02:55 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=2019-11-23%2015:02:54.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:02:55 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=2019-11-23%2015:02:54.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:02:55 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=2019-11-23%2015:02:54.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:02:56 Europe/Zurich] PHP Warning:  file_get_contents(main.min.js?v=2019-11-23%2015:02:54.js): failed to open stream: No such file or directory in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 45
+[23-Nov-2019 15:03:51 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:03:51 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:03:51 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:03:51 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:03:51 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:03:51 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:03:51 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:03:51 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:03:52 Europe/Zurich] PHP Warning:  file_get_contents(main.min.js?v=51.js): failed to open stream: No such file or directory in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 45
+[23-Nov-2019 15:05:29 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:05:29 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:05:29 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:05:29 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:05:29 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:05:29 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:05:29 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:05:29 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js?v=51.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 51
+[23-Nov-2019 15:05:30 Europe/Zurich] PHP Warning:  file_get_contents(main.min.js?v=51.js): failed to open stream: No such file or directory in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 45
+[25-Nov-2019 10:25:42 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 56
+[25-Nov-2019 10:25:42 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 56
+[29-Nov-2019 09:32:22 Europe/Zurich] PHP Warning:  filemtime(): stat failed for plugins.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 52
+[29-Nov-2019 09:32:22 Europe/Zurich] PHP Warning:  filemtime(): stat failed for plugins.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 52
+[29-Nov-2019 09:34:35 Europe/Zurich] PHP Warning:  filemtime(): stat failed for project.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 52
+[29-Nov-2019 09:34:35 Europe/Zurich] PHP Warning:  filemtime(): stat failed for project.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 52
+[29-Nov-2019 09:37:22 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 53
+[29-Nov-2019 09:37:22 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 53
+[29-Nov-2019 09:37:22 Europe/Zurich] PHP Warning:  filemtime(): stat failed for main.min.js in /home/labor/yplay.deskall-labor.ch/themes/yplay/javascript/JSCompiler.php on line 53

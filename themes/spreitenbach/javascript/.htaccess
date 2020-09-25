@@ -1,0 +1,7 @@
+# JS minifier
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteRule (main.min.js) JSCompiler.php
+	RewriteRule (main.js) JSCompiler.php
+</IfModule>
+

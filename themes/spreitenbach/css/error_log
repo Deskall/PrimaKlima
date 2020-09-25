@@ -1,0 +1,713 @@
+[11-Jan-2019 17:38:43 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 17:39:13 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 17:55:13 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 17:56:28 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 17:56:47 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:33:52 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:34:09 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:35:30 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:36:30 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:37:44 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:39:16 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:40:10 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:41:29 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:42:03 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:43:48 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:45:44 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:47:09 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:51:13 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[11-Jan-2019 18:51:52 Europe/Zurich] PHP Fatal error:  Uncaught exception 'Less_Exception_Compiler' with message 'Operation on an invalid type' in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php:45
+Stack trace:
+#0 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Operation->compile(Object(Less_Environment))
+#1 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#3 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#4 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#5 /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/L in /home/labor/standard.deskall-labor.ch/themes/standard/css/less/lib/Less/Tree/Operation.php on line 45
+[13-Nov-2019 10:33:37 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:33:37 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @global-font-size is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in typography.less on line 81, column 13
+79| 	font-size:@global-small-font-size;
+80| 	@media (min-width:@breakpoint-medium){
+81| 		font-size:@global-font-size;
+82| 	}
+83| }
+84| .nav-font{ in typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 1)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/P in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:37:58 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:37:58 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @global-font-size is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in typography.less on line 81, column 13
+79| 	font-size:@global-small-font-size;
+80| 	@media (min-width:@breakpoint-medium){
+81| 		font-size:@global-font-size;
+82| 	}
+83| }
+84| .nav-font{ in typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 1)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/P in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:39:31 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:39:31 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 10:42:31 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:42:31 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 10:49:15 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:49:15 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 10:49:21 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:49:21 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 10:50:00 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:50:00 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 10:54:00 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:54:00 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 10:57:54 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:57:54 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 10:59:44 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 10:59:44 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 11:02:19 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 11:02:19 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 11:35:26 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 11:35:27 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 11:35:47 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 11:35:47 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 11:50:25 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @main-subnavi-padding is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/components/navbar.less in navbar.less on line 5, column 10
+3| .hook-navbar-dropdown(){
+4| 	width: @navbar-dropdown-width;
+5| 	padding:@main-subnavi-padding;
+6| } in navbar.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:130
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 13)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Obje in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 130
+[13-Nov-2019 11:51:51 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @footer-font-size is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in typography.less on line 54, column 13
+52| .footer-font{
+53| 	color:@footer-font-color;
+54| 	font-size: @footer-font-size;
+55| }
+56| 
+57| .read-more-font{ in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Variable.php:49
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Variable->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#4 /home/labor/yplay.de in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Variable.php on line 49
+[13-Nov-2019 11:51:51 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[13-Nov-2019 11:52:07 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @footer-font-size is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in typography.less on line 54, column 13
+52| .footer-font{
+53| 	color:@footer-font-color;
+54| 	font-size: @footer-font-size;
+55| }
+56| 
+57| .read-more-font{ in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Variable.php:49
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Variable->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#4 /home/labor/yplay.de in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Variable.php on line 49
+[13-Nov-2019 11:52:47 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[15-Nov-2019 13:30:04 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[15-Nov-2019 13:40:25 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[15-Nov-2019 13:45:41 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[15-Nov-2019 14:24:28 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[15-Nov-2019 14:25:12 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[15-Nov-2019 15:14:49 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[15-Nov-2019 15:15:43 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[15-Nov-2019 15:16:59 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[15-Nov-2019 15:17:24 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[15-Nov-2019 15:18:13 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[15-Nov-2019 15:18:20 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[19-Nov-2019 15:00:50 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[19-Nov-2019 15:01:05 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[19-Nov-2019 16:31:39 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[19-Nov-2019 16:32:33 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[19-Nov-2019 17:05:36 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[20-Nov-2019 17:58:27 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[20-Nov-2019 17:58:36 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[20-Nov-2019 17:58:43 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[22-Nov-2019 16:11:52 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[22-Nov-2019 17:33:54 Europe/Zurich] PHP Warning:  A non-numeric value encountered in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Functions.php on line 27
+[22-Nov-2019 17:33:54 Europe/Zurich] PHP Notice:  Undefined property: Less_Tree_Keyword::$unit in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 107
+[22-Nov-2019 17:33:54 Europe/Zurich] PHP Notice:  Trying to get property of non-object in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 107
+[22-Nov-2019 17:33:54 Europe/Zurich] PHP Warning:  array_merge(): Argument #2 is not an array in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 107
+[22-Nov-2019 17:33:54 Europe/Zurich] PHP Notice:  Undefined property: Less_Tree_Keyword::$unit in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 108
+[22-Nov-2019 17:33:54 Europe/Zurich] PHP Notice:  Trying to get property of non-object in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 108
+[22-Nov-2019 17:33:54 Europe/Zurich] PHP Warning:  array_merge(): Argument #2 is not an array in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 108
+[22-Nov-2019 17:33:54 Europe/Zurich] PHP Warning:  sort() expects parameter 1 to be array, null given in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 109
+[22-Nov-2019 17:33:54 Europe/Zurich] PHP Warning:  sort() expects parameter 1 to be array, null given in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 110
+[22-Nov-2019 17:33:54 Europe/Zurich] PHP Warning:  Invalid argument supplied for foreach() in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Unit.php on line 108
+[22-Nov-2019 17:33:54 Europe/Zurich] PHP Warning:  Invalid argument supplied for foreach() in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Unit.php on line 115
+[22-Nov-2019 17:34:44 Europe/Zurich] PHP Warning:  A non-numeric value encountered in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Functions.php on line 27
+[22-Nov-2019 17:34:44 Europe/Zurich] PHP Notice:  Undefined property: Less_Tree_Keyword::$unit in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 107
+[22-Nov-2019 17:34:44 Europe/Zurich] PHP Notice:  Trying to get property of non-object in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 107
+[22-Nov-2019 17:34:44 Europe/Zurich] PHP Warning:  array_merge(): Argument #2 is not an array in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 107
+[22-Nov-2019 17:34:44 Europe/Zurich] PHP Notice:  Undefined property: Less_Tree_Keyword::$unit in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 108
+[22-Nov-2019 17:34:44 Europe/Zurich] PHP Notice:  Trying to get property of non-object in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 108
+[22-Nov-2019 17:34:44 Europe/Zurich] PHP Warning:  array_merge(): Argument #2 is not an array in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 108
+[22-Nov-2019 17:34:44 Europe/Zurich] PHP Warning:  sort() expects parameter 1 to be array, null given in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 109
+[22-Nov-2019 17:34:44 Europe/Zurich] PHP Warning:  sort() expects parameter 1 to be array, null given in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Dimension.php on line 110
+[22-Nov-2019 17:34:44 Europe/Zurich] PHP Warning:  Invalid argument supplied for foreach() in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Unit.php on line 108
+[22-Nov-2019 17:34:44 Europe/Zurich] PHP Warning:  Invalid argument supplied for foreach() in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Unit.php on line 115
+[22-Nov-2019 17:51:05 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[22-Nov-2019 17:52:27 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[25-Nov-2019 15:04:08 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[25-Nov-2019 15:04:16 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[25-Nov-2019 15:04:26 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[25-Nov-2019 15:09:37 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[25-Nov-2019 15:09:55 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[25-Nov-2019 15:19:09 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[29-Nov-2019 08:38:25 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: .uk-text-small is undefined in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/typography.less in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php:148
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(147): Less_Tree_Mixin_Call->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(88): Less_Tree_Ruleset->EvalMixinCalls(Object(Less_Tree_Ruleset), Object(Less_Environment), 2)
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Parser.php(199): Less_Tree_Ruleset->compile(Object(Less_Environment))
+#4 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lessc.inc.php(167): Less_Parser->getCss()
+#5 /home/labor/yplay.deskall-labor.ch/themes/yplay/cs in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Mixin/Call.php on line 148
+[29-Nov-2019 10:32:25 Europe/Zurich] PHP Fatal error:  Uncaught Less_Exception_Compiler: variable @mainColor is undefined in file /home/labor/yplay.deskall-labor.ch/themes/yplay/css/src/deskall/theme/project_specific.less in project_specific.less on line 295, column 21
+293| 
+294| input:checked + .slider {
+295|   background-color: @mainColor;
+296| }
+297| 
+298| input:focus + .slider { in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Variable.php:49
+Stack trace:
+#0 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Expression.php(52): Less_Tree_Variable->compile(Object(Less_Environment))
+#1 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Value.php(27): Less_Tree_Expression->compile(Object(Less_Environment))
+#2 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Rule.php(75): Less_Tree_Value->compile(Object(Less_Environment))
+#3 /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Ruleset.php(94): Less_Tree_Rule->compile(Object(Less_Environment))
+#4 /home/labor/yp in /home/labor/yplay.deskall-labor.ch/themes/yplay/css/less/lib/Less/Tree/Variable.php on line 49
