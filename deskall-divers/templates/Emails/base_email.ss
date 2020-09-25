@@ -86,7 +86,7 @@
 
 </head>
 
-<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#EEEEEE;">
 	<!-- HEADER -->
 	<table class="head-wrap">
 		<tbody>
@@ -97,7 +97,7 @@
 						<table>
 							<tbody>
 								<tr>
-									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="{$AbsoluteBaseURL}/themes/standard/img/logo-email.png" border="0" alt="$SiteConfig.Title"/></a></a></td>
+									<td class="logo"><a title="$SiteConfig.Title" href="$AbsoluteBaseURL"><img src="{$AbsoluteBaseURL}/public/_resources/themes/standard/img/logo-email.png" border="0" alt="$SiteConfig.Title"/></a></a></td>
 								</tr>
 								<% if $Header %>
 								<tr><td class="header-text">
@@ -114,7 +114,7 @@
 		</tbody>
 	</table>
 	<!-- /HEADER --> <!-- BODY -->
-	<table class="body-wrap" bgcolor="">
+	<table class="body-wrap" bgcolor="" style="background-color:#FFFFFF;margin-bottom:20px;">
 		<tbody>
 			<tr>
 				<td><br /></td>
