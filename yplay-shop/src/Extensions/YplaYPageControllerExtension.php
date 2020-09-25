@@ -20,7 +20,6 @@ class YplaYPageControllerExtension extends Extension
     ];
 
     public function onBeforeInit(){
-      parent::onBeforeInit();
       //If Subsite we check the PLZ
       $SubsiteID = SubsiteState::singleton()->getSubsiteId();
       if ($SubsiteID > 0){
