@@ -4,6 +4,9 @@ Name: deskall-divers
 SilverStripe\Core\Manifest\ModuleManifest:
   project: deskall-divers
 
+SilverStripe\i18n\i18n:
+  default_locale: 'de_DE'
+
 Page:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
