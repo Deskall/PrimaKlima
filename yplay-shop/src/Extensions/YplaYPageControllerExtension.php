@@ -19,6 +19,20 @@ class YplaYPageControllerExtension extends Extension
         'plz-loeschen' => 'ClearPLZ'
     ];
 
+    public function onBeforeInit(){
+      //If Subsite we check the PLZ
+      $SubsiteID = SubsiteState::singleton()->getSubsiteId();
+      if ($SubsiteID > 0){
+        //If PLZ we save it in session
+        $PLZ = PostalCode::get()->filter('SubsiteID',$SubsiteID)->first();
+        if ($PLZ) {
+          $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID);
+          $this->owner->getRequest()->getSession()->set('active_offer',$PostalCode->StandardOffer);
+          Cookie::set('yplay_plz', $PostalCode->ID);
+        }
+      }
+    }
+
     public function SavePLZ(HTTPRequest $request){
         $this->owner->getRequest()->getSession()->clear('active_plz');
         //clear also cart
