@@ -10,8 +10,8 @@ use SilverStripe\Core\Injector\Injector;
 class PLZFilterable extends DataExtension
 {
     private static $many_many = [
-        'FilteredPLZ' => PostalCode::class,
-        'ExcludedPLZ' => PostalCode::class
+        'FilteredPLZ' => PostalCode::class."Filtered",
+        'ExcludedPLZ' => PostalCode::class."Excluded"
     ];
 
     public function updateFieldLabels(&$labels){
