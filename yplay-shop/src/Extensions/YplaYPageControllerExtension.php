@@ -22,10 +22,7 @@ class YplaYPageControllerExtension extends Extension
     public function onBeforeInit(){
       //If Subsite we check the PLZ
       $SubsiteID = SubsiteState::singleton()->getSubsiteId();
-      ob_start();
-            print_r($SubsiteID);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+      $SubsiteID = 1;
       if ($SubsiteID > 0){
         //If PLZ we save it in session
         $PLZ = PostalCode::get()->filter('SubsiteID',$SubsiteID)->first();
