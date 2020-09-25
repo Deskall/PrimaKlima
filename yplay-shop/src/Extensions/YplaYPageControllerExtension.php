@@ -19,21 +19,6 @@ class YplaYPageControllerExtension extends Extension
         'plz-loeschen' => 'ClearPLZ'
     ];
 
-    public function onBeforeInit(){
-      //If Subsite we check the PLZ
-      $SubsiteID = SubsiteState::singleton()->getSubsiteId();
-      $SubsiteID = 1;
-      if ($SubsiteID > 0){
-        //If PLZ we save it in session
-        $PLZ = PostalCode::get()->filter('SubsiteID',$SubsiteID)->first();
-        if ($PLZ) {
-          $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID);
-          $this->owner->getRequest()->getSession()->set('active_offer',$PostalCode->StandardOffer);
-          Cookie::set('yplay_plz', $PostalCode->ID);
-        }
-      }
-    }
-
     public function SavePLZ(HTTPRequest $request){
         $this->owner->getRequest()->getSession()->clear('active_plz');
         //clear also cart
@@ -124,19 +109,30 @@ class YplaYPageControllerExtension extends Extension
 
 //--------- UTILITIES -----------//
     public function activePLZ(){
-        //first we check if there is cookie
-        $plz = Cookie::get('yplay_plz');
-        // $plz = $this->owner->getRequest()->getSession()->get('active_plz');
-        if ($plz){
-            $PostalCode = PostalCode::get()->byId($plz);
-            if ($PostalCode){
-                if (!$this->owner->getRequest()->getSession()->get('active_plz')){
-                   $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID); 
-                }
-                return $PostalCode;
-            }
+      $PostalCode = null;
+      //first we check if there is cookie
+      $plz = Cookie::get('yplay_plz');
+      // $plz = $this->owner->getRequest()->getSession()->get('active_plz');
+      if ($plz){
+          $PostalCode = PostalCode::get()->byId($plz);
+      }
+      if (!$PostalCode) {
+        //If Subsite we check the PLZ
+        $SubsiteID = SubsiteState::singleton()->getSubsiteId();
+        $SubsiteID = 1;
+        if ($SubsiteID > 0){
+          //If PLZ we save it in session
+          $PostalCode = PostalCode::get()->filter('SubsiteID',$SubsiteID)->first();
         }
-        return null;
+      }
+      if ($PostalCode){
+          if (!$this->owner->getRequest()->getSession()->get('active_plz')){
+             $this->owner->getRequest()->getSession()->set('active_plz',$PostalCode->ID); 
+          }
+          return $PostalCode;
+      }
+      
+      return $PostalCode;
     }
 
     public function showModalPLZ(){
