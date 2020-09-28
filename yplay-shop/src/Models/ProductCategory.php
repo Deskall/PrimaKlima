@@ -52,8 +52,7 @@ class ProductCategory extends DataObject {
 
 	private static $extensions = [
 		'Sortable',
-		'Activable',
-		'SubsiteFilterable'
+		'Activable'
 	];
 
 	private static $summary_fields = [
@@ -121,7 +120,7 @@ class ProductCategory extends DataObject {
 		$fields->removeByName('Code');
 		$fields->dataFieldByName('Icon')->setFolderName($this->getFolderName());
 		if ($this->ID > 0){
-			$fields->dataFieldByName('Products')->setList(['ClassName' => Product::class, 'SusbsiteID' => SubsiteState::singleton()->getSubsiteId()]);
+			$fields->dataFieldByName('Products')->setList($this->Products()->filter(['ClassName' => Product::class, 'SusbsiteID' => SubsiteState::singleton()->getSubsiteId()]));
 			$fields->dataFieldByName('Options')->setList($this->Options()->filter(['GroupID' => 0, 'SusbsiteID' => SubsiteState::singleton()->getSubsiteId()]));
 			$fields->dataFieldByName('Products')->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
 			$fields->dataFieldByName('Options')->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
