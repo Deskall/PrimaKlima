@@ -17,20 +17,20 @@
 	.body-wrap .container{background-color:#FFFFFF;margin-bottom:15px;box-shadow:0 0 15px #666;}
 	a{color:#666}
 	.btn,.social .soc-btn{color:#FFF;text-align:center;font-weight:700;text-decoration:none}
-	.btn{background-color:#AFCA0C;padding:10px 16px;margin-right:10px;cursor:pointer;display:inline-block;float:right;margin-top:20px}
+	.btn{background-color:#C91C1C;padding:10px 16px;margin-right:10px;cursor:pointer;display:inline-block;float:right;margin-top:20px}
 	.btn a{color: #fff; text-decoration: none;}
 	.callout{padding:15px;background-color:#eee;border:1px solid #eee;margin-bottom:15px; max-width: 528px;}
 	.callout p{color: #666;}
 	.callout a{font-weight:700;color: #666;}
 
 	.button-holder{text-align: right;}
-	.button-holder a{text-decoration: none;color: #fff;background-color: #AFCA0C!important; font-weight: bold; font-size: 20px; padding: 5px 10px}
+	.button-holder a{text-decoration: none;color: #fff;background-color: #C91C1C!important; font-weight: bold; font-size: 20px; padding: 5px 10px}
 
 
 	.social .soc-btn{padding:3px 7px;font-size:12px;margin-bottom:10px;display:block}
 	a.fb{background-color:#3B5998!important}
 	a.tw{background-color:#1daced!important}
-	a.web{background-color:#AFCA0C!important}
+	a.web{background-color:#C91C1C!important}
 	a.gp{background-color:#DB4A39!important}
 	a.ms{background-color:#000!important}
 	.sidebar .soc-btn{display:block;width:100%}
@@ -41,7 +41,7 @@
 	h1,h2{font-weight:200}
 	h1,h2,h3,h4,h5,h6{font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;line-height:1.1;margin-bottom:15px;color:#666}
 	h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{font-size:60%;color:#6f6f6f;line-height:0;text-transform:none}
-	h1{margin-top:30px;font-size:44px; color: #AFCA0C;margin-bottom:20px;}
+	h1{margin-top:30px;font-size:44px; color: #C91C1C;margin-bottom:20px;}
 	h2{font-size:37px}
 	h3,h4{font-weight:500}
 	h3{font-size:27px}
@@ -93,7 +93,7 @@
 		<tbody>
 			<tr>
 				<td><br /></td>
-				<td class="header container" bgcolor="#000000" style="background-color:#000000"><!-- /content -->
+				<td class="header container" bgcolor="#FFFFFF" style="background-color:#FFFFFF"><!-- /content -->
 					<div class="content">
 						<table>
 							<tbody>
@@ -119,7 +119,7 @@
 		<tbody>
 			<tr>
 				<td><br /></td>
-				<td class="container" bgcolor="#FFFFFF" align=""><!-- content -->
+				<td class="container" bgcolor="#FFFFFF" align="" style="background-color:#FFFFFF"><!-- content -->
 
 					<div class="content">
 						<table>
