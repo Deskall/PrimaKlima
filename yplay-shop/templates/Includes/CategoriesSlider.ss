@@ -1,5 +1,5 @@
 
-<div class="category uk-text-center $category.Code uk-margin-large" <% if disabled || unavailable %>data-disabled<% end_if %> <% if mandatory %>data-mandatory<%end_if %>  >
+<div class="category uk-text-center $category.Code uk-margin-large" <% if disabled || unavailable %>data-disabled<% end_if %> <% if mandatory %>data-mandatory<%end_if %> data-dependencies="$activeDependencies" >
 	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$category.Icon.URL" width="50" class="uk-margin-small-right" alt="$category.Icon.Alt"><h3 class="uk-margin-remove uk-flex uk-flex-middle">$category.Title <% if not mandatory && not unavailable %><label class="switch uk-margin-small-left"><span class="slider round"></span></label><% end_if %></h3></div>
 	<% if $unavailable %>
 	<p><%t SHOP.CATEGORYUNAVAILABLE '{title} ist für die gewünschte Ortschaft nicht verfügbar' title=$category.Title %></p>
