@@ -9,8 +9,7 @@ use SilverStripe\Forms\ListboxField;
 class CategoryDependency extends DataObject {
 	
 	private static $db = [
-		'Description' => 'Varchar',
-		'isGlobal' => 'Boolean(1)'
+		'Description' => 'Varchar'
 	];
 
 	private static $has_one = [
@@ -35,7 +34,6 @@ class CategoryDependency extends DataObject {
 		$labels['Codes'] = 'betroffene Ortschaften';
 		$labels['ExcludedCodes'] = 'ausgeschlossene Ortschaften';
 		$labels['RequiredCategories'] = 'Abhängigkeiten';
-		$labels['isGlobal'] = 'Stimmt für alle Ortschaften';
 		return $labels;
 	}
 
@@ -46,6 +44,7 @@ class CategoryDependency extends DataObject {
 		$fields->removeByName('ExcludedCodes');
 		$fields->removeByName('Codes');
 		$fields->removeByName('ParentID');
+		$fields->insertAfter('Description', ListboxField::create('Codes',$this->fieldLabels()['Codes'], PostalCode::get()->map('ID','Code'), $this->Codes()));
 		return $fields;
 	}
 }
