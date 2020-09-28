@@ -78,32 +78,12 @@ $(document).ready(function(){
 		packages = [],
 		productsOfPackages = [],
 		updateRun;
-		
-		var url = window.location.pathname;
-		$.ajax({
-			url: '/shop-functions/fetchPackages',
-			dataType: 'Json'
-		}).done(function(response){
-			packages = response;
-			$.ajax({
-				url: '/shop-functions/getActiveCart',
-				dataType: 'Json'
-			}).done(function(response){
-				products = response;
-				InitSliders(products);
-			});
-		});
-		
-		$(".no-category").each(function(){
-			if ($(this).is(':checked')){
-				$(this).parents('.category').addClass('disabled');
-			}
-			else{
-				$(this).parents('.category').removeClass('disabled');
-			}
-		});
 
-		$(document).on("change",".no-category",function(){
+		if (typeof $("#products-container").attr('data-has-alternative') === "undefined"){
+			DisplayProducts();
+		}
+		
+		$(document).on("change",".no-category", function(){
 			if ($(this).is(':checked')){
 				$(this).parents('.category').addClass('disabled');
 			}
@@ -140,6 +120,59 @@ $(document).ready(function(){
 			}
 			else{
 				input.prop('checked',true).trigger('change');
+			}
+		});
+
+		//Handle Connection Type
+		$(document).on("click",".connection-type img",function(){
+			$("#unknown-dose-form, #products-container").attr('hidden','hidden');
+			$(".connection-type img").removeClass('uk-active');
+			$(this).addClass('uk-active');
+
+			if ($(this).attr('data-type') == "unknown") {
+				$("#unknown-dose-form").attr('hidden',false);
+			}
+			else{
+				$("#products-container").attr('hidden',false);
+				$("#categories-slider").empty();
+				$("#loading-block").show();
+				var availability = $(this).attr('data-type');
+				var url = window.location.pathname;
+				$.ajax({
+					url: '/shop-functions/updateCartAvailability',
+					dataType: 'Json',
+					data:{availability: availability}
+				}).done(function(response){
+					DisplayProducts();
+					UIkit.update(document.body, type = 'update');
+				});
+			}
+		});
+	}
+
+	function DisplayProducts(){
+		var url = window.location.pathname;
+		$.ajax({
+			url: '/shop-functions/fetchPackages',
+			dataType: 'Json'
+		}).done(function(response){
+			packages = response;
+			$.ajax({
+				url: '/shop-functions/getActiveCart',
+				dataType: 'Json'
+			}).done(function(response){
+				$("#categories-slider").empty().append(response.html);
+				products = response.products;
+				InitSliders(products);
+			});
+		});
+		
+		$(".no-category").each(function(){
+			if ($(this).is(':checked')){
+				$(this).parents('.category').addClass('disabled');
+			}
+			else{
+				$(this).parents('.category').removeClass('disabled');
 			}
 		});
 	}
