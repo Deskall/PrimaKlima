@@ -143,6 +143,7 @@ $(document).ready(function(){
 			}
 			else{
 				$("#products-container").attr('hidden',false);
+				UIkit.update(document.body, type = 'update');
 			}
 		});
 	}
