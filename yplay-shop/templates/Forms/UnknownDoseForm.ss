@@ -6,7 +6,7 @@
 	<% else %>
 	<p id="{$FormName}_error" class="message $MessageType" style="display: none"></p>
 	<% end_if %>
-	<div data-uk-grid>
+	<div class="uk-child-width-1-1" data-uk-grid>
 		<% if $Legend %><legend>$Legend</legend><% end_if %>
 		<% loop $Fields %>
 			$FieldHolder
