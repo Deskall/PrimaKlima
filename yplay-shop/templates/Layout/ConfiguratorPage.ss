@@ -52,7 +52,7 @@
 		          </div>
 		        </div>
 				<div id="unknown-dose-form" hidden>
-					<div class="uk-width-3-4">
+					<div class="uk-width-3-4 uk-align-center">
 					$UnknownDoseForm
 					</div>
 				</div>
