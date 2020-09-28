@@ -267,7 +267,7 @@
 								</div>
 							</div>
 							<div class="uk-width-expand uk-visible@m">
-								<div data-uk-sticky="media:@m;offset:150;bottom:true;">
+								<div data-uk-sticky="media:@m;offset:150;">
 									<div class="uk-card WhiteBackground uk-card-hover uk-box-shadow-medium uk-card-small">
 										<div class="uk-card-header">
 											<h3 class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %></h3>
