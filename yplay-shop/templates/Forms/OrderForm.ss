@@ -250,6 +250,9 @@
                     
                 </li>
             </ul>
+            <% with Fields.FieldByName('SubsiteID') %>
+                $FieldHolder 
+            <% end_with %>
             <% with Fields.FieldByName('SecurityID') %>
             	$FieldHolder 
             <% end_with %>
