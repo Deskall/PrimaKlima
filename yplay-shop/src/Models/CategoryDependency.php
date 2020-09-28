@@ -5,6 +5,7 @@ use SilverStripe\ORM\FieldType\DBText;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\DrodownField;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Tabset;
@@ -36,7 +37,7 @@ class CategoryDependency extends DataObject {
 		$labels = parent::fieldLabels($includerelation);
 		$labels['Description'] = 'Kurs Beschreibung';
 		$labels['Parent'] = 'Kategorie';
-		$labels['Action'] = 'Einstellung';
+		$labels['Action'] = 'Behandlung';
 		$labels['Codes'] = 'betroffene Ortschaften';
 		$labels['ExcludedCodes'] = 'ausgeschlossene Ortschaften';
 		$labels['RequiredCategories'] = 'Abhängigkeiten';
@@ -47,9 +48,11 @@ class CategoryDependency extends DataObject {
 	public function getCMSFields(){
 		$fields = FieldList::create();
 		$fields->push(new Tabset('Root', new Tab('Main','Detail')));
-		
 		$fields->addFieldToTab('Root.Main', TextField::create('Description',$this->fieldLabels()['Description']));
-		$fields->insertAfter('Description', ListboxField::create('Codes',$this->fieldLabels()['Codes'], PostalCode::get()->map('ID','Code'), $this->Codes())->setAttribute('data-placeholder','Alle Ortschaften sind betroffen'));
+		$fields->insertAfter('Description',DropdownField::create('Action',$this->fieldLabels()['Description'], ['unavailable' => 'ist nicht verfügbar', 'inactive' => 'ist standardmäßig inaktiv', 'depends' => 'kann nur mit anderen Kategorien bestellt sein'])->setEmtpyString('Bitte Behandlung wählen'));
+		$fields->insertAfter('Action', ListboxField::create('RequiredCategories',$this->fieldLabels()['RequiredCategories'], ProductCategory::get()->exlude('ID',$this->ID), $this->RequiredCategories())->setAttribute('data-placeholder','Bitte Kategorie(n) eingeben'));
+		
+		$fields->addFieldToTab('Root.Main', ListboxField::create('Codes',$this->fieldLabels()['Codes'], PostalCode::get()->map('ID','Code'), $this->Codes())->setAttribute('data-placeholder','Alle Ortschaften sind betroffen'));
 		$fields->insertAfter('Codes', ListboxField::create('ExcludedCodes',$this->fieldLabels()['ExcludedCodes'], PostalCode::get()->map('ID','Code'), $this->ExcludedCodes())->setAttribute('data-placeholder','Keine Ortschaften sind ausgeschlossen'));
 		return $fields;
 	}
