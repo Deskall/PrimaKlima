@@ -17,7 +17,7 @@ use SilverStripe\Subsites\State\SubsiteState;
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'updateCartAvailability', 'smartcard', 'checkCustomer', 'CheckPartnerForCode', 'updateCategories']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'updateCartAvailability', 'smartcard', 'checkCustomer', 'CheckPartnerForCode']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
@@ -57,14 +57,6 @@ class ShopController extends PageController
       
       
       return json_encode($products);
-   }
-
-   public function updateCategories(){
-      $html = '';
-      foreach (ProductCategory::get()->filter('isVisible',1) as $cat) {
-         $html .= $cat->renderWith('Includes/CategoriesSlider');
-      }
-      return $html;      
    }
 
    public function getActiveCartObject(){
@@ -246,11 +238,22 @@ class ShopController extends PageController
          $cart->PackageID = 0;
          $cart->Options()->removeAll();
          $cart->write();
-         return json_encode(['message' => 'Warenkorb aktualisiert']);
       }
 
-      return json_encode(['message' => 'Fehler']);
-      
+      $activePLZ = $this->getRequest()->getSession()->get('active_plz');
+      $categories = ProductCategory::get()->filter('isVisible',1);
+      $activeCategories = new ArrayList();
+      foreach ($categories as $cat) {
+         $data = new ArrayData();
+         $data->setField('category',$cat);
+         $data->setField('disabled',$cat->isInactive($cart, $activePLZ));
+         $data->setField('mandatory',$cat->isMandatory($activePLZ));
+         $data->setField('unavailable',$cat->isUnavailable($activePLZ));
+         $data->setField('activeDependencies',$cat->hasDependencies($activePLZ));
+         $activeCategories->push($data);
+      }
+
+       return $this->customise(['activeCategories' => $activeCategories])->renderWith('Includes/CategoriesSlider');      
    }
 
    /* from checkout, if new Customer, we check rules to apply

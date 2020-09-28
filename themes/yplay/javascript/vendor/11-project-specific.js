@@ -157,17 +157,12 @@ $(document).ready(function(){
 				var url = window.location.pathname;
 				$.ajax({
 					url: '/shop-functions/updateCartAvailability',
-					dataType: 'Json',
+					dataType: 'html',
 					data:{availability: availability}
 				}).done(function(response){
-					$.ajax({
-						url: '/shop-functions/updateCategories',
-						dataType: 'html',
-						data:{availability: availability}
-					}).done(function(response){
-						DisplayProducts();
-						UIkit.update(document.body, type = 'update');
-					});
+					$("#categories-slider").append(response);
+					DisplayProducts();
+					UIkit.update(document.body, type = 'update');
 				});
 			}
 		});
