@@ -180,8 +180,7 @@ $(document).ready(function(){
 				url: '/shop-functions/getActiveCart',
 				dataType: 'Json'
 			}).done(function(response){
-				$("#categories-slider").empty().append(response.html);
-				products = response.products;
+				products = response;
 				InitSliders(products);
 			});
 		});
