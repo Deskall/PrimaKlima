@@ -63,10 +63,10 @@ class CategoryDependency extends DataObject {
 	}
 
 	public function Concerned(){
-		return ( $this->Codes()->exists() ) ? $this->Codes()->column('Code') : "Alle";
+		return ( $this->Codes()->exists() ) ? $this->Codes()->column('Code')->join('|') : "Alle";
 	}
 
 	public function Excluded(){
-		return ( $this->ExcludedCodes()->exists() ) ? $this->ExcludedCodes()->column('Code') : "Keine";
+		return ( $this->ExcludedCodes()->exists() ) ? $this->ExcludedCodes()->column('Code')->join('|') : "Keine";
 	}
 }
