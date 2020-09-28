@@ -17,6 +17,7 @@
 	</div>
 	<div id="mobile-order-preview" hidden>
 		<div class="uk-card-body WhiteBackground order-preview">
+			<div data-uk-spinner></div>
 		</div>
 		<div class="uk-card-footer BlackBackground">
 			<a href="$ShopPage.Link" class="uk-button uk-button-primary uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
