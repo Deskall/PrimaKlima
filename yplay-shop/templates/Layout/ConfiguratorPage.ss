@@ -274,7 +274,7 @@
 											<h3 class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %></h3>
 										</div>
 										<div class="uk-card-body order-preview">
-											
+											<div data-uk-spinner></div>
 										</div>
 										<div class="uk-card-footer">
 											<a href="$ShopPage.Link" class="uk-button BlackBackground"><%t Configurator.Order 'Bestellen' %></a>
