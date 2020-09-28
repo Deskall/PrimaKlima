@@ -84,22 +84,29 @@ $(document).ready(function(){
 		}
 		
 		$(document).on("change",".no-category", function(){
-			console.log("ici");
+			let dependencies = $(this).parents('.category').attr('data-dependencies');
+			if (typeof dependencies !== 'undefined'){
+				dependencies = $.parseJSON(dependencies);
+			}
 			if ($(this).is(':checked')){
 				$(this).parents('.category').addClass('disabled');
+				//Handle dependencies
+				for (var i = 0; i < dependencies.length; i++ ){
+					let code = dependencies[i];
+					let input = $(".category." + code).find('.no-category');
+					input.prop('disabled',false);
+					$(".category." + code).removeClass('mandatory');
+				}
 			}
 			else{
 				$(this).parents('.category').removeClass('disabled').addClass('activated');
 				//Handle dependencies
-				let dependencies = $(this).parents('.category').attr('data-dependencies');
-				if (typeof dependencies !== 'undefined'){
-					dependencies = $.parseJSON(dependencies);
-					for (var i = 0; i < dependencies.length; i++ ){
-						let code = dependencies[i];
-						let input = $(".category." + code).find('.no-category');
-						if (input.is(':checked')){
-							input.trigger('click');
-						}
+				for (var i = 0; i < dependencies.length; i++ ){
+					let code = dependencies[i];
+					let input = $(".category." + code).find('.no-category');
+					if (input.is(':checked')){
+						input.trigger('click').prop('disabled',true);
+						$(".category." + code).addClass('mandatory');
 					}
 				}
 			}
@@ -116,7 +123,7 @@ $(document).ready(function(){
 
 		
 		//Handle the category Switcher
-		$(document).on("click",".category .switch",function(){
+		$(document).on("click",".category:not(.mandatory) .switch",function(){
 			var input = $(this).parents('.category').find('.no-category');
 			if (input.is(':checked')){
 				input.prop('checked',false).trigger('change');
