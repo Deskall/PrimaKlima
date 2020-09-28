@@ -20,6 +20,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Control\Director;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\Control\Email\Email;
 
 class ConfiguratorPageController extends PageController
 {
@@ -60,7 +61,47 @@ class ConfiguratorPageController extends PageController
    }
 
    public function sendDoseForm($data,$form){
-      
+      try {
+          $config = SiteConfig::current_site_config();
+          $str = $this->parseString($config->UnknowDoseEmailContent, $data);
+          $html = new DBHTMLText();
+          $html->setValue($str);
+          $Body = $this->renderWith('Emails/base_email',array('Subject' => $config->UnknowDoseEmailSubject, 'Lead' => '', 'Body' => $html, 'Footer' => '', 'SiteConfig' => $config));
+          $email = new Email($config->Email, $data['Email'],$config->ProductEmailSubject, $Body);
+          $email->setBCC($config->Email);
+          $email->send();
+          $form->sessionMessage('Vielen Dank ' . $data['Name']."\n".'Ihre Anfrage wurde erfolgreich gesendet', 'success');
+
+      } catch (ValidationException $e) {
+          $validationMessages = '';
+          foreach($e->getResult()->getMessages() as $error){
+              $validationMessages .= $error['message']."\n";
+          }
+          $form->sessionMessage($validationMessages, 'bad');
+          return $this->redirectBack();
+      }
+
+      return $this->redirectBack();
+   }
+
+   public function parseString($string, $data)
+   {
+       $table = '<table>';
+       unset($data['SecurityID']);
+       unset($data['g-recaptcha-response']);
+       foreach ($data as $key => $value) {
+           if ($value != "") {
+               $table .= '<tr><td>'.$key.'</td><td>'.$value.'</td></tr>';
+           }
+       }
+       $table .= '</table>';
+
+       $variables = array(
+           '$Name' => $data['Name'],
+           '$Daten' => $table
+       );
+
+       return str_replace(array_keys($variables), array_values($variables), $string);
    }
 
 }

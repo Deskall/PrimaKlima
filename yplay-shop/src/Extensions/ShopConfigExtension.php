@@ -38,7 +38,10 @@ class ShopConfigExtension extends DataExtension
        'WishNumberBody' => 'HTMLText',
        'Conditions' => 'HTMLText',
        'ActivationPrice' => 'Currency',
-       'ActivationPriceLabel' => 'HTMLText'
+       'ActivationPriceLabel' => 'HTMLText',
+       'UnknownDoseEmailSender' => 'Varchar',
+       'UnknownDoseEmailSubject' => 'Varchar',
+       'UnknownDoseEmailContent' => 'HTMLText'
     );
 
     private static $has_one = [
@@ -76,6 +79,9 @@ class ShopConfigExtension extends DataExtension
       $labels['ActivationPrice'] = _t(__CLASS__.'.ActivationPrice','Aufschaltgebühr');
       $labels['ActivationPriceLabel'] = _t(__CLASS__.'.ActivationPriceLabel','Aufschaltgebühr - Hinweis in Bestellübersicht');
       $labels['ExistingNumberLabel'] = _t(__CLASS__.'.ExistingNumberLabel','Bestehende Nummer Erklärung');
+      $labels['UnknownDoseEmailSender'] = _t(__CLASS__.'.UnknownDoseEmailSender','Unbekannt Anschlussart Email Absender');
+      $labels['UnknownDoseEmailSubject'] = _t(__CLASS__.'.UnknownDoseEmailSubject','Unbekannt Anschlussart Email Betreff');
+      $labels['UnknownDoseEmailContent'] = _t(__CLASS__.'.UnknownDoseEmailContent','Unbekannt Anschlussart Email Inhalt');
     }
 
    
@@ -132,7 +138,10 @@ class ShopConfigExtension extends DataExtension
         [
           TextField::create('OrderEmailSender',$this->owner->fieldLabels()['OrderEmailSender']),
           TextField::create('OrderEmailSubject',$this->owner->fieldLabels()['OrderEmailSubject']),
-          HTMLEditorField::create('OrderEmailBody',$this->owner->fieldLabels()['OrderEmailBody'])
+          HTMLEditorField::create('OrderEmailBody',$this->owner->fieldLabels()['OrderEmailBody']),
+          TextField::create('UnknownDoseEmailSender',$this->owner->fieldLabels()['UnknownDoseEmailSender']),
+          TextField::create('UnknownDoseEmailSubject',$this->owner->fieldLabels()['UnknownDoseEmailSubject']),
+          HTMLEditorField::create('UnknownDoseEmailContent',$this->owner->fieldLabels()['UnknownDoseEmailContent'])
         ])
       ]
       );
