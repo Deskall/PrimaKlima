@@ -125,6 +125,7 @@ $(document).ready(function(){
 			}
 			else{
 				$("#products-container").attr('hidden',false);
+				$("#loading-block").show();
 				var availability = $(this).attr('data-type');
 				var url = window.location.pathname;
 				$.ajax({
@@ -198,7 +199,7 @@ $(document).ready(function(){
 				}
 			}
 		});
-		$("#loading-block").remove();
+		$("#loading-block").hide();
 		$("#products-hidden-container").slideDown();		
 	}
 
