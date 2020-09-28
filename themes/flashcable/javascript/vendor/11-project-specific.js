@@ -139,12 +139,11 @@ $(document).ready(function(){
 		});
 	}
 
-	function DisplayProducts(offer = null){
+	function DisplayProducts(){
 		var url = window.location.pathname;
 		$.ajax({
 			url: '/shop-functions/fetchPackages',
-			dataType: 'Json',
-			data:{offer: offer}
+			dataType: 'Json'
 		}).done(function(response){
 			packages = response;
 			$.ajax({
