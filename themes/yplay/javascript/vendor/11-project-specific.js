@@ -90,27 +90,31 @@ $(document).ready(function(){
 			}
 			if ($(this).is(':checked')){
 				$(this).parents('.category').addClass('disabled');
-				//Handle dependencies
-				for (var i = 0; i < dependencies.length; i++ ){
-					let code = dependencies[i];
-					let input = $(".category." + code).find('.no-category');
-					input.prop('disabled',false);
-					$(".category." + code).find('.not-included-input').show();
-					$(".category." + code).find('.switch').show();
-					$(".category." + code).removeClass('mandatory');
+				if (dependencies.length > 0){
+					//Handle dependencies
+					for (var i = 0; i < dependencies.length; i++ ){
+						let code = dependencies[i];
+						let input = $(".category." + code).find('.no-category');
+						input.prop('disabled',false);
+						$(".category." + code).find('.not-included-input').show();
+						$(".category." + code).find('.switch').show();
+						$(".category." + code).removeClass('mandatory');
+					}
 				}
 			}
 			else{
 				$(this).parents('.category').removeClass('disabled').addClass('activated');
-				//Handle dependencies
-				for (var i = 0; i < dependencies.length; i++ ){
-					let code = dependencies[i];
-					let input = $(".category." + code).find('.no-category');
-					if (input.is(':checked')){
-						input.trigger('click').prop('disabled',true);
-						$(".category." + code).find('.not-included-input').hide();
-						$(".category." + code).find('.switch').hide();
-						$(".category." + code).addClass('mandatory');
+				if (dependencies.length > 0){
+					//Handle dependencies
+					for (var i = 0; i < dependencies.length; i++ ){
+						let code = dependencies[i];
+						let input = $(".category." + code).find('.no-category');
+						if (input.is(':checked')){
+							input.trigger('click').prop('disabled',true);
+							$(".category." + code).find('.not-included-input').hide();
+							$(".category." + code).find('.switch').hide();
+							$(".category." + code).addClass('mandatory');
+						}
 					}
 				}
 			}
