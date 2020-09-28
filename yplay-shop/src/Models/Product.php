@@ -80,11 +80,15 @@ class Product extends DataObject {
 	}
 
 	public function onBeforeWrite(){
-	    if (!$this->ProductCode || $this->ID == 0){
-	    	//TO DO Increment for doublon
-	    	$code = URLSegmentFilter::create()->filter($this->Title);
+	    if ($this->isChanged('Title')){
+	    	//Subsite prefix
+	    	$prefix = '';
+	    	if ($id = SubsiteState::singleton()->getSubsiteId() > 0){
+	    		$prefix = Subsite::get()->byId($id)->Title . ' ';
+	    	}
+	    	$code = URLSegmentFilter::create()->filter($prefix . $this->Title);
 	    	$newcode = $code;
-	    	$exist = Product::get()->filter('ProductCode',$code)->count();
+	    	$exist = Product::get()->filter('ProductCode',$code)->exclude('ID',$this->ID)->count();
 	    	$i = 1;
 	    	while( $exist > 0){
 	    		$newcode = $code."-".$i;
@@ -92,7 +96,6 @@ class Product extends DataObject {
 	    		$i++;
 	    	}
 	    	$this->ProductCode = $newcode;
-	    	
 	    }
 	    if ($this->Preselected){
 	    	$previous = $this->Category()->getPreselected();
