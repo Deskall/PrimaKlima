@@ -98,7 +98,6 @@ $(document).ready(function(){
 						let code = dependencies[i];
 						let input = $(".category." + code).find('.no-category');
 						if (input.is(':checked')){
-							console.log('ca marche');
 							input.trigger('click');
 						}
 					}
