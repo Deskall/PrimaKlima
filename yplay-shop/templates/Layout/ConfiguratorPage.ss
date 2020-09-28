@@ -84,7 +84,9 @@
 						<div class="uk-grid-small uk-grid-match" data-uk-grid>
 							<div class="uk-width-2-3@m">
 								<div id="categories-slider">
+									<% loop activeCategories %>
 									<% include CategoriesSlider %>
+									<% end_loop %>
 								</div>
 								<div class="uk-margin uk-hidden@m">
 									<a href="$ShopPage.Link" class="uk-button BlackBackground uk-display-block"><%t Configurator.Order 'Bestellen' %></a>

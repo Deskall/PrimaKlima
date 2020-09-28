@@ -1,13 +1,12 @@
-<% loop activeCategories %>
 <div class="category uk-text-center $Code uk-margin-large" <% if not Mandatory %>data-disabled="$isDisabled"<% end_if %> data-mandatory="$Mandatory">
 	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" class="uk-margin-small-right" alt="$Icon.Alt"><h3 class="uk-margin-remove uk-flex uk-flex-middle">$Title <% if not Mandatory %><label class="switch uk-margin-small-left"><span class="slider round"></span></label><% end_if %></h3></div>
 
 	$Description
-	
-	
+
+
 	<div id="category-{$ID}" class="uk-padding-small <% if Code != "yplay-mobile" %>slider-packages<% end_if %> slider-products uk-padding-remove-bottom" data-id="$activeIndex" data-code="$Code">
 
-		
+
 		<div class="uk-slider-container">
 			<ul class="uk-slider-items uk-child-width-2-3 uk-child-width-1-2@s uk-grid-match">
 				<% loop filteredProducts %>
@@ -103,4 +102,3 @@
 		</div>
 	</div>
 </div>
-<% end_loop %>
