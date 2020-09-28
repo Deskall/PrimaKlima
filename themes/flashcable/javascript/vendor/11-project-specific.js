@@ -130,11 +130,11 @@ $(document).ready(function(){
 					url: '/shop-functions/updateCartAvailability',
 					dataType: 'Json',
 					data:{availability: availability}
-				}).done(function(response){
+				}).done(function(){
 					DisplayProducts();
+					$("#products-container").attr('hidden',false);
+					UIkit.update(document.body, type = 'update');
 				});
-				$("#products-container").attr('hidden',false);
-				UIkit.update(document.body, type = 'update');
 			}
 		});
 	}
