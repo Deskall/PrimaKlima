@@ -99,7 +99,7 @@ $(document).ready(function(){
 						let input = $(".category." + code).find('.no-category');
 						if (input.is(':checked')){
 							console.log('ca marche');
-							input.prop('checked',false);
+							input.trigger('click');
 						}
 					}
 				}
