@@ -1,8 +1,6 @@
 <header <% if $SiteConfig.StickyHeader %>class="dk-background-header $ExtraHeaderClass" data-uk-sticky="sel-target: .uk-navbar-container;" <% else %>class="dk-background-header <% if SiteConfig.BackContent %>uk-position-top uk-position-z-index<% end_if %> $ExtraHeaderClass"<% end_if %>>
 	<div class="uk-container uk-container-medium uk-position-relative">
-		<div class="uk-grid-collapse uk-flex uk-flex-middle uk-flex-right" data-uk-grid>
-			
-			<div class="uk-width-4-5">
+		
 				<nav class="uk-navbar-container uk-navbar-transparent uk-visible@m uk-navbar-sub" data-uk-navbar>
 				
 							
@@ -43,8 +41,7 @@
 								<% end_loop %>
 							</div>
 				</nav>
-			</div>
-		</div>
+		
 
 				<nav class="uk-navbar-container uk-navbar-transparent uk-navbar-main" data-uk-navbar="dropbar: true;boundary-align:true;mode:click;">
 					<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-main') %>
