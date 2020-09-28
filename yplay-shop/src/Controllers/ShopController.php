@@ -55,7 +55,7 @@ class ShopController extends PageController
          }
       }
       
-      return json_encode(['products' => $products, 'html' => CategoryPage::get()->first()->renderWith('Includes/CategoriesSlider')]);
+      return json_encode(['products' => $products, 'html' => ConfiguratorPage::get()->first()->renderWith('Includes/CategoriesSlider')]);
    }
 
    public function getActiveCartObject(){
