@@ -30,6 +30,7 @@ class ConfiguratorPageController extends PageController
 
    public function activeCategories(){
 
+    $activePLZ = $this->getRequest()->getSession()->get('active_plz');
     $categories = ProductCategory::get()->filter('isVisible',1);
     $activeCategories = new ArrayList();
     foreach ($categories as $cat) {
