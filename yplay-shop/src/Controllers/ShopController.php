@@ -82,7 +82,7 @@ class ShopController extends PageController
       if (!$cart && ((is_array($products) && count($products) > 0) || $packageID > 0)){
          $cart = new ShopCart();
          $cart->IP = $this->getRequest()->getIp();
-         if ($this->activePLZ()->exists()){
+         if ($this->activePLZ()){
             $cart->PostalCode = $this->activePLZ()->Code;
             $cart->City = $this->activePLZ()->City;
          }
