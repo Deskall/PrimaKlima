@@ -1,4 +1,4 @@
-
+<% loop activeCategories %>
 <div class="category uk-text-center $category.Code uk-margin-large <% if disabled || unavailable %>disabled<% end_if %>" <% if disabled || unavailable %>data-disabled<% end_if %> <% if mandatory %>data-mandatory<%end_if %> <% if $activeDependencies %>data-dependencies='$activeDependencies'<% end_if %>>
 	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$category.Icon.URL" width="50" class="uk-margin-small-right" alt="$category.Icon.Alt"><h3 class="uk-margin-remove uk-flex uk-flex-middle">$category.Title <% if not mandatory && not unavailable %><label class="switch uk-margin-small-left"><span class="slider round"></span></label><% end_if %></h3></div>
 	<% if $unavailable %>
@@ -106,3 +106,4 @@
 	</div>
 </div>
 <% end_with %>
+<% end_loop %>
