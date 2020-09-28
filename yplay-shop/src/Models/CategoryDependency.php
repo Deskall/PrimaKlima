@@ -44,8 +44,8 @@ class CategoryDependency extends DataObject {
 		$fields->removeByName('ExcludedCodes');
 		$fields->removeByName('Codes');
 		$fields->removeByName('ParentID');
-		$fields->insertAfter('Description', ListboxField::create('Codes',$this->fieldLabels()['Codes'], PostalCode::get()->map('ID','Code'), $this->Codes())->setAttribute('data-placeholder','Alle Ortschaften'));
-		$fields->insertAfter('Codes', ListboxField::create('ExcludedCodes',$this->fieldLabels()['ExcludedCodes'], PostalCode::get()->map('ID','Code'), $this->ExcludedCodes())->setAttribute('data-placeholder','Alle Ortschaften'));
+		$fields->insertAfter('Description', ListboxField::create('Codes',$this->fieldLabels()['Codes'], PostalCode::get()->map('ID','Code'), $this->Codes())->setAttribute('data-placeholder','Alle Ortschaften sind betroffen'));
+		$fields->insertAfter('Codes', ListboxField::create('ExcludedCodes',$this->fieldLabels()['ExcludedCodes'], PostalCode::get()->map('ID','Code'), $this->ExcludedCodes())->setAttribute('data-placeholder','Keine Ortschaften sind ausgeschlossen'));
 		return $fields;
 	}
 }
