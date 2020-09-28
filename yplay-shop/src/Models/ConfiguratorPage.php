@@ -2,8 +2,7 @@
 
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-use SilverStripe\View\ArrayData;
-use SilverStripe\ORM\ArrayList;
+
 
 class ConfiguratorPage extends Page {
 	private static $singular_name = "Abo Konfigurator";
