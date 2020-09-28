@@ -36,10 +36,6 @@ class AvailabilityFilterable extends DataExtension
            $cart = ShopCart::get()->byId($id);
         }
         if ($cart && $cart->Availability ){
-            ob_start();
-                        print_r('ici');
-                        $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
             return (in_array($this->owner->Availability, ['Immer',$cart->Availability]));
         }
         else{
