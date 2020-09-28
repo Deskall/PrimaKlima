@@ -29,6 +29,10 @@ class ConfiguratorPageController extends PageController
    private static $allowed_actions = ['UnknownDoseForm'];
 
    public function activeCategories(){
+    ob_start();
+          print_r('ici');
+          $result = ob_get_clean();
+          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     $activePLZ = $this->getRequest()->getSession()->get('active_plz');
     $categories = ProductCategory::get()->filter('isVisible',1);
     $activeCategories = new ArrayList();
