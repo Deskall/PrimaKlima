@@ -95,7 +95,10 @@ $(document).ready(function(){
 					dependencies = $.parseJSON(dependencies);
 					for (var i = 0; i < dependencies.length; i++ ){
 						let code = dependencies[i];
-						$(".category." + code).find('.switch').trigger('click');
+						let input = $(".category." + code).find('.no-category');
+						if (!input.is(':checked')){
+							input.trigger('click');
+						}
 					}
 				}
 			}
