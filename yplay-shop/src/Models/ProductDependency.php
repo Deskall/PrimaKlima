@@ -6,11 +6,11 @@ use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\ListboxField;
 
-class ProductDependency extends DataObject {
+class CategoryDependency extends DataObject {
 	
 	private static $db = [
-		'isGlobal' => 'Boolean(1)',
-		'notIndenpendent' => 'Boolean(1)'
+		'Description' => 'Varchar',
+		'isGlobal' => 'Boolean(1)'
 	];
 
 	private static $has_one = [
@@ -24,25 +24,25 @@ class ProductDependency extends DataObject {
 	];
 	
 	private static $summary_fields = [
-		
+		'Description'
 	];
 	
 
 	public function fieldLabels($includerelation = true){
 		$labels = parent::fieldLabels($includerelation);
+		$labels['Description'] = 'Kurs Beschreibung';
 		$labels['Parent'] = 'Kategorie';
 		$labels['Codes'] = 'betroffene Ortschaften';
 		$labels['ExcludedCodes'] = 'ausgeschlossene Ortschaften';
 		$labels['RequiredCategories'] = 'Abhängigkeiten';
 		$labels['isGlobal'] = 'Stimmt für alle Ortschaften';
-		$labels['notIndenpendent'] = 'Kann nicht unabhängig bestellt werden';
 		return $labels;
 	}
 
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		// $fields->dataFieldByName('RequiredCategories')->setConfig(GridField);
+		$fields->removeByName('RequiredCategories');
 		$fields->removeByName('ExcludedCodes');
 		$fields->removeByName('Codes');
 		$fields->removeByName('ParentID');

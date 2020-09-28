@@ -35,7 +35,7 @@ class ProductCategory extends DataObject {
 	private static $has_many = [
 	'Products' => Product::class,
 	'Options' => ProductOption::class,
-	'Dependencies' => ProductDependency::class
+	'Dependencies' => CategoryDependency::class
 	];
 
 	private static $owns = [
