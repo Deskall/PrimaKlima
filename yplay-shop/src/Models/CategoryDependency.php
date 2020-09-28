@@ -12,6 +12,9 @@ use SilverStripe\Forms\Tabset;
 use SilverStripe\Forms\Tab;
 
 class CategoryDependency extends DataObject {
+
+	private static $singular_name = "Spezifisch Behandlung";
+	private static $plural_name = "Spezifische Behandlungen";
 	
 	private static $db = [
 		'Description' => 'Varchar',

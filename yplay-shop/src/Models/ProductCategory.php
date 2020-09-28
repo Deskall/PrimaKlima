@@ -140,7 +140,7 @@ class ProductCategory extends DataObject {
 		$labels['Products'] = 'Produkte';
 		$labels['Options'] = 'Optionen';
 		$labels['Icon'] = 'Bild';
-		$labels['Dependencies'] = 'Abhängigkeiten';
+		$labels['Dependencies'] = 'Spezifische Behandlungen';
 		$labels['Mandatory'] = 'Pflicht?';
 		return $labels;
 	}
