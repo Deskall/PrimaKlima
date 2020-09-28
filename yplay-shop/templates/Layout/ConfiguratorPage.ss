@@ -75,50 +75,52 @@
 		                </div>
 		        </div>
 		        <% end_with %>
-		        <div class="uk-margin-large-top">
-		        	<h3><%t Order.Products 'Ihre Bestellung' %></h3>
 				<% end_if %>
 				<div id="products-container"  <% if activePLZ.AlternateOffer %>hidden data-has-alternative="true"<% end_if %>>
-					<div id="loading-block" class="uk-text-left">
-						<p><span data-uk-spinner="ratio: 2" class="uk-margin-right"></span>Produkte werden geladen. Einen Moment bitte.</p>
-					</div>
-					<div id="products-hidden-container">
-						<div class="uk-grid-small uk-grid-match" data-uk-grid>
-							<div class="uk-width-2-3@m">
-								<div id="categories-slider">
-									<% loop activeCategories %>
-									<% include CategoriesSlider %>
-									<% end_loop %>
+					<% if activePLZ.AlternateOffer %>
+					<div class="uk-margin-large-top">
+						<h3><%t Order.Products 'Ihre Bestellung' %></h3>
+					<% end_if %>
+						<div id="loading-block" class="uk-text-left">
+							<p><span data-uk-spinner="ratio: 2" class="uk-margin-right"></span>Produkte werden geladen. Einen Moment bitte.</p>
+						</div>
+						<div id="products-hidden-container">
+							<div class="uk-grid-small uk-grid-match" data-uk-grid>
+								<div class="uk-width-2-3@m">
+									<div id="categories-slider">
+										<% loop activeCategories %>
+										<% include CategoriesSlider %>
+										<% end_loop %>
+									</div>
+									<div class="uk-margin uk-hidden@m">
+										<a href="$ShopPage.Link" class="uk-button BlackBackground uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
+									</div>
+									
+									<div class="uk-margin">
+										<div class="conditions-container">$ConditionsText</div>
+									</div>
 								</div>
-								<div class="uk-margin uk-hidden@m">
-									<a href="$ShopPage.Link" class="uk-button BlackBackground uk-display-block"><%t Configurator.Order 'Bestellen' %></a>
-								</div>
-								
-								<div class="uk-margin">
-									<div class="conditions-container">$ConditionsText</div>
-								</div>
-							</div>
-							<div class="uk-width-expand uk-visible@m">
-								<div data-uk-sticky="media:@m;offset:150;">
-									<div class="uk-card WhiteBackground uk-card-hover uk-box-shadow-medium uk-card-small">
-										<div class="uk-card-header">
-											<h3 class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %></h3>
-										</div>
-										<div class="uk-card-body order-preview">
-											<div data-uk-spinner></div>
-										</div>
-										<div class="uk-card-footer">
-											<a href="$ShopPage.Link" class="uk-button BlackBackground"><%t Configurator.Order 'Bestellen' %></a>
+								<div class="uk-width-expand uk-visible@m">
+									<div data-uk-sticky="media:@m;offset:150;">
+										<div class="uk-card WhiteBackground uk-card-hover uk-box-shadow-medium uk-card-small">
+											<div class="uk-card-header">
+												<h3 class="uk-card-title"><%t Configurator.AboLabel 'Bestellübersicht' %></h3>
+											</div>
+											<div class="uk-card-body order-preview">
+												<div data-uk-spinner></div>
+											</div>
+											<div class="uk-card-footer">
+												<a href="$ShopPage.Link" class="uk-button BlackBackground"><%t Configurator.Order 'Bestellen' %></a>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+					<% if activePLZ.AlternateOffer %>
 					</div>
+					<% end_if %>
 				</div>
-				<% if activePLZ.AlternateOffer %>
-				</div>
-				<% end_if %>
 			<% end_if %>
 		</div>
 	</section>
