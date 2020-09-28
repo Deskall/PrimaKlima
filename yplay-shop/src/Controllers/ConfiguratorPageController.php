@@ -53,7 +53,7 @@ class ConfiguratorPageController extends PageController
       );
      
       $form->addExtraClass('form-std');
-      $form->setTemplate('Forms/UnknownDoseForm')
+      $form->setTemplate('Forms/UnknownDoseForm');
       $form->enableSpamProtection();
    
       return $form;
