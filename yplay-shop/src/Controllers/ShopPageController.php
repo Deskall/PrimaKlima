@@ -31,7 +31,7 @@ use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 
 class ShopPageController extends PageController
 {
-   private static $allowed_actions = ['OrderForm','OrderPackageLink', 'OrderProductLink', 'UnknownDoseForm'];
+   private static $allowed_actions = ['OrderForm','OrderPackageLink', 'OrderProductLink'];
 
    private static $url_handlers = [
        'paket/$ID' => 'OrderPackageLink',
@@ -353,43 +353,4 @@ class ShopPageController extends PageController
       return $this->redirect($this->ConfiguratorPage()->Link());
       
    }
-
-   public function UnknownDoseForm(){
-      Requirements::javascript('yplay-shop/javascript/jquery.validate.min.js');
-      Requirements::javascript('yplay-shop/javascript/messages_de.min.js');
-      Requirements::javascript('yplay-shop/javascript/customRules.js');
-      
-      $config = SiteConfig::current_site_config();
-
-      $form = new Form(
-         $this,
-         'UnknownDoseForm',
-         new FieldList(
-               OptionsetField::create('Anrede','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
-               TextField::create('Vorname','Vorname')->setAttribute('class','uk-input'),
-               TextField::create('Name','Nachname')->setAttribute('class','uk-input'),
-               EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
-               $email2 = EmailField::create('Email2','E-Mail Prüfung')->setAttribute('class','uk-input')->setAttribute('validateEmail',true)->setDescription('Bitte geben Sie wieder Ihre E-Mail-Adresse ein.')->setAttribute('autocomplete','new-email-validation-'.rand()),
-               TextField::create('Adresse','Adresse')->setAttribute('class','uk-input'),
-               TextField::create('PLZ','PLZ')->setAttribute('class','uk-input'),
-               TextField::create('Ort','Ort')->setAttribute('class','uk-input'),
-               TextField::create('Telefon','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true),
-               TextareaField::create('Nachricht','Ihre Nachricht')->setAttribute('class','uk-textarea')
-         ),
-         new FieldList(
-            FormAction::create('sendDoseForm', _t('SHOP.SENDNOW', 'Anfrage jetzt senden'))->setUseButtonTag(true)->addExtraClass('uk-button')
-         ),
-         RequiredFields::create(['Gender','Name','FirstName','Email','Email2','Phone','Address','PostalCode','City'])
-      );
-     
-      $form->addExtraClass('form-std');
-      $form->enableSpamProtection();
-   
-      return $form;
-   }
-
-   public function sendDoseForm($data,$form){
-      
-   }
-
 }
