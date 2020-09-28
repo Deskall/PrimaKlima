@@ -46,14 +46,12 @@
 		</div>
 
 				<nav class="uk-navbar-container uk-navbar-transparent uk-navbar-main" data-uk-navbar="dropbar: true;boundary-align:true;mode:click;">
-
-					<% with SiteConfig.activeMenuBlocks.filter('Type','logo').first %>
-					$forTemplate
-					<% end_with %>
-					
 					<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-main') %>
 							<% include MainNaviDropdown %>
 					<% end_loop %>
+					<% with SiteConfig.activeMenuBlocks.filter('Type','logo').first %>
+					$forTemplate
+					<% end_with %>
 					<div class="uk-navbar-right uk-hidden@m">
 								<ul class="uk-navbar-nav mobile-icon-nav">
 									<li class="link"><a href="#" data-uk-toggle="#modal-search" data-uk-icon="search"></a></li>
