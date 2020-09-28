@@ -10,11 +10,7 @@
 									<li class="link"><a href="https://mein.yplay.ch/" target="_blank"><i class="uk-margin-small-right" data-uk-icon="user"></i><small>Mein Konto</small></a></li>
 									<li class="link"><a href="#" data-uk-toggle="#modal-notifications"><i class="uk-margin-small-right"  data-uk-icon="bell"><span class="uk-label uk-label-danger uk-border-rounded" >$activeMessages.count</span></i><small>Meldungen</small></a></li>
 									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Meldung(s) im Warenkorb</small></a></li> --%>
-								</ul>
-							</div>
-							<% if $ID > 0 %>
-							<div class="uk-navbar-left">
-								<ul class="uk-navbar-nav sub">
+									<% if $ID > 0 %>
 									<li><a id="toggle-modal-postal-code" data-uk-tooltip="<%t PLZ.CHANGE 'Region ändern' %>" data-active="<% if activePLZ %>true<% else %>false<% end_if %>" data-trigger="<% if showModalPLZ %>true<% else %>false<% end_if %>" title="Ihrer PLZ auswählen / Ändern" data-uk-toggle="#modal-postal-code"><% if activePLZ %>Ihre Region: $activePLZ.CodeCity<% else %> Region unbekannt<% end_if %></a>
 									</li>
 									<% if activePLZ %>
@@ -22,9 +18,11 @@
 										<a href="{$Link}plz-loeschen" class="uk-padding-remove" title="Region löschen" data-uk-tooltip="<%t PLZ.CLEAR 'Region löschen' %>"><i class="icon icon-close-circled"></i></a>
 									</li>
 									<% end_if %>
+									<% end_if %>
 								</ul>
 							</div>
-							<% end_if %>
+							
+							
 							<div class="uk-navbar-left">
 								<% loop SiteConfig.activeMenuBlocks.filter('Class','dk-nav-top') %>
 									<ul class="uk-navbar-nav <% if UseMenu %>$UseMenuOption<% end_if %>">
