@@ -49,7 +49,7 @@ class ConfiguratorPageController extends PageController
          new FieldList(
             FormAction::create('sendDoseForm', _t('SHOP.SENDNOW', 'Anfrage jetzt senden'))->setUseButtonTag(true)->addExtraClass('uk-button button-PrimaryBackground')
          ),
-         RequiredFields::create(['Anrede','Name','Email2','Telefon','Address','PLZ','Ort'])
+         RequiredFields::create(['Anrede','Name','Email','Email2','Telefon','Address','PLZ','Ort'])
       );
      
       $form->addExtraClass('form-std');
