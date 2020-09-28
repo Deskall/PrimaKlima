@@ -89,7 +89,7 @@ $(document).ready(function(){
 			}
 			if ($(this).is(':checked')){
 				$(this).parents('.category').addClass('disabled');
-				if (dependencies.length > 0){
+				if (typeof dependencies !== 'undefined'){
 					//Handle dependencies
 					for (var i = 0; i < dependencies.length; i++ ){
 						let code = dependencies[i];
@@ -103,7 +103,7 @@ $(document).ready(function(){
 			}
 			else{
 				$(this).parents('.category').removeClass('disabled').addClass('activated');
-				if (dependencies.length > 0){
+				if (typeof dependencies !== 'undefined'){
 					//Handle dependencies
 					for (var i = 0; i < dependencies.length; i++ ){
 						let code = dependencies[i];
