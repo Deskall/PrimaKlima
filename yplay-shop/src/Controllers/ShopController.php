@@ -17,7 +17,7 @@ use SilverStripe\Subsites\State\SubsiteState;
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'smartcard', 'checkCustomer', 'CheckPartnerForCode']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'updateCartAvailability', 'smartcard', 'checkCustomer', 'CheckPartnerForCode']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
@@ -213,6 +213,25 @@ class ShopController extends PageController
          $data = array();
          parse_str($form, $data);
          $cart->update($data);
+         $cart->write();
+      }
+
+      return;
+      
+   }
+
+   public function updateCartAvailability(){
+      //retrieve cart in session
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
+      $availability = $this->getRequest()->getVar('availability');
+
+      $cart = null;
+      if ($id){
+         $cart = ShopCart::get()->byId($id);
+      }
+
+      if ($cart && $availability ){
+         $cart->Availability = $availability;
          $cart->write();
       }
 
