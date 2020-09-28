@@ -130,7 +130,7 @@ $(document).ready(function(){
 					url: '/shop-functions/updateCartAvailability',
 					dataType: 'Json',
 					data:{availability: availability}
-				}).done(function(){
+				}).done(function(response){
 					DisplayProducts();
 					$("#products-container").attr('hidden',false);
 					UIkit.update(document.body, type = 'update');

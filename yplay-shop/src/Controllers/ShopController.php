@@ -220,10 +220,10 @@ class ShopController extends PageController
       
    }
 
-   public function updateCartAvailability(){
+   public function updateCartAvailability(HTTPRequest $request){
       //retrieve cart in session
-      $id = $this->getRequest()->getSession()->get('shopcart_id');
-      $availability = $this->getRequest()->getVar('availability');
+      $id = $request->getSession()->get('shopcart_id');
+      $availability = $request->getVar('availability');
 
       $cart = null;
       if ($id){
@@ -233,9 +233,10 @@ class ShopController extends PageController
       if ($cart && $availability ){
          $cart->Availability = $availability;
          $cart->write();
+         return json_encode(['message' => 'Warenkorb aktualisiert']);
       }
 
-      return;
+      return json_encode(['message' => 'Fehler']);
       
    }
 
