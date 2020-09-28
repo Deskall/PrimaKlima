@@ -21,6 +21,8 @@ use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Control\Director;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Control\Email\Email;
+use SilverStripe\View\ArrayData;
+use SilverStripe\ORM\ArrayList;
 
 class ConfiguratorPageController extends PageController
 {
