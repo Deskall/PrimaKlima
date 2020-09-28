@@ -32,7 +32,9 @@ class CategoryDependency extends DataObject {
 	];
 	
 	private static $summary_fields = [
-		'Description'
+		'Description',
+		'Concerned' => 'betroffene Ortschaften',
+		'Excluded' => 'ausgeschlossene Ortschaften'
 	];
 	
 
@@ -58,5 +60,13 @@ class CategoryDependency extends DataObject {
 		$fields->addFieldToTab('Root.Main', ListboxField::create('Codes',$this->fieldLabels()['Codes'], PostalCode::get()->map('ID','Code'), $this->Codes())->setAttribute('data-placeholder','Alle Ortschaften sind betroffen'));
 		$fields->insertAfter('Codes', ListboxField::create('ExcludedCodes',$this->fieldLabels()['ExcludedCodes'], PostalCode::get()->map('ID','Code'), $this->ExcludedCodes())->setAttribute('data-placeholder','Keine Ortschaften sind ausgeschlossen'));
 		return $fields;
+	}
+
+	public function Concerned(){
+		return ( $this->Codes()->exists() ) ? $this->Codes()->columns('Code') : "Alle";
+	}
+
+	public function Excluded(){
+		return ( $this->ExcludedCodes()->exists() ) ? $this->ExcludedCodes()->columns('Code') : "Keine";
 	}
 }
