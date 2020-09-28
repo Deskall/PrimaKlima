@@ -63,11 +63,11 @@ class ConfiguratorPageController extends PageController
    public function sendDoseForm($data,$form){
       try {
           $config = SiteConfig::current_site_config();
-          $str = $this->parseString($config->UnknowDoseEmailContent, $data);
+          $str = $this->parseString($config->UnknownDoseEmailContent, $data);
           $html = new DBHTMLText();
           $html->setValue($str);
-          $Body = $this->renderWith('Emails/base_email',array('Subject' => $config->UnknowDoseEmailSubject, 'Lead' => '', 'Body' => $html, 'Footer' => '', 'SiteConfig' => $config));
-          $email = new Email($config->Email, $data['Email'],$config->ProductEmailSubject, $Body);
+          $Body = $this->renderWith('Emails/base_email',array('Subject' => $config->UnknownDoseEmailSubject, 'Lead' => '', 'Body' => $html, 'Footer' => '', 'SiteConfig' => $config));
+          $email = new Email($config->UnknownDoseEmailSender, $data['Email'],$config->UnknownDoseEmailSubject, $Body);
           $email->setBCC($config->Email);
           $email->send();
           $form->sessionMessage('Vielen Dank ' . $data['Name']."\n".'Ihre Anfrage wurde erfolgreich gesendet', 'success');
