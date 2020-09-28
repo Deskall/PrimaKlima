@@ -8,6 +8,7 @@ use SilverStripe\Subsites\State\SubsiteState;
 use SilverStripe\Assets\Folder;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Control\Controller;
@@ -124,6 +125,7 @@ class ProductCategory extends DataObject {
 			$fields->dataFieldByName('Options')->setList($this->Options()->filter(['GroupID' => 0, 'SubsiteID' => SubsiteState::singleton()->getSubsiteId()]));
 			$fields->dataFieldByName('Products')->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
 			$fields->dataFieldByName('Options')->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
+			$fields->dataFieldByName('Dependencies')->setConfig(new GridFieldConfig_RecordEditor());
 		}
 	
 
