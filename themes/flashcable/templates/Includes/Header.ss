@@ -18,7 +18,7 @@
 									</ul>		  
 								<% end_loop %>
 							</div>
-							<div class="uk-navbar-left">
+							<div class="uk-navbar-left uk-margin-left">
 								<ul class="uk-navbar-nav sub">
 									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="uk-margin-small-right"  data-uk-icon="search"></i>Suchen</a></li>
 									<li class="link"><a href="https://mein.yplay.ch/" target="_blank"><i class="uk-margin-small-right" data-uk-icon="user"></i>Mein Konto</a></li>
