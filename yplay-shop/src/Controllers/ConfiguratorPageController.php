@@ -41,8 +41,8 @@ class ConfiguratorPageController extends PageController
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
                $email2 = EmailField::create('Email2','E-Mail Prüfung')->setAttribute('class','uk-input')->setAttribute('validateEmail',true)->setDescription('Bitte geben Sie wieder Ihre E-Mail-Adresse ein.')->setAttribute('autocomplete','new-email-validation-'.rand()),
                TextField::create('Adresse','Adresse')->setAttribute('class','uk-input'),
-               TextField::create('PLZ','PLZ')->setAttribute('class','uk-input'),
-               TextField::create('Ort','Ort')->setAttribute('class','uk-input'),
+               TextField::create('PLZ','PLZ')->setAttribute('class','uk-input')->addExtraClass('uk-width-1-4'),
+               TextField::create('Ort','Ort')->setAttribute('class','uk-input')->addExtraClass('uk-width-3-4'),
                TextField::create('Telefon','Tel.')->setAttribute('class','uk-input')->setAttribute('intlTelNumber',true),
                TextareaField::create('Nachricht','Ihre Nachricht')->setAttribute('class','uk-textarea')
          ),
