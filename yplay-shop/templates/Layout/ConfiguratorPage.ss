@@ -48,7 +48,7 @@
 		          <div class="uk-child-width-1-3" data-uk-grid>
 		          	<div><a><img src="$ThemeDir/img/bestellung-glasfaserdose.svg" data-value="GlasfaserDose" data-type="FTTH" alt="<%t Order.FiberTV 'Glasfaser-Dose' %>" title="<%t Order.FiberTV 'Glasfaser-Dose' %>"/><span><%t Order.FiberTV 'Glasfaser-Dose' %><a data-uk-toggle="target: #Glasfaser-Dose-modal" class="uk-margin-small-left"><span data-uk-icon="info" class="uk-margin-small-right"></span></a></span></a></div>
 		            <div><a><img src="$ThemeDir/img/bestellung-dose-f75.svg" data-value="Kabelnetz" data-type="Coax" alt="<%t Order.CableTV 'Kabel-TV-Dose' %>" title="<%t Order.CableTV 'Kabel-TV-Dose' %>"/><span><%t Order.CableTV 'Kabel-TV-Dose' %><a data-uk-toggle="target: #Kabel-TV-Dose-modal" class="uk-margin-small-left"><span data-uk-icon="info" class="uk-margin-small-right"></span></a> </span></a></div>
-		            <div><a><img src="$ThemeDir/img/bestellung-dose-unknown.svg" data-value="Dose noch nicht bekannt" data-type="unknown" alt="<%t Order.UnknownTV 'Dose noch nicht bekannt' %>" title="<%t Order.UnknownTV 'Dose noch nicht bekannt' %>"/><span><%t Order.UnknownTV 'Dose noch nicht bekannt' %></span></a></div>
+		            <div><a><img src="$ThemeDir/img/bestellung-dose-unknown.svg" data-value="Dose noch nicht bekannt" data-type="unknown" alt="<%t Order.UnknownTV 'Dose noch nicht bekannt' %>" title="<%t Order.UnknownTV 'Dose noch nicht bekannt' %>"/><span class="uk-display-block uk-margin-top"><%t Order.UnknownTV 'Dose noch nicht bekannt' %></span></a></div>
 		          </div>
 		        </div>
 				        
