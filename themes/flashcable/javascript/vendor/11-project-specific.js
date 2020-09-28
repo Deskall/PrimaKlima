@@ -84,20 +84,38 @@ $(document).ready(function(){
 		}
 		
 		
-		$(document).on("change",".no-category",function(){
+		$(document).on("change",".no-category", function(){
+			let dependencies = $(this).parents('.category').attr('data-dependencies');
+			if (typeof dependencies !== 'undefined'){
+				dependencies = $.parseJSON(dependencies);
+			}
 			if ($(this).is(':checked')){
 				$(this).parents('.category').addClass('disabled');
+				if (typeof dependencies !== 'undefined'){
+					//Handle dependencies
+					for (var i = 0; i < dependencies.length; i++ ){
+						let code = dependencies[i];
+						let input = $(".category." + code).find('.no-category');
+						input.prop('disabled',false);
+						$(".category." + code).find('.not-included-input').show();
+						$(".category." + code).find('.switch').show();
+						$(".category." + code).removeClass('mandatory');
+					}
+				}
 			}
 			else{
 				$(this).parents('.category').removeClass('disabled').addClass('activated');
-				//Handle dependencies
-				let dependencies = $(this).parents('.category').attr('data-dependencies');
 				if (typeof dependencies !== 'undefined'){
-					dependencies = $.parseJSON(dependencies);
-					console.log(dependencies);
+					//Handle dependencies
 					for (var i = 0; i < dependencies.length; i++ ){
 						let code = dependencies[i];
-						console.log(code);
+						let input = $(".category." + code).find('.no-category');
+						if (input.is(':checked')){
+							input.trigger('click').prop('disabled',true);
+							$(".category." + code).find('.not-included-input').hide();
+							$(".category." + code).find('.switch').hide();
+							$(".category." + code).addClass('mandatory');
+						}
 					}
 				}
 			}
