@@ -119,7 +119,7 @@ class YplaYPageControllerExtension extends Extension
       if (!$PostalCode) {
         //If Subsite we check the PLZ
         $SubsiteID = SubsiteState::singleton()->getSubsiteId();
-        // $SubsiteID = 1;
+        $SubsiteID = 1;
         if ($SubsiteID > 0){
           //If PLZ we save it in session
           $PostalCode = PostalCode::get()->filter('SubsiteID',$SubsiteID)->first();
