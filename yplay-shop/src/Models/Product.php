@@ -60,7 +60,8 @@ class Product extends DataObject {
 		'Activable',
 		'PLZFilterable',
 		'Itemable',
-		'AvailabilityFilterable'
+		'AvailabilityFilterable',
+		'SubsiteFilterable'
 	];
 
 	private static $summary_fields = [
@@ -81,7 +82,11 @@ class Product extends DataObject {
 
 	public function onBeforeWrite(){
 	    if ($this->isChanged('Title')){
-	    	$code = URLSegmentFilter::create()->filter($this->Title);
+	    	$prefix = '';
+	    	if ($id = SubsiteState::singleton()->getSubsiteId() > 0){
+	    		$prefix = Subsite::get()->byId($id)->Title . ' ';
+	    	}
+	    	$code = URLSegmentFilter::create()->filter($prefix . $this->Title);
 	    	$newcode = $code;
 	    	$exist = Product::get()->filter('ProductCode',$code)->exclude('ID',$this->ID)->count();
 	    	$i = 1;

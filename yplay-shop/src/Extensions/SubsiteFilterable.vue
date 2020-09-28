@@ -3,10 +3,6 @@
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\HiddenField;
-use SilverStripe\Control\Cookie;
-use SilverStripe\Forms\DropdownField;
-use SilverStripe\Control\HTTPRequest;
-use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Subsites\State\SubsiteState;
 use SilverStripe\Subsites\Model\Subsite;
 
