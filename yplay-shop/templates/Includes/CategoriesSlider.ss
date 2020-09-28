@@ -1,6 +1,6 @@
 
-<div class="category uk-text-center $category.Code uk-margin-large" <% if disabled %>data-disabled<% end_if %> <% if mandatory %>data-mandatory<%end_if %>>
-	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$category.Icon.URL" width="50" class="uk-margin-small-right" alt="$category.Icon.Alt"><h3 class="uk-margin-remove uk-flex uk-flex-middle">$category.Title <% if not mandatory %><label class="switch uk-margin-small-left"><span class="slider round"></span></label><% end_if %></h3></div>
+<div class="category uk-text-center $category.Code uk-margin-large" <% if disabled || unavailable %>data-disabled<% end_if %> <% if mandatory %>data-mandatory<%end_if %>>
+	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$category.Icon.URL" width="50" class="uk-margin-small-right" alt="$category.Icon.Alt"><h3 class="uk-margin-remove uk-flex uk-flex-middle">$category.Title <% if not mandatory and not unavailable %><label class="switch uk-margin-small-left"><span class="slider round"></span></label><% end_if %></h3></div>
 
 	$category.Description
 
