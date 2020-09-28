@@ -38,7 +38,7 @@ class ConfiguratorPageController extends PageController
       $data->setField('disabled',$cat->isInactive($cart, $activePLZ));
       $data->setField('mandatory',$cat->isMandatory($activePLZ));
       $data->setField('unavailable',$cat->isUnavailable($activePLZ));
-      // $data->setField('activeDependencies',$cat->hasDependencies($activePLZ));
+      $data->setField('activeDependencies',$cat->hasDependencies($activePLZ));
       $activeCategories->push($data);
     }
     return $activeCategories;
