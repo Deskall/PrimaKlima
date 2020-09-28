@@ -42,10 +42,7 @@ class ConfiguratorPageController extends PageController
       $data->setField('activeDependencies',$cat->hasDependencies($activePLZ));
       $activeCategories->push($data);
     }
-    ob_start();
-          print_r($activeCategories);
-          $result = ob_get_clean();
-          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
     return $activeCategories;
    }
 
