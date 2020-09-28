@@ -89,9 +89,7 @@
 								<div class="uk-width-2-3@m">
 									<div id="categories-slider">
 										<% if not activePLZ.AlternateOffer %>
-										<% loop activeCategories %>
 										<% include CategoriesSlider %>
-										<% end_loop %>
 										<% end_if %>
 									</div>
 									<div class="uk-margin uk-hidden@m">
