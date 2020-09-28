@@ -5,6 +5,15 @@
 			<div class="uk-width-4-5">
 				<nav class="uk-navbar-container uk-navbar-transparent uk-visible@m uk-navbar-sub" data-uk-navbar>
 				
+							
+							<div class="uk-navbar-left">
+								<ul class="uk-navbar-nav">
+									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="uk-margin-small-right"  data-uk-icon="search"></i><small>Suchen</small></a></li>
+									<li class="link"><a href="https://mein.yplay.ch/" target="_blank"><i class="uk-margin-small-right" data-uk-icon="user"></i><small>Mein Konto</small></a></li>
+									<li class="link"><a href="#" data-uk-toggle="#modal-notifications"><i class="uk-margin-small-right"  data-uk-icon="bell"><span class="uk-label uk-label-danger uk-border-rounded" >$activeMessages.count</span></i><small>Meldungen</small></a></li>
+									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Meldung(s) im Warenkorb</small></a></li> --%>
+								</ul>
+							</div>
 							<% if $ID > 0 %>
 							<div class="uk-navbar-left">
 								<ul class="uk-navbar-nav sub">
@@ -32,14 +41,6 @@
 										<% end_loop %>
 									</ul>		  
 								<% end_loop %>
-							</div>
-							<div class="uk-navbar-left">
-								<ul class="uk-navbar-nav">
-									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="uk-margin-small-right"  data-uk-icon="search"></i><small>Suchen</small></a></li>
-									<li class="link"><a href="https://mein.yplay.ch/" target="_blank"><i class="uk-margin-small-right" data-uk-icon="user"></i><small>Mein Konto</small></a></li>
-									<li class="link"><a href="#" data-uk-toggle="#modal-notifications"><i class="uk-margin-small-right"  data-uk-icon="bell"><span class="uk-label uk-label-danger uk-border-rounded" >$activeMessages.count</span></i><small>Meldungen</small></a></li>
-									<%-- <li class="link"><a href="#"><i class="fab fa-opencart uk-text-large uk-margin-small-right"></i><small>1 Meldung(s) im Warenkorb</small></a></li> --%>
-								</ul>
 							</div>
 				</nav>
 			</div>
