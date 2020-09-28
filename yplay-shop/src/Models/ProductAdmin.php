@@ -137,11 +137,11 @@ class ProductAdmin extends ModelAdmin{
 		if($this->modelClass == 'Product') {
 	      $list = $list->filter(['ClassName' => 'Product', 'SubsiteID' => SubsiteState::singleton()->getSubsiteId()]);
 	    }
-	    if($this->modelClass == 'Package') {
+	    if($this->modelClass == 'Package' || $this->modelClass == 'ProductCategory') {
 	    	$list = $list->filter('SubsiteID', SubsiteState::singleton()->getSubsiteId());
 	    }
 	    if($this->modelClass == 'ShopCart') {
-	      $list = $list->filter('Purchased',0);
+	      $list = $list->filter(['Purchased' => 0, 'SubsiteID' => SubsiteState::singleton()->getSubsiteId()]);
 	    }
 		return $list;
 	}

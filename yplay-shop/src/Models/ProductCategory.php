@@ -52,7 +52,8 @@ class ProductCategory extends DataObject {
 
 	private static $extensions = [
 		'Sortable',
-		'Activable'
+		'Activable',
+		'SubsiteFilterable'
 	];
 
 	private static $summary_fields = [
@@ -83,7 +84,7 @@ class ProductCategory extends DataObject {
 
 	public function NiceProducts(){
 		$html = '';
-		foreach ($this->Products()->filter('ClassName',Product::class) as $p) {
+		foreach ($this->Products()->filter(['ClassName' => Product::class, 'SusbsiteID' => SubsiteState::singleton()->getSubsiteId()]) as $p) {
 			$html .= $p->Title." (".$p->Availability.")<br>";
 		}
 		return DBHTMLText::create()->setValue($html);
@@ -120,8 +121,8 @@ class ProductCategory extends DataObject {
 		$fields->removeByName('Code');
 		$fields->dataFieldByName('Icon')->setFolderName($this->getFolderName());
 		if ($this->ID > 0){
-			$fields->dataFieldByName('Products')->setList($this->Products()->filter('ClassName',Product::class));
-			$fields->dataFieldByName('Options')->setList($this->Options()->filter('GroupID',0));
+			$fields->dataFieldByName('Products')->setList(['ClassName' => Product::class, 'SusbsiteID' => SubsiteState::singleton()->getSubsiteId()]);
+			$fields->dataFieldByName('Options')->setList($this->Options()->filter(['GroupID' => 0, 'SusbsiteID' => SubsiteState::singleton()->getSubsiteId()]));
 			$fields->dataFieldByName('Products')->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
 			$fields->dataFieldByName('Options')->getConfig()->removeComponentsByType([GridFieldAddExistingAutocompleter::class,GridFieldDeleteAction::class])->addComponent(new GridFieldOrderableRows('Sort'))->addComponent(new GridFieldShowHideAction())->addComponent(new GridFieldDuplicateAction())->addComponent(new GridFieldDeleteAction());
 		}
@@ -144,7 +145,7 @@ class ProductCategory extends DataObject {
 	}
 
 	public function filteredProducts(){
-		$products = $this->Products()->filter(['ClassName' => Product::class, 'isVisible' => 1])->filterByCallback(function($item, $list) {
+		$products = $this->Products()->filter(['ClassName' => Product::class, 'isVisible' => 1, 'SusbsiteID' => SubsiteState::singleton()->getSubsiteId()])->filterByCallback(function($item, $list) {
 		    return ($item->shouldDisplay() && $item->isAvailable());
 		});
 
@@ -152,7 +153,7 @@ class ProductCategory extends DataObject {
 	}
 
 	public function filteredOptions(){
-		$options = $this->Options()->filter(['ClassName' => ProductOption::class, 'isVisible' => 1])->filterByCallback(function($item, $list) {
+		$options = $this->Options()->filter(['ClassName' => ProductOption::class, 'isVisible' => 1, 'SusbsiteID' => SubsiteState::singleton()->getSubsiteId()])->filterByCallback(function($item, $list) {
 		    return ($item->shouldDisplay() && $item->isAvailable());
 		});
 
@@ -166,12 +167,12 @@ class ProductCategory extends DataObject {
 		
 		$availaibility = ($session->get('active_plz')) ? PostalCode::get()->byId($session->get('active_plz'))->StandardOffer : "Fiber";
 		
-		return $this->Products()->filter(['Preselected' => 1, 'Availability' => ['Immer',$availaibility]])->first();
+		return $this->Products()->filter(['Preselected' => 1, 'Availability' => ['Immer',$availaibility], 'SusbsiteID' => SubsiteState::singleton()->getSubsiteId()])->first();
 
 	}
 
 	public function getBestSeller(){
-		return $this->Products()->filter('BestSeller',1)->first();
+		return $this->Products()->filter(['BestSeller' => 1, 'SusbsiteID' => SubsiteState::singleton()->getSubsiteId()])->first();
 	}
 
 

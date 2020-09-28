@@ -65,6 +65,10 @@ class ShopCart extends DataObject {
 		'Email'
 	];
 
+	private static $extensions = [
+		'SubsiteFilterable'
+	];
+
 	public function fieldLabels($includerelation = true){
 		$labels = parent::fieldLabels($includerelation);
 		$labels['Gender'] = _t(__CLASS__.'.Gender','Anrede');
