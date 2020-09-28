@@ -119,15 +119,17 @@ $(document).ready(function(){
 			$("#unknown-dose-form, #products-container").attr('hidden','hidden');
 			$(".connection-type img").removeClass('uk-active');
 			$(this).addClass('uk-active');
+
 			if ($(this).attr('data-type') == "unknown") {
 				$("#unknown-dose-form").attr('hidden',false);
 			}
 			else{
+				var availability = $(this).attr('data-type');
 				var url = window.location.pathname;
 				$.ajax({
 					url: '/shop-functions/updateCartAvailability',
 					dataType: 'Json',
-					data:{availability: $("#products-container").attr('data-has-alternative')}
+					data:{availability: availability}
 				}).done(function(response){
 					DisplayProducts();
 				});
