@@ -52,7 +52,9 @@
 		          </div>
 		        </div>
 				<div id="unknown-dose-form" hidden>
+					<div class="uk-width-3-4">
 					$UnknownDoseForm
+					</div>
 				</div>
 		        <% with OrderConfig %>
 		        <div id="Kabel-TV-Dose-modal" data-uk-modal>
