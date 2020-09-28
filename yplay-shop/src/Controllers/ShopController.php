@@ -54,12 +54,13 @@ class ShopController extends PageController
             }
          }
       }
-      $html = '';
-      foreach (ProductCategory::get()->filter('isVisible',1) as $cat) {
-         $html .= $cat->renderWith('Includes/CategoriesSlider');
-      }
       
-      return json_encode(['products' => $products, 'html' => $html]);
+      
+      return json_encode($products);
+   }
+
+   public function getActiveCategories(){
+
    }
 
    public function getActiveCartObject(){
