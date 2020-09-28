@@ -53,7 +53,6 @@ $(document).ready(function(){
 	});
 });
 
-
 $(document).ready(function(){
 
 	//Toggle cart (all pages)
