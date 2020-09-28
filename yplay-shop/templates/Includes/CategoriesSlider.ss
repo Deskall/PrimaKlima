@@ -1,17 +1,16 @@
 
 <div class="category uk-text-center $category.Code uk-margin-large" <% if disabled %>data-disabled<% end_if %> <% if mandatory %>data-mandatory<%end_if %>>
-	<% with category %>
-	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" class="uk-margin-small-right" alt="$Icon.Alt"><h3 class="uk-margin-remove uk-flex uk-flex-middle">$Title <% if not Mandatory %><label class="switch uk-margin-small-left"><span class="slider round"></span></label><% end_if %></h3></div>
+	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$category.Icon.URL" width="50" class="uk-margin-small-right" alt="$category.Icon.Alt"><h3 class="uk-margin-remove uk-flex uk-flex-middle">$category.Title <% if not mandatory %><label class="switch uk-margin-small-left"><span class="slider round"></span></label><% end_if %></h3></div>
 
-	$Description
+	$category.Description
 
 
-	<div id="category-{$ID}" class="uk-padding-small <% if Code != "yplay-mobile" %>slider-packages<% end_if %> slider-products uk-padding-remove-bottom" data-id="$activeIndex" data-code="$Code">
+	<div id="category-{$category.ID}" class="uk-padding-small <% if $category.Code != "yplay-mobile" %>slider-packages<% end_if %> slider-products uk-padding-remove-bottom" data-id="$category.activeIndex" data-code="$category.Code">
 
 
 		<div class="uk-slider-container">
 			<ul class="uk-slider-items uk-child-width-2-3 uk-child-width-1-2@s uk-grid-match">
-				<% loop filteredProducts %>
+				<% loop $category.filteredProducts %>
 				<li data-product-id="$ID" data-index="$Pos" data-title="$Title" data-value="$ProductCode">
 					<div class="uk-card uk-card-default uk-border-rounded uk-card-hover uk-box-shadow-medium uk-card-small">
 						<div class="uk-card-body">
@@ -31,16 +30,15 @@
 		</div>
 	</div>
 	<div class="uk-margin-small">
-		<a data-uk-toggle="#modal-category-{$Code}">Mehr erfahren</a>
+		<a data-uk-toggle="#modal-category-{$category.Code}">Mehr erfahren</a>
 	</div>
-	<% if not Mandatory %>
+	<% if not $mandatory %>
 	<div class="not-included-input">
-		<input id="no-{$ID}" name="no-{$ID}" type="checkbox" class="uk-checkbox no-category" <% if not Preselected %>checked="checked"<% end_if %>>
-		<label for="no-{$ID}"><%t Category.NotIncluded 'Keine {title} Angebot' title=$Title %></label>
+		<input id="no-{$category.ID}" name="no-{$category.ID}" type="checkbox" class="uk-checkbox no-category" <% if not $category.Preselected %>checked="checked"<% end_if %>>
+		<label for="no-{$category.ID}"><%t Category.NotIncluded 'Keine {title} Angebot' title=$category.Title %></label>
 	</div>
 	<% end_if %>
-	<input type="hidden" name="$Code" data-product-choice>
-	<% end_with %>
+	<input type="hidden" name="$category.Code" data-product-choice>
 </div>
 <% with category %>
 <div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
