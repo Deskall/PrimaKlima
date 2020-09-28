@@ -51,7 +51,7 @@
 		            <div class="uk-text-center"><a><img class="uk-display-block uk-margin-small-bottom" src="$ThemeDir/img/bestellung-dose-unknown.svg" data-value="Dose noch nicht bekannt" data-type="unknown" alt="<%t Order.UnknownTV 'Dose noch nicht bekannt' %>" title="<%t Order.UnknownTV 'Dose noch nicht bekannt' %>"/><span><%t Order.UnknownTV 'Dose noch nicht bekannt' %></span></a></div>
 		          </div>
 		        </div>
-				<div id="unknown-dose-form" hidden>
+				<div id="unknown-dose-form" hidden class="uk-margin">
 					<div class="uk-width-3-4 uk-align-center">
 					$UnknownDoseForm
 					</div>
