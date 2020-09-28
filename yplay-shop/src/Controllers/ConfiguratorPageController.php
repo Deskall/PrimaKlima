@@ -37,8 +37,7 @@ class ConfiguratorPageController extends PageController
          'UnknownDoseForm',
          new FieldList(
                OptionsetField::create('Anrede','Anrede',['Herr' => 'Herr','Frau' => 'Frau']),
-               TextField::create('Vorname','Vorname')->setAttribute('class','uk-input'),
-               TextField::create('Name','Nachname')->setAttribute('class','uk-input'),
+               TextField::create('Name','Name und Vorname')->setAttribute('class','uk-input'),
                EmailField::create('Email','E-Mail')->setAttribute('class','uk-input'),
                $email2 = EmailField::create('Email2','E-Mail Prüfung')->setAttribute('class','uk-input')->setAttribute('validateEmail',true)->setDescription('Bitte geben Sie wieder Ihre E-Mail-Adresse ein.')->setAttribute('autocomplete','new-email-validation-'.rand()),
                TextField::create('Adresse','Adresse')->setAttribute('class','uk-input'),
@@ -48,9 +47,9 @@ class ConfiguratorPageController extends PageController
                TextareaField::create('Nachricht','Ihre Nachricht')->setAttribute('class','uk-textarea')
          ),
          new FieldList(
-            FormAction::create('sendDoseForm', _t('SHOP.SENDNOW', 'Anfrage jetzt senden'))->setUseButtonTag(true)->addExtraClass('uk-button')
+            FormAction::create('sendDoseForm', _t('SHOP.SENDNOW', 'Anfrage jetzt senden'))->setUseButtonTag(true)->addExtraClass('uk-button button-PrimaryBackground')
          ),
-         RequiredFields::create(['Gender','Name','FirstName','Email','Email2','Phone','Address','PostalCode','City'])
+         RequiredFields::create(['Anrede','Name','Email2','Telefon','Address','PLZ','Ort'])
       );
      
       $form->addExtraClass('form-std');
