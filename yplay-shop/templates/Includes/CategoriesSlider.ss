@@ -4,7 +4,9 @@
 
 	$category.Description
 
-
+	<% if $unavailable %>
+	<p><%t SHOP.CATEGORYUNAVAILABLE '{title} ist für die gewünschte Ortschaft nicht verfügbar' title=$category.Title %></p>
+	<% else %>
 	<div id="category-{$category.ID}" class="uk-padding-small <% if $category.Code != "yplay-mobile" %>slider-packages<% end_if %> slider-products uk-padding-remove-bottom" data-id="$category.activeIndex" data-code="$category.Code">
 
 
@@ -39,6 +41,7 @@
 	</div>
 	<% end_if %>
 	<input type="hidden" name="$category.Code" data-product-choice>
+	<% end_if %>
 </div>
 <% with category %>
 <div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>

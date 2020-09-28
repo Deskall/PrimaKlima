@@ -189,7 +189,7 @@ class ProductCategory extends DataObject {
 		if ($plz){
 			//We check if custom behaviors exists for this plz
 			$behaviors = $this->Dependencies()->filter(['Action' => 'inactive'])->filterByCallback(function($item, $list) use ($plz){
-				return $item->Codes()->count() == 0 || $item->Codes()->contains($plz);
+				return ($item->Codes()->count() == 0 && !$item->ExcludedCodes()->contains($plz) ) || $item->Codes()->contains($plz);
 			});
 			if ($behaviors->count() > 0){
 				return true;
@@ -202,7 +202,20 @@ class ProductCategory extends DataObject {
 		if ($plz){
 			//We check if custom behaviors exists for this plz
 			$behaviors = $this->Dependencies()->filter(['Action' => 'mandatory'])->filterByCallback(function($item, $list) use ($plz){
-				return $item->Codes()->count() == 0 || $item->Codes()->contains($plz);
+				return ($item->Codes()->count() == 0 && !$item->ExcludedCodes()->contains($plz) ) || $item->Codes()->contains($plz);
+			});
+			if ($behaviors->count() > 0){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public function isUnavailable($plz){
+		if ($plz){
+			//We check if custom behaviors exists for this plz
+			$behaviors = $this->Dependencies()->filter(['Action' => 'unavailable'])->filterByCallback(function($item, $list) use ($plz){
+				return ($item->Codes()->count() == 0 && !$item->ExcludedCodes()->contains($plz) ) || $item->Codes()->contains($plz);
 			});
 			if ($behaviors->count() > 0){
 				return true;
