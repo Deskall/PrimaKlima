@@ -19,6 +19,10 @@ class ProductAdmin extends ModelAdmin{
 	private static $menu_icon = "yplay-shop/images/icon-verkauf.png";
 	private static $url_segment = "shop";
 	private static $menu_title = "Shop";
+
+	public function subsiteCMSShowInMenu(){
+		return true;
+	}
 	
 	private static $managed_models = [
 		'ShopOrder' => [
