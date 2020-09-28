@@ -1,5 +1,5 @@
 
-<div class="category uk-text-center $category.Code uk-margin-large" data-disabled="$isDisabled" data-mandatory="$Mandatory">
+<div class="category uk-text-center $category.Code uk-margin-large" data-disabled="$disabled" data-mandatory="$mandatory">
 	<% with category %>
 	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" class="uk-margin-small-right" alt="$Icon.Alt"><h3 class="uk-margin-remove uk-flex uk-flex-middle">$Title <% if not Mandatory %><label class="switch uk-margin-small-left"><span class="slider round"></span></label><% end_if %></h3></div>
 

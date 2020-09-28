@@ -59,19 +59,19 @@ class ShopPageController extends PageController
 
     /* Update the Cart and link to Order Page */
    public function OrderPackageLink(){ 
-      $this->owner->getRequest()->getSession()->clear('chosen_product');
-      $packageID = $this->owner->getRequest()->param('ID');
+      $this->getRequest()->getSession()->clear('chosen_product');
+      $packageID = $this->getRequest()->param('ID');
       //If no active PLZ we redirect to Configurator
-      if (!$this->owner->activePLZ()){
+      if (!$this->activePLZ()){
          //First we save the selected package in session
          if ($packageID){
-             $this->owner->getRequest()->getSession()->set('chosen_package',$packageID);
+             $this->getRequest()->getSession()->set('chosen_package',$packageID);
          }
-        return $this->owner->redirect($this->owner->ConfiguratorPage()->Link(),302); 
+        return $this->redirect($this->ConfiguratorPage()->Link(),302); 
       }
 
       //Fetch cart or create if null
-      $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
       $cart = null;
       if ($id){
          $cart = ShopCart::get()->byId($id);
@@ -79,7 +79,7 @@ class ShopPageController extends PageController
       if (!$cart){
          $cart = new ShopCart();  
       }
-      $cart->IP = $this->owner->getRequest()->getIp();
+      $cart->IP = $this->getRequest()->getIp();
 
       //fetch package and link it
       
@@ -90,33 +90,33 @@ class ShopPageController extends PageController
            if ( $cart->Availability != "Immer"){
               $cart->Availability = $package->Availability;
            }
-           $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
+           $this->getRequest()->getSession()->set('active_offer',$cart->Availability);
            $cart->Products()->removeAll();
         }
       }
       
       $cart->write();
-      $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+      $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
 
 
-      return $this->owner->redirect($this->owner->ShopPage()->Link(),302);
+      return $this->redirect($this->ShopPage()->Link(),302);
    }
 
     /* Update the Cart and link to Order Page */
    public function OrderProductLink(){
-      $this->owner->getRequest()->getSession()->clear('chosen_package');
-      $productID = $this->owner->getRequest()->param('ID');
+      $this->getRequest()->getSession()->clear('chosen_package');
+      $productID = $this->getRequest()->param('ID');
       //If no active PLZ we redirect to Configurator
-      if (!$this->owner->activePLZ()){
+      if (!$this->activePLZ()){
          //First we save the selected package in session
          if ($productID){
-             $this->owner->getRequest()->getSession()->set('chosen_product',$productID);
+             $this->getRequest()->getSession()->set('chosen_product',$productID);
          }
-        return $this->owner->redirect($this->owner->ConfiguratorPage()->Link(),302); 
+        return $this->redirect($this->ConfiguratorPage()->Link(),302); 
       }
 
       //Fetch cart or create if null
-      $id = $this->owner->getRequest()->getSession()->get('shopcart_id');
+      $id = $this->getRequest()->getSession()->get('shopcart_id');
       $cart = null;
       if ($id){
          $cart = ShopCart::get()->byId($id);
@@ -124,7 +124,7 @@ class ShopPageController extends PageController
       if (!$cart){
          $cart = new ShopCart();  
       }
-      $cart->IP = $this->owner->getRequest()->getIp();
+      $cart->IP = $this->getRequest()->getIp();
 
       //fetch package and link it
       
@@ -137,13 +137,13 @@ class ShopPageController extends PageController
             if ($product->Availability != "Immer"){
                $cart->Availability = $product->Availability;
             }
-            $this->owner->getRequest()->getSession()->set('active_offer',$cart->Availability);
+            $this->getRequest()->getSession()->set('active_offer',$cart->Availability);
         }
       }
       
       $cart->write();
-      $this->owner->getRequest()->getSession()->set('shopcart_id',$cart->ID);
-      return $this->owner->redirect($this->owner->ConfiguratorPage()->Link(),302);
+      $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
+      return $this->redirect($this->ConfiguratorPage()->Link(),302);
    }
 
    public function OrderForm(){

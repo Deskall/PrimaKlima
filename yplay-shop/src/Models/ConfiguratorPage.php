@@ -27,17 +27,6 @@ class ConfiguratorPage extends Page {
 		return ConfiguratorPage::get()->count() == 0;
 	}
 
-	public function activeCategories(){
-		$categories = ProductCategory::get()->filter('isVisible',1);
-		$activeCategories = new ArrayList();
-		foreach ($categories as $cat) {
-			$data = new ArrayData();
-			$data->setField('category',$cat);
-			$activeCategories->push($data);
-		}
-		return $activeCategories;
-	}
-
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->removeByName('BlockTitle');

@@ -179,22 +179,35 @@ class ProductCategory extends DataObject {
 		return ($this->getPreselected()) ? $this->getPreselected()->ID : 0;
 	}
 
-	/** Deactivate product slider if cart does not contain the category */
-	public function isDisabled(){
-		
-		$request = Injector::inst()->get(HTTPRequest::class);
-		$session = $request->getSession();
-		if ($session->get('shopcart_id')){
-			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
-			if ($cart){
-				
-				if (!$cart->hasCategory($this->Code) && ($cart->Package()->exists() || $cart->Products()->exists())){
-					
-					return true;
-				}
+	/** Deactivate product slider according to code and cart*/
+	public function isInactive($cart,$plz){
+		if ($cart){
+			if ($cart->hasCategory($this->Code)){
+				return false;
 			}
 		}
-		
+		if ($plz){
+			//We check if custom behaviors exists for this plz
+			$behaviors = $this->Dependencies()->filter(['Action' => 'inactive'])->filterByCallback(function($item, $list) use ($plz){
+				return $item->Codes()->count() == 0 || $item->Codes()->contains($plz);
+			});
+			if ($behaviors->count() > 0){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public function isMandatory($plz){
+		if ($plz){
+			//We check if custom behaviors exists for this plz
+			$behaviors = $this->Dependencies()->filter(['Action' => 'mandatory'])->filterByCallback(function($item, $list) use ($plz){
+				return $item->Codes()->count() == 0 || $item->Codes()->contains($plz);
+			});
+			if ($behaviors->count() > 0){
+				return true;
+			}
+		}
 		return false;
 	}
 }
