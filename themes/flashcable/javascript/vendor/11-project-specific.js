@@ -82,16 +82,7 @@ $(document).ready(function(){
 		if (typeof $("#products-container").attr('data-has-alternative') === "undefined"){
 			DisplayProducts();
 		}
-		else{
-			var url = window.location.pathname;
-			$.ajax({
-				url: '/shop-functions/updateCartAvailability',
-				dataType: 'Json',
-				data:{availability: $("#products-container").attr('data-has-alternative')}
-			}).done(function(response){
-				DisplayProducts();
-			});
-		}
+		
 		
 		$(document).on("change",".no-category",function(){
 			if ($(this).is(':checked')){
@@ -132,6 +123,14 @@ $(document).ready(function(){
 				$("#unknown-dose-form").attr('hidden',false);
 			}
 			else{
+				var url = window.location.pathname;
+				$.ajax({
+					url: '/shop-functions/updateCartAvailability',
+					dataType: 'Json',
+					data:{availability: $("#products-container").attr('data-has-alternative')}
+				}).done(function(response){
+					DisplayProducts();
+				});
 				$("#products-container").attr('hidden',false);
 				UIkit.update(document.body, type = 'update');
 			}
