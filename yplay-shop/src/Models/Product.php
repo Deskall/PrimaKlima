@@ -20,6 +20,7 @@ use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Subsites\State\SubsiteState;
+use SilverStripe\Subsites\Model\Subsite;
 
 class Product extends DataObject {
 
