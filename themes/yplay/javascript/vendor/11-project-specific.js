@@ -94,7 +94,7 @@ $(document).ready(function(){
 				for (var i = 0; i < dependencies.length; i++ ){
 					let code = dependencies[i];
 					let input = $(".category." + code).find('.no-category');
-					input.prop('disabled',false);
+					input.prop('disabled',false).show();
 					$(".category." + code).removeClass('mandatory');
 				}
 			}
@@ -105,7 +105,7 @@ $(document).ready(function(){
 					let code = dependencies[i];
 					let input = $(".category." + code).find('.no-category');
 					if (input.is(':checked')){
-						input.trigger('click').prop('disabled',true);
+						input.trigger('click').prop('disabled',true).hide();
 						$(".category." + code).addClass('mandatory');
 					}
 				}
