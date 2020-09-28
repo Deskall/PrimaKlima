@@ -97,7 +97,8 @@ $(document).ready(function(){
 						let code = dependencies[i];
 						let input = $(".category." + code).find('.no-category');
 						if (!input.is(':checked')){
-							input.trigger('click');
+							console.log('ca marche');
+							input.prop('checked',true);
 						}
 					}
 				}
