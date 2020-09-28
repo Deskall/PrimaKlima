@@ -232,6 +232,10 @@ class ShopController extends PageController
 
       if ($cart && $availability ){
          $cart->Availability = $availability;
+         //We remove all attached Packages, Product and Options
+         $cart->Products()->removeAll();
+         $cart->Packages()->removeAll();
+         $cart->Options()->removeAll();
          $cart->write();
          return json_encode(['message' => 'Warenkorb aktualisiert']);
       }
