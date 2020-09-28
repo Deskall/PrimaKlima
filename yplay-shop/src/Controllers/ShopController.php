@@ -14,7 +14,6 @@ use SilverStripe\Control\HTTPRequest;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Subsites\State\SubsiteState;
 use SilverStripe\View\ArrayData;
-use SilverStripe\ORM\ArrayList;
 
 class ShopController extends PageController
 {
