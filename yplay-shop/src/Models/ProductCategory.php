@@ -224,24 +224,24 @@ class ProductCategory extends DataObject {
 		return false;
 	}
 
-	// public function hasDependencies($plz){
-	// 	if ($plz){
-	// 		//We check if custom behaviors exists for this plz
-	// 		$behaviors = $this->Dependencies()->filter(['Action' => 'depends'])->filterByCallback(function($item, $list) use ($plz){
-	// 			return ($item->Codes()->count() == 0 && !$item->ExcludedCodes()->byId($plz) ) || $item->Codes()->byId($plz);
-	// 		});
-	// 		if ($behaviors->count() > 0){
-	// 			$array = [];
-	// 			foreach ($behaviors as $b) {
-	// 				foreach ($b->RequiredCategories() as $c) {
-	// 					if (!in_array($c->Code, $array)){
-	// 						$array[] = $c->Code;
-	// 					}
-	// 				}
-	// 			}
-	// 			return json_encode($array);
-	// 		}
-	// 	}
-	// 	return false;
-	// }
+	public function hasDependencies($plz){
+		if ($plz){
+			//We check if custom behaviors exists for this plz
+			$behaviors = $this->Dependencies()->filter(['Action' => 'depends'])->filterByCallback(function($item, $list) use ($plz){
+				return ($item->Codes()->count() == 0 && !$item->ExcludedCodes()->byId($plz) ) || $item->Codes()->byId($plz);
+			});
+			if ($behaviors->count() > 0){
+				$array = [];
+				foreach ($behaviors as $b) {
+					foreach ($b->RequiredCategories() as $c) {
+						if (!in_array($c->Code, $array)){
+							$array[] = $c->Code;
+						}
+					}
+				}
+				return json_encode($array);
+			}
+		}
+		return false;
+	}
 }
