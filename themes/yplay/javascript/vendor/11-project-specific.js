@@ -93,10 +93,9 @@ $(document).ready(function(){
 				let dependencies = $(this).parents('.category').attr('data-dependencies');
 				if (typeof dependencies !== 'undefined'){
 					dependencies = $.parseJSON(dependencies);
-					console.log(dependencies);
 					for (var i = 0; i < dependencies.length; i++ ){
 						let code = dependencies[i];
-						console.log(code);
+						$(".category." + code).find('.switch').trigger('click');
 					}
 				}
 			}
