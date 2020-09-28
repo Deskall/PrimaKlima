@@ -135,8 +135,12 @@ $(document).ready(function(){
 
 		//Handle Connection Type
 		$(document).on("click",".connection-type img",function(){
+			$("#unknown-dose-form, #products-container").attr('hidden','hidden');
 			if ($(this).attr('data-type') == "unknown") {
 				$("#unknown-dose-form").attr('hidden',false);
+			}
+			else{
+				$("#products-container").attr('hidden',false);
 			}
 		});
 	}
