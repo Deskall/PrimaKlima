@@ -81,12 +81,7 @@ class Product extends DataObject {
 
 	public function onBeforeWrite(){
 	    if ($this->isChanged('Title')){
-	    	//Subsite prefix
-	    	$prefix = '';
-	    	if ($id = SubsiteState::singleton()->getSubsiteId() > 0){
-	    		$prefix = Subsite::get()->byId($id)->Title . ' ';
-	    	}
-	    	$code = URLSegmentFilter::create()->filter($prefix . $this->Title);
+	    	$code = URLSegmentFilter::create()->filter($this->Title);
 	    	$newcode = $code;
 	    	$exist = Product::get()->filter('ProductCode',$code)->exclude('ID',$this->ID)->count();
 	    	$i = 1;
