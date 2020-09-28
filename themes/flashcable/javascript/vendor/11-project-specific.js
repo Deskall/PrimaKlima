@@ -132,6 +132,13 @@ $(document).ready(function(){
 				input.prop('checked',true).trigger('change');
 			}
 		});
+
+		//Handle Connection Type
+		$(document).on("click",".connection-type img",function(){
+			if ($(this).attr('data-type') == "unknown") {
+				$("#unknown-dose-form").attr('hidden',false);
+			}
+		});
 	}
 
 
