@@ -125,6 +125,7 @@ $(document).ready(function(){
 			}
 			else{
 				$("#products-container").attr('hidden',false);
+				$("#categories-slider").empty();
 				$("#loading-block").show();
 				var availability = $(this).attr('data-type');
 				var url = window.location.pathname;
