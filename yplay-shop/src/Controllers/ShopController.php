@@ -17,7 +17,7 @@ use SilverStripe\Subsites\State\SubsiteState;
 class ShopController extends PageController
 {
 
-   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'updateCartAvailability', 'smartcard', 'checkCustomer', 'CheckPartnerForCode']; 
+   private static $allowed_actions = ['fetchPackages', 'fetchCart', 'updateCartOptions', 'getActiveCart', 'updateCartStep', 'updateCartData', 'updateCartAvailability', 'smartcard', 'checkCustomer', 'CheckPartnerForCode', 'updateCategories']; 
 
    public function fetchPackages(){
    	$packages = Package::get()->filter('isVisible',1)->filterByCallback(function($item, $list) {
@@ -59,8 +59,12 @@ class ShopController extends PageController
       return json_encode($products);
    }
 
-   public function getActiveCategories(){
-
+   public function updateCategories(){
+      $html = '';
+      foreach (ProductCategory::get()->filter('isVisible',1) as $cat) {
+         $html .= $cat->renderWith('Includes/CategoriesSlider');
+      }
+      return $html;      
    }
 
    public function getActiveCartObject(){
