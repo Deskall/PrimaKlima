@@ -144,7 +144,7 @@ class ProductCategory extends DataObject {
 	}
 
 	public function filteredProducts(){
-		$products = $this->Products()->filter(['ClassName' => Product::class, 'isVisible' => 1, 'SubsiteID' => SubsiteState::singleton()->getSubsiteId()])->filterByCallback(function($item, $list) {
+		$products = $this->Products()->filter(['ClassName' => Product::class, 'isVisible' => 1, 'SubsiteID' => [0, SubsiteState::singleton()->getSubsiteId()]])->filterByCallback(function($item, $list) {
 		    return ($item->shouldDisplay() && $item->isAvailable());
 		});
 
@@ -152,7 +152,7 @@ class ProductCategory extends DataObject {
 	}
 
 	public function filteredOptions(){
-		$options = $this->Options()->filter(['ClassName' => ProductOption::class, 'isVisible' => 1, 'SubsiteID' => SubsiteState::singleton()->getSubsiteId()])->filterByCallback(function($item, $list) {
+		$options = $this->Options()->filter(['ClassName' => ProductOption::class, 'isVisible' => 1, 'SubsiteID' => [0, SubsiteState::singleton()->getSubsiteId()]])->filterByCallback(function($item, $list) {
 		    return ($item->shouldDisplay() && $item->isAvailable());
 		});
 
@@ -166,12 +166,12 @@ class ProductCategory extends DataObject {
 		
 		$availaibility = ($session->get('active_plz')) ? PostalCode::get()->byId($session->get('active_plz'))->StandardOffer : "Fiber";
 		
-		return $this->Products()->filter(['Preselected' => 1, 'Availability' => ['Immer',$availaibility], 'SubsiteID' => SubsiteState::singleton()->getSubsiteId()])->first();
+		return $this->Products()->filter(['Preselected' => 1, 'Availability' => ['Immer',$availaibility], 'SubsiteID' => [0, SubsiteState::singleton()->getSubsiteId()]])->first();
 
 	}
 
 	public function getBestSeller(){
-		return $this->Products()->filter(['BestSeller' => 1, 'SubsiteID' => SubsiteState::singleton()->getSubsiteId()])->first();
+		return $this->Products()->filter(['BestSeller' => 1, 'SubsiteID' => [0, SubsiteState::singleton()->getSubsiteId()]])->first();
 	}
 
 
