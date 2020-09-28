@@ -78,31 +78,11 @@ $(document).ready(function(){
 		packages = [],
 		productsOfPackages = [],
 		updateRun;
-		
-		var url = window.location.pathname;
-		$.ajax({
-			url: '/shop-functions/fetchPackages',
-			dataType: 'Json'
-		}).done(function(response){
-			packages = response;
-			$.ajax({
-				url: '/shop-functions/getActiveCart',
-				dataType: 'Json'
-			}).done(function(response){
-				products = response;
-				InitSliders(products);
-			});
-		});
-		
-		$(".no-category").each(function(){
-			if ($(this).is(':checked')){
-				$(this).parents('.category').addClass('disabled');
-			}
-			else{
-				$(this).parents('.category').removeClass('disabled');
-			}
-		});
 
+		if (typeof $("#products-container").attr('data-has-alternative') === "undefined"){
+			DisplayProducts();
+		}
+		
 		$(document).on("change",".no-category",function(){
 			if ($(this).is(':checked')){
 				$(this).parents('.category').addClass('disabled');
@@ -144,6 +124,33 @@ $(document).ready(function(){
 			else{
 				$("#products-container").attr('hidden',false);
 				UIkit.update(document.body, type = 'update');
+			}
+		});
+	}
+
+	function DisplayProducts(offer = null){
+		var url = window.location.pathname;
+		$.ajax({
+			url: '/shop-functions/fetchPackages',
+			dataType: 'Json',
+			data:{offer: offer}
+		}).done(function(response){
+			packages = response;
+			$.ajax({
+				url: '/shop-functions/getActiveCart',
+				dataType: 'Json'
+			}).done(function(response){
+				products = response;
+				InitSliders(products);
+			});
+		});
+		
+		$(".no-category").each(function(){
+			if ($(this).is(':checked')){
+				$(this).parents('.category').addClass('disabled');
+			}
+			else{
+				$(this).parents('.category').removeClass('disabled');
 			}
 		});
 	}

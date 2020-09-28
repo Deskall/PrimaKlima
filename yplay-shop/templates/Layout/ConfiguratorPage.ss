@@ -75,7 +75,7 @@
 		        </div>
 		        <% end_with %>
 				<% end_if %>
-				<div id="products-container" class="uk-margin" <% if activePLZ.AlternateOffer %>hidden<% end_if %>>
+				<div id="products-container" class="uk-margin" <% if activePLZ.AlternateOffer %>hidden data-has-alternative="true"<% end_if %>>
 					<div id="loading-block" class="uk-text-left">
 						<p><span data-uk-spinner="ratio: 2" class="uk-margin-right"></span>Produkte werden geladen. Einen Moment bitte.</p>
 					</div>
