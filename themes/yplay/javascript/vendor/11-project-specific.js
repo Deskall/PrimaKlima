@@ -97,9 +97,9 @@ $(document).ready(function(){
 					for (var i = 0; i < dependencies.length; i++ ){
 						let code = dependencies[i];
 						let input = $(".category." + code).find('.no-category');
-						if (!input.is(':checked')){
+						if (input.is(':checked')){
 							console.log('ca marche');
-							input.prop('checked',true);
+							input.prop('checked',false);
 						}
 					}
 				}
