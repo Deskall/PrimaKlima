@@ -84,6 +84,7 @@ $(document).ready(function(){
 		}
 		
 		$(document).on("change",".no-category", function(){
+			console.log("ici");
 			if ($(this).is(':checked')){
 				$(this).parents('.category').addClass('disabled');
 			}
