@@ -31,6 +31,6 @@ class CustomPageExtension extends DataExtension
     }
 
     public function ShopPage(){
-        return ShopPage::get()->first();
+        return ShopPage::get()->filter('SubsiteID',SubsiteState::singleton()->getSubsiteId())->first();
     }
 }

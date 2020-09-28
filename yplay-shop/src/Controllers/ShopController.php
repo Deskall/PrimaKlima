@@ -12,6 +12,7 @@ use SilverStripe\View\Requirements;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\Subsites\State\SubsiteState;
 
 class ShopController extends PageController
 {
@@ -170,7 +171,7 @@ class ShopController extends PageController
             }
          }
          $this->getRequest()->getSession()->set('shopcart_id',$cart->ID);
-         return json_encode(['link' => ShopPage::get()->first()->Link()]);
+         return json_encode(['link' => ShopPage::get()->filter('SubsiteID',SubsiteState::singleton()->getSubsiteId())->first()->Link()]);
       }
 
      return json_encode(['error' => '']);

@@ -19,6 +19,7 @@ use Symbiote\GridFieldExtensions\GridFieldTitleHeader;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Subsites\State\SubsiteState;
 
 class Product extends DataObject {
 
@@ -271,7 +272,7 @@ class Product extends DataObject {
 	}
 
 	public function OrderLink(){
-		$shop = ShopPage::get()->first();
+		$shop = ShopPage::get()->filter('SubsiteID',SubsiteState::singleton()->getSubsiteId())->first();
 		switch ($this->ClassName){
 			case "Package":
 			 $link = $shop->Link()."paket/".$this->ID;
