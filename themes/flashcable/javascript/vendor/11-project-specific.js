@@ -124,6 +124,7 @@ $(document).ready(function(){
 				$("#unknown-dose-form").attr('hidden',false);
 			}
 			else{
+				$("#products-container").attr('hidden',false);
 				var availability = $(this).attr('data-type');
 				var url = window.location.pathname;
 				$.ajax({
@@ -132,7 +133,6 @@ $(document).ready(function(){
 					data:{availability: availability}
 				}).done(function(response){
 					DisplayProducts();
-					$("#products-container").attr('hidden',false);
 					UIkit.update(document.body, type = 'update');
 				});
 			}
