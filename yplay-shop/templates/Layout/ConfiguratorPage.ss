@@ -43,7 +43,7 @@
 			</form>
 			<% else %>
 				<% if activePLZ.AlternateOffer %>
-				<div>
+				<div class="connection-type">
 		          <h3><%t Order.ExistingTVConnection 'Ihre Anschluss-Art' %></h3>
 		          <div class="uk-child-width-1-3" data-uk-grid>
 		          	<div class="uk-text-center"><a><img class="uk-display-block uk-margin-small-bottom" src="$ThemeDir/img/bestellung-glasfaserdose.svg" data-value="GlasfaserDose" data-type="FTTH" alt="<%t Order.FiberTV 'Glasfaser-Dose' %>" title="<%t Order.FiberTV 'Glasfaser-Dose' %>"/><span><%t Order.FiberTV 'Glasfaser-Dose' %><a data-uk-toggle="target: #Glasfaser-Dose-modal" class="uk-margin-small-left"><span data-uk-icon="info" class="uk-margin-small-right"></span></a></span></a></div>
@@ -51,7 +51,9 @@
 		            <div class="uk-text-center"><a><img class="uk-display-block uk-margin-small-bottom" src="$ThemeDir/img/bestellung-dose-unknown.svg" data-value="Dose noch nicht bekannt" data-type="unknown" alt="<%t Order.UnknownTV 'Dose noch nicht bekannt' %>" title="<%t Order.UnknownTV 'Dose noch nicht bekannt' %>"/><span><%t Order.UnknownTV 'Dose noch nicht bekannt' %></span></a></div>
 		          </div>
 		        </div>
-				        
+				<div id="unknown-dose-form" hidden>
+					$UnknownDoseForm
+				</div>
 		        <% with OrderConfig %>
 		        <div id="Kabel-TV-Dose-modal" data-uk-modal>
 		            <div class="uk-modal-dialog uk-modal-body">
