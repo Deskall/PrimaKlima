@@ -19,7 +19,7 @@
 								<% end_loop %>
 							</div>
 							<div class="uk-navbar-left">
-								<ul class="uk-navbar-nav">
+								<ul class="uk-navbar-nav sub">
 									<li class="link"><a href="#" data-uk-toggle="#modal-search"><i class="uk-margin-small-right"  data-uk-icon="search"></i><small>Suchen</small></a></li>
 									<li class="link"><a href="https://mein.yplay.ch/" target="_blank"><i class="uk-margin-small-right" data-uk-icon="user"></i><small>Mein Konto</small></a></li>
 									<li class="link"><a href="#" data-uk-toggle="#modal-notifications"><i class="uk-margin-small-right"  data-uk-icon="bell"><span class="uk-label uk-label-danger uk-border-rounded" >$activeMessages.count</span></i><small>Meldungen</small></a></li>
