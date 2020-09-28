@@ -52,6 +52,7 @@ class ShopOrder extends DataObject{
 
 	private static $summary_fields = array(
 		'Nummer' => 'Rechnungsnummer',
+		'NiceSubsite' => 'Website',
 		'NiceOrder' => 'Übersicht',
 		'Customer.printAddress' => 'Kunde',
 		'Email' => 'Email',
@@ -60,6 +61,10 @@ class ShopOrder extends DataObject{
 
 	private static $cascade_deletes = [
 		'Items'
+	];
+
+	private static $extensions = [
+		'SubsiteFilterable'
 	];
 
 	private static $searchable_fields = [
@@ -115,6 +120,10 @@ class ShopOrder extends DataObject{
 
 	public function NiceOrder(){
 		return $this->renderWith('Includes/ShopOrderSummary');
+	}
+
+	public function NiceSubsite(){
+		return ($this->SubsiteID > 0) ? $this->Subsite()->Title : "YplaY";
 	}
 
 	public function OrderHTML(){

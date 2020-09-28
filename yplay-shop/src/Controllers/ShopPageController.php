@@ -201,7 +201,8 @@ class ShopPageController extends PageController
                CheckboxField::create('AGB',DBHTMLText::create()->setValue('Ich bin mit den <a href="'.$agbpage->Link().'" target="_blank" title="AGB anschauen">AGB</a> einverstanden'))->setAttribute('class','uk-checkbox'),
                NocaptchaField::create('Captcha')
             )->setName('OtherFields'),
-            HiddenField::create('ExistingCustomer')
+            HiddenField::create('ExistingCustomer'),
+            HiddenField::create('SubsiteID')
          ),
          new FieldList(
             FormAction::create('doOrder', _t('SHOP.BUYNOW', 'Bestellung abschicken'))->setUseButtonTag(true)->addExtraClass('uk-button')
