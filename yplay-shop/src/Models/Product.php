@@ -203,10 +203,6 @@ class Product extends DataObject {
 
 	//To do: elaborate with Actions
 	public function getActionMonthlyPrice(){
-		ob_start();
-					print_r('product: '.$this->ProductCode."\n");
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-products.txt", $result);
 		$discounts = $this->Actions();
 		if ($discounts){
 			if ($this->activePLZ()){
@@ -225,14 +221,6 @@ class Product extends DataObject {
 		}
 		if ($discounts->count() > 0){
 			$discount = $discounts->first();
-			ob_start();
-						print_r('discount: '.$discount->Title."\n");
-						$result = ob_get_clean();
-						file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-products.txt", $result, FILE_APPEND);
-			ob_start();
-						print_r('price: '.$discount->Value."\n");
-						$result = ob_get_clean();
-						file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-products.txt", $result, FILE_APPEND);
 			return $discount->Value;
 		}
 		return null;
@@ -273,19 +261,21 @@ class Product extends DataObject {
 
 	public function OrderLink(){
 		$shop = ShopPage::get()->filter('SubsiteID',SubsiteState::singleton()->getSubsiteId())->first();
-		switch ($this->ClassName){
-			case "Package":
-			 $link = $shop->Link()."paket/".$this->ID;
-			 break;
-			case "Product":
-			 $link = $shop->Link()."produkt/".$this->ID;
-			 break;
-			case "ProductOption":
-			 $link = $shop->Link()."option/".$this->ID;
-			 break;
+		if ($shop){
+			switch ($this->ClassName){
+				case "Package":
+				 $link = $shop->Link()."paket/".$this->ID;
+				 break;
+				case "Product":
+				 $link = $shop->Link()."produkt/".$this->ID;
+				 break;
+				case "ProductOption":
+				 $link = $shop->Link()."option/".$this->ID;
+				 break;
+			}
+			return $link;
 		}
-
-		return $link;
+		return null;
 	}
 
 	//Check if a discount apply for this product
