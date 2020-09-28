@@ -54,7 +54,7 @@ class CategoryDependency extends DataObject {
 		$fields = FieldList::create();
 		$fields->push(new Tabset('Root', new Tab('Main','Detail')));
 		$fields->addFieldToTab('Root.Main', TextField::create('Description',$this->fieldLabels()['Description']));
-		$fields->insertAfter('Description',DropdownField::create('Action',$this->fieldLabels()['Description'], ['unavailable' => 'ist nicht verfügbar', 'inactive' => 'ist standardmäßig inaktiv', 'depends' => 'kann nur mit anderen Kategorien bestellt sein'])->setEmptyString('Bitte Behandlung wählen'));
+		$fields->insertAfter('Description',DropdownField::create('Action',$this->fieldLabels()['Description'], ['mandatory' => 'ist pflicht', 'unavailable' => 'ist nicht verfügbar', 'inactive' => 'ist standardmäßig inaktiv', 'depends' => 'kann nur mit anderen Kategorien bestellt sein'])->setEmptyString('Bitte Behandlung wählen'));
 		$fields->insertAfter('Action', ListboxField::create('RequiredCategories',$this->fieldLabels()['RequiredCategories'], ProductCategory::get()->exclude('ID',$this->ParentID)->map('ID','Title'), $this->RequiredCategories())->setAttribute('data-placeholder','Bitte Kategorie(n) eingeben')->displayIf('Action')->isEqualTo('depends')->end());
 
 		$fields->addFieldToTab('Root.Main', ListboxField::create('Codes',$this->fieldLabels()['Codes'], PostalCode::get()->map('ID','Code'), $this->Codes())->setAttribute('data-placeholder','Alle Ortschaften sind betroffen'));
