@@ -159,9 +159,10 @@ $(document).ready(function(){
 				var url = window.location.pathname;
 				$.ajax({
 					url: '/shop-functions/updateCartAvailability',
-					dataType: 'Json',
+					dataType: 'html',
 					data:{availability: availability}
 				}).done(function(response){
+					$("#categories-slider").append(response);
 					DisplayProducts();
 					UIkit.update(document.body, type = 'update');
 				});
