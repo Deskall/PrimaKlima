@@ -1,5 +1,6 @@
-<% with category %>
-<div class="category uk-text-center $Code uk-margin-large" <% if not Mandatory %>data-disabled="$isDisabled"<% end_if %> data-mandatory="$Mandatory">
+
+<div class="category uk-text-center $category.Code uk-margin-large" data-disabled="$isDisabled" data-mandatory="$Mandatory">
+	<% with category %>
 	<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-small-bottom"><img src="$Icon.URL" width="50" class="uk-margin-small-right" alt="$Icon.Alt"><h3 class="uk-margin-remove uk-flex uk-flex-middle">$Title <% if not Mandatory %><label class="switch uk-margin-small-left"><span class="slider round"></span></label><% end_if %></h3></div>
 
 	$Description
@@ -39,7 +40,9 @@
 	</div>
 	<% end_if %>
 	<input type="hidden" name="$Code" data-product-choice>
+	<% end_with %>
 </div>
+<% with category %>
 <div id="modal-category-{$Code}" class="uk-modal-full category-modal $Code" data-uk-modal>
 	<div class="uk-modal-dialog">
 		<button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
