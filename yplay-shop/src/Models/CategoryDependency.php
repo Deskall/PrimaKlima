@@ -5,7 +5,7 @@ use SilverStripe\ORM\FieldType\DBText;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\DrodownField;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Tabset;
