@@ -55,7 +55,7 @@ class ShopController extends PageController
          }
       }
       
-      return json_encode($products);
+      return json_encode(['products' => $products, 'html' => $this->renderWidth('Includes/CategoriesSlider')]);
    }
 
    public function getActiveCartObject(){
