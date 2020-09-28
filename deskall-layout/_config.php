@@ -4,7 +4,8 @@
 * @author: Deskall Kommunikation AG
 */
 use SilverStripe\Subsites\Model\Subsite;
+use SilverStripe\Subsites\Extensions\SubsiteMenuExtension;
 
 if(class_exists(Subsite::class)){
-	ThemeLeftAndMain::add_extension('SubsiteMenuExtension');
+	ThemeLeftAndMain::add_extension(SubsiteMenuExtension::class);
 }
