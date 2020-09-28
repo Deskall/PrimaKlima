@@ -29,11 +29,7 @@ class ConfiguratorPageController extends PageController
    private static $allowed_actions = ['UnknownDoseForm'];
 
    public function activeCategories(){
-    ob_start();
-          print_r('ici');
-          $result = ob_get_clean();
-          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-    $activePLZ = $this->getRequest()->getSession()->get('active_plz');
+    
     $categories = ProductCategory::get()->filter('isVisible',1);
     $activeCategories = new ArrayList();
     foreach ($categories as $cat) {
@@ -42,7 +38,7 @@ class ConfiguratorPageController extends PageController
       $data->setField('disabled',$cat->isInactive($cart, $activePLZ));
       $data->setField('mandatory',$cat->isMandatory($activePLZ));
       $data->setField('unavailable',$cat->isUnavailable($activePLZ));
-      $data->setField('activeDependencies',$cat->hasDependencies($activePLZ));
+      // $data->setField('activeDependencies',$cat->hasDependencies($activePLZ));
       $activeCategories->push($data);
     }
     return $activeCategories;
