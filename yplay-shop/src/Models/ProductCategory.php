@@ -181,36 +181,20 @@ class ProductCategory extends DataObject {
 
 	/** Deactivate product slider if cart does not contain the category */
 	public function isDisabled(){
-		ob_start();
-		print_r('------------ ' . $this->Title . ' ------------'."\n");
-		$result = ob_get_clean();
-		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+		
 		$request = Injector::inst()->get(HTTPRequest::class);
 		$session = $request->getSession();
 		if ($session->get('shopcart_id')){
 			$cart = ShopCart::get()->byId($session->get('shopcart_id'));
 			if ($cart){
-				ob_start();
-				print_r($this->Title. ' panier actif'."\n");
-				$result = ob_get_clean();
-				file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+				
 				if (!$cart->hasCategory($this->Code) && ($cart->Package()->exists() || $cart->Products()->exists())){
-					ob_start();
-					print_r($this->Title. ' est inactive'."\n");
-					$result = ob_get_clean();
-					file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+					
 					return true;
 				}
 			}
 		}
-		ob_start();
-		print_r($this->Title. ' est active'."\n");
-		$result = ob_get_clean();
-		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-		ob_start();
-		print_r("\n".'--------------------------'."\n");
-		$result = ob_get_clean();
-		file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+		
 		return false;
 	}
 }

@@ -2,6 +2,8 @@
 
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\View\ArrayData;
+use SilverStripe\ORM\ArrayList;
 
 class ConfiguratorPage extends Page {
 	private static $singular_name = "Abo Konfigurator";
@@ -26,7 +28,14 @@ class ConfiguratorPage extends Page {
 	}
 
 	public function activeCategories(){
-		return ProductCategory::get()->filter('isVisible',1);
+		$categories = ProductCategory::get()->filter('isVisible',1);
+		$activeCategories = new ArrayList();
+		foreach ($categories as $cat) {
+			$data = new ArrayData();
+			$data->setField('category',$cat);
+			$activeCategories->push($data);
+		}
+		return $activeCategories;
 	}
 
 	public function getCMSFields(){
