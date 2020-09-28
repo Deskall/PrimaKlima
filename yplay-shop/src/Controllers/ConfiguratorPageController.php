@@ -89,6 +89,7 @@ class ConfiguratorPageController extends PageController
        $table = '<table>';
        unset($data['SecurityID']);
        unset($data['g-recaptcha-response']);
+       unset($data['Email2']);
        foreach ($data as $key => $value) {
            if ($value != "") {
                $table .= '<tr><td>'.$key.'</td><td>'.$value.'</td></tr>';
