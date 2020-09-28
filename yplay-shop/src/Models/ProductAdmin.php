@@ -13,6 +13,7 @@ use SilverStripe\ORM\DB;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldExportButton;
 use SilverStripe\Forms\GridField\GridFieldPrintButton;
+use SilverStripe\Subsites\State\SubsiteState;
 
 class ProductAdmin extends ModelAdmin{
 
@@ -134,7 +135,10 @@ class ProductAdmin extends ModelAdmin{
 	public function getList(){
 		$list = parent::getList();
 		if($this->modelClass == 'Product') {
-	      $list = $list->filter('ClassName','Product');
+	      $list = $list->filter(['ClassName' => 'Product', 'SubsiteID' => SubsiteState::singleton()->getSubsiteId()]);
+	    }
+	    if($this->modelClass == 'Package') {
+	    	$list = $list->filter('SubsiteID', SubsiteState::singleton()->getSubsiteId());
 	    }
 	    if($this->modelClass == 'ShopCart') {
 	      $list = $list->filter('Purchased',0);
