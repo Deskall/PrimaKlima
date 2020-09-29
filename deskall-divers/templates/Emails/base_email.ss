@@ -25,7 +25,6 @@
 	.button-holder{text-align: right;}
 	.button-holder a{text-decoration: none;color: #fff;background-color: #007327!important; font-weight: bold; font-size: 20px; padding: 5px 10px}
 
-
 	.social .soc-btn{padding:3px 7px;font-size:12px;margin-bottom:10px;display:block}
 	a.fb{background-color:#3B5998!important}
 	a.tw{background-color:#1daced!important}
