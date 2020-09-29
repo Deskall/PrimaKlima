@@ -82,8 +82,9 @@ class VideoBlock extends BaseElement implements Searchable
     public function getCMSFields() {
         $fields = parent::getCMSFields();
         $fields->removeByName('VideoPerLine');
+        $fields->removeByName('VideoPerLine');
         $fields->removeByName('Layout');
-        $fields->removeByName('VideosHTML');
+        $fields->removeByName('VideoObjects');
           
             $fields
                 ->fieldByName('Root.Main.HTML')
