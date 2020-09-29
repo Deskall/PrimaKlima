@@ -10,11 +10,11 @@ class PrivatePolicyPage extends Page {
 
 	private static $description = "Enthält die Datenschutzerklärung der Website";
 
-	public function canCreate($member = null, $context = null){
+	public function canCreate($member = null, $context = null) {
 		return PrivatePolicyPage::get()->count() == 0;
 	}
 
-	public function canDelete($member = null, $context = null){
+	public function canDelete($member = null, $context = null) {
 		return false;
 	}
 

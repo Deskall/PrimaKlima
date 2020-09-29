@@ -4,7 +4,7 @@ class HomePage extends Page {
 
 	private static $icon_class = "font-icon-home";
 	
-	private static $description = "Startseite";
+	private static $description = "Home";
 
 	public function canCreate($member = null, $context = null){
 		return HomePage::get()->count() == 0;
