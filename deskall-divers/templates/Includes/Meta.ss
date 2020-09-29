@@ -25,4 +25,5 @@ $CustomStructuredData
 	$Script
 	<% end_loop %>
 <% end_if %>
+
 $SiteConfig.HeadScripts
