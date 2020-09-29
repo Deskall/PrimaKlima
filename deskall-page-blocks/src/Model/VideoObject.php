@@ -36,6 +36,11 @@ class VideoObject extends DataObject{
 
 	private static $extensions = ['Activable','Sortable'];
 
+	private static $summary_fields = [
+		'Type' => 'Art',
+		'Title' => 'Titel'
+	];
+
 	public function fieldLabels($includerelation = true){
 		$labels = parent::fieldLabels($includerelation);
 
