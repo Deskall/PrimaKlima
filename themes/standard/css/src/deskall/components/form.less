@@ -88,19 +88,21 @@ form .message {
 	background-color:@form-message-background-color;
 	display:block;
 	color:@form-message-color;
-	&.good{
-		background-color:@form-message-good-background-color#cce8cc;
-		border-color:@form-message-good-color#b8deb8;
+	&.success{
+		background-color:@form-message-good-background-color;
+		border-color:@form-message-good-color;
 	}
 	&.bad{
-		background-color:@form-message-bad-background-color#f59fa5;
-		border-color:@form-message-bad-color#e78291;
+		background-color:@form-message-bad-background-color;
+		border-color:@form-message-bad-color;
 	}
 }
 
-.checkboxset, .optionset, .userformsoptionset, .userformscheckboxset{
+
+ul.checkboxset, ul.optionset, ul.userformsoptionset, ul.userformscheckboxset{
 	padding-left:0;
 	list-style-type: none;
+	margin:0;
 	li {
 		display: inline-block;
 		padding-left:30px;
