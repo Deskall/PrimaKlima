@@ -65,7 +65,6 @@ class DeskallPageExtension extends DataExtension
         }
     }
 
-
     public function generateFolderName(){
         if ($this->owner->ID > 0){
             if ($this->owner->ParentID > 0){
