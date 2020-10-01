@@ -13,7 +13,7 @@
 			<% end_loop %>
 		<% end_if %>
 		<% if PaymentTyp == "Paper" %>
-		<tr><td>$SiteConfig.PaperBillLabel</td><td style="text-align:right">$SiteConfig.PaperBillPrice / Mt.</td></tr>
+		<tr><td>$SiteConfig.PaperBillLabel</td><td style="text-align:right">$SiteConfig.PaperBillPrice.Nice / Mt.</td></tr>
 		<% end_if %>
 		<tr style="background-color:#EEEEEE;"><td style="font-weight:bold;">Total (monatlich)</td><td style="font-weight:bold;text-align:right">CHF $MonthlyPrice / Mt.</td></tr>
 	</tbody>
@@ -34,8 +34,8 @@
 			<% end_if %>
 			<% end_loop %>
 		<% end_if %>
-		<% if ExistingCustomer == 2 %>
-		<tr><td>$SiteConfig.ActivationPriceLabel</td><td style="text-align:right">$ActivationPrice.Nice</td></tr>
+		<% if $ExistingCustomer == 2 %>
+		<tr><td>$ActivationPriceLabel</td><td style="text-align:right">$SiteConfig.ActivationPrice.Nice</td></tr>
 		<% end_if %>
 		<tr style="background-color:#EEEEEE;"><td style="font-weight:bold;">Total (einmalig)</td><td style="font-weight:bold;text-align:right">CHF $UniquePrice</td></tr>
 	</tbody>
