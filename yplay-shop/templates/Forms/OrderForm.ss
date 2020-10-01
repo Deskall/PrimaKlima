@@ -238,7 +238,7 @@
                         	<% with Fields.FieldByName('OtherFields') %>
                         		$FieldHolder 
                         	<% end_with %>
-                            <% with Fields.FieldByName('Recaptcha2Field') %>
+                            <% with Fields.FieldByName('Captcha') %>
                                 $FieldHolder 
                             <% end_with %>
                         </div>
