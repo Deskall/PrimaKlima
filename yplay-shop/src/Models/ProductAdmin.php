@@ -108,7 +108,8 @@ class ProductAdmin extends ModelAdmin{
 
 	    if($this->modelClass=='PostalCode' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
 	    {
-	       $gridField->getConfig()->removeComponentsByType([GridFieldPaginator::class, GridFieldPageCount::class]);
+	       $gridField->getConfig()->removeComponentsByType(GridFieldPaginator::class);
+	       $gridField->getConfig()->removeComponentsByType(GridFieldPageCount::class);
 
 	        //Import Codes
 	        
