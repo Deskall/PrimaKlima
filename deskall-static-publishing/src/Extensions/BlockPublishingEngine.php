@@ -122,13 +122,14 @@ class BlockPublishingEngine extends DataExtension
      */
     public function flushChanges()
     {
-        ob_start();
-                    print_r('flushChanges');
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        
         $queue = QueuedJobService::singleton();
         if (!empty($this->toUpdate)) {
             foreach ($this->toUpdate as $queueItem) {
+                ob_start();
+                            print_r($queueItem);
+                            $result = ob_get_clean();
+                            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
                 if ($queueItem){
                     $job = new GenerateStaticCacheJob();
                     $jobData = new \stdClass();
