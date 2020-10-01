@@ -23,6 +23,9 @@
 			<% end_if %>
 		<% end_loop %>
 		<% end_if %>
+		<% if PaymentTyp == "Paper" %>
+		<tr><td>Papier Rechnung</td><td class="uk-text-right">CHF 2.50 / Mt.</td></tr>
+		<% end_if %>
 	</tbody>
 	<tfoot>
 		<tr><td>Total (monatlich)</td><td id="total-monthly-price" class="uk-text-right uk-text-bold">$PrintMonthlyPrice</td></tr>
