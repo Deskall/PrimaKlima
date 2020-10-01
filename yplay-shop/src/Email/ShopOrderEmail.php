@@ -75,7 +75,7 @@ class ShopOrderEmail extends Email
             
         );
         
-        foreach (array('Company' , 'Email' , 'Address' , 'PostalCode' , 'City' , 'Country', 'Phone', 'Price' ) as $field) {
+        foreach (array('Name', 'FirstName', 'Company' , 'Email' , 'Address' , 'PostalCode' , 'City' , 'Country', 'Phone', 'Price' ) as $field) {
             $variables["\$Order.$field"] = $Order->$field;
         }
 

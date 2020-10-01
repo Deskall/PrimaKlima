@@ -31,7 +31,7 @@ class ShopOrder extends DataObject{
 		'PhoneOption' => 'Varchar',
 		'ExistingPhone' => 'Varchar',
 		'WishPhone' => 'Varchar',
-		'ExistingCustomer' => 'Boolean(0)',
+		'ExistingCustomer' => 'Int',
 		'MonthlyPrice' => 'Currency',
 		'UniquePrice' => 'Currency',
 		'AGB' => 'Boolean(0)',
