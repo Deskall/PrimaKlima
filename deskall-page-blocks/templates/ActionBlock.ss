@@ -1,22 +1,22 @@
-<div class="calltoaction-container uk-flex <% if not noMargin %>dk-margin-responsive<% end_if %> uk-flex-{$TextAlignment}">
+<div class="calltoaction-container uk-flex <% if not noMargin %>dk-margin-responsive<% end_if %> uk-flex-{$ButtonPosition}">
 		<% if InteractionType == "dropdown" %>
 		<div class="uk-inline uk-width-1-1">
 			<% if $Trigger %>
-			    <button id="dropdown-toggle-{$ID}" class="uk-button button-{$ButtonBackground} $ButtonPosition trigger-{$ID}" type="button" data-uk-toggle=".trigger-{$ID}" data-uk-icon="icon: $Icone">$Trigger</button>
+			    <button id="dropdown-toggle-{$ID}" class="uk-button button-{$ButtonBackground}  trigger-{$ID}" type="button" data-uk-toggle=".trigger-{$ID}" data-uk-icon="icon: $Icone">$Trigger</button>
 			<% end_if %>
 			<% if CloseText %>
-			<button id="dropdown-toggle-{$ID}" class="uk-button button-{$ButtonBackground} $ButtonPosition trigger-{$ID}" type="button" data-uk-toggle=".trigger-{$ID}" data-uk-icon="icon: $Icone" hidden>$CloseText</button>
+			<button id="dropdown-toggle-{$ID}" class="uk-button button-{$ButtonBackground} trigger-{$ID}" type="button" data-uk-toggle=".trigger-{$ID}" data-uk-icon="icon: $Icone" hidden>$CloseText</button>
 			<% end_if %>
 		</div>
 		<% else_if InteractionType == "offcanvas" %>
-		    <button class="uk-button button-{$ButtonBackground} uk-flex-{$ButtonPosition}" type="button" data-uk-toggle="target: #offcanvas-container-{$ID}">$Trigger</button>
+		    <button class="uk-button button-{$ButtonBackground}" type="button" data-uk-toggle="target: #offcanvas-container-{$ID}">$Trigger</button>
 		<% else_if InteractionType == "scroll" %>
-		 <a class="uk-button button-{$ButtonBackground} uk-flex-{$ButtonPosition}" href="#e{$Target}" data-uk-scroll type="button" data-uk-icon="icon: $Icone">$Trigger</a>
+		 <a class="uk-button button-{$ButtonBackground}" href="#e{$Target}" data-uk-scroll type="button" data-uk-icon="icon: $Icone">$Trigger</a>
 		<% else_if InteractionType == "toggle" %>
-		 <a class="uk-button button-{$ButtonBackground} uk-flex-{$ButtonPosition}" data-uk-toggle="target: #toggle-container-{$ID};<% if ToggleClass %>cls: $ToggleClass;<% end_if %>"  type="button" data-uk-icon="icon: $Icone">$Trigger</a>
+		 <a class="uk-button button-{$ButtonBackground}" data-uk-toggle="target: #toggle-container-{$ID};<% if ToggleClass %>cls: $ToggleClass;<% end_if %>"  type="button" data-uk-icon="icon: $Icone">$Trigger</a>
 		<% else %>
 			<% if $Trigger %>
-			    <button class="uk-button button-{$ButtonBackground} $ButtonPosition" data-uk-toggle="target: #content-container-{$ID}" type="button" data-uk-icon="icon: $Icone">$Trigger</button>
+			    <button class="uk-button button-{$ButtonBackground}" data-uk-toggle="target: #content-container-{$ID}" type="button" data-uk-icon="icon: $Icone">$Trigger</button>
 			<% end_if %>
 		<% end_if %>
 </div>
