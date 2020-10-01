@@ -256,6 +256,11 @@ class ShopPageController extends PageController
       $form->addExtraClass('form-std');
       $form->setTemplate('Forms/OrderForm');
       $form->enableSpamProtection();
+
+      ob_start();
+               print_r($form->Fields());
+               $result = ob_get_clean();
+               file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
    
       return $form;
    }
