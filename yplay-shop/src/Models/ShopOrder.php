@@ -134,7 +134,7 @@ class ShopOrder extends DataObject{
 	}
 
 	public function NicePaymentTyp(){
-		$types = ['Email' => 'Email Rechnung', 'Paper' => 'Papier Rechnung (CHF 2.50 / Mt.)', 'Lastschriftverfahren' => 'Lastschriftverfahren','DebitDirect' => 'Debit Direct (Postfinance)','eBanking' => 'eBanking Rechnung'];
+		$types = ['Email' => 'E-Mail Rechnung', 'Paper' => 'Papier Rechnung (Fr. 2.50 / Mt.)', 'Lastschriftverfahren' => 'Lastschriftverfahren','DebitDirect' => 'Debit Direct (Postfinance)','eBanking' => 'eBanking Rechnung'];
 		return (isset($types[$this->PaymentTyp])) ? $types[$this->PaymentTyp] : 'Unbekannt';
 	}
 
