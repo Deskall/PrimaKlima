@@ -43,7 +43,7 @@ class ShopConfigExtension extends DataExtension
        'UnknownDoseEmailSubject' => 'Varchar',
        'UnknownDoseEmailContent' => 'HTMLText',
        'PaperBillPrice' => 'Currency',
-       'PaperBillLabel' => 'HTMLText'
+       'PaperBillLabel' => 'Text'
     );
 
     private static $has_one = [
@@ -110,7 +110,7 @@ class ShopConfigExtension extends DataExtension
        $fields->addFieldToTab('Root.Shop',TextField::create('ActivationPrice',$this->owner->fieldLabels()['ActivationPrice']));
        $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('ActivationPriceLabel',$this->owner->fieldLabels()['ActivationPriceLabel'])->setRows(3));
        $fields->addFieldToTab('Root.Shop',TextField::create('PaperBillPrice',$this->owner->fieldLabels()['PaperBillPrice']));
-       $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('PaperBillLabel',$this->owner->fieldLabels()['PaperBillLabel'])->setRows(1));
+       $fields->addFieldToTab('Root.Shop',TextareaField::create('PaperBillLabel',$this->owner->fieldLabels()['PaperBillLabel'])->setRows(1));
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',TextField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']));
