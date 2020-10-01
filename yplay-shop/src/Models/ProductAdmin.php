@@ -12,6 +12,8 @@ use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\DB;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldExportButton;
+use SilverStripe\Forms\GridField\GridFieldPaginator;
+use SilverStripe\Forms\GridFieldPageCount;
 use SilverStripe\Forms\GridField\GridFieldPrintButton;
 use SilverStripe\Subsites\State\SubsiteState;
 
@@ -106,7 +108,8 @@ class ProductAdmin extends ModelAdmin{
 
 	    if($this->modelClass=='PostalCode' && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) 
 	    {
-	       
+	       $gridField->getConfig()->removeComponentsByType([GridFieldPaginator::class, GridFieldPageCount::class]);
+
 	        //Import Codes
 	        
 	        // $file = File::get()->byId(109);
