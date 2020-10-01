@@ -10,6 +10,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Control\Controller;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\FieldGroup;
