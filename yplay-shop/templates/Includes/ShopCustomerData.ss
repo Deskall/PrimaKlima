@@ -8,7 +8,6 @@
 		<tr><td>E-Mail</td><td style="text-align:right">$Email</td></tr>
 		<tr><td>Adresse</td><td style="text-align:right">$Address $HouseNumber</td></tr>
 		<tr><td>Ort</td><td style="text-align:right">$PostalCode - $City</td></tr>
-		<tr><td>Land</td><td style="text-align:right">$Country</td></tr>
 		<tr><td>Tel.</td><td style="text-align:right">$Phone</td></tr>
 		<% if Glasfaserdose %>
 		<tr><td>Glasfaserdose-Nr.</td><td style="text-align:right">$Glasfaserdose</td></tr>
@@ -17,11 +16,12 @@
 		<tr><td>Glasfaserdose-Nr.</td><td style="text-align:right">Unbekannt</td></tr>
 		<% end_if %>
 		<tr><td>Bisheriger Anbieter</td><td style="text-align:right">$PreviousProvider</td></tr>
-		<tr><td>Wie sind Sie auf YplaY aufmerksam geworden?</td><td style="text-align:right">$Origin</td></tr>
-		<tr><td>Zahlungsart</td><td style="text-align:right">$PaymentTyp</td></tr>
+		<tr><td>Wie sind Sie auf YplaY aufmerksam geworden?</td><td style="text-align:right">$NiceOrigin</td></tr>
+		<tr><td>Zahlungsart</td><td style="text-align:right">$NicePaymentTyp</td></tr>
 	</tbody>
 </table>
 
 <% if $Comments %>
+<h5 style="border-bottom:1px solid #EEEEEE;padding-bottom:10px;">Bemerkungen</h5>
 <p style="background-color:#EEEEEE;padding:10px;">$Comments</p>
 <% end_if %>

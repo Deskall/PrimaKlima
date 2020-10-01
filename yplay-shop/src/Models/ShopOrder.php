@@ -128,6 +128,16 @@ class ShopOrder extends DataObject{
 		return ($this->SubsiteID > 0) ? $this->Subsite()->Title : "YplaY";
 	}
 
+	public function NiceOrigin(){
+		$origins = ['Empfehlung' => 'Empfehlung aus dem Umfeld', 'Google' => 'Google', 'Instagram' => 'Instagram','Twitter' => 'Twitter','Facebook' => 'Facebook','Linkedin' => 'Linkedin','Werbeplakat' => 'Werbeplakat','Zeitung' => 'Zeitung','Andere' => 'Andere'];
+		return (isset($origins[$this->Origin])) ? $origins[$this->Origin] : 'Unbekannt';
+	}
+
+	public function NicePaymentTyp(){
+		$types = ['Email' => 'Email Rechnung', 'Paper' => 'Papier Rechnung (CHF 2.50 / Mt.)', 'Lastschriftverfahren' => 'Lastschriftverfahren','DebitDirect' => 'Debit Direct (Postfinance)','eBanking' => 'eBanking Rechnung'];
+		return (isset($types[$this->PaymentTyp])) ? $types[$this->PaymentTyp] : 'Unbekannt';
+	}
+
 	public function OrderHTML(){
 		return $this->renderWith('Includes/ShopOrderData');
 	}
