@@ -238,6 +238,9 @@
                         	<% with Fields.FieldByName('OtherFields') %>
                         		$FieldHolder 
                         	<% end_with %>
+                            <% with Fields.FieldByName('Recaptcha2Field') %>
+                                $FieldHolder 
+                            <% end_with %>
                         </div>
                         <div class="uk-margin-top uk-flex uk-flex-around uk-flex-wrap-reverse uk-flex-wrap-between">
                         	<a class="step backwards uk-button uk-button-muted uk-margin-top" href="#" data-nav="2"><i class="uk-margin-small-right" data-uk-icon="chevron-left"></i>Zurück</a>
