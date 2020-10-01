@@ -5,7 +5,7 @@
 			<div class="uk-width-1-3@m">
 				<% if LightBox %><a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" ><% end_if %>
 					<figure>
-						<img src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %><% if Top.RoundedImage %>$ContentImage.FocusFill(350,350).URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %><% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" <% if ContentImage.getExtension == "svg" %>data-uk-svg<% end_if %> <% if Top.RoundedImage %>class="uk-border-circle"<% end_if %>>
+						<img class="uk-preserve" src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %><% if Top.RoundedImage %>$ContentImage.FocusFill(350,350).URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %><% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" <% if ContentImage.getExtension == "svg" %>data-uk-svg<% end_if %> <% if Top.RoundedImage %>class="uk-border-circle"<% end_if %>>
 						<% if ContentImage.Description %><figcaption>$ContentImage.Description</figcaption><% end_if %>
 					</figure>
 				<% if LightBox %></a><% end_if %>
@@ -23,7 +23,7 @@
 					<figure>
 						<% if $FullWidth %>
 							<% if ContentImage.getExtension == "svg" %>
-								<img src="$ContentImage.URL" data-uk-svg>
+								<img src="uk-preserve $ContentImage.URL" data-uk-svg>
 							<% else %>
 								<% if Top.RoundedImage %>
 								<img src="$ContentImage.FocusFillMax(750,750).URL" data-src="$ContentImage.FocusFillMax(500,500).URL"
@@ -45,7 +45,7 @@
 							<% end_if %>
 						<% else %>
 							<% if ContentImage.getExtension == "svg" %>
-								<img src="$ContentImage.URL" data-uk-svg>
+								<img class="uk-preserve" src="$ContentImage.URL" data-uk-svg>
 							<% else %>
 								<% if Top.RoundedImage %>
 								<img src="$ContentImage.FocusFillMax(750,750).URL" data-src="$ContentImage.FocusFillMax(500,500).URL"
