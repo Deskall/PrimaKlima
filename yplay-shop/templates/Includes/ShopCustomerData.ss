@@ -10,6 +10,12 @@
 		<tr><td>Ort</td><td style="text-align:right">$PostalCode - $City</td></tr>
 		<tr><td>Land</td><td style="text-align:right">$Country</td></tr>
 		<tr><td>Tel.</td><td style="text-align:right">$Phone</td></tr>
+		<% if Glasfaserdose %>
+		<tr><td>Glasfaserdose-Nr.</td><td style="text-align:right">$Glasfaserdose</td></tr>
+		<% end_if %>
+		<% if UnknownGlasfaserdose %>
+		<tr><td>Glasfaserdose-Nr.</td><td style="text-align:right">Unbekannt</td></tr>
+		<% end_if %>
 		<tr><td>Bisheriger Anbieter</td><td style="text-align:right">$PreviousProvider</td></tr>
 		<tr><td>Wie sind Sie auf YplaY aufmerksam geworden?</td><td style="text-align:right">$Origin</td></tr>
 		<tr><td>Zahlungsart</td><td style="text-align:right">$PaymentTyp</td></tr>

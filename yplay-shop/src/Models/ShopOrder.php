@@ -39,7 +39,9 @@ class ShopOrder extends DataObject{
 		'PreviousProvider' => 'Varchar',
 		'PaymentTyp' => 'Varchar',
 		'Origin' => 'Varchar',
-		'Comments' => 'Text'
+		'Comments' => 'Text',
+		'Glasfaserdose' => 'Varchar',
+		'UnknownGlasfaserdose' => 'Boolean'
 	);
 
 	private static $has_one = array(
