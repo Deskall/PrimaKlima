@@ -198,8 +198,7 @@ class ShopPageController extends PageController
                DropdownField::create('PaymentTyp','Zahlungsart',['Email' => 'Email Rechnung', 'Paper' => 'Papier Rechnung (CHF 2.50 / Mt.)', 'Lastschriftverfahren' => 'Lastschriftverfahren','DebitDirect' => 'Debit Direct (Postfinance)','eBanking' => 'eBanking Rechnung'])->setEmptyString('Bitte wählen')->setValue('Email')->setAttribute('class','uk-select'),
                TextareaField::create('Comments','Bemerkungen'),
                // CheckboxField::create('Newsletter','Ich abonniere den Newsletter'),
-               CheckboxField::create('AGB',DBHTMLText::create()->setValue('Ich bin mit den <a href="'.$agbpage->Link().'" target="_blank" title="AGB anschauen">AGB</a> einverstanden'))->setAttribute('class','uk-checkbox'),
-               NocaptchaField::create('Captcha')
+               CheckboxField::create('AGB',DBHTMLText::create()->setValue('Ich bin mit den <a href="'.$agbpage->Link().'" target="_blank" title="AGB anschauen">AGB</a> einverstanden'))->setAttribute('class','uk-checkbox')
             )->setName('OtherFields'),
             HiddenField::create('ExistingCustomer'),
             HiddenField::create('SubsiteID')
@@ -256,6 +255,7 @@ class ShopPageController extends PageController
      
       $form->addExtraClass('form-std');
       $form->setTemplate('Forms/OrderForm');
+      $form->enableSpamProtection();
    
       return $form;
    }

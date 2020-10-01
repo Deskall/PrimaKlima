@@ -130,6 +130,10 @@ class ShopOrder extends DataObject{
 		return $this->renderWith('Includes/ShopOrderData');
 	}
 
+	public function CustomerData(){
+		return $this->renderWith('Includes/ShopCustomerData');
+	}
+
 	public function getTotalMonthlyPrice(){
 
 	}
