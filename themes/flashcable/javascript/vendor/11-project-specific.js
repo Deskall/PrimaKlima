@@ -518,7 +518,6 @@ $(document).ready(function(){
 		});
 
 		$(document).on("change","select[name='PaymentTyp']",function(){
-			console.log('ici');
 			$(".order-preview").addClass("loading");
 			var data = $("form#Form_OrderForm").serialize();
 			$.ajax({

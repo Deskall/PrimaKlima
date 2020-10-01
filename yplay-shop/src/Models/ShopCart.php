@@ -158,6 +158,9 @@ class ShopCart extends DataObject {
 				$price += ($product->getActionMonthlyPrice() ) ? $product->getActionMonthlyPrice()  * $product->Quantity : $product->getMonthlyPrice() * $product->Quantity;
 			}
 		}
+		if ($this->PaymentTyp == "Paper"){
+			$price += 2.5;
+		}
 		$this->TotalMonthlyPrice = $price;
 	}
 
