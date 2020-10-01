@@ -9,11 +9,11 @@
 			<% end_if %>
 		</div>
 		<% else_if InteractionType == "offcanvas" %>
-		    <button class="uk-button button-{$ButtonBackground} $ButtonPositiont" type="button" data-uk-toggle="target: #offcanvas-container-{$ID}">$Trigger</button>
+		    <button class="uk-button button-{$ButtonBackground} uk-flex-{$ButtonPosition}" type="button" data-uk-toggle="target: #offcanvas-container-{$ID}">$Trigger</button>
 		<% else_if InteractionType == "scroll" %>
-		 <a class="uk-button button-{$ButtonBackground} $ButtonPosition" href="#e{$Target}" data-uk-scroll type="button" data-uk-icon="icon: $Icone">$Trigger</a>
+		 <a class="uk-button button-{$ButtonBackground} uk-flex-{$ButtonPosition}" href="#e{$Target}" data-uk-scroll type="button" data-uk-icon="icon: $Icone">$Trigger</a>
 		<% else_if InteractionType == "toggle" %>
-		 <a class="uk-button button-{$ButtonBackground} $ButtonPosition" data-uk-toggle="target: #toggle-container-{$ID};<% if ToggleClass %>cls: $ToggleClass;<% end_if %>"  type="button" data-uk-icon="icon: $Icone">$Trigger</a>
+		 <a class="uk-button button-{$ButtonBackground} uk-flex-{$ButtonPosition}" data-uk-toggle="target: #toggle-container-{$ID};<% if ToggleClass %>cls: $ToggleClass;<% end_if %>"  type="button" data-uk-icon="icon: $Icone">$Trigger</a>
 		<% else %>
 			<% if $Trigger %>
 			    <button class="uk-button button-{$ButtonBackground} $ButtonPosition" data-uk-toggle="target: #content-container-{$ID}" type="button" data-uk-icon="icon: $Icone">$Trigger</button>
