@@ -3,7 +3,7 @@
 			<div class="uk-card uk-box-shadow-medium uk-card-small">
 				<div class="uk-card-header toggle-cart uk-padding-remove-horizontal" data-target="#mobile-order-preview">
 					<div class="uk-position-relative">
-						<strong class="uk-card-title uk-padding-small"><%t Configurator.CartLabel 'Warenkorb' %> - <span class="total-monthly-price">$activeCart.PrintMonthlyPrice</span></strong>
+						<strong class="uk-card-title uk-padding-small"><span data-uk-icon="cart" class="uk-margin-small-right"></span><%t Configurator.CartLabel 'Warenkorb' %> - <span class="total-monthly-price">$activeCart.PrintMonthlyPrice</span></strong>
 						<div class="uk-position-absolute uk-position-center-right">
 							<button type="button" class="cart-button show"><span data-uk-icon="icon:chevron-down;ratio:1.5"></span></button>
 							<button type="button" class="cart-button uk-hidden hide"><span data-uk-icon="icon:chevron-up;ratio:1.5"></span></button>
