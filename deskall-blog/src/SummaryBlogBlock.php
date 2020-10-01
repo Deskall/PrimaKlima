@@ -8,6 +8,7 @@ class SummaryBlogBlock extends BaseElement
 {
     private static $icon = 'font-icon-paper';
 
+    private static $inline_editable = false;
     
     private static $controller_template = 'BlockHolder';
 
