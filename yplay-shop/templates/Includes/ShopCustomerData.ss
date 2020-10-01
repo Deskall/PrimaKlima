@@ -4,7 +4,7 @@
 	<tbody>
 		<tr><td>Anrede</td><td style="text-align:right">$Gender</td></tr>
 		<tr><td>Name</td><td style="text-align:right">$Name</td></tr>
-		<tr><td>Vorname</td><td style="text-align:right">$Vorname</td></tr>
+		<tr><td>Vorname</td><td style="text-align:right">$FirstName</td></tr>
 		<tr><td>E-Mail</td><td style="text-align:right">$Email</td></tr>
 		<tr><td>Adresse</td><td style="text-align:right">$Address $HouseNumber</td></tr>
 		<tr><td>Ort</td><td style="text-align:right">$PostalCode - $City</td></tr>

@@ -159,7 +159,7 @@ class ShopCart extends DataObject {
 			}
 		}
 		if ($this->PaymentTyp == "Paper"){
-			$price += 2.5;
+			$price += SiteConfig::current_site_config()->PaperBillPrice;
 		}
 		$this->TotalMonthlyPrice = $price;
 	}

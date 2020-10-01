@@ -41,7 +41,9 @@ class ShopConfigExtension extends DataExtension
        'ActivationPriceLabel' => 'HTMLText',
        'UnknownDoseEmailSender' => 'Varchar',
        'UnknownDoseEmailSubject' => 'Varchar',
-       'UnknownDoseEmailContent' => 'HTMLText'
+       'UnknownDoseEmailContent' => 'HTMLText',
+       'PaperBillPrice' => 'Currency',
+       'PaperBillLabel' => 'HTMLText'
     );
 
     private static $has_one = [
@@ -82,6 +84,8 @@ class ShopConfigExtension extends DataExtension
       $labels['UnknownDoseEmailSender'] = _t(__CLASS__.'.UnknownDoseEmailSender','Unbekannt Anschlussart Email Absender');
       $labels['UnknownDoseEmailSubject'] = _t(__CLASS__.'.UnknownDoseEmailSubject','Unbekannt Anschlussart Email Betreff');
       $labels['UnknownDoseEmailContent'] = _t(__CLASS__.'.UnknownDoseEmailContent','Unbekannt Anschlussart Email Inhalt');
+      $labels['PaperBillPrice'] = _t(__CLASS__.'.PaperBillPrice','Papier Rechnung Kosten');
+      $labels['PaperBillLabel'] = _t(__CLASS__.'.PaperBillLabel','Papier Rechnung Kosten - Hinweis in Bestellübersicht');
     }
 
    
@@ -105,6 +109,8 @@ class ShopConfigExtension extends DataExtension
  
        $fields->addFieldToTab('Root.Shop',TextField::create('ActivationPrice',$this->owner->fieldLabels()['ActivationPrice']));
        $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('ActivationPriceLabel',$this->owner->fieldLabels()['ActivationPriceLabel'])->setRows(3));
+       $fields->addFieldToTab('Root.Shop',TextField::create('PaperBillPrice',$this->owner->fieldLabels()['PaperBillPrice']));
+       $fields->addFieldToTab('Root.Shop',HTMLEditorField::create('PaperBillLabel',$this->owner->fieldLabels()['PaperBillLabel'])->setRows(1));
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',UploadField::create('AGBFile',$this->owner->fieldLabels()['AGBFile'])->setIsMultiUpload(false)->setFolderName('Uploads/Shop'));
        $fields->addFieldToTab('Root.Shop',TextField::create('OrderNumberOffset',$this->owner->fieldLabels()['OrderNumberOffset']));

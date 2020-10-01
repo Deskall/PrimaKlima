@@ -24,7 +24,7 @@
 		<% end_loop %>
 		<% end_if %>
 		<% if PaymentTyp == "Paper" %>
-		<tr><td>Papier Rechnung</td><td class="uk-text-right">CHF 2.50 / Mt.</td></tr>
+		<tr><td>$SiteConfig.PaperBillLabel</td><td class="uk-text-right">$SiteConfig.PaperBillPrice.Nice / Mt.</td></tr>
 		<% end_if %>
 	</tbody>
 	<tfoot>
