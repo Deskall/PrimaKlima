@@ -515,6 +515,23 @@ $(document).ready(function(){
 				$("input[name='Glasfaserdose']").next('.error').hide();
 			}
 		});
+
+		$(document).on("change","select[name='PaymentTyp']",function(){
+			console.log('ici');
+			$(".order-preview").addClass("loading");
+			var data = $("form#Form_OrderForm").serialize();
+			$.ajax({
+				url: '/shop-functions/updateCartData',
+				method: 'POST',
+				data: {form: data}
+			}).done(function(response){
+				$(".order-preview").each(function(){
+					$(this).removeClass('loading');
+					$(this).empty().append(response);
+					UpdateCartSummaries();
+				});
+			});
+		});
 	}
 
 	function UpdateCart(options){
