@@ -218,7 +218,7 @@ class ShopController extends PageController
          $cart->write();
       }
 
-      return;
+      return $cart->forTemplate();
       
    }
 
