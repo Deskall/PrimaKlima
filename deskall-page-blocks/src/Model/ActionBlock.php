@@ -175,11 +175,15 @@ class ActionBlock extends BaseElement implements Searchable
         $fields->insertAfter('InteractionType',$fields->fieldByName('Root.Main.Trigger'));
         $fields->insertAfter('Trigger',$fields->fieldByName('Root.Main.CloseText'));
         $fields->addFieldToTab('Root.Main',DropdownField::create('Target',_t(__CLASS__.'.Target','Zielelement'), $this->getPageElements())->setEmptyString(_t(__CLASS__.'.TargetHelp','Bitte Element auswählen')));
-            
+        
+        //Button LAYOUT
+        $fields->addFieldToTab('Root.LayoutTab',Wrapper::create(CompositeField::create(
+           HTMLDropdownField::create('ButtonBackground',_t(__CLASS__.'.ButtonBackground','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
+            DropdownField::create('ButtonPosition',_t(__CLASS__.'.ButtonPosition','Button Ausrichtung'), $this->getTranslatedSourceFor(__CLASS__,'button_alignments'))
+        )->setTitle(_t(__CLASS__.'.ButtonLayout','Button Format'))->setName('ButtonLayout')));
+
         //MODALS LAYOUT
         $fields->addFieldToTab('Root.LayoutTab',Wrapper::create(CompositeField::create(
-            DropdownField::create('ButtonBackground',_t(__CLASS__.'.ButtonBackground','Button Farbe'), $this->getTranslatedSourceFor(__CLASS__,'button_backgrounds')),
-            DropdownField::create('ButtonPosition',_t(__CLASS__.'.ButtonPosition','Button Ausrichtung'), $this->getTranslatedSourceFor(__CLASS__,'button_alignments')),
             DropdownField::create('ModalSize',_t(__CLASS__.'.ModalSize','Fenster Breite'), $this->getTranslatedSourceFor(__CLASS__,'modal_sizes')),
             $fields->fieldByName('Root.Main.ModalScroll')
         )->setTitle(_t(__CLASS__.'.ModalLayout','Modal Format'))->setName('ModalLayout')));
