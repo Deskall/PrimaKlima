@@ -31,7 +31,11 @@ class PublishableBlock extends DataExtension implements StaticallyPublishable, S
      * @return array
      */
     public function objectsToUpdate($context)
-    {
+    {  
+        ob_start();
+                    print_r($this->getOwner()->ID);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $list = [];
         if ($this->getOwner() instanceof BaseElement ){
             $page = $this->getOwner()->getRealPage();
