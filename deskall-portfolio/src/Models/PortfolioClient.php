@@ -18,7 +18,8 @@ class PortfolioClient extends DataObject {
         'URLSegment' => 'Varchar(255)',
         'ClientActive' => 'Boolean(true)',
         'Address'   => 'HTMLText',
-        'Website' => 'Varchar(255)'
+        'Website' => 'Varchar(255)',
+        'RefID' => 'Int'
     ];
 
     private static $has_one = [
