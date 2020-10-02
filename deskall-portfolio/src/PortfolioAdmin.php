@@ -184,18 +184,24 @@ class PortfolioAdmin extends ModelAdmin {
                    $result = ob_get_clean();
                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
-                   //  if (file_exists($filepath)){
-                   //      $file = new Image();
-                   //      $file->setFromLocalFile($filepath);
-                   //      $name = ltrim(strrchr($file,"/"), '/');
-                   //      $folder = Folder::find_or_make("Uploads/portfolio/".$client->URLSegment);
-                   //      $file->ParentID = $folder->ID;
-                   //      $file->write();
-                   //      $file->publishSingle();
-                   //      $client->GalleryImages()->add($file,['SortOrder' => $ref['SortOrder']]);
-                   //  }
+                    if (file_exists($filepath)){
+                        $file = new Image();
+                        $file->setFromLocalFile($filepath);
+                        $name = ltrim(strrchr($file,"/"), '/');
+                        $folder = Folder::find_or_make("Uploads/portfolio/".$client->URLSegment);
+                        $file->ParentID = $folder->ID;
+                        $file->write();
+                        $file->publishSingle();
+                        $client->GalleryImages()->add($file,['SortOrder' => $ref['SortOrder']]);
+                    }
+                    else{
+                        ob_start();
+                        print_r("does not exists"."\n");
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+                    }
 
-                   // $client->write();
+                   $client->write();
                 }
             }
         }
