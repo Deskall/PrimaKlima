@@ -180,7 +180,7 @@ class PortfolioAdmin extends ModelAdmin {
 
                    // $filepath = substr_replace($filepath,"/_resampled/SameImageW10",strrpos($filepath, "/"),0);
                    ob_start();
-                   print_r($filepath);
+                   print_r($filepath."\n"."<br>");
                    $result = ob_get_clean();
                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
