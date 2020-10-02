@@ -47,7 +47,7 @@ class PortfolioAdmin extends ModelAdmin {
         return $form;
     }
 
-    public function import(){
+    public function makeImport(){
         // //Files references
         // $file = File::get()->byId(39);
         // if ($file->exists()){
