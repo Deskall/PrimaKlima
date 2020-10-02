@@ -11,7 +11,8 @@ class Testimonial extends DataObject {
 
     private static $db = [
         'Content'   => 'HTMLText',
-        'Author' => 'Varchar(255)'
+        'Author' => 'Varchar(255)',
+        'RefID' => 'Int'
     ];
 
     private static $has_one = [

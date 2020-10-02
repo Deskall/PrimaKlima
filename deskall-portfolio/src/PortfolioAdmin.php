@@ -10,6 +10,8 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 
 use SilverStripe\Assets\File;
+use SilverStripe\Assets\Folder;
+use SilverStripe\Assets\Image;
 
 class PortfolioAdmin extends ModelAdmin {
 
@@ -51,25 +53,25 @@ class PortfolioAdmin extends ModelAdmin {
 
     public function makeImport(){
         // //Files references
-        // $file = File::get()->byId(39);
-        // if ($file->exists()){
-        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-        //         $headers = fgetcsv($handle, 0, $delimiter);
-        //         $imported = [0,6];
-        //         $files = [];
-        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-        //             if ($line[0] != "" && $line[1] != "Folder"){
-        //                 $array = [];
-        //                 foreach ($imported as $key => $index) {
-        //                     $array[$headers[$index]] = trim($line[$index]);
-        //                 }
-        //                 $files[$line[0]] = trim($line[6]);
-        //             }
-        //         }
-        //         fclose($handle);
-        //     }
-        // }
+        $file = File::get()->byId(98);
+        if ($file->exists()){
+            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+                $headers = fgetcsv($handle, 0, $delimiter);
+                $imported = [0,6];
+                $files = [];
+                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+                    if ($line[0] != "" && $line[1] != "Folder"){
+                        $array = [];
+                        foreach ($imported as $key => $index) {
+                            $array[$headers[$index]] = trim($line[$index]);
+                        }
+                        $files[$line[0]] = trim($line[6]);
+                    }
+                }
+                fclose($handle);
+            }
+        }
 
 
         //Import Categories
@@ -106,38 +108,94 @@ class PortfolioAdmin extends ModelAdmin {
         // }
 
         //Import Clients
-        $file = File::get()->byId(96);
+        // $file = File::get()->byId(96);
+        // if ($file->exists()){
+        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+        //         $headers = fgetcsv($handle, 0, $delimiter);
+        //         $imported = [0,4,5,6,7,8,9,10,11,12,13,14,15,17];
+        //         $clients = [];
+        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+        //             if ($line[0] != ""){
+        //                 $array = [];
+        //                 foreach ($imported as $key => $index) {
+        //                     $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
+        //                 }
+        //                 $clients[] = $array;
+        //             }
+        //         }
+        //         fclose($handle);
+               
+        //         foreach ($clients as $key => $ref) {
+        //            $client = PortfolioClient::get()->filter('RefID' , $ref['ID'])->first();
+        //            if (!$client){
+        //             $client = new PortfolioClient();
+        //            }
+        //            $client->RefID = $ref['ID'];
+        //            $client->Address = $ref['Address'];
+        //            $client->Website = $ref['Website'];
+        //            $client->ClientActive = $ref['ClientActive'];
+        //            $client->Title = $ref['Title'];
+        //            $client->URLSegment = $ref['URLSegment'];
+        //            $client->Sort = $ref['SortOrder'];
+        //            $client->isVisible = $ref['isVisible'];
+        //            $client->write();
+        //         }
+        //     }
+        // }
+
+        //Import Products Images
+        $file = File::get()->byId(97);
         if ($file->exists()){
             if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
                 $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
                 $headers = fgetcsv($handle, 0, $delimiter);
-                $imported = [0,4,5,6,7,8,9,10,11,12,13,14,15,17];
-                $clients = [];
+                $imported = [0,1,2,3];
+                $assignments = [];
                 while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
                     if ($line[0] != ""){
                         $array = [];
                         foreach ($imported as $key => $index) {
                             $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
                         }
-                        $clients[] = $array;
+                        $assignments[] = $array;
                     }
                 }
                 fclose($handle);
-               
-                foreach ($clients as $key => $ref) {
-                   $client = PortfolioClient::get()->filter('RefID' , $ref['ID'])->first();
+
+                
+
+                foreach ($assignments as $key => $ref) {
+                   $client = PortfolioClient::get()->filter('RefID' , $ref['PortfolioClientID'])->first();
                    if (!$client){
-                    $client = new PortfolioClient();
+                    continue;
                    }
-                   $client->RefID = $ref['ID'];
-                   $client->Address = $ref['Address'];
-                   $client->Website = $ref['Website'];
-                   $client->ClientActive = $ref['ClientActive'];
-                   $client->Title = $ref['Title'];
-                   $client->URLSegment = $ref['URLSegment'];
-                   $client->Sort = $ref['SortOrder'];
-                   $client->isVisible = $ref['isVisible'];
+                   $client->GalleryImages()->removeAll();
+                   $file = isset($files[$ref['ImageID']]) ? $files[$ref['ImageID']] : null;
+                   if (!$file){
+                    continue;
+                   }
+                   $filepath = str_replace("assets/Uploads", Director::baseFolder(),$file);
+
+                   $filepath = substr_replace($filepath,"/_resampled/SameImageW10/",strrpos($filepath, "/"),0);
+                   ob_start();
+                   print_r($filepath);
+                   $result = ob_get_clean();
+                   file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+
+                    if (file_exists($filepath)){
+                        $file = new Image();
+                        $file->setFromLocalFile($filepath);
+                        $name = ltrim(strrchr($file,"/"), '/');
+                        $folder = Folder::find_or_make("Uploads/portfolio/".$client->URLSegment);
+                        $file->ParentID = $folder->ID;
+                        $file->write();
+                        $file->publishSingle();
+                        $client->GalleryImages()->add($file,['SortOrder' => $ref['SortOrder']]);
+                    }
+
                    $client->write();
+                   $client->publishSingle();
                 }
             }
         }
