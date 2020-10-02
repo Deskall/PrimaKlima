@@ -86,7 +86,7 @@ class PortfolioClient extends DataObject {
         $headerImage->setFolderName('Uploads/portfolio/'.$this->URLSegment);
 
 
-        $galleryField = $fields->fieldByName('Root.Main.GalleryImages');
+        $galleryField = $fields->fieldByName('Root.GalleryImages.GalleryImages');
         $galleryField->setFolderName('Uploads/portfolio/'.$this->URLSegment);
 
 
