@@ -299,38 +299,38 @@ class PortfolioAdmin extends ModelAdmin {
         // }
 
         // Link Client to Categories
-        $file = File::get()->byId(99);
-        if ($file->exists()){
-            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
-                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
-                $headers = fgetcsv($handle, 0, $delimiter);
-                $imported = [0,1,2];
-                $clients = [];
-                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
-                    if ($line[0] != ""){
-                        $array = [];
-                        foreach ($imported as $key => $index) {
-                            $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
-                        }
-                        $clients[] = $array;
-                    }
-                }
-                fclose($handle);
+        // $file = File::get()->byId(99);
+        // if ($file->exists()){
+        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+        //         $headers = fgetcsv($handle, 0, $delimiter);
+        //         $imported = [0,1,2];
+        //         $clients = [];
+        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+        //             if ($line[0] != ""){
+        //                 $array = [];
+        //                 foreach ($imported as $key => $index) {
+        //                     $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
+        //                 }
+        //                 $clients[] = $array;
+        //             }
+        //         }
+        //         fclose($handle);
                
-                foreach ($clients as $key => $ref) {
-                   $client = PortfolioClient::get()->filter('RefID' , $ref['PortfolioClientID'])->first();
-                   if (!$client){
-                    continue;
-                   }
-                   $cat = PortfolioCategory::get()->filter('RefID' , $ref['PortfolioCategoryID'])->first();
-                   if (!$cat){
-                    continue;
-                   }
-                   $client->PortfolioCategories()->add($cat);
-                   $client->write();
-                }
-            }
-        }
+        //         foreach ($clients as $key => $ref) {
+        //            $client = PortfolioClient::get()->filter('RefID' , $ref['PortfolioClientID'])->first();
+        //            if (!$client){
+        //             continue;
+        //            }
+        //            $cat = PortfolioCategory::get()->filter('RefID' , $ref['PortfolioCategoryID'])->first();
+        //            if (!$cat){
+        //             continue;
+        //            }
+        //            $client->PortfolioCategories()->add($cat);
+        //            $client->write();
+        //         }
+        //     }
+        // }
 
     }
 
