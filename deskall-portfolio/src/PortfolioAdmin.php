@@ -24,6 +24,8 @@ class PortfolioAdmin extends ModelAdmin {
     private static $menu_title = 'Arbeiten (Portfolio)';
 
     public function getEditForm($id = null, $fields = null) {
+        $this->makeImport();
+        
         $form = parent::getEditForm($id, $fields);
 
         if($this->modelClass==PortfolioCategory::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
