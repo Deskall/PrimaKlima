@@ -19,7 +19,6 @@ class PortfolioAdmin extends ModelAdmin {
 
     private static $url_segment = 'portfolio';
     private static $menu_title = 'Arbeiten (Portfolio)';
-    private static $showImportForm = false;
 
     public function getEditForm($id = null, $fields = null) {
         $form = parent::getEditForm($id, $fields);
