@@ -1,6 +1,6 @@
 <% include TextBlock %>
 
-<div class="uk-child-width-auto uk-grid-small" data-uk-grid="masonry:true;">
+<div class="uk-child-width-auto uk-grid-small" data-uk-grid="masonry:true;" data-uk-scrollspy="target:.reference-box;cls:uk-animation-fade;">
 	<% loop activeReferences %>
 	<div class="reference-box uk-flex uk-flex-center uk-flex-middle">
 		$Logo.FitMax(150,150)
