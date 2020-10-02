@@ -196,7 +196,6 @@ class PortfolioAdmin extends ModelAdmin {
                     }
 
                    $client->write();
-                   $client->publishSingle();
                 }
             }
         }
