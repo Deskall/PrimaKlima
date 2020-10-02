@@ -332,6 +332,45 @@ class PortfolioAdmin extends ModelAdmin {
         //     }
         // }
 
+        // Import Testimonials
+        $file = File::get()->byId(100);
+        if ($file->exists()){
+            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+                $headers = fgetcsv($handle, 0, $delimiter);
+                $imported = [0,2,3,4,5,6,7,8];
+                $clients = [];
+                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+                    if ($line[0] != ""){
+                        $array = [];
+                        foreach ($imported as $key => $index) {
+                            $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
+                        }
+                        $clients[] = $array;
+                    }
+                }
+                fclose($handle);
+               
+                foreach ($clients as $key => $ref) {
+                   $client = PortfolioClient::get()->filter('RefID' , $ref['ClientID'])->first();
+                   if (!$client){
+                    continue;
+                   }
+                   $testimony = PortfolioTestimonial::get()->filter('RefID' , $ref['ID'])->first();
+                   if (!$testimony){
+                    $testimony = new PortfolioTestimonial();
+                   }
+                   $testimony->LastEdited = $ref['LastEdited'];
+                   $testimony->Created = $ref['Created'];
+                   $testimony->Content = $ref['Content'];
+                   $testimony->Author = $ref['Author'];
+                   $testimony->Sort = $ref['SortOrder'];
+                   $testimony->isVisible = $ref['isVisible'];
+                   $testimony->write();
+                }
+            }
+        }
+
     }
 
     public static function getFileDelimiter($file, $checkLines = 2){
