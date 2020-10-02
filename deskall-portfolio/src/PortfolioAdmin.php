@@ -25,7 +25,7 @@ class PortfolioAdmin extends ModelAdmin {
 
         if($this->modelClass==PortfolioCategory::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
             if($gridField instanceof GridField) {
-                $gridField->getConfig()->addComponent(new GridFieldOrderableRows('SortOrder'));
+                $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
                 $form->Fields()->fieldByName("PortfolioCategory")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
                 $form->Fields()->fieldByName("PortfolioCategory")->getConfig()->removeComponentsByType(GridFieldPrintButton::class);
             }
@@ -33,7 +33,7 @@ class PortfolioAdmin extends ModelAdmin {
 
         if($this->modelClass==PortfolioClient::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
             if($gridField instanceof GridField) {
-                $gridField->getConfig()->addComponent(new GridFieldOrderableRows('SortOrder'));
+                $gridField->getConfig()->addComponent(new GridFieldOrderableRows('Sort'));
             }
             $form->Fields()->fieldByName("PortfolioClient")->getConfig()->removeComponentsByType(GridFieldExportButton::class);
             $form->Fields()->fieldByName("PortfolioClient")->getConfig()->removeComponentsByType(GridFieldPrintButton::class);

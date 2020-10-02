@@ -31,7 +31,6 @@ class PortfolioCategory extends DataObject {
         $fields = parent::getCMSFields();
         $fields->addFieldToTab('Root.Main',TextField::create('Title','Name'));
         $fields->removeByName('URLSegment');
-        $fields->removeByName('SortOrder');
         $fields->removeByName('Clients');
         return $fields;
     }
