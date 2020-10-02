@@ -6,6 +6,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Assets\Image;
 
 class PortfolioClient extends DataObject {
 
