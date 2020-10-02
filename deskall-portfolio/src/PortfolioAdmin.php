@@ -114,7 +114,7 @@ class PortfolioAdmin extends ModelAdmin {
         //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
         //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
         //         $headers = fgetcsv($handle, 0, $delimiter);
-        //         $imported = [0,4,5,6,7,8,9,10,11,12,13,14,15,17];
+        //         $imported = [0,4,5,7,8,9,10,11,12,13,14,17];
         //         $clients = [];
         //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
         //             if ($line[0] != ""){
@@ -145,66 +145,136 @@ class PortfolioAdmin extends ModelAdmin {
         //     }
         // }
 
-        //Import Products Images
-        $file = File::get()->byId(97);
+        // Link Image and logo to Client
+        $file = File::get()->byId(96);
         if ($file->exists()){
             if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
                 $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
                 $headers = fgetcsv($handle, 0, $delimiter);
-                $imported = [0,1,2,3];
-                $assignments = [];
+                $imported = [6,15];
+                $clients = [];
                 while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
                     if ($line[0] != ""){
                         $array = [];
                         foreach ($imported as $key => $index) {
                             $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
                         }
-                        $assignments[] = $array;
+                        $clients[] = $array;
                     }
                 }
                 fclose($handle);
-
-                
-
-                foreach ($assignments as $key => $ref) {
-                   $client = PortfolioClient::get()->filter('RefID' , $ref['PortfolioClientID'])->first();
+               
+                foreach ($clients as $key => $ref) {
+                   $client = PortfolioClient::get()->filter('RefID' , $ref['ID'])->first();
                    if (!$client){
                     continue;
                    }
-                   $client->GalleryImages()->removeAll();
-                   $file = isset($files[$ref['ImageID']]) ? $files[$ref['ImageID']] : null;
-                   if (!$file){
-                    continue;
-                   }
-                   $filepath = str_replace("assets/Uploads", Director::baseFolder(),$file);
-
-                   // $filepath = substr_replace($filepath,"/_resampled/SameImageW10",strrpos($filepath, "/"),0);
-                   ob_start();
-                   print_r($filepath."\n");
-                   $result = ob_get_clean();
-                   file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-
-                    if (file_exists($filepath)){
-                        $file = new Image();
-                        $file->setFromLocalFile($filepath);
-                        $name = ltrim(strrchr($file,"/"), '/');
-                        $folder = Folder::find_or_make("Uploads/portfolio/".$client->URLSegment);
-                        $file->ParentID = $folder->ID;
-                        $file->write();
-                        $file->publishSingle();
-                        $client->GalleryImages()->add($file,['SortOrder' => $ref['SortOrder']]);
+                   $file = isset($files[$ref['LogoID']]) ? $files[$ref['LogoID']] : null;
+                   if ($file){
+                        $filepath = str_replace("assets/Uploads", Director::baseFolder(),$file);
+                        if (file_exists($filepath)){
+                            $file = new Image();
+                            $file->setFromLocalFile($filepath);
+                            $name = ltrim(strrchr($file,"/"), '/');
+                            $folder = Folder::find_or_make("Uploads/portfolio/".$client->URLSegment);
+                            $file->ParentID = $folder->ID;
+                            $file->write();
+                            $file->publishSingle();
+                            $client->LogoID = $file->ID;
+                        }
+                        else{
+                            ob_start();
+                            print_r("does not exists"."\n");
+                            $result = ob_get_clean();
+                            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+                        }
                     }
-                    else{
-                        ob_start();
-                        print_r("does not exists"."\n");
-                        $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-                    }
+                    $file = isset($files[$ref['HeaderID']]) ? $files[$ref['HeaderID']] : null;
+                    if ($file){
+                        $filepath = str_replace("assets/Uploads", Director::baseFolder(),$file);
+                        if (file_exists($filepath)){
+                             $file = new Image();
+                             $file->setFromLocalFile($filepath);
+                             $name = ltrim(strrchr($file,"/"), '/');
+                             $folder = Folder::find_or_make("Uploads/portfolio/".$client->URLSegment);
+                             $file->ParentID = $folder->ID;
+                             $file->write();
+                             $file->publishSingle();
+                             $client->HeaderID = $file->ID;
+                         }
+                         else{
+                             ob_start();
+                             print_r("does not exists"."\n");
+                             $result = ob_get_clean();
+                             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+                         }
+                     }
 
                    $client->write();
                 }
             }
         }
+
+        //Import Products Images
+        // $file = File::get()->byId(97);
+        // if ($file->exists()){
+        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+        //         $headers = fgetcsv($handle, 0, $delimiter);
+        //         $imported = [0,1,2,3];
+        //         $assignments = [];
+        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+        //             if ($line[0] != ""){
+        //                 $array = [];
+        //                 foreach ($imported as $key => $index) {
+        //                     $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
+        //                 }
+        //                 $assignments[] = $array;
+        //             }
+        //         }
+        //         fclose($handle);
+
+                
+
+        //         foreach ($assignments as $key => $ref) {
+        //            $client = PortfolioClient::get()->filter('RefID' , $ref['PortfolioClientID'])->first();
+        //            if (!$client){
+        //             continue;
+        //            }
+        //            $client->GalleryImages()->removeAll();
+        //            $file = isset($files[$ref['ImageID']]) ? $files[$ref['ImageID']] : null;
+        //            if (!$file){
+        //             continue;
+        //            }
+        //            $filepath = str_replace("assets/Uploads", Director::baseFolder(),$file);
+
+        //            // $filepath = substr_replace($filepath,"/_resampled/SameImageW10",strrpos($filepath, "/"),0);
+        //            ob_start();
+        //            print_r($filepath."\n");
+        //            $result = ob_get_clean();
+        //            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+
+        //             if (file_exists($filepath)){
+        //                 $file = new Image();
+        //                 $file->setFromLocalFile($filepath);
+        //                 $name = ltrim(strrchr($file,"/"), '/');
+        //                 $folder = Folder::find_or_make("Uploads/portfolio/".$client->URLSegment);
+        //                 $file->ParentID = $folder->ID;
+        //                 $file->write();
+        //                 $file->publishSingle();
+        //                 $client->GalleryImages()->add($file,['SortOrder' => $ref['SortOrder']]);
+        //             }
+        //             else{
+        //                 ob_start();
+        //                 print_r("does not exists"."\n");
+        //                 $result = ob_get_clean();
+        //                 file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+        //             }
+
+        //            $client->write();
+        //         }
+        //     }
+        // }
 
     }
 
