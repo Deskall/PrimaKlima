@@ -6,7 +6,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\GridField\GridField;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecorEditor;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Assets\Image;
 
 class PortfolioClient extends DataObject {
@@ -68,7 +68,7 @@ class PortfolioClient extends DataObject {
                       'Testimonials',
                       'Kundenstimmen',
                       $this->Testimonials(),
-                      GridFieldConfig_RecorEditor::create()
+                      GridFieldConfig_RecordEditor::create()
                       ->addComponent(new GridFieldOrderableRows('Sort'))
                       ->addComponent(new GridFieldShowHideAction())
                   )
