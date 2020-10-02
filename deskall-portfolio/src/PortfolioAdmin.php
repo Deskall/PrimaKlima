@@ -242,46 +242,46 @@ class PortfolioAdmin extends ModelAdmin {
                    if (!$client){
                     continue;
                    }
-                   foreach ($client->GalleryImages() as $image) {
-                        $client->GalleryImages()->remove($image);
-                        $image->File->deleteFile();
-                        DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($image->ID));
-                        DB::prepared_query('DELETE FROM "File_Live" WHERE "File_Live"."ID" = ?', array($image->ID));
-                        DB::prepared_query('DELETE FROM "File_Versions" WHERE "File_Versions"."RecordID" = ?', array($image->ID));
-                        DB::prepared_query('DELETE FROM "Image" WHERE "Image"."ID" = ?', array($image->ID));
-                        DB::prepared_query('DELETE FROM "Image_Live" WHERE "Image_Live"."ID" = ?', array($image->ID));
-                        DB::prepared_query('DELETE FROM "Image_Versions" WHERE "Image_Versions"."RecordID" = ?', array($image->ID));
-                        $image->delete();
+                   // foreach ($client->GalleryImages() as $image) {
+                   //      $client->GalleryImages()->remove($image);
+                   //      $image->File->deleteFile();
+                   //      DB::prepared_query('DELETE FROM "File" WHERE "File"."ID" = ?', array($image->ID));
+                   //      DB::prepared_query('DELETE FROM "File_Live" WHERE "File_Live"."ID" = ?', array($image->ID));
+                   //      DB::prepared_query('DELETE FROM "File_Versions" WHERE "File_Versions"."RecordID" = ?', array($image->ID));
+                   //      DB::prepared_query('DELETE FROM "Image" WHERE "Image"."ID" = ?', array($image->ID));
+                   //      DB::prepared_query('DELETE FROM "Image_Live" WHERE "Image_Live"."ID" = ?', array($image->ID));
+                   //      DB::prepared_query('DELETE FROM "Image_Versions" WHERE "Image_Versions"."RecordID" = ?', array($image->ID));
+                   //      $image->delete();
+                   //  }
+
+                   $file = isset($files[$ref['ImageID']]) ? $files[$ref['ImageID']] : null;
+                   if (!$file){
+                    continue;
+                   }
+                   $filepath = str_replace("assets/Uploads", Director::baseFolder(),$file);
+
+                   // $filepath = substr_replace($filepath,"/_resampled/SameImageW10",strrpos($filepath, "/"),0);
+                   ob_start();
+                   print_r($filepath."\n");
+                   $result = ob_get_clean();
+                   file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+
+                    if (file_exists($filepath)){
+                        $file = new Image();
+                        $file->setFromLocalFile($filepath);
+                        $name = ltrim(strrchr($file,"/"), '/');
+                        $folder = Folder::find_or_make("Uploads/portfolio/".$client->URLSegment);
+                        $file->ParentID = $folder->ID;
+                        $file->write();
+                        $file->publishSingle();
+                        $client->GalleryImages()->add($file,['SortOrder' => $ref['SortOrder']]);
                     }
-
-                   // $file = isset($files[$ref['ImageID']]) ? $files[$ref['ImageID']] : null;
-                   // if (!$file){
-                   //  continue;
-                   // }
-                   // $filepath = str_replace("assets/Uploads", Director::baseFolder(),$file);
-
-                   // // $filepath = substr_replace($filepath,"/_resampled/SameImageW10",strrpos($filepath, "/"),0);
-                   // ob_start();
-                   // print_r($filepath."\n");
-                   // $result = ob_get_clean();
-                   // file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-
-                   //  if (file_exists($filepath)){
-                   //      $file = new Image();
-                   //      $file->setFromLocalFile($filepath);
-                   //      $name = ltrim(strrchr($file,"/"), '/');
-                   //      $folder = Folder::find_or_make("Uploads/portfolio/".$client->URLSegment);
-                   //      $file->ParentID = $folder->ID;
-                   //      $file->write();
-                   //      $file->publishSingle();
-                   //      $client->GalleryImages()->add($file,['SortOrder' => $ref['SortOrder']]);
-                   //  }
-                   //  else{
-                   //      ob_start();
-                   //      print_r("does not exists"."\n");
-                   //      $result = ob_get_clean();
-                   //      file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-                   //  }
+                    else{
+                        ob_start();
+                        print_r("does not exists"."\n");
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
+                    }
 
                    $client->write();
                 }
