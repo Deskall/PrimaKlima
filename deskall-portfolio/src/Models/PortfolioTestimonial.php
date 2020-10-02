@@ -11,7 +11,7 @@ class Testimonial extends DataObject {
 
     private static $db = [
         'Content'   => 'HTMLText',
-        'Author' => 'Varchar(255)',
+        'Author' => 'Varchar(255)'
     ];
 
     private static $has_one = [
@@ -20,12 +20,12 @@ class Testimonial extends DataObject {
 
 	private static $summary_fields = [
     	'Content.BigSummary' => 'Aussage',
-		'Author' => 'Autor Name',
+		'Author' => 'Autor Name'
 	];
 
 
 	public function getTitleForMap() {
-	    return ($this->Client()->exists() ) $this->Client()->Title : '(Keine)';
+	    return ($this->Client()->exists() ) ? $this->Client()->Title : '(Keine)';
 	}
 
     public function getCMSFields() {
