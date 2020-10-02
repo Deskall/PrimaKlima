@@ -4,7 +4,6 @@
 	<% loop activeReferences %>
 	<div>
 		$Logo
-		$Title
 	</div>
 	<% end_loop %>
 </div>
