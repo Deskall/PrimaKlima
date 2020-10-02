@@ -54,20 +54,17 @@ class PortfolioAdmin extends ModelAdmin {
     }
 
     public function makeImport(){
-        foreach (PortfolioClient::get() as $c) {
-            foreach($c->GalleryImages() as $i){
-                $suffix = substr($i->Title, -2);
-                ob_start();
-                                            print_r($suffix."\n");
-                                            $result = ob_get_clean();
-                                            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
-                if ($suffix == "v2"){
-                    $c->GalleryImages()->remove($i);
-                    $i->File->deleteFile();
-                    $i->delete();
-                }
-            }
-        }
+        // foreach (PortfolioClient::get() as $c) {
+        //     foreach($c->GalleryImages() as $i){
+        //         $suffix = substr($i->Title, -2);
+              
+        //         if ($suffix == "v2"){
+        //             $c->GalleryImages()->remove($i);
+        //             $i->File->deleteFile();
+        //             $i->delete();
+        //         }
+        //     }
+        // }
         // //Files references
         // $file = File::get()->byId(98);
         // if ($file->exists()){
@@ -300,6 +297,40 @@ class PortfolioAdmin extends ModelAdmin {
         //         }
         //     }
         // }
+
+        // Link Client to Categories
+        $file = File::get()->byId(99);
+        if ($file->exists()){
+            if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+                $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+                $headers = fgetcsv($handle, 0, $delimiter);
+                $imported = [0,1,2];
+                $clients = [];
+                while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+                    if ($line[0] != ""){
+                        $array = [];
+                        foreach ($imported as $key => $index) {
+                            $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
+                        }
+                        $clients[] = $array;
+                    }
+                }
+                fclose($handle);
+               
+                foreach ($clients as $key => $ref) {
+                   $client = PortfolioClient::get()->filter('RefID' , $ref['PortfolioClientID'])->first();
+                   if (!$client){
+                    continue
+                   }
+                   $cat = PortfolioCategory::get()->filter('RefID' , $ref['PortfolioCategoryID'])->first();
+                   if (!$cat){
+                    continue
+                   }
+                   $client->PortfolioCategories()->add($cat);
+                   $client->write();
+                }
+            }
+        }
 
     }
 
