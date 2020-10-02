@@ -57,6 +57,10 @@ class PortfolioAdmin extends ModelAdmin {
         foreach (PortfolioClient::get() as $c) {
             foreach($c->GalleryImages() as $i){
                 $suffix = substr($i->Name, -2);
+                ob_start();
+                                            print_r($suffix."\n");
+                                            $result = ob_get_clean();
+                                            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
                 if ($suffix == "v2"){
                     $c->GalleryImages()->remove($i);
                     $i->File->deleteFile();
