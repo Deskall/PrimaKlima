@@ -4,7 +4,7 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
 
-class Testimonial extends DataObject {
+class PortfolioTestimonial extends DataObject {
 
     private static $singular_name = 'Kundenstimme';
     private static $plural_name = 'Kundenstimmen';
