@@ -24,6 +24,11 @@ class Testimonial extends DataObject {
 		'Author' => 'Autor Name'
 	];
 
+    private static $extensions = [
+        Activable::class,
+        Sortable::class
+    ];
+
 
 	public function getTitleForMap() {
 	    return ($this->Client()->exists() ) ? $this->Client()->Title : '(Keine)';
