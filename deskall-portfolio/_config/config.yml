@@ -1,0 +1,8 @@
+---
+Name: deskall-portfolio-config
+---
+BaseBlockExtension:
+  blocks:
+    - PortfolioBlock
+  children_blocks:
+    - PortfolioBlock
