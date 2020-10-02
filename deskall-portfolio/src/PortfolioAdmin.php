@@ -56,7 +56,7 @@ class PortfolioAdmin extends ModelAdmin {
     public function makeImport(){
         foreach (PortfolioClient::get() as $c) {
             foreach($c->GalleryImages() as $i){
-                $suffix = substr($i->Name, -2);
+                $suffix = substr($i->Title, -2);
                 ob_start();
                                             print_r($suffix."\n");
                                             $result = ob_get_clean();
