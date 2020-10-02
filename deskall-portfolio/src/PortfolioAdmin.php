@@ -320,11 +320,11 @@ class PortfolioAdmin extends ModelAdmin {
                 foreach ($clients as $key => $ref) {
                    $client = PortfolioClient::get()->filter('RefID' , $ref['PortfolioClientID'])->first();
                    if (!$client){
-                    continue
+                    continue;
                    }
                    $cat = PortfolioCategory::get()->filter('RefID' , $ref['PortfolioCategoryID'])->first();
                    if (!$cat){
-                    continue
+                    continue;
                    }
                    $client->PortfolioCategories()->add($cat);
                    $client->write();
