@@ -12,6 +12,10 @@ class PortfolioBlock extends TextBlock{
 
 	private static $help_text = "Portfolio Arbeiten";
 
+	public function getType(){
+	    return _t(__CLASS__ . '.BlockType', 'Portfolio');
+	}
+
 	public function Clients( $state ) {
 		if( $state == 'active' ){
 			return PortfolioClient::get()->filter(array('isVisible' => true))->filter(array('ClientActive' => true));
