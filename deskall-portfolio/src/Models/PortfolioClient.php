@@ -9,6 +9,7 @@ use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Assets\Image;
+use Bummzack\SortableFile\Forms\SortableUploadField;
 
 class PortfolioClient extends DataObject {
 
@@ -85,11 +86,8 @@ class PortfolioClient extends DataObject {
         $headerImage = $fields->fieldByName('Root.Main.Header');
         $headerImage->setFolderName('Uploads/portfolio/'.$this->URLSegment);
 
-
-        $galleryField = $fields->fieldByName('Root.GalleryImages.GalleryImages');
-        $galleryField->setFolderName('Uploads/portfolio/'.$this->URLSegment);
-
-
+        $fields->addFieldToTab('Root.Main', SortableUploadField::create('GalleryImages',_t(__CLASS__.'.GalleryImages','Bilder'))->setIsMultiUpload(true)->setFolderName('Uploads/portfolio/'.$this->URLSegment));
+       
         return $fields;
     }
 
