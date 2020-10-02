@@ -167,7 +167,7 @@ class PortfolioAdmin extends ModelAdmin {
                
                 foreach ($clients as $key => $ref) {
                    $client = PortfolioClient::get()->filter('RefID' , $ref['ID'])->first();
-                   if (!$client){
+                   if (!$client || $client->LogoID > 0 || $client->HeaderID > 0){
                     continue;
                    }
                    $file = isset($files[$ref['LogoID']]) ? $files[$ref['LogoID']] : null;
