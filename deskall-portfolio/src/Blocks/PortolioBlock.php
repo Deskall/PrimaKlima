@@ -2,6 +2,16 @@
 
 class PortfolioBlock extends TextBlock{
 
+	private static $inline_editable = false;
+	
+	private static $icon = 'font-icon-p-articles';
+	
+	private static $controller_template = 'BlockHolder';
+
+	private static $controller_class = BlockController::class;
+
+	private static $help_text = "Portfolio Arbeiten";
+
 	public function Clients( $state ) {
 		if( $state == 'active' ){
 			return PortfolioClient::get()->filter(array('isVisible' => true))->filter(array('ClientActive' => true));
@@ -14,6 +24,10 @@ class PortfolioBlock extends TextBlock{
 
 	public function Categories(){
 		return PortfolioCategory::get();
+	}
+
+	public function activeReferences(){
+		return PortfolioClient::get();
 	}
 
 	public function ClientDetail(){
