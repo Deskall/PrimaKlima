@@ -27,7 +27,7 @@ class PortfolioAdmin extends ModelAdmin {
     private static $menu_title = 'Arbeiten (Portfolio)';
 
     public function getEditForm($id = null, $fields = null) {
-        // $this->makeImport();
+        $this->makeImport();
 
         $form = parent::getEditForm($id, $fields);
 
@@ -178,24 +178,24 @@ class PortfolioAdmin extends ModelAdmin {
                    }
                    $filepath = str_replace("assets/Uploads", Director::baseFolder(),$file);
 
-                   $filepath = substr_replace($filepath,"/_resampled/SameImageW10",strrpos($filepath, "/"),0);
+                   // $filepath = substr_replace($filepath,"/_resampled/SameImageW10",strrpos($filepath, "/"),0);
                    ob_start();
                    print_r($filepath);
                    $result = ob_get_clean();
                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result,FILE_APPEND);
 
-                    if (file_exists($filepath)){
-                        $file = new Image();
-                        $file->setFromLocalFile($filepath);
-                        $name = ltrim(strrchr($file,"/"), '/');
-                        $folder = Folder::find_or_make("Uploads/portfolio/".$client->URLSegment);
-                        $file->ParentID = $folder->ID;
-                        $file->write();
-                        $file->publishSingle();
-                        $client->GalleryImages()->add($file,['SortOrder' => $ref['SortOrder']]);
-                    }
+                   //  if (file_exists($filepath)){
+                   //      $file = new Image();
+                   //      $file->setFromLocalFile($filepath);
+                   //      $name = ltrim(strrchr($file,"/"), '/');
+                   //      $folder = Folder::find_or_make("Uploads/portfolio/".$client->URLSegment);
+                   //      $file->ParentID = $folder->ID;
+                   //      $file->write();
+                   //      $file->publishSingle();
+                   //      $client->GalleryImages()->add($file,['SortOrder' => $ref['SortOrder']]);
+                   //  }
 
-                   $client->write();
+                   // $client->write();
                 }
             }
         }
