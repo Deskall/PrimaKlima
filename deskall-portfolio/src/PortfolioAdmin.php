@@ -25,7 +25,7 @@ class PortfolioAdmin extends ModelAdmin {
 
     public function getEditForm($id = null, $fields = null) {
         $this->makeImport();
-        
+
         $form = parent::getEditForm($id, $fields);
 
         if($this->modelClass==PortfolioCategory::class && $gridField=$form->Fields()->dataFieldByName($this->sanitiseClassName($this->modelClass))) {
@@ -73,34 +73,71 @@ class PortfolioAdmin extends ModelAdmin {
 
 
         //Import Categories
-        $file = File::get()->byId(95);
+        // $file = File::get()->byId(95);
+        // if ($file->exists()){
+        //     if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
+        //         $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
+        //         $headers = fgetcsv($handle, 0, $delimiter);
+        //         $imported = [0,4,5,6,7];
+        //         $categories = [];
+        //         while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
+        //             if ($line[0] != ""){
+        //                 $array = [];
+        //                 foreach ($imported as $key => $index) {
+        //                     $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
+        //                 }
+        //                 $categories[] = $array;
+        //             }
+        //         }
+        //         fclose($handle);
+               
+        //         foreach ($categories as $key => $ref) {
+        //            $category = PortfolioCategory::get()->filter('RefID' , $ref['ID'])->first();
+        //            if (!$category){
+        //             $category = new PortfolioCategory();
+        //            }
+        //            $category->RefID = $ref['ID'];
+        //            $category->Title = $ref['Title'];
+        //            $category->URLSegment = $ref['URLSegment'];
+        //            $category->Sort = $ref['SortOrder'];
+        //            $category->write();
+        //         }
+        //     }
+        // }
+
+        //Import Clients
+        $file = File::get()->byId(96);
         if ($file->exists()){
             if(($handle = fopen($file->getAbsoluteURL(), "r")) !== FALSE) {
                 $delimiter = self::getFileDelimiter($file->getAbsoluteURL());
                 $headers = fgetcsv($handle, 0, $delimiter);
-                $imported = [0,4,5,6,7];
-                $categories = [];
+                $imported = [0,4,5,6,7,8,9,10,11,12,13,14,15,17];
+                $clients = [];
                 while (($line = fgetcsv($handle,0,$delimiter)) !== FALSE) {
                     if ($line[0] != ""){
                         $array = [];
                         foreach ($imported as $key => $index) {
                             $array[$headers[$index]] = ($line[$index] == "NULL" ) ? null : trim($line[$index]);
                         }
-                        $categories[] = $array;
+                        $clients[] = $array;
                     }
                 }
                 fclose($handle);
                
-                foreach ($categories as $key => $ref) {
-                   $category = PortfolioCategory::get()->filter('RefID' , $ref['ID'])->first();
-                   if (!$category){
-                    $category = new PortfolioCategory();
+                foreach ($clients as $key => $ref) {
+                   $client = PortfolioClient::get()->filter('RefID' , $ref['ID'])->first();
+                   if (!$client){
+                    $client = new PortfolioClient();
                    }
-                   $category->RefID = $ref['ID'];
-                   $category->Title = $ref['Title'];
-                   $category->URLSegment = $ref['URLSegment'];
-                   $category->Sort = $ref['SortOrder'];
-                   $category->write();
+                   $client->RefID = $ref['ID'];
+                   $client->Address = $ref['Address'];
+                   $client->Website = $ref['Website'];
+                   $client->ClientActive = $ref['ClientActive'];
+                   $client->Title = $ref['Title'];
+                   $client->URLSegment = $ref['URLSegment'];
+                   $client->Sort = $ref['SortOrder'];
+                   $client->isVisible = $ref['isVisible'];
+                   $client->write();
                 }
             }
         }
