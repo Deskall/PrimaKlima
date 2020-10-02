@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\TextField;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 class PortfolioCategory extends DataObject {
 
@@ -38,7 +39,7 @@ class PortfolioCategory extends DataObject {
     public function onBeforeWrite(){
        parent::onBeforeWrite();
        //to do generate unique
-        $this->URLSegment = URLSegmentFilter::create()->filter($this->Title);
+        // $this->URLSegment = URLSegmentFilter::create()->filter($this->Title);
         
         
     }
