@@ -10,16 +10,16 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class PortfolioAdmin extends ModelAdmin {
 
-    private static $managed_models = array(
-        PortfolioCategory::class
+    private static $managed_models = [
+        PortfolioCategory::class,
         PortfolioClient::class
-    );
+    ];
 
-    static $menu_priority = 4;
+    private static $menu_priority = 4;
 
     private static $url_segment = 'portfolio';
     private static $menu_title = 'Arbeiten (Portfolio)';
-    public $showImportForm = false;
+    private static $showImportForm = false;
 
     public function getEditForm($id = null, $fields = null) {
         $form = parent::getEditForm($id, $fields);
