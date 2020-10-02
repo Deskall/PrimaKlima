@@ -7,6 +7,7 @@ use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Assets\Image;
 
 class PortfolioClient extends DataObject {
