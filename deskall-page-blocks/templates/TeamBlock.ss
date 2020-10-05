@@ -8,7 +8,7 @@
                         <% if Image %>
                         <img src="$Image.ScaleWidth(350).CropHeight(250).URL" alt="$Title">
                         <% else %>
-                        <img src="{$ThemeDir}logo.svg" width="350" height="250" alt="$Title">
+                        <img src="themes/standard/img/logo.svg" width="350" height="250" alt="$Title">
                         <% end_if %>
                     </div>
                     <div class="team-title">
