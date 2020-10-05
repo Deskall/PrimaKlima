@@ -34,13 +34,13 @@ class PublishableBlock extends DataExtension implements StaticallyPublishable, S
     {  
         
         $list = [];
-        $page = $this->owner->getRealPage();
-        // if ($this->getOwner() instanceof BaseElement ){
-        //     $page = $this->getOwner()->getRealPage();
-        // }
-        // else{
-        //     $page = $this->getOwner()->getPage();
-        // }
+
+        if ($this->owner instanceof BaseElement ){
+            $page = $this->owner->getRealPage();
+        }
+        else{
+            $page = $this->getOwner()->getRealPage();
+        }
         switch ($context['action']) {
             case 'publish':
             // Trigger refresh of the page itself.
