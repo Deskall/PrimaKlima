@@ -23,16 +23,6 @@
                             <% end_if %>
                         </div>
                     </div>
-                    <%-- <div class="uk-position-bottom-center uk-padding-small uk-transition-fade uk-height-1-1 info-container uk-width-1-1 uk-flex uk-flex-left uk-flex-middle">
-                        <div class="uk-transition-slide-top-small">
-                            <div><strong class="uk-margin-remove uk-text-primary">$Title</strong></div>
-                            <div>$Function</div>
-                        </div>
-                        <div class="uk-transition-slide-bottom-small">
-                            <div><a href="mailto:$Email">$Email</a></div>
-                            <div><a href="tel:$Telephone">$Telephone</a></div>
-                        </div>
-                    </div> --%>
                 </div>
             </div>
         </div>
