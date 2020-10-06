@@ -12,11 +12,11 @@ class FilterLocalExtension extends DataExtension
             print_r($fields);
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-         $locales = $fields->FieldByName('Root.Locales.FilteredLocales');
-         $fields->removeByName('FilteredLocales');
-         if ($this->owner->ID > 0 && $locales){
-         	$fields->addFieldToTab('Root.Locales',$locales);
-         }
+         // $locales = $fields->FieldByName('Root.Locales.FilteredLocales');
+         // $fields->removeByName('FilteredLocales');
+         // if ($this->owner->ID > 0 && $locales){
+         // 	$fields->addFieldToTab('Root.Locales',$locales);
+         // }
          
     }
 
