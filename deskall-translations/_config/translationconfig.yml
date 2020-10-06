@@ -12,6 +12,14 @@ TractorCow\Fluent\Model\Locale:
     - PublishInDefaultLocaleExtension
     - SubObjectPermission
 
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - 'TractorCow\Fluent\Extension\FluentExtension'
+  data_include:
+    - Varchar
+    - Text
+    - DBHTMLText
+
 LayoutBlock:
   extensions:
     - 'MenuBlockExtension'

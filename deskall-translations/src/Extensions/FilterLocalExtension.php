@@ -8,10 +8,7 @@ use TractorCow\Fluent\Model\Locale;
 class FilterLocalExtension extends DataExtension
 {
     public function updateCMSFields(FieldList $fields){
-        ob_start();
-            print_r($fields);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+      
          // $locales = $fields->FieldByName('Root.Locales.FilteredLocales');
          // $fields->removeByName('FilteredLocales');
          // if ($this->owner->ID > 0 && $locales){
