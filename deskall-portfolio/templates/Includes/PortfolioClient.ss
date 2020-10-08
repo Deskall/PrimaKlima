@@ -1,4 +1,4 @@
-<div class="uk-modal-body uk-padding-remove">
+<div class="uk-modal-body modal-reference uk-padding-remove">
 	$Header
 	<div class="uk-padding-small">
 		<div>
@@ -7,7 +7,7 @@
 			<% end_if %>
 			<div class="title">$Title</div>
 			<% if Description %>
-			<div class="dk-text-content">$Description</div>
+			<div class="dk-text-content description">$Description</div>
 			<% end_if %>
 			
 		</div>
