@@ -4,7 +4,7 @@
 	<div>
 		$Title
 		<div class="uk-flex uk-flex-between">
-			<% loop Categories %>
+			<% loop PortfolioCategories %>
 			$Title
 			<% end_loop %>
 		</div>
