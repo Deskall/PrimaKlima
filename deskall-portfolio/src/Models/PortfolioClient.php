@@ -33,7 +33,7 @@ class PortfolioClient extends DataObject {
     ];
 
     private static $has_many = [
-        'Testimonials' => Testimonial::class
+        'Testimonials' => PortfolioTestimonial::class
     ];
 
     private static $many_many = [
@@ -53,7 +53,7 @@ class PortfolioClient extends DataObject {
 
     public function getCMSFields() {
         $fields = parent::getCMSFields();
-
+        $fields->removeByName('RefID');
         $fields->removeByName('URLSegment');
         $fields->removeByName('PortfolioCategories');
         $fields->removeByName('GalleryImages');
