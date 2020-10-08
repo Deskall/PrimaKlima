@@ -6,6 +6,7 @@
 		        <a class="uk-accordion-title">Filter nach Kategorien</a>
 		        <div class="uk-accordion-content">
 		        	<ul class="uk-subnav uk-subnav-pill">
+		        		<li uk-filter-control><a>Alle Referenzen anzeigen</a></li>
 						<% loop Categories %>
 						<li uk-filter-control="[data-tags*='{$URLSegment}']"><a>$Title</a></li>
 						<% end_loop %>
