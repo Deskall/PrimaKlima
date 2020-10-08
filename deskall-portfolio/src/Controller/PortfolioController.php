@@ -2,6 +2,7 @@
 
 use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\Control\HTTPRequest;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class PortfolioController extends PageController
 {
@@ -26,7 +27,7 @@ class PortfolioController extends PageController
             return $ref->renderWith('Includes/PortfolioClient');
         }
        
-        return null;
+        return DBHTMLText::create()->setValue('<p>Referenz nicht gefunden...</p>');
     }
 
     
