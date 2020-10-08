@@ -5,7 +5,7 @@
  		reference = $(this);
  		id = $(this).attr('data-id');
  		$.ajax({
- 			url: 'portfolio/fetchReference',
+ 			url: '/portfolio/fetchReference',
  			dataType: 'html',
  			data: {ReferenceID: id}
  		}).done(function(resp){
