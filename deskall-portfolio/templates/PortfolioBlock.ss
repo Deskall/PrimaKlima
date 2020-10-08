@@ -1,17 +1,19 @@
 <% include TextBlock %>
 <div data-uk-filter="target: .js-filter">
-	<ul data-uk-accordion>
-	    <li>
-	        <a class="uk-accordion-title">Filter nach Kategorien</a>
-	        <div class="uk-accordion-content">
-	        	<ul class="uk-subnav uk-subnav-pill">
-					<% loop Categories %>
-					<li uk-filter-control="[data-tags*='{$URLSegment}']"><a>$Title</a></li>
-					<% end_loop %>
-				</ul>
-	        </div>
-	    </li>
-	</ul>
+	<div class="BlackBackground">
+		<ul data-uk-accordion>
+		    <li>
+		        <a class="uk-accordion-title">Filter nach Kategorien</a>
+		        <div class="uk-accordion-content">
+		        	<ul class="uk-subnav uk-subnav-pill">
+						<% loop Categories %>
+						<li uk-filter-control="[data-tags*='{$URLSegment}']"><a>$Title</a></li>
+						<% end_loop %>
+					</ul>
+		        </div>
+		    </li>
+		</ul>
+	</div>
 	
 	<div class="js-filter uk-child-width-auto uk-grid-small" data-uk-grid="masonry:true;">
 		<% loop activeReferences %>
