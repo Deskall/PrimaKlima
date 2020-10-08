@@ -1,4 +1,4 @@
-<div class="uk-modal-body">
+<div class="uk-modal-body uk-padding-remove">
 	$Header
 	<div class="uk-child-width-1-2@s" data-uk-grid>
 	<div>
