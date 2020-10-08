@@ -69,7 +69,7 @@ class PortfolioClient extends DataObject {
 
 
         if( $this->ID ){
-            $fields->addFieldToTab('Root.Main', GridField::create(
+            $fields->addFieldToTab('Root.Kundenstimmen', GridField::create(
                       'Testimonials',
                       'Kundenstimmen',
                       $this->Testimonials(),
