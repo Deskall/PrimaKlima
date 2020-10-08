@@ -1,7 +1,6 @@
 <div class="uk-modal-body uk-padding-remove">
 	$Header
-	<div class="uk-padding">
-		<div class="uk-child-width-1-2@s" data-uk-grid>
+	<div class="uk-padding-small">
 		<div>
 			<div class="title">$Title</div>
 			<div class="website"><a href="$Website" target="_blank" rel="nofollow">Website</a></div>
