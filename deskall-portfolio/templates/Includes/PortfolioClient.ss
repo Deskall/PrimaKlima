@@ -1,1 +1,1 @@
-$Title
+<div class="uk-modal-body">$Title</div>
