@@ -16,10 +16,12 @@
 		</ul>
 	</div>
 	
-	<div class="js-filter uk-child-width-1-3 uk -child-width-1-6@m uk-grid-small" data-uk-grid="masonry:true;">
+	<div class="js-filter uk-child-width-1-3  uk-child-width-1-6@m uk-grid-small" data-uk-grid="masonry:true;">
 		<% loop activeReferences %>
-		<div class="reference-box uk-flex uk-flex-center uk-flex-middle" data-tags="<% loop PortfolioCategories %>{$URLSegment} <% end_loop %>">
-			$Logo.FitMax(150,150)
+		<div data-tags="<% loop PortfolioCategories %>{$URLSegment} <% end_loop %>">
+			<div class="reference-box uk-flex uk-flex-center uk-flex-middle">
+				$Logo.FitMax(150,150)
+			</div>
 		</div>
 		<% end_loop %>
 	</div>
