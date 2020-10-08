@@ -3,6 +3,11 @@
 	<div class="uk-child-width-1-2@s" data-uk-grid>
 	<div>
 		$Title
+		<div class="uk-flex uk-flex-between">
+			<% loop Categories %>
+			$Title
+			<% end_loop %>
+		</div>
 	</div>
 	<% if GalleryImages.exists %>
 	<div data-uk-slider>
