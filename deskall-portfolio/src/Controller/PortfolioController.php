@@ -17,14 +17,15 @@ class PortfolioController extends PageController
 
     public function fetchReference(HTTPRequest $request){
         $id = $request->getVar('ReferenceID');
+         ob_start();
+                    print_r( $id );
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $ref = PortfolioClient::get()->byId($id);
         if ($ref){
             return $ref->renderWith('Includes/PortfolioClient');
         }
-        ob_start();
-                    print_r('ici');
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+       
         return null;
     }
 
