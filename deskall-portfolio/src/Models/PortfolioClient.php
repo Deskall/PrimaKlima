@@ -10,6 +10,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Assets\Image;
 use Bummzack\SortableFile\Forms\SortableUploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 class PortfolioClient extends DataObject {
 
@@ -18,6 +19,7 @@ class PortfolioClient extends DataObject {
 
     private static $db = [
         'Title' => 'Varchar(255)',
+        'Description' => 'HTMLText',
         'URLSegment' => 'Varchar(255)',
         'ClientActive' => 'Boolean(true)',
         'Address'   => 'HTMLText',
@@ -58,7 +60,8 @@ class PortfolioClient extends DataObject {
         $fields->removeByName('Testimonials');
 
 
-        $fields->addFieldToTab('Root.Main',TextField::create('Title','Name'));       
+        $fields->addFieldToTab('Root.Main',TextField::create('Title','Name')); 
+        $fields->addFieldToTab('Root.Main',HTMLEditorField::create('Description','Kurz Beschreibung'));       
         $fields->addFieldToTab('Root.Main',CheckboxField::create('ClientActive','Aktiver Kunde'));
 
         $fields->addFieldToTab('Root.Main',TextareaField::create('Address','Adresse / Ortschaft'));    

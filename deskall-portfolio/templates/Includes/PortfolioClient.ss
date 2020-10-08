@@ -1,6 +1,10 @@
 <div class="uk-modal-body">
 	$Header
-	$Title
+	<div class="uk-child-width-1-2@s" data-uk-grid>
+	<div>
+		$Title
+	</div>
+	<% if GalleryImages.exists %>
 	<div data-uk-slider>
 		<div class="uk-position-relative uk-visible-toggle">
 			<div class="uk-slider-container">
@@ -12,8 +16,8 @@
 					<% end_loop %>
 				</ul>
 			</div>
-			
 		</div>
 		<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 	</div>
+	<% end_if %>
 </div>	
