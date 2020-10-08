@@ -4,7 +4,7 @@ use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 
-class PortfolioController extends PageController
+class PortfolioController extends ContentController
 {
 
     private static $allowed_actions = ['fetchReference'];
