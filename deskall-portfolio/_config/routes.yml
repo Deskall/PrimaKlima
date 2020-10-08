@@ -1,0 +1,9 @@
+---
+Name: portfolioroutes
+After:
+  - '#rootroutes'
+  - '#coreroutes'
+---
+SilverStripe\Control\Director:
+  rules:
+    'portfolio//$Action/$ID/$Name': 'PortfolioController'

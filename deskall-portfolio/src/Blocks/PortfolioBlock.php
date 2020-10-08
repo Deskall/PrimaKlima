@@ -8,7 +8,7 @@ class PortfolioBlock extends TextBlock{
 	
 	private static $controller_template = 'BlockHolder';
 
-	private static $controller_class = BlockController::class;
+	private static $controller_class = PortfolioBlockController::class;
 
 	private static $help_text = "Portfolio Arbeiten";
 
