@@ -24,8 +24,9 @@
 			</div>
 		</div>
 		<% end_loop %>
+		<a data-uk-toggle=".inactive">Mehr</a>
 		<% loop inactiveReferences %>
-		<div  data-tags="<% loop PortfolioCategories %>{$URLSegment} <% end_loop %>" hidden>
+		<div class="inactive" data-tags="<% loop PortfolioCategories %>{$URLSegment} <% end_loop %>" hidden>
 			<div data-id="$ID" class="reference-box uk-flex uk-flex-center uk-flex-middle">
 				$Logo.FitMax(150,150)
 			</div>
