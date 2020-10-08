@@ -1,11 +1,11 @@
 <% include TextBlock %>
 <div data-uk-filter="target: .js-filter">
-	<select>
+	<ul class="uk-subnav uk-subnav-pill">
 		<% loop Categories %>
-		<option data-uk-filter-control="[data-tags*='{$URLSegment}']"><a>$Title</a></option>
+		<li uk-filter-control="[data-tags*='{$URLSegment}']"><a>$Title</a></li>
 		<% end_loop %>
-	</select>
-	<div class="js-filter uk-child-width-auto uk-grid-small" data-uk-grid="masonry:true;">
+	</ul>
+	<div class="js-filter uk-child-width-auto uk-grid-small" data-uk-grid="masonry:true;" data-uk-scrollspy="target:.reference-box;cls:uk-animation-fade;delay:100;">
 		<% loop activeReferences %>
 		<div data-tags="<% loop PortfolioCategories %>{$URLSegment} <% end_loop %>">
 			<div class="reference-box uk-flex uk-flex-center uk-flex-middle">
