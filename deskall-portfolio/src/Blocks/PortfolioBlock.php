@@ -16,35 +16,17 @@ class PortfolioBlock extends TextBlock{
 	    return _t(__CLASS__ . '.BlockType', 'Portfolio');
 	}
 
-	public function Clients( $state ) {
-		if( $state == 'active' ){
-			return PortfolioClient::get()->filter(array('isVisible' => true))->filter(array('ClientActive' => true));
-		}elseif( $state == 'notactive' ){	
-			return PortfolioClient::get()->filter(array('isVisible' => true))->filter(array('ClientActive' => 0));
-		}else{
-			return PortfolioClient::get()->filter(array('isVisible' => true));
-		}
-	}
 
 	public function Categories(){
 		return PortfolioCategory::get();
 	}
 
 	public function activeReferences(){
-		return PortfolioClient::get();
+		return PortfolioClient::get()->filter(['isVisible' => 1, 'ClientActive' => 1]);
 	}
 
-	public function ClientDetail(){
-
-		$pathsegs = explode("/",  $_SERVER['REQUEST_URI'] );
-
-		$Client = PortfolioClient::get()->filter(array('URLSegment' => $pathsegs))->First();
-
-		if( $Client ){
-			return $Client->renderWith("PortolioClientDetail");	
-		}else{
-			return false;
-		}
+	public function inactiveReferences(){
+		return PortfolioClient::get()->filter(['isVisible' => 1, 'ClientActive' => 0]);
 	}
 
 }

@@ -3,7 +3,7 @@
 	<div class="uk-padding-small">
 		<div>
 			<% if Website %>
-			<div class="website uk-text-small"><a href="$Website" target="_blank" rel="nofollow"><span data-uk-icon="world" class="uk-margin-small-right"></span>Website</a></div>
+			<div class="website uk-flex uk-flex-middle"><a href="$Website" target="_blank" rel="nofollow"><span data-uk-icon="world" class="uk-margin-small-right"></span><span>Website</span></a></div>
 			<% end_if %>
 			<div class="title">$Title</div>
 			<% if Description %>
