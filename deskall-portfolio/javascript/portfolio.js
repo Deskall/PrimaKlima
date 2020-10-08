@@ -5,10 +5,7 @@
  		reference = $(this);
  		id = $(this).attr('data-id');
  		$.ajax({
- 			url: '/portfolio/fetchReference',
- 			method: 'GET',
- 			dataType: 'html',
- 			data: {ReferenceID: id}
+ 			url: '/portfolio/fetchReference/'+id
  		}).done(function(resp){
  			if (resp){
  				UIkit.modal.dialog(resp);

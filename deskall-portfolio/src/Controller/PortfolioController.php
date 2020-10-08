@@ -9,19 +9,13 @@ class PortfolioController extends ContentController
 
     private static $allowed_actions = ['fetchReference'];
 
-    protected function init()
-    {
-        parent::init();
-        // You can include any CSS or JS required by your project here.
-        // See: https://docs.silverstripe.org/en/developer_guides/templates/requirements/
-    }
+    private static $url_handlers = [
+        'detail/$ID' => 'fetchReference'
+    ];
+
 
     public function fetchReference(HTTPRequest $request){
-        $id = $request->getVar('ReferenceID');
-         ob_start();
-                    print_r( 'id: '.$id );
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        $id = $request->param('ID');
         $ref = PortfolioClient::get()->byId($id);
         if ($ref){
             return $ref->renderWith('Includes/PortfolioClient');
