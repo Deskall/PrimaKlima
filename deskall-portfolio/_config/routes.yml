@@ -6,4 +6,4 @@ After:
 ---
 SilverStripe\Control\Director:
   rules:
-    'portfolio//$Action/$ID': 'PortfolioController'
+    'portfolio': 'PortfolioController'
