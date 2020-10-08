@@ -8,7 +8,7 @@
 	<div data-uk-slider>
 		<div class="uk-position-relative uk-visible-toggle">
 			<div class="uk-slider-container">
-				<ul class="uk-slider-items uk-child-width-1-2@s uk-grid-small" data-uk-grid>
+				<ul class="uk-slider-items uk-child-width-1-1 uk-grid-small" data-uk-grid>
 					<% loop GalleryImages %>
 					<li>
 						$Me
