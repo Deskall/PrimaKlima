@@ -3,7 +3,7 @@
 use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\Control\HTTPRequest;
 
-class PortfolioController extends ContentController
+class PortfolioController extends PageController
 {
 
     private static $allowed_actions = ['fetchReference'];
