@@ -1,1 +1,19 @@
-<div class="uk-modal-body">$Title</div>	
+<div class="uk-modal-body">
+	$Header
+	$Title
+	<div data-uk-slider>
+		<div class="uk-position-relative uk-visible-toggle">
+			<div class="uk-slider-container">
+				<ul class="uk-slider-items uk-child-width-1-2@s uk-grid-small" data-uk-grid>
+					<% loop GalleryImages %>
+					<li>
+						$Me
+					</li>
+					<% end_loop %>
+				</ul>
+			</div>
+			
+		</div>
+		<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+	</div>
+</div>	
