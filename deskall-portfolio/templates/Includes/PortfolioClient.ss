@@ -7,13 +7,7 @@
 			<% if Description %>
 			<div class="dk-text-content">$Description</div>
 			<% end_if %>
-			<% if PortfolioCategories.exists %>
-			<div class="categories">
-				<% loop PortfolioCategories %>
-				<div>$Title</div>
-				<% end_loop %>
-			</div>
-			<% end_if %>
+			
 		</div>
 		<% if GalleryImages.exists %>
 		<div data-uk-slider>
