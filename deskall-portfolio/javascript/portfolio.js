@@ -6,6 +6,7 @@
  		id = $(this).attr('data-id');
  		$.ajax({
  			url: '/portfolio/fetchReference',
+ 			method: 'GET',
  			dataType: 'html',
  			data: {ReferenceID: id}
  		}).done(function(resp){
