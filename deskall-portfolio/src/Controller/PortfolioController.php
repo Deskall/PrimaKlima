@@ -19,7 +19,7 @@ class PortfolioController extends PageController
         $id = $request->getVar('ReferenceID');
         $ref = PortfolioClient::get()->byId($id);
         if ($ref){
-            return $ref->renderWith('Includes/PortfolioDetail');
+            return $ref->renderWith('Includes/PortfolioClient');
         }
         return null;
     }
