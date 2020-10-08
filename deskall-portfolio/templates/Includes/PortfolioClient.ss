@@ -3,7 +3,7 @@
 	<div class="uk-padding-small">
 		<div>
 			<% if Website %>
-			<div class="website"><a href="$Website" target="_blank" rel="nofollow"><span data-uk-icon="" class="uk-margin-small-right"></span>Website</a></div>
+			<div class="website uk-text-small"><a href="$Website" target="_blank" rel="nofollow"><span data-uk-icon="world" class="uk-margin-small-right"></span>Website</a></div>
 			<% end_if %>
 			<div class="title">$Title</div>
 			<% if Description %>
@@ -12,7 +12,7 @@
 			
 		</div>
 		<% if GalleryImages.exists %>
-		<div data-uk-slider>
+		<div class="uk-padding" data-uk-slider>
 			<div class="uk-position-relative uk-visible-toggle">
 				<div class="uk-slider-container">
 					<ul class="uk-slider-items uk-child-width-1-1 uk-grid-small" data-uk-grid>
