@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<% end_loop %>
-		<div class="uk-width-1-1 uk-text-center inactive"><a class="uk-button button-PrimaryBackground" data-uk-toggle=".inactive">Mehr Referenzen<span class="uk-margin-small-left" data-uk-icon="arrow-down"></span></a></div>
+		<div class="uk-width-1-1 uk-text-center inactive"><a class="uk-button button-PrimaryBackground" data-uk-toggle=".inactive"data-uk-icon="arrow-down">Mehr Referenzen</a></div>
 		<% loop inactiveReferences %>
 		<div class="inactive" data-tags="<% loop PortfolioCategories %>{$URLSegment} <% end_loop %>" hidden>
 			<div data-id="$ID" class="reference-box uk-flex uk-flex-center uk-flex-middle">
