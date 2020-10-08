@@ -1,6 +1,6 @@
 <% include TextBlock %>
 <div data-uk-filter="target: .js-filter">
-	<div class="BlackBackground">
+	<div class="GrauBackground uk-padding-small">
 		<ul data-uk-accordion>
 		    <li>
 		        <a class="uk-accordion-title">Filter nach Kategorien</a>
