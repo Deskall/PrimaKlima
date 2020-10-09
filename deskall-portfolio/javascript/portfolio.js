@@ -7,7 +7,6 @@
  	DisplayCategory();
 
  	UIkit.util.on('#category-filter', 'afterFilter', function(){
- 		console.log('ici');
  		DisplayCategory();
  	});
  	
@@ -24,7 +23,6 @@
  	});
 
  	function DisplayCategory(){
- 		console.log('la');
  		activeCategory = $(".portfolioblock").find('.uk-active');
  		categoryDisplayed = $(".portfolioblock").find('#category-displayed');
  		categoryDisplayed.text(activeCategory.find('a').text());
