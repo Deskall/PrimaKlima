@@ -10,7 +10,7 @@
 					<div class="$Element.Width"><% end_if %>
 						
 						<% if Element.isPrimary %>
-							<h1 class="$Element.TitleAlign">$getPage.Title</h1>
+							<h1 class="$Element.TitleAlign"><% if getPage.TitleDisplayed %>$getPage.TitleDisplayed<% else %>$getPage.Title<% end_if %></h1>
 						<% else %>
 							<% if Element.Title && $Element.ShowTitle %>
 								<% if $Element.isChildren %>
