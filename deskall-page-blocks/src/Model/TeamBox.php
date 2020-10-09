@@ -56,6 +56,10 @@ class TeamBox extends DataObject {
 		$fields->addFieldToTab('Root.Main', new TextareaField('Function','Funktion'));
 		$fields->addFieldToTab('Root.Main', EmailField::create('Email','Email'));
 		$fields->addFieldToTab('Root.Main', TextField::create('Telephone','Telephone'));
+		$fields->addFieldToTab('Root.Main', TextField::create('Facebook','Facebook'));
+		$fields->addFieldToTab('Root.Main', TextField::create('Instagram','Instagram'));
+		$fields->addFieldToTab('Root.Main', TextField::create('Linkedin','Linkedin'));
+		$fields->addFieldToTab('Root.Main', TextField::create('Xing','Xing'));
 
 		$uploadField = new UploadField('Image', 'Porträt');
 		$uploadField->setFolderName($this->TeamBlock()->getFolderName());
