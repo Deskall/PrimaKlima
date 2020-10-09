@@ -17,7 +17,11 @@ class TeamBox extends DataObject {
 		'Content' => 'HTMLText',
 		'Function' => 'Text',
 		'Email' => 'Varchar(255)',
-		'Telephone' => 'Varchar(255)'
+		'Telephone' => 'Varchar(255)',
+		'Facebook' => 'URL',
+		'Instagram' => 'URL',
+		'Linkedin' => 'URL',
+		'Xing' => 'URL'
 	);
 
 	private static $has_one = array(
