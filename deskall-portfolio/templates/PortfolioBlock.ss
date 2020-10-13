@@ -16,7 +16,7 @@
 		</ul>
 	</div>
 	
-	<div class="js-filter uk-child-width-1-2 uk-child-width-1-3@m  uk-child-width-1-6@m uk-grid-small" data-uk-grid="masonry:true;">
+	<div class="js-filter uk-child-width-1-3 uk-child-width-1-6@m uk-grid-small" data-uk-grid="masonry:true;">
 		<% loop activeReferences %>
 		<div  data-tags="<% loop PortfolioCategories %>{$URLSegment} <% end_loop %>">
 			<div data-id="$ID" class="reference-box uk-flex uk-flex-center uk-flex-middle">
