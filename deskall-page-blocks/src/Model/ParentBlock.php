@@ -165,7 +165,7 @@ class ParentBlock extends ElementList
             CheckboxField::create('CanCollapse',_t(__CLASS__.'.CanCollapse','Blöcke dürfen zusammenbrochen sein.'))->displayIf('CollapsableChildren')->isChecked()->end()
         )->setTitle(_t(__CLASS__.'.Settings','Einstellungen'))->setName('BlocksLayout'));
 
-        if ($this->ID > 0){
+        if ($this->ID > 0 && $this->Elements()->Elements()->exists()){
            $collapse->setDisabled(true)->setDescription(_t(__CLASS__.'.CollapsableChildrenHelpText','Diese Option kann nicht nach dem Erstellung geändert sein.'));
         }
 
