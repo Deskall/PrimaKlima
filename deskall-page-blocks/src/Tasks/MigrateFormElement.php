@@ -53,6 +53,8 @@ class MigrateFormElement extends BuildTask
             $newForm->getRealPage()->publishRecursive();
             $count ++;
         }
+
+        $forms->removeAll();
         
         echo 'Finished migrating ' . $count . ' forms<br>';
     }
