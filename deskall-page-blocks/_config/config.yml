@@ -29,6 +29,13 @@ DNADesign\Elemental\Models\BaseElement:
 ParentBlock:
   extensions:
     - 'VirtualBlockExtension'
+  disallowed_elements:
+      - DNADesign\Elemental\Models\ElementContent
+      - DNADesign\ElementalList\Model\ElementList
+      - DNADesign\ElementalUserForms\Model\ElementForm
+      #- DNADesign\ElementalVirtual\Model\ElementVirtual
+      - VirtualBlock
+      - DuplicateBlock
 
 Page:
   extensions:
@@ -38,7 +45,7 @@ Page:
       - DNADesign\Elemental\Models\ElementContent
       - DNADesign\ElementalList\Model\ElementList
       - DNADesign\ElementalUserForms\Model\ElementForm
-      - DNADesign\ElementalVirtual\Model\ElementVirtual
+      #- DNADesign\ElementalVirtual\Model\ElementVirtual
       - VirtualBlock
       - DuplicateBlock
 
