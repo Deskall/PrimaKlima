@@ -19,7 +19,7 @@ DNADesign\Elemental\Forms\ElementalAreaConfig:
 DNADesign\Elemental\Models\BaseElement:
   default_global_elements: true
   extensions:
-    # - BaseBlockExtension
+    - BaseBlockExtension
     - Activable
     - Linkable
     - Collapsable
