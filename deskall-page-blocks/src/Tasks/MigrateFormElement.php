@@ -47,8 +47,8 @@ class MigrateFormElement extends BuildTask
                 $sub->ParentClass = $newForm->ClassName;
                 $sub->write();
             }
-            $form->delete();
-            $newForm->publishSingle();
+            // $form->delete();
+            // $newForm->publishSingle();
             //Publish page
             $newForm->getRealPage()->publishRecursive();
             $count ++;
