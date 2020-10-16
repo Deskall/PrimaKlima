@@ -6,7 +6,6 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\ORM\FieldType\DBText;
 use SilverStripe\Blog\Model\BlogPost;
-use SilverStripe\ORM\DataList;
 use SilverStripe\ORM\ManyManyList;
 
 class BlogPostExtension extends DataExtension{
@@ -65,23 +64,25 @@ class BlogPostExtension extends DataExtension{
 
 	/** Provide similar article with same Tags or Categories **/
 	public function OtherBlogPosts(){
-		$blogposts = DataList::create(BlogPost::class);
+		$tagposts = [];
+		$categoryposts = [];
 		//First Tags
 		if ($this->owner->Tags()->exists()){
 			$tags = $this->owner->Tags()->column('ID');
-			$posts = ManyManyList::create(BlogPost::class, 'BlogPost_Tags','BlogPostID','BlogTagID')->filter('BlogTagID',$tags)->exclude('ID',$this->owner->ID)->limit(3);
-			$blogposts->addMany($posts);
+			$tagposts = ManyManyList::create(BlogPost::class, 'BlogPost_Tags','BlogPostID','BlogTagID')->filter('BlogTagID',$tags)->exclude('ID',$this->owner->ID)->sort('PublishDate','DESC')->limit(3)->column('ID');
 		}
 
 		//If not enough we go through categories
 		if ($blogposts->count() < 3){
 			if ($this->owner->Categories()->exists()){
 				$tags = $this->owner->Categories()->column('ID');
-				$posts = ManyManyList::create(BlogPost::class, 'BlogPost_Categories','BlogPostID','BlogCategoryID')->filter('BlogCategoryID',$tags)->exclude('ID',$this->owner->ID)->limit(3 - $blogposts->count());
-				$blogposts->addMany($posts);
+				$categoryposts = ManyManyList::create(BlogPost::class, 'BlogPost_Categories','BlogPostID','BlogCategoryID')->filter('BlogCategoryID',$tags)->exclude('ID',$this->owner->ID)->limit(3 - $blogposts->count());
 			}
 		}
 
-		return $blogposts;
+		$blogposts = array_unique (array_merge ($tagposts, $categoryposts));
+
+
+		return BlogPost::get()->filter('ID',$blogposts);
 	}
 }
