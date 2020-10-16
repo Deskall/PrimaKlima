@@ -83,6 +83,6 @@ class BlogPostExtension extends DataExtension{
 		$blogposts = array_unique (array_merge ($tagposts, $categoryposts));
 
 
-		return is_empty($blogposts) ? BlogPost::get()->sort('PublishDate','DESC')->limit(3) : BlogPost::get()->filter('ID',$blogposts);
+		return empty($blogposts) ? BlogPost::get()->sort('PublishDate','DESC')->limit(3) : BlogPost::get()->filter('ID',$blogposts);
 	}
 }
