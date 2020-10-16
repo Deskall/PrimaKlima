@@ -69,20 +69,20 @@ class BlogPostExtension extends DataExtension{
 		//First Tags
 		if ($this->owner->Tags()->exists()){
 			$tags = $this->owner->Tags()->column('ID');
-			$tagposts = ManyManyList::create(BlogPost::class, 'BlogPost_Tags','BlogPostID','BlogTagID')->filter('BlogTagID',$tags)->exclude('ID',$this->owner->ID)->sort('PublishDate','DESC')->limit(3)->column('ID');
+			$tagposts = ManyManyList::create(BlogPost::class, 'BlogPost_Tags','BlogPostID','BlogTagID')->filter('BlogTagID',$tags)->exclude('BlogPostID',$this->owner->ID)->sort('PublishDate','DESC')->limit(3)->column('ID');
 		}
 
 		//If not enough we go through categories
 		if (count($tagposts) < 3){
 			if ($this->owner->Categories()->exists()){
 				$cats = $this->owner->Categories()->column('ID');
-				$categoryposts = ManyManyList::create(BlogPost::class, 'BlogPost_Categories','BlogPostID','BlogCategoryID')->filter('BlogCategoryID',$cats)->exclude('ID',$this->owner->ID)->limit(3 - count($tagposts));
+				$categoryposts = ManyManyList::create(BlogPost::class, 'BlogPost_Categories','BlogPostID','BlogCategoryID')->filter('BlogCategoryID',$cats)->exclude('BlogPostID',$this->owner->ID)->limit(3 - count($tagposts));
 			}
 		}
 
 		$blogposts = array_unique (array_merge ($tagposts, $categoryposts));
 
 
-		return BlogPost::get()->filter('ID',$blogposts);
+		return is_empty($blogposts) ? BlogPost::get()->sort('PublishDate','DESC')->limit(3) : BlogPost::get()->filter('ID',$blogposts);
 	}
 }
