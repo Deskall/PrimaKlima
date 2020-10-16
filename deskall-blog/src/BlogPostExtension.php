@@ -5,6 +5,9 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\ORM\FieldType\DBText;
+use SilverStripe\Blog\Model\BlogPost;
+use SilverStripe\ORM\DataList;
+use SilverStripe\ORM\ManyManyList;
 
 class BlogPostExtension extends DataExtension{
 
@@ -60,4 +63,25 @@ class BlogPostExtension extends DataExtension{
 	    return round($wordCount / $wpm, 0);
 	}
 
+	/** Provide similar article with same Tags or Categories **/
+	public function OtherBlogPosts(){
+		$blogposts = DataList::create(BlogPost::class)
+		//First Tags
+		if ($this->owner->Tags()->exists()){
+			$tags = $this->owner->Tags()->column('ID');
+			$posts = ManyManyList::create(BlogPost::class, 'BlogPost_Tags','BlogPostID','BlogTagID')->filter('BlogTagID',$tags)->exclude('BlogPostID',$this->owner->ID)->limit(3);
+			$blogposts->addMany($posts);
+		}
+
+		//If not enough we go through categories
+		if ($blogposts->count() < 3){
+			if ($this->owner->Categories()->exists()){
+				$tags = $this->owner->Categories()->column('ID');
+				$posts = ManyManyList::create(BlogPost::class, 'BlogPost_Categories','BlogPostID','BlogCategoryID')->filter('BlogCategoryID',$tags)->exclude('BlogPostID',$this->owner->ID)->limit(3 - $blogposts->count());
+				$blogposts->addMany($posts);
+			}
+		}
+
+		return $blogposts;
+	}
 }
