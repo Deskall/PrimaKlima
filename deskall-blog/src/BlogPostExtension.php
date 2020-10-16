@@ -76,7 +76,7 @@ class BlogPostExtension extends DataExtension{
 		if (count($tagposts) < 3){
 			if ($this->owner->Categories()->exists()){
 				$cats = $this->owner->Categories()->column('ID');
-				$categoryposts = ManyManyList::create(BlogPost::class, 'BlogPost_Categories','BlogPostID','BlogCategoryID')->filter('BlogCategoryID',$cats)->exclude('BlogPostID',$this->owner->ID)->limit(3 - count($tagposts));
+				$categoryposts = ManyManyList::create(BlogPost::class, 'BlogPost_Categories','BlogPostID','BlogCategoryID')->filter('BlogCategoryID',$cats)->exclude('BlogPostID',$this->owner->ID)->limit(3 - count($tagposts))->column('ID');
 			}
 		}
 
