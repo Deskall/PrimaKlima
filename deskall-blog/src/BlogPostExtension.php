@@ -65,7 +65,7 @@ class BlogPostExtension extends DataExtension{
 
 	/** Provide similar article with same Tags or Categories **/
 	public function OtherBlogPosts(){
-		$blogposts = DataList::create(BlogPost::class)
+		$blogposts = DataList::create(BlogPost::class);
 		//First Tags
 		if ($this->owner->Tags()->exists()){
 			$tags = $this->owner->Tags()->column('ID');
