@@ -17,49 +17,47 @@ class MigrateFormElement extends BuildTask
     public function run($request)
     {
         $count = 0;
-        foreach (FormBlock::get() as $f) {
-            $f->delete();
+        foreach (ElementForm::get() as $form) {
+            $form->doArchive();
         }
-        $forms = ElementForm::get();
-        foreach ($forms as $form) {
-            $data = $form->toMap();
-            unset($data['ID']);
-            unset($data['ClassName']);
-            $newForm = new FormBlock($data);
-            if ($newForm->RedirectPageID == 0){
-                $newForm->RedirectPageID = HomePage::get()->first()->ID;
-            }
-            $newForm->write();
-            $fields = $form->fields();
-            $recs = EmailRecipient::get()->filter('FormID',$form->ID);
-            $subms = SubmittedForm::get()->filter('ParentID',$form->ID);
+        // $forms = ElementForm::get();
+        // foreach ($forms as $form) {
+        //     $data = $form->toMap();
+        //     unset($data['ID']);
+        //     unset($data['ClassName']);
+        //     $newForm = new FormBlock($data);
+        //     if ($newForm->RedirectPageID == 0){
+        //         $newForm->RedirectPageID = HomePage::get()->first()->ID;
+        //     }
+        //     $newForm->write();
+        //     $fields = $form->fields();
+        //     $recs = EmailRecipient::get()->filter('FormID',$form->ID);
+        //     $subms = SubmittedForm::get()->filter('ParentID',$form->ID);
 
-            //Upadte Recipient and Fields and Submissions
-            foreach ($fields as $field) {
-                $field->ParentID = $newForm->ID;
-                $field->ParentClass = $newForm->ClassName;
-                $field->write();
-            }
-            foreach ($recs as $rec) {
-                $rec->FormID = $newForm->ID;
-                $rec->FormClass = $newForm->ClassName;
-                $rec->write();
-            }
-            foreach ($subms as $sub) {
-                $sub->ParentID = $newForm->ID;
-                $sub->ParentClass = $newForm->ClassName;
-                $sub->write();
-            }
-            // $form->delete();
-            $newForm->publishRecursive();
-            //Publish page
-            $newForm->getRealPage()->publishSingle();
-            $count ++;
-        }
+        //     //Upadte Recipient and Fields and Submissions
+        //     foreach ($fields as $field) {
+        //         $field->ParentID = $newForm->ID;
+        //         $field->ParentClass = $newForm->ClassName;
+        //         $field->write();
+        //     }
+        //     foreach ($recs as $rec) {
+        //         $rec->FormID = $newForm->ID;
+        //         $rec->FormClass = $newForm->ClassName;
+        //         $rec->write();
+        //     }
+        //     foreach ($subms as $sub) {
+        //         $sub->ParentID = $newForm->ID;
+        //         $sub->ParentClass = $newForm->ClassName;
+        //         $sub->write();
+        //     }
+        //     // $form->delete();
+        //     $newForm->publishRecursive();
+        //     //Publish page
+        //     $newForm->getRealPage()->publishRecursive();
+        //     $count ++;
+        // }
 
-        foreach ($forms as $form) {
-            $form->delete();
-        }
+        
         
         echo 'Finished migrating ' . $count . ' forms<br>';
     }
