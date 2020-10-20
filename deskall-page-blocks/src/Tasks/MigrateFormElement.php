@@ -17,6 +17,9 @@ class MigrateFormElement extends BuildTask
     public function run($request)
     {
         $count = 0;
+        foreach (FormBlock::get() as $f) {
+            $f->delete();
+        }
         $forms = ElementForm::get();
         foreach ($forms as $form) {
             $data = $form->toMap();
@@ -48,13 +51,15 @@ class MigrateFormElement extends BuildTask
                 $sub->write();
             }
             // $form->delete();
-            // $newForm->publishSingle();
+            $newForm->publishRecursive();
             //Publish page
-            $newForm->getRealPage()->publishRecursive();
+            $newForm->getRealPage()->publishSingle();
             $count ++;
         }
 
-        $forms->removeAll();
+        foreach ($forms as $form) {
+            $form->delete();
+        }
         
         echo 'Finished migrating ' . $count . ' forms<br>';
     }
