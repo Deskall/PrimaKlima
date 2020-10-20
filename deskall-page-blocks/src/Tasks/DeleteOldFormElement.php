@@ -20,7 +20,7 @@ class DeleteOldFormElement extends BuildTask
         $newFormsIds = FormBlock::get()->column('ID');
         $forms = ElementForm::get();
         if (!empty($newFormsIds)){
-            $forms->exclude('ID',$newFormsIds);
+            $forms = $forms->exclude('ID',$newFormsIds);
         }
         foreach ($forms as $form) {
             $form->doArchive();
