@@ -175,7 +175,7 @@ class ActionBlock extends BaseElement implements Searchable
             
         //MODALS LAYOUT
         $fields->addFieldToTab('Root.LayoutTab',Wrapper::create(CompositeField::create(
-            DropdownField::create('ButtonBackground',_t(__CLASS__.'.ButtonBackground','Button Farbe'), $this->getTranslatedSourceFor(__CLASS__,'button_backgrounds')),
+            DropdownField::create('ButtonBackground',_t(__CLASS__.'.ButtonBackground','Button Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'),
             DropdownField::create('ButtonPosition',_t(__CLASS__.'.ButtonPosition','Button Ausrichtung'), $this->getTranslatedSourceFor(__CLASS__,'button_alignments')),
             DropdownField::create('ModalSize',_t(__CLASS__.'.ModalSize','Fenster Breite'), $this->getTranslatedSourceFor(__CLASS__,'modal_sizes')),
             $fields->fieldByName('Root.Main.ModalScroll')
