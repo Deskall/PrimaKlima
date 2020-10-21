@@ -10,6 +10,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use g4b0\SearchableDataObjects\Searchable;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class ActionBlock extends BaseElement implements Searchable
 {
