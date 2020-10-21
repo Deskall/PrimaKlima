@@ -1,3 +1,5 @@
+<% include TextBlock %>
+
 <div class="calltoaction-container uk-flex <% if not noMargin %>dk-margin-responsive<% end_if %> uk-flex-{$TextAlignment}">
 		<% if InteractionType == "dropdown" %>
 		<div class="uk-inline uk-width-1-1">

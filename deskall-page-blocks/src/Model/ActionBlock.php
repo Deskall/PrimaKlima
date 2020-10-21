@@ -34,6 +34,7 @@ class ActionBlock extends BaseElement implements Searchable
         'Trigger' => 'Varchar(255)',
         'InteractionType' => 'Varchar(255)',
         'HTML' => 'HTMLText',
+        'ActionHTML' => 'HTMLText',
         'CloseText' => 'Varchar(255)',
         'ModalSize' => 'Varchar(255)',
         'ModalScroll' => 'Boolean(0)',
@@ -138,6 +139,7 @@ class ActionBlock extends BaseElement implements Searchable
         $labels = parent::fieldLabels($includerelations );
         $labels['Trigger'] = _t(__CLASS__.'.TriggeringText', 'Text der Öffnen-Button');
         $labels['CloseText'] = _t(__CLASS__.'.CloseText', 'Text der Schließen-Button');
+        $labels['ActionHTML'] = _t(__CLASS__.'.ActionHTML', 'Inhalt der Modal / Off-Canvas / Dropdown ...');
 
         return $labels;
     }
@@ -201,6 +203,7 @@ class ActionBlock extends BaseElement implements Searchable
 
         //Content Display Rules
         $fields->fieldByName('Root.Main.HTML')->hideIf('InteractionType')->isEqualTo('scroll');
+        $fields->fieldByName('Root.Main.ActionHTML')->hideIf('InteractionType')->isEqualTo('scroll');
         $fields->fieldByName('Root.Main.LinkableLinkID')->hideIf('InteractionType')->isEqualTo('scroll');
         $fields->fieldByName('Root.Main.ContentImage')->hideIf('InteractionType')->isEqualTo('scroll');
         
