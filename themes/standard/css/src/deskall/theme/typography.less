@@ -112,23 +112,11 @@ h4,h5,h6{
 	font-size: @global-font-size;
 }
 .hook-text-lead(){
-	font-size: @global-font-size;
+	font-size: @global-small-font-size*1.25;
 	*{
-		font-size: @global-font-size;
+		font-size: @global-small-font-size*1.25;
 	}
 	@media (min-width:@breakpoint-small){
-		font-size: @text-lead-font-size*@font-ratio-medium;
-		*{
-			font-size: @text-lead-font-size*@font-ratio-medium;
-		}
-	}
-	@media (min-width:@breakpoint-medium){
-		font-size: @text-lead-font-size*@font-ratio-large;
-		*{
-			font-size: @text-lead-font-size*@font-ratio-large;
-		}
-	}
-	@media (min-width:@breakpoint-large){
 		font-size: @text-lead-font-size;
 		*{
 			font-size: @text-lead-font-size;
