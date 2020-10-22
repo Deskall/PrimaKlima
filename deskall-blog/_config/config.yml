@@ -24,6 +24,7 @@ SilverStripe\Blog\Model\Blog:
     - BlogExtension
 
 SilverStripe\Blog\Model\BlogPost:
+  show_in_sitetree: true
   extensions:
     - BlogPostExtension
     - SilverStripe\Comments\Extensions\CommentsExtension
