@@ -214,43 +214,43 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         $fields->addFieldToTab('Root.Main',CheckboxField::create('isPrimary',_t(__CLASS__.".isPrimary","Diese Block enthalt den Haupttitel der Seite (h1)")),'TitleAndDisplayed');
       
      
-      //   if (Permission::check('ADMIN') && $extracss){
-      //       $fields->addFieldToTab('Root.LayoutTab',$extracss);
-      //   } 
-      //   $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
-      //       CheckboxField::create('isVisible',_t(__CLASS__.'.isVisible','Block anzeigen?')),
-      //       CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
-      //       DropdownField::create('SectionPadding',_t(__CLASS__.'.SectionPadding','Vertical Abstand'),['uk-padding-remove' => 'Keine','uk-section-small' => 'klein', 'uk-section-medium' => 'medium','uk-section-large' => 'gross']),
-      //       HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
-      //       UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()),
-      //       CheckboxField::create('BackgroundImageEffect',_t(__CLASS__.'.BackgroundImageEffect','Behobenes Scrollen des Bildes?')),
-      //       TextField::create('Animation',_t(__CLASS__.'.Animation','Animation'))
-      //   )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
-      //   $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-      //       HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),
-      //       HTMLOptionsetField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->stat('block_text_alignments')),
-      //       HTMLOptionsetField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->stat('block_text_columns')),
-      //       $columnDivider = CheckboxField::create('TextColumnsDivider',_t(__CLASS__.'.ShowColumnsBorder','Border zwischen Spalten anzeigen'))
-      //   )->setTitle(_t(__CLASS__.'.TextLayout','Text Optionen'))->setName('TextLayout'));
+        if (Permission::check('ADMIN') && $extracss){
+            $fields->addFieldToTab('Root.LayoutTab',$extracss);
+        } 
+        $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
+            CheckboxField::create('isVisible',_t(__CLASS__.'.isVisible','Block anzeigen?')),
+            CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
+            DropdownField::create('SectionPadding',_t(__CLASS__.'.SectionPadding','Vertical Abstand'),['uk-padding-remove' => 'Keine','uk-section-small' => 'klein', 'uk-section-medium' => 'medium','uk-section-large' => 'gross']),
+            HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
+            UploadField::create('BackgroundImage',_t(__CLASS__.'.BackgroundImage','Hintergrundbild'))->setFolderName($this->owner->getFolderName()),
+            CheckboxField::create('BackgroundImageEffect',_t(__CLASS__.'.BackgroundImageEffect','Behobenes Scrollen des Bildes?')),
+            TextField::create('Animation',_t(__CLASS__.'.Animation','Animation'))
+        )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
+        $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+            HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),
+            HTMLOptionsetField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->stat('block_text_alignments')),
+            HTMLOptionsetField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->stat('block_text_columns')),
+            $columnDivider = CheckboxField::create('TextColumnsDivider',_t(__CLASS__.'.ShowColumnsBorder','Border zwischen Spalten anzeigen'))
+        )->setTitle(_t(__CLASS__.'.TextLayout','Text Optionen'))->setName('TextLayout'));
         
-      //   $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
-      //   if ($history = $fields->FieldByName('Root.History') ){
-      //       $fields->removeByName('History');
-      //       $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
-      //       $fields->addFieldToTab('Root',$history);
-      //   }
+        $fields->FieldByName('Root.Main')->setTitle(_t(__CLASS__.'.ContentTab','Inhalt'));
+        if ($history = $fields->FieldByName('Root.History') ){
+            $fields->removeByName('History');
+            $history->setTitle(_t(__CLASS__.'.HistoryTab','Versionen'));
+            $fields->addFieldToTab('Root',$history);
+        }
 
 
-      //   $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LAYOUTTAB','Layout'));
+        $fields->FieldByName('Root.LayoutTab')->setTitle(_t(__CLASS__.'.LAYOUTTAB','Layout'));
     
  
-      //   if ($this->owner->isPrimary){
-      //       $fields->removeByName('TitleAndDisplayed');
-      //   }
+        if ($this->owner->isPrimary){
+            $fields->removeByName('TitleAndDisplayed');
+        }
 
-      //   //if ($this->owner->isChildren()){
-      //       $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(DropdownField::create('Width',_t('LayoutBlock.Width','Breite'),$this->owner->getTranslatedSourceFor('LayoutBlock','widths'))->setEmptyString(_t('Block.WidthLabel','Standard Breite (nimmt einfach die Seite Layout Parameter)'))->setDescription(_t('LayoutBlock.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
-      // //  }
+        //if ($this->owner->isChildren()){
+            $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(DropdownField::create('Width',_t('LayoutBlock.Width','Breite'),$this->owner->getTranslatedSourceFor('LayoutBlock','widths'))->setEmptyString(_t('Block.WidthLabel','Standard Breite (nimmt einfach die Seite Layout Parameter)'))->setDescription(_t('LayoutBlock.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
+      //  }
         
 
     }
