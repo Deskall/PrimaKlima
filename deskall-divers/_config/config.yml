@@ -27,10 +27,6 @@ SilverStripe\Admin\LeftAndMain:
   extra_requirements_javascript:
     - deskall-divers/javascript/lang/de.js
 
-SilverStripe\Security\Member:
-  extensions:
-    - MemberExtension
-
 SilverStripe\ORM\DataObject:
   extensions:
     - DeskallTranslatable
@@ -39,10 +35,6 @@ SilverStripe\ORM\DataObject:
 Sheadawson\Linkable\Models\Link:
   extensions:
     - LinkableLinkExtension
-
-SilverStripe\Assets\File:
-  extensions:
-    - RenameFileExtension
 
 SilverStripe\Assets\FileNameFilter:
   extensions:

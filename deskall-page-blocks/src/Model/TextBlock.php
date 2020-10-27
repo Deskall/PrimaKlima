@@ -10,7 +10,7 @@ use g4b0\SearchableDataObjects\Searchable;
 
 class TextBlock extends BaseElement implements Searchable
 {
-    private static $inline_editable = false;
+    // private static $inline_editable = false;
     
     private static $icon = 'font-icon-block-content';
     
@@ -97,7 +97,7 @@ class TextBlock extends BaseElement implements Searchable
         $fields->RemoveByName('Layout');
         $fields->RemoveByName('LightBox');
         $fields->removeByName('RoundedImage');
-        $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
+        // $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
         $fields->insertAfter('Layout',CheckboxField::create('LightBox','Bild vergrößern wenn klickten?'));
         $fields->insertAfter('LightBox',CheckboxField::create('RoundedImage',_t(__CLASS__.'.RoundedImage','Rund Bilder?')));
 
