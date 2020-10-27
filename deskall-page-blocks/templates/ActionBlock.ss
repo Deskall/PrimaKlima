@@ -1,3 +1,11 @@
+<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+	$HTML
+</div>
+	
+<% if LinkableLinkID > 0 %>
+	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
+<% end_if %>
+
 <div class="calltoaction-container uk-flex <% if not noMargin %>dk-margin-responsive<% end_if %> uk-flex-{$TextAlignment}">
 		<% if InteractionType == "dropdown" %>
 		<div class="uk-inline uk-width-1-1">
@@ -33,10 +41,10 @@
 	               <h3 class="uk-modal-title">$Title</h3>
 					<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>"> 
 						<% if CollapseText %>
-						<div class="short-text toggle-text-{$ID}">$HTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary uk-box-shadow-large" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
-						<div class="long-text toggle-text-{$ID}" hidden>$HTML</div>
+						<div class="short-text toggle-text-{$ID}">$ActionHTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary uk-box-shadow-large" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
+						<div class="long-text toggle-text-{$ID}" hidden>$ActionHTML</div>
 						<% else %>
-						$HTML
+						$ActionHTML
 						<% end_if %>
 					</div>
 					<button class="uk-button uk-modal-close button-{$ButtonBackground} $ButtonPosition dk-margin-responsive" type="button">$CloseText</button>
@@ -47,10 +55,10 @@
 	          		<h3 class="uk-modal-title">$Title</h3>
 	               	<div class="dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>"> 
 						<% if CollapseText %>
-						<div class="short-text toggle-text-{$ID}">$HTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary uk-box-shadow-large" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
-						<div class="long-text toggle-text-{$ID}" hidden>$HTML</div>
+						<div class="short-text toggle-text-{$ID}">$ActionHTML.limitWordCount($Limit)<div class="uk-position-bottom-center button-container"><button class="uk-button uk-button-primary uk-box-shadow-large" data-uk-toggle=".toggle-text-{$ID}">Mehr</button></div></div>
+						<div class="long-text toggle-text-{$ID}" hidden>$ActionHTML</div>
 						<% else %>
-						$HTML
+						$ActionHTML
 						<% end_if %>
 					</div>
 					<button class="uk-button uk-modal-close button-{$ButtonBackground} $ButtonPosition dk-margin-responsive" type="button">$CloseText</button>
@@ -59,7 +67,7 @@
         <% else %>
       		<div class="uk-padding-large" <% if ModalScroll %>data-uk-overflow-auto<% end_if %>>
       			<% if Title and ShowTitle %><h3 class="uk-modal-title">$Title</h3><% end_if %>
-                <% include TextBlock %>
+                <% include TextBlock HTML=$ActionHTML %>
 				<button class="uk-button uk-modal-close button-{$ButtonBackground} $ButtonPosition dk-margin-responsive" type="button">$CloseText</button>
            	</div>
         <% end_if %>
@@ -72,7 +80,7 @@
         <div class="uk-offcanvas-bar">
             <button class="uk-offcanvas-close" type="button" data-uk-close></button>
 	         	<% if Title and ShowTitle %><h3 class="uk-modal-title">$Title</h3><% end_if %>
-	          	<% include TextBlock %>
+	          	<% include TextBlock HTML=$ActionHTML %>
             <button class="uk-button dk-margin-responsive" type="button" data-uk-toggle="target: #offcanvas-container-{$ID}">$CloseText</button>
         </div>
     </div>

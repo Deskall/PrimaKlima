@@ -10,6 +10,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use g4b0\SearchableDataObjects\Searchable;
+use SilverStripe\SiteConfig\SiteConfig;
 
 class ActionBlock extends BaseElement implements Searchable
 {
@@ -34,6 +35,7 @@ class ActionBlock extends BaseElement implements Searchable
         'Trigger' => 'Varchar(255)',
         'InteractionType' => 'Varchar(255)',
         'HTML' => 'HTMLText',
+        'ActionHTML' => 'HTMLText',
         'CloseText' => 'Varchar(255)',
         'ModalSize' => 'Varchar(255)',
         'ModalScroll' => 'Boolean(0)',
@@ -138,6 +140,7 @@ class ActionBlock extends BaseElement implements Searchable
         $labels = parent::fieldLabels($includerelations );
         $labels['Trigger'] = _t(__CLASS__.'.TriggeringText', 'Text der Öffnen-Button');
         $labels['CloseText'] = _t(__CLASS__.'.CloseText', 'Text der Schließen-Button');
+        $labels['ActionHTML'] = _t(__CLASS__.'.ActionHTML', 'Inhalt der Modal / Off-Canvas / Dropdown ...');
 
         return $labels;
     }
@@ -173,7 +176,7 @@ class ActionBlock extends BaseElement implements Searchable
             
         //MODALS LAYOUT
         $fields->addFieldToTab('Root.LayoutTab',Wrapper::create(CompositeField::create(
-            DropdownField::create('ButtonBackground',_t(__CLASS__.'.ButtonBackground','Button Farbe'), $this->getTranslatedSourceFor(__CLASS__,'button_backgrounds')),
+            HTMLDropdownField::create('ButtonBackground',_t(__CLASS__.'.ButtonBackground','Button Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->addExtraClass('colors'),
             DropdownField::create('ButtonPosition',_t(__CLASS__.'.ButtonPosition','Button Ausrichtung'), $this->getTranslatedSourceFor(__CLASS__,'button_alignments')),
             DropdownField::create('ModalSize',_t(__CLASS__.'.ModalSize','Fenster Breite'), $this->getTranslatedSourceFor(__CLASS__,'modal_sizes')),
             $fields->fieldByName('Root.Main.ModalScroll')
@@ -201,6 +204,7 @@ class ActionBlock extends BaseElement implements Searchable
 
         //Content Display Rules
         $fields->fieldByName('Root.Main.HTML')->hideIf('InteractionType')->isEqualTo('scroll');
+        $fields->fieldByName('Root.Main.ActionHTML')->hideIf('InteractionType')->isEqualTo('scroll');
         $fields->fieldByName('Root.Main.LinkableLinkID')->hideIf('InteractionType')->isEqualTo('scroll');
         $fields->fieldByName('Root.Main.ContentImage')->hideIf('InteractionType')->isEqualTo('scroll');
         
