@@ -18,6 +18,17 @@ class ImageExtension extends Extension
         'Optimised' => 'Boolean(0)'
     ];
 
+    public function Square($width){
+        $variant = $this->owner->variantName(__FUNCTION__, $width);
+        return $this->owner->manipulateImage($variant, function (\SilverStripe\Assets\Image_Backend $backend) use($width) {
+            $clone = clone $backend;
+            $resource = clone $backend->getImageResource();
+            $resource->fit($width);
+            $clone->setImageResource($resource);
+            return $clone;
+        });
+    }
+
 
     public function onAfterUpload(){
 
