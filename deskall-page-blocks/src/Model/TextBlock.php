@@ -3,6 +3,7 @@
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
