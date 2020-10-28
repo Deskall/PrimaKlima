@@ -22,6 +22,7 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\TextareaField;
 use Sheadawson\Linkable\Models\Link;
 use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\GridField\GridField_FormAction;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
