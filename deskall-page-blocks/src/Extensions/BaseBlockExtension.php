@@ -253,43 +253,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(DropdownField::create('Width',_t('LayoutBlock.Width','Breite'),$this->owner->getTranslatedSourceFor('LayoutBlock','widths'))->setEmptyString(_t('Block.WidthLabel','Standard Breite (nimmt einfach die Seite Layout Parameter)'))->setDescription(_t('LayoutBlock.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
       //  }
         
+        $fields->insertBefore('TitleAndDisplayed',CheckboxField::create('isVisible','wird angezeigt?'));
 
     }
 
-    public function updateCMSActions(FieldList $actions){
-        if(!$this->owner->canEdit()) return;
-
-        if(!$this->owner->canActivate()) return;
-
-        if ($this->owner->isVisible && $this->owner->canDesactivate()){
-            $field = FormAction::create(
-                'doHide',
-                'Deaktivieren'
-            )->addExtraClass('grid-field__icon-action font-icon-check-mark-circle icon-primary btn--icon-large action action-detail')
-                ->setAttribute('title', _t('SiteTree.BUTTONINACTIVE', 'Deaktivieren'))
-                ->setDescription(_t('Global.BUTTONINACTIVEDESC', 'Deaktivieren'));
-        }
-        if (!$this->owner->isVisible && $this->owner->canActivate()){
-          $field = FormAction::create(
-            'doShow',
-            'Aktivieren'
-        )->addExtraClass('grid-field__icon-action font-icon-check-mark-circle btn--icon-large action action-detail')
-                ->setAttribute('title', _t('SiteTree.BUTTONACTIVE', 'Aktivieren'))
-                ->setDescription(_t('Global.BUTTONACTIVEDESC', 'Aktivieren'));  
-        }
-        if ($field){
-            $actions->push($field);
-        }
-        
-    }
-
-    public function doHide(){
-        $this->owner->hide();
-    }
-
-    public function doShow(){
-        $this->owner->show();
-    }
 
     public function generateAnchorTitle()
     {
