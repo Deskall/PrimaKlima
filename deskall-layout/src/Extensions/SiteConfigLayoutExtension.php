@@ -591,7 +591,6 @@ class SiteConfigLayoutExtension extends DataExtension
         $source = [];
         $source['no-bg'] = _t(__CLASS__.'.noColor','Keine Farbe');
         foreach($colors as $c){
-            $html = $c->getHTMLOption();
             $source[$c->Code] = $c->Title;
         }
         return $source;
