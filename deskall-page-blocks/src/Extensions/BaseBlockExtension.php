@@ -6,6 +6,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Core\Config\Config;
