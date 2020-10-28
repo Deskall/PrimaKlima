@@ -22,8 +22,7 @@ class TextBlock extends BaseElement implements Searchable
 
     private static $db = [
         'HTML' => 'HTMLText',
-        'LightBox' => 'Boolean(1)',
-        'RoundedImage' => 'Boolean(0)'
+        'LightBox' => 'Boolean(1)'
     ];
 
     private static $has_one = [
@@ -42,35 +41,35 @@ class TextBlock extends BaseElement implements Searchable
     private static $cascade_duplicates = [];
 
 
-    // private static $block_layouts = [
-    //     'left' => 'Links',
-    //     'right' => 'Rechts',
-    //     'hover' => 'Oben', 
-    //     'above' => 'Unten'
-    // ];
-
-     private static $block_layouts = [
-        'left' => [
-            'value' => 'left',
-            'title' => 'Links',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left.svg'
-        ],
-        'right' => [
-            'value' => 'right',
-            'title' => 'Rechts',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right.svg'
-        ],
-        'under' => [
-            'value' => 'under',
-            'title' => 'Unten',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-under.svg'
-        ],
-        'above' => [
-            'value' => 'above',
-            'title' => 'Oben',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-above.svg'
-        ],
+    private static $block_layouts = [
+        'left' => 'Links',
+        'right' => 'Rechts',
+        'hover' => 'Oben', 
+        'above' => 'Unten'
     ];
+
+    //  private static $block_layouts = [
+    //     'left' => [
+    //         'value' => 'left',
+    //         'title' => 'Links',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-left.svg'
+    //     ],
+    //     'right' => [
+    //         'value' => 'right',
+    //         'title' => 'Rechts',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-right.svg'
+    //     ],
+    //     'under' => [
+    //         'value' => 'under',
+    //         'title' => 'Unten',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-under.svg'
+    //     ],
+    //     'above' => [
+    //         'value' => 'above',
+    //         'title' => 'Oben',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-above.svg'
+    //     ],
+    // ];
 
 
    
@@ -96,10 +95,8 @@ class TextBlock extends BaseElement implements Searchable
         $fields = parent::getCMSFields();
         $fields->RemoveByName('Layout');
         $fields->RemoveByName('LightBox');
-        $fields->removeByName('RoundedImage');
-        // $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
+        $fields->fieldByName('Root.LayoutTab.TextLayout')->push(OptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
         $fields->insertAfter('Layout',CheckboxField::create('LightBox','Bild vergrößern wenn klickten?'));
-        $fields->insertAfter('LightBox',CheckboxField::create('RoundedImage',_t(__CLASS__.'.RoundedImage','Rund Bilder?')));
 
         return $fields;
     }
