@@ -21,6 +21,7 @@ use SilverStripe\Core\ClassInfo;
 use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\TextareaField;
 use Sheadawson\Linkable\Models\Link;
+use SilverStripe\Forms\FormAction;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -253,6 +254,10 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
       //  }
         
 
+    }
+
+    public function updateCMSActions(FieldList $actions){
+        $actions->push(FormAction::create('Test','Test'));
     }
 
     public function generateAnchorTitle()
