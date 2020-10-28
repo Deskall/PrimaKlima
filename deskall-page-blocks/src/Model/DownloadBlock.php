@@ -3,6 +3,7 @@
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\AssetAdmin\Forms\UploadField;
@@ -14,8 +15,6 @@ use g4b0\SearchableDataObjects\Searchable;
 
 class DownloadBlock extends BaseElement implements Searchable
 {
-    private static $inline_editable = false;
-    
     private static $icon = 'font-icon-install';
     
     private static $controller_template = 'BlockHolder';
@@ -48,55 +47,70 @@ class DownloadBlock extends BaseElement implements Searchable
         'FilesTextAlign' => 'uk-text-justify uk-text-left@s'
     ];
 
+    // private static $files_columns = [
+    //     'uk-child-width-1-1' =>  [
+    //         'value' => 'uk-child-width-1-1',
+    //         'title' => '1 Spalte',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text.svg'
+    //     ],
+    //     'uk-child-width-1-2@s' =>  [
+    //         'value' => 'uk-child-width-1-2@s',
+    //         'title' => '2 Spalten',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-2-columns.svg'
+    //     ],
+    //     'uk-child-width-1-2@s uk-child-width-1-3@m' =>  [
+    //         'value' => 'uk-child-width-1-2@s uk-child-width-1-3@m',
+    //         'title' => '3 Spalten',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-3-columns.svg'
+    //     ],
+    //     'uk-child-width-1-1@s uk-child-width-1-4@m' =>  [
+    //         'value' => 'uk-child-width-1-1@s uk-child-width-1-4@m',
+    //         'title' => '4 Spalten',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-4-columns.svg'
+    //     ],
+    //     'uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l' =>  [
+    //         'value' => 'uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l',
+    //         'title' => '5 Spalten',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-5-columns.svg'
+    //     ]
+    // ];
+
     private static $files_columns = [
-        'uk-child-width-1-1' =>  [
-            'value' => 'uk-child-width-1-1',
-            'title' => '1 Spalte',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text.svg'
-        ],
-        'uk-child-width-1-2@s' =>  [
-            'value' => 'uk-child-width-1-2@s',
-            'title' => '2 Spalten',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-2-columns.svg'
-        ],
-        'uk-child-width-1-2@s uk-child-width-1-3@m' =>  [
-            'value' => 'uk-child-width-1-2@s uk-child-width-1-3@m',
-            'title' => '3 Spalten',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-3-columns.svg'
-        ],
-        'uk-child-width-1-1@s uk-child-width-1-4@m' =>  [
-            'value' => 'uk-child-width-1-1@s uk-child-width-1-4@m',
-            'title' => '4 Spalten',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-4-columns.svg'
-        ],
-        'uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l' =>  [
-            'value' => 'uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l',
-            'title' => '5 Spalten',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-5-columns.svg'
-        ]
+        'uk-child-width-1-1' =>  '1 Spalte',
+        'uk-child-width-1-2@s' => '2 Spalten',
+        'uk-child-width-1-2@s uk-child-width-1-3@m' => '3 Spalten',
+        'uk-child-width-1-1@s uk-child-width-1-4@m' => '4 Spalten',
+        'uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l' => '5 Spalten'
     ];
 
+    // private static $files_text_alignments = [
+    //     'uk-text-justify uk-text-left@s' =>  [
+    //         'value' => 'uk-text-justify uk-text-left@s',
+    //         'title' => 'Links Ausrichtung',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-left-align.svg'
+    //     ],
+    //     'uk-text-justify uk-text-right@s' =>  [
+    //         'value' => 'uk-text-justify uk-text-right@s',
+    //         'title' => 'Rechts Ausrichtung',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-right-align.svg'
+    //     ],
+    //     'uk-text-justify uk-text-center@s' => [
+    //         'value' => 'uk-text-justify uk-text-center@s',
+    //         'title' => 'Mittel Ausrichtung',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-center-align.svg'
+    //     ],
+    //     'uk-text-justify' => [
+    //         'value' => 'uk-text-justify',
+    //         'title' => 'Justify Ausrichtung',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-justify-align.svg'
+    //     ]
+    // ];
+
     private static $files_text_alignments = [
-        'uk-text-justify uk-text-left@s' =>  [
-            'value' => 'uk-text-justify uk-text-left@s',
-            'title' => 'Links Ausrichtung',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left-align.svg'
-        ],
-        'uk-text-justify uk-text-right@s' =>  [
-            'value' => 'uk-text-justify uk-text-right@s',
-            'title' => 'Rechts Ausrichtung',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right-align.svg'
-        ],
-        'uk-text-justify uk-text-center@s' => [
-            'value' => 'uk-text-justify uk-text-center@s',
-            'title' => 'Mittel Ausrichtung',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-center-align.svg'
-        ],
-        'uk-text-justify' => [
-            'value' => 'uk-text-justify',
-            'title' => 'Justify Ausrichtung',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-justify-align.svg'
-        ]
+        'uk-text-justify uk-text-left@s' => 'Links Ausrichtung',
+        'uk-text-justify uk-text-right@s' => 'Rechts Ausrichtung',
+        'uk-text-justify uk-text-center@s' => 'Mittel Ausrichtung',
+        'uk-text-justify' => 'Justify Ausrichtung'
     ];
 
     
@@ -129,8 +143,8 @@ class DownloadBlock extends BaseElement implements Searchable
                 SortableUploadField::create('Files',_t(__CLASS__.'.Files','Dateien'))->setIsMultiUpload(true)->setFolderName($this->getFolderName())
             )->setTitle(_t(__CLASS__.'.Files','Dateien'))->setName('FilesFields'));
             $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-                HTMLOptionsetField::create('FilesColumns',_t(__CLASS__.'.FilesInColumns','Dateien in mehreren Spalten'),$this->stat('files_columns')),
-                HTMLOptionsetField::create('FilesTextAlign',_t(__CLASS__.'.FilesTextAlign','Dateien Textausrichtung'),$this->stat('files_text_alignments'))
+                OptionsetField::create('FilesColumns',_t(__CLASS__.'.FilesInColumns','Dateien in mehreren Spalten'),$this->stat('files_columns')),
+                OptionsetField::create('FilesTextAlign',_t(__CLASS__.'.FilesTextAlign','Dateien Textausrichtung'),$this->stat('files_text_alignments'))
             )->setTitle(_t(__CLASS__.'.FilesLayout','Dateien Layout'))->setName('FilesLayout'));
         });
         $fields = parent::getCMSFields();
