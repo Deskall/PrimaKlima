@@ -22,7 +22,6 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use SilverStripe\Forms\TextareaField;
 use Sheadawson\Linkable\Models\Link;
 use SilverStripe\Forms\FormAction;
-use SilverStripe\Forms\GridField\GridField_FormAction;
 
 class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 {
@@ -263,23 +262,17 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         if(!$this->owner->canActivate()) return;
 
         if ($this->owner->isVisible && $this->owner->canDesactivate()){
-            $field = GridField_FormAction::create(
-                $gridField,
-                'hide'.$this->owner->ID,
-                '',
-                "hide",
-                ['this->ownerID' => $this->owner->ID]
+            $field = FormAction::create(
+                'doHide',
+                'Deaktivieren'
             )->addExtraClass('grid-field__icon-action font-icon-check-mark-circle icon-primary btn--icon-large action action-detail')
                 ->setAttribute('title', _t('SiteTree.BUTTONINACTIVE', 'Deaktivieren'))
                 ->setDescription(_t('Global.BUTTONINACTIVEDESC', 'Deaktivieren'));
         }
         if (!$this->owner->isVisible && $this->owner->canActivate()){
-          $field = GridField_FormAction::create(
-            $gridField,
-            'show'.$this->owner->ID,
-            '',
-            "show",
-            ['this->ownerID' => $this->owner->ID]
+          $field = FormAction::create(
+            'doShow',
+            'Aktivieren'
         )->addExtraClass('grid-field__icon-action font-icon-check-mark-circle btn--icon-large action action-detail')
                 ->setAttribute('title', _t('SiteTree.BUTTONACTIVE', 'Aktivieren'))
                 ->setDescription(_t('Global.BUTTONACTIVEDESC', 'Aktivieren'));  
