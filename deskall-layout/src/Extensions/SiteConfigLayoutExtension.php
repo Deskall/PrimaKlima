@@ -593,6 +593,7 @@ class SiteConfigLayoutExtension extends DataExtension
         foreach($colors as $c){
             $source[$c->Code] = $c->Title;
         }
+        print_r($source);
         return $source;
     }
 
