@@ -122,58 +122,70 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
 
     private static $icon;
 
+    // private static $block_text_alignments = [
+    //     'uk-text-left' =>  [
+    //         'value' => 'uk-text-left',
+    //         'title' => 'Links Ausrichtung',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-left-align.svg'
+    //     ],
+    //     'uk-text-right' => [
+    //         'value' => 'uk-text-right',
+    //         'title' => 'Rechts Ausrichtung',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-right-align.svg'
+    //     ],
+    //     'uk-text-center' =>  [
+    //         'value' => 'uk-text-center',
+    //         'title' => 'Mittel Ausrichtung',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-center-align.svg'
+    //     ],
+    //     'uk-text-justify@s' =>  [
+    //         'value' => 'uk-text-justify@s',
+    //         'title' => 'Justify Ausrichtung',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-justify-align.svg'
+    //     ]
+    // ];
+
     private static $block_text_alignments = [
-        'uk-text-left' =>  [
-            'value' => 'uk-text-left',
-            'title' => 'Links Ausrichtung',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-left-align.svg'
-        ],
-        'uk-text-right' => [
-            'value' => 'uk-text-right',
-            'title' => 'Rechts Ausrichtung',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-right-align.svg'
-        ],
-        'uk-text-center' =>  [
-            'value' => 'uk-text-center',
-            'title' => 'Mittel Ausrichtung',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-center-align.svg'
-        ],
-        'uk-text-justify@s' =>  [
-            'value' => 'uk-text-justify@s',
-            'title' => 'Justify Ausrichtung',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-justify-align.svg'
-        ]
+        'uk-text-left' =>  'Links',
+        'uk-text-right' => 'Rechts',
+        'uk-text-center' => 'Zentriert',
+        'uk-text-justify@s' =>  'Justify'
     ];
 
-   
-
+    // private static $block_text_columns = [
+    //     '1' =>  [
+    //         'value' => '1',
+    //         'title' => '1 Spalte',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text.svg'
+    //     ],
+    //     'uk-column-1-2@s' =>  [
+    //         'value' => 'uk-column-1-2@s',
+    //         'title' => '2 Spalten',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-2-columns.svg'
+    //     ],
+    //     'uk-column-1-2@s uk-column-1-3@m' =>  [
+    //         'value' => 'uk-column-1-2@s uk-column-1-3@m',
+    //         'title' => '3 Spalten',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-3-columns.svg'
+    //     ],
+    //     'uk-column-1-2@s uk-column-1-4@m' =>  [
+    //         'value' => 'uk-column-1-2@s uk-column-1-4@m',
+    //         'title' => '4 Spalten',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-4-columns.svg'
+    //     ],
+    //     'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' =>  [
+    //         'value' => 'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l',
+    //         'title' => '5 Spalten',
+    //         'icon' => '/_resources/deskall-page-blocks/images/icon-text-5-columns.svg'
+    //     ]
+    // ];
 
     private static $block_text_columns = [
-        '1' =>  [
-            'value' => '1',
-            'title' => '1 Spalte',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text.svg'
-        ],
-        'uk-column-1-2@s' =>  [
-            'value' => 'uk-column-1-2@s',
-            'title' => '2 Spalten',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-2-columns.svg'
-        ],
-        'uk-column-1-2@s uk-column-1-3@m' =>  [
-            'value' => 'uk-column-1-2@s uk-column-1-3@m',
-            'title' => '3 Spalten',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-3-columns.svg'
-        ],
-        'uk-column-1-2@s uk-column-1-4@m' =>  [
-            'value' => 'uk-column-1-2@s uk-column-1-4@m',
-            'title' => '4 Spalten',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-4-columns.svg'
-        ],
-        'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' =>  [
-            'value' => 'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l',
-            'title' => '5 Spalten',
-            'icon' => '/_resources/deskall-page-blocks/images/icon-text-5-columns.svg'
-        ]
+        '1' => '1 Spalte',
+        'uk-column-1-2@s' => '2 Spalten',
+        'uk-column-1-2@s uk-column-1-3@m' => '3 Spalten',
+        'uk-column-1-2@s uk-column-1-4@m' => '4 Spalten',
+        'uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l' => '5 Spalten'
     ];
 
     public function populateDefaults(){
@@ -228,9 +240,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             TextField::create('Animation',_t(__CLASS__.'.Animation','Animation'))
         )->setTitle(_t(__CLASS__.'.GlobalLayout','allgemeine Optionen'))->setName('GlobalLayout'));
         $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
-            // HTMLOptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),
-            // HTMLOptionsetField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->stat('block_text_alignments')),
-            // HTMLOptionsetField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->stat('block_text_columns')),
+            OptionsetField::create('TitleAlign',_t(__CLASS__.'.TitleAlignment','Titelausrichtung'),$this->owner->stat('block_text_alignments')),
+            OptionsetField::create('TextAlign',_t(__CLASS__.'.TextAlignment','Textausrichtung'),$this->owner->stat('block_text_alignments')),
+            OptionsetField::create('TextColumns',_t(__CLASS__.'.TextColumns','Text in mehreren Spalten'),$this->owner->stat('block_text_columns')),
             $columnDivider = CheckboxField::create('TextColumnsDivider',_t(__CLASS__.'.ShowColumnsBorder','Border zwischen Spalten anzeigen'))
         )->setTitle(_t(__CLASS__.'.TextLayout','Text Optionen'))->setName('TextLayout'));
         
