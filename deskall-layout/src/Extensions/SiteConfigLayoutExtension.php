@@ -590,13 +590,18 @@ class SiteConfigLayoutExtension extends DataExtension
         $colors = $this->owner->Colors();
         $source = [];
         $source['no-bg'] = _t(__CLASS__.'.noColor','Keine Farbe');
-        foreach($colors as $c){
-            $source[$c->Code] = $c->Title;
-        }
         ob_start();
-              print_r($colors);
+              print_r($source);
               $result = ob_get_clean();
               file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        foreach($colors as $c){
+            $source[$c->Code] = $c->Title;
+            ob_start();
+                  print_r($source);
+                  $result = ob_get_clean();
+                  file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+        }
+       
         return $source;
     }
 
