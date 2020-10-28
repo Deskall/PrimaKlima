@@ -567,7 +567,7 @@ class SiteConfigLayoutExtension extends DataExtension
    
   }
 
-  public function getHTMLBackgroundColors(){
+  public function getBackgroundColors(){
         $colors = $this->owner->Colors();
         $source = [];
         $source['no-bg'] = [
@@ -586,7 +586,7 @@ class SiteConfigLayoutExtension extends DataExtension
         return $source;
     }
 
-  public function getBackgroundColors(){
+  public function getArrayBackgroundColors(){
         $colors = $this->owner->Colors();
         $source = [];
         $source['no-bg'] = _t(__CLASS__.'.noColor','Keine Farbe');
@@ -594,7 +594,7 @@ class SiteConfigLayoutExtension extends DataExtension
             $source[$c->Code] = $c->Title;
         }
         ob_start();
-              print_r($source);
+              print_r($colors);
               $result = ob_get_clean();
               file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         return $source;
