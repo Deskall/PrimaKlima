@@ -567,7 +567,7 @@ class SiteConfigLayoutExtension extends DataExtension
    
   }
 
-  public function getBackgroundColors(){
+  public function getHTMLBackgroundColors(){
         $colors = $this->owner->Colors();
         $source = [];
         $source['no-bg'] = [
@@ -582,6 +582,17 @@ class SiteConfigLayoutExtension extends DataExtension
                 'Title' => $c->Title,
                 'HTML' => $html
             ];
+        }
+        return $source;
+    }
+
+  public function getBackgroundColors(){
+        $colors = $this->owner->Colors();
+        $source = [];
+        $source['no-bg'] = _t(__CLASS__.'.noColor','Keine Farbe');
+        foreach($colors as $c){
+            $html = $c->getHTMLOption();
+            $source[$c->Code] = $c->Title;
         }
         return $source;
     }
