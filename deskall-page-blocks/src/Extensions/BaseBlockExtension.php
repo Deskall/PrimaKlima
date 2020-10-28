@@ -283,6 +283,14 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         
     }
 
+    public function doHide(){
+        $this->owner->hide();
+    }
+
+    public function doShow(){
+        $this->owner->show();
+    }
+
     public function generateAnchorTitle()
     {
 
