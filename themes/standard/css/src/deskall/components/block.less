@@ -66,3 +66,26 @@
 		}
 	}
 }
+
+.element.children > .uk-section.uk-section-small{
+	padding: @intrachildrenblock-padding-vertical 0;
+	@media only screen and (min-width:@breakpoint-small){
+		padding: @intrachildrenblock-padding-vertical-s 0;
+	}
+	@media only screen and (min-width:@breakpoint-medium){
+		padding: @intrachildrenblock-padding-vertical-m 0;
+	}
+	&.with-background{
+		padding: @intrachildrenblock-padding-vertical 15px;
+		@media only screen and (min-width:@breakpoint-small){
+			padding: @intrachildrenblock-padding-vertical-s 20px;
+		}
+		@media only screen and (min-width:@breakpoint-medium){
+			padding: @intrachildrenblock-padding-vertical-m 20px;
+		}
+	}
+}
+
+.element .element.children:last-child > .uk-section.uk-section-small{
+	padding-bottom:0;
+}
