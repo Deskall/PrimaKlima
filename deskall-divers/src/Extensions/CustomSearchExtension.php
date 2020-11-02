@@ -83,21 +83,18 @@ class CustomSearchExtension extends Extension
         // }
 
         //if multiple terms we look first for all
-        $input = str_replace(' ', '%', $input);
+        $matchAll = str_replace(' ', '%', $input);
 
         if ($conn instanceof SQLite3Database) {
             // query using SQLite FTS
-            $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"SearchableDataObjects\" LIKE '$input'";
+            $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"SearchableDataObjects\" LIKE '$matchAll'";
         } else {
             // query using MySQL Fulltext
-            $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"Title\" LIKE '$input' OR \"Content\" LIKE '$input'";
+            $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"Title\" LIKE '$input' OR \"Content\" LIKE '$matchAll'";
         }
 
-        ob_start();
-                    print_r($query);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-                    
+       
+
         // if ($conn instanceof SQLite3Database) {
         //     // query using SQLite FTS
         //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"SearchableDataObjects\" LIKE '%$input%'";
@@ -105,6 +102,37 @@ class CustomSearchExtension extends Extension
         //     // query using MySQL Fulltext
         //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"Title\" LIKE '%$input%' OR \"Content\" LIKE '%$input%'";
         // }
+
+        $results = DB::query($query);
+
+        //If no matches
+        if (count($results) == 0){
+            $inputs = explode(' ',$input);
+            $query = "SELECT * FROM \"SearchableDataObjects\"  WHERE";
+            if ($conn instanceof SQLite3Database) {
+                $i = 1;
+                foreach ($inputs as $key => $value) {
+                    $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
+                    if ($i < count($inputs)){
+                        $query .= " AND ";
+                    }
+                    $i++;
+                }
+            } else {
+                $i = 1;
+                foreach ($inputs as $key => $value) {
+                    $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
+                    if ($i < count($inputs)){
+                        $query .= " AND ";
+                    }
+                    $i++;
+                }
+            }
+            ob_start();
+                        print_r($query);
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        }
 
         $results = DB::query($query);
 
