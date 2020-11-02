@@ -82,11 +82,6 @@ class CustomSearchExtension extends Extension
         //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE MATCH (\"Title\", \"Content\") AGAINST ('$input' IN NATURAL LANGUAGE MODE)";
         // }
 
-        ob_start();
-                    print_r('------START------');
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-
         //if multiple terms we look first for all
         $matchAll = str_replace(' ', '%', $input);
 
@@ -98,8 +93,6 @@ class CustomSearchExtension extends Extension
             $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"Title\" LIKE '$matchAll' OR \"Content\" LIKE '$matchAll'";
         }
 
-       
-
         // if ($conn instanceof SQLite3Database) {
         //     // query using SQLite FTS
         //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"SearchableDataObjects\" LIKE '%$input%'";
@@ -108,22 +101,12 @@ class CustomSearchExtension extends Extension
         //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"Title\" LIKE '%$input%' OR \"Content\" LIKE '%$input%'";
         // }
 
-        ob_start();
-        print_r($query);
-        $result = ob_get_clean();
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
-
-
         $results = DB::query($query);
-        ob_start();
-        print_r($results->numRecords());
-        $result = ob_get_clean();
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
 
-        //If no matches
+        //If no exact matches we search for all
         if ($results->numRecords() == 0){
             $inputs = explode(' ',$input);
-            $query = "SELECT * FROM \"SearchableDataObjects\"  WHERE";
+            $query = "SELECT * FROM \"SearchableDataObjects\"  WHERE ";
             if ($conn instanceof SQLite3Database) {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
@@ -143,17 +126,36 @@ class CustomSearchExtension extends Extension
                     $i++;
                 }
             }
-            ob_start();
-                        print_r($query);
-                        $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
         }
 
         $results = DB::query($query);
-        ob_start();
-        print_r($results->numRecords());
-        $result = ob_get_clean();
-        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+
+        //If no matches all we search for any
+        if ($results->numRecords() == 0){
+            $inputs = explode(' ',$input);
+            $query = "SELECT * FROM \"SearchableDataObjects\"  WHERE ";
+            if ($conn instanceof SQLite3Database) {
+                $i = 1;
+                foreach ($inputs as $key => $value) {
+                    $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
+                    if ($i < count($inputs)){
+                        $query .= " OR ";
+                    }
+                    $i++;
+                }
+            } else {
+                $i = 1;
+                foreach ($inputs as $key => $value) {
+                    $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
+                    if ($i < count($inputs)){
+                        $query .= " OR ";
+                    }
+                    $i++;
+                }
+            }
+        }
+
+        $results = DB::query($query);
 
         foreach ($results as $row) {
             $do = DataObject::get_by_id($row['ClassName'], $row['ID']);
