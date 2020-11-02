@@ -85,7 +85,7 @@ class CustomSearchExtension extends Extension
         //if multiple terms we look first for all
         $matchAll = str_replace(' ', '%', $input);
         $inputs = explode(' ',$input);
-        $inputs = array_filter($input,function($v){ return strlen($v) > 3; });
+        $inputs = array_filter($inputs,function($v){ return strlen($v) > 3; });
 
         if ($conn instanceof SQLite3Database) {
             // query using SQLite FTS
