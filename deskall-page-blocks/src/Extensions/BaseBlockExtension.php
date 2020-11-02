@@ -252,6 +252,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(DropdownField::create('Width',_t('LayoutBlock.Width','Breite'),$this->owner->getTranslatedSourceFor('LayoutBlock','widths'))->setEmptyString(_t('Block.WidthLabel','Standard Breite (nimmt einfach die Seite Layout Parameter)'))->setDescription(_t('LayoutBlock.WidthDescription','Relative Breite im Vergleich zur Fußzeile')));
       //  }
         
+        if ($this->owner->isChildren()){
+            $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(CheckboxField::create('Collapsed',_t('Block.Collapsed','Zusammengebrochen?')));
+        }
 
     }
 
