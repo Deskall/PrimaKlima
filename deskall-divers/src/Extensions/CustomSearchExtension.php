@@ -163,7 +163,10 @@ class CustomSearchExtension extends Extension
                 }
             }
         }
-
+        ob_start();
+                    print_r($query);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         $results = DB::query($query);
 
         foreach ($results as $row) {
