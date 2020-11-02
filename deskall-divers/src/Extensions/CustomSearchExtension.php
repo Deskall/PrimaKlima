@@ -110,7 +110,7 @@ class CustomSearchExtension extends Extension
             if ($conn instanceof SQLite3Database) {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    if (strlen($value) > 3){
+                    if (strlen(trim($value)) > 3){
                         $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
                         if ($i < count($inputs)){
                             $query .= " AND ";
@@ -122,7 +122,7 @@ class CustomSearchExtension extends Extension
             } else {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    if (strlen($value) > 3){
+                    if (strlen(trim($value)) > 3){
                         $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
                         if ($i < count($inputs)){
                             $query .= " AND ";
@@ -142,7 +142,7 @@ class CustomSearchExtension extends Extension
             if ($conn instanceof SQLite3Database) {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    if (strlen($value) > 3){
+                    if (strlen(trim($value)) > 3){
                         $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
                         if ($i < count($inputs)){
                             $query .= " OR ";
@@ -153,7 +153,7 @@ class CustomSearchExtension extends Extension
             } else {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    if (strlen($value) > 3){
+                    if (strlen(trim($value)) > 3){
                         $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
                         if ($i < count($inputs)){
                             $query .= " OR ";
