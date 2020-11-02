@@ -253,7 +253,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
       //  }
         
         if ($this->owner->isChildren()){
-            $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(CheckboxField::create('Collapsed',_t('Block.Collapsed','Zusammengebrochen?')));
+            $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(CheckboxField::create('collapsed',_t('Block.Collapsed','Zusammengebrochen?')));
         }
 
     }
