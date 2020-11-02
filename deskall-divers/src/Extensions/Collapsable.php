@@ -2,6 +2,7 @@
 
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\CheckboxField;
 
 class Collapsable extends DataExtension
 {
