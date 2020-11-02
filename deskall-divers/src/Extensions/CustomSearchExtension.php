@@ -109,7 +109,7 @@ class CustomSearchExtension extends Extension
                     $result = ob_get_clean();
                     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         //If no matches
-        if (!$results){
+        if (count($results->results) == 0){
             $inputs = explode(' ',$input);
             $query = "SELECT * FROM \"SearchableDataObjects\"  WHERE";
             if ($conn instanceof SQLite3Database) {
