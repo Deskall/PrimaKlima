@@ -90,7 +90,7 @@ class CustomSearchExtension extends Extension
             $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"SearchableDataObjects\" LIKE '$matchAll'";
         } else {
             // query using MySQL Fulltext
-            $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"Title\" LIKE '$input' OR \"Content\" LIKE '$matchAll'";
+            $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"Title\" LIKE '$matchAll' OR \"Content\" LIKE '$matchAll'";
         }
 
        
