@@ -82,6 +82,11 @@ class CustomSearchExtension extends Extension
         //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE MATCH (\"Title\", \"Content\") AGAINST ('$input' IN NATURAL LANGUAGE MODE)";
         // }
 
+        ob_start();
+                    print_r('------START------');
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+
         //if multiple terms we look first for all
         $matchAll = str_replace(' ', '%', $input);
 
@@ -103,11 +108,18 @@ class CustomSearchExtension extends Extension
         //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"Title\" LIKE '%$input%' OR \"Content\" LIKE '%$input%'";
         // }
 
+        ob_start();
+        print_r($query);
+        $result = ob_get_clean();
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+
+
         $results = DB::query($query);
         ob_start();
-                    print_r($results);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        print_r($results->numRecords());
+        $result = ob_get_clean();
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+
         //If no matches
         if ($results->numRecords() == 0){
             $inputs = explode(' ',$input);
@@ -134,10 +146,14 @@ class CustomSearchExtension extends Extension
             ob_start();
                         print_r($query);
                         $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
         }
 
         $results = DB::query($query);
+        ob_start();
+        print_r($results->numRecords());
+        $result = ob_get_clean();
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
 
         foreach ($results as $row) {
             $do = DataObject::get_by_id($row['ClassName'], $row['ID']);
