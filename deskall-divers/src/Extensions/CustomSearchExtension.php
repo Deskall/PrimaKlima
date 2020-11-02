@@ -82,13 +82,29 @@ class CustomSearchExtension extends Extension
         //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE MATCH (\"Title\", \"Content\") AGAINST ('$input' IN NATURAL LANGUAGE MODE)";
         // }
 
+        //if multiple terms we look first for all
+        $input = str_replace(' ', '%', $input);
+
         if ($conn instanceof SQLite3Database) {
             // query using SQLite FTS
-            $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"SearchableDataObjects\" LIKE '%$input%'";
+            $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"SearchableDataObjects\" LIKE '$input'";
         } else {
             // query using MySQL Fulltext
-            $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"Title\" LIKE '%$input%' OR \"Content\" LIKE '%$input%'";
+            $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"Title\" LIKE '$input' OR \"Content\" LIKE '$input'";
         }
+
+        ob_start();
+                    print_r($query);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+                    
+        // if ($conn instanceof SQLite3Database) {
+        //     // query using SQLite FTS
+        //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"SearchableDataObjects\" LIKE '%$input%'";
+        // } else {
+        //     // query using MySQL Fulltext
+        //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"Title\" LIKE '%$input%' OR \"Content\" LIKE '%$input%'";
+        // }
 
         $results = DB::query($query);
 
