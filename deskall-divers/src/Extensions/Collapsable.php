@@ -12,6 +12,7 @@ class Collapsable extends DataExtension
 
     public function updateCMSFields(FieldList $fields){
     	$fields->removeByName('collapsed');
+        $fields->FieldByName('Root.LayoutTab.GlobalLayout')->push(CheckboxField::create('collapsed',_t('Block.Collapsed','Zusammengebrochen?')));
     }
 
     public function collapse(){
