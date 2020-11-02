@@ -106,7 +106,7 @@ class CustomSearchExtension extends Extension
         $results = DB::query($query);
 
         //If no matches
-        if (count($results) == 0){
+        if (!$results){
             $inputs = explode(' ',$input);
             $query = "SELECT * FROM \"SearchableDataObjects\"  WHERE";
             if ($conn instanceof SQLite3Database) {
