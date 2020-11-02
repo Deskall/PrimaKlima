@@ -103,25 +103,30 @@ class CustomSearchExtension extends Extension
 
         $results = DB::query($query);
 
-        //If no exact matches we search for all
+        //If no exact matches we search for all (exclude small words)
         if ($results->numRecords() == 0){
             $inputs = explode(' ',$input);
             $query = "SELECT * FROM \"SearchableDataObjects\"  WHERE ";
             if ($conn instanceof SQLite3Database) {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
-                    if ($i < count($inputs)){
-                        $query .= " AND ";
+                    if (strlen($value) > 3){
+                        $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
+                        if ($i < count($inputs)){
+                            $query .= " AND ";
+                        } 
                     }
+                   
                     $i++;
                 }
             } else {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
-                    if ($i < count($inputs)){
-                        $query .= " AND ";
+                    if (strlen($value) > 3){
+                        $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
+                        if ($i < count($inputs)){
+                            $query .= " AND ";
+                        }
                     }
                     $i++;
                 }
@@ -137,18 +142,22 @@ class CustomSearchExtension extends Extension
             if ($conn instanceof SQLite3Database) {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
-                    if ($i < count($inputs)){
-                        $query .= " OR ";
+                    if (strlen($value) > 3){
+                        $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
+                        if ($i < count($inputs)){
+                            $query .= " OR ";
+                        }
                     }
                     $i++;
                 }
             } else {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
-                    if ($i < count($inputs)){
-                        $query .= " OR ";
+                    if (strlen($value) > 3){
+                        $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
+                        if ($i < count($inputs)){
+                            $query .= " OR ";
+                        }
                     }
                     $i++;
                 }
