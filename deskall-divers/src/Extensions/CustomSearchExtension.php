@@ -104,7 +104,10 @@ class CustomSearchExtension extends Extension
         // }
 
         $results = DB::query($query);
-
+        ob_start();
+                    print_r($results);
+                    $result = ob_get_clean();
+                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
         //If no matches
         if (!$results){
             $inputs = explode(' ',$input);
