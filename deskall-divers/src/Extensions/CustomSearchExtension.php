@@ -84,6 +84,8 @@ class CustomSearchExtension extends Extension
 
         //if multiple terms we look first for all
         $matchAll = str_replace(' ', '%', $input);
+        $inputs = explode(' ',$input);
+        $inputs = array_filter($input,function($v){ return strlen($v) > 3; });
 
         if ($conn instanceof SQLite3Database) {
             // query using SQLite FTS
@@ -105,28 +107,23 @@ class CustomSearchExtension extends Extension
 
         //If no exact matches we search for all (exclude small words)
         if ($results->numRecords() == 0){
-            $inputs = explode(' ',$input);
+           
             $query = "SELECT * FROM \"SearchableDataObjects\"  WHERE ";
             if ($conn instanceof SQLite3Database) {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    if (strlen(trim($value)) > 3){
-                        $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
-                        if ($i < count($inputs)){
-                            $query .= " AND ";
-                        } 
-                    }
-                   
+                    $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
+                    if ($i < count($inputs)){
+                        $query .= " AND ";
+                    } 
                     $i++;
                 }
             } else {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    if (strlen(trim($value)) > 3){
-                        $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
-                        if ($i < count($inputs)){
-                            $query .= " AND ";
-                        }
+                    $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
+                    if ($i < count($inputs)){
+                        $query .= " AND ";
                     }
                     $i++;
                 }
@@ -142,31 +139,24 @@ class CustomSearchExtension extends Extension
             if ($conn instanceof SQLite3Database) {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    if (strlen(trim($value)) > 3){
-                        $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
-                        if ($i < count($inputs)){
-                            $query .= " OR ";
-                        }
+                    $query .= "\"SearchableDataObjects\" LIKE '%$value%'";
+                    if ($i < count($inputs)){
+                        $query .= " OR ";
                     }
                     $i++;
                 }
             } else {
                 $i = 1;
                 foreach ($inputs as $key => $value) {
-                    if (strlen(trim($value)) > 3){
-                        $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
-                        if ($i < count($inputs)){
-                            $query .= " OR ";
-                        }
+                    $query .= "(\"Title\" LIKE '%$value%' OR \"Content\" LIKE '%$value%')";
+                    if ($i < count($inputs)){
+                        $query .= " OR ";
                     }
                     $i++;
                 }
             }
         }
-        ob_start();
-                    print_r($query);
-                    $result = ob_get_clean();
-                    file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+        
         $results = DB::query($query);
 
         foreach ($results as $row) {
