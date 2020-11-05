@@ -37,7 +37,7 @@ class SummaryBlogBlock extends BaseElement
 
     private static $plural_name = 'Blog Summaries';
 
-    private static $description = 'Letzte 3 Blog Artikeln';
+    private static $description = 'Übersicht von Blog-Artikel';
 
     public function getCMSFields()
     {
@@ -63,7 +63,7 @@ class SummaryBlogBlock extends BaseElement
 
     public function getType()
     {
-        return _t(__CLASS__ . '.BlockType', 'Letzte 3 Blog Artikeln');
+        return _t(__CLASS__ . '.BlockType', 'Übersicht von Blog-Artikel');
     }
 
     public function getPosts(){
