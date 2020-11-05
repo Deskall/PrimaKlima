@@ -5,6 +5,7 @@ use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Blog\Model\BlogPost;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class SummaryBlogBlock extends BaseElement
@@ -51,6 +52,7 @@ class SummaryBlogBlock extends BaseElement
                     $this->Articles(),
                     GridFieldConfig_RelationEditor::create()
                         ->addComponent(new GridFieldOrderableRows('SortOrder'))
+                        ->removeComponentsByType(GridFieldAddNewButton::class)
                 )
             );
         }
