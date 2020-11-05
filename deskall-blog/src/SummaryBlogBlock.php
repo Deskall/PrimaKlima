@@ -50,7 +50,7 @@ class SummaryBlogBlock extends BaseElement
                     'Blog-Artikel',
                     $this->Articles(),
                     GridFieldConfig_RelationEditor::create()
-                        ->addComponentByType(new GridFieldOrderableRows('SortOrder'))
+                        ->addComponent(new GridFieldOrderableRows('SortOrder'))
                 )
             );
         }
