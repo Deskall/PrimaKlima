@@ -5,6 +5,7 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\FieldType\DBField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\ArrayList;
@@ -41,7 +42,8 @@ class VideoBlock extends BaseElement implements Searchable
         'HTML' => 'HTMLText',
         'Videos' => 'Text',
         'VideosHTML' => 'HTMLText',
-        'VideoPerLine' => 'Varchar(255)'
+        'VideoPerLine' => 'Varchar(255)',
+        'Autoplay' => 'Boolean'
     ];
 
     private static $has_many = ['VideoObjects' => VideoObject::class];
@@ -92,6 +94,7 @@ class VideoBlock extends BaseElement implements Searchable
                 ->setRows(5);
    
             $fields->addFieldToTab('Root.LayoutTab',CompositeField::create(
+                CheckboxField::create('Autoplay',_t('VideoBlock.Autoplay','Video automatisch spielen?')),
                 DropdownField::create('VideoPerLine',_t(__CLASS__.'.VideoPerLine','Videos per Linie'), $this->getTranslatedSourceFor(__CLASS__,'videos_per_line')),
                 OptionsetField::create('Layout','Format', $this->getTranslatedSourceFor(__CLASS__,'block_layouts'))
             )->setTitle(_t(__CLASS__.'.BlockLayout','Layout'))->setName('BlockLayout'));
