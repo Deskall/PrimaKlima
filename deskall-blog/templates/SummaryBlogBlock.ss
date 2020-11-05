@@ -4,7 +4,7 @@
 <div class="uk-margin">
 	
 		<div class="uk-child-width-1-1 uk-grid-medium" data-uk-grid >
-			<% loop LastPosts %>
+			<% loop getPosts %>
 				<div>
 			        <a href="$Link" title="<%t SilverStripe\\Blog\\Model\\Blog.ReadMoreAbout "mehr über '{title}' lesen..." title=$Title %>">
 								<div class="uk-card uk-card-default uk-card-hover uk-border-rounded uk-grid-collapse uk-margin" data-uk-grid>

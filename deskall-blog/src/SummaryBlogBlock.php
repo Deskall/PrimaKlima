@@ -3,6 +3,9 @@
 
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Blog\Model\BlogPost;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class SummaryBlogBlock extends BaseElement
 {
@@ -18,13 +21,13 @@ class SummaryBlogBlock extends BaseElement
         'HTML' => 'HTMLText'
     ];
 
-
-
-    private static $defaults = [
-
+    private static $many_many = [
+        'Articles' => BlogPost::class
     ];
 
-
+    private static $many_many_extraFields = [
+        'Articles' => ['SortOrder' => 'Int']
+    ];
 
 
     private static $table_name = 'SummaryBlogBlock';
@@ -39,6 +42,18 @@ class SummaryBlogBlock extends BaseElement
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('Layout');
+        $fields->removeByName('Articles');
+        if ($this->ID > 0){
+            $fields->addFieldToTab('Root.Main',
+                GridField::create(
+                    'Articles',
+                    'Blog-Artikel',
+                    $this->Articles(),
+                    GridFieldConfig_RelationEditor::create()
+                        ->addComponentByType(new GridFieldOrderableRows('SortOrder'))
+                )
+            );
+        }
         
         return $fields;
     }
@@ -47,6 +62,10 @@ class SummaryBlogBlock extends BaseElement
     public function getType()
     {
         return _t(__CLASS__ . '.BlockType', 'Letzte 3 Blog Artikeln');
+    }
+
+    public function getPosts(){
+        return ($this->Articles()->exists()) ? $this->Articles() : $this->LastPosts();
     }
 
 
