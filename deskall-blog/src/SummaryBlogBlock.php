@@ -9,7 +9,7 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 class SummaryBlogBlock extends BaseElement
 {
-    private static $icon = 'font-icon-paper';
+    private static $icon = 'font-icon-news';
 
     private static $inline_editable = false;
     
