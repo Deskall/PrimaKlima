@@ -34,6 +34,44 @@ class ImageExtension extends Extension
 
         //Publish
         $this->owner->publishSingle();
+
+        //Create the WebP
+        if (function_exists('imagewebp')) {
+            ob_start();
+            print_r('start webp');
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
+            $stream = $this->owner->File->readStream();
+            ob_start();
+            print_r($stream);
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+
+            $filename = $this->owner->File->path;
+            ob_start();
+            print_r($filename);
+            $result = ob_get_clean();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+
+            $webpName = $this->owner->createWebPName($filename);
+
+            ob_start();
+                        print_r($webpName);
+                        $result = ob_get_clean();
+                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+
+            imagewebp($stream, $webpName, 90);
+
+            imagedestroy($stream);
+        }
+    }
+
+    public function createWebPName($filename)
+    {
+        $picname = pathinfo($filename, PATHINFO_FILENAME);
+        $directory = pathinfo($filename, PATHINFO_DIRNAME);
+        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+        return $directory.'/'.$picname.'_'.$extension.'.webp';
     }
 
     public function AltTag($fallback = null){
