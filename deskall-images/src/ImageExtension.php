@@ -41,13 +41,13 @@ class ImageExtension extends Extension
             print_r('start webp');
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
-            $stream = $this->owner->File->readStream();
+            $stream = $this->owner->File->getStream();
             ob_start();
             print_r($stream);
             $result = ob_get_clean();
             file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
 
-            $filename = $this->owner->File->path;
+            $filename = $this->owner->File->getString();
             ob_start();
             print_r($filename);
             $result = ob_get_clean();
