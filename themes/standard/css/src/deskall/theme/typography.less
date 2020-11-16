@@ -111,15 +111,17 @@ h3{
 h4,h5,h6{
 	font-size: @global-font-size;
 }
-.hook-text-lead() p{
-	font-size: @global-small-font-size*1.25;
-	*{
-		font-size: inherit;
-	}
-	@media (min-width:@breakpoint-small){
-		font-size: @text-lead-font-size;
+.hook-text-lead(){
+	p{
+		font-size: @global-small-font-size*1.25;
 		*{
 			font-size: inherit;
+		}
+		@media (min-width:@breakpoint-small){
+			font-size: @text-lead-font-size;
+			*{
+				font-size: inherit;
+			}
 		}
 	}
 }
