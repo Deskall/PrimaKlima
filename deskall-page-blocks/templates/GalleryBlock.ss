@@ -1,10 +1,5 @@
-<% if TextPosition == "before" && $HTML %>
-<div class="uk-margin-bottom dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
-	$HTML
-</div>
-<% if LinkableLinkID > 0 %>
-	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-<% end_if %>
+<% if TextPosition == "before" %>
+<% include TextBlock %>
 <% end_if %>
 <% if ItemType == "boxes" %>
 	<% if Layout == "carousel" %>
@@ -265,11 +260,8 @@
 	<% end_if %>
 <% end_if %>
 
-<% if TextPosition == "after" && $HTML %>
-<div class="uk-margin-top dk-text-content $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
-	$HTML
+<% if TextPosition == "after" %>
+<div class="uk-margin-top">
+<% include TextBlock %>
 </div>
-<% if LinkableLinkID > 0 %>
-	<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
-<% end_if %>
 <% end_if %>
