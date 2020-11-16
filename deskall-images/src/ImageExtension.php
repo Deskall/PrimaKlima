@@ -36,34 +36,34 @@ class ImageExtension extends Extension
         $this->owner->publishSingle();
 
         //Create the WebP
-        if (function_exists('imagewebp')) {
-            ob_start();
-            print_r('start webp');
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-image.txt", $result);
-            $stream = $this->owner->File->getStream();
-            // ob_start();
-            // print_r($stream);
-            // $result = ob_get_clean();
-            // file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
+        // if (function_exists('imagewebp')) {
+        //     ob_start();
+        //     print_r('start webp');
+        //     $result = ob_get_clean();
+        //     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-image.txt", $result);
+        //     $stream = $this->owner->File->getStream();
+        //     // ob_start();
+        //     // print_r($stream);
+        //     // $result = ob_get_clean();
+        //     // file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
 
-            $filename = $this->owner->File->getSourceURL();
-            ob_start();
-            print_r($filename);
-            $result = ob_get_clean();
-            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-image.txt", $result, FILE_APPEND);
+        //     $filename = $this->owner->File->getSourceURL();
+        //     ob_start();
+        //     print_r($filename);
+        //     $result = ob_get_clean();
+        //     file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-image.txt", $result, FILE_APPEND);
 
-            $webpName = $this->owner->createWebPName($filename);
+        //     $webpName = $this->owner->createWebPName($filename);
 
-            ob_start();
-                        print_r($webpName);
-                        $result = ob_get_clean();
-                        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-image.txt", $result, FILE_APPEND);
+        //     ob_start();
+        //                 print_r($webpName);
+        //                 $result = ob_get_clean();
+        //                 file_put_contents($_SERVER['DOCUMENT_ROOT']."/log-image.txt", $result, FILE_APPEND);
 
-            imagewebp($stream, $webpName, 90);
+        //     imagewebp($stream, $webpName, 90);
 
-            imagedestroy($stream);
-        }
+        //     imagedestroy($stream);
+        // }
     }
 
     public function createWebPName($filename)
