@@ -47,7 +47,7 @@ class ImageExtension extends Extension
             // $result = ob_get_clean();
             // file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result, FILE_APPEND);
 
-            $filename = $this->owner->File->getString();
+            $filename = $this->owner->File->getSourceURL();
             ob_start();
             print_r($filename);
             $result = ob_get_clean();
