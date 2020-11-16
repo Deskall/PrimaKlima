@@ -18,11 +18,11 @@
 								<% end_if %>
 						    </div>
 						    <% if Image %>
-						    	<% include BoxImage %>
+						    	<% include BoxImage Alt=$Top.AltTag($Image.Description, $Image.Name, $Title),Effect=Top.Effect,Width=$Up.PictureWidth,FullLink=$Top.FullLink %>
 						    <% end_if %>
 					    <% else_if Top.Layout == "mixed" %>
 						    <% if Image %>
-						    	<% include BoxImage %>
+						    	<% include BoxImage Alt=$Top.AltTag($Image.Description, $Image.Name, $Title),Effect=Top.Effect,Width=$Up.PictureWidth,FullLink=$Top.FullLink %>
 						    <% end_if %>
 						    <h3 class="uk-margin">$Title</h3>
 						    <div class="uk-margin-top dk-box-content">
@@ -34,7 +34,7 @@
 					    <% else %>
 					    	<h3 class="uk-margin">$Title</h3>
 						    <% if Image %>
-						    	<% include BoxImage %>
+						    	<% include BoxImage Alt=$Top.AltTag($Image.Description, $Image.Name, $Title),Effect=Top.Effect,Width=$Up.PictureWidth,FullLink=$Top.FullLink %>
 						    <% end_if %>
 						    <div class="uk-margin-top dk-box-content">
 						    	<div class="box-text">$Content</div>
