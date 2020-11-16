@@ -10,10 +10,8 @@
 					</figure>
 				<% if LightBox %></a><% end_if %>
 			</div>
-			<% if HTML || LinkableLinkID > 0 %>
 			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 				$HTML
-
 				<% if LinkableLinkID > 0 %>
 					<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
 				<% end_if %>
