@@ -261,7 +261,7 @@
 <% end_if %>
 
 <% if TextPosition == "after" %>
-<div class="uk-margin-top">
+<div class="uk-margin-top-large">
 <% include TextBlock %>
 </div>
 <% end_if %>
