@@ -1,7 +1,7 @@
 <% if $Image.getExtension == "svg" %>
 <div class="uk-flex uk-flex-center uk-flex-middle">
 	<figure>
-		<img class="uk-preserve dk-icon uk-width-auto  <% if Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Alt"  width="$Width" height="$Width" data-uk-svg />
+		<img class="uk-preserve dk-icon uk-width-auto  <% if Effect == "scale" %>uk-transition-scale-up uk-transition-opaque<% end_if %>" src="$Image.URL" alt="$Alt"  width="$Width" height="$Width" />
 		<% if Image.Description %><figcaption>$Image.Description</figcaption><% end_if %>
 	</figure>
 </div>
