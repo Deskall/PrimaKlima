@@ -44,7 +44,7 @@
 	</div>
 </div>
 <% else %>
-	<div class="uk-flex-center $VideoPerLine uk-grid-small uk-height-large" data-uk-grid>
+	<div class="uk-flex-center $VideoPerLine uk-grid-small" data-uk-grid>
 		$VideosHTML
 		<% if activeVideos.exists %>
 			<% loop activeVideos %>
