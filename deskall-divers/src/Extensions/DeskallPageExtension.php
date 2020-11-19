@@ -67,7 +67,7 @@ class DeskallPageExtension extends DataExtension
 
     public function generateFolderName(){
         if ($this->owner->ID > 0){
-            if ($this->owner->ParentID > 0){
+            if ($this->owner->ParentID > 0 && $this->owner->Parent()->hasMethod('generateFolderName')){
                 return $this->owner->Parent()->generateFolderName()."/".$this->owner->URLSegment;
             }
             else{
