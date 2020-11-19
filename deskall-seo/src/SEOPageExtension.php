@@ -46,7 +46,9 @@ class SEOPageExtension extends DataExtension
 			return;
 		}
 
-		$fields->addFieldToTab('Root.SEO',UploadField::create("SharableImage",_t('SEO.PREVIEWImage','Vorschau Bild für Share'))->setFolderName($this->owner->generateFolderName()));
+		if ($this->owner->hasMethod('generateFolderName')){
+			$fields->addFieldToTab('Root.SEO',UploadField::create("SharableImage",_t('SEO.PREVIEWImage','Vorschau Bild für Share'))->setFolderName($this->owner->generateFolderName()));
+		}
 
 		Requirements::css('deskall-seo/css/seo.css');
 		Requirements::javascript('deskall-seo/javascript/seo.js');
