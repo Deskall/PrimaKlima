@@ -10,11 +10,13 @@ SilverStripe\i18n\i18n:
 Page:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
+    - DeskallPageFolderExtension
+    - DeskallPageExtension
     - 'g4b0\SearchableDataObjects\SearchableDataObject'
 
 SilverStripe\CMS\Models\SiteTree:
   extensions:
-    - DeskallPageExtension
+    - DeskallPageFolderExtension
 
 PageController:
   extensions:
