@@ -4,7 +4,7 @@
 	<% if $ID < 0 %> 
 		<% if Form || Content %>
 		<section class="uk-section">
-			<div class="uk-container">
+			<div class="uk-container $SiteConfig.ContainerSize">
 				<h1>$Title</h1>
 				$Content
 				$Form

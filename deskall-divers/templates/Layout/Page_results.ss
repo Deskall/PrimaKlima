@@ -1,6 +1,6 @@
 $ElementalArea
 <section class="uk-section uk-section-small">
-    <div class="uk-container">
+    <div class="uk-container $SiteConfig.ContainerSize">
         <div id="Content" class="searchResults">
             <div class="dk-text-content uk-text-lead">
                 <p ><%t SearchPage.QUERY 'Sie suchten nach' %> &quot;{$Query.XML}&quot;</p>
@@ -30,7 +30,7 @@ $ElementalArea
                 <p><%t SearchPage.NORESULT 'Ihre Suche ergab keine Treffer' %>.</p> 
             <% end_if %>
             <% if $Results.MoreThanOnePage %>    
-            <ul class="uk-pagination uk-flex-center" uk-margin>
+            <ul class="uk-pagination uk-flex-center" data-uk-margin>
                 <li><a href="$Results.PrevLink" title="<%t SearchPage.PREV 'Zurück' %>"><span data-uk-pagination-previous></span></a></li>
                 <% loop $Results.Pages %>
                 <% if $CurrentBool %><li class="uk-active"><span>$PageNum</span></li>

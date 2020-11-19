@@ -19,7 +19,7 @@
 	    data-uk-img<% end_if %>
 	>
 	<% end_if %>
-	    <div class="uk-container uk-overflow-auto <% if FullWidth %>uk-container-expand<% else %>uk-container-medium<% end_if %>">
+	    <div class="uk-container uk-overflow-auto <% if FullWidth %>uk-container-expand<% else %>$getPage.SiteConfig.ContainerSize<% end_if %>">
 	    	<div class="uk-position-relative   <% if Height == "viewport" %>uk-height-viewport<% else %>$Height<% end_if %>">
 			    <div class="$Layout uk-padding-small uk-padding-remove-horizontal uk-width-1-1">
 			    	<% if TitleIcon %>

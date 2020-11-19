@@ -1,7 +1,7 @@
 $ElementalArea
 
 <section class="uk-section uk-padding-remove-top">
-	<div class="uk-container">
+	<div class="uk-container $SiteConfig.ContainerSize">
 		<h2>
  			<% if $ArchiveYear %>
 				<%t SilverStripe\\Blog\\Model\\Blog.Archive 'Archive' %>:

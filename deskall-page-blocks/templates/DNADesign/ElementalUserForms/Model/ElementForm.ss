@@ -5,7 +5,7 @@
 	<% else %>
 		<section class="uk-section <% if $Background != "no-bg" %>$Background with-background<% end_if %> uk-section-small">
 	<% end_if %>		
-			<div class="uk-container <% if not FullWidth %>uk-container-medium<% end_if %>">
+			<div class="uk-container $getPage.SiteConfig.ContainerSize">
 			<% if not $isChildren %><div class="uk-child-width-1-1 uk-grid-small" data-uk-grid>
 					<div class="$Width"><% end_if %>
 			    <% if $Title && $ShowTitle %>

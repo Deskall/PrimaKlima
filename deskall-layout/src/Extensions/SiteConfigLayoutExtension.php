@@ -225,11 +225,9 @@ class SiteConfigLayoutExtension extends DataExtension
 
     $fields->addFieldToTab("Root.Global",DropdownField::create('ContainerSize','Allgemeine Breite',
       [
-        'uk-container-xsmall' => 'sehr klein',
         'uk-container-small' => 'klein', 
         'standard' => 'standard',
         'uk-container-large' => 'gross',
-        'uk-container-xlarge' => 'sehr gross',
         'uk-container-expand' => 'Voll Breite'
       ])->setValue('standard')->setEmptyString('Bitte wählen'));
     

@@ -44,7 +44,7 @@
         <% else %>
             <section class="uk-section <% if $Element.Background != "no-bg" %>$Element.Background with-background<% end_if %> uk-padding-remove">
         <% end_if %>                
-                <div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
+                <div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% else %>$Element.getPage.SiteConfig.ContainerSize<% end_if %>">
                     $Element
                 </div>
             </section>

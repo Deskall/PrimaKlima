@@ -1,11 +1,11 @@
 <div class="uk-background-muted uk-padding-small">
-	<div class="uk-container">
+	<div class="uk-container $SiteConfig.ContainerSize">
 		<div class="uk-margin-small">
 			$BreadCrumbs
 		</div>
 	</div>
 </div>
-<section class="uk-container">
+<section class="uk-container $SiteConfig.ContainerSize">
 	
 	<div data-uk-grid>
 		<div class="uk-width-1-4@m uk.width-1-5@l uk-flex-last uk-flex-first@m">
