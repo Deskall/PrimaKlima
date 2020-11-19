@@ -3,7 +3,7 @@
         <% loop activeBoxes %>
         <div>
             <div class="team-box uk-transition-toggle">
-                <div class="uk-inline-clip uk-light" tabindex="0">
+                <div class="uk-inline-clip" tabindex="0">
                     <div class="team-image">
                         <% if Image %>
                         <img src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>$Image.ScaleWidth(350).CropHeight(250).URL<% end_if %>" width="350" height="250" alt="$Title">
