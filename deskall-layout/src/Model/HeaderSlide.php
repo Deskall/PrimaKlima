@@ -251,7 +251,7 @@ class HeaderSlide extends DataObject
     }
 
     public function getFolderName(){
-        return $this->Parent()->getFolderName();
+        return 'Uploads/slider';
     }
 
 
