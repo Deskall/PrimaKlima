@@ -87,6 +87,8 @@ class SiteConfigLayoutExtension extends DataExtension
     'MobileNaviHoverFontColor' => 'Varchar(7)',
     'ToggleMenuButtonColor' => 'Varchar(7)',
 
+    'ContainerSize' => 'Varchar'
+
   ];
 
   private static $constants_less = [
@@ -220,6 +222,16 @@ class SiteConfigLayoutExtension extends DataExtension
     }
     //GLOBAL
     $fields->addFieldToTab("Root.Global",DropdownField::create('Theme','Theme',$themes)->setValue('standard')->setEmptyString('Bitte wählen'));
+
+    $fields->addFieldToTab("Root.Global",DropdownField::create('ContainerSize','Allgemeine Breite',
+      [
+        'uk-container-xsmall' => 'sehr klein',
+        'uk-container-small' => 'klein', 
+        'standard' => 'standard',
+        'uk-container-large' => 'gross',
+        'uk-container-xlarge' => 'sehr gross',
+        'uk-container-expand' => 'Voll Breite'
+      ])->setValue('standard')->setEmptyString('Bitte wählen'));
     
     //COLORS
     $fields->addFieldToTab("Root.Global",new HiddenField('ID'));

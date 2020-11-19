@@ -5,7 +5,7 @@
 	<% else %>
 		<section class="uk-section <% if $Element.Background != "no-bg" %>$Element.Background with-background<% end_if %> $Element.SectionPadding">
 	<% end_if %>				
-			<div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% end_if %>">
+			<div class="uk-container $Element.TextAlign <% if $Element.FullWidth %>uk-container-expand<% else_if $getPage.SiteConfig.ContainerSize %>$getPage.SiteConfig.ContainerSize<% end_if %>">
 				<% if not $Element.isChildren %><div class="uk-child-width-1-1 uk-grid-small" data-uk-grid>
 					<div class="$Element.Width"><% end_if %>
 						
