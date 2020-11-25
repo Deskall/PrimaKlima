@@ -66,6 +66,7 @@
 	.column-wrap{padding:0!important;margin:0 auto;max-width:600px!important}
 	.column table{width:100%}
 	.social .column{width:280px;min-width:279px;float:left}
+	.social .column td{padding:0!important;}
 	.clear{display:block;clear:both}
 	@media only screen and (max-width:600px){a[class=btn]{display:block!important;margin-bottom:10px!important;background-image:none!important;margin-right:0!important}
 		div[class=column]{width:auto!important;float:none!important}
