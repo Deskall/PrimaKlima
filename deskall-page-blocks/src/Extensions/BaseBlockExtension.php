@@ -64,7 +64,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'SectionPadding' => 'uk-section-small'
     ];
 
-    // private static $blocks = [
+    private static $blocks = [
     //     'TextBlock',
     //     'SliderBlock',
     //     'GalleryBlock',
@@ -86,9 +86,9 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     //     'CodeBlock',
     //     'DuplicateBlock',
     //     'VirtualBlock'
-    // ];
+    ];
 
-    // private static $children_blocks = [
+    private static $children_blocks = [
     //     'TextBlock',
     //     'SliderBlock',
     //     'GalleryBlock',
@@ -108,16 +108,16 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
     //     'CodeBlock',
     //     'DuplicateBlock',
     //     'VirtualBlock'
-    // ];
+    ];
 
-    // private static $collapsable_blocks = [
+    private static $collapsable_blocks = [
     //     'TextBlock',  
     //     'GalleryBlock',
     //     'BoxBlock',
     //     'ListBlock',
     //     'DownloadBlock',
     //     'ParentBlock'
-    // ];
+    ];
 
     private static $icon;
 
