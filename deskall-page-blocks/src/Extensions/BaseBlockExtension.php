@@ -64,60 +64,60 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
         'SectionPadding' => 'uk-section-small'
     ];
 
-    private static $blocks = [
-        'TextBlock',
-        'SliderBlock',
-        'GalleryBlock',
-        'BoxBlock',
-        'FeaturesBlock',
-        'ListBlock',
-        'FormBlock',
-        'DownloadBlock',
-        'LargeImageBlock',
-        'ParentBlock',
-        'LeadBlock',
-        'TeamBlock',
-        'NavigationBlock',
-        'MapBlock',
-        'VideoBlock',
-        'ActionBlock',
-        'ShareBlock',
-        'SitemapBlock',
-        'CodeBlock',
-        'DuplicateBlock',
-        'VirtualBlock'
-    ];
+    // private static $blocks = [
+    //     'TextBlock',
+    //     'SliderBlock',
+    //     'GalleryBlock',
+    //     'BoxBlock',
+    //     'FeaturesBlock',
+    //     'ListBlock',
+    //     'FormBlock',
+    //     'DownloadBlock',
+    //     'LargeImageBlock',
+    //     'ParentBlock',
+    //     'LeadBlock',
+    //     'TeamBlock',
+    //     'NavigationBlock',
+    //     'MapBlock',
+    //     'VideoBlock',
+    //     'ActionBlock',
+    //     'ShareBlock',
+    //     'SitemapBlock',
+    //     'CodeBlock',
+    //     'DuplicateBlock',
+    //     'VirtualBlock'
+    // ];
 
-    private static $children_blocks = [
-        'TextBlock',
-        'SliderBlock',
-        'GalleryBlock',
-        'BoxBlock',
-        'FeaturesBlock',
-        'ListBlock',
-        'FormBlock',
-        'DownloadBlock',
-        'ParentBlock',
-        'TeamBlock',
-        'NavigationBlock',
-        'MapBlock',
-        'VideoBlock',
-        'ActionBlock',
-        'ShareBlock',
-        'SitemapBlock',
-        'CodeBlock',
-        'DuplicateBlock',
-        'VirtualBlock'
-    ];
+    // private static $children_blocks = [
+    //     'TextBlock',
+    //     'SliderBlock',
+    //     'GalleryBlock',
+    //     'BoxBlock',
+    //     'FeaturesBlock',
+    //     'ListBlock',
+    //     'FormBlock',
+    //     'DownloadBlock',
+    //     'ParentBlock',
+    //     'TeamBlock',
+    //     'NavigationBlock',
+    //     'MapBlock',
+    //     'VideoBlock',
+    //     'ActionBlock',
+    //     'ShareBlock',
+    //     'SitemapBlock',
+    //     'CodeBlock',
+    //     'DuplicateBlock',
+    //     'VirtualBlock'
+    // ];
 
-    private static $collapsable_blocks = [
-        'TextBlock',  
-        'GalleryBlock',
-        'BoxBlock',
-        'ListBlock',
-        'DownloadBlock',
-        'ParentBlock'
-    ];
+    // private static $collapsable_blocks = [
+    //     'TextBlock',  
+    //     'GalleryBlock',
+    //     'BoxBlock',
+    //     'ListBlock',
+    //     'DownloadBlock',
+    //     'ParentBlock'
+    // ];
 
     private static $icon;
 
