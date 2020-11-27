@@ -8,14 +8,14 @@
 			<div class="uk-slider-container">
 				<ul class="uk-slider-items $PicturesPerLine" data-uk-grid data-uk-height-match=".image">
 					<% loop activeLogos %>
-					<li class="uk-flex uk-flex-middle uk-flex-center">
+					<li class="uk-flex uk-flex-center">
 						<% if LinkableLinkID > 0 %>
 						<% with LinkableLink %>
 						<a href="$LinkURL" {$TargetAttr} <% if Rel %>rel="$Rel"<% end_if %>>
 						<% end_with %>
 						<% end_if %>
 						<figure>
-							<div class="image">
+							<div class="image uk-flex-middle ">
 								<img data-src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>$Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="Logo $Title" class="<% if $Image.getExtension == "svg" %>uk-slide-logo-svg<% else %>uk-slide-logo<% end_if %> $Top.ImagePadding" data-uk-img>
 							</div>
 							<% if Title %><figcaption class="uk-text-center uk-margin-small-top">$Title</figcaption><% end_if %>
