@@ -57,8 +57,7 @@ class GalleryBlock extends BaseElement implements Searchable
     ];
 
     private static $has_many = [
-        'Boxes' => Box::class,
-        'Logos' => LogoItem::class
+        'Boxes' => Box::class
     ];
 
     private static $many_many_extraFields = [
@@ -66,7 +65,7 @@ class GalleryBlock extends BaseElement implements Searchable
     ];
 
     private static $owns = [
-        'Images','Boxes', 'Logos'
+        'Images','Boxes'
     ];
 
     private static $cascade_duplicates = ['Boxes'];
@@ -84,8 +83,7 @@ class GalleryBlock extends BaseElement implements Searchable
 
     private static $block_types = [
         'images' => 'Images',
-        'boxes' => 'Boxes',
-        'logos' => 'Logos'
+        'boxes' => 'Boxes'
     ];
     
     private static $pictures_per_line = [
@@ -160,17 +158,7 @@ class GalleryBlock extends BaseElement implements Searchable
                 $fields->addFieldToTab('Root.Main',$boxesField,'HTML');
             }
            
-            if ($this->ItemType == "logos"){
-                $config2 = GridFieldConfig_RecordEditor::create();
-                $config2->addComponent(new GridFieldOrderableRows('Sort'));
-                if (singleton('LogoItem')->hasExtension('Activable')){
-                     $config2->addComponent(new GridFieldShowHideAction());
-                }
-                $logosField = new GridField('Logos',_t(__CLASS__.'.Logos','Logos'),$this->Logos(),$config2);
-                $logosField->displayIf('ItemType')->isEqualTo('logos')->end();
-                $fields->addFieldToTab('Root.Main',$logosField,'HTML');
-            }
-          
+           
 
             $fields->addFieldToTab('Root.LayoutTab',
                 CompositeField::create(
