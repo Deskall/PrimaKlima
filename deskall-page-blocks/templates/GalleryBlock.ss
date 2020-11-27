@@ -19,8 +19,8 @@
 			</div>
 			<% if ShowNav %>
 				<div class="uk-hidden@l uk-light">
-					<a class="uk-position-bottom-left-out uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-					<a class="uk-position-bottom-right-out uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
+					<a class="uk-position-bottom-left uk-position-small" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+					<a class="uk-position-bottom-right uk-position-small" data-uk-slidenav-next data-uk-slider-item="next"></a>
 				</div>
 
 				<div class="uk-visible@l">
