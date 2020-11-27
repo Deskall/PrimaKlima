@@ -15,8 +15,8 @@
 						<% end_with %>
 						<% end_if %>
 						<figure>
-							<img data-src="<% if $getExtension == "svg" %>$URL<% else %>$Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="$Up.AltTag($Description,$Name,$Up.Title)" title="$Up.TitleTag($Name,$Up.Title)" class="<% if $getExtension == "svg" %>uk-slide-logo-svg<% else %>uk-slide-logo<% end_if %> $Top.ImagePadding" data-uk-img>
-							<% if Description %><figcaption>$Description</figcaption><% end_if %>
+							<img data-src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>$Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="Logo $Title" class="<% if $Image.getExtension == "svg" %>uk-slide-logo-svg<% else %>uk-slide-logo<% end_if %> $Top.ImagePadding" data-uk-img>
+							<% if Title %><figcaption>$Title</figcaption><% end_if %>
 						</figure>
 						<% if LinkableLinkID > 0 %></a><% end_if %>
 					</li>
