@@ -13,7 +13,7 @@ class LogoItem extends DataObject
     ];
 
     private static $has_one = [
-        'Parent' => GalleryBlock::class,
+        'Parent' => LogosBlock::class,
         'Image' => Image::class
     ];
 
