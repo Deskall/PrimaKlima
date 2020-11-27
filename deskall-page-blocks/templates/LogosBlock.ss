@@ -6,7 +6,7 @@
 <div data-uk-slider="<% if Autoplay %>autoplay: true;autoplay-interval:3000;<% end_if %><% if not infiniteLoop %>finite:true;<% end_if %>">
 		<div class="uk-position-relative">
 			<div class="uk-slider-container">
-				<ul class="uk-slider-items $PicturesPerLine" data-uk-grid data-uk-height-match="img">
+				<ul class="uk-slider-items $PicturesPerLine" data-uk-grid data-uk-height-match=".image">
 					<% loop activeLogos %>
 					<li class="uk-flex uk-flex-middle uk-flex-center">
 						<% if LinkableLinkID > 0 %>
@@ -15,7 +15,9 @@
 						<% end_with %>
 						<% end_if %>
 						<figure>
+							<div class="image">
 							<img data-src="<% if $Image.getExtension == "svg" %>$Image.URL<% else %>$Image.FitMax($Up.PictureWidth,$Up.PictureHeight).URL<% end_if %>" alt="Logo $Title" class="<% if $Image.getExtension == "svg" %>uk-slide-logo-svg<% else %>uk-slide-logo<% end_if %> $Top.ImagePadding" data-uk-img>
+							</div>
 							<% if Title %><figcaption class="uk-text-center uk-margin-small-top">$Title</figcaption><% end_if %>
 						</figure>
 						<% if LinkableLinkID > 0 %></a><% end_if %>
