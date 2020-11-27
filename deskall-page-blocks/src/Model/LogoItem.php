@@ -50,7 +50,7 @@ class LogoItem extends DataObject
     {
         $fields = parent::getCMSFields();
         $fields->removeByName('ParentID');
-       
+        $fields->FieldByName('Root.Main.Image')->setFolderName($this->Parent()->getFolderName());
 
         return $fields;
     }
