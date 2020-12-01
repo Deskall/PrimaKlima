@@ -52,7 +52,10 @@ class PageBlocksExtension extends DataExtension {
 
 	public function onBeforeDelete(){
 		parent::onBeforeDelete();
-		$this->owner->ElementalArea()->delete();
+		if ($this->owner->ElementalArea()->exists()){
+			$this->owner->ElementalArea()->delete();
+		}
+		
 	}
 
 	public function firstBlockSlide(){
