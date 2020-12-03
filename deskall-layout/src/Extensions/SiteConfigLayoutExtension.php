@@ -475,6 +475,10 @@ class SiteConfigLayoutExtension extends DataExtension
          $fullpath = Director::baseFolder().'/themes/'.$this->owner->Subsite()->Theme.'/css/src/deskall/theme/user_defined.less';
       }
     }
+    ob_start();
+          print_r($fullpath);
+          $result = ob_get_clean();
+          file_put_contents($_SERVER['DOCUMENT_ROOT']."/log.txt", $result);
     file_put_contents($fullpath, '// CREATED FROM SILVERSTRIPE LAYOUT CONFIG --- DO NOT DELETE OR MODIFY');
     foreach($this->owner->Colors() as $c){
       if (isset($this->owner->stat('constants_less')[$c->Code])){
