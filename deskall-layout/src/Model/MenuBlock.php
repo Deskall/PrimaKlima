@@ -84,7 +84,7 @@ class MenuBlock extends LayoutBlock{
 		$fields->addFieldToTab('Root.Main',Wrapper::create(CompositeField::create(
 			CheckboxField::create('UseMenu',_t(__CLASS__.'.UseMenu','Site Struktur benutzen'))->displayIf('Type')->isEqualTo('links')->end(),
 			DropdownField::create('UseMenuOption',_t(__CLASS__.'.UseWhichMenu','Welche Menu benutzen?'),$this->getTranslatedSourceFor(__CLASS__,'menu_options'))->displayIf('UseMenu')->isChecked()->end(),
-			CheckboxField::create('ShowSubLevels',_t(__CLASS__.'.ShowSubLevels','Navigation anzeigen'))->displayIf('UseMenu')->isChecked()->andIf('UseMenuOption')->isEqualTo('main')->end()
+			CheckboxField::create('ShowSubLevels',_t(__CLASS__.'.ShowSubLevels','Navigation anzeigen'))->displayIf('UseMenu')->isChecked()->end()
 		))->setTitle(_t(__CLASS__.'.MenuSettings','Menu Einstellungen'))->setName('MenuSettings'));
 
 		$fields->insertAfter(TextField::create('SubLevelLayout',_t(__CLASS__.'.SubLevelLayout','Unten Navigation Layout'))->displayIf('ShowSubLevels')->isChecked()->end(),'Width');
