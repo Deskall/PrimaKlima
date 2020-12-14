@@ -91,7 +91,8 @@ class SiteConfigExtension extends DataExtension
                   $config = SiteConfig::current_site_config();
                   $prefix = URLSegmentFilter::create()->filter($changedFields['Title']['before']);
                   $folder = Folder::find_or_make("Uploads/".$prefix."/Einstellungen");
-                  $folder->renameFile($changedFields['Title']['after']);
+                  $folder->Name = $changedFields['Title']['after'];
+                  $folder->write();
               }
           }
       }
