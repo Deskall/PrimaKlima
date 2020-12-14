@@ -74,18 +74,11 @@ class CustomSearchExtension extends Extension
 
         $input = Convert::raw2sql($q);
 
-        // if ($conn instanceof SQLite3Database) {
-        //     // query using SQLite FTS
-        //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE \"SearchableDataObjects\" MATCH '$input'";
-        // } else {
-        //     // query using MySQL Fulltext
-        //     $query = "SELECT * FROM \"SearchableDataObjects\" WHERE MATCH (\"Title\", \"Content\") AGAINST ('$input' IN NATURAL LANGUAGE MODE)";
-        // }
-
         //if multiple terms we look first for all
         $matchAll = str_replace(' ', '%', $input);
         $inputs = explode(' ',$input);
-        $inputs = array_filter($inputs,function($v){ return strlen($v) > 3; });
+        $longinputs = array_filter($inputs,function($v){ return strlen($v) > 3; });
+        
 
         if ($conn instanceof SQLite3Database) {
             // query using SQLite FTS
@@ -106,7 +99,7 @@ class CustomSearchExtension extends Extension
         $results = DB::query($query);
 
         //If no exact matches we search for all (exclude small words)
-        if ($results->numRecords() == 0){
+        if ($results->numRecords() == 0 && !empty($longinputs)){
            
             $query = "SELECT * FROM \"SearchableDataObjects\"  WHERE ";
             if ($conn instanceof SQLite3Database) {
@@ -128,6 +121,7 @@ class CustomSearchExtension extends Extension
                     $i++;
                 }
             }
+            $results = DB::query($query);
         }
 
         $results = DB::query($query);
