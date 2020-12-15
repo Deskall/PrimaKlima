@@ -90,8 +90,8 @@ class SiteConfigExtension extends DataExtension
               if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
                   $config = SiteConfig::current_site_config();
                   $prefix = URLSegmentFilter::create()->filter($changedFields['Title']['before']);
-                  $folder = Folder::find_or_make("Uploads/".$prefix."/Einstellungen");
-                  $folder->Name = $changedFields['Title']['after'];
+                  $folder = Folder::find_or_make("Uploads/".$prefix);
+                  $folder->Name = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
                   $folder->write();
               }
           }
@@ -109,12 +109,10 @@ class SiteConfigExtension extends DataExtension
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
         $config = SiteConfig::current_site_config();
         $prefix = URLSegmentFilter::create()->filter($config->Title);
-        $folder = Folder::find_or_make("Uploads/".$prefix."/Einstellungen");
+        return "Uploads/".$prefix."/Einstellungen";
     }
     else{
-      $folder = Folder::find_or_make("Uploads/Einstellungen");
-    }
-    
-    return $folder->getFilename();
+      return "Uploads/Einstellungen";
+    }    
   }
 }
