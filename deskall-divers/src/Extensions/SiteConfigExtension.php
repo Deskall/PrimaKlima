@@ -87,7 +87,7 @@ class SiteConfigExtension extends DataExtension
           $changedFields = $this->owner->getChangedFields();
           //Update Folder Name if needed
           if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
-              if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites') && $this->owner->SubsiteID == 0){
+              if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
                   $config = SiteConfig::current_site_config();
                   $prefix = URLSegmentFilter::create()->filter($changedFields['Title']['before']);
                   $folder = Folder::find_or_make("Uploads/".$prefix);
@@ -108,9 +108,7 @@ class SiteConfigExtension extends DataExtension
   public function getFolderName(){
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
         $config = SiteConfig::current_site_config();
-        $title = ($config->Subsite()->exists()) ? $config->Subsite()->Title : $config->Title;
-        $prefix =  URLSegmentFilter::create()->filter($title);
-        
+        $prefix = URLSegmentFilter::create()->filter($config->Title);
         return "Uploads/".$prefix."/Einstellungen";
     }
     else{
