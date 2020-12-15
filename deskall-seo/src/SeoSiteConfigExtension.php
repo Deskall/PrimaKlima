@@ -63,7 +63,7 @@ class SeoSiteConfigExtension extends DataExtension {
                         "Google webmaster meta tag Zum Beispiel <meta name=\"google-site-verification\" content=\"hjhjhJHG12736JHGdfsdf\" />"
                     )
                 ),
-                UploadField::create("OpenGraphDefaultImage",'Vorschau Bild für Shares')
+                UploadField::create("OpenGraphDefaultImage",'Vorschau Bild für Shares')->setFolderName($this->owner->getFolderName())
             )
         );
 
