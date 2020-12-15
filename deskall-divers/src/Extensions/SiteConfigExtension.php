@@ -48,8 +48,11 @@ class SiteConfigExtension extends DataExtension
     'Instagram' => 'Varchar(255)'
   ];
 
+  private static $has_one = ['Folder' => Folder::class];
+
   public function updateCMSFields(FieldList $fields) {
      
+    $fields->removeByName('Folder');
 
     //ADDRESS
     $fields->addFieldsToTab('Root.Main',[
@@ -82,22 +85,30 @@ class SiteConfigExtension extends DataExtension
   }
 
   public function onBeforeWrite(){
+    if ($this->FolderID == 0){
+      $folderName = 
+        ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')) ? 
+          "Uploads/".URLSegmentFilter::create()->filter($this->owner->Title) : 
+          "Uploads"
+      ;
+      $folder = Folder::find_or_make($folderName);
+      $this->FolderID = $folder->ID;
+    }
+    parent::onBeforeWrite();
+  }
 
-  if ($this->owner->ID > 0){
-          $changedFields = $this->owner->getChangedFields();
-          //Update Folder Name if needed
-          if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
-              if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
-                  $config = SiteConfig::current_site_config();
-                  $prefix = URLSegmentFilter::create()->filter($changedFields['Title']['before']);
-                  $folder = Folder::find_or_make("Uploads/".$prefix);
-                  $folder->Name = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
-                  $folder->write();
-              }
-          }
+  public function onAfterWrite(){
+    if ($this->owner->ID > 0){
+      if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
+        $changedFields = $this->owner->getChangedFields();
+        //Update Folder Name if needed
+        if ($this->owner->isChanged('Title')){
+            $folder->Name = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
+            $folder->write();
+        }
       }
-    
-      parent::onBeforeWrite();
+    }
+    parent::onAfterWrite();
   }
 
   public function FormattedNumber($number){
@@ -106,13 +117,6 @@ class SiteConfigExtension extends DataExtension
 
 
   public function getFolderName(){
-    if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
-        $config = SiteConfig::current_site_config();
-        $prefix = URLSegmentFilter::create()->filter($config->Title);
-        return "Uploads/".$prefix."/Einstellungen";
-    }
-    else{
-      return "Uploads/Einstellungen";
-    }    
+    return $this->Folder()->Name;
   }
 }
