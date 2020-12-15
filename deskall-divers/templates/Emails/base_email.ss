@@ -11,11 +11,11 @@
 	.container,table.footer-wrap{clear:both!important}
 	*{margin:0;font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;color: #666;}
 	img{max-width:100%}
-	.logo img{max-width: 150px;height:auto;}
+	.logo img{max-width: 100px;width:100px!important;height:auto;}
 	body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%}
 	.content table,table.body-wrap,table.footer-wrap,table.head-wrap{width:100%}
 	a{color:#666}
-	.btn,.social .soc-btn{color:#FFF;text-align:center;font-weight:700;text-decoration:none}
+	.btn,.soc-btn{color:#FFF;text-align:center;font-weight:700;text-decoration:none}
 	.btn{background-color:#007327;padding:10px 16px;margin-right:10px;cursor:pointer;display:inline-block;float:right;margin-top:20px}
 	.btn a{color: #fff; text-decoration: none;}
 	.callout{padding:15px;background-color:#eee;border:1px solid #eee;margin-bottom:15px; max-width: 528px;}
@@ -25,21 +25,22 @@
 	.button-holder{text-align: right;}
 	.button-holder a{text-decoration: none;color: #fff;background-color: #007327!important; font-weight: bold; font-size: 20px; padding: 5px 10px}
 
-	.social .soc-btn{padding:3px 7px;font-size:12px;margin-bottom:10px;display:block}
+
+	.soc-btn{padding:3px 7px;font-size:12px;margin-bottom:10px;display:block}
 	a.fb{background-color:#3B5998!important}
 	a.tw{background-color:#1daced!important}
-	a.web{background-color:#007327!important}
+	a.web{background-color:#D43B3B!important;color:#FFFFFF!important;}
 	a.gp{background-color:#DB4A39!important}
 	a.ms{background-color:#000!important}
 	.sidebar .soc-btn{display:block;width:100%}
 	.header.container table td.logo{padding:15px;text-align:right;}
-	.header.container table td.logo img{max-height:50px;width:auto;}
+	.header.container table td.logo img{max-height:100px;width:auto;}
 	.header.container table td.label{padding:15px 15px 15px 0}
 	.footer-wrap .container td.content p{border-top:1px solid #d7d7d7;padding-top:15px;font-size:10px;font-weight:700}
 	h1,h2{font-weight:200}
 	h1,h2,h3,h4,h5,h6{font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;line-height:1.1;margin-bottom:15px;color:#666}
 	h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{font-size:60%;color:#6f6f6f;line-height:0;text-transform:none}
-	h1{margin-top:30px;font-size:44px; color: #007327;margin-bottom:20px;}
+	h1{margin-top:30px;font-size:44px; color: #4E4D43;margin-bottom:20px;}
 	h2{font-size:37px}
 	h3,h4{font-weight:500}
 	h3{font-size:27px}
@@ -65,12 +66,9 @@
 	.column{width:300px;float:left}
 	.column-wrap{padding:0!important;margin:0 auto;max-width:600px!important}
 	.column table{width:100%}
-	.social .column{width:280px;min-width:279px;float:left}
-	.social .column td{padding:0!important;}
 	.clear{display:block;clear:both}
 	@media only screen and (max-width:600px){a[class=btn]{display:block!important;margin-bottom:10px!important;background-image:none!important;margin-right:0!important}
 		div[class=column]{width:auto!important;float:none!important}
-		table.social div[class=column]{width:auto!important}
 	}
 
 	.uk-text-bold{font-weight: bolder; } 
@@ -82,11 +80,12 @@
 	[class*='uk-float-']{max-width:100%;}
 	.uk-float-right{float:right;}
 	.uk-float-left{float:left;}
+	table.kurs-data tr td:first-child{width:25%;}
 	</style>
 
 </head>
 
-<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" style="background-color:#EEEEEE;">
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
 	<!-- HEADER -->
 	<table class="head-wrap">
 		<tbody>
@@ -114,7 +113,7 @@
 		</tbody>
 	</table>
 	<!-- /HEADER --> <!-- BODY -->
-	<table class="body-wrap" bgcolor="" style="background-color:#FFFFFF;margin-bottom:20px;">
+	<table class="body-wrap" bgcolor="">
 		<tbody>
 			<tr>
 				<td><br /></td>
@@ -137,63 +136,34 @@
 					<div class="content">
 						$Body
 					</div>
-
-
 					<div class="content" style="padding-bottom: 0; padding-top: 0;">
-						<table bgcolor="">
+						<table>
 							<tbody>
 								<tr>
 									<td>
-										<table class="social" width="100%" bgcolor="">
-											<tbody>
-												<tr>
-													<td><!--- column 1 -->
-														<div class="column">
-															<table cellpadding="" bgcolor="" align="left">
-																<tbody>
-																	<tr>
-																		<td>
-																			<h5 class=""><%t Email.Contact 'Kontakt' %>:</h5>
-																			<p><strong>$SiteConfig.AddressTitle</strong></p>
-																			<p>$SiteConfig.Address<br/>$SiteConfig.Code - $SiteConfig.City<br/> $SiteConfig.Country</p>
-																			<p><a href="tel:$SiteConfig.PhoneFormatted" target="_blank">$SiteConfig.Phone</a><br /><a href="mailto:$SiteConfig.Email">$SiteConfig.Email</a></p>
-																		</td>
-																	</tr>
-																</tbody>
-															</table>
-														</div>
-														<div class="column">
-															<table cellpadding="" bgcolor="" align="left">
-																<tbody>
-																	<tr>
-																		<td>
-																			<h5 class=""><br /></h5>
-																			<p class=""><a href="$AbsoluteBaseURL" class="soc-btn web" target="_blank" rel="noopener noreferrer">$SiteConfig.AddressTitle</a></p>
-																		</td>
-																	</tr>
-																</tbody>
-															</table>
-														</div>
-														<div class="clear"><br /></div>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="column" style="width: 100%;">
-															<table cellpadding="" bgcolor="" align="left">
-																<tbody>
-																	<tr>
-																		<td>
-																			$Footer
-																		</td>
-																	</tr>
-																</tbody>
-															</table>
-														</div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
+										<h5 class=""><%t Email.Contact 'Kontakt' %>:</h5>
+										<p><strong>$SiteConfig.AddressTitle</strong></p>
+										<p>$SiteConfig.Address<br/>$SiteConfig.Code - $SiteConfig.City<br/> $SiteConfig.Country</p>
+										<p><a href="tel:$SiteConfig.PhoneFormatted" target="_blank">$SiteConfig.Phone</a><br /><a href="mailto:$SiteConfig.Email">$SiteConfig.Email</a></p>
+									</td>
+									<td>
+										<h5 class=""><br /></h5>
+										<p class=""><a href="$AbsoluteBaseURL" class="soc-btn web" target="_blank" rel="noopener noreferrer">$SiteConfig.AddressTitle</a></p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="column" style="width: 100%;">
+											<table cellpadding="" bgcolor="" align="left">
+												<tbody>
+													<tr>
+														<td>
+															$Footer
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
 									</td>
 								</tr>
 							</tbody>
