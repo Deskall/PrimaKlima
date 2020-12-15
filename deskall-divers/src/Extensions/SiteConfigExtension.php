@@ -85,14 +85,14 @@ class SiteConfigExtension extends DataExtension
   }
 
   public function onBeforeWrite(){
-    if ($this->FolderID == 0){
+    if ($this->owner->FolderID == 0){
       $folderName = 
         ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')) ? 
           "Uploads/".URLSegmentFilter::create()->filter($this->owner->Title) : 
           "Uploads"
       ;
       $folder = Folder::find_or_make($folderName);
-      $this->FolderID = $folder->ID;
+      $this->owner->FolderID = $folder->ID;
     }
     parent::onBeforeWrite();
   }
@@ -103,8 +103,8 @@ class SiteConfigExtension extends DataExtension
         $changedFields = $this->owner->getChangedFields();
         //Update Folder Name if needed
         if ($this->owner->isChanged('Title')){
-            $folder->Name = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
-            $folder->write();
+            $this->owner->Folder()->Name = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
+            $this->owner->Folder()->write();
         }
       }
     }
@@ -117,6 +117,6 @@ class SiteConfigExtension extends DataExtension
 
 
   public function getFolderName(){
-    return $this->Folder()->Name;
+    return $this->owner->Folder()->Name;
   }
 }
