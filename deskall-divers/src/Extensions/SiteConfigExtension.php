@@ -86,15 +86,15 @@ class SiteConfigExtension extends DataExtension
   if ($this->owner->ID > 0){
           $changedFields = $this->owner->getChangedFields();
           //Update Folder Name if needed
-          if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
-              if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
-                  $config = SiteConfig::current_site_config();
-                  $prefix = URLSegmentFilter::create()->filter($changedFields['Title']['before']);
-                  $folder = Folder::find_or_make("Uploads/".$prefix);
-                  $folder->Name = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
-                  $folder->write();
-              }
-          }
+          // if ($this->owner->isChanged('Title') && ($changedFields['Title']['before'] != $changedFields['Title']['after'])){
+          //     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
+          //         $config = SiteConfig::current_site_config();
+          //         $prefix = URLSegmentFilter::create()->filter($changedFields['Title']['before']);
+          //         $folder = Folder::find_or_make("Uploads/".$prefix);
+          //         $folder->Name = URLSegmentFilter::create()->filter($changedFields['Title']['after']);
+          //         $folder->write();
+          //     }
+          // }
       }
     
       parent::onBeforeWrite();
