@@ -117,6 +117,6 @@ class SiteConfigExtension extends DataExtension
 
 
   public function getFolderName(){
-    return $this->owner->Folder()->Name;
+    return ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')) ? "Uploads/".$this->owner->Folder()->Name."/Einstellungen" : "Uploads/Einstellungen";
   }
 }
