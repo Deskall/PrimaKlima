@@ -108,7 +108,9 @@ class SiteConfigExtension extends DataExtension
   public function getFolderName(){
     if ($this->owner->hasExtension('SilverStripe\Subsites\Extensions\SiteConfigSubsites')){
         $config = SiteConfig::current_site_config();
-        $prefix = URLSegmentFilter::create()->filter($config->Subsite()->Title);
+        $title = ($config->Subsite()->exists()) ? $config->Subsite()->Title : $config->Title;
+        $prefix =  URLSegmentFilter::create()->filter($title);
+        
         return "Uploads/".$prefix."/Einstellungen";
     }
     else{
