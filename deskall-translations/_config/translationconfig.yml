@@ -82,7 +82,7 @@ DownloadBlock:
 Sheadawson\Linkable\Models\Link:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentExtension'
-  frontend_publish_required: false
+  #frontend_publish_required: false
   translate:
     - 'Title'
     - 'URL'
