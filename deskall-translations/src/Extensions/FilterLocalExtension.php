@@ -10,7 +10,7 @@ class FilterLocalExtension extends DataExtension
     public function updateCMSFields(FieldList $fields){
       
          // $locales = $fields->FieldByName('Root.Locales.FilteredLocales');
-         // $fields->removeByName('FilteredLocales');
+         $fields->removeByName('FilteredLocales');
          // if ($this->owner->ID > 0 && $locales){
          // 	$fields->addFieldToTab('Root.Locales',$locales);
          // }
