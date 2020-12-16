@@ -112,6 +112,9 @@ SilverStripe\UserForms\Model\Recipient\EmailRecipient:
     - 'EmailSubject'
     - 'EmailBodyHtml'
     - 'EmailBody'
+Page:
+  translate:
+    - 'TitleDisplayed'
 ---
 Only:
   moduleexists: 'deskall-users'
