@@ -30,7 +30,7 @@ class BlogPostExtension extends DataExtension{
 		$blocks = $this->owner->ElementalArea()->Elements()->filter('ClassName', ['LeadBlock','TextBlock']);
 		$content = '';
 		foreach ($blocks as $block) {
-			$content .= strip_tags($block->HTML);
+			$content .=  html_entity_decode(strip_tags($block->HTML))."\n";
 		}
 		$o = DBText::create();
 		$o->setValue($content);
