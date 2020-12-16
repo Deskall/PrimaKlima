@@ -10,6 +10,11 @@ de:
     FLUENT_ICON_TOOLTIP: 'Übersetzbares Feld'
     COPY_FROM: 'In {locale} von kopieren:'
     COPY_TO: 'Von {locale} in kopieren:'
+    LOCALISED: 'Übersetzbar'
+    NOTLOCALISED: 'nicht Übersetzbar'
+    NOSOURCE: 'Keine Quelle'
+    COPY_FROM: 'Nach {locale} kopieren von:'
+    COPY_TO: 'Von {locale} kopieren nach:'
   TractorCow\Fluent\Extension\FluentFilteredExtension:
     FILTERED_LOCALES: 'Wird in folgenden Gebietsschemata angezeigt'
     LOCALEFILTEREDHELP: 'Diese Seite ist nicht sichbar in diesem Gebietsschema'
@@ -20,6 +25,15 @@ de:
     LOCALESTATUSFLUENTDRAFT: 'Für dieses Gebietsschema wurde ein Entwurf erstellt. Veröffentlichte Inhalte können jedoch weiterhin von einem anderen geerbt werden. Verwenden Sie die bereitgestellte Aktion "Speichern und veröffentlichen", um diesen Inhalt für dieses Gebietsschema zu veröffentlichen.'
     LOCALESTATUSFLUENTINHERITED: 'Der Inhalt dieser Seite wird möglicherweise von einem anderen Gebietsschema geerbt. Wenn Sie eine unabhängige Kopie dieser Seite erstellen möchten, verwenden Sie bitte eine der bereitgestellten Aktionen "Kopieren".'
     LOCALESTATUSFLUENTINVISIBLE: 'Diese Seite ist in diesem Gebietsschema erst sichtbar, wenn sie veröffentlicht wurde.'
+    LOCALESTATUSFLUENTUNKNOWN: 'Für diese Seite ist kein Inhalt verfügbar. Bitte lokalisieren Sie diese Seite oder geben Sie einen Fallback für das Gebietsschema an.'
+    LOCALECOPYTODRAFT: 'In Entwurf kopieren'
+  TractorCow\Fluent\Extension\FluentVersionedExtension:
+    MODIFIED: 'Geändert'
+    PUBLISHED: 'Veröffentlicht'
+    DRAFT: 'Entwurf'
+    NOTLOCALISED: 'nicht Übersetzbar'
+    LIVEYES: 'Ja'
+    LIVENO: 'Nein'
   TractorCow\Fluent\Model\Domain:
     DEFAULT: 'Standardgebietsschema'
     DEFAULT_NONE: '(keine)'
@@ -60,6 +74,7 @@ de:
     ArchiveNotice: "'{title}' und alle seine Lokalisierungen wurden gelöscht."
     ShowNotice: "'{title}' ist nun in {locale} sichtbar"
     HideNotice: "'{title}' wird in {locale} nicht mehr angezeigt."
+    DeleteNotice: '{Title} und alle seine Lokalisierungen wurden gelöscht.'
     PublishNotice: "'{title}' ist in allen Gebietsschemata veröffentlicht worden."
     Localisation: 'Übersetzungen'
     Label_clearFluent: "Alle ausser '{title}' löschen"
@@ -78,3 +93,6 @@ de:
 
   TractorCow\Fluent\Extension\Traits\FluentObjectTrait:
     TAB_LOCALISATION: 'Übersetzungen'
+
+  TractorCow\Fluent\Forms\LocaleToggleColumn:
+    DISPLAY_IN: 'Sichtbar?'
