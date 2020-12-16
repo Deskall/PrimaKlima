@@ -32,7 +32,7 @@ DNADesign\Elemental\Models\BaseElement:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
-    #- 'FilterLocalExtension'
+    - 'FilterLocalExtension'
     #- 'FluentCascadeDeleteExtension'
   translate:
     - 'Title'
@@ -45,7 +45,7 @@ Slide:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
-    #- 'FilterLocalExtension'
+    - 'FilterLocalExtension'
     #- 'FluentCascadeDeleteExtension'
   translate:
     - 'Title'
@@ -54,7 +54,7 @@ Box:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
-    #- 'FilterLocalExtension'
+    - 'FilterLocalExtension'
   translate:
     - 'Title'
     - 'Content'
@@ -71,7 +71,7 @@ ListItem:
   extensions:
     - 'TractorCow\Fluent\Extension\FluentVersionedExtension'
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
-    #- 'FilterLocalExtension'
+    - 'FilterLocalExtension'
     #- 'FluentCascadeDeleteExtension'
   translate:
     - 'Title'
@@ -92,7 +92,7 @@ LayoutBlock:
   extensions:
     - TractorCow\Fluent\Extension\FluentExtension
     - 'TractorCow\Fluent\Extension\FluentFilteredExtension'
-    #- 'FilterLocalExtension'
+    - 'FilterLocalExtension'
   translate:
     - 'Title'
     - 'Content'
