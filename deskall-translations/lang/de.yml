@@ -90,6 +90,8 @@ de:
     BadgePublished: 'In {locale} veröffentlicht'
     BadgeDraft: 'Als Entwurf in {locale} gespeichert'
     BaggeInvisible: '{type} ist in dieser Sprache nicht sichtbar'
+    BadgeLocalised: 'übersetzt in {locale}'
+    BadgeInherited: 'Von {locale} geerbt'
 
   TractorCow\Fluent\Extension\Traits\FluentObjectTrait:
     TAB_LOCALISATION: 'Übersetzungen'
