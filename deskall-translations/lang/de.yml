@@ -98,3 +98,16 @@ de:
 
   TractorCow\Fluent\Forms\LocaleToggleColumn:
     DISPLAY_IN: 'Sichtbar?'
+  TractorCow\Fluent\Forms\UnpublishAction:
+    UNPUBLISH: 'Veröffentlichung in diesem Gebietsschema zurücknehmen'
+  TractorCow\Fluent\Forms\SaveLocaleAction:
+    SAVE: 'in diesem Gebietsschema speichern'
+  TractorCow\Fluent\Forms\PublishAction:
+    PUBLISH: 'in diesem Gebietsschema veröffentlichen'
+
+
+
+
+
+
+
