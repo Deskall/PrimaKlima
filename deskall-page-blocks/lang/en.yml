@@ -1,0 +1,5 @@
+en:
+  Form:
+    RequiredFieldsLabel: 'The fields marked with an asterisk (*) are mandatory.'
+  UndefinedOffset\NoCaptcha\Forms\NocaptchaField:
+    GoogleTerms: 'This page is protected by reCAPTCHA and is subject to <a href="https://policies.google.com/privacy" target="_blank" rel="nofollow">the privacy policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="nofollow">the terms of use</a> from Google.'

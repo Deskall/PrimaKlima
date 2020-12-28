@@ -27,7 +27,6 @@ class EditableNewsletterCheckbox extends EditableHTMLCheckbox
     protected $jsEventHandler = 'click';
 
     private static $db = [
-        'HTMLLabel' => 'HTMLText',
         'MailChimpID' => 'Varchar',
         'ListeID' => 'Varchar'
     ];
@@ -55,6 +54,8 @@ class EditableNewsletterCheckbox extends EditableHTMLCheckbox
             "ListeID",
             _t('FormField.ListeID', 'Empfängerliste ID')
         ));
+
+        $this->extend('updateCMSFields', $fields);
 
         return $fields;
     }

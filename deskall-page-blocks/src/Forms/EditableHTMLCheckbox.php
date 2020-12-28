@@ -19,7 +19,7 @@ class EditableHTMLCheckbox extends EditableCheckbox
 {
     private static $singular_name = 'Checkbox Field with HTML Label';
 
-    private static $plural_name = 'Checkboxes';
+    private static $plural_name = 'Checkboxes Field with HTML Label';
 
     protected $jsEventHandler = 'click';
 
@@ -27,7 +27,14 @@ class EditableHTMLCheckbox extends EditableCheckbox
         'HTMLLabel' => 'HTMLText' // from CustomSettings
     ];
 
+
     private static $table_name = 'EditableHTMLCheckbox';
+
+    public function fieldLabels($includerelation = true){
+        $labels = parent::fieldLabels($includerelation);
+        $labels['HTMLLabel'] = 'Label (HTML)';
+        return $labels;
+    }
 
     /**
      * @return FieldList
@@ -38,8 +45,10 @@ class EditableHTMLCheckbox extends EditableCheckbox
 
         $fields->addFieldToTab('Root.Main', HTMLEditorField::create(
             "HTMLLabel",
-            _t('SilverStripe\\UserForms\\Model\\EditableFormField.HTMLLabel', 'Label (HTML)')
+            $this->fieldLabels()['HTMLLabel']
         ));
+
+        $this->extend('updateCMSFields', $fields);
 
         return $fields;
     }
