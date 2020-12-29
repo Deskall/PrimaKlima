@@ -219,7 +219,6 @@ de:
     'files_columns_uk-column-1-2@s uk-column-1-4@m': 'Display the content in four columns'
     'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-5@l': 'Display the content in five columns'
     'files_columns_uk-column-1-2@s uk-column-1-4@m uk-column-1-6@l': 'Display the content in six columns'
-    php.DownloadBlockFilesTab: Dateien
   DuplicateBlock:
     BlockType: 'Block duplizieren'
     PLURALNAME: blocks
@@ -502,3 +501,7 @@ de:
       other: '{count} Blöcke'
     SINGULARNAME: 'virtuell Block'
     VirtualDescription: 'Dies ist eine virtuelle Kopie eines Elements.'
+  Form:
+    RequiredFieldsLabel: 'Die mit einem Stern (*) markierten Felder sind Pflichtfelder.'
+  UndefinedOffset\NoCaptcha\Forms\NocaptchaField:
+    GoogleTerms: 'Diese Seite ist durch reCAPTCHA geschützt und unterliegt <a href="https://policies.google.com/privacy" target="_blank" rel="nofollow">der Datenschutzerklärung</a> und <a href="https://policies.google.com/terms" target="_blank" rel="nofollow">den Nutzungsbedingungen</a> von Google.'
