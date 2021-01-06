@@ -24,6 +24,7 @@ mysite/_config.php
 robots.txt
 .htaccess
 .DS_Store
+/.DS_Store
 
 themes/standard/css/src/deskall/theme/project_specific.less
 themes/standard/css/src/deskall/theme/user_defined.less

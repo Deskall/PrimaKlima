@@ -30,11 +30,7 @@ deskall-layout/templates/Includes/Css.ss
 themes/standard/css/main.css
 themes/standard/css/main.min.css
 themes/standard/javascript/vendor/11-project-specific.js
+
 .DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
-themes/standard/css/.DS_Store
-.DS_Store
-.DS_Store
-.DS_Store
+
+/.DS_Store
