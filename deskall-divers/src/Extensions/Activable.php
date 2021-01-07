@@ -14,8 +14,13 @@ class Activable extends DataExtension
         'isVisible' => 1
     ];
 
+    public function updateFieldLabels(&$labels){
+        $labels['isVisible'] = 'ist sichtbar?';
+        
+    }
+
     public function updateCMSFields(FieldList $fields){
-    	$fields->removeByName('isVisible');
+    	
     }
 
     public function show(){
