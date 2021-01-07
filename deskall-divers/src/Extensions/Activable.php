@@ -21,7 +21,7 @@ class Activable extends DataExtension
     }
 
     public function updateCMSFields(FieldList $fields){
-    	$fields->removeByName('isVisible');
+    	// $fields->removeByName('isVisible');
     }
 
     public function show(){
