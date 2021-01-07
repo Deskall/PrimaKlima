@@ -218,7 +218,7 @@ class BaseBlockExtension extends DataExtension implements i18nEntityProvider
             $fields->addFieldToTab('Root.LayoutTab',$extracss);
         } 
         $fields->addFieldToTab('Root.LayoutTab', CompositeField::create(
-            CheckboxField::create('isVisible',_t(__CLASS__.'.isVisible','Block anzeigen?')),
+            // CheckboxField::create('isVisible',_t(__CLASS__.'.isVisible','Block anzeigen?')),
             CheckboxField::create('FullWidth',_t(__CLASS__.'.FullWidth','volle Breite')),
             DropdownField::create('SectionPadding',_t(__CLASS__.'.SectionPadding','Vertical Abstand'),['uk-padding-remove' => 'Keine','uk-section-small' => 'klein', 'uk-section-medium' => 'medium','uk-section-large' => 'gross']),
             HTMLDropdownField::create('Background',_t(__CLASS__.'.BackgroundColor','Hintergrundfarbe'),SiteConfig::current_site_config()->getBackgroundColors())->setDescription(_t(__CLASS__.'.BackgroundColorHelpText','wird als overlay anzeigen falls es ein Hintergrundbild gibt.'))->addExtraClass('colors'),
