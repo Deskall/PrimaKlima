@@ -613,7 +613,7 @@ class SiteConfigLayoutExtension extends DataExtension
   }
 
   public function activeSlides(){
-    return $this->owner->Slides()->filter('isVisible',1);
+    return $this->owner->Slides()->filter('isVisible',1)->sort('Sort');
   }
 
 /************* TRANLSATIONS *******************/
