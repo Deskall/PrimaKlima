@@ -16,7 +16,14 @@ use SilverStripe\CMS\Model\RedirectorPage;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\ErrorPage\ErrorPage;
 
+use SilverStripe\UserForms\Model\EditableFormField\EditableDropdown;
+use SilverStripe\UserForms\Model\EditableFormField\EditableOption;
+use SilverStripe\UserForms\Model\EditableFormField\EditableTextField;
+use SilverStripe\UserForms\Model\EditableFormField\EditableEmailField;
+use SilverStripe\UserForms\Model\EditableFormField\EditableTextareaField;
+use UndefinedOffset\NoCaptcha\Forms\NocaptchaField;
 
+use SilverStripe\SiteConfig\SiteConfig;
 
 /**
  * 
@@ -126,6 +133,100 @@ class CreateWebsiteTask extends BuildTask
             $lb3->ParentID = $contactus->ElementalAreaID;
             $lb3->isPrimary = 1;
             $lb3->write();
+            $form = new FormBlock();
+            $form->ParentID = $contactus->ElementalAreaID;
+            $form->SubmitButtonText = "Anfrage senden";
+            $form->ButtonBackground = "PrimaryBackground";
+            if(!Page::get()->filter('URLSegment','danke')->first()){
+                $thanks = new Page();
+                $thanks->Title = 'Danke';
+                $thanks->Sort = 1;
+                $thanks->ParentID = $contactus->ID;
+                $thanks->write();
+                $lb4 = new LeadBlock();
+                $lb4->HTML = '<p>Ihre Anfrage wurde erfolgreich verschickt.<br>Wir werden in Kürze mit Ihnen Kontakt aufnehmen.</p><p>Herzlichen Dank für Ihr Interesse</p>';
+                $lb4->ParentID = $thanks->ElementalAreaID;
+                $lb4->isPrimary = 1;
+                $lb4->write();
+                $contactus->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
+                $contactus->flushCache();
+                $form->RedirectPageID = $thanks->ID;
+            }
+            $form->write();
+            // FIELDS
+            // 1. Anrede
+            $anrede = new EditableDropdown();
+            $anrede->UseEmptyString = 1;
+            $anrede->EmptyString = "Anrede *";
+            $anrede->Name = "Anrede";
+            $anrede->Sort = 1;
+            $anrede->Required = 1;
+            $anrede->ParentID = $form->ID;
+            $anrede->write();
+            $option1 = new EditableOption();
+            $option1->Name = "Frau";
+            $option1->Value = "Frau";
+            $option1->Sort = 1;
+            $option1->ParentID = $anrede->ID;
+            $option1->write();
+            $option2 = new EditableOption();
+            $option2->Name = "Herr";
+            $option2->Value = "Herr";
+            $option2->Sort = 2;
+            $option2->ParentID = $anrede->ID;
+            $option2->write();
+            // 2. Name
+            $name = new EditableTextField();
+            $name->Placeholder = "Name *";
+            $name->Name = "Name";
+            $name->Sort = 2;
+            $name->Required = 1;
+            $name->ParentID = $form->ID;
+            $name->write();
+            // 3. Vorname
+            $name = new EditableTextField();
+            $name->Placeholder = "Vorname *";
+            $name->Name = "Vorname";
+            $name->Sort = 3;
+            $name->Required = 1;
+            $name->ParentID = $form->ID;
+            $name->write();
+            // 4. Email
+            $email = new EditableEmailField();
+            $email->Name = "E-Mail";
+            $email->Placeholder = "E-Mail-Adresse *";
+            $email->Sort = 4;
+            $email->Required = 1;
+            $email->ParentID = $form->ID;
+            $email->write();
+            // 5. Telefon
+            $name = new EditableTextField();
+            $name->Placeholder = "Telefon";
+            $name->Name = "Telefon";
+            $name->Sort = 5;
+            $name->ParentID = $form->ID;
+            $name->write();
+            // 6. Bemerkung
+            $message = new EditableTextareaField();
+            $message->Placeholder = "Ihre Nachricht";
+            $message->Name = "Nachricht";
+            $message->Sort = 6;
+            $message->ParentID = $form->ID;
+            $message->write();
+            // 7. Einwilligung
+            $checkbox = new EditableHTMLCheckbox();
+            $checkbox->HTMLLabel = "<p>Sie erklären sich damit einverstanden, dass ihre Daten zur Bearbeitung Ihres Anliegens verwendet werden</p>";
+            $checkbox->Name = "Einwilligung";
+            $checkbox->Sort = 7;
+            $checkbox->Required = 1;
+            $checkbox->ParentID = $form->ID;
+            $checkbox->write();
+            // 8. Captcha
+            $captcha = new NocaptchaField();
+            $captcha->Sort = 8;
+            $captcha->ParentID = $form->ID;
+            $captcha->write();
+
             $contactus->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
             $contactus->flushCache();
         }
@@ -194,6 +295,99 @@ class CreateWebsiteTask extends BuildTask
             $services->publishRecursive();
             $services->flushCache();
         }
+
+        // Design
+        $siteconfig = SiteConfig::current_site_config();
+        $siteconfig->HeaderBackground = "000000";
+        $siteconfig->GlobalFontSize = "20px";
+        $siteconfig->H1FontSize = "3rem";
+        $siteconfig->H1FontColor = "10206B";
+        $siteconfig->H1MobileFontSize = "2rem";
+        $siteconfig->H2FontSize = "1.75rem";
+        $siteconfig->H3FontSize = "1.5rem";
+        $siteconfig->LeadFontSize = "1.25rem";
+        $siteconfig->HeaderFontColor = "FFFFFF";
+        $siteconfig->HeaderFontSize = "20px";
+        $siteconfig->HeaderFontMobileSize = "16px";
+        $siteconfig->HeaderMainMenuItemSize = "60px";
+        $siteconfig->HeaderSubMenuItemSize = "40px";
+        $siteconfig->HeaderHoverFontColor = "FFFFFF";
+        $siteconfig->HeaderHeight = "60px";
+        $siteconfig->HeaderCollapsedHeight = "50px";
+        $siteconfig->HeaderOpacity = "100%";
+        $siteconfig->HeaderLogoHeight = "50px";
+        $siteconfig->HeaderMobileLogoHeight = "50px";
+        $siteconfig->DropdownSubMenuWidth = "auto";
+        $siteconfig->DropdownSubMenuBackground = "FFFFFF";
+        $siteconfig->DropdownSubMenuColor = "10206B";
+        $siteconfig->DropdownSubMenuHoverBackground = "10206B";
+        $siteconfig->DropdownSubMenuHoverColor = "FFFFFF";
+        $siteconfig->DropdownSubMenuPadding = "5px";
+
+        $siteconfig->FooterBackground = "EEEEEE";
+        $siteconfig->FooterLogoWidth = "250px";
+        $siteconfig->FooterFontSize = "16px";
+        $siteconfig->FooterTitleFontSize = "20px";
+        $siteconfig->FooterFontColor = "666666";
+        $siteconfig->FooterTitleFontColor = "666666";
+        $siteconfig->FooterLinkFontColor = "666666";
+        $siteconfig->FooterLinkHoverFontColor = "666666";
+
+        $siteconfig->MobileNaviBackground = "10206B";
+        $siteconfig->MobileNaviFontColor = "FFFFFF";
+        $siteconfig->MobileNaviHoverFontColor = "FFFFFF";
+        $siteconfig->ToggleMenuButtonColor = "FFFFFF";
+
+        $siteconfig->ContainerSize = "standard";
+
+        $hb1 = new MenuBlock();
+        $hb1->Type = "links";
+        $hb1->UseMenu = 1;
+        $hb1->UseMenuOption = "main";
+        $hb1->ShowSubLevels = 1;
+        $hb1->Layout = "uk-navbar-left";
+        $hb1->SiteConfigID = $siteconfig->ID;
+        $hb1->write();
+
+        $mb1 = new MobileMenuBlock();
+        $mb1->Type = "links";
+        $mb1->UseMenu = 1;
+        $mb1->UseMenuOption = "main";
+        $mb1->ShowSubLevels = 1;
+        $mb1->Layout = "uk-navbar-left";
+        $mb1->SiteConfigID = $siteconfig->ID;
+        $mb1->write();
+
+        $fbl = new FooterBlock();
+        $fbl->Type = "logo";
+        $fbl->Layout = "uk-navbar-left";
+        $fbl->Width = "uk-width-1-1";
+        $fbl->Sort = 1;
+        $fbl->SiteConfigID = $siteconfig->ID;
+        $fbl->write();
+        $fb1 = new FooterBlock();
+        $fb1->Type = "address";
+        $fb1->Layout = "uk-navbar-left";
+        $fb1->Width = "uk-width-1-1@s uk-width-1-3@m";
+        $fb1->Sort = 2;
+        $fb1->SiteConfigID = $siteconfig->ID;
+        $fb1->write();
+        $fb2 = new FooterBlock();
+        $fb2->Title = "Links";
+        $fb2->Type = "links";
+        $fb2->Layout = "uk-navbar-left";
+        $fb2->Width = "uk-width-1-1@s uk-width-1-3@m";
+        $fb2->Sort = 3;
+        $fb2->SiteConfigID = $siteconfig->ID;
+        $fb2->write();
+        $fb3 = new FooterBlock();
+        $fb3->Title = "Services";
+        $fb3->Type = "links";
+        $fb3->Layout = "uk-navbar-left";
+        $fb3->Width = "uk-width-1-1@s uk-width-1-3@m";
+        $fb3->Sort = 4;
+        $fb3->SiteConfigID = $siteconfig->ID;
+        $fb3->write();
 
         echo "Done.";
     }
