@@ -148,8 +148,8 @@ class CreateWebsiteTask extends BuildTask
                 $lb4->ParentID = $thanks->ElementalAreaID;
                 $lb4->isPrimary = 1;
                 $lb4->write();
-                $contactus->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
-                $contactus->flushCache();
+                $thanks->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
+                $thanks->flushCache();
                 $form->RedirectPageID = $thanks->ID;
             }
             $form->write();
@@ -339,6 +339,8 @@ class CreateWebsiteTask extends BuildTask
         $siteconfig->ToggleMenuButtonColor = "FFFFFF";
 
         $siteconfig->ContainerSize = "standard";
+
+        $siteconfig->write();
 
         $hb1 = new MenuBlock();
         $hb1->Type = "links";
