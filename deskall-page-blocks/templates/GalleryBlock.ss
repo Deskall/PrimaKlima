@@ -1,6 +1,8 @@
 
 <% if TextPosition == "before" %>
-	<% include TextBlock %>
+	<% if HTML || LinkableLinkID > 0 %>
+		<% include TextBlock %>
+	<% end_if %>
 <% end_if %>
 
 	<% if Layout == "carousel" %>
@@ -46,5 +48,7 @@
 	<% end_if %>
 
 <% if TextPosition == "after" %>
+	<% if HTML || LinkableLinkID > 0 %>
 	<% include TextBlock %>
+	<% end_if %>
 <% end_if %>

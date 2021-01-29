@@ -67,5 +67,6 @@
 		<% end_if %>
 	</div>
 	<% end_if %>
-
+<% if HTML || LinkableLinkID > 0 %>
 <% include TextBlock %>
+<% end_if %>
