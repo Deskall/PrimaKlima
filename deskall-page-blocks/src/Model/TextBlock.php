@@ -99,7 +99,7 @@ class TextBlock extends BaseElement implements Searchable
         $fields->RemoveByName('LightBox');
         $fields->removeByName('RoundedImage');
         $fields->fieldByName('Root.LayoutTab.TextLayout')->push(HTMLOptionsetField::create('Layout',_t(__CLASS__.'.Format','Text und Bild Position'), $this->stat('block_layouts')));
-        $fields->FieldByName('Root.LayoutTab.TextLayout')->push(DropdownField::create('ImageWidth',_t('LayoutBlock.Width','Bild Breite'),$this->getTranslatedSourceFor('LayoutBlock','widths'))->setDescription(_t('LayoutBlock.WidthDescription','Relative Breite im Vergleich zur Blockbreite'))->setValue('uk-width-1-1@s uk-width-1-3@m'));
+        $fields->FieldByName('Root.LayoutTab.TextLayout')->push(DropdownField::create('ImageWidth',_t(__CLASS__.'.ImageWidth','Bild Breite'),$this->getTranslatedSourceFor('LayoutBlock','widths'))->setDescription(_t('LayoutBlock.WidthDescription','Relative Breite im Vergleich zur Blockbreite'))->setValue('uk-width-1-1@s uk-width-1-3@m'));
         $fields->insertAfter('Layout',CheckboxField::create('LightBox','Bild vergrößern wenn klickten?'));
         $fields->insertAfter('LightBox',CheckboxField::create('RoundedImage',_t(__CLASS__.'.RoundedImage','Rund Bilder?')));
 
