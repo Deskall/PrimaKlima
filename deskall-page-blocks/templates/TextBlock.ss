@@ -2,7 +2,7 @@
 <div <% if ContentImage %>class="uk-flex" data-uk-grid <% if LightBox %>data-uk-lightbox="toggle: a.dk-lightbox;"<% end_if %><% end_if %>>
 	<% if ContentImage %>
 		<% if Layout == right || Layout == left %>
-			<div class="uk-width-1-3@m">
+			<div class="$ImageWidth">
 				<% if LightBox %><a href="$ContentImage.getSourceURL" class="dk-lightbox" data-caption="$ContentImage.Description" ><% end_if %>
 					<figure>
 						<img class="uk-preserve" src="<% if ContentImage.getExtension == "svg" %>$ContentImage.URL<% else %><% if Top.RoundedImage %>$ContentImage.FocusFill(350,350).URL<% else %>$ContentImage.ScaleWidth(350).URL<% end_if %><% end_if %>" alt="$AltTag($ContentImage.Description, $ContentImage.Name, $Title)" title="$TitleTag($ContentImage.Name,$Title)" <% if ContentImage.getExtension == "svg" %><% end_if %> <% if Top.RoundedImage %>class="uk-border-circle"<% end_if %>>
@@ -11,7 +11,7 @@
 				<% if LightBox %></a><% end_if %>
 			</div>
 			<% if HTML || LinkableLink.exists %>
-			<div class="dk-text-content uk-width-2-3@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
+			<div class="dk-text-content uk-width-expand@m <% if Layout == "right" %>uk-flex-first<% end_if %> $TextAlign  $TextColumns  <% if TextColumnsDivider %>uk-column-divider<% end_if %>">
 				$HTML
 				<% if LinkableLinkID > 0 %>
 					<% include CallToActionLink c=w,b=primary,pos=$LinkPosition %>
