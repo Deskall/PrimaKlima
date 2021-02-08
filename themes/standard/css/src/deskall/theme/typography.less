@@ -3,17 +3,12 @@
 	.standard-font;
 }
 h1,h2,h3,h4,h5,h6,.uk-h1,.uk-h2,.uk-h3,.uk-h4,.uk-h5,.uk-h6{
-	font-family:@title-font-family;
-	hyphens: auto;
-	word-break: break-word;
+	.heading-font;
 }
 .dk-text-content {
 	h1,h2,h3,h4,h5,h6{
 		*{
-			font-family:@title-font-family;
-			hyphens: auto;
-			font-size: inherit;
-			word-break: break-word;
+			.heading-font;
 		}
 	}
 }
@@ -41,6 +36,16 @@ small{
 	font-size: 0.875rem;
 	* {
 		font-size:inherit;
+	}
+}
+.heading-font{
+	font-family:@title-font-family;
+	hyphens: auto;
+	word-break: break-word;
+	color: @h1-font-color;
+	*{
+		font-size: inherit;
+		color: inherit;
 	}
 }
 .nav-font{
