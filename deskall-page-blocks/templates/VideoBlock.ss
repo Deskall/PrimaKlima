@@ -13,7 +13,7 @@
 						<li class="uk-height-1-1">
 							<div class="uk-card uk-width-1-1">
 								<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
-									<video src="$File.URL" class="uk-width-1-1 data-uk-video="<% if Top.Autoplay %>autoplay: inview;<% end_if %>" <% if Top.Autoplay %>autoplay<% end_if %> loop muted playslinline width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
+									<video src="$File.URL" class="uk-width-1-1 data-uk-video="<% if Top.Autoplay %>autoplay: inview;<% end_if %>" <% if Top.Autoplay %>autoplay<% end_if %> loop playslinline width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
 										<source src="$File.URL" type="video/{$File.getExtension}">
 									</video>
 								</div>
@@ -51,7 +51,7 @@
 				<li class="uk-height-1-1">
 					<div class="uk-card uk-width-1-1">
 						<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
-							<video class="uk-width-1-1 data-uk-video="<% if Autoplay %>autoplay: inview;<% end_if %>" width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
+							<video class="uk-width-1-1 data-uk-video="<% if Autoplay %>autoplay: inview;<% end_if %>" loop playslinline width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
 								<source src="$File.URL" type="video/{$File.getExtension}">
 							</video>
 						</div>
