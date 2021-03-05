@@ -31,7 +31,8 @@ de:
     MODIFIED: 'Geändert'
     PUBLISHED: 'Veröffentlicht'
     DRAFT: 'Entwurf'
-    NOTLOCALISED: 'nicht Übersetzbar'
+    LOCALISED: 'Übersetzt'
+    NOTLOCALISED: 'nicht übersetzt'
     LIVEYES: 'Ja'
     LIVENO: 'Nein'
   TractorCow\Fluent\Model\Domain:
@@ -104,10 +105,3 @@ de:
     SAVE: 'in diesem Gebietsschema speichern'
   TractorCow\Fluent\Forms\PublishAction:
     PUBLISH: 'in diesem Gebietsschema veröffentlichen'
-
-
-
-
-
-
-
