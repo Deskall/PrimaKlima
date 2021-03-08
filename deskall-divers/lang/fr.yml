@@ -5,13 +5,8 @@ fr:
     ShowInMainMenuLabel: "Dans quel menu s'affiche cette page ?"
     menu_level_0: "Menu secondaire"
     menu_level_1: "Menu principal"
-  Global:
-    BUTTONACTIVEDESC: Activer
-    BUTTONINACTIVEDESC: Désactiver
   HomePage:
     description: "Page d'accueil"
-  Linkable:
-    CTA: Lien
   LinkableLinkExtension:
     Background: "Couleur d'arrière-plan"
     BackgroundColor: "Couleur d'arrière-plan"
@@ -121,38 +116,6 @@ fr:
     PREV: 'Précédent'
     NEXT: 'Suivant'
     SEEPAGE: 'Consulter la page'
-  SiteConfigExtension:
-    AccessTab: 'Accès'
-    Address: Adresse
-    AddressStreet: Adresse
-    AdresseTitle: "Titre de l'adresse"
-    Background: "Couleur d'arrière-plan"
-    BackgroundHelp: "Choisissez une couleur d'arrière-plan"
-    'backgrounds_dk-background-black uk-section-default dk-text-hover-black': noir
-    'backgrounds_dk-background-white uk-section-default dk-text-hover-white': blanc
-    backgrounds_uk-section-default: "Pas de couleur d'arrière-plan"
-    'backgrounds_uk-section-muted dk-text-hover-muted': gris
-    'backgrounds_uk-section-primary dk-text-hover-primary': 'Couleur principale'
-    'backgrounds_uk-section-secondary dk-text-hover-secondary': 'Couleur secondaire'
-    Code: "Code postal"
-    City: "Ville"
-    Country: Pays
-    Default: Défaults
-    Email: 'Adresse email'
-    Facebook: Facebook
-    Linkedin: Linkedin
-    MainTab: 'Contenu principal'
-    Mobile: Mobile
-    Notfall: "Numéro d'urgence"
-    Phone: Téléphone
-    SocialTitle: Réseau
-    TagLine: 'Slogan'
-    Twitter: Twitter
-    Title: 'Titre du site'
-    Xing: Xing
-  SiteTree:
-    BUTTONACTIVE: Activer
-    BUTTONINACTIVE: Désactiver
 
 ### SITECONFIG
   SilverStripe\SiteConfig\SiteConfig:
