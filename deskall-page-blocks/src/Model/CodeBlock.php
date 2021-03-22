@@ -11,6 +11,8 @@ use SilverStripe\Forms\CheckboxField;
 
 class CodeBlock extends BaseElement
 {
+    private static $inline_editable = false;
+    
     private static $icon = 'font-icon-code';
     
     private static $controller_template = 'ElementHolder';
