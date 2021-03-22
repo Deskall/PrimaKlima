@@ -67,7 +67,7 @@ class TeamBox extends DataObject {
 
 		$fields->addFieldToTab('Root.Main', HTMLEditorField::create('Content','Inhalt')->setRows(10));
 
-		$this->extends('updateCMSFields',$fields);
+		$this->extend('updateCMSFields',$fields);
 
 		return $fields;
 	}
