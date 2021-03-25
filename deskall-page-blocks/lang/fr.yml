@@ -505,7 +505,7 @@ fr:
     WITHCAPTCHA: 'protéger par un recaptcha Google ?'
     UserFormExtensionRedirectPage: 'Page de redirection en cas de soumission avec succès'
   UndefinedOffset\NoCaptcha\Forms\NocaptchaField:
-      GoogleTerms: 'Cette page est protégée par reCAPTCHA et est soumise à <a href="https://policies.google.com/privacy" target="_blank" rel="nofollow">politique de confidentialité</a> et à <a href="https://policies.google.com/terms" target="_blank" rel="nofollow">les conditions d'utilisation</a> de Google.'
+      GoogleTerms: 'Cette page est protégée par reCAPTCHA et est soumise à <a href="https://policies.google.com/privacy" target="_blank" rel="nofollow">politique de confidentialité</a> et à <a href="https://policies.google.com/terms" target="_blank" rel="nofollow">les conditions d''utilisation</a> de Google.'
   VideoBlock:
     BlockType: Galerie de vidéos
     Description: "Galerie de vidéos issues d'URL externe (Youtube, vimeo,...)"
