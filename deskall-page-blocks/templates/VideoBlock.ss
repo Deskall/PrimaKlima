@@ -1,7 +1,7 @@
 
 
 <% if Layout == "carousel" %>
-<div class="uk-height-large" data-uk-slider>
+<div data-uk-slider>
 
 	<div class="uk-position-relative">
 
@@ -10,7 +10,7 @@
 				$VideosHTML
 				<% if activeVideos.exists %>
 					<% loop activeVideos %>
-						<li class="uk-height-1-1">
+						<li class="uk-height-large">
 							<div class="uk-card uk-width-1-1">
 								<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
 									<video src="$File.URL" class="uk-width-1-1 data-uk-video="<% if Top.Autoplay %>autoplay: inview;<% end_if %>" <% if Top.Autoplay %>autoplay<% end_if %> loop playslinline width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
