@@ -1,7 +1,7 @@
 
 
 <% if Layout == "carousel" %>
-<div data-uk-slider>
+<div class="uk-height-large" data-uk-slider>
 
 	<div class="uk-position-relative">
 
