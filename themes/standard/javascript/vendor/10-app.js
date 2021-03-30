@@ -17,7 +17,7 @@ $.cachedScript = function( url, options ) {
 $(document).ready(function(){
   if ($(".flatpickr").length > 0){
     //Include script
-    $.cachedScript( 'thirdparty/04-flatpicker.min.js' ).done(function( script, textStatus ) {
+    $.cachedScript( '/themes/standard/javascript/vendor/04-flatpicker.min.js' ).done(function( script, textStatus ) {
       $(".flatpickr").each(function(){
         var input = $(this);
         input.flatpickr({
