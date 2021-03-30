@@ -6,11 +6,11 @@
 	<div class="uk-position-relative">
 
 		<div class="uk-slider-container">
-			<ul class="uk-slider-items <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid" data-uk-height-match="li">
+			<ul class="uk-slider-items uk-height-large <% if isChildren %>uk-child-width-1-1 <% else %>$VideoPerLine<% end_if %> uk-grid" data-uk-height-match="li">
 				$VideosHTML
 				<% if activeVideos.exists %>
 					<% loop activeVideos %>
-						<li class="uk-height-large">
+						<li class="uk-height-1-1">
 							<div class="uk-card uk-width-1-1">
 								<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
 									<video src="$File.URL" class="uk-width-1-1 data-uk-video="<% if Top.Autoplay %>autoplay: inview;<% end_if %>" <% if Top.Autoplay %>autoplay<% end_if %> loop playslinline width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
@@ -48,7 +48,7 @@
 		$VideosHTML
 		<% if activeVideos.exists %>
 			<% loop activeVideos %>
-				<li class="uk-height-large">
+				<li class="uk-height-1-1">
 					<div class="uk-card uk-width-1-1">
 						<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
 							<video class="uk-width-1-1 data-uk-video="<% if Autoplay %>autoplay: inview;<% end_if %>" loop playslinline width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
