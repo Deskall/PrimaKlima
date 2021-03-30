@@ -48,7 +48,7 @@
 		$VideosHTML
 		<% if activeVideos.exists %>
 			<% loop activeVideos %>
-				<li class="uk-height-1-1">
+				<li class="uk-height-large">
 					<div class="uk-card uk-width-1-1">
 						<div class="uk-card-media-left uk-flex uk-flex-center uk-flex-middle" data-uk-lightbox>
 							<video class="uk-width-1-1 data-uk-video="<% if Autoplay %>autoplay: inview;<% end_if %>" loop playslinline width="480" height="360" controls <% if VideoPreview %>poster="$VideoPreview.FocusFill(480,360).URL"<% end_if %>>
