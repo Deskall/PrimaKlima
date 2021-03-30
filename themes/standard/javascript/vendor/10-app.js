@@ -117,7 +117,7 @@ $(document).ready(function(){
     }
   $(document).ready(function(){
     if ($(".google-map").length > 0){
-         $.cachedScript( 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCbrDquBmMxiRMZz6itPir8xKX7HLa7xZE&callback=loadmap' ).done(function( script, textStatus ) {
+         $.cachedScript( 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCy1mmlxihDlTkcX0mn0Wiec9Kz_DUvi2A&callback=loadmap' ).done(function( script, textStatus ) {
         });
     }
   });
