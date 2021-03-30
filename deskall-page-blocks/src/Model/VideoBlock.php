@@ -140,7 +140,7 @@ class VideoBlock extends BaseElement implements Searchable
             if ($html){
                 $html = str_replace('?feature=oembed','?feature=oembed&rel=0',$html);
                 $content .= ($this->Layout == "carousel") ? '<li class="uk-height-1-1">' : '<div>';
-                $html = str_replace('<iframe','<iframe data-uk-responsive',$html);
+                $html = str_replace('<iframe','<iframe',$html);
                 $content .= $html;
                 $content .= ($this->Layout == "carousel") ? '</li>' : '</div>';
             }
